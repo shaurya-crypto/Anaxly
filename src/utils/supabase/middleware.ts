@@ -30,6 +30,16 @@ export async function updateSession(request: NextRequest) {
     return supabaseResponse
   }
 
+  // 1b. Development-only UI preview (mock data, no Supabase). Disabled in production
+  // and unless ENABLE_DEV_PREVIEW=true is set explicitly in the local environment.
+  if (
+    pathname.startsWith('/dev-preview') &&
+    process.env.NODE_ENV !== 'production' &&
+    process.env.ENABLE_DEV_PREVIEW === 'true'
+  ) {
+    return supabaseResponse
+  }
+
   // 2. Bypass API, Auth callbacks, and Admin routes
   if (
     pathname.startsWith('/api') || 
