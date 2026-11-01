@@ -49,7 +49,7 @@ const progressRecords = modules.slice(0, 10).map((m, i) => {
     status,
     score: status === 'completed' ? 72 + ((i * 7) % 26) : status === 'needs_review' ? 48 : null,
     started_at: daysAgo(14 - i),
-    completed_at: status === 'completed' ? daysAgo(13 - i) : null,
+    completed_at: status === 'completed' ? daysAgo([13, 12, 12, 9, 8, 6, 5, 4, 1, 0][i]) : null,
   }
 })
 
