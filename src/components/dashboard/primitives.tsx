@@ -7,12 +7,12 @@ type DashCardSize = 'sm' | 'md' | 'lg'
 const toneClasses: Record<DashCardTone, string> = {
   surface: 'bg-surface border-border-subtle text-ink-primary diffused-card-shadow',
   soft: 'bg-canvas-soft border-border-subtle text-ink-primary',
-  primary: 'bg-accent-primary border-accent-primary text-on-primary',
+  primary: 'bg-accent-primary border-accent-primary text-on-primary shadow-card',
 }
 
 const sizeClasses: Record<DashCardSize, string> = {
-  sm: 'rounded-xl p-4',
-  md: 'rounded-2xl p-6',
+  sm: 'rounded-lg p-4',
+  md: 'rounded-xl p-6',
   lg: 'rounded-3xl p-8',
 }
 
