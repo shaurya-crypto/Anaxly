@@ -20,8 +20,15 @@ export async function POST(req: Request) {
     const body = await req.json().catch(() => ({}))
     const { action = 'check', moduleId } = body
 
-    // Prefer adminClient if SUPABASE_SERVICE_ROLE_KEY is configured; otherwise fallback to authenticated user client
-    const dbClient = process.env.SUPABASE_SERVICE_ROLE_KEY ? createAdminClient() : supabase
+    // Prefer adminClient if a real SUPABASE_SERVICE_ROLE_KEY is configured; otherwise fallback to authenticated user client
+    const rawServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+    const hasRealServiceKey = Boolean(
+      rawServiceKey &&
+      rawServiceKey.trim().length > 0 &&
+      !rawServiceKey.startsWith('your_') &&
+      rawServiceKey !== 'placeholder'
+    )
+    const dbClient = hasRealServiceKey ? createAdminClient() : supabase
 
     // Fetch user profile quota fields
     const { data: profile, error: profileErr } = await dbClient

@@ -37,12 +37,29 @@ async function resilientFetch(input: RequestInfo | URL, init?: RequestInit): Pro
   throw new Error('Supabase admin request failed after multiple retries.')
 }
 
+function isUsableKey(key?: string): boolean {
+  if (!key) return false
+  const trimmed = key.trim()
+  if (trimmed.length === 0) return false
+  if (
+    trimmed.startsWith('your_') ||
+    trimmed.includes('your_supabase_service_role_key') ||
+    trimmed === 'placeholder'
+  ) {
+    return false
+  }
+  return true
+}
+
 export function createAdminClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-  const serviceRoleKey =
-    process.env.SUPABASE_SERVICE_ROLE_KEY ||
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
-    process.env.SUPABASE_ANON_KEY
+  const rawServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+  const rawAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY
+
+  const hasRealServiceKey = isUsableKey(rawServiceKey)
+  const serviceRoleKey = hasRealServiceKey
+    ? rawServiceKey!
+    : (isUsableKey(rawAnonKey) ? rawAnonKey! : undefined)
 
   if (!supabaseUrl) {
     throw new Error('NEXT_PUBLIC_SUPABASE_URL is required in server environment.')
@@ -52,9 +69,9 @@ export function createAdminClient() {
     throw new Error('SUPABASE_SERVICE_ROLE_KEY or NEXT_PUBLIC_SUPABASE_ANON_KEY is required in server environment.')
   }
 
-  if (!process.env.SUPABASE_SERVICE_ROLE_KEY && process.env.NODE_ENV === 'production') {
+  if (!hasRealServiceKey && process.env.NODE_ENV === 'production') {
     console.warn(
-      '[Supabase Admin Client] Warning: SUPABASE_SERVICE_ROLE_KEY is not configured in production environment. Falling back to NEXT_PUBLIC_SUPABASE_ANON_KEY. Please add SUPABASE_SERVICE_ROLE_KEY in your Vercel Project Settings for full administrative access.'
+      '[Supabase Admin Client] Warning: SUPABASE_SERVICE_ROLE_KEY is not configured (or is placeholder) in production environment. Falling back to NEXT_PUBLIC_SUPABASE_ANON_KEY. Please add SUPABASE_SERVICE_ROLE_KEY in your Vercel Project Settings for full administrative access.'
     )
   }
 
