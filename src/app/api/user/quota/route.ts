@@ -20,10 +20,11 @@ export async function POST(req: Request) {
     const body = await req.json().catch(() => ({}))
     const { action = 'check', moduleId } = body
 
-    const adminClient = createAdminClient()
+    // Prefer adminClient if SUPABASE_SERVICE_ROLE_KEY is configured; otherwise fallback to authenticated user client
+    const dbClient = process.env.SUPABASE_SERVICE_ROLE_KEY ? createAdminClient() : supabase
 
     // Fetch user profile quota fields
-    const { data: profile, error: profileErr } = await adminClient
+    const { data: profile, error: profileErr } = await dbClient
       .from('profiles')
       .select('id, limit_type, max_requests, used_requests, max_modules, used_modules, is_avatar_enabled')
       .eq('id', user.id)
@@ -55,7 +56,7 @@ export async function POST(req: Request) {
       }
 
       const nextUsed = usedRequests + 1
-      await adminClient
+      await dbClient
         .from('profiles')
         .update({ used_requests: nextUsed })
         .eq('id', user.id)
@@ -72,7 +73,7 @@ export async function POST(req: Request) {
     // 2. Action: RECORD MODULE (Check or count module taken)
     if (action === 'record_module' && moduleId) {
       // Check if user has already accessed this module previously in user_progress
-      const { data: existingProgress } = await adminClient
+      const { data: existingProgress } = await dbClient
         .from('user_progress')
         .select('id')
         .eq('user_id', user.id)
@@ -106,7 +107,7 @@ export async function POST(req: Request) {
 
       // Increment used_modules
       const nextUsedModules = usedModules + 1
-      await adminClient
+      await dbClient
         .from('profiles')
         .update({ used_modules: nextUsedModules })
         .eq('id', user.id)
