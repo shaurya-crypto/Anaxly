@@ -157,30 +157,47 @@ export function Mascot() {
         if (targetEl) {
           const rect = targetEl.getBoundingClientRect()
           const viewportWidth = window.innerWidth
+          const viewportHeight = window.innerHeight
 
-          if (viewportWidth >= 768) {
-            // Desktop: Place to the right of element if room permits, otherwise left
-            if (rect.right + 240 < viewportWidth) {
-              setAnchorCoords({
-                x: rect.right + 16,
-                y: Math.max(16, rect.top - 20),
-                side: 'right',
-              })
-            } else {
-              setAnchorCoords({
-                x: Math.max(16, rect.left - 230),
-                y: Math.max(16, rect.top - 20),
-                side: 'left',
-              })
-            }
-          } else {
-            // Mobile: Place above or floating near the top of the element
-            setAnchorCoords({
-              x: Math.min(viewportWidth - 110, Math.max(16, rect.left + rect.width / 2 - 45)),
-              y: Math.max(16, rect.top - 100),
-              side: 'top',
-            })
-          }
+          // Approximate footprint of the speech bubble plus the avatar ball
+          const boxW = viewportWidth >= 640 ? 290 : 250
+          const boxH = viewportWidth >= 768 ? 240 : 205
+          const margin = 8
+
+          // Everything the companion must not cover: controls and text blocks
+          const blockers = Array.from(
+            document.querySelectorAll<HTMLElement>(
+              'a[href], button, input, select, textarea, [role="button"], h1, h2, h3, h4, p, li, label'
+            )
+          )
+            .filter((el) => !containerRef.current?.contains(el))
+            .map((el) => el.getBoundingClientRect())
+            .filter((r) => r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < viewportHeight)
+
+          const isClear = (x: number, y: number) =>
+            blockers.every((r) => x >= r.right || x + boxW <= r.left || y >= r.bottom || y + boxH <= r.top)
+
+          const clampX = (x: number) => Math.min(viewportWidth - boxW - margin, Math.max(margin, x))
+          const clampY = (y: number) => Math.min(viewportHeight - boxH - margin, Math.max(margin, y))
+
+          const candidates: Array<{ x: number; y: number; side: 'right' | 'left' | 'top' }> = [
+            { x: rect.right + 16, y: rect.top - 20, side: 'right' },
+            { x: rect.left - boxW - 16, y: rect.top - 20, side: 'left' },
+            { x: rect.left, y: rect.top - boxH - margin, side: 'top' },
+            { x: rect.left, y: rect.bottom + margin, side: 'top' },
+          ]
+
+          const clear = candidates
+            .map((c) => ({ ...c, x: clampX(c.x), y: clampY(c.y) }))
+            // Clamping must not have pushed the box back over the target itself
+            .filter(
+              (c) =>
+                c.x >= rect.right || c.x + boxW <= rect.left || c.y >= rect.bottom || c.y + boxH <= rect.top
+            )
+            .find((c) => isClear(c.x, c.y))
+
+          // No clear spot next to the target: stay in the bottom-right dock
+          setAnchorCoords(clear ?? null)
         }
       }
 
