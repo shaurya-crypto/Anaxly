@@ -110,7 +110,7 @@ export function WeakConceptsReviewCard({
             >
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="font-label-micro text-label-micro text-ink-muted uppercase tracking-wider">
+                  <span className="font-label-md text-sm text-ink-muted font-medium">
                     Capsule #{mod.order_index}
                   </span>
                   {typeof score === 'number' ? (
