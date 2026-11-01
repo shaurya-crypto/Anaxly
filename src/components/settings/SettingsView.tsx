@@ -512,7 +512,7 @@ export function SettingsView({ user, profile }: SettingsViewProps) {
                         key={avatar.id}
                         className={`p-4 rounded-2xl border transition-all flex flex-col justify-between ${
                           isSelected
-                            ? 'bg-[#EEF5FA] border-[#255D88] shadow-xs ring-1 ring-[#255D88]/30'
+                            ? 'bg-accent-warm-soft border-accent-warm shadow-xs ring-1 ring-accent-warm/30'
                             : 'bg-white border-[var(--border-subtle)] hover:border-[#D6D3C9]'
                         }`}
                       >
@@ -623,7 +623,7 @@ export function SettingsView({ user, profile }: SettingsViewProps) {
               <div className="p-5 sm:p-6 rounded-3xl bg-white border border-[var(--border-subtle)] shadow-xs space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[var(--border-subtle)]/60 pb-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-2xl bg-[#EEF5FA] border border-[#255D88]/20 flex items-center justify-center text-[#255D88]">
+                    <div className="w-10 h-10 rounded-2xl bg-accent-warm-soft border border-accent-warm/20 flex items-center justify-center text-accent-warm">
                       <Gauge className="w-5 h-5" />
                     </div>
                     <div>
@@ -672,7 +672,7 @@ export function SettingsView({ user, profile }: SettingsViewProps) {
                       <div className="space-y-1.5">
                         <div className="w-full h-2 rounded-full bg-stone-200 overflow-hidden">
                           <div
-                            className="h-full bg-[#255D88] rounded-full transition-all duration-300"
+                            className="h-full bg-accent-warm rounded-full transition-all duration-300"
                             style={{
                               width: `${Math.min(
                                 100,
@@ -761,7 +761,7 @@ export function SettingsView({ user, profile }: SettingsViewProps) {
                     We are still building this is just a prototype, for more limits contact{' '}
                     <a
                       href="mailto:shauryaprabhakar097@gmail.com"
-                      className="font-semibold text-[#255D88] hover:underline"
+                      className="font-semibold text-accent-warm hover:underline"
                     >
                       shauryaprabhakar097@gmail.com
                     </a>
@@ -789,7 +789,7 @@ export function SettingsView({ user, profile }: SettingsViewProps) {
                       onChange={(e) => setFullName(e.target.value)}
                       required
                       placeholder="e.g. Aarav Sharma"
-                      className="w-full px-3.5 py-2 rounded-xl border border-[var(--border-subtle)] text-sm text-[#2D2A26] focus:outline-hidden focus:ring-2 focus:ring-[#255D88]/20 focus:border-[#255D88]"
+                      className="w-full px-3.5 py-2 rounded-xl border border-[var(--border-subtle)] text-sm text-[#2D2A26] focus:outline-hidden focus:ring-2 focus:ring-accent-warm/20 focus:border-accent-warm"
                     />
                   </div>
 
@@ -813,7 +813,7 @@ export function SettingsView({ user, profile }: SettingsViewProps) {
                       <select
                         value={targetBoard}
                         onChange={(e) => setTargetBoard(e.target.value)}
-                        className="w-full px-3 py-2 rounded-xl border border-[var(--border-subtle)] bg-white text-sm text-[#2D2A26] focus:outline-hidden focus:ring-2 focus:ring-[#255D88]/20"
+                        className="w-full px-3 py-2 rounded-xl border border-[var(--border-subtle)] bg-white text-sm text-[#2D2A26] focus:outline-hidden focus:ring-2 focus:ring-accent-warm/20"
                       >
                         {BOARD_OPTIONS.map((b: any) => (
                           <option key={b.id} value={b.id} disabled={b.disabled}>
@@ -830,7 +830,7 @@ export function SettingsView({ user, profile }: SettingsViewProps) {
                       <select
                         value={classLevel}
                         onChange={(e) => setClassLevel(e.target.value)}
-                        className="w-full px-3 py-2 rounded-xl border border-[var(--border-subtle)] bg-white text-sm text-[#2D2A26] focus:outline-hidden focus:ring-2 focus:ring-[#255D88]/20"
+                        className="w-full px-3 py-2 rounded-xl border border-[var(--border-subtle)] bg-white text-sm text-[#2D2A26] focus:outline-hidden focus:ring-2 focus:ring-accent-warm/20"
                       >
                         {CLASS_LEVEL_OPTIONS.map((c) => (
                           <option key={c.id} value={c.label}>
@@ -873,7 +873,7 @@ export function SettingsView({ user, profile }: SettingsViewProps) {
                         value={newPassword}
                         onChange={(e) => setNewPassword(e.target.value)}
                         placeholder="Minimum 6 characters"
-                        className="w-full px-3.5 py-2 rounded-xl border border-[var(--border-subtle)] text-sm text-[#2D2A26] focus:outline-hidden focus:ring-2 focus:ring-[#255D88]/20"
+                        className="w-full px-3.5 py-2 rounded-xl border border-[var(--border-subtle)] text-sm text-[#2D2A26] focus:outline-hidden focus:ring-2 focus:ring-accent-warm/20"
                       />
                     </div>
                     <div className="space-y-1.5">
@@ -885,7 +885,7 @@ export function SettingsView({ user, profile }: SettingsViewProps) {
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         placeholder="Re-enter password"
-                        className="w-full px-3.5 py-2 rounded-xl border border-[var(--border-subtle)] text-sm text-[#2D2A26] focus:outline-hidden focus:ring-2 focus:ring-[#255D88]/20"
+                        className="w-full px-3.5 py-2 rounded-xl border border-[var(--border-subtle)] text-sm text-[#2D2A26] focus:outline-hidden focus:ring-2 focus:ring-accent-warm/20"
                       />
                     </div>
                   </div>
@@ -960,7 +960,7 @@ export function SettingsView({ user, profile }: SettingsViewProps) {
                     <select
                       value={preferredVoice}
                       onChange={(e) => setPreferredVoice(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl border border-[var(--border-subtle)] bg-white text-sm text-[#2D2A26] focus:outline-hidden focus:ring-2 focus:ring-[#255D88]/20"
+                      className="w-full px-3 py-2 rounded-xl border border-[var(--border-subtle)] bg-white text-sm text-[#2D2A26] focus:outline-hidden focus:ring-2 focus:ring-accent-warm/20"
                     >
                       {VOICE_OPTIONS.map((v) => (
                         <option key={v.id} value={v.id}>
@@ -986,7 +986,7 @@ export function SettingsView({ user, profile }: SettingsViewProps) {
                           onClick={() => setSpeechRate(rate.id)}
                           className={`p-3 rounded-xl border text-left transition-colors cursor-pointer ${
                             speechRate === rate.id
-                              ? 'bg-[#EEF5FA] border-[#255D88] text-[#2D2A26]'
+                              ? 'bg-accent-warm-soft border-accent-warm text-[#2D2A26]'
                               : 'bg-white border-[var(--border-subtle)] text-[#57534E] hover:bg-[#F5F2EB]'
                           }`}
                         >
@@ -1010,7 +1010,7 @@ export function SettingsView({ user, profile }: SettingsViewProps) {
                       type="checkbox"
                       checked={autoListen}
                       onChange={(e) => setAutoListen(e.target.checked)}
-                      className="w-4 h-4 accent-[#255D88] rounded-sm cursor-pointer"
+                      className="w-4 h-4 accent-accent-warm rounded-sm cursor-pointer"
                     />
                   </div>
 
@@ -1086,7 +1086,7 @@ export function SettingsView({ user, profile }: SettingsViewProps) {
                           onClick={() => setLearningStyle(style.id)}
                           className={`p-3.5 rounded-2xl border transition-all cursor-pointer ${
                             learningStyle === style.id
-                              ? 'bg-[#EEF5FA] border-[#255D88] ring-1 ring-[#255D88]/20'
+                              ? 'bg-accent-warm-soft border-accent-warm ring-1 ring-accent-warm/20'
                               : 'bg-white border-[var(--border-subtle)] hover:bg-[#F5F2EB]'
                           }`}
                         >
@@ -1098,7 +1098,7 @@ export function SettingsView({ user, profile }: SettingsViewProps) {
                               value={style.id}
                               checked={learningStyle === style.id}
                               onChange={() => setLearningStyle(style.id)}
-                              className="accent-[#255D88]"
+                              className="accent-accent-warm"
                             />
                           </div>
                           <p className="text-[11px] text-[#78716C] leading-relaxed mt-1">
@@ -1119,7 +1119,7 @@ export function SettingsView({ user, profile }: SettingsViewProps) {
                         onClick={() => setNoteDensity('topper_detailed')}
                         className={`p-3 rounded-xl border transition-all cursor-pointer ${
                           noteDensity === 'topper_detailed'
-                            ? 'bg-[#EEF5FA] border-[#255D88]'
+                            ? 'bg-accent-warm-soft border-accent-warm'
                             : 'bg-white border-[var(--border-subtle)] hover:bg-[#F5F2EB]'
                         }`}
                       >
@@ -1133,7 +1133,7 @@ export function SettingsView({ user, profile }: SettingsViewProps) {
                         onClick={() => setNoteDensity('summary_keypoints')}
                         className={`p-3 rounded-xl border transition-all cursor-pointer ${
                           noteDensity === 'summary_keypoints'
-                            ? 'bg-[#EEF5FA] border-[#255D88]'
+                            ? 'bg-accent-warm-soft border-accent-warm'
                             : 'bg-white border-[var(--border-subtle)] hover:bg-[#F5F2EB]'
                         }`}
                       >
