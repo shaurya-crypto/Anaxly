@@ -22,6 +22,7 @@ __tests__/
 
 # Agent skills, workflows & IDE tooling
 /.agents/
+/.claude/
 skills-lock.json
 
 # Scratch, temporary dumps & backups
