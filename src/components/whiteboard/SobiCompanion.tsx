@@ -265,7 +265,7 @@ export function SobiCompanion({
       {/* Speech Transcription & Thought Bubble */}
       {speechBubbleOpen && (lastSpeechBubble || activeConceptTitle || isQuestionActive) && (
         <div
-          className={`pointer-events-auto mb-2 p-3 rounded-2xl backdrop-blur-xl border transition-all duration-300 shadow-[0_12px_32px_rgba(23,24,23,0.08)] text-xs text-[#171817] relative animate-in fade-in slide-in-from-right-4 ${
+          className={`hidden sm:block pointer-events-auto mb-2 p-3 rounded-2xl backdrop-blur-xl border transition-all duration-300 shadow-[0_12px_32px_rgba(23,24,23,0.08)] text-xs text-[#171817] relative animate-in fade-in slide-in-from-right-4 ${
             isQuestionActive
               ? 'bg-[#EEF5FA] border-[#255D88]/40 ring-2 ring-[#255D88]/15'
               : 'bg-[#F8F6F0]/95 border-[#E5E3DB]'
@@ -364,7 +364,7 @@ export function SobiCompanion({
         {/* Sobi Avatar Sphere (Cute procedural 3D mascot with blush glow) */}
         <div
           onClick={handleSobiClick}
-          className={`cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center relative w-[75px] h-[75px] sm:w-[88px] sm:h-[88px] rounded-full shrink-0 ${
+          className={`cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95 flex items-center justify-center relative w-[52px] h-[52px] sm:w-[88px] sm:h-[88px] rounded-full shrink-0 ${
             isQuestionActive
               ? 'ring-4 ring-[#255D88]/30 shadow-[0_0_24px_rgba(37,93,136,0.35)]'
               : 'ring-2 ring-[#52715D]/20 shadow-[0_10px_25px_rgba(23,24,23,0.1)]'
