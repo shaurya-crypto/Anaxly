@@ -1019,7 +1019,7 @@ export function StitchDashboardView({
                           })()}
                         </h4>
                         <p className="font-body-md text-body-md text-ink-secondary text-sm mt-0.5">
-                          Keep key photochemical and molecular concepts warm across decay intervals.
+                          Keep key concepts from your recent sessions fresh with a quick review.
                         </p>
                       </div>
                     </div>
