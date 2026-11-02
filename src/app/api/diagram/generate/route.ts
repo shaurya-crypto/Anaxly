@@ -115,27 +115,43 @@ CRITICAL VECTOR DESIGN SPECIFICATIONS (WHITE CHALKBOARD / ARISTOTLE BENCHMARK):
       ? `Refine this existing SVG diagram for: "${title}". Refinement instructions: ${refinementPrompt || context}. Keep the background pure white (#FFFFFF). Existing SVG:\n${existingSvg}\nReturn ONLY the updated raw <svg viewBox="0 0 540 280" ...>...</svg> element.`
       : `Generate a publication-grade vector SVG diagram for: "${title}". Academic domain: ${domain}. Grade: ${classLevel}. Context: ${context}. Return ONLY the raw <svg viewBox="0 0 540 280" ...>...</svg> element with pure white background.`
 
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
-      contents: [
-        {
-          role: 'user',
-          parts: [
+    const candidateModels = ['gemini-3.8-flash', 'gemini-2.5-flash', 'gemini-3-flash-preview']
+    let response: any = null
+    let lastError: any = null
+
+    for (const candidateModel of candidateModels) {
+      try {
+        response = await ai.models.generateContent({
+          model: candidateModel,
+          contents: [
             {
-              text: userPromptText,
+              role: 'user',
+              parts: [
+                {
+                  text: userPromptText,
+                },
+              ],
             },
           ],
-        },
-      ],
-      config: {
-        systemInstruction: systemPrompt,
-        temperature: 0.15,
-        maxOutputTokens: 16384,
-        thinkingConfig: {
-          thinkingBudget: 1024,
-        },
-      },
-    })
+          config: {
+            systemInstruction: systemPrompt,
+            temperature: 0.15,
+            maxOutputTokens: 16384,
+            thinkingConfig: {
+              thinkingBudget: 1024,
+            },
+          },
+        })
+        if (response?.text) break
+      } catch (err: any) {
+        lastError = err
+        console.warn(`[Diagram Generator] Model ${candidateModel} failed, trying cascade fallback:`, err?.message)
+      }
+    }
+
+    if (!response?.text) {
+      throw lastError || new Error('All diagram generation models in cascade failed')
+    }
 
     let rawSvg = response.text || ''
     // Strip markdown code fences if model accidentally emitted them
