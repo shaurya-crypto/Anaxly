@@ -47,6 +47,7 @@ interface StudyPlannerCardProps {
   completedModulesCount: number
   nextModuleId?: string | null
   onPlanUpdated?: () => void
+  onModuleClick?: (e: React.MouseEvent, moduleId?: string) => void
 }
 
 export function StudyPlannerCard({
@@ -56,6 +57,7 @@ export function StudyPlannerCard({
   completedModulesCount,
   nextModuleId,
   onPlanUpdated,
+  onModuleClick,
 }: StudyPlannerCardProps) {
   const router = useRouter()
   const [modalOpen, setModalOpen] = useState(false)
@@ -170,7 +172,7 @@ export function StudyPlannerCard({
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Metric 1: Exam Countdown */}
         <div className="p-4 bg-canvas rounded-2xl border border-border-subtle flex flex-col justify-between">
-          <span className="font-label-micro text-label-micro text-ink-muted uppercase tracking-wider block">
+          <span className="font-label-md text-sm text-ink-muted font-medium block">
             Exam Countdown
           </span>
           <div className="mt-3">
@@ -190,7 +192,7 @@ export function StudyPlannerCard({
 
         {/* Metric 2: Remaining Capsules */}
         <div className="p-4 bg-canvas rounded-2xl border border-border-subtle flex flex-col justify-between">
-          <span className="font-label-micro text-label-micro text-ink-muted uppercase tracking-wider block">
+          <span className="font-label-md text-sm text-ink-muted font-medium block">
             Remaining Capsules
           </span>
           <div className="mt-3">
@@ -213,7 +215,7 @@ export function StudyPlannerCard({
 
         {/* Metric 3: Daily Target Pace */}
         <div className="p-4 bg-canvas rounded-2xl border border-border-subtle flex flex-col justify-between">
-          <span className="font-label-micro text-label-micro text-ink-muted uppercase tracking-wider block">
+          <span className="font-label-md text-sm text-ink-muted font-medium block">
             Daily Study Budget
           </span>
           <div className="mt-3">
@@ -233,7 +235,7 @@ export function StudyPlannerCard({
 
         {/* Metric 4: Feasibility Status */}
         <div className="p-4 bg-canvas rounded-2xl border border-border-subtle flex flex-col justify-between">
-          <span className="font-label-micro text-label-micro text-ink-muted uppercase tracking-wider block">
+          <span className="font-label-md text-sm text-ink-muted font-medium block">
             Pacing Health
           </span>
           <div className="mt-3">
@@ -279,7 +281,7 @@ export function StudyPlannerCard({
               <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
             )}
             <div>
-              <h4 className="text-xs font-semibold uppercase tracking-wider font-label-micro">
+              <h4 className="text-sm font-semibold font-label-md">
                 {isOnTrack ? 'Cadence Health: Optimal' : 'Adaptive Rebalance Alert: Time Deficit Detected'}
               </h4>
               <p className="text-xs text-ink-secondary mt-0.5 leading-relaxed">
@@ -298,6 +300,7 @@ export function StudyPlannerCard({
             {nextModuleId && (
               <Link
                 href={`/dashboard/${userId}/class/${nextModuleId}`}
+                onClick={(e) => onModuleClick?.(e, nextModuleId)}
                 className="inline-flex items-center gap-1.5 bg-primary hover:bg-accent-hover text-white font-label-md text-xs px-4 py-2 rounded-xl transition-all shadow-xs"
               >
                 <span>Start Today's Capsule</span>

@@ -19,6 +19,9 @@ import { PricingNoticeModal } from './PricingNoticeModal'
 import { StudyPlannerCard, StudyPlanData } from './StudyPlannerCard'
 import { WeakConceptsReviewCard } from './WeakConceptsReviewCard'
 import { VOICE_OPTIONS } from '@/lib/voiceAndLanguageConfig'
+import { DashboardNav, NavItem } from './DashboardNav'
+import { DailyActivityChart } from './DailyActivityChart'
+import { DashCard, StatTile, SectionHeader } from './primitives'
 
 interface Module {
   id: string
@@ -61,7 +64,8 @@ interface Curriculum {
 
 interface MemoryItem {
   id: string
-  memory_text: string
+  content?: string
+  memory_text?: string
   importance_score?: number | null
   created_at: string
 }
@@ -412,6 +416,11 @@ export function StitchDashboardView({
   }
 
   const handleStartSession = () => {
+    if (isFreeQuotaExhausted && (!activeModule?.id || !isModuleComplete(activeModule.id))) {
+      setLiveModalOpen(false)
+      setPricingModalOpen(true)
+      return
+    }
     setIsStartingSession(true)
     setTimeout(() => {
       setLiveModalOpen(false)
@@ -423,149 +432,99 @@ export function StitchDashboardView({
     }, 800)
   }
 
+  // Navigation config shared by the desktop sidebar and the mobile drawer
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  }
+  const navItems: NavItem[] = [
+    { id: 'home', label: 'Home', icon: 'home', onSelect: () => setActiveNav('home') },
+    {
+      id: 'syllabus',
+      label: 'Syllabus',
+      icon: 'menu_book',
+      onSelect: () => {
+        setActiveNav('syllabus')
+        setSyllabusModalOpen(true)
+      },
+    },
+    {
+      id: 'learn',
+      label: 'Learn',
+      icon: 'auto_stories',
+      onSelect: () => {
+        setActiveNav('learn')
+        scrollToSection('enrolled-subjects-section')
+      },
+    },
+    {
+      id: 'practice',
+      label: 'Practice',
+      icon: 'edit_note',
+      onSelect: () => {
+        setActiveNav('practice')
+        scrollToSection('deliberate-practice-section')
+      },
+    },
+    { id: 'live', label: 'Live Tutor', icon: 'psychology', badge: 'Tutor available', onSelect: () => setLiveModalOpen(true) },
+    {
+      id: 'progress',
+      label: 'Progress',
+      icon: 'insights',
+      onSelect: () => {
+        setActiveNav('progress')
+        scrollToSection('consistency-section')
+      },
+    },
+    { id: 'history', label: 'History', icon: 'schedule', onSelect: () => setLiveModalOpen(true) },
+  ]
+
+  const hour = new Date().getHours()
+  const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening'
+  const firstName = studentName.split(' ')[0]
+
+  const iconButtonClass =
+    'inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-border-subtle bg-surface text-ink-secondary transition-colors hover:bg-canvas-soft hover:text-ink-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm'
+  const headerTextButtonClass =
+    'inline-flex h-10 min-w-10 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-border-subtle bg-surface px-0 text-sm font-medium text-ink-primary transition-colors hover:bg-canvas-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm lg:px-3.5'
+  const textButtonClass =
+    'inline-flex h-10 cursor-pointer items-center gap-2 whitespace-nowrap rounded-lg border border-border-subtle bg-surface px-3.5 text-sm font-medium text-ink-primary transition-colors hover:bg-canvas-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm'
+
   return (
     <div className="min-h-full font-body-md text-body-md text-ink-primary bg-canvas botanical-pattern antialiased selection:bg-primary selection:text-white">
       
       {/* ========================================================================= */}
       {/* 1. SIDE NAVIGATION (Desktop Fixed Shell: w-64)                           */}
       {/* ========================================================================= */}
-      <aside className="fixed left-0 top-0 h-screen w-64 p-6 z-40 bg-canvas border-r border-border-subtle flex flex-col justify-between hidden md:flex">
-        {/* Top Area: Crest Logo & Section Links */}
+      <aside className="fixed left-0 top-0 z-40 hidden h-screen w-64 flex-col justify-between border-r border-border-subtle bg-canvas p-5 md:flex">
+        {/* Top Area: Brand & Navigation */}
         <div className="space-y-8">
-          {/* Crest Motif & Brand Header */}
-          <Link href={`/dashboard/${user.id}`} className="flex items-start gap-3.5 px-1 pt-1 group">
-            <div className="w-10 h-10 rounded-xl bg-surface border border-border-subtle flex items-center justify-center text-secondary shadow-xs transition-transform group-hover:scale-105">
-              <span className="material-symbols-outlined text-2xl text-secondary">eco</span>
+          <Link
+            href={`/dashboard/${user.id}`}
+            className="group flex items-center gap-3 rounded-lg px-1 pt-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm"
+          >
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-border-subtle bg-surface text-secondary shadow-xs transition-transform group-hover:scale-105">
+              <span aria-hidden="true" className="material-symbols-outlined text-2xl text-secondary">eco</span>
             </div>
             <div>
-              <h1 className="font-headline-md text-headline-md text-ink-primary tracking-tight leading-none">
-                Anaxly
-              </h1>
-              <p className="font-label-micro text-label-micro text-ink-muted mt-1 uppercase tracking-wider">
-                Scholar's Edition
-              </p>
+              <p className="font-editorial text-2xl leading-none text-ink-primary">Anaxly</p>
+              <p className="mt-1 text-xs text-ink-muted">Scholar's Edition</p>
             </div>
           </Link>
 
-          {/* Main Navigation Menu */}
-          <nav className="space-y-1" aria-label="Main Navigation">
-            {/* Item: Home */}
-            <button
-              onClick={() => setActiveNav('home')}
-              className={`w-full flex items-center gap-3 font-label-md text-label-md pl-3 py-2.5 transition-colors text-left cursor-pointer ${
-                activeNav === 'home'
-                  ? 'text-primary border-r-2 border-primary bg-surface-container-low/50 scale-[0.98]'
-                  : 'text-ink-secondary hover:text-ink-primary hover:bg-surface-container-low/40'
-              }`}
-            >
-              <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: activeNav === 'home' ? '"FILL" 1' : '"FILL" 0' }}>
-                home
-              </span>
-              <span>Home</span>
-            </button>
+          <DashboardNav items={navItems} activeId={activeNav} ariaLabel="Main navigation" />
 
-            {/* Item: Syllabus */}
-            <button
-              onClick={() => {
-                setActiveNav('syllabus')
-                setSyllabusModalOpen(true)
-              }}
-              className={`w-full flex items-center gap-3 font-label-md text-label-md pl-3 py-2.5 transition-colors text-left cursor-pointer ${
-                activeNav === 'syllabus'
-                  ? 'text-primary border-r-2 border-primary bg-surface-container-low/50'
-                  : 'text-ink-secondary hover:text-ink-primary hover:bg-surface-container-low/40'
-              }`}
-            >
-              <span className="material-symbols-outlined text-xl">menu_book</span>
-              <span>Syllabus</span>
-            </button>
-
-            {/* Item: Learn */}
-            <button
-              onClick={() => {
-                setActiveNav('learn')
-                const el = document.getElementById('enrolled-subjects-section')
-                if (el) el.scrollIntoView({ behavior: 'smooth' })
-              }}
-              className={`w-full flex items-center gap-3 font-label-md text-label-md pl-3 py-2.5 transition-colors text-left cursor-pointer ${
-                activeNav === 'learn'
-                  ? 'text-primary border-r-2 border-primary bg-surface-container-low/50'
-                  : 'text-ink-secondary hover:text-ink-primary hover:bg-surface-container-low/40'
-              }`}
-            >
-              <span className="material-symbols-outlined text-xl">auto_stories</span>
-              <span>Learn</span>
-            </button>
-
-            {/* Item: Practice */}
-            <button
-              onClick={() => {
-                setActiveNav('practice')
-                const el = document.getElementById('deliberate-practice-section')
-                if (el) el.scrollIntoView({ behavior: 'smooth' })
-              }}
-              className={`w-full flex items-center gap-3 font-label-md text-label-md pl-3 py-2.5 transition-colors text-left cursor-pointer ${
-                activeNav === 'practice'
-                  ? 'text-primary border-r-2 border-primary bg-surface-container-low/50'
-                  : 'text-ink-secondary hover:text-ink-primary hover:bg-surface-container-low/40'
-              }`}
-            >
-              <span className="material-symbols-outlined text-xl">edit_note</span>
-              <span>Practice</span>
-            </button>
-
-            {/* Item: Live Tutor */}
-            <button
-              onClick={() => setLiveModalOpen(true)}
-              className="w-full flex items-center justify-between text-ink-secondary font-label-md text-label-md pl-3 pr-2 py-2.5 transition-colors hover:text-ink-primary hover:bg-surface-container-low/40 text-left cursor-pointer"
-            >
-              <div className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-xl">psychology</span>
-                <span>Live Tutor</span>
-              </div>
-              <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" title="Tutor Active" />
-            </button>
-
-            {/* Item: Progress */}
-            <button
-              onClick={() => {
-                setActiveNav('progress')
-                const el = document.getElementById('consistency-section')
-                if (el) el.scrollIntoView({ behavior: 'smooth' })
-              }}
-              className={`w-full flex items-center gap-3 font-label-md text-label-md pl-3 py-2.5 transition-colors text-left cursor-pointer ${
-                activeNav === 'progress'
-                  ? 'text-primary border-r-2 border-primary bg-surface-container-low/50'
-                  : 'text-ink-secondary hover:text-ink-primary hover:bg-surface-container-low/40'
-              }`}
-            >
-              <span className="material-symbols-outlined text-xl">insights</span>
-              <span>Progress</span>
-            </button>
-
-            {/* Item: History */}
-            <button
-              onClick={() => setLiveModalOpen(true)}
-              className="w-full flex items-center gap-3 text-ink-secondary font-label-md text-label-md pl-3 py-2.5 transition-colors hover:text-ink-primary hover:bg-surface-container-low/40 text-left cursor-pointer"
-            >
-              <span className="material-symbols-outlined text-xl">schedule</span>
-              <span>History</span>
-            </button>
-          </nav>
-
-          {/* Side CTA Action */}
-          <div className="pt-2 px-1">
-            <button
-              onClick={() => setLiveModalOpen(true)}
-              className="w-full flex items-center justify-center gap-2 bg-primary hover:bg-accent-hover text-white font-semibold py-2.5 px-4 rounded-xl font-label-md text-label-md transition-all scale-[0.98] active:scale-95 shadow-xs cursor-pointer"
-            >
-              <span className="material-symbols-outlined text-lg">mic</span>
-              <span>Start Session</span>
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={() => setLiveModalOpen(true)}
+            className="flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+          >
+            <span aria-hidden="true" className="material-symbols-outlined text-lg">mic</span>
+            <span>Start session</span>
+          </button>
         </div>
 
-        {/* Bottom Dock: Student Profile Card & Settings */}
+{/* Bottom Dock: Student Profile Card & Settings */}
         <div className="space-y-3 pt-6 border-t border-border-subtle">
           <div className="p-2.5 bg-surface rounded-xl border border-border-subtle flex items-center gap-3">
             <div className="relative w-9 h-9 rounded-full bg-surface-container-high border border-border-subtle overflow-hidden flex-shrink-0 flex items-center justify-center">
@@ -616,516 +575,345 @@ export function StitchDashboardView({
       <div className="md:pl-64 flex flex-col min-h-screen">
         
         {/* Top Sticky Bar */}
-        <header className="sticky top-0 z-30 w-full pl-6 md:pl-8 pr-6 md:pr-8 py-4 flex items-center justify-between bg-canvas/90 backdrop-blur-md border-b border-border-subtle">
-          <div className="flex items-center gap-4">
+        <header className="sticky top-0 z-30 flex w-full items-center justify-between gap-3 border-b border-border-subtle bg-canvas/90 px-4 py-3 backdrop-blur-md sm:px-6 md:px-8">
+          <div className="flex min-w-0 items-center gap-2">
             <button
-              className="md:hidden p-2 text-ink-secondary hover:text-ink-primary cursor-pointer"
+              type="button"
+              className={`${iconButtonClass} md:hidden`}
               onClick={() => setMobileMenuOpen(true)}
-              aria-label="Toggle navigation drawer"
+              aria-label="Open navigation menu"
             >
-              <span className="material-symbols-outlined">menu</span>
+              <span aria-hidden="true" className="material-symbols-outlined">menu</span>
             </button>
-            <div>
-              <span className="font-label-micro text-label-micro text-ink-muted uppercase tracking-wider block">
-                {todayFormatted}
-              </span>
-              <h2 className="font-headline-sm text-headline-sm text-ink-primary tracking-tight">
-                Academic Overview
-              </h2>
+            <div className="min-w-0">
+              <p className="truncate text-sm text-ink-muted" suppressHydrationWarning>{todayFormatted}</p>
+              <h1 className="truncate font-editorial text-2xl leading-tight text-ink-primary" suppressHydrationWarning>
+                {greeting}, {firstName}
+              </h1>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 sm:gap-4">
-            {/* Upload Chapter / Notes Action */}
-            <Link
-              href="/admin"
-              className="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border-subtle bg-surface hover:bg-surface-container-low text-ink-primary font-label-md text-xs sm:text-sm transition-colors scale-[0.98]"
-              title="Upload Textbook Chapter Notes and Ingest Syllabus"
-            >
-              <span className="material-symbols-outlined text-sm text-primary">upload_file</span>
-              <span>Upload Notes / Syllabus</span>
-            </Link>
-
-            {/* Open Syllabus Button Action */}
+          <div className="flex shrink-0 items-center gap-2">
             <button
               id="top-open-syllabus-btn"
+              type="button"
               onClick={() => setSyllabusModalOpen(true)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border-subtle bg-surface hover:bg-surface-container-low text-ink-primary font-label-md text-xs sm:text-sm transition-colors scale-[0.98] cursor-pointer"
+              className={`${headerTextButtonClass} hidden sm:inline-flex`}
             >
-              <span className="material-symbols-outlined text-sm text-secondary">menu_book</span>
-              <span>Open Syllabus</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-lg text-secondary">menu_book</span>
+              <span className="sr-only lg:not-sr-only">Open syllabus</span>
             </button>
 
-            {/* Quick Focus Button Action */}
             <Link
               href={`/dashboard/${user.id}/class?mode=focus`}
-              className="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-border-subtle bg-surface hover:bg-surface-container-low text-ink-primary font-label-md text-label-md transition-colors scale-[0.98]"
+              onClick={(e) => handleModuleClick(e, activeModule?.id)}
+              className={`${headerTextButtonClass} hidden sm:inline-flex`}
             >
-              <span className="material-symbols-outlined text-sm text-primary">timer</span>
-              <span>Quick Focus</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-lg text-primary">timer</span>
+              <span className="hidden lg:inline">Quick focus</span>
+              <span className="sr-only lg:hidden">Quick focus</span>
             </Link>
 
-
-            {/* Calendar Today Action */}
             <button
-              onClick={() => {
-                const el = document.getElementById('consistency-section')
-                if (el) el.scrollIntoView({ behavior: 'smooth' })
-              }}
-              className="p-2 text-ink-secondary hover:text-ink-primary hover:bg-surface rounded-lg border border-border-subtle transition-colors cursor-pointer"
-              title="Academic Calendar"
+              type="button"
+              onClick={() => scrollToSection('consistency-section')}
+              className={`${iconButtonClass} hidden sm:inline-flex`}
+              aria-label="Jump to study calendar"
             >
-              <span className="material-symbols-outlined text-xl">calendar_today</span>
+              <span aria-hidden="true" className="material-symbols-outlined text-xl">calendar_today</span>
             </button>
 
-            {/* Notifications Action */}
             <div className="relative">
               <button
+                type="button"
                 onClick={() => setLiveModalOpen(true)}
-                className="p-2 text-ink-secondary hover:text-ink-primary hover:bg-surface rounded-lg border border-border-subtle transition-colors cursor-pointer"
-                title="Notifications"
+                className={iconButtonClass}
+                aria-label={memories.length > 0 ? 'Notifications, new items' : 'Notifications'}
               >
-                <span className="material-symbols-outlined text-xl">notifications</span>
+                <span aria-hidden="true" className="material-symbols-outlined text-xl">notifications</span>
               </button>
               {memories.length > 0 && (
-                <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary ring-2 ring-canvas" />
+                <span aria-hidden="true" className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-primary ring-2 ring-canvas" />
               )}
             </div>
 
-            <div className="h-6 w-px bg-border-subtle mx-1 hidden sm:block" />
+            <div className="mx-1 hidden h-6 w-px bg-border-subtle sm:block" />
 
-            {/* Student Micro Profile Preview */}
             <button
+              type="button"
               onClick={() => setPreferencesOpen(true)}
-              className="flex items-center gap-2.5 pl-1 hover:opacity-80 transition-opacity text-left cursor-pointer"
+              className="flex cursor-pointer items-center gap-2.5 rounded-lg p-1 text-left transition-colors hover:bg-canvas-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm"
+              aria-label={`Open preferences for ${studentName}`}
             >
-              <div className="w-8 h-8 rounded-full bg-surface border border-border-subtle overflow-hidden flex items-center justify-center">
+              <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-border-subtle bg-surface">
                 {studentAvatar ? (
-                  <img
-                    className="w-full h-full object-cover"
-                    alt={studentName}
-                    src={studentAvatar}
-                  />
+                  <img className="h-full w-full object-cover" alt="" src={studentAvatar} />
                 ) : (
-                  <span className="font-semibold text-ink-primary text-xs font-label-md">
-                    {studentName.charAt(0).toUpperCase()}
-                  </span>
+                  <span className="text-sm font-semibold text-ink-primary">{studentName.charAt(0).toUpperCase()}</span>
                 )}
               </div>
-              <span className="hidden lg:inline-block font-label-md text-label-md text-ink-primary font-medium">
-                {studentName}
-              </span>
+              <span className="hidden whitespace-nowrap text-sm font-medium text-ink-primary xl:inline-block">{studentName}</span>
             </button>
           </div>
         </header>
 
-        {/* ======================================================================= */}
+{/* ======================================================================= */}
         {/* DASHBOARD CORE CANVAS (DISCOVER → LEARN → PRACTICE → REVIEW LOOP)       */}
         {/* ======================================================================= */}
         <main className="flex-1 px-6 sm:px-10 lg:px-12 py-8 max-w-[1536px] w-full mx-auto space-y-10">
           
-          {/* SECTION 1: HERO "CONSISTENCY & STUDY CADENCE" */}
-          <section
-            id="consistency-section"
-            className="bg-surface rounded-3xl border border-border-subtle p-7 md:p-8 diffused-card-shadow space-y-6 w-full"
-          >
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-border-subtle/80 pb-5">
-              <div className="flex items-center gap-3.5">
-                <div className="w-10 h-10 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary flex-shrink-0">
-                  <span className="material-symbols-outlined text-2xl">calendar_month</span>
-                </div>
-                <div>
-                  <div className="flex items-center gap-2.5">
-                    <h3 className="font-headline-md text-headline-md text-ink-primary font-serif leading-none tracking-tight">
-                      Consistency &amp; Study Cadence
-                    </h3>
-                  </div>
-                  <p className="font-body-md text-body-md text-ink-secondary text-sm mt-1">
-                    Deliberate practice retention and cumulative cognitive velocity across 14-day study cycles.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-              {/* 14-Day Study Velocity SVG Card */}
-              <div className="lg:col-span-4 bg-canvas/70 rounded-2xl border border-border-subtle p-4 space-y-2.5">
-                <div className="flex items-center justify-between">
-                  <span className="font-label-micro text-label-micro text-ink-muted uppercase tracking-wider">
-                    14-Day Study Velocity
-                  </span>
-                  <span className="text-xs font-semibold text-secondary font-label-micro">
-                    {studyHours} hrs log
-                  </span>
-                </div>
-
-                <div className="w-full h-20">
-                  <svg className="w-full h-full overflow-visible" viewBox="0 0 280 60" preserveAspectRatio="none">
-                    <defs>
-                      <linearGradient id="cadenceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#3B7CAE" stopOpacity="0.25" />
-                        <stop offset="100%" stopColor="#3B7CAE" stopOpacity="0.0" />
-                      </linearGradient>
-                    </defs>
-                    <line x1="0" y1="55" x2="280" y2="55" stroke="#E2E6EA" strokeWidth="1" strokeDasharray="3 3" />
-                    <line x1="0" y1="30" x2="280" y2="30" stroke="#E2E6EA" strokeWidth="1" strokeDasharray="3 3" />
-                    
-                    {Number(studyHours) > 0 ? (
-                      <>
-                        <path
-                          d="M 0,50 Q 25,48 45,38 T 90,32 T 135,42 T 180,22 T 225,16 T 260,10 L 280,8 L 280,58 L 0,58 Z"
-                          fill="url(#cadenceGrad)"
-                        />
-                        <path
-                          d="M 0,50 Q 25,48 45,38 T 90,32 T 135,42 T 180,22 T 225,16 T 260,10 L 280,8"
-                          fill="none"
-                          stroke="#3B7CAE"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                        />
-                        <circle cx="225" cy="16" r="3.5" fill="#FFFFFF" stroke="#3B7CAE" strokeWidth="2" />
-                        <circle cx="260" cy="10" r="3.5" fill="#FFFFFF" stroke="#3B7CAE" strokeWidth="2" />
-                        <circle cx="280" cy="8" r="4" fill="#3B7CAE" />
-                      </>
-                    ) : (
-                      <>
-                        <line x1="0" y1="54" x2="280" y2="54" stroke="#3B7CAE" strokeWidth="2" strokeDasharray="4 4" />
-                        <circle cx="280" cy="54" r="3.5" fill="#3B7CAE" />
-                      </>
-                    )}
-                  </svg>
-                </div>
-
-                <div className="flex justify-between font-label-micro text-label-micro text-ink-muted text-xs pt-1">
-                  <span>{date14DaysAgo}</span>
-                  <span>{date7DaysAgo}</span>
-                  <span>Today ({todayShort})</span>
-                </div>
-              </div>
-
-              {/* 4 Stats Cards */}
-              <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
-                {/* 1. Current Streak */}
-                <div className="p-4 bg-canvas rounded-2xl border border-border-subtle flex flex-col justify-between">
-                  <span className="font-label-micro text-label-micro text-ink-muted uppercase tracking-wider block">
-                    Current Streak
-                  </span>
-                  <div className="mt-3">
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-2xl font-semibold text-ink-primary tracking-tight font-label-md leading-none">
-                        {currentStreak}
-                      </span>
-                      <span className="text-xs text-secondary font-semibold font-label-micro">
-                        Days
-                      </span>
-                    </div>
-                    <p className="font-label-micro text-label-micro text-ink-secondary text-xs mt-1.5 leading-tight">
-                      {currentStreak > 0 ? 'Active deliberate block' : 'Start streak today'}
-                    </p>
-                  </div>
-                </div>
-
-                {/* 2. Study Velocity */}
-                <div className="p-4 bg-canvas rounded-2xl border border-border-subtle flex flex-col justify-between">
-                  <span className="font-label-micro text-label-micro text-ink-muted uppercase tracking-wider block">
-                    Study Velocity
-                  </span>
-                  <div className="mt-3">
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-2xl font-semibold text-ink-primary tracking-tight font-label-md leading-none">
-                        {studyHours}
-                      </span>
-                      <span className="text-xs text-ink-muted font-medium font-label-micro">
-                        hrs
-                      </span>
-                    </div>
-                    <p className="font-label-micro text-label-micro text-secondary text-xs mt-1.5 leading-tight font-medium">
-                      {Number(studyHours) > 0 ? '+2.5 hrs vs last cycle' : 'No recorded hours yet'}
-                    </p>
-                  </div>
-                </div>
-
-                {/* 3. Syllabus Covered */}
-                <div
-                  onClick={() => setSyllabusModalOpen(true)}
-                  className="p-4 bg-canvas rounded-2xl border border-border-subtle flex flex-col justify-between hover:border-ink-muted transition-colors cursor-pointer group"
-                  title="Click to view full syllabus breakdown"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="font-label-micro text-label-micro text-ink-muted uppercase tracking-wider block">
-                      Syllabus Covered
-                    </span>
-                    <span className="material-symbols-outlined text-xs text-ink-muted group-hover:text-primary transition-colors">
-                      menu_book
-                    </span>
-                  </div>
-                  <div className="mt-3">
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-2xl font-semibold text-ink-primary tracking-tight font-label-md leading-none">
-                        {overallPercentComplete}%
-                      </span>
-                    </div>
-                    <div className="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden mt-2.5">
-                      <div
-                        className="h-full bg-secondary rounded-full transition-all duration-500 ease-out"
-                        style={{ width: `${overallPercentComplete}%` }}
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* 4. Lessons & Mastery */}
-                <div className="p-4 bg-canvas rounded-2xl border border-border-subtle flex flex-col justify-between">
-                  <span className="font-label-micro text-label-micro text-ink-muted uppercase tracking-wider block">
-                    Lessons &amp; Mastery
-                  </span>
-                  <div className="mt-3">
-                    <div className="flex items-baseline gap-1.5">
-                      <span className="text-2xl font-semibold text-ink-primary tracking-tight font-label-md leading-none">
-                        {totalMasteryLessons}
-                      </span>
-                      <span className="text-xs text-ink-muted font-medium font-label-micro">
-                        done
-                      </span>
-                    </div>
-                    <p className="font-label-micro text-label-micro text-ink-secondary text-xs mt-1.5 leading-tight">
-                      {totalMasteryLessons > 0 ? 'Verified mastery' : 'Zero lessons completed'}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Weekly Cadence Row: Dynamically rendered from currentStreak and today's day */}
-            <div className="pt-2 border-t border-border-subtle/60 flex flex-col md:flex-row md:items-center justify-between gap-3">
-              <div className="flex items-center gap-2">
-                <span className="font-label-micro text-label-micro text-ink-muted uppercase tracking-wider">
-                  Weekly Cadence:
-                </span>
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                  {weekDays.map((day, idx) => {
-                    const isChecked = currentStreak > 0 && idx < currentStreak && idx <= currentDayIndex
-                    const isToday = idx === currentDayIndex
-
-                    if (isToday) {
-                      if (currentStreak > 0) {
-                        return (
-                          <div
-                            key={idx}
-                            className="flex items-center gap-1 bg-primary/10 px-2 py-1 rounded-lg border border-primary/20"
-                          >
-                            <span className="font-label-micro text-primary font-bold text-xs">{day}</span>
-                            <div className="w-4 h-4 rounded-full bg-primary text-white flex items-center justify-center text-[10px]">
-                              <span className="material-symbols-outlined text-xs leading-none">check</span>
-                            </div>
-                          </div>
-                        )
-                      } else {
-                        return (
-                          <div
-                            key={idx}
-                            className="flex items-center gap-1 bg-canvas px-2 py-1 rounded-lg border border-primary/40"
-                          >
-                            <span className="font-label-micro text-primary font-bold text-xs">{day}</span>
-                            <div className="w-4 h-4 rounded-full border border-dashed border-primary/40 bg-surface text-ink-muted flex items-center justify-center text-[10px]">
-                              ·
-                            </div>
-                          </div>
-                        )
-                      }
-                    }
-
-                    if (isChecked) {
-                      return (
-                        <div
-                          key={idx}
-                          className="flex items-center gap-1 bg-canvas px-2 py-1 rounded-lg border border-border-subtle"
-                        >
-                          <span className="font-label-micro text-ink-muted text-xs">{day}</span>
-                          <div className="w-4 h-4 rounded-full bg-secondary text-white flex items-center justify-center text-[10px]">
-                            <span className="material-symbols-outlined text-xs leading-none">check</span>
-                          </div>
-                        </div>
-                      )
-                    }
-
-                    return (
-                      <div
-                        key={idx}
-                        className="flex items-center gap-1 bg-canvas px-2 py-1 rounded-lg border border-dashed border-border-subtle"
-                      >
-                        <span className="font-label-micro text-ink-muted text-xs">{day}</span>
-                        <div className="w-4 h-4 rounded-full border border-dashed border-border-subtle bg-surface text-ink-muted flex items-center justify-center text-[10px]">
-                          ·
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 text-xs font-label-micro text-ink-muted">
-                <span className="material-symbols-outlined text-sm text-secondary">verified</span>
-                <span>
-                  {currentStreak > 0
-                    ? 'Academic cadence on track for examinations'
-                    : 'Complete a study session to initialize cadence'}
-                </span>
-              </div>
-            </div>
-          </section>
-
-          {/* SECTION 2: HERO "CONTINUE LEARNING" */}
-          <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          {/* SECTION 1: CONTINUE LEARNING (primary focus of the page) */}
+          <section aria-labelledby="continue-heading">
             {activeCourse ? (
-              <div className="lg:col-span-12 bg-surface rounded-3xl border border-border-subtle p-8 md:p-10 diffused-card-shadow flex flex-col justify-between relative overflow-hidden">
-                {/* Subtle watermark icon in background */}
-                <div className="absolute -right-8 -bottom-8 pointer-events-none opacity-[0.03] text-ink-primary">
-                  <span className="material-symbols-outlined text-[180px]">biotech</span>
-                </div>
-
-                <div className="space-y-6 relative z-10">
-                  {/* Time Remaining Pill */}
-                  <div className="flex items-center justify-end">
-                    <span className="font-label-micro text-label-micro text-ink-muted flex items-center gap-1.5">
-                      <span className="material-symbols-outlined text-sm text-ink-muted">schedule</span>
-                      {activeModule?.estimated_minutes ? `${activeModule.estimated_minutes} mins remaining` : '15 mins remaining'}
-                    </span>
-                  </div>
-
-                  {/* Title & Context and Progress layout */}
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
-                    <div className="lg:col-span-8">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="px-2.5 py-0.5 rounded-full text-label-micro bg-secondary/10 text-secondary font-semibold border border-secondary/20">
-                          {activeCourse.title}
+              <DashCard tone="primary" size="lg" className="relative overflow-hidden md:p-10">
+                <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
+                  <div className="space-y-6 lg:col-span-8">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span id="continue-heading" className="text-sm font-medium text-white/80">
+                        Continue learning
+                      </span>
+                      <span className="rounded-full bg-white/10 px-3 py-0.5 text-xs font-medium text-white ring-1 ring-white/25">
+                        {activeCourse.title}
+                      </span>
+                      {isAllCourseCompleted && (
+                        <span className="rounded-full bg-accent-sage px-3 py-0.5 text-xs font-medium text-white">
+                          Chapter completed
                         </span>
-                        {isAllCourseCompleted && (
-                          <span className="px-2.5 py-0.5 rounded-full text-label-micro bg-emerald-500/10 text-emerald-600 font-semibold border border-emerald-500/20">
-                            Chapter Completed
-                          </span>
-                        )}
-                      </div>
-                      <h2 className="font-headline-lg text-headline-lg text-ink-primary leading-tight">
+                      )}
+                    </div>
+
+                    <div className="space-y-3">
+                      <h2 className="font-editorial text-4xl leading-[1.1] text-white md:text-5xl">
                         {activeModule?.title || activeCourse.title}
                       </h2>
-                      <p className="font-body-md text-body-md text-ink-secondary mt-3 max-w-3xl">
-                        {activeModule?.description ? (
-                          <>
-                            Current Capsule: <strong className="text-ink-primary font-medium">{activeModule.title}</strong>. {activeModule.description}
-                          </>
-                        ) : (
-                          <>
-                            Active Course: <strong className="text-ink-primary font-medium">{activeCourse.title}</strong>. {activeCourse.description || 'Deliberate study unit.'}
-                          </>
-                        )}
+                      <p className="max-w-prose text-base leading-relaxed text-white/80">
+                        {activeModule?.description
+                          ? activeModule.description
+                          : activeCourse.description || 'Pick up where you left off.'}
+                      </p>
+                      <p className="flex items-center gap-1.5 text-sm text-white/70">
+                        <span aria-hidden="true" className="material-symbols-outlined text-base">schedule</span>
+                        {activeModule?.estimated_minutes ? `${activeModule.estimated_minutes} min remaining` : '15 min remaining'}
                       </p>
                     </div>
 
-                    {/* Progress Track */}
-                    <div className="lg:col-span-4 space-y-2.5 bg-canvas/70 p-4 rounded-2xl border border-border-subtle">
-                      <div className="flex justify-between items-center font-label-micro text-label-micro">
-                        <span className="text-ink-muted">
-                          {activeModuleIndex > 0 ? `Capsule ${activeModuleIndex} of ${activeModuleTotal}` : activeCourse.title}
+                    <div className="flex flex-wrap items-center gap-3">
+                      <Link
+                        id="primary-resume-btn"
+                        className="inline-flex min-h-12 items-center gap-2.5 rounded-lg bg-white px-6 py-3 text-base font-semibold text-accent-primary shadow-xs transition-colors hover:bg-accent-primary-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-accent-primary"
+                        href={activeModule?.id ? `/dashboard/${user.id}/class/${activeModule.id}` : `/dashboard/${user.id}/class`}
+                        onClick={(e) => handleModuleClick(e, activeModule?.id)}
+                      >
+                        <span aria-hidden="true" className="material-symbols-outlined text-xl" style={{ fontVariationSettings: '"FILL" 1' }}>
+                          play_arrow
                         </span>
-                        <span className="text-ink-primary font-semibold font-mono">{activePercentComplete}% Complete</span>
-                      </div>
-                      <div className="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
-                        <div
-                          className="h-full bg-primary rounded-full transition-all duration-500 ease-out"
-                          style={{ width: `${activePercentComplete}%` }}
-                        />
-                      </div>
+                        <span>
+                          {isAllCourseCompleted
+                            ? 'Review chapter'
+                            : isModuleInProgress(activeModule?.id || '')
+                            ? 'Resume capsule'
+                            : 'Start capsule'}
+                        </span>
+                      </Link>
+
+                      <button
+                        id="hero-open-syllabus-btn"
+                        type="button"
+                        onClick={() => {
+                          if (activeCourse) {
+                            setSelectedSyllabusCategory(activeCourse.category || 'General')
+                            setSelectedSyllabusCurriculumId(activeCourse.id)
+                          }
+                          setSyllabusModalOpen(true)
+                        }}
+                        className="inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-lg px-4 py-3 text-sm font-medium text-white ring-1 ring-white/30 transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                      >
+                        <span aria-hidden="true" className="material-symbols-outlined text-lg">menu_book</span>
+                        <span>Open syllabus</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setNotesDialogOpen(true)}
+                        className="inline-flex min-h-12 cursor-pointer items-center gap-1.5 rounded-lg px-1 py-3 text-sm font-medium text-white/90 sm:px-3 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                      >
+                        <span>Chapter notes</span>
+                        <span aria-hidden="true" className="material-symbols-outlined text-base">arrow_forward</span>
+                      </button>
                     </div>
                   </div>
-                </div>
 
-                {/* Actions */}
-                <div className="pt-8 flex flex-wrap items-center gap-4 relative z-10 border-t border-border-subtle/60 mt-6">
-                  <Link
-                    id="primary-resume-btn"
-                    className="inline-flex items-center gap-2.5 bg-primary hover:bg-accent-hover text-white font-semibold font-label-md text-label-md px-7 py-3.5 rounded-xl transition-all scale-[0.98] active:scale-95 shadow-xs"
-                    href={activeModule?.id ? `/dashboard/${user.id}/class/${activeModule.id}` : `/dashboard/${user.id}/class`}
-                  >
-                    <span className="material-symbols-outlined text-lg" style={{ fontVariationSettings: '"FILL" 1' }}>
-                      play_arrow
-                    </span>
-                    <span>
-                      {isAllCourseCompleted
-                        ? 'Review Chapter'
-                        : isModuleInProgress(activeModule?.id || '')
-                        ? 'Resume Capsule'
-                        : 'Start Capsule'}
-                    </span>
-                  </Link>
-
-                  <button
-                    id="hero-open-syllabus-btn"
-                    onClick={() => {
-                      if (activeCourse) {
-                        setSelectedSyllabusCategory(activeCourse.category || 'General')
-                        setSelectedSyllabusCurriculumId(activeCourse.id)
-                      }
-                      setSyllabusModalOpen(true)
-                    }}
-                    className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl border border-border-subtle bg-surface hover:bg-canvas text-ink-primary font-label-md text-label-md transition-all cursor-pointer shadow-2xs hover:border-ink-muted"
-                  >
-                    <span className="material-symbols-outlined text-lg text-secondary">
-                      menu_book
-                    </span>
-                    <span>Open Syllabus</span>
-                  </button>
-
-                  <button
-                    onClick={() => setNotesDialogOpen(true)}
-                    className="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-xl border border-border-subtle bg-transparent hover:bg-canvas text-ink-primary font-label-md text-label-md transition-colors cursor-pointer"
-                  >
-                    <span>Review Chapter Notes</span>
-                    <span className="material-symbols-outlined text-base">arrow_forward</span>
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <div className="lg:col-span-12 bg-surface rounded-3xl border border-border-subtle p-8 md:p-10 diffused-card-shadow flex flex-col justify-between relative overflow-hidden">
-                <div className="space-y-4">
-                  <div className="w-12 h-12 rounded-2xl bg-surface-container-low border border-border-subtle flex items-center justify-center text-secondary">
-                    <span className="material-symbols-outlined text-2xl">school</span>
+                  {/* Progress ring */}
+                  <div className="flex items-center gap-5 lg:col-span-4 lg:justify-end">
+                    <div
+                      className="relative h-32 w-32 shrink-0"
+                      role="img"
+                      aria-label={`${activePercentComplete}% of ${activeCourse.title} complete`}
+                    >
+                      <svg viewBox="0 0 120 120" className="h-full w-full -rotate-90">
+                        <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="10" />
+                        <circle
+                          cx="60"
+                          cy="60"
+                          r="52"
+                          fill="none"
+                          stroke="#FFFFFF"
+                          strokeWidth="10"
+                          strokeLinecap="round"
+                          strokeDasharray={2 * Math.PI * 52}
+                          strokeDashoffset={2 * Math.PI * 52 * (1 - Math.min(100, Math.max(0, activePercentComplete)) / 100)}
+                          className="transition-all duration-500 ease-out"
+                        />
+                      </svg>
+                      <div className="absolute inset-0 flex flex-col items-center justify-center">
+                        <span className="text-3xl font-semibold tabular-nums leading-none text-white">{activePercentComplete}%</span>
+                        <span className="mt-1 text-xs text-white/70">complete</span>
+                      </div>
+                    </div>
+                    <p className="text-sm leading-snug text-white/80 lg:hidden xl:block">
+                      {activeModuleIndex > 0 ? `Capsule ${activeModuleIndex} of ${activeModuleTotal}` : activeCourse.title}
+                    </p>
                   </div>
-                  <h2 className="font-headline-lg text-headline-lg text-ink-primary leading-tight">
-                    No Active Course Enrolled
+                </div>
+              </DashCard>
+            ) : (
+              <DashCard size="lg" className="space-y-5 md:p-10">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-border-subtle bg-canvas-soft text-secondary">
+                  <span aria-hidden="true" className="material-symbols-outlined text-2xl">school</span>
+                </div>
+                <div className="space-y-2">
+                  <h2 id="continue-heading" className="font-editorial text-4xl leading-tight text-ink-primary">
+                    Choose a course to begin
                   </h2>
-                  <p className="font-body-md text-body-md text-ink-secondary max-w-2xl">
-                    You have not enrolled in an active curriculum yet. Select an enrolled subject below or browse published curriculums to begin.
+                  <p className="max-w-prose text-base text-ink-secondary">
+                    You have not enrolled in a curriculum yet. Browse the published courses or open the syllabus to get started.
                   </p>
                 </div>
-                <div className="pt-6 mt-4 border-t border-border-subtle/60 flex flex-wrap items-center gap-3">
+                <div className="flex flex-wrap items-center gap-3">
                   <button
                     id="browse-curriculums-btn"
+                    type="button"
                     onClick={() => setCoursesDialogOpen(true)}
-                    className="inline-flex items-center gap-2 bg-primary hover:bg-accent-hover text-white font-semibold font-label-md px-6 py-3 rounded-xl transition-all shadow-xs cursor-pointer"
+                    className="inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-white shadow-xs transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm focus-visible:ring-offset-2"
                   >
-                    <span className="material-symbols-outlined text-lg">add</span>
-                    <span>Browse Curriculums</span>
+                    <span aria-hidden="true" className="material-symbols-outlined text-lg">add</span>
+                    <span>Browse courses</span>
                   </button>
                   <button
+                    type="button"
                     onClick={() => setSyllabusModalOpen(true)}
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-border-subtle text-ink-primary font-label-md text-sm hover:bg-canvas cursor-pointer"
+                    className={`${textButtonClass} min-h-12`}
                   >
-                    <span className="material-symbols-outlined text-lg text-secondary">menu_book</span>
-                    <span>Open Syllabus</span>
+                    <span aria-hidden="true" className="material-symbols-outlined text-lg text-secondary">menu_book</span>
+                    <span>Open syllabus</span>
                   </button>
                 </div>
-              </div>
+              </DashCard>
             )}
           </section>
 
-          {/* SECTION 2B: DYNAMIC ADAPTIVE EXAM STUDY PLANNER */}
+          {/* SECTION 2: STUDY RHYTHM (stats, activity chart, weekly streak) */}
+          <section id="consistency-section" aria-labelledby="rhythm-heading" className="space-y-5">
+            <SectionHeader
+              title={<span id="rhythm-heading">Your study rhythm</span>}
+              description="How consistently you have studied over the last two weeks."
+            />
+
+            <div className="grid grid-cols-1 gap-5 lg:grid-cols-12">
+              <DashCard size="md" className="lg:col-span-5">
+                <DailyActivityChart records={progressRecords} />
+              </DashCard>
+
+              <div className="grid grid-cols-2 gap-4 lg:col-span-7">
+                <StatTile
+                  label="Day streak"
+                  value={currentStreak}
+                  unit={currentStreak === 1 ? 'day' : 'days'}
+                  hint={currentStreak > 0 ? 'Keep it going today' : 'Start your streak today'}
+                />
+                <StatTile
+                  label="Hours studied"
+                  value={studyHours}
+                  unit="hrs"
+                  hint={Number(studyHours) > 0 ? 'Across all sessions' : 'No study time recorded yet'}
+                />
+                <StatTile
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setSyllabusModalOpen(true)}
+                  onKeyDown={(e: React.KeyboardEvent) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      setSyllabusModalOpen(true)
+                    }
+                  }}
+                  className="cursor-pointer transition-colors hover:border-ink-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm"
+                  aria-label={`Syllabus covered: ${overallPercentComplete}%. Open the syllabus.`}
+                  label="Syllabus covered"
+                  value={`${overallPercentComplete}%`}
+                  icon={<span aria-hidden="true" className="material-symbols-outlined text-lg text-ink-muted">menu_book</span>}
+                  hint={
+                    <span className="mt-1 block h-1.5 w-full overflow-hidden rounded-full bg-border-subtle">
+                      <span
+                        className="block h-full rounded-full bg-secondary transition-all duration-500 ease-out"
+                        style={{ width: `${overallPercentComplete}%` }}
+                      />
+                    </span>
+                  }
+                />
+                <StatTile
+                  label="Lessons mastered"
+                  value={totalMasteryLessons}
+                  hint={totalMasteryLessons > 0 ? 'Verified by mastery checks' : 'Complete a capsule to begin'}
+                />
+              </div>
+            </div>
+
+            {/* Weekly streak: derived from currentStreak and today's weekday */}
+            <DashCard tone="soft" size="sm" className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                <span className="text-sm font-medium text-ink-primary">This week</span>
+                <ul className="flex items-center gap-1.5" aria-label="Study days this week">
+                  {weekDays.map((day, idx) => {
+                    const isToday = idx === currentDayIndex
+                    const isChecked = currentStreak > 0 && idx < currentStreak && idx <= currentDayIndex
+                    const base = 'flex h-9 w-9 items-center justify-center rounded-full text-xs font-semibold'
+                    const state = isChecked || (isToday && currentStreak > 0)
+                      ? 'bg-accent-primary text-on-primary'
+                      : 'border border-dashed border-border-strong text-ink-muted'
+                    return (
+                      <li
+                        key={idx}
+                        className={`${base} ${state} ${isToday ? 'ring-2 ring-accent-warm ring-offset-2 ring-offset-canvas-soft' : ''}`}
+                        aria-label={`${day}${isToday ? ' (today)' : ''}: ${isChecked || (isToday && currentStreak > 0) ? 'studied' : 'not studied'}`}
+                      >
+                        {isChecked || (isToday && currentStreak > 0) ? (
+                          <span aria-hidden="true" className="material-symbols-outlined text-base leading-none">check</span>
+                        ) : (
+                          <span aria-hidden="true">{day}</span>
+                        )}
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+              <p className="flex items-center gap-2 text-sm text-ink-secondary">
+                <span aria-hidden="true" className="material-symbols-outlined text-lg text-accent-sage">verified</span>
+                <span>
+                  {currentStreak > 0 ? 'On track for your exams' : 'Complete a study session to start your week'}
+                </span>
+              </p>
+            </DashCard>
+          </section>
+
+{/* SECTION 2B: DYNAMIC ADAPTIVE EXAM STUDY PLANNER */}
           <StudyPlannerCard
             userId={user.id}
             studyPlan={studyPlan}
             totalModulesCount={modules.length}
             completedModulesCount={totalCompletedModules}
             nextModuleId={activeModule?.id || null}
+            onModuleClick={handleModuleClick}
           />
 
           {/* SECTION 3: TODAY'S STRUCTURED LEARNING PLAN */}
@@ -1140,7 +928,7 @@ export function StitchDashboardView({
                     Prioritized tasks to maintain academic cadence.
                   </p>
                 </div>
-                <span className="font-label-micro text-label-micro text-ink-muted uppercase">
+                <span className="font-label-md text-sm text-ink-muted font-medium">
                   {activeModule ? '3 of 3 Pending' : '0 Pending'}
                 </span>
               </div>
@@ -1155,7 +943,7 @@ export function StitchDashboardView({
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="font-label-micro text-label-micro text-primary uppercase font-bold tracking-wider">
+                          <span className="font-label-md text-sm text-primary font-medium">
                             Lesson
                           </span>
                           <span className="text-ink-muted text-xs">
@@ -1172,6 +960,7 @@ export function StitchDashboardView({
                     </div>
                     <Link
                       href={activeModule?.id ? `/dashboard/${user.id}/class/${activeModule.id}` : `/dashboard/${user.id}/class`}
+                      onClick={(e) => handleModuleClick(e, activeModule?.id)}
                       className="sm:self-center flex-shrink-0 px-5 py-2.5 rounded-xl bg-primary hover:bg-accent-hover text-white font-semibold font-label-md text-label-md transition-colors scale-[0.98] text-center"
                     >
                       Continue
@@ -1186,7 +975,7 @@ export function StitchDashboardView({
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="font-label-micro text-label-micro text-secondary uppercase font-bold tracking-wider">
+                          <span className="font-label-md text-sm text-secondary font-medium">
                             Mastery Evaluation
                           </span>
                           <span className="text-ink-muted text-xs">• 10 Gemini MCQs • Advances Syllabus Progress</span>
@@ -1216,15 +1005,18 @@ export function StitchDashboardView({
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="font-label-micro text-label-micro text-ink-muted uppercase font-bold tracking-wider">
+                          <span className="font-label-md text-sm text-ink-muted font-medium">
                             Review
                           </span>
                           <span className="text-ink-muted text-xs">• 5 min flash review</span>
                         </div>
                         <h4 className="font-headline-sm text-headline-sm text-ink-primary mt-0.5">
-                          {memories.length > 0
-                            ? `Spaced Repetition: ${memories[0].memory_text.slice(0, 42)}...`
-                            : `Spaced Repetition: ${activeCourse.title} Concepts`}
+                          {(() => {
+                            const memorySnippet = (memories[0]?.memory_text || memories[0]?.content || '').trim()
+                            return memorySnippet
+                              ? `Spaced Repetition: ${memorySnippet.slice(0, 42)}...`
+                              : `Spaced Repetition: ${activeCourse.title} Concepts`
+                          })()}
                         </h4>
                         <p className="font-body-md text-body-md text-ink-secondary text-sm mt-0.5">
                           Keep key photochemical and molecular concepts warm across decay intervals.
@@ -1233,6 +1025,7 @@ export function StitchDashboardView({
                     </div>
                     <Link
                       href={`/dashboard/${user.id}/class?mode=review`}
+                      onClick={(e) => handleModuleClick(e)}
                       className="sm:self-center flex-shrink-0 px-5 py-2.5 rounded-xl border border-border-subtle bg-surface hover:bg-canvas text-ink-primary font-label-md text-label-md transition-colors text-center"
                     >
                       Quick Review
@@ -1262,6 +1055,7 @@ export function StitchDashboardView({
             userId={user.id}
             modules={modules}
             progressRecords={progressRecords}
+            onModuleClick={handleModuleClick}
           />
 
           {/* SECTION 4: ENROLLED SUBJECTS & SCHOLAR TRACKS */}
@@ -1305,7 +1099,7 @@ export function StitchDashboardView({
                         <span className="w-9 h-9 rounded-xl bg-surface-container-low border border-border-subtle flex items-center justify-center text-secondary">
                           <span className="material-symbols-outlined text-xl">{card.iconName}</span>
                         </span>
-                        <span className={`font-label-micro text-label-micro ${card.statusColor} font-bold uppercase`}>
+                        <span className={`font-label-md text-xs ${card.statusColor} font-semibold`}>
                           {card.statusLabel}
                         </span>
                       </div>
@@ -1321,7 +1115,7 @@ export function StitchDashboardView({
 
                       {/* Progress bar */}
                       <div className="space-y-1.5 pt-2">
-                        <div className="flex justify-between font-label-micro text-label-micro text-ink-muted">
+                        <div className="flex justify-between font-label-md text-xs text-ink-muted">
                           <span>Syllabus Completed</span>
                           <span className="text-ink-primary font-medium">{card.percent}%</span>
                         </div>
@@ -1349,6 +1143,7 @@ export function StitchDashboardView({
                       <Link
                         className="font-label-md text-label-md text-ink-primary hover:text-primary font-medium inline-flex items-center gap-1"
                         href={card.nextModuleId ? `/dashboard/${user.id}/class/${card.nextModuleId}` : `/dashboard/${user.id}/class`}
+                        onClick={(e) => handleModuleClick(e, card.nextModuleId || activeModule?.id)}
                       >
                         <span>Enter Subject</span>
                         <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -1380,7 +1175,7 @@ export function StitchDashboardView({
             <div className="lg:col-span-5 bg-surface rounded-3xl border border-border-subtle p-7 md:p-8 diffused-card-shadow flex flex-col justify-between">
               <div className="space-y-5">
                 <div className="flex items-center justify-between">
-                  <span className="font-label-micro text-label-micro text-ink-muted uppercase tracking-wider">
+                  <span className="font-label-md text-sm text-ink-muted font-medium">
                     Practice Diagnostic
                   </span>
                   <span className="material-symbols-outlined text-ink-muted text-xl">tune</span>
@@ -1396,7 +1191,7 @@ export function StitchDashboardView({
 
                 {/* Subject Toggle Chips */}
                 <div className="space-y-2 pt-1">
-                  <span className="font-label-micro text-label-micro text-ink-muted uppercase">
+                  <span className="font-label-md text-sm text-ink-muted font-medium">
                     Select Discipline
                   </span>
                   <div className="flex flex-wrap gap-2">
@@ -1406,7 +1201,7 @@ export function StitchDashboardView({
                         <button
                           key={discipline}
                           onClick={() => setSelectedDiscipline(discipline)}
-                          className={`px-3 py-1.5 rounded-lg font-label-micro text-label-micro transition-colors cursor-pointer ${
+                          className={`px-3 py-1.5 rounded-lg font-label-md text-xs transition-colors cursor-pointer ${
                             isSelected
                               ? 'bg-ink-primary text-white'
                               : 'border border-border-subtle bg-canvas hover:bg-surface text-ink-secondary'
@@ -1423,6 +1218,7 @@ export function StitchDashboardView({
               <div className="pt-6 mt-6 border-t border-border-subtle">
                 <Link
                   href={`/dashboard/${user.id}/class?mode=diagnostic&discipline=${encodeURIComponent(selectedDiscipline)}`}
+                  onClick={(e) => handleModuleClick(e)}
                   className="w-full flex items-center justify-center gap-2 border border-border-subtle bg-surface hover:bg-canvas text-ink-primary py-3 rounded-xl font-label-md text-label-md transition-all text-center"
                 >
                   <span className="material-symbols-outlined text-lg">edit_document</span>
@@ -1435,7 +1231,7 @@ export function StitchDashboardView({
             <div className="lg:col-span-7 bg-surface rounded-3xl border border-border-subtle p-7 md:p-8 diffused-card-shadow flex flex-col justify-between space-y-5">
               <div>
                 <div className="flex items-center justify-between">
-                  <span className="font-label-micro text-label-micro text-secondary uppercase tracking-wider font-bold flex items-center gap-1.5">
+                  <span className="font-label-md text-sm text-secondary font-medium flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-secondary" />
                     <span>Board Exam PYQ Practice Hub</span>
                   </span>
@@ -1473,8 +1269,8 @@ export function StitchDashboardView({
                 </div>
 
                 {/* Mark Allocation Filter Chips */}
-                <div className="flex items-center gap-2 mt-4">
-                  <span className="font-label-micro text-label-micro text-ink-muted">Filter:</span>
+                <div className="flex flex-wrap items-center gap-2 mt-4">
+                  <span className="font-label-md text-xs text-ink-muted">Filter:</span>
                   {(['all', '1', '2', '3', '5'] as const).map((m) => (
                     <button
                       key={m}
@@ -1538,6 +1334,7 @@ export function StitchDashboardView({
                           {matchingModule && (
                             <Link
                               href={`/dashboard/${user.id}/class/${matchingModule.id}?pyqQuestion=${encodeURIComponent(q.question)}`}
+                              onClick={(e) => handleModuleClick(e, matchingModule.id)}
                               className="text-xs font-medium text-secondary hover:underline flex items-center gap-1"
                             >
                               <span>Solve on Chalkboard</span>
@@ -1594,11 +1391,16 @@ export function StitchDashboardView({
                 {activeCourse ? `Ready to explore ${activeModule?.title || activeCourse.title}?` : 'Ready to begin your study session?'}
               </h3>
               <p className="font-body-md text-body-md text-ink-secondary text-sm">
-                {memories.length > 0
-                  ? `Anaxly has synthesized your recent sessions: "${memories[0].memory_text.slice(0, 110)}..."`
-                  : activeModule?.description
-                  ? `Beginning with ${activeModule.title}. Reviewing foundational concepts and interactive socratic problems.`
-                  : 'Anaxly is ready for interactive dialogue, concept clarification, and deliberate practice.'}
+                {(() => {
+                  const memorySnippet = (memories[0]?.memory_text || memories[0]?.content || '').trim()
+                  if (memorySnippet) {
+                    return `Anaxly has synthesized your recent sessions: "${memorySnippet.slice(0, 110)}..."`
+                  }
+                  if (activeModule?.description) {
+                    return `Beginning with ${activeModule.title}. Reviewing foundational concepts and interactive socratic problems.`
+                  }
+                  return 'Anaxly is ready for interactive dialogue, concept clarification, and deliberate practice.'
+                })()}
               </p>
             </div>
 
@@ -1652,12 +1454,12 @@ export function StitchDashboardView({
           </DialogHeader>
 
           <div className="space-y-4 my-2">
-            <div className="p-4 rounded-2xl bg-canvas border border-border-subtle space-y-2">
+            <div className="p-4 rounded-2xl bg-canvas border border-border-subtle space-y-2 max-h-60 overflow-y-auto">
               <span className="font-label-micro text-xs uppercase tracking-wider text-ink-muted">
-                Core Topic Overview
+                Core Topic Overview & Master Notes
               </span>
-              <p className="font-body-md text-ink-primary text-sm">
-                {activeModule?.description || 'Foundational concepts and principles for this chapter.'}
+              <p className="font-body-md text-ink-primary text-sm whitespace-pre-line">
+                {activeModule?.chapter_notes || activeModule?.description || 'Foundational concepts and principles for this chapter.'}
               </p>
             </div>
 
@@ -1689,6 +1491,12 @@ export function StitchDashboardView({
             </button>
             <Link
               href={activeModule?.id ? `/dashboard/${user.id}/class/${activeModule.id}` : `/dashboard/${user.id}/class`}
+              onClick={(e) => {
+                handleModuleClick(e, activeModule?.id)
+                if (isFreeQuotaExhausted && (!activeModule?.id || !isModuleComplete(activeModule.id))) {
+                  setNotesDialogOpen(false)
+                }
+              }}
               className="px-5 py-2 rounded-xl bg-primary text-white font-semibold font-label-md hover:bg-accent-hover text-center"
             >
               Open Live Session
@@ -1773,12 +1581,13 @@ export function StitchDashboardView({
                 onChange={(e) => setSelectedClass(e.target.value)}
                 className="w-full p-2.5 rounded-xl border border-border-subtle bg-surface text-ink-primary text-sm focus:outline-hidden focus:ring-2 focus:ring-primary/20"
               >
+                <option value="Class 6">Class 6</option>
+                <option value="Class 7">Class 7</option>
                 <option value="Class 8">Class 8</option>
                 <option value="Class 9">Class 9</option>
                 <option value="Class 10">Class 10</option>
                 <option value="Class 11">Class 11</option>
                 <option value="Class 12">Class 12</option>
-                <option value="Undergraduate">Undergraduate / College</option>
               </select>
             </div>
 
@@ -2184,7 +1993,10 @@ export function StitchDashboardView({
                         <div className="mt-4 pt-3 border-t border-border-subtle/50 flex justify-end">
                           <Link
                             href={`/dashboard/${user.id}/class/${mod.id}`}
-                            onClick={() => setSyllabusModalOpen(false)}
+                            onClick={(e) => {
+                              handleModuleClick(e, mod.id)
+                              setSyllabusModalOpen(false)
+                            }}
                             className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl font-label-md text-xs font-semibold transition-all ${
                               isInProg
                                 ? 'bg-primary hover:bg-accent-hover text-white font-semibold shadow-xs'
@@ -2249,10 +2061,10 @@ export function StitchDashboardView({
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="material-symbols-outlined text-secondary text-2xl">eco</span>
-              <span className="font-headline-md text-headline-md text-ink-primary">AI Tutor</span>
+              <span className="font-editorial text-2xl leading-none text-ink-primary">Anaxly</span>
             </div>
             <button
-              className="p-1 text-ink-muted hover:text-ink-primary cursor-pointer"
+              className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg text-ink-muted hover:text-ink-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm"
               onClick={() => setMobileMenuOpen(false)}
               aria-label="Close menu"
             >
@@ -2260,91 +2072,25 @@ export function StitchDashboardView({
             </button>
           </div>
 
-          <nav className="space-y-1">
-            <button
-              onClick={() => {
-                setActiveNav('home')
+          <DashboardNav
+            ariaLabel="Mobile navigation"
+            activeId={activeNav}
+            items={navItems.map((item) => ({
+              ...item,
+              onSelect: () => {
+                item.onSelect()
                 setMobileMenuOpen(false)
-              }}
-              className="w-full flex items-center gap-3 text-primary font-label-md text-label-md bg-surface-container-low/50 pl-3 py-2.5 rounded-lg border-l-2 border-primary text-left cursor-pointer"
-            >
-              <span className="material-symbols-outlined" style={{ fontVariationSettings: '"FILL" 1' }}>
-                home
-              </span>
-              <span>Home</span>
-            </button>
-
-            <button
-              onClick={() => {
-                setActiveNav('syllabus')
-                setMobileMenuOpen(false)
-                setSyllabusModalOpen(true)
-              }}
-              className="w-full flex items-center gap-3 text-ink-secondary font-label-md text-label-md pl-3 py-2.5 rounded-lg hover:text-ink-primary text-left cursor-pointer"
-            >
-              <span className="material-symbols-outlined">menu_book</span>
-              <span>Syllabus</span>
-            </button>
-
-            <button
-              onClick={() => {
-                setActiveNav('learn')
-                setMobileMenuOpen(false)
-                const el = document.getElementById('enrolled-subjects-section')
-                if (el) el.scrollIntoView({ behavior: 'smooth' })
-              }}
-              className="w-full flex items-center gap-3 text-ink-secondary font-label-md text-label-md pl-3 py-2.5 rounded-lg hover:text-ink-primary text-left cursor-pointer"
-            >
-              <span className="material-symbols-outlined">auto_stories</span>
-              <span>Learn</span>
-            </button>
-
-            <button
-              onClick={() => {
-                setActiveNav('practice')
-                setMobileMenuOpen(false)
-                const el = document.getElementById('deliberate-practice-section')
-                if (el) el.scrollIntoView({ behavior: 'smooth' })
-              }}
-              className="w-full flex items-center gap-3 text-ink-secondary font-label-md text-label-md pl-3 py-2.5 rounded-lg hover:text-ink-primary text-left cursor-pointer"
-            >
-              <span className="material-symbols-outlined">edit_note</span>
-              <span>Practice</span>
-            </button>
-
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false)
-                setLiveModalOpen(true)
-              }}
-              className="w-full flex items-center gap-3 text-ink-secondary font-label-md text-label-md pl-3 py-2.5 rounded-lg hover:text-ink-primary text-left cursor-pointer"
-            >
-              <span className="material-symbols-outlined">psychology</span>
-              <span>Live Tutor</span>
-            </button>
-
-            <button
-              onClick={() => {
-                setActiveNav('progress')
-                setMobileMenuOpen(false)
-                const el = document.getElementById('consistency-section')
-                if (el) el.scrollIntoView({ behavior: 'smooth' })
-              }}
-              className="w-full flex items-center gap-3 text-ink-secondary font-label-md text-label-md pl-3 py-2.5 rounded-lg hover:text-ink-primary text-left cursor-pointer"
-            >
-              <span className="material-symbols-outlined">insights</span>
-              <span>Progress</span>
-            </button>
-
-            <Link
-              href={`/dashboard/${user.id}/settings?tab=avatars`}
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center gap-3 text-ink-secondary font-label-md text-label-md pl-3 py-2.5 rounded-lg hover:text-ink-primary text-left cursor-pointer"
-            >
-              <span className="material-symbols-outlined">settings</span>
-              <span>Settings & Avatars</span>
-            </Link>
-          </nav>
+              },
+            }))}
+          />
+          <Link
+            href={`/dashboard/${user.id}/settings?tab=avatars`}
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-ink-secondary transition-colors hover:bg-canvas-soft hover:text-ink-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm"
+          >
+            <span aria-hidden="true" className="material-symbols-outlined text-xl">settings</span>
+            <span>Settings &amp; avatars</span>
+          </Link>
         </div>
 
         <div className="border-t border-border-subtle pt-4">

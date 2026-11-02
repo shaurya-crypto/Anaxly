@@ -26,12 +26,14 @@ interface WeakConceptsReviewCardProps {
   userId: string
   modules: Module[]
   progressRecords: ProgressRecord[]
+  onModuleClick?: (e: React.MouseEvent, moduleId?: string) => void
 }
 
 export function WeakConceptsReviewCard({
   userId,
   modules,
   progressRecords,
+  onModuleClick,
 }: WeakConceptsReviewCardProps) {
   const progressMap = new Map<string, ProgressRecord>()
   progressRecords.forEach((p) => progressMap.set(p.syllabus_module_id, p))
@@ -110,7 +112,7 @@ export function WeakConceptsReviewCard({
             >
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="font-label-micro text-label-micro text-ink-muted uppercase tracking-wider">
+                  <span className="font-label-md text-sm text-ink-muted font-medium">
                     Capsule #{mod.order_index}
                   </span>
                   {typeof score === 'number' ? (
@@ -150,6 +152,7 @@ export function WeakConceptsReviewCard({
 
               <Link
                 href={`/dashboard/${userId}/class/${mod.id}`}
+                onClick={(e) => onModuleClick?.(e, mod.id)}
                 className="w-full inline-flex items-center justify-center gap-1.5 bg-surface hover:bg-canvas text-ink-primary border border-border-subtle text-xs font-label-md py-2 rounded-xl transition-all shadow-2xs hover:border-ink-muted cursor-pointer"
               >
                 <span>Start Targeted Drill</span>

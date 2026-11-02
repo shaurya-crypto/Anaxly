@@ -131,7 +131,7 @@ export default async function DashboardPage({
 
   let modulesQuery = supabase
     .from("syllabus_modules")
-    .select("id, curriculum_id, order_index, title, description, estimated_minutes, key_concepts, success_criteria, class_level, board, curriculums(*)")
+    .select("id, curriculum_id, order_index, title, description, estimated_minutes, key_concepts, success_criteria, class_level, board, subtopics, chapter_notes, curriculums(*)")
     .order("order_index", { ascending: true });
 
   if (targetCurriculumIds.length > 0) {
@@ -155,7 +155,10 @@ export default async function DashboardPage({
   ]);
 
   const userProgress = progressData || [];
-  const userMemories = memoriesData || [];
+  const userMemories = (memoriesData || []).map((m: any) => ({
+    ...m,
+    memory_text: m.memory_text || m.content || "",
+  }));
 
   // 7. Dynamic Active Curriculum Resolution:
   // Strictly database-driven:
@@ -214,6 +217,9 @@ export default async function DashboardPage({
             status: 'active',
             enrolled_at: new Date().toISOString()
           }, { onConflict: 'user_id,curriculum_id' });
+        if (!enrolledCurriculums.some((c: any) => c.id === curr.id)) {
+          enrolledCurriculums.push(curr);
+        }
         break;
       }
     }
