@@ -96,6 +96,9 @@ CRITICAL VECTOR DESIGN SPECIFICATIONS (ARISTOTLE & GAUTH BENCHMARK):
         systemInstruction: systemPrompt,
         temperature: 0.15,
         maxOutputTokens: 8192,
+        thinkingConfig: {
+          thinkingBudget: 0,
+        },
       },
     })
 
