@@ -416,6 +416,11 @@ export function StitchDashboardView({
   }
 
   const handleStartSession = () => {
+    if (isFreeQuotaExhausted && (!activeModule?.id || !isModuleComplete(activeModule.id))) {
+      setLiveModalOpen(false)
+      setPricingModalOpen(true)
+      return
+    }
     setIsStartingSession(true)
     setTimeout(() => {
       setLiveModalOpen(false)
@@ -601,6 +606,7 @@ export function StitchDashboardView({
 
             <Link
               href={`/dashboard/${user.id}/class?mode=focus`}
+              onClick={(e) => handleModuleClick(e, activeModule?.id)}
               className={`${headerTextButtonClass} hidden sm:inline-flex`}
             >
               <span aria-hidden="true" className="material-symbols-outlined text-lg text-primary">timer</span>
@@ -907,6 +913,7 @@ export function StitchDashboardView({
             totalModulesCount={modules.length}
             completedModulesCount={totalCompletedModules}
             nextModuleId={activeModule?.id || null}
+            onModuleClick={handleModuleClick}
           />
 
           {/* SECTION 3: TODAY'S STRUCTURED LEARNING PLAN */}
@@ -1004,9 +1011,12 @@ export function StitchDashboardView({
                           <span className="text-ink-muted text-xs">• 5 min flash review</span>
                         </div>
                         <h4 className="font-headline-sm text-headline-sm text-ink-primary mt-0.5">
-                          {memories.length > 0
-                            ? `Spaced Repetition: ${(memories[0]?.memory_text || memories[0]?.content || '').slice(0, 42)}...`
-                            : `Spaced Repetition: ${activeCourse.title} Concepts`}
+                          {(() => {
+                            const memorySnippet = (memories[0]?.memory_text || memories[0]?.content || '').trim()
+                            return memorySnippet
+                              ? `Spaced Repetition: ${memorySnippet.slice(0, 42)}...`
+                              : `Spaced Repetition: ${activeCourse.title} Concepts`
+                          })()}
                         </h4>
                         <p className="font-body-md text-body-md text-ink-secondary text-sm mt-0.5">
                           Keep key photochemical and molecular concepts warm across decay intervals.
@@ -1015,6 +1025,7 @@ export function StitchDashboardView({
                     </div>
                     <Link
                       href={`/dashboard/${user.id}/class?mode=review`}
+                      onClick={(e) => handleModuleClick(e)}
                       className="sm:self-center flex-shrink-0 px-5 py-2.5 rounded-xl border border-border-subtle bg-surface hover:bg-canvas text-ink-primary font-label-md text-label-md transition-colors text-center"
                     >
                       Quick Review
@@ -1044,6 +1055,7 @@ export function StitchDashboardView({
             userId={user.id}
             modules={modules}
             progressRecords={progressRecords}
+            onModuleClick={handleModuleClick}
           />
 
           {/* SECTION 4: ENROLLED SUBJECTS & SCHOLAR TRACKS */}
@@ -1206,6 +1218,7 @@ export function StitchDashboardView({
               <div className="pt-6 mt-6 border-t border-border-subtle">
                 <Link
                   href={`/dashboard/${user.id}/class?mode=diagnostic&discipline=${encodeURIComponent(selectedDiscipline)}`}
+                  onClick={(e) => handleModuleClick(e)}
                   className="w-full flex items-center justify-center gap-2 border border-border-subtle bg-surface hover:bg-canvas text-ink-primary py-3 rounded-xl font-label-md text-label-md transition-all text-center"
                 >
                   <span className="material-symbols-outlined text-lg">edit_document</span>
@@ -1321,6 +1334,7 @@ export function StitchDashboardView({
                           {matchingModule && (
                             <Link
                               href={`/dashboard/${user.id}/class/${matchingModule.id}?pyqQuestion=${encodeURIComponent(q.question)}`}
+                              onClick={(e) => handleModuleClick(e, matchingModule.id)}
                               className="text-xs font-medium text-secondary hover:underline flex items-center gap-1"
                             >
                               <span>Solve on Chalkboard</span>
@@ -1377,11 +1391,16 @@ export function StitchDashboardView({
                 {activeCourse ? `Ready to explore ${activeModule?.title || activeCourse.title}?` : 'Ready to begin your study session?'}
               </h3>
               <p className="font-body-md text-body-md text-ink-secondary text-sm">
-                {memories.length > 0
-                  ? `Anaxly has synthesized your recent sessions: "${(memories[0]?.memory_text || memories[0]?.content || '').slice(0, 110)}..."`
-                  : activeModule?.description
-                  ? `Beginning with ${activeModule.title}. Reviewing foundational concepts and interactive socratic problems.`
-                  : 'Anaxly is ready for interactive dialogue, concept clarification, and deliberate practice.'}
+                {(() => {
+                  const memorySnippet = (memories[0]?.memory_text || memories[0]?.content || '').trim()
+                  if (memorySnippet) {
+                    return `Anaxly has synthesized your recent sessions: "${memorySnippet.slice(0, 110)}..."`
+                  }
+                  if (activeModule?.description) {
+                    return `Beginning with ${activeModule.title}. Reviewing foundational concepts and interactive socratic problems.`
+                  }
+                  return 'Anaxly is ready for interactive dialogue, concept clarification, and deliberate practice.'
+                })()}
               </p>
             </div>
 
@@ -1472,6 +1491,12 @@ export function StitchDashboardView({
             </button>
             <Link
               href={activeModule?.id ? `/dashboard/${user.id}/class/${activeModule.id}` : `/dashboard/${user.id}/class`}
+              onClick={(e) => {
+                handleModuleClick(e, activeModule?.id)
+                if (isFreeQuotaExhausted && (!activeModule?.id || !isModuleComplete(activeModule.id))) {
+                  setNotesDialogOpen(false)
+                }
+              }}
               className="px-5 py-2 rounded-xl bg-primary text-white font-semibold font-label-md hover:bg-accent-hover text-center"
             >
               Open Live Session
@@ -1968,7 +1993,10 @@ export function StitchDashboardView({
                         <div className="mt-4 pt-3 border-t border-border-subtle/50 flex justify-end">
                           <Link
                             href={`/dashboard/${user.id}/class/${mod.id}`}
-                            onClick={() => setSyllabusModalOpen(false)}
+                            onClick={(e) => {
+                              handleModuleClick(e, mod.id)
+                              setSyllabusModalOpen(false)
+                            }}
                             className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl font-label-md text-xs font-semibold transition-all ${
                               isInProg
                                 ? 'bg-primary hover:bg-accent-hover text-white font-semibold shadow-xs'

@@ -47,6 +47,7 @@ interface StudyPlannerCardProps {
   completedModulesCount: number
   nextModuleId?: string | null
   onPlanUpdated?: () => void
+  onModuleClick?: (e: React.MouseEvent, moduleId?: string) => void
 }
 
 export function StudyPlannerCard({
@@ -56,6 +57,7 @@ export function StudyPlannerCard({
   completedModulesCount,
   nextModuleId,
   onPlanUpdated,
+  onModuleClick,
 }: StudyPlannerCardProps) {
   const router = useRouter()
   const [modalOpen, setModalOpen] = useState(false)
@@ -298,6 +300,7 @@ export function StudyPlannerCard({
             {nextModuleId && (
               <Link
                 href={`/dashboard/${userId}/class/${nextModuleId}`}
+                onClick={(e) => onModuleClick?.(e, nextModuleId)}
                 className="inline-flex items-center gap-1.5 bg-primary hover:bg-accent-hover text-white font-label-md text-xs px-4 py-2 rounded-xl transition-all shadow-xs"
               >
                 <span>Start Today's Capsule</span>

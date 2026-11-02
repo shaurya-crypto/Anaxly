@@ -217,6 +217,9 @@ export default async function DashboardPage({
             status: 'active',
             enrolled_at: new Date().toISOString()
           }, { onConflict: 'user_id,curriculum_id' });
+        if (!enrolledCurriculums.some((c: any) => c.id === curr.id)) {
+          enrolledCurriculums.push(curr);
+        }
         break;
       }
     }
