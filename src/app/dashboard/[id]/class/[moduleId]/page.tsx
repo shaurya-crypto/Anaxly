@@ -585,6 +585,18 @@ export default function ModuleClassroomPage() {
           return
         }
 
+        // 1 Free Session Quota Check: direct URLs must follow the same rule as the dashboard links.
+        // Completed modules stay open for revisiting.
+        const { data: progressList } = await supabase
+          .from('user_progress')
+          .select('syllabus_module_id, status, completed_at')
+          .eq('user_id', userId)
+        const completedList = (progressList || []).filter((p: any) => p.status === 'completed' || !!p.completed_at)
+        if (completedList.length >= 1 && !completedList.some((p: any) => p.syllabus_module_id === moduleId)) {
+          router.replace(`/dashboard/${userId}?pricing_notice=true`)
+          return
+        }
+
         // Fetch student profile class_level, voice preference, name, language & medium, and quota settings
         let profile: any = null
         const { data: profData, error: profErr } = await supabase
