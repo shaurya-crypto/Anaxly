@@ -177,16 +177,30 @@ function buildConceptMicroDossiers(
             .join('\n')
         : ''
 
-      const diagCue =
-        idx === 0 && (whatToMake || chapterFlowchart)
-          ? `\n   * Mandatory Visual: ${
-              chapterFlowchart
-                ? `draw_flowchart("${chapterFlowchart}")`
-                : `render_svg_diagram("${conceptName}", type="${diagramType}", what="${whatToMake.slice(0, 120)}")`
-            }`
-          : ''
+      const conceptVisualsList = Array.isArray(visualPlan?.concept_visuals) ? visualPlan.concept_visuals : []
+      const matchedCv =
+        conceptVisualsList[idx] ||
+        conceptVisualsList.find((c: any) =>
+          (c.concept_title || '').toLowerCase().includes(conceptName.toLowerCase()) ||
+          conceptName.toLowerCase().includes((c.concept_title || '').toLowerCase())
+        )
 
-      return `Concept ${idx + 1} "${conceptName}":\n   * Core: ${q1}${defStr}${exStr}${misc ? ` [Caution: ${misc}]` : ''}${qListStr}${diagCue}`
+      let visualDirective = ''
+      if (matchedCv) {
+        visualDirective = `\n   * Pedagogical Visual Blueprint (Tier 1 Vector SVG):
+     - Diagram Title: "${matchedCv.diagram_title || matchedCv.concept_title || conceptName}"
+     - Why Needed: ${matchedCv.why_needed || 'Pedagogical grounding of core principles and formulas'}
+     - What to Explain Step-by-Step: ${matchedCv.what_to_explain || matchedCv.what_to_make || 'Point out origin, axes, labels, and physical intuition to the student'}
+     - Action Cue: Call render_svg_diagram("${matchedCv.diagram_title || matchedCv.concept_title || conceptName}")${matchedCv.interactive_math_formula ? `\n     - Interactive Coordinate Function: ${matchedCv.interactive_math_formula}` : ''}`
+      } else if (idx === 0 && (whatToMake || chapterFlowchart)) {
+        visualDirective = `\n   * Mandatory Visual: ${
+          chapterFlowchart
+            ? `draw_flowchart("${chapterFlowchart}")`
+            : `render_svg_diagram("${conceptName}", type="${diagramType}", what="${whatToMake.slice(0, 120)}")`
+        }`
+      }
+
+      return `Concept ${idx + 1} "${conceptName}":\n   * Core: ${q1}${defStr}${exStr}${misc ? ` [Caution: ${misc}]` : ''}${qListStr}${visualDirective}`
     })
     .join('\n')
 }
@@ -2329,7 +2343,7 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
               return
             }
 
-            // 2. Fetch on-demand bespoke vector diagram from /api/diagram/generate
+            // 2. Fetch on-demand bespoke vector diagram from /api/diagram/generate (Tier 2 Refinement / Synthesis)
             fetch('/api/diagram/generate', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -2338,12 +2352,20 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
                 subject: resolvedSubject,
                 classLevel: resolvedClassLevel,
                 context: currentConcept || queryTitle,
+                existingSvg: matched?.svg || matched?.diagram_svg || '',
+                whyNeeded: matched?.why_needed || '',
+                whatToExplain: matched?.what_to_explain || '',
+                refinementPrompt: explicitCaption || '',
               }),
             })
               .then((res) => res.json())
               .then((data) => {
                 if (data?.svg && data.svg.includes('<svg')) {
-                  chalkboardRef.current?.drawSvgDiagram?.(data.title || queryTitle, data.svg, data.caption || explicitCaption)
+                  chalkboardRef.current?.drawSvgDiagram?.(
+                    data.title || queryTitle,
+                    data.svg,
+                    data.caption || explicitCaption || data.what_to_explain
+                  )
                 } else {
                   // Fall back to local mathematical/biological vector SVG engine
                   chalkboardRef.current?.drawSvgDiagram?.(queryTitle, '', explicitCaption)

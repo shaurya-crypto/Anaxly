@@ -26,6 +26,9 @@ interface ConceptVisual {
   svg?: string
   diagram_svg?: string
   timing_and_cue?: string
+  why_needed?: string
+  what_to_explain?: string
+  interactive_math_formula?: string
 }
 
 interface TextbookQuestion {
@@ -124,6 +127,9 @@ function buildEnhancedVisualPlanAndDirective(cap: any, visualPlan: any) {
     ...cv,
     diagram_svg: cv.diagram_svg || cv.svg || '',
     svg: cv.diagram_svg || cv.svg || '',
+    why_needed: cv.why_needed || `Pedagogical visual grounding for ${cv.concept_title || cv.diagram_title || 'concept'}.`,
+    what_to_explain: cv.what_to_explain || cv.what_to_make || `Walk the student through the key features, axes, and labeled callouts.`,
+    interactive_math_formula: cv.interactive_math_formula || '',
   }))
 
   const exercisesList = Array.isArray(cap.textbook_exercises) ? cap.textbook_exercises : []
@@ -195,8 +201,9 @@ function buildEnhancedVisualPlanAndDirective(cap: any, visualPlan: any) {
     .map((cv: any, idx: number) => {
       return `  * Concept #${idx + 1} "${cv.concept_title}":
     - Visual Title: "${cv.diagram_title || cv.concept_title}" (${cv.diagram_type || 'vector_svg_diagram'})
-    - What to Draw: ${cv.what_to_make || ''}
-    - Timing & Directive: ${cv.timing_and_cue || 'Call render_svg_diagram during Step 2.'}`
+    - Why Needed: ${cv.why_needed || 'Pedagogical grounding of core principles.'}
+    - What to Explain: ${cv.what_to_explain || cv.what_to_make || ''}
+    - Timing & Directive: ${cv.timing_and_cue || 'Call render_svg_diagram during Step 2.'}${cv.interactive_math_formula ? `\n    - Interactive Math Formula: ${cv.interactive_math_formula}` : ''}`
     })
     .join('\n')
 
@@ -626,11 +633,11 @@ TARGET ACADEMIC SPECIFICATION:
   * For each question, provide the ideal topper model answer and a Socratic hint to guide the student if they get stuck.
 - TEXTBOOK FIDELITY INVARIANT: Wherever images, graphs, coordinate systems, and exact verbatim definitions appear in the book, capture them accurately with authentic vector SVG markup.
 - HIGHEST QUALITY PRODUCTION SVG INVARIANT (ZERO FAKE BLUEPRINTS):
-  * Every single capsule MUST include authentic, production-ready vector SVG markup in "diagram_svg" and "concept_visuals".
+  * Every single capsule MUST include authentic, publication-grade vector SVG markup in "diagram_svg" and "concept_visuals".
   * STRICT PROHIBITION: NEVER output generic placeholder boxes, corporate flowchart cards ("CONCEPTUAL BLUEPRINT", "ANAXLY VECTOR ENGINE", "1. GOVERNING PRINCIPLE"), or empty SVGs!
   * If the topic is Coordinate Geometry / Quadrants: Draw the actual 2D Cartesian plane with X and Y axes, arrows, origin O(0,0), numbered ticks (-5 to 5), and the 4 Quadrants clearly labeled: Quadrant I (+, +), Quadrant II (-, +), Quadrant III (-, -), Quadrant IV (+, -) with plotted points!
   * If the topic is Science/Physics: Draw the exact apparatus, ray paths, circuits with resistors and battery, or anatomical and molecular setups!
-  * Dark chalkboard background #13211B, contrasting strokes (#FFFFFF, #7EC8E3, #68B084, #FBBF24, #F87171).
+  * CLEAN WHITE CHALKBOARD CANVAS: Pure white background #FFFFFF (<rect x="4" y="4" width="532" height="272" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>), with high-contrast scholastic strokes (#0F172A charcoal ink, #2563EB Aristotle blue, #16A34A emerald, #DC2626 crimson, #D97706 amber, #64748B slate). Seamlessly blends into the whiteboard canvas with ZERO dark green boxes!
 - ZERO OMISSION OF EXERCISES & PRACTICE QUESTIONS: In Part B, every question (Q1, Q2, Q3...) from each textbook exercise must have its own dedicated worked example with Given, Formula, Substitution, Scratchpad Calculation, and Boxed Answer.
 
 ${isMathCategory ? `
@@ -717,14 +724,17 @@ REQUIREMENTS FOR EACH TOPIC CAPSULE (4 to 8 capsules total, 20 mins each):
 16. "visual_ideas": Comprehensive visual and image generation ideas.
 17. "diagram_type": The exact type of diagram (vector_svg_diagram | mafs_graph | flowchart | circuit_schematic | ray_optics | anatomy_structure).
 18. "what_to_make": Detailed blueprint of components, geometric shapes, axes, labels, and numerical values to draw.
-19. "diagram_svg": Complete, production-ready, clean vector SVG markup (<svg viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" xmlns="http://www.w3.org/2000/svg">...</svg>) with contrasting stroke colors, dark background #13211B, and clear text labels.
+19. "diagram_svg": Complete, publication-ready, clean vector SVG markup (<svg viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" xmlns="http://www.w3.org/2000/svg">...</svg>) with clean white background #FFFFFF (<rect x="4" y="4" width="532" height="272" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>), contrasting dark ink strokes (#0F172A, #2563EB, #16A34A, #DC2626), and clear text labels.
 20. "concept_visuals": Array of 2 to 4 UNIQUE, DISTINCT visual diagram blueprints—one crafted for key concepts. Each item MUST be:
     {
       "concept_title": "Exact title matching key_concepts[i]",
       "diagram_title": "Short descriptive title for chalkboard header",
       "diagram_type": "vector_svg_diagram" | "mafs_graph" | "flowchart" | "circuit_schematic" | "ray_optics" | "geometry_construction",
+      "why_needed": "Pedagogical explanation of why this visual is essential for the student's intuition and exam mastery",
+      "what_to_explain": "Explicit step-by-step pointers for the live tutor to explain to the student during class",
+      "interactive_math_formula": "Formula for Mafs/Desmos coordinate graph plotting if applicable (e.g. '2x + 1' or 'x^2')",
       "what_to_make": "Specific description of what to draw (axes, vectors, formula boxes, SI units)",
-      "svg": "Complete, production-ready vector SVG (<svg viewBox=\"0 0 540 280\" ...>...</svg>) with dark background #13211B",
+      "svg": "Complete, production-ready vector SVG (<svg viewBox=\"0 0 540 280\" ...>...</svg>) with pure white background #FFFFFF",
       "timing_and_cue": "Pedagogical directive: When to draw this visual and what check question to ask"
     }
 
@@ -805,14 +815,9 @@ Respond with ONLY a valid JSON object matching this schema (do NOT include conve
           "concept_title": "string",
           "diagram_title": "string",
           "diagram_type": "string",
-          "what_to_make": "string",
-          "svg": "string (<svg viewBox='0 0 540 280' ...>...</svg>)",
-          "timing_and_cue": "string"
-        }
-      ]
-    }
-  ]
-}
+          "why_needed": "string",
+          "what_to_explain": "string",
+          "interactive_math_formula": "string",
           "what_to_make": "string",
           "svg": "string (<svg viewBox='0 0 540 280' ...>...</svg>)",
           "timing_and_cue": "string"

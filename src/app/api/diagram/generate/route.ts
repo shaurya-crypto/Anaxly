@@ -25,11 +25,15 @@ export async function POST(req: Request) {
       classLevel = 'Class 10',
       context = '',
       prompt = '',
+      existingSvg = '',
+      refinementPrompt = '',
+      whyNeeded = '',
+      whatToExplain = '',
     } = body
 
-    const cacheKey = `${title.toLowerCase().trim()}|${subject.toLowerCase().trim()}|${classLevel}`
+    const cacheKey = `${title.toLowerCase().trim()}|${subject.toLowerCase().trim()}|${classLevel}|${Boolean(existingSvg)}`
     const cached = svgCache.get(cacheKey)
-    if (cached && Date.now() - cached.timestamp < 1000 * 60 * 60) {
+    if (!existingSvg && cached && Date.now() - cached.timestamp < 1000 * 60 * 60) {
       return NextResponse.json(cached)
     }
 
@@ -40,66 +44,76 @@ export async function POST(req: Request) {
 
     const ai = new GoogleGenAI({ apiKey })
 
+    const isRefinement = Boolean(existingSvg && existingSvg.includes('<svg'))
+
     const systemPrompt = `You are a World-Class Academic Textbook Illustrator & Senior Vector Graphic Designer for elite scholastic platforms (Aristotle, Gauth, Desmos).
-Your ONLY task is to generate an authentic, publication-grade, ultra-detailed vector SVG educational diagram for:
+Your ONLY task is to ${isRefinement ? 'refine and enhance an existing vector SVG educational diagram' : 'generate an authentic, publication-grade, ultra-detailed vector SVG educational diagram'} for:
 Topic: "${title}"
 Subject / Discipline: "${subject}"
 Grade Level: "${classLevel}"
 Academic Context: "${context || prompt || title}"
+${whyNeeded ? `Pedagogical Reason (Why Needed): "${whyNeeded}"` : ''}
+${whatToExplain ? `Instructional Explanations (What to Explain): "${whatToExplain}"` : ''}
+${isRefinement && refinementPrompt ? `Refinement Directive: "${refinementPrompt}"` : ''}
 
-CRITICAL VECTOR DESIGN SPECIFICATIONS (PREMIUM SCHOLASTIC BENCHMARK):
-1. CANVAS & LUXURY THEME PALETTE:
+CRITICAL VECTOR DESIGN SPECIFICATIONS (WHITE CHALKBOARD / ARISTOTLE BENCHMARK):
+1. CANVAS & CLEAN WHITE CHALKBOARD THEME (MANDATORY):
    - Must use viewBox="0 0 540 280" and xmlns="http://www.w3.org/2000/svg".
    - Include shape-rendering="geometricPrecision" and text-rendering="geometricPrecision".
-   - CLEAN LUXURY DARK SLATE/OBSIDIAN BACKDROP (NO MURKY GREEN):
-     * Canvas backdrop: <rect x="8" y="8" width="524" height="264" rx="10" fill="#0A0F1D" stroke="#1E293B" stroke-width="1.5"/>
-     * Inner cards / panels: fill="#111C33" or fill="#0F172A", stroke="#1E293B"
-     * Subtle coordinate grid: stroke="#1E293B" stroke-width="0.5" opacity="0.4"
-     * Header badge pill at top center: <rect x="140" y="16" width="260" height="22" rx="6" fill="#111C33" stroke="#1E293B"/> with <text fill="#38BDF8" font-size="11" font-weight="bold">
-   - Accent & Feature Colors:
-     * Cyan / Electric Sky: #38BDF8 (primary vectors, active layers, axes)
-     * Vibrant Mint / Emerald: #34D399 (biological structures, positive vectors, focus)
-     * Warm Chalk Amber: #FBBF24 (secondary layers, formulas, angles)
-     * Coral Rose: #F43F5E or #FB7185 (transport proteins, nuclei, return paths)
-     * Pure Slate White: #F8FAFC (crisp text labels, ticks)
-     * Muted Gray: #94A3B8 (subtitles, secondary info, leader lines)
+   - PURE CLEAN WHITE BACKGROUND (EXACTLY MATCHING THE WHITE CHALKBOARD):
+     * Canvas backdrop: <rect x="4" y="4" width="532" height="272" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+     * NEVER use dark green (#13211B) or dark blue! The background MUST be clean white (#FFFFFF) so it seamlessly blends into the white whiteboard!
+     * Subtle coordinate graph grid: stroke="#F1F5F9" stroke-width="0.75"
+     * Header pill badge at top center: <rect x="130" y="14" width="280" height="22" rx="6" fill="#F8FAFC" stroke="#E2E8F0"/> with <text fill="#1E293B" font-size="11" font-weight="bold">
+   - Clean Scholastic Palette on White:
+     * Deep Charcoal / Ink: #0F172A (axes, primary text, formulas)
+     * Aristotle Royal Blue: #2563EB (primary vectors, forward paths, active layers)
+     * Scholar Emerald Green: #16A34A (motion curves, biological tissues, positive gradients)
+     * Crimson / Coral Red: #DC2626 (return paths, nuclei, critical focus points)
+     * Warm Chalk Amber / Orange: #D97706 or #F59E0B (actual distance arcs, secondary layers)
+     * Muted Slate Gray: #64748B (tick labels, annotations, subtitles)
+     * Pointer Leader lines: stroke="#94A3B8" with target dots fill="#2563EB"
    - Fonts: 'JetBrains Mono', 'Segoe UI', system-ui, sans-serif
 
-2. SMART CALLOUT & POINTER SYSTEM (CRITICAL - MUST BE APPLIED TO ALL SUBJECTS):
-   - NEVER cram all labels on one side! Distribute labels intelligently (e.g. Left and Right sides, or Top and Bottom).
+2. SMART DUAL-SIDED CALLOUT & POINTER SYSTEM:
+   - Distribute labels symmetrically (Left and Right sides) with ample spacing.
    - EXACT POINTER TARGET ACCURACY:
-     * Every pointer must start with a small solid circle dot <circle cx="..." cy="..." r="2.5" fill="#38BDF8"/> located PRECISELY at the anatomical or mathematical feature it describes.
-     * The leader line must connect cleanly: <polyline points="targetX,targetY elbowX,targetY labelX,labelY" fill="none" stroke="#64748B" stroke-width="1"/>
-     * NEVER point to empty space, wrong layers, or incorrect coordinates!
-   - NO TEXT CLUSTERING OR OVERFLOW:
-     * Maintain AT LEAST 24px vertical separation between any two adjacent text lines.
-     * Labels on the right side: anchor at x <= 420 (text-anchor="start") so they never clip off the 540 canvas.
-     * Labels on the left side: anchor at x >= 120 (text-anchor="end").
-   - Balanced vertical centering: Center the main illustration vertically (between y=55 and y=225) so the card feels full, balanced, and intentional without awkward bottom voids.
+     * Small solid circle dot <circle cx="..." cy="..." r="2.5" fill="#2563EB"/> located PRECISELY at the feature.
+     * Clean connecting leader line: <polyline points="targetX,targetY elbowX,targetY labelX,labelY" fill="none" stroke="#94A3B8" stroke-width="1"/>
+     * Never point to empty space!
+   - NO TEXT OVERLAPPING: Minimum 24px vertical separation between adjacent text lines.
+   - Labels on the right side: anchor at x <= 420 (text-anchor="start").
+   - Labels on the left side: anchor at x >= 120 (text-anchor="end").
 
-3. UNIVERSAL SUBJECT ADAPTABILITY:
-   - BIOLOGY: Center the anatomical/cellular structure. Dual-sided leader lines pointing accurately to specific membranes, organelles, or layers. Labeled cross-sections with cellular textures.
-   - PHYSICS & KINEMATICS (ARISTOTLE BENCHMARK):
+3. UNIVERSAL SUBJECT ADAPTABILITY (ARISTOTLE BENCHMARK):
+   - PHYSICS & KINEMATICS:
      * For Motion Graphs & Kinematics: Draw a dual-tier diagram:
-       - Top row: 4 mini coordinate line graphs (Distance-Time s vs t or Velocity-Time v vs t) side by side with axes, arrowheads, and emerald/cyan curves (#34D399 / #38BDF8):
+       - Top row: 4 mini coordinate line graphs (Distance-Time s vs t or Velocity-Time v vs t) side by side with axes, arrowheads, and emerald green curves (#16A34A):
          1. Stationary body: flat horizontal line
          2. Uniform motion: constant straight diagonal slope
          3. Accelerating non-uniform motion: upward curved parabola
          4. Decelerating non-uniform motion: downward curved line
          Each labeled clearly below the graph!
-       - Bottom row: 1D horizontal coordinate axis with numbered ticks (1 to 8), Start dot (x_i), End diamond (x_f), actual path curved arc (orange dashed with arrow and distance/time), net displacement vector arrow (#38BDF8), and velocity calculation box (v̄ = Δx / Δt)!
+       - Bottom row: 1D horizontal coordinate axis with numbered ticks (1 to 8), Start dot (x_i), End diamond (x_f), actual path curved arc (orange dashed with arrow and distance/time), net displacement vector arrow (#2563EB), and velocity calculation box (v̄ = Δx / Δt)!
      * For Optics: Principal axis, concave/convex dual curved lens, focal points F and 2F, object arrow, 3 distinct refracted rays, inverted image arrow, Gaussian formula.
      * For Mechanics & Forces: Incline plane with angle theta, block, normal force N perpendicular, mg downward, resolved components, friction vector, and Newton's equations.
      * For Circuits: Battery plates, switch, zigzag resistor, ammeter circle (A), voltmeter circle (V), and Ohm's law.
+   - BIOLOGY:
+     * Center the anatomical/cellular structure. Dual-sided leader lines pointing accurately to specific membranes, organelles, or layers. Labeled cross-sections with cellular textures.
+     * Plant Cell Wall: Middle lamella (#D97706), Primary cell wall (#16A34A mesh), Secondary cell wall (#2563EB layers), Plasma membrane lipid bilayer (#0F172A) with transport proteins (#DC2626).
    - MATHEMATICS & COORDINATE GEOMETRY:
      * Balanced coordinate grid, labeled axes with ticks, quadrant badges, clean curve plots, plotted coordinates P(x, y) with dashed drop-lines to axes. For algebraic equations, plot actual lines and curves with their equations labeled directly beside them (like Desmos/Aristotle).
    - CHEMISTRY: Accurate apparatus, molecular geometry, or electron shells with clear atomic orbitals.
 
 4. STRICT PROHIBITIONS:
-   - NEVER use murky olive green (#13211B). Use deep obsidian navy (#0A0F1D / #111C33).
-   - NEVER output generic placeholder boxes, corporate flowchart cards ("CONCEPTUAL BLUEPRINT", "ANAXLY VECTOR ENGINE", "1. GOVERNING PRINCIPLE").
+   - NEVER use dark green (#13211B) or dark slate background. The canvas MUST be clean WHITE (#FFFFFF).
+   - NEVER output generic placeholder boxes or corporate flowchart cards.
    - NEVER wrap your output in markdown code fences (\`\`\`xml or \`\`\`svg). Output ONLY the raw <svg>...</svg> element.
    - Output must be 100% valid XML with closing </svg>.`
+
+    const userPromptText = isRefinement
+      ? `Refine this existing SVG diagram for: "${title}". Refinement instructions: ${refinementPrompt || context}. Keep the background pure white (#FFFFFF). Existing SVG:\n${existingSvg}\nReturn ONLY the updated raw <svg viewBox="0 0 540 280" ...>...</svg> element.`
+      : `Generate a publication-grade vector SVG diagram for: "${title}". Academic domain: ${domain}. Grade: ${classLevel}. Context: ${context}. Return ONLY the raw <svg viewBox="0 0 540 280" ...>...</svg> element with pure white background.`
 
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash',
@@ -108,7 +122,7 @@ CRITICAL VECTOR DESIGN SPECIFICATIONS (PREMIUM SCHOLASTIC BENCHMARK):
           role: 'user',
           parts: [
             {
-              text: `Generate a publication-grade vector SVG diagram for: "${title}". Academic domain: ${domain}. Grade: ${classLevel}. Context: ${context}. Return ONLY the raw <svg viewBox="0 0 540 280" ...>...</svg> element.`,
+              text: userPromptText,
             },
           ],
         },
@@ -136,6 +150,8 @@ CRITICAL VECTOR DESIGN SPECIFICATIONS (PREMIUM SCHOLASTIC BENCHMARK):
       title,
       svg: rawSvg,
       caption: `Authentic vector diagram for ${title}, rendered with textbook-grade precision.`,
+      why_needed: whyNeeded || `Visually grounds the core principles and mathematical relations of ${title}.`,
+      what_to_explain: whatToExplain || `Explain the key features, directional axes, and labeled callouts shown in the diagram.`,
       timestamp: Date.now(),
     }
 
