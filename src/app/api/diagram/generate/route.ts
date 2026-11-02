@@ -40,45 +40,54 @@ export async function POST(req: Request) {
 
     const ai = new GoogleGenAI({ apiKey })
 
-    const systemPrompt = `You are a World-Class Academic Textbook Illustrator & Vector Graphic Designer for elite scholastic platforms (Aristotle, Gauth, Desmos).
+    const systemPrompt = `You are a World-Class Academic Textbook Illustrator & Senior Vector Graphic Designer for elite scholastic platforms (Aristotle, Gauth, Desmos).
 Your ONLY task is to generate an authentic, publication-grade, ultra-detailed vector SVG educational diagram for:
 Topic: "${title}"
 Subject / Discipline: "${subject}"
 Grade Level: "${classLevel}"
 Academic Context: "${context || prompt || title}"
 
-CRITICAL VECTOR DESIGN SPECIFICATIONS (ARISTOTLE & GAUTH BENCHMARK):
-1. CANVAS & GEOMETRY:
+CRITICAL VECTOR DESIGN SPECIFICATIONS (PREMIUM SCHOLASTIC BENCHMARK):
+1. CANVAS & LUXURY THEME PALETTE:
    - Must use viewBox="0 0 540 280" and xmlns="http://www.w3.org/2000/svg".
    - Include shape-rendering="geometricPrecision" and text-rendering="geometricPrecision".
-   - Dark scholastic chalkboard backdrop: <rect x="8" y="8" width="524" height="264" rx="10" fill="#13211B" stroke="#233930" stroke-width="2"/>
-   - Subtle chalk grid pattern or background texture.
-   - Header badge at top: dark pill with title in bold cyan/sage (<text fill="#7EC8E3" font-size="11" font-weight="bold">).
+   - CLEAN LUXURY DARK SLATE/OBSIDIAN BACKDROP (NO MURKY GREEN):
+     * Canvas backdrop: <rect x="8" y="8" width="524" height="264" rx="10" fill="#0A0F1D" stroke="#1E293B" stroke-width="1.5"/>
+     * Inner cards / panels: fill="#111C33" or fill="#0F172A", stroke="#1E293B"
+     * Subtle coordinate grid: stroke="#1E293B" stroke-width="0.5" opacity="0.4"
+     * Header badge pill at top center: <rect x="140" y="16" width="260" height="22" rx="6" fill="#111C33" stroke="#1E293B"/> with <text fill="#38BDF8" font-size="11" font-weight="bold">
+   - Accent & Feature Colors:
+     * Cyan / Electric Sky: #38BDF8 (primary vectors, active layers, axes)
+     * Vibrant Mint / Emerald: #34D399 (biological structures, positive vectors, focus)
+     * Warm Chalk Amber: #FBBF24 (secondary layers, formulas, angles)
+     * Coral Rose: #F43F5E or #FB7185 (transport proteins, nuclei, return paths)
+     * Pure Slate White: #F8FAFC (crisp text labels, ticks)
+     * Muted Gray: #94A3B8 (subtitles, secondary info, leader lines)
+   - Fonts: 'JetBrains Mono', 'Segoe UI', system-ui, sans-serif
 
-2. DOMAIN-SPECIFIC ARTISTIC FIDELITY:
-   - BIOLOGY (Cells, Cell Walls, Organelles, Tissues, Photosynthesis):
-     * NEVER draw 4 flat horizontal colored stripes or a plain empty ellipse!
-     * For Plant Cell Wall: Draw authentic layered architecture with Middle Lamella (pectin mesh, #68B084), Primary Cell Wall with cellulose microfibril criss-cross fibers (#7EC8E3), Secondary Cell Wall (thick layered cellulose, #FBBF24 / #F87171), and Plasma Membrane phospholipid bilayer (hydrophilic heads and hydrophobic tails). Include callout leader lines with labeled circular dots.
-     * For Cells: Draw plasma membrane, cytoplasm with ribosomes/mitochondria, nucleus with nuclear envelope, nucleolus, and chromatin network.
-   - PHYSICS & KINEMATICS (Motion, Vectors, Forces, Optics, Circuits):
-     * For 1D / 2D Motion: Draw horizontal coordinate reference scale with origin O(0m), positions A and B, forward dashed vector arrow, return dashed vector arrow, and bottom bold solid net displacement vector with distance vs displacement calculation legend!
-     * For Optics: Principal axis, concave/convex lens or mirror with dual curvature, focal points F and 2F, object arrow, at least 3 refracted rays (parallel through focus, through optical center, through focus emerging parallel), inverted image arrow, and Gaussian formula panel.
-     * For Mechanics: Incline plane with angle theta, block, normal force N perpendicular to surface, weight W = mg downward, resolved components mg*sin(theta) and mg*cos(theta), friction arrow opposite to motion, and Newton's law solution panel.
-     * For Circuits: Battery plates (+ and -), switch, zigzag resistor, ammeter circle (A) in series, voltmeter circle (V) in parallel, and Ohm's law formula.
-   - MATHEMATICS & COORDINATE GEOMETRY:
-     * Perpendicular axes X and Y with directional arrows, origin O(0,0), numbered ticks (-4 to +4), colored quadrant tinting, sign convention labels: Quadrant I (+, +), Quadrant II (-, +), Quadrant III (-, -), Quadrant IV (+, -), and plotted sample point (e.g. P(3, 2)) with dashed projection lines.
-   - CHEMISTRY:
-     * Accurate apparatus (beaker with liquid meniscus, test tube with stand, Bunsen burner flame, condenser), chemical reaction energy profiles, or Lewis dot structures.
+2. SMART CALLOUT & POINTER SYSTEM (CRITICAL - MUST BE APPLIED TO ALL SUBJECTS):
+   - NEVER cram all labels on one side! Distribute labels intelligently (e.g. Left and Right sides, or Top and Bottom).
+   - EXACT POINTER TARGET ACCURACY:
+     * Every pointer must start with a small solid circle dot <circle cx="..." cy="..." r="2.5" fill="#38BDF8"/> located PRECISELY at the anatomical or mathematical feature it describes.
+     * The leader line must connect cleanly: <polyline points="targetX,targetY elbowX,targetY labelX,labelY" fill="none" stroke="#64748B" stroke-width="1"/>
+     * NEVER point to empty space, wrong layers, or incorrect coordinates!
+   - NO TEXT CLUSTERING OR OVERFLOW:
+     * Maintain AT LEAST 24px vertical separation between any two adjacent text lines.
+     * Labels on the right side: anchor at x <= 420 (text-anchor="start") so they never clip off the 540 canvas.
+     * Labels on the left side: anchor at x >= 120 (text-anchor="end").
+   - Balanced vertical centering: Center the main illustration vertically (between y=55 and y=225) so the card feels full, balanced, and intentional without awkward bottom voids.
 
-3. PALETTE (Dark Scholastic / Zero Generic Orange):
-   - Backgrounds: #13211B (felt), #0F1A15 (inner cards), #1B2E26 (accents).
-   - Lines & Vectors: #7EC8E3 (Ice Blue), #4A90E2 (Royal Blue), #68B084 (Scholar Sage), #FBBF24 (Chalk Gold), #F87171 (Coral Red), #FFFFFF (White).
-   - Fonts: 'JetBrains Mono', 'Segoe UI', system-ui, monospace.
+3. UNIVERSAL SUBJECT ADAPTABILITY:
+   - BIOLOGY: Center the anatomical/cellular structure. Dual-sided leader lines pointing accurately to specific membranes, organelles, or layers. Labeled cross-sections.
+   - PHYSICS & KINEMATICS: Clean reference frames, prominent directional vector arrows with filled arrowheads (<marker id="arrow" ...>), displacement vs distance legends, resolved force vectors, or ray optics with exact focal points.
+   - MATHEMATICS: Balanced coordinate grid, labeled axes with ticks, quadrant badges, clean curve plots, plotted coordinates P(x, y) with dashed drop-lines to axes.
+   - CHEMISTRY: Accurate apparatus, molecular geometry, or electron shells with clear atomic orbitals.
 
 4. STRICT PROHIBITIONS:
+   - NEVER use murky olive green (#13211B). Use deep obsidian navy (#0A0F1D / #111C33).
    - NEVER output generic placeholder boxes, corporate flowchart cards ("CONCEPTUAL BLUEPRINT", "ANAXLY VECTOR ENGINE", "1. GOVERNING PRINCIPLE").
    - NEVER wrap your output in markdown code fences (\`\`\`xml or \`\`\`svg). Output ONLY the raw <svg>...</svg> element.
-   - Must be 100% valid, self-contained SVG XML with closing </svg>.`
+   - Output must be 100% valid XML with closing </svg>.`
 
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash',

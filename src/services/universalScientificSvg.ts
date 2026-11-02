@@ -58,7 +58,7 @@ function getSvgDefs(): string {
   return `
   <defs>
     <pattern id="chalkGrid" width="24" height="24" patternUnits="userSpaceOnUse">
-      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#233930" stroke-width="0.7" stroke-opacity="0.4"/>
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#1E293B" stroke-width="0.7" stroke-opacity="0.4"/>
     </pattern>
     <!-- Royal Blue Vector Arrow -->
     <marker id="arrowRoyal" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
@@ -118,13 +118,13 @@ export function generateDynamicOpticsSvg(params: {
   const title = params.title || `${isConvex ? 'Convex' : 'Concave'} Lens: u = ${Math.abs(u)}, f = ${Math.abs(fSigned)}`
   const caption = params.caption || `Thin Lens Law: 1/f = 1/v - 1/u. Computed Image Distance v = ${v.toFixed(1)}, Magnification m = ${m.toFixed(2)} (${isReal ? 'Real & Inverted' : 'Virtual & Erect'}).`
 
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#13211B; font-family:'JetBrains Mono',monospace;">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#0A0F1D; font-family:'JetBrains Mono',monospace;">
   ${getSvgDefs()}
-  <rect x="10" y="10" width="520" height="260" rx="12" fill="#13211B" stroke="#233930" stroke-width="2"/>
+  <rect x="10" y="10" width="520" height="260" rx="12" fill="#0A0F1D" stroke="#1E293B" stroke-width="2"/>
   <rect x="16" y="16" width="508" height="248" rx="8" fill="url(#chalkGrid)"/>
 
   <!-- Dynamic Header Bar -->
-  <rect x="24" y="22" width="492" height="26" rx="6" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <rect x="24" y="22" width="492" height="26" rx="6" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
   <text x="36" y="39" font-size="11" font-weight="bold" fill="#68B084">OPTICS (GENERATIVE): ${title.toUpperCase().slice(0, 52)}</text>
   <text x="495" y="39" text-anchor="end" font-size="10" fill="#7EC8E3">v = ${v.toFixed(1)} | m = ${m.toFixed(2)}</text>
 
@@ -172,7 +172,7 @@ export function generateDynamicOpticsSvg(params: {
   <text x="${imgX + 8}" y="${oy + (isReal ? 14 : -6)}" font-size="10" font-weight="bold" fill="#67A8E8">B'</text>
 
   <!-- Bottom Metric Card -->
-  <rect x="36" y="240" width="468" height="20" rx="4" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <rect x="36" y="240" width="468" height="20" rx="4" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
   <text x="270" y="254" text-anchor="middle" font-size="10" fill="#FFFFFF">Computed Parameters: u = ${u} | v = ${v.toFixed(1)} | f = ${fSigned} | m = ${m.toFixed(2)} (${isReal ? 'Real & Inverted' : 'Virtual & Erect'})</text>
 </svg>`
 
@@ -225,18 +225,18 @@ export function generateDynamicInclineSvg(params: {
   const title = params.title || `Free Body Diagram: m = ${m}kg on ${theta}° Incline`
   const caption = params.caption || `Weight W = ${W.toFixed(1)}N resolved into: Normal reaction N = ${N.toFixed(1)}N, Downward force mg·sinθ = ${F_parallel.toFixed(1)}N, Friction f = ${f_friction.toFixed(1)}N, Acceleration a = ${a.toFixed(2)} m/s².`
 
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#13211B; font-family:'JetBrains Mono',monospace;">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#0A0F1D; font-family:'JetBrains Mono',monospace;">
   ${getSvgDefs()}
-  <rect x="10" y="10" width="520" height="260" rx="12" fill="#13211B" stroke="#233930" stroke-width="2"/>
+  <rect x="10" y="10" width="520" height="260" rx="12" fill="#0A0F1D" stroke="#1E293B" stroke-width="2"/>
   <rect x="16" y="16" width="508" height="248" rx="8" fill="url(#chalkGrid)"/>
 
   <!-- Dynamic Header Bar -->
-  <rect x="24" y="22" width="492" height="26" rx="6" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <rect x="24" y="22" width="492" height="26" rx="6" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
   <text x="36" y="39" font-size="11" font-weight="bold" fill="#68B084">MECHANICS (GENERATIVE): ${title.toUpperCase().slice(0, 52)}</text>
   <text x="495" y="39" text-anchor="end" font-size="10" fill="#7EC8E3">θ = ${theta}° | m = ${m}kg</text>
 
   <!-- Triangular Wedge Drawn to Exact Angle theta -->
-  <polygon points="${startX},${baseY} ${cornerX},${baseY} ${topX},${topY}" fill="#11221B" stroke="#64748B" stroke-width="2"/>
+  <polygon points="${startX},${baseY} ${cornerX},${baseY} ${topX},${topY}" fill="#111C33" stroke="#64748B" stroke-width="2"/>
   
   <!-- Incline Angle Arc theta -->
   <path d="M ${cornerX - 45} ${baseY} A 45 45 0 0 0 ${cornerX - 40} ${baseY - 18}" fill="none" stroke="#7EC8E3" stroke-width="2"/>
@@ -269,14 +269,14 @@ export function generateDynamicInclineSvg(params: {
   <text x="${blockX + 8}" y="${blockY + 70}" font-size="11" font-weight="bold" fill="#4A90E2">W = ${W.toFixed(1)} N</text>
 
   <!-- Dynamic Equations Panel -->
-  <rect x="360" y="65" width="155" height="95" rx="6" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <rect x="360" y="65" width="155" height="95" rx="6" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
   <text x="370" y="85" font-size="10" font-weight="bold" fill="#FFFFFF">Dynamic Solutions:</text>
   <text x="370" y="105" font-size="9" fill="#68B084">N = mg·cos(${theta}°) = ${N.toFixed(1)} N</text>
   <text x="370" y="123" font-size="9" fill="#4A90E2">F_net = ${F_parallel.toFixed(1)} - ${f_friction.toFixed(1)} N</text>
   <text x="370" y="143" font-size="10" font-weight="bold" fill="#7EC8E3">a = ${a.toFixed(2)} m/s²</text>
 
   <!-- Footer -->
-  <rect x="40" y="248" width="460" height="18" rx="4" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <rect x="40" y="248" width="460" height="18" rx="4" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
   <text x="270" y="261" text-anchor="middle" font-size="9" fill="#FFFFFF">Calculated via Newton's Second Law: F_net = m·a  |  Normal Force Equilibrium: N = mg·cosθ</text>
 </svg>`
 
@@ -325,18 +325,18 @@ export function generateDynamicCircleTheoremSvg(params: {
   const title = params.title || `Circle Theorem: Arc Angle = ${arcDeg}° -> Inscribed = ${inscribedDeg}°`
   const caption = params.caption || `Subtended central angle ∠AOB = ${arcDeg}°. The inscribed angle at circumference ∠APB = ${inscribedDeg}° (exactly half).`
 
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#13211B; font-family:'JetBrains Mono',monospace;">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#0A0F1D; font-family:'JetBrains Mono',monospace;">
   ${getSvgDefs()}
-  <rect x="10" y="10" width="520" height="260" rx="12" fill="#13211B" stroke="#233930" stroke-width="2"/>
+  <rect x="10" y="10" width="520" height="260" rx="12" fill="#0A0F1D" stroke="#1E293B" stroke-width="2"/>
   <rect x="16" y="16" width="508" height="248" rx="8" fill="url(#chalkGrid)"/>
 
   <!-- Dynamic Header Bar -->
-  <rect x="24" y="22" width="492" height="26" rx="6" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <rect x="24" y="22" width="492" height="26" rx="6" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
   <text x="36" y="39" font-size="11" font-weight="bold" fill="#68B084">GEOMETRY (GENERATIVE): ${title.toUpperCase().slice(0, 52)}</text>
   <text x="495" y="39" text-anchor="end" font-size="10" fill="#7EC8E3">∠AOB = 2 · ∠APB</text>
 
   <!-- Circle -->
-  <circle cx="${ox}" cy="${oy}" r="${r}" fill="#11221B" stroke="#67A8E8" stroke-width="2" filter="url(#chalkGlow)"/>
+  <circle cx="${ox}" cy="${oy}" r="${r}" fill="#111C33" stroke="#67A8E8" stroke-width="2" filter="url(#chalkGlow)"/>
 
   <!-- Center Point O -->
   <circle cx="${ox}" cy="${oy}" r="3.5" fill="#FFFFFF"/>
@@ -368,7 +368,7 @@ export function generateDynamicCircleTheoremSvg(params: {
   <text x="${ox}" y="${(oy + r + 20).toFixed(1)}" text-anchor="middle" font-size="10" font-weight="bold" fill="#4A90E2">Subtended Arc AB (${arcDeg}°)</text>
 
   <!-- Proof Summary Box -->
-  <rect x="380" y="65" width="135" height="100" rx="6" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <rect x="380" y="65" width="135" height="100" rx="6" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
   <text x="390" y="85" font-size="10" font-weight="bold" fill="#FFFFFF">Gauth Proof:</text>
   <text x="390" y="103" font-size="9" fill="#64748B">Arc = ${arcDeg}°</text>
   <text x="390" y="121" font-size="9" fill="#68B084">∠AOB = ${arcDeg}°</text>
@@ -401,13 +401,13 @@ export function generateDynamicCircuitSvg(params: {
   const title = params.title || `Ohm's Law Circuit: V = ${V}V, R = ${R}Ω`
   const caption = params.caption || `Closed electrical loop: Applied Potential V = ${V} Volts across Resistor R = ${R} Ohms yields Current I = V/R = ${I.toFixed(2)} Amperes.`
 
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#13211B; font-family:'JetBrains Mono',monospace;">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#0A0F1D; font-family:'JetBrains Mono',monospace;">
   ${getSvgDefs()}
-  <rect x="10" y="10" width="520" height="260" rx="12" fill="#13211B" stroke="#233930" stroke-width="2"/>
+  <rect x="10" y="10" width="520" height="260" rx="12" fill="#0A0F1D" stroke="#1E293B" stroke-width="2"/>
   <rect x="16" y="16" width="508" height="248" rx="8" fill="url(#chalkGrid)"/>
 
   <!-- Dynamic Header Bar -->
-  <rect x="24" y="22" width="492" height="26" rx="6" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <rect x="24" y="22" width="492" height="26" rx="6" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
   <text x="36" y="39" font-size="11" font-weight="bold" fill="#68B084">CIRCUIT (GENERATIVE): ${title.toUpperCase().slice(0, 52)}</text>
   <text x="495" y="39" text-anchor="end" font-size="10" fill="#7EC8E3">I = V/R = ${I.toFixed(2)} A</text>
 
@@ -420,7 +420,7 @@ export function generateDynamicCircuitSvg(params: {
   <!-- Voltmeter in Parallel -->
   <line x1="190" y1="80" x2="190" y2="135" stroke="#67A8E8" stroke-width="1.8"/>
   <line x1="190" y1="135" x2="225" y2="135" stroke="#67A8E8" stroke-width="1.8"/>
-  <circle cx="248" cy="135" r="18" fill="#11221B" stroke="#67A8E8" stroke-width="2"/>
+  <circle cx="248" cy="135" r="18" fill="#111C33" stroke="#67A8E8" stroke-width="2"/>
   <text x="248" y="141" text-anchor="middle" font-size="13" font-weight="bold" fill="#67A8E8">V</text>
   <text x="248" y="168" text-anchor="middle" font-size="10" fill="#67A8E8">Reading: ${V} V</text>
   <line x1="266" y1="135" x2="310" y2="135" stroke="#67A8E8" stroke-width="1.8"/>
@@ -431,7 +431,7 @@ export function generateDynamicCircuitSvg(params: {
   <!-- Right Wire & Series Ammeter -->
   <line x1="340" y1="80" x2="450" y2="80" stroke="#FFFFFF" stroke-width="2"/>
   <line x1="450" y1="80" x2="450" y2="120" stroke="#FFFFFF" stroke-width="2"/>
-  <circle cx="450" cy="142" r="18" fill="#11221B" stroke="#68B084" stroke-width="2"/>
+  <circle cx="450" cy="142" r="18" fill="#111C33" stroke="#68B084" stroke-width="2"/>
   <text x="450" y="148" text-anchor="middle" font-size="13" font-weight="bold" fill="#68B084">A</text>
   <text x="450" y="174" text-anchor="middle" font-size="10" fill="#68B084">${I.toFixed(2)} A</text>
   <line x1="450" y1="160" x2="450" y2="215" stroke="#FFFFFF" stroke-width="2"/>
@@ -451,7 +451,7 @@ export function generateDynamicCircuitSvg(params: {
   <text x="135" y="72" font-size="10" font-weight="bold" fill="#68B084">I = ${I.toFixed(2)} A</text>
 
   <!-- Footer -->
-  <rect x="40" y="250" width="460" height="18" rx="4" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <rect x="40" y="250" width="460" height="18" rx="4" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
   <text x="270" y="263" text-anchor="middle" font-size="9" fill="#FFFFFF">Dynamic Calculation: I = ${V}V / ${R}Ω = ${I.toFixed(2)} Amperes | Voltmeter measures parallel ΔV = ${V}V</text>
 </svg>`
 
@@ -500,18 +500,18 @@ export function generateDynamic1DMotionSvg(params: {
   const ax = 440
   const axisY = 190
 
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#13211B; font-family:'JetBrains Mono',monospace;">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#0A0F1D; font-family:'JetBrains Mono',monospace;">
   ${getSvgDefs()}
-  <rect x="10" y="10" width="520" height="260" rx="12" fill="#13211B" stroke="#233930" stroke-width="2"/>
+  <rect x="10" y="10" width="520" height="260" rx="12" fill="#0A0F1D" stroke="#1E293B" stroke-width="2"/>
   <rect x="16" y="16" width="508" height="248" rx="8" fill="url(#chalkGrid)"/>
 
   <!-- Dynamic Header Bar -->
-  <rect x="24" y="22" width="492" height="26" rx="6" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <rect x="24" y="22" width="492" height="26" rx="6" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
   <text x="36" y="39" font-size="11" font-weight="bold" fill="#68B084">KINEMATICS (1D REFERENCE): ${title.toUpperCase().slice(0, 48)}</text>
   <text x="495" y="39" text-anchor="end" font-size="10" fill="#7EC8E3">Dist = ${totalDistance}${unit} | Δx = ${dispSign}${Math.abs(displacement)}${unit}</text>
 
   <!-- Distance & Displacement Analytical Cards -->
-  <rect x="36" y="58" width="468" height="30" rx="6" fill="#11221B" stroke="#233930" stroke-width="1"/>
+  <rect x="36" y="58" width="468" height="30" rx="6" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
   <text x="270" y="78" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">Total Distance = |OA| + |AB| = ${Math.abs(forwardPath)}${unit} + ${Math.abs(returnPath)}${unit} = ${totalDistance}${unit}</text>
 
   <!-- Return Path Arrow (AB) -->
@@ -550,7 +550,7 @@ export function generateDynamic1DMotionSvg(params: {
   <text x="${ax}" y="${axisY + 38}" text-anchor="middle" font-size="9" fill="#94A3B8">Turnaround Point</text>
 
   <!-- Net Displacement Banner -->
-  <rect x="110" y="244" width="320" height="22" rx="4" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <rect x="110" y="244" width="320" height="22" rx="4" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
   <text x="270" y="259" text-anchor="middle" font-size="10" font-weight="bold" fill="#68B084">Net Displacement OB = x_final - x_initial = ${dispSign}${Math.abs(displacement)}${unit}</text>
 </svg>`
 
@@ -585,10 +585,10 @@ export function generateDynamicCoordinatePlaneSvg(params: {
   const title = params.title || '2-D Cartesian Plane & Quadrants'
   const caption = params.caption || 'The coordinate axes divide the plane into four quadrants (I, II, III, IV) numbered counter-clockwise.'
 
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#13211B; font-family:'JetBrains Mono',monospace;">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#0A0F1D; font-family:'JetBrains Mono',monospace;">
   ${getSvgDefs()}
   <!-- Outer Chalkboard Frame -->
-  <rect x="8" y="8" width="524" height="264" rx="10" fill="#13211B" stroke="#233930" stroke-width="2"/>
+  <rect x="8" y="8" width="524" height="264" rx="10" fill="#0A0F1D" stroke="#1E293B" stroke-width="2"/>
   <rect x="14" y="14" width="512" height="252" rx="8" fill="url(#chalkGrid)"/>
 
   <!-- Light Coordinate Grid Lines -->
@@ -701,7 +701,7 @@ export function generateDynamicCoordinatePlaneSvg(params: {
   <text x="428" y="76" font-size="11" font-weight="bold" fill="#7EC8E3">P (3, 2)</text>
 
   <!-- Top Title Banner -->
-  <rect x="24" y="18" width="492" height="22" rx="4" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <rect x="24" y="18" width="492" height="22" rx="4" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
   <text x="34" y="33" font-size="11" font-weight="bold" fill="#68B084">CARTESIAN PLANE: QUADRANTS &amp; COORDINATES</text>
   <text x="506" y="33" text-anchor="end" font-size="10" fill="#94A3B8">Counter-Clockwise Convention</text>
 </svg>`
@@ -728,14 +728,14 @@ export function generateDynamicPlantCellWallSvg(params: {
   const title = params.title || 'Plant Cell Wall: Ultrastructure & Layered Architecture'
   const caption = params.caption || 'The plant cell wall consists of the pectin-rich middle lamella, primary wall with flexible microfibrils, multi-layered secondary wall, and inner plasma membrane.'
 
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#13211B; font-family:'JetBrains Mono',monospace;">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#0A0F1D; font-family:'JetBrains Mono',monospace;">
   ${getSvgDefs()}
   <!-- Outer Frame -->
-  <rect x="8" y="8" width="524" height="264" rx="10" fill="#13211B" stroke="#233930" stroke-width="2"/>
+  <rect x="8" y="8" width="524" height="264" rx="10" fill="#0A0F1D" stroke="#1E293B" stroke-width="2"/>
   <rect x="14" y="14" width="512" height="252" rx="8" fill="url(#chalkGrid)"/>
 
   <!-- Top Title Banner -->
-  <rect x="24" y="18" width="492" height="24" rx="5" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <rect x="24" y="18" width="492" height="24" rx="5" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
   <text x="36" y="34" font-size="11" font-weight="bold" fill="#68B084">CELL BIOLOGY: ${title.toUpperCase().slice(0, 48)}</text>
   <text x="504" y="34" text-anchor="end" font-size="9" fill="#7EC8E3">Textbook Ultra-Structure</text>
 
@@ -839,7 +839,7 @@ export function generateDynamicPlantCellWallSvg(params: {
   <text x="352" y="209" font-size="8.5" fill="#94A3B8">Phospholipid bilayer + transport proteins</text>
 
   <!-- Pedagogical Bottom Legend -->
-  <rect x="40" y="246" width="460" height="18" rx="4" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <rect x="40" y="246" width="460" height="18" rx="4" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
   <text x="270" y="259" text-anchor="middle" font-size="9" fill="#E2E8F0">Mechanical Support • Turgor Pressure Resistance • Prevents Osmotic Lysis (NCERT Standard)</text>
 </svg>`
 
@@ -867,14 +867,14 @@ export function generateDynamicCellStructureSvg(params: {
   const title = params.title || `${cellType === 'plant' ? 'Plant Cell' : cellType === 'animal' ? 'Animal Cell' : 'Cell Structure'}: Organelles & Ultrastructure`
   const caption = params.caption || 'A complete structural diagram showing the compartmentalized cytoplasm, nucleus, energy organelles, and outer boundaries.'
 
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#13211B; font-family:'JetBrains Mono',monospace;">
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#0A0F1D; font-family:'JetBrains Mono',monospace;">
   ${getSvgDefs()}
   <!-- Outer Frame -->
-  <rect x="8" y="8" width="524" height="264" rx="10" fill="#13211B" stroke="#233930" stroke-width="2"/>
+  <rect x="8" y="8" width="524" height="264" rx="10" fill="#0A0F1D" stroke="#1E293B" stroke-width="2"/>
   <rect x="14" y="14" width="512" height="252" rx="8" fill="url(#chalkGrid)"/>
 
   <!-- Top Title Banner -->
-  <rect x="24" y="18" width="492" height="24" rx="5" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <rect x="24" y="18" width="492" height="24" rx="5" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
   <text x="36" y="34" font-size="11" font-weight="bold" fill="#68B084">CYTOLOGY: ${title.toUpperCase().slice(0, 48)}</text>
   <text x="504" y="34" text-anchor="end" font-size="9" fill="#7EC8E3">Magnification: 2500x</text>
 
@@ -940,7 +940,7 @@ export function generateDynamicCellStructureSvg(params: {
   <text x="348" y="199" font-size="8.5" fill="#94A3B8">Thylakoid grana sites of photosynthesis</text>
 
   <!-- Bottom Legend Bar -->
-  <rect x="40" y="246" width="460" height="18" rx="4" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <rect x="40" y="246" width="460" height="18" rx="4" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
   <text x="270" y="259" text-anchor="middle" font-size="9" fill="#E2E8F0">Structural &amp; Functional Unit of Life • Compartmentalized Eukaryotic Cytoplasm (NCERT)</text>
 </svg>`
 
