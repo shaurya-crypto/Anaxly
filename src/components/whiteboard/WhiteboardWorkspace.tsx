@@ -17,6 +17,8 @@ import {
   Activity,
 } from 'lucide-react'
 
+// Whiteboard Workspace forwards all chalkboard directives to GreenChalkboard, including set_color and raw SVG when trimmed.includes('<svg')
+
 export interface WhiteboardWorkspaceProps {
   moduleId?: string
   moduleTitle: string

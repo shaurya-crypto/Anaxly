@@ -16,25 +16,28 @@ export default function ClassRedirectPage() {
 
     async function routeToActiveModule() {
       try {
-        // 1. Fetch completed modules for this user (1 Free Session Quota Check)
+        // 1. Fetch user profile and quota settings
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('class_level, limit_type, max_modules')
+          .eq('id', userId)
+          .single()
+
+        const isUnlimitedUser = profile?.limit_type === 'unlimited'
+        const maxAllowedModules = profile?.limit_type === 'modules' ? (profile?.max_modules ?? 5) : 1
+
+        // 2. Fetch completed modules for this user (Quota Check)
         const { data: completedList } = await supabase
           .from('user_progress')
           .select('syllabus_module_id')
           .eq('user_id', userId)
           .eq('status', 'completed')
 
-        if (completedList && completedList.length >= 1) {
-          // Free tier completed-module limit reached (1 completed module)
+        if (!isUnlimitedUser && completedList && completedList.length >= maxAllowedModules) {
+          // Free tier / quota limit reached
           router.replace(`/dashboard/${userId}?pricing_notice=true`)
           return
         }
-
-        // 2. Fetch user class level
-        const { data: profile } = await supabase
-          .from('profiles')
-          .select('class_level')
-          .eq('id', userId)
-          .single()
 
         // 3. Check if there's an in_progress module
         const { data: inProgList } = await supabase

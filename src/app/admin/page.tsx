@@ -145,6 +145,7 @@ interface PublishedCurriculum {
     diagram_type?: string
     what_to_make?: string
     diagram_svg?: string
+    visual_lesson_plan?: any
   }>
 }
 
@@ -358,6 +359,7 @@ export default function AdminPortalPage() {
   const [librarySubjectFilter, setLibrarySubjectFilter] = useState<string>('all')
   const [deletingId, setDeletingId] = useState<string | null>(null)
   const [expandedLibraryCurrId, setExpandedLibraryCurrId] = useState<string | null>(null)
+  const [refiningChapterId, setRefiningChapterId] = useState<string | null>(null)
 
   // 1. Check user login and check admin session cookie
   useEffect(() => {
@@ -1132,6 +1134,30 @@ export default function AdminPortalPage() {
       setErrorMsg(err?.message || 'Failed to delete curriculum.')
     } finally {
       setDeletingId(null)
+    }
+  }
+
+  const handleRefineChapterVisuals = async (curriculumId: string, chapterTitle?: string) => {
+    setRefiningChapterId(curriculumId)
+    setErrorMsg(null)
+    setSuccessMsg(null)
+    try {
+      const res = await fetch('/api/diagram/refine-chapter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ curriculumId, force: true }),
+      })
+      const data = await res.json()
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Failed to refine chapter visuals.')
+      }
+      setSuccessMsg(`Tier 2 Aristotle Refinement Complete for "${chapterTitle || 'Chapter'}": ${data.modulesRefined?.length || 0} capsules upgraded to publication-grade vector diagrams!`)
+      await fetchCurriculumsLibrary()
+    } catch (err: any) {
+      console.error('Refinement error:', err)
+      setErrorMsg(err?.message || 'Failed to refine chapter visuals.')
+    } finally {
+      setRefiningChapterId(null)
     }
   }
 
@@ -3801,9 +3827,30 @@ export default function AdminPortalPage() {
 
                     {expandedLibraryCurrId === curr.id && (
                       <div className="pt-3 border-t border-emerald-900/60 space-y-2.5">
-                        <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-bold">
-                          Synthesized Capsules & Visual Blueprints:
-                        </span>
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                          <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-bold">
+                            Synthesized Capsules & Visual Blueprints:
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => handleRefineChapterVisuals(curr.id, curr.title)}
+                            disabled={refiningChapterId === curr.id}
+                            className="h-6 px-2.5 rounded-lg bg-sky-950/90 hover:bg-sky-900 text-sky-300 border border-sky-600/60 text-[10px] font-mono font-bold flex items-center gap-1.5 transition-all cursor-pointer disabled:opacity-50 shadow-xs"
+                            title="Refine all capsule diagrams in this chapter using Tier 2 high-thinking vector engine"
+                          >
+                            {refiningChapterId === curr.id ? (
+                              <>
+                                <RefreshCw className="w-3 h-3 animate-spin text-sky-400" />
+                                <span>Refining with Tier 2 Engine...</span>
+                              </>
+                            ) : (
+                              <>
+                                <Sparkles className="w-3 h-3 text-sky-400" />
+                                <span>Refine All Visuals (Tier 2)</span>
+                              </>
+                            )}
+                          </button>
+                        </div>
                         <div className="space-y-2 max-h-[300px] overflow-y-auto pr-1">
                           {(curr.modules || []).map((m, mIdx) => (
                             <div key={m.id || mIdx} className="p-2.5 rounded-xl bg-[#09150d] border border-emerald-800/60 space-y-1.5">
@@ -3811,11 +3858,23 @@ export default function AdminPortalPage() {
                                 <span className="text-[10px] font-mono font-bold text-emerald-300">
                                   #{m.order_index || mIdx + 1} {m.title}
                                 </span>
-                                {m.diagram_type && (
-                                  <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-950 text-emerald-400 border border-emerald-700/60">
-                                    {m.diagram_type}
-                                  </span>
-                                )}
+                                <div className="flex items-center gap-1.5">
+                                  {m.visual_lesson_plan?.refined_by_tier2 ? (
+                                    <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-sky-950 text-sky-300 border border-sky-600/60 flex items-center gap-1">
+                                      <Sparkles className="w-2.5 h-2.5 text-sky-400" />
+                                      <span>Tier 2 Refined</span>
+                                    </span>
+                                  ) : (
+                                    <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-amber-950/80 text-amber-300 border border-amber-700/60">
+                                      Tier 1 Blueprint
+                                    </span>
+                                  )}
+                                  {m.diagram_type && (
+                                    <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-950 text-emerald-400 border border-emerald-700/60">
+                                      {m.diagram_type}
+                                    </span>
+                                  )}
+                                </div>
                               </div>
                               {m.visual_ideas && (
                                 <p className="text-[10.5px] text-emerald-200/90 leading-tight">

@@ -121,11 +121,11 @@ function buildConceptMicroDossiers(
   if (!keyConcepts || keyConcepts.length === 0) return ''
 
   const visualPlan = activeModule?.visual_lesson_plan || {}
-  const textbookDefs = visualPlan?.textbook_definitions || []
-  const textbookExamples = visualPlan?.textbook_examples || []
-  const chapterFlowchart = visualPlan?.chapter_flowchart || ''
-  const diagramType = visualPlan?.diagram_type || 'vector_svg_diagram'
-  const whatToMake = visualPlan?.what_to_make || visualPlan?.diagram_description || ''
+  const textbookDefs = visualPlan?.textbook_definitions || activeModule?.textbook_definitions || []
+  const textbookExamples = visualPlan?.textbook_examples || activeModule?.textbook_examples || []
+  const chapterFlowchart = visualPlan?.chapter_flowchart || activeModule?.chapter_flowchart || ''
+  const diagramType = visualPlan?.diagram_type || activeModule?.diagram_type || 'vector_svg_diagram'
+  const whatToMake = visualPlan?.what_to_make || visualPlan?.diagram_description || activeModule?.what_to_make || ''
 
   return keyConcepts
     .map((rawConcept, idx) => {
@@ -138,7 +138,7 @@ function buildConceptMicroDossiers(
             (d: any) =>
               (d.concept || '').toLowerCase().includes(conceptName.toLowerCase()) ||
               conceptName.toLowerCase().includes((d.concept || '').toLowerCase())
-          )
+          ) || textbookDefs[idx]
         : null
 
       const matchingExample = Array.isArray(textbookExamples)
@@ -146,7 +146,7 @@ function buildConceptMicroDossiers(
             (e: any) =>
               (e.title || '').toLowerCase().includes(conceptName.toLowerCase()) ||
               conceptName.toLowerCase().includes((e.title || '').toLowerCase())
-          )
+          ) || textbookExamples[idx]
         : null
 
       const defStr = matchingDef
@@ -160,13 +160,18 @@ function buildConceptMicroDossiers(
         ? `Model Problem: ${ex1.problem} (Given: ${ex1.given || ''}, Formula: ${ex1.formula || ''}, Ans: ${ex1.finalAnswer || ''} ${ex1.unit || ''})`
         : `Q: State the law/definition for ${conceptName}. | Ans: Standard ${resolvedBoard} formulation.`
 
-      const conceptQuestionsList = Array.isArray(visualPlan?.concept_questions) ? visualPlan.concept_questions : []
-      const matchingQuestions = conceptQuestionsList.find(
-        (cq: any) =>
-          cq.concept_index === idx ||
-          (cq.concept_title || '').toLowerCase().includes(conceptName.toLowerCase()) ||
-          conceptName.toLowerCase().includes((cq.concept_title || '').toLowerCase())
-      )
+      const conceptQuestionsList = Array.isArray(visualPlan?.concept_questions)
+        ? visualPlan.concept_questions
+        : Array.isArray(activeModule?.concept_questions)
+        ? activeModule.concept_questions
+        : []
+      const matchingQuestions =
+        conceptQuestionsList.find(
+          (cq: any) =>
+            cq.concept_index === idx ||
+            (cq.concept_title || '').toLowerCase().includes(conceptName.toLowerCase()) ||
+            conceptName.toLowerCase().includes((cq.concept_title || '').toLowerCase())
+        ) || conceptQuestionsList[idx]
       const qListStr = matchingQuestions?.questions?.length
         ? `\n   * Prepared 4-6 Board Exam Questions for Socratic Gating:\n` +
           matchingQuestions.questions
@@ -177,21 +182,36 @@ function buildConceptMicroDossiers(
             .join('\n')
         : ''
 
-      const conceptVisualsList = Array.isArray(visualPlan?.concept_visuals) ? visualPlan.concept_visuals : []
+      const conceptVisualsList = Array.isArray(visualPlan?.concept_visuals)
+        ? visualPlan.concept_visuals
+        : Array.isArray(activeModule?.concept_visuals)
+        ? activeModule.concept_visuals
+        : []
       const matchedCv =
         conceptVisualsList[idx] ||
         conceptVisualsList.find((c: any) =>
           (c.concept_title || '').toLowerCase().includes(conceptName.toLowerCase()) ||
-          conceptName.toLowerCase().includes((c.concept_title || '').toLowerCase())
+          conceptName.toLowerCase().includes((c.concept_title || '').toLowerCase()) ||
+          (c.diagram_title || '').toLowerCase().includes(conceptName.toLowerCase())
         )
 
       let visualDirective = ''
       if (matchedCv) {
-        visualDirective = `\n   * Pedagogical Visual Blueprint (Tier 1 Vector SVG):
+        const isGraph = matchedCv.diagram_type === 'graph' || matchedCv.interactive_math_formula
+        const isAnim = matchedCv.visual_type === 'animation' || /wave|current|flow|circuit|motion/i.test(matchedCv.diagram_title || '')
+        const actionCue = isGraph
+          ? `plot_mathematical_graph(formula="${matchedCv.interactive_math_formula || 'formula'}", title="${matchedCv.diagram_title || conceptName}")`
+          : matchedCv.diagram_type === 'draw_flowchart'
+          ? `write_chalkboard(action="draw_flowchart", content="${matchedCv.what_to_make || conceptName}")`
+          : `render_svg_diagram("${matchedCv.diagram_title || matchedCv.concept_title || conceptName}")`
+
+        visualDirective = `\n   * Pedagogical Visual Blueprint (${matchedCv.refined_by_tier2 ? 'Tier 2 Publication Grade' : 'Tier 1 Blueprint'}):
      - Diagram Title: "${matchedCv.diagram_title || matchedCv.concept_title || conceptName}"
+     - Visual Type: ${isGraph ? 'Interactive Coordinate Graph' : isAnim ? 'Animated Vector Visual' : 'Publication-Grade Vector SVG'}
      - Why Needed: ${matchedCv.why_needed || 'Pedagogical grounding of core principles and formulas'}
      - What to Explain Step-by-Step: ${matchedCv.what_to_explain || matchedCv.what_to_make || 'Point out origin, axes, labels, and physical intuition to the student'}
-     - Action Cue: Call render_svg_diagram("${matchedCv.diagram_title || matchedCv.concept_title || conceptName}")${matchedCv.interactive_math_formula ? `\n     - Interactive Coordinate Function: ${matchedCv.interactive_math_formula}` : ''}`
+     - Action Cue: Call ${actionCue}${matchedCv.interactive_math_formula ? `\n     - Interactive Coordinate Function: ${matchedCv.interactive_math_formula}` : ''}
+     - Timing Cue: ${matchedCv.timing_and_cue || 'Step 1 (Intuition) or Step 2 (Definition)'}`
       } else if (idx === 0 && (whatToMake || chapterFlowchart)) {
         visualDirective = `\n   * Mandatory Visual: ${
           chapterFlowchart
@@ -616,18 +636,6 @@ export default function ModuleClassroomPage() {
           return
         }
 
-        // 1 Free Session Quota Check: direct URLs must follow the same rule as the dashboard links.
-        // Completed modules stay open for revisiting.
-        const { data: progressList } = await supabase
-          .from('user_progress')
-          .select('syllabus_module_id, status, completed_at')
-          .eq('user_id', userId)
-        const completedList = (progressList || []).filter((p: any) => p.status === 'completed' || !!p.completed_at)
-        if (completedList.length >= 1 && !completedList.some((p: any) => p.syllabus_module_id === moduleId)) {
-          router.replace(`/dashboard/${userId}?pricing_notice=true`)
-          return
-        }
-
         // Fetch student profile class_level, voice preference, name, language & medium, and quota settings
         let profile: any = null
         const { data: profData, error: profErr } = await supabase
@@ -651,6 +659,23 @@ export default function ModuleClassroomPage() {
           profile = fallbackProf
         } else {
           profile = profData
+        }
+
+        // Dynamic Quota Check (respecting unlimited & module limits configured by admin):
+        const isUnlimitedUser = profile?.limit_type === 'unlimited'
+        const maxAllowedModules = profile?.limit_type === 'modules' ? (profile?.max_modules ?? 5) : 1
+
+        if (!isUnlimitedUser) {
+          const { data: progressList } = await supabase
+            .from('user_progress')
+            .select('syllabus_module_id, status, completed_at')
+            .eq('user_id', userId)
+          const completedList = (progressList || []).filter((p: any) => p.status === 'completed' || !!p.completed_at)
+          if (completedList.length >= maxAllowedModules && !completedList.some((p: any) => p.syllabus_module_id === moduleId)) {
+            console.warn('[Classroom Guard] User module quota reached. Redirecting to pricing notice.')
+            router.replace(`/dashboard/${userId}?pricing_notice=true`)
+            return
+          }
         }
 
         if (profile?.target_board) setStudentTargetBoard(profile.target_board)
@@ -753,7 +778,12 @@ export default function ModuleClassroomPage() {
                 textbookName: `${resolvedBoard} Official Curriculum`,
               }
             )
-            setLessonManifest(generatedPlan)
+            const mergedPlan = {
+              ...generatedPlan,
+              ...(mod.visual_lesson_plan || {}),
+              steps: mod.visual_lesson_plan?.steps || generatedPlan.steps,
+            }
+            setLessonManifest(mergedPlan)
           }
 
           // Fetch all sibling modules in this curriculum for flexible progression
@@ -1156,27 +1186,41 @@ export default function ModuleClassroomPage() {
 
       // 1. Check if module has a concept-specific custom visual from the Admin AI generator
       const customPlan = activeModule?.visual_lesson_plan
-      const conceptVisuals = Array.isArray(customPlan?.concept_visuals) ? customPlan.concept_visuals : []
+      const conceptVisuals: any[] = Array.isArray(customPlan?.concept_visuals)
+        ? customPlan.concept_visuals
+        : Array.isArray(activeModule?.concept_visuals)
+        ? activeModule.concept_visuals
+        : []
       const matchedConceptVisual =
         conceptVisuals[conceptIdx] ||
         conceptVisuals.find((cv: any) =>
           cv.concept_title?.toLowerCase().includes(targetConcept.toLowerCase()) ||
-          targetConcept.toLowerCase().includes(cv.concept_title?.toLowerCase())
+          targetConcept.toLowerCase().includes(cv.concept_title?.toLowerCase()) ||
+          cv.diagram_title?.toLowerCase().includes(targetConcept.toLowerCase())
         )
 
-      const conceptSvg = matchedConceptVisual?.svg || customPlan?.steps?.[conceptIdx]?.content?.diagram?.svg
+      const conceptSvg = matchedConceptVisual?.svg || matchedConceptVisual?.diagram_svg || customPlan?.steps?.[conceptIdx]?.content?.diagram?.svg
       const conceptTitle = matchedConceptVisual?.diagram_title || matchedConceptVisual?.concept_title || customPlan?.steps?.[conceptIdx]?.title || targetConcept
       const conceptCaption = matchedConceptVisual?.what_to_make || customPlan?.steps?.[conceptIdx]?.content?.diagram?.caption || targetConcept
       const customCaption = conceptCaption
 
       if (conceptSvg && typeof conceptSvg === 'string' && conceptSvg.includes('<svg')) {
         chalkboardRef.current.drawSvgDiagram?.(conceptTitle, conceptSvg, conceptCaption)
+        if (matchedConceptVisual?.interactive_math_formula) {
+          setActiveGraph({
+            formula: matchedConceptVisual.interactive_math_formula,
+            domain: [-10, 10],
+            range: [-10, 50],
+            title: conceptTitle,
+          })
+        }
         return
       }
 
       // If no concept-specific visual exists, but a top-level capsule SVG was provided, ONLY use it for Concept 0 (the first concept), NEVER duplicate it on subsequent concepts!
-      if (conceptIdx === 0 && customPlan?.diagram_svg && typeof customPlan.diagram_svg === 'string' && customPlan.diagram_svg.includes('<svg')) {
-        chalkboardRef.current.drawSvgDiagram?.(customPlan.diagram_idea || targetConcept, customPlan.diagram_svg, customPlan.what_to_make || targetConcept)
+      const defaultCapsuleSvg = customPlan?.diagram_svg || customPlan?.svg || activeModule?.diagram_svg
+      if (conceptIdx === 0 && defaultCapsuleSvg && typeof defaultCapsuleSvg === 'string' && defaultCapsuleSvg.includes('<svg')) {
+        chalkboardRef.current.drawSvgDiagram?.(customPlan?.diagram_idea || targetConcept, defaultCapsuleSvg, customPlan?.what_to_make || targetConcept)
         return
       }
 
@@ -1239,17 +1283,17 @@ export default function ModuleClassroomPage() {
               caption || ''
             )
           } else {
-            chalkboardRef.current.drawSvgDiagram?.(targetConcept, rawContent, customCaption)
+            chalkboardRef.current.drawSvgDiagram?.(targetConcept, rawContent, conceptCaption)
           }
         } else if (rawContent.includes('<svg')) {
-          chalkboardRef.current.drawSvgDiagram?.(targetConcept, rawContent, customCaption)
+          chalkboardRef.current.drawSvgDiagram?.(targetConcept, rawContent, conceptCaption)
         } else {
           // Dynamic scientific vector diagram generated from universal vector engine
-          chalkboardRef.current.drawSvgDiagram?.(targetConcept, '', customCaption)
+          chalkboardRef.current.drawSvgDiagram?.(targetConcept, '', conceptCaption)
         }
       } else {
         // Fallback: draw dynamic vector SVG diagram
-        chalkboardRef.current.drawSvgDiagram?.(targetConcept, '', customCaption)
+        chalkboardRef.current.drawSvgDiagram?.(targetConcept, '', conceptCaption)
       }
     }
   }
@@ -1790,20 +1834,40 @@ export default function ModuleClassroomPage() {
     const currentVisual = inferConceptVisualDirective(currentConcept, resolvedSubject, chapterName)
 
     const customPlan = activeModule?.visual_lesson_plan
-    const conceptVisuals = Array.isArray(customPlan?.concept_visuals) ? customPlan.concept_visuals : []
+    const conceptVisuals: any[] = Array.isArray(customPlan?.concept_visuals)
+      ? customPlan.concept_visuals
+      : Array.isArray(activeModule?.concept_visuals)
+      ? activeModule.concept_visuals
+      : []
 
     const visualRoadmap = keyConcepts
       .map((c: string, i: number) => {
         const cv =
           conceptVisuals[i] ||
           conceptVisuals.find((v: any) =>
-            v.concept_title?.toLowerCase().includes(c.toLowerCase()) ||
-            c.toLowerCase().includes(v.concept_title?.toLowerCase())
+            (v.concept_title || '').toLowerCase().includes(c.toLowerCase()) ||
+            c.toLowerCase().includes((v.concept_title || '').toLowerCase()) ||
+            (v.diagram_title || '').toLowerCase().includes(c.toLowerCase())
           )
-        if (cv?.svg) {
-          return `  * Concept #${i + 1} "${c}": render_svg_diagram(title="${cv.diagram_title || c}", svg="${cv.svg.replace(/"/g, "'")}", caption="${cv.what_to_make || ''}") [Timing: ${cv.timing_and_cue || 'Step 2'}]`
+        const vTitle = cv?.diagram_title || cv?.concept_title || c
+        const timing = cv?.timing_and_cue || 'Step 1 (Intuition) or Step 2 (Definition)'
+        const why = cv?.why_needed || 'Visual grounding of core principles'
+        const explain = cv?.what_to_explain || cv?.what_to_make || ''
+
+        if (cv?.interactive_math_formula || cv?.diagram_type === 'graph') {
+          return `  * Concept #${i + 1} "${c}":\n    - Visual Type: Interactive Mathematical/Kinematic Graph\n    - Tool Call Cue: plot_mathematical_graph(formula="${cv?.interactive_math_formula || '2x + 1'}", title="${vTitle}")\n    - Timing: ${timing}\n    - Focus: ${explain || why}`
         }
-        return `  * Concept #${i + 1} "${c}": render_svg_diagram(title="${c}")`
+
+        if (cv?.diagram_type === 'draw_flowchart') {
+          return `  * Concept #${i + 1} "${c}":\n    - Visual Type: Process Flowchart\n    - Tool Call Cue: write_chalkboard(action="draw_flowchart", content="${cv?.what_to_make || c}")\n    - Timing: ${timing}`
+        }
+
+        if (cv?.diagram_type === 'draw_shape') {
+          return `  * Concept #${i + 1} "${c}":\n    - Visual Type: Geometric Shape Primitive\n    - Tool Call Cue: draw_shape(shape="${cv?.what_to_make || 'rectangle'}", label="${vTitle}")\n    - Timing: ${timing}`
+        }
+
+        const isAnimated = cv?.visual_type === 'animation' || /wave|current|flow|circuit|motion/i.test(vTitle)
+        return `  * Concept #${i + 1} "${c}":\n    - Visual Type: ${isAnimated ? 'Animated Vector Visualization' : 'Tier 2 Publication-Grade Vector SVG'}\n    - Tool Call Cue: render_svg_diagram(title="${vTitle}", caption="${explain || why}")\n    - Timing: ${timing}\n    - Why Needed: ${why}`
       })
       .join('\n')
 
@@ -2060,7 +2124,7 @@ DUAL-MODE VISUAL GENERATION & LIVE BACKUP PIPELINE:
 
 TEXTBOOK CONCEPT MICRO-DOSSIERS:
 ${conceptDossiersText}
-${visualRoadmap ? `\nVISUAL ROADMAP (MANDATORY UNIQUE CONCEPT VISUALS):\n${visualRoadmap}\n- UNIQUE WHITEBOARD INVARIANT: Every concept MUST have its own distinct visual diagram from the roadmap above! NEVER duplicate or re-draw the same diagram for multiple concepts!\n` : ''}${mathProgressionText ? `- ${mathProgressionText}\n` : ''}${aiContextText ? `PEDAGOGICAL CUES: ${aiContextText}\n` : ''}
+${visualRoadmap ? `\n========================================================================================\nVISUAL ROADMAP (MANDATORY UNIQUE CONCEPT VISUALS):\n========================================================================================\n${visualRoadmap}\n- UNIQUE WHITEBOARD INVARIANT: Every concept MUST have its own distinct visual diagram from the roadmap above! NEVER duplicate or re-draw the same diagram for multiple concepts!\n` : ''}${mathProgressionText ? `- ${mathProgressionText}\n` : ''}${aiContextText ? `\n========================================================================================\nAUTHENTIC TEXTBOOK TEACHING DIRECTIVES & CURRICULUM BLUEPRINT:\n========================================================================================\n${aiContextText}\n` : ''}
 RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, intellectually rigorous topper tone.`
 
     // Whiteboard 1-Concept-Per-Page: Ensure active concept page is active
@@ -2242,6 +2306,7 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
             action === 'draw_svg' ||
             action === 'draw_svg_diagram'
           ) {
+            const supabase = createClient()
             const vPlan = (activeModule?.visual_lesson_plan as any) || {}
             const conceptVisuals: any[] = Array.isArray(vPlan.concept_visuals) ? vPlan.concept_visuals : []
             const moduleDefaultSvg = vPlan.diagram_svg || ''
@@ -2289,26 +2354,6 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
               return
             }
 
-            // Auto-dock interactive coordinate graphing calculator if topic involves graphs or mathematical functions
-            const isGraphRelated =
-              /graph|coordinate|motion|velocity|distance-time|parabola|plot|function/i.test(queryTitle) ||
-              /graph|plot|coordinate/i.test(explicitCaption)
-            if (isGraphRelated && !activeGraph) {
-              let formula = '2x + 1; x^2; 2; 2x'
-              let gDomain: [number, number] = [-10, 10]
-              let gRange: [number, number] = [-10, 50]
-              if (/quadratic|parabola/i.test(queryTitle)) {
-                formula = 'x^2 - 4'
-                gDomain = [-5, 5]
-                gRange = [-5, 20]
-              } else if (/velocity|speed/i.test(queryTitle)) {
-                formula = '2x'
-                gDomain = [0, 10]
-                gRange = [0, 25]
-              }
-              setActiveGraph({ formula, domain: gDomain, range: gRange, title: queryTitle })
-            }
-
             // 1. Search for pre-authored concept visual in activeModule
             const qLower = queryTitle.toLowerCase().trim()
             let matched = conceptVisuals.find((cv: any) => {
@@ -2328,22 +2373,137 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
               }
             }
 
+            // Auto-dock interactive coordinate graphing calculator if topic involves graphs or mathematical functions
+            const isGraphRelated =
+              /graph|coordinate|motion|velocity|distance-time|parabola|plot|function/i.test(queryTitle) ||
+              /graph|plot|coordinate/i.test(explicitCaption) ||
+              Boolean(matched?.interactive_math_formula)
+            if (isGraphRelated && !activeGraph) {
+              let formula = matched?.interactive_math_formula || '2x + 1; x^2; 2; 2x'
+              let gDomain: [number, number] = [-10, 10]
+              let gRange: [number, number] = [-10, 50]
+              if (/quadratic|parabola/i.test(queryTitle)) {
+                formula = matched?.interactive_math_formula || 'x^2 - 4'
+                gDomain = [-5, 5]
+                gRange = [-5, 20]
+              } else if (/velocity|speed/i.test(queryTitle)) {
+                formula = matched?.interactive_math_formula || '2x'
+                gDomain = [0, 10]
+                gRange = [0, 25]
+              }
+              setActiveGraph({ formula, domain: gDomain, range: gRange, title: queryTitle })
+            }
+
             if (matched && (matched.svg || matched.diagram_svg)) {
+              // 1a. Draw immediate diagram without blocking student
               chalkboardRef.current?.drawSvgDiagram?.(
                 matched.diagram_title || matched.concept_title || queryTitle,
                 matched.svg || matched.diagram_svg,
                 matched.what_to_make || matched.timing_and_cue || explicitCaption
               )
+
+              // If already refined by Tier 2, no further upgrade needed
+              if (matched.refined_by_tier2) {
+                return
+              }
+
+              // 1b. Seamless background upgrade to Tier 2 Aristotle/Gauth publication grade
+              fetch('/api/diagram/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  title: matched.diagram_title || matched.concept_title || queryTitle,
+                  subject: resolvedSubject,
+                  classLevel: resolvedClassLevel,
+                  context: currentConcept || queryTitle,
+                  existingSvg: matched.svg || matched.diagram_svg,
+                  whyNeeded: matched.why_needed || '',
+                  whatToExplain: matched.what_to_explain || '',
+                  whatToMake: matched.what_to_make || '',
+                  refinementPrompt: explicitCaption || '',
+                  visualType: matched.diagram_type === 'graph' ? 'graph' : matched.visual_type || 'diagram',
+                  interactiveMathFormula: matched.interactive_math_formula || '',
+                }),
+              })
+                .then((res) => res.json())
+                .then((data) => {
+                  if (data?.svg && data.svg.includes('<svg')) {
+                    matched.svg = data.svg
+                    matched.diagram_svg = data.svg
+                    matched.refined_by_tier2 = true
+                    chalkboardRef.current?.drawSvgDiagram?.(
+                      data.title || matched.diagram_title || queryTitle,
+                      data.svg,
+                      data.caption || explicitCaption || data.what_to_explain
+                    )
+                    // Persist refined visual lesson plan to Supabase
+                    if (activeModule?.id) {
+                      supabase
+                        .from('syllabus_modules')
+                        .update({ visual_lesson_plan: vPlan })
+                        .eq('id', activeModule.id)
+                        .then(() => {}, () => {})
+                    }
+                  }
+                })
+                .catch((err) => console.warn('[Classroom Tier 2 Upgrade error]:', err))
+
               return
             }
 
             // Check default module SVG only if topic matches capsule title
             if (moduleDefaultSvg && activeModule?.title?.toLowerCase().includes(qLower)) {
               chalkboardRef.current?.drawSvgDiagram?.(queryTitle, moduleDefaultSvg, vPlan.diagram_idea || explicitCaption)
+              if (vPlan.refined_by_tier2) {
+                return
+              }
+
+              // Background Tier 2 refinement for capsule default SVG
+              fetch('/api/diagram/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  title: queryTitle,
+                  subject: resolvedSubject,
+                  classLevel: resolvedClassLevel,
+                  context: currentConcept || queryTitle,
+                  existingSvg: moduleDefaultSvg,
+                  whyNeeded: vPlan.diagram_idea || '',
+                  whatToExplain: vPlan.what_to_make || '',
+                  whatToMake: vPlan.what_to_make || '',
+                  refinementPrompt: explicitCaption || '',
+                  visualType: vPlan.diagram_type || 'diagram',
+                }),
+              })
+                .then((res) => res.json())
+                .then((data) => {
+                  if (data?.svg && data.svg.includes('<svg')) {
+                    vPlan.diagram_svg = data.svg
+                    vPlan.refined_by_tier2 = true
+                    chalkboardRef.current?.drawSvgDiagram?.(
+                      data.title || queryTitle,
+                      data.svg,
+                      data.caption || explicitCaption || data.what_to_explain
+                    )
+                    if (activeModule?.id) {
+                      supabase
+                        .from('syllabus_modules')
+                        .update({ visual_lesson_plan: vPlan })
+                        .eq('id', activeModule.id)
+                        .then(() => {}, () => {})
+                    }
+                  }
+                })
+                .catch((err) => console.warn('[Classroom Tier 2 Upgrade error]:', err))
+
               return
             }
 
             // 2. Fetch on-demand bespoke vector diagram from /api/diagram/generate (Tier 2 Refinement / Synthesis)
+            const isGraph = matched?.diagram_type === 'graph' || /graph|parabola|function|kinematic/i.test(queryTitle)
+            const isAnim = matched?.visual_type === 'animation' || /wave|current|flow|circuit|motion/i.test(queryTitle)
+            const resolvedVisualType = isGraph ? 'graph' : isAnim ? 'animation' : (matched?.diagram_type || 'diagram')
+
             fetch('/api/diagram/generate', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -2355,7 +2515,10 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
                 existingSvg: matched?.svg || matched?.diagram_svg || '',
                 whyNeeded: matched?.why_needed || '',
                 whatToExplain: matched?.what_to_explain || '',
+                whatToMake: matched?.what_to_make || '',
                 refinementPrompt: explicitCaption || '',
+                visualType: resolvedVisualType,
+                interactiveMathFormula: matched?.interactive_math_formula || '',
               }),
             })
               .then((res) => res.json())
@@ -2366,6 +2529,18 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
                     data.svg,
                     data.caption || explicitCaption || data.what_to_explain
                   )
+                  if (activeModule?.id) {
+                    if (matched) {
+                      matched.svg = data.svg
+                      matched.diagram_svg = data.svg
+                      matched.refined_by_tier2 = true
+                    }
+                    supabase
+                      .from('syllabus_modules')
+                      .update({ visual_lesson_plan: vPlan })
+                      .eq('id', activeModule.id)
+                      .then(() => {}, () => {})
+                  }
                 } else {
                   // Fall back to local mathematical/biological vector SVG engine
                   chalkboardRef.current?.drawSvgDiagram?.(queryTitle, '', explicitCaption)

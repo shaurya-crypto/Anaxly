@@ -86,6 +86,11 @@ interface Profile {
   learning_level?: string | null
   class_level?: string | null
   last_class_date?: string | null
+  limit_type?: 'unlimited' | 'modules' | 'requests' | string | null
+  max_modules?: number | null
+  used_modules?: number | null
+  max_requests?: number | null
+  used_requests?: number | null
 }
 
 interface StitchDashboardViewProps {
@@ -171,8 +176,10 @@ export function StitchDashboardView({
   progressRecords.forEach((p) => progressMap.set(p.syllabus_module_id, p))
 
   // 1 Free Module Quota Calculation
+  const isUnlimitedUser = profile?.limit_type === 'unlimited'
+  const maxAllowedModules = profile?.limit_type === 'modules' ? (profile?.max_modules ?? 5) : 1
   const completedCapsulesCount = progressRecords.filter((p) => p.status === 'completed' || !!p.completed_at).length
-  const isFreeQuotaExhausted = completedCapsulesCount >= 1
+  const isFreeQuotaExhausted = !isUnlimitedUser && completedCapsulesCount >= maxAllowedModules
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
