@@ -394,6 +394,191 @@ export async function DELETE(req: Request) {
   }
 }
 
+async function saveSynthesizedCapsulesToDatabase({
+  adminSupabase,
+  targetCurrId,
+  curriculumId,
+  board,
+  classLevel,
+  category,
+  targetChapterTitle,
+  targetOrderIndex,
+  capsules,
+  chapterSummary,
+  activeNotes,
+  notesSourceFilename,
+  geminiCacheName,
+  strategy,
+  existingCurriculum,
+}: {
+  adminSupabase: any
+  targetCurrId: string | null
+  curriculumId: string | null
+  board: string
+  classLevel: string
+  category: string
+  targetChapterTitle: string
+  targetOrderIndex: number
+  capsules: GeneratedModule[]
+  chapterSummary: string
+  activeNotes: string
+  notesSourceFilename: string
+  geminiCacheName: string | null
+  strategy: string
+  existingCurriculum: any
+}): Promise<string> {
+  let resolvedCurrId = targetCurrId || curriculumId
+
+  if (resolvedCurrId) {
+    // Update existing chapter metadata
+    await adminSupabase
+      .from('curriculums')
+      .update({
+        raw_chapter_notes: activeNotes || `[Document Ingested: ${notesSourceFilename || 'chapter_notes.pdf'}]`,
+        notes_summary: chapterSummary,
+        notes_source_filename: notesSourceFilename || 'chapter_notes.pdf',
+        gemini_cache_name: geminiCacheName,
+        notes_updated_at: new Date().toISOString(),
+      })
+      .eq('id', resolvedCurrId)
+
+    if (strategy === 'synthesize_capsules') {
+      // Delete old modules and insert newly synthesized capsules
+      await adminSupabase.from('syllabus_modules').delete().eq('curriculum_id', resolvedCurrId)
+
+      for (const cap of capsules) {
+        const visualPlan = generateVisualLessonPlanForCapsule(
+          {
+            order_index: cap.order_index,
+            title: cap.title,
+            description: cap.description,
+            subtopics: cap.subtopics,
+            key_concepts: cap.key_concepts,
+            worked_examples: cap.worked_examples,
+            common_misconceptions: cap.common_misconceptions,
+            board: existingCurriculum?.board || board,
+            class_level: existingCurriculum?.class_level || classLevel,
+            category: existingCurriculum?.category || category,
+          },
+          {
+            textbookName: notesSourceFilename || `${board} Standard Textbook`,
+          }
+        )
+
+        const { enhancedVisualPlan, diagramDirective } = buildEnhancedVisualPlanAndDirective(cap, visualPlan)
+
+        await adminSupabase.from('syllabus_modules').insert({
+          curriculum_id: resolvedCurrId,
+          order_index: cap.order_index,
+          title: cap.title,
+          description: cap.description || '',
+          board: existingCurriculum?.board || board,
+          class_level: existingCurriculum?.class_level || classLevel,
+          subtopics: toSafeStringArray(cap.subtopics),
+          key_concepts: toSafeStringArray(cap.key_concepts),
+          success_criteria: typeof cap.success_criteria === 'string' ? cap.success_criteria : JSON.stringify(cap.success_criteria || ''),
+          chapter_notes: typeof cap.chapter_notes === 'string' ? cap.chapter_notes : JSON.stringify(cap.chapter_notes || ''),
+          worked_examples: toSafeJsonbArray(cap.worked_examples),
+          common_misconceptions: toSafeStringArray(cap.common_misconceptions),
+          ai_system_prompt_context: `${cap.ai_system_prompt_context || ''}${diagramDirective}`,
+          visual_lesson_plan: enhancedVisualPlan,
+          estimated_minutes: 20,
+        })
+      }
+    } else {
+      // Strategy: map_existing
+      const existingModules = existingCurriculum?.syllabus_modules || []
+      for (let idx = 0; idx < existingModules.length; idx++) {
+        const exMod = existingModules[idx]
+        const matchingCap = capsules[idx] || capsules[0]
+        const { enhancedVisualPlan, diagramDirective } = buildEnhancedVisualPlanAndDirective(
+          matchingCap,
+          exMod.visual_lesson_plan || {}
+        )
+        await adminSupabase
+          .from('syllabus_modules')
+          .update({
+            chapter_notes: typeof matchingCap.chapter_notes === 'string' ? matchingCap.chapter_notes : JSON.stringify(matchingCap.chapter_notes || ''),
+            worked_examples: toSafeJsonbArray(matchingCap.worked_examples),
+            common_misconceptions: toSafeStringArray(matchingCap.common_misconceptions),
+            ai_system_prompt_context: `${matchingCap.ai_system_prompt_context || exMod.ai_system_prompt_context || ''}${diagramDirective}`,
+            visual_lesson_plan: enhancedVisualPlan,
+          })
+          .eq('id', exMod.id)
+      }
+    }
+  } else {
+    // Create new chapter from scratch with attached notes
+    const { data: newCurr, error: newCurrErr } = await adminSupabase
+      .from('curriculums')
+      .insert({
+        title: targetChapterTitle,
+        board,
+        category,
+        description: chapterSummary,
+        class_level: classLevel,
+        difficulty_level: 'intermediate',
+        estimated_duration_minutes: capsules.length * 20,
+        is_published: true,
+        order_index: targetOrderIndex,
+        raw_chapter_notes: activeNotes || `[Document Ingested: ${notesSourceFilename || 'chapter_notes.pdf'}]`,
+        notes_summary: chapterSummary,
+        notes_source_filename: notesSourceFilename || 'chapter_notes.pdf',
+        gemini_cache_name: geminiCacheName,
+      })
+      .select()
+      .single()
+
+    if (newCurrErr || !newCurr) {
+      throw new Error(`Failed to create curriculum chapter: ${newCurrErr?.message}`)
+    }
+
+    resolvedCurrId = newCurr.id
+
+    for (const cap of capsules) {
+      const visualPlan = generateVisualLessonPlanForCapsule(
+        {
+          order_index: cap.order_index,
+          title: cap.title,
+          description: cap.description,
+          subtopics: cap.subtopics,
+          key_concepts: cap.key_concepts,
+          worked_examples: cap.worked_examples,
+          common_misconceptions: cap.common_misconceptions,
+          board,
+          class_level: classLevel,
+          category,
+        },
+        {
+          textbookName: notesSourceFilename || `${board} Standard Textbook`,
+        }
+      )
+
+      const { enhancedVisualPlan, diagramDirective } = buildEnhancedVisualPlanAndDirective(cap, visualPlan)
+
+      await adminSupabase.from('syllabus_modules').insert({
+        curriculum_id: resolvedCurrId,
+        order_index: cap.order_index,
+        title: cap.title,
+        description: cap.description || '',
+        board,
+        class_level: classLevel,
+        subtopics: toSafeStringArray(cap.subtopics),
+        key_concepts: toSafeStringArray(cap.key_concepts),
+        success_criteria: typeof cap.success_criteria === 'string' ? cap.success_criteria : JSON.stringify(cap.success_criteria || ''),
+        chapter_notes: typeof cap.chapter_notes === 'string' ? cap.chapter_notes : JSON.stringify(cap.chapter_notes || ''),
+        worked_examples: toSafeJsonbArray(cap.worked_examples),
+        common_misconceptions: toSafeStringArray(cap.common_misconceptions),
+        ai_system_prompt_context: `${cap.ai_system_prompt_context || ''}${diagramDirective}`,
+        visual_lesson_plan: enhancedVisualPlan,
+        estimated_minutes: 20,
+      })
+    }
+  }
+
+  return resolvedCurrId || ''
+}
+
 // ---------------------------------------------------------------------------
 // POST: Preview, Commit, or Attach Chapter Notes via Multi-Stage Pipeline
 // ---------------------------------------------------------------------------
@@ -504,6 +689,16 @@ export async function POST(req: Request) {
           console.warn('[Ingest API] Failed to parse previewData JSON:', e)
         }
       }
+
+      const rawCapsulesToCommit = formData.get('capsulesToCommit') as string | null
+      if (rawCapsulesToCommit) {
+        try {
+          bodyData.capsulesToCommit = resilientJsonParse(rawCapsulesToCommit, "Capsules To Commit")
+        } catch (e) {
+          console.warn('[Ingest API] Failed to parse capsulesToCommit JSON:', e)
+        }
+      }
+      bodyData.notesSummary = (formData.get('notesSummary') as string) || ''
     } else {
       bodyData = await req.json()
     }
@@ -522,6 +717,8 @@ export async function POST(req: Request) {
       mode = 'preview',
       replaceExisting = false,
       curriculumsToCommit = null,
+      capsulesToCommit = null,
+      notesSummary = '',
       rawSyllabusText = '',
     } = bodyData
 
@@ -546,14 +743,6 @@ export async function POST(req: Request) {
     // WORKFLOW 2: Attach / Synthesize Chapter Notes
     // -----------------------------------------------------------------------
     if (action === 'attach_chapter_notes') {
-      const activeNotes = notesText.trim()
-      if (!activeNotes && !filePart) {
-        return NextResponse.json(
-          { error: 'Please provide chapter notes text or upload a notes file (.pdf, .md, .txt).' },
-          { status: 400 }
-        )
-      }
-
       let targetChapterTitle = chapterTitle.trim()
       let targetOrderIndex = Number(chapterNumber) || 1
       let existingCurriculum: any = null
@@ -575,6 +764,49 @@ export async function POST(req: Request) {
 
       if (!targetChapterTitle) {
         return NextResponse.json({ error: 'Chapter title is required.' }, { status: 400 })
+      }
+
+      // Fast-Path: Commit pre-synthesized & approved capsules from Preview mode
+      if (capsulesToCommit && Array.isArray(capsulesToCommit) && capsulesToCommit.length > 0) {
+        const capsules: GeneratedModule[] = capsulesToCommit
+        const chapterSummary = notesSummary || ''
+        const notesSource = notesSourceFilename || 'chapter_notes.pdf'
+
+        const finalCurrId = await saveSynthesizedCapsulesToDatabase({
+          adminSupabase,
+          targetCurrId: curriculumId || null,
+          curriculumId,
+          board: existingCurriculum?.board || board,
+          classLevel: existingCurriculum?.class_level || classLevel,
+          category: existingCurriculum?.category || category,
+          targetChapterTitle,
+          targetOrderIndex,
+          capsules,
+          chapterSummary,
+          activeNotes: notesText.trim() || `[Approved Preview: ${capsules.length} capsules]`,
+          notesSourceFilename: notesSource,
+          geminiCacheName: bodyData.geminiCacheName || null,
+          strategy,
+          existingCurriculum,
+        })
+
+        return NextResponse.json({
+          success: true,
+          mode: 'commit',
+          action: 'attach_chapter_notes',
+          curriculumId: finalCurrId,
+          chapterTitle: targetChapterTitle,
+          capsulesCount: capsules.length,
+          notesSummary: chapterSummary,
+        })
+      }
+
+      const activeNotes = notesText.trim()
+      if (!activeNotes && !filePart) {
+        return NextResponse.json(
+          { error: 'Please provide chapter notes text or upload a notes file (.pdf, .md, .txt).' },
+          { status: 400 }
+        )
       }
 
       // Check token count & manage Gemini Explicit Context Cache if >= 32,768 tokens (works for uploaded PDFs and text notes)
@@ -611,9 +843,19 @@ export async function POST(req: Request) {
       const isMath = category?.toLowerCase().includes('math') || existingCurriculum?.category?.toLowerCase().includes('math')
       const isMathCategory = isMath
       const synthesisPrompt = `You are a Principal Academic Curriculum Architect and Master Teacher for ${board}.
-Your task is to exhaustively analyze the provided Textbook Chapter document for "${targetChapterTitle}" (${classLevel}, ${category}) and decompose it into an EXHAUSTIVE, topper-ready curriculum series of Topic Capsules:
-1. PART A — CONCEPTUAL FOUNDATION CAPSULES (3 to 5 capsules): Deep concept explanations, verbatim laws, formulas, derivations, and authentic visual diagrams.
-2. PART B — DEDICATED EXERCISE SOLVER CAPSULES (MANDATORY): You MUST create dedicated question solver capsules for EVERY single exercise in the textbook (e.g., "Exercise 1.1: Complete Step-by-Step Question Solver", "Exercise 1.2: Complete Step-by-Step Question Solver"). If an exercise is large (>5 multi-part problems), split into Part 1 and Part 2. Every single question must be fully enumerated and co-solved with complete Gauth-style scratchpad calculations!
+Your task is to exhaustively analyze the provided Textbook Chapter document for "${targetChapterTitle}" (${classLevel}, ${category}) and decompose it into an EXHAUSTIVE, topper-ready curriculum series of Topic Capsules.
+
+CRITICAL CAPSULE COUNT & SCOPE MANDATE (MANDATORY MINIMUM 4 TO 6 CAPSULES):
+- You MUST synthesize AT LEAST 4 to 6 separate, distinct capsules (never 1 or 2!).
+- NEVER lump all concepts into a single omnibus capsule. Every major section and sub-topic of the chapter must be its own dedicated 20-minute masterclass capsule.
+- For Science chapters like Tissues (Class 9 Science):
+  * Capsule 1: Plant Tissues — Meristematic Tissues (Apical, Lateral, Intercalary Meristems)
+  * Capsule 2: Plant Tissues — Simple Permanent Tissues (Parenchyma, Collenchyma, Sclerenchyma, Protective Epidermis & Stomata)
+  * Capsule 3: Plant Tissues — Complex Permanent Tissues (Xylem Tracheids & Vessels, Phloem Sieve Tubes & Companion Cells)
+  * Capsule 4: Animal Tissues — Epithelial & Connective Tissues (Squamous, Cuboidal, Columnar; Blood, Bone, Cartilage, Ligament, Tendon, Adipose, Areolar)
+  * Capsule 5: Animal Tissues — Muscular & Nervous Tissues (Striated, Smooth, Cardiac Muscles; Structure of Neuron & Synapse)
+  * Capsule 6: NCERT In-Text Questions & End-of-Chapter Exercises Complete Step-by-Step Solver
+- For other Science, Math, or Physics chapters: Decompose similarly into 4 to 6 sequential capsules covering foundational concepts, advanced mechanisms/proofs, and complete exercise solvers!
 
 TARGET ACADEMIC SPECIFICATION:
 - Educational Board: "${board}" (NCERT standard structure, zero calculators for Class 10/CBSE, 50% NEP 2020 competency questions)
@@ -666,7 +908,7 @@ MATHEMATICS SPECIALIZATION & GAUTH-LEVEL RIGOR:
 
 ${activeNotes && !geminiCacheName ? `CHAPTER NOTES TEXT:\n"""\n${activeNotes.substring(0, 100000)}\n"""` : 'Analyze the attached detailed chapter notes document thoroughly.'}
 
-REQUIREMENTS FOR EACH TOPIC CAPSULE (4 to 8 capsules total, 20 mins each):
+REQUIREMENTS FOR EACH TOPIC CAPSULE (4 to 6 capsules total, 20 mins each):
 1. "order_index": Sequential number (1, 2, 3...)
 2. "title": Specific, descriptive topic capsule name
 3. "description": 1 concise sentence describing the capsule learning objective.
@@ -689,7 +931,7 @@ REQUIREMENTS FOR EACH TOPIC CAPSULE (4 to 8 capsules total, 20 mins each):
      }
    ]
 7. "success_criteria": 1 clear measurable verification problem or proof question.
-8. "chapter_notes": 1500-2500 words of thorough, structured NCERT-standard notes including definitions, verbatim laws, derivations, and step-by-step proofs.
+8. "chapter_notes": 400-600 words of high-density, structured NCERT-standard bullet notes including verbatim definitions, governing scientific laws, derivations, and SI units (dense, high-yield, zero filler).
 9. "textbook_definitions": Array of exact textbook definitions with formal laws and SI units.
 10. "textbook_examples": Array of 2 to 3 concrete illustrative real-life scenarios from the syllabus.
 11. "textbook_exercises": Array of authentic exercises and practice questions from the book:
@@ -725,7 +967,7 @@ REQUIREMENTS FOR EACH TOPIC CAPSULE (4 to 8 capsules total, 20 mins each):
 17. "diagram_type": The exact type of diagram (vector_svg_diagram | mafs_graph | flowchart | circuit_schematic | ray_optics | anatomy_structure).
 18. "what_to_make": Detailed blueprint of components, geometric shapes, axes, labels, and numerical values to draw.
 19. "diagram_svg": Complete, publication-ready, clean vector SVG markup (<svg viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" xmlns="http://www.w3.org/2000/svg">...</svg>) with clean white background #FFFFFF (<rect x="4" y="4" width="532" height="272" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>), contrasting dark ink strokes (#0F172A, #2563EB, #16A34A, #DC2626), and clear text labels.
-20. "concept_visuals": Array of 2 to 4 UNIQUE, DISTINCT visual diagram blueprints—one crafted for key concepts. Each item MUST be:
+20. "concept_visuals": Array of 1 to 2 UNIQUE, DISTINCT visual diagram blueprints—one crafted for key concepts. Each item MUST be:
     {
       "concept_title": "Exact title matching key_concepts[i]",
       "diagram_title": "Short descriptive title for chalkboard header",
@@ -861,164 +1103,55 @@ Respond with ONLY a valid JSON object matching this schema (do NOT include conve
         )
       }
 
-      // Persist to database using admin client
-      let targetCurrId = curriculumId
-
-      if (targetCurrId) {
-        // Update existing chapter metadata
-        await adminSupabase
-          .from('curriculums')
-          .update({
-            raw_chapter_notes: activeNotes || `[Document Ingested: ${notesSourceFilename || 'chapter_notes.pdf'}]`,
-            notes_summary: chapterSummary,
-            notes_source_filename: notesSourceFilename || 'chapter_notes.pdf',
-            gemini_cache_name: geminiCacheName,
-            notes_updated_at: new Date().toISOString(),
-          })
-          .eq('id', targetCurrId)
-
-        if (strategy === 'synthesize_capsules') {
-          // Delete old modules and insert newly synthesized capsules
-          await adminSupabase.from('syllabus_modules').delete().eq('curriculum_id', targetCurrId)
-
-          for (const cap of capsules) {
-            const visualPlan = generateVisualLessonPlanForCapsule(
-              {
-                order_index: cap.order_index,
-                title: cap.title,
-                description: cap.description,
-                subtopics: cap.subtopics,
-                key_concepts: cap.key_concepts,
-                worked_examples: cap.worked_examples,
-                common_misconceptions: cap.common_misconceptions,
-                board: existingCurriculum?.board || board,
-                class_level: existingCurriculum?.class_level || classLevel,
-                category: existingCurriculum?.category || category,
-              },
-              {
-                textbookName: notesSourceFilename || `${board} Standard Textbook`,
-              }
-            )
-
-            const { enhancedVisualPlan, diagramDirective } = buildEnhancedVisualPlanAndDirective(cap, visualPlan)
-
-            await adminSupabase.from('syllabus_modules').insert({
-              curriculum_id: targetCurrId,
-              order_index: cap.order_index,
-              title: cap.title,
-              description: cap.description || '',
-              board: existingCurriculum?.board || board,
-              class_level: existingCurriculum?.class_level || classLevel,
-              subtopics: cap.subtopics || [],
-              key_concepts: cap.key_concepts || [],
-              success_criteria: cap.success_criteria || '',
-              chapter_notes: cap.chapter_notes || '',
-              worked_examples: cap.worked_examples || [],
-              common_misconceptions: cap.common_misconceptions || [],
-              ai_system_prompt_context: `${cap.ai_system_prompt_context || ''}${diagramDirective}`,
-              visual_lesson_plan: enhancedVisualPlan,
-              estimated_minutes: 20,
-            })
-          }
-        } else {
-          // Strategy: map_existing
-          const existingModules = existingCurriculum?.syllabus_modules || []
-          for (let idx = 0; idx < existingModules.length; idx++) {
-            const exMod = existingModules[idx]
-            const matchingCap = capsules[idx] || capsules[0]
-            const { enhancedVisualPlan, diagramDirective } = buildEnhancedVisualPlanAndDirective(
-              matchingCap,
-              exMod.visual_lesson_plan || {}
-            )
-            await adminSupabase
-              .from('syllabus_modules')
-              .update({
-                chapter_notes: typeof matchingCap.chapter_notes === 'string' ? matchingCap.chapter_notes : JSON.stringify(matchingCap.chapter_notes || ''),
-                worked_examples: toSafeJsonbArray(matchingCap.worked_examples),
-                common_misconceptions: toSafeStringArray(matchingCap.common_misconceptions),
-                ai_system_prompt_context: `${matchingCap.ai_system_prompt_context || exMod.ai_system_prompt_context || ''}${diagramDirective}`,
-                visual_lesson_plan: enhancedVisualPlan,
-              })
-              .eq('id', exMod.id)
-          }
-        }
-      } else {
-        // Create new chapter from scratch with attached notes
-        const { data: newCurr, error: newCurrErr } = await adminSupabase
-          .from('curriculums')
-          .insert({
-            title: targetChapterTitle,
-            board,
-            category,
-            description: chapterSummary,
-            class_level: classLevel,
-            difficulty_level: 'intermediate',
-            estimated_duration_minutes: capsules.length * 15,
-            is_published: true,
-            order_index: targetOrderIndex,
-            raw_chapter_notes: activeNotes || `[Document Ingested: ${notesSourceFilename || 'chapter_notes.pdf'}]`,
-            notes_summary: chapterSummary,
-            notes_source_filename: notesSourceFilename || 'chapter_notes.pdf',
-            gemini_cache_name: geminiCacheName,
-          })
-          .select()
-          .single()
-
-        if (newCurrErr || !newCurr) {
-          throw new Error(`Failed to create curriculum chapter: ${newCurrErr?.message}`)
-        }
-
-        targetCurrId = newCurr.id
-
-        for (const cap of capsules) {
-          const visualPlan = generateVisualLessonPlanForCapsule(
-            {
-              order_index: cap.order_index,
-              title: cap.title,
-              description: cap.description,
-              subtopics: cap.subtopics,
-              key_concepts: cap.key_concepts,
-              worked_examples: cap.worked_examples,
-              common_misconceptions: cap.common_misconceptions,
-              board,
-              class_level: classLevel,
-              category,
-            },
-            {
-              textbookName: notesSourceFilename || `${board} Standard Textbook`,
-            }
-          )
-
-          const { enhancedVisualPlan, diagramDirective } = buildEnhancedVisualPlanAndDirective(cap, visualPlan)
-
-          await adminSupabase.from('syllabus_modules').insert({
-            curriculum_id: targetCurrId,
-            order_index: cap.order_index,
-            title: cap.title,
-            description: cap.description || '',
-            board,
-            class_level: classLevel,
-            subtopics: toSafeStringArray(cap.subtopics),
-            key_concepts: toSafeStringArray(cap.key_concepts),
-            success_criteria: typeof cap.success_criteria === 'string' ? cap.success_criteria : JSON.stringify(cap.success_criteria || ''),
-            chapter_notes: typeof cap.chapter_notes === 'string' ? cap.chapter_notes : JSON.stringify(cap.chapter_notes || ''),
-            worked_examples: toSafeJsonbArray(cap.worked_examples),
-            common_misconceptions: toSafeStringArray(cap.common_misconceptions),
-            ai_system_prompt_context: `${cap.ai_system_prompt_context || ''}${diagramDirective}`,
-            visual_lesson_plan: enhancedVisualPlan,
-            estimated_minutes: 20,
-          })
-        }
+      if (mode === 'preview') {
+        return NextResponse.json({
+          success: true,
+          mode: 'preview',
+          action: 'attach_chapter_notes',
+          curriculumId: curriculumId || null,
+          chapterTitle: targetChapterTitle,
+          chapterNumber: targetOrderIndex,
+          board: existingCurriculum?.board || board,
+          classLevel: existingCurriculum?.class_level || classLevel,
+          category: existingCurriculum?.category || category,
+          summary: chapterSummary,
+          capsulesCount: capsules.length,
+          capsules,
+          geminiCacheName,
+          notesSourceFilename: notesSourceFilename || 'chapter_notes.pdf',
+          modelUsed,
+        })
       }
+
+      // If mode === 'commit', save to database
+      const finalCurrId = await saveSynthesizedCapsulesToDatabase({
+        adminSupabase,
+        targetCurrId: curriculumId || null,
+        curriculumId,
+        board: existingCurriculum?.board || board,
+        classLevel: existingCurriculum?.class_level || classLevel,
+        category: existingCurriculum?.category || category,
+        targetChapterTitle,
+        targetOrderIndex,
+        capsules,
+        chapterSummary,
+        activeNotes,
+        notesSourceFilename,
+        geminiCacheName,
+        strategy,
+        existingCurriculum,
+      })
 
       return NextResponse.json({
         success: true,
+        mode: 'commit',
         action: 'attach_chapter_notes',
-        curriculumId: targetCurrId,
+        curriculumId: finalCurrId,
         chapterTitle: targetChapterTitle,
         capsulesCount: capsules.length,
         notesSummary: chapterSummary,
         geminiCacheName,
+        modelUsed,
         capsules,
       })
     }

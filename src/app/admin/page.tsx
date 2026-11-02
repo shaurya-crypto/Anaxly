@@ -47,6 +47,7 @@ import {
   ToggleRight,
   Gauge,
   Search,
+  Eye,
 } from 'lucide-react'
 
 export type EducationalBoard = 'CBSE' | 'ICSE' | 'IB'
@@ -331,6 +332,23 @@ export default function AdminPortalPage() {
   } | null>(null)
   const [isCommitting, setIsCommitting] = useState(false)
   const [expandedChapterIdx, setExpandedChapterIdx] = useState<number | null>(0)
+
+  // Preview & Confirmation State for Single Chapter Upload
+  const [chapterPreviewData, setChapterPreviewData] = useState<{
+    curriculumId?: string | null
+    chapterTitle: string
+    board: string
+    classLevel: string
+    category: string
+    summary: string
+    capsulesCount: number
+    capsules: any[]
+    notesSourceFilename?: string
+    geminiCacheName?: string | null
+    modelUsed?: string
+  } | null>(null)
+  const [isCommittingChapter, setIsCommittingChapter] = useState(false)
+  const [expandedChapterCapsuleIdx, setExpandedChapterCapsuleIdx] = useState<number | null>(0)
 
   // Published Curriculums Library State
   const [publishedCurriculums, setPublishedCurriculums] = useState<PublishedCurriculum[]>([])
@@ -849,7 +867,10 @@ export default function AdminPortalPage() {
   }
 
   // Handle Chapter Notes Submission (Studio Tab)
-  const handleProcessChapterNotes = async (e: React.FormEvent) => {
+  const handleProcessChapterNotes = async (
+    e: React.FormEvent,
+    executionMode: 'preview' | 'commit' = 'preview'
+  ) => {
     e.preventDefault()
     setErrorMsg(null)
     setSuccessMsg(null)
@@ -879,22 +900,24 @@ export default function AdminPortalPage() {
     setIsProcessingNotes(true)
     const noteStages = [
       'Uploading book chapter document and calculating token footprint...',
-      'Decomposing into 4 to 8 granular 15-minute capsules (scaled to chapter length)...',
-      'Synthesizing authentic definitions, verbatim laws, and SI units from textbook...',
-      'Formulating worked board numericals with Given, Formula, and Steps...',
-      'Compiling common board misconceptions and AI teaching prompts...',
-      'Writing structured capsules and updating Supabase database...',
+      'Synthesizing 4 to 6 comprehensive 20-minute capsules with Gemini 3.8/3.5 high thinking...',
+      'Formulating 4 to 6 authentic board questions per concept with ideal model answers...',
+      'Generating publication-grade pure white vector SVG chalkboard diagrams...',
+      executionMode === 'preview'
+        ? 'Compiling interactive preview of all capsules and questions...'
+        : 'Writing structured capsules and updating Supabase database...',
     ]
     let noteStageIdx = 0
     setNotesProcessingStep(noteStages[0])
     const ticker = setInterval(() => {
       noteStageIdx = (noteStageIdx + 1) % noteStages.length
       setNotesProcessingStep(noteStages[noteStageIdx])
-    }, 3500)
+    }, 4000)
 
     try {
       const formData = new FormData()
       formData.append('action', 'attach_chapter_notes')
+      formData.append('mode', executionMode)
       if (targetCurriculumId) {
         formData.append('curriculumId', targetCurriculumId)
       }
@@ -922,15 +945,22 @@ export default function AdminPortalPage() {
         throw new Error(json.error || 'Failed to synthesize chapter notes.')
       }
 
-      setSuccessMsg(
-        `Successfully ingested book chapter and synthesized ${json.capsulesCount} capsules for "${json.chapterTitle}". ${
-          json.geminiCacheName ? 'Gemini Context Cache enabled.' : ''
-        }`
-      )
-      setNotesRawText('')
-      setNotesFile(null)
-      setNotesNewChapterTitle('')
-      await fetchCurriculumsLibrary()
+      if (json.mode === 'preview') {
+        setChapterPreviewData(json)
+        setSuccessMsg(
+          `Synthesized ${json.capsulesCount} comprehensive 20-minute capsules for "${json.chapterTitle}". Review them below before saving!`
+        )
+      } else {
+        setSuccessMsg(
+          `Successfully ingested book chapter and saved ${json.capsulesCount} capsules for "${json.chapterTitle}". ${
+            json.geminiCacheName ? 'Gemini Context Cache enabled.' : ''
+          }`
+        )
+        setNotesRawText('')
+        setNotesFile(null)
+        setNotesNewChapterTitle('')
+        await fetchCurriculumsLibrary()
+      }
     } catch (err: any) {
       console.error('Chapter notes error:', err)
       setErrorMsg(err?.message || 'An error occurred while processing chapter notes.')
@@ -940,6 +970,8 @@ export default function AdminPortalPage() {
       setNotesProcessingStep('')
     }
   }
+
+  const handleChapterNotesSubmit = handleProcessChapterNotes
 
   // Open modal to attach notes to a specific chapter in the library
   const handleOpenAttachNotesModal = (curr: PublishedCurriculum) => {
@@ -951,7 +983,7 @@ export default function AdminPortalPage() {
   }
 
   // Submit notes from the slide-over modal
-  const handleModalSubmitNotes = async (e: React.FormEvent) => {
+  const handleModalSubmitNotes = async (e: React.FormEvent, executionMode: 'preview' | 'commit' = 'preview') => {
     e.preventDefault()
     if (!selectedChapterForNotes) return
 
@@ -964,20 +996,24 @@ export default function AdminPortalPage() {
     setIsProcessingModal(true)
     const modalStages = [
       'Uploading book chapter document and calculating token footprint...',
-      'Decomposing into 4 to 8 granular capsules scaled to chapter length...',
-      'Extracting verbatim definitions, derivations, and board numericals...',
-      'Writing updated capsules to Supabase database...',
+      'Synthesizing 4 to 6 comprehensive 20-minute capsules with Gemini 3.8/3.5 high thinking...',
+      'Formulating 4 to 6 authentic board questions per concept with ideal model answers...',
+      'Generating publication-grade pure white vector SVG chalkboard diagrams...',
+      executionMode === 'preview'
+        ? 'Compiling interactive preview of all capsules and questions...'
+        : 'Writing structured capsules and updating Supabase database...',
     ]
     let modalIdx = 0
     setModalProcessingStep(modalStages[0])
     const ticker = setInterval(() => {
       modalIdx = (modalIdx + 1) % modalStages.length
       setModalProcessingStep(modalStages[modalIdx])
-    }, 3500)
+    }, 4000)
 
     try {
       const formData = new FormData()
       formData.append('action', 'attach_chapter_notes')
+      formData.append('mode', executionMode)
       formData.append('curriculumId', selectedChapterForNotes.id)
       formData.append('board', selectedChapterForNotes.board)
       formData.append('classLevel', selectedChapterForNotes.class_level)
@@ -1000,15 +1036,24 @@ export default function AdminPortalPage() {
       const json = await res.json()
 
       if (!res.ok || !json.success) {
-        throw new Error(json.error || 'Failed to attach notes.')
+        throw new Error(json.error || 'Failed to synthesize chapter capsules.')
       }
 
-      setSuccessMsg(
-        `Successfully ingested book chapter and synthesized ${json.capsulesCount} capsules for "${selectedChapterForNotes.title}".`
-      )
-      setModalOpen(false)
-      setSelectedChapterForNotes(null)
-      await fetchCurriculumsLibrary()
+      if (json.mode === 'preview') {
+        setChapterPreviewData(json)
+        setSuccessMsg(
+          `Synthesized ${json.capsulesCount} comprehensive 20-minute capsules for "${json.chapterTitle}". Review them below before saving!`
+        )
+        setModalOpen(false)
+        setSelectedChapterForNotes(null)
+      } else {
+        setSuccessMsg(
+          `Successfully ingested book chapter and synthesized ${json.capsulesCount} capsules for "${selectedChapterForNotes.title}".`
+        )
+        setModalOpen(false)
+        setSelectedChapterForNotes(null)
+        await fetchCurriculumsLibrary()
+      }
     } catch (err: any) {
       console.error('Modal attach notes error:', err)
       setErrorMsg(err?.message || 'Failed to attach notes to chapter.')
@@ -1016,6 +1061,47 @@ export default function AdminPortalPage() {
       clearInterval(ticker)
       setIsProcessingModal(false)
       setModalProcessingStep('')
+    }
+  }
+
+  // Commit synthesized chapter preview to database
+  const handleCommitChapterPreview = async () => {
+    if (!chapterPreviewData) return
+    setIsCommittingChapter(true)
+    try {
+      const res = await fetch('/api/curriculum/ingest', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'attach_chapter_notes',
+          mode: 'commit',
+          curriculumId: chapterPreviewData.curriculumId,
+          board: chapterPreviewData.board,
+          classLevel: chapterPreviewData.classLevel,
+          category: chapterPreviewData.category,
+          chapterTitle: chapterPreviewData.chapterTitle,
+          notesSourceFilename: chapterPreviewData.notesSourceFilename,
+          strategy: 'synthesize_capsules',
+          capsulesToCommit: chapterPreviewData.capsules,
+          notesSummary: chapterPreviewData.summary,
+          geminiCacheName: chapterPreviewData.geminiCacheName,
+        }),
+      })
+
+      const json = await res.json()
+      if (!res.ok || !json.success) {
+        throw new Error(json.error || 'Failed to save synthesized capsules.')
+      }
+
+      setSuccessMsg(
+        `Successfully saved ${chapterPreviewData.capsules.length} capsules for "${chapterPreviewData.chapterTitle}" to database!`
+      )
+      setChapterPreviewData(null)
+      await fetchCurriculumsLibrary()
+    } catch (err: any) {
+      setErrorMsg(err?.message || 'Failed to commit chapter capsules.')
+    } finally {
+      setIsCommittingChapter(false)
     }
   }
 
@@ -2079,25 +2165,46 @@ export default function AdminPortalPage() {
               
                 </div>
               )}
-{/* SUBMIT BUTTON */}
+              {/* SUBMIT BUTTONS: Preview or Direct Save */}
               {notesUploadMode === 'single' && (
-                <Button
-                  type="submit"
-                  disabled={isProcessingNotes}
-                className="w-full h-12 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm shadow-xl transition-all cursor-pointer flex items-center justify-center gap-2"
-              >
-                {isProcessingNotes ? (
-                  <>
-                    <RefreshCw className="w-4 h-4 animate-spin" />
-                    <span>{notesProcessingStep || 'Synthesizing 4-8 Capsules with Gemini...'}</span>
-                  </>
-                ) : (
-                  <>
-                    <Sparkles className="w-4 h-4" />
-                    <span>Synthesize Teachable Capsules & Save to Database</span>
-                  </>
-                )}
-              </Button>
+                <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
+                  <Button
+                    type="button"
+                    onClick={(e) => handleChapterNotesSubmit(e, 'preview')}
+                    disabled={isProcessingNotes}
+                    className="w-full sm:w-1/2 h-12 rounded-2xl bg-emerald-900/80 hover:bg-emerald-800 text-emerald-100 font-semibold text-sm shadow-md border border-emerald-600/60 transition-all cursor-pointer flex items-center justify-center gap-2"
+                  >
+                    {isProcessingNotes ? (
+                      <>
+                        <RefreshCw className="w-4 h-4 animate-spin" />
+                        <span>Generating Preview with Gemini...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Eye className="w-4 h-4 text-emerald-300" />
+                        <span>Preview Teachable Capsules (4-6 Capsules)</span>
+                      </>
+                    )}
+                  </Button>
+                  <Button
+                    type="button"
+                    onClick={(e) => handleChapterNotesSubmit(e, 'commit')}
+                    disabled={isProcessingNotes}
+                    className="w-full sm:w-1/2 h-12 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm shadow-xl transition-all cursor-pointer flex items-center justify-center gap-2"
+                  >
+                    {isProcessingNotes ? (
+                      <>
+                        <RefreshCw className="w-4 h-4 animate-spin" />
+                        <span>{notesProcessingStep || 'Synthesizing with Gemini...'}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Sparkles className="w-4 h-4" />
+                        <span>Direct Ingest & Save to Database</span>
+                      </>
+                    )}
+                  </Button>
+                </div>
               )}
             </form>
           </section>
@@ -2427,6 +2534,176 @@ export default function AdminPortalPage() {
                 </div>
               )}
             </form>
+          </section>
+        )}
+
+        {/* ------------------------------------------------------------------- */}
+        {/* SINGLE CHAPTER DECOMPOSITION PREVIEW & CONFIRMATION PANEL */}
+        {/* ------------------------------------------------------------------- */}
+        {chapterPreviewData && (
+          <section className="p-6 md:p-8 rounded-3xl bg-[#112318] border-2 border-emerald-500/70 shadow-2xl space-y-6 animate-in fade-in">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-emerald-900/80 pb-5">
+              <div>
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-emerald-400" />
+                  <h3 className="text-lg font-semibold text-white tracking-tight">
+                    Review Teachable Capsules: {chapterPreviewData.chapterTitle}
+                  </h3>
+                </div>
+                <p className="text-xs text-emerald-300/80 font-mono mt-1">
+                  Board: {chapterPreviewData.board} • Level: {chapterPreviewData.classLevel} • Subject: {chapterPreviewData.category} •{' '}
+                  <span className="text-emerald-400 font-bold">{chapterPreviewData.capsulesCount} Capsules</span> (20 mins each) • Model: {chapterPreviewData.modelUsed || 'gemini-3.8-flash'}
+                </p>
+                {chapterPreviewData.summary && (
+                  <p className="text-xs text-emerald-200/90 mt-2 italic bg-emerald-950/60 p-2.5 rounded-xl border border-emerald-800/60">
+                    "{chapterPreviewData.summary}"
+                  </p>
+                )}
+              </div>
+
+              <div className="flex items-center gap-3">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setChapterPreviewData(null)}
+                  disabled={isCommittingChapter}
+                  className="bg-[#0c1610] hover:bg-emerald-950 border-emerald-800 text-emerald-300 rounded-xl text-xs h-10 px-4 cursor-pointer"
+                >
+                  Discard Preview
+                </Button>
+                <Button
+                  type="button"
+                  onClick={handleCommitChapterPreview}
+                  disabled={isCommittingChapter}
+                  className="bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-semibold h-10 px-5 shadow-lg flex items-center gap-2 cursor-pointer active:scale-95 transition-transform"
+                >
+                  {isCommittingChapter ? (
+                    <>
+                      <RefreshCw className="w-4 h-4 animate-spin" />
+                      <span>Saving to Database...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Check className="w-4 h-4" />
+                      <span>Approve & Save to Database</span>
+                    </>
+                  )}
+                </Button>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <div className="text-[11px] font-mono text-emerald-400 uppercase tracking-wider">
+                Synthesized 20-Minute Masterclass Capsules ({chapterPreviewData.capsules.length} Total):
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {chapterPreviewData.capsules.map((cap: any, cIdx: number) => {
+                  return (
+                    <div
+                      key={cIdx}
+                      className="rounded-2xl bg-[#0d1a12] border border-emerald-800/80 overflow-hidden shadow-md space-y-3 p-4 flex flex-col justify-between"
+                    >
+                      <div className="space-y-2.5">
+                        <div className="flex items-start justify-between gap-2">
+                          <div className="flex items-center gap-2">
+                            <span className="text-[10px] font-mono font-bold text-emerald-300 bg-emerald-900/60 px-2 py-0.5 rounded border border-emerald-700/50">
+                              Capsule #{cap.order_index || cIdx + 1}
+                            </span>
+                            <h4 className="text-sm font-semibold text-white tracking-tight">
+                              {cap.title}
+                            </h4>
+                          </div>
+                          <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded-full border border-emerald-800 shrink-0">
+                            20 mins
+                          </span>
+                        </div>
+
+                        <p className="text-xs text-emerald-200/80 leading-relaxed">
+                          {cap.description}
+                        </p>
+
+                        {/* Subtopics */}
+                        {cap.subtopics && cap.subtopics.length > 0 && (
+                          <div className="space-y-1">
+                            <span className="text-[10px] font-mono text-emerald-400/80 uppercase">Subtopics:</span>
+                            <div className="flex flex-wrap gap-1.5">
+                              {cap.subtopics.map((st: string, idx: number) => (
+                                <span
+                                  key={idx}
+                                  className="text-[10px] bg-emerald-950 px-2 py-0.5 rounded text-emerald-300 border border-emerald-800/60"
+                                >
+                                  {st}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Key Concepts */}
+                        {cap.key_concepts && cap.key_concepts.length > 0 && (
+                          <div className="space-y-1">
+                            <span className="text-[10px] font-mono text-emerald-400/80 uppercase">Key Concepts & Laws:</span>
+                            <div className="flex flex-wrap gap-1.5">
+                              {cap.key_concepts.map((kc: string, idx: number) => (
+                                <span
+                                  key={idx}
+                                  className="text-[10px] bg-emerald-900/40 px-2 py-0.5 rounded text-emerald-200 border border-emerald-700/50 font-mono"
+                                >
+                                  {kc}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Prepared Exam Questions preview */}
+                        {cap.concept_questions && cap.concept_questions.length > 0 && (
+                          <div className="pt-2 border-t border-emerald-900/60 space-y-1.5">
+                            <div className="flex items-center justify-between text-[10.5px] font-mono font-bold text-amber-300">
+                              <span>Prepared Board Exam Questions ({cap.concept_questions.reduce((acc: number, cq: any) => acc + (cq.questions?.length || 0), 0)} Questions)</span>
+                            </div>
+                            <div className="space-y-1.5 max-h-40 overflow-y-auto pr-1">
+                              {cap.concept_questions.flatMap((cq: any) => cq.questions || []).slice(0, 4).map((q: any, qIdx: number) => (
+                                <div key={qIdx} className="p-2 rounded-lg bg-emerald-950/40 border border-emerald-900/50 text-[11px] space-y-1">
+                                  <div className="flex items-center gap-1.5">
+                                    <span className="px-1.5 py-0.5 rounded bg-amber-950 text-amber-300 font-mono text-[9px] border border-amber-800/60">
+                                      {q.type || 'Board Question'}
+                                    </span>
+                                    <span className="text-white font-medium line-clamp-1">{q.question}</span>
+                                  </div>
+                                  {q.ideal_answer && (
+                                    <p className="text-[10px] text-emerald-300/80 line-clamp-1 italic">
+                                      Model Ans: {q.ideal_answer}
+                                    </p>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* White Chalkboard Vector SVG Preview */}
+                        {cap.diagram_svg && cap.diagram_svg.includes('<svg') && (
+                          <div className="pt-2 border-t border-emerald-900/60 space-y-1.5">
+                            <span className="text-[10.5px] font-mono font-bold text-sky-300 flex items-center gap-1">
+                              <Sparkles className="w-3 h-3 text-sky-400" />
+                              <span>Chalkboard Vector Diagram (#FFFFFF theme)</span>
+                            </span>
+                            <div className="w-full bg-white rounded-xl p-2.5 border border-slate-200 shadow-inner flex items-center justify-center overflow-hidden [&>svg]:max-h-[140px] [&>svg]:w-auto">
+                              <div
+                                className="w-full flex items-center justify-center"
+                                dangerouslySetInnerHTML={{ __html: cap.diagram_svg }}
+                              />
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
           </section>
         )}
 
@@ -3709,9 +3986,28 @@ export default function AdminPortalPage() {
                 Cancel
               </Button>
               <Button
-                type="submit"
+                type="button"
+                onClick={(e) => handleModalSubmitNotes(e, 'preview')}
                 disabled={isProcessingModal}
-                className="bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-semibold h-9 px-4 shadow-lg flex items-center gap-2 cursor-pointer"
+                className="bg-emerald-800/80 hover:bg-emerald-700 text-emerald-100 rounded-xl text-xs font-semibold h-9 px-4 shadow-sm flex items-center gap-1.5 cursor-pointer border border-emerald-600/50"
+              >
+                {isProcessingModal ? (
+                  <>
+                    <RefreshCw className="w-3.5 h-3.5 animate-spin" />
+                    <span>Processing...</span>
+                  </>
+                ) : (
+                  <>
+                    <Eye className="w-3.5 h-3.5 text-emerald-300" />
+                    <span>Preview Capsules</span>
+                  </>
+                )}
+              </Button>
+              <Button
+                type="button"
+                onClick={(e) => handleModalSubmitNotes(e, 'commit')}
+                disabled={isProcessingModal}
+                className="bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-semibold h-9 px-4 shadow-lg flex items-center gap-1.5 cursor-pointer"
               >
                 {isProcessingModal ? (
                   <>
@@ -3721,7 +4017,7 @@ export default function AdminPortalPage() {
                 ) : (
                   <>
                     <Sparkles className="w-3.5 h-3.5" />
-                    <span>Ingest Book & Synthesize</span>
+                    <span>Direct Ingest & Save</span>
                   </>
                 )}
               </Button>
