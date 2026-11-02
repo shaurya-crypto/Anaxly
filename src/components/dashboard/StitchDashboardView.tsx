@@ -64,7 +64,8 @@ interface Curriculum {
 
 interface MemoryItem {
   id: string
-  memory_text: string
+  content?: string
+  memory_text?: string
   importance_score?: number | null
   created_at: string
 }
@@ -695,6 +696,7 @@ export function StitchDashboardView({
                         id="primary-resume-btn"
                         className="inline-flex min-h-12 items-center gap-2.5 rounded-lg bg-white px-6 py-3 text-base font-semibold text-accent-primary shadow-xs transition-colors hover:bg-accent-primary-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-accent-primary"
                         href={activeModule?.id ? `/dashboard/${user.id}/class/${activeModule.id}` : `/dashboard/${user.id}/class`}
+                        onClick={(e) => handleModuleClick(e, activeModule?.id)}
                       >
                         <span aria-hidden="true" className="material-symbols-outlined text-xl" style={{ fontVariationSettings: '"FILL" 1' }}>
                           play_arrow
@@ -951,6 +953,7 @@ export function StitchDashboardView({
                     </div>
                     <Link
                       href={activeModule?.id ? `/dashboard/${user.id}/class/${activeModule.id}` : `/dashboard/${user.id}/class`}
+                      onClick={(e) => handleModuleClick(e, activeModule?.id)}
                       className="sm:self-center flex-shrink-0 px-5 py-2.5 rounded-xl bg-primary hover:bg-accent-hover text-white font-semibold font-label-md text-label-md transition-colors scale-[0.98] text-center"
                     >
                       Continue
@@ -1002,7 +1005,7 @@ export function StitchDashboardView({
                         </div>
                         <h4 className="font-headline-sm text-headline-sm text-ink-primary mt-0.5">
                           {memories.length > 0
-                            ? `Spaced Repetition: ${memories[0].memory_text.slice(0, 42)}...`
+                            ? `Spaced Repetition: ${(memories[0]?.memory_text || memories[0]?.content || '').slice(0, 42)}...`
                             : `Spaced Repetition: ${activeCourse.title} Concepts`}
                         </h4>
                         <p className="font-body-md text-body-md text-ink-secondary text-sm mt-0.5">
@@ -1128,6 +1131,7 @@ export function StitchDashboardView({
                       <Link
                         className="font-label-md text-label-md text-ink-primary hover:text-primary font-medium inline-flex items-center gap-1"
                         href={card.nextModuleId ? `/dashboard/${user.id}/class/${card.nextModuleId}` : `/dashboard/${user.id}/class`}
+                        onClick={(e) => handleModuleClick(e, card.nextModuleId || activeModule?.id)}
                       >
                         <span>Enter Subject</span>
                         <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -1374,7 +1378,7 @@ export function StitchDashboardView({
               </h3>
               <p className="font-body-md text-body-md text-ink-secondary text-sm">
                 {memories.length > 0
-                  ? `Anaxly has synthesized your recent sessions: "${memories[0].memory_text.slice(0, 110)}..."`
+                  ? `Anaxly has synthesized your recent sessions: "${(memories[0]?.memory_text || memories[0]?.content || '').slice(0, 110)}..."`
                   : activeModule?.description
                   ? `Beginning with ${activeModule.title}. Reviewing foundational concepts and interactive socratic problems.`
                   : 'Anaxly is ready for interactive dialogue, concept clarification, and deliberate practice.'}
@@ -1431,12 +1435,12 @@ export function StitchDashboardView({
           </DialogHeader>
 
           <div className="space-y-4 my-2">
-            <div className="p-4 rounded-2xl bg-canvas border border-border-subtle space-y-2">
+            <div className="p-4 rounded-2xl bg-canvas border border-border-subtle space-y-2 max-h-60 overflow-y-auto">
               <span className="font-label-micro text-xs uppercase tracking-wider text-ink-muted">
-                Core Topic Overview
+                Core Topic Overview & Master Notes
               </span>
-              <p className="font-body-md text-ink-primary text-sm">
-                {activeModule?.description || 'Foundational concepts and principles for this chapter.'}
+              <p className="font-body-md text-ink-primary text-sm whitespace-pre-line">
+                {activeModule?.chapter_notes || activeModule?.description || 'Foundational concepts and principles for this chapter.'}
               </p>
             </div>
 
@@ -1552,12 +1556,13 @@ export function StitchDashboardView({
                 onChange={(e) => setSelectedClass(e.target.value)}
                 className="w-full p-2.5 rounded-xl border border-border-subtle bg-surface text-ink-primary text-sm focus:outline-hidden focus:ring-2 focus:ring-primary/20"
               >
+                <option value="Class 6">Class 6</option>
+                <option value="Class 7">Class 7</option>
                 <option value="Class 8">Class 8</option>
                 <option value="Class 9">Class 9</option>
                 <option value="Class 10">Class 10</option>
                 <option value="Class 11">Class 11</option>
                 <option value="Class 12">Class 12</option>
-                <option value="Undergraduate">Undergraduate / College</option>
               </select>
             </div>
 
