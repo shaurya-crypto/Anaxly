@@ -115,12 +115,31 @@ CRITICAL VECTOR DESIGN SPECIFICATIONS (WHITE CHALKBOARD / ARISTOTLE BENCHMARK):
       ? `Refine this existing SVG diagram for: "${title}". Refinement instructions: ${refinementPrompt || context}. Keep the background pure white (#FFFFFF). Existing SVG:\n${existingSvg}\nReturn ONLY the updated raw <svg viewBox="0 0 540 280" ...>...</svg> element.`
       : `Generate a publication-grade vector SVG diagram for: "${title}". Academic domain: ${domain}. Grade: ${classLevel}. Context: ${context}. Return ONLY the raw <svg viewBox="0 0 540 280" ...>...</svg> element with pure white background.`
 
-    const candidateModels = ['gemini-3.8-flash', 'gemini-2.5-flash', 'gemini-3-flash-preview']
+    const candidateModels = [
+      'gemini-3.8-flash',
+      'gemini-3.5-flash',
+      'gemini-3-flash-preview',
+      'gemini-2.5-flash',
+      'gemini-3.6-flash',
+      'gemini-3.5-flash-lite',
+      'gemini-2.5-flash-lite',
+    ]
     let response: any = null
     let lastError: any = null
 
     for (const candidateModel of candidateModels) {
       try {
+        const modelConfig: any = {
+          systemInstruction: systemPrompt,
+          temperature: 0.15,
+          maxOutputTokens: 16384,
+        }
+        if (candidateModel.startsWith('gemini-3')) {
+          modelConfig.thinkingConfig = {
+            thinkingBudget: 1024,
+          }
+        }
+
         response = await ai.models.generateContent({
           model: candidateModel,
           contents: [
@@ -133,14 +152,7 @@ CRITICAL VECTOR DESIGN SPECIFICATIONS (WHITE CHALKBOARD / ARISTOTLE BENCHMARK):
               ],
             },
           ],
-          config: {
-            systemInstruction: systemPrompt,
-            temperature: 0.15,
-            maxOutputTokens: 16384,
-            thinkingConfig: {
-              thinkingBudget: 1024,
-            },
-          },
+          config: modelConfig,
         })
         if (response?.text) break
       } catch (err: any) {

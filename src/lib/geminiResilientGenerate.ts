@@ -19,23 +19,32 @@ export interface ResilientGenerateOptions {
 }
 
 /**
- * Verified models for curriculum decomposition and chapter synthesis:
- * 1. gemini-3-flash-preview: Primary high-speed preview engine (1st position, ultra-fast generation)
- * 2. gemini-3.8-flash: High-intelligence workhorse in 2nd position (thinking disabled for fast structured JSON)
- * 3. gemini-2.5-flash: Ultra-fast flagship workhorse (1.1s response)
- * 4. gemini-2.5-flash-lite: Ultra-low latency safety net (0.8s response)
+ * Verified models for curriculum decomposition, chapter synthesis, and deep scholastic reasoning:
+ * 1. gemini-3.8-flash: Flagship high-intelligence engine with high thinking budget
+ * 2. gemini-3.5-flash: Ultra-reliable workhorse with high thinking budget
+ * 3. gemini-3-flash-preview: High-speed preview engine with high thinking budget
+ * 4. gemini-2.5-flash: Standard flagship workhorse
+ * Failover extensions:
+ * 5. gemini-3.6-flash: High-speed reasoning engine with thinking
+ * 6. gemini-3.5-flash-lite: Fast structured intelligence fallback
+ * 7. gemini-2.5-flash-lite: Ultra-low latency safety net (0.9s response)
+ * 8. gemini-flash-lite-latest: Emergency fallback
  */
 export const DEFAULT_MODEL_CASCADE = [
-  'gemini-2.5-flash',
-  'gemini-3-flash-preview',
-  'gemini-2.5-flash-lite',
   'gemini-3.8-flash',
+  'gemini-3.5-flash',
+  'gemini-3-flash-preview',
+  'gemini-2.5-flash',
+  'gemini-3.6-flash',
+  'gemini-3.5-flash-lite',
+  'gemini-2.5-flash-lite',
+  'gemini-flash-lite-latest',
 ]
 
 /**
  * Instant-Failover Multi-Model Generator with per-attempt timeout guard.
  * Prevents requests from hanging on upstream demand spikes (e.g. 503 errors).
- * If a model times out (default 60s) or returns an error, it immediately cascades to the next available model.
+ * If a model times out (default 180s) or returns an error, it immediately cascades to the next available model.
  */
 export async function resilientGenerateContent(
   ai: GoogleGenAI,
@@ -48,7 +57,7 @@ export async function resilientGenerateContent(
 
   const maxRounds = options.maxRounds || 2
   const label = options.label || 'Gemini API'
-  const timeoutLimit = options.timeoutMs !== undefined ? options.timeoutMs : 60000
+  const timeoutLimit = options.timeoutMs !== undefined ? options.timeoutMs : 180000
   const errorsCollected: string[] = []
 
   const baseConfig = {
@@ -66,14 +75,14 @@ export async function resilientGenerateContent(
         // Construct per-model config
         const modelConfig: any = { ...baseConfig }
 
-        // Gemini 3.x models support thinkingConfig. For fast structured JSON extraction,
-        // if thinkingBudget is not explicitly configured, disable thinking (thinkingBudget: 0) to prevent 2-minute delays.
+        // Gemini 3.x models support thinkingConfig.
+        // Maintain high thinking budget (default 2048) for scholastic depth unless caller configured otherwise.
         if (model.startsWith('gemini-3')) {
-          if (!modelConfig.thinkingConfig && baseConfig.responseMimeType === 'application/json') {
-            modelConfig.thinkingConfig = { thinkingBudget: 0 }
+          if (!modelConfig.thinkingConfig) {
+            modelConfig.thinkingConfig = { thinkingBudget: 2048 }
           }
         } else {
-          // Gemini 2.x models do not accept thinkingConfig; delete to prevent API errors
+          // Gemini 2.x models or non-thinking endpoints do not accept thinkingConfig; delete to prevent API errors
           delete modelConfig.thinkingConfig
         }
 

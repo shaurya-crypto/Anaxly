@@ -835,14 +835,18 @@ Respond with ONLY a valid JSON object matching this schema (do NOT include conve
       noteContents.push(synthesisPrompt)
 
       const startTime = Date.now()
-    const { text: rawResponseText, modelUsed } = await resilientGenerateContent(ai, {
+      const { text: rawResponseText, modelUsed } = await resilientGenerateContent(ai, {
         contents: noteContents,
         config: {
           responseMimeType: 'application/json',
           temperature: 0.2,
           maxOutputTokens: 65536,
+          thinkingConfig: {
+            thinkingBudget: 2048,
+          },
           ...(geminiCacheName ? { cachedContent: geminiCacheName } : {}),
         },
+        timeoutMs: 240000,
         label: 'Chapter Notes Synthesis',
       })
 
@@ -1121,7 +1125,11 @@ Respond with ONLY a valid JSON object matching this schema (do NOT include conve
         responseMimeType: 'application/json',
         temperature: 0.2,
         maxOutputTokens: 65536,
+        thinkingConfig: {
+          thinkingBudget: 2048,
+        },
       },
+      timeoutMs: 180000,
       label: 'Syllabus Decomposition',
     })
 
