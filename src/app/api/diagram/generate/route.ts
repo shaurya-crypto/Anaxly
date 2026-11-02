@@ -78,9 +78,21 @@ CRITICAL VECTOR DESIGN SPECIFICATIONS (PREMIUM SCHOLASTIC BENCHMARK):
    - Balanced vertical centering: Center the main illustration vertically (between y=55 and y=225) so the card feels full, balanced, and intentional without awkward bottom voids.
 
 3. UNIVERSAL SUBJECT ADAPTABILITY:
-   - BIOLOGY: Center the anatomical/cellular structure. Dual-sided leader lines pointing accurately to specific membranes, organelles, or layers. Labeled cross-sections.
-   - PHYSICS & KINEMATICS: Clean reference frames, prominent directional vector arrows with filled arrowheads (<marker id="arrow" ...>), displacement vs distance legends, resolved force vectors, or ray optics with exact focal points.
-   - MATHEMATICS: Balanced coordinate grid, labeled axes with ticks, quadrant badges, clean curve plots, plotted coordinates P(x, y) with dashed drop-lines to axes.
+   - BIOLOGY: Center the anatomical/cellular structure. Dual-sided leader lines pointing accurately to specific membranes, organelles, or layers. Labeled cross-sections with cellular textures.
+   - PHYSICS & KINEMATICS (ARISTOTLE BENCHMARK):
+     * For Motion Graphs & Kinematics: Draw a dual-tier diagram:
+       - Top row: 4 mini coordinate line graphs (Distance-Time s vs t or Velocity-Time v vs t) side by side with axes, arrowheads, and emerald/cyan curves (#34D399 / #38BDF8):
+         1. Stationary body: flat horizontal line
+         2. Uniform motion: constant straight diagonal slope
+         3. Accelerating non-uniform motion: upward curved parabola
+         4. Decelerating non-uniform motion: downward curved line
+         Each labeled clearly below the graph!
+       - Bottom row: 1D horizontal coordinate axis with numbered ticks (1 to 8), Start dot (x_i), End diamond (x_f), actual path curved arc (orange dashed with arrow and distance/time), net displacement vector arrow (#38BDF8), and velocity calculation box (v̄ = Δx / Δt)!
+     * For Optics: Principal axis, concave/convex dual curved lens, focal points F and 2F, object arrow, 3 distinct refracted rays, inverted image arrow, Gaussian formula.
+     * For Mechanics & Forces: Incline plane with angle theta, block, normal force N perpendicular, mg downward, resolved components, friction vector, and Newton's equations.
+     * For Circuits: Battery plates, switch, zigzag resistor, ammeter circle (A), voltmeter circle (V), and Ohm's law.
+   - MATHEMATICS & COORDINATE GEOMETRY:
+     * Balanced coordinate grid, labeled axes with ticks, quadrant badges, clean curve plots, plotted coordinates P(x, y) with dashed drop-lines to axes. For algebraic equations, plot actual lines and curves with their equations labeled directly beside them (like Desmos/Aristotle).
    - CHEMISTRY: Accurate apparatus, molecular geometry, or electron shells with clear atomic orbitals.
 
 4. STRICT PROHIBITIONS:

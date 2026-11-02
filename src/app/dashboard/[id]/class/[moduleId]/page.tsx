@@ -2261,7 +2261,38 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
             // If valid SVG markup was explicitly supplied, draw immediately
             if (explicitSvg && explicitSvg.toLowerCase().includes('<svg')) {
               chalkboardRef.current?.drawSvgDiagram?.(queryTitle, explicitSvg, explicitCaption)
+              const isGraphRelated =
+                /graph|coordinate|motion|velocity|distance-time|parabola|plot|function/i.test(queryTitle) ||
+                /graph|plot|coordinate/i.test(explicitCaption)
+              if (isGraphRelated && !activeGraph) {
+                setActiveGraph({
+                  formula: '2x + 1; x^2; 2; 2x',
+                  domain: [-10, 10],
+                  range: [-10, 50],
+                  title: queryTitle,
+                })
+              }
               return
+            }
+
+            // Auto-dock interactive coordinate graphing calculator if topic involves graphs or mathematical functions
+            const isGraphRelated =
+              /graph|coordinate|motion|velocity|distance-time|parabola|plot|function/i.test(queryTitle) ||
+              /graph|plot|coordinate/i.test(explicitCaption)
+            if (isGraphRelated && !activeGraph) {
+              let formula = '2x + 1; x^2; 2; 2x'
+              let gDomain: [number, number] = [-10, 10]
+              let gRange: [number, number] = [-10, 50]
+              if (/quadratic|parabola/i.test(queryTitle)) {
+                formula = 'x^2 - 4'
+                gDomain = [-5, 5]
+                gRange = [-5, 20]
+              } else if (/velocity|speed/i.test(queryTitle)) {
+                formula = '2x'
+                gDomain = [0, 10]
+                gRange = [0, 25]
+              }
+              setActiveGraph({ formula, domain: gDomain, range: gRange, title: queryTitle })
             }
 
             // 1. Search for pre-authored concept visual in activeModule

@@ -573,6 +573,138 @@ export function generateDynamic1DMotionSvg(params: {
 }
 
 /**
+ * 5b. ARISTOTLE BENCHMARK KINEMATICS & MOTION LINE GRAPHS
+ * Publication-grade dual-tier diagram matching Aristotle:
+ * Top: 4 mini coordinate line graphs (Stationary, Uniform, Accelerating, Decelerating)
+ * Bottom: 1D spatial coordinate axis with Start/End points, curved actual path arc, net displacement arrow, and velocity vector formula.
+ */
+export function generateAristotleKinematicsGraphsSvg(params?: {
+  title?: string
+  caption?: string
+}): GeneratedScientificSvg {
+  const title = params?.title || 'Kinematics: Graphs of Motion & Displacement Vector'
+  const caption =
+    params?.caption ||
+    'Four canonical motion graphs (Distance-Time): Stationary body, Uniform motion, Non-uniform accelerating motion, and Non-uniform decelerating motion, along with the 1D spatial displacement vector and velocity calculation.'
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#0A0F1D; font-family:'JetBrains Mono',monospace;">
+  <defs>
+    <marker id="aristotleArrowCyan" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#38BDF8"/>
+    </marker>
+    <marker id="aristotleArrowMint" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#34D399"/>
+    </marker>
+    <marker id="aristotleArrowOrange" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#F59E0B"/>
+    </marker>
+  </defs>
+
+  <!-- Outer Backdrop Card -->
+  <rect x="8" y="8" width="524" height="264" rx="10" fill="#0A0F1D" stroke="#1E293B" stroke-width="1.5"/>
+
+  <!-- Top Header Pill -->
+  <rect x="110" y="14" width="320" height="20" rx="5" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
+  <text x="270" y="28" font-size="10.5" font-weight="bold" fill="#38BDF8" text-anchor="middle">KINEMATICS: GRAPHS OF MOTION &amp; SPATIAL SCALE</text>
+
+  <!-- 4 Aristotle Motion Line Graphs (x: 25, 155, 285, 415; y: 42 to 110) -->
+  <!-- 1. Stationary Body -->
+  <g transform="translate(25, 42)">
+    <line x1="10" y1="50" x2="95" y2="50" stroke="#94A3B8" stroke-width="1" marker-end="url(#aristotleArrowCyan)"/>
+    <line x1="10" y1="50" x2="10" y2="5" stroke="#94A3B8" stroke-width="1" marker-end="url(#aristotleArrowCyan)"/>
+    <text x="6" y="4" font-size="7" fill="#94A3B8">s</text>
+    <text x="96" y="58" font-size="7" fill="#94A3B8">t</text>
+    <line x1="10" y1="25" x2="85" y2="25" stroke="#34D399" stroke-width="2"/>
+    <text x="50" y="66" font-size="7.5" fill="#34D399" text-anchor="middle" font-weight="bold">Stationary body</text>
+  </g>
+
+  <!-- 2. Uniform Motion (Constant Speed) -->
+  <g transform="translate(155, 42)">
+    <line x1="10" y1="50" x2="95" y2="50" stroke="#94A3B8" stroke-width="1" marker-end="url(#aristotleArrowCyan)"/>
+    <line x1="10" y1="50" x2="10" y2="5" stroke="#94A3B8" stroke-width="1" marker-end="url(#aristotleArrowCyan)"/>
+    <text x="6" y="4" font-size="7" fill="#94A3B8">s</text>
+    <text x="96" y="58" font-size="7" fill="#94A3B8">t</text>
+    <line x1="10" y1="50" x2="80" y2="12" stroke="#34D399" stroke-width="2"/>
+    <text x="50" y="66" font-size="7.5" fill="#34D399" text-anchor="middle" font-weight="bold">Uniform motion</text>
+  </g>
+
+  <!-- 3. Non-Uniform Motion (Accelerating - Upward Parabola) -->
+  <g transform="translate(285, 42)">
+    <line x1="10" y1="50" x2="95" y2="50" stroke="#94A3B8" stroke-width="1" marker-end="url(#aristotleArrowCyan)"/>
+    <line x1="10" y1="50" x2="10" y2="5" stroke="#94A3B8" stroke-width="1" marker-end="url(#aristotleArrowCyan)"/>
+    <text x="6" y="4" font-size="7" fill="#94A3B8">s</text>
+    <text x="96" y="58" font-size="7" fill="#94A3B8">t</text>
+    <path d="M 10 50 Q 55 48 80 12" fill="none" stroke="#34D399" stroke-width="2"/>
+    <text x="50" y="66" font-size="7.5" fill="#34D399" text-anchor="middle" font-weight="bold">Speed increases</text>
+  </g>
+
+  <!-- 4. Non-Uniform Motion (Decelerating - Downward Curve) -->
+  <g transform="translate(415, 42)">
+    <line x1="10" y1="50" x2="95" y2="50" stroke="#94A3B8" stroke-width="1" marker-end="url(#aristotleArrowCyan)"/>
+    <line x1="10" y1="50" x2="10" y2="5" stroke="#94A3B8" stroke-width="1" marker-end="url(#aristotleArrowCyan)"/>
+    <text x="6" y="4" font-size="7" fill="#94A3B8">s</text>
+    <text x="96" y="58" font-size="7" fill="#94A3B8">t</text>
+    <path d="M 10 50 Q 25 15 80 18" fill="none" stroke="#34D399" stroke-width="2"/>
+    <text x="50" y="66" font-size="7.5" fill="#34D399" text-anchor="middle" font-weight="bold">Speed decreases</text>
+  </g>
+
+  <!-- Divider Line -->
+  <line x1="20" y1="120" x2="520" y2="120" stroke="#1E293B" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Bottom Section: Aristotle Spatial Path & 1D Vector Reference (y: 125 to 265) -->
+  <path d="M 140 160 Q 270 135 440 160" fill="none" stroke="#F59E0B" stroke-width="1.8" stroke-dasharray="4,3"/>
+  <polygon points="440,160 432,156 432,164" fill="#F59E0B"/>
+  <text x="290" y="142" font-size="9.5" fill="#F59E0B" font-weight="bold" text-anchor="middle">Actual Path: Distance = 7 m (t = 8 s)</text>
+
+  <!-- 1D Position Axis -->
+  <line x1="60" y1="180" x2="480" y2="180" stroke="#94A3B8" stroke-width="1.5" marker-end="url(#aristotleArrowCyan)"/>
+  <text x="492" y="184" font-size="9" fill="#94A3B8">x (m)</text>
+
+  <g font-size="9" fill="#94A3B8" text-anchor="middle">
+    <line x1="90" y1="176" x2="90" y2="184" stroke="#94A3B8" stroke-width="1"/>
+    <text x="90" y="196">1</text>
+    <line x1="140" y1="174" x2="140" y2="186" stroke="#38BDF8" stroke-width="2"/>
+    <circle cx="140" cy="180" r="4" fill="#38BDF8"/>
+    <text x="140" y="196" fill="#38BDF8" font-weight="bold">2</text>
+    <text x="140" y="210" fill="#38BDF8" font-size="8.5">Start (x_i)</text>
+
+    <line x1="190" y1="176" x2="190" y2="184" stroke="#94A3B8" stroke-width="1"/><text x="190" y="196">3</text>
+    <line x1="240" y1="176" x2="240" y2="184" stroke="#94A3B8" stroke-width="1"/><text x="240" y="196">4</text>
+    <line x1="290" y1="176" x2="290" y2="184" stroke="#94A3B8" stroke-width="1"/><text x="290" y="196">5</text>
+    <line x1="340" y1="176" x2="340" y2="184" stroke="#94A3B8" stroke-width="1"/><text x="340" y="196">6</text>
+    <line x1="390" y1="176" x2="390" y2="184" stroke="#94A3B8" stroke-width="1"/><text x="390" y="196">7</text>
+
+    <line x1="440" y1="174" x2="440" y2="186" stroke="#F43F5E" stroke-width="2"/>
+    <polygon points="440,175 445,180 440,185 435,180" fill="#F43F5E"/>
+    <text x="440" y="196" fill="#F43F5E" font-weight="bold">8</text>
+    <text x="440" y="210" fill="#F43F5E" font-size="8.5">End (x_f)</text>
+  </g>
+
+  <!-- Net Displacement Vector Arrow -->
+  <line x1="140" y1="222" x2="434" y2="222" stroke="#38BDF8" stroke-width="2" marker-end="url(#aristotleArrowCyan)"/>
+  <text x="287" y="234" font-size="9.5" fill="#38BDF8" font-weight="bold" text-anchor="middle">Displacement: Δx = x_f - x_i = 8m - 2m = +6 m (rightward)</text>
+
+  <!-- Velocity Calculation Card -->
+  <rect x="40" y="244" width="460" height="22" rx="4" fill="#111C33" stroke="#1E293B" stroke-width="1"/>
+  <text x="270" y="258" font-size="9" fill="#F8FAFC" text-anchor="middle">Velocity: v̄ = Δx / Δt = +6m / 8s = +0.75 m/s | Positive sign indicates rightward motion vector</text>
+</svg>`
+
+  return {
+    title,
+    svg,
+    caption,
+    domain: 'kinematics',
+    isDynamic: true,
+    computedMetrics: {
+      displacement: 6,
+      velocity: 0.75,
+      distance: 7,
+      time: 8,
+    },
+  }
+}
+
+/**
  * 6. MATHEMATICAL CARTESIAN COORDINATE PLANE & QUADRANTS
  * Authentic, textbook-accurate 2D coordinate system with perpendicular axes,
  * origin O(0,0), numbered grid ticks, and all 4 quadrants labeled with sign conventions.
@@ -1024,7 +1156,23 @@ export function createUniversalScientificSvg(
     })
   }
 
-  // 4. Kinematics & 1D Motion: Position, Reference Point, Distance & Displacement
+  // 4a. Aristotle Kinematics & Motion Line Graphs (4-in-1 Canonical Graphs + Spatial Path)
+  if (
+    norm.includes('motion graph') ||
+    norm.includes('graphs of motion') ||
+    norm.includes('distance-time') ||
+    norm.includes('velocity-time') ||
+    norm.includes('speed-time') ||
+    norm.includes('displacement-time') ||
+    (norm.includes('graph') && (norm.includes('motion') || norm.includes('kinematic') || norm.includes('velocity') || norm.includes('speed') || norm.includes('distance') || norm.includes('displacement')))
+  ) {
+    return generateAristotleKinematicsGraphsSvg({
+      title: typeof input === 'string' ? input : input.title,
+      caption,
+    })
+  }
+
+  // 4b. Kinematics & 1D Motion: Position, Reference Point, Distance & Displacement
   if (
     norm.includes('position') ||
     norm.includes('reference') ||
