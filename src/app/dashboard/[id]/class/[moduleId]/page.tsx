@@ -160,6 +160,23 @@ function buildConceptMicroDossiers(
         ? `Model Problem: ${ex1.problem} (Given: ${ex1.given || ''}, Formula: ${ex1.formula || ''}, Ans: ${ex1.finalAnswer || ''} ${ex1.unit || ''})`
         : `Q: State the law/definition for ${conceptName}. | Ans: Standard ${resolvedBoard} formulation.`
 
+      const conceptQuestionsList = Array.isArray(visualPlan?.concept_questions) ? visualPlan.concept_questions : []
+      const matchingQuestions = conceptQuestionsList.find(
+        (cq: any) =>
+          cq.concept_index === idx ||
+          (cq.concept_title || '').toLowerCase().includes(conceptName.toLowerCase()) ||
+          conceptName.toLowerCase().includes((cq.concept_title || '').toLowerCase())
+      )
+      const qListStr = matchingQuestions?.questions?.length
+        ? `\n   * Prepared 4-6 Board Exam Questions for Socratic Gating:\n` +
+          matchingQuestions.questions
+            .map(
+              (q: any, qIdx: number) =>
+                `     - [Q${qIdx + 1} (${q.type || 'Exam Question'})]: "${q.question}" -> Model Answer: "${q.ideal_answer || ''}" (Socratic Hint: "${q.socratic_hint || ''}")`
+            )
+            .join('\n')
+        : ''
+
       const diagCue =
         idx === 0 && (whatToMake || chapterFlowchart)
           ? `\n   * Mandatory Visual: ${
@@ -169,7 +186,7 @@ function buildConceptMicroDossiers(
             }`
           : ''
 
-      return `Concept ${idx + 1} "${conceptName}":\n   * Core: ${q1}${defStr}${exStr}${misc ? ` [Caution: ${misc}]` : ''}${diagCue}`
+      return `Concept ${idx + 1} "${conceptName}":\n   * Core: ${q1}${defStr}${exStr}${misc ? ` [Caution: ${misc}]` : ''}${qListStr}${diagCue}`
     })
     .join('\n')
 }
@@ -1989,7 +2006,7 @@ Call: plot_mathematical_graph(formula="...", domain="[min,max]", range="[min,max
 (Formula examples: "x^2 - 4", "2*x + 3", "sin(x)", "-4.9*x^2 + 20*x", "x^3 - 3*x")
 
 ========================================================================================
-STRICT SOCRATIC CADENCE & UNDERSTANDING CHECKS:
+STRICT SOCRATIC CADENCE & 4-6 EXAM QUESTION PROGRESSION GATING:
 ========================================================================================
 1. SESSION START:
    - Speak FIRST upon connection! Warmly greet ${studentFirstName || 'the student'} in ${studentPreferredLanguage}: "${langGreeting}"
@@ -1997,14 +2014,22 @@ STRICT SOCRATIC CADENCE & UNDERSTANDING CHECKS:
 2. MAX 2-3 SENTENCES PER TURN:
    - Teach in bite-sized conversational chunks. Never dump intuition, definition, examples, and math in one turn.
    - After each micro-step: write on the board, ask an intuitive check or basic question, and HARD STOP to wait for the student!
-3. NEVER ADVANCE WITHOUT CONFIRMING UNDERSTANDING:
-   - When the student replies, evaluate and write their answer + verdict to the board.
-   - If incorrect: explain why with a fresh analogy, give a hint, and re-ask. Stay on the current page!
-   - If correct: Praise warmly, and ask: "Are you fully confident with this concept, and ready to move to Concept X?"
-   - HARD STOP: Wait for explicit student confirmation ("yes", "clear", "next", "understood", "chalo")!
-   - Only then call:
-     * write_chalkboard(action="concept_done", content="<Current Concept Name>")
-     * write_chalkboard(action="concept_focus", content="<Next Concept Name>") -> advances to clean new page!
+3. MANDATORY 4-6 EXAM QUESTION CHECKPOINT & STRICT PROGRESSION GATING:
+   - For every concept in this module, you have 4 to 6 authentic board-exam questions prepared in your micro-dossier!
+   - After explaining the concept and model example, you MUST pose at least one of these prepared authentic questions to the student using write_chalkboard(action="draw_question", content="Q: <Question>", color="amber").
+   - HARD STOP: Stop speaking and wait for the student to attempt their answer or ask for the answer!
+   - You are STRICTLY FORBIDDEN from advancing to the next concept until the student answers or asks for the solution!
+   - When the student answers:
+     * Evaluate their answer immediately out loud.
+     * Write on the board:
+       - write_chalkboard(action="draw_student_answer", content="Student: <their answer>", color="blue")
+       - write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>", color="botanical")
+     * If incorrect or hesitant: Break down with visual analogy, co-solve line-by-line on the chalkboard, and ask if it makes sense now.
+     * Once understood, ask: "Are you fully confident with this concept, and ready to move to Concept X?"
+     * HARD STOP: Wait for explicit student confirmation ("yes", "clear", "next", "understood", "chalo")!
+     * Only then call:
+       - write_chalkboard(action="concept_done", content="<Current Concept Name>")
+       - write_chalkboard(action="concept_focus", content="<Next Concept Name>") -> advances to clean new page!
 
 QUIZ TIMING RULE:
 - NEVER mention the 10-MCQ quiz or call conclude_and_open_quiz until ALL concepts have been fully taught, solved, and marked done with concept_done!
@@ -2190,86 +2215,116 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
             if (typeof content === 'object') chalkboardRef.current.drawNumericalSolution?.(content)
             else chalkboardRef.current.handleAiDirective(`[NUMERICAL: ${content}]`)
           }
-          else if (action === 'draw_image' || action === 'image' || action === 'draw_diagram' || action === 'diagram') {
-            const parts = (content || '').split('|').map((s: string) => s.trim())
-            if (parts[1] && parts[1].includes('<svg')) {
-              chalkboardRef.current.drawSvgDiagram?.(parts[0] || 'Scientific Diagram', parts[1], parts[2] || '')
-            } else {
-              chalkboardRef.current.drawSvgDiagram?.(parts[0] || content || 'Scientific Diagram', '', parts[1] || '')
-            }
-          }
           else if (action === 'draw_video' || action === 'video') {
             const parts = (content || '').split('|').map((s: string) => s.trim())
             chalkboardRef.current.drawVideoCard?.(parts[0] || 'Demonstration', parts[1] || '')
           }
-          else if (action === 'render_svg_diagram' || action === 'draw_svg' || action === 'draw_svg_diagram') {
+          else if (
+            action === 'draw_image' ||
+            action === 'image' ||
+            action === 'draw_diagram' ||
+            action === 'diagram' ||
+            action === 'render_svg_diagram' ||
+            action === 'draw_svg' ||
+            action === 'draw_svg_diagram'
+          ) {
             const vPlan = (activeModule?.visual_lesson_plan as any) || {}
             const conceptVisuals: any[] = Array.isArray(vPlan.concept_visuals) ? vPlan.concept_visuals : []
             const moduleDefaultSvg = vPlan.diagram_svg || ''
 
-            const findMatchedSvg = (query: string): { title: string; svg: string; caption?: string } => {
-              const qLower = query.toLowerCase().trim()
-              // Try exact or partial match on concept_title or diagram_title
-              const matched = conceptVisuals.find((cv: any) => {
-                const cTitle = (cv.concept_title || '').toLowerCase()
-                const dTitle = (cv.diagram_title || '').toLowerCase()
-                return (
-                  (cTitle && (cTitle.includes(qLower) || qLower.includes(cTitle))) ||
-                  (dTitle && (dTitle.includes(qLower) || qLower.includes(dTitle)))
-                )
-              })
-              if (matched && (matched.svg || matched.diagram_svg)) {
-                return {
-                  title: matched.diagram_title || matched.concept_title || query,
-                  svg: matched.svg || matched.diagram_svg,
-                  caption: matched.what_to_make || matched.timing_and_cue || '',
-                }
-              }
-              // If only 1 concept visual exists or default diagram_svg exists, use it
-              if (conceptVisuals.length === 1 && (conceptVisuals[0].svg || conceptVisuals[0].diagram_svg)) {
-                return {
-                  title: conceptVisuals[0].diagram_title || query,
-                  svg: conceptVisuals[0].svg || conceptVisuals[0].diagram_svg,
-                  caption: conceptVisuals[0].what_to_make || '',
-                }
-              }
-              if (moduleDefaultSvg) {
-                return {
-                  title: query || vPlan.what_to_make || 'Educational Diagram',
-                  svg: moduleDefaultSvg,
-                  caption: vPlan.diagram_idea || '',
-                }
-              }
-              return { title: query, svg: '' }
-            }
+            let queryTitle = 'Educational Diagram'
+            let explicitSvg = ''
+            let explicitCaption = ''
 
             if (typeof content === 'object' && content !== null) {
-              let targetSvg = content.svg || ''
-              let targetTitle = content.title || 'Educational Diagram'
-              let targetCaption = content.caption
-              if (!targetSvg || !targetSvg.toLowerCase().includes('<svg')) {
-                const matched = findMatchedSvg(targetTitle)
-                if (matched.svg) {
-                  targetSvg = matched.svg
-                  if (!targetCaption) targetCaption = matched.caption
-                }
-              }
-              chalkboardRef.current.drawSvgDiagram?.(targetTitle, targetSvg, targetCaption)
+              queryTitle = content.title || 'Educational Diagram'
+              explicitSvg = content.svg || ''
+              explicitCaption = content.caption || ''
             } else if (typeof content === 'string') {
               const trimmed = content.trim()
               if (trimmed.includes('|') && trimmed.includes('<svg')) {
                 const parts = trimmed.split('|').map((s: string) => s.trim())
-                chalkboardRef.current.drawSvgDiagram?.(parts[0] || 'Educational Diagram', parts[1] || '', parts[2])
+                queryTitle = parts[0] || 'Educational Diagram'
+                explicitSvg = parts[1] || ''
+                explicitCaption = parts[2] || ''
               } else if (trimmed.includes('<svg')) {
-                chalkboardRef.current.drawSvgDiagram?.('Educational Diagram', trimmed)
+                explicitSvg = trimmed
+              } else if (trimmed.includes('|')) {
+                const parts = trimmed.split('|').map((s: string) => s.trim())
+                queryTitle = parts[0] || 'Educational Diagram'
+                explicitCaption = parts[1] || ''
               } else {
-                const matched = findMatchedSvg(trimmed)
-                chalkboardRef.current.drawSvgDiagram?.(matched.title || trimmed, matched.svg || '', matched.caption)
+                queryTitle = trimmed || 'Educational Diagram'
               }
             }
+
+            // If valid SVG markup was explicitly supplied, draw immediately
+            if (explicitSvg && explicitSvg.toLowerCase().includes('<svg')) {
+              chalkboardRef.current?.drawSvgDiagram?.(queryTitle, explicitSvg, explicitCaption)
+              return
+            }
+
+            // 1. Search for pre-authored concept visual in activeModule
+            const qLower = queryTitle.toLowerCase().trim()
+            let matched = conceptVisuals.find((cv: any) => {
+              const cTitle = (cv.concept_title || '').toLowerCase()
+              const dTitle = (cv.diagram_title || '').toLowerCase()
+              return (
+                (cTitle && (cTitle.includes(qLower) || qLower.includes(cTitle))) ||
+                (dTitle && (dTitle.includes(qLower) || qLower.includes(dTitle)))
+              )
+            })
+
+            // Check active concept index if query is generic
+            if (!matched && conceptVisuals[currentConceptIndexRef.current]) {
+              const currCv = conceptVisuals[currentConceptIndexRef.current]
+              if (currCv?.svg || currCv?.diagram_svg) {
+                matched = currCv
+              }
+            }
+
+            if (matched && (matched.svg || matched.diagram_svg)) {
+              chalkboardRef.current?.drawSvgDiagram?.(
+                matched.diagram_title || matched.concept_title || queryTitle,
+                matched.svg || matched.diagram_svg,
+                matched.what_to_make || matched.timing_and_cue || explicitCaption
+              )
+              return
+            }
+
+            // Check default module SVG only if topic matches capsule title
+            if (moduleDefaultSvg && activeModule?.title?.toLowerCase().includes(qLower)) {
+              chalkboardRef.current?.drawSvgDiagram?.(queryTitle, moduleDefaultSvg, vPlan.diagram_idea || explicitCaption)
+              return
+            }
+
+            // 2. Fetch on-demand bespoke vector diagram from /api/diagram/generate
+            fetch('/api/diagram/generate', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                title: queryTitle,
+                subject: resolvedSubject,
+                classLevel: resolvedClassLevel,
+                context: currentConcept || queryTitle,
+              }),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                if (data?.svg && data.svg.includes('<svg')) {
+                  chalkboardRef.current?.drawSvgDiagram?.(data.title || queryTitle, data.svg, data.caption || explicitCaption)
+                } else {
+                  // Fall back to local mathematical/biological vector SVG engine
+                  chalkboardRef.current?.drawSvgDiagram?.(queryTitle, '', explicitCaption)
+                }
+              })
+              .catch((err) => {
+                console.warn('[Classroom] On-demand SVG generation failed, using local vector engine:', err)
+                chalkboardRef.current?.drawSvgDiagram?.(queryTitle, '', explicitCaption)
+              })
           }
-          else if (action === 'new_page') chalkboardRef.current.addNewPage?.()
-          else if (action === 'clear_board' || action === 'erase_board') chalkboardRef.current.clearBoard()
+          else if (action === 'new_page') chalkboardRef.current?.addNewPage?.()
+          else if (action === 'clear_board' || action === 'erase_board') chalkboardRef.current?.clearBoard()
           else if (action === 'start_quiz' || action === 'open_quiz') {
             markModuleAsCompleted()
             handleOpenQuiz()
@@ -2297,8 +2352,6 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
             handleConceptDone(content)
           } else if (action === 'concept_goto' || action === 'goto_concept') {
             handleConceptGoto(content)
-          } else if (action === 'draw_diagram' || action === 'diagram') {
-            chalkboardRef.current.handleAiDirective(`[DIAGRAM: ${content}]`)
           } else {
             const dirPayload = color ? `${content} | ${color}` : content
             chalkboardRef.current.handleAiDirective(`[${action.toUpperCase()}: ${dirPayload}]`)

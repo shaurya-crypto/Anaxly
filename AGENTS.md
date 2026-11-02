@@ -10,3 +10,16 @@
 - Phase 2 has ended and is fully signed off.
 - Refer to [PHASE_2_SUMMARY.md](file:///e:/AI_tutor/PHASE_2_SUMMARY.md) for the complete breakdown of Phase 2 achievements: the Sobi Companion, whiteboard text wrapping and page guard, audio streamer mic collision fix, the classical cinematic landing page (video scrubber, Lenis smooth scroll, glowing typography, artwork pipeline), Mascot hook order resolution, and the comprehensive catalog of all bugs identified and resolved in Phase 2.
 
+## Phase 3 Documentation & Handover
+- Phase 3 has ended and is fully signed off.
+- Integrated the Visual Engine, Simli WebRTC real-time avatar, student settings hub, audio accumulator buffer, and chalkboard deduplication.
+
+## Phase 4 Documentation & Handover
+- Phase 4 has ended and is fully signed off.
+- Implemented production security hardening, paper-grid onboarding, expressive Sobi avatar, Indian voice inflection, and Playwright verification suite.
+
+## Phase 5 Documentation & Handover
+- Phase 5 has ended and is fully signed off.
+- Refer to [PHASE_5_SUMMARY.md](file:///e:/AI_tutor/PHASE_5_SUMMARY.md) for the complete breakdown of Phase 5 achievements: the Generative Visual Engine (`/api/diagram/generate`), Aristotle & Gauth benchmark vector SVG generators (plant cell wall ultrastructure, cell anatomy, 1D motion scales), multi-curve interactive Mafs function plotting, 20-minute capsule ingestion overhaul with 4–6 authentic board-exam questions per concept, and strict Socratic progression gating.
+
+

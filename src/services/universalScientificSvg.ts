@@ -717,6 +717,244 @@ export function generateDynamicCoordinatePlaneSvg(params: {
 }
 
 /**
+ * 7. BIOLOGY: PLANT CELL WALL ULTRASTRUCTURE & MULTI-LAYER ARCHITECTURE
+ * Publication-grade vector diagram illustrating Middle Lamella, Primary Wall,
+ * Secondary Wall (S1, S2, S3), Plasma Membrane phospholipid bilayer, and Plasmodesmata.
+ */
+export function generateDynamicPlantCellWallSvg(params: {
+  title?: string
+  caption?: string
+}): GeneratedScientificSvg {
+  const title = params.title || 'Plant Cell Wall: Ultrastructure & Layered Architecture'
+  const caption = params.caption || 'The plant cell wall consists of the pectin-rich middle lamella, primary wall with flexible microfibrils, multi-layered secondary wall, and inner plasma membrane.'
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#13211B; font-family:'JetBrains Mono',monospace;">
+  ${getSvgDefs()}
+  <!-- Outer Frame -->
+  <rect x="8" y="8" width="524" height="264" rx="10" fill="#13211B" stroke="#233930" stroke-width="2"/>
+  <rect x="14" y="14" width="512" height="252" rx="8" fill="url(#chalkGrid)"/>
+
+  <!-- Top Title Banner -->
+  <rect x="24" y="18" width="492" height="24" rx="5" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <text x="36" y="34" font-size="11" font-weight="bold" fill="#68B084">CELL BIOLOGY: ${title.toUpperCase().slice(0, 48)}</text>
+  <text x="504" y="34" text-anchor="end" font-size="9" fill="#7EC8E3">Textbook Ultra-Structure</text>
+
+  <!-- Cell Wall Layer Stage (x: 40 to 320, y: 52 to 240) -->
+  <!-- 1. Middle Lamella (Outermost cementing layer between two plant cells) -->
+  <rect x="40" y="52" width="280" height="28" rx="3" fill="#1B382B" stroke="#68B084" stroke-width="1.5"/>
+  <!-- Pectin particle dots -->
+  <g fill="#68B084" opacity="0.6">
+    <circle cx="55" cy="62" r="1.8"/><circle cx="75" cy="70" r="1.8"/><circle cx="95" cy="60" r="1.8"/>
+    <circle cx="120" cy="68" r="1.8"/><circle cx="150" cy="62" r="1.8"/><circle cx="180" cy="70" r="1.8"/>
+    <circle cx="210" cy="64" r="1.8"/><circle cx="240" cy="70" r="1.8"/><circle cx="270" cy="62" r="1.8"/>
+    <circle cx="295" cy="68" r="1.8"/>
+  </g>
+
+  <!-- 2. Primary Cell Wall (Extensible, interwoven cellulose microfibrils) -->
+  <rect x="40" y="84" width="280" height="42" rx="3" fill="#102E28" stroke="#7EC8E3" stroke-width="1.5"/>
+  <!-- Interwoven criss-cross cellulose microfibril strands -->
+  <g stroke="#7EC8E3" stroke-width="1.2" opacity="0.75">
+    <line x1="45" y1="90" x2="95" y2="120"/><line x1="75" y1="86" x2="135" y2="122"/>
+    <line x1="115" y1="88" x2="175" y2="120"/><line x1="155" y1="86" x2="215" y2="122"/>
+    <line x1="195" y1="88" x2="255" y2="120"/><line x1="235" y1="86" x2="295" y2="122"/>
+    <!-- Opposing diagonals -->
+    <line x1="95" y1="86" x2="45" y2="122"/><line x1="145" y1="88" x2="85" y2="120"/>
+    <line x1="185" y1="86" x2="125" y2="122"/><line x1="225" y1="88" x2="165" y2="120"/>
+    <line x1="265" y1="86" x2="205" y2="122"/><line x1="305" y1="88" x2="245" y2="120"/>
+  </g>
+
+  <!-- 3. Secondary Cell Wall (Thick, dense, 3 distinct lamellae S1, S2, S3) -->
+  <rect x="40" y="130" width="280" height="54" rx="3" fill="#1A281E" stroke="#FBBF24" stroke-width="1.5"/>
+  <!-- Sub-layers S1, S2, S3 division lines -->
+  <line x1="40" y1="148" x2="320" y2="148" stroke="#FBBF24" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.6"/>
+  <line x1="40" y1="166" x2="320" y2="166" stroke="#FBBF24" stroke-width="0.8" stroke-dasharray="3,3" opacity="0.6"/>
+  <!-- Parallel dense microfibrils in S1, S2, S3 -->
+  <g stroke="#FBBF24" stroke-width="1" opacity="0.7">
+    <line x1="50" y1="133" x2="80" y2="145"/><line x1="90" y1="133" x2="120" y2="145"/>
+    <line x1="130" y1="133" x2="160" y2="145"/><line x1="170" y1="133" x2="200" y2="145"/>
+    <line x1="210" y1="133" x2="240" y2="145"/><line x1="250" y1="133" x2="280" y2="145"/>
+    <!-- S2 steeper pitch -->
+    <line x1="60" y1="150" x2="70" y2="164"/><line x1="90" y1="150" x2="100" y2="164"/>
+    <line x1="120" y1="150" x2="130" y2="164"/><line x1="150" y1="150" x2="160" y2="164"/>
+    <line x1="180" y1="150" x2="190" y2="164"/><line x1="210" y1="150" x2="220" y2="164"/>
+    <line x1="240" y1="150" x2="250" y2="164"/><line x1="270" y1="150" x2="280" y2="164"/>
+  </g>
+  <text x="312" y="143" font-size="8" fill="#FBBF24" text-anchor="end">S1</text>
+  <text x="312" y="161" font-size="8" fill="#FBBF24" text-anchor="end">S2</text>
+  <text x="312" y="179" font-size="8" fill="#FBBF24" text-anchor="end">S3</text>
+
+  <!-- 4. Plasma Membrane (Phospholipid Bilayer) -->
+  <rect x="40" y="188" width="280" height="24" rx="2" fill="#0D201A" stroke="#4A90E2" stroke-width="1.5"/>
+  <!-- Bilayer polar heads and tails representation -->
+  <g fill="#4A90E2" opacity="0.85">
+    <!-- Top monolayer heads -->
+    <circle cx="50" cy="193" r="2.2"/><circle cx="62" cy="193" r="2.2"/><circle cx="74" cy="193" r="2.2"/>
+    <circle cx="86" cy="193" r="2.2"/><circle cx="98" cy="193" r="2.2"/><circle cx="110" cy="193" r="2.2"/>
+    <circle cx="122" cy="193" r="2.2"/><circle cx="134" cy="193" r="2.2"/><circle cx="146" cy="193" r="2.2"/>
+    <circle cx="158" cy="193" r="2.2"/><circle cx="170" cy="193" r="2.2"/><circle cx="182" cy="193" r="2.2"/>
+    <circle cx="194" cy="193" r="2.2"/><circle cx="206" cy="193" r="2.2"/><circle cx="218" cy="193" r="2.2"/>
+    <circle cx="230" cy="193" r="2.2"/><circle cx="242" cy="193" r="2.2"/><circle cx="254" cy="193" r="2.2"/>
+    <circle cx="266" cy="193" r="2.2"/><circle cx="278" cy="193" r="2.2"/><circle cx="290" cy="193" r="2.2"/>
+    <circle cx="302" cy="193" r="2.2"/>
+    <!-- Bottom monolayer heads -->
+    <circle cx="50" cy="207" r="2.2"/><circle cx="62" cy="207" r="2.2"/><circle cx="74" cy="207" r="2.2"/>
+    <circle cx="86" cy="207" r="2.2"/><circle cx="98" cy="207" r="2.2"/><circle cx="110" cy="207" r="2.2"/>
+    <circle cx="122" cy="207" r="2.2"/><circle cx="134" cy="207" r="2.2"/><circle cx="146" cy="207" r="2.2"/>
+    <circle cx="158" cy="207" r="2.2"/><circle cx="170" cy="207" r="2.2"/><circle cx="182" cy="207" r="2.2"/>
+    <circle cx="194" cy="207" r="2.2"/><circle cx="206" cy="207" r="2.2"/><circle cx="218" cy="207" r="2.2"/>
+    <circle cx="230" cy="207" r="2.2"/><circle cx="242" cy="207" r="2.2"/><circle cx="254" cy="207" r="2.2"/>
+    <circle cx="266" cy="207" r="2.2"/><circle cx="278" cy="207" r="2.2"/><circle cx="290" cy="207" r="2.2"/>
+    <circle cx="302" cy="207" r="2.2"/>
+  </g>
+  <!-- Transmembrane Protein Channel -->
+  <rect x="175" y="189" width="16" height="22" rx="4" fill="#67A8E8" stroke="#FFFFFF" stroke-width="0.8"/>
+
+  <!-- 5. Plasmodesma Pore Channel traversing the wall vertically -->
+  <path d="M 206 50 L 206 214 L 218 214 L 218 50 Z" fill="#0D1A14" stroke="#F87171" stroke-width="1.2" stroke-dasharray="2,2"/>
+  <text x="212" y="116" font-size="8" fill="#F87171" text-anchor="middle" transform="rotate(-90 212 116)">PLASMODESMA</text>
+
+  <!-- 6. Right-Hand Callout Labels & Biochemical Annotations -->
+  <!-- Callout 1: Middle Lamella -->
+  <line x1="280" y1="66" x2="345" y2="66" stroke="#68B084" stroke-width="1.2"/>
+  <circle cx="280" cy="66" r="3" fill="#68B084"/>
+  <text x="352" y="64" font-size="10" font-weight="bold" fill="#68B084">Middle Lamella</text>
+  <text x="352" y="75" font-size="8.5" fill="#94A3B8">Calcium &amp; Magnesium Pectate cement</text>
+
+  <!-- Callout 2: Primary Wall -->
+  <line x1="280" y1="105" x2="345" y2="105" stroke="#7EC8E3" stroke-width="1.2"/>
+  <circle cx="280" cy="105" r="3" fill="#7EC8E3"/>
+  <text x="352" y="103" font-size="10" font-weight="bold" fill="#7EC8E3">Primary Cell Wall</text>
+  <text x="352" y="114" font-size="8.5" fill="#94A3B8">Interwoven cellulose microfibrils (extensible)</text>
+
+  <!-- Callout 3: Secondary Wall -->
+  <line x1="280" y1="157" x2="345" y2="157" stroke="#FBBF24" stroke-width="1.2"/>
+  <circle cx="280" cy="157" r="3" fill="#FBBF24"/>
+  <text x="352" y="155" font-size="10" font-weight="bold" fill="#FBBF24">Secondary Cell Wall</text>
+  <text x="352" y="166" font-size="8.5" fill="#94A3B8">Lignified S1, S2, S3 lamellae (high rigidity)</text>
+
+  <!-- Callout 4: Plasma Membrane -->
+  <line x1="280" y1="200" x2="345" y2="200" stroke="#4A90E2" stroke-width="1.2"/>
+  <circle cx="280" cy="200" r="3" fill="#4A90E2"/>
+  <text x="352" y="198" font-size="10" font-weight="bold" fill="#4A90E2">Plasma Membrane</text>
+  <text x="352" y="209" font-size="8.5" fill="#94A3B8">Phospholipid bilayer + transport proteins</text>
+
+  <!-- Pedagogical Bottom Legend -->
+  <rect x="40" y="246" width="460" height="18" rx="4" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <text x="270" y="259" text-anchor="middle" font-size="9" fill="#E2E8F0">Mechanical Support • Turgor Pressure Resistance • Prevents Osmotic Lysis (NCERT Standard)</text>
+</svg>`
+
+  return {
+    title,
+    svg,
+    caption,
+    domain: 'biology',
+    isDynamic: true,
+    computedMetrics: { title },
+  }
+}
+
+/**
+ * 8. BIOLOGY: CELL ANATOMY & ORGANELLES (Prokaryotic & Eukaryotic Standard)
+ * Publication-grade vector diagram illustrating Cell Membrane, Nucleus with Chromatin,
+ * Mitochondria with cristae, Chloroplasts, Vacuole, and Cytosol.
+ */
+export function generateDynamicCellStructureSvg(params: {
+  title?: string
+  caption?: string
+  cellType?: 'plant' | 'animal' | 'prokaryote'
+}): GeneratedScientificSvg {
+  const cellType = params.cellType || 'plant'
+  const title = params.title || `${cellType === 'plant' ? 'Plant Cell' : cellType === 'animal' ? 'Animal Cell' : 'Cell Structure'}: Organelles & Ultrastructure`
+  const caption = params.caption || 'A complete structural diagram showing the compartmentalized cytoplasm, nucleus, energy organelles, and outer boundaries.'
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background:#13211B; font-family:'JetBrains Mono',monospace;">
+  ${getSvgDefs()}
+  <!-- Outer Frame -->
+  <rect x="8" y="8" width="524" height="264" rx="10" fill="#13211B" stroke="#233930" stroke-width="2"/>
+  <rect x="14" y="14" width="512" height="252" rx="8" fill="url(#chalkGrid)"/>
+
+  <!-- Top Title Banner -->
+  <rect x="24" y="18" width="492" height="24" rx="5" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <text x="36" y="34" font-size="11" font-weight="bold" fill="#68B084">CYTOLOGY: ${title.toUpperCase().slice(0, 48)}</text>
+  <text x="504" y="34" text-anchor="end" font-size="9" fill="#7EC8E3">Magnification: 2500x</text>
+
+  <!-- Cell Boundary (Outer Cell Wall in Emerald, Inner Membrane in Cyan) -->
+  <rect x="40" y="56" width="280" height="175" rx="28" fill="#0F241C" stroke="#68B084" stroke-width="3"/>
+  <rect x="46" y="62" width="268" height="163" rx="22" fill="#132820" stroke="#7EC8E3" stroke-width="1.8"/>
+
+  <!-- Large Central Vacuole (Plant Cell feature) -->
+  <path d="M 120 80 Q 230 75 240 140 Q 245 195 160 190 Q 115 185 110 130 Z" fill="#0A1F17" stroke="#68B084" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="175" y="138" font-size="9.5" fill="#68B084" text-anchor="middle" font-weight="bold">Central Vacuole</text>
+  <text x="175" y="149" font-size="8" fill="#94A3B8" text-anchor="middle">(Turgor Cell Sap)</text>
+
+  <!-- Nucleus with Double Membrane and Nucleolus -->
+  <circle cx="85" cy="115" r="26" fill="#1A2D23" stroke="#F87171" stroke-width="2"/>
+  <circle cx="85" cy="115" r="24" fill="none" stroke="#F87171" stroke-width="0.8" stroke-dasharray="2,2"/>
+  <circle cx="82" cy="113" r="8" fill="#F87171" opacity="0.9"/>
+  <!-- Chromatin strands inside nucleus -->
+  <path d="M 68 118 Q 75 105 88 122 Q 95 110 102 118" fill="none" stroke="#FCA5A5" stroke-width="1"/>
+
+  <!-- Mitochondria with Cristae Inner Folds -->
+  <g transform="translate(65, 175) rotate(-20)">
+    <rect x="0" y="0" width="34" height="16" rx="8" fill="#2A1B18" stroke="#FBBF24" stroke-width="1.5"/>
+    <path d="M 6 3 L 6 13 M 12 3 L 12 13 M 18 3 L 18 13 M 24 3 L 24 13 M 28 3 L 28 13" stroke="#FBBF24" stroke-width="1"/>
+  </g>
+
+  <!-- Chloroplast with Grana Thylakoid Stacks -->
+  <g transform="translate(250, 85) rotate(15)">
+    <ellipse cx="18" cy="12" rx="20" ry="11" fill="#0C2E1F" stroke="#34D399" stroke-width="1.5"/>
+    <line x1="8" y1="9" x2="8" y2="15" stroke="#34D399" stroke-width="2"/>
+    <line x1="18" y1="7" x2="18" y2="17" stroke="#34D399" stroke-width="2"/>
+    <line x1="28" y1="9" x2="28" y2="15" stroke="#34D399" stroke-width="2"/>
+  </g>
+
+  <!-- Endoplasmic Reticulum Ribbons with Ribosome Dots -->
+  <path d="M 70 88 Q 60 75 80 68 Q 95 72 88 88" fill="none" stroke="#A78BFA" stroke-width="1.5"/>
+  <circle cx="68" cy="78" r="1.2" fill="#E2E8F0"/>
+  <circle cx="84" cy="72" r="1.2" fill="#E2E8F0"/>
+  <circle cx="92" cy="80" r="1.2" fill="#E2E8F0"/>
+
+  <!-- Right-Hand Labeling & Callout Directory -->
+  <!-- Callout 1: Cell Wall & Membrane -->
+  <line x1="260" y1="62" x2="340" y2="62" stroke="#68B084" stroke-width="1.2"/>
+  <circle cx="260" cy="62" r="3" fill="#68B084"/>
+  <text x="348" y="60" font-size="10" font-weight="bold" fill="#68B084">Cell Wall &amp; Plasma Membrane</text>
+  <text x="348" y="71" font-size="8.5" fill="#94A3B8">Rigid cellulose envelope + selective barrier</text>
+
+  <!-- Callout 2: Nucleus -->
+  <line x1="110" y1="105" x2="340" y2="105" stroke="#F87171" stroke-width="1.2"/>
+  <circle cx="110" cy="105" r="3" fill="#F87171"/>
+  <text x="348" y="103" font-size="10" font-weight="bold" fill="#F87171">Nucleus &amp; Nucleolus</text>
+  <text x="348" y="114" font-size="8.5" fill="#94A3B8">Genetic master blueprint (DNA / Chromatin)</text>
+
+  <!-- Callout 3: Mitochondria -->
+  <line x1="100" y1="180" x2="340" y2="150" stroke="#FBBF24" stroke-width="1.2"/>
+  <circle cx="100" cy="180" r="3" fill="#FBBF24"/>
+  <text x="348" y="148" font-size="10" font-weight="bold" fill="#FBBF24">Mitochondria</text>
+  <text x="348" y="159" font-size="8.5" fill="#94A3B8">Powerhouse of cell; generates ATP via cristae</text>
+
+  <!-- Callout 4: Chloroplast -->
+  <line x1="280" y1="95" x2="340" y2="190" stroke="#34D399" stroke-width="1.2"/>
+  <circle cx="280" cy="95" r="3" fill="#34D399"/>
+  <text x="348" y="188" font-size="10" font-weight="bold" fill="#34D399">Chloroplasts (Plastids)</text>
+  <text x="348" y="199" font-size="8.5" fill="#94A3B8">Thylakoid grana sites of photosynthesis</text>
+
+  <!-- Bottom Legend Bar -->
+  <rect x="40" y="246" width="460" height="18" rx="4" fill="#0F1A15" stroke="#233930" stroke-width="1"/>
+  <text x="270" y="259" text-anchor="middle" font-size="9" fill="#E2E8F0">Structural &amp; Functional Unit of Life • Compartmentalized Eukaryotic Cytoplasm (NCERT)</text>
+</svg>`
+
+  return {
+    title,
+    svg,
+    caption,
+    domain: 'biology',
+    isDynamic: true,
+    computedMetrics: { title, cellType },
+  }
+}
+
+/**
  * Universal Parser & Master Dispatcher
  * Parses numerical values from prompt/title text (e.g. "Convex lens f=20 u=-30" or "Incline 45 degrees 10kg")
  * and dynamically generates mathematically exact vector SVGs.
@@ -727,7 +965,48 @@ export function createUniversalScientificSvg(
 ): GeneratedScientificSvg {
   const norm = typeof input === 'string' ? `${input} ${caption || ''}`.toLowerCase() : JSON.stringify(input).toLowerCase()
 
-  // 1. Coordinate Geometry & Cartesian Plane (Quadrants, Axes, Coordinates, Abscissa, Ordinate)
+  // 1. Biology: Plant Cell Wall & Ultrastructure
+  if (
+    norm.includes('cell wall') ||
+    norm.includes('lamella') ||
+    norm.includes('microfibril') ||
+    norm.includes('cellulose') ||
+    norm.includes('primary wall') ||
+    norm.includes('secondary wall') ||
+    norm.includes('plasmodesm')
+  ) {
+    return generateDynamicPlantCellWallSvg({
+      title: typeof input === 'string' ? input : input.title,
+      caption,
+    })
+  }
+
+  // 2. Biology: Cell Anatomy, Organelles, Unicellular & Eukaryotic / Prokaryotic Cells
+  if (
+    norm.includes('unicellular') ||
+    norm.includes('multicellular') ||
+    norm.includes('cell structure') ||
+    norm.includes('organelle') ||
+    norm.includes('prokaryot') ||
+    norm.includes('eukaryot') ||
+    norm.includes('bacteria') ||
+    norm.includes('plant cell') ||
+    norm.includes('animal cell') ||
+    norm.includes('mitochondri') ||
+    norm.includes('chloroplast') ||
+    norm.includes('vacuole') ||
+    norm.includes('cytoplasm') ||
+    norm.includes('nucleus') ||
+    norm.includes('membrane') ||
+    norm.includes('cell')
+  ) {
+    return generateDynamicCellStructureSvg({
+      title: typeof input === 'string' ? input : input.title,
+      caption,
+    })
+  }
+
+  // 3. Coordinate Geometry & Cartesian Plane (Quadrants, Axes, Coordinates, Abscissa, Ordinate)
   if (
     norm.includes('quadrant') ||
     norm.includes('cartesian') ||
@@ -745,7 +1024,7 @@ export function createUniversalScientificSvg(
     })
   }
 
-  // 2. Kinematics & 1D Motion: Position, Reference Point, Distance & Displacement
+  // 4. Kinematics & 1D Motion: Position, Reference Point, Distance & Displacement
   if (
     norm.includes('position') ||
     norm.includes('reference') ||
@@ -771,7 +1050,7 @@ export function createUniversalScientificSvg(
     })
   }
 
-  // 3. Ray Optics: Lenses & Mirrors (STRICT: Only when optics/lens is explicitly referenced)
+  // 5. Ray Optics: Lenses & Mirrors (STRICT: Only when optics/lens is explicitly referenced)
   if (norm.includes('lens') || norm.includes('focal') || norm.includes('ray diagram') || norm.includes('optics') || norm.includes('refraction') || norm.includes('convex') || norm.includes('concave')) {
     const fMatch = norm.match(/\bf\s*=\s*([\d\.]+)/)
     const uMatch = norm.match(/\bu\s*=\s*([\-\d\.]+)/)
@@ -788,9 +1067,9 @@ export function createUniversalScientificSvg(
     })
   }
 
-  // 4. Mechanics: Incline / Free Body Diagram
+  // 6. Mechanics: Incline / Free Body Diagram
   if (norm.includes('inclined') || norm.includes('incline') || norm.includes('free body') || norm.includes('fbd') || norm.includes('friction') || norm.includes('ramp')) {
-    const angleMatch = norm.match(/(?:angle|theta|\bdeg)\s*[:=]?\s*(\d+)/i) || norm.match(/(\d+)\s*(?:deg|°|degree)/i)
+    const angleMatch = norm.match(/(?:angle|theta|\bdeg)\s*[:=]?\s*(\d+)/i) || norm.match(/(\\d+)\s*(?:deg|°|degree)/i)
     const massMatch = norm.match(/(?:mass|m)\s*[:=]?\s*([\d\.]+)/i) || norm.match(/([\d\.]+)\s*kg/i)
     const muMatch = norm.match(/(?:mu|friction|coeff)\s*[:=]?\s*([\d\.]+)/i)
 
@@ -803,9 +1082,9 @@ export function createUniversalScientificSvg(
     })
   }
 
-  // 5. Euclidean Geometry: Circle Theorems
+  // 7. Euclidean Geometry: Circle Theorems
   if (norm.includes('circle') || norm.includes('subtend') || norm.includes('tangent') || norm.includes('arc') || norm.includes('theorem')) {
-    const arcMatch = norm.match(/(?:arc|angle)\s*[:=]?\s*(\d+)/i) || norm.match(/(\d+)\s*(?:deg|°|degree)/i)
+    const arcMatch = norm.match(/(?:arc|angle)\s*[:=]?\s*(\d+)/i) || norm.match(/(\\d+)\s*(?:deg|°|degree)/i)
 
     return generateDynamicCircleTheoremSvg({
       title: typeof input === 'string' ? input : input.title,
@@ -814,9 +1093,9 @@ export function createUniversalScientificSvg(
     })
   }
 
-  // 6. Electric Circuits & Ohm's Law
+  // 8. Electric Circuits & Ohm's Law
   if (norm.includes('circuit') || norm.includes('ohm') || norm.includes('resistor') || norm.includes('ammeter') || norm.includes('battery')) {
-    const vMatch = norm.match(/(?:v|volt|voltage)\s*[:=]?\s*([\d\.]+)/i) || norm.match(/([\d\.]+)\s*v\b/i)
+    const vMatch = norm.match(/(?:v|volt|voltage)\s*[:=]?\s*([\d\.]+)/i) || norm.match(/([\d\.]+)\s*v\\b/i)
     const rMatch = norm.match(/(?:r|ohm|resistance)\s*[:=]?\s*([\d\.]+)/i) || norm.match(/([\d\.]+)\s*(?:ohm|Ω)/i)
 
     return generateDynamicCircuitSvg({

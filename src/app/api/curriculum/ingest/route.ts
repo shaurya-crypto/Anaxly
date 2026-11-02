@@ -127,6 +127,7 @@ function buildEnhancedVisualPlanAndDirective(cap: any, visualPlan: any) {
   }))
 
   const exercisesList = Array.isArray(cap.textbook_exercises) ? cap.textbook_exercises : []
+  const conceptQuestionsList = Array.isArray(cap.concept_questions) ? cap.concept_questions : []
   const bestSvg = cap.diagram_svg || conceptVisualsList[0]?.svg || ''
 
   const updatedSteps = (visualPlan?.steps || []).map((st: any) => {
@@ -154,6 +155,8 @@ function buildEnhancedVisualPlanAndDirective(cap: any, visualPlan: any) {
     textbook_examples: cap.textbook_examples || [],
     textbook_exercises: exercisesList,
     concept_visuals: conceptVisualsList,
+    concept_questions: conceptQuestionsList,
+    estimated_minutes: 20,
   }
 
   const defsList = Array.isArray(cap.textbook_definitions) ? cap.textbook_definitions : []
@@ -178,6 +181,16 @@ function buildEnhancedVisualPlanAndDirective(cap: any, visualPlan: any) {
     .filter(Boolean)
     .join('\n')
 
+  const conceptQuestionsText = conceptQuestionsList
+    .map((cq: any, idx: number) => {
+      const qList = (cq.questions || [])
+        .map((q: any, qIdx: number) => `    * [Q${qIdx + 1}] (${q.type || 'Exam Question'}): ${q.question || ''}\n      -> Ideal Model Answer: ${q.ideal_answer || ''}\n      -> Socratic Hint: ${q.socratic_hint || ''}`)
+        .join('\n')
+      return `  * Concept #${idx + 1} "${cq.concept_title || ''}":\n${qList}`
+    })
+    .filter(Boolean)
+    .join('\n')
+
   const visualPlaybook = conceptVisualsList
     .map((cv: any, idx: number) => {
       return `  * Concept #${idx + 1} "${cv.concept_title}":
@@ -188,15 +201,18 @@ function buildEnhancedVisualPlanAndDirective(cap: any, visualPlan: any) {
     .join('\n')
 
   const diagramDirective = `
-TEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES:
+TEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):
+- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)
 - Capsule Overview Diagram: ${cap.what_to_make || cap.visual_ideas || 'Scientific Vector Diagram'}
 - Diagram Type: ${cap.diagram_type || 'vector_svg_diagram'}
 ${cap.chapter_flowchart ? `- Chapter Multi-Level Flowchart: ${cap.chapter_flowchart}\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action="draw_flowchart", content="${cap.chapter_flowchart}") to visually organize the concepts on the board!\n` : ''}
 ${defsText ? `- Verbatim Textbook Definitions:\n${defsText}\n` : ''}
 ${examplesText ? `- Textbook Concrete Examples:\n${examplesText}\n` : ''}
 ${exercisesText ? `- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n${exercisesText}\n` : ''}
+${conceptQuestionsText ? `- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n${conceptQuestionsText}\n` : ''}
 ${visualPlaybook ? `- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n${visualPlaybook}\n` : ''}
 - MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!
+- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.
 - EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the "why" behind each line out loud. Never merely recite the text!
 `
 
@@ -597,6 +613,17 @@ TARGET ACADEMIC SPECIFICATION:
 - Target Class: "${classLevel || existingCurriculum?.class_level || 'Class 10'}" (Strictly school level 6-12)
 - Subject / Discipline: "${category || existingCurriculum?.category || 'General'}"
 - Chapter: "${targetChapterTitle}"
+- 20-MINUTE CAPSULE DURATION INVARIANT: Every capsule is a full 20-minute comprehensive masterclass covering every detail, derivation, law, and examination nuance in the textbook.
+- 4 TO 6 PREPARED EXAM QUESTIONS PER CONCEPT (MANDATORY):
+  * For EVERY single concept in "key_concepts", you MUST formulate 4 to 6 authentic board-exam questions matching the student's exact board pattern (${board}).
+  * Cover a complete difficulty spectrum:
+    1. 1-mark Multiple Choice Question (MCQ) testing conceptual clarity
+    2. 2-mark Assertion-Reason or Verbatim Definition with SI unit
+    3. 3-mark Short Answer or Derivation step
+    4. 5-mark Structured Board Question or Numerical problem with step-by-step calculation
+    5. Authentic Past Year Question (PYQ) from recent board exams
+    6. NEP 2020 Real-World Competency Question
+  * For each question, provide the ideal topper model answer and a Socratic hint to guide the student if they get stuck.
 - TEXTBOOK FIDELITY INVARIANT: Wherever images, graphs, coordinate systems, and exact verbatim definitions appear in the book, capture them accurately with authentic vector SVG markup.
 - HIGHEST QUALITY PRODUCTION SVG INVARIANT (ZERO FAKE BLUEPRINTS):
   * Every single capsule MUST include authentic, production-ready vector SVG markup in "diagram_svg" and "concept_visuals".
@@ -632,17 +659,33 @@ MATHEMATICS SPECIALIZATION & GAUTH-LEVEL RIGOR:
 
 ${activeNotes && !geminiCacheName ? `CHAPTER NOTES TEXT:\n"""\n${activeNotes.substring(0, 100000)}\n"""` : 'Analyze the attached detailed chapter notes document thoroughly.'}
 
-REQUIREMENTS FOR EACH TOPIC CAPSULE (4 to 8 capsules total):
+REQUIREMENTS FOR EACH TOPIC CAPSULE (4 to 8 capsules total, 20 mins each):
 1. "order_index": Sequential number (1, 2, 3...)
 2. "title": Specific, descriptive topic capsule name
 3. "description": 1 concise sentence describing the capsule learning objective.
 4. "subtopics": Array of 4-6 specific examination subtopics tested in board exams.
 5. "key_concepts": Array of 4-6 core laws, definitions, or formulas with standard mathematical/scientific notation and SI units.
-6. "success_criteria": 1 clear measurable verification problem or proof question.
-7. "chapter_notes": 1200-2000 words of thorough, structured NCERT-standard notes including definitions, verbatim laws, derivations, and step-by-step proofs.
-8. "textbook_definitions": Array of exact textbook definitions with formal laws and SI units.
-9. "textbook_examples": Array of 2 to 3 concrete illustrative real-life scenarios from the syllabus.
-10. "textbook_exercises": Array of authentic exercises and practice questions from the book:
+6. "concept_questions": Array of question sets for EVERY concept in "key_concepts" (4 to 6 questions per concept):
+   [
+     {
+       "concept_index": 0,
+       "concept_title": "string",
+       "questions": [
+         {
+           "q_num": "Q1",
+           "type": "1-mark MCQ" | "2-mark Definition" | "3-mark Derivation" | "5-mark Numerical" | "PYQ" | "Competency",
+           "question": "string",
+           "ideal_answer": "string",
+           "socratic_hint": "string"
+         }
+       ]
+     }
+   ]
+7. "success_criteria": 1 clear measurable verification problem or proof question.
+8. "chapter_notes": 1500-2500 words of thorough, structured NCERT-standard notes including definitions, verbatim laws, derivations, and step-by-step proofs.
+9. "textbook_definitions": Array of exact textbook definitions with formal laws and SI units.
+10. "textbook_examples": Array of 2 to 3 concrete illustrative real-life scenarios from the syllabus.
+11. "textbook_exercises": Array of authentic exercises and practice questions from the book:
     [
       {
         "exercise_number": "Exercise 1.1",
@@ -656,7 +699,7 @@ REQUIREMENTS FOR EACH TOPIC CAPSULE (4 to 8 capsules total):
         ]
       }
     ]
-11. "worked_examples": Array of 2 to 4 fully solved textbook examples formatted as:
+12. "worked_examples": Array of 2 to 4 fully solved textbook examples formatted as:
     [
       {
         "problem": "Authentic textbook example problem",
@@ -668,14 +711,14 @@ REQUIREMENTS FOR EACH TOPIC CAPSULE (4 to 8 capsules total):
         "unit": "Mathematical conclusion or SI unit"
       }
     ]
-12. "chapter_flowchart": Multi-level hierarchical flowchart or branch tree ("Root -> Branch A | Branch B; Branch A -> Sub 1 | Sub 2").
-13. "common_misconceptions": Array of 3-5 specific mistakes students frequently make in board exams.
-14. "ai_system_prompt_context": Step-by-step Socratic teaching directives for the live tutor: when to draw diagrams, check questions, and explanation cues.
-15. "visual_ideas": Comprehensive visual and image generation ideas.
-16. "diagram_type": The exact type of diagram (vector_svg_diagram | mafs_graph | flowchart | circuit_schematic | ray_optics | anatomy_structure).
-17. "what_to_make": Detailed blueprint of components, geometric shapes, axes, labels, and numerical values to draw.
-18. "diagram_svg": Complete, production-ready, clean vector SVG markup (<svg viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" xmlns="http://www.w3.org/2000/svg">...</svg>) with contrasting stroke colors, dark background #13211B, and clear text labels.
-19. "concept_visuals": Array of 2 to 4 UNIQUE, DISTINCT visual diagram blueprints—one crafted for key concepts. Each item MUST be:
+13. "chapter_flowchart": Multi-level hierarchical flowchart or branch tree ("Root -> Branch A | Branch B; Branch A -> Sub 1 | Sub 2").
+14. "common_misconceptions": Array of 3-5 specific mistakes students frequently make in board exams.
+15. "ai_system_prompt_context": Step-by-step Socratic teaching directives for the live tutor: when to draw diagrams, check questions, and explanation cues.
+16. "visual_ideas": Comprehensive visual and image generation ideas.
+17. "diagram_type": The exact type of diagram (vector_svg_diagram | mafs_graph | flowchart | circuit_schematic | ray_optics | anatomy_structure).
+18. "what_to_make": Detailed blueprint of components, geometric shapes, axes, labels, and numerical values to draw.
+19. "diagram_svg": Complete, production-ready, clean vector SVG markup (<svg viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" xmlns="http://www.w3.org/2000/svg">...</svg>) with contrasting stroke colors, dark background #13211B, and clear text labels.
+20. "concept_visuals": Array of 2 to 4 UNIQUE, DISTINCT visual diagram blueprints—one crafted for key concepts. Each item MUST be:
     {
       "concept_title": "Exact title matching key_concepts[i]",
       "diagram_title": "Short descriptive title for chalkboard header",
@@ -696,6 +739,21 @@ Respond with ONLY a valid JSON object matching this schema (do NOT include conve
       "description": "string",
       "subtopics": ["string"],
       "key_concepts": ["string"],
+      "concept_questions": [
+        {
+          "concept_index": 0,
+          "concept_title": "string",
+          "questions": [
+            {
+              "q_num": "Q1",
+              "type": "string",
+              "question": "string",
+              "ideal_answer": "string",
+              "socratic_hint": "string"
+            }
+          ]
+        }
+      ],
       "success_criteria": "string",
       "chapter_notes": "string",
       "textbook_definitions": [
@@ -747,6 +805,14 @@ Respond with ONLY a valid JSON object matching this schema (do NOT include conve
           "concept_title": "string",
           "diagram_title": "string",
           "diagram_type": "string",
+          "what_to_make": "string",
+          "svg": "string (<svg viewBox='0 0 540 280' ...>...</svg>)",
+          "timing_and_cue": "string"
+        }
+      ]
+    }
+  ]
+}
           "what_to_make": "string",
           "svg": "string (<svg viewBox='0 0 540 280' ...>...</svg>)",
           "timing_and_cue": "string"
@@ -842,7 +908,7 @@ Respond with ONLY a valid JSON object matching this schema (do NOT include conve
               common_misconceptions: cap.common_misconceptions || [],
               ai_system_prompt_context: `${cap.ai_system_prompt_context || ''}${diagramDirective}`,
               visual_lesson_plan: enhancedVisualPlan,
-              estimated_minutes: 15,
+              estimated_minutes: 20,
             })
           }
         } else {
@@ -931,7 +997,7 @@ Respond with ONLY a valid JSON object matching this schema (do NOT include conve
             common_misconceptions: toSafeStringArray(cap.common_misconceptions),
             ai_system_prompt_context: `${cap.ai_system_prompt_context || ''}${diagramDirective}`,
             visual_lesson_plan: enhancedVisualPlan,
-            estimated_minutes: 15,
+            estimated_minutes: 20,
           })
         }
       }
@@ -1220,7 +1286,7 @@ async function commitCurriculumsToDatabase({
         common_misconceptions: toSafeStringArray(mod.common_misconceptions),
         ai_system_prompt_context: `${mod.ai_system_prompt_context || ''}${diagramDirective}`,
         visual_lesson_plan: enhancedVisualPlan,
-        estimated_minutes: 15,
+        estimated_minutes: 20,
       })
 
       if (!modErr) {

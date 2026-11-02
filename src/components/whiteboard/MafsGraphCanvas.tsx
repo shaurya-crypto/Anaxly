@@ -98,34 +98,56 @@ export function MafsGraphCanvas({
     return pts
   }, [points])
 
-  // Clean and compile primary function formula
-  const normalizedFormula = useMemo(() => normalizeMathFormula(formula), [formula])
-  const compiledFn = useMemo(() => {
-    try {
-      const expr = compile(normalizedFormula)
-      return (x: number): number => {
-        try {
-          const res = expr.evaluate({ x, e: Math.E, pi: Math.PI })
-          return typeof res === 'number' && isFinite(res) ? res : NaN
-        } catch {
-          return NaN
+  // Parse multi-formula strings if semicolon, pipe, or newline separated (e.g. "2x + 1; x^2; 2")
+  const formulasList = useMemo(() => {
+    if (!formula) return ['x^2 - 4']
+    const parts = formula.split(/[;\n]/).map((s) => s.trim()).filter(Boolean)
+    return parts.length > 0 ? parts : [formula]
+  }, [formula])
+
+  const CURVE_COLORS = ['#7EC8E3', '#E87D65', '#68B084', '#F3B455', '#A78BFA', '#F87171']
+
+  // Compile all formulas
+  const compiledCurves = useMemo(() => {
+    return formulasList.map((f, idx) => {
+      const normalized = normalizeMathFormula(f)
+      try {
+        const expr = compile(normalized)
+        const fn = (x: number): number => {
+          try {
+            const res = expr.evaluate({ x, e: Math.E, pi: Math.PI })
+            return typeof res === 'number' && isFinite(res) ? res : NaN
+          } catch {
+            return NaN
+          }
+        }
+        return {
+          raw: f,
+          fn,
+          color: CURVE_COLORS[idx % CURVE_COLORS.length],
+        }
+      } catch {
+        return {
+          raw: f,
+          fn: (x: number) => x,
+          color: CURVE_COLORS[idx % CURVE_COLORS.length],
         }
       }
-    } catch {
-      return (x: number) => x
-    }
-  }, [normalizedFormula])
+    })
+  }, [formulasList])
+
+  const primaryFn = compiledCurves[0]?.fn || ((x: number) => x)
 
   // Numerical derivative function: f'(x) ≈ (f(x+h) - f(x-h)) / 2h
   const derivativeFn = useMemo(() => {
     const h = 0.0001
     return (x: number): number => {
-      const y2 = compiledFn(x + h)
-      const y1 = compiledFn(x - h)
+      const y2 = primaryFn(x + h)
+      const y1 = primaryFn(x - h)
       if (isNaN(y1) || isNaN(y2)) return NaN
       return (y2 - y1) / (2 * h)
     }
-  }, [compiledFn])
+  }, [primaryFn])
 
   const handleZoom = (factor: number) => {
     setViewDomain(([min, max]) => {
@@ -287,12 +309,16 @@ export function MafsGraphCanvas({
             yAxis={{ lines: 1, labels: (y) => (y !== 0 ? `${y}` : '') }}
           />
 
-          {/* Primary Function Curve (Terracotta Amber Chalk) */}
-          <Plot.OfX
-            y={compiledFn}
-            color="#E87D65"
-            weight={3}
-          />
+          {/* Multi-Function Curves (Aristotle / Desmos Standard with Distinct Scholastic Colors) */}
+          {compiledCurves.map((curve, idx) => (
+            <React.Fragment key={`curve-${idx}-${curve.raw}`}>
+              <Plot.OfX
+                y={curve.fn}
+                color={curve.color}
+                weight={3}
+              />
+            </React.Fragment>
+          ))}
 
           {/* Derivative Curve if toggled (Botanical Sage Chalk) */}
           {showDerivative && (
@@ -321,10 +347,15 @@ export function MafsGraphCanvas({
         </Mafs>
       </div>
 
-      {/* Coordinate Status Footer Bar */}
-      <div className="px-3.5 py-2 bg-[#0D1712] border-t border-[#233930] flex items-center justify-between text-[11px] text-emerald-300 font-mono shrink-0">
-        <div className="flex items-center gap-2">
-          <span className="text-white font-semibold">y = {formula}</span>
+      {/* Coordinate Status Footer Bar with Multi-Curve Legend */}
+      <div className="px-3.5 py-2 bg-[#0D1712] border-t border-[#233930] flex flex-wrap items-center justify-between gap-2 text-[11px] text-emerald-300 font-mono shrink-0">
+        <div className="flex items-center flex-wrap gap-2.5">
+          {compiledCurves.map((curve, idx) => (
+            <span key={idx} className="flex items-center gap-1.5 font-semibold text-white">
+              <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: curve.color }} />
+              <span>y = {curve.raw}</span>
+            </span>
+          ))}
           {showDerivative && (
             <span className="text-emerald-400 text-[10px] hidden sm:inline">(dashed: dy/dx)</span>
           )}

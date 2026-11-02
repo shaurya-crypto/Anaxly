@@ -26,10 +26,10 @@ export interface ResilientGenerateOptions {
  * 4. gemini-2.5-flash-lite: Ultra-low latency safety net (0.8s response)
  */
 export const DEFAULT_MODEL_CASCADE = [
-  'gemini-3-flash-preview',
-  'gemini-3.8-flash',
   'gemini-2.5-flash',
+  'gemini-3-flash-preview',
   'gemini-2.5-flash-lite',
+  'gemini-3.8-flash',
 ]
 
 /**
