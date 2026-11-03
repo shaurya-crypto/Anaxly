@@ -21,6 +21,8 @@ export class AudioStreamer {
   private wasSpeechActive: boolean = false;
   private noiseFloor: number = 0.015;
   private consecutiveSpeechFrames: number = 0;
+  private speechStartTime: number = 0;
+  private speechEndTime: number = 0;
   private onAudioChunk?: (base64Chunk: string) => void;
   private onBargeIn?: () => void;
   private onSpeechStart?: () => void;
@@ -198,16 +200,24 @@ export class AudioStreamer {
       this.noiseFloor = Math.min(0.02, Math.max(0.003, this.noiseFloor * 0.96 + rms * 0.04));
     }
 
-    // Dynamic speech threshold: sensitive to conversational speech (RMS 0.016-0.035), no shouting required
-    const dynamicSpeechThreshold = Math.max(0.016, this.noiseFloor * 1.5);
-    const SPEECH_HANGOVER_MS = 300;
+    // Dynamic speech threshold: sensitive to conversational speech (RMS 0.026-0.050), robust against breathing & fan
+    const dynamicSpeechThreshold = Math.max(0.026, this.noiseFloor * 2.2);
+    const SPEECH_HANGOVER_MS = 2400; // 2.4s hangover allows natural student thinking pauses without cutting off speech
+    const requiredSpeechFrames = this.workletNode ? 5 : 4;
 
     if (rms >= dynamicSpeechThreshold) {
-      this.lastSpeechTime = now;
-      if (!this.wasSpeechActive) {
-        this.wasSpeechActive = true;
-        this.onSpeechStart?.();
+      this.consecutiveSpeechFrames++;
+      if (this.consecutiveSpeechFrames >= requiredSpeechFrames) {
+        this.lastSpeechTime = now;
+        this.speechEndTime = now;
+        if (!this.wasSpeechActive) {
+          this.wasSpeechActive = true;
+          this.speechStartTime = now;
+          this.onSpeechStart?.();
+        }
       }
+    } else {
+      this.consecutiveSpeechFrames = 0;
     }
 
     const isSpeechActive = now - this.lastSpeechTime < SPEECH_HANGOVER_MS;
@@ -215,8 +225,15 @@ export class AudioStreamer {
     if (!isSpeechActive) {
       if (this.wasSpeechActive) {
         this.wasSpeechActive = false;
-        console.log('[AudioStreamer] Student voice ended. Triggering onSpeechEnd (Hybrid VAD).');
-        this.onSpeechEnd?.();
+        this.consecutiveSpeechFrames = 0;
+        // Measure duration of actual active speech frames, not including the hangover window
+        const actualSpokenDuration = this.speechEndTime > this.speechStartTime ? this.speechEndTime - this.speechStartTime : 0;
+        if (actualSpokenDuration >= 450) {
+          console.log(`[AudioStreamer] Student voice ended (${actualSpokenDuration}ms speech + ${SPEECH_HANGOVER_MS}ms pause). Triggering onSpeechEnd (Hybrid VAD).`);
+          this.onSpeechEnd?.();
+        } else {
+          console.log(`[AudioStreamer] Ignoring brief noise transient (${actualSpokenDuration}ms speech).`);
+        }
       }
       return;
     }

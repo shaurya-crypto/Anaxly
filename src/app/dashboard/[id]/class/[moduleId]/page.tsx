@@ -272,6 +272,156 @@ function buildConceptMicroDossiers(
 }
 
 /**
+ * Single-Concept Micro-Dossier Engine.
+ * Gating invariant: Provides 100% textbook facts, SI units, governing equations,
+ * and 4-6 authentic board-exam questions for ONLY the single active concept being taught.
+ */
+function buildSingleConceptMicroDossier(
+  conceptIdx: number,
+  keyConcepts: string[],
+  activeModule: any,
+  resolvedBoard: string,
+  resolvedClassLevel: string,
+  resolvedSubject: string,
+  chapterName: string,
+  workedExamples: any[],
+  misconceptions: string[]
+): string {
+  if (!keyConcepts || keyConcepts.length === 0 || conceptIdx < 0 || conceptIdx >= keyConcepts.length) {
+    return ''
+  }
+
+  const rawConcept = keyConcepts[conceptIdx]
+  const conceptName = rawConcept.replace(/^[\s\(\[\{]+|[\s\)\]\}]+$/g, '').trim()
+  const visualPlan = activeModule?.visual_lesson_plan || {}
+  const textbookDefs: any[] = visualPlan?.textbook_definitions || activeModule?.textbook_definitions || []
+  const textbookExamples: any[] = visualPlan?.textbook_examples || activeModule?.textbook_examples || []
+  const textbookExercises: any[] = visualPlan?.textbook_exercises || activeModule?.textbook_exercises || []
+  const subtopics: string[] = activeModule?.subtopics?.length ? activeModule.subtopics : (visualPlan?.subtopics || [])
+  const diagramType = visualPlan?.diagram_type || activeModule?.diagram_type || 'vector_svg_diagram'
+  const whatToMake = visualPlan?.what_to_make || visualPlan?.diagram_description || activeModule?.what_to_make || ''
+
+  // Subtopics matching this concept
+  const matchingSubtopics = subtopics.filter((st: string) =>
+    st.toLowerCase().includes(conceptName.toLowerCase()) ||
+    conceptName.toLowerCase().includes(st.toLowerCase())
+  )
+  const subtopicsStr = matchingSubtopics.length > 0
+    ? `\n   * Key Examination Subtopics for this Concept:\n` + matchingSubtopics.map((st) => `     - ${st}`).join('\n')
+    : subtopics[conceptIdx]
+    ? `\n   * Target Subtopic: ${subtopics[conceptIdx]}`
+    : ''
+
+  // Definitions
+  const matchingDefs = Array.isArray(textbookDefs)
+    ? textbookDefs.filter(
+        (d: any) =>
+          (d.concept || '').toLowerCase().includes(conceptName.toLowerCase()) ||
+          conceptName.toLowerCase().includes((d.concept || '').toLowerCase())
+      )
+    : []
+  const defToUse = matchingDefs.length > 0 ? matchingDefs : (textbookDefs[conceptIdx] ? [textbookDefs[conceptIdx]] : [])
+  const defStr = defToUse.length > 0
+    ? defToUse.map((d: any) => `\n   * Verbatim Textbook Definition: "${d.definition}" ${d.si_units ? `[SI Unit: ${d.si_units}]` : ''}`).join('')
+    : ''
+
+  // Concrete Scenarios
+  const matchingExamples = Array.isArray(textbookExamples)
+    ? textbookExamples.filter(
+        (e: any) =>
+          (e.title || '').toLowerCase().includes(conceptName.toLowerCase()) ||
+          conceptName.toLowerCase().includes((e.title || '').toLowerCase()) ||
+          (e.scenario || '').toLowerCase().includes(conceptName.toLowerCase())
+      )
+    : []
+  const exToUse = matchingExamples.length > 0 ? matchingExamples : (textbookExamples[conceptIdx] ? [textbookExamples[conceptIdx]] : [])
+  const exStr = exToUse.length > 0
+    ? `\n   * Textbook Real-Life Scenarios / Concrete Illustrations:\n` +
+      exToUse.map((e: any) => `     - "${e.title}": ${e.scenario}`).join('\n')
+    : ''
+
+  // Exercises
+  const matchingExercises = textbookExercises.flatMap((ex: any) =>
+    (ex.questions || []).filter((q: any) =>
+      (q.question || '').toLowerCase().includes(conceptName.toLowerCase())
+    ).map((q: any) => ({ ...q, exercise_number: ex.exercise_number }))
+  )
+  const exerciseStr = matchingExercises.length > 0
+    ? `\n   * Linked Textbook In-Text / Board Exercise:\n` +
+      matchingExercises.slice(0, 2).map((q: any) => `     - [${q.exercise_number || 'Ex'} ${q.q_num || 'Q'}]: ${q.question}${q.solution_method ? ` (Solve: ${q.solution_method})` : ''}`).join('\n')
+    : ''
+
+  // Model problem
+  const ex1 = workedExamples[conceptIdx] || workedExamples[0]
+  const q1 = ex1?.problem
+    ? `Model Problem: "${ex1.problem}" (Given: ${ex1.given || ''}, Formula: ${ex1.formula || ''}, Substitution: ${ex1.substitution || ''}, Ans: ${ex1.finalAnswer || ''} ${ex1.unit || ''})`
+    : `Model Concept Question: State the law and formula for ${conceptName} under ${resolvedBoard} standards.`
+
+  // Misconception
+  const misc = misconceptions[conceptIdx] || misconceptions[0]
+  const miscStr = misc ? `\n   * Common Student Pitfall / Caution: "${misc}"` : ''
+
+  // Prepared 4-6 questions for socratic gating
+  const conceptQuestionsList = Array.isArray(visualPlan?.concept_questions)
+    ? visualPlan.concept_questions
+    : Array.isArray(activeModule?.concept_questions)
+    ? activeModule.concept_questions
+    : []
+  const matchingQuestions =
+    conceptQuestionsList.find(
+      (cq: any) =>
+        cq.concept_index === conceptIdx ||
+        (cq.concept_title || '').toLowerCase().includes(conceptName.toLowerCase()) ||
+        conceptName.toLowerCase().includes((cq.concept_title || '').toLowerCase())
+    ) || conceptQuestionsList[conceptIdx]
+  const qListStr = matchingQuestions?.questions?.length
+    ? `\n   * Prepared Authentic Board Exam Questions for Gating:\n` +
+      matchingQuestions.questions
+        .map(
+          (q: any, qIdx: number) =>
+            `     - [Q${qIdx + 1} (${q.type || 'Exam Question'})]: "${q.question}" -> Model Answer: "${q.ideal_answer || ''}" (Socratic Hint: "${q.socratic_hint || ''}")`
+        )
+        .join('\n')
+    : ''
+
+  // Visual Directive for this single concept
+  const conceptVisualsList = Array.isArray(visualPlan?.concept_visuals)
+    ? visualPlan.concept_visuals
+    : Array.isArray(activeModule?.concept_visuals)
+    ? activeModule.concept_visuals
+    : []
+  const matchedCv =
+    conceptVisualsList[conceptIdx] ||
+    conceptVisualsList.find((c: any) =>
+      (c.concept_title || '').toLowerCase().includes(conceptName.toLowerCase()) ||
+      conceptName.toLowerCase().includes((c.concept_title || '').toLowerCase()) ||
+      (c.diagram_title || '').toLowerCase().includes(conceptName.toLowerCase())
+    )
+
+  const isGraph = Boolean(matchedCv && (matchedCv.diagram_type === 'graph' || matchedCv.interactive_math_formula))
+  const isFlowchart = Boolean(matchedCv && matchedCv.diagram_type === 'draw_flowchart')
+  const diagramTitle = matchedCv?.diagram_title || matchedCv?.concept_title || conceptName
+  const whatSpec = matchedCv?.what_to_make || whatToMake || `Publication-grade scientific vector diagram illustrating ${conceptName} with precise components, axes, vectors, callout pointer dots, and SI unit annotations`
+
+  let visualDirective = ''
+  if (isGraph) {
+    visualDirective = `\n   * MANDATORY GRAPH PLOT: Call plot_mathematical_graph(formula="${matchedCv.interactive_math_formula || 'formula'}", title="${diagramTitle}") on Step 1!`
+  } else if (isFlowchart) {
+    visualDirective = `\n   * MANDATORY FLOWCHART: Call write_chalkboard(action="draw_flowchart", content="${matchedCv.what_to_make || conceptName}") on Step 1!`
+  } else {
+    visualDirective = `\n   * MANDATORY PROACTIVE DIAGRAM: You MUST call render_svg_diagram(title="${diagramTitle}", what="${whatSpec.slice(0, 160)}") ON YOUR VERY FIRST TURN! The student will not ask for a diagram -- draw it proactively!`
+  }
+
+  return `========================================================================================
+CURRENT ACTIVE CONCEPT: Concept ${conceptIdx + 1} of ${keyConcepts.length}: "${conceptName}"
+========================================================================================
+${subtopicsStr}${defStr}${exStr}${exerciseStr}
+   * ${q1}${miscStr}${qListStr}
+${visualDirective}
+`
+}
+
+/**
  * Natural language detector for spoken concept transitions by the AI tutor.
  * Detects phrases like: "Moving on to Concept 2", "Let's move to Concept 3",
  * "Now moving to Concept 2", "Moving on to cellulose", "Let's talk about cellulose", etc.
@@ -282,10 +432,10 @@ function detectSpokenConceptTransition(
 ): { targetIdx: number; conceptTitle: string } | null {
   if (!text || keyConcepts.length === 0) return null
 
-  // 1. Direct number match: e.g. "moving on to concept 2", "let's talk about concept 2", "now on to concept 2", "concept 2 is"
+  // 1. Direct number match: e.g. "moving on to concept 2", "let's talk about concept 2", "now on to concept 2", "advance to concept 2"
   const numMatch = text.match(
-    /(?:moving\s+(?:on\s+)?to|let['’]?s\s+(?:move\s+(?:on\s+)?to|talk\s+about|discuss|begin|start)|now\s+(?:moving\s+to|on\s+to|for)|turn(?:ing)?\s+(?:our\s+attention\s+)?to|next\s+(?:is|up\s+is|concept\s+is)|welcome\s+to|starting|onto|in)\s+concept\s*#?\s*(\d+)/i
-  ) || text.match(/\bconcept\s*#?\s*(\d+)\s*(?:is|:|\-)\s*/i)
+    /(?:moving\s+(?:on\s+)?to|let['’]?s\s+(?:move\s+(?:on\s+)?to|talk\s+about|discuss|begin|start|advance\s+to|proceed\s+to|go\s+to)|now\s+(?:moving\s+to|on\s+to|for|let['’]?s\s+look\s+at)|turn(?:ing)?\s+(?:our\s+attention\s+)?to|next\s+(?:is|up\s+is|concept\s+is)|welcome\s+to|starting|onto|in|advance\s+to|proceed\s+to)\s+concept\s*#?\s*(\d+)/i
+  ) || text.match(/\bconcept\s*#?\s*(\d+)\s*(?:is\s+next|next)\b/i)
   if (numMatch && numMatch[1]) {
     const num = parseInt(numMatch[1], 10)
     if (num >= 1 && num <= keyConcepts.length) {
@@ -307,7 +457,7 @@ function detectSpokenConceptTransition(
     tenth: 10,
   }
   const ordinalMatch = text.match(
-    /(?:moving\s+(?:on\s+)?to|let['’]?s\s+move\s+(?:on\s+)?to|now\s+moving\s+to|next\s+is)\s+(?:the\s+)?([a-z]+)\s+concept/i
+    /(?:moving\s+(?:on\s+)?to|let['’]?s\s+(?:move\s+(?:on\s+)?to|advance\s+to|proceed\s+to)|now\s+moving\s+to|next\s+is)\s+(?:the\s+)?([a-z]+)\s+concept/i
   )
   if (ordinalMatch && ordinalMatch[1]) {
     const word = ordinalMatch[1].toLowerCase()
@@ -330,7 +480,7 @@ function detectSpokenConceptTransition(
       const isUnique = !keyConcepts.some((other, oIdx) => oIdx !== i && other.toLowerCase().includes(word))
       if (isUnique) {
         const pattern = new RegExp(
-          `(?:moving\\s+(?:on\\s+)?to|let['’]?s\\s+(?:move\\s+to|talk\\s+about|discuss)|now\\s+(?:on\\s+to|for)|turn(?:ing)?\\s+to|next\\s+up\\s+is)\\s+${word}`,
+          `(?:moving\\s+(?:on\\s+)?to|let['’]?s\\s+(?:move\\s+to|talk\\s+about|discuss|advance\\s+to)|now\\s+(?:on\\s+to|for)|turn(?:ing)?\\s+to|next\\s+up\\s+is)\\s+${word}`,
           'i'
         )
         if (pattern.test(text)) {
@@ -338,6 +488,41 @@ function detectSpokenConceptTransition(
         }
       }
     }
+  }
+
+  return null
+}
+
+/**
+ * Natural language detector for spoken concept completion by the AI tutor.
+ * Detects phrases like: "We have finished Concept 1", "Concept 1 is complete",
+ * "That concludes Concept 1", "That covers Concept 1", "That wraps up this concept", etc.
+ */
+function detectSpokenConceptCompletion(
+  text: string,
+  keyConcepts: string[],
+  currentIdx: number
+): { conceptIdx: number; conceptTitle: string } | null {
+  if (!text || keyConcepts.length === 0) return null
+
+  // 1. Direct number completion: e.g. "concept 1 is complete", "we have finished concept 1", "that concludes concept 1"
+  const compMatch = text.match(
+    /(?:(?:we\s+have\s+|we've\s+)?(?:completed|finished|concluded|covered|wrapped\s+up)|that\s+(?:completes|concludes|covers|wraps\s+up))\s+(?:the\s+)?concept\s*#?\s*(\d+)/i
+  ) || text.match(/\bconcept\s*#?\s*(\d+)\s*(?:is|has\s+been)\s*(?:completed|done|finished|mastered)/i)
+
+  if (compMatch && compMatch[1]) {
+    const num = parseInt(compMatch[1], 10)
+    if (num >= 1 && num <= keyConcepts.length) {
+      return { conceptIdx: num - 1, conceptTitle: keyConcepts[num - 1] }
+    }
+  }
+
+  // 2. Generic "this concept is complete" / "that concludes this concept"
+  const thisConceptMatch = text.match(
+    /(?:(?:we\s+have\s+|we've\s+)?(?:completed|finished|concluded|wrapped\s+up)|that\s+(?:completes|concludes|wraps\s+up))\s+(?:this\s+concept|this\s+topic)/i
+  )
+  if (thisConceptMatch && currentIdx >= 0 && currentIdx < keyConcepts.length) {
+    return { conceptIdx: currentIdx, conceptTitle: keyConcepts[currentIdx] }
   }
 
   return null
@@ -368,6 +553,12 @@ export default function ModuleClassroomPage() {
     sendBoardContext,
     sendTextMessage,
   } = useGeminiLive()
+
+  const leaveTo = (path: string) => {
+    endCall()
+    router.refresh()
+    router.push(path)
+  }
 
   const [selectedPyqQuestion, setSelectedPyqQuestion] = useState<string | null>(null)
 
@@ -512,7 +703,12 @@ export default function ModuleClassroomPage() {
     if (isReviewingVerdictRef.current) {
       isReviewingVerdictRef.current = false
       setIsReviewingVerdict(false)
-      sendTextMessage(`Student replied: "${cleanAnswer}". If understood, proceed to conclude this concept with concept_done and transition to the next concept.`)
+      const isConfirmation = /^(?:yes|understood|clear|ready|next|move\s*on|haan?|samajh|theek|chalo|done|got\s*it|sure|proceed|ok|okay)\b/i.test(cleanAnswer)
+      if (isConfirmation) {
+        handleConceptDone()
+        return
+      }
+      sendTextMessage(`Student replied: "${cleanAnswer}". If understood, call concept_completed (or write_chalkboard with action="concept_done") to conclude this concept and transition to the next concept.`)
       return
     }
 
@@ -538,7 +734,12 @@ export default function ModuleClassroomPage() {
     if (isReviewingVerdictRef.current) {
       isReviewingVerdictRef.current = false
       setIsReviewingVerdict(false)
-      sendTextMessage(`Student replied: "${cleanAnswer}". If understood, proceed to conclude this concept with concept_done and transition to the next concept.`)
+      const isConfirmation = /^(?:yes|understood|clear|ready|next|move\s*on|haan?|samajh|theek|chalo|done|got\s*it|sure|proceed|ok|okay)\b/i.test(cleanAnswer)
+      if (isConfirmation) {
+        handleConceptDone()
+        return
+      }
+      sendTextMessage(`Student replied: "${cleanAnswer}". If understood, call concept_completed (or write_chalkboard with action="concept_done") to conclude this concept and transition to the next concept.`)
       return
     }
 
@@ -621,6 +822,7 @@ export default function ModuleClassroomPage() {
   const renderedVisualConceptsRef = useRef<Set<number>>(new Set())
   const lastPageJumpTimeRef = useRef<number>(0)
   const lastTargetIdxRef = useRef<number>(-1)
+  const lastConceptDoneTimeRef = useRef<number>(0)
 
   // Exact database values (no hardcoded mocks)
   const resolvedClassLevel =
@@ -1120,10 +1322,50 @@ export default function ModuleClassroomPage() {
         }
       }
 
-      // Note: Concept advancement is strictly governed by student confirmation via write_chalkboard(action="concept_focus")
-      // to guarantee concepts are never skipped or advanced without student confirmation and answer evaluation.
+      // Detect spoken concept transition by AI tutor (e.g. "Moving on to Concept 2", "Let's move to Concept 3")
+      const keyConceptsList: string[] = parseKeyConcepts(activeModule?.key_concepts)
+      const spokenTrans = detectSpokenConceptTransition(latest.text, keyConceptsList)
+      if (
+        spokenTrans &&
+        spokenTrans.targetIdx > currentConceptIndexRef.current &&
+        spokenTrans.targetIdx < keyConceptsList.length
+      ) {
+        const transKey = `${transcriptId}:transition:${spokenTrans.targetIdx}`
+        if (!executedSceneDirectivesRef.current.has(transKey)) {
+          executedSceneDirectivesRef.current.add(transKey)
+          const curConcept = keyConceptsList[currentConceptIndexRef.current]
+          const updated = Array.from(new Set([...completedConceptsRef.current, curConcept]))
+          completedConceptsRef.current = updated
+          setCompletedConcepts(updated)
+          advanceToNextConcept(spokenTrans.targetIdx, updated)
+        }
+      }
+
+      // Detect spoken concept completion by AI tutor (e.g. "We have completed Concept 1", "That concludes Concept 1")
+      const spokenComp = detectSpokenConceptCompletion(latest.text, keyConceptsList, currentConceptIndexRef.current)
+      if (spokenComp) {
+        const compKey = `${transcriptId}:completion:${spokenComp.conceptIdx}`
+        if (!executedSceneDirectivesRef.current.has(compKey)) {
+          executedSceneDirectivesRef.current.add(compKey)
+          handleConceptDone(spokenComp.conceptTitle)
+        }
+      }
+    } else if (latest && latest.sender === 'user') {
+      const userText = (latest.text || '').trim().toLowerCase()
+      const transcriptId = latest.id || `user_${latest.timestamp || Date.now()}`
+      const userKey = `${transcriptId}:user_ack`
+
+      if (!executedSceneDirectivesRef.current.has(userKey)) {
+        const isConfirmation = /^(?:yes|understood|clear|ready|next|move\s*on|haan?|samajh\s*(?:aaya|gaya)?|theek\s*hai|chalo|done|got\s*it|sure|proceed|ok|okay|all\s*good|crystal\s*clear)\b/i.test(userText)
+        const isExplicitNext = /(?:next\s*concept|next\s*page|move\s*(?:to\s*)?next|advance\s*concept|concept\s*done|concept\s*complete)/i.test(userText)
+
+        if (isConfirmation || isExplicitNext) {
+          executedSceneDirectivesRef.current.add(userKey)
+          handleConceptDone()
+        }
+      }
     }
-  }, [transcripts, lessonManifest])
+  }, [transcripts, lessonManifest, activeModule])
 
   // Helper to auto-save visual timeline progress
   const saveVisualProgressToSupabase = async (stepIndex: number, completedStepIds: string[]) => {
@@ -1222,8 +1464,8 @@ export default function ModuleClassroomPage() {
   }
 
   // 2b. Automatically trigger and guarantee rich visualization for the active concept
-  const autoTriggerVisualForConcept = (conceptIdx: number) => {
-    if (renderedVisualConceptsRef.current.has(conceptIdx)) return
+  const autoTriggerVisualForConcept = (conceptIdx: number, force: boolean = false) => {
+    if (!force && renderedVisualConceptsRef.current.has(conceptIdx)) return
     renderedVisualConceptsRef.current.add(conceptIdx)
 
     const keyConceptsList: string[] = parseKeyConcepts(activeModule?.key_concepts)
@@ -1231,8 +1473,6 @@ export default function ModuleClassroomPage() {
     if (!targetConcept) return
 
     if (chalkboardRef.current) {
-      // Whiteboard 1-Concept-Per-Page: Switch to concept's dedicated page before rendering visual
-      chalkboardRef.current.goToPage?.(conceptIdx)
 
       // 1. Check if module has a concept-specific custom visual from the Admin AI generator
       const customPlan = activeModule?.visual_lesson_plan
@@ -1274,76 +1514,113 @@ export default function ModuleClassroomPage() {
         return
       }
 
-      // During active live Socratic voice sessions, let Gemini Live dynamically authoritatively
-      // render lesson diagrams via tool calls. Do not pre-inject a fallback diagram that duplicates.
-      const isLiveActive =
-        connectionState === 'CONNECTED' ||
-        connectionState === 'LISTENING' ||
-        connectionState === 'TEACHER_SPEAKING' ||
-        connectionState === 'MUTED' ||
-        connectionState === 'CONNECTING'
+      const applyDirectiveFallback = (targetConceptName: string, captionText: string) => {
+        if (!chalkboardRef.current) return
+        const directive = inferConceptVisualDirective(
+          targetConceptName,
+          resolvedSubject,
+          activeCurriculum?.title || resolvedTitle
+        )
 
-      if (isLiveActive) {
-        return
-      }
-
-      // 2. Otherwise use universal dynamic scientific visual directive engine
-      const directive = inferConceptVisualDirective(
-        targetConcept,
-        resolvedSubject,
-        activeCurriculum?.title || resolvedTitle
-      )
-
-      if (directive.toolCallAction === 'execute_visual_action' && directive.sceneType) {
-        const resolved = resolveSceneType(directive.sceneType)
-        setActiveSceneType(resolved)
-        setActiveSceneParams(directive.sceneParams || {})
-      }
-
-      if (directive.chalkboardAction === 'draw_diagram' && directive.chalkboardContent) {
-        chalkboardRef.current.handleAiDirective(`[DIAGRAM: ${directive.chalkboardContent}]`)
-      } else if (directive.chalkboardAction === 'draw_graph' && directive.chalkboardContent) {
-        chalkboardRef.current.drawGraph(directive.chalkboardContent)
-      } else if (directive.chalkboardAction === 'draw_geometry' && directive.chalkboardContent) {
-        chalkboardRef.current.drawGeometry?.(directive.chalkboardContent)
-      } else if (directive.chalkboardAction === 'draw_flowchart' && directive.chalkboardContent) {
-        chalkboardRef.current.drawFlowchart(directive.chalkboardContent)
-      } else if (directive.chalkboardAction === 'draw_table' && directive.chalkboardContent) {
-        chalkboardRef.current.drawTable?.(directive.chalkboardContent)
-      } else if (
-        (directive.chalkboardAction === 'draw_numerical' || directive.chalkboardAction === 'numerical') &&
-        directive.chalkboardContent
-      ) {
-        chalkboardRef.current.handleAiDirective(`[NUMERICAL: ${directive.chalkboardContent}]`)
-      } else if (
-        (directive.chalkboardAction === 'render_svg_diagram' || directive.chalkboardAction === 'draw_svg') &&
-        directive.chalkboardContent
-      ) {
-        const rawContent = directive.chalkboardContent.trim()
-        if (rawContent.includes('|') && rawContent.includes('<svg')) {
-          const firstPipe = rawContent.indexOf('|')
-          const lastPipe = rawContent.lastIndexOf('|')
-          if (firstPipe !== -1 && lastPipe !== -1 && lastPipe > firstPipe) {
-            const title = rawContent.substring(0, firstPipe).trim()
-            const svg = rawContent.substring(firstPipe + 1, lastPipe).trim()
-            const caption = rawContent.substring(lastPipe + 1).trim()
-            chalkboardRef.current.drawSvgDiagram?.(
-              title || targetConcept,
-              svg || '',
-              caption || ''
-            )
-          } else {
-            chalkboardRef.current.drawSvgDiagram?.(targetConcept, rawContent, conceptCaption)
-          }
-        } else if (rawContent.includes('<svg')) {
-          chalkboardRef.current.drawSvgDiagram?.(targetConcept, rawContent, conceptCaption)
-        } else {
-          // Dynamic scientific vector diagram generated from universal vector engine
-          chalkboardRef.current.drawSvgDiagram?.(targetConcept, '', conceptCaption)
+        if (directive.toolCallAction === 'execute_visual_action' && directive.sceneType) {
+          const resolved = resolveSceneType(directive.sceneType)
+          setActiveSceneType(resolved)
+          setActiveSceneParams(directive.sceneParams || {})
         }
-      } else {
-        // Fallback: draw dynamic vector SVG diagram
-        chalkboardRef.current.drawSvgDiagram?.(targetConcept, '', conceptCaption)
+
+        if (directive.chalkboardAction === 'draw_diagram' && directive.chalkboardContent) {
+          chalkboardRef.current.handleAiDirective(`[DIAGRAM: ${directive.chalkboardContent}]`)
+        } else if (directive.chalkboardAction === 'draw_graph' && directive.chalkboardContent) {
+          chalkboardRef.current.drawGraph(directive.chalkboardContent)
+        } else if (directive.chalkboardAction === 'draw_geometry' && directive.chalkboardContent) {
+          chalkboardRef.current.drawGeometry?.(directive.chalkboardContent)
+        } else if (directive.chalkboardAction === 'draw_flowchart' && directive.chalkboardContent) {
+          chalkboardRef.current.drawFlowchart(directive.chalkboardContent)
+        } else if (directive.chalkboardAction === 'draw_table' && directive.chalkboardContent) {
+          chalkboardRef.current.drawTable?.(directive.chalkboardContent)
+        } else if (
+          (directive.chalkboardAction === 'draw_numerical' || directive.chalkboardAction === 'numerical') &&
+          directive.chalkboardContent
+        ) {
+          chalkboardRef.current.handleAiDirective(`[NUMERICAL: ${directive.chalkboardContent}]`)
+        } else if (
+          (directive.chalkboardAction === 'render_svg_diagram' || directive.chalkboardAction === 'draw_svg') &&
+          directive.chalkboardContent
+        ) {
+          const rawContent = directive.chalkboardContent.trim()
+          if (rawContent.includes('|') && rawContent.includes('<svg')) {
+            const firstPipe = rawContent.indexOf('|')
+            const lastPipe = rawContent.lastIndexOf('|')
+            if (firstPipe !== -1 && lastPipe !== -1 && lastPipe > firstPipe) {
+              const title = rawContent.substring(0, firstPipe).trim()
+              const svg = rawContent.substring(firstPipe + 1, lastPipe).trim()
+              const caption = rawContent.substring(lastPipe + 1).trim()
+              chalkboardRef.current.drawSvgDiagram?.(
+                title || targetConceptName,
+                svg || '',
+                caption || ''
+              )
+            } else {
+              chalkboardRef.current.drawSvgDiagram?.(targetConceptName, rawContent, captionText)
+            }
+          } else if (rawContent.includes('<svg')) {
+            chalkboardRef.current.drawSvgDiagram?.(targetConceptName, rawContent, captionText)
+          } else {
+            // Dynamic scientific vector diagram generated from universal vector engine
+            chalkboardRef.current.drawSvgDiagram?.(targetConceptName, '', captionText)
+          }
+        } else {
+          // Fallback: draw dynamic vector SVG diagram
+          chalkboardRef.current.drawSvgDiagram?.(targetConceptName, '', captionText)
+        }
+      }
+
+      // 2. Render deterministic visual directive immediately so board is never empty
+      applyDirectiveFallback(targetConcept, conceptCaption)
+
+      // 3. Proactively trigger bespoke publication-grade vector generation in background to upgrade diagram
+      if (typeof window !== 'undefined') {
+        setGeneratingDiagramTitle(targetConcept)
+        fetch('/api/diagram/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            title: targetConcept,
+            conceptTitle: targetConcept,
+            conceptIndex: conceptIdx,
+            moduleId,
+            subject: resolvedSubject,
+            classLevel: resolvedClassLevel,
+            context: activeCurriculum?.title || resolvedTitle,
+            isLiveClass: true,
+            source: 'live_classroom',
+          }),
+        })
+          .then((res) => (res.ok ? res.json() : null))
+          .then((data) => {
+            if (data?.svg && chalkboardRef.current) {
+              chalkboardRef.current.drawSvgDiagram?.(
+                data.diagram_title || data.concept_title || targetConcept,
+                data.svg,
+                data.caption || data.what_to_explain || targetConcept,
+                true
+              )
+              if (data.interactive_math_formula) {
+                setActiveGraph({
+                  formula: data.interactive_math_formula,
+                  domain: [-10, 10],
+                  range: [-10, 50],
+                  title: data.diagram_title || targetConcept,
+                })
+              }
+            }
+          })
+          .catch((err) => {
+            console.warn('[Classroom] Notice fetching generated diagram:', err)
+          })
+          .finally(() => {
+            setGeneratingDiagramTitle(null)
+          })
       }
     }
   }
@@ -1565,6 +1842,195 @@ export default function ModuleClassroomPage() {
     }
   }
 
+  // Helper to trigger automatic module progression to next capsule, next chapter, or quiz
+  const triggerModuleCompletionAndAdvance = () => {
+    let nextMod: any = null
+    if (siblingModules.length > 0 && activeModule?.id) {
+      const currIdx = siblingModules.findIndex((m) => m.id === activeModule.id)
+      if (currIdx >= 0 && currIdx < siblingModules.length - 1) {
+        nextMod = siblingModules[currIdx + 1]
+      }
+    }
+    if (!nextMod && siblingModules.length > 0) {
+      nextMod = siblingModules.find(
+        (m) => (m.order_index ?? 0) > (activeModule?.order_index ?? 0)
+      )
+    }
+
+    if (nextMod) {
+      triggerCompanionGuidance({
+        animation: 'excited',
+        expression: 'joyful-wide',
+        mood: 'celebrate',
+        message: `Outstanding work! You completed "${activeModule?.title || 'this capsule'}". Advancing to "${nextMod.title}" in 3 seconds...`,
+        autoDismissMs: 6000,
+      })
+      setTimeout(() => {
+        leaveTo(`/dashboard/${userId}/class/${nextMod.id}`)
+      }, 3000)
+    } else if (nextChapterInfo?.firstModuleId) {
+      triggerCompanionGuidance({
+        animation: 'excited',
+        expression: 'joyful-wide',
+        mood: 'celebrate',
+        message: `Outstanding work! You completed this chapter. Advancing to Chapter: "${nextChapterInfo.chapterTitle}" in 3 seconds...`,
+        autoDismissMs: 6000,
+      })
+      setTimeout(() => {
+        leaveTo(`/dashboard/${userId}/class/${nextChapterInfo.firstModuleId}`)
+      }, 3000)
+    } else {
+      triggerCompanionGuidance({
+        animation: 'excited',
+        expression: 'joyful-wide',
+        mood: 'celebrate',
+        message: `Magnificent achievement! You have completed all capsules. Launching your mastery quiz now.`,
+        autoDismissMs: 5000,
+      })
+      setTimeout(() => {
+        endCall()
+        setQuizOpen(true)
+      }, 2000)
+    }
+  }
+
+  // Helper to advance to next concept: switches/creates whiteboard page, triggers visual, saves progress, and feeds single concept micro-dossier to tutor
+  const advanceToNextConcept = async (nextIdx: number, completedList: string[]) => {
+    const keyConcepts: string[] = parseKeyConcepts(activeModule?.key_concepts)
+    if (keyConcepts.length === 0) return
+
+    if (nextIdx >= keyConcepts.length) {
+      markModuleAsCompleted()
+      triggerModuleCompletionAndAdvance()
+      return
+    }
+
+    const nextConceptTitle = keyConcepts[nextIdx] || activeModule?.title || 'Concept'
+
+    isAwaitingStudentAnswerRef.current = false
+    setIsAwaitingStudentAnswer(false)
+    isReviewingVerdictRef.current = false
+    setIsReviewingVerdict(false)
+
+    currentConceptIndexRef.current = nextIdx
+    setCurrentConceptIndex(nextIdx)
+    setLastCoveredConcept(nextConceptTitle)
+    setIsCompletedBefore(false)
+    setModuleCompletedSuccess(false)
+
+    const norm = (s: string) =>
+      String(s || '')
+        .toLowerCase()
+        .replace(/^[\s\(\[\{\"\']+|[\s\)\]\}\"\']+$/g, '')
+        .replace(/^concept\s*\d*[:\-\s]*/i, '')
+        .replace(/^\d+[\.\:\)\-]\s*/, '')
+        .replace(/[^a-z0-9]/g, '')
+
+    const updated = [...completedList]
+    for (let i = 0; i < nextIdx; i++) {
+      const prevC = keyConcepts[i]
+      if (prevC && !updated.some((u) => norm(u) === norm(prevC))) {
+        updated.push(prevC)
+      }
+    }
+    completedConceptsRef.current = updated
+    setCompletedConcepts(updated)
+
+    // Whiteboard 1-Concept-Per-Page: Switch to concept's dedicated page (creates clean new page with header if needed)
+    await chalkboardRef.current?.goToPage?.(nextIdx, nextConceptTitle)
+
+    // Auto-generate & render visual diagram for this concept proactively
+    autoTriggerVisualForConcept(nextIdx, true)
+
+    // Update Supabase user_progress
+    if (userId && moduleId) {
+      const supabase = createClient()
+      supabase
+        .from('user_progress')
+        .upsert(
+          {
+            user_id: userId,
+            syllabus_module_id: moduleId,
+            current_concept_index: nextIdx,
+            completed_concepts: updated,
+            last_covered_concept: nextConceptTitle,
+            status: 'in_progress',
+          },
+          { onConflict: 'user_id,syllabus_module_id' }
+        )
+        .then(() => {})
+    }
+
+    const newPercent =
+      keyConcepts.length > 0 ? Math.round((updated.length / keyConcepts.length) * 100) : 0
+
+    // Companion guidance (strictly zero emojis)
+    triggerCompanionGuidance({
+      animation: 'working',
+      expression: 'attentive-left',
+      mood: 'thinking',
+      message: `Advancing to Concept ${nextIdx + 1}: "${nextConceptTitle}" on Page ${nextIdx + 1}. Progress is ${newPercent}%.`,
+      autoDismissMs: 5000,
+    })
+
+    // Parse worked examples and misconceptions for single concept micro-dossier
+    const rawWorkedExamples = activeModule?.worked_examples
+    let parsedWorkedExamples: any[] = []
+    if (Array.isArray(rawWorkedExamples)) {
+      parsedWorkedExamples = rawWorkedExamples
+    } else if (typeof rawWorkedExamples === 'string') {
+      try {
+        const p = JSON.parse(rawWorkedExamples)
+        if (Array.isArray(p)) parsedWorkedExamples = p
+      } catch {
+        parsedWorkedExamples = []
+      }
+    }
+
+    const rawMisconceptions = activeModule?.common_misconceptions
+    let parsedMisconceptions: string[] = []
+    if (Array.isArray(rawMisconceptions)) {
+      parsedMisconceptions = rawMisconceptions
+    } else if (typeof rawMisconceptions === 'string') {
+      try {
+        const p = JSON.parse(rawMisconceptions)
+        if (Array.isArray(p)) parsedMisconceptions = p
+      } catch {
+        parsedMisconceptions = []
+      }
+    }
+
+    const chapterName = activeCurriculum?.title || resolvedTitle || 'Chapter'
+
+    const nextDossier = buildSingleConceptMicroDossier(
+      nextIdx,
+      keyConcepts,
+      activeModule,
+      resolvedBoard,
+      resolvedClassLevel,
+      resolvedSubject,
+      chapterName,
+      parsedWorkedExamples,
+      parsedMisconceptions
+    )
+
+    // Notify Gemini Live with single concept micro-dossier and instructions
+    sendTextMessage(
+      `[TRANSITION TO NEXT CONCEPT - PAGE ${nextIdx + 1}]:
+We have completed the previous concept. We are now teaching Concept ${nextIdx + 1} of ${keyConcepts.length}: "${nextConceptTitle}".
+A clean new whiteboard page (Page ${nextIdx + 1}) has been opened with the header: "CONCEPT ${nextIdx + 1}: ${nextConceptTitle}".
+
+CRITICAL INSTRUCTIONS:
+1. FOCUS EXCLUSIVELY on this single concept: "${nextConceptTitle}". Do NOT jump ahead or mention future concepts.
+2. FIRST TURN REQUIREMENT: Speak FIRST to introduce "${nextConceptTitle}" with an engaging real-life physical intuition hook (2-3 sentences max). YOU MUST write the intuition on the whiteboard: write_chalkboard(action="draw_note", content="Intuition: <hook>", color="botanical") AND proactively render the visual: render_svg_diagram(title="${nextConceptTitle}", caption="Visual illustration") or plot_mathematical_graph(...).
+3. PATIENCE REQUIREMENT: After asking if the student understood the intuition, STOP speaking immediately and wait for the student's answer.
+4. When student confirms, teach definition, worked example, and board checkpoint question.
+5. Once this concept is finished, call concept_completed(conceptName="${nextConceptTitle}").
+
+${nextDossier}`
+    )
+  }
+
   // 6. Rewind / Concept Jump Navigation (Bidirectional sync with Supabase and UI)
   const handleConceptGoto = async (target: number | string) => {
     const keyConcepts: string[] = parseKeyConcepts(activeModule?.key_concepts)
@@ -1744,8 +2210,9 @@ export default function ModuleClassroomPage() {
     }
 
     const canonicalConcept = keyConcepts[matchedIdx] || keyConcepts[currentConceptIndexRef.current]
+    let updated = completedConceptsRef.current
     if (canonicalConcept && !completedConceptsRef.current.includes(canonicalConcept)) {
-      const updated = [...completedConceptsRef.current, canonicalConcept]
+      updated = [...completedConceptsRef.current, canonicalConcept]
       completedConceptsRef.current = updated
       setCompletedConcepts(updated)
 
@@ -1764,7 +2231,7 @@ export default function ModuleClassroomPage() {
               user_id: userId,
               syllabus_module_id: moduleId,
               completed_concepts: updated,
-              current_concept_index: currentConceptIndexRef.current,
+              current_concept_index: matchedIdx,
               last_covered_concept: canonicalConcept,
               status: updated.length >= keyConcepts.length ? 'completed' : 'in_progress',
             },
@@ -1774,8 +2241,12 @@ export default function ModuleClassroomPage() {
       }
     }
 
-    if (keyConcepts.length > 0 && completedConceptsRef.current.length >= keyConcepts.length) {
+    const nextIdx = matchedIdx + 1
+    if (nextIdx < keyConcepts.length) {
+      advanceToNextConcept(nextIdx, updated)
+    } else {
       markModuleAsCompleted()
+      triggerModuleCompletionAndAdvance()
     }
   }
 
@@ -2032,10 +2503,11 @@ ${careerHook ? `- ${careerHook}\n` : ''}${favoriteHook ? `- ${favoriteHook}\n` :
       : isCompletedModule
       ? `[SESSION START]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). State that I have completed this capsule, and ask if I would like a quick review of any concept or if I am ready for the quiz in ${studentPreferredLanguage}. HARD STOP: Wait for my answer.`
       : isResumed
-      ? `[SESSION START]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). State that we are resuming Concept ${currentConceptIndex + 1}: "${currentConcept}". In 2-3 sentences, introduce the intuition. YOU MUST CALL write_chalkboard(action="draw_note", content="Intuition: <everyday hook>", color="botanical") RIGHT NOW IN THIS TURN! Then ask: "Did you understand this intuition?" or a relatable check. HARD STOP: Wait for my response! Do NOT teach the entire concept in one turn!`
-      : `[SESSION START]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). Introduce Concept 1: "${firstConcept}" with a simple, tangible everyday real-life hook (2-3 sentences max). YOU MUST CALL write_chalkboard(action="draw_note", content="Intuition: <everyday hook>", color="botanical") RIGHT NOW IN THIS TURN! Then immediately ask me: "Did you catch this intuition?" or "Have you seen this in daily life?" HARD STOP: Stop speaking and wait for my answer! Do NOT teach the definition, examples, or questions yet!`
+      ? `[SESSION START]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). State that we are resuming Concept ${currentConceptIndex + 1}: "${currentConcept}". In 2-3 sentences, introduce the intuition. YOU MUST CALL write_chalkboard(action="draw_note", content="Intuition: <everyday hook>", color="botanical") AND render_svg_diagram(title="${currentConcept}", caption="Visual illustration") or plot_mathematical_graph(...) RIGHT NOW IN THIS TURN! Do NOT wait for the student to ask for a diagram. Then ask: "Did you understand this intuition?" or a relatable check. HARD STOP: Wait for my response! Do NOT teach the entire concept in one turn!`
+      : `[SESSION START]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). Introduce Concept 1: "${firstConcept}" with a simple, tangible everyday real-life hook (2-3 sentences max). YOU MUST CALL write_chalkboard(action="draw_note", content="Intuition: <everyday hook>", color="botanical") AND render_svg_diagram(title="${firstConcept}", caption="Visual illustration") or appropriate visual tool RIGHT NOW IN THIS TURN! Do NOT wait for the student to ask for a diagram. Then immediately ask me: "Did you catch this intuition?" or "Have you seen this in daily life?" HARD STOP: Stop speaking and wait for my answer! Do NOT teach the definition, examples, or questions yet!`
 
-    const conceptDossiersText = buildConceptMicroDossiers(
+    const singleConceptDossier = buildSingleConceptMicroDossier(
+      currentConceptIndex,
       keyConcepts,
       activeModule,
       resolvedBoard,
@@ -2185,8 +2657,22 @@ DUAL-MODE VISUAL GENERATION & LIVE BACKUP PIPELINE:
    - Dynamically synthesize and dispatch: render_svg_diagram(title="...", svg="<svg viewBox='0 0 540 280' xmlns='http://www.w3.org/2000/svg' ...>...</svg>", caption="...")
    - If generating raw SVG markup live is difficult during quick speech, simply call render_svg_diagram(title="<Exact Concept/Figure Name>", caption="<1-line law>") and our deterministic mathematical vector engine will immediately compute and draw the exact diagram on the chalkboard!
 
-TEXTBOOK CONCEPT MICRO-DOSSIERS:
-${conceptDossiersText}
+========================================================================================
+CURRENT ACTIVE CONCEPT DOSSIER (SINGLE-CONCEPT GATED PROGRESSION):
+========================================================================================
+${singleConceptDossier}
+
+CRITICAL SINGLE-CONCEPT PROGRESSION INVARIANT:
+- You are ONLY provided details for the single active concept above: Concept ${currentConceptIndex + 1} ("${currentConcept}").
+- You are STRICTLY FORBIDDEN from teaching, mentioning, or jumping ahead to future concepts until this concept is fully completed.
+- Complete this concept through all 6 Socratic stages (Intuition -> Definition -> Example -> Numerical -> Checkpoint Question -> Verdict).
+- Once the student confirms understanding of this concept ("yes", "understood", "clear", "chalo"), call concept_completed(conceptName="${currentConcept}") or write_chalkboard(action="concept_done", content="${currentConcept}").
+- The system will then automatically open the next clean whiteboard page and supply you with the next concept's dossier.
+
+ZERO-RUSH & PATIENCE INVARIANT (DO NOT AUTO-ADVANCE ON SILENCE):
+- When asking a check for understanding or checkpoint question, you MUST STOP speaking immediately and remain completely silent.
+- NEVER speak again or advance to the next step after a 1-second pause.
+- WAIT patiently for the student to speak or type their answer, even if there is several seconds of silence while they think.
 ${visualRoadmap ? `\n========================================================================================\nVISUAL ROADMAP (MANDATORY UNIQUE CONCEPT VISUALS):\n========================================================================================\n${visualRoadmap}\n- UNIQUE WHITEBOARD INVARIANT: Every concept MUST have its own distinct visual diagram from the roadmap above! NEVER duplicate or re-draw the same diagram for multiple concepts!\n` : ''}${mathProgressionText ? `- ${mathProgressionText}\n` : ''}${aiContextText ? `\n========================================================================================\nAUTHENTIC TEXTBOOK TEACHING DIRECTIVES & CURRICULUM BLUEPRINT:\n========================================================================================\n${aiContextText}\n` : ''}
 RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, intellectually rigorous topper tone.`
 
@@ -2782,12 +3268,6 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
       : connectionState === 'CONNECTING'
       ? 'bg-amber-400 animate-pulse'
       : 'bg-stone-300'
-
-  const leaveTo = (path: string) => {
-    endCall()
-    router.refresh()
-    router.push(path)
-  }
 
   const conceptList = (
     <div className="space-y-1">

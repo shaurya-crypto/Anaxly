@@ -78,7 +78,7 @@ export class GeminiLiveClient {
     this.avatarConfig = options?.avatarConfig;
     this.systemInstruction =
       options?.systemInstruction ||
-      "You are an inspiring Senior Academic Topper Tutor conducting an engaging 1-on-1 spoken tutoring session with a live chalkboard. MANDATORY INVARIANT: On EVERY turn, you MUST call write_chalkboard (or write_board) to write on the board. ANTI-TELEPROMPTER RULE: Never merely recite what is written on the board! After stating definitions or laws, immediately explain the deep physical or conceptual 'why' in conversational speech. Solve complex senior math (calculus, quadratics, trigonometry, kinematics) step-by-step with spoken reasoning for each transition, utilizing rough work for calculations and plotting in-board graphs using plot_mathematical_graph. Teach in small bites of 2-3 sentences. Never lecture continuously. Pause after every step to ask basic questions and check understanding. Never advance without confirming the student's answer.";
+      "You are an inspiring Senior Academic Topper Tutor conducting an engaging 1-on-1 spoken tutoring session with a live chalkboard. MANDATORY INVARIANT: On EVERY turn, you MUST call write_chalkboard (or write_board) to write on the board. MANDATORY PROACTIVE DIAGRAMS: Call render_svg_diagram proactively on Step 1 of each concept without waiting for the student to ask. ANTI-TELEPROMPTER RULE: Never merely recite what is written on the board! After stating definitions or laws, immediately explain the deep physical or conceptual 'why' in conversational speech. Solve complex senior math step-by-step with spoken reasoning for each transition. Teach in small bites of 2-3 sentences. Never lecture continuously. ZERO-RUSH PATIENCE INVARIANT: Pause after every step to check understanding. When you ask a question or check understanding, you MUST stop speaking and remain completely silent. Never advance on a 1-second silence. Wait patiently for the student's response. When the student understands the concept, call concept_completed (or write_chalkboard with action='concept_done') to trigger the transition to the next concept and create a new chalkboard page.";
     this.ai = new GoogleGenAI({
       apiKey: this.apiKey,
       httpOptions: { apiVersion: "v1alpha" },
@@ -101,7 +101,7 @@ export class GeminiLiveClient {
     }
 
     // 1b. Match bracket directives: [NOTE: ...], [STEP: ...], [DEFINITION: ...], [HIGHLIGHT: ...], etc.
-    const bracketRegex = /\[(NOTE|INTUITION|INSIGHT|DEFINITION|LAW|FORMULA|HIGHLIGHT|EXAMPLE|ILLUSTRATION|STEP|DERIVATION|CALCULATION|QUESTION|CHECKPOINT_QUESTION|BOARD_QUESTION|STUDENT_ANSWER|STUDENT|VERDICT|ANSWER_VERDICT|CORRECTION|ROUGH_WORK|ROUGH):\s*([^\]]+)\]/gi;
+    const bracketRegex = /\[(NOTE|INTUITION|INSIGHT|DEFINITION|LAW|FORMULA|HIGHLIGHT|EXAMPLE|ILLUSTRATION|STEP|DERIVATION|CALCULATION|QUESTION|CHECKPOINT_QUESTION|BOARD_QUESTION|STUDENT_ANSWER|STUDENT|VERDICT|ANSWER_VERDICT|CORRECTION|ROUGH_WORK|ROUGH|CONCEPT_DONE|CONCEPT_COMPLETED|CONCEPT_MASTERED|MASTERED|NEXT_CONCEPT|ADVANCE_CONCEPT|CONCEPT_FOCUS):\s*([^\]]+)\]/gi;
     let bm;
     while ((bm = bracketRegex.exec(rawText)) !== null) {
       const type = bm[1]?.toUpperCase() || "";
@@ -123,7 +123,18 @@ export class GeminiLiveClient {
         this.handleSingleToolCall("write_chalkboard", { action: "draw_answer_verdict", content: content, color: "botanical" });
       } else if (type === "ROUGH_WORK" || type === "ROUGH") {
         this.handleSingleToolCall("write_chalkboard", { action: "draw_rough_work", content: content, color: "white" });
+      } else if (type === "CONCEPT_DONE" || type === "CONCEPT_COMPLETED" || type === "CONCEPT_MASTERED" || type === "MASTERED" || type === "NEXT_CONCEPT" || type === "ADVANCE_CONCEPT") {
+        this.handleSingleToolCall("concept_completed", { conceptName: content });
+      } else if (type === "CONCEPT_FOCUS") {
+        this.handleSingleToolCall("concept_focus", { conceptName: content });
       }
+    }
+
+    // 1c. Match standalone bracket directives: [CONCEPT_DONE], [CONCEPT_COMPLETED], [CONCEPT_MASTERED]
+    const standaloneDoneRegex = /\[(CONCEPT_DONE|CONCEPT_COMPLETED|CONCEPT_MASTERED|MASTERED|NEXT_CONCEPT)\]/gi;
+    let sdm;
+    while ((sdm = standaloneDoneRegex.exec(rawText)) !== null) {
+      this.handleSingleToolCall("concept_completed", { conceptName: "" });
     }
 
     // 2. Match execute_visual_action(action="...", parameters={...})
@@ -231,6 +242,22 @@ export class GeminiLiveClient {
       }
     }
 
+    // 4b. Match concept_completed(...) or concept_done(...)
+    const conceptDoneRegex = /(?:concept_completed|concept_done|next_concept|advance_concept)\s*\(\s*(?:(?:conceptName|concept)\s*=\s*)?["']?([^"'\)]*)["']?\s*\)/gi;
+    let cdm;
+    while ((cdm = conceptDoneRegex.exec(rawText)) !== null) {
+      const cName = cdm[1]?.trim() || "";
+      this.handleSingleToolCall("concept_completed", { conceptName: cName });
+    }
+
+    // 4c. Match concept_focus(...)
+    const conceptFocusRegex = /(?:concept_focus|focus_concept)\s*\(\s*(?:(?:conceptName|concept)\s*=\s*)?["']?([^"'\)]*)["']?\s*\)/gi;
+    let cfm;
+    while ((cfm = conceptFocusRegex.exec(rawText)) !== null) {
+      const cName = cfm[1]?.trim() || "";
+      this.handleSingleToolCall("concept_focus", { conceptName: cName });
+    }
+
     // 5. Strip any leaked tool calls and bracket directives from spoken transcript text
     const stripCall = (name: string) => new RegExp(`${name}\\s*\\((?:'[^']*'|"[^"]*"|[^()]*|\\([^()]*\\))*\\)`, "gi");
     return rawText
@@ -245,6 +272,12 @@ export class GeminiLiveClient {
       .replace(stripCall("draw_shape"), "")
       .replace(stripCall("solve_step_by_step_numerical"), "")
       .replace(stripCall("conclude_and_open_quiz"), "")
+      .replace(stripCall("concept_completed"), "")
+      .replace(stripCall("concept_done"), "")
+      .replace(stripCall("next_concept"), "")
+      .replace(stripCall("advance_concept"), "")
+      .replace(stripCall("concept_focus"), "")
+      .replace(stripCall("focus_concept"), "")
       .replace(stripCall("render_svg_diagram"), "")
       .replace(/render_svg_diagram\s*\([\s\S]*?\)/gi, "")
       .replace(/\[[A-Z_]+(?::\s*[^\]]*)?\]/gi, "")
@@ -341,6 +374,12 @@ export class GeminiLiveClient {
         this.callbacks.onChalkboardToolCall?.("chapter_summary", args.summary);
       }
       this.callbacks.onChalkboardToolCall?.("open_quiz", args.summary || "10-MCQ Diagnostic Evaluation");
+    } else if (name === "concept_completed" || name === "next_concept" || name === "advance_concept") {
+      const cName = args.conceptName || args.concept || (typeof args === "string" ? args : "");
+      this.callbacks.onChalkboardToolCall?.("concept_done", cName);
+    } else if (name === "concept_focus" || name === "focus_concept") {
+      const cName = args.conceptName || args.concept || (typeof args === "string" ? args : "");
+      this.callbacks.onChalkboardToolCall?.("concept_focus", cName);
     } else {
       this.callbacks.onChalkboardToolCall?.(name, typeof args === 'string' ? args : JSON.stringify(args));
     }
@@ -408,8 +447,12 @@ export class GeminiLiveClient {
                         "draw_flowchart",
                         "draw_table",
                         "draw_rough_work",
+                        "render_svg_diagram",
                         "concept_done",
                         "concept_focus",
+                        "next_concept",
+                        "advance_concept",
+                        "open_quiz",
                         "set_color",
                         "new_page",
                       ],
@@ -566,7 +609,7 @@ export class GeminiLiveClient {
               },
               {
                 name: "render_svg_diagram",
-                description: "Render a clean, high-precision vector SVG educational diagram directly on the chalkboard. Provide concise title (e.g. 'Plant Cell Wall', 'Reflection of Light', 'Simple Circuit'). You may optionally supply svg markup; if omitted, the high-precision vector diagram is rendered automatically.",
+                description: "MANDATORY PROACTIVE CHALKBOARD DIAGRAM TOOL: Call this tool proactively on Step 1 of EACH concept to render a clean, high-precision vector SVG educational diagram directly on the chalkboard. The student will NOT ask you for a diagram — you MUST draw it automatically on cue. Provide concise title (e.g. 'Plant Cell Wall', 'Reflection of Light', 'Simple Circuit'). You may optionally supply svg markup; if omitted, the high-precision vector diagram is rendered automatically.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,
@@ -749,6 +792,21 @@ export class GeminiLiveClient {
                     },
                   },
                   required: ["summary"],
+                },
+              },
+              {
+                name: "concept_completed",
+                description: "MANDATORY CONCEPT ADVANCEMENT TOOL: Call this tool when the student has successfully answered the checkpoint question and confirmed understanding of the current concept. This triggers the transition to the next concept, adds a fresh chalkboard page, and unlocks the next concept data.",
+                behavior: Behavior.NON_BLOCKING,
+                parameters: {
+                  type: Type.OBJECT,
+                  properties: {
+                    conceptName: {
+                      type: Type.STRING,
+                      description: "The name of the concept that was just mastered.",
+                    },
+                  },
+                  required: ["conceptName"],
                 },
               },
             ],

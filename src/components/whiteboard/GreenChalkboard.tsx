@@ -854,100 +854,102 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     const goToPage = async (targetIdx: number, conceptTitle?: string) => {
       if (!excalidrawAPI || targetIdx < 0) return
 
-      // Save current page state synchronously if elements exist
-      if (pagesRef.current[currentPageIndexRef.current] && boardElementsRef.current && boardElementsRef.current.length > 0) {
-        pagesRef.current[currentPageIndexRef.current].elements = boardElementsRef.current
-        pagesRef.current[currentPageIndexRef.current].nextY = nextYRef.current
-        pagesRef.current[currentPageIndexRef.current].roughY = roughYRef.current
-      }
+      return enqueueOperation(async () => {
+        // Save current page state synchronously if elements exist
+        if (pagesRef.current[currentPageIndexRef.current] && boardElementsRef.current && boardElementsRef.current.length > 0) {
+          pagesRef.current[currentPageIndexRef.current].elements = boardElementsRef.current
+          pagesRef.current[currentPageIndexRef.current].nextY = nextYRef.current
+          pagesRef.current[currentPageIndexRef.current].roughY = roughYRef.current
+        }
 
-      // If targetIdx is beyond existing pages, create missing pages up to targetIdx
-      if (targetIdx >= pagesRef.current.length) {
-        try {
-          const convertFn =
-            convertElementsRef.current ||
-            (await import('@excalidraw/excalidraw')).convertToExcalidrawElements
-          convertElementsRef.current = convertFn
+        // If targetIdx is beyond existing pages, create missing pages up to targetIdx
+        if (targetIdx >= pagesRef.current.length) {
+          try {
+            const convertFn =
+              convertElementsRef.current ||
+              (await import('@excalidraw/excalidraw')).convertToExcalidrawElements
+            convertElementsRef.current = convertFn
 
-          const updatedPages = [...pagesRef.current]
-          while (updatedPages.length <= targetIdx) {
-            const newPageNum = updatedPages.length + 1
-            const pageConcept =
-              keyConcepts && keyConcepts[newPageNum - 1]
-                ? keyConcepts[newPageNum - 1]
-                : newPageNum - 1 === targetIdx
-                ? conceptTitle
-                : undefined
-            const initialSkeleton = createHeaderSkeleton(newPageNum, pageConcept)
-            const initialElements = convertFn(initialSkeleton)
-            const hasConceptTitle = Boolean(pageConcept)
-            updatedPages.push({
-              id: newPageNum,
-              elements: initialElements,
-              nextY: hasConceptTitle ? 200 : 140,
-              roughY: 140,
-            })
+            const updatedPages = [...pagesRef.current]
+            while (updatedPages.length <= targetIdx) {
+              const newPageNum = updatedPages.length + 1
+              const pageConcept =
+                keyConcepts && keyConcepts[newPageNum - 1]
+                  ? keyConcepts[newPageNum - 1]
+                  : newPageNum - 1 === targetIdx
+                  ? conceptTitle
+                  : undefined
+              const initialSkeleton = createHeaderSkeleton(newPageNum, pageConcept)
+              const initialElements = convertFn(initialSkeleton)
+              const hasConceptTitle = Boolean(pageConcept)
+              updatedPages.push({
+                id: newPageNum,
+                elements: initialElements,
+                nextY: hasConceptTitle ? 200 : 140,
+                roughY: 140,
+              })
+            }
+            pagesRef.current = updatedPages
+            setPages(updatedPages)
+          } catch (err) {
+            console.error('goToPage create pages error:', err)
+            return
           }
-          pagesRef.current = updatedPages
-          setPages(updatedPages)
-        } catch (err) {
-          console.error('goToPage create pages error:', err)
-          return
         }
-      }
 
-      const targetPage = pagesRef.current[targetIdx]
+        const targetPage = pagesRef.current[targetIdx]
 
-      // Safety: If target page has 0 elements, regenerate header skeleton so it is NEVER blank!
-      if (!targetPage.elements || targetPage.elements.length === 0) {
-        try {
-          const convertFn =
-            convertElementsRef.current ||
-            (await import('@excalidraw/excalidraw')).convertToExcalidrawElements
-          convertElementsRef.current = convertFn
-          const pageConcept =
-            conceptTitle ||
-            (keyConcepts && keyConcepts[targetIdx] ? keyConcepts[targetIdx] : undefined)
-          const skeleton = createHeaderSkeleton(targetIdx + 1, pageConcept)
-          targetPage.elements = convertFn(skeleton)
-          targetPage.nextY = pageConcept ? 200 : 140
-          targetPage.roughY = 140
-        } catch (e) {
-          console.error('Regenerate page skeleton error:', e)
+        // Safety: If target page has 0 elements, regenerate header skeleton so it is NEVER blank!
+        if (!targetPage.elements || targetPage.elements.length === 0) {
+          try {
+            const convertFn =
+              convertElementsRef.current ||
+              (await import('@excalidraw/excalidraw')).convertToExcalidrawElements
+            convertElementsRef.current = convertFn
+            const pageConcept =
+              conceptTitle ||
+              (keyConcepts && keyConcepts[targetIdx] ? keyConcepts[targetIdx] : undefined)
+            const skeleton = createHeaderSkeleton(targetIdx + 1, pageConcept)
+            targetPage.elements = convertFn(skeleton)
+            targetPage.nextY = pageConcept ? 200 : 140
+            targetPage.roughY = 140
+          } catch (e) {
+            console.error('Regenerate page skeleton error:', e)
+          }
         }
-      }
 
-      currentPageIndexRef.current = targetIdx
-      setCurrentPageIndex(targetIdx)
+        currentPageIndexRef.current = targetIdx
+        setCurrentPageIndex(targetIdx)
 
-      nextYRef.current = targetPage.nextY || 140
-      roughYRef.current = targetPage.roughY || 140
-      boardElementsRef.current = targetPage.elements || []
+        nextYRef.current = targetPage.nextY || 140
+        roughYRef.current = targetPage.roughY || 140
+        boardElementsRef.current = targetPage.elements || []
 
-      excalidrawAPI.updateScene({
-        elements: targetPage.elements || [],
-        appState: {
-          viewBackgroundColor: CANVAS_BG,
-          currentItemStrokeColor: INK_PRIMARY,
-          currentItemFontFamily: 1,
-          currentItemRoughness: 0,
-          zoom: { value: boardZoomRef.current },
-          scrollX: 0,
-          scrollY: 0,
-        },
+        excalidrawAPI.updateScene({
+          elements: targetPage.elements || [],
+          appState: {
+            viewBackgroundColor: CANVAS_BG,
+            currentItemStrokeColor: INK_PRIMARY,
+            currentItemFontFamily: 1,
+            currentItemRoughness: 0,
+            zoom: { value: boardZoomRef.current },
+            scrollX: 0,
+            scrollY: 0,
+          },
+        })
+        persistScene(targetPage.elements || [])
+
+        // If the target page somehow lacks a title, add it once
+        const targetHasTitle = (targetPage.elements || []).some(
+          (el: any) =>
+            el.customData?.isTitle === true ||
+            (el.type === 'text' && !el.id?.startsWith('header_') && el.fontSize >= 18)
+        )
+        if (!targetHasTitle && (conceptTitle || keyConcepts?.[targetIdx])) {
+          await drawTitle(conceptTitle || keyConcepts[targetIdx])
+        }
+        notifyPositionChange('go_to_page')
       })
-      persistScene(targetPage.elements || [])
-
-      // If the target page somehow lacks a title, add it once
-      const targetHasTitle = (targetPage.elements || []).some(
-        (el: any) =>
-          el.customData?.isTitle === true ||
-          (el.type === 'text' && !el.id?.startsWith('header_') && el.fontSize >= 18)
-      )
-      if (!targetHasTitle && (conceptTitle || keyConcepts?.[targetIdx])) {
-        await drawTitle(conceptTitle || keyConcepts[targetIdx])
-      }
-      notifyPositionChange('go_to_page')
     }
 
     // Switch between pages and notify parent to update concept tracking
