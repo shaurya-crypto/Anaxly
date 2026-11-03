@@ -1359,7 +1359,7 @@ export default function ModuleClassroomPage() {
         const isConfirmation = /^(?:yes|understood|clear|ready|next|move\s*on|haan?|samajh\s*(?:aaya|gaya)?|theek\s*hai|chalo|done|got\s*it|sure|proceed|ok|okay|all\s*good|crystal\s*clear)\b/i.test(userText)
         const isExplicitNext = /(?:next\s*concept|next\s*page|move\s*(?:to\s*)?next|advance\s*concept|concept\s*done|concept\s*complete)/i.test(userText)
 
-        if (isConfirmation || isExplicitNext) {
+        if ((isConfirmation && isReviewingVerdictRef.current) || isExplicitNext) {
           executedSceneDirectivesRef.current.add(userKey)
           handleConceptDone()
         }
