@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { motion, useReducedMotion, useScroll, useTransform, useSpring } from 'motion/react'
 import { ArrowRight } from 'lucide-react'
 import { RevealStagger, RevealItem } from './motion/Reveal'
-import { Laurel } from './illustrations'
+import { Ornament } from './illustrations'
 import { Handwriting } from './motion/Handwriting'
 
 export function ClosingSection() {
@@ -67,7 +67,7 @@ export function ClosingSection() {
             {/* Foreground Content Inside Big Box */}
             <RevealStagger className="relative z-10 mx-auto max-w-4xl flex flex-col items-center">
               <RevealItem>
-                <Laurel className="mb-6 h-10 w-40 text-ink-secondary/70" />
+                <Ornament className="mb-6 h-4 w-48 text-ink-secondary/60" />
               </RevealItem>
               <RevealItem>
               <h2 className="font-serif font-normal text-[clamp(2.5rem,5.5vw,4.75rem)] leading-[1.08] tracking-tight text-ink-primary animate-gold-glow">

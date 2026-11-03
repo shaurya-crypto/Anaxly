@@ -84,26 +84,14 @@ export function QuillNotes({ className = '' }: IllustrationProps) {
   )
 }
 
-/** A small laurel flourish used as a section ornament. */
-export function Laurel({ className = '' }: IllustrationProps) {
-  const leaves = [0, 1, 2, 3]
+/** A fine rule drawn outward from a small centred diamond: section ornament. */
+export function Ornament({ className = '' }: IllustrationProps) {
   return (
-    <DrawnSvg viewBox="0 0 240 60" className={className} strokeWidth={1.3}>
-      <InkPath range={[0, 0.45]} d="M118 52 C96 48 70 36 34 16" />
-      <InkPath range={[0, 0.45]} d="M122 52 C144 48 170 36 206 16" />
-      {leaves.map((i) => {
-        const x = 104 - i * 18
-        const y = 46 - i * 8
-        const xr = 136 + i * 18
-        const start = 0.35 + i * 0.12
-        return (
-          <React.Fragment key={i}>
-            <InkPath range={[start, start + 0.2]} d={`M${x} ${y} C${x - 8} ${y - 14} ${x - 2} ${y - 20} ${x + 4} ${y - 18} C${x + 6} ${y - 10} ${x + 4} ${y - 4} ${x} ${y} Z`} />
-            <InkPath range={[start, start + 0.2]} d={`M${xr} ${y} C${xr + 8} ${y - 14} ${xr + 2} ${y - 20} ${xr - 4} ${y - 18} C${xr - 6} ${y - 10} ${xr - 4} ${y - 4} ${xr} ${y} Z`} />
-          </React.Fragment>
-        )
-      })}
-      <InkPath range={[0.8, 1]} className={accent} d="M116 52 A4 4 0 1 0 124 52 A4 4 0 1 0 116 52 Z" />
+    <DrawnSvg viewBox="0 0 240 24" className={className} strokeWidth={1.1}>
+      <InkPath range={[0, 0.35]} className={accent} d="M120 4 L128 12 L120 20 L112 12 Z" />
+      <InkPath range={[0.3, 1]} d="M104 12 L20 12" />
+      <InkPath range={[0.3, 1]} d="M136 12 L220 12" />
+      <InkPath range={[0.75, 1]} d="M10 12 L11 12 M229 12 L230 12" strokeWidth={2.4} />
     </DrawnSvg>
   )
 }
