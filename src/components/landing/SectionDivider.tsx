@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
+import { Laurel } from './illustrations'
 
 interface SectionDividerProps {
   className?: string
@@ -29,6 +30,11 @@ export function SectionDivider({ className = '' }: SectionDividerProps) {
 
       {/* Top and Bottom Ivory Feathering Fades */}
       <div className="absolute inset-0 bg-gradient-to-b from-canvas-ivory via-transparent to-canvas-ivory opacity-95" />
+
+      {/* Laurel ornament drawn in ink as the divider scrolls past */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <Laurel className="h-9 w-36 sm:h-11 sm:w-44 text-ink-secondary/60" />
+      </div>
     </div>
   )
 }

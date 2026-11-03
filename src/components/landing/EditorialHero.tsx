@@ -124,6 +124,10 @@ export function EditorialHero() {
     offset: ['start start', 'end end'],
   })
 
+  // Dissolve the sticky stage into the paper canvas, and retire the scroll cue early
+  const paperFadeOpacity = useTransform(scrollYProgress, [0.9, 1], [0, 1])
+  const cueOpacity = useTransform(scrollYProgress, [0, 0.05], [1, 0])
+
   // Render a specific frame to canvas preserving cover aspect ratio
   const renderFrame = useCallback((frameIndex: number) => {
     const canvas = canvasRef.current
@@ -285,6 +289,25 @@ export function EditorialHero() {
           progress={scrollYProgress}
           revealRange={[0.52, 0.85]}
           visibilityRange={[0.48, 0.53, 0.90, 0.98]}
+        />
+
+        {/* Scroll cue: a slow falling ink line */}
+        <motion.div
+          style={{ opacity: cueOpacity }}
+          className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
+          aria-hidden="true"
+        >
+          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/80">Scroll</span>
+          <span className="relative block h-10 w-px overflow-hidden bg-white/25">
+            <span className="absolute inset-x-0 top-0 h-1/2 bg-white animate-scroll-cue" />
+          </span>
+        </motion.div>
+
+        {/* Ivory dissolve into the next section */}
+        <motion.div
+          style={{ opacity: paperFadeOpacity }}
+          className="absolute inset-x-0 bottom-0 z-10 h-2/5 bg-gradient-to-t from-canvas-ivory via-canvas-ivory/70 to-transparent pointer-events-none"
+          aria-hidden="true"
         />
       </div>
     </div>

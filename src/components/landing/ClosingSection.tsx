@@ -1,36 +1,32 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion, useScroll, useTransform, useSpring } from 'motion/react'
+import { motion, useReducedMotion, useScroll, useTransform, useSpring } from 'motion/react'
 import { ArrowRight } from 'lucide-react'
+import { RevealStagger, RevealItem } from './motion/Reveal'
+import { Laurel } from './illustrations'
 
 export function ClosingSection() {
-  const [hasEntered, setHasEntered] = useState(false)
   const boxRef = useRef<HTMLDivElement>(null)
+  const reduceMotion = useReducedMotion()
   const { scrollYProgress } = useScroll({
     target: boxRef,
-    offset: ['start end', 'end start'],
+    offset: ['start end', 'center center'],
   })
-
-  React.useEffect(() => {
-    const unsub = scrollYProgress.on('change', (v) => {
-      if (v > 0.08) {
-        setHasEntered(true)
-      }
-    })
-    return () => unsub()
-  }, [scrollYProgress])
+  // The box settles to full size as it reaches the centre of the viewport
+  const scale = useSpring(useTransform(scrollYProgress, [0, 1], [0.92, 1]), {
+    stiffness: 120,
+    damping: 30,
+  })
 
   return (
     <section className="relative py-20 sm:py-28 lg:py-36 px-4 sm:px-6 lg:px-12">
       {/* Big Box Container with Generous Border Radius and Multi-Layered Diffused Shadow */}
       <div ref={boxRef} className="mx-auto max-w-7xl lg:max-w-[1360px]">
         <motion.div
-          initial={{ scale: 0.94 }}
-          animate={{ scale: hasEntered ? 1.025 : 0.94 }}
-          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+          style={reduceMotion ? undefined : { scale }}
           className="group relative will-change-transform"
         >
           {/* Ambient shadow shade behind big box to merge seamlessly with paper background */}
@@ -68,22 +64,32 @@ export function ClosingSection() {
             />
 
             {/* Foreground Content Inside Big Box */}
-            <div className="relative z-10 mx-auto max-w-4xl flex flex-col items-center">
+            <RevealStagger className="relative z-10 mx-auto max-w-4xl flex flex-col items-center">
+              <RevealItem>
+                <Laurel className="mb-6 h-10 w-40 text-ink-secondary/70" />
+              </RevealItem>
+              <RevealItem>
               <h2 className="font-serif font-normal text-[clamp(2.5rem,5.5vw,4.75rem)] leading-[1.08] tracking-tight text-ink-primary animate-gold-glow">
                 Understand more.<br />
                 <span className="italic text-ink-secondary">Step into your classroom.</span>
               </h2>
+              </RevealItem>
 
               {/* Cursive Handwriting Accent */}
+              <RevealItem>
               <p className="font-cursive text-coral-primary text-xl sm:text-2xl mt-3 tracking-wide">
                 Your personal chalkboard tutor awaits.
               </p>
+              </RevealItem>
 
+              <RevealItem>
               <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-ink-secondary">
                 Experience a personal AI tutor that listens, sketches derivations on a live chalkboard,
                 and reasons alongside you at every step.
               </p>
+              </RevealItem>
 
+              <RevealItem className="w-full sm:w-auto">
               <div className="mt-11 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
                 <Link
                   href="/onboarding"
@@ -100,7 +106,8 @@ export function ClosingSection() {
                   <span>Existing student sign in</span>
                 </Link>
               </div>
-            </div>
+              </RevealItem>
+            </RevealStagger>
           </div>
         </motion.div>
       </div>

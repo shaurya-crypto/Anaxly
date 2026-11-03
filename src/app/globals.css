@@ -291,6 +291,19 @@ html.lenis, html.lenis body {
   animation: kenburns 35s ease-in-out infinite;
 }
 
+@keyframes scrollCue {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+
+.animate-scroll-cue {
+  animation: scrollCue 1.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll-cue { animation: none; }
+}
+
 .animate-cloud-drift {
   animation: cloudDrift 28s ease-in-out infinite;
 }

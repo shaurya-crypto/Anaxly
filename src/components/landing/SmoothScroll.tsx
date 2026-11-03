@@ -10,8 +10,10 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     if (prefersReducedMotion) return
 
     const lenis = new Lenis({
-      duration: 1.15,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      // lerp gives a consistent glide regardless of wheel delta size
+      lerp: 0.09,
+      // let in-page nav links (#experience, #flow) glide instead of jumping
+      anchors: { offset: -80 },
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
