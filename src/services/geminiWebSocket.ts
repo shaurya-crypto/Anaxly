@@ -574,7 +574,7 @@ export class GeminiLiveClient {
               },
               {
                 name: "plot_mathematical_graph",
-                description: "Plot a mathematical or scientific function graph directly on the whiteboard canvas (e.g. linear, quadratic parabola, trigonometric curve, velocity-time, distance-time, or custom formula).",
+                description: "CRITICAL GRAPH GATING: Plot an interactive mathematical or kinematic function graph directly on the whiteboard canvas (e.g. quadratic parabola, calculus derivative, trigonometric curve, kinematics velocity-time or distance-time curve) ONLY when the student's lesson explicitly requires plotting a mathematical function with actual mathematical coordinates AND WORKED CALCULATIONS (roots, intercepts, vertex, slope, or table of values). You MUST write the mathematical work on the chalkboard using action='draw_step' and action='draw_rough_work' whenever presenting a graph. NEVER call this tool for non-mathematical topics (Biology, Anatomy, Histology, Chemical Bonding, Tissue Structures, Literature, History) — use render_svg_diagram or draw_flowchart instead.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,

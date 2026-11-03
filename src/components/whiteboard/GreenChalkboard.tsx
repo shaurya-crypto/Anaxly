@@ -16,6 +16,7 @@ import {
 } from 'lucide-react'
 import { evaluateMathExpression } from '@/lib/mathEvaluator'
 import { createUniversalScientificSvg } from '@/services/universalScientificSvg'
+import { isLegitimateGraphTopic } from '@/lib/graphGating'
 
 // Dynamically import Excalidraw with SSR disabled
 const Excalidraw = dynamic(
@@ -46,6 +47,8 @@ export interface GreenChalkboardRef {
   setChalkColor: (colorNameOrHex: string) => void
   setBoardColor: (theme: 'green' | 'blackboard' | 'slate' | 'white') => void
   drawSvgDiagram: (title: string, svgMarkup: string, caption?: string, forceUpdate?: boolean) => void
+  drawDiagramSkeleton?: (title: string) => void
+  clearDiagramSkeleton?: (title?: string) => void
   drawGraph: (type?: string) => void
   drawNumericalSolution?: (solution: {
     problem?: string
@@ -2776,6 +2779,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     // Dynamic Mathematical & Scientific Graph Plotter (Cartesian Coordinates, Arbitrary Formulas, Custom Domain/Range, Discrete Points)
     const drawGraph = async (query = 'linear') => {
       if (!excalidrawAPI) return
+      const q = (query || '').trim()
+      if (q && !isLegitimateGraphTopic(q, subject || '')) {
+        console.log(`[GreenChalkboard] Denied Cartesian graph for non-mathematical query "${q}" in subject "${subject}". Routing to SVG diagram.`)
+        await drawSvgDiagram(q, '', 'Visual conceptual diagram')
+        return
+      }
       await checkAutoPageOverflow(230)
       try {
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
@@ -3271,9 +3280,134 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       }
     }
 
+    // Draw Chalkboard Skeleton Loading Box while SVG diagram is generating
+    const drawDiagramSkeleton = async (title: string) => {
+      if (!excalidrawAPI) return
+      const cleanTitle = (title || '').trim() || 'Visualizing Illustration'
+      const normTitle = cleanTitle.toLowerCase().replace(/[^a-z0-9]/g, '')
+
+      const current = getCurrentElements()
+      // Avoid duplicate skeletons for the same concept/diagram
+      const alreadyHasSkeleton = current.some(
+        (el: any) =>
+          el.customData?.isDiagramSkeleton &&
+          (el.customData?.normTitle === normTitle || !normTitle)
+      )
+      if (alreadyHasSkeleton) return
+
+      await checkAutoPageOverflow(270)
+      try {
+        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const startX = 60
+        const startY = getDynamicNextY(20)
+        const cardWidth = 532
+        const cardHeight = 250
+        const innerW = 496
+        const innerH = 150
+
+        const skeletonElements = convertToExcalidrawElements([
+          // 1. Outer container box with dashed chalk outline and subtle scholastic tint
+          {
+            type: 'rectangle',
+            x: startX,
+            y: startY,
+            width: cardWidth,
+            height: cardHeight,
+            strokeColor: '#52715D',
+            backgroundColor: '#F8FAF9',
+            fillStyle: 'solid',
+            strokeWidth: 1.5,
+            strokeStyle: 'dashed',
+            roundness: { type: 3 },
+            customData: { isRough: false, isDiagramSkeleton: true, normTitle, skeletonTitle: cleanTitle },
+          },
+          // 2. Header title
+          {
+            type: 'text',
+            x: startX + 18,
+            y: startY + 14,
+            text: `Visualizing: ${cleanTitle}...`,
+            fontSize: 14,
+            fontFamily: 1,
+            strokeColor: INK_BOTANICAL,
+            customData: { isRough: false, isDiagramSkeleton: true, normTitle, skeletonTitle: cleanTitle },
+          },
+          // 3. Inner illustration placeholder frame with dashed boundary
+          {
+            type: 'rectangle',
+            x: startX + 18,
+            y: startY + 44,
+            width: innerW,
+            height: innerH,
+            strokeColor: '#CBD5E1',
+            backgroundColor: '#F1F5F9',
+            fillStyle: 'solid',
+            strokeWidth: 1,
+            strokeStyle: 'dashed',
+            roundness: { type: 2 },
+            customData: { isRough: false, isDiagramSkeleton: true, normTitle, skeletonTitle: cleanTitle },
+          },
+          // 4. Scholastic status / shimmer label centered in the inner frame
+          {
+            type: 'text',
+            x: startX + 84,
+            y: startY + 105,
+            text: `Synthesizing scientific vector illustration...`,
+            fontSize: 13,
+            fontFamily: 1,
+            strokeColor: INK_MUTED,
+            customData: { isRough: false, isDiagramSkeleton: true, normTitle, skeletonTitle: cleanTitle },
+          },
+          // 5. Educational sub-caption placeholder
+          {
+            type: 'text',
+            x: startX + 18,
+            y: startY + 212,
+            text: `The precision illustration will appear on this board space automatically.`,
+            fontSize: 11,
+            fontFamily: 1,
+            strokeColor: INK_SECONDARY,
+            customData: { isRough: false, isDiagramSkeleton: true, normTitle, skeletonTitle: cleanTitle },
+          },
+        ])
+
+        const merged = [...current, ...skeletonElements]
+        updateCurrentPageElements(merged, startY + cardHeight + 20)
+      } catch (err) {
+        console.error('drawDiagramSkeleton error:', err)
+      }
+    }
+
+    // Clear any active skeleton loading boxes
+    const clearDiagramSkeleton = async (title?: string) => {
+      if (!excalidrawAPI) return
+      try {
+        const current = getCurrentElements()
+        const normTitle = title ? title.toLowerCase().replace(/[^a-z0-9]/g, '') : null
+        const filtered = current.filter((el: any) => {
+          if (!el.customData?.isDiagramSkeleton) return true
+          if (!normTitle) return false
+          const sTitle = el.customData?.normTitle || ''
+          if (sTitle === normTitle) return false
+          if (sTitle && (normTitle.includes(sTitle) || sTitle.includes(normTitle))) return false
+          return true
+        })
+        if (filtered.length !== current.length) {
+          updateCurrentPageElements(filtered, nextYRef.current)
+        }
+      } catch (err) {
+        console.error('clearDiagramSkeleton error:', err)
+      }
+    }
+
     // Draw Dynamic Vector SVG Diagram Card directly on Whiteboard
     const drawSvgDiagram = async (title: string, svgMarkup: string, caption = '', forceUpdate = false) => {
       if (!excalidrawAPI || (!title?.trim() && !svgMarkup?.trim())) return
+      const currentEls = getCurrentElements()
+      const hasAnySkeleton = currentEls.some((el: any) => el.customData?.isDiagramSkeleton)
+      if (hasAnySkeleton) {
+        forceUpdate = true
+      }
       if (!forceUpdate && shouldSkipDuplicate('draw_svg_diagram', `${title}:${caption || ''}`)) return
 
       await checkAutoPageOverflow(260)
@@ -3396,12 +3530,71 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const captionHeight = captionLines.length * 18
         const cardHeight = svgHeight + 56 + (captionLines.length > 0 ? captionHeight + 12 : 0) + 16
 
+        const normTitle = resolvedTitle.toLowerCase().replace(/[^a-z0-9]/g, '')
+        const rawNormTitle = (title || '').toLowerCase().replace(/[^a-z0-9]/g, '')
+
+        let skeletonStartX: number | null = null
+        let skeletonStartY: number | null = null
+
+        const current = getCurrentElements()
+
+        // 1. Check for matching skeleton on current page
+        const isSkeletonMatch = (el: any) => {
+          if (!el.customData?.isDiagramSkeleton) return false
+          const sTitle = el.customData?.normTitle || ''
+          if (!sTitle) return true
+          if (sTitle === normTitle || sTitle === rawNormTitle) return true
+          if (normTitle && (normTitle.includes(sTitle) || sTitle.includes(normTitle))) return true
+          if (rawNormTitle && (rawNormTitle.includes(sTitle) || sTitle.includes(rawNormTitle))) return true
+          return false
+        }
+
+        const matchingSkeletons = current.filter(isSkeletonMatch)
+        const hasMatchingSkeleton = matchingSkeletons.length > 0 || current.some((el: any) => el.customData?.isDiagramSkeleton)
+
+        // 2. Or if forceUpdate, check for existing SVG diagram card for this title
+        const isExistingSvgMatch = (el: any) => {
+          if (!el.customData?.isSvgCard) return false
+          const cTitle = el.customData?.normTitle || ''
+          if (!cTitle) return false
+          if (cTitle === normTitle || cTitle === rawNormTitle) return true
+          if (normTitle && (normTitle.includes(cTitle) || cTitle.includes(normTitle))) return true
+          if (rawNormTitle && (rawNormTitle.includes(cTitle) || cTitle.includes(rawNormTitle))) return true
+          return false
+        }
+        const hasExistingSvgCard = forceUpdate && current.some(isExistingSvgMatch)
+
+        let filteredElements = current
+
+        if (hasMatchingSkeleton) {
+          const targetSkeletons = matchingSkeletons.length > 0
+            ? matchingSkeletons
+            : current.filter((el: any) => el.customData?.isDiagramSkeleton)
+          const firstSkel = targetSkeletons[0]
+          if (firstSkel) {
+            skeletonStartX = firstSkel.x
+            skeletonStartY = firstSkel.y
+          }
+          filteredElements = current.filter((el: any) => !targetSkeletons.includes(el))
+        } else if (hasExistingSvgCard) {
+          const matchingCards = current.filter(isExistingSvgMatch)
+          const firstCard = matchingCards[0]
+          if (firstCard) {
+            skeletonStartX = firstCard.x
+            skeletonStartY = firstCard.y
+          }
+          filteredElements = current.filter((el: any) => !matchingCards.includes(el))
+        }
+
+        const targetStartX = skeletonStartX !== null ? skeletonStartX : startX
+        const targetStartY = skeletonStartY !== null ? skeletonStartY : startY
+
         const skeletons: any[] = [
           // Background card container
           {
             type: 'rectangle',
-            x: startX,
-            y: startY,
+            x: targetStartX,
+            y: targetStartY,
             width: cardWidth,
             height: cardHeight,
             strokeColor: '#CBD5E1',
@@ -3409,49 +3602,49 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             fillStyle: 'solid',
             strokeWidth: 1.5,
             roundness: { type: 3 },
-            customData: { isRough: false },
+            customData: { isRough: false, isSvgCard: true, normTitle, diagramTitle: resolvedTitle },
           },
           // Header / Title
           {
             type: 'text',
-            x: startX + 16,
-            y: startY + 12,
+            x: targetStartX + 16,
+            y: targetStartY + 12,
             text: `[DIAGRAM]: ${resolvedTitle.toUpperCase()}`,
             fontSize: 14,
             fontFamily: 1,
             strokeColor: '#0F172A',
-            customData: { isRough: false },
+            customData: { isRough: false, isSvgCard: true, normTitle, diagramTitle: resolvedTitle },
           },
           // SVG Image Element
           {
             type: 'image',
-            x: startX + 16,
-            y: startY + 44,
+            x: targetStartX + 16,
+            y: targetStartY + 44,
             width: svgWidth,
             height: svgHeight,
             fileId,
             status: 'saved',
-            customData: { isRough: false },
+            customData: { isRough: false, isSvgCard: true, normTitle, diagramTitle: resolvedTitle },
           },
         ]
 
         if (captionLines.length > 0) {
           skeletons.push({
             type: 'text',
-            x: startX + 16,
-            y: startY + 44 + svgHeight + 12,
+            x: targetStartX + 16,
+            y: targetStartY + 44 + svgHeight + 12,
             text: captionLines.join('\n'),
             fontSize: 12,
             fontFamily: 1,
             strokeColor: INK_SECONDARY,
-            customData: { isRough: false },
+            customData: { isRough: false, isSvgCard: true, normTitle, diagramTitle: resolvedTitle },
           })
         }
 
         const elements = convertToExcalidrawElements(skeletons)
-        const current = getCurrentElements()
-        const merged = [...current, ...elements]
-        updateCurrentPageElements(merged, startY + cardHeight + 20)
+        const merged = [...filteredElements, ...elements]
+        const nextYTarget = Math.max(nextYRef.current, targetStartY + cardHeight + 20)
+        updateCurrentPageElements(merged, nextYTarget)
         onNoteRecorded?.(`[Diagram]: ${title}${caption ? ` - ${caption}` : ''}`)
       } catch (err) {
         console.error('drawSvgDiagram error:', err)
@@ -3826,7 +4019,10 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               else await drawFlowchart(payload)
             } else if (diag.includes('timeline') || diag.includes('flow')) {
               await drawFlowchart(payload)
-            } else if (diag.includes('graph') || diag.includes('ohm') || diag.includes('linear') || diag.includes('velocity') || diag.includes('speed') || diag.includes('distance') || diag.includes('wave') || diag.includes('parabola') || diag.includes('quad') || diag.includes('boyle') || diag.includes('curve') || diag.includes('plot') || diag.includes('=')) {
+            } else if (
+              isLegitimateGraphTopic(diag, subject || '') &&
+              (diag.includes('graph') || diag.includes('ohm') || diag.includes('linear') || diag.includes('velocity') || diag.includes('speed') || diag.includes('distance') || diag.includes('wave') || diag.includes('parabola') || diag.includes('quad') || diag.includes('boyle') || diag.includes('curve') || diag.includes('plot') || diag.includes('='))
+            ) {
               await drawGraph(diag)
             } else {
               // Universal dynamic vector SVG diagram for any syllabus subject
@@ -3947,6 +4143,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       setChalkColor: (colorNameOrHex: string) => setChalkColor(colorNameOrHex),
       setBoardColor: () => {},
       drawSvgDiagram,
+      drawDiagramSkeleton,
+      clearDiagramSkeleton,
       drawGraph,
       drawNumericalSolution,
       drawVideoCard,

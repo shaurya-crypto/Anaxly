@@ -178,9 +178,19 @@ export async function POST(req: Request) {
           }
           const conceptVisuals: any[] = Array.isArray(vPlan.concept_visuals) ? [...vPlan.concept_visuals] : []
 
-          if (typeof conceptIndex === 'number' && conceptIndex >= 0 && conceptIndex < conceptVisuals.length) {
+          const numConceptIndex = typeof conceptIndex === 'number'
+            ? conceptIndex
+            : (typeof conceptIndex === 'string' && !isNaN(parseInt(conceptIndex, 10))
+              ? parseInt(conceptIndex, 10)
+              : undefined)
+
+          if (typeof numConceptIndex === 'number' && numConceptIndex >= 0) {
+            const conceptIndex = numConceptIndex
+            while (conceptVisuals.length <= conceptIndex) {
+              conceptVisuals.push({})
+            }
             conceptVisuals[conceptIndex] = {
-              ...conceptVisuals[conceptIndex],
+              ...(conceptVisuals[conceptIndex] || {}),
               ...fullVisualDetail,
             }
           } else {
