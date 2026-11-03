@@ -909,6 +909,510 @@ export function generateDynamicCellStructureSvg(params: {
   }
 }
 
+
+/**
+ * 9. Biology: Plant Tissues & Meristematic Architecture
+ * (Shoot Apical, Root Apical, Lateral Cambium, Intercalary Meristem, Permanent Tissues)
+ */
+export function generateDynamicPlantTissuesSvg(params: {
+  title?: string
+  caption?: string
+  tissueType?: 'apical' | 'lateral' | 'intercalary' | 'overview' | 'permanent'
+}): GeneratedScientificSvg {
+  const title = params.title || 'Plant Tissues: Meristematic Architecture'
+  const norm = `${title} ${params.caption || ''}`.toLowerCase()
+
+  const isApical = norm.includes('apical') || norm.includes('root tip') || norm.includes('shoot tip') || norm.includes('length')
+  const isLateral = norm.includes('lateral') || norm.includes('cambium') || norm.includes('girth') || norm.includes('secondary')
+  const isIntercalary = norm.includes('intercalary') || norm.includes('internode') || norm.includes('grass')
+
+  let subHeading = 'Plant Tissues: Apical, Lateral & Intercalary Zones'
+  let mainVisualContent = ''
+
+  if (isApical) {
+    subHeading = 'Shoot & Root Apical Meristem: Primary Growth & Zonal Division'
+    mainVisualContent = `
+    <!-- Shoot Apex Diagram (Left) -->
+    <g transform="translate(60, 45)">
+      <rect x="0" y="0" width="180" height="195" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="90" y="16" text-anchor="middle" font-size="10" font-weight="bold" fill="#0F172A">Shoot Apex (Shoot Tip)</text>
+
+      <!-- Stem Outline -->
+      <path d="M 60 190 L 60 90 Q 60 40 90 28 Q 120 40 120 90 L 120 190 Z" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.8"/>
+
+      <!-- Leaf Primordia -->
+      <path d="M 60 85 C 40 70 35 45 48 35 C 55 45 58 65 65 78 Z" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+      <path d="M 120 85 C 140 70 145 45 132 35 C 125 45 122 65 115 78 Z" fill="#DCFCE7" stroke="#16A34A" stroke-width="1.5"/>
+
+      <!-- Shoot Apical Meristem Zone (Dome) -->
+      <path d="M 75 55 Q 90 32 105 55 Z" fill="#2563EB" opacity="0.85"/>
+      <circle cx="90" cy="45" r="2" fill="#FFFFFF"/>
+
+      <!-- Dividing Cells Hash Matrix -->
+      <line x1="82" y1="50" x2="98" y2="50" stroke="#FFFFFF" stroke-width="0.8"/>
+      <line x1="85" y1="46" x2="95" y2="46" stroke="#FFFFFF" stroke-width="0.8"/>
+
+      <!-- Shoot Callouts -->
+      <line x1="90" y1="36" x2="35" y2="24" stroke="#2563EB" stroke-width="1"/>
+      <circle cx="90" cy="36" r="2" fill="#2563EB"/>
+      <text x="32" y="22" text-anchor="end" font-size="8.5" font-weight="bold" fill="#2563EB">Shoot Apical Meristem</text>
+
+      <!-- Primary Growth Vector -->
+      <line x1="90" y1="26" x2="90" y2="10" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arrowCrimson)"/>
+      <text x="96" y="16" font-size="7.5" font-weight="bold" fill="#DC2626">Primary Growth (↑)</text>
+    </g>
+
+    <!-- Root Tip Diagram (Center-Right) -->
+    <g transform="translate(265, 45)">
+      <rect x="0" y="0" width="235" height="195" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="117" y="16" text-anchor="middle" font-size="10" font-weight="bold" fill="#0F172A">Root Tip (Root Apex Zones)</text>
+
+      <!-- Root Column Outline -->
+      <path d="M 60 25 L 60 130 Q 60 165 95 180 Q 130 165 130 130 L 130 25 Z" fill="#F8FAFC" stroke="#0F172A" stroke-width="1.8"/>
+
+      <!-- Zone 1: Zone of Maturation (with Root Hairs) -->
+      <rect x="61" y="26" width="68" height="42" fill="#EFF6FF" opacity="0.6"/>
+      <!-- Root Hairs -->
+      <line x1="60" y1="35" x2="42" y2="33" stroke="#2563EB" stroke-width="1.2"/>
+      <line x1="60" y1="45" x2="38" y2="45" stroke="#2563EB" stroke-width="1.2"/>
+      <line x1="60" y1="55" x2="44" y2="58" stroke="#2563EB" stroke-width="1.2"/>
+      <line x1="130" y1="35" x2="148" y2="33" stroke="#2563EB" stroke-width="1.2"/>
+      <line x1="130" y1="45" x2="152" y2="45" stroke="#2563EB" stroke-width="1.2"/>
+      <line x1="130" y1="55" x2="146" y2="58" stroke="#2563EB" stroke-width="1.2"/>
+
+      <!-- Zone 2: Zone of Elongation -->
+      <rect x="61" y="69" width="68" height="42" fill="#FEF3C7" opacity="0.6"/>
+      <line x1="62" y1="68" x2="128" y2="68" stroke="#D97706" stroke-dasharray="3,3"/>
+
+      <!-- Zone 3: Meristematic Zone (Cell Division) -->
+      <path d="M 61 112 L 61 140 Q 61 160 95 168 Q 129 160 129 140 L 129 112 Z" fill="#DCFCE7" stroke="#16A34A" stroke-width="1"/>
+      <line x1="62" y1="111" x2="128" y2="111" stroke="#16A34A" stroke-dasharray="3,3"/>
+      <!-- Actively dividing cells -->
+      <circle cx="85" cy="130" r="3" fill="#16A34A"/>
+      <circle cx="95" cy="128" r="3" fill="#16A34A"/>
+      <circle cx="105" cy="132" r="3" fill="#16A34A"/>
+      <circle cx="90" cy="140" r="3" fill="#16A34A"/>
+      <circle cx="100" cy="142" r="3" fill="#16A34A"/>
+
+      <!-- Root Cap (Protective Thimble) -->
+      <path d="M 65 152 Q 95 190 125 152 Q 95 174 65 152 Z" fill="#CBD5E1" stroke="#64748B" stroke-width="1.4"/>
+
+      <!-- Root Tip Zone Pointers -->
+      <line x1="130" y1="45" x2="160" y2="45" stroke="#2563EB" stroke-width="1"/>
+      <text x="164" y="44" font-size="8" font-weight="bold" fill="#2563EB">Zone of Maturation</text>
+      <text x="164" y="53" font-size="7" fill="#64748B">Cell differentiation &amp; root hairs</text>
+
+      <line x1="130" y1="88" x2="160" y2="88" stroke="#D97706" stroke-width="1"/>
+      <text x="164" y="87" font-size="8" font-weight="bold" fill="#D97706">Zone of Elongation</text>
+      <text x="164" y="96" font-size="7" fill="#64748B">Rapid cellular lengthening</text>
+
+      <line x1="129" y1="132" x2="160" y2="132" stroke="#16A34A" stroke-width="1"/>
+      <text x="164" y="131" font-size="8" font-weight="bold" fill="#16A34A">Root Apical Meristem</text>
+      <text x="164" y="140" font-size="7" fill="#64748B">Dense cytoplasm &amp; active division</text>
+
+      <line x1="120" y1="172" x2="160" y2="172" stroke="#64748B" stroke-width="1"/>
+      <text x="164" y="171" font-size="8" font-weight="bold" fill="#475569">Root Cap (Calyptra)</text>
+      <text x="164" y="180" font-size="7" fill="#64748B">Thimble protecting tender apex</text>
+    </g>`
+  } else if (isLateral) {
+    subHeading = 'Lateral Meristem (Cambium): Secondary Growth & Girth Increase'
+    mainVisualContent = `
+    <!-- Stem Transverse Cross Section (Left) -->
+    <g transform="translate(65, 45)">
+      <rect x="0" y="0" width="200" height="195" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="100" y="16" text-anchor="middle" font-size="10" font-weight="bold" fill="#0F172A">Stem Cross-Section (Girth Growth)</text>
+
+      <circle cx="100" cy="105" r="75" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+      <circle cx="100" cy="105" r="62" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.2"/>
+      <circle cx="100" cy="105" r="45" fill="none" stroke="#2563EB" stroke-width="3" stroke-dasharray="6,3"/>
+      <circle cx="100" cy="105" r="50" fill="none" stroke="#16A34A" stroke-width="1.5" stroke-dasharray="2,2"/>
+      <circle cx="100" cy="105" r="38" fill="#F8FAFC" stroke="#0F172A" stroke-width="1.2"/>
+      <circle cx="100" cy="105" r="16" fill="#F1F5F9" stroke="#64748B" stroke-width="1"/>
+      <text x="100" y="108" text-anchor="middle" font-size="7.5" fill="#64748B">Pith</text>
+
+      <!-- Radial Girth Growth Arrows -->
+      <line x1="100" y1="60" x2="100" y2="40" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arrowCrimson)"/>
+      <line x1="100" y1="150" x2="100" y2="170" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arrowCrimson)"/>
+      <line x1="55" y1="105" x2="35" y2="105" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arrowCrimson)"/>
+      <line x1="145" y1="105" x2="165" y2="105" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arrowCrimson)"/>
+    </g>
+
+    <!-- Structural Breakdown & Functional Mechanism (Right) -->
+    <g transform="translate(285, 45)">
+      <rect x="0" y="0" width="215" height="195" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="107" y="18" text-anchor="middle" font-size="10" font-weight="bold" fill="#0F172A">Lateral Meristem Mechanisms</text>
+
+      <rect x="12" y="30" width="190" height="44" rx="4" fill="#EFF6FF" stroke="#2563EB" stroke-width="1"/>
+      <text x="20" y="44" font-size="8.5" font-weight="bold" fill="#2563EB">1. Vascular Cambium Ring</text>
+      <text x="20" y="56" font-size="7.5" fill="#0F172A">• Cuts off Secondary Xylem toward inside</text>
+      <text x="20" y="66" font-size="7.5" fill="#0F172A">• Cuts off Secondary Phloem toward outside</text>
+
+      <rect x="12" y="82" width="190" height="44" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/>
+      <text x="20" y="96" font-size="8.5" font-weight="bold" fill="#D97706">2. Cork Cambium (Phellogen)</text>
+      <text x="20" y="108" font-size="7.5" fill="#0F172A">• Generates outer protective bark &amp; cork</text>
+      <text x="20" y="118" font-size="7.5" fill="#0F172A">• Prevents water loss &amp; microbial infection</text>
+
+      <rect x="12" y="134" width="190" height="48" rx="4" fill="#F0FDF4" stroke="#16A34A" stroke-width="1"/>
+      <text x="20" y="148" font-size="8.5" font-weight="bold" fill="#16A34A">★ Board Exam Distinction</text>
+      <text x="20" y="160" font-size="7.5" fill="#0F172A">• Growth Type: Secondary Growth (Lateral)</text>
+      <text x="20" y="172" font-size="7.5" fill="#0F172A">• Direct Result: Increases stem/root diameter &amp; girth</text>
+    </g>`
+  } else {
+    // Default & Overview: Complete NCERT Architecture (Apical, Intercalary, Lateral in Plant Body)
+    subHeading = 'Location of Meristematic Tissues in Plant Body (NCERT Fig 6.2)'
+    mainVisualContent = `
+    <g transform="translate(60, 45)">
+      <rect x="0" y="0" width="200" height="195" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="100" y="16" text-anchor="middle" font-size="10" font-weight="bold" fill="#0F172A">Plant Axis (Longitudinal Section)</text>
+
+      <path d="M 80 190 L 80 50 Q 80 30 100 24 Q 120 30 120 50 L 120 190 Z" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.8"/>
+
+      <!-- 1. Apical Meristem (Shoot Apex) -->
+      <path d="M 82 45 Q 100 25 118 45 Z" fill="#2563EB"/>
+      <circle cx="100" cy="36" r="2.5" fill="#FFFFFF"/>
+
+      <!-- Node 1 with Intercalary Meristem -->
+      <line x1="60" y1="85" x2="140" y2="85" stroke="#16A34A" stroke-width="1.5"/>
+      <rect x="80" y="80" width="40" height="10" fill="#F59E0B" opacity="0.9"/>
+      <path d="M 80 85 C 65 75 55 60 45 60" fill="none" stroke="#16A34A" stroke-width="1.8"/>
+      <path d="M 120 85 C 135 75 145 60 155 60" fill="none" stroke="#16A34A" stroke-width="1.8"/>
+
+      <!-- Node 2 with Intercalary Meristem -->
+      <line x1="60" y1="135" x2="140" y2="135" stroke="#16A34A" stroke-width="1.5"/>
+      <rect x="80" y="130" width="40" height="10" fill="#F59E0B" opacity="0.9"/>
+      <path d="M 80 135 C 65 125 55 110 45 110" fill="none" stroke="#16A34A" stroke-width="1.8"/>
+      <path d="M 120 135 C 135 125 145 110 155 110" fill="none" stroke="#16A34A" stroke-width="1.8"/>
+
+      <!-- Lateral Meristem -->
+      <rect x="76" y="150" width="5" height="35" fill="#DC2626"/>
+      <rect x="119" y="150" width="5" height="35" fill="#DC2626"/>
+    </g>
+
+    <!-- Right Side: Exact NCERT Anatomical Callouts -->
+    <g transform="translate(280, 45)">
+      <rect x="0" y="0" width="220" height="195" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="110" y="18" text-anchor="middle" font-size="10" font-weight="bold" fill="#0F172A">Anatomical Meristem Directory</text>
+
+      <rect x="10" y="28" width="200" height="45" rx="4" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.2"/>
+      <circle cx="22" cy="40" r="4" fill="#2563EB"/>
+      <text x="32" y="43" font-size="9" font-weight="bold" fill="#2563EB">1. Apical Meristem</text>
+      <text x="32" y="55" font-size="7.5" fill="#0F172A">• Location: Tips of roots and stems</text>
+      <text x="32" y="65" font-size="7.5" fill="#0F172A">• Function: Primary growth (increases length)</text>
+
+      <rect x="10" y="80" width="200" height="45" rx="4" fill="#FEF3C7" stroke="#D97706" stroke-width="1.2"/>
+      <circle cx="22" cy="92" r="4" fill="#D97706"/>
+      <text x="32" y="95" font-size="9" font-weight="bold" fill="#D97706">2. Intercalary Meristem</text>
+      <text x="32" y="107" font-size="7.5" fill="#0F172A">• Location: Base of leaves / internodes (grasses)</text>
+      <text x="32" y="117" font-size="7.5" fill="#0F172A">• Function: Rapid elongation &amp; regrowth</text>
+
+      <rect x="10" y="132" width="200" height="45" rx="4" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.2"/>
+      <circle cx="22" cy="144" r="4" fill="#DC2626"/>
+      <text x="32" y="147" font-size="9" font-weight="bold" fill="#DC2626">3. Lateral Meristem (Cambium)</text>
+      <text x="32" y="159" font-size="7.5" fill="#0F172A">• Location: Along sides of stem/root</text>
+      <text x="32" y="169" font-size="7.5" fill="#0F172A">• Function: Secondary growth (increases girth)</text>
+    </g>`
+  }
+
+  const svg = `<svg viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" xmlns="http://www.w3.org/2000/svg" style="background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;">
+  ${getSvgDefs()}
+  <rect x="4" y="4" width="532" height="272" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="4" y="4" width="532" height="272" fill="url(#chalkGrid)" opacity="0.6"/>
+
+  <rect x="40" y="12" width="460" height="22" rx="6" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="270" y="27" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="bold">${subHeading}</text>
+
+  ${mainVisualContent}
+
+  <rect x="40" y="248" width="460" height="18" rx="4" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="270" y="261" text-anchor="middle" font-size="8.5" fill="#0F172A">NCERT Class 9 Biology • Chapter 3: Tissues • Active Mitotic Division (No Vacuoles, Dense Cytoplasm)</text>
+</svg>`
+
+  return {
+    title,
+    svg,
+    caption: params.caption || subHeading,
+    domain: 'biology',
+    isDynamic: true,
+    computedMetrics: { isApical, isLateral, isIntercalary },
+  }
+}
+
+/**
+ * 10. Physics: Electromagnetism & Solenoid Magnetic Field Lines
+ * (Soft Iron Core, Helical Coils, DC Source, Looping B-Field Lines)
+ */
+export function generateDynamicElectromagnetSvg(params: {
+  title?: string
+  caption?: string
+  turns?: number
+  current?: number
+}): GeneratedScientificSvg {
+  const title = params.title || 'Electromagnet & Magnetic Field of a Solenoid'
+  const caption = params.caption || 'Magnetic field produced by electric current flowing through a coiled conductor around an iron core.'
+
+  const svg = `<svg viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" xmlns="http://www.w3.org/2000/svg" style="background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;">
+  ${getSvgDefs()}
+  <rect x="4" y="4" width="532" height="272" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="4" y="4" width="532" height="272" fill="url(#chalkGrid)" opacity="0.6"/>
+
+  <rect x="60" y="12" width="420" height="22" rx="6" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="270" y="27" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="bold">Electromagnet: Solenoid with Soft Iron Core &amp; B-Field Lines</text>
+
+  <path d="M 125 110 C 125 40 415 40 415 110" fill="none" stroke="#16A34A" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <path d="M 140 110 C 140 60 400 60 400 110" fill="none" stroke="#16A34A" stroke-width="1.5"/>
+  <line x1="260" y1="48" x2="280" y2="48" stroke="#16A34A" stroke-width="2" marker-end="url(#arrowSage)"/>
+  <line x1="260" y1="67" x2="280" y2="67" stroke="#16A34A" stroke-width="2" marker-end="url(#arrowSage)"/>
+
+  <path d="M 125 140 C 125 210 415 210 415 140" fill="none" stroke="#16A34A" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <path d="M 140 140 C 140 190 400 190 400 140" fill="none" stroke="#16A34A" stroke-width="1.5"/>
+  <line x1="280" y1="202" x2="260" y2="202" stroke="#16A34A" stroke-width="2" marker-end="url(#arrowSage)"/>
+  <line x1="280" y1="183" x2="260" y2="183" stroke="#16A34A" stroke-width="2" marker-end="url(#arrowSage)"/>
+
+  <g transform="translate(130, 105)">
+    <rect x="0" y="0" width="280" height="40" rx="4" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.8"/>
+    <rect x="0" y="4" width="280" height="8" fill="#F8FAFC" opacity="0.8"/>
+    <rect x="4" y="6" width="30" height="28" rx="4" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+    <text x="19" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#2563EB">N</text>
+    <rect x="246" y="6" width="30" height="28" rx="4" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5"/>
+    <text x="261" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="#DC2626">S</text>
+  </g>
+
+  <g stroke="#D97706" stroke-width="3.5" fill="none">
+    <path d="M 175 103 C 180 90 195 90 200 103 L 210 147 C 215 160 230 160 235 147" stroke="#B45309"/>
+    <path d="M 215 103 C 220 90 235 90 240 103 L 250 147 C 255 160 270 160 275 147" stroke="#B45309"/>
+    <path d="M 255 103 C 260 90 275 90 280 103 L 290 147 C 295 160 310 160 315 147" stroke="#B45309"/>
+    <path d="M 295 103 C 300 90 315 90 320 103 L 330 147 C 335 160 350 160 355 147" stroke="#B45309"/>
+    <path d="M 335 103 C 340 90 355 90 360 103 L 370 147" stroke="#B45309"/>
+  </g>
+
+  <line x1="205" y1="120" x2="208" y2="132" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowRoyal)"/>
+  <line x1="245" y1="120" x2="248" y2="132" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowRoyal)"/>
+  <line x1="285" y1="120" x2="288" y2="132" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowRoyal)"/>
+  <line x1="325" y1="120" x2="328" y2="132" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowRoyal)"/>
+
+  <path d="M 175 103 L 175 80 L 70 80 L 70 235 L 230 235" fill="none" stroke="#0F172A" stroke-width="1.8"/>
+  <path d="M 370 147 L 370 235 L 310 235" fill="none" stroke="#0F172A" stroke-width="1.8"/>
+
+  <line x1="230" y1="225" x2="230" y2="245" stroke="#0F172A" stroke-width="3"/>
+  <line x1="240" y1="215" x2="240" y2="255" stroke="#0F172A" stroke-width="1.8"/>
+  <line x1="250" y1="225" x2="250" y2="245" stroke="#0F172A" stroke-width="3"/>
+  <line x1="260" y1="215" x2="260" y2="255" stroke="#0F172A" stroke-width="1.8"/>
+  <text x="268" y="222" font-size="10" font-weight="bold" fill="#DC2626">+</text>
+  <text x="220" y="222" font-size="10" font-weight="bold" fill="#0F172A">-</text>
+
+  <line x1="270" y1="235" x2="285" y2="235" stroke="#0F172A" stroke-width="1.8"/>
+  <circle cx="285" cy="235" r="2.5" fill="#0F172A"/>
+  <line x1="285" y1="235" x2="303" y2="225" stroke="#0F172A" stroke-width="1.8"/>
+  <circle cx="305" cy="235" r="2.5" fill="#0F172A"/>
+  <line x1="305" y1="235" x2="315" y2="235" stroke="#0F172A" stroke-width="1.8"/>
+  <text x="295" y="218" text-anchor="middle" font-size="8" fill="#64748B">Key (K)</text>
+
+  <rect x="420" y="70" width="105" height="52" rx="4" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="472" y="86" text-anchor="middle" font-size="9" font-weight="bold" fill="#0F172A">Governing Law</text>
+  <text x="472" y="100" text-anchor="middle" font-size="10" font-weight="bold" fill="#2563EB">B = μ₀ · n · I</text>
+  <text x="472" y="114" text-anchor="middle" font-size="7.5" fill="#64748B">B ∝ I &amp; B ∝ n (turns)</text>
+
+  <text x="145" y="165" font-size="8.5" font-weight="bold" fill="#0F172A">Soft Iron Core</text>
+  <text x="145" y="175" font-size="7.5" fill="#64748B">High magnetic permeability</text>
+
+  <rect x="40" y="254" width="460" height="18" rx="4" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="270" y="266" text-anchor="middle" font-size="8.5" fill="#0F172A">Magnetic Effect of Electric Current • Right-Hand Thumb Rule • S-Pole &amp; N-Pole Formation</text>
+</svg>`
+
+  return {
+    title,
+    svg,
+    caption,
+    domain: 'physics',
+    isDynamic: true,
+    computedMetrics: { turns: params.turns || 5, current: params.current || 2 },
+  }
+}
+
+/**
+ * 11. Biology: Human Female Reproductive System & Gamete Anatomy
+ * (Ovaries, Fallopian Tube, Uterus, Endometrium, Cervix, Vagina)
+ */
+export function generateDynamicReproductiveAnatomySvg(params: {
+  title?: string
+  caption?: string
+}): GeneratedScientificSvg {
+  const title = params.title || 'Human Female Reproductive System'
+  const caption = params.caption || 'Anatomy of the female reproductive system showing site of fertilization and implantation.'
+
+  const svg = `<svg viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" xmlns="http://www.w3.org/2000/svg" style="background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;">
+  ${getSvgDefs()}
+  <rect x="4" y="4" width="532" height="272" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="4" y="4" width="532" height="272" fill="url(#chalkGrid)" opacity="0.6"/>
+
+  <rect x="60" y="12" width="420" height="22" rx="6" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="270" y="27" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="bold">Human Female Reproductive System: Organs &amp; Functions (NCERT)</text>
+
+  <g transform="translate(140, 45)">
+    <path d="M 90 40 C 50 35 30 70 30 110 C 30 135 45 155 45 180 L 75 180 C 75 155 90 135 90 110 Z" fill="#FFE4E6" stroke="#E11D48" stroke-width="1.8"/>
+    <path d="M 90 40 C 130 35 150 70 150 110 C 150 135 135 155 135 180 L 105 180 C 105 155 90 135 90 110 Z" fill="#FFE4E6" stroke="#E11D48" stroke-width="1.8"/>
+
+    <path d="M 90 55 C 70 55 55 80 55 110 C 55 130 65 145 65 170 L 115 170 C 115 145 125 130 125 110 C 125 80 110 55 90 55 Z" fill="#FFF1F2" stroke="#FB7185" stroke-width="1.2"/>
+
+    <path d="M 50 45 C 10 40 -40 30 -60 55 C -65 62 -75 75 -70 85" fill="none" stroke="#E11D48" stroke-width="3"/>
+    <path d="M -70 85 C -80 88 -85 95 -80 102 M -70 85 C -75 92 -75 102 -68 105 M -70 85 C -65 92 -60 100 -55 98" stroke="#E11D48" stroke-width="1.5"/>
+
+    <ellipse cx="-72" cy="115" rx="15" ry="20" fill="#FEF3C7" stroke="#D97706" stroke-width="1.6"/>
+    <line x1="-57" y1="115" x2="35" y2="100" stroke="#D97706" stroke-width="1.2" stroke-dasharray="2,2"/>
+
+    <path d="M 130 45 C 170 40 220 30 240 55 C 245 62 255 75 250 85" fill="none" stroke="#E11D48" stroke-width="3"/>
+    <path d="M 250 85 C 260 88 265 95 260 102 M 250 85 C 255 92 255 102 248 105 M 250 85 C 245 92 240 100 235 98" stroke="#E11D48" stroke-width="1.5"/>
+
+    <ellipse cx="252" cy="115" rx="15" ry="20" fill="#FEF3C7" stroke="#D97706" stroke-width="1.6"/>
+    <line x1="237" y1="115" x2="145" y2="100" stroke="#D97706" stroke-width="1.2" stroke-dasharray="2,2"/>
+
+    <rect x="75" y="175" width="30" height="15" fill="#FDA4AF" stroke="#E11D48" stroke-width="1.5"/>
+    <rect x="70" y="190" width="40" height="25" fill="#FFE4E6" stroke="#E11D48" stroke-width="1.5"/>
+  </g>
+
+  <!-- Left Labels & Pointers -->
+  <line x1="90" y1="85" x2="45" y2="85" stroke="#64748B" stroke-width="1"/>
+  <circle cx="90" cy="85" r="2.5" fill="#2563EB"/>
+  <text x="40" y="82" text-anchor="end" font-size="9" font-weight="bold" fill="#2563EB">Oviduct / Fallopian Tube</text>
+  <text x="40" y="92" text-anchor="end" font-size="7.5" fill="#64748B">★ Site of fertilization (Ampulla)</text>
+
+  <line x1="68" y1="160" x2="45" y2="145" stroke="#64748B" stroke-width="1"/>
+  <circle cx="68" cy="160" r="2.5" fill="#D97706"/>
+  <text x="40" y="142" text-anchor="end" font-size="9" font-weight="bold" fill="#D97706">Ovary</text>
+  <text x="40" y="152" text-anchor="end" font-size="7.5" fill="#64748B">Produces egg/ovum &amp; estrogen</text>
+
+  <!-- Right Labels & Pointers -->
+  <line x1="230" y1="140" x2="360" y2="120" stroke="#64748B" stroke-width="1"/>
+  <circle cx="230" cy="140" r="2.5" fill="#E11D48"/>
+  <text x="365" y="117" font-size="9" font-weight="bold" fill="#E11D48">Uterus (Womb)</text>
+  <text x="365" y="127" font-size="7.5" fill="#64748B">Thick muscular bag; site of implantation</text>
+
+  <line x1="235" y1="170" x2="360" y2="155" stroke="#64748B" stroke-width="1"/>
+  <circle cx="235" cy="170" r="2.5" fill="#E11D48"/>
+  <text x="365" y="152" font-size="9" font-weight="bold" fill="#E11D48">Endometrium Lining</text>
+  <text x="365" y="162" font-size="7.5" fill="#64748B">Vascular lining supporting embryo placenta</text>
+
+  <line x1="230" y1="235" x2="360" y2="195" stroke="#64748B" stroke-width="1"/>
+  <circle cx="230" cy="235" r="2.5" fill="#0F172A"/>
+  <text x="365" y="192" font-size="9" font-weight="bold" fill="#0F172A">Cervix &amp; Vagina</text>
+  <text x="365" y="202" font-size="7.5" fill="#64748B">Entry for sperm; birth canal</text>
+
+  <rect x="40" y="254" width="460" height="18" rx="4" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="270" y="266" text-anchor="middle" font-size="8.5" fill="#0F172A">Class 10 Biology • Chapter: How Do Organisms Reproduce • Gametogenesis &amp; Fertilization</text>
+</svg>`
+
+  return {
+    title,
+    svg,
+    caption,
+    domain: 'biology',
+    isDynamic: true,
+    computedMetrics: { title },
+  }
+}
+
+/**
+ * 12. Universal Scholastic Concept Blueprint
+ * (Default Fallback: Structured Hierarchical Schematic on Clean Whiteboard Canvas)
+ * GUARANTEED ZERO CARTESIAN GRAPHS ON NON-MATH TOPICS.
+ */
+export function generateDynamicUniversalConceptSvg(params: {
+  title?: string
+  caption?: string
+  domain?: string
+}): GeneratedScientificSvg {
+  const title = params.title || 'Scholastic Concept Blueprint'
+  const caption = params.caption || 'Authentic conceptual relationship model & board-exam key takeaways.'
+  const cleanTitle = title.replace(/^(?:concept\s*\d*[:\-\s]*)/i, '').trim()
+
+  const svg = `<svg viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" xmlns="http://www.w3.org/2000/svg" style="background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;">
+  ${getSvgDefs()}
+  <rect x="4" y="4" width="532" height="272" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <rect x="4" y="4" width="532" height="272" fill="url(#chalkGrid)" opacity="0.6"/>
+
+  <rect x="40" y="12" width="460" height="22" rx="6" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="270" y="27" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="bold">${cleanTitle.slice(0, 48)}</text>
+
+  <g transform="translate(25, 45)">
+    <rect x="0" y="0" width="150" height="195" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.2"/>
+    <rect x="0" y="0" width="150" height="24" rx="6" fill="#DCFCE7"/>
+    <text x="75" y="16" text-anchor="middle" font-size="9" font-weight="bold" fill="#16A34A">1. Physical Intuition</text>
+
+    <circle cx="15" cy="45" r="3" fill="#16A34A"/>
+    <text x="25" y="48" font-size="8" font-weight="bold" fill="#0F172A">Real-World Hook</text>
+    <text x="25" y="60" font-size="7" fill="#64748B">Tangible daily basis</text>
+    <text x="25" y="70" font-size="7" fill="#64748B">Observable mechanism</text>
+
+    <circle cx="15" cy="95" r="3" fill="#16A34A"/>
+    <text x="25" y="98" font-size="8" font-weight="bold" fill="#0F172A">Underlying Driver</text>
+    <text x="25" y="110" font-size="7" fill="#64748B">Core energetic / structural</text>
+    <text x="25" y="120" font-size="7" fill="#64748B">fundamental force</text>
+
+    <circle cx="15" cy="145" r="3" fill="#16A34A"/>
+    <text x="25" y="148" font-size="8" font-weight="bold" fill="#0F172A">Classroom Analogy</text>
+    <text x="25" y="160" font-size="7" fill="#64748B">Concrete representation</text>
+    <text x="25" y="170" font-size="7" fill="#64748B">Intuitive bridge to law</text>
+  </g>
+
+  <line x1="180" y1="140" x2="195" y2="140" stroke="#2563EB" stroke-width="2" marker-end="url(#arrowRoyal)"/>
+
+  <g transform="translate(195, 45)">
+    <rect x="0" y="0" width="150" height="195" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.4"/>
+    <rect x="0" y="0" width="150" height="24" rx="6" fill="#DBEAFE"/>
+    <text x="75" y="16" text-anchor="middle" font-size="9" font-weight="bold" fill="#2563EB">2. Governing Principle</text>
+
+    <rect x="10" y="36" width="130" height="50" rx="4" fill="#FFFFFF" stroke="#2563EB" stroke-width="1"/>
+    <text x="75" y="55" text-anchor="middle" font-size="8" font-weight="bold" fill="#2563EB">CORE LAW / THEOREM</text>
+    <text x="75" y="72" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#0F172A">${cleanTitle.split(':')[0].slice(0, 18)}</text>
+
+    <circle cx="15" cy="110" r="3" fill="#2563EB"/>
+    <text x="25" y="113" font-size="8" font-weight="bold" fill="#0F172A">Governing Rules</text>
+    <text x="25" y="125" font-size="7" fill="#64748B">Strict scientific criteria</text>
+    <text x="25" y="135" font-size="7" fill="#64748B">Mandatory conditions</text>
+
+    <circle cx="15" cy="155" r="3" fill="#2563EB"/>
+    <text x="25" y="158" font-size="8" font-weight="bold" fill="#0F172A">SI Units &amp; Constants</text>
+    <text x="25" y="170" font-size="7" fill="#64748B">Dimensional integrity</text>
+    <text x="25" y="180" font-size="7" fill="#64748B">Zero unit conversion loss</text>
+  </g>
+
+  <line x1="350" y1="140" x2="365" y2="140" stroke="#16A34A" stroke-width="2" marker-end="url(#arrowSage)"/>
+
+  <g transform="translate(365, 45)">
+    <rect x="0" y="0" width="150" height="195" rx="6" fill="#FEF3C7" stroke="#D97706" stroke-width="1.2"/>
+    <rect x="0" y="0" width="150" height="24" rx="6" fill="#FDE68A"/>
+    <text x="75" y="16" text-anchor="middle" font-size="9" font-weight="bold" fill="#D97706">3. Board Application</text>
+
+    <circle cx="15" cy="45" r="3" fill="#D97706"/>
+    <text x="25" y="48" font-size="8" font-weight="bold" fill="#0F172A">Trio Layout</text>
+    <text x="25" y="60" font-size="7" fill="#0F172A">Given → Formula</text>
+    <text x="25" y="70" font-size="7" fill="#0F172A">Substitution → Boxed</text>
+
+    <circle cx="15" cy="95" r="3" fill="#D97706"/>
+    <text x="25" y="98" font-size="8" font-weight="bold" fill="#0F172A">Common Trap</text>
+    <text x="25" y="110" font-size="7" fill="#DC2626">Avoid unit mismatches</text>
+    <text x="25" y="120" font-size="7" fill="#DC2626">Watch sign conventions</text>
+
+    <circle cx="15" cy="145" r="3" fill="#D97706"/>
+    <text x="25" y="148" font-size="8" font-weight="bold" fill="#0F172A">Scoring Keywords</text>
+    <text x="25" y="160" font-size="7" fill="#16A34A">Verbatim definitions</text>
+    <text x="25" y="170" font-size="7" fill="#16A34A">Full 100% credit</text>
+  </g>
+
+  <rect x="40" y="254" width="460" height="18" rx="4" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+  <text x="270" y="266" text-anchor="middle" font-size="8.5" fill="#0F172A">Authentic Vector Schematic • CBSE / ICSE / IB Scholastic Standards</text>
+</svg>`
+
+  return {
+    title,
+    svg,
+    caption,
+    domain: params.domain || 'general',
+    isDynamic: true,
+    computedMetrics: { title: cleanTitle },
+  }
+}
+
 /**
  * Universal Parser & Master Dispatcher
  * Strictly generates pure white-canvas vector diagrams with zero hardcoding.
@@ -918,6 +1422,68 @@ export function createUniversalScientificSvg(
   caption?: string
 ): GeneratedScientificSvg {
   const norm = typeof input === 'string' ? `${input} ${caption || ''}`.toLowerCase() : JSON.stringify(input).toLowerCase()
+
+  
+  // 1. Biology: Plant Tissues & Meristematic Zones (Apical, Lateral, Intercalary, Permanent)
+  if (
+    norm.includes('meristem') ||
+    norm.includes('apical') ||
+    norm.includes('lateral') ||
+    norm.includes('intercalary') ||
+    norm.includes('cambium') ||
+    norm.includes('parenchyma') ||
+    norm.includes('collenchyma') ||
+    norm.includes('sclerenchyma') ||
+    norm.includes('xylem') ||
+    norm.includes('phloem') ||
+    norm.includes('root tip') ||
+    norm.includes('shoot tip') ||
+    norm.includes('plant tissue') ||
+    norm.includes('permanent tissue') ||
+    (norm.includes('tissue') && (norm.includes('plant') || norm.includes('cell division') || norm.includes('girth') || norm.includes('growth in length')))
+  ) {
+    return generateDynamicPlantTissuesSvg({
+      title: typeof input === 'string' ? input : input.title,
+      caption,
+    })
+  }
+
+  // 1b. Biology: Human Female & Male Reproductive System & Gamete Anatomy
+  if (
+    norm.includes('reproductive') ||
+    norm.includes('reproduction') ||
+    norm.includes('ovary') ||
+    norm.includes('uterus') ||
+    norm.includes('fallopian') ||
+    norm.includes('oviduct') ||
+    norm.includes('cervix') ||
+    norm.includes('vagina') ||
+    norm.includes('fertilization') ||
+    norm.includes('gamete') ||
+    norm.includes('zygote')
+  ) {
+    return generateDynamicReproductiveAnatomySvg({
+      title: typeof input === 'string' ? input : input.title,
+      caption,
+    })
+  }
+
+  // 1c. Physics: Electromagnetism & Solenoid Magnetic Field Lines
+  if (
+    norm.includes('electromagnet') ||
+    norm.includes('solenoid') ||
+    norm.includes('magnetic field') ||
+    norm.includes('magnetic line') ||
+    norm.includes('induction') ||
+    norm.includes('flux') ||
+    norm.includes('core') ||
+    (norm.includes('coil') && norm.includes('current'))
+  ) {
+    return generateDynamicElectromagnetSvg({
+      title: typeof input === 'string' ? input : input.title,
+      caption,
+    })
+  }
 
   // 1. Biology: Plant Cell Wall & Ultrastructure
   if (
@@ -960,17 +1526,16 @@ export function createUniversalScientificSvg(
     })
   }
 
-  // 3. Coordinate Geometry & Cartesian Plane (Quadrants, Axes, Coordinates, Abscissa, Ordinate)
+  // 3. Coordinate Geometry & Cartesian Plane (Strictly restricted to Math Coordinate Geometry topics)
   if (
     norm.includes('quadrant') ||
     norm.includes('cartesian') ||
-    norm.includes('coordinate') ||
-    norm.includes('axis') ||
-    norm.includes('axes') ||
-    norm.includes('origin') ||
+    norm.includes('coordinate geometry') ||
+    norm.includes('coordinate plane') ||
     norm.includes('abscissa') ||
     norm.includes('ordinate') ||
-    norm.includes('2-d plane')
+    norm.includes('2-d plane') ||
+    (norm.includes('axis') && (norm.includes('x-axis') || norm.includes('y-axis') || norm.includes('origin')))
   ) {
     return generateDynamicCoordinatePlaneSvg({
       title: typeof input === 'string' ? input : input.title,
@@ -1061,9 +1626,9 @@ export function createUniversalScientificSvg(
     })
   }
 
-  // Default: Return mathematical 2D Cartesian plane on clean white canvas
-  return generateDynamicCoordinatePlaneSvg({
-    title: typeof input === 'string' ? input : input.title || 'Cartesian Coordinate System',
-    caption: caption || 'Authentic vector visualization plotted on digital chalkboard.',
+  // Default: Return Scholastic Concept Blueprint on pure white canvas (NEVER Cartesian Plane!)
+  return generateDynamicUniversalConceptSvg({
+    title: typeof input === 'string' ? input : input.title || 'Scholastic Concept Blueprint',
+    caption: caption || 'Authentic conceptual relationship model plotted on digital chalkboard.',
   })
 }
