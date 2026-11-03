@@ -300,8 +300,45 @@ html.lenis, html.lenis body {
   animation: scrollCue 1.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
+/* Handwriting: letters inked in one by one, then an underline stroke */
+.handwriting-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.18em) rotate(-6deg) scale(0.85);
+  transform-origin: 0% 100%;
+}
+.handwriting.is-writing .handwriting-char {
+  animation: inkLetter 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.handwriting-underline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.15em;
+  height: 1.5px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.45;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+.handwriting.is-writing .handwriting-underline {
+  animation: inkUnderline 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes inkLetter {
+  to { opacity: 1; transform: none; }
+}
+@keyframes inkUnderline {
+  to { transform: scaleX(1); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-scroll-cue { animation: none; }
+  .handwriting-char,
+  .handwriting.is-writing .handwriting-char { opacity: 1; transform: none; animation: none; }
+  .handwriting-underline,
+  .handwriting.is-writing .handwriting-underline { transform: scaleX(1); animation: none; }
 }
 
 .animate-cloud-drift {

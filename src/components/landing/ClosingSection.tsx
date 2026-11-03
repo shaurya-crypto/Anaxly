@@ -7,6 +7,7 @@ import { motion, useReducedMotion, useScroll, useTransform, useSpring } from 'mo
 import { ArrowRight } from 'lucide-react'
 import { RevealStagger, RevealItem } from './motion/Reveal'
 import { Laurel } from './illustrations'
+import { Handwriting } from './motion/Handwriting'
 
 export function ClosingSection() {
   const boxRef = useRef<HTMLDivElement>(null)
@@ -77,9 +78,11 @@ export function ClosingSection() {
 
               {/* Cursive Handwriting Accent */}
               <RevealItem>
-              <p className="font-cursive text-coral-primary text-xl sm:text-2xl mt-3 tracking-wide">
-                Your personal chalkboard tutor awaits.
-              </p>
+              <Handwriting
+                text="Your personal chalkboard tutor awaits."
+                pace={0.05}
+                className="font-cursive text-coral-primary text-xl sm:text-2xl mt-3 tracking-wide"
+              />
               </RevealItem>
 
               <RevealItem>

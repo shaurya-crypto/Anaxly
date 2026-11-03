@@ -5,6 +5,7 @@ import { motion, useInView, useScroll, useSpring } from 'motion/react'
 import { ArtworkFrame } from './ArtworkFrame'
 import { Reveal } from './motion/Reveal'
 import { Parallax } from './motion/Parallax'
+import { Handwriting } from './motion/Handwriting'
 import { ChalkDerivation, OrbitSketch, QuillNotes } from './illustrations'
 import { getArtwork } from '@/lib/landing-artwork'
 
@@ -105,9 +106,10 @@ export function LearningFlow() {
             </h2>
 
             {/* Cursive Handwriting Marginalia */}
-            <p className="font-cursive text-coral-primary text-xl sm:text-2xl mt-2 tracking-wide">
-              Mastery is not memorization — it is the dialogue between intuition and rigor.
-            </p>
+            <Handwriting
+              text="Mastery is not memorization — it is the dialogue between intuition and rigor."
+              className="font-cursive text-coral-primary text-xl sm:text-2xl mt-2 tracking-wide"
+            />
 
             <p className="mt-4 text-base text-ink-secondary leading-relaxed">
               Learning is not a sprint through pre-recorded video lectures. It is a disciplined,

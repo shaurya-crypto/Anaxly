@@ -6,11 +6,11 @@ import { motion, useReducedMotion, type Variants } from 'motion/react'
 export const EASE_EDITORIAL = [0.22, 1, 0.36, 1] as const
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 16, filter: 'blur(6px)' },
+  // transform + opacity only: blur filters force costly repaints while scrolling
+  hidden: { opacity: 0, y: 18 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
     transition: { duration: 0.8, ease: EASE_EDITORIAL },
   },
 }
