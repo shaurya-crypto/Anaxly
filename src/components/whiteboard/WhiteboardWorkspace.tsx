@@ -15,6 +15,7 @@ import {
   Minimize2,
   X,
   Activity,
+  Sparkles,
 } from 'lucide-react'
 
 // Whiteboard Workspace forwards all chalkboard directives to GreenChalkboard, including set_color and raw SVG when trimmed.includes('<svg')
@@ -50,6 +51,7 @@ export interface WhiteboardWorkspaceProps {
   onVoiceStudentAnswer?: (answer: string) => void
   activeGraph?: MafsGraphCanvasProps | null
   onCloseGraph?: () => void
+  generatingDiagramTitle?: string | null
 }
 
 export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWorkspaceProps>(
@@ -85,6 +87,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
       onVoiceStudentAnswer,
       activeGraph = null,
       onCloseGraph,
+      generatingDiagramTitle = null,
     },
     ref
   ) => {
@@ -150,6 +153,25 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
       >
         {/* Main Digital Chalkboard Canvas (Expands to full width or shares row with docked graph) */}
         <div className="relative flex-1 h-full min-w-0 overflow-hidden flex flex-col">
+          {/* Whiteboard Visual Progress Box */}
+          {generatingDiagramTitle && (
+            <div className="absolute top-4 sm:top-6 left-1/2 -translate-x-1/2 z-30 pointer-events-none animate-in fade-in slide-in-from-top-4 duration-300">
+              <div className="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-[#0c1612]/95 backdrop-blur-md border border-emerald-500/40 shadow-xl ring-1 ring-white/10">
+                <div className="relative flex items-center justify-center w-7 h-7 rounded-lg bg-emerald-950/90 border border-emerald-500/50 text-emerald-400 shrink-0">
+                  <Sparkles className="w-3.5 h-3.5 animate-spin [animation-duration:3s]" />
+                  <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                </div>
+                <p className="text-xs text-white/95 font-medium truncate max-w-[280px] sm:max-w-[420px]">
+                  Generating visualization: <span className="text-emerald-300 font-semibold">{generatingDiagramTitle}</span>...
+                </p>
+                {/* Indeterminate shimmer pulse bar */}
+                <div className="w-14 h-1.5 bg-emerald-950/80 rounded-full overflow-hidden shrink-0 border border-emerald-800/40">
+                  <div className="w-full h-full bg-gradient-to-r from-emerald-500 via-teal-200 to-emerald-500 animate-scholastic-shimmer rounded-full" />
+                </div>
+              </div>
+            </div>
+          )}
+
           <GreenChalkboard
             ref={ref}
             moduleId={moduleId}

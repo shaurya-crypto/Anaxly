@@ -45,7 +45,7 @@ export interface GreenChalkboardRef {
   resetBoard?: () => void
   setChalkColor: (colorNameOrHex: string) => void
   setBoardColor: (theme: 'green' | 'blackboard' | 'slate' | 'white') => void
-  drawSvgDiagram: (title: string, svgMarkup: string, caption?: string) => void
+  drawSvgDiagram: (title: string, svgMarkup: string, caption?: string, forceUpdate?: boolean) => void
   drawGraph: (type?: string) => void
   drawNumericalSolution?: (solution: {
     problem?: string
@@ -3270,9 +3270,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     }
 
     // Draw Dynamic Vector SVG Diagram Card directly on Whiteboard
-    const drawSvgDiagram = async (title: string, svgMarkup: string, caption = '') => {
+    const drawSvgDiagram = async (title: string, svgMarkup: string, caption = '', forceUpdate = false) => {
       if (!excalidrawAPI || (!title?.trim() && !svgMarkup?.trim())) return
-      if (shouldSkipDuplicate('draw_svg_diagram', `${title}:${caption || ''}`)) return
+      if (!forceUpdate && shouldSkipDuplicate('draw_svg_diagram', `${title}:${caption || ''}`)) return
 
       await checkAutoPageOverflow(260)
       try {
@@ -3647,16 +3647,17 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           const explicitTitle = body.match(/\btitle\s*=\s*["']([^"']*)["']/i);
           const explicitSvg = body.match(/\bsvg\s*=\s*["']([\s\S]*?)["'](?:\s*,\s*[a-zA-Z_]+\s*=|\s*$)/i);
           const explicitCaption = body.match(/\bcaption\s*=\s*["']([^"']*)["']/i);
+          const explicitWhat = body.match(/\bwhat\s*=\s*["']([^"']*)["']/i);
           if (explicitSvg) {
             title = explicitTitle ? explicitTitle[1] : 'Educational Diagram';
             svg = explicitSvg[1];
-            caption = explicitCaption ? explicitCaption[1] : '';
+            caption = explicitCaption ? explicitCaption[1] : (explicitWhat ? explicitWhat[1] : '');
           } else {
             const posMatch = body.match(/["']([^"']*)["']\s*,\s*["']([\s\S]*?)["'](?:\s*,\s*["']([^"']*)["'])?/);
             if (posMatch) {
               title = posMatch[1];
               svg = posMatch[2];
-              caption = posMatch[3] || '';
+              caption = posMatch[3] || (explicitWhat ? explicitWhat[1] : '');
             }
           }
         }

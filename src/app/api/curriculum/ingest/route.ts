@@ -162,6 +162,7 @@ function buildEnhancedVisualPlanAndDirective(cap: any, visualPlan: any) {
     textbook_exercises: exercisesList,
     concept_visuals: conceptVisualsList,
     concept_questions: conceptQuestionsList,
+    subtopics: cap.subtopics || [],
     estimated_minutes: 20,
   }
 
@@ -873,7 +874,20 @@ TARGET ACADEMIC SPECIFICATION:
     5. Authentic Past Year Question (PYQ) from recent board exams
     6. NEP 2020 Real-World Competency Question
   * For each question, provide the ideal topper model answer and a Socratic hint to guide the student if they get stuck.
-- TEXTBOOK FIDELITY INVARIANT: Wherever images, graphs, coordinate systems, and exact verbatim definitions appear in the book, capture them accurately with authentic vector SVG markup.
+- EXHAUSTIVE LINE-BY-LINE CHAPTER DEEP-DIVE (ZERO SKIMMING):
+  * Analyze EVERY SINGLE LINE of the provided textbook chapter: read every paragraph, side callout, table, in-text activity/experiment (e.g. Activity 6.1, Activity 6.2 in NCERT), and footnote.
+  * Extract exact scientific definitions with strict SI units into "textbook_definitions".
+  * Capture every in-text activity, experiment setup, observation, and real-life illustration into "textbook_examples".
+  * Capture every NCERT/board in-text question and chapter-end exercise into "textbook_exercises".
+  * Extract common examination pitfalls and student traps into "common_misconceptions".
+  * These detailed capsules will directly empower the Gemini Live classroom agent so the tutor covers every single detail during class!
+- DEEP BOOK IMAGE & DIAGRAM VECTOR RECONSTRUCTION MANDATE:
+  * Inspect EVERY diagram, anatomical sketch, circuit schematic, optical ray diagram, function plot, apparatus setup, and table shown in the book images or described in the chapter text.
+  * For EVERY concept in "key_concepts", generate publication-grade vector SVG code in "diagram_svg" and "concept_visuals":
+    - Recreate the exact geometry, components, arrows, labeled pins, target dots, and coordinate scales from the book.
+    - Accurately label all callouts (e.g., in plant cell: Cell Wall, Middle Lamella, Primary Wall, Plasmodesmata; in physics: Incident ray, Refracted ray, Normal, Angle i, Angle r, etc.).
+    - In "what_to_make", write a detailed specification of all parts and labels drawn.
+    - In "what_to_explain", give step-by-step pointers for the live tutor to walk through during class.
 - HIGHEST QUALITY PRODUCTION SVG INVARIANT (ZERO FAKE BLUEPRINTS):
   * Every single capsule MUST include authentic, publication-grade vector SVG markup in "diagram_svg" and "concept_visuals".
   * STRICT PROHIBITION: NEVER output generic placeholder boxes, corporate flowchart cards ("CONCEPTUAL BLUEPRINT", "ANAXLY VECTOR ENGINE", "1. GOVERNING PRINCIPLE"), or empty SVGs!
@@ -1073,6 +1087,9 @@ Respond with ONLY a valid JSON object matching this schema (do NOT include conve
       // When context caching is active on Gemini, the full chapter text is already loaded into cache
       if (!geminiCacheName && filePart) {
         noteContents.push(filePart)
+      }
+      if (!geminiCacheName && activeNotes) {
+        noteContents.push({ text: `TEXTBOOK CHAPTER CONTENT / NOTES:\n${activeNotes}` })
       }
       noteContents.push(synthesisPrompt)
 

@@ -477,3 +477,16 @@ html.lenis, html.lenis body {
 .font-chalk {
   font-family: 'Excalifont', 'Virgil', 'Xiaolai', 'Segoe UI Emoji', cursive, sans-serif !important;
 }
+
+@keyframes scholasticShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-scholastic-shimmer {
+  animation: scholasticShimmer 1.8s infinite ease-in-out;
+}

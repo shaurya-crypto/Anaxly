@@ -198,11 +198,12 @@ export class GeminiLiveClient {
       if (body.startsWith("{")) {
         try {
           const parsed = JSON.parse(body);
-          if (parsed.title || parsed.svg) {
+          if (parsed.title || parsed.svg || parsed.what) {
             this.handleSingleToolCall("render_svg_diagram", {
               title: parsed.title || "Educational Diagram",
               svg: parsed.svg || "",
               caption: parsed.caption || "",
+              what: parsed.what || "",
             });
           }
         } catch {}
@@ -210,11 +211,13 @@ export class GeminiLiveClient {
         const explicitTitle = body.match(/\btitle\s*=\s*["']([^"']*)["']/i);
         const explicitSvg = body.match(/\bsvg\s*=\s*["']([\s\S]*?)["'](?:\s*,\s*[a-zA-Z_]+\s*=|\s*$)/i);
         const explicitCaption = body.match(/\bcaption\s*=\s*["']([^"']*)["']/i);
-        if (explicitTitle || explicitSvg) {
+        const explicitWhat = body.match(/\bwhat\s*=\s*["']([^"']*)["']/i);
+        if (explicitTitle || explicitSvg || explicitWhat) {
           const title = explicitTitle ? explicitTitle[1] : "Educational Diagram";
           const svg = explicitSvg ? explicitSvg[1] : "";
           const caption = explicitCaption ? explicitCaption[1] : "";
-          this.handleSingleToolCall("render_svg_diagram", { title, svg, caption });
+          const what = explicitWhat ? explicitWhat[1] : "";
+          this.handleSingleToolCall("render_svg_diagram", { title, svg, caption, what });
         } else {
           const posMatch = body.match(/["']([^"']*)["'](?:\s*,\s*["']([\s\S]*?)["'])?(?:\s*,\s*["']([^"']*)["'])?/);
           if (posMatch && posMatch[1]) {
@@ -331,7 +334,8 @@ export class GeminiLiveClient {
       const title = args.title || "Educational Diagram";
       const svg = args.svg || "";
       const caption = args.caption || "";
-      this.callbacks.onChalkboardToolCall?.("render_svg_diagram", { title, svg, caption });
+      const what = args.what || "";
+      this.callbacks.onChalkboardToolCall?.("render_svg_diagram", { title, svg, caption, what });
     } else if (name === "conclude_and_open_quiz") {
       if (args.summary) {
         this.callbacks.onChalkboardToolCall?.("chapter_summary", args.summary);
@@ -570,6 +574,10 @@ export class GeminiLiveClient {
                     title: {
                       type: Type.STRING,
                       description: "Concise academic title of the diagram (e.g. 'Plant Cell Wall & Cellulose Microfibrils', 'Reflection of Light at Plane Mirror', 'Simple Resistor-Battery Circuit')",
+                    },
+                    what: {
+                      type: Type.STRING,
+                      description: "Detailed specification of anatomical parts, components, arrows, coordinate axes, and labels to draw.",
                     },
                     svg: {
                       type: Type.STRING,
@@ -1002,8 +1010,13 @@ export class GeminiLiveClient {
   }
 
   public sendBoardContext(summaryText: string): void {
-    // Disabled sending realtimeInput with board summary to prevent infinite feedback loops
-    // Board curriculum context is already provided via initial systemInstruction.
+    if (!summaryText?.trim()) return;
+    // Allow critical system notices (such as on-demand diagram generation progress) to reach Gemini Live
+    // while blocking repetitive periodic summaries that could trigger feedback loops.
+    if (summaryText.includes('[SYSTEM NOTICE:') || summaryText.includes('SYSTEM NOTICE')) {
+      this.sendTextMessage(summaryText);
+      return;
+    }
     return;
   }
 

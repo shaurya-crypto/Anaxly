@@ -15,6 +15,8 @@ export interface RefineDiagramInput {
   visualType?: 'diagram' | 'graph' | 'animation' | 'image' | string
   animationType?: string
   interactiveMathFormula?: string
+  isLiveClass?: boolean
+  source?: string
 }
 
 export interface RefinedDiagramResult {
@@ -128,10 +130,10 @@ REFINEMENT INSTRUCTIONS:
 - Return ONLY the updated raw <svg viewBox="0 0 540 280" ...>...</svg> element.`
     : `Generate an authentic publication-grade educational vector SVG visualization for:
 Title: "${input.title}"
-Domain / Discipline: "${input.domain || input.subject || 'Science'}"
-Grade Level: "${input.classLevel || 'Class 9/10'}"
+${input.domain || input.subject ? `Domain / Discipline: "${input.domain || input.subject}"` : ''}
+${input.classLevel ? `Grade Level: "${input.classLevel}"` : ''}
 Context: "${input.context || input.title}"
-Visual Modality: "${input.visualType || 'diagram'}"
+${input.visualType ? `Visual Modality: "${input.visualType}"` : ''}
 ${input.animationType ? `Animation Requirement: "${input.animationType}"` : ''}
 ${input.interactiveMathFormula ? `Mathematical Function to Plot: "${input.interactiveMathFormula}"` : ''}
 ${input.whyNeeded ? `Why Needed: "${input.whyNeeded}"` : ''}
@@ -141,18 +143,27 @@ ${input.whatToMake ? `What to Make: "${input.whatToMake}"` : ''}
 Refine ONLY the visual graphic markup. Do NOT generate or alter narrative notes or curriculum text.
 Return ONLY the raw <svg viewBox="0 0 540 280" ...>...</svg> element with pure white (#FFFFFF) chalkboard canvas.`
 
+  const isLive = Boolean(input.isLiveClass || input.source === 'live_classroom')
+  const preferredModels = isLive
+    ? ['gemini-2.5-flash', 'gemini-3.5-flash']
+    : undefined
+  const timeoutMs = isLive ? 30000 : 90000
+  const thinkingBudget = isLive ? 1024 : 2048
+
   const { text: rawOutput, modelUsed } = await resilientGenerateContent(ai, {
     contents: [{ role: 'user', parts: [{ text: userPromptText }] }],
+    preferredModels,
+    maxRounds: isLive ? 1 : 2,
     config: {
       systemInstruction: TIER2_SYSTEM_INSTRUCTION,
       temperature: 0.15,
       maxOutputTokens: 16384,
       thinkingConfig: {
-        thinkingBudget: 2048,
+        thinkingBudget,
       },
     },
-    timeoutMs: 90000,
-    label: `Tier 2 Diagram Refinement (${input.title})`,
+    timeoutMs,
+    label: isLive ? `Live Class Fast Diagram Generation (${input.title})` : `Tier 2 Diagram Refinement (${input.title})`,
   })
 
   let cleanSvg = (rawOutput || '').trim()
