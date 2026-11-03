@@ -1,0 +1,82 @@
+<svg viewBox="0 0 540 280" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+  <!-- Background & Canvas -->
+  <rect x="4" y="4" width="532" height="272" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  
+  <!-- Subtle Grid Pattern -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#F1F5F9" stroke-width="0.5"/>
+    </pattern>
+    <marker id="arrowhead-blue" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <polygon points="0 0, 7 3.5, 0 7" fill="#2563EB"/>
+    </marker>
+    <marker id="arrowhead-green" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <polygon points="0 0, 7 3.5, 0 7" fill="#16A34A"/>
+    </marker>
+    <style>
+      @keyframes pulse {
+        0% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.7; transform: scale(1.02); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+      .formula-box { transition: all 0.3s ease; }
+      .flow-line { stroke-dasharray: 5, 5; animation: dash 2s linear infinite; }
+      @keyframes dash {
+        to { stroke-dashoffset: -20; }
+      }
+    </style>
+  </defs>
+  <rect x="4" y="4" width="532" height="272" rx="8" fill="url(#grid)"/>
+
+  <!-- Header Badge -->
+  <rect x="110" y="12" width="320" height="22" rx="6" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="270" y="27" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="bold" font-family="'JetBrains Mono', 'Segoe UI', sans-serif">COEFFICIENT TO ZEROES MAPPING</text>
+
+  <!-- Input: Quadratic Equation Box -->
+  <rect x="40" y="100" width="160" height="80" rx="8" fill="#FFFFFF" stroke="#0F172A" stroke-width="2"/>
+  <text x="120" y="125" text-anchor="middle" fill="#64748B" font-size="10" font-family="sans-serif">Standard Form</text>
+  <text x="120" y="155" text-anchor="middle" fill="#0F172A" font-size="18" font-weight="bold" font-family="'JetBrains Mono', serif">
+    ax² + <tspan fill="#2563EB">b</tspan>x + <tspan fill="#16A34A">c</tspan> = 0
+  </text>
+
+  <!-- Mapping Paths (Animated Flow) -->
+  <!-- Path to Sum -->
+  <path d="M 200,130 L 240,130 L 240,85 L 280,85" fill="none" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arrowhead-blue)" class="flow-line"/>
+  <!-- Path to Product -->
+  <path d="M 200,150 L 240,150 L 240,195 L 280,195" fill="none" stroke="#16A34A" stroke-width="1.5" marker-end="url(#arrowhead-green)" class="flow-line"/>
+
+  <!-- Output Box 1: Sum of Zeroes -->
+  <rect x="280" y="55" width="210" height="60" rx="8" fill="#F0F7FF" stroke="#2563EB" stroke-width="1.5"/>
+  <text x="295" y="75" fill="#2563EB" font-size="10" font-weight="bold" font-family="sans-serif">SUM OF ZEROES (α + β)</text>
+  <text x="385" y="100" text-anchor="middle" fill="#0F172A" font-size="18" font-weight="bold" font-family="'JetBrains Mono', serif">
+    - <tspan fill="#2563EB">b</tspan> / a
+  </text>
+  <text x="480" y="108" text-anchor="end" fill="#64748B" font-size="9" font-style="italic">Relationship 1</text>
+
+  <!-- Output Box 2: Product of Zeroes -->
+  <rect x="280" y="165" width="210" height="60" rx="8" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5"/>
+  <text x="295" y="185" fill="#16A34A" font-size="10" font-weight="bold" font-family="sans-serif">PRODUCT OF ZEROES (αβ)</text>
+  <text x="385" y="210" text-anchor="middle" fill="#0F172A" font-size="18" font-weight="bold" font-family="'JetBrains Mono', serif">
+    <tspan fill="#16A34A">c</tspan> / a
+  </text>
+  <text x="480" y="218" text-anchor="end" fill="#64748B" font-size="9" font-style="italic">Relationship 2</text>
+
+  <!-- Callouts & Annotations -->
+  <!-- Left Side Callouts -->
+  <circle cx="155" cy="148" r="2.5" fill="#2563EB"/>
+  <polyline points="155,148 155,240 130,240" fill="none" stroke="#94A3B8" stroke-width="1"/>
+  <text x="125" y="244" text-anchor="end" fill="#64748B" font-size="10">Linear Coefficient</text>
+
+  <circle cx="185" cy="148" r="2.5" fill="#16A34A"/>
+  <polyline points="185,148 185,260 130,260" fill="none" stroke="#94A3B8" stroke-width="1"/>
+  <text x="125" y="264" text-anchor="end" fill="#64748B" font-size="10">Constant Term</text>
+
+  <!-- Right Side Callouts -->
+  <circle cx="385" cy="95" r="2.5" fill="#2563EB"/>
+  <polyline points="385,95 500,95 500,75" fill="none" stroke="#94A3B8" stroke-width="1"/>
+  <text x="500" y="70" text-anchor="middle" fill="#64748B" font-size="10">Additive Inverse</text>
+
+  <!-- Legend/Note -->
+  <rect x="300" y="245" width="170" height="18" rx="4" fill="#F8FAFC" stroke="#E2E8F0" stroke-dasharray="2,2"/>
+  <text x="385" y="258" text-anchor="middle" fill="#64748B" font-size="9" font-family="sans-serif">Valid for all quadratic polynomials where a ≠ 0</text>
+</svg>

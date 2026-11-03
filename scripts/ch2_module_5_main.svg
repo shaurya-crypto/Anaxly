@@ -1,0 +1,28 @@
+<svg viewBox="0 0 540 280" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" xmlns="http://www.w3.org/2000/svg">
+  <!-- Canvas Backdrop -->
+  <rect x="4" y="4" width="532" height="272" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- Header Pill Badge -->
+  <rect x="110" y="12" width="320" height="22" rx="6" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="270" y="27" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="bold" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif">Exercise 2.2 Workflow Master</text>
+
+  <!-- Q1: Factor & Verify Panel -->
+  <g transform="translate(20,50)">
+    <rect x="0" y="0" width="240" height="200" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+    <text x="120" y="28" fill="#2563EB" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Q1: Factor &amp; Verify</text>
+    <text x="15" y="60" fill="#0F172A" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif" font-size="11">1. Arrange as ax² + bx + c</text>
+    <text x="15" y="90" fill="#0F172A" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif" font-size="11">2. Split middle term → find α, β</text>
+    <text x="15" y="120" fill="#0F172A" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif" font-size="11">3. Calculate α + β and compare -b/a</text>
+    <text x="15" y="150" fill="#0F172A" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif" font-size="11">4. Calculate α·β and compare c/a</text>
+  </g>
+
+  <!-- Q2: Construct Polynomial Panel -->
+  <g transform="translate(280,50)">
+    <rect x="0" y="0" width="240" height="200" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.5"/>
+    <text x="120" y="28" fill="#16A34A" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">Q2: Construct Polynomial</text>
+    <text x="15" y="60" fill="#0F172A" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif" font-size="11">1. Identify Sum (S) &amp; Product (P)</text>
+    <text x="15" y="90" fill="#0F172A" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif" font-size="11">2. Write p(x) = k(x² - Sx + P)</text>
+    <text x="15" y="120" fill="#0F172A" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif" font-size="11">3. Choose k = LCM of denominators</text>
+    <text x="15" y="150" fill="#0F172A" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif" font-size="11">4. Write final polynomial</text>
+  </g>
+</svg>

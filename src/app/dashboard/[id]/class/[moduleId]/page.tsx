@@ -1437,6 +1437,16 @@ export default function ModuleClassroomPage() {
         if (step.type === 'VIDEO' && step.content.video) {
           chalkboardRef.current?.drawVideoCard?.(step.title, step.content.video.description)
         } else if (step.type === 'GRAPH') {
+          const gExpr = step.content.graph?.expression || (activeModule?.visual_lesson_plan as any)?.interactive_math_formula || 'x^2 - 3x - 4'
+          const cleanFormula = gExpr.replace(/^(?:y|f\(x\))\s*=\s*/i, '').trim()
+          const domain = step.content.graph?.domain || [-4, 6]
+          const range = step.content.graph?.range || [-8, 8]
+          setActiveGraph({
+            formula: cleanFormula,
+            domain: [Number(domain[0]), Number(domain[1])],
+            range: [Number(range[0]), Number(range[1])],
+            title: step.content.graph?.title || step.title || 'Mathematical Graph',
+          })
           chalkboardRef.current?.drawGraph(step.content.graph?.title || 'linear')
         } else if (step.type === 'DIAGRAM') {
           chalkboardRef.current?.handleAiDirective(`[DIAGRAM: ${step.title}]`)
@@ -1565,6 +1575,7 @@ export default function ModuleClassroomPage() {
             whatToExplain: extractedWhatToExplain,
             whyNeeded: `Pre-generated pedagogical visual grounding for ${nextConceptTitle}`,
             visualType,
+            animationType: 'moving_points_and_pulsing_glow',
             isLiveClass: true,
             source: 'background_pregeneration',
           }),
@@ -1790,6 +1801,7 @@ export default function ModuleClassroomPage() {
               subject: resolvedSubject,
               classLevel: resolvedClassLevel,
               context: activeCurriculum?.title || resolvedTitle,
+              animationType: 'moving_points_and_pulsing_glow',
               isLiveClass: true,
               source: 'live_classroom',
             }),
@@ -2833,6 +2845,12 @@ The student can drag/move it anywhere across the board, zoom in/out, view coordi
 Whenever explaining a mathematical function or kinematic curve:
 Call: plot_mathematical_graph(formula="...", domain="[min,max]", range="[min,max]", title="...", callout="...", points="...")
 (Formula examples: "x^2 - 4", "2*x + 3", "sin(x)", "-4.9*x^2 + 20*x", "x^3 - 3*x")
+- SIMULTANEOUS MULTI-GRAPH PLOTTING: Whenever comparing functions, solving pairs of linear equations (intersecting lines, parallel lines, coincident lines), finding intersections of a curve and a line, or comparing motion curves:
+  Plot all curves simultaneously by separating formulas with a semicolon in formula:
+  * Linear Systems (Class 10 Ch 3): formula="x + y = 3; x - y = 1" or formula="2x + 3y = 6; x - 2y = 4"
+  * Parabola vs Line: formula="x^2 - 4; 2*x - 1"
+  * Discriminant Cases Comparison: formula="x^2 - 4; x^2; x^2 + 4"
+  Mafs automatically plots all curves together with clean white chalkboard styling, distinct color coding (Royal Blue, Crimson Red, Emerald Green), and automatically marks their intersection points!
 
 ========================================================================================
 STRICT SOCRATIC CADENCE & 4-6 EXAM QUESTION PROGRESSION GATING:
@@ -3212,6 +3230,7 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
                   moduleId: activeModule?.id,
                   conceptIndex: currentConceptIndexRef.current,
                   conceptTitle: targetConceptTitle,
+                  animationType: 'moving_points_and_pulsing_glow',
                   isLiveClass: true,
                   source: 'live_classroom',
                 }),
@@ -3261,6 +3280,7 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
                   moduleId: activeModule?.id,
                   conceptIndex: 0,
                   conceptTitle: targetConceptTitle,
+                  animationType: 'moving_points_and_pulsing_glow',
                   isLiveClass: true,
                   source: 'live_classroom',
                 }),
@@ -3314,6 +3334,7 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
                 moduleId: activeModule?.id,
                 conceptIndex: currentConceptIndexRef.current,
                 conceptTitle: targetConceptTitle,
+                animationType: 'moving_points_and_pulsing_glow',
                 isLiveClass: true,
                 source: 'live_classroom',
               }),

@@ -291,7 +291,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
 
         {/* MODE A: Docked Side-Panel Inside the Chalkboard (Right 45% of workspace) */}
         {hasDockedGraph && activeGraph && (
-          <div className="relative w-full sm:w-[460px] md:w-[480px] lg:w-[520px] h-full shrink-0 border-l-2 border-[#233930] bg-[#111C16] shadow-2xl flex flex-col z-20 animate-in slide-in-from-right duration-300">
+          <div className="relative w-full sm:w-[460px] md:w-[480px] lg:w-[520px] h-full shrink-0 border-l-2 border-[#E2E8F0] bg-[#FFFFFF] shadow-2xl flex flex-col z-20 animate-in slide-in-from-right duration-300">
             <MafsGraphCanvas
               formula={activeGraph.formula}
               domain={activeGraph.domain}
@@ -312,7 +312,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
             drag
             dragMomentum={false}
             dragElastic={0.05}
-            className="absolute top-12 right-6 z-30 w-[92vw] max-w-[500px] h-[450px] shadow-[0_25px_60px_rgba(0,0,0,0.55)] cursor-default animate-in fade-in zoom-in-95 duration-200"
+            className="absolute top-12 right-6 z-30 w-[92vw] max-w-[500px] h-[450px] shadow-[0_25px_60px_rgba(15,23,42,0.18)] cursor-default animate-in fade-in zoom-in-95 duration-200"
           >
             <MafsGraphCanvas
               formula={activeGraph.formula}
@@ -330,7 +330,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
 
         {/* MODE C: Maximized Full-Chalkboard Graph Viewport */}
         {activeGraph && graphMode === 'maximized' && (
-          <div className="absolute inset-2 z-40 rounded-2xl overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.65)] animate-in fade-in zoom-in-95 duration-200">
+          <div className="absolute inset-2 z-40 rounded-2xl overflow-hidden shadow-[0_25px_70px_rgba(15,23,42,0.22)] animate-in fade-in zoom-in-95 duration-200">
             <MafsGraphCanvas
               formula={activeGraph.formula}
               domain={activeGraph.domain}
@@ -349,14 +349,14 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
         {activeGraph && graphMode === 'minimized' && (
           <button
             onClick={() => setGraphMode('docked')}
-            className="absolute top-14 right-4 z-30 flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#111C16] border border-[#233930] shadow-xl text-emerald-100 hover:bg-[#172720] transition-all cursor-pointer group animate-in fade-in"
+            className="absolute top-14 right-4 z-30 flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#FFFFFF] border border-[#CBD5E1] shadow-xl text-[#0F172A] hover:bg-[#F8FAFC] transition-all cursor-pointer group animate-in fade-in"
             title="Expand mathematical graph"
           >
-            <Activity className="w-4 h-4 text-sky-400 group-hover:rotate-12 transition-transform" />
+            <Activity className="w-4 h-4 text-[#2563EB] group-hover:rotate-12 transition-transform" />
             <span className="text-xs font-semibold font-mono">
               Graph: y = {activeGraph.formula}
             </span>
-            <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800/60 font-mono">
+            <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE] font-mono font-bold">
               Expand
             </span>
           </button>

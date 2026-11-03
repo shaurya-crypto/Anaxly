@@ -854,12 +854,17 @@ export default function AdminPortalPage() {
       }
 
       setSuccessMsg(
-        `Successfully persisted ${json.insertedCurriculumsCount} chapters and ${json.insertedModulesCount} capsules to Supabase database.`
+        `Successfully persisted ${json.insertedCurriculumsCount} chapters and ${json.insertedModulesCount} capsules to Supabase database. Auto-refining chalkboard visuals with Tier 2 best model in background...`
       )
+      const firstChapter = json.chapters?.[0]
       setPreviewData(null)
       setSelectedFile(null)
       setRawText('')
       await fetchCurriculumsLibrary()
+
+      if (firstChapter?.id) {
+        handleRefineChapterVisuals(firstChapter.id, firstChapter.title)
+      }
     } catch (err: any) {
       console.error('Commit error:', err)
       setErrorMsg(err?.message || 'Failed to save chapters to database.')
@@ -956,12 +961,17 @@ export default function AdminPortalPage() {
         setSuccessMsg(
           `Successfully ingested book chapter and saved ${json.capsulesCount} capsules for "${json.chapterTitle}". ${
             json.geminiCacheName ? 'Gemini Context Cache enabled.' : ''
-          }`
+          } Auto-refining chalkboard visuals with Tier 2 best model in background...`
         )
         setNotesRawText('')
         setNotesFile(null)
         setNotesNewChapterTitle('')
         await fetchCurriculumsLibrary()
+
+        // Automatically trigger Tier 2 visual refinement so user does not need to click Refine manually
+        if (json.curriculumId) {
+          handleRefineChapterVisuals(json.curriculumId, json.chapterTitle)
+        }
       }
     } catch (err: any) {
       console.error('Chapter notes error:', err)
@@ -1095,11 +1105,19 @@ export default function AdminPortalPage() {
         throw new Error(json.error || 'Failed to save synthesized capsules.')
       }
 
+      const committedCurriculumId = json.curriculumId || chapterPreviewData.curriculumId
+      const committedTitle = chapterPreviewData.chapterTitle
+
       setSuccessMsg(
-        `Successfully saved ${chapterPreviewData.capsules.length} capsules for "${chapterPreviewData.chapterTitle}" to database!`
+        `Successfully saved ${chapterPreviewData.capsules.length} capsules for "${committedTitle}" to database! Auto-refining chalkboard visuals with Tier 2 best model in background...`
       )
       setChapterPreviewData(null)
       await fetchCurriculumsLibrary()
+
+      // Automatically trigger Tier 2 visual refinement so user does not need to click Refine manually
+      if (committedCurriculumId) {
+        handleRefineChapterVisuals(committedCurriculumId, committedTitle)
+      }
     } catch (err: any) {
       setErrorMsg(err?.message || 'Failed to commit chapter capsules.')
     } finally {
@@ -1147,7 +1165,13 @@ export default function AdminPortalPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ curriculumId, force: true }),
       })
-      const data = await res.json()
+      const text = await res.text()
+      let data: any = {}
+      try {
+        data = JSON.parse(text)
+      } catch {
+        throw new Error(text.slice(0, 140) || 'Server returned non-JSON response.')
+      }
       if (!res.ok || !data.success) {
         throw new Error(data.error || 'Failed to refine chapter visuals.')
       }

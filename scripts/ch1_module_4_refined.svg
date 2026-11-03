@@ -1,0 +1,64 @@
+<svg viewBox="0 0 540 280" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+  <defs>
+    <!-- Arrow marker for transformation steps -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0F172A"/>
+    </marker>
+  </defs>
+
+  <!-- Canvas backdrop -->
+  <rect x="4" y="4" width="532" height="272" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+
+  <!-- Header pill badge -->
+  <rect x="110" y="12" width="320" height="22" rx="6" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="270" y="27" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="bold" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif">
+    Isolating the Irrational
+  </text>
+
+  <!-- Initial Equation -->
+  <text x="270" y="70" text-anchor="middle" fill="#0F172A" font-size="16" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif">
+    5 - √3 = <tspan font-style="italic">a</tspan>/<tspan font-style="italic">b</tspan>
+  </text>
+
+  <!-- Transformation arrow and label -->
+  <path d="M270 85 V110" stroke="#0F172A" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="270" y="95" text-anchor="middle" fill="#64748B" font-size="10" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif">
+    Rearrange
+  </text>
+
+  <!-- Transformed Equation -->
+  <text x="270" y="135" text-anchor="middle" fill="#0F172A" font-size="16" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif">
+    √3 = 5 - <tspan font-style="italic">a</tspan>/<tspan font-style="italic">b</tspan>
+  </text>
+
+  <!-- Callout for Left Side (Irrational) -->
+  <circle cx="235" cy="130" r="2.5" fill="#2563EB"/>
+  <polyline points="235,130 180,130 180,145" fill="none" stroke="#94A3B8" stroke-width="1"/>
+  <text x="180" y="160" text-anchor="end" fill="#DC2626" font-size="12" font-weight="bold" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif">
+    Irrational
+  </text>
+  <text x="180" y="175" text-anchor="end" fill="#64748B" font-size="10" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif">
+    (Cannot be expressed as p/q)
+  </text>
+
+  <!-- Callout for Right Side (Rational) -->
+  <circle cx="305" cy="130" r="2.5" fill="#2563EB"/>
+  <polyline points="305,130 360,130 360,145" fill="none" stroke="#94A3B8" stroke-width="1"/>
+  <text x="360" y="160" text-anchor="start" fill="#16A34A" font-size="12" font-weight="bold" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif">
+    Rational
+  </text>
+  <text x="360" y="175" text-anchor="start" fill="#64748B" font-size="10" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif">
+    (Difference of two rational numbers)
+  </text>
+  <text x="360" y="190" text-anchor="start" fill="#64748B" font-size="10" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif">
+    (Since 'a' and 'b' are integers, b≠0)
+  </text>
+
+  <!-- The Contradiction Statement -->
+  <text x="270" y="225" text-anchor="middle" fill="#DC2626" font-size="14" font-weight="bold" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif">
+    [Irrational] = [Rational]
+  </text>
+  <text x="270" y="250" text-anchor="middle" fill="#0F172A" font-size="16" font-weight="bold" font-family="'JetBrains Mono', 'Segoe UI', system-ui, sans-serif">
+    This is a Contradiction!
+  </text>
+</svg>

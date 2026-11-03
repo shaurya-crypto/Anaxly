@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { generateOrRefineDiagramWithTier2 } from '@/services/tier2DiagramRefiner'
 
+export const maxDuration = 300
+export const dynamic = 'force-dynamic'
+
 export async function POST(req: Request) {
   try {
     const body = await req.json().catch(() => ({}))

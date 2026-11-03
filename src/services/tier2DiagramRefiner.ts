@@ -65,23 +65,30 @@ CRITICAL VECTOR DESIGN SPECIFICATIONS (WHITE CHALKBOARD / ARISTOTLE & GAUTH BENC
    - Labels on the right side: anchor at x >= 400 (text-anchor="start").
    - Labels on the left side: anchor at x <= 140 (text-anchor="end").
 
-3. UNIVERSAL VISUAL MODALITY CAPABILITIES:
-   - EDUCATIONAL IMAGES & SCHEMATIC DIAGRAMS:
-     * Biology / Anatomy: Realistic morphological ultrastructures (cell organelles, xylem/phloem, motor neurons, shoot apex meristems, articulating joints).
-     * Physics / Ray Optics: Precise rays, angles of incidence/reflection, focal points, virtual vs real images.
-     * Circuits: Professional IEEE standard circuit schematics (resistors, switches, DC cells, ammeters, voltmeters).
-   - PROCEDURAL & DYNAMIC ANIMATIONS (Self-Contained in SVG):
-     * For dynamic physical, chemical, or biological processes, include fluid, performant CSS animations in <style> or SVG <animate>/<animateTransform>.
-     * Electric Current & Electron Flow: Animated dashed lines (stroke-dasharray="6,4", @keyframes flow { to { stroke-dashoffset: -20; } }) showing actual current flowing through conductors.
-     * Wave Propagation & Oscillations: Harmonic sinusoidal phase shifts or oscillating marker beads.
-     * Particle Trajectories & Kinematics: Smooth translation of position marker along curved motion paths.
-     * Biochemical Transport / Pulses: Pulsing gradients or directional flow along pathways.
-     * Keep animations clean, lightweight, and strictly self-contained (no external JavaScript).
+3. UNIVERSAL VISUAL MODALITY CAPABILITIES & MANDATORY DYNAMIC MOTION:
+   - MANDATORY CSS ANIMATIONS & DYNAMIC MOTION (STRICTLY REQUIRED FOR EVERY VISUALISATION):
+     * Every SVG MUST contain an internal <defs><style>...</style></defs> block with fluid, performant CSS animations (@keyframes) or SVG <animate>/<animateMotion>.
+     * Completely static SVGs without motion are strictly forbidden.
+     * Specific animation requirements by visual type:
+       a) Mathematical & Kinematic Graphs:
+          - MOVING TRACE POINT: An animated point marker (<circle>) that continuously glides along the plotted curve/parabola/line using <animateMotion path="..." dur="4s" repeatCount="indefinite" /> or CSS translation.
+          - PULSING ZEROES / INTERCEPT RINGS: Key roots, intercepts, extrema, and vertices MUST have breathing/pulsing concentric rings (@keyframes pulseZero { 0%, 100% { r: 5; opacity: 0.9; } 50% { r: 9; opacity: 0.25; } }).
+          - FLOWING DASHES: Axis of symmetry, asymptotes, or projection lines MUST have animated dash offset (@keyframes flowDash { to { stroke-dashoffset: -16; } }).
+       b) Physics & Chemical Processes:
+          - Electric current & electron flow: animated dashed lines (stroke-dasharray="6,4", animation: flowDash 1.5s linear infinite).
+          - Ray optics & wave propagation: moving wave fronts or harmonic marker beads.
+          - Particle trajectories: smooth translation along motion paths.
+       c) Biological & Anatomical ultrastructures:
+          - Pulsing glow on vital focus regions (organelles, shoot/root apical meristems, articulating nodes).
+          - Directional nutrient or signaling transport pulses along vascular or pathway tracks.
+       d) Flowcharts & Algorithmic Deductions:
+          - Animated pulses traveling along connecting arrows from premise to conclusion.
+     * Keep animations smooth, lightweight, and strictly self-contained (no external JavaScript).
    - MATHEMATICAL & KINEMATIC FUNCTION GRAPHS (Desmos & Aristotle Benchmark):
      * Balanced Cartesian grid with numbered tick marks and coordinate labels.
      * Accurately plotted function curves (parabolas, linear functions, sine curves, velocity-time slopes).
      * Marked intercepts, extrema, roots, and slope triangles (Delta y / Delta x).
-     * Clear algebraic formula callout badge (e.g. y = x^2 - 4 or v(t) = u + at).
+     * Clear algebraic formula callout badge (e.g. y = x^2 - 3x - 4 or v(t) = u + at).
 
 4. STRICT VISUAL-ONLY INVARIANT:
    - You refine and generate ONLY the visual graphic vector markup (<svg>).
@@ -123,7 +130,10 @@ ${input.existingSvg}
 
 REFINEMENT INSTRUCTIONS:
 - Retain the pedagogical concept while dramatically elevating vector draftsmanship, precision curves, anatomical or geometric accuracy, and clean symmetrical callouts.
-- If the visual is a dynamic process (circuit, wave, particle motion, transport), incorporate self-contained fluid CSS keyframe animations (<style>@keyframes ...</style>) into the SVG.
+- MANDATORY CSS ANIMATION INVARIANT: You MUST incorporate fluid CSS keyframe animations (<style>@keyframes ...</style>) into the SVG:
+  * If a graph: include a moving/tracing point (<circle>) traveling along the curve, breathing/pulsing concentric rings at zeroes/intercepts/roots, and flowing dashed lines for symmetry axes.
+  * If a process or system: include flowing dashed lines, pulsing focus points, and motion paths.
+  * Completely static SVGs without animation are strictly forbidden.
 - If the visual is a graph or function plot, accurately plot the coordinate plane, labeled ticks, curves, intercepts, and equation badge.
 - Refine ONLY the visual graphic markup. Do NOT generate or alter narrative notes or curriculum text.
 - Keep the background pure white (#FFFFFF).
@@ -140,8 +150,11 @@ ${input.whyNeeded ? `Why Needed: "${input.whyNeeded}"` : ''}
 ${input.whatToExplain ? `What to Explain: "${input.whatToExplain}"` : ''}
 ${input.whatToMake ? `What to Make: "${input.whatToMake}"` : ''}
 
-Refine ONLY the visual graphic markup. Do NOT generate or alter narrative notes or curriculum text.
-Return ONLY the raw <svg viewBox="0 0 540 280" ...>...</svg> element with pure white (#FFFFFF) chalkboard canvas.`
+MANDATORY CSS ANIMATION INVARIANT:
+- You MUST incorporate fluid CSS keyframe animations (<style>@keyframes ...</style>) into the SVG (moving/tracing point along curve, pulsing rings at critical zeroes/roots, flowing dashed strokes).
+- Completely static drawings without motion are strictly forbidden.
+- Refine ONLY the visual graphic markup. Do NOT generate or alter narrative notes or curriculum text.
+- Return ONLY the raw <svg viewBox="0 0 540 280" ...>...</svg> element with pure white (#FFFFFF) chalkboard canvas.`
 
   const isLive = Boolean(input.isLiveClass || input.source === 'live_classroom')
   const preferredModels = isLive

@@ -50,7 +50,7 @@ export async function POST(req: Request) {
       whatToExplain = '',
       whatToMake = '',
       visualType = '',
-      animationType = '',
+      animationType = 'moving_points_and_pulsing_glow',
       interactiveMathFormula = '',
       moduleId,
       conceptIndex,

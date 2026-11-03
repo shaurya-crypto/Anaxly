@@ -1,0 +1,68 @@
+<svg viewBox="0 0 540 280" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+  <!-- Canvas Backdrop -->
+  <rect x="4" y="4" width="532" height="272" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  
+  <!-- Subtle Grid -->
+  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#F1F5F9" stroke-width="0.75"/>
+  </pattern>
+  <rect x="4" y="4" width="532" height="272" rx="8" fill="url(#grid)"/>
+
+  <!-- Header Pill Badge -->
+  <rect x="110" y="12" width="320" height="22" rx="6" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="270" y="27" text-anchor="middle" fill="#0F172A" font-size="11" font-weight="bold" font-family="'JetBrains Mono', 'Segoe UI', sans-serif">PRIME FACTORIZATION: HCF &amp; LCM OF (6, 20)</text>
+
+  <!-- Venn Diagram Circles with Subtle Fills -->
+  <!-- Set A: Factors of 6 -->
+  <circle cx="215" cy="145" r="75" fill="#2563EB" fill-opacity="0.03" stroke="#2563EB" stroke-width="2" stroke-dasharray="2,1"/>
+  <!-- Set B: Factors of 20 -->
+  <circle cx="325" cy="145" r="75" fill="#DC2626" fill-opacity="0.03" stroke="#DC2626" stroke-width="2" stroke-dasharray="2,1"/>
+
+  <!-- Intersection Highlight (HCF Area) -->
+  <path d="M 270,85 A 75,75 0 0,1 270,205 A 75,75 0 0,1 270,85" fill="#F59E0B" fill-opacity="0.15" stroke="#D97706" stroke-width="1.5"/>
+
+  <!-- Prime Factors Placement -->
+  <!-- Factors unique to 6: {3} -->
+  <text x="175" y="150" fill="#2563EB" font-family="'JetBrains Mono', monospace" font-size="18" font-weight="bold" text-anchor="middle">3</text>
+  
+  <!-- Common Factors (Intersection): {2} -->
+  <text x="270" y="150" fill="#D97706" font-family="'JetBrains Mono', monospace" font-size="20" font-weight="bold" text-anchor="middle">2</text>
+  
+  <!-- Factors unique to 20: {2, 5} -->
+  <text x="355" y="135" fill="#DC2626" font-family="'JetBrains Mono', monospace" font-size="18" font-weight="bold" text-anchor="middle">2</text>
+  <text x="355" y="165" fill="#DC2626" font-family="'JetBrains Mono', monospace" font-size="18" font-weight="bold" text-anchor="middle">5</text>
+
+  <!-- Set Labels -->
+  <text x="160" y="65" fill="#2563EB" font-family="system-ui" font-size="12" font-weight="bold">Set A (6)</text>
+  <text x="340" y="65" fill="#DC2626" font-family="system-ui" font-size="12" font-weight="bold">Set B (20)</text>
+
+  <!-- Callouts & Pointers -->
+  <!-- HCF Callout (Left) -->
+  <circle cx="270" cy="145" r="2.5" fill="#2563EB"/>
+  <polyline points="270,145 270,230 140,230" fill="none" stroke="#94A3B8" stroke-width="1"/>
+  <text x="135" y="225" text-anchor="end" fill="#0F172A" font-family="system-ui" font-size="11" font-weight="bold">HCF (Highest Common Factor)</text>
+  <text x="135" y="240" text-anchor="end" fill="#64748B" font-family="'JetBrains Mono'" font-size="10">Intersection: {2} = 2</text>
+
+  <!-- LCM Callout (Right) -->
+  <path d="M 140,145 Q 270,40 400,145" fill="none" stroke="#16A34A" stroke-width="1" stroke-dasharray="4,2"/>
+  <circle cx="175" cy="145" r="2" fill="#16A34A"/>
+  <circle cx="355" cy="145" r="2" fill="#16A34A"/>
+  <polyline points="355,145 400,145 400,230" fill="none" stroke="#94A3B8" stroke-width="1"/>
+  <text x="405" y="225" text-anchor="start" fill="#0F172A" font-family="system-ui" font-size="11" font-weight="bold">LCM (Least Common Multiple)</text>
+  <text x="405" y="240" text-anchor="start" fill="#64748B" font-family="'JetBrains Mono'" font-size="10">Union: 3 × 2 × 2 × 5 = 60</text>
+
+  <!-- Formula Badges -->
+  <rect x="190" y="250" width="160" height="18" rx="4" fill="#F1F5F9" stroke="#E2E8F0"/>
+  <text x="270" y="263" text-anchor="middle" fill="#0F172A" font-family="'JetBrains Mono'" font-size="9">HCF(a,b) × LCM(a,b) = a × b</text>
+
+  <!-- Animation for "Union" concept -->
+  <style>
+    @keyframes pulse-union {
+      0%, 100% { stroke-opacity: 0.3; }
+      50% { stroke-opacity: 1; }
+    }
+    .lcm-path {
+      animation: pulse-union 3s infinite ease-in-out;
+    }
+  </style>
+</svg>
