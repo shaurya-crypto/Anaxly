@@ -130,7 +130,7 @@ export function StudyPlannerCard({
   ]
 
   return (
-    <section className="bg-surface rounded-3xl border border-border-subtle p-7 md:p-8 diffused-card-shadow space-y-6 w-full">
+    <section className="bg-surface rounded-3xl border border-border-subtle p-7 md:p-8 shadow-soft space-y-6 w-full">
       {/* Header Row */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border-subtle/80 pb-5">
         <div className="flex items-center gap-3.5">
@@ -139,14 +139,14 @@ export function StudyPlannerCard({
           </div>
           <div>
             <div className="flex items-center gap-2.5">
-              <h3 className="font-headline-md text-headline-md text-ink-primary font-serif leading-none tracking-tight">
+              <h3 className="font-editorial text-2xl text-ink-primary leading-tight tracking-tight">
                 Adaptive Exam Study Planner
               </h3>
-              <span className="hidden sm:inline-flex px-2.5 py-0.5 rounded-full text-label-micro bg-primary/10 text-primary font-semibold border border-primary/20">
+              <span className="hidden sm:inline-flex px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-primary/10 text-primary border border-primary/20">
                 15-Min Dynamic Balancing
               </span>
             </div>
-            <p className="font-body-md text-body-md text-ink-secondary text-sm mt-1">
+            <p className="text-sm text-ink-secondary mt-1 leading-relaxed">
               Dynamic syllabus distribution balancing remaining capsules against target exam countdown.
             </p>
           </div>
@@ -156,7 +156,7 @@ export function StudyPlannerCard({
           <button
             type="button"
             onClick={() => setModalOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-border-subtle bg-surface hover:bg-canvas text-ink-primary font-label-md text-xs transition-colors cursor-pointer shadow-2xs"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-border-subtle bg-surface hover:bg-canvas-soft text-ink-primary text-xs font-medium transition-colors cursor-pointer shadow-xs"
           >
             <Settings className="w-3.5 h-3.5 text-ink-muted" />
             <span>Customize Schedule</span>
@@ -168,19 +168,19 @@ export function StudyPlannerCard({
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Metric 1: Exam Countdown */}
         <div className="p-4 bg-canvas rounded-2xl border border-border-subtle flex flex-col justify-between">
-          <span className="font-label-md text-sm text-ink-muted font-medium block">
+          <span className="text-xs text-ink-muted font-medium block">
             Exam Countdown
           </span>
           <div className="mt-3">
             <div className="flex items-baseline gap-1.5">
-              <span className="text-2xl font-semibold text-ink-primary tracking-tight font-label-md leading-none">
+              <span className="text-2xl font-semibold tabular-nums text-ink-primary tracking-tight leading-none">
                 {daysRemaining}
               </span>
-              <span className="text-xs text-primary font-semibold font-label-micro">
+              <span className="text-xs font-mono text-primary font-medium">
                 Days Left
               </span>
             </div>
-            <p className="font-label-micro text-label-micro text-ink-secondary text-xs mt-1.5 leading-tight truncate">
+            <p className="text-xs font-mono text-ink-secondary mt-1.5 leading-tight truncate">
               Target: {new Date(targetDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
             </p>
           </div>
@@ -188,19 +188,19 @@ export function StudyPlannerCard({
 
         {/* Metric 2: Remaining Capsules */}
         <div className="p-4 bg-canvas rounded-2xl border border-border-subtle flex flex-col justify-between">
-          <span className="font-label-md text-sm text-ink-muted font-medium block">
+          <span className="text-xs text-ink-muted font-medium block">
             Remaining Capsules
           </span>
           <div className="mt-3">
             <div className="flex items-baseline gap-1.5">
-              <span className="text-2xl font-semibold text-ink-primary tracking-tight font-label-md leading-none">
+              <span className="text-2xl font-semibold tabular-nums text-ink-primary tracking-tight leading-none">
                 {remainingCapsules}
               </span>
-              <span className="text-xs text-ink-muted font-medium font-label-micro">
+              <span className="text-xs font-mono text-ink-muted font-medium">
                 / {totalModulesCount} total
               </span>
             </div>
-            <div className="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden mt-2">
+            <div className="w-full h-1.5 rounded-full bg-border-subtle overflow-hidden mt-2">
               <div
                 className="h-full bg-secondary rounded-full transition-all duration-500 ease-out"
                 style={{ width: `${percentComplete}%` }}
@@ -211,19 +211,19 @@ export function StudyPlannerCard({
 
         {/* Metric 3: Daily Target Pace */}
         <div className="p-4 bg-canvas rounded-2xl border border-border-subtle flex flex-col justify-between">
-          <span className="font-label-md text-sm text-ink-muted font-medium block">
+          <span className="text-xs text-ink-muted font-medium block">
             Daily Study Budget
           </span>
           <div className="mt-3">
             <div className="flex items-baseline gap-1.5">
-              <span className="text-2xl font-semibold text-ink-primary tracking-tight font-label-md leading-none">
+              <span className="text-2xl font-semibold tabular-nums text-ink-primary tracking-tight leading-none">
                 {dailyStudyMinutes}
               </span>
-              <span className="text-xs text-ink-muted font-medium font-label-micro">
+              <span className="text-xs font-mono text-ink-muted font-medium">
                 min/day
               </span>
             </div>
-            <p className="font-label-micro text-label-micro text-secondary text-xs mt-1.5 leading-tight font-medium">
+            <p className="text-xs text-secondary mt-1.5 leading-tight font-medium">
               {dailyCapsuleCapacity} capsule{dailyCapsuleCapacity > 1 ? 's' : ''} per session
             </p>
           </div>
@@ -231,28 +231,28 @@ export function StudyPlannerCard({
 
         {/* Metric 4: Feasibility Status */}
         <div className="p-4 bg-canvas rounded-2xl border border-border-subtle flex flex-col justify-between">
-          <span className="font-label-md text-sm text-ink-muted font-medium block">
+          <span className="text-xs text-ink-muted font-medium block">
             Pacing Health
           </span>
           <div className="mt-3">
             <div className="flex items-center gap-1.5">
               {isOnTrack ? (
                 <>
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
-                  <span className="text-sm font-semibold text-emerald-700 font-label-md">
+                  <CheckCircle2 className="w-5 h-5 text-accent-sage shrink-0" />
+                  <span className="text-sm font-semibold text-accent-sage">
                     On Schedule
                   </span>
                 </>
               ) : (
                 <>
                   <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />
-                  <span className="text-sm font-semibold text-amber-700 font-label-md">
+                  <span className="text-sm font-semibold text-amber-700">
                     Pacing Warning
                   </span>
                 </>
               )}
             </div>
-            <p className="font-label-micro text-label-micro text-ink-secondary text-xs mt-1.5 leading-tight">
+            <p className="text-xs text-ink-secondary mt-1.5 leading-tight">
               {isOnTrack
                 ? `${bufferDays} buffer days before exam`
                 : `Need ${requiredMinutesPerDay} min/day to finish`}
@@ -265,19 +265,19 @@ export function StudyPlannerCard({
       <div
         className={`p-4 rounded-2xl border transition-all ${
           isOnTrack
-            ? 'bg-emerald-500/5 border-emerald-500/20 text-emerald-950'
-            : 'bg-amber-500/10 border-amber-500/25 text-amber-950'
+            ? 'bg-accent-sage-soft/70 border-accent-sage-border text-ink-primary'
+            : 'bg-amber-50 border-amber-200 text-amber-950'
         }`}
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-start gap-3">
             {isOnTrack ? (
-              <TrendingUp className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+              <TrendingUp className="w-5 h-5 text-accent-sage shrink-0 mt-0.5" />
             ) : (
               <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
             )}
             <div>
-              <h4 className="text-sm font-semibold font-label-md">
+              <h4 className="text-sm font-semibold text-ink-primary">
                 {isOnTrack ? 'Cadence Health: Optimal' : 'Adaptive Rebalance Alert: Time Deficit Detected'}
               </h4>
               <p className="text-xs text-ink-secondary mt-0.5 leading-relaxed">
@@ -297,7 +297,7 @@ export function StudyPlannerCard({
               <Link
                 href={`/dashboard/${userId}/class/${nextModuleId}`}
                 onClick={(e) => onModuleClick?.(e, nextModuleId)}
-                className="inline-flex items-center gap-1.5 bg-primary hover:bg-accent-hover text-white font-label-md text-xs px-4 py-2 rounded-xl transition-all shadow-xs"
+                className="inline-flex items-center gap-1.5 bg-primary hover:bg-accent-primary-hover text-white text-xs font-medium px-4 py-2 rounded-xl transition-colors shadow-xs"
               >
                 <span>Start Today's Capsule</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -311,10 +311,10 @@ export function StudyPlannerCard({
       <Dialog open={modalOpen} onOpenChange={setModalOpen}>
         <DialogContent className="sm:max-w-[480px] bg-surface border border-border-subtle rounded-2xl p-6 text-ink-primary shadow-xl">
           <DialogHeader>
-            <DialogTitle className="font-headline-md text-headline-md text-ink-primary font-serif">
+            <DialogTitle className="font-editorial text-2xl text-ink-primary">
               Customize Study Schedule
             </DialogTitle>
-            <DialogDescription className="font-body-md text-ink-secondary text-xs">
+            <DialogDescription className="text-xs text-ink-secondary">
               Set your target exam date and daily study budget. The adaptive engine will recalculate daily capsule goals.
             </DialogDescription>
           </DialogHeader>
@@ -347,7 +347,7 @@ export function StudyPlannerCard({
                     onClick={() => setDailyMinutesInput(opt.minutes)}
                     className={`flex items-center justify-between p-3 rounded-xl border text-xs text-left transition-all cursor-pointer ${
                       dailyMinutesInput === opt.minutes
-                        ? 'bg-primary/10 border-primary text-primary font-semibold'
+                        ? 'bg-accent-primary-soft border-primary text-primary font-semibold'
                         : 'bg-canvas border-border-subtle text-ink-secondary hover:border-ink-muted'
                     }`}
                   >

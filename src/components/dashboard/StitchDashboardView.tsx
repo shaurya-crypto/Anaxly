@@ -928,14 +928,14 @@ export function StitchDashboardView({
             <div className="lg:col-span-12 space-y-4">
               <div className="flex items-baseline justify-between">
                 <div>
-                  <h3 className="font-headline-md text-headline-md text-ink-primary">
+                  <h3 className="font-editorial text-2xl text-ink-primary leading-tight">
                     Today's Learning Plan
                   </h3>
-                  <p className="font-body-md text-body-md text-ink-secondary">
+                  <p className="text-sm text-ink-secondary mt-0.5">
                     Prioritized tasks to maintain academic cadence.
                   </p>
                 </div>
-                <span className="font-label-md text-sm text-ink-muted font-medium">
+                <span className="text-xs font-mono text-ink-muted font-medium">
                   {activeModule ? '3 of 3 Pending' : '0 Pending'}
                 </span>
               </div>
@@ -943,24 +943,24 @@ export function StitchDashboardView({
               {activeModule ? (
                 <div className="space-y-3.5">
                   {/* Task 1: Lesson */}
-                  <div className="group bg-surface rounded-2xl border border-border-subtle p-5 md:p-6 transition-all hover:border-ink-muted flex flex-col sm:flex-row sm:items-center justify-between gap-4 diffused-card-shadow">
+                  <div className="group bg-surface rounded-2xl border border-border-subtle p-5 md:p-6 transition-all hover:border-ink-muted flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-soft">
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-xl bg-surface-container-low border border-border-subtle flex items-center justify-center text-primary flex-shrink-0 mt-0.5">
                         <span className="material-symbols-outlined text-xl">menu_book</span>
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="font-label-md text-sm text-primary font-medium">
+                          <span className="text-xs font-medium text-primary uppercase tracking-wide">
                             Lesson
                           </span>
                           <span className="text-ink-muted text-xs">
                             • Est. {activeModule.estimated_minutes || 20} min
                           </span>
                         </div>
-                        <h4 className="font-headline-sm text-headline-sm text-ink-primary mt-0.5 group-hover:text-primary transition-colors">
+                        <h4 className="text-base font-semibold text-ink-primary mt-0.5 group-hover:text-primary transition-colors">
                           Complete {activeModule.title}
                         </h4>
-                        <p className="font-body-md text-body-md text-ink-secondary text-sm mt-0.5">
+                        <p className="text-sm text-ink-secondary mt-0.5 leading-relaxed">
                           {activeModule.description || 'Core instructional module review with Anaxly.'}
                         </p>
                       </div>
@@ -968,29 +968,29 @@ export function StitchDashboardView({
                     <Link
                       href={activeModule?.id ? `/dashboard/${user.id}/class/${activeModule.id}` : `/dashboard/${user.id}/class`}
                       onClick={(e) => handleModuleClick(e, activeModule?.id)}
-                      className="sm:self-center flex-shrink-0 px-5 py-2.5 rounded-xl bg-primary hover:bg-accent-hover text-white font-semibold font-label-md text-label-md transition-colors scale-[0.98] text-center"
+                      className="sm:self-center flex-shrink-0 px-5 py-2.5 rounded-xl bg-primary hover:bg-accent-hover text-white font-medium text-sm transition-colors text-center shadow-xs"
                     >
                       Continue
                     </Link>
                   </div>
 
                   {/* Task 2: Practice & 10 MCQs Mastery */}
-                  <div className="group bg-surface rounded-2xl border border-border-subtle p-5 md:p-6 transition-all hover:border-ink-muted flex flex-col sm:flex-row sm:items-center justify-between gap-4 diffused-card-shadow">
+                  <div className="group bg-surface rounded-2xl border border-border-subtle p-5 md:p-6 transition-all hover:border-ink-muted flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-soft">
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-xl bg-surface-container-low border border-border-subtle flex items-center justify-center text-secondary flex-shrink-0 mt-0.5">
                         <span className="material-symbols-outlined text-xl">psychology_alt</span>
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="font-label-md text-sm text-secondary font-medium">
+                          <span className="text-xs font-medium text-secondary uppercase tracking-wide">
                             Mastery Evaluation
                           </span>
                           <span className="text-ink-muted text-xs">• 10 Gemini MCQs • Advances Syllabus Progress</span>
                         </div>
-                        <h4 className="font-headline-sm text-headline-sm text-ink-primary mt-0.5 group-hover:text-secondary transition-colors">
+                        <h4 className="text-base font-semibold text-ink-primary mt-0.5 group-hover:text-secondary transition-colors">
                           10 Mastery Questions: {activeModule.title}
                         </h4>
-                        <p className="font-body-md text-body-md text-ink-secondary text-sm mt-0.5">
+                        <p className="text-sm text-ink-secondary mt-0.5 leading-relaxed">
                           Direct test on core textbook formulas and principles. Scoring 70%+ completes this capsule and unlocks the next section.
                         </p>
                       </div>
@@ -998,26 +998,26 @@ export function StitchDashboardView({
                     <button
                       id="open-quiz-btn"
                       onClick={() => setQuizModalOpen(true)}
-                      className="sm:self-center flex-shrink-0 px-6 py-2.5 rounded-xl bg-secondary/15 hover:bg-secondary/25 text-secondary font-label-md text-label-md font-semibold transition-colors text-center cursor-pointer border border-secondary/20 shadow-xs active:scale-95"
+                      className="sm:self-center flex-shrink-0 px-6 py-2.5 rounded-xl bg-secondary/10 hover:bg-secondary/20 text-secondary text-sm font-semibold transition-colors text-center cursor-pointer border border-secondary/20 shadow-xs active:scale-95"
                     >
                       Take 10 MCQs
                     </button>
                   </div>
 
                   {/* Task 3: Review */}
-                  <div className="group bg-surface rounded-2xl border border-border-subtle p-5 md:p-6 transition-all hover:border-ink-muted flex flex-col sm:flex-row sm:items-center justify-between gap-4 diffused-card-shadow">
+                  <div className="group bg-surface rounded-2xl border border-border-subtle p-5 md:p-6 transition-all hover:border-ink-muted flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-soft">
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-xl bg-surface-container-low border border-border-subtle flex items-center justify-center text-ink-secondary flex-shrink-0 mt-0.5">
                         <span className="material-symbols-outlined text-xl">history_edu</span>
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="font-label-md text-sm text-ink-muted font-medium">
+                          <span className="text-xs font-medium text-ink-muted uppercase tracking-wide">
                             Review
                           </span>
                           <span className="text-ink-muted text-xs">• 5 min flash review</span>
                         </div>
-                        <h4 className="font-headline-sm text-headline-sm text-ink-primary mt-0.5">
+                        <h4 className="text-base font-semibold text-ink-primary mt-0.5">
                           {(() => {
                             const memorySnippet = (memories[0]?.memory_text || memories[0]?.content || '').trim()
                             return memorySnippet
@@ -1025,7 +1025,7 @@ export function StitchDashboardView({
                               : `Spaced Repetition: ${activeCourse.title} Concepts`
                           })()}
                         </h4>
-                        <p className="font-body-md text-body-md text-ink-secondary text-sm mt-0.5">
+                        <p className="text-sm text-ink-secondary mt-0.5 leading-relaxed">
                           Keep key concepts from your recent sessions fresh with a quick review.
                         </p>
                       </div>
@@ -1033,22 +1033,22 @@ export function StitchDashboardView({
                     <Link
                       href={`/dashboard/${user.id}/class?mode=review`}
                       onClick={(e) => handleModuleClick(e)}
-                      className="sm:self-center flex-shrink-0 px-5 py-2.5 rounded-xl border border-border-subtle bg-surface hover:bg-canvas text-ink-primary font-label-md text-label-md transition-colors text-center"
+                      className="sm:self-center flex-shrink-0 px-5 py-2.5 rounded-xl border border-border-subtle bg-surface hover:bg-canvas-soft text-ink-primary text-sm font-medium transition-colors text-center shadow-xs"
                     >
                       Quick Review
                     </Link>
                   </div>
                 </div>
               ) : (
-                <div className="p-8 text-center bg-surface rounded-2xl border border-border-subtle space-y-3">
+                <div className="p-8 text-center bg-surface rounded-2xl border border-border-subtle shadow-soft space-y-3">
                   <span className="material-symbols-outlined text-3xl text-ink-muted">playlist_add_check</span>
-                  <p className="font-headline-sm text-ink-primary">No Pending Tasks</p>
-                  <p className="font-body-md text-ink-secondary text-sm max-w-sm mx-auto">
+                  <p className="font-editorial text-xl text-ink-primary">No Pending Tasks</p>
+                  <p className="text-sm text-ink-secondary max-w-sm mx-auto">
                     Enroll in a curriculum to generate a personalized daily deliberate practice plan.
                   </p>
                   <button
                     onClick={() => setCoursesDialogOpen(true)}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-white font-semibold font-label-md text-sm hover:bg-accent-hover cursor-pointer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-white font-medium text-sm hover:bg-accent-hover cursor-pointer shadow-xs"
                   >
                     <span>Browse Courses</span>
                   </button>
@@ -1069,24 +1069,24 @@ export function StitchDashboardView({
           <section id="enrolled-subjects-section" className="space-y-5">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="font-headline-md text-headline-md text-ink-primary">
+                <h3 className="font-editorial text-2xl text-ink-primary leading-tight">
                   Enrolled Subjects
                 </h3>
-                <p className="font-body-md text-body-md text-ink-secondary">
+                <p className="text-sm text-ink-secondary mt-0.5">
                   Curriculum status across your active academic courses.
                 </p>
               </div>
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => setSyllabusModalOpen(true)}
-                  className="font-label-md text-label-md text-ink-secondary hover:text-ink-primary font-medium inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+                  className="text-xs text-ink-secondary hover:text-ink-primary font-medium inline-flex items-center gap-1.5 cursor-pointer transition-colors"
                 >
                   <span className="material-symbols-outlined text-base text-secondary">menu_book</span>
                   <span>Open Syllabus</span>
                 </button>
                 <button
                   onClick={() => setCoursesDialogOpen(true)}
-                  className="font-label-md text-label-md text-primary hover:text-accent-hover font-semibold inline-flex items-center gap-1 cursor-pointer"
+                  className="text-xs text-primary hover:text-accent-hover font-semibold inline-flex items-center gap-1 cursor-pointer"
                 >
                   <span>Manage Courses</span>
                   <span className="material-symbols-outlined text-base">chevron_right</span>
@@ -1099,34 +1099,34 @@ export function StitchDashboardView({
                 {subjectCards.map((card, idx) => (
                   <div
                     key={card.curriculum.id || idx}
-                    className="bg-surface rounded-2xl border border-border-subtle p-6 diffused-card-shadow flex flex-col justify-between hover:border-ink-muted transition-colors"
+                    className="bg-surface rounded-2xl border border-border-subtle p-6 shadow-soft flex flex-col justify-between hover:border-ink-muted transition-colors"
                   >
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
                         <span className="w-9 h-9 rounded-xl bg-surface-container-low border border-border-subtle flex items-center justify-center text-secondary">
                           <span className="material-symbols-outlined text-xl">{card.iconName}</span>
                         </span>
-                        <span className={`font-label-md text-xs ${card.statusColor} font-semibold`}>
+                        <span className={`text-xs ${card.statusColor} font-semibold`}>
                           {card.statusLabel}
                         </span>
                       </div>
 
                       <div>
-                        <h4 className="font-headline-sm text-headline-sm text-ink-primary">
+                        <h4 className="text-base font-semibold text-ink-primary">
                           {card.curriculum.title}
                         </h4>
-                        <p className="font-body-md text-body-md text-ink-secondary text-sm mt-1">
+                        <p className="text-xs text-ink-secondary mt-1 leading-relaxed">
                           {card.completedCount} of {card.totalCount} chapters completed · Active topic: {card.activeTopicTitle.split(':')[0]}.
                         </p>
                       </div>
 
                       {/* Progress bar */}
                       <div className="space-y-1.5 pt-2">
-                        <div className="flex justify-between font-label-md text-xs text-ink-muted">
+                        <div className="flex justify-between text-xs text-ink-muted">
                           <span>Syllabus Completed</span>
                           <span className="text-ink-primary font-medium">{card.percent}%</span>
                         </div>
-                        <div className="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+                        <div className="w-full h-1.5 rounded-full bg-border-subtle overflow-hidden">
                           <div
                             className={`h-full ${card.progressBg} rounded-full transition-all duration-500`}
                             style={{ width: `${card.percent}%` }}
@@ -1142,13 +1142,13 @@ export function StitchDashboardView({
                           setSelectedSyllabusCurriculumId(card.curriculum.id)
                           setSyllabusModalOpen(true)
                         }}
-                        className="font-label-md text-label-md text-ink-secondary hover:text-ink-primary font-medium inline-flex items-center gap-1.5 cursor-pointer transition-colors"
+                        className="text-xs text-ink-secondary hover:text-ink-primary font-medium inline-flex items-center gap-1.5 cursor-pointer transition-colors"
                       >
                         <span className="material-symbols-outlined text-base text-secondary">menu_book</span>
                         <span>Open Syllabus</span>
                       </button>
                       <Link
-                        className="font-label-md text-label-md text-ink-primary hover:text-primary font-medium inline-flex items-center gap-1"
+                        className="text-xs text-ink-primary hover:text-primary font-medium inline-flex items-center gap-1"
                         href={card.nextModuleId ? `/dashboard/${user.id}/class/${card.nextModuleId}` : `/dashboard/${user.id}/class`}
                         onClick={(e) => handleModuleClick(e, card.nextModuleId || activeModule?.id)}
                       >
@@ -1179,26 +1179,26 @@ export function StitchDashboardView({
 
           {/* SECTION 5: DELIBERATE PRACTICE & PAST YEAR QUESTIONS (PYQ) HUB */}
           <section id="deliberate-practice-section" className="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-12">
-            <div className="lg:col-span-5 bg-surface rounded-3xl border border-border-subtle p-7 md:p-8 diffused-card-shadow flex flex-col justify-between">
+            <div className="lg:col-span-5 bg-surface rounded-3xl border border-border-subtle p-7 md:p-8 shadow-soft flex flex-col justify-between">
               <div className="space-y-5">
                 <div className="flex items-center justify-between">
-                  <span className="font-label-md text-sm text-ink-muted font-medium">
+                  <span className="text-xs text-ink-muted font-medium">
                     Practice Diagnostic
                   </span>
                   <span className="material-symbols-outlined text-ink-muted text-xl">tune</span>
                 </div>
                 <div>
-                  <h4 className="font-headline-md text-headline-md text-ink-primary leading-tight">
+                  <h4 className="font-editorial text-2xl text-ink-primary leading-tight">
                     Deliberate Question Bank
                   </h4>
-                  <p className="font-body-md text-body-md text-ink-secondary text-sm mt-1.5">
+                  <p className="text-sm text-ink-secondary mt-1.5 leading-relaxed">
                     Target high-yield exam question types calibrated dynamically to your weaker diagnostic areas.
                   </p>
                 </div>
 
                 {/* Subject Toggle Chips */}
                 <div className="space-y-2 pt-1">
-                  <span className="font-label-md text-sm text-ink-muted font-medium">
+                  <span className="text-xs text-ink-muted font-medium">
                     Select Discipline
                   </span>
                   <div className="flex flex-wrap gap-2">
@@ -1208,7 +1208,7 @@ export function StitchDashboardView({
                         <button
                           key={discipline}
                           onClick={() => setSelectedDiscipline(discipline)}
-                          className={`px-3 py-1.5 rounded-lg font-label-md text-xs transition-colors cursor-pointer ${
+                          className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
                             isSelected
                               ? 'bg-ink-primary text-white'
                               : 'border border-border-subtle bg-canvas hover:bg-surface text-ink-secondary'
@@ -1226,7 +1226,7 @@ export function StitchDashboardView({
                 <Link
                   href={`/dashboard/${user.id}/class?mode=diagnostic&discipline=${encodeURIComponent(selectedDiscipline)}`}
                   onClick={(e) => handleModuleClick(e)}
-                  className="w-full flex items-center justify-center gap-2 border border-border-subtle bg-surface hover:bg-canvas text-ink-primary py-3 rounded-xl font-label-md text-label-md transition-all text-center"
+                  className="w-full flex items-center justify-center gap-2 border border-border-subtle bg-surface hover:bg-canvas-soft text-ink-primary py-2.5 rounded-xl text-sm font-medium transition-colors text-center shadow-xs"
                 >
                   <span className="material-symbols-outlined text-lg">edit_document</span>
                   <span>Launch Custom 15-Question Set</span>
@@ -1235,10 +1235,10 @@ export function StitchDashboardView({
             </div>
 
             {/* Chapter Past Year Questions (PYQ) Practice Hub */}
-            <div className="lg:col-span-7 bg-surface rounded-3xl border border-border-subtle p-7 md:p-8 diffused-card-shadow flex flex-col justify-between space-y-5">
+            <div className="lg:col-span-7 bg-surface rounded-3xl border border-border-subtle p-7 md:p-8 shadow-soft flex flex-col justify-between space-y-5">
               <div>
                 <div className="flex items-center justify-between">
-                  <span className="font-label-md text-sm text-secondary font-medium flex items-center gap-1.5">
+                  <span className="text-xs font-medium text-secondary flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-secondary" />
                     <span>Board Exam PYQ Practice Hub</span>
                   </span>
@@ -1251,10 +1251,10 @@ export function StitchDashboardView({
 
                 <div className="mt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
-                    <h4 className="font-headline-md text-headline-md text-ink-primary leading-tight">
+                    <h4 className="font-editorial text-2xl text-ink-primary leading-tight">
                       Chapter Previous Year Questions
                     </h4>
-                    <p className="font-body-md text-body-md text-ink-secondary text-xs mt-1">
+                    <p className="text-xs text-ink-secondary mt-1 leading-relaxed">
                       Authentic board examination problems with step-by-step chalkboard derivations.
                     </p>
                   </div>
@@ -1277,7 +1277,7 @@ export function StitchDashboardView({
 
                 {/* Mark Allocation Filter Chips */}
                 <div className="flex flex-wrap items-center gap-2 mt-4">
-                  <span className="font-label-md text-xs text-ink-muted">Filter:</span>
+                  <span className="text-xs text-ink-muted font-medium">Filter:</span>
                   {(['all', '1', '2', '3', '5'] as const).map((m) => (
                     <button
                       key={m}
@@ -1379,7 +1379,7 @@ export function StitchDashboardView({
       {/* ========================================================================= */}
       {liveModalOpen && (
         <div className="fixed inset-0 z-50 bg-ink-primary/30 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-200">
-          <div className="bg-surface rounded-3xl border border-border-subtle max-w-lg w-full p-8 diffused-card-shadow relative">
+          <div className="bg-surface rounded-3xl border border-border-subtle max-w-lg w-full p-8 shadow-card relative">
             {/* Close button */}
             <button
               className="absolute top-6 right-6 p-2 rounded-full text-ink-muted hover:text-ink-primary hover:bg-canvas transition-colors cursor-pointer"
@@ -1390,14 +1390,14 @@ export function StitchDashboardView({
 
             {/* Modal Header */}
             <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary font-label-micro text-label-micro">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-mono font-medium">
                 <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
                 <span>Connecting to Neural Tutor Core</span>
               </div>
-              <h3 className="font-headline-md text-headline-md text-ink-primary leading-tight">
+              <h3 className="font-editorial text-2xl text-ink-primary leading-tight">
                 {activeCourse ? `Ready to explore ${activeModule?.title || activeCourse.title}?` : 'Ready to begin your study session?'}
               </h3>
-              <p className="font-body-md text-body-md text-ink-secondary text-sm">
+              <p className="text-sm text-ink-secondary leading-relaxed">
                 {(() => {
                   const memorySnippet = (memories[0]?.memory_text || memories[0]?.content || '').trim()
                   if (memorySnippet) {
@@ -1420,7 +1420,7 @@ export function StitchDashboardView({
                 <span className="w-1.5 h-6 bg-secondary rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
                 <span className="w-1.5 h-3 bg-secondary rounded-full animate-bounce" style={{ animationDelay: '0.5s' }} />
               </div>
-              <span className="font-label-micro text-label-micro text-ink-muted uppercase">
+              <span className="text-xs font-mono text-ink-muted uppercase tracking-wider">
                 Microphone calibrated &amp; clear
               </span>
             </div>
@@ -1428,7 +1428,7 @@ export function StitchDashboardView({
             {/* Action buttons */}
             <div className="flex items-center gap-3 pt-2">
               <button
-                className="flex-1 py-3 px-4 rounded-xl border border-border-subtle text-ink-primary font-label-md text-label-md hover:bg-canvas transition-colors cursor-pointer"
+                className="flex-1 py-2.5 px-4 rounded-xl border border-border-subtle text-ink-primary text-sm font-medium hover:bg-canvas-soft transition-colors cursor-pointer shadow-xs"
                 onClick={() => setLiveModalOpen(false)}
               >
                 Cancel
@@ -1436,7 +1436,7 @@ export function StitchDashboardView({
               <button
                 disabled={isStartingSession}
                 onClick={handleStartSession}
-                className="flex-1 py-3 px-4 rounded-xl bg-primary hover:bg-accent-hover text-white font-semibold font-label-md text-label-md transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+                className="flex-1 py-2.5 px-4 rounded-xl bg-primary hover:bg-accent-hover text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer"
               >
                 <span className="material-symbols-outlined text-lg">mic</span>
                 <span>{isStartingSession ? 'Connecting...' : 'Begin Conversation'}</span>

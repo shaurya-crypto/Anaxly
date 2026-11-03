@@ -5,7 +5,7 @@ type DashCardTone = 'surface' | 'soft' | 'primary'
 type DashCardSize = 'sm' | 'md' | 'lg'
 
 const toneClasses: Record<DashCardTone, string> = {
-  surface: 'bg-surface border-border-subtle text-ink-primary diffused-card-shadow',
+  surface: 'bg-surface border-border-subtle text-ink-primary shadow-soft',
   soft: 'bg-canvas-soft border-border-subtle text-ink-primary',
   primary: 'bg-accent-primary border-accent-primary text-on-primary shadow-card',
 }

@@ -2634,6 +2634,11 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
     router.push(`/dashboard/${userId}`)
   }
 
+  const handleGoToSettings = () => {
+    endCall()
+    router.push(`/dashboard/${userId}/settings?tab=avatars`)
+  }
+
   const latestTranscript =
     transcripts.length > 0 ? transcripts[transcripts.length - 1] : null
 
@@ -2739,14 +2744,26 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
         <aside className="shrink-0 md:w-[280px] lg:w-[300px] flex flex-col gap-2 md:gap-3 md:overflow-y-auto">
           <div className="rounded-2xl bg-white border border-[var(--border-subtle)] p-2.5 md:p-4 flex flex-col gap-2.5 md:gap-4">
             <div className="flex items-center gap-2.5 md:flex-col md:text-center">
-              <button
-                type="button"
-                onClick={handleBackToDashboard}
-                aria-label="Back to dashboard"
-                className="md:self-start w-9 h-9 -ml-0.5 shrink-0 rounded-full flex items-center justify-center text-[var(--ink-secondary)] hover:bg-stone-100 cursor-pointer"
-              >
-                <ArrowLeft className="w-5 h-5" />
-              </button>
+              <div className="flex items-center justify-between w-auto md:w-full">
+                <button
+                  type="button"
+                  onClick={handleBackToDashboard}
+                  aria-label="Back to dashboard"
+                  title="Back to dashboard"
+                  className="w-9 h-9 -ml-0.5 shrink-0 rounded-full flex items-center justify-center text-[var(--ink-secondary)] hover:bg-stone-100 transition-colors cursor-pointer"
+                >
+                  <ArrowLeft className="w-5 h-5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={handleGoToSettings}
+                  aria-label="Classroom and avatar settings"
+                  title="Avatar & Voice Settings"
+                  className="hidden md:flex w-9 h-9 -mr-0.5 shrink-0 rounded-full items-center justify-center text-[var(--ink-secondary)] hover:bg-stone-100 transition-colors cursor-pointer"
+                >
+                  <span className="material-symbols-outlined text-lg">tune</span>
+                </button>
+              </div>
 
               <ClassroomAvatar
                 state={connectionState}

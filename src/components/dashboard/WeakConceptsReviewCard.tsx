@@ -60,7 +60,7 @@ export function WeakConceptsReviewCard({
   const isExplicitWeakness = reviewNeededModules.length > 0
 
   return (
-    <section className="bg-surface rounded-3xl border border-border-subtle p-7 md:p-8 diffused-card-shadow space-y-5 w-full">
+    <section className="bg-surface rounded-3xl border border-border-subtle p-7 md:p-8 shadow-soft space-y-5 w-full">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border-subtle/80 pb-4">
         <div className="flex items-center gap-3">
           <div
@@ -77,10 +77,10 @@ export function WeakConceptsReviewCard({
             )}
           </div>
           <div>
-            <h3 className="font-headline-md text-headline-md text-ink-primary font-serif leading-tight">
+            <h3 className="font-editorial text-2xl text-ink-primary leading-tight">
               {isExplicitWeakness ? 'Weak-Concept Revision Spotlight' : 'Spaced Retention Reinforcement'}
             </h3>
-            <p className="font-body-md text-body-md text-ink-secondary text-xs mt-0.5">
+            <p className="text-xs text-ink-secondary mt-0.5 leading-relaxed">
               {isExplicitWeakness
                 ? 'Targeted drills derived from diagnostic quiz performance to reinforce high-yield concepts.'
                 : 'Cyclic revision to ensure long-term retention of completed syllabus capsules.'}
@@ -89,7 +89,7 @@ export function WeakConceptsReviewCard({
         </div>
 
         <span
-          className={`self-start sm:self-center px-2.5 py-0.5 rounded-full text-label-micro font-semibold border ${
+          className={`self-start sm:self-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium border ${
             isExplicitWeakness
               ? 'bg-amber-50 text-amber-800 border-amber-200'
               : 'bg-secondary/10 text-secondary border-secondary/20'
@@ -112,7 +112,7 @@ export function WeakConceptsReviewCard({
             >
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="font-label-md text-sm text-ink-muted font-medium">
+                  <span className="text-xs text-ink-muted font-medium">
                     Capsule #{mod.order_index}
                   </span>
                   {typeof score === 'number' ? (
@@ -132,7 +132,7 @@ export function WeakConceptsReviewCard({
                   )}
                 </div>
 
-                <h4 className="font-headline-sm text-sm text-ink-primary font-semibold line-clamp-1">
+                <h4 className="text-sm text-ink-primary font-semibold line-clamp-1">
                   {mod.title}
                 </h4>
 
@@ -153,7 +153,7 @@ export function WeakConceptsReviewCard({
               <Link
                 href={`/dashboard/${userId}/class/${mod.id}`}
                 onClick={(e) => onModuleClick?.(e, mod.id)}
-                className="w-full inline-flex items-center justify-center gap-1.5 bg-surface hover:bg-canvas text-ink-primary border border-border-subtle text-xs font-label-md py-2 rounded-xl transition-all shadow-2xs hover:border-ink-muted cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-1.5 bg-surface hover:bg-canvas-soft text-ink-primary border border-border-subtle text-xs font-medium py-2 rounded-xl transition-all shadow-xs hover:border-ink-muted cursor-pointer"
               >
                 <span>Start Targeted Drill</span>
                 <ArrowRight className="w-3.5 h-3.5 text-primary" />
