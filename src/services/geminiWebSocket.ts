@@ -353,7 +353,9 @@ export class GeminiLiveClient {
     try {
       console.log(`[GeminiLive] Connecting session with model: ${this.model}, voice: ${this.voiceName}, enableFunctionCalling: ${this.enableFunctionCalling}`);
 
-      const responseModalities = ["AUDIO" as any];
+      const responseModalities = this.avatarConfig
+        ? ["VIDEO" as any, "AUDIO" as any]
+        : ["AUDIO" as any];
 
       const liveConfig: any = {
         responseModalities,
@@ -372,6 +374,10 @@ export class GeminiLiveClient {
           languageCodes: this.supportedLanguages,
         },
       };
+
+      if (this.avatarConfig) {
+        liveConfig.avatarConfig = this.avatarConfig;
+      }
 
       if (this.enableFunctionCalling) {
         liveConfig.tools = [

@@ -2016,17 +2016,24 @@ The student learns visually by watching notes appear as you speak.
 DO NOT wait for the student to tell you "write on board". Write automatically on EVERY TURN!
 
 MANDATORY TOOL CALL DISPATCH BY CADENCE STEP:
-- Step 1 (Intuition): write_chalkboard(action="draw_note", content="Intuition: <everyday physical hook>", color="botanical")
-- Step 2 (Definition & Deep Explanation): write_chalkboard(action="draw_highlight_box", content="Definition: <exact formal law and SI units>", color="coral")
-- Step 3 (Example & Intuitive Breakdown): write_chalkboard(action="draw_note", content="Example: <concrete daily application>", color="blue")
-- Step 4 (Tutor-Solved Model Problem - Trio Combo):
+- EXPLAIN FIRST, READ ALOUD VERBATIM, WRITE STEP-BY-STEP (NEVER DUMP AT ONCE):
+  You MUST speak aloud what you are writing while you write it.
+- PHASE 1 - INTUITION & GENERATIVE VISUAL:
+  write_chalkboard(action="draw_note", content="Intuition: <everyday physical hook>", color="botanical")
+- PHASE 2 - FORMAL DEFINITION (EXPLAIN FIRST -> READ ALOUD -> WRITE STEP-BY-STEP):
+  write_chalkboard(action="draw_highlight_box", content="Definition: <exact formal law and SI units>", color="coral")
+- PHASE 3 - CONCRETE EXAMPLES (EXPLAIN FIRST -> READ ALOUD -> WRITE STEP-BY-STEP):
+  write_chalkboard(action="draw_note", content="Example: <concrete daily application>", color="blue")
+- PHASE 4 - TUTOR-SOLVED MODEL QUESTION (READ ALOUD & EXPLAIN STEP-BY-STEP):
+    * Problem Context: Explain the physical setup first, read the question aloud verbatim, then write:
     * write_chalkboard(action="draw_note", content="Problem: <Question>", color="coral")
     * write_chalkboard(action="draw_step", content="Given: <values> | Method: <chosen theorem>", color="amber")
     * write_chalkboard(action="draw_rough_work", content="Rough: <scratch calculations / intermediate algebra>", color="white")
     * write_chalkboard(action="draw_step", content="Derivation: <key line> | Boxed Answer: <answer with SI units>", color="botanical")
     * If problem involves functions, roots, tangents, or motion: plot_mathematical_graph(formula="...", domain="...", range="...", title="...", callout="...")
-- Step 5 (Board-Exam Checkpoint Question): write_chalkboard(action="draw_question", content="Q: <Authentic question for student>", color="amber")
-- Step 6 (Student Answer Evaluation):
+- PHASE 5 - CHECKPOINT QUESTION (BOARD-EXAM CHECKPOINT):
+  write_chalkboard(action="draw_question", content="Q: <Authentic question for student>", color="amber")
+- PHASE 6 - STUDENT ANSWER EVALUATION & VERDICT:
     * write_chalkboard(action="draw_student_answer", content="Student's Answer: <exact words>", color="blue")
     * write_chalkboard(action="draw_answer_verdict", content="Verdict: <evaluation & scoring>", color="botanical")
 
@@ -2593,7 +2600,7 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
         renderedVisualConceptsRef.current.add(currentConceptIndexRef.current)
         handleVisualAction(action, params)
       },
-      undefined,
+      avatarConfig || undefined,
       (pcm16, sampleRate) => {
         simliControllerRef.current?.sendAudioChunk(pcm16, sampleRate)
       },

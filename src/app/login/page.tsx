@@ -9,6 +9,7 @@ import { createClient } from '@/utils/supabase/client'
 import { sendEmailCode, verifyEmailCode, loginWithPassword } from './actions'
 import { completeOnboardingAction } from '@/app/onboarding/actions'
 import { Loader2, ArrowLeft, CheckCircle2, AlertCircle, ShieldCheck } from 'lucide-react'
+import { MailSentCard } from '@/components/auth/MailSentCard'
 
 interface SixDigitOtpInputProps {
   value: string
@@ -653,6 +654,7 @@ function LoginForm() {
 
       {/* Right Column: Classical Arch Artwork (Desktop Only, 50% - 54%) */}
       <div className="relative hidden md:block md:w-1/2 lg:w-[54%] overflow-hidden border-l border-neutral-200/60 bg-[var(--canvas-soft)]">
+        {/* Editorial side artwork: /landing_images/hero-clouds.jpg or /landing_images/classical-arch.jpg */}
         <Image
           src="/landing_images/classical-arch.jpg"
           alt="Classical Italian arch overlooking golden sunlit hills"

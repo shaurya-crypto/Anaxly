@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { AlertCircle, ArrowRight, BookOpen, CheckCircle2, RotateCcw, Sparkles } from 'lucide-react'
+import { AlertCircle, ArrowRight, RotateCcw } from 'lucide-react'
 
 interface Module {
   id: string
@@ -66,12 +66,12 @@ export function WeakConceptsReviewCard({
           <div
             className={`w-9 h-9 rounded-xl border flex items-center justify-center shrink-0 ${
               isExplicitWeakness
-                ? 'bg-sky-500/15 border-sky-400/30 text-sky-300'
+                ? 'bg-amber-500/10 border-amber-500/25 text-amber-700'
                 : 'bg-secondary/10 border-secondary/20 text-secondary'
             }`}
           >
             {isExplicitWeakness ? (
-              <AlertCircle className="w-4 h-4 text-sky-300" />
+              <AlertCircle className="w-4 h-4 text-amber-700" />
             ) : (
               <RotateCcw className="w-4 h-4 text-secondary" />
             )}
@@ -91,7 +91,7 @@ export function WeakConceptsReviewCard({
         <span
           className={`self-start sm:self-center px-2.5 py-0.5 rounded-full text-label-micro font-semibold border ${
             isExplicitWeakness
-              ? 'bg-amber-500/10 text-sky-300 border-sky-400/30'
+              ? 'bg-amber-50 text-amber-800 border-amber-200'
               : 'bg-secondary/10 text-secondary border-secondary/20'
           }`}
         >
@@ -119,8 +119,8 @@ export function WeakConceptsReviewCard({
                     <span
                       className={`text-xs font-semibold px-2 py-0.5 rounded-md ${
                         score < 70
-                          ? 'bg-amber-500/15 text-sky-300'
-                          : 'bg-emerald-500/15 text-emerald-700'
+                          ? 'bg-amber-50 text-amber-800 border border-amber-200'
+                          : 'bg-emerald-50 text-emerald-800 border border-emerald-200'
                       }`}
                     >
                       {score}% Quiz

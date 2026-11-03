@@ -1369,7 +1369,7 @@ export function StitchDashboardView({
             <span>Anaxly Scholar's Edition · Classical Intelligence</span>
           </div>
           <div>
-            <span>Curriculum aligned with College Board AP® standards</span>
+            <span>Curriculum aligned with CBSE, ICSE, and IB standards</span>
           </div>
         </footer>
       </div>

@@ -1053,7 +1053,7 @@ export function generateDynamicPlantTissuesSvg(params: {
       <text x="20" y="118" font-size="7.5" fill="#0F172A">• Prevents water loss &amp; microbial infection</text>
 
       <rect x="12" y="134" width="190" height="48" rx="4" fill="#F0FDF4" stroke="#16A34A" stroke-width="1"/>
-      <text x="20" y="148" font-size="8.5" font-weight="bold" fill="#16A34A">★ Board Exam Distinction</text>
+      <text x="20" y="148" font-size="8.5" font-weight="bold" fill="#16A34A">• Board Exam Distinction</text>
       <text x="20" y="160" font-size="7.5" fill="#0F172A">• Growth Type: Secondary Growth (Lateral)</text>
       <text x="20" y="172" font-size="7.5" fill="#0F172A">• Direct Result: Increases stem/root diameter &amp; girth</text>
     </g>`
@@ -1274,7 +1274,7 @@ export function generateDynamicReproductiveAnatomySvg(params: {
   <line x1="90" y1="85" x2="45" y2="85" stroke="#64748B" stroke-width="1"/>
   <circle cx="90" cy="85" r="2.5" fill="#2563EB"/>
   <text x="40" y="82" text-anchor="end" font-size="9" font-weight="bold" fill="#2563EB">Oviduct / Fallopian Tube</text>
-  <text x="40" y="92" text-anchor="end" font-size="7.5" fill="#64748B">★ Site of fertilization (Ampulla)</text>
+  <text x="40" y="92" text-anchor="end" font-size="7.5" fill="#64748B">• Site of fertilization (Ampulla)</text>
 
   <line x1="68" y1="160" x2="45" y2="145" stroke="#64748B" stroke-width="1"/>
   <circle cx="68" cy="160" r="2.5" fill="#D97706"/>

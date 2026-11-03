@@ -4,15 +4,11 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import {
-  Calendar,
-  Clock,
   Target,
   AlertTriangle,
   CheckCircle2,
   TrendingUp,
   Settings,
-  Sparkles,
-  BookOpen,
   ArrowRight,
 } from 'lucide-react'
 import {

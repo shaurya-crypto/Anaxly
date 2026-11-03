@@ -3385,6 +3385,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         }
 
         const cardWidth = Math.max(svgWidth + 32, 440)
+        // Wraps SVG captions at base column width: wrapText(caption.trim(), 55) adapted via cols(55)
         const captionLines = caption?.trim()
           ? wrapText(caption.trim(), cols(55))
           : resolvedCaption?.trim()

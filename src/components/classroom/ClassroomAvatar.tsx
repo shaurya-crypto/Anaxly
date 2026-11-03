@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
+import Link from 'next/link'
+import { useParams } from 'next/navigation'
 import { ConnectionState, TranscriptItem } from '@/types/liveSession'
 import { LiveAvatarConfig } from '@/services/geminiWebSocket'
 import { SimliAvatarController, SimliStatus } from '@/services/simliAvatarService'
@@ -30,31 +32,43 @@ export const ClassroomAvatar: React.FC<ClassroomAvatarProps> = ({
   userVolume = 0,
   isMuted,
   latestTranscript,
+  latestVideoFrame,
+  videoMimeType,
+  onCustomAvatarChange,
   onSimliControllerReady,
   onSimliActiveChange,
+  preferredProvider = 'simli',
   isAvatarEnabled = true,
   className = 'w-16 h-16',
 }) => {
 
+  const params = useParams()
+  const studentId = (params?.id as string) || ''
+
   // Selected Face ID: default to 80459b57-2d66-4ca7-8682-59e1c649bc53
   const [selectedFaceId, setSelectedFaceId] = useState<string>('80459b57-2d66-4ca7-8682-59e1c649bc53')
+  const [activeProvider, setActiveProvider] = useState<AvatarProvider>(preferredProvider)
   const [simliStatus, setSimliStatus] = useState<SimliStatus>('idle')
   const [isMounted, setIsMounted] = useState(false)
 
   const simliVideoRef = useRef<HTMLVideoElement | null>(null)
   const simliAudioRef = useRef<HTMLAudioElement | null>(null)
   const simliControllerRef = useRef<SimliAvatarController | null>(null)
+  const canvasRef = useRef<HTMLCanvasElement | null>(null)
 
   const isSpeaking = state === 'TEACHER_SPEAKING'
   const isCallActive = state !== 'IDLE' && state !== 'DISCONNECTED' && state !== 'ERROR'
   const isUserTalking = !isSpeaking && !isMuted && userVolume > 0.04
-  const isSimliActive = simliStatus === 'connected'
+  const isSimliActive = activeProvider === 'simli' && simliStatus === 'connected'
 
   const onSimliActiveChangeRef = useRef(onSimliActiveChange)
   onSimliActiveChangeRef.current = onSimliActiveChange
 
   const onSimliControllerReadyRef = useRef(onSimliControllerReady)
   onSimliControllerReadyRef.current = onSimliControllerReady
+
+  const onCustomAvatarChangeRef = useRef(onCustomAvatarChange)
+  onCustomAvatarChangeRef.current = onCustomAvatarChange
 
   const prevSimliActiveRef = useRef<boolean | null>(null)
 
@@ -94,6 +108,9 @@ export const ClassroomAvatar: React.FC<ClassroomAvatarProps> = ({
   useEffect(() => {
     const controller = new SimliAvatarController((status) => {
       setSimliStatus(status)
+      if (status === 'error' || status === 'fallback') {
+        setActiveProvider('google')
+      }
     })
 
     simliControllerRef.current = controller
@@ -152,6 +169,7 @@ export const ClassroomAvatar: React.FC<ClassroomAvatarProps> = ({
             }`}
           />
           <audio ref={simliAudioRef} autoPlay />
+          <canvas ref={canvasRef} className="hidden" />
           <img
             src={avatarImageUrl}
             alt="Tutor"
@@ -166,6 +184,15 @@ export const ClassroomAvatar: React.FC<ClassroomAvatarProps> = ({
       ) : (
         <div className="absolute inset-0 flex items-center justify-center text-[10px] text-stone-500">Tutor</div>
       )}
+      {studentId ? (
+        <Link
+          href={`/dashboard/${studentId}/settings?tab=avatars`}
+          className="sr-only"
+          title="Configure Classroom Avatars & Settings"
+        >
+          <span>Avatars</span>
+        </Link>
+      ) : null}
     </div>
   )
 }
