@@ -47,8 +47,10 @@ import {
   Check,
   RotateCcw,
   AlertCircle,
+  X,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { DashCard } from '@/components/dashboard/primitives'
 import { createClient } from '@/utils/supabase/client'
 import { triggerCompanionGuidance } from '@/components/mascot/Mascot'
 
@@ -519,6 +521,7 @@ export default function ModuleClassroomPage() {
   const [isQuotaExhausted, setIsQuotaExhausted] = useState(false)
   const [isLoadingLesson, setIsLoadingLesson] = useState(true)
   const [quizOpen, setQuizOpen] = useState(false)
+  const [conceptsOpen, setConceptsOpen] = useState(false)
   const [preferredVoice, setPreferredVoice] = useState('Leda')
   const [isCompletedBefore, setIsCompletedBefore] = useState(false)
   const [studentProfileClassLevel, setStudentProfileClassLevel] = useState<string>('')
@@ -2655,226 +2658,217 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
       ? 100
       : 0
 
+  const isCompleted = isCompletedBefore || moduleCompletedSuccess
+  const statusLabel =
+    connectionState === 'TEACHER_SPEAKING'
+      ? 'Speaking'
+      : connectionState === 'LISTENING'
+      ? isMuted
+        ? 'Muted'
+        : 'Listening'
+      : connectionState === 'CONNECTING'
+      ? 'Connecting…'
+      : 'Ready'
+  const statusDot =
+    connectionState === 'TEACHER_SPEAKING'
+      ? 'bg-amber-500 animate-pulse'
+      : connectionState === 'LISTENING'
+      ? isMuted
+        ? 'bg-stone-400'
+        : 'bg-emerald-500'
+      : connectionState === 'CONNECTING'
+      ? 'bg-amber-400 animate-pulse'
+      : 'bg-stone-300'
+
+  const leaveTo = (path: string) => {
+    endCall()
+    router.refresh()
+    router.push(path)
+  }
+
+  const conceptList = (
+    <div className="space-y-1">
+      {keyConceptsList.map((concept: string, idx: number) => {
+        const kNorm = normConcept(concept)
+        const isDone = completedConcepts.some((c) => {
+          const cNorm = normConcept(c)
+          return cNorm === kNorm || cNorm.includes(kNorm) || kNorm.includes(cNorm)
+        })
+        const isCurrent = idx === currentConceptIndex && !isDone
+        return (
+          <button
+            key={idx}
+            type="button"
+            onClick={() => {
+              handleConceptGoto(idx + 1)
+              setConceptsOpen(false)
+            }}
+            className={`w-full min-h-10 flex items-center gap-2.5 px-3 py-2 rounded-xl text-left text-[13px] leading-snug transition-colors cursor-pointer ${
+              isCurrent
+                ? 'bg-[var(--accent-warm-soft)] text-[var(--ink-primary)] font-medium'
+                : 'text-[var(--ink-secondary)] hover:bg-stone-100'
+            }`}
+          >
+            {isDone ? (
+              <CheckCircle2 className="w-4 h-4 text-[var(--accent-sage)] shrink-0" />
+            ) : (
+              <span
+                className={`w-2 h-2 mx-1 rounded-full shrink-0 ${
+                  isCurrent ? 'bg-[var(--accent-warm)]' : 'bg-stone-300'
+                }`}
+              />
+            )}
+            <span className="min-w-0 break-words">{concept}</span>
+          </button>
+        )
+      })}
+    </div>
+  )
+
   return (
     <main className="relative w-full h-[100dvh] flex flex-col overflow-hidden bg-[#F8F6F0]">
-
-      {/* Main Classroom Stage: Left Avatar Column + Right Full Whiteboard Stage */}
-      <div className="relative z-10 w-full flex-1 flex flex-col md:flex-row p-3 sm:p-4 gap-3 sm:gap-4 overflow-hidden min-h-0">
-        {/* Left Column: Avatar Section & Voice Controls (Positioned on the LEFT) */}
-        <div className="w-full md:w-[320px] lg:w-[360px] shrink-0 flex flex-col gap-3 h-full overflow-y-auto pr-1">
-          {/* Native Google Gemini 3.8 Live Avatar with bottom movie-style captions */}
-          <ClassroomAvatar
-            state={connectionState}
-            teacherVolume={teacherVolume}
-            userVolume={userVolume}
-            isMuted={isMuted}
-            latestTranscript={latestTranscript}
-            latestVideoFrame={latestVideoFrame}
-            videoMimeType={videoMimeType}
-            onCustomAvatarChange={handleCustomAvatarChange}
-            onSimliControllerReady={handleSimliControllerReady}
-            onSimliActiveChange={handleSimliActiveChange}
-            isAvatarEnabled={isAvatarEnabled}
-          />
-
-          {/* Call Controls or Start Call Bar */}
-          {isCallActive ? (
-            <div className="p-3 rounded-2xl bg-white border border-[var(--border-subtle)] shadow-sm flex items-center justify-between">
-              <CallControls
-                isMuted={isMuted}
-                userVolume={userVolume}
-                onToggleMute={toggleMute}
-                onEndCall={handleEndClass}
-              />
-            </div>
-          ) : (
-            <div className="p-4 rounded-2xl bg-white border border-[var(--border-subtle)] shadow-sm space-y-3">
-              <Button
-                id="start-module-spoken-class-btn"
-                onClick={handleStartClass}
-                disabled={isLoadingLesson}
-                className="w-full h-12 bg-[var(--accent-warm)] hover:bg-[var(--accent-warm-hover)] text-white rounded-xl font-medium text-base shadow-sm cursor-pointer flex items-center justify-center gap-2 transition-transform active:scale-[0.98]"
-              >
-                <Play className="w-5 h-5 fill-current" />
-                <span>
-                  {isCompletedBefore || moduleCompletedSuccess
-                    ? 'Start Review & Doubt Clearing'
-                    : currentConceptIndex > 0 || completedConcepts.length > 0
-                    ? `Resume Class (Concept ${currentConceptIndex + 1})`
-                    : 'Start Live Spoken Class'}
-                </span>
-              </Button>
-              <p className="text-center text-[11px] text-[#7A7C75] flex items-center justify-center gap-1.5 font-mono">
-                <Mic className="w-3.5 h-3.5 text-[var(--accent-sage)]" strokeWidth={1.5} />
-                <span>
-                  {isCompletedBefore || moduleCompletedSuccess
-                    ? 'Ask doubts anytime • Revisit concepts or take quiz'
-                    : 'Continuous teaching • Auto-writes on whiteboard'}
-                </span>
-              </p>
-              {!isCompletedBefore && !moduleCompletedSuccess && (
-                <Button
-                  id="manual-mark-completed-btn"
-                  variant="outline"
-                  onClick={() => markModuleAsCompleted()}
-                  className="w-full bg-white hover:bg-[var(--accent-sage-soft)] border border-[var(--accent-sage-border)] text-[var(--accent-sage)] rounded-xl text-xs font-semibold py-2 h-9 flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs transition-colors"
-                  title="Mark this capsule as completed and unlock next capsule"
-                >
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[var(--accent-sage)]" />
-                  <span>Mark Capsule Complete & Unlock Next</span>
-                </Button>
-              )}
+      <div className="flex-1 min-h-0 flex flex-col md:flex-row gap-2 p-2 sm:p-3 md:gap-3">
+        {/* Teacher panel: compact top bar on mobile, left column on desktop */}
+        <aside className="shrink-0 md:w-[280px] lg:w-[300px] flex flex-col gap-2 md:gap-3 md:overflow-y-auto">
+          <div className="rounded-2xl bg-white border border-[var(--border-subtle)] p-2.5 md:p-4 flex flex-col gap-2.5 md:gap-4">
+            <div className="flex items-center gap-2.5 md:flex-col md:text-center">
               <button
                 type="button"
                 onClick={handleBackToDashboard}
-                className="w-full text-center text-xs text-[#7A7C75] hover:text-[var(--ink-primary)] font-medium py-1 transition-colors cursor-pointer flex items-center justify-center gap-1.5"
-                title="Return to Student Portal"
+                aria-label="Back to dashboard"
+                className="md:self-start w-9 h-9 -ml-0.5 shrink-0 rounded-full flex items-center justify-center text-[var(--ink-secondary)] hover:bg-stone-100 cursor-pointer"
               >
-                <ArrowLeft className="w-3.5 h-3.5" />
-                <span>Return to Dashboard</span>
+                <ArrowLeft className="w-5 h-5" />
               </button>
-            </div>
-          )}
 
-          {/* Progression Banner: Next Capsule or Chapter Completed */}
-          {(isCompletedBefore || moduleCompletedSuccess) && (
-            <div className="p-3.5 rounded-2xl bg-[var(--accent-sage-soft)] border border-[var(--accent-sage-border)] shadow-xs space-y-2">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-1.5 text-[var(--accent-sage)] font-semibold text-xs">
-                  <CheckCircle2 className="w-4 h-4 text-[var(--accent-sage)] shrink-0" />
-                  <span>Capsule Mastered!</span>
-                </div>
-                {nextSiblingModule && (
-                  <span className="text-[10px] font-mono text-[var(--accent-sage)] uppercase">
-                    Next: Capsule #{nextSiblingModule.order_index}
-                  </span>
-                )}
+              <ClassroomAvatar
+                state={connectionState}
+                teacherVolume={teacherVolume}
+                userVolume={userVolume}
+                isMuted={isMuted}
+                latestTranscript={latestTranscript}
+                latestVideoFrame={latestVideoFrame}
+                videoMimeType={videoMimeType}
+                onCustomAvatarChange={handleCustomAvatarChange}
+                onSimliControllerReady={handleSimliControllerReady}
+                onSimliActiveChange={handleSimliActiveChange}
+                isAvatarEnabled={isAvatarEnabled}
+                className="w-12 h-12 md:w-36 md:h-36 md:my-1"
+              />
+
+              <div className="min-w-0 flex-1 md:flex-none">
+                <h1 className="text-sm md:text-base font-serif font-semibold text-[var(--ink-primary)] leading-tight line-clamp-2">
+                  {resolvedTitle}
+                </h1>
+                <p className="mt-0.5 flex items-center gap-1.5 md:justify-center text-xs text-[var(--ink-secondary)]">
+                  <span className={`w-1.5 h-1.5 rounded-full ${statusDot}`} />
+                  {statusLabel}
+                </p>
               </div>
 
-              {chapterNotes.trim() ? (
-                <div className="flex items-center gap-2">
+              {/* Mobile: concepts sheet trigger */}
+              {keyConceptsList.length > 0 && (
+                <button
+                  type="button"
+                  onClick={() => setConceptsOpen(true)}
+                  aria-label="Open concepts"
+                  className="md:hidden shrink-0 h-9 px-2.5 rounded-full border border-[var(--border-subtle)] flex items-center gap-1.5 text-xs font-medium text-[var(--ink-secondary)] cursor-pointer"
+                >
+                  <Layers className="w-4 h-4" />
+                  {Math.min(currentConceptIndex + 1, keyConceptsList.length)}/{keyConceptsList.length}
+                </button>
+              )}
+            </div>
+
+            {isCallActive && (
+              <div className="flex justify-center">
+                <CallControls
+                  isMuted={isMuted}
+                  userVolume={userVolume}
+                  onToggleMute={toggleMute}
+                  onEndCall={handleEndClass}
+                />
+              </div>
+            )}
+
+            {!isCallActive && !isCompleted && (
+              <button
+                id="manual-mark-completed-btn"
+                type="button"
+                onClick={() => markModuleAsCompleted()}
+                className="hidden md:flex items-center justify-center gap-1.5 text-xs text-[var(--ink-secondary)] hover:text-[var(--accent-sage)] cursor-pointer"
+              >
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                Mark complete
+              </button>
+            )}
+          </div>
+
+          {/* Completed state: next steps (bottom sheet on mobile) */}
+          {isCompleted && (
+            <div className="fixed inset-x-2 bottom-2 z-40 max-h-[60dvh] overflow-y-auto md:static md:z-auto md:max-h-none p-3 rounded-2xl bg-white md:bg-[var(--accent-sage-soft)] border border-[var(--accent-sage-border)] shadow-lg md:shadow-none space-y-2">
+              <div className="flex items-center gap-1.5 text-[var(--accent-sage)] font-semibold text-sm">
+                <CheckCircle2 className="w-4 h-4 shrink-0" />
+                Completed
+              </div>
+
+              {chapterNotes.trim() && (
+                <div className="flex gap-2">
                   <Button
                     id="apply-clean-notes-btn"
-                    onClick={() => {
-                      if (chapterNotes && chalkboardRef.current) {
-                        chalkboardRef.current.rewriteNotes(chapterNotes)
-                      }
-                    }}
-                    className="flex-1 bg-[var(--accent-sage)] hover:bg-[var(--accent-sage-hover)] text-white rounded-xl text-[11px] font-semibold py-1.5 h-8 flex items-center justify-center gap-1.5 cursor-pointer shadow-xs active:scale-[0.98] transition-transform"
-                    title="Apply clean, AI-optimized master notes directly onto the whiteboard"
+                    onClick={() => chapterNotes && chalkboardRef.current?.rewriteNotes(chapterNotes)}
+                    className="flex-1 h-9 bg-white hover:bg-stone-50 border border-[var(--border-subtle)] text-[var(--ink-primary)] rounded-xl text-xs cursor-pointer"
                   >
-                    <RotateCcw className="w-3 h-3 text-white" />
-                    <span>Apply Clean Notes to Board</span>
+                    <RotateCcw className="w-3.5 h-3.5 mr-1" />
+                    Notes to board
                   </Button>
                   <Button
                     id="view-clean-notes-modal-btn"
                     onClick={() => setNotesModalOpen(true)}
-                    className="px-3 bg-white hover:bg-[var(--canvas-base)] border border-[var(--border-subtle)] text-[var(--ink-primary)] rounded-xl text-[11px] font-semibold py-1.5 h-8 flex items-center justify-center gap-1 cursor-pointer transition-transform"
-                    title="View full clean notes in modal"
+                    className="flex-1 h-9 bg-white hover:bg-stone-50 border border-[var(--border-subtle)] text-[var(--ink-primary)] rounded-xl text-xs cursor-pointer"
                   >
-                    <BookOpen className="w-3 h-3 text-[var(--accent-sage)]" />
-                    <span>View Notes</span>
+                    <BookOpen className="w-3.5 h-3.5 mr-1" />
+                    View notes
                   </Button>
                 </div>
-              ) : null}
+              )}
 
               {nextSiblingModule ? (
-                <div className="space-y-2 pt-1">
-                  <Button
-                    id="go-to-next-capsule-btn"
-                    onClick={() => {
-                      endCall()
-                      router.refresh()
-                      router.push(`/dashboard/${userId}/class/${nextSiblingModule.id}`)
-                    }}
-                    className="w-full bg-[var(--accent-sage)] hover:bg-[var(--accent-sage-hover)] text-white rounded-xl text-xs font-semibold py-2 h-9 flex items-center justify-center gap-1.5 cursor-pointer shadow-xs active:scale-[0.98] transition-transform"
-                  >
-                    <span>Start Next Capsule: {nextSiblingModule.title}</span>
-                    <ArrowLeft className="w-3.5 h-3.5 rotate-180" />
-                  </Button>
-                  <Button
-                    id="return-to-dashboard-btn"
-                    variant="outline"
-                    onClick={() => {
-                      endCall()
-                      router.refresh()
-                      router.push(`/dashboard/${userId}`)
-                    }}
-                    className="w-full bg-white hover:bg-[var(--canvas-base)] border-[var(--border-subtle)] text-[var(--ink-secondary)] rounded-xl text-xs py-2 h-9 cursor-pointer"
-                  >
-                    <span>Return to Dashboard</span>
-                  </Button>
-                </div>
-              ) : nextChapterInfo ? (
-                <div className="space-y-2 pt-1">
-                  <div className="p-3 rounded-xl bg-white border border-[var(--border-subtle)] space-y-1">
-                    <div className="flex items-center justify-between text-[10px] font-mono text-[var(--accent-sage)]">
-                      <span className="uppercase font-bold tracking-wider">Chapter Mastered</span>
-                      <span>Next: Chapter #{nextChapterInfo.orderIndex}</span>
-                    </div>
-                    <h5 className="text-xs font-semibold text-[var(--ink-primary)] leading-snug">
-                      {nextChapterInfo.chapterTitle}
-                    </h5>
-                    <p className="text-[11px] text-[var(--ink-secondary)]">
-                      Capsule 1: {nextChapterInfo.firstModuleTitle}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Button
-                      id="go-to-next-chapter-btn"
-                      onClick={() => {
-                        endCall()
-                        router.push(`/dashboard/${userId}/class/${nextChapterInfo.firstModuleId}`)
-                      }}
-                      className="flex-1 bg-[var(--accent-sage)] hover:bg-[var(--accent-sage-hover)] text-white rounded-xl text-xs font-semibold py-2 h-9 flex items-center justify-center gap-1.5 cursor-pointer shadow-xs active:scale-[0.98] transition-transform"
-                    >
-                      <span>Begin Next Chapter</span>
-                      <ArrowLeft className="w-3.5 h-3.5 rotate-180" />
-                    </Button>
-                    <Button
-                      id="return-chapter-completed-btn"
-                      onClick={() => {
-                        endCall()
-                        router.push(`/dashboard/${userId}`)
-                      }}
-                      variant="outline"
-                      className="bg-white hover:bg-[var(--canvas-base)] border-[var(--border-subtle)] text-[var(--ink-secondary)] rounded-xl text-xs py-2 h-9 px-3 cursor-pointer"
-                    >
-                      <span>Dashboard</span>
-                    </Button>
-                  </div>
-                </div>
-              ) : (
                 <Button
-                  id="return-chapter-completed-btn"
-                  onClick={() => {
-                    endCall()
-                    router.push(`/dashboard/${userId}`)
-                  }}
-                  className="w-full bg-[var(--accent-sage)] hover:bg-[var(--accent-sage-hover)] text-white rounded-xl text-xs font-semibold py-2 h-9 flex items-center justify-center gap-1.5 cursor-pointer shadow-xs active:scale-[0.98] transition-transform"
+                  id="go-to-next-capsule-btn"
+                  onClick={() => leaveTo(`/dashboard/${userId}/class/${nextSiblingModule.id}`)}
+                  className="w-full h-10 bg-[var(--accent-sage)] hover:bg-[var(--accent-sage-hover)] text-white rounded-xl text-sm cursor-pointer"
                 >
-                  <span>All Chapters Completed! Return to Dashboard</span>
-                  <Check className="w-3.5 h-3.5" />
+                  <span className="truncate">Next: {nextSiblingModule.title}</span>
+                  <ArrowLeft className="w-4 h-4 rotate-180 ml-1.5 shrink-0" />
                 </Button>
-              )}
+              ) : nextChapterInfo ? (
+                <Button
+                  id="go-to-next-chapter-btn"
+                  onClick={() => leaveTo(`/dashboard/${userId}/class/${nextChapterInfo.firstModuleId}`)}
+                  className="w-full h-10 bg-[var(--accent-sage)] hover:bg-[var(--accent-sage-hover)] text-white rounded-xl text-sm cursor-pointer"
+                >
+                  <span className="truncate">Next chapter: {nextChapterInfo.chapterTitle}</span>
+                  <ArrowLeft className="w-4 h-4 rotate-180 ml-1.5 shrink-0" />
+                </Button>
+              ) : null}
+
+              <Button
+                id="return-to-dashboard-btn"
+                variant="outline"
+                onClick={() => leaveTo(`/dashboard/${userId}`)}
+                className="w-full h-9 bg-white border-[var(--border-subtle)] text-[var(--ink-secondary)] rounded-xl text-xs cursor-pointer"
+              >
+                Back to dashboard
+              </Button>
             </div>
           )}
 
-          {/* Interactive Chapter End Confirmation Banner - Only visible once module is completed */}
-          {(isCompletedBefore || moduleCompletedSuccess) && endChapterConfirmPrompt && (
-            <div className="p-4 rounded-2xl bg-white border-2 border-[var(--accent-sage)]/50 shadow-md space-y-3 animate-in fade-in duration-300">
-              <div className="flex items-start gap-2.5">
-                <Sparkles className="w-4 h-4 text-[var(--accent-sage)] shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold text-xs uppercase font-mono tracking-wider text-[var(--accent-sage)]">
-                    Chapter Confirmation
-                  </h4>
-                  <p className="text-xs text-[var(--ink-primary)] font-medium mt-1 leading-snug">
-                    {endChapterConfirmPrompt}
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 pt-1">
+          {/* End-of-chapter confirmation */}
+          {isCompleted && endChapterConfirmPrompt && (
+            <div className="fixed inset-x-2 bottom-2 z-50 md:static md:z-auto p-3 rounded-2xl bg-white border border-[var(--accent-sage)]/50 shadow-lg md:shadow-none space-y-2.5">
+              <p className="text-sm text-[var(--ink-primary)] leading-snug">{endChapterConfirmPrompt}</p>
+              <div className="flex gap-2">
                 <Button
                   id="confirm-end-yes-btn"
                   onClick={() => {
@@ -2882,10 +2876,9 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
                     markModuleAsCompleted()
                     handleOpenQuiz()
                   }}
-                  className="flex-1 bg-[var(--accent-sage)] hover:bg-[var(--accent-sage-hover)] text-white rounded-xl text-xs font-semibold py-2 h-9 cursor-pointer shadow-xs"
+                  className="flex-1 h-10 bg-[var(--accent-sage)] hover:bg-[var(--accent-sage-hover)] text-white rounded-xl text-xs cursor-pointer"
                 >
-                  <CheckCircle2 className="w-3.5 h-3.5 mr-1" />
-                  <span>Yes, Take 10 MCQs</span>
+                  Take quiz
                 </Button>
                 <Button
                   id="confirm-end-no-btn"
@@ -2896,112 +2889,102 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
                       animation: 'listening',
                       expression: 'attentive-left',
                       mood: 'thinking',
-                      message: 'What problem or doubt are you facing? Speak into your microphone and your tutor will explain it step-by-step on the board.',
+                      message: 'What is your doubt? Speak and your tutor will explain it on the board.',
                       autoDismissMs: 10000,
                     })
                   }}
-                  className="flex-1 bg-white hover:bg-[var(--canvas-base)] border-[var(--border-subtle)] text-[var(--ink-secondary)] rounded-xl text-xs font-semibold py-2 h-9 cursor-pointer"
+                  className="flex-1 h-10 bg-white border-[var(--border-subtle)] text-[var(--ink-secondary)] rounded-xl text-xs cursor-pointer"
                 >
-                  <span>No, I Have Doubts</span>
+                  I have doubts
                 </Button>
               </div>
             </div>
           )}
 
-          {/* Capsule Concepts Ledger & Automatic Resumption Tracker */}
-          <div className="p-4 rounded-2xl bg-white border border-[var(--border-subtle)] text-[var(--ink-primary)] text-xs space-y-2.5 shadow-sm">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1.5">
-                <Layers className="w-3.5 h-3.5 text-[var(--accent-sage)]" />
-                <span className="text-[10px] font-mono uppercase tracking-widest text-[var(--accent-sage)] font-bold">
-                  Capsule Concept Ledger
+          {/* Desktop concept list */}
+          {keyConceptsList.length > 0 && (
+            <div className="hidden md:block rounded-2xl bg-white border border-[var(--border-subtle)] p-3">
+              <div className="flex items-center justify-between px-1 pb-2">
+                <span className="text-xs font-medium text-[var(--ink-secondary)]">
+                  Concepts · {progressPercent}%
                 </span>
-              </div>
-              <div className="flex items-center gap-2">
                 <button
                   type="button"
                   onClick={() => handleConceptGoto(1)}
-                  className="px-2 py-0.5 rounded text-[10px] font-mono bg-[var(--accent-sage-soft)] hover:bg-[#d5e4d9] text-[var(--accent-sage)] border border-[var(--accent-sage-border)] transition-colors flex items-center gap-1 cursor-pointer"
-                  title="Rewind and teach from starting concept"
+                  className="text-xs text-[var(--accent-sage)] hover:underline cursor-pointer"
                 >
-                  <RotateCcw className="w-2.5 h-2.5" />
-                  <span>Teach from Start</span>
+                  Restart
                 </button>
-                <span className="text-[var(--ink-secondary)] font-mono text-[11px]">
-                  {progressPercent}% Mastered
-                </span>
               </div>
+              <div className="h-1 mb-2 bg-stone-200 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-[var(--accent-sage)] transition-all duration-500"
+                  style={{ width: `${progressPercent}%` }}
+                />
+              </div>
+              {conceptList}
             </div>
+          )}
+        </aside>
 
-            {/* Micro Progress Bar */}
-            <div className="w-full h-1.5 bg-stone-200 rounded-full overflow-hidden border border-[var(--border-subtle)]">
-              <div
-                className="h-full bg-[var(--accent-sage)] transition-all duration-500"
-                style={{ width: `${progressPercent}%` }}
-              />
-            </div>
+        {/* Board */}
+        <div className="relative flex-1 min-h-0 min-w-0 flex flex-col overflow-hidden">
+          {!isCallActive && (
+            <div className="absolute inset-0 z-30 flex items-center justify-center overflow-y-auto bg-[#F8F6F0] p-3 sm:p-6">
+              <DashCard tone="primary" size="lg" className="w-full max-w-2xl space-y-5 p-5 sm:p-8">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-sm font-medium text-white/80">
+                    {isCompleted ? 'Review' : currentConceptIndex > 0 || completedConcepts.length > 0 ? 'Continue learning' : 'Start learning'}
+                  </span>
+                  {resolvedSubject && (
+                    <span className="rounded-full bg-white/10 px-3 py-0.5 text-xs font-medium text-white ring-1 ring-white/25">
+                      {resolvedSubject}
+                    </span>
+                  )}
+                </div>
 
-            {keyConceptsList.length > 0 ? (
-              <div className="space-y-1.5 pt-1">
-                {keyConceptsList.map((concept: string, idx: number) => {
-                  const isDone = completedConcepts.some((c) => {
-                    const cNorm = normConcept(c)
-                    const kNorm = normConcept(concept)
-                    return cNorm === kNorm || cNorm.includes(kNorm) || kNorm.includes(cNorm)
-                  })
-                  const isCurrent = idx === currentConceptIndex && !isDone
-                  return (
+                <div className="space-y-2.5">
+                  <h2 className="font-editorial text-3xl leading-[1.1] text-white sm:text-4xl">{resolvedTitle}</h2>
+                  {activeModule?.description && (
+                    <p className="line-clamp-3 text-sm leading-relaxed text-white/80 sm:text-base">
+                      {activeModule.description}
+                    </p>
+                  )}
+                  <p className="text-sm text-white/70">
+                    {keyConceptsList.length > 0 ? `${keyConceptsList.length} concepts · ` : ''}
+                    {activeModule?.estimated_minutes || 15} min
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-3">
+                  <button
+                    id="start-module-spoken-class-btn"
+                    type="button"
+                    onClick={handleStartClass}
+                    disabled={isLoadingLesson}
+                    className="inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2.5 rounded-lg bg-white px-6 py-3 text-base font-semibold text-accent-primary shadow-xs transition-colors hover:bg-accent-primary-soft disabled:opacity-60 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-accent-primary"
+                  >
+                    <Play className="w-5 h-5 fill-current" />
+                    {isCompleted
+                      ? 'Review chapter'
+                      : currentConceptIndex > 0 || completedConcepts.length > 0
+                      ? 'Resume capsule'
+                      : 'Start capsule'}
+                  </button>
+                  {keyConceptsList.length > 0 && (
                     <button
-                      key={idx}
                       type="button"
-                      onClick={() => handleConceptGoto(idx + 1)}
-                      className={`w-full flex items-center justify-between p-2 rounded-xl border text-[11px] font-mono transition-all text-left cursor-pointer hover:scale-[1.01] active:scale-[0.99] ${
-                        isDone
-                          ? 'bg-[var(--accent-sage-soft)] border-[var(--accent-sage-border)] text-[var(--accent-sage)] hover:bg-[var(--accent-sage-soft)]'
-                          : isCurrent
-                          ? 'bg-[var(--accent-warm-soft)] border-[var(--accent-warm-border)] text-[var(--accent-warm)] shadow-xs'
-                          : 'bg-stone-50 border-[var(--border-subtle)] text-[var(--ink-secondary)] hover:bg-stone-100'
-                      }`}
-                      title={`Click to jump or rewind to Concept ${idx + 1}: ${concept}`}
+                      onClick={() => setConceptsOpen(true)}
+                      className="md:hidden inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-medium text-white ring-1 ring-white/30 hover:bg-white/10 cursor-pointer"
                     >
-                      <div className="flex items-center gap-2 truncate pr-2">
-                        {isDone ? (
-                          <CheckCircle2
-                            className="w-3.5 h-3.5 text-[var(--accent-sage)] shrink-0"
-                            strokeWidth={2}
-                          />
-                        ) : isCurrent ? (
-                          <span className="w-2 h-2 rounded-full bg-[var(--accent-warm)] animate-pulse shrink-0" />
-                        ) : (
-                          <span className="w-2 h-2 rounded-full bg-stone-300 shrink-0" />
-                        )}
-                        <span className="truncate">
-                          {idx + 1}. {concept}
-                        </span>
-                      </div>
-
-                      <span className="text-[10px] uppercase font-bold shrink-0">
-                        {isDone
-                          ? 'Mastered'
-                          : isCurrent
-                          ? 'Current'
-                          : 'Jump'}
-                      </span>
+                      <Layers className="w-4 h-4" />
+                      Concepts
                     </button>
-                  )
-                })}
-              </div>
-            ) : (
-              <p className="text-[var(--ink-secondary)] text-xs leading-relaxed">
-                {activeModule?.description ||
-                  'Study this syllabus capsule with interactive dialogue and whiteboard schematics.'}
-              </p>
-            )}
-          </div>
-        </div>
-
-        {/* Right Column: Full Whiteboard Canvas Stage (Occupies main area to the right of avatar section) */}
-        <div className="flex-1 h-full min-h-0 flex flex-col overflow-hidden">
+                  )}
+                </div>
+              </DashCard>
+            </div>
+          )}
           <WhiteboardWorkspace
             ref={chalkboardRef}
             moduleId={moduleId}
@@ -3050,6 +3033,43 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
           />
         </div>
       </div>
+
+      {/* Mobile concepts sheet */}
+      {conceptsOpen && (
+        <div className="md:hidden fixed inset-0 z-50 flex items-end bg-black/40" onClick={() => setConceptsOpen(false)}>
+          <div
+            className="w-full max-h-[70dvh] overflow-y-auto rounded-t-3xl bg-white p-4 pb-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between pb-2">
+              <span className="text-sm font-medium text-[var(--ink-primary)]">
+                Concepts · {progressPercent}%
+              </span>
+              <button
+                type="button"
+                onClick={() => setConceptsOpen(false)}
+                aria-label="Close"
+                className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-stone-100 cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            {conceptList}
+            {!isCompleted && (
+              <button
+                type="button"
+                onClick={() => {
+                  markModuleAsCompleted()
+                  setConceptsOpen(false)
+                }}
+                className="mt-3 w-full h-10 rounded-xl border border-[var(--border-subtle)] text-xs text-[var(--ink-secondary)] cursor-pointer"
+              >
+                Mark complete
+              </button>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Chapter Notes Modal */}
       <ChapterNotesModal

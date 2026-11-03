@@ -18,12 +18,12 @@ export const CallControls: React.FC<CallControlsProps> = ({
   onEndCall,
 }) => {
   return (
-    <div className="flex items-center gap-4 px-6 py-4 rounded-full bg-white border border-border shadow-[0_20px_40px_-15px_rgba(23,24,23,0.08)]">
+    <div className="flex items-center gap-2 sm:gap-3 p-1.5 rounded-full bg-white border border-border">
       {/* Microphone Toggle Button */}
       <button
         onClick={onToggleMute}
         title={isMuted ? "Unmute microphone" : "Mute microphone"}
-        className={`relative group flex items-center justify-center w-14 h-14 rounded-full transition-all duration-200 active:scale-95 ${
+        className={`relative group flex items-center justify-center w-11 h-11 rounded-full transition-all duration-200 active:scale-95 ${
           isMuted
             ? "bg-destructive/10 text-destructive border border-destructive/20 hover:bg-destructive/20"
             : "bg-canvas text-ink-primary border border-border hover:bg-canvas/80"
@@ -40,7 +40,7 @@ export const CallControls: React.FC<CallControlsProps> = ({
           />
         )}
 
-        {isMuted ? <MicOff className="w-6 h-6" strokeWidth={1.5} /> : <Mic className="w-6 h-6" strokeWidth={1.5} />}
+        {isMuted ? <MicOff className="w-5 h-5" strokeWidth={1.5} /> : <Mic className="w-5 h-5" strokeWidth={1.5} />}
 
         {/* Tooltip */}
         <span className="absolute -top-10 px-2.5 py-1 text-xs text-ink-secondary bg-white border border-border rounded-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-sm">
@@ -49,16 +49,16 @@ export const CallControls: React.FC<CallControlsProps> = ({
       </button>
 
       {/* Divider */}
-      <div className="w-[1px] h-8 bg-border" />
+      <div className="w-px h-6 bg-border" />
 
       {/* End Call Button */}
       <Button
         onClick={onEndCall}
         title="End Live Class"
-        className="group flex items-center gap-2.5 px-6 h-14 rounded-full bg-ink-primary hover:bg-ink-secondary text-white font-medium text-sm transition-all duration-200 active:scale-[0.98] shadow-md"
+        className="group flex items-center gap-2 px-4 sm:px-5 h-11 rounded-full bg-ink-primary hover:bg-ink-secondary text-white font-medium text-sm transition-all duration-200 active:scale-[0.98] shadow-md"
       >
-        <PhoneOff className="w-5 h-5 transition-transform group-hover:rotate-12" strokeWidth={1.5} />
-        <span>End Class</span>
+        <PhoneOff className="w-4 h-4" strokeWidth={1.5} />
+        <span>End</span>
       </Button>
     </div>
   );

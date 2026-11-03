@@ -1,10 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { useParams } from 'next/navigation'
 import { ConnectionState, TranscriptItem } from '@/types/liveSession'
-import { Sparkles, Settings } from 'lucide-react'
 import { LiveAvatarConfig } from '@/services/geminiWebSocket'
 import { SimliAvatarController, SimliStatus } from '@/services/simliAvatarService'
 
@@ -23,6 +20,8 @@ interface ClassroomAvatarProps {
   onSimliActiveChange?: (isActive: boolean) => void
   preferredProvider?: AvatarProvider
   isAvatarEnabled?: boolean
+  /** Tailwind size classes for the avatar circle, e.g. 'w-12 h-12 md:w-40 md:h-40' */
+  className?: string
 }
 
 export const ClassroomAvatar: React.FC<ClassroomAvatarProps> = ({
@@ -34,9 +33,8 @@ export const ClassroomAvatar: React.FC<ClassroomAvatarProps> = ({
   onSimliControllerReady,
   onSimliActiveChange,
   isAvatarEnabled = true,
+  className = 'w-16 h-16',
 }) => {
-  const params = useParams()
-  const studentId = (params?.id as string) || ''
 
   // Selected Face ID: default to 80459b57-2d66-4ca7-8682-59e1c649bc53
   const [selectedFaceId, setSelectedFaceId] = useState<string>('80459b57-2d66-4ca7-8682-59e1c649bc53')
@@ -48,8 +46,6 @@ export const ClassroomAvatar: React.FC<ClassroomAvatarProps> = ({
   const simliControllerRef = useRef<SimliAvatarController | null>(null)
 
   const isSpeaking = state === 'TEACHER_SPEAKING'
-  const isListening = state === 'LISTENING'
-  const isConnecting = state === 'CONNECTING'
   const isCallActive = state !== 'IDLE' && state !== 'DISCONNECTED' && state !== 'ERROR'
   const isUserTalking = !isSpeaking && !isMuted && userVolume > 0.04
   const isSimliActive = simliStatus === 'connected'
@@ -132,171 +128,44 @@ export const ClassroomAvatar: React.FC<ClassroomAvatarProps> = ({
     })
   }, [isMounted, isCallActive, isAvatarEnabled, selectedFaceId])
 
-  // Audio-reactive visual dynamics for ambient stage
-  const reactiveScale = isSpeaking ? 1 + teacherVolume * 0.04 : isUserTalking ? 1 + userVolume * 0.03 : 1
-  const ringScale1 = isSpeaking ? 1 + teacherVolume * 0.35 : isUserTalking ? 1 + userVolume * 0.25 : 1.02
-  const ringScale2 = isSpeaking ? 1 + teacherVolume * 0.65 : isUserTalking ? 1 + userVolume * 0.45 : 1.04
-
-  // Subtle natural breathing motion
-  const breathingOffset = isMounted ? Math.sin(Date.now() / 1400) * 1.2 : 0
-
-  // Filter out internal directives from caption display
-  const rawCaption = latestTranscript?.text || ''
-  const displayCaption = rawCaption.replace(/\[[A-Z_]+(?::\s*[^\]]+)?\]/gi, '').trim()
+  // Subtle audio-reactive ring; no per-frame layout work, just a transform
+  const level = isSpeaking ? teacherVolume : isUserTalking ? userVolume : 0
+  const ringScale = 1 + Math.min(level, 1) * 0.12
+  const ringColor = isSpeaking ? 'ring-amber-500/60' : isUserTalking ? 'ring-emerald-500/60' : 'ring-stone-200'
 
   const avatarImageUrl = `/avatars/${selectedFaceId}.jpg`
 
   return (
-    <div className="relative w-full flex flex-col items-center justify-between p-4 bg-white/70 backdrop-blur-md rounded-3xl border border-stone-200/60 shadow-xs min-h-[380px] overflow-hidden select-none">
-      {/* Top micro status bar */}
-      <div className="w-full flex items-center justify-between px-2 mb-3">
-        <div className="flex items-center gap-2">
-          <span
-            className={`w-2 h-2 rounded-full ${
-              isSpeaking
-                ? 'bg-amber-500 animate-ping'
-                : isUserTalking
-                ? 'bg-emerald-500 animate-pulse'
-                : isListening
-                ? 'bg-emerald-500'
-                : isConnecting
-                ? 'bg-amber-400 animate-pulse'
-                : 'bg-stone-300'
-            }`}
-          />
-          <span className="text-[11px] font-mono uppercase tracking-wider text-ink-secondary">
-            {isSpeaking
-              ? 'Anaxly Speaking'
-              : isUserTalking
-              ? 'Hearing Student'
-              : isListening
-              ? isMuted
-                ? 'Muted'
-                : 'Listening'
-              : isConnecting
-              ? 'Connecting Voice...'
-              : 'Standby'}
-          </span>
-        </div>
-
-        {/* Settings Link */}
-        <div className="flex items-center gap-1.5">
-          {studentId && (
-            <Link
-              href={`/dashboard/${studentId}/settings?tab=avatars`}
-              className="text-[10px] text-ink-muted hover:text-ink-primary flex items-center gap-1 px-2.5 py-1 rounded-md hover:bg-stone-100 border border-stone-200/80 transition-colors cursor-pointer"
-              title="Configure Classroom Avatars & Settings"
-            >
-              <Settings className="w-3.5 h-3.5" />
-              <span>Avatars</span>
-            </Link>
-          )}
-        </div>
-      </div>
-
-      {/* Center: Live Avatar Stage */}
-      <div className="relative w-48 h-48 md:w-56 md:h-56 flex items-center justify-center my-2">
-        {/* Ambient reactive glow aura */}
-        <div
-          className="absolute w-56 h-56 md:w-64 md:h-64 rounded-full pointer-events-none transition-all duration-150 ease-out"
-          style={{
-            background: isSpeaking
-              ? 'radial-gradient(circle, rgba(217, 119, 6, 0.22) 0%, rgba(217, 119, 6, 0.05) 50%, transparent 70%)'
-              : isUserTalking
-              ? 'radial-gradient(circle, rgba(16, 185, 129, 0.22) 0%, rgba(16, 185, 129, 0.05) 50%, transparent 70%)'
-              : 'radial-gradient(circle, rgba(0, 0, 0, 0.03) 0%, transparent 70%)',
-            transform: `scale(${ringScale2})`,
-          }}
-        />
-
-        {/* Audio reactive pulse ring */}
-        <div
-          className={`absolute w-52 h-52 md:w-60 md:h-60 rounded-full border transition-transform duration-100 ease-out ${
-            isSpeaking
-              ? 'border-amber-500/40'
-              : isUserTalking
-              ? 'border-emerald-500/40'
-              : 'border-stone-200'
-          }`}
-          style={{
-            transform: `scale(${ringScale1})`,
-          }}
-        />
-
-        {/* Avatar Stage Outer Bezel */}
-        <div
-          className="relative z-10 w-44 h-44 md:w-52 md:h-52 rounded-full p-1.5 bg-white/90 border-2 border-stone-200/80 shadow-lg backdrop-blur-md transition-transform duration-150 ease-out flex items-center justify-center overflow-hidden"
-          style={{
-            transform: `scale(${reactiveScale}) translateY(${breathingOffset}px)`,
-          }}
-        >
-          {isAvatarEnabled ? (
-            <>
-              {/* Primary: Video element for Simli Live WebRTC Avatar */}
+    <div
+      className={`relative shrink-0 rounded-full bg-stone-100 ring-2 ring-offset-2 ring-offset-[#F8F6F0] overflow-hidden select-none transition-[transform,box-shadow] duration-150 ease-out ${ringColor} ${className}`}
+      style={{ transform: `scale(${ringScale})` }}
+    >
+      {isAvatarEnabled ? (
+        <>
           <video
             ref={simliVideoRef}
             autoPlay
             playsInline
             muted
-            className={`absolute inset-0 w-full h-full object-cover rounded-full bg-stone-900 transition-opacity duration-300 ${
+            className={`absolute inset-0 w-full h-full object-cover bg-stone-900 transition-opacity duration-300 ${
               isSimliActive ? 'opacity-100 z-10' : 'opacity-0 pointer-events-none z-0'
             }`}
           />
-          {/* Audio element bound to Simli WebRTC stream */}
           <audio ref={simliAudioRef} autoPlay />
-
-          {/* Real Face ID avatar image when stream is in standby / connecting */}
-          <div
-            className={`absolute inset-0 w-full h-full rounded-full overflow-hidden flex items-center justify-center bg-stone-100 transition-opacity duration-300 ${
-              !isSimliActive ? 'opacity-100 z-5' : 'opacity-0 pointer-events-none z-0'
+          <img
+            src={avatarImageUrl}
+            alt="Tutor"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+              isSimliActive ? 'opacity-0' : 'opacity-100'
             }`}
-          >
-            <img
-              src={avatarImageUrl}
-              alt="Avatar Portrait"
-              className="w-full h-full object-cover rounded-full"
-              onError={(e) => {
-                // Fallback to CDN portrait if local asset is loading
-                (e.currentTarget as HTMLImageElement).src = `https://app.simli.com/characters/trinity2/${selectedFaceId}.jpg`
-              }}
-            />
-
-            {/* Natural studio lighting vignette */}
-            <div className="absolute inset-0 rounded-full pointer-events-none bg-gradient-to-t from-black/35 via-transparent to-white/10" />
-
-            {/* ZERO TEXT ON AVATAR: As per user instruction, no badges or labels are overlaid on the portrait */}
-          </div>
+            onError={(e) => {
+              ;(e.currentTarget as HTMLImageElement).src = `https://app.simli.com/characters/trinity2/${selectedFaceId}.jpg`
+            }}
+          />
         </>
       ) : (
-        <div className="absolute inset-0 w-full h-full rounded-full flex items-center justify-center bg-[#F5F2EB] text-[#78716C] p-4 text-center">
-          <span className="text-xs font-serif font-medium text-stone-600 tracking-wide">
-            Avatar Not Available
-          </span>
-        </div>
+        <div className="absolute inset-0 flex items-center justify-center text-[10px] text-stone-500">Tutor</div>
       )}
-        </div>
-      </div>
-
-      {/* Dynamic Subtitle / Live Closed Captions */}
-      <div className="w-full flex flex-col items-center mt-2 px-2 z-20">
-        <div className="min-h-[44px] w-full flex items-center justify-center text-center">
-          {displayCaption ? (
-            <p className="text-xs sm:text-sm font-medium text-stone-700 bg-stone-100/80 px-3 py-1.5 rounded-xl border border-stone-200/50 backdrop-blur-xs max-w-full truncate animate-in fade-in slide-in-from-bottom-1 duration-200">
-              {displayCaption}
-            </p>
-          ) : isSpeaking ? (
-            <div className="flex items-center gap-1.5 text-stone-400 text-xs font-mono">
-              <Sparkles className="w-3.5 h-3.5 text-sky-400 animate-spin" />
-              <span>Anaxly speaking...</span>
-            </div>
-          ) : isUserTalking ? (
-            <div className="flex items-center gap-1.5 text-emerald-600 text-xs font-mono">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Listening to student answer...</span>
-            </div>
-          ) : null}
-        </div>
-      </div>
     </div>
   )
 }

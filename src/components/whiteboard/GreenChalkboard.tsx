@@ -249,6 +249,29 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     const executedTextHistoryRef = useRef<Set<string>>(new Set())
     const persistTimeoutRef = useRef<NodeJS.Timeout | null>(null)
     const containerRef = useRef<HTMLDivElement>(null)
+    // Narrow screens: smaller board zoom and fewer text columns so lines fit the board width
+    const [boardZoom, setBoardZoom] = useState(0.7)
+    const boardZoomRef = useRef(0.7)
+    const wrapFactorRef = useRef(1)
+    const cols = (n: number) => Math.max(24, Math.floor(n * wrapFactorRef.current))
+    useEffect(() => {
+      const el = containerRef.current
+      if (!el) return
+      const update = () => {
+        const w = el.clientWidth
+        if (!w) return
+        const zoom = w < 600 ? 0.55 : 0.7
+        // 840 canvas px fit the full column count; leave room for the 60px left margin
+        const factor = Math.min(1, Math.max(0.3, (w / zoom - 80) / 840))
+        boardZoomRef.current = zoom
+        wrapFactorRef.current = factor
+        setBoardZoom((prev) => (prev === zoom ? prev : zoom))
+      }
+      update()
+      const ro = new ResizeObserver(update)
+      ro.observe(el)
+      return () => ro.disconnect()
+    }, [])
     const operationQueueRef = useRef<Promise<any>>(Promise.resolve())
     const [activeChalkColor, setActiveChalkColor] = useState<string>(INK_PRIMARY)
     const activeChalkColorRef = useRef<string>(INK_PRIMARY)
@@ -473,13 +496,18 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
     // Helper to build a clean page header with optional single-concept title
     const createHeaderSkeleton = (pageNum = 1, conceptTitle?: string): any[] => {
+      // Keep the one-line header inside the board on narrow screens (20px font is ~11.5 canvas px per char)
+      const boardW = containerRef.current?.clientWidth || 0
+      const headerZoom = boardW && boardW < 600 ? 0.55 : 0.7
+      const headerMaxChars = boardW ? Math.max(16, Math.floor((boardW / headerZoom - 130) / 11.5)) : 200
+      const fitHeader = (t: string) => (t.length > headerMaxChars ? `${t.slice(0, headerMaxChars - 1).trimEnd()}…` : t)
       const items: any[] = [
         {
           id: `header_topic_p${pageNum}`,
           type: 'text',
           x: 60,
           y: 35,
-          text: `TOPIC: ${moduleTitle.toUpperCase()}${pageNum > 1 ? ` (PAGE ${pageNum})` : ''}`,
+          text: fitHeader(`TOPIC: ${moduleTitle.toUpperCase()}${pageNum > 1 ? ` (PAGE ${pageNum})` : ''}`),
           fontSize: 20,
           fontFamily: 1,
           strokeColor: INK_PRIMARY,
@@ -528,7 +556,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               type: 'text',
               x: startX,
               y: startY,
-              text: titleText,
+              text: fitHeader(titleText),
               fontSize: 19,
               fontFamily: 1,
               strokeColor: INK_PRIMARY,
@@ -732,17 +760,25 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       }
     }, [])
 
+    // Push the responsive zoom into the canvas when the board width crosses the phone breakpoint
+    useEffect(() => {
+      if (!excalidrawAPI) return
+      try {
+        excalidrawAPI.updateScene({ appState: { zoom: { value: boardZoom } } })
+      } catch {}
+    }, [boardZoom, excalidrawAPI])
+
     // Helper to lock zoom to exactly 70% (0.7) and prevent zooming out/in
     const enforceLockedZoom = useCallback((api: any) => {
       if (!api) return
       try {
         const state = api.getAppState()
-        if (state && (!state.zoom || Math.abs(state.zoom.value - 0.7) > 0.01)) {
+        if (state && (!state.zoom || Math.abs(state.zoom.value - boardZoomRef.current) > 0.01)) {
           setTimeout(() => {
             try {
               api.updateScene({
                 appState: {
-                  zoom: { value: 0.7 },
+                  zoom: { value: boardZoomRef.current },
                 },
               })
             } catch (err) {}
@@ -800,7 +836,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             currentItemStrokeColor: INK_PRIMARY,
             currentItemFontFamily: 1,
             currentItemRoughness: 0,
-            zoom: { value: 0.7 },
+            zoom: { value: boardZoomRef.current },
             scrollX: 0,
             scrollY: 0,
           },
@@ -895,7 +931,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           currentItemStrokeColor: INK_PRIMARY,
           currentItemFontFamily: 1,
           currentItemRoughness: 0,
-          zoom: { value: 0.7 },
+          zoom: { value: boardZoomRef.current },
           scrollX: 0,
           scrollY: 0,
         },
@@ -1087,7 +1123,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                 currentItemStrokeColor: INK_PRIMARY,
                 currentItemFontFamily: 1,
                 currentItemRoughness: 0,
-                zoom: { value: 0.7 },
+                zoom: { value: boardZoomRef.current },
                 scrollX: 0,
                 scrollY: 0,
               },
@@ -1126,7 +1162,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               currentItemStrokeColor: INK_PRIMARY,
               currentItemFontFamily: 1,
               currentItemRoughness: 0,
-              zoom: { value: 0.7 },
+              zoom: { value: boardZoomRef.current },
               scrollX: 0,
               scrollY: 0,
             },
@@ -1148,7 +1184,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (executedTextHistoryRef.current.has(clean.toLowerCase())) return
       executedTextHistoryRef.current.add(clean.toLowerCase())
 
-      const lines = wrapText(clean, 62)
+      const lines = wrapText(clean, cols(62))
       const lineHeight = 24
       const totalH = Math.max(30, lines.length * lineHeight)
 
@@ -1271,7 +1307,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (checkIsRedundant(clean)) return
       if (shouldSkipDuplicate('draw_note', clean)) return
 
-      const lines = wrapText(clean, 64)
+      const lines = wrapText(clean, cols(64))
       const lineHeight = 22
       const totalH = Math.max(28, lines.length * lineHeight)
 
@@ -1327,7 +1363,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       const clean = raw.trim()
       if (checkIsRedundant(clean)) return
       if (shouldSkipDuplicate('draw_step', clean)) return
-      const lines = wrapText(clean, 60)
+      const lines = wrapText(clean, cols(60))
       const lineHeight = 21
       const totalH = Math.max(26, lines.length * lineHeight)
 
@@ -1372,7 +1408,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       const clean = raw.trim()
       if (checkIsRedundant(clean)) return
       if (shouldSkipDuplicate('draw_highlight_box', clean)) return
-      const lines = wrapText(clean, 60)
+      const lines = wrapText(clean, cols(60))
       const boxWidth = 740
       const lineHeight = 22
       const textHeight = Math.max(1, lines.length) * lineHeight
@@ -1430,7 +1466,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!raw?.trim()) return
       const clean = raw.trim()
       if (shouldSkipDuplicate('draw_question', clean)) return
-      const lines = wrapText(clean, 64)
+      const lines = wrapText(clean, cols(64))
       const lineHeight = 22
       const paddingTop = 28
       const textHeight = Math.max(1, lines.length) * lineHeight
@@ -1515,7 +1551,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       }
       lastDrawnStudentAnswerRef.current = { text: clean, time: Date.now() }
 
-      const lines = wrapText(`"${clean}"`, 64)
+      const lines = wrapText(`"${clean}"`, cols(64))
       const lineHeight = 20
       const paddingTop = 26
       const textHeight = Math.max(1, lines.length) * lineHeight
@@ -1583,7 +1619,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         isCorrect === true ||
         /^(correct|spot on|perfect|exactly|well done|excellent|right|yes)\b/i.test(clean) ||
         /\b(correct|spot on|perfect|well done)\b/i.test(clean)
-      const lines = wrapText(clean, 64)
+      const lines = wrapText(clean, cols(64))
       const lineHeight = 20
       const paddingTop = 26
       const textHeight = Math.max(1, lines.length) * lineHeight
@@ -1669,13 +1705,13 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         aText = parts.slice(1).join(' | ').replace(/^answer:\s*/i, '')
       }
 
-      const qLines = wrapText(qText, 60)
+      const qLines = wrapText(qText, cols(60))
       const qLineHeight = 22
       const qTextHeight = qLines.length * qLineHeight
       let aLines: string[] = []
       let aTextHeight = 0
       if (aText) {
-        aLines = wrapText(aText, 58)
+        aLines = wrapText(aText, cols(58))
         aTextHeight = aLines.length * 20
       }
 
@@ -2695,7 +2731,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             currentItemStrokeColor: INK_PRIMARY,
             currentItemFontFamily: 1,
             currentItemRoughness: 0,
-            zoom: { value: 0.7 },
+            zoom: { value: boardZoomRef.current },
             scrollX: 0,
             scrollY: 0,
           },
@@ -3350,9 +3386,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         const cardWidth = Math.max(svgWidth + 32, 440)
         const captionLines = caption?.trim()
-          ? wrapText(caption.trim(), 55)
+          ? wrapText(caption.trim(), cols(55))
           : resolvedCaption?.trim()
-          ? wrapText(resolvedCaption.trim(), 55)
+          ? wrapText(resolvedCaption.trim(), cols(55))
           : []
         const captionHeight = captionLines.length * 18
         const cardHeight = svgHeight + 56 + (captionLines.length > 0 ? captionHeight + 12 : 0) + 16
@@ -3871,7 +3907,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               currentItemStrokeColor: INK_PRIMARY,
               currentItemFontFamily: 1,
               currentItemRoughness: 0,
-              zoom: { value: 0.7 },
+              zoom: { value: boardZoomRef.current },
               scrollX: 0,
               scrollY: 0,
             },
@@ -3948,12 +3984,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               key={activeTyping.id}
               style={{
                 position: 'absolute',
-                left: `${((activeTyping.canvasX || 60) + (excalidrawAPIRef.current?.getAppState?.()?.scrollX || 0)) * 0.7}px`,
-                top: `${((activeTyping.canvasY || 100) + (excalidrawAPIRef.current?.getAppState?.()?.scrollY || 0)) * 0.7}px`,
-                transform: 'scale(0.7)',
+                left: `${((activeTyping.canvasX || 60) + (excalidrawAPIRef.current?.getAppState?.()?.scrollX || 0)) * boardZoom}px`,
+                top: `${((activeTyping.canvasY || 100) + (excalidrawAPIRef.current?.getAppState?.()?.scrollY || 0)) * boardZoom}px`,
+                transform: `scale(${boardZoom})`,
                 transformOrigin: 'top left',
                 zIndex: 25,
-                maxWidth: '840px',
+                maxWidth: `min(840px, ${Math.max(160, ((containerRef.current?.clientWidth || 840) - ((activeTyping.canvasX || 60) + (excalidrawAPIRef.current?.getAppState?.()?.scrollX || 0)) * boardZoom - 12) / boardZoom)}px)`,
                 pointerEvents: 'none',
                 fontFamily: 'Excalifont, Virgil, Xiaolai, "Segoe UI Emoji", sans-serif',
                 fontSize: `${activeTyping.fontSize}px`,
@@ -4050,7 +4086,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         <div className="relative z-20 py-1.5 px-3 bg-[#F8F6F0] border-t border-[#E5E3DB] flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-[#7A7C75] select-none">
           {/* Multi-Page Navigation Bar */}
           <div className="flex items-center gap-1.5 bg-white px-2 py-0.5 rounded-lg border border-[#E5E3DB] shadow-xs">
-            <span className="text-[10px] text-[#7A7C75] font-mono mr-0.5">Pages:</span>
+            <span className="hidden sm:inline text-[10px] text-[#7A7C75] font-mono mr-0.5">Pages:</span>
             <div className="flex items-center gap-1">
               {pages.map((p, idx) => (
                 <button
@@ -4079,7 +4115,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
           {/* Multi-Color Chalk Palette */}
           <div className="flex items-center gap-1.5 bg-white px-2 py-1 rounded-lg border border-[#E5E3DB] shadow-xs">
-            <span className="text-[10px] text-[#7A7C75] font-mono mr-0.5">Chalk:</span>
+            <span className="hidden sm:inline text-[10px] text-[#7A7C75] font-mono mr-0.5">Chalk:</span>
             {[
               { name: 'Charcoal', value: INK_PRIMARY, title: 'Charcoal / Primary Ink' },
               { name: 'Botanical', value: INK_BOTANICAL, title: 'Botanical Green' },
@@ -4106,22 +4142,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
           {/* Page Counter, Clear Button & Status */}
           <div className="flex items-center gap-2 sm:gap-3">
-            <button
-              type="button"
-              onClick={() => {
-                if (typeof window !== 'undefined' && window.confirm('Clear all notes and drawings from the whiteboard?')) {
-                  clearBoard()
-                }
-              }}
-              className="flex items-center gap-1 px-2 py-0.5 rounded-md border border-[#E5E3DB] bg-white text-[#7A7C75] hover:text-[#DC2626] hover:border-[#DC2626]/40 hover:bg-[#FEF2F2] transition-colors cursor-pointer text-[10px] font-mono shadow-2xs active:scale-95"
-              title="Clear all board notes & drawings"
-              aria-label="Clear all board"
-            >
-              <Eraser className="w-3 h-3 text-[#DC2626]" />
-              <span>Clear</span>
-            </button>
-            <span className="hidden sm:inline text-[10px] text-[#7A7C75]">Notes • Zoom Locked 70%</span>
-            <span className="text-[#52715D] font-bold text-[11px]">Page {currentPageIndex + 1} of {pages.length}</span>
+                        <span className="text-[#52715D] font-bold text-[11px]">{currentPageIndex + 1}/{pages.length}</span>
           </div>
         </div>
       </div>
