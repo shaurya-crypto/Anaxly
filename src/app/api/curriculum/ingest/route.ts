@@ -842,21 +842,69 @@ export async function POST(req: Request) {
 
       // Synthesize ultra-detailed, comprehensive topic capsules with NCERT-standard notes, worked numericals, and misconceptions
       const isMath = category?.toLowerCase().includes('math') || existingCurriculum?.category?.toLowerCase().includes('math')
+      const isScience = category?.toLowerCase().includes('sci') || category?.toLowerCase().includes('phys') || category?.toLowerCase().includes('chem') || category?.toLowerCase().includes('bio') || existingCurriculum?.category?.toLowerCase().includes('sci') || existingCurriculum?.category?.toLowerCase().includes('phys') || existingCurriculum?.category?.toLowerCase().includes('chem') || existingCurriculum?.category?.toLowerCase().includes('bio')
       const isMathCategory = isMath
+      const isScienceCategory = isScience
       const synthesisPrompt = `You are a Principal Academic Curriculum Architect and Master Teacher for ${board}.
 Your task is to exhaustively analyze the provided Textbook Chapter document for "${targetChapterTitle}" (${classLevel}, ${category}) and decompose it into an EXHAUSTIVE, topper-ready curriculum series of Topic Capsules.
 
-CRITICAL CAPSULE COUNT & SCOPE MANDATE (MANDATORY MINIMUM 4 TO 6 CAPSULES):
-- You MUST synthesize AT LEAST 4 to 6 separate, distinct capsules (never 1 or 2!).
-- NEVER lump all concepts into a single omnibus capsule. Every major section and sub-topic of the chapter must be its own dedicated 20-minute masterclass capsule.
-- For Science chapters like Tissues (Class 9 Science):
-  * Capsule 1: Plant Tissues — Meristematic Tissues (Apical, Lateral, Intercalary Meristems)
-  * Capsule 2: Plant Tissues — Simple Permanent Tissues (Parenchyma, Collenchyma, Sclerenchyma, Protective Epidermis & Stomata)
-  * Capsule 3: Plant Tissues — Complex Permanent Tissues (Xylem Tracheids & Vessels, Phloem Sieve Tubes & Companion Cells)
-  * Capsule 4: Animal Tissues — Epithelial & Connective Tissues (Squamous, Cuboidal, Columnar; Blood, Bone, Cartilage, Ligament, Tendon, Adipose, Areolar)
-  * Capsule 5: Animal Tissues — Muscular & Nervous Tissues (Striated, Smooth, Cardiac Muscles; Structure of Neuron & Synapse)
-  * Capsule 6: NCERT In-Text Questions & End-of-Chapter Exercises Complete Step-by-Step Solver
-- For other Science, Math, or Physics chapters: Decompose similarly into 4 to 6 sequential capsules covering foundational concepts, advanced mechanisms/proofs, and complete exercise solvers!
+CRITICAL CAPSULE COUNT & SCOPE MANDATE (MANDATORY MINIMUM 5 TO 8 CAPSULES):
+- You MUST synthesize AT LEAST 5 to 8 separate, distinct capsules (minimum 5, ideally 6 to 8, NEVER fewer than 5!).
+- NEVER lump all concepts or exercises into a single omnibus capsule. Every major section, theorem, and exercise of the chapter must have its own dedicated 20-minute masterclass capsule.
+
+=============================================================================
+MANDATORY UNIVERSAL INVARIANTS FOR BOTH MATHEMATICS & SCIENCE:
+=============================================================================
+1. ZERO OMISSION OF EXERCISES, QUESTIONS & WORKED EXAMPLES (MANDATORY FOR ALL):
+   - For BOTH Mathematics and Science, you MUST capture EVERY SINGLE EXERCISE QUESTION (Exercise X.1, X.2, ..., in-text question sets, and chapter-end exercises) and EVERY SINGLE WORKED EXAMPLE (Example 1, Example 2, ...) from the textbook chapter.
+   - Absolutely NO omissions, skipping sub-parts (e.g. Q1(i), Q1(ii), Q5(a)...), summaries, or placeholders like "etc." or "solve similarly".
+   - In "textbook_exercises", capture every question verbatim with its problem statement, question type, and step-by-step solving method.
+   - In "worked_examples", solve every single problem with Given, Formula, Substitution, Line-by-Line Calculation, and Boxed Answer with SI/mathematical units.
+2. EXHAUSTIVE THEOREMS, LAWS, AXIOMS & CHAPTER CONTENT (MANDATORY FOR ALL):
+   - For Mathematics: EVERY theorem (e.g. Fundamental Theorem of Arithmetic, BPT, Pythagoras, Area ratios, Tangent theorems), corollary, lemma, axiom, and trigonometric/algebraic identity MUST be shared, stated verbatim, and rigorously proved with Given, To Prove, Construction, and complete step-by-step proofs!
+   - For Science: EVERY scientific law (Newton's laws, Ohm's law, Conservation laws, Snell's law), precise scientific definition with strict SI units, chemical reaction/equation, and in-text laboratory activity/experiment (Activity X.1, Activity X.2 with Apparatus, Procedure, Observations, and Inferences) MUST be fully documented.
+
+=============================================================================
+SUBJECT-SPECIFIC ARCHITECTURAL PROGRESSION RULES:
+=============================================================================
+
+FOR MATHEMATICS (SOLVING & EXPLAINING QUESTIONS >> ABSTRACT THEORY):
+1. THEORY CONCLUDES STRICTLY WITHIN 1 TO 2 MODULES:
+   - All chapter theory, definitions, core theorems, notation, and fundamental formulas MUST conclude within the first 1 to 2 modules:
+     * Capsule 1: Foundational Definitions, Notation, Geometric Setup & Core Theorems with complete step-by-step proofs.
+     * Capsule 2: Governing Formulas, Derived Identities & Foundational Textbook Illustrative Examples.
+   - Do NOT drag abstract theory across 4 or 5 modules! Once foundational concepts and theorems are established in Modules 1-2, transition directly into questions.
+2. DEDICATED MODULE PER EXERCISE (MODULE-BY-MODULE QUESTION SOLVERS):
+   - Starting from Module 3 onwards, EVERY subsequent module MUST be a dedicated exercise question solver:
+     * Capsule 3: "Exercise X.1: Complete Step-by-Step Question Solver"
+     * Capsule 4: "Exercise X.2: Complete Step-by-Step Question Solver (Part 1)"
+     * Capsule 5: "Exercise X.2: Complete Step-by-Step Question Solver (Part 2 / Advanced)"
+     * Capsule 6: "Exercise X.3: Complete Step-by-Step Question Solver"
+     * Capsule 7: "Exercise X.4 / Optional HOTS & Application Problems"
+     * Capsule 8: "Board Exam Mastery: 5-Mark Heavy Proofs, Traps & PYQ Solver"
+3. QUESTION SOLVING & EXPLANATION DWARFS THEORY:
+   - In Mathematics, concepts are mastered through solving problems! In all exercise-solver capsules, theory is minimal. Focus overwhelmingly on:
+     * Explaining the question clearly (what is given, what is asked, geometry/coordinate visualization).
+     * Explaining WHY a specific identity, theorem, or method applies.
+     * Line-by-line scratchpad calculations and algebraic manipulation.
+     * Detailed explanations of common student calculation traps and arithmetic pitfalls.
+     * Final boxed answers with proper units and geometric/algebraic conclusions.
+     * In "worked_examples", solve every single question of the exercise!
+
+FOR SCIENCE (DEEP EXPLANATION FIRST, CHAPTER QUESTIONS AT LAST):
+1. DEEP SCIENTIFIC EXPLANATIONS IN FOUNDATIONAL MODULES:
+   - The first series of modules (e.g. Capsules 1 through 5/6) must prioritize deep, vivid, intuitive scientific explanations:
+     * Everyday physical hooks, real-life intuition, and analogies.
+     * Precise scientific laws, definitions, and SI units.
+     * Detailed breakdown of biological anatomy, chemical mechanisms, or physical laws.
+     * All in-text laboratory activities/experiments (Apparatus, Method, Observation, Inference).
+     * Publication-grade vector SVG diagrams for every anatomical structure, circuit schematic, optical ray diagram, or apparatus setup.
+2. CHAPTER QUESTIONS AT THE LAST MODULES:
+   - After the explanatory modules, the final modules of the chapter must be dedicated master question solvers:
+     * Capsule (N-1): "NCERT In-Text Questions & Laboratory Activities Complete Step-by-Step Solver"
+     * Capsule N: "End-of-Chapter Exercises & Board Numerical Master Solver"
+3. DO NOT STOP PER-MODULE QUESTIONS (KEEP THEM IN EVERY MODULE):
+   - In addition to the dedicated question solver modules at the end, EVERY individual explanatory module (Modules 1, 2, 3...) MUST STILL contain its 4 to 6 prepared concept questions ("concept_questions") covering 1-mark MCQs, 2-mark definitions/assertions, 3-mark short answers, and numerical problems so that live interactive Socratic questioning happens continuously throughout every class!
 
 TARGET ACADEMIC SPECIFICATION:
 - Educational Board: "${board}" (NCERT standard structure, zero calculators for Class 10/CBSE, 50% NEP 2020 competency questions)
@@ -922,7 +970,7 @@ MATHEMATICS SPECIALIZATION & GAUTH-LEVEL RIGOR:
 
 ${activeNotes && !geminiCacheName ? `CHAPTER NOTES TEXT:\n"""\n${activeNotes.substring(0, 100000)}\n"""` : 'Analyze the attached detailed chapter notes document thoroughly.'}
 
-REQUIREMENTS FOR EACH TOPIC CAPSULE (4 to 6 capsules total, 20 mins each):
+REQUIREMENTS FOR EACH TOPIC CAPSULE (5 to 8 capsules total minimum, 20 mins each):
 1. "order_index": Sequential number (1, 2, 3...)
 2. "title": Specific, descriptive topic capsule name
 3. "description": 1 concise sentence describing the capsule learning objective.
@@ -948,28 +996,28 @@ REQUIREMENTS FOR EACH TOPIC CAPSULE (4 to 6 capsules total, 20 mins each):
 8. "chapter_notes": 400-600 words of high-density, structured NCERT-standard bullet notes including verbatim definitions, governing scientific laws, derivations, and SI units (dense, high-yield, zero filler).
 9. "textbook_definitions": Array of exact textbook definitions with formal laws and SI units.
 10. "textbook_examples": Array of 2 to 3 concrete illustrative real-life scenarios from the syllabus.
-11. "textbook_exercises": Array of authentic exercises and practice questions from the book:
+11. "textbook_exercises": Exhaustive array of all authentic exercises and questions from the textbook chapter (every question verbatim with zero omissions):
     [
       {
         "exercise_number": "Exercise 1.1",
         "questions": [
           {
             "q_num": "Q1",
-            "question": "Full problem statement from the textbook",
+            "question": "Full verbatim problem statement from the textbook",
             "question_type": "conceptual" | "numerical" | "proof" | "construction",
-            "solution_method": "Step-by-step solving approach like Gauth / Photomath"
+            "solution_method": "Step-by-step solving approach like Gauth / Photomath with key formula and intermediate milestones"
           }
         ]
       }
     ]
-12. "worked_examples": Array of 2 to 4 fully solved textbook examples formatted as:
+12. "worked_examples": Comprehensive array of fully solved textbook examples and exercise questions (for dedicated exercise solver capsules, solve EVERY question assigned to this exercise step-by-step; for theory/explanatory capsules, solve 3 to 6 core textbook illustrative examples):
     [
       {
-        "problem": "Authentic textbook example problem",
-        "given": "Extracted given values with notation",
-        "formula": "Governing mathematical identity or theorem",
-        "substitution": "Exact values substituted",
-        "calculation": "Line-by-line mathematical scratchpad calculation",
+        "problem": "Authentic textbook example or exercise question statement",
+        "given": "Extracted given values with notation and geometry setup",
+        "formula": "Governing mathematical identity, theorem, or scientific law",
+        "substitution": "Exact values substituted with units",
+        "calculation": "Line-by-line mathematical or algebraic scratchpad calculation",
         "finalAnswer": "Final boxed solution",
         "unit": "Mathematical conclusion or SI unit"
       }
@@ -1230,7 +1278,13 @@ CURRICULUM DECOMPOSITION REQUIREMENTS:
    - Chapter title: Official, complete chapter name (e.g., "Chapter 1: Real Numbers", "Chapter 2: Polynomials")
    - Chapter difficulty_level: "beginner" | "intermediate" | "advanced"
    - Chapter description: Concise 1-sentence overview of what the chapter covers.
-2. For EACH Chapter, break it down into 3 to 5 focused 15-minute Topic Capsules (modules):
+2. For EACH Chapter, break it down into 5 to 8 focused 15-minute Topic Capsules (modules) minimum (never fewer than 5):
+   - For MATHEMATICS Chapters:
+     * Module 1 to 2: Theory, Definitions, Governing Theorems & Fundamental Formulas (all abstract theory MUST conclude within 1-2 modules).
+     * Modules 3 to 8: Dedicated Module per Exercise (Exercise 1 Solver, Exercise 2 Solver, Exercise 3 Solver, Optional HOTS & Board Exam Numerical Masterclasses) focusing heavily on step-by-step question solving.
+   - For SCIENCE Chapters:
+     * Modules 1 to N-2: Deep conceptual explanations, microscopic/biological/physical mechanisms, in-text laboratory activities/experiments, and diagrams (keeping 4-6 Socratic questions per module).
+     * Final Modules (N-1 & N): Dedicated In-Text Questions Solver & End-of-Chapter Review Exercises & Numericals Solver.
    - order_index: Sequential number within chapter (1, 2, 3...)
    - title: Specific topic capsule name
    - description: 1-sentence concise learning objective
