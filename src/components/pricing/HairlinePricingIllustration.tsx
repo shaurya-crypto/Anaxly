@@ -263,16 +263,6 @@ export function HairlineHeroIllustration() {
           </g>
         </svg>
       </div>
-
-      {/* Subtle Hairline Metadata Readout */}
-      <div className="flex justify-between items-center px-4 pt-1 text-[11px] font-mono tracking-wider text-stone-500 uppercase">
-        <span className="flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
-          <span>Vector Chalkboard Engine • 100% Free Forever</span>
-        </span>
-        <span className="hidden sm:inline">Classes 6–12 CBSE • ICSE • IB</span>
-        <span>1-on-1 Socratic Precision</span>
-      </div>
     </div>
   )
 }
