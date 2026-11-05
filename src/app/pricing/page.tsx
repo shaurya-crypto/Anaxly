@@ -58,7 +58,7 @@ export default function PricingPage() {
     {
       id: 'free',
       name: 'Chalkboard Free',
-      description: 'The ultimate visual discovery engine. Interactive vector chalkboard and dynamic diagrams forever.',
+      description: 'The ultimate visual discovery engine. Interactive digital chalkboard and dynamic science diagrams forever.',
       monthlyPrice: 0,
       annualPrice: 0,
       priceSuffix: 'forever',
@@ -67,11 +67,11 @@ export default function PricingPage() {
       featuresHeader: 'TOP 5 HIGHLIGHTS:',
       features: [
         {
-          text: 'Infinite Vector Chalkboard & Derivations (100% Free)',
+          text: 'Interactive Digital Chalkboard & Derivations (100% Free)',
           freeHighlight: true,
         },
         {
-          text: 'Dynamic Animated Diagrams & Mafs Graphs (100% Free)',
+          text: 'Dynamic Science Diagrams & Math Graphs (100% Free)',
           freeHighlight: true,
         },
         {
@@ -101,7 +101,7 @@ export default function PricingPage() {
       featuresHeader: 'TOP 5 HIGHLIGHTS:',
       features: [
         {
-          text: 'Infinite Vector Chalkboard & Mafs Graphs (100% Free)',
+          text: 'Interactive Chalkboard & Math Graphs (100% Free)',
           freeHighlight: true,
         },
         {
@@ -128,7 +128,7 @@ export default function PricingPage() {
       name: 'Topper Pro',
       badge: 'Most Popular',
       popular: true,
-      description: 'Real-time face-to-face AI Avatar video tutoring for 100% of your classes, PYQ engine & exam blitz.',
+      description: 'Face-to-face live video tutoring for 100% of your classes, past exam solver & exam blitz.',
       monthlyPrice: 1199,
       annualPrice: 899,
       priceSuffix: '/ month',
@@ -137,11 +137,11 @@ export default function PricingPage() {
       featuresHeader: 'TOP 5 HIGHLIGHTS:',
       features: [
         {
-          text: '15 Live Classes / month — ALL with Real-Time AI Avatar Video',
+          text: '15 Live Classes / month — ALL with Face-to-Face Video Teacher',
           highlight: true,
         },
         {
-          text: '150 Live Avatar Video Classes across the school academic year',
+          text: '150 Live Face-to-Face Video Classes across the school academic year',
           highlight: true,
         },
         {
@@ -153,7 +153,7 @@ export default function PricingPage() {
           highlight: true,
         },
         {
-          text: 'Infinite Vector Chalkboard & Dynamic Visuals (100% Free)',
+          text: 'Interactive Chalkboard & Visual Diagrams (100% Free)',
           freeHighlight: true,
         },
       ],
@@ -165,7 +165,7 @@ export default function PricingPage() {
       id: 'elite',
       name: 'Mastery Infinity',
       badge: 'Ultimate Academic Shield',
-      description: 'Nearly daily 1-on-1 Avatar tutoring, notebook camera scratchpad diagnostics & parent WhatsApp cards.',
+      description: 'Nearly daily 1-on-1 live video tutoring, notebook camera homework diagnostics & parent WhatsApp reports.',
       monthlyPrice: 1999,
       annualPrice: 1499,
       priceSuffix: '/ month',
@@ -174,15 +174,15 @@ export default function PricingPage() {
       featuresHeader: 'TOP 5 HIGHLIGHTS:',
       features: [
         {
-          text: '24 Live Classes / month — ALL with Real-Time AI Avatar Video',
+          text: '24 Live Classes / month — ALL with Face-to-Face Video Teacher',
           highlight: true,
         },
         {
-          text: '240 Live Avatar Video Classes across the school academic year',
+          text: '240 Live Face-to-Face Video Classes across the school academic year',
           highlight: true,
         },
         {
-          text: 'Notebook Camera Error Diagnostics (Scans scratchpad steps)',
+          text: 'Notebook Camera Step-by-Step Homework Error Check',
           highlight: true,
         },
         {
@@ -202,21 +202,21 @@ export default function PricingPage() {
   // Continuous Granular Features List (Dividing category rows removed per user request)
   const allGranularFeatures: ComparisonFeature[] = [
     {
-      title: 'Infinite Vector Chalkboard & Derivations',
+      title: 'Interactive Digital Chalkboard & Derivations',
       free: '100% Free',
       scholar: '100% Free',
       topper: '100% Free',
       mastery: '100% Free',
     },
     {
-      title: 'Mafs Dynamic Coordinate Function Graphs',
+      title: 'Dynamic Coordinate & Math Function Graphs',
       free: '100% Free',
       scholar: '100% Free',
       topper: '100% Free',
       mastery: '100% Free',
     },
     {
-      title: 'Publication-Grade Animated Vector SVGs',
+      title: 'Animated Science Diagrams & Experiments',
       free: '100% Free',
       scholar: '100% Free',
       topper: '100% Free',
@@ -237,7 +237,7 @@ export default function PricingPage() {
       mastery: '240 Classes',
     },
     {
-      title: 'Real-Time AI Video Avatar (Simli WebRTC)',
+      title: 'Face-to-Face Live AI Video Teacher',
       free: false,
       scholar: false,
       topper: '100% of All Classes',
@@ -265,7 +265,7 @@ export default function PricingPage() {
       mastery: 'Unlimited',
     },
     {
-      title: 'Spaced-Repetition Leitner Digital Flashcards',
+      title: 'Smart Memory Revision Flashcards',
       free: '1 Demo Deck',
       scholar: 'Unlimited',
       topper: 'Unlimited',
@@ -293,7 +293,7 @@ export default function PricingPage() {
       mastery: true,
     },
     {
-      title: 'Notebook Camera Scratchpad Error Diagnostics',
+      title: 'Notebook Camera Step-by-Step Error Check',
       free: false,
       scholar: false,
       topper: false,
@@ -314,7 +314,7 @@ export default function PricingPage() {
       mastery: 'All Boards',
     },
     {
-      title: 'IB MYP & DP Criterion Rubrics + GDC Notes',
+      title: 'IB Curriculum Alignment & Formula Guides',
       free: false,
       scholar: 'Single Board',
       topper: 'Single Board',
@@ -355,7 +355,7 @@ export default function PricingPage() {
       dimension: 'Derivation & Step-by-Step Method',
       youtube: 'Passive screen watching with pre-written slides.',
       pw: 'Rapid slide progression; child falls behind copying notes.',
-      tutor: 'Handwritten on paper, lacks vector dynamic graphs.',
+      tutor: 'Handwritten on paper, lacks interactive graphs.',
       anaxly: 'Trio Combo (Given -> Formula -> Substitution -> Boxed Answer with SI units).',
     },
     {
@@ -370,7 +370,7 @@ export default function PricingPage() {
       youtube: 'Static video frames.',
       pw: 'Static smartboard recording.',
       tutor: 'Standard notebook paper.',
-      anaxly: '100% Free Forever interactive vector canvas with Mafs coordinate graphs.',
+      anaxly: '100% Free Forever interactive chalkboard with dynamic coordinate graphs.',
     },
     {
       dimension: 'Parent Visibility',
@@ -391,11 +391,11 @@ export default function PricingPage() {
   const faqs = [
     {
       q: 'Why are the Digital Whiteboard and Visualizations 100% free on every plan?',
-      a: 'We believe genuine understanding happens through visual proof and active problem-solving, not passive video lectures. Because our vector chalkboard, dynamic anatomical diagrams, and Mafs coordinate graphing tools run natively in your web browser via React vector math, we offer them 100% free forever to every student in India.',
+      a: 'We believe genuine understanding happens through visual proof and active problem-solving, not passive video lectures. Our interactive chalkboard, animated science diagrams, and coordinate math graph tools are 100% free forever to every student in India.',
     },
     {
       q: 'How does the Live AI Avatar video tutoring work in Topper Pro & Mastery?',
-      a: 'In Topper Pro and Mastery Infinity, every single live class features a real-time, photorealistic visual tutor powered by Simli WebRTC and Gemini Live. The avatar looks directly at your child, speaks with natural Indian teacher cadence and gestures, and dynamically writes notes and diagrams on the digital chalkboard.',
+      a: 'In Topper Pro and Mastery Infinity, every live class features a face-to-face visual teacher. The teacher looks directly at your child, speaks with natural educator cadence, listens and responds in real time, and dynamically writes notes and step-by-step derivations on the chalkboard.',
     },
     {
       q: 'How does the Scholar plan guarantee school syllabus completion?',
@@ -635,7 +635,7 @@ export default function PricingPage() {
               Granular Capability Breakdown
             </h2>
             <p className="text-sm sm:text-base font-medium text-stone-600">
-              Clear, transparent feature comparison. Digital chalkboard derivations and Mafs dynamic coordinate graphs remain 100% free across every plan.
+              Clear, transparent feature comparison. Digital chalkboard derivations and dynamic coordinate graphs remain 100% free across every plan.
             </p>
           </div>
 
