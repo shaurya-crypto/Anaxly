@@ -129,7 +129,7 @@ export const TeacherAvatar: React.FC<TeacherAvatarProps> = ({
 
       {/* Teacher Title & Role */}
       <div className="mt-8 text-center relative z-10">
-        <h2 className="text-xl md:text-2xl font-serif text-ink-primary tracking-tight">AI Tutor</h2>
+        <h2 className="text-xl md:text-2xl font-serif text-ink-primary tracking-tight">Anaxly</h2>
         <p className="text-sm text-ink-secondary mt-1 font-normal">
           {isSpeaking ? "Speaking..." : isUserTalking ? "Listening to your thought..." : "Ready for your question"}
         </p>

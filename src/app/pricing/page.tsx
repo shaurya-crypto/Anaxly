@@ -403,7 +403,7 @@ export default function PricingPage() {
     },
     {
       q: 'Why is 1-on-1 Socratic tutoring better than PhysicsWallah or YouTube?',
-      a: 'In YouTube or mass coaching streams (where 5,000 to 50,000 students watch one teacher), students easily get distracted, browse other tabs, and cannot ask questions. Our AI Tutor is strictly 1-on-1: it addresses the student by name, stops every 2-3 sentences to ask check-for-understanding questions, and will not move forward until the student demonstrates comprehension on the chalkboard.',
+      a: 'In YouTube or mass coaching streams (where 5,000 to 50,000 students watch one teacher), students easily get distracted, browse other tabs, and cannot ask questions. Anaxly is strictly 1-on-1: it addresses the student by name, stops every 2-3 sentences to ask check-for-understanding questions, and will not move forward until the student demonstrates comprehension on the chalkboard.',
     },
     {
       q: 'Which boards and classes are covered?',
@@ -680,11 +680,11 @@ export default function PricingPage() {
           </div>
         </section>
 
-        {/* AI Tutor vs. YouTube vs. Mass Coaching vs. Home Tutors (Badge Removed, Highlight Word, Vertical Lines) */}
+        {/* Anaxly vs. YouTube vs. Mass Coaching vs. Home Tutors (Badge Removed, Highlight Word, Vertical Lines) */}
         <section className="mt-28">
           <div className="text-center max-w-4xl mx-auto space-y-3 mb-10">
             <h2 className="font-sans text-3xl sm:text-5xl font-extrabold text-stone-950 tracking-tight">
-              <span className="text-emerald-700 underline decoration-emerald-500/40 decoration-4 underline-offset-6">AI Tutor 1-on-1</span> vs. YouTube vs. Mass Coaching vs. Home Tutors
+              <span className="text-emerald-700 underline decoration-emerald-500/40 decoration-4 underline-offset-6">Anaxly 1-on-1</span> vs. YouTube vs. Mass Coaching vs. Home Tutors
             </h2>
             <p className="text-sm sm:text-base font-medium text-stone-600">
               Why passive 50,000-student chat streams fail school students, and how 1-on-1 Socratic chalkboard discipline delivers authentic 95%+ board scores.
@@ -719,7 +719,7 @@ export default function PricingPage() {
                   <th className="py-4 px-4 text-center font-sans text-xs sm:text-sm font-extrabold text-emerald-950 bg-emerald-50/70 w-1/5">
                     <div className="flex items-center justify-center gap-1.5">
                       <Star className="w-4 h-4 text-emerald-600 fill-current" />
-                      <span>AI Tutor 1-on-1</span>
+                      <span>Anaxly 1-on-1</span>
                     </div>
                   </th>
                 </tr>

@@ -39,7 +39,7 @@ export function LandingFooter() {
                 <BookOpen className="h-4 w-4" />
               </div>
               <span className="font-serif text-2xl tracking-tight text-ink-primary">
-                AI Tutor
+                Anaxly
               </span>
             </Link>
 
@@ -110,7 +110,7 @@ export function LandingFooter() {
         {/* Bottom Rule & Copyright */}
         <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-border-strong/40 pt-7 text-xs text-ink-muted">
           <p>
-            &copy; {new Date().getFullYear()} AI Tutor. Built with Classical Intelligence &times; Modern Learning.
+            &copy; {new Date().getFullYear()} Anaxly. Built with Classical Intelligence &times; Modern Learning.
           </p>
           <div className="flex items-center gap-4 text-xs font-mono">
             <Link href="/terms" className="hover:text-ink-primary transition-colors">

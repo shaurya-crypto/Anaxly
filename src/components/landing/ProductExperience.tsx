@@ -21,7 +21,7 @@ export function ProductExperience() {
             Four principles of genuine understanding.
           </h2>
           <p className="mt-4 text-base sm:text-lg leading-relaxed text-ink-secondary">
-            Learning is not a monologue. AI Tutor replaces passive video watching with active voice
+            Learning is not a monologue. Anaxly replaces passive video watching with active voice
             reasoning, live chalkboard derivations, and spatial physical clarity.
           </p>
         </div>
