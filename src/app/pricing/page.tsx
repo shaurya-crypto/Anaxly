@@ -12,6 +12,8 @@ import {
   Users,
   Tv,
   Clock,
+  CreditCard,
+  X,
 } from 'lucide-react'
 import { LandingNav } from '@/components/landing/LandingNav'
 import { LandingFooter } from '@/components/landing/LandingFooter'
@@ -51,6 +53,30 @@ interface ComparisonFeature {
   scholar: string | boolean
   topper: string | boolean
   mastery: string | boolean
+}
+
+function loadRazorpaySdk(): Promise<boolean> {
+  return new Promise((resolve) => {
+    if (typeof window !== 'undefined' && (window as any).Razorpay) {
+      resolve(true)
+      return
+    }
+    const existing = document.querySelector('script[src*="checkout.razorpay.com"]')
+    if (existing) {
+      existing.addEventListener('load', () => resolve(true))
+      existing.addEventListener('error', () => resolve(false))
+      setTimeout(() => {
+        resolve(typeof window !== 'undefined' && !!(window as any).Razorpay)
+      }, 1500)
+      return
+    }
+    const script = document.createElement('script')
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js'
+    script.async = true
+    script.onload = () => resolve(true)
+    script.onerror = () => resolve(false)
+    document.body.appendChild(script)
+  })
 }
 
 export default function PricingPage() {
@@ -458,6 +484,46 @@ export default function PricingPage() {
 
   const router = useRouter()
   const [processingPlanId, setProcessingPlanId] = useState<string | null>(null)
+  const [testModalOrder, setTestModalOrder] = useState<{
+    orderId: string
+    amount: number
+    currency: string
+    planId: string
+    billingCycle: string
+    keyId: string
+  } | null>(null)
+  const [isVerifying, setIsVerifying] = useState(false)
+
+  const handleVerifyPayment = async (
+    orderId: string,
+    paymentId: string,
+    signature: string
+  ) => {
+    setIsVerifying(true)
+    try {
+      const verifyRes = await fetch('/api/payment/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          razorpay_order_id: orderId,
+          razorpay_payment_id: paymentId,
+          razorpay_signature: signature,
+        }),
+      })
+      const verifyData = await verifyRes.json()
+      if (verifyData.success) {
+        setTestModalOrder(null)
+        window.location.href = '/dashboard?payment_success=true'
+      } else {
+        alert(verifyData.error || 'Payment verification failed')
+      }
+    } catch (err: any) {
+      alert('Network error verifying payment: ' + (err.message || 'Unknown error'))
+    } finally {
+      setIsVerifying(false)
+      setProcessingPlanId(null)
+    }
+  }
 
   const handlePlanCheckout = async (e: React.MouseEvent, planId: string, defaultHref: string) => {
     e.preventDefault()
@@ -470,13 +536,13 @@ export default function PricingPage() {
           body: JSON.stringify({ planTier: 'free' }),
         })
         if (res.ok) {
-          router.push('/dashboard')
+          window.location.href = '/dashboard'
           return
         }
       } catch {
         // Fallback
       }
-      router.push(defaultHref)
+      window.location.href = defaultHref
       return
     }
 
@@ -490,7 +556,7 @@ export default function PricingPage() {
       })
 
       if (res.status === 401) {
-        router.push(defaultHref)
+        window.location.href = `/login?next=${encodeURIComponent('/pricing')}`
         return
       }
 
@@ -501,7 +567,10 @@ export default function PricingPage() {
         return
       }
 
-      if (typeof window !== 'undefined' && (window as any).Razorpay) {
+      // 1. Attempt to load Razorpay checkout script
+      const isLoaded = await loadRazorpaySdk()
+
+      if (isLoaded && typeof window !== 'undefined' && (window as any).Razorpay) {
         const options = {
           key: order.keyId,
           amount: order.amount,
@@ -510,41 +579,59 @@ export default function PricingPage() {
           description: `${planId.toUpperCase()} Subscription (${billingCycle})`,
           order_id: order.orderId,
           handler: async function (response: any) {
-            try {
-              const verifyRes = await fetch('/api/payment/verify', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                  razorpay_order_id: response.razorpay_order_id,
-                  razorpay_payment_id: response.razorpay_payment_id,
-                  razorpay_signature: response.razorpay_signature,
-                }),
-              })
-              const verifyData = await verifyRes.json()
-              if (verifyData.success) {
-                router.push('/dashboard?payment_success=true')
-              } else {
-                alert(verifyData.error || 'Payment verification failed')
-              }
-            } catch {
-              alert('Network error verifying payment')
-            } finally {
+            await handleVerifyPayment(
+              response.razorpay_order_id,
+              response.razorpay_payment_id,
+              response.razorpay_signature
+            )
+          },
+          modal: {
+            ondismiss: function () {
               setProcessingPlanId(null)
-            }
+            },
           },
           theme: {
             color: '#059669',
           },
         }
 
-        const rzp = new (window as any).Razorpay(options)
-        rzp.open()
-      } else {
-        router.push(defaultHref)
+        try {
+          const rzp = new (window as any).Razorpay(options)
+          rzp.on('payment.failed', function (resp: any) {
+            console.warn('Payment failed:', resp.error)
+            setProcessingPlanId(null)
+            if (order.keyId.startsWith('rzp_test_')) {
+              setTestModalOrder({
+                orderId: order.orderId,
+                amount: order.amount,
+                currency: order.currency,
+                planId,
+                billingCycle,
+                keyId: order.keyId,
+              })
+            } else {
+              alert(resp.error?.description || 'Payment was unsuccessful')
+            }
+          })
+          rzp.open()
+          return
+        } catch (openErr) {
+          console.warn('Failed to open Razorpay modal:', openErr)
+        }
       }
+
+      // 2. Fallback to interactive Test Payment Simulator in test mode
+      setTestModalOrder({
+        orderId: order.orderId,
+        amount: order.amount,
+        currency: order.currency,
+        planId,
+        billingCycle,
+        keyId: order.keyId,
+      })
     } catch (err: any) {
       console.error('Checkout error:', err)
-      router.push(defaultHref)
+      alert('Unable to initialize payment: ' + (err.message || 'Network error'))
     } finally {
       setProcessingPlanId(null)
     }
@@ -552,7 +639,7 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen bg-[#FDFCF7] text-stone-950 antialiased selection:bg-[#E5E2D9] selection:text-stone-950 font-sans">
-      <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
+      <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="afterInteractive" />
       <LandingNav />
 
       {/* Main Page Content - Expanded Container for Wider Cards */}
@@ -883,6 +970,103 @@ export default function PricingPage() {
             })}
           </div>
         </section>
+      
+      {/* Test Mode Payment Simulator Modal */}
+      {testModalOrder && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-in fade-in duration-200">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-stone-200 space-y-6">
+            <div className="flex items-center justify-between border-b border-stone-100 pb-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700">
+                  <CreditCard className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-stone-900">Razorpay Test Simulator</h3>
+                  <p className="text-xs text-stone-500 font-medium">Sandbox Payment Verification</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setTestModalOrder(null)}
+                className="p-1.5 rounded-xl hover:bg-stone-100 text-stone-400 hover:text-stone-700 transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="bg-stone-50 rounded-2xl p-4 border border-stone-200 space-y-2.5 text-xs sm:text-sm">
+              <div className="flex justify-between items-center">
+                <span className="text-stone-500">Plan:</span>
+                <span className="font-bold text-stone-900 uppercase">{testModalOrder.planId} Pro</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-stone-500">Billing Cadence:</span>
+                <span className="font-semibold text-stone-700 capitalize">{testModalOrder.billingCycle}</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-stone-500">Amount Due:</span>
+                <span className="font-black text-stone-950 text-base">₹{(testModalOrder.amount / 100).toLocaleString('en-IN')}</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-stone-500">Razorpay Order ID:</span>
+                <span className="font-mono text-[11px] text-stone-700 bg-white px-2 py-0.5 rounded border border-stone-200">
+                  {testModalOrder.orderId}
+                </span>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <button
+                type="button"
+                disabled={isVerifying}
+                onClick={() =>
+                  handleVerifyPayment(
+                    testModalOrder.orderId,
+                    `pay_test_${Date.now()}`,
+                    `test_simulated_sig_${testModalOrder.orderId}_${Date.now()}`
+                  )
+                }
+                className="w-full inline-flex items-center justify-center gap-2 rounded-2xl py-3.5 px-4 text-sm font-bold bg-emerald-600 hover:bg-emerald-700 text-white transition-all shadow-md cursor-pointer disabled:opacity-60"
+              >
+                <span>{isVerifying ? 'Activating Plan in Database...' : 'Simulate Successful Payment'}</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <button
+                type="button"
+                disabled={isVerifying}
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).Razorpay) {
+                    const options = {
+                      key: testModalOrder.keyId,
+                      amount: testModalOrder.amount,
+                      currency: testModalOrder.currency,
+                      name: 'Anaxly',
+                      description: `${testModalOrder.planId.toUpperCase()} Subscription`,
+                      order_id: testModalOrder.orderId,
+                      handler: async function (response: any) {
+                        await handleVerifyPayment(
+                          response.razorpay_order_id,
+                          response.razorpay_payment_id,
+                          response.razorpay_signature
+                        )
+                      },
+                      theme: { color: '#059669' },
+                    }
+                    const rzp = new (window as any).Razorpay(options)
+                    rzp.open()
+                  } else {
+                    alert('Razorpay checkout script not available in browser. Use Simulate button above.')
+                  }
+                }}
+                className="w-full inline-flex items-center justify-center gap-2 rounded-2xl py-2.5 px-4 text-xs font-semibold border border-stone-200 hover:bg-stone-50 text-stone-700 transition-colors"
+              >
+                Retry Launching Official Razorpay Modal
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       </main>
 
       {/* Unified Mainline-Style Anaxly Footer */}
