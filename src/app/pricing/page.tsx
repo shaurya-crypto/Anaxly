@@ -12,6 +12,7 @@ import {
   Clock,
 } from 'lucide-react'
 import { LandingNav } from '@/components/landing/LandingNav'
+import { LandingFooter } from '@/components/landing/LandingFooter'
 import {
   HairlineHeroIllustration,
   HairlineFreeCrest,
@@ -783,29 +784,10 @@ export default function PricingPage() {
             })}
           </div>
         </section>
-
-        {/* Final Conversion Bottom Banner */}
-        <section className="mt-24 text-center rounded-3xl border border-stone-900 bg-stone-950 text-white p-8 sm:p-14 shadow-xl">
-          <div className="max-w-2xl mx-auto space-y-4">
-            <h3 className="font-sans text-3xl sm:text-5xl font-extrabold tracking-tight">
-              Give Your Child the Power of 1-on-1 Socratic Tutoring
-            </h3>
-            <p className="text-sm sm:text-base text-stone-300 leading-relaxed">
-              Join thousands of school students mastering Maths and Science through active visual chalkboard derivations.
-              No credit card required to start.
-            </p>
-            <div className="pt-3">
-              <Link
-                href="/onboarding"
-                className="inline-flex items-center gap-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base px-7 py-3.5 transition-all shadow-md hover:scale-105"
-              >
-                <span>Launch Your First Free Class</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
-        </section>
       </main>
+
+      {/* Unified Mainline-Style Anaxly Footer */}
+      <LandingFooter />
     </div>
   )
 }
