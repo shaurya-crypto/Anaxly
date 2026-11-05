@@ -45,7 +45,7 @@ export function HairlineHeroIllustration() {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative mx-auto w-full max-w-4xl py-6 select-none cursor-crosshair"
+      className="relative mx-auto w-full max-w-xl py-1 select-none cursor-crosshair"
       aria-label="Interactive Hairline scholastic illustration"
     >
       <div
@@ -58,7 +58,7 @@ export function HairlineHeroIllustration() {
           viewBox="0 0 860 340"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-auto max-h-[320px] drop-shadow-xs"
+          className="w-full h-auto max-h-[170px] sm:max-h-[190px] drop-shadow-xs"
         >
           <defs>
             <linearGradient id="hl-canvas-fade" x1="0" y1="0" x2="860" y2="340" gradientUnits="userSpaceOnUse">

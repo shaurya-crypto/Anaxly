@@ -463,16 +463,17 @@ export default function PricingPage() {
         {/* Header Hero Section */}
         <section className="text-center max-w-4xl mx-auto space-y-4">
           <h1 className="font-sans text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-stone-950 leading-[1.14]">
-            World-Class <span className="text-emerald-700">1-on-1 Socratic Tutoring</span>, at{' '}
-            <span className="underline decoration-emerald-500/50 decoration-4 underline-offset-6">1/4th the Cost</span> of Private Tuitions.
+            World-Class <span className="text-emerald-700">1-on-1 Socratic Tutoring</span>, starting at{' '}
+            <span className="underline decoration-emerald-500 decoration-4 underline-offset-8 text-stone-950 font-black">₹399/mo</span> — at{' '}
+            <span className="text-emerald-700 underline decoration-emerald-500/50 decoration-4 underline-offset-6">1/4th the Cost</span> of Private Tuitions.
           </h1>
 
           <p className="text-base sm:text-lg font-medium text-stone-600 leading-relaxed max-w-3xl mx-auto">
-            Interactive digital whiteboard, dynamic animated diagrams, and coordinate graphs are{' '}
-            <strong className="text-stone-950 font-bold underline decoration-emerald-500 decoration-2">
+            Interactive digital chalkboard, science diagrams, and coordinate graphs are{' '}
+            <span className="text-emerald-800 font-bold underline decoration-emerald-500 decoration-2">
               100% Free Forever
-            </strong>
-            . Unlock live Socratic classes and real-time AI video avatars as your child advances.
+            </span>
+            . Unlock live Socratic classes starting at <span className="text-stone-950 font-bold underline decoration-stone-400 decoration-2">₹399/mo</span> and face-to-face AI video teachers at <span className="text-stone-950 font-bold underline decoration-emerald-500 decoration-2">₹899/mo</span>.
           </p>
 
           {/* Clean Hairline Scholastic Illustration (No text metadata) */}
