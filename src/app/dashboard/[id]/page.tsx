@@ -2,6 +2,7 @@ import React from "react";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { StitchDashboardView } from "@/components/dashboard/StitchDashboardView";
+import { getStudentSubscription } from "@/lib/subscription/subscriptionService";
 
 export default async function DashboardPage({
   params,
@@ -48,7 +49,10 @@ export default async function DashboardPage({
     redirect("/onboarding");
   }
 
-  // 1b. Daily Active Streak Engine: Automatically increments/maintains active streak on web visit
+  // 1b. Fetch active subscription & live class entitlements
+  const subscription = await getStudentSubscription(user.id);
+
+  // 1c. Daily Active Streak Engine: Automatically increments/maintains active streak on web visit
   const todayStr = new Date().toISOString().split("T")[0];
   let currentStreak = profile.current_streak || 0;
   let streakUpdated = false;
@@ -161,10 +165,6 @@ export default async function DashboardPage({
   }));
 
   // 7. Dynamic Active Curriculum Resolution:
-  // Strictly database-driven:
-  // 1. Pick first enrolled curriculum that has an 'in_progress' module
-  // 2. Or pick first enrolled curriculum with uncompleted modules
-  // 3. If all enrolled are 100% completed, pick first enrolled curriculum or first available
   const progressMap = new Map<string, any>();
   userProgress.forEach((p: any) => progressMap.set(p.syllabus_module_id, p));
 
@@ -201,14 +201,13 @@ export default async function DashboardPage({
     }
   }
 
-  // 3. If all enrolled curriculums are 100% completed, pick next syllabus chapter in allCurriculums!
+  // 3. If all enrolled curriculums are 100% completed, pick next syllabus chapter in allCurriculums
   if (!primaryCurriculum) {
     for (const curr of allCurriculums) {
       const cMods = allModules.filter((m: any) => m.curriculum_id === curr.id);
       const isUnfinished = cMods.length > 0 && cMods.some((m: any) => !isModuleDone(m.id));
       if (isUnfinished) {
         primaryCurriculum = curr;
-        // Auto-enroll student into this next chapter
         await supabase
           .from('enrollments')
           .upsert({
@@ -234,6 +233,7 @@ export default async function DashboardPage({
     <StitchDashboardView
       user={{ id: user.id, email: user.email }}
       profile={profile}
+      subscription={subscription}
       primaryCurriculum={primaryCurriculum}
       enrolledCurriculums={enrolledCurriculums}
       allCurriculums={allCurriculums}

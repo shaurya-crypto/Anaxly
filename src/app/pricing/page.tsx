@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import Script from 'next/script'
 import {
   Check,
   ArrowRight,
@@ -454,8 +456,103 @@ export default function PricingPage() {
     }
   }
 
+  const router = useRouter()
+  const [processingPlanId, setProcessingPlanId] = useState<string | null>(null)
+
+  const handlePlanCheckout = async (e: React.MouseEvent, planId: string, defaultHref: string) => {
+    e.preventDefault()
+
+    if (planId === 'free') {
+      try {
+        const res = await fetch('/api/subscription', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ planTier: 'free' }),
+        })
+        if (res.ok) {
+          router.push('/dashboard')
+          return
+        }
+      } catch {
+        // Fallback
+      }
+      router.push(defaultHref)
+      return
+    }
+
+    setProcessingPlanId(planId)
+
+    try {
+      const res = await fetch('/api/payment/create-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ planTier: planId, billingCycle }),
+      })
+
+      if (res.status === 401) {
+        router.push(defaultHref)
+        return
+      }
+
+      const order = await res.json()
+      if (order.error) {
+        alert(order.error)
+        setProcessingPlanId(null)
+        return
+      }
+
+      if (typeof window !== 'undefined' && (window as any).Razorpay) {
+        const options = {
+          key: order.keyId,
+          amount: order.amount,
+          currency: order.currency,
+          name: 'Anaxly',
+          description: `${planId.toUpperCase()} Subscription (${billingCycle})`,
+          order_id: order.orderId,
+          handler: async function (response: any) {
+            try {
+              const verifyRes = await fetch('/api/payment/verify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  razorpay_order_id: response.razorpay_order_id,
+                  razorpay_payment_id: response.razorpay_payment_id,
+                  razorpay_signature: response.razorpay_signature,
+                }),
+              })
+              const verifyData = await verifyRes.json()
+              if (verifyData.success) {
+                router.push('/dashboard?payment_success=true')
+              } else {
+                alert(verifyData.error || 'Payment verification failed')
+              }
+            } catch {
+              alert('Network error verifying payment')
+            } finally {
+              setProcessingPlanId(null)
+            }
+          },
+          theme: {
+            color: '#059669',
+          },
+        }
+
+        const rzp = new (window as any).Razorpay(options)
+        rzp.open()
+      } else {
+        router.push(defaultHref)
+      }
+    } catch (err: any) {
+      console.error('Checkout error:', err)
+      router.push(defaultHref)
+    } finally {
+      setProcessingPlanId(null)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-[#FDFCF7] text-stone-950 antialiased selection:bg-[#E5E2D9] selection:text-stone-950 font-sans">
+      <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
       <LandingNav />
 
       {/* Main Page Content - Expanded Container for Wider Cards */}
@@ -611,9 +708,11 @@ export default function PricingPage() {
 
                 {/* Card CTA */}
                 <div className="pt-4 border-t border-stone-100">
-                  <Link
-                    href={plan.ctaHref}
-                    className={`w-full inline-flex items-center justify-center gap-2 rounded-2xl py-3.5 px-4 text-xs sm:text-sm font-bold transition-all shadow-xs ${
+                  <button
+                    type="button"
+                    disabled={processingPlanId === plan.id}
+                    onClick={(e) => handlePlanCheckout(e, plan.id, plan.ctaHref)}
+                    className={`w-full inline-flex items-center justify-center gap-2 rounded-2xl py-3.5 px-4 text-xs sm:text-sm font-bold transition-all shadow-xs cursor-pointer ${
                       plan.ctaVariant === 'primary'
                         ? 'bg-emerald-600 hover:bg-emerald-700 text-white hover:shadow-md'
                         : plan.ctaVariant === 'secondary'
@@ -621,9 +720,9 @@ export default function PricingPage() {
                         : 'border border-stone-300 bg-white hover:bg-stone-50 text-stone-900'
                     }`}
                   >
-                    <span>{plan.ctaText}</span>
+                    <span>{processingPlanId === plan.id ? 'Connecting...' : plan.ctaText}</span>
                     <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  </button>
                 </div>
               </div>
             )

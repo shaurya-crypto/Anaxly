@@ -21,6 +21,7 @@ import { VOICE_OPTIONS } from '@/lib/voiceAndLanguageConfig'
 import { DashboardNav, NavItem } from './DashboardNav'
 import { DailyActivityChart } from './DailyActivityChart'
 import { DashCard, StatTile, SectionHeader } from './primitives'
+import { Subscription, SUBSCRIPTION_PLANS, getClassesRemaining } from '@/lib/types/subscription'
 
 interface Module {
   id: string
@@ -90,6 +91,7 @@ interface Profile {
   used_modules?: number | null
   max_requests?: number | null
   used_requests?: number | null
+  subscription_tier?: string | null
 }
 
 interface StitchDashboardViewProps {
@@ -105,6 +107,7 @@ interface StitchDashboardViewProps {
   progressRecords: ProgressRecord[]
   memories: MemoryItem[]
   studyPlan?: StudyPlanData | null
+  subscription?: Subscription | null
 }
 
 
@@ -112,6 +115,7 @@ interface StitchDashboardViewProps {
 export function StitchDashboardView({
   user,
   profile,
+  subscription = null,
   primaryCurriculum,
   enrolledCurriculums = [],
   allCurriculums = [],
@@ -173,9 +177,17 @@ export function StitchDashboardView({
   const progressMap = new Map<string, ProgressRecord>()
   progressRecords.forEach((p) => progressMap.set(p.syllabus_module_id, p))
 
+  // Canonical Subscription & Live Class Quota Engine
+  const activePlanTier = subscription?.plan_tier || (profile?.subscription_tier as any) || 'free'
+  const currentPlan = SUBSCRIPTION_PLANS[activePlanTier as keyof typeof SUBSCRIPTION_PLANS] || SUBSCRIPTION_PLANS.free
+  const classesUsed = subscription?.monthly_classes_used ?? 0
+  const classesLimit = subscription?.monthly_classes_limit ?? currentPlan.monthlyClassesLimit
+  const classesRemaining = Math.max(0, classesLimit - classesUsed)
+  const isClassesQuotaExhausted = classesUsed >= classesLimit
+
   // 1 Free Module Quota Calculation
-  const isUnlimitedUser = profile?.limit_type === 'unlimited'
-  const maxAllowedModules = profile?.limit_type === 'modules' ? (profile?.max_modules ?? 5) : 1
+  const isUnlimitedUser = profile?.limit_type === 'unlimited' || activePlanTier !== 'free'
+  const maxAllowedModules = profile?.limit_type === 'modules' ? (profile?.max_modules ?? 5) : (activePlanTier === 'free' ? 1 : 999)
   const completedCapsulesCount = progressRecords.filter((p) => p.status === 'completed' || !!p.completed_at).length
   const isFreeQuotaExhausted = !isUnlimitedUser && completedCapsulesCount >= maxAllowedModules
 
@@ -421,7 +433,7 @@ export function StitchDashboardView({
   }
 
   const handleStartSession = () => {
-    if (isFreeQuotaExhausted && (!activeModule?.id || !isModuleComplete(activeModule.id))) {
+    if ((isFreeQuotaExhausted || isClassesQuotaExhausted) && (!activeModule?.id || !isModuleComplete(activeModule.id))) {
       setLiveModalOpen(false)
       router.push('/pricing')
       return
@@ -552,6 +564,22 @@ export function StitchDashboardView({
               <p className="font-label-micro text-label-micro text-ink-muted truncate">
                 {studentTrack}
               </p>
+              <div className="mt-1 flex items-center gap-1.5 flex-wrap">
+                <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${
+                  activePlanTier === 'mastery'
+                    ? 'bg-purple-100 text-purple-900 border border-purple-200'
+                    : activePlanTier === 'topper'
+                    ? 'bg-emerald-100 text-emerald-900 border border-emerald-200'
+                    : activePlanTier === 'scholar'
+                    ? 'bg-blue-100 text-blue-900 border border-blue-200'
+                    : 'bg-stone-100 text-stone-700 border border-stone-200'
+                }`}>
+                  {currentPlan.name}
+                </span>
+                <span className="text-[10px] font-mono text-ink-muted">
+                  {classesRemaining}/{classesLimit} left
+                </span>
+              </div>
             </div>
           </div>
 

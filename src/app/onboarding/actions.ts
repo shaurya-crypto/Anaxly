@@ -125,6 +125,28 @@ export async function completeOnboardingAction(data: Phase4OnboardingData) {
     return { error: 'Unable to save your learning profile. Please try again.' }
   }
 
+  // 3b. Provision student subscription record with target board
+  try {
+    await supabase.rpc('set_user_subscription', {
+      p_user_id: user.id,
+      p_plan_tier: 'free',
+      p_billing_cycle: 'monthly',
+    })
+  } catch (subErr) {
+    console.warn('[completeOnboardingAction] Failed to provision subscription via RPC, falling back to direct upsert:', subErr)
+    await supabase.from('subscriptions').upsert({
+      user_id: user.id,
+      plan_tier: 'free',
+      billing_cycle: 'monthly',
+      status: 'active',
+      monthly_classes_limit: 3,
+      total_term_classes_limit: 30,
+      is_avatar_enabled: false,
+      allowed_boards: [targetBoard],
+      pyq_access_level: 'preview',
+    }, { onConflict: 'user_id' })
+  }
+
   // 4. Auto-enroll student into the first chapter capsule for their class and board
   try {
     let query = supabase
