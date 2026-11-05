@@ -132,10 +132,10 @@ export default function PricingPage() {
       badge: 'Most Popular',
       popular: true,
       description: 'Face-to-face live video tutoring for 100% of your classes, past exam solver & exam blitz.',
-      monthlyPrice: 1199,
+      monthlyPrice: 1099,
       annualPrice: 899,
       priceSuffix: '/ month',
-      annualSavings: '₹10,788 billed annually (Save 25%)',
+      annualSavings: '₹10,788 billed annually (Save 18%)',
       crest: <HairlineTopperCrest />,
       featuresHeader: 'TOP 5 HIGHLIGHTS:',
       features: [
