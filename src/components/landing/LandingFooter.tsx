@@ -5,9 +5,9 @@ import Link from 'next/link'
 
 export function LandingFooter() {
   return (
-    <footer className="w-full px-4 sm:px-6 lg:px-12 py-10 sm:py-16">
-      {/* Box Container with Crisp White Background and Subtle Border */}
-      <div className="mx-auto max-w-7xl rounded-3xl sm:rounded-[36px] border border-stone-200/90 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04),0_1px_3px_rgb(0,0,0,0.03)] overflow-hidden pt-12 sm:pt-16 pb-0">
+    <footer className="w-full px-3 sm:px-6 lg:px-8 py-8 sm:py-14">
+      {/* Expanded Width Box Container with Crisp White Background */}
+      <div className="mx-auto w-full max-w-[1440px] rounded-3xl sm:rounded-[40px] border border-stone-200/90 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04),0_1px_3px_rgb(0,0,0,0.03)] overflow-hidden pt-12 sm:pt-16 pb-0">
         <div className="px-6 sm:px-12 text-center">
           {/* Curated Navigation Links — Clean, readable standard font, Zero Icons */}
           <nav
@@ -72,10 +72,10 @@ export function LandingFooter() {
           </div>
         </div>
 
-        {/* Monumental Full-Width ANAXLY Big Text (In Capital, styled exactly as reference image on white background) */}
-        <div className="relative w-full overflow-hidden select-none pointer-events-none mt-8 sm:mt-12 md:mt-16">
+        {/* Monumental ANAXLY Big Text (Slightly refined size, in Capital, fading to white floor) */}
+        <div className="relative w-full overflow-hidden select-none pointer-events-none mt-8 sm:mt-12 md:mt-14">
           <span
-            className="block w-full text-center font-sans font-black tracking-tight leading-[0.72] text-[clamp(5.5rem,21.5vw,26rem)] bg-gradient-to-b from-stone-950 via-stone-400/50 to-transparent bg-clip-text text-transparent transform translate-y-3 sm:translate-y-5 md:translate-y-7 uppercase"
+            className="block w-full text-center font-sans font-black tracking-tight leading-[0.78] text-[clamp(4.25rem,16.5vw,19.5rem)] bg-gradient-to-b from-stone-950 via-stone-400/50 to-transparent bg-clip-text text-transparent transform translate-y-2 sm:translate-y-4 md:translate-y-6 uppercase"
             aria-hidden="true"
           >
             ANAXLY
