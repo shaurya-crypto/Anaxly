@@ -69,6 +69,11 @@ export interface GeneratedScientificSvg {
 function getSvgDefs(): string {
   return `
   <defs>
+    <style>
+      @keyframes flowDash { to { stroke-dashoffset: -24; } }
+      @keyframes pulseNode { 0%, 100% { r: 3.5; opacity: 1; } 50% { r: 7; opacity: 0.35; } }
+      @keyframes raySweep { 0%, 100% { opacity: 0.85; } 50% { opacity: 1; } }
+    </style>
     <pattern id="chalkGrid" width="20" height="20" patternUnits="userSpaceOnUse">
       <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#F1F5F9" stroke-width="0.75"/>
     </pattern>
