@@ -36,7 +36,6 @@ import { ChapterNotesModal } from '@/components/classroom/ChapterNotesModal'
 import { CallControls } from '@/components/CallControls'
 import { ErrorModal } from '@/components/ErrorModal'
 import { MasteryQuizModal } from '@/components/quiz/MasteryQuizModal'
-import { PricingNoticeModal } from '@/components/dashboard/PricingNoticeModal'
 import {
   Mic,
   Play,
@@ -592,8 +591,6 @@ export default function ModuleClassroomPage() {
     max_modules: 5,
     used_modules: 0,
   })
-  const [quotaExceededModalOpen, setQuotaExceededModalOpen] = useState(false)
-  const [quotaExceededMessage, setQuotaExceededMessage] = useState('')
 
   // Google Gemini 3.8 Live Avatar configuration state
   const [avatarConfig, setAvatarConfig] = useState<LiveAvatarConfig | null>(null)
@@ -669,10 +666,7 @@ export default function ModuleClassroomPage() {
   const checkAndRecordRequestQuota = useCallback(async (): Promise<boolean> => {
     if (userQuota.limit_type !== 'requests') return true
     if (userQuota.used_requests >= userQuota.max_requests) {
-      setQuotaExceededMessage(
-        'We are still building this is just a prototype, for more limits contact shauryaprabhakar097@gmail.com'
-      )
-      setQuotaExceededModalOpen(true)
+      router.push('/pricing')
       return false
     }
 
@@ -684,10 +678,7 @@ export default function ModuleClassroomPage() {
       })
       const data = await res.json()
       if (data?.allowed === false) {
-        setQuotaExceededMessage(
-          'We are still building this is just a prototype, for more limits contact shauryaprabhakar097@gmail.com'
-        )
-        setQuotaExceededModalOpen(true)
+        router.push('/pricing')
         return false
       }
       if (typeof data?.used_requests === 'number') {
@@ -697,7 +688,7 @@ export default function ModuleClassroomPage() {
     } catch {
       return true
     }
-  }, [userQuota])
+  }, [userQuota, router])
 
   const handleStudentSubmitAnswer = async (answer: string) => {
     if (!answer?.trim()) return
@@ -772,8 +763,6 @@ export default function ModuleClassroomPage() {
     orderIndex: number
   } | null>(null)
   const [moduleCompletedSuccess, setModuleCompletedSuccess] = useState(false)
-  const [showPricingModal, setShowPricingModal] = useState(false)
-  const [isQuotaExhausted, setIsQuotaExhausted] = useState(false)
   const [isLoadingLesson, setIsLoadingLesson] = useState(true)
   const [quizOpen, setQuizOpen] = useState(false)
   const [conceptsOpen, setConceptsOpen] = useState(false)
@@ -970,10 +959,8 @@ export default function ModuleClassroomPage() {
             })
             const quotaData = await quotaCheckRes.json()
             if (quotaData?.allowed === false) {
-              setQuotaExceededMessage(
-                'We are still building this is just a prototype, for more limits contact shauryaprabhakar097@gmail.com'
-              )
-              setQuotaExceededModalOpen(true)
+              router.replace('/pricing')
+              return
             } else if (quotaData?.used_modules) {
               setUserQuota((prev) => ({ ...prev, used_modules: quotaData.used_modules }))
             }
@@ -1097,19 +1084,23 @@ export default function ModuleClassroomPage() {
           }
         }
 
-        // Check 1 Free Completed Module Quota
-        const { data: allCompleted } = await supabase
-          .from('user_progress')
-          .select('syllabus_module_id')
-          .eq('user_id', userId)
-          .eq('status', 'completed')
+        // Check Free Completed Module Quota (only for free tier non-unlimited users)
+        const isFreeTierUser = !isUnlimitedUser && (profile?.subscription_tier === 'free' || !profile?.subscription_tier)
+        if (isFreeTierUser) {
+          const { data: allCompleted } = await supabase
+            .from('user_progress')
+            .select('syllabus_module_id')
+            .eq('user_id', userId)
+            .eq('status', 'completed')
 
-        const otherCompleted = (allCompleted || []).filter(
-          (c: any) => c.syllabus_module_id !== moduleId
-        )
-        if (otherCompleted.length >= 1) {
-          setIsQuotaExhausted(true)
-          setShowPricingModal(true)
+          const otherCompleted = (allCompleted || []).filter(
+            (c: any) => c.syllabus_module_id !== moduleId
+          )
+          if (otherCompleted.length >= maxAllowedModules) {
+            console.warn('[Classroom Guard] User module quota reached. Redirecting to /pricing.')
+            router.replace('/pricing')
+            return
+          }
         }
 
         // Check if student has existing progress: concept index, completed concepts, notes
@@ -3945,51 +3936,6 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
 
       {/* Error Modal */}
       {errorMessage && <ErrorModal message={errorMessage} onRetry={resetToIdle} />}
-
-      {/* Quota Exceeded Blocking Modal */}
-      {quotaExceededModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="w-full max-w-md bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-stone-200 space-y-4 text-center">
-            <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center mx-auto text-amber-600">
-              <AlertCircle className="w-7 h-7" />
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="text-xl font-serif font-bold text-[#2D2A26]">
-                Prototype Limit Reached
-              </h3>
-              <p className="text-xs sm:text-sm text-[#57534E] leading-relaxed">
-                We are still building this is just a prototype, for more limits contact{' '}
-                <a
-                  href="mailto:shauryaprabhakar097@gmail.com"
-                  className="font-semibold text-[#255D88] hover:underline"
-                >
-                  shauryaprabhakar097@gmail.com
-                </a>
-                .
-              </p>
-            </div>
-
-            <div className="pt-2 flex flex-col sm:flex-row gap-2.5">
-              <Button
-                type="button"
-                onClick={() => router.push(`/dashboard/${userId}`)}
-                className="flex-1 bg-[#255D88] hover:bg-[#1D4A6E] text-white rounded-xl py-2.5 text-xs font-semibold cursor-pointer"
-              >
-                Return to Dashboard
-              </Button>
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => setQuotaExceededModalOpen(false)}
-                className="border-stone-300 text-stone-700 hover:bg-stone-50 rounded-xl py-2.5 text-xs font-semibold cursor-pointer"
-              >
-                Dismiss
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
     </main>
   )
 }

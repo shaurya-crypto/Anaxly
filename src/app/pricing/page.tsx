@@ -1,0 +1,869 @@
+'use client'
+
+import React, { useState } from 'react'
+import Link from 'next/link'
+import {
+  Check,
+  ArrowRight,
+  HelpCircle,
+  Star,
+  Users,
+  Tv,
+  Clock,
+  Award,
+} from 'lucide-react'
+import { LandingNav } from '@/components/landing/LandingNav'
+import {
+  HairlineHeroIllustration,
+  HairlineFreeCrest,
+  HairlineScholarCrest,
+  HairlineTopperCrest,
+  HairlineMasteryCrest,
+} from '@/components/pricing/HairlinePricingIllustration'
+
+interface PricingPlan {
+  id: string
+  name: string
+  badge?: string
+  popular?: boolean
+  description: string
+  monthlyPrice: number
+  annualPrice: number
+  priceSuffix: string
+  annualSavings: string
+  crest: React.ReactNode
+  featuresHeader: string
+  features: {
+    text: string
+    highlight?: boolean
+    freeHighlight?: boolean
+  }[]
+  ctaText: string
+  ctaHref: string
+  ctaVariant: 'secondary' | 'primary' | 'outline'
+}
+
+interface ComparisonFeature {
+  title: string
+  free: string | boolean
+  scholar: string | boolean
+  topper: string | boolean
+  mastery: string | boolean
+}
+
+interface ComparisonCategory {
+  name: string
+  features: ComparisonFeature[]
+}
+
+export default function PricingPage() {
+  const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('annual')
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
+
+  const plans: PricingPlan[] = [
+    {
+      id: 'free',
+      name: 'Chalkboard Free',
+      description: 'The ultimate visual discovery engine. Interactive vector chalkboard and dynamic diagrams forever.',
+      monthlyPrice: 0,
+      annualPrice: 0,
+      priceSuffix: 'forever',
+      annualSavings: '',
+      crest: <HairlineFreeCrest />,
+      featuresHeader: 'EVERYTHING NEEDED TO LEARN:',
+      features: [
+        {
+          text: 'Infinite Vector Chalkboard (100% Free Forever)',
+          freeHighlight: true,
+        },
+        {
+          text: 'Dynamic Animated Vector Diagrams (100% Free Forever)',
+          freeHighlight: true,
+        },
+        {
+          text: 'Mafs Dynamic Coordinate Function Graphs (100% Free)',
+          freeHighlight: true,
+        },
+        {
+          text: '3 Live Socratic Classes / month (~1 hour total)',
+        },
+        {
+          text: '3 Quick Last-Minute Summaries / month',
+        },
+        {
+          text: 'Sample Board PYQ Practice (5 preview questions / chapter)',
+        },
+        {
+          text: 'CBSE, ICSE & IB Core Curriculum standards',
+        },
+        {
+          text: 'Real-time AI Video Avatar: Disabled (Audio-only Sobi)',
+        },
+      ],
+      ctaText: 'Get Started Free',
+      ctaHref: '/onboarding',
+      ctaVariant: 'outline',
+    },
+    {
+      id: 'scholar',
+      name: 'Scholar',
+      badge: 'Syllabus Completion',
+      description: '1-on-1 Socratic Audio Tutor guaranteeing complete school syllabus coverage if taken properly.',
+      monthlyPrice: 499,
+      annualPrice: 399,
+      priceSuffix: '/ month',
+      annualSavings: '₹4,788 billed annually (Save 20%)',
+      crest: <HairlineScholarCrest />,
+      featuresHeader: 'EVERYTHING IN FREE, PLUS:',
+      features: [
+        {
+          text: 'Infinite Vector Chalkboard & Mafs Graphs (100% Free)',
+          freeHighlight: true,
+        },
+        {
+          text: '8 Live Socratic Classes / month (80 classes over term)',
+          highlight: true,
+        },
+        {
+          text: 'Guaranteed School Syllabus Coverage (Maths & Science)',
+          highlight: true,
+        },
+        {
+          text: 'Unlimited Quick Last-Minute Summaries & Formula HUD',
+        },
+        {
+          text: 'Unlimited Spaced-Repetition Leitner Flashcards',
+        },
+        {
+          text: 'Chapter PYQ Practice Sets (Up to 30 questions / chapter)',
+        },
+        {
+          text: 'Downloadable Unwatermarked Clean PDF Master Notes',
+        },
+        {
+          text: 'Real-time AI Video Avatar: Audio-only Sobi Companion',
+        },
+      ],
+      ctaText: 'Start Scholar Plan',
+      ctaHref: '/onboarding?plan=scholar',
+      ctaVariant: 'secondary',
+    },
+    {
+      id: 'topper',
+      name: 'Topper Pro',
+      badge: 'Most Popular',
+      popular: true,
+      description: 'Real-time face-to-face AI Avatar video tutoring for 100% of your classes, PYQ engine & exam blitz.',
+      monthlyPrice: 1199,
+      annualPrice: 899,
+      priceSuffix: '/ month',
+      annualSavings: '₹10,788 billed annually (Save 25%)',
+      crest: <HairlineTopperCrest />,
+      featuresHeader: 'EVERYTHING IN SCHOLAR, PLUS:',
+      features: [
+        {
+          text: 'Infinite Vector Chalkboard & Mafs Graphs (100% Free)',
+          freeHighlight: true,
+        },
+        {
+          text: '15 Live Classes / month — ALL with Real-Time AI Avatar Video',
+          highlight: true,
+        },
+        {
+          text: '150 Live Avatar Video Classes across the school academic year',
+          highlight: true,
+        },
+        {
+          text: 'Full 10-Year Board PYQ Solver with Step-by-Step Marking Keys',
+          highlight: true,
+        },
+        {
+          text: '10-Minute Morning High-Yield Exam Blitz Mode',
+          highlight: true,
+        },
+        {
+          text: 'Weak-Concept Targeted Flashcards & Board Trap Alerts',
+        },
+        {
+          text: 'Trio Combo Board Derivations (Given -> Formula -> Answer)',
+        },
+        {
+          text: 'Priority Low-Latency Audio & Video Streaming',
+        },
+      ],
+      ctaText: 'Start Topper Pro',
+      ctaHref: '/onboarding?plan=topper',
+      ctaVariant: 'primary',
+    },
+    {
+      id: 'elite',
+      name: 'Mastery Infinity',
+      badge: 'Ultimate Academic Shield',
+      description: 'Nearly daily 1-on-1 Avatar tutoring, notebook camera scratchpad diagnostics & parent WhatsApp cards.',
+      monthlyPrice: 1999,
+      annualPrice: 1499,
+      priceSuffix: '/ month',
+      annualSavings: '₹17,988 billed annually (Save 25%)',
+      crest: <HairlineMasteryCrest />,
+      featuresHeader: 'EVERYTHING IN TOPPER PRO, PLUS:',
+      features: [
+        {
+          text: 'Infinite Vector Chalkboard & Mafs Graphs (100% Free)',
+          freeHighlight: true,
+        },
+        {
+          text: '24 Live Classes / month — ALL with Real-Time AI Avatar Video',
+          highlight: true,
+        },
+        {
+          text: '240 Live Avatar Video Classes across the school academic year',
+          highlight: true,
+        },
+        {
+          text: 'Notebook Camera Error Diagnostics (Scans scratchpad steps)',
+          highlight: true,
+        },
+        {
+          text: 'Timed Board Mock Exam Simulator with Grading',
+          highlight: true,
+        },
+        {
+          text: '10-Year Board PYQ Predictor & Trend Analyzer',
+        },
+        {
+          text: 'All Boards: CBSE + ICSE Selina + IB (MYP/DP Criterion Rubrics)',
+        },
+        {
+          text: 'Parent WhatsApp Weekly Academic Progress Card',
+        },
+      ],
+      ctaText: 'Join Mastery Infinity',
+      ctaHref: '/onboarding?plan=elite',
+      ctaVariant: 'secondary',
+    },
+  ]
+
+  const granularComparisonCategories: ComparisonCategory[] = [
+    {
+      name: 'Interactive Whiteboard & Visuals',
+      features: [
+        {
+          title: 'Infinite Vector Chalkboard & Derivations',
+          free: '100% Free',
+          scholar: '100% Free',
+          topper: '100% Free',
+          mastery: '100% Free',
+        },
+        {
+          title: 'Mafs Dynamic Coordinate Function Graphs',
+          free: '100% Free',
+          scholar: '100% Free',
+          topper: '100% Free',
+          mastery: '100% Free',
+        },
+        {
+          title: 'Publication-Grade Animated Vector SVGs',
+          free: '100% Free',
+          scholar: '100% Free',
+          topper: '100% Free',
+          mastery: '100% Free',
+        },
+      ],
+    },
+    {
+      name: 'Live 1-on-1 Socratic Classes',
+      features: [
+        {
+          title: 'Monthly Live Socratic Classes',
+          free: '3 Classes / mo',
+          scholar: '8 Classes / mo',
+          topper: '15 Classes / mo',
+          mastery: '24 Classes / mo',
+        },
+        {
+          title: 'Total Classes Over School Academic Term',
+          free: '30 Classes',
+          scholar: '80 Classes',
+          topper: '150 Classes',
+          mastery: '240 Classes',
+        },
+        {
+          title: 'Real-Time AI Video Avatar (Simli WebRTC)',
+          free: false,
+          scholar: false,
+          topper: '100% of All Classes',
+          mastery: '100% of All Classes',
+        },
+        {
+          title: 'Guaranteed School Syllabus Completion',
+          free: false,
+          scholar: true,
+          topper: true,
+          mastery: true,
+        },
+        {
+          title: 'Instant Speech Barge-in & Conversational Interruption',
+          free: true,
+          scholar: true,
+          topper: true,
+          mastery: true,
+        },
+      ],
+    },
+    {
+      name: 'Exam Mastery & Revision Engine',
+      features: [
+        {
+          title: '60-Second Last-Minute Revision Summaries',
+          free: '3 / month',
+          scholar: 'Unlimited',
+          topper: 'Unlimited',
+          mastery: 'Unlimited',
+        },
+        {
+          title: 'Spaced-Repetition Leitner Digital Flashcards',
+          free: '1 Demo Deck',
+          scholar: 'Unlimited',
+          topper: 'Unlimited',
+          mastery: 'Unlimited',
+        },
+        {
+          title: 'Authentic Past Year Question (PYQ) Solver',
+          free: '5 Previews',
+          scholar: '30 / chapter',
+          topper: '10-Year Bank',
+          mastery: '10-Year + Predicted',
+        },
+        {
+          title: '10-Minute Morning Exam Blitz Sprint Mode',
+          free: false,
+          scholar: false,
+          topper: true,
+          mastery: true,
+        },
+        {
+          title: 'Timed Board Mock Exam with Handwriting Grading',
+          free: false,
+          scholar: false,
+          topper: false,
+          mastery: true,
+        },
+        {
+          title: 'Notebook Camera Scratchpad Error Diagnostics',
+          free: false,
+          scholar: false,
+          topper: false,
+          mastery: true,
+        },
+      ],
+    },
+    {
+      name: 'Curriculum Standards & Parent Visibility',
+      features: [
+        {
+          title: 'CBSE NCERT Textbook Curriculum Standards',
+          free: true,
+          scholar: true,
+          topper: true,
+          mastery: true,
+        },
+        {
+          title: 'ICSE Selina Concise & Dual-Column Rough Work',
+          free: false,
+          scholar: 'Single Board',
+          topper: 'Single Board',
+          mastery: 'All Boards',
+        },
+        {
+          title: 'IB MYP & DP Criterion Rubrics + GDC Notes',
+          free: false,
+          scholar: 'Single Board',
+          topper: 'Single Board',
+          mastery: 'All Boards',
+        },
+        {
+          title: 'Clean Unwatermarked Master Notes PDF Export',
+          free: false,
+          scholar: true,
+          topper: true,
+          mastery: true,
+        },
+        {
+          title: 'Parent WhatsApp Weekly Academic Progress Card',
+          free: false,
+          scholar: false,
+          topper: false,
+          mastery: true,
+        },
+      ],
+    },
+  ]
+
+  const alternativesComparison = [
+    {
+      dimension: 'Teaching Format',
+      youtube: '1 Teacher to Millions (Passive Video)',
+      pw: '1 Teacher to 5,000–50,000 (Chat Stream)',
+      tutor: '1 Private Offline Home Tutor',
+      anaxly: 'True 1-on-1 Socratic Dialogue (Teacher speaks directly to your child)',
+    },
+    {
+      dimension: 'Student Attention & Doubt Resolution',
+      youtube: 'Zero interaction. Distracted by recommendations & shorts.',
+      pw: 'Impossible in live class. Comments move too fast to read.',
+      tutor: 'Depends on tutor patience. Often repeats without visual intuition.',
+      anaxly: 'Tutor pauses every 2 mins to check understanding on the chalkboard.',
+    },
+    {
+      dimension: 'Derivation & Step-by-Step Method',
+      youtube: 'Passive screen watching with pre-written slides.',
+      pw: 'Rapid slide progression; child falls behind copying notes.',
+      tutor: 'Handwritten on paper, lacks vector dynamic graphs.',
+      anaxly: 'Trio Combo (Given -> Formula -> Substitution -> Boxed Answer with SI units).',
+    },
+    {
+      dimension: 'School Syllabus Completion',
+      youtube: 'Unstructured, leaves critical textbook exercise questions unworked.',
+      pw: 'Paced for competitive JEE/NEET, skips school textbook nuances.',
+      tutor: 'Slow and inconsistent pacing before school term examinations.',
+      anaxly: 'Systematic 10-month schedule covering all textbook chapters & exercises.',
+    },
+    {
+      dimension: 'Interactive Visual Chalkboard',
+      youtube: 'Static video frames.',
+      pw: 'Static smartboard recording.',
+      tutor: 'Standard notebook paper.',
+      anaxly: '100% Free Forever interactive vector canvas with Mafs coordinate graphs.',
+    },
+    {
+      dimension: 'Parent Visibility',
+      youtube: 'Zero visibility into child screen time.',
+      pw: 'Generic portal logins rarely opened by parents.',
+      tutor: 'Occasional informal parent updates.',
+      anaxly: 'Automated weekly WhatsApp report with attendance & concept mastery.',
+    },
+    {
+      dimension: 'Monthly Cost (INR)',
+      youtube: 'Free (Costly in lost focus & bad study habits)',
+      pw: '₹3,500 – ₹5,000 / year (Passive group broadcast)',
+      tutor: '₹6,000 – ₹12,000 / month (High expense & travel)',
+      anaxly: '₹399 – ₹899 / month (Private 1-on-1 Socratic quality at 1/4th the cost)',
+    },
+  ]
+
+  const faqs = [
+    {
+      q: 'Why are the Digital Whiteboard and Visualizations 100% free on every plan?',
+      a: 'We believe genuine understanding happens through visual proof and active problem-solving, not passive video lectures. Because our vector chalkboard, dynamic anatomical diagrams, and Mafs coordinate graphing tools run natively in your web browser via React vector math, we offer them 100% free forever to every student in India.',
+    },
+    {
+      q: 'How does the Live AI Avatar video tutoring work in Topper Pro & Mastery?',
+      a: 'In Topper Pro and Mastery Infinity, every single live class features a real-time, photorealistic visual tutor powered by Simli WebRTC and Gemini Live. The avatar looks directly at your child, speaks with natural Indian teacher cadence and gestures, and dynamically writes notes and diagrams on the digital chalkboard.',
+    },
+    {
+      q: 'How does the Scholar plan guarantee school syllabus completion?',
+      a: 'The Scholar plan provides 8 live Socratic classes every month (80 classes over the 10-month school academic term). This covers all 27–30 chapters in school Maths and Science with dedicated sessions for challenging concepts and textbook exercise problem solving.',
+    },
+    {
+      q: 'Why is 1-on-1 Socratic tutoring better than PhysicsWallah or YouTube?',
+      a: 'In YouTube or mass coaching streams (where 5,000 to 50,000 students watch one teacher), students easily get distracted, browse other tabs, and cannot ask questions. Our AI Tutor is strictly 1-on-1: it addresses the student by name, stops every 2-3 sentences to ask check-for-understanding questions, and will not move forward until the student demonstrates comprehension on the chalkboard.',
+    },
+    {
+      q: 'Which boards and classes are covered?',
+      a: 'We exclusively serve school students in Classes 6 to 12 under CBSE (NCERT syllabus), ICSE (Selina Concise & Morning Star standards), and IB (MYP and DP criterion rubrics). We do not distract students with college entrance exams—every explanation matches your exact school board marking scheme.',
+    },
+    {
+      q: 'Can I cancel or switch plans at any time?',
+      a: 'Yes. You can upgrade, downgrade, or cancel your subscription at any time with a single click. When upgrading, your remaining days are automatically credited toward your new tier.',
+    },
+    {
+      q: 'What payment methods do you accept?',
+      a: 'We support all major Indian payment methods via 1-click UPI (Google Pay, PhonePe, Paytm, BHIM), Net Banking across 50+ banks, Credit/Debit Cards (Visa, MasterCard, RuPay), and international cards for IB students.',
+    },
+  ]
+
+  // Clean, high-visibility cell content renderer: NO badges, NO useless icons
+  const renderCellContent = (val: string | boolean) => {
+    if (typeof val === 'boolean') {
+      return val ? (
+        <Check className="w-5 h-5 text-emerald-600 stroke-[2.75] mx-auto" />
+      ) : (
+        <span className="text-stone-300 font-bold text-lg select-none">—</span>
+      )
+    }
+    if (val === '100% Free') {
+      return (
+        <span className="font-extrabold text-emerald-700 text-sm sm:text-base">
+          100% Free
+        </span>
+      )
+    }
+    if (val.includes('100% of All Classes')) {
+      return (
+        <span className="font-extrabold text-emerald-800 text-sm sm:text-base">
+          100% of All Classes
+        </span>
+      )
+    }
+    return <span className="font-bold text-stone-900 text-sm sm:text-base">{val}</span>
+  }
+
+  return (
+    <div className="min-h-screen bg-[#FDFCF7] text-stone-950 antialiased selection:bg-[#E5E2D9] selection:text-stone-950 font-sans">
+      <LandingNav />
+
+      {/* Main Page Content */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 pb-24">
+        
+        {/* Header Hero Section */}
+        <section className="text-center max-w-4xl mx-auto space-y-5">
+          <h1 className="font-sans text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-stone-950 leading-[1.08]">
+            World-Class 1-on-1 Socratic Tutoring, at 1/4th the Cost of Private Tuitions.
+          </h1>
+
+          <p className="text-base sm:text-xl font-medium text-stone-600 leading-relaxed max-w-3xl mx-auto">
+            Interactive digital whiteboard, dynamic animated diagrams, and coordinate graphs are{' '}
+            <strong className="text-stone-950 font-bold underline decoration-emerald-500 decoration-2">
+              100% Free Forever
+            </strong>
+            . Unlock live Socratic classes and real-time AI video avatars as your child advances.
+          </p>
+
+          {/* Interactive Hairline Scholastic Illustration */}
+          <HairlineHeroIllustration />
+
+          {/* Billing Cycle Toggle */}
+          <div className="pt-2 flex items-center justify-center gap-3">
+            <div className="inline-flex items-center rounded-full border border-stone-300 bg-white p-1.5 shadow-xs">
+              <button
+                type="button"
+                onClick={() => setBillingCycle('monthly')}
+                className={`rounded-full px-5 py-2 text-xs sm:text-sm font-bold transition-all ${
+                  billingCycle === 'monthly'
+                    ? 'bg-stone-900 text-white shadow-xs'
+                    : 'text-stone-600 hover:text-stone-950'
+                }`}
+              >
+                Monthly Billing
+              </button>
+              <button
+                type="button"
+                onClick={() => setBillingCycle('annual')}
+                className={`rounded-full px-5 py-2 text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
+                  billingCycle === 'annual'
+                    ? 'bg-stone-900 text-white shadow-xs'
+                    : 'text-stone-600 hover:text-stone-950'
+                }`}
+              >
+                <span>Annual Billing</span>
+                <span className="rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black px-2 py-0.5 uppercase tracking-wide">
+                  Save 20-25%
+                </span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing Cards Grid */}
+        <section className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+          {plans.map((plan) => {
+            const price = billingCycle === 'annual' ? plan.annualPrice : plan.monthlyPrice
+            return (
+              <div
+                key={plan.id}
+                className={`relative flex flex-col rounded-3xl p-6 sm:p-7 transition-all duration-300 ${
+                  plan.popular
+                    ? 'border-2 border-emerald-600 bg-white shadow-xl ring-4 ring-emerald-500/10'
+                    : 'border border-stone-200 bg-white hover:border-stone-300 shadow-xs hover:shadow-md'
+                }`}
+              >
+                {/* Popular / Badge */}
+                {plan.badge && (
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap">
+                    <span
+                      className={`inline-flex items-center gap-1 rounded-full px-3 py-0.5 text-xs font-black uppercase tracking-wider shadow-xs ${
+                        plan.popular
+                          ? 'bg-emerald-600 text-white'
+                          : 'bg-stone-100 border border-stone-200 text-stone-700'
+                      }`}
+                    >
+                      {plan.popular && <Star className="w-3 h-3 fill-current" />}
+                      <span>{plan.badge}</span>
+                    </span>
+                  </div>
+                )}
+
+                {/* Card Crest & Header */}
+                <div className="space-y-3 pt-1 pb-4 border-b border-stone-100">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-sans text-2xl font-bold text-stone-950 tracking-tight">{plan.name}</h3>
+                    <div className="p-2 rounded-2xl bg-stone-50 border border-stone-100">
+                      {plan.crest}
+                    </div>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-stone-600 leading-relaxed min-h-[38px]">{plan.description}</p>
+
+                  <div className="pt-2 flex items-baseline gap-1.5">
+                    <span className="text-4xl sm:text-5xl font-black tracking-tight text-stone-950">
+                      {price === 0 ? '₹0' : `₹${price}`}
+                    </span>
+                    <span className="text-xs sm:text-sm text-stone-500 font-semibold">{plan.priceSuffix}</span>
+                  </div>
+
+                  {billingCycle === 'annual' && plan.annualSavings && (
+                    <p className="text-xs font-bold text-emerald-700">{plan.annualSavings}</p>
+                  )}
+                </div>
+
+                {/* Features List */}
+                <div className="flex-1 py-5 space-y-3">
+                  <div className="text-[11px] font-black uppercase tracking-wider text-stone-400">
+                    {plan.featuresHeader}
+                  </div>
+
+                  <ul className="space-y-3">
+                    {plan.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm leading-snug text-stone-700">
+                        <Check
+                          className={`w-4 h-4 mt-0.5 shrink-0 ${
+                            feature.freeHighlight
+                              ? 'text-emerald-600 stroke-[3]'
+                              : feature.highlight
+                              ? 'text-blue-600 stroke-[2.5]'
+                              : 'text-stone-400 stroke-[2]'
+                          }`}
+                        />
+                        <span
+                          className={`${
+                            feature.freeHighlight
+                              ? 'font-bold text-emerald-900 bg-emerald-50 px-1 py-0.5 rounded'
+                              : feature.highlight
+                              ? 'font-bold text-stone-950'
+                              : 'font-medium'
+                          }`}
+                        >
+                          {feature.text}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Card CTA */}
+                <div className="pt-4 border-t border-stone-100">
+                  <Link
+                    href={plan.ctaHref}
+                    className={`w-full inline-flex items-center justify-center gap-2 rounded-2xl py-3.5 px-4 text-xs sm:text-sm font-bold transition-all shadow-xs ${
+                      plan.ctaVariant === 'primary'
+                        ? 'bg-emerald-600 hover:bg-emerald-700 text-white hover:shadow-md'
+                        : plan.ctaVariant === 'secondary'
+                        ? 'bg-stone-900 hover:bg-black text-white'
+                        : 'border border-stone-300 bg-white hover:bg-stone-50 text-stone-900'
+                    }`}
+                  >
+                    <span>{plan.ctaText}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            )
+          })}
+        </section>
+
+        {/* Exhaustive Feature Comparison Table (Granular Capability Breakdown) */}
+        <section className="mt-24">
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
+            <h2 className="font-sans text-3xl sm:text-5xl font-extrabold text-stone-950 tracking-tight">
+              Granular Capability Breakdown
+            </h2>
+            <p className="text-sm sm:text-base font-medium text-stone-600">
+              Clear, transparent feature comparison. Digital chalkboard derivations and Mafs dynamic coordinate graphs remain 100% free across every plan.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto rounded-3xl border border-stone-200 bg-white shadow-xs">
+            <table className="w-full text-left border-collapse min-w-[720px]">
+              <thead>
+                <tr className="border-b border-stone-200 bg-stone-50/80">
+                  <th className="py-4 px-6 font-sans text-base sm:text-lg font-bold text-stone-950 w-2/5">
+                    Capability
+                  </th>
+                  <th className="py-4 px-4 text-center font-sans text-base sm:text-lg font-bold text-stone-950 w-[15%]">
+                    Free
+                  </th>
+                  <th className="py-4 px-4 text-center font-sans text-base sm:text-lg font-bold text-stone-950 w-[15%]">
+                    Scholar
+                  </th>
+                  <th className="py-4 px-4 text-center font-sans text-base sm:text-lg font-extrabold text-emerald-800 bg-emerald-50/60 w-[15%]">
+                    Topper Pro
+                  </th>
+                  <th className="py-4 px-4 text-center font-sans text-base sm:text-lg font-bold text-stone-950 w-[15%]">
+                    Mastery
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-stone-100">
+                {granularComparisonCategories.map((cat, catIdx) => (
+                  <React.Fragment key={catIdx}>
+                    <tr className="bg-stone-100/90 border-y border-stone-200">
+                      <td
+                        colSpan={5}
+                        className="py-3 px-6 font-sans text-xs sm:text-sm font-extrabold uppercase tracking-wider text-stone-700"
+                      >
+                        {cat.name}
+                      </td>
+                    </tr>
+                    {cat.features.map((feat, fIdx) => (
+                      <tr key={fIdx} className="hover:bg-stone-50/80 transition-colors">
+                        <td className="py-4 px-6 text-sm sm:text-base text-stone-900 font-semibold">
+                          {feat.title}
+                        </td>
+                        <td className="py-4 px-4 text-center">{renderCellContent(feat.free)}</td>
+                        <td className="py-4 px-4 text-center">{renderCellContent(feat.scholar)}</td>
+                        <td className="py-4 px-4 text-center bg-emerald-50/30">
+                          {renderCellContent(feat.topper)}
+                        </td>
+                        <td className="py-4 px-4 text-center">{renderCellContent(feat.mastery)}</td>
+                      </tr>
+                    ))}
+                  </React.Fragment>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* Why School Toppers Choose AI Tutor over YouTube & Mass Online Coaching (PW, Vedantu) */}
+        <section className="mt-28">
+          <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
+            <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-blue-800">
+              <Award className="w-3.5 h-3.5" />
+              <span>Why Indian Parents Choose AI Tutor</span>
+            </div>
+            <h2 className="font-sans text-3xl sm:text-5xl font-extrabold text-stone-950 tracking-tight">
+              AI Tutor vs. YouTube vs. Mass Coaching vs. Home Tutors
+            </h2>
+            <p className="text-sm sm:text-base font-medium text-stone-600">
+              Why passive 50,000-student chat streams fail school students, and how 1-on-1 Socratic chalkboard discipline delivers authentic 95%+ board scores.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto rounded-3xl border border-stone-200 bg-white shadow-xs">
+            <table className="w-full text-left border-collapse min-w-[760px]">
+              <thead>
+                <tr className="border-b border-stone-200 bg-stone-50/80">
+                  <th className="py-4 px-6 font-sans text-sm sm:text-base font-bold text-stone-950 w-1/5">
+                    Academic Dimension
+                  </th>
+                  <th className="py-4 px-4 text-center font-sans text-xs sm:text-sm font-bold text-stone-700 w-1/5">
+                    <div className="flex items-center justify-center gap-1.5">
+                      <Tv className="w-4 h-4 text-stone-500" />
+                      <span>YouTube Videos</span>
+                    </div>
+                  </th>
+                  <th className="py-4 px-4 text-center font-sans text-xs sm:text-sm font-bold text-stone-700 w-1/5">
+                    <div className="flex items-center justify-center gap-1.5">
+                      <Users className="w-4 h-4 text-stone-500" />
+                      <span>Mass Coaching (PW)</span>
+                    </div>
+                  </th>
+                  <th className="py-4 px-4 text-center font-sans text-xs sm:text-sm font-bold text-stone-700 w-1/5">
+                    <div className="flex items-center justify-center gap-1.5">
+                      <Clock className="w-4 h-4 text-stone-500" />
+                      <span>Private Home Tutors</span>
+                    </div>
+                  </th>
+                  <th className="py-4 px-4 text-center font-sans text-xs sm:text-sm font-extrabold text-emerald-950 bg-emerald-50/70 w-1/5">
+                    <div className="flex items-center justify-center gap-1.5">
+                      <Star className="w-4 h-4 text-emerald-600 fill-current" />
+                      <span>AI Tutor 1-on-1</span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-stone-100 text-xs sm:text-sm leading-relaxed text-stone-700">
+                {alternativesComparison.map((row, idx) => (
+                  <tr key={idx} className="hover:bg-stone-50/60 transition-colors">
+                    <td className="py-4 px-6 font-bold text-stone-950">{row.dimension}</td>
+                    <td className="py-4 px-4 text-center text-stone-500 font-medium">{row.youtube}</td>
+                    <td className="py-4 px-4 text-center text-stone-500 font-medium">{row.pw}</td>
+                    <td className="py-4 px-4 text-center text-stone-600 font-medium">{row.tutor}</td>
+                    <td className="py-4 px-4 text-center font-bold text-emerald-950 bg-emerald-50/40">
+                      {row.anaxly}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* Frequently Asked Questions */}
+        <section className="mt-28 max-w-3xl mx-auto">
+          <div className="text-center space-y-2 mb-10">
+            <h2 className="font-sans text-3xl sm:text-4xl font-extrabold text-stone-950 tracking-tight">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-sm font-medium text-stone-600">
+              Everything you need to know about our visual pedagogy, avatar technology, and pricing plans.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            {faqs.map((faq, idx) => {
+              const isOpen = openFaqIndex === idx
+              return (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-stone-200 bg-white transition-all overflow-hidden shadow-2xs"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
+                    className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 cursor-pointer hover:bg-stone-50/60 transition-colors"
+                  >
+                    <span className="font-bold text-sm sm:text-base text-stone-900">{faq.q}</span>
+                    <HelpCircle
+                      className={`w-4 h-4 text-stone-400 transition-transform duration-200 ${
+                        isOpen ? 'rotate-180 text-emerald-600' : ''
+                      }`}
+                    />
+                  </button>
+
+                  {isOpen && (
+                    <div className="px-5 pb-5 pt-1 border-t border-stone-100 text-xs sm:text-sm text-stone-600 leading-relaxed">
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </section>
+
+        {/* Final Conversion Bottom Banner */}
+        <section className="mt-24 text-center rounded-3xl border border-stone-900 bg-stone-950 text-white p-8 sm:p-14 shadow-xl">
+          <div className="max-w-2xl mx-auto space-y-4">
+            <h3 className="font-sans text-3xl sm:text-5xl font-extrabold tracking-tight">
+              Give Your Child the Power of 1-on-1 Socratic Tutoring
+            </h3>
+            <p className="text-sm sm:text-base text-stone-300 leading-relaxed">
+              Join thousands of school students mastering Maths and Science through active visual chalkboard derivations.
+              No credit card required to start.
+            </p>
+            <div className="pt-3">
+              <Link
+                href="/onboarding"
+                className="inline-flex items-center gap-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base px-7 py-3.5 transition-all shadow-md hover:scale-105"
+              >
+                <span>Launch Your First Free Class</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  )
+}

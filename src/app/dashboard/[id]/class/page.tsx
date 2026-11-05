@@ -34,8 +34,8 @@ export default function ClassRedirectPage() {
           .eq('status', 'completed')
 
         if (!isUnlimitedUser && completedList && completedList.length >= maxAllowedModules) {
-          // Free tier / quota limit reached
-          router.replace(`/dashboard/${userId}?pricing_notice=true`)
+          // Free tier / quota limit reached -> direct to pricing page
+          router.replace('/pricing')
           return
         }
 

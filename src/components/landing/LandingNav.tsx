@@ -141,6 +141,12 @@ export function LandingNav() {
             >
               The Progression
             </a>
+            <Link
+              href="/pricing"
+              className="transition-colors duration-200 hover:text-ink-primary"
+            >
+              Pricing
+            </Link>
             {!authenticatedUserId && (
               <Link
                 href="/login"

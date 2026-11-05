@@ -15,7 +15,6 @@ import { Label } from '@/components/ui/label'
 import { signOutAction, updatePreferencesAction, enrollCurriculumAction } from '@/app/dashboard/actions'
 import { triggerCompanionGuidance } from '@/components/mascot/Mascot'
 import { MasteryQuizModal } from '@/components/quiz/MasteryQuizModal'
-import { PricingNoticeModal } from './PricingNoticeModal'
 import { StudyPlannerCard, StudyPlanData } from './StudyPlannerCard'
 import { WeakConceptsReviewCard } from './WeakConceptsReviewCard'
 import { VOICE_OPTIONS } from '@/lib/voiceAndLanguageConfig'
@@ -127,7 +126,6 @@ export function StitchDashboardView({
   const [liveModalOpen, setLiveModalOpen] = useState(false)
   const [preferencesOpen, setPreferencesOpen] = useState(false)
   const [notesDialogOpen, setNotesDialogOpen] = useState(false)
-  const [pricingModalOpen, setPricingModalOpen] = useState(false)
   const [coursesDialogOpen, setCoursesDialogOpen] = useState(false)
   const [isStartingSession, setIsStartingSession] = useState(false)
   const [quizModalOpen, setQuizModalOpen] = useState(false)
@@ -185,10 +183,10 @@ export function StitchDashboardView({
     if (typeof window !== 'undefined') {
       const urlParams = new URLSearchParams(window.location.search)
       if (urlParams.get('pricing_notice') === 'true' || urlParams.get('limit_reached') === 'true') {
-        setPricingModalOpen(true)
+        router.push('/pricing')
       }
     }
-  }, [])
+  }, [router])
 
   const handleModuleClick = (e: React.MouseEvent, targetModId?: string) => {
     if (isFreeQuotaExhausted) {
@@ -196,7 +194,7 @@ export function StitchDashboardView({
         return
       }
       e.preventDefault()
-      setPricingModalOpen(true)
+      router.push('/pricing')
     }
   }
 
@@ -425,7 +423,7 @@ export function StitchDashboardView({
   const handleStartSession = () => {
     if (isFreeQuotaExhausted && (!activeModule?.id || !isModuleComplete(activeModule.id))) {
       setLiveModalOpen(false)
-      setPricingModalOpen(true)
+      router.push('/pricing')
       return
     }
     setIsStartingSession(true)
@@ -571,6 +569,13 @@ export function StitchDashboardView({
             >
               <span className="material-symbols-outlined text-lg">settings</span>
               <span>Settings</span>
+            </Link>
+            <Link
+              href="/pricing"
+              className="w-full flex items-center gap-3 text-emerald-800 font-label-md text-label-md pl-3 py-2 rounded-lg hover:text-emerald-950 hover:bg-emerald-50 transition-colors text-left cursor-pointer"
+            >
+              <span className="material-symbols-outlined text-lg text-emerald-700">credit_card</span>
+              <span>Plans &amp; Pricing</span>
             </Link>
           </nav>
         </div>
@@ -2097,6 +2102,14 @@ export function StitchDashboardView({
           >
             <span aria-hidden="true" className="material-symbols-outlined text-xl">settings</span>
             <span>Settings &amp; avatars</span>
+          </Link>
+          <Link
+            href="/pricing"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-emerald-800 transition-colors hover:bg-emerald-50 hover:text-emerald-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm"
+          >
+            <span aria-hidden="true" className="material-symbols-outlined text-xl text-emerald-700">credit_card</span>
+            <span>Plans &amp; Pricing</span>
           </Link>
         </div>
 
