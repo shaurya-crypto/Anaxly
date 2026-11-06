@@ -211,12 +211,18 @@ function buildConceptMicroDossiers(
           (cq.concept_title || '').toLowerCase().includes(conceptName.toLowerCase()) ||
           conceptName.toLowerCase().includes((cq.concept_title || '').toLowerCase())
       ) || conceptQuestionsList[idx]
-    const qListStr = matchingQuestions?.questions?.length
-      ? `\n   * Prepared 4-6 Board Exam Questions for Socratic Gating:\n` +
-        matchingQuestions.questions
+    const rawQuestions = matchingQuestions?.questions?.length
+      ? matchingQuestions.questions
+      : (conceptQuestionsList.length > 0 && conceptQuestionsList[0]?.question ? conceptQuestionsList : [])
+    const qListStr = rawQuestions.length > 0
+      ? `\n   * Prepared Board Exam Checkpoint Questions for Socratic Gating (MUST ASK & SOLVE EACH):\n` +
+        rawQuestions
           .map(
-            (q: any, qIdx: number) =>
-              `     - [Q${qIdx + 1} (${q.type || 'Exam Question'})]: "${q.question}" -> Model Answer: "${q.ideal_answer || ''}" (Socratic Hint: "${q.socratic_hint || ''}")`
+            (q: any, qIdx: number) => {
+              const ans = q.ideal_answer || (q.options && q.correct_option_index !== undefined ? q.options[q.correct_option_index] : '') || q.explanation || ''
+              const hint = q.socratic_hint || q.explanation || ''
+              return `     - [Q${qIdx + 1} (${q.type || 'Checkpoint'})]: "${q.question}" -> Model Answer: "${ans}"${hint ? ` (Hint/Explanation: "${hint}")` : ''}`
+            }
           )
           .join('\n')
       : ''
@@ -375,12 +381,18 @@ function buildSingleConceptMicroDossier(
         (cq.concept_title || '').toLowerCase().includes(conceptName.toLowerCase()) ||
         conceptName.toLowerCase().includes((cq.concept_title || '').toLowerCase())
     ) || conceptQuestionsList[conceptIdx]
-  const qListStr = matchingQuestions?.questions?.length
-    ? `\n   * Prepared Authentic Board Exam Questions for Gating:\n` +
-      matchingQuestions.questions
+  const rawQuestions = matchingQuestions?.questions?.length
+    ? matchingQuestions.questions
+    : (conceptQuestionsList.length > 0 && conceptQuestionsList[0]?.question ? conceptQuestionsList : [])
+  const qListStr = rawQuestions.length > 0
+    ? `\n   * Prepared Authentic Board Exam Questions for Gating (MUST ASK & SOLVE EACH):\n` +
+      rawQuestions
         .map(
-          (q: any, qIdx: number) =>
-            `     - [Q${qIdx + 1} (${q.type || 'Exam Question'})]: "${q.question}" -> Model Answer: "${q.ideal_answer || ''}" (Socratic Hint: "${q.socratic_hint || ''}")`
+          (q: any, qIdx: number) => {
+            const ans = q.ideal_answer || (q.options && q.correct_option_index !== undefined ? q.options[q.correct_option_index] : '') || q.explanation || ''
+            const hint = q.socratic_hint || q.explanation || ''
+            return `     - [Q${qIdx + 1} (${q.type || 'Checkpoint'})]: "${q.question}" -> Model Answer: "${ans}"${hint ? ` (Hint/Explanation: "${hint}")` : ''}`
+          }
         )
         .join('\n')
     : ''
@@ -655,6 +667,7 @@ export default function ModuleClassroomPage() {
   // Verdict review barrier: locks whiteboard on current page until student confirms understanding
   const isReviewingVerdictRef = useRef<boolean>(false)
   const [isReviewingVerdict, setIsReviewingVerdict] = useState<boolean>(false)
+  const lastVerdictStatusRef = useRef<'correct' | 'incorrect' | 'neutral'>('neutral')
 
   // Mafs.dev high-precision dynamic mathematical & scientific graph state
   const [activeGraph, setActiveGraph] = useState<MafsGraphCanvasProps | null>(null)
@@ -697,16 +710,29 @@ export default function ModuleClassroomPage() {
 
     const cleanAnswer = answer.trim()
 
-    // If student was reviewing verdict and sends a follow-up ("yes", "understood", "clear", "next"), unblock transition
+    // If student was reviewing verdict, check if previous answer was incorrect or if doubts remain
     if (isReviewingVerdictRef.current) {
-      isReviewingVerdictRef.current = false
-      setIsReviewingVerdict(false)
+      if (lastVerdictStatusRef.current === 'incorrect') {
+        sendTextMessage(
+          `Student replied to correction: "${cleanAnswer}".
+[SOCRATIC GATING MANDATE]: The student is still resolving a misconception on this concept.
+Explain the doubt or co-solve the question on the chalkboard step-by-step.
+DO NOT call concept_completed or advance to the next page until they demonstrate correct understanding!`
+        )
+        return
+      }
+
       const isConfirmation = /^(?:yes|understood|clear|ready|next|move\s*on|haan?|samajh|theek|chalo|done|got\s*it|sure|proceed|ok|okay)\b/i.test(cleanAnswer)
-      if (isConfirmation) {
+      if (isConfirmation && lastVerdictStatusRef.current === 'correct') {
+        isReviewingVerdictRef.current = false
+        setIsReviewingVerdict(false)
         handleConceptDone()
         return
       }
-      sendTextMessage(`Student replied: "${cleanAnswer}". If understood, call concept_completed (or write_chalkboard with action="concept_done") to conclude this concept and transition to the next concept.`)
+
+      sendTextMessage(
+        `Student replied: "${cleanAnswer}". If they have a doubt, explain and solve it thoroughly on the board. Only call concept_completed if all checkpoint questions for this concept are completed correctly and all doubts are cleared.`
+      )
       return
     }
 
@@ -728,16 +754,29 @@ export default function ModuleClassroomPage() {
 
     const cleanAnswer = answer.trim()
 
-    // If student was reviewing verdict and says "understood", "yes", "clear", "next", unblock transition
+    // If student was reviewing verdict, check if previous answer was incorrect or if doubts remain
     if (isReviewingVerdictRef.current) {
-      isReviewingVerdictRef.current = false
-      setIsReviewingVerdict(false)
+      if (lastVerdictStatusRef.current === 'incorrect') {
+        sendTextMessage(
+          `Student replied to correction: "${cleanAnswer}".
+[SOCRATIC GATING MANDATE]: The student is still resolving a misconception on this concept.
+Explain the doubt or co-solve the question on the chalkboard step-by-step.
+DO NOT call concept_completed or advance to the next page until they demonstrate correct understanding!`
+        )
+        return
+      }
+
       const isConfirmation = /^(?:yes|understood|clear|ready|next|move\s*on|haan?|samajh|theek|chalo|done|got\s*it|sure|proceed|ok|okay)\b/i.test(cleanAnswer)
-      if (isConfirmation) {
+      if (isConfirmation && lastVerdictStatusRef.current === 'correct') {
+        isReviewingVerdictRef.current = false
+        setIsReviewingVerdict(false)
         handleConceptDone()
         return
       }
-      sendTextMessage(`Student replied: "${cleanAnswer}". If understood, call concept_completed (or write_chalkboard with action="concept_done") to conclude this concept and transition to the next concept.`)
+
+      sendTextMessage(
+        `Student replied: "${cleanAnswer}". If they have a doubt, explain and solve it thoroughly on the board. Only call concept_completed if all checkpoint questions for this concept are completed correctly and all doubts are cleared.`
+      )
       return
     }
 
@@ -2674,9 +2713,9 @@ STUDENT PERSONALIZATION & PEDAGOGICAL DOSSIER:
 - ${styleDirective}
 ${careerHook ? `- ${careerHook}\n` : ''}${favoriteHook ? `- ${favoriteHook}\n` : ''}${weakAreaHook ? `- ${weakAreaHook}\n` : ''}`
 
-    const boardSummary = chalkboardRef.current?.getBoardSummary()?.notesText || chapterNotes || ''
-    const boardContinuationNote = boardSummary.trim()
-      ? `\nCURRENT CHALKBOARD NOTES (DO NOT RE-WRITE OR DUPLICATE):\n"""\n${boardSummary.trim().slice(-500)}\n"""\nCONTINUATION MANDATE: The chalkboard already contains the notes above. Continue directly from where you left off. DO NOT re-write, duplicate, or re-draw any note or diagram already present on the board.\n`
+    const boardCompactContext = chalkboardRef.current?.getCompactBoardContext?.() || chalkboardRef.current?.getBoardSummary()?.notesText || chapterNotes || ''
+    const boardContinuationNote = boardCompactContext.trim()
+      ? `\n========================================================================================\nCURRENT DIGITAL CHALKBOARD STATE (DO NOT RE-WRITE OR DUPLICATE):\n========================================================================================\n${boardCompactContext.trim()}\nCONTINUATION MANDATE: The items above are ALREADY VISIBLE on the student's chalkboard right now. Continue directly from where you left off. DO NOT re-write, duplicate, or re-draw any note or diagram already present on the board. Live diagram tools (render_svg_diagram, plot_mathematical_graph, draw_shape) remain fully active for all new concepts!\n`
       : ''
 
     const langGreeting = studentPreferredLanguage === 'Hindi'
@@ -2844,8 +2883,20 @@ Call: plot_mathematical_graph(formula="...", domain="[min,max]", range="[min,max
   Mafs automatically plots all curves together with clean white chalkboard styling, distinct color coding (Royal Blue, Crimson Red, Emerald Green), and automatically marks their intersection points!
 
 ========================================================================================
-STRICT SOCRATIC CADENCE & 4-6 EXAM QUESTION PROGRESSION GATING:
+STRICT SOCRATIC CADENCE & MANDATORY QUESTION PROGRESSION GATING:
 ========================================================================================
+CRITICAL INVARIANT - NEVER ADVANCE ON WRONG ANSWERS:
+- You are STRICTLY FORBIDDEN from calling concept_completed, concept_done, or new_page when the student answers incorrectly, gives an incomplete answer, or is hesitant!
+- If the student makes a mistake:
+  1. Acknowledge and locate the misconception with warmth.
+  2. Write on the board: write_chalkboard(action="draw_answer_verdict", content="Needs Review: <explanation of mistake>", color="coral")
+  3. Co-solve the step on the board using write_chalkboard(action="draw_step", ...).
+  4. Pose a targeted follow-up question or re-test.
+- ALL PREPARED QUESTIONS MUST BE SOLVED: Work through the prepared checkpoint questions for each concept before advancing.
+- ZERO DOUBTS REQUIREMENT: Always ask: "Do you have any doubts on this, or is everything crystal clear?"
+  * Only when ALL questions are answered correctly AND the student confirms zero doubts may you call concept_done or concept_completed.
+- GRAPH DIAGRAM INVARIANT (MATHS & PHYSICS):
+  Whenever an illustration represents a mathematical function, linear equation, coordinate relationship, or kinematic motion curve in Maths or Physics, you MUST plot it dynamically using plot_mathematical_graph matching the textbook presentation.
 1. SESSION START:
    - Speak FIRST upon connection! Warmly greet ${studentFirstName || 'the student'} in ${studentPreferredLanguage}: "${langGreeting}"
    - Begin Concept 1 with Step 1 (Intuition). Write intuition to board immediately!
@@ -2992,7 +3043,14 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
             chalkboardRef.current.drawStudentAnswer?.(stringContent, undefined, color)
           }
           else if (action === 'draw_answer_verdict' || action === 'answer_verdict' || action === 'verdict') {
-            chalkboardRef.current.drawAnswerVerdict?.(stringContent, undefined, color)
+            const isIncorrect = /\b(incorrect|wrong|needs review|needs correction|not quite|try again|mistake|error)\b/i.test(stringContent)
+            const isCorrect = /\b(correct|spot on|perfect|right|excellent|well done)\b/i.test(stringContent)
+            if (isIncorrect) {
+              lastVerdictStatusRef.current = 'incorrect'
+            } else if (isCorrect) {
+              lastVerdictStatusRef.current = 'correct'
+            }
+            chalkboardRef.current.drawAnswerVerdict?.(stringContent, !isIncorrect, color)
             isAwaitingStudentAnswerRef.current = false
             setIsAwaitingStudentAnswer(false)
             isReviewingVerdictRef.current = true
@@ -3403,10 +3461,16 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
               handleConceptFocus(cleanContent)
             }
           } else if (action === 'concept_done') {
+            if (lastVerdictStatusRef.current === 'incorrect') {
+              console.warn('[Classroom] Gating blocked premature concept_done: Student answer was marked incorrect!')
+              sendTextMessage('[SYSTEM NOTICE: GATING BLOCKED: The student answered incorrectly or has an unresolved doubt. You are STRICTLY FORBIDDEN from advancing. Re-explain the concept, solve with them on the chalkboard, and ask a follow-up check before completing this concept.]')
+              return
+            }
             isReviewingVerdictRef.current = false
             setIsReviewingVerdict(false)
             isAwaitingStudentAnswerRef.current = false
             setIsAwaitingStudentAnswer(false)
+            lastVerdictStatusRef.current = 'neutral'
             handleConceptDone(content)
           } else if (action === 'concept_goto' || action === 'goto_concept') {
             handleConceptGoto(content)

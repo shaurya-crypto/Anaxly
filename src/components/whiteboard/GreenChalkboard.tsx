@@ -71,6 +71,7 @@ export interface GreenChalkboardRef {
   clearNotes: () => void
   rewriteNotes: (newNotes: string) => Promise<void>
   getBoardSummary: () => { notesText: string; roughText: string; fullSummary: string }
+  getCompactBoardContext?: () => string
   handleAiDirective: (directive: string, transcriptId?: string) => void
   getActiveQuestion?: () => { text: string; y: number; height: number; pageIndex: number } | null
   getNextY?: () => number
@@ -174,7 +175,7 @@ export { wrapText }
 
 const EXCALIDRAW_INITIAL_DATA = {
   appState: {
-    viewBackgroundColor: CANVAS_BG,
+    viewBackgroundColor: 'transparent',
     currentItemStrokeColor: INK_PRIMARY,
     currentItemFontFamily: 1,
     currentItemRoughness: 0,
@@ -438,20 +439,31 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         (el: any) =>
           !el.id?.startsWith('header_') &&
           el.customData?.isRough !== true &&
-          (el.x || 0) < 500 &&
-          typeof el.y === 'number'
+          typeof el.y === 'number' &&
+          (el.x === undefined || el.x < 620)
       )
       if (noteEls.length === 0) {
         return Math.max(nextYRef.current, 140)
       }
       const maxY = Math.max(
         ...noteEls.map((el: any) => {
-          const h = el.height || (el.type === 'text' ? (el.fontSize || 16) * 1.5 : 30)
+          let h = el.height
+          if (!h || h <= 0) {
+            if (el.type === 'text' && el.text) {
+              const lineCount = (el.text.split('\n') || []).length
+              const fontSize = el.fontSize || 16
+              h = lineCount * Math.round(fontSize * 1.35) + 8
+            } else if (el.type === 'rectangle') {
+              h = 60
+            } else {
+              h = 30
+            }
+          }
           return el.y + h
         }),
         nextYRef.current
       )
-      return maxY + margin
+      return Math.max(maxY + margin, nextYRef.current)
     }
 
     // Centralized helper: synchronously updates page buffer, state, Excalidraw scene, and storage
@@ -618,6 +630,85 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         : 'MASTER NOTES: (Module header initialized)'
 
       return { notesText, roughText, fullSummary }
+    }
+
+    // Token-efficient snapshot of current chalkboard page for live AI context
+    const getCompactBoardContext = (): string => {
+      if (excalidrawAPI && pagesRef.current[currentPageIndexRef.current]) {
+        pagesRef.current[currentPageIndexRef.current].elements = getCurrentElements()
+      }
+
+      const totalPages = pagesRef.current.length
+      const curIdx = currentPageIndexRef.current
+      const curPage = pagesRef.current[curIdx]
+      if (!curPage) return 'CURRENT BOARD: Empty / Initialized'
+
+      const lines: string[] = []
+      lines.push(`CHALKBOARD SNAPSHOT (Page ${curIdx + 1} of ${totalPages}):`)
+
+      if (curIdx > 0) {
+        lines.push('PREVIOUS COMPLETED PAGES (DO NOT RE-TEACH):')
+        for (let i = 0; i < curIdx; i++) {
+          const p = pagesRef.current[i]
+          const pEls = p?.elements || []
+          const pTitleEl = pEls.find((el: any) => el.type === 'text' && (el.id?.startsWith('header_') || el.customData?.isTitle))
+          const pDiag = pEls.find((el: any) => el.customData?.isSvgCard || el.customData?.diagramTitle)
+          const pTitle = pTitleEl?.text?.replace(/\n/g, ' ') || `Concept ${i + 1}`
+          const pDiagInfo = pDiag?.customData?.diagramTitle ? ` | Diagram: "${pDiag.customData.diagramTitle}"` : ''
+          lines.push(`  * Page ${i + 1}: ${pTitle}${pDiagInfo} (Mastered)`)
+        }
+      }
+
+      lines.push(`ACTIVE PAGE ${curIdx + 1} ON BOARD RIGHT NOW:`)
+      const curElements = curPage.elements || []
+
+      // 1. Visual Diagrams
+      const diagrams = curElements.filter((el: any) => el.customData?.isSvgCard && el.customData?.diagramTitle)
+      if (diagrams.length > 0) {
+        const uniqueDiags = Array.from(new Set(diagrams.map((d: any) => d.customData.diagramTitle)))
+        lines.push(`  - Drawn Diagram(s): ${uniqueDiags.map(d => `"${d}"`).join(', ')} (Already drawn - do not redraw!)`)
+      }
+
+      // 2. Cartesian Graphs
+      const graphEls = curElements.filter((el: any) => el.text && (el.text.includes('Cartesian Graph') || el.text.startsWith('f(x) =') || el.text.startsWith('y =')))
+      if (graphEls.length > 0) {
+        lines.push(`  - Plotted Graph: "${graphEls[0].text.replace(/\n/g, ' ')}" (Already plotted)`)
+      }
+
+      // 3. Notes / Formulas
+      const textEls = curElements.filter(
+        (el: any) =>
+          el.type === 'text' &&
+          !el.id?.startsWith('header_') &&
+          el.customData?.isRough !== true &&
+          el.text &&
+          !el.text.startsWith('0') && !el.text.match(/^[-+]?\d+$/)
+      )
+
+      const extractedNotes: string[] = []
+      for (const el of textEls) {
+        const raw = (el.text || '').trim()
+        if (!raw || raw.startsWith('[DIAGRAM]:')) continue
+        const clean = raw.replace(/\n+/g, ' | ')
+        if (clean.length > 180) {
+          extractedNotes.push(clean.slice(0, 180) + '...')
+        } else {
+          extractedNotes.push(clean)
+        }
+      }
+
+      if (extractedNotes.length > 0) {
+        lines.push('  - Notes Already on Board (Do not duplicate):')
+        extractedNotes.slice(-10).forEach(n => lines.push(`    • ${n}`))
+      } else {
+        lines.push('  - Notes Already on Board: [Clean page - Ready for new notes]')
+      }
+
+      if (activeQuestionRef.current) {
+        lines.push(`  - Active Question on Board: "${activeQuestionRef.current.text}"`)
+      }
+
+      return lines.join('\n')
     }
 
     // Sanitize raw SVG markup: parse via DOMParser, fix common Gemini output issues, return clean SVG or null
@@ -835,7 +926,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         excalidrawAPI.updateScene({
           elements: initialElements,
           appState: {
-            viewBackgroundColor: CANVAS_BG,
+            viewBackgroundColor: 'transparent',
             currentItemStrokeColor: INK_PRIMARY,
             currentItemFontFamily: 1,
             currentItemRoughness: 0,
@@ -931,7 +1022,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         excalidrawAPI.updateScene({
           elements: targetPage.elements || [],
           appState: {
-            viewBackgroundColor: CANVAS_BG,
+            viewBackgroundColor: 'transparent',
             currentItemStrokeColor: INK_PRIMARY,
             currentItemFontFamily: 1,
             currentItemRoughness: 0,
@@ -1124,7 +1215,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             excalidrawAPI.updateScene({
               elements: targetPage.elements || [],
               appState: {
-                viewBackgroundColor: CANVAS_BG,
+                viewBackgroundColor: 'transparent',
                 currentItemStrokeColor: INK_PRIMARY,
                 currentItemFontFamily: 1,
                 currentItemRoughness: 0,
@@ -1163,7 +1254,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           excalidrawAPI.updateScene({
             elements: chosenPage.elements,
             appState: {
-              viewBackgroundColor: CANVAS_BG,
+              viewBackgroundColor: 'transparent',
               currentItemStrokeColor: INK_PRIMARY,
               currentItemFontFamily: 1,
               currentItemRoughness: 0,
@@ -1266,6 +1357,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         const startX = 60
         const startY = getDynamicNextY(16)
+        nextYRef.current = Math.max(nextYRef.current, startY + 54)
         const titleText = `CONCEPT ${currentPageIndexRef.current + 1}: ${clean.toUpperCase()}`
         const titleColor = resolveChalkColor(color, INK_PRIMARY)
         const underlineColor = color ? titleColor : INK_BOTANICAL
@@ -1321,6 +1413,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 60
         const startY = getDynamicNextY(12)
+        nextYRef.current = Math.max(nextYRef.current, startY + totalH + 16)
         const noteColor = resolveChalkColor(color, activeChalkColorRef.current)
         const bulletColor = color ? noteColor : INK_BOTANICAL
 
@@ -1377,6 +1470,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 60
         const startY = getDynamicNextY(12)
+        nextYRef.current = Math.max(nextYRef.current, startY + totalH + 16)
         const stepColor = resolveChalkColor(color, INK_SECONDARY)
 
         await playTypingEffect('Step', clean, stepColor, startX, startY, 15, 'step')
@@ -1424,6 +1518,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 60
         const startY = getDynamicNextY(16)
+        nextYRef.current = Math.max(nextYRef.current, startY + boxHeight + 20)
         const boxStroke = resolveChalkColor(color, INK_CORAL)
         const boxBg = boxStroke === INK_CORAL ? INK_CORAL_SOFT : '#F8F6F0'
 
@@ -1483,6 +1578,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 60
         const startY = getDynamicNextY(16)
+        nextYRef.current = Math.max(nextYRef.current, startY + qHeight + 20)
         const qStroke = resolveChalkColor(color, INK_CORAL)
 
         const elements = convertToExcalidrawElements([
@@ -1568,6 +1664,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 60
         const startY = getDynamicNextY(14)
+        nextYRef.current = Math.max(nextYRef.current, startY + boxHeight + 18)
         const ansStroke = resolveChalkColor(color, INK_BLUE)
 
         const elements = convertToExcalidrawElements([
@@ -1636,6 +1733,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 60
         const startY = getDynamicNextY(14)
+        nextYRef.current = Math.max(nextYRef.current, startY + boxHeight + 18)
         const vStroke = resolveChalkColor(
           color,
           looksCorrect ? INK_BOTANICAL : INK_CORAL
@@ -2410,6 +2508,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           await checkAutoPageOverflow(estimatedHeight)
 
           const startY = getDynamicNextY(16)
+          nextYRef.current = Math.max(nextYRef.current, startY + 180)
           const rowPositions: { x: number; y: number; w: number; h: number }[] = []
 
           steps.forEach((st, i) => {
@@ -2577,6 +2676,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const totalTableHeight = rowHeights.reduce((a, b) => a + b, 0)
         await checkAutoPageOverflow(totalTableHeight + 24)
         const startY = getDynamicNextY(16)
+        nextYRef.current = Math.max(nextYRef.current, startY + totalTableHeight + 24)
 
         const skeletons: any[] = []
         let currentY = startY
@@ -2732,7 +2832,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         excalidrawAPI.updateScene({
           elements: initialElements,
           appState: {
-            viewBackgroundColor: CANVAS_BG,
+            viewBackgroundColor: 'transparent',
             currentItemStrokeColor: INK_PRIMARY,
             currentItemFontFamily: 1,
             currentItemRoughness: 0,
@@ -2790,6 +2890,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 75
         const startY = getDynamicNextY(18)
+        nextYRef.current = Math.max(nextYRef.current, startY + 240 + 20)
         const q = (query || '').trim()
         const lowerQ = q.toLowerCase()
 
@@ -3415,6 +3516,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 60
         const startY = getDynamicNextY(20)
+        nextYRef.current = Math.max(nextYRef.current, startY + 280 + 24)
 
         // Clean markdown code blocks, script tags, and whitespace
         let cleanSvg = (svgMarkup || '').trim().replace(/^```(?:xml|svg|html)?\s*/i, '').replace(/\s*```$/i, '').trim()
@@ -4103,7 +4205,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           excalidrawAPI.updateScene({
             elements: targetPage.elements || [],
             appState: {
-              viewBackgroundColor: CANVAS_BG,
+              viewBackgroundColor: 'transparent',
               currentItemStrokeColor: INK_PRIMARY,
               currentItemFontFamily: 1,
               currentItemRoughness: 0,
@@ -4127,14 +4229,14 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
     // Expose imperative API
     useImperativeHandle(ref, () => ({
-      drawText,
-      drawTitle,
-      drawStep,
-      drawNote,
-      drawQuestion,
-      drawHighlightBox,
-      drawFlowchart,
-      drawRoughWork,
+      drawText: (text: string, x?: number, y?: number, color?: string) => enqueueOperation(async () => drawText(text, x, y, color)),
+      drawTitle: (title: string, color?: string) => enqueueOperation(async () => drawTitle(title, color)),
+      drawStep: (stepText: any, color?: string) => enqueueOperation(async () => drawStep(stepText, color)),
+      drawNote: (noteText: any, color?: string) => enqueueOperation(async () => drawNote(noteText, color)),
+      drawQuestion: (questionText: string, color?: string) => enqueueOperation(async () => drawQuestion(questionText, color)),
+      drawHighlightBox: (text: string, color?: string) => enqueueOperation(async () => drawHighlightBox(text, color)),
+      drawFlowchart: (flowText: string, color?: string) => enqueueOperation(async () => drawFlowchart(flowText, color)),
+      drawRoughWork: (workText: string, color?: string) => enqueueOperation(async () => drawRoughWork(workText, color)),
       clearRough,
       clearNotes,
       rewriteNotes,
@@ -4142,21 +4244,22 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       resetBoard,
       setChalkColor: (colorNameOrHex: string) => setChalkColor(colorNameOrHex),
       setBoardColor: () => {},
-      drawSvgDiagram,
+      drawSvgDiagram: (title: string, svgMarkup: string, caption?: string, forceUpdate?: boolean) => enqueueOperation(async () => drawSvgDiagram(title, svgMarkup, caption, forceUpdate)),
       drawDiagramSkeleton,
       clearDiagramSkeleton,
-      drawGraph,
-      drawNumericalSolution,
-      drawVideoCard,
-      drawTable,
-      drawGeometry,
-      drawShape,
-      drawStudentAnswer,
-      drawAnswerVerdict,
-      drawExamQuestion,
+      drawGraph: (type?: string) => enqueueOperation(async () => drawGraph(type)),
+      drawNumericalSolution: (solution: any) => enqueueOperation(async () => drawNumericalSolution(solution)),
+      drawVideoCard: (title: string, description?: string) => enqueueOperation(async () => drawVideoCard(title, description)),
+      drawTable: (tableStr: string) => enqueueOperation(async () => drawTable(tableStr)),
+      drawGeometry: (geomStr: string) => enqueueOperation(async () => drawGeometry(geomStr)),
+      drawShape: (shapeDef: any) => enqueueOperation(async () => drawShape(shapeDef)),
+      drawStudentAnswer: (answerText: string, isCorrect?: boolean, color?: string) => enqueueOperation(async () => drawStudentAnswer(answerText, isCorrect, color)),
+      drawAnswerVerdict: (verdictText: string, isCorrect?: boolean, color?: string) => enqueueOperation(async () => drawAnswerVerdict(verdictText, isCorrect, color)),
+      drawExamQuestion: (questionText: string, modelAnswer?: string, marks?: string, color?: string) => enqueueOperation(async () => drawExamQuestion(questionText, modelAnswer, marks, color)),
       addNewPage,
       goToPage,
       getBoardSummary,
+      getCompactBoardContext,
       handleAiDirective,
       getActiveQuestion: () => activeQuestionRef.current,
       getNextY: () => nextYRef.current,
@@ -4165,11 +4268,11 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     }))
 
     return (
-      <div className="whiteboard-container relative w-full h-full flex flex-col rounded-2xl overflow-hidden bg-white border border-[#E5E3DB] shadow-[0_10px_30px_-10px_rgba(23,24,23,0.06)]">
+      <div className="whiteboard-container relative w-full h-full flex flex-col rounded-2xl overflow-hidden border border-[#E5E3DB] shadow-[0_10px_30px_-10px_rgba(23,24,23,0.06)]" style={{ backgroundColor: "#F8F6F0", backgroundImage: "url('/landing_images/bg.jpg')", backgroundRepeat: "repeat", backgroundSize: "1000px auto" }}>
         {/* Excalidraw Light Engine - 100% Uninterrupted Vertical Height */}
         <div
           ref={containerRef}
-          className="relative flex-1 w-full h-full bg-[#FFFFFF]"
+          className="relative flex-1 w-full h-full bg-transparent" style={{ backgroundColor: "transparent" }}
         >
           <Excalidraw
             excalidrawAPI={handleExcalidrawAPI}

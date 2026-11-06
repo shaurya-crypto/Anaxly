@@ -208,11 +208,22 @@
   pointer-events: none !important;
 }
 
-/* Clean Whiteboard Container Styling */
-.whiteboard-container .excalidraw {
+/* Clean Whiteboard Container Styling with Archival Paper Texture */
+.whiteboard-container {
+  background-color: var(--canvas-ivory, #F8F6F0) !important;
+  background-image: url('/landing_images/bg.jpg') !important;
+  background-repeat: repeat !important;
+  background-size: 1000px auto !important;
+}
+
+.whiteboard-container .excalidraw,
+.whiteboard-container .excalidraw-container,
+.whiteboard-container .excalidraw .excalidraw-canvas,
+.whiteboard-container .excalidraw canvas {
   border: none !important;
   border-radius: 1rem !important;
-  background-color: #FFFFFF !important;
+  background-color: transparent !important;
+  background: transparent !important;
 }
 
 /* Lenis Smooth Scroll Recommended Rules */
