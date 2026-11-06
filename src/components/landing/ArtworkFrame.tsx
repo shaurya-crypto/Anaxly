@@ -2,8 +2,9 @@
 
 import React, { useState, useRef } from 'react'
 import Image from 'next/image'
-import { motion, useScroll, useTransform, useSpring } from 'motion/react'
+import { motion, useReducedMotion, useScroll, useTransform, useSpring } from 'motion/react'
 import { ArtworkSlot } from '@/lib/landing-artwork'
+import { EASE_EDITORIAL } from './motion/Reveal'
 
 interface ArtworkFrameProps {
   artwork: ArtworkSlot
@@ -25,31 +26,26 @@ export function ArtworkFrame({
 }: ArtworkFrameProps) {
   const [hasError, setHasError] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
-  const [hasEntered, setHasEntered] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLElement>(null)
+  const reduceMotion = useReducedMotion()
 
-  // Scroll dynamics: smoothly scale up on entry and permanently lock without shrinking back
+  // Scroll dynamics: the painting drifts slowly inside its frame (parallax window)
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start end', 'end start'],
   })
-
-  React.useEffect(() => {
-    const unsub = scrollYProgress.on('change', (v) => {
-      if (v > 0.08) {
-        setHasEntered(true)
-      }
-    })
-    return () => unsub()
-  }, [scrollYProgress])
+  const rawY = useTransform(scrollYProgress, [0, 1], ['-6%', '6%'])
+  const imageY = useSpring(rawY, { stiffness: 110, damping: 28 })
 
   return (
     <figure ref={containerRef} className={`group relative flex flex-col ${className}`}>
       <motion.div
-        initial={{ scale: 0.94 }}
-        animate={{ scale: hasEntered ? 1.04 : 0.94 }}
-        transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-        className="relative w-full will-change-transform"
+        initial={reduceMotion ? false : { clipPath: 'inset(8% 8% 8% 8% round 24px)', opacity: 0.4 }}
+        // Negative final inset so the ambient shadow halo is never clipped once revealed
+        whileInView={{ clipPath: 'inset(-15% -15% -15% -15% round 0px)', opacity: 1 }}
+        viewport={{ once: true, margin: '0px 0px -12% 0px' }}
+        transition={{ duration: 1.1, ease: EASE_EDITORIAL }}
+        className="relative w-full"
       >
         {/* Ambient shadow shade behind frame to merge softly with the paper canvas */}
         <div
@@ -62,6 +58,10 @@ export function ArtworkFrame({
         >
           {!hasError ? (
             <>
+              <motion.div
+                style={reduceMotion ? undefined : { y: imageY }}
+                className="absolute -inset-y-[8%] inset-x-0"
+              >
               <Image
                 src={artwork.src}
                 alt={artwork.alt}
@@ -69,12 +69,13 @@ export function ArtworkFrame({
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 1200px"
                 priority={priority}
                 style={{ objectPosition: artwork.objectPosition || 'center center' }}
-                className={`rounded-2xl sm:rounded-3xl object-cover transition-transform duration-700 ease-out group-hover:scale-[1.028] ${
+                className={`object-cover transition-[transform,opacity] duration-700 ease-out group-hover:scale-[1.028] ${
                   isLoaded ? 'opacity-100' : 'opacity-0'
                 }`}
                 onLoad={() => setIsLoaded(true)}
                 onError={() => setHasError(true)}
               />
+              </motion.div>
 
               {/* Edge shadow shade and subtle peripheral vignette to merge artwork softly into canvas */}
               <div
