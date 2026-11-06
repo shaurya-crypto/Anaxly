@@ -1396,7 +1396,7 @@ export default function ModuleClassroomPage() {
 
   // Helper to handle visual stage actions from Gemini Live
   const handleVisualAction = (action: string, params: Record<string, any>) => {
-    // 1. Dispatch through non-blocking event queue so MultimediaLessonPlayer receives it
+    // 1. Dispatch through non-blocking event queue
     VisualEventQueue.getInstance().dispatchEvent(
       action as any,
       params,
@@ -1454,9 +1454,9 @@ export default function ModuleClassroomPage() {
       }
       chalkboardRef.current?.drawGraph(params.type || params.title || 'linear')
     } else if (action === 'REVEAL_DIAGRAM_STEP') {
-      // Handled via VisualEventQueue subscription inside MultimediaLessonPlayer
+      // Dispatched via VisualEventQueue
     } else if (action === 'PLAY_ANIMATION' || action === 'PAUSE_MEDIA') {
-      // Handled via VisualEventQueue subscription inside MultimediaLessonPlayer
+      // Dispatched via VisualEventQueue
     } else if (action === 'ASK_CHECK') {
       if (lessonManifest) {
         const checkIdx = lessonManifest.steps.findIndex((s) => s.type === 'QUICK_CHECK')
