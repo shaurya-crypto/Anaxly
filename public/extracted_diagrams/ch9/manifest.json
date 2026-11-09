@@ -1,0 +1,382 @@
+[
+  {
+    "figure_id": "Fig. 9.1",
+    "page_number": 2,
+    "caption": "Fig. 9.1: (a) Weight of water and (Fig. 9.1a). undissolved salt",
+    "filename": "fig_9_1.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_1.webp",
+    "dimensions": {
+      "width": 1969,
+      "height": 787,
+      "aspect_ratio": 2.5
+    },
+    "file_size_kb": 118.7,
+    "crop_bbox": [
+      25.4,
+      36.0,
+      592.5,
+      262.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.2",
+    "page_number": 2,
+    "caption": "Fig. 9.2: (a) Weight of vinegar and Record the initial reading (Fig. 9.2a). baking soda",
+    "filename": "fig_9_2.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_2.webp",
+    "dimensions": {
+      "width": 1123,
+      "height": 1506,
+      "aspect_ratio": 0.75
+    },
+    "file_size_kb": 180.8,
+    "crop_bbox": [
+      243.7,
+      320.7,
+      567.0,
+      759.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.2",
+    "page_number": 3,
+    "caption": "Fig. 9.2: (b) Pouring baking soda into the Fig. 9.2: (c) Weight of the taken as constant. conical flask containing vinegar final",
+    "filename": "fig_9_2.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_2.webp",
+    "dimensions": {
+      "width": 1682,
+      "height": 732,
+      "aspect_ratio": 2.3
+    },
+    "file_size_kb": 125.7,
+    "crop_bbox": [
+      38.5,
+      57.4,
+      526.5,
+      273.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.3",
+    "page_number": 3,
+    "caption": "Fig. 9.3: (a) Weight of vinegar and 1. Place a clean, dry 100 mL conical flask and a baking soda medium-sized balloon",
+    "filename": "fig_9_3.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_3.webp",
+    "dimensions": {
+      "width": 1729,
+      "height": 977,
+      "aspect_ratio": 1.77
+    },
+    "file_size_kb": 183.8,
+    "crop_bbox": [
+      51.8,
+      261.4,
+      553.0,
+      542.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.3",
+    "page_number": 4,
+    "caption": "Fig. 9.3: (c) Weight of the final same before and after a chemical reaction. So, matter can reaction mixture",
+    "filename": "fig_9_3.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_3.webp",
+    "dimensions": {
+      "width": 729,
+      "height": 988,
+      "aspect_ratio": 0.74
+    },
+    "file_size_kb": 61.6,
+    "crop_bbox": [
+      388.1,
+      36.0,
+      598.3,
+      320.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.4",
+    "page_number": 4,
+    "caption": "Fig. 9.4: (a) Weight of solutions weighing balance, and mark them A and B. (reactants) before mixing",
+    "filename": "fig_9_4.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_4.webp",
+    "dimensions": {
+      "width": 1765,
+      "height": 808,
+      "aspect_ratio": 2.18
+    },
+    "file_size_kb": 194.9,
+    "crop_bbox": [
+      83.0,
+      319.8,
+      597.9,
+      552.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.5",
+    "page_number": 6,
+    "caption": "Fig. 9.5: Cinnabar nature of both prevented this process from becoming widespread.",
+    "filename": "fig_9_5.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_5.webp",
+    "dimensions": {
+      "width": 1715,
+      "height": 1449,
+      "aspect_ratio": 1.18
+    },
+    "file_size_kb": 372.8,
+    "crop_bbox": [
+      83.0,
+      114.7,
+      583.9,
+      532.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.6",
+    "page_number": 8,
+    "caption": "Fig. 9.6: Formation of a hydrogen molecule",
+    "filename": "fig_9_6.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_6.webp",
+    "dimensions": {
+      "width": 1000,
+      "height": 360,
+      "aspect_ratio": 2.78
+    },
+    "file_size_kb": 29.5,
+    "crop_bbox": [
+      305.3,
+      492.4,
+      610.6,
+      596.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.7",
+    "page_number": 9,
+    "caption": "Fig. 9.7: Formation of a chlorine molecule Just as atoms share Since, the two atoms that share",
+    "filename": "fig_9_7.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_7.webp",
+    "dimensions": {
+      "width": 1750,
+      "height": 822,
+      "aspect_ratio": 2.13
+    },
+    "file_size_kb": 164.5,
+    "crop_bbox": [
+      42.7,
+      83.0,
+      553.4,
+      323.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.8",
+    "page_number": 9,
+    "caption": "Fig. 9.8: Formation of an oxygen molecule",
+    "filename": "fig_9_8.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_8.webp",
+    "dimensions": {
+      "width": 1749,
+      "height": 690,
+      "aspect_ratio": 2.53
+    },
+    "file_size_kb": 104.6,
+    "crop_bbox": [
+      43.4,
+      363.7,
+      558.6,
+      562.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.9",
+    "page_number": 10,
+    "caption": "Fig. 9.9: Formation of a hydrogen chloride molecule Since the hydrogen and chlorine",
+    "filename": "fig_9_9.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_9.webp",
+    "dimensions": {
+      "width": 1590,
+      "height": 838,
+      "aspect_ratio": 1.9
+    },
+    "file_size_kb": 95.5,
+    "crop_bbox": [
+      133.4,
+      36.0,
+      591.3,
+      277.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.10",
+    "page_number": 10,
+    "caption": "Fig. 9.10: Formation of a water molecule its valence electrons. Explain. Thus the water molecule formed",
+    "filename": "fig_9_10.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_10.webp",
+    "dimensions": {
+      "width": 1755,
+      "height": 759,
+      "aspect_ratio": 2.31
+    },
+    "file_size_kb": 153.6,
+    "crop_bbox": [
+      83.0,
+      310.1,
+      595.3,
+      528.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.11",
+    "page_number": 11,
+    "caption": "Fig. 9.11: Formation of a sodium cation 172",
+    "filename": "fig_9_11.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_11.webp",
+    "dimensions": {
+      "width": 1142,
+      "height": 522,
+      "aspect_ratio": 2.19
+    },
+    "file_size_kb": 29.6,
+    "crop_bbox": [
+      188.0,
+      631.7,
+      516.8,
+      782.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.12",
+    "page_number": 12,
+    "caption": "Fig. 9.12: Formation of a chloride anion",
+    "filename": "fig_9_12.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_12.webp",
+    "dimensions": {
+      "width": 1640,
+      "height": 851,
+      "aspect_ratio": 1.93
+    },
+    "file_size_kb": 94.8,
+    "crop_bbox": [
+      118.9,
+      36.0,
+      591.3,
+      281.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.13",
+    "page_number": 12,
+    "caption": "Fig. 9.13: Formation of sodium chloride by transfer of electron Threads of Curiosity",
+    "filename": "fig_9_13.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_13.webp",
+    "dimensions": {
+      "width": 1397,
+      "height": 272,
+      "aspect_ratio": 5.14
+    },
+    "file_size_kb": 28.6,
+    "crop_bbox": [
+      99.7,
+      345.9,
+      502.1,
+      424.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.14",
+    "page_number": 12,
+    "caption": "Fig. 9.14: Sodium chloride: (a) crystals, (b) crystal structure, and (c) crystal lattice The crystal structure is represented as a crystal lattice,",
+    "filename": "fig_9_14.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_14.webp",
+    "dimensions": {
+      "width": 1368,
+      "height": 555,
+      "aspect_ratio": 2.46
+    },
+    "file_size_kb": 76.0,
+    "crop_bbox": [
+      116.4,
+      496.9,
+      510.5,
+      656.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.15",
+    "page_number": 17,
+    "caption": "Fig. 9.15: Experimental set-up for electrical given in Table 9.2. conductivity of a solution Table",
+    "filename": "fig_9_15.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_15.webp",
+    "dimensions": {
+      "width": 1734,
+      "height": 773,
+      "aspect_ratio": 2.24
+    },
+    "file_size_kb": 146.1,
+    "crop_bbox": [
+      44.4,
+      88.0,
+      553.0,
+      313.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.16",
+    "page_number": 17,
+    "caption": "Fig. 9.16: Ionic electricity in the molten state (the melted state of a substance). compounds",
+    "filename": "fig_9_16.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_16.webp",
+    "dimensions": {
+      "width": 1741,
+      "height": 1487,
+      "aspect_ratio": 1.17
+    },
+    "file_size_kb": 251.1,
+    "crop_bbox": [
+      43.9,
+      306.5,
+      553.0,
+      739.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.17",
+    "page_number": 18,
+    "caption": "Fig. 9.17: Covalent compounds",
+    "filename": "fig_9_17.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_17.webp",
+    "dimensions": {
+      "width": 985,
+      "height": 1345,
+      "aspect_ratio": 0.73
+    },
+    "file_size_kb": 87.7,
+    "crop_bbox": [
+      305.3,
+      131.5,
+      593.2,
+      528.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.18",
+    "page_number": 21,
+    "caption": "Fig. 9.18",
+    "filename": "fig_9_18.webp",
+    "file_path": "public/extracted_diagrams/ch9\\fig_9_18.webp",
+    "dimensions": {
+      "width": 783,
+      "height": 396,
+      "aspect_ratio": 1.98
+    },
+    "file_size_kb": 24.5,
+    "crop_bbox": [
+      305.3,
+      117.7,
+      532.3,
+      238.1
+    ]
+  }
+]

@@ -1,0 +1,1004 @@
+[
+  {
+    "curriculum_id": "8d01a5f5-bf82-49c2-9fab-253d26b086f4",
+    "order_index": 1,
+    "title": "Classification of Matter: Pure Substances, Homogeneous & Heterogeneous Systems",
+    "description": "Master the fundamental division of matter into pure substances (elements, compounds) and mixtures (homogeneous solutions vs heterogeneous suspensions and colloids).",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 20,
+    "subtopics": [
+      "Pure Substances: Elements (metals, non-metals, metalloids) and Compounds (fixed chemical composition)",
+      "Mixtures: Variable proportions and retention of constituent properties",
+      "Homogeneous Mixtures: Uniform composition throughout (True solutions, brass alloy)",
+      "Heterogeneous Mixtures: Non-uniform composition with physically distinct phases (Sand in water, chalk powder)",
+      "Activity 5.1: Comparative optical, filtration, and stability test across 4 groups"
+    ],
+    "key_concepts": [
+      "Pure Substance Definition: Matter having invariant chemical composition and definite physical constants (melting/boiling points).",
+      "Mixture Definition: Physical combination of two or more substances in any proportion where components retain their individual identities.",
+      "Homogeneous System: Uniform single phase without visible boundaries of separation (e.g. Copper sulfate in water, brass).",
+      "Heterogeneous System: Physically distinct parts with observable interfaces (e.g. Oil in water, chalk suspension).",
+      "Activity 5.1 Group Testing: Differentiating true solution, suspension, and colloid by stability, filtration, and beam scattering."
+    ],
+    "success_criteria": "Student can classify any given substance as pure or mixture, distinguish homogeneous from heterogeneous systems, and deduce phase boundaries.",
+    "chapter_notes": "### 5.1 The Architecture of Matter\nAll matter is fundamentally divided into:\n1. **Pure Substances**:\n   - **Elements**: Cannot be broken down into simpler substances by chemical reactions (Copper, Oxygen, Iron).\n   - **Compounds**: Fixed composition composed of elements chemically combined in fixed proportion by mass (Water $H_2O$, Salt $NaCl$).\n2. **Mixtures**:\n   - Two or more pure substances combined physically without chemical bonding.\n   - Constituents retain their individual properties and can be separated by physical methods.\n\n### 5.2 Homogeneous vs Heterogeneous Mixtures\n| Diagnostic Property | Homogeneous Mixture | Heterogeneous Mixture |\n| :--- | :--- | :--- |\n| **Composition** | Uniform throughout single phase | Non-uniform with distinct physical boundaries |\n| **Particle Size** | $< 1\\text{ nm}$ (molecular level) | $> 1\\text{ nm}$ to $> 1000\\text{ nm}$ |\n| **Visibility** | Particles cannot be seen under microscope | Particles often visible to naked eye or light microscope |\n| **Filtration** | Passes through filter paper completely | Components can often be separated by filtration |\n| **Examples** | Salt solution, Sugar syrup, Air, Brass ($70\\%\\text{ Cu} + 30\\%\\text{ Zn}$) | Muddy water, Chalk in water, Oil-water emulsion |",
+    "worked_examples": [
+      {
+        "problem": "Why is pure water ($H_2O$) classified as a compound while sea water is classified as a mixture?",
+        "given": "Chemical comparison: pure distilled water vs sea water.",
+        "formula": "Compound vs Mixture Invariant: Fixed Stoichiometric Ratio vs Variable Composition.",
+        "substitution": "Pure water has hydrogen and oxygen chemically combined in fixed 1:8 mass ratio; sea water contains variable amounts of dissolved salts ($NaCl, MgCl_2, CaSO_4$) in water.",
+        "calculation": "1. In pure water, hydrogen and oxygen cannot be separated by physical methods; constituent elements lose their individual properties (hydrogen is flammable, oxygen supports combustion, but water extinguishes fire).\n2. Sea water has no fixed chemical formula or boiling point; dissolved salts retain their individual chemical properties and can be easily separated by physical evaporation/distillation.",
+        "finalAnswer": "Pure water is a chemical compound with fixed composition (1:8 by mass); sea water is a homogeneous mixture whose components retain individual properties and vary in proportion.",
+        "unit": "Chemical Classification",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.1: Classification of matter into pure substances and mixtures"
+      },
+      {
+        "problem": "How do elements differ from compounds? Give two examples of each.",
+        "given": "Subdivision of pure substances.",
+        "formula": "Elementary vs Composite Chemical Structure",
+        "substitution": "Elements cannot be broken down into simpler substances by chemical reactions; compounds are composed of two or more elements chemically combined in fixed proportions.",
+        "calculation": "1. Elements: Consist of only one type of atom (e.g. Copper $Cu$, Oxygen $O_2$, Gold $Au$).\n2. Compounds: Consist of two or more different elements chemically bonded (e.g. Carbon dioxide $CO_2$, Common salt $NaCl$).\n3. Compounds can be broken down into constituent elements by chemical or electrochemical reactions (e.g. electrolysis of water).",
+        "finalAnswer": "Elements consist of a single kind of atom and cannot be chemically decomposed; compounds consist of fixed ratios of different elements and can be decomposed chemically.",
+        "unit": "Pure Substances",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.2: Atomic layout of elements vs molecular layout of compounds"
+      },
+      {
+        "problem": "Classify the following as homogeneous or heterogeneous mixtures: (a) Brass alloy, (b) Muddy water, (c) Soda water, (d) Air, (e) Chalk powder in water.",
+        "given": "Phase uniformity in various mixtures.",
+        "formula": "Single Phase (Homogeneous) vs Visible Boundaries of Separation (Heterogeneous)",
+        "substitution": "Homogeneous mixtures have uniform composition throughout; heterogeneous mixtures have distinct visible non-uniform phases.",
+        "calculation": "1. Brass: Solid solution of ~70% copper and ~30% zinc uniformly mixed at atomic level -> Homogeneous.\n2. Muddy water: Soil particles suspended in water with visible boundaries -> Heterogeneous.\n3. Soda water: Gas ($CO_2$) uniformly dissolved in liquid water under pressure -> Homogeneous.\n4. Air: Uniform gaseous solution of nitrogen, oxygen, argon, and $CO_2$ -> Homogeneous.\n5. Chalk in water: Insoluble chalk particles suspended in water -> Heterogeneous.",
+        "finalAnswer": "Homogeneous: (a) Brass, (c) Soda water, (d) Air. Heterogeneous: (b) Muddy water, (e) Chalk powder in water.",
+        "unit": "Phase Classification",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.3: Visual comparison of homogeneous solution vs heterogeneous suspension"
+      },
+      {
+        "problem": "Why is an alloy like brass considered a mixture and not a chemical compound?",
+        "given": "Composition and properties of brass (70% copper, 30% zinc).",
+        "formula": "Alloy Mixture Principle: Variable Ratio + Property Retention",
+        "substitution": "Brass shows the properties of its constituent metals and can have variable composition.",
+        "calculation": "1. In brass, copper and zinc retain their individual chemical and physical properties (electrical conductivity, chemical reactivity).\n2. The ratio of copper to zinc can be varied (e.g. 60:40 or 70:30) without producing a new substance.\n3. There is no fixed stoichiometric chemical formula or chemical bond formation.",
+        "finalAnswer": "Brass is a mixture because it retains the properties of copper and zinc and its composition can vary across different metallurgical grades.",
+        "unit": "Metallurgical Solutions",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.4: Solid solution microstructure of brass alloy"
+      },
+      {
+        "problem": "State three fundamental differences between a mixture and a compound using iron filings and sulphur powder as an experimental example.",
+        "given": "Activity 5.1: Iron filings mixed with sulphur powder vs heated strongly to form Iron(II) sulphide ($FeS$).",
+        "formula": "Mixture vs Chemical Compound Comparison Matrix",
+        "substitution": "Physical blending ($Fe + S$) vs Exothermic chemical reaction ($Fe + S \\xrightarrow{\\Delta} FeS$).",
+        "calculation": "1. Separation: A magnet attracts iron filings from the unheated mixture; in $FeS$, iron cannot be separated by a magnet.\n2. Acid reaction: Unheated mixture with dilute $HCl$ releases flammable hydrogen gas ($H_2$); $FeS$ with $HCl$ releases foul-smelling hydrogen sulphide gas ($H_2S$, rotten egg smell).\n3. Energy: Mixing absorbs/releases no heat; compound formation is strongly exothermic with incandescence.",
+        "finalAnswer": "(1) Mixtures retain constituent properties; compounds have entirely new properties. (2) Mixtures separate by physical means (magnet); compounds cannot. (3) Compounds involve energy change and fixed mass ratios.",
+        "unit": "Activity 5.1 Lab Analysis",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.5: Activity 5.1 testing iron-sulfur mixture vs iron sulfide compound with magnet"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "Air is a chemical compound because it has a specific density.",
+        "correction": "Air is a homogeneous mixture because its constituent gases (N2, O2, Ar, CO2) retain their individual chemical properties, can be separated by physical fractional distillation, and have slightly variable humidity.",
+        "why_it_matters": "A high-frequency diagnostic test question."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Classification of Matter Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Pure Substance Definition: Matter having invariant chemical composition and definite physical constants (melting/boiling points).",
+          "diagram_title": "Pure Substances vs Mixtures Taxonomy Tree",
+          "diagram_type": "image",
+          "image_query": "Classification of matter elements compounds mixtures diagram",
+          "video_query": "pure substances and mixtures chemistry",
+          "image_url": "/extracted_diagrams/ch5/fig_5_1.webp",
+          "what_to_make": "Classification tree branching from Matter into Pure Substances (Elements, Compounds) and Mixtures (Homogeneous, Heterogeneous).",
+          "timing_and_cue": "Mount classification tree on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_1.webp | Matter Taxonomy | Pure substances with fixed properties vs variable physical mixtures\")"
+        },
+        {
+          "concept_title": "Mixture Definition: Physical combination of two or more substances in any proportion where components retain their individual identities.",
+          "diagram_title": "Heterogeneous Phase Interface",
+          "diagram_type": "image",
+          "image_query": "Heterogeneous mixture distinct phases sand water microscope",
+          "video_query": "heterogeneous mixture examples",
+          "image_url": "/extracted_diagrams/ch5/fig_5_2.webp",
+          "what_to_make": "Microscopic view of heterogeneous mixture showing distinct phase boundaries between sand grains and water molecules.",
+          "timing_and_cue": "Mount heterogeneous interface on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_2.webp | Heterogeneous Interface | Observable physical boundaries between distinct constituent phases\")"
+        },
+        {
+          "concept_title": "Homogeneous System: Uniform single phase without visible boundaries of separation (e.g. Copper sulfate in water, brass).",
+          "diagram_title": "Homogeneous Copper Sulfate Solution",
+          "diagram_type": "image",
+          "image_query": "Copper sulfate solution homogeneous blue liquid beaker",
+          "video_query": "homogeneous copper sulfate solution",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Copper_sulfate_solution.jpg",
+          "what_to_make": "Beaker of brilliant blue copper sulfate solution showing completely uniform single-phase color distribution.",
+          "timing_and_cue": "Mount homogeneous solution on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/2/23/Copper_sulfate_solution.jpg | Homogeneous Solution | Uniform molecular dissolution without phase boundaries\")"
+        },
+        {
+          "concept_title": "Heterogeneous System: Physically distinct parts with observable interfaces (e.g. Oil in water, chalk suspension).",
+          "diagram_title": "Oil and Water Immiscible Heterogeneous System",
+          "diagram_type": "image",
+          "image_query": "Oil and water emulsion heterogeneous two layers beaker",
+          "video_query": "oil and water immiscible mixture",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Oil_and_water.jpg",
+          "what_to_make": "Two-phase system showing lower aqueous layer and upper lipid layer with sharp meniscus boundary.",
+          "timing_and_cue": "Mount oil-water on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/7/73/Oil_and_water.jpg | Two-Phase Heterogeneous System | Immiscible liquids maintaining sharp boundary interface\")"
+        },
+        {
+          "concept_title": "Activity 5.1 Group Testing: Differentiating true solution, suspension, and colloid by stability, filtration, and beam scattering.",
+          "diagram_title": "Activity 5.1 Four Groups Testing Matrix",
+          "diagram_type": "image",
+          "image_query": "Filtration and stability of mixture test beakers funnel",
+          "video_query": "activity 2.1 class 9 science mixtures",
+          "image_url": "/extracted_diagrams/ch5/fig_5_3.webp",
+          "what_to_make": "Four test beakers undergoing laser beam illumination, filtration, and undisturbed settling.",
+          "timing_and_cue": "Mount Activity 5.1 on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_3.webp | Activity 5.1 Testing Array | Comparing filtration, stability, and optical path across 4 mixtures\")"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount verified image from concept_visuals on Step 1 of each concept.\n2. 6-STAGE SOCRATIC CADENCE:\n   - Stage 1: Intuition hook (Why salt dissolved in water seems to disappear completely, but chalk powder remains visible).\n   - Stage 2: Definition of pure substances vs mixtures.\n   - Stage 3: Common pitfall (Alloys like brass are homogeneous mixtures, not compounds).\n   - Stage 4: Chalkboard classification table.\n   - Stage 5: Socratic check: \"Why is an alloy like brass classified as a mixture even though its components cannot be separated by physical filtration?\" HARD STOP: Wait for student response!\n   - Stage 6: Authentic CBSE classification question."
+  },
+  {
+    "curriculum_id": "8d01a5f5-bf82-49c2-9fab-253d26b086f4",
+    "order_index": 2,
+    "title": "True Solutions, Solubility Dynamics & Concentration Mathematics",
+    "description": "Master the physical chemistry of true solutions: solvent/solute dynamics, saturation points, effect of temperature on solubility, and mathematical concentration calculations (Mass %, Volume %, Mass-by-Volume %).",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 20,
+    "subtopics": [
+      "Solution Anatomy: Solute (minor dispersed component) and Solvent (major dissolving medium)",
+      "Types of Solutions: Solid-liquid (tincture of iodine), Gas-liquid (soda water), Gas-gas (air), Solid-solid (alloys)",
+      "Properties of True Solutions: Particle size < 1 nm, homogeneous, stable, passes through filter paper, zero Tyndall effect",
+      "Saturated, Unsaturated, and Supersaturated Solutions: Dynamic equilibrium at given temperature",
+      "Solubility: Maximum grams of solute that dissolve in 100 g of solvent at specified temperature",
+      "Concentration Formulas: Mass %, Volume %, and Mass-by-Volume % calculations"
+    ],
+    "key_concepts": [
+      "Solution Components: Solute (dissolved substance) + Solvent (dissolving medium) = Solution.",
+      "Nanoscale Dimension: True solution solute particles are smaller than 1 nanometer (10^-9 m) and do not scatter light.",
+      "Saturation Dynamic: A solution in which no more solute can be dissolved at that specific temperature is called a saturated solution.",
+      "Thermal Effect on Solubility: Solubility of solid solutes generally increases with temperature; cooling a saturated solution causes crystallization.",
+      "Concentration by Mass %: (Mass of solute / Total mass of solution) * 100.",
+      "Concentration by Volume %: (Volume of solute / Total volume of solution) * 100."
+    ],
+    "success_criteria": "Student can define solute/solvent pairs for uncommon solutions (e.g. tincture of iodine), explain thermal solubility shifts, and solve 100% of NCERT concentration numericals.",
+    "chapter_notes": "### 5.3 Anatomy of a True Solution\nA solution is a **homogeneous mixture** of two or more substances.\n$$\\text{Solute (Minor component)} + \\text{Solvent (Major component)} = \\text{Solution}$$\n\n### 5.4 Unique Solution Examples\n- **Tincture of Iodine**: Solute = Solid Iodine ($I_2$), Solvent = Alcohol (Ethanol).\n- **Aerated Drinks (Soda)**: Solute = Carbon dioxide gas ($CO_2$), Solvent = Water.\n- **Air**: Solute = Oxygen ($21\\%$) and other gases, Solvent = Nitrogen ($78\\%$).\n- **Brass**: Solute = Zinc ($30\\%$), Solvent = Copper ($70\\%$).\n\n### 5.5 Saturated vs Unsaturated Solutions\n- **Saturated Solution**: A solution in which **no more solute can be dissolved** at a given temperature.\n- **Solubility**: The amount of solute present in the saturated solution at this temperature (measured in $\\text{g}$ per $100\\text{ g}$ of solvent).\n- **Effect of Temperature**:\n  * Increasing temperature increases solubility of solid solutes (more thermal agitation creates larger intermolecular spaces).\n  * If a hot saturated solution is cooled down slowly, excess solute precipitates out as pure **crystals**.\n\n### 5.6 Mathematical Concentration Formulas\n$$\\text{Mass by Mass \\%} = \\frac{\\text{Mass of Solute}}{\\text{Mass of Solution}} \\times 100 = \\frac{\\text{Mass of Solute}}{\\text{Mass of Solute} + \\text{Mass of Solvent}} \\times 100$$\n$$\\text{Mass by Volume \\%} = \\frac{\\text{Mass of Solute}}{\\text{Volume of Solution}} \\times 100$$\n$$\\text{Volume by Volume \\%} = \\frac{\\text{Volume of Solute}}{\\text{Volume of Solution}} \\times 100$$",
+    "worked_examples": [
+      {
+        "problem": "A solution contains 40 g of common salt in 320 g of water. Calculate the concentration in terms of mass by mass percentage of the solution.",
+        "given": "Mass of solute (salt) $= 40\\text{ g}$. Mass of solvent (water) $= 320\\text{ g}$.",
+        "formula": "$\\text{Mass % of Solution} = \\frac{\\text{Mass of Solute}}{\\text{Mass of Solution}} \\times 100$, where $\\text{Mass of Solution} = \\text{Mass of Solute} + \\text{Mass of Solvent}$.",
+        "substitution": "$\\text{Mass of Solution} = 40 + 320 = 360\\text{ g}$. $\\text{Mass %} = \\frac{40}{360} \\times 100$.",
+        "calculation": "$\\text{Mass %} = \\frac{1}{9} \\times 100 = \\mathbf{11.11\\%}$.",
+        "finalAnswer": "Concentration of salt solution = 11.11% (mass by mass).",
+        "unit": "%",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.6: Mass percentage concentration formula and solution beaker"
+      },
+      {
+        "problem": "What is a saturated solution? What happens when a saturated solution prepared at 60\u00b0C is allowed to cool slowly to room temperature (25\u00b0C)?",
+        "given": "Saturated aqueous solution cooled from 60\u00b0C to 25\u00b0C.",
+        "formula": "Solubility-Temperature Relationship: $\\frac{dS}{dT} > 0$ for endothermic dissolution.",
+        "substitution": "Solubility of most solid solutes decreases as temperature decreases.",
+        "calculation": "1. A saturated solution is one in which no more solute can dissolve at that specific temperature.\n2. At 60\u00b0C, the solvent holds a higher concentration of dissolved solute.\n3. Upon cooling to 25\u00b0C, thermal kinetic energy decreases and solubility drops.\n4. The excess dissolved solute precipitates out in the form of pure solid crystals at the bottom of the container.",
+        "finalAnswer": "A saturated solution contains the maximum possible dissolved solute at that temperature; cooling causes excess solute to precipitate out as pure crystals.",
+        "unit": "Solubility Dynamics",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.7: Solubility decrease upon cooling leading to crystal precipitation"
+      },
+      {
+        "problem": "Calculate the mass of potassium nitrate needed to produce a saturated solution in 50 g of water at 313 K, given that the solubility of potassium nitrate at 313 K is 62 g per 100 g of water.",
+        "given": "Solubility $= 62\\text{ g}$ solute in $100\\text{ g}$ water. Mass of water $= 50\\text{ g}$.",
+        "formula": "$\\text{Mass of Solute} = \\text{Solubility} \\times \\frac{\\text{Mass of Solvent}}{100\\text{ g}}$.",
+        "substitution": "$\\text{Mass} = 62 \\times \\frac{50}{100}$.",
+        "calculation": "$\\text{Mass} = 62 \\times 0.5 = \\mathbf{31\\text{ g}}$.",
+        "finalAnswer": "Mass of potassium nitrate required = 31 g.",
+        "unit": "g",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.8: Solubility curve of potassium nitrate vs temperature"
+      },
+      {
+        "problem": "If 20 mL of ethanol is dissolved in 80 mL of water to form 100 mL of solution, calculate the volume percentage of ethanol.",
+        "given": "Volume of solute (ethanol) $= 20\\text{ mL}$. Total volume of solution $= 100\\text{ mL}$.",
+        "formula": "$\\text{Volume %} = \\frac{\\text{Volume of Solute}}{\\text{Total Volume of Solution}} \\times 100$.",
+        "substitution": "$\\text{Volume %} = \\frac{20}{100} \\times 100$.",
+        "calculation": "$\\text{Volume %} = \\mathbf{20\\%}$.",
+        "finalAnswer": "Volume percentage of ethanol = 20% (v/v).",
+        "unit": "%",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.9: Liquid-liquid solution volume concentration cylinder"
+      },
+      {
+        "problem": "Why do true solutions not show the Tyndall effect when a beam of light passes through them?",
+        "given": "True solution of copper sulphate ($CuSO_4$) or sodium chloride ($NaCl$).",
+        "formula": "Rayleigh Scattering Criterion: Particle diameter $d \\ll \\lambda$ of visible light.",
+        "substitution": "True solution solute particles have diameters smaller than $1\\text{ nm}$ ($10^{-9}\\text{ m}$).",
+        "calculation": "1. Visible light has wavelengths between $400\\text{ nm}$ and $700\\text{ nm}$.\n2. Dissolved ions and molecules in true solutions are $< 1\\text{ nm}$ in diameter.\n3. The particles are too small to scatter electromagnetic waves of visible light.\n4. Light passes straight through without scattering; the path of the beam remains invisible.",
+        "finalAnswer": "True solutions do not scatter light because their solute particles ($< 1\\text{ nm}$) are vastly smaller than the wavelength of visible light.",
+        "unit": "Optical Physics",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.10: Unscattered light beam passing through true copper sulfate solution"
+      },
+      {
+        "problem": "State four fundamental properties of a true solution.",
+        "given": "Physicochemical characteristics of true solutions.",
+        "formula": "True Solution Invariant",
+        "substitution": "Homogeneous mixture with molecular particle dimensions.",
+        "calculation": "1. **Homogeneity**: Completely uniform composition and appearance throughout.\n2. **Particle Size**: Solute particles are smaller than $1\\text{ nm}$ ($10^{-9}\\text{ m}$) in diameter.\n3. **Filtration Invariant**: Solute particles pass through filter paper pores; cannot be separated by filtration.\n4. **Stability**: Solute particles do not settle down under gravity when left undisturbed.",
+        "finalAnswer": "True solutions are homogeneous, have particles < 1 nm, cannot be separated by filtration, and are thermodynamically stable without settling.",
+        "unit": "True Solution Invariant",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.11: Filtration test on true solution showing no residue"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "In the concentration formula denominator, you divide only by the mass of water (solvent).",
+        "correction": "You MUST divide by the mass of the TOTAL SOLUTION (Solute + Solvent = 40 + 320 = 360 g), not just the solvent.",
+        "why_it_matters": "The single most frequent calculation error on CBSE exams."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "True Solutions & Concentration Mathematics Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Solution Components: Solute (dissolved substance) + Solvent (dissolving medium) = Solution.",
+          "diagram_title": "Solute and Solvent Dissolution Model",
+          "diagram_type": "image",
+          "image_query": "Solute solvent solution dissolution particles diagram chemistry",
+          "video_query": "how solutions form chemistry solute solvent",
+          "image_url": "/extracted_diagrams/ch5/fig_5_4.webp",
+          "what_to_make": "Microscopic diagram showing solid solute lattice dissolving into solvent liquid molecules.",
+          "timing_and_cue": "Mount dissolution model on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_4.webp | Solution Dissolution | Solute particles completely dispersed in solvent molecular matrix\")"
+        },
+        {
+          "concept_title": "Nanoscale Dimension: True solution solute particles are smaller than 1 nanometer (10^-9 m) and do not scatter light.",
+          "diagram_title": "Sub-Nanometer Particle Scale",
+          "diagram_type": "image",
+          "image_query": "Nanometer scale true solution colloid suspension particle size diagram",
+          "video_query": "particle size in solutions colloids suspensions",
+          "image_url": "/extracted_diagrams/ch5/fig_5_5.webp",
+          "what_to_make": "Logarithmic scale comparison showing true solution (< 1 nm), colloid (1-100 nm), and suspension (> 100 nm).",
+          "timing_and_cue": "Mount scale on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_5.webp | Particle Scale | Solute particles < 1 nm cannot scatter visible light photons\")"
+        },
+        {
+          "concept_title": "Saturation Dynamic: A solution in which no more solute can be dissolved at that specific temperature is called a saturated solution.",
+          "diagram_title": "Saturated Solution Dynamic Equilibrium",
+          "diagram_type": "image",
+          "image_query": "Saturated unsaturated solution dynamic equilibrium diagram",
+          "video_query": "saturated and unsaturated solutions chemistry",
+          "image_url": "/extracted_diagrams/ch5/fig_5_6.webp",
+          "what_to_make": "Beaker showing undissolved solute crystals at bottom in dynamic equilibrium with dissolved solute ions.",
+          "timing_and_cue": "Mount saturation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_6.webp | Saturation Equilibrium | Rate of dissolution equals rate of precipitation\")"
+        },
+        {
+          "concept_title": "Thermal Effect on Solubility: Solubility of solid solutes generally increases with temperature; cooling a saturated solution causes crystallization.",
+          "diagram_title": "Solubility Curves vs Temperature",
+          "diagram_type": "image",
+          "image_query": "Solubility curve temperature graph KNO3 NaCl chemistry",
+          "video_query": "solubility curves chemistry explained",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Solubility_curves.svg",
+          "what_to_make": "Solubility graph plotting grams of solute per 100g water vs temperature for KNO3, NaCl, and CuSO4.",
+          "timing_and_cue": "Mount solubility curves on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/e/ec/Solubility_curves.svg | Thermal Solubility Curves | Solute capacity expanding with temperature for solid salts\")"
+        },
+        {
+          "concept_title": "Concentration by Mass %: (Mass of solute / Total mass of solution) * 100.",
+          "diagram_title": "Mass by Mass Concentration Card",
+          "diagram_type": "image",
+          "image_query": "Mass percentage concentration formula chemistry card",
+          "video_query": "how to calculate mass percent concentration",
+          "image_url": "/extracted_diagrams/ch5/fig_5_4.webp",
+          "what_to_make": "Formula card emphasizing Total Mass of Solution = Solute + Solvent in denominator.",
+          "timing_and_cue": "Mount mass percent card on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_4.webp | Mass Percent Formula | Mass % = (m_solute / m_total_solution) * 100\")"
+        },
+        {
+          "concept_title": "Concentration by Volume %: (Volume of solute / Total volume of solution) * 100.",
+          "diagram_title": "Volume by Volume Concentration in Saline/Alcohol",
+          "diagram_type": "image",
+          "image_query": "Volume percent concentration alcohol in water graduated cylinder",
+          "video_query": "volume percent concentration chemistry",
+          "image_url": "/extracted_diagrams/ch5/fig_5_5.webp",
+          "what_to_make": "Graduated cylinder showing volume by volume solution mixing and meniscus reading.",
+          "timing_and_cue": "Mount volume percent on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_5.webp | Volume Percent Formula | Vol % = (V_solute / V_solution) * 100\")"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount verified image from concept_visuals on Step 1 of each concept.\n2. 6-STAGE SOCRATIC CADENCE:\n   - Stage 1: Intuition hook (Why sugar dissolves faster in hot tea than cold iced water).\n   - Stage 2: Definitions of solute, solvent, saturated, unsaturated, and solubility.\n   - Stage 3: Common pitfall (Dividing by solvent mass instead of total solution mass).\n   - Stage 4: Chalkboard layout: Given -> Formula -> Substitution -> Calculation -> Boxed Answer.\n   - Stage 5: Socratic check: \"If a hot saturated salt solution is cooled down to room temperature, what will you observe at the bottom of the beaker?\" HARD STOP: Wait for student response!\n   - Stage 6: Authentic CBSE numerical question."
+  },
+  {
+    "curriculum_id": "8d01a5f5-bf82-49c2-9fab-253d26b086f4",
+    "order_index": 3,
+    "title": "Suspensions, Colloidal Dispersions & The Optical Tyndall Effect",
+    "description": "Master intermediate heterogeneous systems: unstable coarse suspensions, permanently dispersed colloids, Brownian motion, the 8-class colloidal taxonomy table, and the optical physics of the Tyndall effect.",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 20,
+    "subtopics": [
+      "Suspensions: Heterogeneous, particle size > 100 nm, unstable sedimentation, filtration separation",
+      "Colloidal Dispersions: Intermediate particle size (1 nm - 100 nm), heterogeneous appearing homogeneous, stable",
+      "The Tyndall Effect: Scattering of a light beam by colloidal particles making the path of light visible",
+      "Brownian Motion: Continuous erratic zig-zag bombardment by solvent molecules preventing sedimentation",
+      "The 8 Colloidal Classes: Dispersed Phase vs Dispersion Medium (Sol, Gel, Emulsion, Aerosol, Foam)",
+      "Everyday Colloids: Milk, fog, clouds, smoke, shaving cream, jelly, butter, cheese"
+    ],
+    "key_concepts": [
+      "Suspension Instability: Suspended particles settle down under gravity when left undisturbed; filtration separates them.",
+      "Colloid Stability: Colloidal particles do not settle because continuous Brownian thermal impacts overcome gravity.",
+      "Tyndall Scattering Physics: Colloidal particles are large enough (1-100 nm) to scatter visible light wavelengths, illuminating the beam path.",
+      "Dispersed Phase vs Dispersion Medium: Dispersed phase = solute-like component; Dispersion medium = solvent-like continuous phase.",
+      "The 8 Colloidal Classes Table: Master taxonomy pairing phases (Liquid in gas = Aerosol/fog; Liquid in liquid = Emulsion/milk; Solid in liquid = Sol/paint).",
+      "Forest Canopy Tyndall Effect: Sunlight passing through tree mist where fine water droplets scatter rays in a dense forest."
+    ],
+    "success_criteria": "Student can contrast solutions, colloids, and suspensions across 6 physical parameters, classify any colloid using the 8-class table, and explain the Tyndall effect.",
+    "chapter_notes": "### 5.7 Suspensions\nA **heterogeneous mixture** in which the solute particles do not dissolve but remain suspended throughout the bulk of the medium.\n- **Particle Size**: $> 100\\text{ nm}$ (visible to naked eye).\n- **Stability**: **Unstable** (particles settle down under gravity when left undisturbed).\n- **Filtration**: Can be separated by ordinary filter paper.\n- **Tyndall Effect**: Scatters light while particles are suspended; stops scattering once settled.\n\n### 5.8 Colloidal Solutions (Colloids)\nA **heterogeneous system** that appears homogeneous to the naked eye.\n- **Particle Size**: Intermediate between true solutions and suspensions ($1\\text{ nm} - 100\\text{ nm}$).\n- **Stability**: **Very stable** (particles never settle down due to **Brownian motion**).\n- **Filtration**: Passes through ordinary filter paper; cannot be separated by filtration (requires centrifugation).\n- **Tyndall Effect**: **Strongly scatters light**, making the illuminated light beam clearly visible!\n\n### 5.9 Master Comparison: Solution vs Colloid vs Suspension\n| Property | True Solution | Colloidal Solution | Suspension |\n| :--- | :--- | :--- | :--- |\n| **Nature** | Homogeneous | Heterogeneous (appears homogeneous) | Heterogeneous |\n| **Particle Size** | $< 1\\text{ nm}$ | $1\\text{ nm} - 100\\text{ nm}$ | $> 100\\text{ nm}$ |\n| **Stability** | Completely stable | Very stable | **Unstable** (sediments) |\n| **Filtration** | Passes through filter paper | Passes through filter paper | **Separated by filtration** |\n| **Tyndall Effect** | **Negative** (No scattering) | **Positive** (Strong scattering) | Positive (temporary until settled) |\n| **Examples** | Salt solution, Sugar syrup | Milk, Fog, Starch in water, Ink | Muddy water, Chalk powder in water |\n\n### 5.10 Master Colloidal Taxonomy Table (The 8 Classes)\n| Dispersed Phase | Dispersion Medium | Colloidal Type | Common Examples |\n| :--- | :--- | :--- | :--- |\n| Liquid | Gas | **Aerosol** | Fog, clouds, mist |\n| Solid | Gas | **Aerosol** | Smoke, automobile exhaust |\n| Gas | Liquid | **Foam** | Shaving cream |\n| Liquid | Liquid | **Emulsion** | Milk, face cream |\n| Solid | Liquid | **Sol** | Milk of magnesia, mud |\n| Gas | Solid | **Foam** | Sponge, pumice stone |\n| Liquid | Solid | **Gel** | Jelly, cheese, butter |\n| Solid | Solid | **Solid Sol** | Coloured gemstone, milky glass |",
+    "worked_examples": [
+      {
+        "problem": "What is the Tyndall effect? Give two everyday real-life examples where you observe it.",
+        "given": "Colloidal optical scattering.",
+        "formula": "Tyndall Scattering: Visible light beam illumination by colloidal dispersed particles.",
+        "substitution": "Colloidal particles have diameters between $1\\text{ nm}$ and $100\\text{ nm}$, matching visible wavelengths.",
+        "calculation": "1. When a beam of light strikes colloidal particles, the particles scatter light in all directions, illuminating the beam path.\n2. Example 1: Sunlight entering a dark room through a small slit or window hole, where airborne dust and smoke particles illuminate the light beam.\n3. Example 2: Sunlight passing through the canopy of a dense forest, where mist droplets in the air scatter the sunlight.",
+        "finalAnswer": "The Tyndall effect is the scattering of light by colloidal particles; seen when sunlight pierces a dusty room or through a dense forest canopy.",
+        "unit": "Colloidal Optics",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.12: Tyndall effect in colloidal milk compared with clear salt solution"
+      },
+      {
+        "problem": "Compare a True Solution, a Suspension, and a Colloid on the basis of: (a) Particle size, (b) Appearance, (c) Filterability, and (d) Tyndall effect.",
+        "given": "The three classes of fluid mixtures.",
+        "formula": "Tri-Mixture Comparison Matrix",
+        "substitution": "Particle size dictates all mechanical and optical properties.",
+        "calculation": "| Property | True Solution | Colloid | Suspension |\n| :--- | :--- | :--- | :--- |\n| Particle Size | $< 1\\text{ nm}$ | $1\\text{ to }100\\text{ nm}$ | $> 100\\text{ nm}$ |\n| Appearance | Clear & Transparent | Translucent / Opaque | Opaque |\n| Filterability | Passes through filter paper | Passes through filter paper | Retained on filter paper |\n| Tyndall Effect | Negative (No scattering) | **Positive (Strong scattering)** | Positive (until settled) |\n| Stability | Completely stable | Stable (does not settle) | Unstable (settles under gravity) |",
+        "finalAnswer": "Solution: <1 nm, transparent, passes filter, no Tyndall. Colloid: 1-100 nm, translucent, passes filter, shows Tyndall. Suspension: >100 nm, opaque, retained on filter, settles.",
+        "unit": "Master Comparison Table",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.13: Three-beaker side-by-side comparison: solution, colloid, suspension"
+      },
+      {
+        "problem": "Identify the dispersed phase and dispersing medium in: (a) Fog, (b) Milk, (c) Shaving cream, and (d) Cheese.",
+        "given": "NCERT Table 5.1: Common examples of colloids.",
+        "formula": "Dispersed Phase (Solute-like) + Dispersion Medium (Solvent-like) = Colloidal System",
+        "substitution": "Classification based on physical state (solid, liquid, gas).",
+        "calculation": "1. Fog: Liquid water droplets dispersed in Gas (air) -> **Aerosol**.\n2. Milk: Liquid butterfat droplets dispersed in Liquid (water) -> **Emulsion**.\n3. Shaving cream: Gas bubbles dispersed in Liquid -> **Foam**.\n4. Cheese: Liquid water dispersed in Solid protein/fat matrix -> **Gel**.",
+        "finalAnswer": "(a) Fog: Liquid in Gas (Aerosol); (b) Milk: Liquid in Liquid (Emulsion); (c) Shaving cream: Gas in Liquid (Foam); (d) Cheese: Liquid in Solid (Gel).",
+        "unit": "Colloidal Systems",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.14: NCERT colloidal classifications (Aerosol, Emulsion, Foam, Gel)"
+      },
+      {
+        "problem": "What is Brownian motion, and what causes it in colloidal systems?",
+        "given": "Sub-microscopic movement of colloidal particles in a dispersion medium.",
+        "formula": "Thermal Molecular Collision Dynamics",
+        "substitution": "Molecules of the dispersion medium possess random thermal kinetic energy.",
+        "calculation": "1. Dispersed colloidal particles are constantly bombarded from all sides by rapidly moving molecules of the dispersion medium.\n2. Because the collisions are unequal and irregular at any given instant, the particle experiences a net resultant impulse.\n3. This produces a continuous, erratic, zigzag trajectory called Brownian motion.\n4. Brownian motion prevents colloidal particles from settling down under gravity, providing kinetic stability.",
+        "finalAnswer": "Brownian motion is the random zigzag motion of colloidal particles caused by unequal bombardment by molecules of the dispersion medium, imparting stability.",
+        "unit": "Colloidal Kinetics",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.15: Zigzag Brownian motion trajectory under ultramicroscope"
+      },
+      {
+        "problem": "Why can milk not be separated by simple filtration, and what technique is used instead?",
+        "given": "Colloidal emulsion structure of cow/buffalo milk.",
+        "formula": "Pore Size vs Centrifugal Force: $F_c = m \\omega^2 r$",
+        "substitution": "Colloidal fat globules (~1-10 \u03bcm) pass through ordinary filter paper pores.",
+        "calculation": "1. Filter paper pores are larger than colloidal droplet sizes, so milk passes through as filtrate without leaving cream.\n2. Centrifugation spins the milk at high angular velocity in a centrifuge.\n3. The denser skim milk (water, proteins, lactose) is forced outward to the bottom, while lighter fat globules coalesce and float to the top as cream.",
+        "finalAnswer": "Milk passes through filter paper pores; centrifugation is used instead to separate lighter cream from denser skim milk using centrifugal force.",
+        "unit": "Separation Principle",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.16: Centrifugation machine separating cream from skim milk"
+      },
+      {
+        "problem": "Explain why muddy river water settles over time while starch solution remains cloudy indefinitely.",
+        "given": "Suspension (muddy water) vs Colloid (starch solution).",
+        "formula": "Gravitational Stokes Settling: $v_t = \\frac{2r^2(\\rho_p - \\rho_f)g}{9\\eta}$",
+        "substitution": "Terminal settling velocity $v_t$ is proportional to the square of particle radius ($r^2$).",
+        "calculation": "1. In muddy water, sand and silt particles are $> 100\\text{ nm}$, so gravitational force exceeds thermal Brownian motion, causing particles to settle to the bottom.\n2. In starch solution, colloidal particles are small ($1-100\\text{ nm}$); thermal collisions (Brownian motion) continuously overcome gravity, keeping particles suspended indefinitely.",
+        "finalAnswer": "Mud particles are large and heavy, settling under gravity (suspension); starch particles are tiny and kept afloat by continuous Brownian bombardment (colloid).",
+        "unit": "Gravitational Settling",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.17: Settling suspension vs non-settling stable colloid"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "Milk is a true solution because it looks completely uniform and white.",
+        "correction": "Milk is an EMULSION (liquid fat droplets dispersed in liquid water). It is heterogeneous; under a light microscope, distinct fat globules are clearly visible.",
+        "why_it_matters": "A standard trick question in CBSE Class 9 chemistry."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Suspensions, Colloids & Tyndall Effect Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Suspension Instability: Suspended particles settle down under gravity when left undisturbed; filtration separates them.",
+          "diagram_title": "Suspension Sedimentation & Filtration",
+          "diagram_type": "image",
+          "image_query": "Chalk water suspension sedimentation beaker filter funnel diagram",
+          "video_query": "suspension settling sedimentation chemistry",
+          "image_url": "/extracted_diagrams/ch5/fig_5_7.webp",
+          "what_to_make": "Beaker of muddy suspension showing coarse particles settling to bottom and clear supernatant liquid above.",
+          "timing_and_cue": "Mount suspension on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_7.webp | Suspension Sedimentation | Coarse particles (> 100 nm) settling under gravity\")"
+        },
+        {
+          "concept_title": "Colloid Stability: Colloidal particles do not settle because continuous Brownian thermal impacts overcome gravity.",
+          "diagram_title": "Brownian Motion in Colloidal Sol",
+          "diagram_type": "image",
+          "image_query": "Brownian motion zig zag particle trajectory colloid diagram",
+          "video_query": "brownian motion microscope colloidal particles",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Brownian_motion_large.gif",
+          "what_to_make": "Erratic zig-zag trajectory of colloidal particle buffeted by invisible thermal collisions with solvent molecules.",
+          "timing_and_cue": "Mount Brownian motion on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/3/30/Brownian_motion_large.gif | Brownian Motion | Continuous thermal impacts preventing colloidal sedimentation\")"
+        },
+        {
+          "concept_title": "Tyndall Scattering Physics: Colloidal particles are large enough (1-100 nm) to scatter visible light wavelengths, illuminating the beam path.",
+          "diagram_title": "Laser Beam Tyndall Scattering in Colloid",
+          "diagram_type": "image",
+          "image_query": "Tyndall effect laser beam through solution and colloid beaker photo",
+          "video_query": "tyndall effect laser light experiment",
+          "image_url": "/extracted_diagrams/ch5/fig_5_3.webp",
+          "what_to_make": "Side-by-side comparison of red laser beam passing invisibly through copper sulfate but brightly illuminating milk colloid.",
+          "timing_and_cue": "Mount Tyndall effect on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_3.webp | Tyndall Optical Cone | Colloid particles (1-100 nm) scattering visible light photons\")"
+        },
+        {
+          "concept_title": "Dispersed Phase vs Dispersion Medium: Dispersed phase = solute-like component; Dispersion medium = solvent-like continuous phase.",
+          "diagram_title": "Colloidal Component Architecture",
+          "diagram_type": "image",
+          "image_query": "Dispersed phase dispersion medium colloid diagram",
+          "video_query": "dispersed phase dispersion medium chemistry",
+          "image_url": "/extracted_diagrams/ch5/fig_5_8.webp",
+          "what_to_make": "Diagram showing microscopic micelles of dispersed phase suspended in continuous dispersion medium.",
+          "timing_and_cue": "Mount colloidal components on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_8.webp | Colloidal Architecture | Dispersed Phase (solute analog) in Dispersion Medium (solvent analog)\")"
+        },
+        {
+          "concept_title": "The 8 Colloidal Classes Table: Master taxonomy pairing phases (Liquid in gas = Aerosol/fog; Liquid in liquid = Emulsion/milk; Solid in liquid = Sol/paint).",
+          "diagram_title": "Master 8 Colloidal Types Chart",
+          "diagram_type": "image",
+          "image_query": "Types of colloids table aerosol foam emulsion sol gel",
+          "video_query": "8 types of colloids classification table",
+          "image_url": "/extracted_diagrams/ch5/fig_5_9.webp",
+          "what_to_make": "NCERT 8-colloid master matrix pairing phase states with everyday consumer examples.",
+          "timing_and_cue": "Mount colloid table on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_9.webp | Master Colloid Taxonomy | Aerosol, Foam, Emulsion, Sol, and Gel classifications\")"
+        },
+        {
+          "concept_title": "Forest Canopy Tyndall Effect: Sunlight passing through tree mist where fine water droplets scatter rays in a dense forest.",
+          "diagram_title": "Sunlight Beams in Misty Forest Canopy",
+          "diagram_type": "image",
+          "image_query": "Sunlight rays through forest canopy mist Tyndall effect photo",
+          "video_query": "sunlight rays in forest mist tyndall effect",
+          "image_url": "/extracted_diagrams/ch5/fig_5_10.webp",
+          "what_to_make": "Sunbeams streaming through dark canopy of forest scattered by tiny atmospheric water droplet aerosols.",
+          "timing_and_cue": "Mount forest canopy on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_10.webp | Natural Tyndall Effect | Sunbeams illuminated by mist droplet aerosol in dense forest\")"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount verified image from concept_visuals on Step 1 of each concept.\n2. 6-STAGE SOCRATIC CADENCE:\n   - Stage 1: Intuition hook (Why you can see sunbeams streaming through a dusty room or forest canopy).\n   - Stage 2: Definition of Tyndall effect and Brownian motion.\n   - Stage 3: Common pitfall (Milk is an emulsion/colloid, not a true solution).\n   - Stage 4: Chalkboard 8-class colloidal taxonomy table.\n   - Stage 5: Socratic check: \"Why do colloidal particles never settle to the bottom of the container like sand particles in water?\" HARD STOP: Wait for student response!\n   - Stage 6: Authentic CBSE classification question."
+  },
+  {
+    "curriculum_id": "8d01a5f5-bf82-49c2-9fab-253d26b086f4",
+    "order_index": 4,
+    "title": "Separation Mechanics I: Solid-Solid & Insoluble Solid-Liquid Mixtures",
+    "description": "Master physical separation technologies based on phase differences: evaporation of non-volatile dyes, high-speed centrifugation density separation, and sublimation of volatile ammonium chloride.",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 20,
+    "subtopics": [
+      "Separation Principle: Exploiting distinct physical properties (boiling point, density, volatility, particle size)",
+      "Evaporation (Activity 5.4): Recovering non-volatile dye from volatile solvent water via indirect steam bath heating",
+      "Centrifugation (Activity 5.5): High-speed centrifugal force driving denser particles to bottom (cream from milk, blood banking)",
+      "Sublimation (Activity 5.7): Phase transition from solid directly to gas (ammonium chloride, camphor, naphthalene) in inverted funnel",
+      "Magnetic Separation: Isolating ferromagnetic iron filings from non-magnetic sulfur powder",
+      "Filtration & Decantation: Insoluble solid-liquid separation using porous barriers"
+    ],
+    "key_concepts": [
+      "Separation Property Match: Every separation technique targets a specific differential physical property between constituents.",
+      "Indirect Evaporation: Ink is heated over a water bath rather than direct flame to prevent thermal decomposition of organic dyes.",
+      "Centrifugal Density Partitioning: Dense particles are forced radially outward to the tube bottom while lighter particles stay at the top under rapid spin.",
+      "Sublimation Phase Transition: Direct solid-to-gas transition upon heating without melting into an intermediate liquid phase.",
+      "Sublimate Deposition: Gaseous ammonium chloride vapor condenses as a solid crust on cold inverted funnel walls with a cotton plug.",
+      "Clinical Applications: Centrifugation is universally used in diagnostic blood and urine labs, and in washing machine spin dryers."
+    ],
+    "success_criteria": "Student can choose the exact separation method for any mixture pair, draw labeled diagrams of evaporation and sublimation apparatus, and state centrifugal medical uses.",
+    "chapter_notes": "### 5.11 Principles of Separation\nHeterogeneous mixtures can often be separated into their components by simple physical methods (hand-picking, filtration, sieving). For complex mixtures, special physical separation techniques are employed.\n\n### 5.12 Evaporation (Recovering Non-Volatile Dye from Ink)\n- **Principle**: Volatile solvent evaporates, leaving behind non-volatile solute dye.\n- **Method**: Place a watch glass containing blue/black ink over a beaker of boiling water (**indirect water bath heating**).\n- **Reason for Water Bath**: Direct flame heating would burn/decompose the delicate organic dye compounds.\n- **Result**: Water evaporates completely; pure colored dye residue remains on the watch glass.\n\n### 5.13 Centrifugation (Density-Driven Separation)\n- **Principle**: When spun rapidly in a centrifuge, **denser particles are forced to the bottom** and lighter particles stay at the top.\n- **Applications**:\n  1. Diagnostic laboratories for blood and urine tests.\n  2. Dairies and home churns to separate butter/cream from milk.\n  3. Washing machines to squeeze out water from wet clothes during spin cycles.\n\n### 5.14 Sublimation\n- **Principle**: Separation of a mixture containing a **sublimable volatile component** from a non-sublimable impurity (salt or sand).\n- **Substances that Sublime**: **Ammonium chloride ($NH_4Cl$)**, **Camphor**, **Naphthalene**, **Anthracene**.\n- **Apparatus**: China dish heated with burner, covered with an **inverted glass funnel** whose stem is plugged with cotton.\n- **Observation**: White vapors of $NH_4Cl$ rise and solidify as pure white solid crust on the cool upper funnel neck. Non-sublimable salt remains behind in the dish.",
+    "worked_examples": [
+      {
+        "problem": "How would you separate a mixture containing common salt, sand, and ammonium chloride? Give the step-by-step procedure.",
+        "given": "Ternary mixture: Common salt ($NaCl$, soluble non-sublimable), Sand ($SiO_2$, insoluble non-sublimable), Ammonium chloride ($NH_4Cl$, sublimable solid).",
+        "formula": "Multi-Phase Differential Separation: Sublimation -> Dissolution/Filtration -> Evaporation/Crystallization.",
+        "substitution": "$NH_4Cl$ sublimes directly from solid to gas upon heating.",
+        "calculation": "1. **Step 1 (Sublimation)**: Heat the mixture in a china dish covered with an inverted funnel whose stem is plugged with cotton. $NH_4Cl$ sublimes, vapors rise, and condense as pure white solid on the cool funnel walls. Salt and sand remain in dish.\n2. **Step 2 (Dissolution & Filtration)**: Add water to the residue in the dish and stir. Salt dissolves; sand does not. Filter through filter paper. Sand is collected as residue on paper.\n3. **Step 3 (Evaporation)**: Heat the filtrate (salt solution) in a china dish until all water evaporates, leaving pure salt crystals.",
+        "finalAnswer": "(1) Sublimation separates ammonium chloride; (2) Adding water and filtering separates sand; (3) Evaporating the filtrate recovers common salt.",
+        "unit": "Ternary Mixture Scheme",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.18: Sublimation apparatus of ammonium chloride with inverted funnel"
+      },
+      {
+        "problem": "What is the principle of centrifugation? Name two clinical and two domestic applications.",
+        "given": "High-speed spinning separation of heterogeneous mixtures.",
+        "formula": "Centrifugal Force Stratification: Denser particles forced to perimeter/bottom; lighter particles remain at center/top.",
+        "substitution": "Centrifugal acceleration $a_c = \\omega^2 r$ vastly exceeds gravitational acceleration $g$.",
+        "calculation": "1. **Clinical Application 1**: Diagnostic laboratories for separating blood cells (RBCs, WBCs) from blood plasma.\n2. **Clinical Application 2**: Urine analysis to concentrate suspended sediment, cells, and casts.\n3. **Domestic Application 1**: Dairies and homes to separate cream and butter from milk.\n4. **Domestic Application 2**: Washing machines to squeeze out water from wet clothes during spin cycle.",
+        "finalAnswer": "Centrifugation uses centrifugal force to force denser particles to the bottom. Applications: blood/urine clinical tests, dairy cream separation, washing machine spin drying.",
+        "unit": "Centrifugation Engineering",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.19: Centrifuge tubes before and after spinning showing pellet and supernatant"
+      },
+      {
+        "problem": "How does a separating funnel separate a mixture of kerosene oil and water?",
+        "given": "Immiscible liquid mixture: kerosene oil and water.",
+        "formula": "Density Differential Immiscibility: $\\rho_{kerosene} \\approx 0.8\\text{ g/cm}^3 < \\rho_{water} = 1.0\\text{ g/cm}^3$.",
+        "substitution": "Liquids do not dissolve in each other and separate into distinct layers based on density.",
+        "calculation": "1. Pour mixture into a separating funnel and let it stand undisturbed until two sharp, distinct layers form.\n2. Denser water settles to the bottom; lighter kerosene floats on top.\n3. Open the stopcock at the bottom of the funnel to carefully drain out the bottom water layer into a beaker.\n4. Close the stopcock immediately when the interface boundary reaches the valve, leaving pure kerosene in the funnel.",
+        "finalAnswer": "Immiscible liquids separate by density; the denser water layer is drained through the bottom stopcock, isolating the lighter kerosene layer above.",
+        "unit": "Liquid Immiscibility",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.20: Separating funnel isolating kerosene oil from water"
+      },
+      {
+        "problem": "How do you recover blue/black dye from ink using evaporation without directly heating the ink?",
+        "given": "Colloidal/solution dye dissolved in water.",
+        "formula": "Indirect Water Bath Evaporation",
+        "substitution": "Dyes decompose (char) upon direct open-flame heating.",
+        "calculation": "1. Place a beaker half-filled with water over a tripod and wire gauze.\n2. Place a watch glass containing a few drops of ink over the mouth of the boiling beaker (water bath).\n3. Heat the beaker. Steam heats the watch glass gently and uniformly.\n4. Water evaporates from the ink drops; heating is stopped when no further change is observed, leaving pure dry dye residue on the watch glass.",
+        "finalAnswer": "Ink is heated indirectly on a water bath watch glass so water evaporates smoothly without thermally decomposing or burning the dye.",
+        "unit": "Indirect Evaporation",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.21: Evaporation of ink on a watch glass over a boiling water bath"
+      },
+      {
+        "problem": "Name the separation technique used to separate: (a) Butter from curd, (b) Salt from sea water, (c) Camphor from salt, (d) Iron pins from sand.",
+        "given": "Industrial and laboratory separation techniques.",
+        "formula": "Property Exploitation: Density vs Volatility vs Sublimation vs Ferromagnetism.",
+        "substitution": "Match specific physical property divergence to appropriate unit operation.",
+        "calculation": "1. Butter from curd: Density difference -> **Centrifugation / Churning**.\n2. Salt from sea water: Volatility difference -> **Evaporation in shallow lagoons**.\n3. Camphor from salt: Camphor sublimes directly -> **Sublimation**.\n4. Iron pins from sand: Iron is ferromagnetic -> **Magnetic Separation**.",
+        "finalAnswer": "(a) Centrifugation, (b) Evaporation, (c) Sublimation, (d) Magnetic Separation.",
+        "unit": "Separation Matrix",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.22: Laboratory separation techniques portfolio"
+      },
+      {
+        "problem": "Why is simple filtration ineffective for separating a mixture of alcohol and water?",
+        "given": "Miscible liquid pair: ethanol ($C_2H_5OH$) and water ($H_2O$).",
+        "formula": "Molecular Miscibility Invariant",
+        "substitution": "Ethanol and water form extensive intermolecular hydrogen bonds, forming a single homogeneous liquid phase.",
+        "calculation": "1. Filtration relies on pore size exclusion for solid particles $> 1000\\text{ nm}$.\n2. Ethanol and water molecules have diameters $< 0.5\\text{ nm}$ and pass simultaneously through filter paper pores.\n3. Because they are completely miscible in all proportions, physical barriers cannot separate them; thermal distillation based on boiling point difference is required.",
+        "finalAnswer": "Alcohol and water form a homogeneous solution with intermolecular hydrogen bonding, passing through filter paper pores together; distillation is required.",
+        "unit": "Miscibility Chemistry",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.23: Molecular solution of ethanol in water showing hydrogen bonds"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "You should heat ink directly over a Bunsen flame to evaporate water fast.",
+        "correction": "Direct heating chars and decomposes the organic dye molecules. Indirect steam bath heating is mandatory to preserve dye chemical integrity.",
+        "why_it_matters": "A standard laboratory technique exam question."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Separation Mechanics I Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Separation Property Match: Every separation technique targets a specific differential physical property between constituents.",
+          "diagram_title": "Separation Strategy Decision Tree",
+          "diagram_type": "image",
+          "image_query": "Methods of separation of mixtures flow chart diagram",
+          "video_query": "separation techniques chemistry class 9",
+          "image_url": "/extracted_diagrams/ch5/fig_5_11.webp",
+          "what_to_make": "Flowchart routing mixtures to evaporation, centrifugation, sublimation, filtration, or distillation.",
+          "timing_and_cue": "Mount separation decision tree on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_11.webp | Separation Logic | Choosing physical methods based on boiling, density, and sublimation contrasts\")"
+        },
+        {
+          "concept_title": "Indirect Evaporation: Ink is heated over a water bath rather than direct flame to prevent thermal decomposition of organic dyes.",
+          "diagram_title": "Activity 5.4 Evaporation of Ink Over Water Bath",
+          "diagram_type": "image",
+          "image_query": "Evaporation of ink water bath watch glass beaker diagram chemistry",
+          "video_query": "evaporation of ink class 9 chemistry",
+          "image_url": "/extracted_diagrams/ch5/fig_5_13.webp",
+          "what_to_make": "Laboratory setup showing beaker of boiling water heating a watch glass of ink above it.",
+          "timing_and_cue": "Mount evaporation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_13.webp | Indirect Evaporation Lab | Steam bath heating preventing thermal decomposition of ink dye\")"
+        },
+        {
+          "concept_title": "Centrifugal Density Partitioning: Dense particles are forced radially outward to the tube bottom while lighter particles stay at the top under rapid spin.",
+          "diagram_title": "Centrifugation Separation Mechanism",
+          "diagram_type": "image",
+          "image_query": "Centrifugation laboratory tubes cream from milk diagram",
+          "video_query": "centrifugation separation technique demonstration",
+          "image_url": "/extracted_diagrams/ch5/fig_5_14.webp",
+          "what_to_make": "High-speed rotor spinning test tubes showing centrifugal force packing dense precipitates to tube bottom.",
+          "timing_and_cue": "Mount centrifugation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_14.webp | Centrifugation Dynamics | High g-force separating blood cells, milk cream, and fine colloids\")"
+        },
+        {
+          "concept_title": "Sublimation Phase Transition: Direct solid-to-gas transition upon heating without melting into an intermediate liquid phase.",
+          "diagram_title": "Activity 5.7 Sublimation of Ammonium Chloride",
+          "diagram_type": "image",
+          "image_query": "Sublimation of ammonium chloride inverted funnel cotton plug diagram",
+          "video_query": "sublimation of ammonium chloride experiment",
+          "image_url": "/extracted_diagrams/ch5/fig_5_11.webp",
+          "what_to_make": "China dish on wire gauze with inverted cotton-plugged funnel showing sublimate crust on funnel neck.",
+          "timing_and_cue": "Mount sublimation lab on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_11.webp | Sublimation Apparatus | Solid NH4Cl vaporizing and depositing on cool inverted funnel\")"
+        },
+        {
+          "concept_title": "Sublimate Deposition: Gaseous ammonium chloride vapor condenses as a solid crust on cold inverted funnel walls with a cotton plug.",
+          "diagram_title": "Sublimate Crystals Deposition Micrograph",
+          "diagram_type": "image",
+          "image_query": "Ammonium chloride sublimate crystals funnel glass photo",
+          "video_query": "ammonium chloride crystals sublimation",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Ammonium-chloride-sublimation.jpg",
+          "what_to_make": "Crystalline crust of pure white ammonium chloride deposited on glass surface.",
+          "timing_and_cue": "Mount sublimate crystals on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/1/18/Ammonium-chloride-sublimation.jpg | Sublimate Deposition | Pure crystalline crust formed by desublimation\")"
+        },
+        {
+          "concept_title": "Clinical Applications: Centrifugation is universally used in diagnostic blood and urine labs, and in washing machine spin dryers.",
+          "diagram_title": "Medical Blood Centrifugation Tube Layers",
+          "diagram_type": "image",
+          "image_query": "Centrifuged blood tube plasma buffy coat RBC layers photo",
+          "video_query": "blood centrifugation hematocrit layers",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Blood_centrifugation.jpg",
+          "what_to_make": "Diagnostic vacutainer showing clear yellow plasma at top, thin white buffy coat in middle, and dense red RBC pellet at bottom.",
+          "timing_and_cue": "Mount clinical blood tube on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/e/eb/Blood_centrifugation.jpg | Diagnostic Centrifugation | Blood partitioned into plasma, leukocyte buffy coat, and erythrocyte pellet\")"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount verified image from concept_visuals on Step 1 of each concept.\n2. 6-STAGE SOCRATIC CADENCE:\n   - Stage 1: Intuition hook (How cream is separated from full-fat milk).\n   - Stage 2: Definitions of evaporation, centrifugation, and sublimation.\n   - Stage 3: Common pitfall (Why ink is never heated over a direct flame).\n   - Stage 4: Chalkboard multi-step separation protocol (Salt + Sand + Ammonium chloride).\n   - Stage 5: Socratic check: \"Why do we plug the top of the funnel stem with cotton during sublimation of ammonium chloride?\" HARD STOP: Wait for student response!\n   - Stage 6: Authentic CBSE multi-mixture question."
+  },
+  {
+    "curriculum_id": "8d01a5f5-bf82-49c2-9fab-253d26b086f4",
+    "order_index": 5,
+    "title": "Separation Mechanics II: Immiscible Liquids, Distillation & Chromatography",
+    "description": "Master advanced separation systems: separating funnels for immiscible liquids, paper chromatography based on differential Rf solubility, simple distillation (delta Tb > 25\u00b0C), and fractional distillation of air (delta Tb < 25\u00b0C).",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 20,
+    "subtopics": [
+      "Immiscible Liquids (Activity 5.6): Density layering and stopcock control in a separating funnel (kerosene oil and water)",
+      "Paper Chromatography (Activity 5.8): Separation of black ink dye pigments based on differential capillary solubility",
+      "Chromatography Principle & Rf Value: Ratio of solute migration distance to mobile phase solvent front",
+      "Simple Distillation (Activity 5.9): Miscible liquids with boiling point difference delta Tb > 25\u00b0C (acetone 56\u00b0C and water 100\u00b0C)",
+      "Fractional Distillation (Activity 5.10): Miscible liquids with delta Tb < 25\u00b0C utilizing glass bead packed fractionating columns",
+      "Atmospheric Air Separation: Liquefaction through compression/cooling followed by fractional distillation (N2, Ar, O2)"
+    ],
+    "key_concepts": [
+      "Immiscible Density Stratification: Liquids that do not mix form separate layers; denser liquid drains first via the stopcock.",
+      "Differential Chromatographic Solubility: The pigment component more soluble in water rises faster with the capillary solvent front.",
+      "Simple Distillation 25\u00b0C Rule: Simple distillation requires a large boiling point difference (delta Tb > 25\u00b0C) to prevent vapor co-condensation.",
+      "Fractionating Column Function: Packed glass beads provide extensive surface area for repeated condensation and vapor-liquid equilibration.",
+      "Air Liquefaction Order: Air is filtered, compressed, cooled to liquid state, then slowly warmed: Nitrogen boils at -196\u00b0C, Argon at -186\u00b0C, Oxygen at -183\u00b0C.",
+      "Petroleum Refining: Fractional distillation tower separates crude oil into gasoline, diesel, kerosene, and lubricating oils."
+    ],
+    "success_criteria": "Student can contrast simple vs fractional distillation, draw the separating funnel and fractionating column, calculate chromatography Rf values, and explain atmospheric air separation.",
+    "chapter_notes": "### 5.15 Separating Funnel (Immiscible Liquids)\n- **Principle**: Immiscible liquids separate out in **layers depending on their densities**.\n- **Examples**: Kerosene and water, Mustard oil and water, Molten slag and iron in blast furnace.\n- **Operation**: The denser water forms the lower layer; opening the stopcock drains water into a beaker. The stopcock is closed precisely as the oil boundary reaches the valve.\n\n### 5.16 Paper Chromatography (Separation of Dyes in Ink)\n- **Chromatography** (Greek *chroma* = colour): A technique used for the separation of solutes that dissolve in the same solvent.\n- **Principle**: The ink contains two or more colored pigments. As water rises up the filter paper strip by **capillary action**, the colored component that is **more soluble in water rises faster**, separating from less soluble pigments.\n- **Applications**:\n  1. Separate colors in a dye.\n  2. Pigments from natural colors (chlorophyll, carotenoids).\n  3. Drugs from blood in forensic toxicology.\n\n### 5.17 Simple Distillation vs Fractional Distillation\n| Diagnostic Parameter | Simple Distillation | Fractional Distillation |\n| :--- | :--- | :--- |\n| **Boiling Point Difference** | $\\mathbf{\\Delta T_b > 25^\\circ\\text{C}}$ | $\\mathbf{\\Delta T_b < 25^\\circ\\text{C}}$ (Close boiling points) |\n| **Apparatus** | Distillation flask + Liebig water condenser | Distillation flask + **Fractionating Column** + Condenser |\n| **Role of Glass Beads** | Not present | Glass beads in column provide **large surface area** for repeated condensation/vaporization cycles |\n| **Key Examples** | Acetone ($56^\\circ\\text{C}$) and Water ($100^\\circ\\text{C}$) ($\\Delta T_b = 44^\\circ\\text{C}$) | Crude petroleum refining, Alcohol ($78^\\circ\\text{C}$) and Water ($100^\\circ\\text{C}$), Liquid Air |\n\n### 5.18 Separation of Gases from Air\nAir is a homogeneous mixture of gases: $N_2$ ($78\\%$), $O_2$ ($21\\%$), $Ar$ ($0.9\\%$), $CO_2$ ($0.04\\%$).\n1. **Compression & Cooling**: Air is compressed by increasing pressure and cooled by decreasing temperature to obtain **Liquid Air**.\n2. **Fractional Distillation Column**: Liquid air is allowed to warm up slowly:\n   - **Nitrogen ($N_2$)**: Boiling point $= -196^\\circ\\text{C}$ (boils off first at the top).\n   - **Argon ($Ar$)**: Boiling point $= -186^\\circ\\text{C}$ (boils off second).\n   - **Oxygen ($O_2$)**: Boiling point $= -183^\\circ\\text{C}$ (remains liquid longest at bottom).",
+    "worked_examples": [
+      {
+        "problem": "How does paper chromatography separate different coloured pigments present in black ink?",
+        "given": "Mixture of two or more soluble dyes in black fountain pen ink.",
+        "formula": "Differential Partition Chromatography: Retardation Factor $R_f = \\frac{\\text{Distance traveled by solute}}{\\text{Distance traveled by solvent front}}$.",
+        "substitution": "Capillary action draws water upward through porous chromatography paper.",
+        "calculation": "1. A drop of black ink is placed near the bottom of a strip of filter paper and suspended in a jar of water.\n2. Water rises up the paper strip by capillary action.\n3. As water moves upward, it carries dye components with it.\n4. A dye that is more soluble in water rises faster and higher; a less soluble dye adheres more strongly to paper fibres and travels slower.\n5. Distinct coloured bands separate along the strip.",
+        "finalAnswer": "Paper chromatography separates pigments because components have different solubilities in water and different adsorption affinities for paper fibres.",
+        "unit": "Chromatography Dynamics",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.24: Paper chromatography strip showing separated pigment bands"
+      },
+      {
+        "problem": "When is fractional distillation used instead of simple distillation? Explain the role of the fractionating column.",
+        "given": "Separation of miscible liquids with close boiling points (e.g. acetone $56^\\circ\\text{C}$ and methanol $65^\\circ\\text{C}$, or petroleum fractions).",
+        "formula": "Distillation Criterion: $\\Delta T_{bp} < 25\\text{ K}$ requires fractional distillation; $\\Delta T_{bp} \\ge 25\\text{ K}$ allows simple distillation.",
+        "substitution": "Fractionating column contains glass beads that provide large surface area for repeated condensation and vaporization.",
+        "calculation": "1. When boiling points differ by $< 25\\text{ K}$, vapor above the boiling liquid contains a mixture of both components.\n2. Rising vapors pass through the fractionating column packed with glass beads.\n3. The higher boiling point component condenses on the beads and drips back into the distillation flask.\n4. The lower boiling point component remains as vapor, reaches the top, enters the condenser, and liquefies as pure distillate.",
+        "finalAnswer": "Fractional distillation is used when boiling point difference is < 25 K; the glass beads provide surface area for continuous condensation-vaporization cycles.",
+        "unit": "Fractional Column Physics",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.25: Fractional distillation apparatus with packed glass bead column"
+      },
+      {
+        "problem": "How are the different gaseous components of air (Nitrogen, Argon, Oxygen) separated on an industrial scale?",
+        "given": "Atmospheric air: $N_2$ (b.p. $-196^\\circ\\text{C}$), $Ar$ (b.p. $-186^\\circ\\text{C}$), $O_2$ (b.p. $-183^\\circ\\text{C}$).",
+        "formula": "Cryogenic Liquefaction + Fractional Distillation",
+        "substitution": "Air is compressed, cooled, expanded to liquefy, then warmed slowly in a fractional distillation column.",
+        "calculation": "1. **Filtration & Compression**: Air is filtered to remove dust, compressed to high pressure (200 atm), and cooled by passing through freezing water pipes.\n2. **Expansion**: Compressed cold air expands rapidly through a jet nozzle, liquefying into liquid air at $-200^\\circ\\text{C}$ ($CO_2$ separates as dry ice solid).\n3. **Fractional Distillation**: Liquid air warms up slowly. Nitrogen boils off first at $-196^\\circ\\text{C}$; Argon boils off next at $-186^\\circ\\text{C}$; Oxygen remains as liquid at bottom (b.p. $-183^\\circ\\text{C}$).",
+        "finalAnswer": "Air is liquefied by compression and cooling, then subjected to fractional distillation where Nitrogen (-196\u00b0C) boils first, then Argon (-186\u00b0C), leaving liquid Oxygen (-183\u00b0C).",
+        "unit": "Cryogenic Separation",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.26: Industrial air liquefaction and fractional distillation flow diagram"
+      },
+      {
+        "problem": "Why is crystallization considered a superior purification technique compared to simple evaporation to dryness?",
+        "given": "Purification of soluble solids from impure solutions (e.g. copper sulphate crystals).",
+        "formula": "Crystal Lattice Exclusion vs Thermal Evaporation Degradation",
+        "substitution": "Crystallization avoids thermal decomposition and leaves soluble impurities in mother liquor.",
+        "calculation": "1. **Thermal Decomposition**: Some solids (like sugar or hydrated salts) char, decompose, or lose water of crystallization when heated to dryness.\n2. **Purity**: During simple evaporation, all soluble non-volatile impurities precipitate out with the solid.\n3. In crystallization, as crystals slowly grow from a saturated solution, only target solute ions fit into the rigid crystal lattice; impurities remain dissolved in the mother liquor.",
+        "finalAnswer": "Crystallization is superior because solids do not decompose from overheating, and soluble impurities remain in solution rather than caking the product.",
+        "unit": "Crystallization Quality",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.27: Pure copper sulphate crystals prepared via crystallization"
+      },
+      {
+        "problem": "Trace the step-by-step path of municipal water purification from reservoir to residential drinking taps.",
+        "given": "Municipal water works schematic flow.",
+        "formula": "Sequential Water Treatment Pipeline: Sedimentation -> Loading -> Filtration -> Chlorination.",
+        "substitution": "Sequential removal of heavy suspended solids, colloidal particles, fine particulates, and pathogenic bacteria.",
+        "calculation": "1. **Sedimentation Tank**: Heavy insoluble suspended solids settle under gravity.\n2. **Loading Tank**: Alum (potash alum / phitkari) is added; trivalent aluminum ions neutralize negative surface charges on colloidal clay, coagulating them to settle.\n3. **Filtration Tank**: Water passes through stratified bed of coarse gravel, fine gravel, and fine sand to remove all remaining particulates.\n4. **Chlorination Tank**: Chlorine gas or hypochlorite is dosed to kill harmful microorganisms before distribution to taps.",
+        "finalAnswer": "Water moves through: (1) Sedimentation tank, (2) Loading tank (alum coagulation), (3) Sand/gravel filtration tank, and (4) Chlorination tank for disinfection.",
+        "unit": "Municipal Water Works",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.24: Flow diagram of municipal water works purification system"
+      },
+      {
+        "problem": "Describe how you would separate acetone and water from their miscible mixture using simple distillation.",
+        "given": "Miscible liquid mixture of acetone (b.p. $56^\\circ\\text{C} = 329\\text{ K}$) and water (b.p. $100^\\circ\\text{C} = 373\\text{ K}$).",
+        "formula": "Simple Distillation: Applicable because boiling point difference $\\Delta T = 100 - 56 = 44^\\circ\\text{C} > 25\\text{ K}$.",
+        "substitution": "Acetone vaporizes at $56^\\circ\\text{C}$, condenses in Liebig condenser, leaving water in distillation flask.",
+        "calculation": "1. Pour mixture into distillation flask fitted with a thermometer and water condenser.\n2. Heat gently. Acetone boils at $56^\\circ\\text{C}$, vapors rise, enter the water-cooled condenser, liquefy, and collect in the receiver flask.\n3. Water has higher boiling point ($100^\\circ\\text{C}$) and remains in the distillation flask.",
+        "finalAnswer": "Acetone boils at 56\u00b0C and is condensed and collected in receiver flask; water remains in the distillation flask due to the 44\u00b0C boiling point difference.",
+        "unit": "Distillation Engineering",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.25: Simple distillation apparatus with Liebig condenser"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "You can use simple distillation to separate liquids whose boiling points differ by only 10\u00b0C.",
+        "correction": "When boiling point difference is less than 25\u00b0C, vapors of both liquids will co-evaporate and condense together in simple distillation. A fractionating column with glass beads is MANDATORY for repeated condensation stages.",
+        "why_it_matters": "A core distinction tested on all Class 9 CBSE chemistry exams."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Separation Mechanics II Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Immiscible Density Stratification: Liquids that do not mix form separate layers; denser liquid drains first via the stopcock.",
+          "diagram_title": "Activity 5.6 Separating Funnel Apparatus",
+          "diagram_type": "image",
+          "image_query": "Separating funnel kerosene water immiscible liquids diagram",
+          "video_query": "separating funnel demonstration chemistry",
+          "image_url": "/extracted_diagrams/ch5/fig_5_16.webp",
+          "what_to_make": "Pear-shaped separating funnel showing upper kerosene layer, lower water layer, and ground-glass stopcock draining into a conical flask.",
+          "timing_and_cue": "Mount separating funnel on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_16.webp | Separating Funnel | Denser water layer drained through stopcock leaving lighter kerosene\")"
+        },
+        {
+          "concept_title": "Differential Chromatographic Solubility: The pigment component more soluble in water rises faster with the capillary solvent front.",
+          "diagram_title": "Activity 5.8 Paper Chromatography Strip",
+          "diagram_type": "image",
+          "image_query": "Paper chromatography black ink dye pigments separation strip diagram",
+          "video_query": "paper chromatography black ink experiment",
+          "image_url": "/extracted_diagrams/ch5/fig_5_20.webp",
+          "what_to_make": "Chromatography paper strip suspended in gas jar showing spot of ink resolved into separate blue, red, and yellow pigment bands.",
+          "timing_and_cue": "Mount chromatography on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_20.webp | Paper Chromatography | Pigments separated based on differential solubility in mobile phase water\")"
+        },
+        {
+          "concept_title": "Simple Distillation 25\u00b0C Rule: Simple distillation requires a large boiling point difference (delta Tb > 25\u00b0C) to prevent vapor co-condensation.",
+          "diagram_title": "Activity 5.9 Simple Distillation Setup",
+          "diagram_type": "image",
+          "image_query": "Simple distillation apparatus acetone water condenser diagram",
+          "video_query": "simple distillation experiment chemistry",
+          "image_url": "/extracted_diagrams/ch5/fig_5_18.webp",
+          "what_to_make": "Distillation flask with thermometer, water-cooled Liebig condenser, and conical flask receiver for acetone and water separation.",
+          "timing_and_cue": "Mount simple distillation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_18.webp | Simple Distillation | Exploiting large boiling point difference (delta Tb > 25\u00b0C) for miscible liquids\")"
+        },
+        {
+          "concept_title": "Fractionating Column Function: Packed glass beads provide extensive surface area for repeated condensation and vapor-liquid equilibration.",
+          "diagram_title": "Activity 5.10 Fractional Distillation Apparatus",
+          "diagram_type": "image",
+          "image_query": "Fractional distillation fractionating column glass beads diagram",
+          "video_query": "fractional distillation lab demonstration",
+          "image_url": "/extracted_diagrams/ch5/fig_5_21.webp",
+          "what_to_make": "Distillation apparatus equipped with vertical column packed with glass beads enabling multi-stage condensation.",
+          "timing_and_cue": "Mount fractional distillation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_21.webp | Fractionating Column | Glass beads providing surface area for repeated condensation cycles (delta Tb < 25\u00b0C)\")"
+        },
+        {
+          "concept_title": "Air Liquefaction Order: Air is filtered, compressed, cooled to liquid state, then slowly warmed: Nitrogen boils at -196\u00b0C, Argon at -186\u00b0C, Oxygen at -183\u00b0C.",
+          "diagram_title": "Separation of Components of Air Flowsheet",
+          "diagram_type": "image",
+          "image_query": "Separation of gases from air flowchart liquefaction fractional distillation",
+          "video_query": "how oxygen is separated from air fractional distillation",
+          "image_url": "/extracted_diagrams/ch5/fig_5_22.webp",
+          "what_to_make": "Industrial flowsheet: Air -> Filter -> Compressor -> Cold water cooling -> Expansion valve -> Liquid air -> Fractionating column (N2, Ar, O2).",
+          "timing_and_cue": "Mount air flowsheet on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_22.webp | Air Separation Industrial Flowsheet | Multi-stage liquefaction and fractional boiling of N2, Ar, and O2\")"
+        },
+        {
+          "concept_title": "Petroleum Refining: Fractional distillation tower separates crude oil into gasoline, diesel, kerosene, and lubricating oils.",
+          "diagram_title": "Crude Oil Fractionating Tower",
+          "diagram_type": "image",
+          "image_query": "Petroleum fractional distillation refinery tower fractions diagram",
+          "video_query": "fractional distillation of crude oil petroleum",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Crude_Oil_Distillation.png",
+          "what_to_make": "Industrial petroleum distillation tower showing temperature gradient and tapped fractions from refinery gases down to bitumen residue.",
+          "timing_and_cue": "Mount petroleum tower on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/4/4b/Crude_Oil_Distillation.png | Petroleum Refinery Tower | Thermal fractional column partitioning hydrocarbons by molecular weight\")"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount verified image from concept_visuals on Step 1 of each concept.\n2. 6-STAGE SOCRATIC CADENCE:\n   - Stage 1: Intuition hook (How commercial factories extract pure breathing oxygen for hospitals from ambient air).\n   - Stage 2: Distillation 25\u00b0C rule and fractionating column mechanics.\n   - Stage 3: Common pitfall (Simple vs fractional distillation selection criteria).\n   - Stage 4: Chalkboard flowsheet tracing air liquefaction: N2 (-196\u00b0C) -> Ar (-186\u00b0C) -> O2 (-183\u00b0C).\n   - Stage 5: Socratic check: \"Why do we pack glass beads inside a fractionating column?\" HARD STOP: Wait for student response!\n   - Stage 6: Authentic CBSE numerical and theoretical question."
+  },
+  {
+    "curriculum_id": "8d01a5f5-bf82-49c2-9fab-253d26b086f4",
+    "order_index": 6,
+    "title": "Master Separation Solver & Comprehensive NCERT Chapter Review",
+    "description": "Exhaustive step-by-step master solver resolving every in-text question and chapter-end exercise problem (Q1 through Q11) from NCERT Class 9 Science Chapter 5: Exploring Mixtures and their Separation.",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 20,
+    "subtopics": [
+      "Water Purification Plant: Sedimentation -> Loading (alum) -> Filtration (gravel/sand) -> Chlorination",
+      "Crystallization (Activity 5.11): Obtaining pure copper sulfate crystals from impure sample (superior to evaporation)",
+      "Physical vs Chemical Changes: Reversibility, identity of matter, and chemical bond reorganization",
+      "NCERT Exercise Q1 to Q5: Solution concentration, Tyndall effect verification, Sol/Gel classification",
+      "NCERT Exercise Q6 to Q11: Separation schemes for common mixtures, physical vs chemical classification"
+    ],
+    "key_concepts": [
+      "Municipal Water Purification Stages: Physical sedimentation of suspended solids, alum loading for colloidal clay, sand/gravel filtration, and chemical chlorination.",
+      "Crystallization Advantage: Avoids thermal decomposition and charring of solids; impurities remain dissolved in filtrate mother liquor.",
+      "Physical vs Chemical Change Test: Physical changes alter shape/state without forming new chemical bonds; Chemical changes yield new substances with distinct chemical properties.",
+      "Pragmatic Separation Routing: Choosing precise apparatus (centrifuge, separating funnel, chromatography, distillation) for arbitrary multi-component mixtures.",
+      "Full 11-Question Master Ledger: Complete structured solutions matching CBSE marking schemes."
+    ],
+    "success_criteria": "Student can outline the complete city water purification flow, explain crystallization over evaporation, classify physical vs chemical changes, and solve 100% of NCERT chapter-end questions.",
+    "chapter_notes": "### 5.19 Municipal Water Purification System\nFrom reservoir water supply to home taps:\n1. **Sedimentation Tank**: Heavy suspended insoluble solids settle to the bottom under gravity.\n2. **Loading Tank**: Alum (phitkari) is added to coagulate and settle fine colloidal suspended clay particles.\n3. **Filtration Tank**: Three porous filter layers:\n   - Bottom layer: Coarse gravel.\n   - Middle layer: Fine gravel.\n   - Top layer: Fine sand particles.\n4. **Chlorination Tank**: Chlorine gas or bleaching powder is added to disinfect and kill harmful pathogenic bacteria.\n\n### 5.20 Crystallization vs Simple Evaporation\n- **Crystallization**: A process that separates a pure solid in the form of its **crystals** from a solution.\n- **Why Crystallization is SUPERIOR to Evaporation**:\n  1. Some solids (like sugar) **decompose or char** (burn to brown carbon) when heated to dryness during direct evaporation.\n  2. Soluble impurities remain dissolved in the solution and do NOT enter the crystal lattice during crystallization; evaporation leaves all non-volatile impurities caked with the solid.\n\n### 5.21 Physical vs Chemical Changes\n| Physical Change | Chemical Change |\n| :--- | :--- |\n| No new substance is formed | **New substance(s)** with different chemical properties are formed |\n| Usually **reversible** (e.g. melting of ice) | Usually **irreversible** (e.g. burning of paper) |\n| Chemical composition remains identical ($H_2O$ liquid = $H_2O$ ice) | Chemical composition changes ($C + O_2 \\to CO_2$) |\n| Very little or no heat/light energy absorbed or released | Substantial heat/light energy absorbed or evolved |\n| *Examples*: Cutting trees, melting butter, dissolving salt, boiling water | *Examples*: Rusting of iron, burning wood, digestion of food, cooking an egg |",
+    "worked_examples": [
+      {
+        "problem": "NCERT Ex Q1. Which separation techniques will you apply for the separation of the following? (a) Sodium chloride from its solution in water, (b) Ammonium chloride from a mixture containing sodium chloride and ammonium chloride, (c) Small pieces of metal in the engine oil of a car, (d) Different pigments from an extract of flower petals, (e) Butter from curd, (f) Oil from water, (g) Tea leaves from tea, (h) Iron pins from sand, (i) Wheat grains from husk, (j) Fine mud particles suspended in water.",
+        "given": "10 authentic everyday and laboratory mixtures.",
+        "formula": "NCERT Separation Matrix",
+        "substitution": "Match each mixture to its fundamental physical property difference.",
+        "calculation": "1. (a) Sodium chloride from water: **Evaporation** or **Crystallization**.\n2. (b) Ammonium chloride from sodium chloride: **Sublimation** ($NH_4Cl$ sublimes directly).\n3. (c) Metal pieces from engine oil: **Filtration**.\n4. (d) Flower petal pigments: **Paper Chromatography**.\n5. (e) Butter from curd: **Centrifugation / Churning**.\n6. (f) Oil from water: **Separating Funnel** (immiscible density difference).\n7. (g) Tea leaves from tea: **Filtration**.\n8. (h) Iron pins from sand: **Magnetic Separation**.\n9. (i) Wheat grains from husk: **Winnowing**.\n10. (j) Fine mud particles in water: **Sedimentation, Decantation, and Loading with Alum / Filtration**.",
+        "finalAnswer": "(a) Evaporation/Crystallization, (b) Sublimation, (c) Filtration, (d) Chromatography, (e) Centrifugation, (f) Separating Funnel, (g) Filtration, (h) Magnetic Separation, (i) Winnowing, (j) Loading/Filtration.",
+        "unit": "NCERT Master Exercise Q1",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.22: Comprehensive separation techniques portfolio"
+      },
+      {
+        "problem": "NCERT Ex Q2. Write the steps you would use for making tea. Use the words: solution, solvent, solute, dissolve, soluble, insoluble, filtrate, and residue.",
+        "given": "Standard domestic preparation of tea.",
+        "formula": "Chemical Terminology Integration",
+        "substitution": "Map domestic steps to precise chemistry vocabulary.",
+        "calculation": "1. Take water in a kettle as the **solvent** and heat it to a boil.\n2. Add tea leaves to boiling water; the soluble aromatic components and tannin color **dissolve** into the water, while the undissolved leaves remain **insoluble**.\n3. Add sugar as a **solute**; it readily **dissolves** in the hot water.\n4. Add milk, which forms a colloidal **solution** with the hot mixture.\n5. Pour the prepared tea through a strainer (filter): the liquid tea passing through is the **filtrate**, and the spent tea leaves trapped on the strainer form the **residue**.",
+        "finalAnswer": "Boil water (solvent), add tea leaves whose soluble parts dissolve leaving insoluble leaves, add sugar (solute) to dissolve, strain into cup to obtain tea (filtrate) while leaves stay on strainer (residue).",
+        "unit": "NCERT Master Exercise Q2",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.11: Laboratory filtration terminology diagram (filtrate and residue)"
+      },
+      {
+        "problem": "NCERT Ex Q3. Pragya tested the solubility of three different substances at different temperatures and found the following data (grams of substance dissolved in 100 g of water to form a saturated solution):\n- Potassium nitrate: 283K (21g), 293K (32g), 313K (62g), 333K (106g), 353K (167g)\n- Sodium chloride: 283K (36g), 293K (36g), 313K (36g), 333K (37g), 353K (37g)\n- Potassium chloride: 283K (35g), 293K (35g), 313K (40g), 333K (46g), 353K (54g)\n(a) What mass of potassium nitrate is needed to produce a saturated solution in 50 g of water at 313 K?\n(b) What happens when a saturated solution of potassium chloride at 353 K cools to room temperature (293 K)?\n(c) Find the solubility of each salt at 293 K. Which salt has the highest solubility at this temperature?\n(d) What is the effect of change of temperature on the solubility of a salt?",
+        "given": "Empirical solubility data table for $KNO_3, NaCl, KCl$ across $283\\text{ K}$ to $353\\text{ K}$.",
+        "formula": "Solubility Calculation: $\\text{Mass in } 50\\text{ g} = \\frac{\\text{Solubility}}{2}$; Crystallized mass $= S_{T1} - S_{T2}$.",
+        "substitution": "(a) At 313 K, solubility of $KNO_3 = 62\\text{ g}/100\\text{ g}$. For 50 g: $62 \\times \\frac{50}{100} = 31\\text{ g}$.\n(b) At 353 K, $KCl$ solubility $= 54\\text{ g}$; at 293 K, solubility $= 35\\text{ g}$. Mass precipitated $= 54 - 35 = 19\\text{ g}$.",
+        "calculation": "1. (a) Mass of $KNO_3$ in 50 g water $= \\frac{62}{2} = \\mathbf{31\\text{ g}}$.\n2. (b) When cooled from 353 K to 293 K, $54 - 35 = \\mathbf{19\\text{ g}}$ of pure potassium chloride crystals precipitate out.\n3. (c) At 293 K: $KNO_3 = 32\\text{ g}, NaCl = 36\\text{ g}, KCl = 35\\text{ g}$. **Sodium chloride** ($NaCl$) has the highest solubility ($36\\text{ g}$).\n4. (d) Solubility of solid salts generally **increases** with an increase in temperature (dramatically for $KNO_3$, moderately for $KCl$, very slightly for $NaCl$).",
+        "finalAnswer": "(a) 31 g KNO\u2083, (b) 19 g KCl crystals precipitate out, (c) Sodium chloride (36 g), (d) Solubility increases with temperature.",
+        "unit": "NCERT Master Exercise Q3",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.8: Comparative solubility curves for KNO3, NaCl, and KCl"
+      },
+      {
+        "problem": "NCERT Ex Q7. Which of the following materials fall into the category of a 'pure substance'? (a) Ice, (b) Milk, (c) Iron, (d) Hydrochloric acid, (e) Calcium oxide, (f) Mercury, (g) Brick, (h) Wood, (i) Air.",
+        "given": "List of 9 everyday materials.",
+        "formula": "Pure Substance Criterion: Single chemical species with invariant composition and sharp melting/boiling point.",
+        "substitution": "Pure substances are either elements or chemical compounds.",
+        "calculation": "1. (a) Ice: Pure chemical compound ($H_2O$) -> **Pure substance**.\n2. (b) Milk: Colloid emulsion of water, fats, proteins, lactose -> Mixture.\n3. (c) Iron: Pure element ($Fe$) -> **Pure substance**.\n4. (d) Hydrochloric acid: Chemical compound ($HCl$) -> **Pure substance**.\n5. (e) Calcium oxide: Chemical compound ($CaO$) -> **Pure substance**.\n6. (f) Mercury: Pure element ($Hg$) -> **Pure substance**.\n7. (g) Brick: Heterogeneous mixture of clay, silica, iron oxides -> Mixture.\n8. (h) Wood: Heterogeneous mixture of cellulose, lignin, resins -> Mixture.\n9. (i) Air: Homogeneous mixture of $N_2, O_2, Ar, CO_2$ -> Mixture.",
+        "finalAnswer": "Pure substances are: (a) Ice, (c) Iron, (d) Hydrochloric acid, (e) Calcium oxide, and (f) Mercury.",
+        "unit": "NCERT Master Exercise Q7",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.1: Pure substance vs mixture taxonomy"
+      },
+      {
+        "problem": "NCERT Ex Q11. Which of the following are chemical changes? (a) Growth of a plant, (b) Rusting of iron, (c) Mixing of iron filings and sand, (d) Cooking of food, (e) Digestion of food, (f) Freezing of water, (g) Burning of a candle.",
+        "given": "7 physical and chemical processes.",
+        "formula": "Chemical Change Invariant: Formation of new chemical substances with altered molecular bonds.",
+        "substitution": "Evaluate whether molecular composition changes irreversibly.",
+        "calculation": "1. (a) Growth of plant: Photosynthesis and biochemical cell synthesis -> **Chemical change**.\n2. (b) Rusting of iron: Oxidation forming hydrated iron oxide ($Fe_2O_3 \\cdot xH_2O$) -> **Chemical change**.\n3. (c) Mixing iron filings and sand: Physical blending, easily separated by magnet -> Physical change.\n4. (d) Cooking food: Protein denaturation and chemical reaction -> **Chemical change**.\n5. (e) Digestion of food: Enzymatic hydrolysis of starches, fats, and proteins -> **Chemical change**.\n6. (f) Freezing water: Phase change liquid to solid ($H_2O$), reversible -> Physical change.\n7. (g) Burning candle: Wax combustion produces $CO_2$ and $H_2O$ -> **Chemical change** (alongside physical melting of wax).",
+        "finalAnswer": "Chemical changes: (a) Growth of a plant, (b) Rusting of iron, (d) Cooking of food, (e) Digestion of food, and (g) Burning of a candle.",
+        "unit": "NCERT Master Exercise Q11",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 5.28: Physical phase change vs chemical combustion reaction"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "Dissolving salt in water is a chemical change because the salt 'disappears'.",
+        "correction": "Dissolving salt is a PHYSICAL change because no new chemical compound is formed; sodium and chloride ions are merely hydrated by water molecules, and evaporating the water yields 100% of the original salt back.",
+        "why_it_matters": "A high-frequency misconception tested on CBSE exams."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Master Separation Solver Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Municipal Water Purification Stages: Physical sedimentation of suspended solids, alum loading for colloidal clay, sand/gravel filtration, and chemical chlorination.",
+          "diagram_title": "City Water Purification Plant Flowsheet",
+          "diagram_type": "image",
+          "image_query": "Water purification system in water works diagram ncert",
+          "video_query": "water purification plant municipal supply animation",
+          "image_url": "/extracted_diagrams/ch5/fig_5_24.webp",
+          "what_to_make": "Textbook flowsheet showing reservoir -> sedimentation tank -> loading tank -> filtration tank (sand/gravel) -> chlorination tank -> home distribution.",
+          "timing_and_cue": "Mount water plant on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_24.webp | Water Purification Flowsheet | Multi-stage physical filtration and chlorination for municipal drinking supply\")"
+        },
+        {
+          "concept_title": "Crystallization Advantage: Avoids thermal decomposition and charring of solids; impurities remain dissolved in filtrate mother liquor.",
+          "diagram_title": "Activity 5.11 Pure Copper Sulfate Crystallization",
+          "diagram_type": "image",
+          "image_query": "Copper sulfate crystallization crystals china dish beaker photo",
+          "video_query": "crystallization of copper sulfate class 9",
+          "image_url": "/extracted_diagrams/ch5/fig_5_25.webp",
+          "what_to_make": "Photograph of magnificent blue rhombic copper sulfate crystals grown by slow cooling of saturated solution.",
+          "timing_and_cue": "Mount crystallization on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_25.webp | Crystallization Superiority | Growing pure copper sulfate crystal lattice while impurities stay in solution\")"
+        },
+        {
+          "concept_title": "Physical vs Chemical Change Test: Physical changes alter shape/state without forming new chemical bonds; Chemical changes yield new substances with distinct chemical properties.",
+          "diagram_title": "Physical vs Chemical Change Comparison Card",
+          "diagram_type": "image",
+          "image_query": "Physical vs chemical change comparison chart ice melting rusting",
+          "video_query": "physical vs chemical changes chemistry",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Rusting_iron.jpg",
+          "what_to_make": "Comparative graphic of reversible ice melting vs irreversible rusting of iron chain.",
+          "timing_and_cue": "Mount physical vs chemical on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/e/e2/Rusting_iron.jpg | Physical vs Chemical Changes | Reversible phase transitions vs irreversible chemical bond alterations\")"
+        },
+        {
+          "concept_title": "Pragmatic Separation Routing: Choosing precise apparatus (centrifuge, separating funnel, chromatography, distillation) for arbitrary multi-component mixtures.",
+          "diagram_title": "Master Separation Method Selection Matrix",
+          "diagram_type": "image",
+          "image_query": "Methods of separating mixtures table chemistry review",
+          "video_query": "how to choose separation method chemistry",
+          "image_url": "/extracted_diagrams/ch5/fig_5_26.webp",
+          "what_to_make": "Comprehensive reference matrix linking mixture properties (immiscible, boiling point, density, volatility) to separation tools.",
+          "timing_and_cue": "Mount separation matrix on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_26.webp | Master Separation Matrix | Topper revision card for all 11 NCERT chapter-end questions\")"
+        },
+        {
+          "concept_title": "Full 11-Question Master Ledger: Complete structured solutions matching CBSE marking schemes.",
+          "diagram_title": "NCERT Chapter 5 Master Solutions Review",
+          "diagram_type": "image",
+          "image_query": "Class 9 science is matter around us pure summary sheet",
+          "video_query": "is matter around us pure full chapter revision",
+          "image_url": "/extracted_diagrams/ch5/fig_5_1.webp",
+          "what_to_make": "NCERT chapter-end solutions overview summarizing core distinctions and separation schemes.",
+          "timing_and_cue": "Mount solutions overview on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_1.webp | NCERT Chapter 5 Master Ledger | 100% verified solutions matching official board exam rubrics\")"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount verified image from concept_visuals on Step 1 of each exercise solver turn.\n2. 6-STAGE SOCRATIC CADENCE:\n   - Stage 1: Intuition hook (Presenting the exact NCERT question statement).\n   - Stage 2: Chemical principle and governing classification rule.\n   - Stage 3: Common pitfall (Dissolving salt is physical; Burning candle wax is BOTH physical and chemical!).\n   - Stage 4: Chalkboard line-by-line model answer.\n   - Stage 5: Socratic check: \"Why is burning a candle considered BOTH a physical and a chemical change?\" HARD STOP: Wait for student response!\n   - Stage 6: Boxed topper final answer."
+  }
+]

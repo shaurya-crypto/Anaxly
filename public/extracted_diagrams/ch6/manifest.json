@@ -1,0 +1,800 @@
+[
+  {
+    "figure_id": "Fig. 6.1",
+    "page_number": 1,
+    "caption": "Fig. 6.1: Applying force on different objects",
+    "filename": "fig_6_1.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_1.webp",
+    "dimensions": {
+      "width": 1704,
+      "height": 1181,
+      "aspect_ratio": 1.44
+    },
+    "file_size_kb": 247.4,
+    "crop_bbox": [
+      42.2,
+      413.8,
+      533.0,
+      758.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.2",
+    "page_number": 2,
+    "caption": "Fig. 6.2: Measuring the weight of an object using a",
+    "filename": "fig_6_2.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_2.webp",
+    "dimensions": {
+      "width": 1020,
+      "height": 1328,
+      "aspect_ratio": 0.77
+    },
+    "file_size_kb": 165.1,
+    "crop_bbox": [
+      305.3,
+      99.7,
+      602.5,
+      482.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.3",
+    "page_number": 2,
+    "caption": "Fig. 6.3: (a) Pushing a box Usually, there is more than one force acting on an object. For example, when kept on",
+    "filename": "fig_6_3.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_3.webp",
+    "dimensions": {
+      "width": 1781,
+      "height": 474,
+      "aspect_ratio": 3.76
+    },
+    "file_size_kb": 106.0,
+    "crop_bbox": [
+      83.0,
+      477.1,
+      604.2,
+      613.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.4",
+    "page_number": 3,
+    "caption": "Fig. 6.4: Two forces applied in opposite direction of (a) equal unbalanced. magnitudes, (b) unequal magnitudes",
+    "filename": "fig_6_4.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_4.webp",
+    "dimensions": {
+      "width": 1048,
+      "height": 667,
+      "aspect_ratio": 1.57
+    },
+    "file_size_kb": 127.5,
+    "crop_bbox": [
+      42.4,
+      70.3,
+      354.2,
+      272.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.5",
+    "page_number": 3,
+    "caption": "Fig. 6.5: Two forces applied in the same direction forces.",
+    "filename": "fig_6_5.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_5.webp",
+    "dimensions": {
+      "width": 759,
+      "height": 417,
+      "aspect_ratio": 1.82
+    },
+    "file_size_kb": 48.0,
+    "crop_bbox": [
+      42.8,
+      321.3,
+      266.1,
+      441.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.6",
+    "page_number": 3,
+    "caption": "Fig. 6.6: Two forces acting on a block in three different manner Answer: (a) Net force = 10 N + 6",
+    "filename": "fig_6_6.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_6.webp",
+    "dimensions": {
+      "width": 1514,
+      "height": 352,
+      "aspect_ratio": 4.3
+    },
+    "file_size_kb": 31.4,
+    "crop_bbox": [
+      113.3,
+      478.9,
+      553.0,
+      580.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.7",
+    "page_number": 3,
+    "caption": "Fig. 6.7: Equal and opposite makes it turn. You will also learn about this in higher grades. forces on an extended object",
+    "filename": "fig_6_7.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_7.webp",
+    "dimensions": {
+      "width": 1690,
+      "height": 513,
+      "aspect_ratio": 3.29
+    },
+    "file_size_kb": 121.2,
+    "crop_bbox": [
+      59.0,
+      599.7,
+      552.9,
+      748.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.8",
+    "page_number": 4,
+    "caption": "Fig. 6.8: A weightlifter Fig. 6.9: Arm-wrestling (out of the page towards you), are the forces lifting barbell match",
+    "filename": "fig_6_8.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_8.webp",
+    "dimensions": {
+      "width": 1776,
+      "height": 613,
+      "aspect_ratio": 2.9
+    },
+    "file_size_kb": 113.9,
+    "crop_bbox": [
+      79.8,
+      36.0,
+      591.3,
+      212.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.9",
+    "page_number": 4,
+    "caption": "Fig. 6.9: Arm-wrestling (out of the page towards you), are the forces lifting barbell match",
+    "filename": "fig_6_9.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_9.webp",
+    "dimensions": {
+      "width": 1776,
+      "height": 613,
+      "aspect_ratio": 2.9
+    },
+    "file_size_kb": 113.9,
+    "crop_bbox": [
+      79.8,
+      36.0,
+      591.3,
+      212.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.10",
+    "page_number": 4,
+    "caption": "Fig. 6.10: A box being pushed larger force to move it. Why is it so?",
+    "filename": "fig_6_10.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_10.webp",
+    "dimensions": {
+      "width": 1752,
+      "height": 657,
+      "aspect_ratio": 2.67
+    },
+    "file_size_kb": 130.0,
+    "crop_bbox": [
+      83.0,
+      214.2,
+      593.3,
+      403.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.11",
+    "page_number": 4,
+    "caption": "Fig. 6.11: Forces acting on an object box when the box moves through the air, but in many cases its",
+    "filename": "fig_6_11.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_11.webp",
+    "dimensions": {
+      "width": 1789,
+      "height": 837,
+      "aspect_ratio": 2.14
+    },
+    "file_size_kb": 202.7,
+    "crop_bbox": [
+      64.3,
+      401.4,
+      583.2,
+      642.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.12",
+    "page_number": 5,
+    "caption": "Fig. 6.12: (a) Rubber band slightly stretched between your forefinger and thumb, (b) marks A, B, C on the surface, and (c)",
+    "filename": "fig_6_12.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_12.webp",
+    "dimensions": {
+      "width": 1764,
+      "height": 1391,
+      "aspect_ratio": 1.27
+    },
+    "file_size_kb": 256.7,
+    "crop_bbox": [
+      38.0,
+      80.0,
+      554.0,
+      484.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.13",
+    "page_number": 6,
+    "caption": "Fig. 6.13: Force acting on the stack of no longer acting upon it. But the force of friction continues coins (a) due",
+    "filename": "fig_6_13.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_13.webp",
+    "dimensions": {
+      "width": 1710,
+      "height": 770,
+      "aspect_ratio": 2.22
+    },
+    "file_size_kb": 140.5,
+    "crop_bbox": [
+      98.9,
+      36.0,
+      591.3,
+      257.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.14",
+    "page_number": 6,
+    "caption": "Fig. 6.14: A block being pulled by a spring balance",
+    "filename": "fig_6_14.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_14.webp",
+    "dimensions": {
+      "width": 1201,
+      "height": 344,
+      "aspect_ratio": 3.49
+    },
+    "file_size_kb": 57.7,
+    "crop_bbox": [
+      107.1,
+      441.0,
+      463.9,
+      540.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.15",
+    "page_number": 8,
+    "caption": "Fig. 6.15: When the object is at rest, its Fig. 6.16: When the object is moving with (a) position-time graph, a constant",
+    "filename": "fig_6_15.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_15.webp",
+    "dimensions": {
+      "width": 1744,
+      "height": 1395,
+      "aspect_ratio": 1.25
+    },
+    "file_size_kb": 297.9,
+    "crop_bbox": [
+      83.0,
+      99.7,
+      592.1,
+      501.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.16",
+    "page_number": 8,
+    "caption": "Fig. 6.16: When the object is moving with (a) position-time graph, a constant velocity, its (a) position-time",
+    "filename": "fig_6_16.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_16.webp",
+    "dimensions": {
+      "width": 1744,
+      "height": 1395,
+      "aspect_ratio": 1.25
+    },
+    "file_size_kb": 297.9,
+    "crop_bbox": [
+      83.0,
+      99.7,
+      592.1,
+      501.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.17a",
+    "page_number": 9,
+    "caption": "Fig. 6.17a (if the wheels are loose, wrap some cup (b) adhesive tape at the pencil ends to fit the wheels",
+    "filename": "fig_6_17a.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_17a.webp",
+    "dimensions": {
+      "width": 1769,
+      "height": 1426,
+      "aspect_ratio": 1.24
+    },
+    "file_size_kb": 360.2,
+    "crop_bbox": [
+      36.1,
+      162.5,
+      553.4,
+      573.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.17",
+    "page_number": 9,
+    "caption": "Fig. 6.17: (a) A cart, (b) a cart and tightly). Attach a thread to the front end of the pulley system box",
+    "filename": "fig_6_17.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_17.webp",
+    "dimensions": {
+      "width": 1567,
+      "height": 102,
+      "aspect_ratio": 15.36
+    },
+    "file_size_kb": 17.7,
+    "crop_bbox": [
+      25.4,
+      571.3,
+      610.6,
+      600.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.18",
+    "page_number": 11,
+    "caption": "Fig. 6.18: Catching a reduces to zero. This reduces the magnitude of the acceleration of the cricket ball",
+    "filename": "fig_6_18.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_18.webp",
+    "dimensions": {
+      "width": 1802,
+      "height": 1409,
+      "aspect_ratio": 1.28
+    },
+    "file_size_kb": 333.1,
+    "crop_bbox": [
+      27.7,
+      346.2,
+      553.0,
+      752.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.20",
+    "page_number": 12,
+    "caption": "Fig. 6.20: Cracking a shell. coconut in one go",
+    "filename": "fig_6_20.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_20.webp",
+    "dimensions": {
+      "width": 842,
+      "height": 886,
+      "aspect_ratio": 0.95
+    },
+    "file_size_kb": 118.2,
+    "crop_bbox": [
+      72.0,
+      129.5,
+      318.0,
+      384.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.21",
+    "page_number": 13,
+    "caption": "Fig. 6.21. Calculate the force acting on the 5.0 car during (i) 0 s to 5 s",
+    "filename": "fig_6_21.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_21.webp",
+    "dimensions": {
+      "width": 630,
+      "height": 389,
+      "aspect_ratio": 1.62
+    },
+    "file_size_kb": 30.7,
+    "crop_bbox": [
+      372.4,
+      74.6,
+      560.8,
+      190.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.22",
+    "page_number": 14,
+    "caption": "Fig. 6.22: Kicking a ball Haven’t you experienced that when you push a ball with your",
+    "filename": "fig_6_22.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_22.webp",
+    "dimensions": {
+      "width": 1782,
+      "height": 474,
+      "aspect_ratio": 3.76
+    },
+    "file_size_kb": 90.2,
+    "crop_bbox": [
+      78.0,
+      36.0,
+      591.3,
+      172.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.23",
+    "page_number": 14,
+    "caption": "Fig. 6.23: Applying force on a in the backward direction with your feet causing both you and the table in the (a)",
+    "filename": "fig_6_23.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_23.webp",
+    "dimensions": {
+      "width": 509,
+      "height": 978,
+      "aspect_ratio": 0.52
+    },
+    "file_size_kb": 63.9,
+    "crop_bbox": [
+      447.5,
+      179.9,
+      598.7,
+      461.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.24",
+    "page_number": 14,
+    "caption": "Fig. 6.24: Pushing the ground backwards While walking or running when you push the ground backwards",
+    "filename": "fig_6_24.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_24.webp",
+    "dimensions": {
+      "width": 1743,
+      "height": 587,
+      "aspect_ratio": 2.97
+    },
+    "file_size_kb": 162.1,
+    "crop_bbox": [
+      83.0,
+      463.2,
+      592.3,
+      632.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.25",
+    "page_number": 14,
+    "caption": "Fig. 6.25: Walking",
+    "filename": "fig_6_25.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_25.webp",
+    "dimensions": {
+      "width": 836,
+      "height": 213,
+      "aspect_ratio": 3.92
+    },
+    "file_size_kb": 28.3,
+    "crop_bbox": [
+      305.3,
+      694.4,
+      546.0,
+      760.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.26",
+    "page_number": 15,
+    "caption": "Fig. 6.26: Two spring balances connected together are pulled in opposite directions The readings of",
+    "filename": "fig_6_26.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_26.webp",
+    "dimensions": {
+      "width": 1371,
+      "height": 323,
+      "aspect_ratio": 4.24
+    },
+    "file_size_kb": 67.2,
+    "crop_bbox": [
+      151.0,
+      281.8,
+      553.0,
+      375.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.27",
+    "page_number": 15,
+    "caption": "Fig. 6.27: A person climbing a against the trunk. The friction between the trunk and the legs coconut tree",
+    "filename": "fig_6_27.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_27.webp",
+    "dimensions": {
+      "width": 1598,
+      "height": 610,
+      "aspect_ratio": 2.62
+    },
+    "file_size_kb": 156.9,
+    "crop_bbox": [
+      89.3,
+      431.9,
+      553.0,
+      607.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.28",
+    "page_number": 15,
+    "caption": "Fig. 6.28: Rowing a canoe on the water, the forward force on the paddle is larger, and the canoe’s velocity increases.",
+    "filename": "fig_6_28.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_28.webp",
+    "dimensions": {
+      "width": 649,
+      "height": 530,
+      "aspect_ratio": 1.22
+    },
+    "file_size_kb": 37.8,
+    "crop_bbox": [
+      32.6,
+      611.0,
+      224.6,
+      763.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.29",
+    "page_number": 16,
+    "caption": "Fig. 6.29: Air rushing out of the balloon The stretched material of the balloon applies a force on the air molecules",
+    "filename": "fig_6_29.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_29.webp",
+    "dimensions": {
+      "width": 1581,
+      "height": 1398,
+      "aspect_ratio": 1.13
+    },
+    "file_size_kb": 217.1,
+    "crop_bbox": [
+      76.1,
+      83.0,
+      535.3,
+      489.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.30",
+    "page_number": 16,
+    "caption": "Fig. 6.30: Rocket Note launching",
+    "filename": "fig_6_30.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_30.webp",
+    "dimensions": {
+      "width": 1589,
+      "height": 748,
+      "aspect_ratio": 2.12
+    },
+    "file_size_kb": 186.5,
+    "crop_bbox": [
+      83.0,
+      487.4,
+      544.3,
+      702.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.31",
+    "page_number": 17,
+    "caption": "Fig. 6.31: Two bar magnets applying equal and Fig. 6.32: Two similarly charged opposite magnetic forces on each other balloons applying equal",
+    "filename": "fig_6_31.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_31.webp",
+    "dimensions": {
+      "width": 1477,
+      "height": 951,
+      "aspect_ratio": 1.55
+    },
+    "file_size_kb": 178.4,
+    "crop_bbox": [
+      124.1,
+      83.0,
+      553.0,
+      360.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.33",
+    "page_number": 17,
+    "caption": "Fig. 6.33: The Earth and the fruit applying equal and small to be noticed. opposite gravitational",
+    "filename": "fig_6_33.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_33.webp",
+    "dimensions": {
+      "width": 260,
+      "height": 424,
+      "aspect_ratio": 0.61
+    },
+    "file_size_kb": 24.4,
+    "crop_bbox": [
+      37.5,
+      405.7,
+      116.5,
+      528.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.34",
+    "page_number": 18,
+    "caption": "Fig. 6.34: A system of two boxes attached together by a string One approach is to calculate",
+    "filename": "fig_6_34.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_34.webp",
+    "dimensions": {
+      "width": 1703,
+      "height": 1078,
+      "aspect_ratio": 1.58
+    },
+    "file_size_kb": 166.9,
+    "crop_bbox": [
+      101.0,
+      36.0,
+      591.3,
+      346.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.35",
+    "page_number": 18,
+    "caption": "Fig. 6.35: External forces on a system of two whole. boxes attached together by a string",
+    "filename": "fig_6_35.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_35.webp",
+    "dimensions": {
+      "width": 1729,
+      "height": 1119,
+      "aspect_ratio": 1.55
+    },
+    "file_size_kb": 194.5,
+    "crop_bbox": [
+      63.8,
+      429.9,
+      568.8,
+      755.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.36",
+    "page_number": 19,
+    "caption": "Fig. 6.36 Which of the following statement is correct?",
+    "filename": "fig_6_36.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_36.webp",
+    "dimensions": {
+      "width": 1359,
+      "height": 1391,
+      "aspect_ratio": 0.98
+    },
+    "file_size_kb": 210.6,
+    "crop_bbox": [
+      158.1,
+      305.0,
+      553.0,
+      705.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.37",
+    "page_number": 20,
+    "caption": "Fig. 6.37 7. A sailor jumps out from a small boat to the shore (Fig. 6.38). As the",
+    "filename": "fig_6_37.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_37.webp",
+    "dimensions": {
+      "width": 1462,
+      "height": 476,
+      "aspect_ratio": 3.07
+    },
+    "file_size_kb": 43.0,
+    "crop_bbox": [
+      85.9,
+      389.7,
+      513.5,
+      526.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.38",
+    "page_number": 20,
+    "caption": "Fig. 6.38: A sailor jumping forward Fig. 6.39: A landing mat for a high jump event 8. During a high jump",
+    "filename": "fig_6_38.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_38.webp",
+    "dimensions": {
+      "width": 1363,
+      "height": 629,
+      "aspect_ratio": 2.17
+    },
+    "file_size_kb": 103.6,
+    "crop_bbox": [
+      90.1,
+      545.2,
+      487.3,
+      726.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.39",
+    "page_number": 20,
+    "caption": "Fig. 6.39: A landing mat for a high jump event",
+    "filename": "fig_6_39.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_39.webp",
+    "dimensions": {
+      "width": 605,
+      "height": 523,
+      "aspect_ratio": 1.16
+    },
+    "file_size_kb": 26.0,
+    "crop_bbox": [
+      309.6,
+      545.2,
+      487.3,
+      706.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.40",
+    "page_number": 21,
+    "caption": "Fig. 6.40 Fig. 6.41",
+    "filename": "fig_6_40.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_40.webp",
+    "dimensions": {
+      "width": 1063,
+      "height": 558,
+      "aspect_ratio": 1.91
+    },
+    "file_size_kb": 61.1,
+    "crop_bbox": [
+      199.5,
+      215.8,
+      505.8,
+      376.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.41",
+    "page_number": 21,
+    "caption": "Fig. 6.41",
+    "filename": "fig_6_41.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_41.webp",
+    "dimensions": {
+      "width": 696,
+      "height": 545,
+      "aspect_ratio": 1.28
+    },
+    "file_size_kb": 42.1,
+    "crop_bbox": [
+      305.3,
+      215.8,
+      505.8,
+      376.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.42",
+    "page_number": 21,
+    "caption": "Fig. 6.42: A bar magnet both the forces are equal in magnitude and opposite in direction. and a magnetic",
+    "filename": "fig_6_42.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_42.webp",
+    "dimensions": {
+      "width": 365,
+      "height": 805,
+      "aspect_ratio": 0.45
+    },
+    "file_size_kb": 31.9,
+    "crop_bbox": [
+      45.3,
+      499.8,
+      154.1,
+      736.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.43",
+    "page_number": 22,
+    "caption": "Fig. 6.43 laws of motion by reading excerpts from his original work, the",
+    "filename": "fig_6_43.webp",
+    "file_path": "public/extracted_diagrams/ch6\\fig_6_43.webp",
+    "dimensions": {
+      "width": 451,
+      "height": 500,
+      "aspect_ratio": 0.9
+    },
+    "file_size_kb": 27.9,
+    "crop_bbox": [
+      454.0,
+      391.4,
+      593.1,
+      556.3
+    ]
+  }
+]

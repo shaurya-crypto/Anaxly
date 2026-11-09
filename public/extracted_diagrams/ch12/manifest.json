@@ -1,0 +1,344 @@
+[
+  {
+    "figure_id": "Fig. 12.1",
+    "page_number": 2,
+    "caption": "Fig. 12.1: (a) Nilgiri tahr, (b) Lion-tailed macaque, Western Ghats, Indo-Burma (including North (c) Nepenthes khasiana, and (d) Neelakurinji",
+    "filename": "fig_12_1.webp",
+    "file_path": "public/extracted_diagrams/ch12\\fig_12_1.webp",
+    "dimensions": {
+      "width": 1749,
+      "height": 1064,
+      "aspect_ratio": 1.64
+    },
+    "file_size_kb": 472.5,
+    "crop_bbox": [
+      25.4,
+      253.0,
+      594.5,
+      559.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.2",
+    "page_number": 3,
+    "caption": "Fig. 12.2 shows the diversity of animals in an ecosystem. Observe the image carefully. Can you guess how the organisms are grouped",
+    "filename": "fig_12_2.webp",
+    "file_path": "public/extracted_diagrams/ch12\\fig_12_2.webp",
+    "dimensions": {
+      "width": 1397,
+      "height": 677,
+      "aspect_ratio": 2.06
+    },
+    "file_size_kb": 116.5,
+    "crop_bbox": [
+      147.2,
+      121.7,
+      553.2,
+      318.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.3",
+    "page_number": 5,
+    "caption": "Fig. 12.3: Four different another and how they interact. species of hornbill found in the Pakke",
+    "filename": "fig_12_3.webp",
+    "file_path": "public/extracted_diagrams/ch12\\fig_12_3.webp",
+    "dimensions": {
+      "width": 482,
+      "height": 1271,
+      "aspect_ratio": 0.38
+    },
+    "file_size_kb": 73.0,
+    "crop_bbox": [
+      25.4,
+      370.1,
+      179.8,
+      736.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.5",
+    "page_number": 7,
+    "caption": "Fig. 12.5: Five kingdom classification 3. Compare the criteria you",
+    "filename": "fig_12_5.webp",
+    "file_path": "public/extracted_diagrams/ch12\\fig_12_5.webp",
+    "dimensions": {
+      "width": 1717,
+      "height": 1441,
+      "aspect_ratio": 1.19
+    },
+    "file_size_kb": 263.4,
+    "crop_bbox": [
+      80.6,
+      291.8,
+      579.1,
+      706.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.6",
+    "page_number": 8,
+    "caption": "Fig. 12.6 Members of 2. Compare them with Fig. 12.6. the Kingdom Monera",
+    "filename": "fig_12_6.webp",
+    "file_path": "public/extracted_diagrams/ch12\\fig_12_6.webp",
+    "dimensions": {
+      "width": 391,
+      "height": 605,
+      "aspect_ratio": 0.65
+    },
+    "file_size_kb": 27.2,
+    "crop_bbox": [
+      478.6,
+      36.0,
+      591.3,
+      215.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.7",
+    "page_number": 8,
+    "caption": "Fig. 12.7: Microscopic illustration of 3. Fill the bottle with stagnant water or pond water and mix common protists",
+    "filename": "fig_12_7.webp",
+    "file_path": "public/extracted_diagrams/ch12\\fig_12_7.webp",
+    "dimensions": {
+      "width": 1819,
+      "height": 1747,
+      "aspect_ratio": 1.04
+    },
+    "file_size_kb": 473.9,
+    "crop_bbox": [
+      69.5,
+      213.3,
+      600.6,
+      716.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.8",
+    "page_number": 9,
+    "caption": "Fig. 12.8: Common fungi affecting the soil fertility and ecological balance.",
+    "filename": "fig_12_8.webp",
+    "file_path": "public/extracted_diagrams/ch12\\fig_12_8.webp",
+    "dimensions": {
+      "width": 428,
+      "height": 1409,
+      "aspect_ratio": 0.3
+    },
+    "file_size_kb": 99.9,
+    "crop_bbox": [
+      39.5,
+      220.2,
+      166.7,
+      625.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.9",
+    "page_number": 10,
+    "caption": "Fig. 12.9: Spirogyra stones? What do you think about these patches? Visit a village and talk to",
+    "filename": "fig_12_9.webp",
+    "file_path": "public/extracted_diagrams/ch12\\fig_12_9.webp",
+    "dimensions": {
+      "width": 1739,
+      "height": 1151,
+      "aspect_ratio": 1.51
+    },
+    "file_size_kb": 246.1,
+    "crop_bbox": [
+      77.5,
+      119.7,
+      590.4,
+      451.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.10",
+    "page_number": 10,
+    "caption": "Fig. 12.10: Members Examples of Bryophytes include Marchantia and moss (Fig. 12.10). of class Bryophyta",
+    "filename": "fig_12_10.webp",
+    "file_path": "public/extracted_diagrams/ch12\\fig_12_10.webp",
+    "dimensions": {
+      "width": 1743,
+      "height": 737,
+      "aspect_ratio": 2.36
+    },
+    "file_size_kb": 244.2,
+    "crop_bbox": [
+      78.2,
+      549.1,
+      588.0,
+      766.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.12",
+    "page_number": 11,
+    "caption": "Fig. 12.12: Cone of pine 238",
+    "filename": "fig_12_12.webp",
+    "file_path": "public/extracted_diagrams/ch12\\fig_12_12.webp",
+    "dimensions": {
+      "width": 569,
+      "height": 1378,
+      "aspect_ratio": 0.41
+    },
+    "file_size_kb": 112.8,
+    "crop_bbox": [
+      38.2,
+      384.8,
+      202.3,
+      783.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.13",
+    "page_number": 12,
+    "caption": "Fig. 12.13: An angiosperm tree",
+    "filename": "fig_12_13.webp",
+    "file_path": "public/extracted_diagrams/ch12\\fig_12_13.webp",
+    "dimensions": {
+      "width": 665,
+      "height": 640,
+      "aspect_ratio": 1.04
+    },
+    "file_size_kb": 80.1,
+    "crop_bbox": [
+      401.6,
+      36.0,
+      593.1,
+      220.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.14",
+    "page_number": 14,
+    "caption": "Fig. 12.14: Longitudinal section of",
+    "filename": "fig_12_14.webp",
+    "file_path": "public/extracted_diagrams/ch12\\fig_12_14.webp",
+    "dimensions": {
+      "width": 604,
+      "height": 1203,
+      "aspect_ratio": 0.5
+    },
+    "file_size_kb": 97.7,
+    "crop_bbox": [
+      425.5,
+      36.0,
+      599.4,
+      382.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.15",
+    "page_number": 15,
+    "caption": "Fig. 12.15: Internal This outer covering provides protection, reduces water loss and structure of an supports powerful muscles, allowing arthropods to survive",
+    "filename": "fig_12_15.webp",
+    "file_path": "public/extracted_diagrams/ch12\\fig_12_15.webp",
+    "dimensions": {
+      "width": 303,
+      "height": 777,
+      "aspect_ratio": 0.39
+    },
+    "file_size_kb": 38.2,
+    "crop_bbox": [
+      47.2,
+      144.8,
+      138.2,
+      378.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.16",
+    "page_number": 15,
+    "caption": "Fig. 12.16: The animal kingdom",
+    "filename": "fig_12_16.webp",
+    "file_path": "public/extracted_diagrams/ch12\\fig_12_16.webp",
+    "dimensions": {
+      "width": 1954,
+      "height": 1334,
+      "aspect_ratio": 1.46
+    },
+    "file_size_kb": 227.2,
+    "crop_bbox": [
+      44.4,
+      376.5,
+      610.6,
+      760.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.17",
+    "page_number": 17,
+    "caption": "Fig. 12.17. What do you infer? Classification follows a step-by-step order, starting from very broad groups, and moving towards",
+    "filename": "fig_12_17.webp",
+    "file_path": "public/extracted_diagrams/ch12\\fig_12_17.webp",
+    "dimensions": {
+      "width": 1667,
+      "height": 1282,
+      "aspect_ratio": 1.3
+    },
+    "file_size_kb": 293.7,
+    "crop_bbox": [
+      65.7,
+      297.1,
+      553.0,
+      666.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.17",
+    "page_number": 18,
+    "caption": "Fig. 12.17: Pyramids showing levels, from kingdom at the top to species at the base, with the examples of a tiger and",
+    "filename": "fig_12_17.webp",
+    "file_path": "public/extracted_diagrams/ch12\\fig_12_17.webp",
+    "dimensions": {
+      "width": 1461,
+      "height": 1398,
+      "aspect_ratio": 1.05
+    },
+    "file_size_kb": 218.6,
+    "crop_bbox": [
+      82.8,
+      198.8,
+      507.8,
+      601.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.19",
+    "page_number": 19,
+    "caption": "Fig. 12.19: Three which carries the instructions for its growth and function. domains of life",
+    "filename": "fig_12_19.webp",
+    "file_path": "public/extracted_diagrams/ch12\\fig_12_19.webp",
+    "dimensions": {
+      "width": 1720,
+      "height": 1364,
+      "aspect_ratio": 1.26
+    },
+    "file_size_kb": 329.1,
+    "crop_bbox": [
+      55.1,
+      190.2,
+      553.0,
+      583.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.20",
+    "page_number": 20,
+    "caption": "Fig. 12.20: A purple frog resting on wet soil Western Ghats.",
+    "filename": "fig_12_20.webp",
+    "file_path": "public/extracted_diagrams/ch12\\fig_12_20.webp",
+    "dimensions": {
+      "width": 1760,
+      "height": 1395,
+      "aspect_ratio": 1.26
+    },
+    "file_size_kb": 363.0,
+    "crop_bbox": [
+      83.0,
+      332.3,
+      596.5,
+      737.3
+    ]
+  }
+]

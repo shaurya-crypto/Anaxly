@@ -145,8 +145,6 @@ export class AudioStreamer {
    * downsamples to 16kHz, and streams base64 PCM.
    */
   private processAudioFrame(inputData: Float32Array, inputRate: number, targetRate: number): void {
-    const targetLength = Math.round(inputData.length / (inputRate / targetRate));
-
     if (this.isMuted) {
       return;
     }
@@ -157,19 +155,19 @@ export class AudioStreamer {
       sum += inputData[i] * inputData[i];
     }
     const rms = Math.sqrt(sum / inputData.length);
+    const now = Date.now();
 
     // 1. TEACHER SPEAKING (SPEAKER SUPPRESSION & HIGH-FIDELITY DELIBERATE BARGE-IN):
     if (this.isTeacherSpeaking) {
-      const now = Date.now();
-      // Grace period (450ms) after teacher starts speaking to ignore initial speaker activation transients & acoustic echo
-      if (now - this.teacherSpeechStartTime < 450) {
+      // Grace period (300ms) after teacher starts speaking to ignore initial speaker activation transients
+      if (now - this.teacherSpeechStartTime < 300) {
         this.consecutiveBargeInFrames = 0;
         return;
       }
 
-      // Calibrated voice detection threshold for normal conversational speaking voice
-      const BARGE_IN_THRESHOLD = Math.max(0.088, this.noiseFloor * 3.8);
-      const requiredFrames = this.workletNode ? 6 : 5;
+      // Responsive conversational voice detection threshold for barge-in (normal voice into mic)
+      const BARGE_IN_THRESHOLD = Math.max(0.022, this.noiseFloor * 1.8);
+      const requiredFrames = 2; // ~80ms of intentional voice is enough to trigger barge-in
 
       if (rms >= BARGE_IN_THRESHOLD) {
         this.consecutiveBargeInFrames++;
@@ -192,53 +190,29 @@ export class AudioStreamer {
       this.consecutiveBargeInFrames = 0;
     }
 
-    // 2. ADAPTIVE NOISE GATING & SPEECH HANGOVER:
-    const now = Date.now();
-
-    // Dynamically track ambient room noise (fans, AC, room acoustics) when not speaking
+    // 2. DYNAMIC NOISE TRACKING & VAD EVENTS:
     if (!this.wasSpeechActive) {
       this.noiseFloor = Math.min(0.02, Math.max(0.003, this.noiseFloor * 0.96 + rms * 0.04));
     }
 
-    // Dynamic speech threshold: sensitive to conversational speech (RMS 0.026-0.050), robust against breathing & fan
-    const dynamicSpeechThreshold = Math.max(0.026, this.noiseFloor * 2.2);
-    const SPEECH_HANGOVER_MS = 2400; // 2.4s hangover allows natural student thinking pauses without cutting off speech
-    const requiredSpeechFrames = this.workletNode ? 5 : 4;
+    // Sensitive voice detection threshold for normal conversational speaking voice on any microphone
+    const voiceThreshold = Math.max(0.010, this.noiseFloor * 1.3);
 
-    if (rms >= dynamicSpeechThreshold) {
-      this.consecutiveSpeechFrames++;
-      if (this.consecutiveSpeechFrames >= requiredSpeechFrames) {
-        this.lastSpeechTime = now;
-        this.speechEndTime = now;
-        if (!this.wasSpeechActive) {
-          this.wasSpeechActive = true;
-          this.speechStartTime = now;
-          this.onSpeechStart?.();
-        }
+    if (rms >= voiceThreshold) {
+      this.lastSpeechTime = now;
+      if (!this.wasSpeechActive) {
+        this.wasSpeechActive = true;
+        this.speechStartTime = now;
+        this.onSpeechStart?.();
       }
-    } else {
-      this.consecutiveSpeechFrames = 0;
+    } else if (this.wasSpeechActive && now - this.lastSpeechTime > 1800) {
+      // 1.8s of silence after speech -> inform hybrid VAD of speech end
+      this.wasSpeechActive = false;
+      this.onSpeechEnd?.();
     }
 
-    const isSpeechActive = now - this.lastSpeechTime < SPEECH_HANGOVER_MS;
-
-    if (!isSpeechActive) {
-      if (this.wasSpeechActive) {
-        this.wasSpeechActive = false;
-        this.consecutiveSpeechFrames = 0;
-        // Measure duration of actual active speech frames, not including the hangover window
-        const actualSpokenDuration = this.speechEndTime > this.speechStartTime ? this.speechEndTime - this.speechStartTime : 0;
-        if (actualSpokenDuration >= 450) {
-          console.log(`[AudioStreamer] Student voice ended (${actualSpokenDuration}ms speech + ${SPEECH_HANGOVER_MS}ms pause). Triggering onSpeechEnd (Hybrid VAD).`);
-          this.onSpeechEnd?.();
-        } else {
-          console.log(`[AudioStreamer] Ignoring brief noise transient (${actualSpokenDuration}ms speech).`);
-        }
-      }
-      return;
-    }
-
-    // 3. STUDENT SPEECH ACTIVE: Resample to 16kHz PCM and stream
+    // 3. ALWAYS STREAM AUDIO WHEN TEACHER IS NOT SPEAKING:
+    // Gemini Live server-side neural VAD requires a continuous PCM stream to hear the student!
     const resampledData = this.resampleAudio(inputData, inputRate, targetRate);
     const pcm16 = this.floatTo16BitPCM(resampledData);
     const base64 = this.arrayBufferToBase64(pcm16.buffer);
@@ -256,7 +230,7 @@ export class AudioStreamer {
       this.teacherSpeechStartTime = Date.now();
       this.consecutiveBargeInFrames = 0;
     } else {
-      const delayMs = isSimliActive ? 650 : 200;
+      const delayMs = isSimliActive ? 650 : 80;
       this.teacherSpeakingHangoverTimer = setTimeout(() => {
         this.isTeacherSpeaking = false;
         this.consecutiveBargeInFrames = 0;

@@ -24,6 +24,7 @@ export interface GeminiLiveCallbacks {
   onUserSpeechStart?: () => void;
   onChalkboardToolCall?: (action: string, content: any, color?: string) => void;
   onVisualAction?: (action: string, params: Record<string, any>) => void;
+  onGetBoardContent?: () => string;
 }
 
 export class GeminiLiveClient {
@@ -78,7 +79,7 @@ export class GeminiLiveClient {
     this.avatarConfig = options?.avatarConfig;
     this.systemInstruction =
       options?.systemInstruction ||
-      "You are an inspiring Senior Academic Topper Tutor conducting an engaging 1-on-1 spoken tutoring session with a live chalkboard. MANDATORY INVARIANT: On EVERY turn, you MUST call write_chalkboard (or write_board) to write on the board. MANDATORY PROACTIVE DIAGRAMS: Call render_svg_diagram proactively on Step 1 of each concept without waiting for the student to ask. MANDATORY HAIRLINE 3D AXONOMETRIC SPECIFICATION: Whenever calling render_svg_diagram or drawing physical apparatus, optical instruments, circuits, inclined planes, or 3D geometry, strictly output clean 30° axonometric isometric projections with rounded wireframe solids, top/front bevels, laser-sharp leader callouts, and clean white (#FFFFFF) background matching the whiteboard. Never draw flat 2D clipart. ANTI-TELEPROMPTER RULE: Never merely recite what is written on the board! After stating definitions or laws, immediately explain the deep physical or conceptual 'why' in conversational speech. Solve complex senior math step-by-step with spoken reasoning for each transition. Teach in small bites of 2-3 sentences. Never lecture continuously. ZERO-RUSH PATIENCE INVARIANT: Pause after every step to check understanding. When you ask a question or check understanding, you MUST stop speaking and remain completely silent. Never advance on a 1-second silence. Wait patiently for the student's response. STRICT SOCRATIC MASTERY GATING: NEVER call concept_completed, concept_done, or new_page if the student answers incorrectly or has unresolved doubts! If the student answers wrong or hesitates, explain the mistake, write corrections on the chalkboard, and re-test with a simpler analogy. Advance to the next concept ONLY after ALL module questions for the current concept are answered correctly AND the student confirms all doubts are cleared. BOARD STATE CONTINUITY: Respect [CURRENT_BOARD_STATE] — never rewrite or redraw notes or diagrams already present on the active page; continue directly from the next step. LIVE DIAGRAM GENERATION: Live diagram tools (render_svg_diagram, plot_mathematical_graph, draw_shape) remain fully active for all new concepts and steps. When a diagram represents mathematical functions, coordinate systems, or kinematic curves in Maths & Physics, plot it dynamically using plot_mathematical_graph matching the textbook.";
+      "You are an inspiring, experienced Master Academic Topper Tutor conducting an authentic 1-on-1 spoken tutoring session with a live chalkboard. TEACH LIKE AN EXPERIENCED FACULTY MENTOR: Radiate calm confidence, intellectual clarity, and genuine warmth. Speak conversationally and thoughtfully—like a beloved, seasoned professor or master tutor standing right beside the student at the chalkboard. Pacing: Never rush. Speak in brief, natural thoughts (2 to 3 sentences maximum per turn). Pause naturally so the student can absorb every word. TANGIBLE INTUITION FIRST: Never start a concept by throwing formal definitions or abstract variables on the board; always ignite curiosity with a tangible everyday phenomenon or mental experiment first. MANDATORY INVARIANT: On EVERY turn, you MUST call write_chalkboard (or write_board) to write on the board. MANDATORY PROACTIVE DIAGRAMS: Call render_svg_diagram proactively on Step 1 of each concept without waiting for the student to ask. MANDATORY HAIRLINE 3D AXONOMETRIC SPECIFICATION: Whenever calling render_svg_diagram or drawing physical apparatus, optical instruments, circuits, inclined planes, or 3D geometry, strictly output clean 30° axonometric isometric projections with rounded wireframe solids, top/front bevels, laser-sharp leader callouts, and clean white (#FFFFFF) background matching the whiteboard. Never draw flat 2D clipart. ANTI-TELEPROMPTER RULE: Never merely recite what is written on the board! Explain the living mechanism, the physical reality, and the intuitive 'why' in conversational speech. Solve problems using the authentic 5-step board layout: Given -> To Find -> Formula -> Rough Calculation in [ROUGH_WORK] scratchpad -> Boxed Answer. ZERO-RUSH PATIENCE INVARIANT & THE HARD STOP: When you ask a question or check understanding, you MUST stop speaking completely and remain silent. NEVER answer your own question. Wait patiently for the student's response. STRICT SOCRATIC MASTERY GATING: NEVER call concept_completed, concept_done, or new_page if the student answers incorrectly or has unresolved doubts! If the student answers wrong or hesitates, explain the mistake with diagnostic kindness, co-solve in rough work, and re-test. Advance to the next concept ONLY after ALL module questions for the current concept are answered correctly AND the student confirms all doubts are cleared. BOARD STATE CONTINUITY: Respect [CURRENT_BOARD_STATE] — never rewrite or redraw notes or diagrams already present on the active page; continue directly from the next step.";
     this.ai = new GoogleGenAI({
       apiKey: this.apiKey,
       httpOptions: { apiVersion: "v1alpha" },
@@ -242,6 +243,54 @@ export class GeminiLiveClient {
       }
     }
 
+    // 4a2. Match search_and_show_image(...)
+    const searchImgRegex = /search_and_show_image\s*\(([\s\S]*?)\)/gi;
+    let sim;
+    while ((sim = searchImgRegex.exec(rawText)) !== null) {
+      const body = sim[1]?.trim() || "";
+      if (!body) continue;
+      if (body.startsWith("{")) {
+        try {
+          const parsed = JSON.parse(body);
+          this.handleSingleToolCall("search_and_show_image", parsed);
+        } catch {}
+      } else {
+        const explicitQuery = body.match(/\bquery\s*=\s*["']([^"']*)["']/i);
+        const explicitTitle = body.match(/\btitle\s*=\s*["']([^"']*)["']/i);
+        const explicitCaption = body.match(/\bcaption\s*=\s*["']([^"']*)["']/i);
+        const query = explicitQuery ? explicitQuery[1] : body.split(',')[0]?.replace(/^["']|["']$/g, '').trim() || '';
+        const title = explicitTitle ? explicitTitle[1] : body.split(',')[1]?.replace(/^["']|["']$/g, '').trim() || query;
+        const caption = explicitCaption ? explicitCaption[1] : body.split(',')[2]?.replace(/^["']|["']$/g, '').trim() || '';
+        if (query) {
+          this.handleSingleToolCall("search_and_show_image", { query, title, caption });
+        }
+      }
+    }
+
+    // 4a3. Match search_and_show_video(...)
+    const searchVidRegex = /search_and_show_video\s*\(([\s\S]*?)\)/gi;
+    let svm;
+    while ((svm = searchVidRegex.exec(rawText)) !== null) {
+      const body = svm[1]?.trim() || "";
+      if (!body) continue;
+      if (body.startsWith("{")) {
+        try {
+          const parsed = JSON.parse(body);
+          this.handleSingleToolCall("search_and_show_video", parsed);
+        } catch {}
+      } else {
+        const explicitQuery = body.match(/\bquery\s*=\s*["']([^"']*)["']/i);
+        const explicitTitle = body.match(/\btitle\s*=\s*["']([^"']*)["']/i);
+        const explicitDesc = body.match(/\b(?:description|caption)\s*=\s*["']([^"']*)["']/i);
+        const query = explicitQuery ? explicitQuery[1] : body.split(',')[0]?.replace(/^["']|["']$/g, '').trim() || '';
+        const title = explicitTitle ? explicitTitle[1] : body.split(',')[1]?.replace(/^["']|["']$/g, '').trim() || query;
+        const description = explicitDesc ? explicitDesc[1] : body.split(',')[2]?.replace(/^["']|["']$/g, '').trim() || '';
+        if (query) {
+          this.handleSingleToolCall("search_and_show_video", { query, title, description });
+        }
+      }
+    }
+
     // 4b. Match concept_completed(...) or concept_done(...)
     const conceptDoneRegex = /(?:concept_completed|concept_done|next_concept|advance_concept)\s*\(\s*(?:(?:conceptName|concept)\s*=\s*)?["']?([^"'\)]*)["']?\s*\)/gi;
     let cdm;
@@ -280,12 +329,16 @@ export class GeminiLiveClient {
       .replace(stripCall("focus_concept"), "")
       .replace(stripCall("render_svg_diagram"), "")
       .replace(/render_svg_diagram\s*\([\s\S]*?\)/gi, "")
+      .replace(stripCall("search_and_show_image"), "")
+      .replace(/search_and_show_image\s*\([\s\S]*?\)/gi, "")
+      .replace(stripCall("search_and_show_video"), "")
+      .replace(/search_and_show_video\s*\([\s\S]*?\)/gi, "")
       .replace(/\[[A-Z_]+(?::\s*[^\]]*)?\]/gi, "")
       .replace(/\s+/g, " ")
       .trim();
   }
 
-  private handleSingleToolCall(name: string, args: any, callId?: string): void {
+  private handleSingleToolCall(name: string, args: any, callId?: string): any {
     if (callId) {
       if (this.executedToolCallIds.has(callId)) {
         return;
@@ -369,11 +422,88 @@ export class GeminiLiveClient {
       const caption = args.caption || "";
       const what = args.what || "";
       this.callbacks.onChalkboardToolCall?.("render_svg_diagram", { title, svg, caption, what });
+    } else if (name === "search_and_show_image") {
+      const query = args.query || args.searchQuery || args.q || "";
+      const title = args.title || query || "Scientific Diagram";
+      const caption = args.caption || "";
+      if (query && typeof window !== "undefined") {
+        fetch("/api/diagram/search-image", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            const firstImg = data.images?.[0];
+            if (firstImg?.url) {
+              this.callbacks.onChalkboardToolCall?.("draw_image", {
+                url: firstImg.url,
+                title: title || firstImg.title,
+                caption: caption || firstImg.description || "",
+              });
+            } else {
+              this.callbacks.onChalkboardToolCall?.("render_svg_diagram", {
+                title,
+                caption,
+              });
+            }
+          })
+          .catch((err) => {
+            console.warn("[GeminiLive] search_and_show_image error:", err);
+            this.callbacks.onChalkboardToolCall?.("render_svg_diagram", {
+              title,
+              caption,
+            });
+          });
+      }
+    } else if (name === "search_and_show_video") {
+      const query = args.query || args.searchQuery || args.q || "";
+      const title = args.title || query || "Demonstration Video";
+      const description = args.description || args.caption || "";
+      if (query && typeof window !== "undefined") {
+        fetch("/api/diagram/search-video", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            const firstVid = data.videos?.[0];
+            if (firstVid?.url) {
+              this.callbacks.onChalkboardToolCall?.("draw_video", {
+                url: firstVid.url,
+                title: title || firstVid.title,
+                description: description || firstVid.description || "",
+                mimeType: firstVid.mimeType || "video/mp4",
+              });
+            } else {
+              this.callbacks.onChalkboardToolCall?.("draw_video", {
+                url: "",
+                title,
+                description,
+              });
+            }
+          })
+          .catch((err) => {
+            console.warn("[GeminiLive] search_and_show_video error:", err);
+            this.callbacks.onChalkboardToolCall?.("draw_video", {
+              url: "",
+              title,
+              description,
+            });
+          });
+      }
     } else if (name === "conclude_and_open_quiz") {
       if (args.summary) {
         this.callbacks.onChalkboardToolCall?.("chapter_summary", args.summary);
       }
       this.callbacks.onChalkboardToolCall?.("open_quiz", args.summary || "10-MCQ Diagnostic Evaluation");
+    } else if (name === "get_board_content" || name === "read_board_content" || name === "get_board_state") {
+      const boardState = this.callbacks.onGetBoardContent?.() || "";
+      return {
+        result: "ok",
+        chalkboard_content: boardState || "Digital chalkboard is active. No notes written yet.",
+      };
     } else if (name === "concept_completed" || name === "next_concept" || name === "advance_concept") {
       const cName = args.conceptName || args.concept || (typeof args === "string" ? args : "");
       this.callbacks.onChalkboardToolCall?.("concept_done", cName);
@@ -447,6 +577,8 @@ export class GeminiLiveClient {
                         "draw_flowchart",
                         "draw_table",
                         "draw_rough_work",
+                        "draw_image",
+                        "draw_video",
                         "render_svg_diagram",
                         "concept_done",
                         "concept_focus",
@@ -506,6 +638,8 @@ export class GeminiLiveClient {
                         "draw_flowchart",
                         "draw_table",
                         "draw_rough_work",
+                        "draw_image",
+                        "draw_video",
                         "concept_done",
                         "concept_focus",
                         "set_color",
@@ -809,6 +943,61 @@ export class GeminiLiveClient {
                   required: ["conceptName"],
                 },
               },
+              {
+                name: "search_and_show_image",
+                description: "Search the web for an authentic, high-resolution scientific educational diagram, electron micrograph, real apparatus, or histology slide and display it directly on the student's chalkboard. Use proactively when teaching structural concepts or when the student hesitates, is confused, or requests to see another picture or real-life view.",
+                behavior: Behavior.NON_BLOCKING,
+                parameters: {
+                  type: Type.OBJECT,
+                  properties: {
+                    query: {
+                      type: Type.STRING,
+                      description: "Specific search query, e.g. 'plant cell wall ultrastructure diagram' or 'onion peel cells under microscope'",
+                    },
+                    title: {
+                      type: Type.STRING,
+                      description: "Title for the chalkboard image card",
+                    },
+                    caption: {
+                      type: Type.STRING,
+                      description: "Key educational note or legend",
+                    },
+                  },
+                  required: ["query", "title"],
+                },
+              },
+              {
+                name: "search_and_show_video",
+                description: "Search for and display an educational demonstration video or experimental animation directly on the student's chalkboard. Use proactively when teaching physical motion, dynamic biological processes, laboratory apparatus experiments, or when the student asks for a video demonstration.",
+                behavior: Behavior.NON_BLOCKING,
+                parameters: {
+                  type: Type.OBJECT,
+                  properties: {
+                    query: {
+                      type: Type.STRING,
+                      description: "Specific video search query, e.g. 'mitosis cell division under microscope' or 'air track kinematics uniform acceleration' or 'osmosis egg experiment'",
+                    },
+                    title: {
+                      type: Type.STRING,
+                      description: "Title for the demonstration video card",
+                    },
+                    description: {
+                      type: Type.STRING,
+                      description: "Brief 1-line educational description of what the video demonstrates",
+                    },
+                  },
+                  required: ["query", "title"],
+                },
+              },
+              {
+                name: "get_board_content",
+                description: "Inspect and read the current digital chalkboard contents, including all notes, definitions, formulas, student responses, answer verdicts, and rough work scratchpad currently visible on the board. Call this whenever the student asks about what is on the board, refers to board content, or before writing new notes to avoid duplication.",
+                behavior: Behavior.NON_BLOCKING,
+                parameters: {
+                  type: Type.OBJECT,
+                  properties: {},
+                },
+              },
             ],
           },
         ];
@@ -831,11 +1020,11 @@ export class GeminiLiveClient {
            if (msg.toolCall && msg.toolCall.functionCalls) {
              const responses: any[] = [];
              for (const call of msg.toolCall.functionCalls) {
-               this.handleSingleToolCall(call.name, call.args || {}, call.id);
+               const toolResult = this.handleSingleToolCall(call.name, call.args || {}, call.id);
                responses.push({
                  id: call.id,
                  name: call.name,
-                 response: { result: "ok" },
+                 response: toolResult || { result: "ok" },
                });
              }
              if (responses.length > 0 && this.session) {
@@ -904,14 +1093,14 @@ export class GeminiLiveClient {
                  }
                }
                if (part.functionCall) {
-                 this.handleSingleToolCall(part.functionCall.name, part.functionCall.args || {}, part.functionCall.id);
+                 const toolResult = this.handleSingleToolCall(part.functionCall.name, part.functionCall.args || {}, part.functionCall.id);
                  try {
                    this.session?.sendToolResponse({
                      functionResponses: [
                        {
                          id: part.functionCall.id,
                          name: part.functionCall.name,
-                         response: { result: "ok" },
+                         response: toolResult || { result: "ok" },
                        },
                      ],
                    });

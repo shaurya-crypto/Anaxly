@@ -1,0 +1,287 @@
+[
+  {
+    "figure_id": "Fig. 13.1",
+    "page_number": 2,
+    "caption": "Fig. 13.1: Some features of the Earth’s surface",
+    "filename": "fig_13_1.webp",
+    "file_path": "public/extracted_diagrams/ch13\\fig_13_1.webp",
+    "dimensions": {
+      "width": 762,
+      "height": 593,
+      "aspect_ratio": 1.28
+    },
+    "file_size_kb": 126.1,
+    "crop_bbox": [
+      369.6,
+      294.9,
+      593.5,
+      469.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.3",
+    "page_number": 4,
+    "caption": "Fig. 13.3: Solar Radiation energy future that sets global benchmarks. Over India by Anna Mani and S. Rangarajan",
+    "filename": "fig_13_3.webp",
+    "file_path": "public/extracted_diagrams/ch13\\fig_13_3.webp",
+    "dimensions": {
+      "width": 1809,
+      "height": 1262,
+      "aspect_ratio": 1.43
+    },
+    "file_size_kb": 285.8,
+    "crop_bbox": [
+      74.5,
+      36.0,
+      595.4,
+      399.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.4",
+    "page_number": 4,
+    "caption": "Fig. 13.4: Solar panel in the desert",
+    "filename": "fig_13_4.webp",
+    "file_path": "public/extracted_diagrams/ch13\\fig_13_4.webp",
+    "dimensions": {
+      "width": 965,
+      "height": 1262,
+      "aspect_ratio": 0.76
+    },
+    "file_size_kb": 155.5,
+    "crop_bbox": [
+      305.3,
+      387.5,
+      586.7,
+      751.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.5",
+    "page_number": 5,
+    "caption": "Fig. 13.5: Solar radiation and warming of the Earth of the common objects we come across in our",
+    "filename": "fig_13_5.webp",
+    "file_path": "public/extracted_diagrams/ch13\\fig_13_5.webp",
+    "dimensions": {
+      "width": 1745,
+      "height": 1070,
+      "aspect_ratio": 1.63
+    },
+    "file_size_kb": 298.7,
+    "crop_bbox": [
+      43.4,
+      134.4,
+      553.0,
+      445.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.6",
+    "page_number": 6,
+    "caption": "Fig. 13.6: Urban heat island effect in a city",
+    "filename": "fig_13_6.webp",
+    "file_path": "public/extracted_diagrams/ch13\\fig_13_6.webp",
+    "dimensions": {
+      "width": 997,
+      "height": 1191,
+      "aspect_ratio": 0.84
+    },
+    "file_size_kb": 158.6,
+    "crop_bbox": [
+      305.3,
+      36.0,
+      592.4,
+      379.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.7",
+    "page_number": 7,
+    "caption": "Fig. 13.7: Layers of the Earth’s atmosphere temperature rises with height. This increase",
+    "filename": "fig_13_7.webp",
+    "file_path": "public/extracted_diagrams/ch13\\fig_13_7.webp",
+    "dimensions": {
+      "width": 895,
+      "height": 780,
+      "aspect_ratio": 1.15
+    },
+    "file_size_kb": 48.8,
+    "crop_bbox": [
+      50.7,
+      87.3,
+      308.5,
+      312.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.8",
+    "page_number": 8,
+    "caption": "Fig. 13.8 (a): Valley breeze After sunset, the situation reverses. The mountain slopes",
+    "filename": "fig_13_8.webp",
+    "file_path": "public/extracted_diagrams/ch13\\fig_13_8.webp",
+    "dimensions": {
+      "width": 1749,
+      "height": 1225,
+      "aspect_ratio": 1.43
+    },
+    "file_size_kb": 334.4,
+    "crop_bbox": [
+      83.0,
+      259.8,
+      593.5,
+      612.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.9",
+    "page_number": 9,
+    "caption": "Fig. 13.9 (a): Wind circulation between equatorial low pressure belt air at the sub-tropical belt returns to the and sub-tropical high pressure",
+    "filename": "fig_13_9.webp",
+    "file_path": "public/extracted_diagrams/ch13\\fig_13_9.webp",
+    "dimensions": {
+      "width": 1037,
+      "height": 619,
+      "aspect_ratio": 1.68
+    },
+    "file_size_kb": 140.7,
+    "crop_bbox": [
+      41.0,
+      151.0,
+      344.2,
+      334.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.10",
+    "page_number": 10,
+    "caption": "Fig. 13.10 (b): Gulf Stream brings warm water at high latitudes. This moderating influence on from the equator",
+    "filename": "fig_13_10.webp",
+    "file_path": "public/extracted_diagrams/ch13\\fig_13_10.webp",
+    "dimensions": {
+      "width": 815,
+      "height": 1283,
+      "aspect_ratio": 0.64
+    },
+    "file_size_kb": 159.9,
+    "crop_bbox": [
+      354.6,
+      89.7,
+      592.6,
+      459.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.11",
+    "page_number": 10,
+    "caption": "Fig. 13.11: Indian Institute of Tropical Meteorology (IITM), Pune",
+    "filename": "fig_13_11.webp",
+    "file_path": "public/extracted_diagrams/ch13\\fig_13_11.webp",
+    "dimensions": {
+      "width": 1010,
+      "height": 854,
+      "aspect_ratio": 1.18
+    },
+    "file_size_kb": 104.1,
+    "crop_bbox": [
+      305.3,
+      497.6,
+      599.5,
+      747.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.12",
+    "page_number": 11,
+    "caption": "Fig. 13.12: Water cycle water cycle links the cryosphere (glaciers), hydrosphere",
+    "filename": "fig_13_12.webp",
+    "file_path": "public/extracted_diagrams/ch13\\fig_13_12.webp",
+    "dimensions": {
+      "width": 1757,
+      "height": 1166,
+      "aspect_ratio": 1.51
+    },
+    "file_size_kb": 406.0,
+    "crop_bbox": [
+      39.6,
+      315.6,
+      553.0,
+      651.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.13",
+    "page_number": 12,
+    "caption": "Fig. 13.13: Carbon cycle",
+    "filename": "fig_13_13.webp",
+    "file_path": "public/extracted_diagrams/ch13\\fig_13_13.webp",
+    "dimensions": {
+      "width": 1031,
+      "height": 907,
+      "aspect_ratio": 1.14
+    },
+    "file_size_kb": 207.7,
+    "crop_bbox": [
+      305.3,
+      36.0,
+      602.2,
+      297.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.15",
+    "page_number": 13,
+    "caption": "Fig. 13.15: Nitrogen cycle and fungi break the organic matter, returning nitrogen",
+    "filename": "fig_13_15.webp",
+    "file_path": "public/extracted_diagrams/ch13\\fig_13_15.webp",
+    "dimensions": {
+      "width": 893,
+      "height": 882,
+      "aspect_ratio": 1.01
+    },
+    "file_size_kb": 74.1,
+    "crop_bbox": [
+      47.9,
+      189.7,
+      308.9,
+      447.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.16",
+    "page_number": 14,
+    "caption": "Fig. 13.16: Oxygen cycle organisms, sustaining life across all spheres of",
+    "filename": "fig_13_16.webp",
+    "file_path": "public/extracted_diagrams/ch13\\fig_13_16.webp",
+    "dimensions": {
+      "width": 973,
+      "height": 856,
+      "aspect_ratio": 1.14
+    },
+    "file_size_kb": 157.6,
+    "crop_bbox": [
+      314.7,
+      36.0,
+      595.0,
+      282.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.17",
+    "page_number": 14,
+    "caption": "Fig. 13.17: Eutrophication (algal bloom)",
+    "filename": "fig_13_17.webp",
+    "file_path": "public/extracted_diagrams/ch13\\fig_13_17.webp",
+    "dimensions": {
+      "width": 1036,
+      "height": 1609,
+      "aspect_ratio": 0.64
+    },
+    "file_size_kb": 336.8,
+    "crop_bbox": [
+      305.3,
+      295.7,
+      608.0,
+      764.1
+    ]
+  }
+]

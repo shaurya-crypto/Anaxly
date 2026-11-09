@@ -16,6 +16,7 @@ export function useGeminiLive() {
   const [selectedVoice, setSelectedVoice] = useState<GeminiVoice>("Leda");
   const [latestVideoFrame, setLatestVideoFrame] = useState<string | null>(null);
   const [videoMimeType, setVideoMimeType] = useState<string>("image/jpeg");
+  const [studentProfile, setStudentProfile] = useState<any>(null);
 
   const audioPlayerRef = useRef<AudioPlayer | null>(null);
   const audioStreamerRef = useRef<AudioStreamer | null>(null);
@@ -83,7 +84,8 @@ export function useGeminiLive() {
       preferredLanguage?: string;
       supportedLanguages?: string[];
       languageCode?: string;
-    }
+    },
+    onGetBoardContent?: () => string
   ) => {
     setErrorMessage(null);
     setConnectionState("CONNECTING");
@@ -96,6 +98,9 @@ export function useGeminiLive() {
         throw new Error(errJson.error || "Failed to initialize live session configuration");
       }
       const config = await res.json();
+      if (config.studentProfile) {
+        setStudentProfile(config.studentProfile);
+      }
 
       // 2. Initialize AudioPlayer with Web Audio API
       const player = new AudioPlayer((isPlaying) => {
@@ -208,6 +213,9 @@ export function useGeminiLive() {
           },
           onVisualAction: (action, params) => {
             onVisualAction?.(action, params);
+          },
+          onGetBoardContent: () => {
+            return onGetBoardContent?.() || "";
           },
           onError: (err) => {
             console.error("[useGeminiLive] Connection error:", err);
@@ -343,6 +351,7 @@ export function useGeminiLive() {
     setSelectedVoice,
     latestVideoFrame,
     videoMimeType,
+    studentProfile,
     startClass,
     toggleMute,
     setTeacherAudioMuted,

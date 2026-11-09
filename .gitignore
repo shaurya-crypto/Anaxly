@@ -78,12 +78,19 @@ cookies.txt
 *.key
 *.cert
 
-# Large archives & bundles
+# Large archives, raw books & bundles
 *.zip
 *.tar.gz
 *.rar
 *.7z
 public/*.zip
+*.pdf
+public/class 9th science/
+
+# Python cache & byte-compiled files
+__pycache__/
+*.py[cod]
+*$py.class
 
 # Codebase memory & indexes
 .codebase-memory/

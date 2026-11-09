@@ -13,6 +13,10 @@ import {
   BookOpen,
   Trash2,
   Eraser,
+  X,
+  ZoomIn,
+  ZoomOut,
+  Maximize2,
 } from 'lucide-react'
 import { evaluateMathExpression } from '@/lib/mathEvaluator'
 import { createUniversalScientificSvg } from '@/services/universalScientificSvg'
@@ -47,6 +51,7 @@ export interface GreenChalkboardRef {
   setChalkColor: (colorNameOrHex: string) => void
   setBoardColor: (theme: 'green' | 'blackboard' | 'slate' | 'white') => void
   drawSvgDiagram: (title: string, svgMarkup: string, caption?: string, forceUpdate?: boolean) => void
+  drawImage?: (urlOrDataUrl: string, title?: string, caption?: string) => void
   drawDiagramSkeleton?: (title: string) => void
   clearDiagramSkeleton?: (title?: string) => void
   drawGraph: (type?: string) => void
@@ -59,7 +64,7 @@ export interface GreenChalkboardRef {
     answer: string
     unit?: string
   }) => void
-  drawVideoCard?: (title: string, description?: string) => void
+  drawVideoCard?: (title: string, description?: string, url?: string, mimeType?: string) => void
   drawTable?: (tableStr: string) => void
   drawGeometry?: (geomStr: string) => void
   drawShape?: (shapeDef: any) => void
@@ -281,6 +286,46 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     const activeChalkColorRef = useRef<string>(INK_PRIMARY)
     const lastDrawnStudentAnswerRef = useRef<{ text: string; time: number } | null>(null)
     const lastExecutedActionTimeRef = useRef<Map<string, number>>(new Map())
+
+    // High-Resolution Interactive Image Lightbox
+    const [lightboxImage, setLightboxImage] = useState<{
+      url: string
+      title: string
+      caption?: string
+    } | null>(null)
+    const [lightboxZoom, setLightboxZoom] = useState<number>(1)
+    const [lightboxPan, setLightboxPan] = useState<{ x: number; y: number }>({ x: 0, y: 0 })
+    const [isDraggingLightbox, setIsDraggingLightbox] = useState<boolean>(false)
+    const dragStartRef = useRef<{ startX: number; startY: number; initialPanX: number; initialPanY: number }>({
+      startX: 0,
+      startY: 0,
+      initialPanX: 0,
+      initialPanY: 0,
+    })
+
+    // Educational Video Demonstration Lightbox / Modal
+    const [videoModal, setVideoModal] = useState<{
+      url: string
+      title: string
+      description?: string
+    } | null>(null)
+
+    useEffect(() => {
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          if (videoModal) {
+            setVideoModal(null)
+          }
+          if (lightboxImage) {
+            setLightboxImage(null)
+            setLightboxZoom(1)
+            setLightboxPan({ x: 0, y: 0 })
+          }
+        }
+      }
+      window.addEventListener('keydown', handleKeyDown)
+      return () => window.removeEventListener('keydown', handleKeyDown)
+    }, [lightboxImage, videoModal])
 
     const [activeTyping, setActiveTyping] = useState<ActiveTypingItem | null>(null)
 
@@ -844,13 +889,86 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     persistSceneRef.current = persistScene
 
     const lastElementCountRef = useRef<number>(0)
-    const handleExcalidrawChange = useCallback((elements: readonly any[]) => {
+    const handleExcalidrawChange = useCallback((elements: readonly any[], appState?: any) => {
       if (elements && elements.length > 0) {
         boardElementsRef.current = elements as any[]
         if (elements.length !== lastElementCountRef.current) {
           lastElementCountRef.current = elements.length
           persistSceneRef.current(elements)
         }
+      }
+      if (appState?.selectedElementIds) {
+        const selectedId = Object.keys(appState.selectedElementIds).find((id) => appState.selectedElementIds[id])
+        if (selectedId) {
+          const selectedEl = (elements || []).find((el: any) => el.id === selectedId)
+          if (selectedEl?.customData?.isExpandableImage && (selectedEl.customData?.fullUrl || selectedEl.customData?.imageUrl)) {
+            setLightboxImage({
+              url: selectedEl.customData.fullUrl || selectedEl.customData.imageUrl,
+              title: selectedEl.customData.title || selectedEl.customData.diagramTitle || 'Scientific Diagram',
+              caption: selectedEl.customData.caption || '',
+            })
+            setLightboxZoom(1)
+            setLightboxPan({ x: 0, y: 0 })
+          } else if (selectedEl?.customData?.isPlayableVideo && selectedEl.customData?.videoUrl) {
+            setVideoModal({
+              url: selectedEl.customData.videoUrl,
+              title: selectedEl.customData.title || 'Educational Demonstration',
+              description: selectedEl.customData.description || '',
+            })
+          }
+        }
+      }
+    }, [])
+
+    const handleContainerClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+      if (!excalidrawAPIRef.current || !containerRef.current) return
+      try {
+        const appState = excalidrawAPIRef.current.getAppState?.()
+        if (!appState) return
+        const zoom = appState.zoom?.value || boardZoomRef.current || 0.7
+        const scrollX = appState.scrollX || 0
+        const scrollY = appState.scrollY || 0
+        const rect = containerRef.current.getBoundingClientRect()
+        const canvasX = (e.clientX - rect.left) / zoom - scrollX
+        const canvasY = (e.clientY - rect.top) / zoom - scrollY
+
+        const currentEls = boardElementsRef.current || []
+        for (let i = currentEls.length - 1; i >= 0; i--) {
+          const el = currentEls[i]
+          if (
+            canvasX >= el.x &&
+            canvasX <= el.x + el.width &&
+            canvasY >= el.y &&
+            canvasY <= el.y + el.height
+          ) {
+            if (el.customData?.isPlayableVideo && el.customData?.videoUrl) {
+              setVideoModal({
+                url: el.customData.videoUrl,
+                title: el.customData.title || 'Educational Demonstration',
+                description: el.customData.description || '',
+              })
+              return
+            }
+            if (el.customData?.isExpandableImage || el.customData?.fullUrl || el.customData?.isImageCard) {
+              const fullUrl =
+                el.customData?.fullUrl ||
+                el.customData?.imageUrl ||
+                (el.type === 'image' && excalidrawAPIRef.current.getFiles?.()?.[el.fileId]?.dataURL)
+              if (fullUrl) {
+                setLightboxImage({
+                  url: fullUrl,
+                  title: el.customData?.title || el.customData?.diagramTitle || 'Scientific Diagram',
+                  caption: el.customData?.caption || '',
+                })
+                setLightboxZoom(1)
+                setLightboxPan({ x: 0, y: 0 })
+                return
+              }
+            }
+          }
+        }
+      } catch (err) {
+        console.warn('[handleContainerClick lightbox error]:', err)
       }
     }, [])
 
@@ -3753,64 +3871,292 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       }
     }
 
+    // Draw Educational Image Card directly on Whiteboard
+    const drawImage = async (urlOrDataUrl: string, title = 'Educational Image', caption = '') => {
+      if (!excalidrawAPI || !urlOrDataUrl?.trim()) return
+      const cleanUrl = urlOrDataUrl.trim()
+      const resolvedTitle = (title || '').trim() || 'Educational Image'
+      const resolvedCaption = (caption || '').trim()
+
+      if (shouldSkipDuplicate('draw_image', `${resolvedTitle}:${cleanUrl}`)) return
+
+      await checkAutoPageOverflow(320)
+      try {
+        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const startX = 60
+        const startY = getDynamicNextY(20)
+
+        let finalDataURL = cleanUrl
+        let fileMimeType = 'image/jpeg'
+        if (cleanUrl.endsWith('.png')) fileMimeType = 'image/png'
+        else if (cleanUrl.endsWith('.webp')) fileMimeType = 'image/webp'
+        else if (cleanUrl.endsWith('.svg')) fileMimeType = 'image/svg+xml'
+
+        let imgWidth = 480
+        let imgHeight = 280
+
+        if (cleanUrl.startsWith('http://') || cleanUrl.startsWith('https://')) {
+          try {
+            // Fetch via server proxy to bypass CORS, hotlink protection, and canvas tainting
+            const proxyRes = await fetch(`/api/diagram/proxy?dataUrl=true&url=${encodeURIComponent(cleanUrl)}`)
+            if (proxyRes.ok) {
+              const proxyData = await proxyRes.json()
+              if (proxyData.success && proxyData.dataURL) {
+                finalDataURL = proxyData.dataURL
+                if (proxyData.contentType) fileMimeType = proxyData.contentType
+              }
+            }
+          } catch (proxyErr) {
+            console.warn('[drawImage] Server proxy fallback:', proxyErr)
+          }
+
+          if (finalDataURL === cleanUrl) {
+            try {
+              const resp = await fetch(cleanUrl, { mode: 'cors' })
+              if (resp.ok) {
+                const blob = await resp.blob()
+                if (blob.type) fileMimeType = blob.type
+                finalDataURL = await new Promise<string>((res, rej) => {
+                  const reader = new FileReader()
+                  reader.onloadend = () => res(reader.result as string)
+                  reader.onerror = rej
+                  reader.readAsDataURL(blob)
+                })
+              }
+            } catch (fetchErr) {
+              console.warn('[drawImage] Cross-origin fetch fallback, using direct URL:', fetchErr)
+              finalDataURL = cleanUrl
+            }
+          }
+        }
+
+        if (typeof window !== 'undefined') {
+          try {
+            const probeImg = new window.Image()
+            probeImg.src = finalDataURL
+            await new Promise((resolve) => {
+              probeImg.onload = resolve
+              probeImg.onerror = resolve
+              setTimeout(resolve, 600)
+            })
+            if (probeImg.naturalWidth && probeImg.naturalHeight) {
+              const aspect = probeImg.naturalHeight / probeImg.naturalWidth
+              imgWidth = Math.min(500, Math.max(300, probeImg.naturalWidth))
+              imgHeight = Math.round(imgWidth * aspect)
+            }
+          } catch {}
+        }
+
+        if (imgHeight > 340) {
+          const ratio = 340 / imgHeight
+          imgHeight = 340
+          imgWidth = Math.round(imgWidth * ratio)
+        }
+        if (imgHeight < 160) imgHeight = 160
+
+        const fileId = `img_${Date.now()}_${Math.random().toString(36).substring(2, 8)}` as any
+        const fileObj: any = {
+          id: fileId,
+          dataURL: finalDataURL,
+          mimeType: fileMimeType,
+          created: Date.now(),
+        }
+
+        if (excalidrawAPI.addFiles) {
+          try {
+            excalidrawAPI.addFiles([fileObj])
+          } catch (fileErr) {
+            console.warn('[drawImage] excalidrawAPI.addFiles warning:', fileErr)
+          }
+        }
+
+        if (typeof window !== 'undefined' && storageKey) {
+          try {
+            const rawFiles = localStorage.getItem(`${storageKey}_files`)
+            const existingFiles = rawFiles ? JSON.parse(rawFiles) : {}
+            existingFiles[fileId] = fileObj
+            localStorage.setItem(`${storageKey}_files`, JSON.stringify(existingFiles))
+          } catch (e) {
+            console.warn('Error saving whiteboard file to localStorage:', e)
+          }
+        }
+
+        const cardWidth = Math.max(imgWidth + 32, 440)
+        const captionLines = resolvedCaption
+          ? wrapText(resolvedCaption, cols(55))
+          : []
+        const captionHeight = captionLines.length * 18
+        const zoomHintHeight = 22
+        const cardHeight = imgHeight + 56 + (captionLines.length > 0 ? captionHeight + 10 : 0) + zoomHintHeight + 16
+
+        const current = getCurrentElements()
+        const customPayload = {
+          isRough: false,
+          isImageCard: true,
+          isExpandableImage: true,
+          fullUrl: cleanUrl,
+          imageUrl: finalDataURL,
+          title: resolvedTitle,
+          caption: resolvedCaption,
+        }
+
+        const elementsToInsert: any[] = [
+          {
+            type: 'rectangle',
+            x: startX,
+            y: startY,
+            width: cardWidth,
+            height: cardHeight,
+            strokeColor: '#CBD5E1',
+            backgroundColor: '#FFFFFF',
+            fillStyle: 'solid',
+            strokeWidth: 1.5,
+            roundness: { type: 3 },
+            customData: customPayload,
+          },
+          {
+            type: 'text',
+            x: startX + 16,
+            y: startY + 12,
+            text: `[IMAGE]: ${resolvedTitle.toUpperCase()}`,
+            fontSize: 14,
+            fontFamily: 1,
+            strokeColor: '#0F172A',
+            customData: customPayload,
+          },
+          {
+            type: 'image',
+            x: startX + 16,
+            y: startY + 44,
+            width: imgWidth,
+            height: imgHeight,
+            fileId,
+            status: 'saved',
+            customData: customPayload,
+          },
+        ]
+
+        let nextOffsetY = startY + 44 + imgHeight + 10
+        if (captionLines.length > 0) {
+          elementsToInsert.push({
+            type: 'text',
+            x: startX + 16,
+            y: nextOffsetY,
+            text: captionLines.join('\n'),
+            fontSize: 12,
+            fontFamily: 1,
+            strokeColor: INK_SECONDARY,
+            customData: customPayload,
+          })
+          nextOffsetY += captionHeight + 6
+        }
+
+        elementsToInsert.push({
+          type: 'text',
+          x: startX + 16,
+          y: nextOffsetY,
+          text: '[TAP/CLICK TO EXPAND HIGH-RES VIEW]',
+          fontSize: 11,
+          fontFamily: 1,
+          strokeColor: '#52715D',
+          customData: customPayload,
+        })
+
+        const elements = convertToExcalidrawElements(elementsToInsert)
+        const merged = [...current, ...elements]
+        const nextYTarget = Math.max(nextYRef.current, startY + cardHeight + 20)
+        updateCurrentPageElements(merged, nextYTarget)
+        onNoteRecorded?.(`[Image]: ${resolvedTitle}${resolvedCaption ? ` - ${resolvedCaption}` : ''}`)
+      } catch (err) {
+        console.error('drawImage error:', err)
+      }
+    }
+
     // Draw Video Demonstration Card directly on Whiteboard
-    const drawVideoCard = async (title: string, description = '') => {
+    const drawVideoCard = async (title: string, description = '', url = '', mimeType = 'video/mp4') => {
       if (!excalidrawAPI || !title?.trim()) return
+
+      // Dynamic video lookup if no URL provided
+      let resolvedUrl = (url || '').trim()
+      let resolvedMime = mimeType
+      if (!resolvedUrl) {
+        try {
+          const res = await fetch(`/api/diagram/search-video?query=${encodeURIComponent(title)}&limit=1`)
+          if (res.ok) {
+            const data = await res.json()
+            if (data.videos?.[0]?.url) {
+              resolvedUrl = data.videos[0].url
+              if (data.videos[0].mimeType) resolvedMime = data.videos[0].mimeType
+            }
+          }
+        } catch (vidLookupErr) {
+          console.warn('[drawVideoCard] Dynamic video discovery fallback warning:', vidLookupErr)
+        }
+      }
+
       await checkAutoPageOverflow(140)
       try {
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 70
         const startY = getDynamicNextY(16)
+        const customPayload = {
+          isRough: false,
+          isPlayableVideo: true,
+          videoUrl: resolvedUrl,
+          title: title.trim(),
+          description: description?.trim() || '',
+          mimeType: resolvedMime,
+        }
 
         const elements = convertToExcalidrawElements([
           {
             type: 'rectangle',
             x: startX,
             y: startY,
-            width: 390,
-            height: 95,
+            width: 420,
+            height: 105,
             strokeColor: INK_CORAL,
             backgroundColor: '#FFF8F6',
             fillStyle: 'solid',
             strokeWidth: 1.5,
             roundness: { type: 3 },
-            customData: { isRough: false },
+            customData: customPayload,
           },
           {
             type: 'text',
             x: startX + 14,
-            y: startY + 10,
+            y: startY + 12,
             text: `[DEMONSTRATION VIDEO]: ${title.toUpperCase()}`,
             fontSize: 13,
             fontFamily: 1,
             strokeColor: INK_CORAL,
-            customData: { isRough: false },
+            customData: customPayload,
           },
           {
             type: 'text',
             x: startX + 14,
-            y: startY + 36,
+            y: startY + 38,
             text: description || `Visual experimental proof demonstration on ${title}.`,
             fontSize: 13,
             fontFamily: 1,
             strokeColor: INK_PRIMARY,
-            customData: { isRough: false },
+            customData: customPayload,
           },
           {
             type: 'text',
             x: startX + 14,
-            y: startY + 70,
-            text: 'Live Laboratory & Practical Verification',
+            y: startY + 74,
+            text: url ? '[TAP/CLICK TO WATCH VIDEO DEMONSTRATION]' : '[LIVE EXPERIMENTAL DEMONSTRATION]',
             fontSize: 11,
             fontFamily: 1,
-            strokeColor: INK_MUTED,
-            customData: { isRough: false },
+            strokeColor: url ? INK_CORAL : INK_MUTED,
+            customData: customPayload,
           },
         ])
 
         const current = getCurrentElements()
         const merged = [...current, ...elements]
-        updateCurrentPageElements(merged, startY + 115)
+        updateCurrentPageElements(merged, startY + 125)
         onNoteRecorded?.(`[Video Demo]: ${title}`)
       } catch (err) {
         console.error('drawVideoCard error:', err)
@@ -3861,11 +4207,119 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           } else if (action === 'draw_geometry' || action === 'geometry') {
             if (content) await drawGeometry(content);
           } else if (action === 'draw_image' || action === 'image') {
-            const parts = (content || '').split('|').map((s) => s.trim());
-            await drawFlowchart(`${parts[0] || 'Key Concept'} -> Fundamental Principle -> Board Application`);
+            const anyContent = content as any;
+            if (typeof anyContent === 'object' && anyContent !== null) {
+              const url = anyContent.url || anyContent.image_url || anyContent.fullUrl;
+              if (url) {
+                await drawImage(url, anyContent.title, anyContent.caption);
+              } else if (anyContent.query || anyContent.title) {
+                try {
+                  const res = await fetch(`/api/diagram/search-image?q=${encodeURIComponent(anyContent.query || anyContent.title)}`);
+                  const data = await res.json();
+                  const first = data.images?.[0];
+                  if (first?.url) {
+                    await drawImage(first.url, anyContent.title || first.title, anyContent.caption || first.description);
+                  } else {
+                    await drawSvgDiagram(anyContent.title || 'Scientific Diagram', '', anyContent.caption || '');
+                  }
+                } catch {
+                  await drawSvgDiagram(anyContent.title || 'Scientific Diagram', '', anyContent.caption || '');
+                }
+              }
+            } else if (typeof content === 'string') {
+              const trimmed = content.trim();
+              if (trimmed.startsWith('{') && trimmed.endsWith('}')) {
+                try {
+                  const parsed = JSON.parse(trimmed);
+                  const url = parsed.url || parsed.image_url || parsed.fullUrl;
+                  if (url) {
+                    await drawImage(url, parsed.title, parsed.caption);
+                  } else {
+                    const res = await fetch(`/api/diagram/search-image?q=${encodeURIComponent(parsed.query || parsed.title || trimmed)}`);
+                    const data = await res.json();
+                    const first = data.images?.[0];
+                    if (first?.url) await drawImage(first.url, parsed.title || first.title, parsed.caption || first.description);
+                    else await drawSvgDiagram(parsed.title || 'Scientific Diagram', '', parsed.caption || '');
+                  }
+                } catch {
+                  await drawSvgDiagram('Scientific Diagram', '', trimmed);
+                }
+              } else {
+                const parts = trimmed.split('|').map((s) => s.trim());
+                if (parts[0]?.startsWith('http') || parts[0]?.startsWith('data:')) {
+                  await drawImage(parts[0], parts[1], parts[2]);
+                } else if (parts[1]?.startsWith('http') || parts[1]?.startsWith('data:')) {
+                  await drawImage(parts[1], parts[0], parts[2]);
+                } else {
+                  try {
+                    const res = await fetch(`/api/diagram/search-image?q=${encodeURIComponent(parts[0] || trimmed)}`);
+                    const data = await res.json();
+                    const first = data.images?.[0];
+                    if (first?.url) {
+                      await drawImage(first.url, parts[0] || first.title, parts[1] || first.description);
+                    } else {
+                      await drawSvgDiagram(parts[0] || 'Scientific Diagram', '', parts[1] || '');
+                    }
+                  } catch {
+                    await drawSvgDiagram(parts[0] || 'Scientific Diagram', '', parts[1] || '');
+                  }
+                }
+              }
+            }
           } else if (action === 'draw_video' || action === 'video') {
-            const parts = (content || '').split('|').map((s) => s.trim());
-            await drawVideoCard(parts[0] || 'Demonstration', parts[1] || '');
+            let vidUrl = '';
+            let vidTitle = 'Demonstration';
+            let vidDesc = '';
+            const rawContent: any = content;
+            if (typeof rawContent === 'object' && rawContent !== null) {
+              vidUrl = rawContent.url || rawContent.video_url || '';
+              vidTitle = rawContent.title || 'Demonstration';
+              vidDesc = rawContent.description || rawContent.caption || '';
+            } else if (typeof rawContent === 'string') {
+              const trimmed = rawContent.trim();
+              if (trimmed.startsWith('{') && trimmed.endsWith('}')) {
+                try {
+                  const parsed = JSON.parse(trimmed);
+                  vidUrl = parsed.url || parsed.video_url || '';
+                  vidTitle = parsed.title || 'Demonstration';
+                  vidDesc = parsed.description || parsed.caption || '';
+                } catch {}
+              } else {
+                const parts = trimmed.split('|').map((s) => s.trim());
+                if (parts[0]?.startsWith('http')) {
+                  vidUrl = parts[0];
+                  vidTitle = parts[1] || 'Demonstration';
+                  vidDesc = parts[2] || '';
+                } else if (parts[1]?.startsWith('http')) {
+                  vidTitle = parts[0];
+                  vidUrl = parts[1];
+                  vidDesc = parts[2] || '';
+                } else {
+                  vidTitle = parts[0];
+                  vidDesc = parts[1] || '';
+                }
+              }
+            }
+            if (vidUrl) {
+              await drawVideoCard(vidTitle, vidDesc, vidUrl);
+            } else {
+              try {
+                const r = await fetch('/api/diagram/search-video', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ query: vidTitle }),
+                });
+                const data = await r.json();
+                const first = data.videos?.[0];
+                if (first?.url) {
+                  await drawVideoCard(first.title || vidTitle, vidDesc || first.description, first.url, first.mimeType);
+                } else {
+                  await drawVideoCard(vidTitle, vidDesc);
+                }
+              } catch {
+                await drawVideoCard(vidTitle, vidDesc);
+              }
+            }
           } else if (action === 'draw_numerical' || action === 'numerical' || action === 'worked_example' || action === 'solve') {
             if (typeof content === 'object') await drawNumericalSolution(content);
             else {
@@ -4133,8 +4587,25 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           }
           // 4. Board Videos & Dynamic Vector Diagrams
           else if (tagType === 'IMAGE' || tagType === 'DRAW_IMAGE') {
-            const [imgTitle, imgDesc] = payload.split('|').map((s) => s.trim())
-            await drawSvgDiagram(imgTitle || 'Scientific Diagram', '', imgDesc || '')
+            const parts = payload.split('|').map((s) => s.trim())
+            if (parts[0]?.startsWith('http') || parts[0]?.startsWith('data:')) {
+              await drawImage(parts[0], parts[1], parts[2])
+            } else if (parts[1]?.startsWith('http') || parts[1]?.startsWith('data:')) {
+              await drawImage(parts[1], parts[0], parts[2])
+            } else {
+              try {
+                const res = await fetch(`/api/diagram/search-image?q=${encodeURIComponent(parts[0] || payload)}`)
+                const data = await res.json()
+                const first = data.images?.[0]
+                if (first?.url) {
+                  await drawImage(first.url, parts[0] || first.title, parts[1] || first.description)
+                } else {
+                  await drawSvgDiagram(parts[0] || 'Scientific Diagram', '', parts[1] || '')
+                }
+              } catch {
+                await drawSvgDiagram(parts[0] || 'Scientific Diagram', '', parts[1] || '')
+              }
+            }
           } else if (tagType === 'VIDEO' || tagType === 'DRAW_VIDEO') {
             const [vidTitle, vidDesc] = payload.split('|').map((s) => s.trim())
             await drawVideoCard(vidTitle || 'Visual Demonstration', vidDesc || '')
@@ -4245,11 +4716,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       setChalkColor: (colorNameOrHex: string) => setChalkColor(colorNameOrHex),
       setBoardColor: () => {},
       drawSvgDiagram: (title: string, svgMarkup: string, caption?: string, forceUpdate?: boolean) => enqueueOperation(async () => drawSvgDiagram(title, svgMarkup, caption, forceUpdate)),
+      drawImage: (urlOrDataUrl: string, title?: string, caption?: string) => enqueueOperation(async () => drawImage(urlOrDataUrl, title, caption)),
       drawDiagramSkeleton,
       clearDiagramSkeleton,
       drawGraph: (type?: string) => enqueueOperation(async () => drawGraph(type)),
       drawNumericalSolution: (solution: any) => enqueueOperation(async () => drawNumericalSolution(solution)),
-      drawVideoCard: (title: string, description?: string) => enqueueOperation(async () => drawVideoCard(title, description)),
+      drawVideoCard: (title: string, description?: string, url?: string, mimeType?: string) => enqueueOperation(async () => drawVideoCard(title, description, url, mimeType)),
       drawTable: (tableStr: string) => enqueueOperation(async () => drawTable(tableStr)),
       drawGeometry: (geomStr: string) => enqueueOperation(async () => drawGeometry(geomStr)),
       drawShape: (shapeDef: any) => enqueueOperation(async () => drawShape(shapeDef)),
@@ -4272,6 +4744,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         {/* Excalidraw Light Engine - 100% Uninterrupted Vertical Height */}
         <div
           ref={containerRef}
+          onClick={handleContainerClick}
+          onClickCapture={handleContainerClick}
           className="relative flex-1 w-full h-full bg-transparent" style={{ backgroundColor: "transparent" }}
         >
           <Excalidraw
@@ -4450,6 +4924,194 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                         <span className="text-[#52715D] font-bold text-[11px]">{currentPageIndex + 1}/{pages.length}</span>
           </div>
         </div>
+
+        {/* Full-Screen Scientific Visual Lightbox Modal */}
+        {lightboxImage && (
+          <div
+            className="fixed inset-0 z-[100] flex flex-col bg-black/85 backdrop-blur-md animate-fadeIn"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) {
+                setLightboxImage(null)
+                setLightboxZoom(1)
+                setLightboxPan({ x: 0, y: 0 })
+              }
+            }}
+          >
+            {/* Lightbox Header Bar */}
+            <div className="flex items-center justify-between px-6 py-4 bg-black/40 border-b border-white/10 text-white">
+              <div className="flex items-center gap-3">
+                <span className="px-2.5 py-1 rounded bg-[#52715D] text-xs font-semibold uppercase tracking-wider text-white">
+                  High-Res Visual
+                </span>
+                <h3 className="text-base font-serif font-medium text-white/95">
+                  {lightboxImage.title}
+                </h3>
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setLightboxZoom((prev) => Math.max(0.5, prev - 0.25))}
+                  className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+                  title="Zoom Out"
+                >
+                  <ZoomOut className="w-4 h-4" />
+                </button>
+                <span className="text-xs font-mono text-white/70 px-1 min-w-[3rem] text-center">
+                  {Math.round(lightboxZoom * 100)}%
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setLightboxZoom((prev) => Math.min(4, prev + 0.25))}
+                  className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+                  title="Zoom In"
+                >
+                  <ZoomIn className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setLightboxZoom(1)
+                    setLightboxPan({ x: 0, y: 0 })
+                  }}
+                  className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+                  title="Reset Zoom"
+                >
+                  <Maximize2 className="w-4 h-4" />
+                </button>
+                <div className="h-4 w-px bg-white/20 mx-1" />
+                <button
+                  type="button"
+                  onClick={() => {
+                    setLightboxImage(null)
+                    setLightboxZoom(1)
+                    setLightboxPan({ x: 0, y: 0 })
+                  }}
+                  className="p-2 rounded-lg bg-white/10 hover:bg-red-500/80 text-white transition-colors cursor-pointer"
+                  title="Close (Esc)"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Lightbox Interactive Image Stage */}
+            <div
+              className="flex-1 w-full h-full overflow-hidden flex items-center justify-center p-4 cursor-grab active:cursor-grabbing select-none"
+              onMouseDown={(e) => {
+                setIsDraggingLightbox(true)
+                dragStartRef.current = {
+                  startX: e.clientX,
+                  startY: e.clientY,
+                  initialPanX: lightboxPan.x,
+                  initialPanY: lightboxPan.y,
+                }
+              }}
+              onMouseMove={(e) => {
+                if (!isDraggingLightbox) return
+                const dx = e.clientX - dragStartRef.current.startX
+                const dy = e.clientY - dragStartRef.current.startY
+                setLightboxPan({
+                  x: dragStartRef.current.initialPanX + dx,
+                  y: dragStartRef.current.initialPanY + dy,
+                })
+              }}
+              onMouseUp={() => setIsDraggingLightbox(false)}
+              onMouseLeave={() => setIsDraggingLightbox(false)}
+              onWheel={(e) => {
+                if (e.cancelable) e.preventDefault()
+                const delta = e.deltaY < 0 ? 0.15 : -0.15
+                setLightboxZoom((prev) => Math.min(4, Math.max(0.5, prev + delta)))
+              }}
+            >
+              <div
+                style={{
+                  transform: `translate(${lightboxPan.x}px, ${lightboxPan.y}px) scale(${lightboxZoom})`,
+                  transition: isDraggingLightbox ? 'none' : 'transform 0.15s cubic-bezier(0.16, 1, 0.3, 1)',
+                }}
+                className="max-w-[90vw] max-h-[80vh] flex items-center justify-center"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={lightboxImage.url}
+                  alt={lightboxImage.title}
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.currentTarget
+                    if (!target.src.includes('/api/diagram/proxy')) {
+                      target.src = `/api/diagram/proxy?url=${encodeURIComponent(lightboxImage.url)}`
+                    }
+                  }}
+                  className="max-w-[85vw] max-h-[75vh] object-contain rounded-lg shadow-2xl border border-white/10 pointer-events-none"
+                />
+              </div>
+            </div>
+
+            {/* Lightbox Footer Note */}
+            {lightboxImage.caption && (
+              <div className="px-6 py-3 bg-black/60 border-t border-white/10 text-center">
+                <p className="text-sm font-sans text-white/80 max-w-3xl mx-auto">
+                  {lightboxImage.caption}
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Educational Demonstration Video Modal */}
+        {videoModal && (
+          <div
+            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex flex-col items-center justify-center p-4 animate-in fade-in duration-200"
+            onClick={() => setVideoModal(null)}
+          >
+            <div
+              className="relative max-w-4xl w-full bg-[#1A1A1A] rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Video Modal Header */}
+              <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#141414]">
+                <div>
+                  <span className="text-xs uppercase tracking-widest text-emerald-400 font-mono font-semibold">[DEMONSTRATION VIDEO]</span>
+                  <h3 className="text-base font-serif font-bold text-white mt-0.5">{videoModal.title}</h3>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setVideoModal(null)}
+                  className="p-2 rounded-lg bg-white/10 hover:bg-red-500/80 text-white transition-colors cursor-pointer"
+                  title="Close (Esc)"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Video Player */}
+              <div className="w-full bg-black flex items-center justify-center aspect-video max-h-[65vh]">
+                <video
+                  src={videoModal.url}
+                  controls
+                  autoPlay
+                  playsInline
+                  {...({ referrerPolicy: 'no-referrer' } as any)}
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    const target = e.currentTarget
+                    if (!target.src.includes('/api/diagram/proxy')) {
+                      target.src = `/api/diagram/proxy?url=${encodeURIComponent(videoModal.url)}`
+                    }
+                  }}
+                />
+              </div>
+
+              {/* Video Modal Footer */}
+              {videoModal.description && (
+                <div className="px-6 py-3 bg-[#141414] border-t border-white/10 text-center">
+                  <p className="text-sm font-sans text-white/80 max-w-3xl mx-auto">
+                    {videoModal.description}
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     )
   }

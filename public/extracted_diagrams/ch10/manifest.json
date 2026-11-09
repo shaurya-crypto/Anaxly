@@ -1,0 +1,572 @@
+[
+  {
+    "figure_id": "Fig. 10.2",
+    "page_number": 2,
+    "caption": "Fig. 10.2: Vibrating rubber Do you still hear the sound? band produces sound",
+    "filename": "fig_10_2.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_2.webp",
+    "dimensions": {
+      "width": 1965,
+      "height": 820,
+      "aspect_ratio": 2.4
+    },
+    "file_size_kb": 105.2,
+    "crop_bbox": [
+      25.4,
+      36.0,
+      591.3,
+      272.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.3",
+    "page_number": 2,
+    "caption": "Fig. 10.3: Vocal cords in humans",
+    "filename": "fig_10_3.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_3.webp",
+    "dimensions": {
+      "width": 795,
+      "height": 1126,
+      "aspect_ratio": 0.71
+    },
+    "file_size_kb": 75.0,
+    "crop_bbox": [
+      305.3,
+      419.7,
+      537.9,
+      743.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.4",
+    "page_number": 3,
+    "caption": "Fig. 10.4: (a) A tuning pad (Fig. 10.4b) and bring it close to your ear. Do you hear a sound? fork and",
+    "filename": "fig_10_4.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_4.webp",
+    "dimensions": {
+      "width": 338,
+      "height": 526,
+      "aspect_ratio": 0.64
+    },
+    "file_size_kb": 23.2,
+    "crop_bbox": [
+      45.6,
+      105.7,
+      153.0,
+      266.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.5",
+    "page_number": 4,
+    "caption": "Fig. 10.5: Investigating if sound travels Activity 10.4: Let us investigate through solid objects",
+    "filename": "fig_10_5.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_5.webp",
+    "dimensions": {
+      "width": 790,
+      "height": 574,
+      "aspect_ratio": 1.38
+    },
+    "file_size_kb": 47.7,
+    "crop_bbox": [
+      363.7,
+      36.0,
+      591.3,
+      206.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.7",
+    "page_number": 4,
+    "caption": "Fig. 10.7: Illustration of a vacuum bell jar",
+    "filename": "fig_10_7.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_7.webp",
+    "dimensions": {
+      "width": 968,
+      "height": 1768,
+      "aspect_ratio": 0.55
+    },
+    "file_size_kb": 179.5,
+    "crop_bbox": [
+      305.3,
+      210.0,
+      587.5,
+      728.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.8",
+    "page_number": 5,
+    "caption": "Fig. 10.8: Disturbance travelling along a slinky",
+    "filename": "fig_10_8.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_8.webp",
+    "dimensions": {
+      "width": 1596,
+      "height": 333,
+      "aspect_ratio": 4.79
+    },
+    "file_size_kb": 87.2,
+    "crop_bbox": [
+      78.1,
+      639.2,
+      551.0,
+      740.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.9",
+    "page_number": 6,
+    "caption": "Fig. 10.9: Density of air in a tube with a piston air particles themselves do not travel with it.",
+    "filename": "fig_10_9.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_9.webp",
+    "dimensions": {
+      "width": 943,
+      "height": 1020,
+      "aspect_ratio": 0.92
+    },
+    "file_size_kb": 260.9,
+    "crop_bbox": [
+      317.3,
+      248.7,
+      599.0,
+      542.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.10",
+    "page_number": 7,
+    "caption": "Fig. 10.10: Sound from a directions as spherical waves (Fig. 10.10). point source propagates in all When they reach the listener, they",
+    "filename": "fig_10_10.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_10.webp",
+    "dimensions": {
+      "width": 1430,
+      "height": 602,
+      "aspect_ratio": 2.38
+    },
+    "file_size_kb": 178.3,
+    "crop_bbox": [
+      128.3,
+      75.5,
+      543.9,
+      252.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.11",
+    "page_number": 7,
+    "caption": "Fig. 10.11: A supersonic our ears, we perceive it as a loud sound pulse. aircraft",
+    "filename": "fig_10_11.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_11.webp",
+    "dimensions": {
+      "width": 1381,
+      "height": 620,
+      "aspect_ratio": 2.23
+    },
+    "file_size_kb": 103.0,
+    "crop_bbox": [
+      143.3,
+      238.7,
+      544.8,
+      417.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.12",
+    "page_number": 7,
+    "caption": "Fig. 10.12: A longitudinal wave",
+    "filename": "fig_10_12.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_12.webp",
+    "dimensions": {
+      "width": 1404,
+      "height": 844,
+      "aspect_ratio": 1.66
+    },
+    "file_size_kb": 228.1,
+    "crop_bbox": [
+      144.8,
+      415.4,
+      553.0,
+      658.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.14",
+    "page_number": 8,
+    "caption": "Fig. 10.14: Sound moving grains touching it. Observe the grains on the sheet. (coloured)",
+    "filename": "fig_10_14.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_14.webp",
+    "dimensions": {
+      "width": 1535,
+      "height": 1409,
+      "aspect_ratio": 1.09
+    },
+    "file_size_kb": 243.2,
+    "crop_bbox": [
+      83.0,
+      321.9,
+      532.2,
+      727.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.16a",
+    "page_number": 9,
+    "caption": "Fig. 10.16a shows the periodic variation of density with distance at any given instant",
+    "filename": "fig_10_16a.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_16a.webp",
+    "dimensions": {
+      "width": 1779,
+      "height": 1424,
+      "aspect_ratio": 1.25
+    },
+    "file_size_kb": 264.7,
+    "crop_bbox": [
+      40.7,
+      273.6,
+      556.4,
+      683.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.16",
+    "page_number": 10,
+    "caption": "Fig. 10.16: For a sound wave (a) variation of density of medium, (b) graphical representation of variation of density with distance In",
+    "filename": "fig_10_16.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_16.webp",
+    "dimensions": {
+      "width": 1453,
+      "height": 1059,
+      "aspect_ratio": 1.37
+    },
+    "file_size_kb": 235.5,
+    "crop_bbox": [
+      172.9,
+      36.0,
+      591.3,
+      341.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.17",
+    "page_number": 10,
+    "caption": "Fig. 10.17: Drawing graph to represent the variation of density of the medium for two sound waves",
+    "filename": "fig_10_17.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_17.webp",
+    "dimensions": {
+      "width": 1695,
+      "height": 1162,
+      "aspect_ratio": 1.46
+    },
+    "file_size_kb": 284.1,
+    "crop_bbox": [
+      71.7,
+      400.6,
+      567.0,
+      735.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.19",
+    "page_number": 12,
+    "caption": "Fig. 10.19: Graphical representation of a sound wave",
+    "filename": "fig_10_19.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_19.webp",
+    "dimensions": {
+      "width": 993,
+      "height": 1429,
+      "aspect_ratio": 0.69
+    },
+    "file_size_kb": 121.5,
+    "crop_bbox": [
+      305.3,
+      36.0,
+      591.3,
+      447.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.20",
+    "page_number": 12,
+    "caption": "Fig. 10.20: Sound waves",
+    "filename": "fig_10_20.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_20.webp",
+    "dimensions": {
+      "width": 986,
+      "height": 726,
+      "aspect_ratio": 1.36
+    },
+    "file_size_kb": 93.8,
+    "crop_bbox": [
+      305.3,
+      437.2,
+      594.5,
+      646.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.21",
+    "page_number": 13,
+    "caption": "Fig. 10.21: Sound energy spreading larger distance before intensity reduces to zero. over a larger area with distance",
+    "filename": "fig_10_21.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_21.webp",
+    "dimensions": {
+      "width": 523,
+      "height": 384,
+      "aspect_ratio": 1.36
+    },
+    "file_size_kb": 21.3,
+    "crop_bbox": [
+      408.1,
+      88.2,
+      565.4,
+      206.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.22",
+    "page_number": 14,
+    "caption": "Fig. 10.22: Graphical representation of a sound wave",
+    "filename": "fig_10_22.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_22.webp",
+    "dimensions": {
+      "width": 965,
+      "height": 1263,
+      "aspect_ratio": 0.76
+    },
+    "file_size_kb": 97.2,
+    "crop_bbox": [
+      305.3,
+      87.5,
+      586.4,
+      451.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.23",
+    "page_number": 15,
+    "caption": "Fig. 10.23: Time difference between the the time difference between the sound sound reaching through air and steel",
+    "filename": "fig_10_23.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_23.webp",
+    "dimensions": {
+      "width": 1489,
+      "height": 431,
+      "aspect_ratio": 3.45
+    },
+    "file_size_kb": 83.1,
+    "crop_bbox": [
+      106.1,
+      83.0,
+      538.6,
+      210.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.24",
+    "page_number": 16,
+    "caption": "Fig. 10.24: A schematic the two (often less than a thousandth of a second). diagram of human ear",
+    "filename": "fig_10_24.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_24.webp",
+    "dimensions": {
+      "width": 1567,
+      "height": 1314,
+      "aspect_ratio": 1.19
+    },
+    "file_size_kb": 268.9,
+    "crop_bbox": [
+      66.7,
+      314.2,
+      525.1,
+      692.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.25",
+    "page_number": 17,
+    "caption": "Fig. 10.25: Schematic representation same loudness each sounds unique. This quality of the sound produced by",
+    "filename": "fig_10_25.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_25.webp",
+    "dimensions": {
+      "width": 1460,
+      "height": 686,
+      "aspect_ratio": 2.13
+    },
+    "file_size_kb": 139.9,
+    "crop_bbox": [
+      112.1,
+      83.0,
+      536.4,
+      284.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.26",
+    "page_number": 17,
+    "caption": "Fig. 10.26: A tabla set",
+    "filename": "fig_10_26.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_26.webp",
+    "dimensions": {
+      "width": 869,
+      "height": 1024,
+      "aspect_ratio": 0.85
+    },
+    "file_size_kb": 98.9,
+    "crop_bbox": [
+      305.3,
+      308.6,
+      558.9,
+      608.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.27",
+    "page_number": 19,
+    "caption": "Fig. 10.27: Echolocation by bats",
+    "filename": "fig_10_27.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_27.webp",
+    "dimensions": {
+      "width": 922,
+      "height": 1341,
+      "aspect_ratio": 0.69
+    },
+    "file_size_kb": 142.1,
+    "crop_bbox": [
+      305.3,
+      355.6,
+      577.9,
+      746.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.28",
+    "page_number": 20,
+    "caption": "Fig. 10.28: Functioning of sonar",
+    "filename": "fig_10_28.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_28.webp",
+    "dimensions": {
+      "width": 993,
+      "height": 808,
+      "aspect_ratio": 1.23
+    },
+    "file_size_kb": 83.5,
+    "crop_bbox": [
+      305.3,
+      36.0,
+      591.3,
+      268.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.29",
+    "page_number": 20,
+    "caption": "Fig. 10.29: A drone",
+    "filename": "fig_10_29.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_29.webp",
+    "dimensions": {
+      "width": 755,
+      "height": 649,
+      "aspect_ratio": 1.16
+    },
+    "file_size_kb": 41.4,
+    "crop_bbox": [
+      305.3,
+      309.3,
+      526.0,
+      496.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.30",
+    "page_number": 22,
+    "caption": "Fig. 10.30 6. The sound waves emitted by three sources A, B and C are represented",
+    "filename": "fig_10_30.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_30.webp",
+    "dimensions": {
+      "width": 1682,
+      "height": 1165,
+      "aspect_ratio": 1.44
+    },
+    "file_size_kb": 130.9,
+    "crop_bbox": [
+      107.0,
+      36.0,
+      591.3,
+      371.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.31",
+    "page_number": 22,
+    "caption": "Fig. 10.31 7. Draw a graph to represent a sound wave for which the density",
+    "filename": "fig_10_31.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_31.webp",
+    "dimensions": {
+      "width": 765,
+      "height": 423,
+      "aspect_ratio": 1.81
+    },
+    "file_size_kb": 37.7,
+    "crop_bbox": [
+      175.7,
+      390.2,
+      396.1,
+      512.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.32",
+    "page_number": 23,
+    "caption": "Fig. 10.32",
+    "filename": "fig_10_32.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_32.webp",
+    "dimensions": {
+      "width": 624,
+      "height": 318,
+      "aspect_ratio": 1.96
+    },
+    "file_size_kb": 67.2,
+    "crop_bbox": [
+      305.3,
+      199.5,
+      488.5,
+      294.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.33",
+    "page_number": 23,
+    "caption": "Fig. 10.33 15.",
+    "filename": "fig_10_33.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_33.webp",
+    "dimensions": {
+      "width": 1070,
+      "height": 519,
+      "aspect_ratio": 2.06
+    },
+    "file_size_kb": 73.8,
+    "crop_bbox": [
+      201.6,
+      335.5,
+      510.0,
+      485.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.34",
+    "page_number": 23,
+    "caption": "Fig. 10.34",
+    "filename": "fig_10_34.webp",
+    "file_path": "public/extracted_diagrams/ch10\\fig_10_34.webp",
+    "dimensions": {
+      "width": 594,
+      "height": 571,
+      "aspect_ratio": 1.04
+    },
+    "file_size_kb": 50.8,
+    "crop_bbox": [
+      305.3,
+      545.7,
+      480.8,
+      718.8
+    ]
+  }
+]

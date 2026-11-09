@@ -106,6 +106,76 @@ function parseKeyConcepts(raw: any): string[] {
 }
 
 /**
+ * Distills lengthy module descriptions or activity titles into crisp, 2-4 word queries
+ * tailored for high-accuracy Wikimedia Commons and scientific image search.
+ */
+function extractConciseSearchKeyword(raw: string): string {
+  if (!raw || !raw.trim()) return ''
+  const clean = raw.trim().replace(/^["']|["']$/g, '')
+
+  // 1. Direct parenthetical match (e.g. "(Onion Peel Mount)" -> "Onion Peel cells microscope")
+  const parenMatch = clean.match(/\(([^\)]+)\)/)
+  if (parenMatch && parenMatch[1]) {
+    const inside = parenMatch[1]
+      .replace(/^(activity|module|step|exp|experiment)\s*[\d\.]*/i, '')
+      .replace(/mount|mounts/i, 'cells')
+      .trim()
+    if (inside.length >= 3) {
+      return `${inside} microscope`
+    }
+  }
+
+  // 2. Colon prefix/title (e.g. "Activity 2.1 (Onion Peel Mount): Stripping..." -> "Onion Peel cells")
+  if (clean.includes(':')) {
+    const beforeColon = clean
+      .split(':')[0]
+      .replace(/^Activity\s*[\d\.]+/i, '')
+      .replace(/^Concept\s*[\d\.]+/i, '')
+      .replace(/[\(\)]/g, '')
+      .replace(/mount|mounts/i, 'cells')
+      .trim()
+    if (beforeColon.length >= 3) {
+      return beforeColon
+    }
+  }
+
+  // 3. Known subject keyword mappings
+  if (/onion\s*peel/i.test(clean)) return 'Onion peel cells microscope'
+  if (/human\s*cheek.*methylene|cheek.*methylene/i.test(clean)) return 'Human Cheek Cells Methylene Blue Stain'
+  if (/human\s*cheek|cheek\s*cell/i.test(clean)) return 'Human cheek cells microscope'
+  if (/robert\s*hooke|cork\s*cell/i.test(clean)) return 'Robert Hooke Micrographia cork cells 1665'
+  if (/plant\s*cell\s*wall/i.test(clean)) return 'Plant cell wall ultrastructure diagram'
+  if (/plant\s*cell/i.test(clean)) return 'Plant cell anatomy diagram'
+  if (/animal\s*cell/i.test(clean)) return 'Animal cell anatomy diagram'
+  if (/chloroplast/i.test(clean)) return 'Chloroplast structure diagram'
+  if (/mitochondri[ao]/i.test(clean)) return 'Mitochondria structure diagram'
+  if (/nucleus/i.test(clean)) return 'Cell nucleus structure diagram'
+  if (/stomata/i.test(clean)) return 'Leaf stomata guard cells microscope'
+  if (/xylem/i.test(clean)) return 'Xylem tissue microscope'
+  if (/phloem/i.test(clean)) return 'Phloem tissue microscope'
+  if (/osmosis/i.test(clean)) return 'Osmosis experiment diagram'
+  if (/diffusion/i.test(clean)) return 'Diffusion experiment diagram'
+
+  // 4. If short enough, keep as is
+  if (clean.length <= 40) return clean
+
+  // 5. Filter out filler words to get top keywords
+  const words = clean
+    .replace(/^Activity\s*[\d\.]+\s*[:\-\(]?/i, '')
+    .replace(/[\(\)\[\]\{\}:,;]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .split(' ')
+    .filter(
+      (w) =>
+        !/^(stripping|observing|mounting|with|and|the|of|in|to|a|an|is|are|for|by|from|into|large|small|regular|inner|outer|buccal)$/i.test(
+          w
+        )
+    )
+  return words.slice(0, 3).join(' ') || clean.slice(0, 40)
+}
+
+/**
  * High-density concept micro-dossier engine.
  * Strips verbose token waste by 70-85% while packing 100% textbook facts,
  * SI units, governing equations, and 2-3 authentic board-exam questions per concept.
@@ -245,22 +315,29 @@ function buildConceptMicroDossiers(
     const isLegitGraph = isLegitimateGraphTopic(conceptName, resolvedSubject)
     const isGraph = Boolean(matchedCv && (matchedCv.diagram_type === 'graph' || matchedCv.interactive_math_formula) && isLegitGraph)
     const isFlowchart = Boolean(matchedCv && matchedCv.diagram_type === 'draw_flowchart')
+    const isImage = Boolean(matchedCv && (matchedCv.diagram_type === 'image' || matchedCv.image_url || matchedCv.image_search_query))
 
     let visualDirective = ''
-    if (matchedCv && (hasExistingSvg || isGraph || isFlowchart)) {
+    if (matchedCv && (hasExistingSvg || isGraph || isFlowchart || isImage)) {
       const isAnim = matchedCv.visual_type === 'animation' || /wave|current|flow|circuit|motion/i.test(matchedCv.diagram_title || '')
+      const imgUrl = matchedCv.image_url || ''
+      const searchQuery = matchedCv.image_search_query || matchedCv.diagram_title || conceptName
       const actionCue = isGraph
         ? `plot_mathematical_graph(formula="${matchedCv.interactive_math_formula || 'formula'}", title="${matchedCv.diagram_title || conceptName}")`
         : isFlowchart
         ? `write_chalkboard(action="draw_flowchart", content="${matchedCv.what_to_make || conceptName}")`
+        : isImage
+        ? (imgUrl
+            ? `write_chalkboard(action="draw_image", content="${imgUrl} | ${matchedCv.diagram_title || conceptName} | ${(matchedCv.what_to_make || conceptName).slice(0, 100)}")`
+            : `search_and_show_image(query="${searchQuery}", title="${matchedCv.diagram_title || conceptName}")`)
         : `render_svg_diagram("${matchedCv.diagram_title || matchedCv.concept_title || conceptName}", caption="${matchedCv.what_to_explain || matchedCv.what_to_make || conceptName}")`
 
-      visualDirective = `\n   * Pedagogical Visual Blueprint (${matchedCv.refined_by_tier2 ? 'Tier 2 Publication Grade' : 'Tier 1 Blueprint'}):
+      visualDirective = `\n   * Pedagogical Visual Blueprint (${matchedCv.refined_by_tier2 ? 'Tier 2 Publication Grade' : isImage ? 'Authentic Scientific Micrograph/Image' : 'Tier 1 Blueprint'}):
      - Diagram Title: "${matchedCv.diagram_title || matchedCv.concept_title || conceptName}"
-     - Visual Type: ${isGraph ? 'Interactive Coordinate Graph' : isAnim ? 'Animated Vector Visual' : (matchedCv.diagram_type || diagramType)}
+     - Visual Type: ${isGraph ? 'Interactive Coordinate Graph' : isAnim ? 'Animated Vector Visual' : isImage ? 'Authentic Micrograph / High-Res Scientific Visual' : (matchedCv.diagram_type || diagramType)}
      - Why Needed: ${matchedCv.why_needed || 'Pedagogical grounding of core principles and formulas'}
-     - What to Explain Step-by-Step: ${matchedCv.what_to_explain || matchedCv.what_to_make || whatToMake || 'Point out origin, axes, labels, and physical intuition to the student'}
-     - Action Cue: Call ${actionCue}${matchedCv.interactive_math_formula ? `\n     - Interactive Coordinate Function: ${matchedCv.interactive_math_formula}` : ''}
+     - What to Explain Step-by-Step: ${matchedCv.what_to_explain || matchedCv.what_to_make || whatToMake || 'Point out key components, labels, and physical intuition to the student'}
+     - Action Cue: Call ${actionCue}${matchedCv.interactive_math_formula ? `\n     - Interactive Coordinate Function: ${matchedCv.interactive_math_formula}` : ''}${isImage ? `\n     - Hesitation Recovery: If student hesitates, call search_and_show_image(query="${searchQuery}", title="${matchedCv.diagram_title || conceptName}")` : ''}
      - Timing Cue: ${matchedCv.timing_and_cue || 'Step 1 (Intuition) or Step 2 (Definition)'}`
     } else if (idx === 0 && chapterFlowchart) {
       visualDirective = `\n   * Mandatory Chapter Flowchart (Step 1):\n     - Action Cue: Call write_chalkboard(action="draw_flowchart", content="${chapterFlowchart}")`
@@ -418,6 +495,7 @@ function buildSingleConceptMicroDossier(
     isLegitimateGraph
   )
   const isFlowchart = Boolean(matchedCv && matchedCv.diagram_type === 'draw_flowchart')
+  const isImage = Boolean(matchedCv && (matchedCv.diagram_type === 'image' || matchedCv.image_url || matchedCv.image_search_query) && !isGraph)
   const diagramTitle = matchedCv?.diagram_title || matchedCv?.concept_title || conceptName
   const whatSpec = matchedCv?.what_to_make || whatToMake || `Publication-grade scientific vector diagram illustrating ${conceptName} with precise components, axes, vectors, callout pointer dots, and SI unit annotations`
 
@@ -426,6 +504,13 @@ function buildSingleConceptMicroDossier(
     visualDirective = `\n   * MANDATORY GRAPH PLOT: Call plot_mathematical_graph(formula="${matchedCv?.interactive_math_formula || 'formula'}", title="${diagramTitle}") on Step 1!`
   } else if (isFlowchart) {
     visualDirective = `\n   * MANDATORY FLOWCHART: Call write_chalkboard(action="draw_flowchart", content="${matchedCv?.what_to_make || conceptName}") on Step 1!`
+  } else if (isImage) {
+    const imgUrl = matchedCv?.image_url || ''
+    const searchQuery = matchedCv?.image_search_query || matchedCv?.diagram_title || conceptName
+    const imgAction = imgUrl
+      ? `write_chalkboard(action="draw_image", content="${imgUrl} | ${diagramTitle} | ${whatSpec.slice(0, 100)}")`
+      : `search_and_show_image(query="${searchQuery}", title="${diagramTitle}")`
+    visualDirective = `\n   * MANDATORY EDUCATIONAL IMAGE: Call ${imgAction} ON YOUR VERY FIRST TURN to display the authentic high-resolution micrograph/diagram on the board! If the student hesitates or requests another view, proactively call search_and_show_image(query="${searchQuery}", title="${diagramTitle}").`
   } else {
     visualDirective = `\n   * MANDATORY PROACTIVE DIAGRAM: You MUST call render_svg_diagram(title="${diagramTitle}", what="${whatSpec.slice(0, 160)}") ON YOUR VERY FIRST TURN! The student will not ask for a diagram -- draw it proactively!`
   }
@@ -675,6 +760,14 @@ export default function ModuleClassroomPage() {
   // Whiteboard on-demand diagram generation progress tracker
   const [generatingDiagramTitle, setGeneratingDiagramTitle] = useState<string | null>(null)
 
+  // Background pre-fetched scientific images cache for instant concept mounting
+  const [prefetchedImages, setPrefetchedImages] = useState<Record<number, { url: string; title: string; caption?: string }>>({})
+  const prefetchedImagesRef = useRef<Record<number, { url: string; title: string; caption?: string }>>({})
+  prefetchedImagesRef.current = prefetchedImages
+  const [verifiedAssetsDirectives, setVerifiedAssetsDirectives] = useState<string>('')
+
+
+
   // Check and increment request quota
   const checkAndRecordRequestQuota = useCallback(async (): Promise<boolean> => {
     if (userQuota.limit_type !== 'requests') return true
@@ -710,40 +803,23 @@ export default function ModuleClassroomPage() {
 
     const cleanAnswer = answer.trim()
 
-    // If student was reviewing verdict, check if previous answer was incorrect or if doubts remain
-    if (isReviewingVerdictRef.current) {
-      if (lastVerdictStatusRef.current === 'incorrect') {
-        sendTextMessage(
-          `Student replied to correction: "${cleanAnswer}".
-[SOCRATIC GATING MANDATE]: The student is still resolving a misconception on this concept.
-Explain the doubt or co-solve the question on the chalkboard step-by-step.
-DO NOT call concept_completed or advance to the next page until they demonstrate correct understanding!`
-        )
-        return
-      }
-
-      const isConfirmation = /^(?:yes|understood|clear|ready|next|move\s*on|haan?|samajh|theek|chalo|done|got\s*it|sure|proceed|ok|okay)\b/i.test(cleanAnswer)
-      if (isConfirmation && lastVerdictStatusRef.current === 'correct') {
-        isReviewingVerdictRef.current = false
-        setIsReviewingVerdict(false)
-        handleConceptDone()
-        return
-      }
-
-      sendTextMessage(
-        `Student replied: "${cleanAnswer}". If they have a doubt, explain and solve it thoroughly on the board. Only call concept_completed if all checkpoint questions for this concept are completed correctly and all doubts are cleared.`
-      )
-      return
-    }
-
+    // Socratic Answer Handling: ALWAYS draw student answer and send for evaluation
+    // NEVER automatically jump to next page or call handleConceptDone() from answer input
     isAwaitingStudentAnswerRef.current = false
     setIsAwaitingStudentAnswer(false)
     isReviewingVerdictRef.current = true
     setIsReviewingVerdict(true)
+    lastVerdictStatusRef.current = 'neutral'
 
     chalkboardRef.current?.drawStudentAnswer?.(cleanAnswer, undefined, 'blue')
     sendTextMessage(
-      `Student answered: "${cleanAnswer}". (Student's answer is already displayed on the whiteboard). Evaluate my answer warmly. Write the topper model answer and confirmation/correction on this current whiteboard page using write_chalkboard(action="draw_answer_verdict", content="Verdict: ..."). Do NOT switch or change the whiteboard page. Keep everything on this current page so I can review it. Ask me if I understood or if I am ready for the next concept.`
+      `Student answered: "${cleanAnswer}". (Student's answer is already displayed on the whiteboard).
+[MANDATORY EVALUATION INSTRUCTION]:
+1. Evaluate my answer warmly out loud. Explain whether it is correct, partially correct, or incorrect, with deep scientific reasoning.
+2. Write the verdict and model answer on this current whiteboard page using write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>").
+3. If incorrect or hesitant, break down the step and co-solve with me in [ROUGH_WORK].
+4. HARD STOP: Ask me if I understood or if I am ready for the next concept.
+5. DO NOT advance to the next concept or page yet! Remain on this current concept page so I can review the chalkboard notes.`
     )
   }
 
@@ -754,44 +830,117 @@ DO NOT call concept_completed or advance to the next page until they demonstrate
 
     const cleanAnswer = answer.trim()
 
-    // If student was reviewing verdict, check if previous answer was incorrect or if doubts remain
-    if (isReviewingVerdictRef.current) {
-      if (lastVerdictStatusRef.current === 'incorrect') {
-        sendTextMessage(
-          `Student replied to correction: "${cleanAnswer}".
-[SOCRATIC GATING MANDATE]: The student is still resolving a misconception on this concept.
-Explain the doubt or co-solve the question on the chalkboard step-by-step.
-DO NOT call concept_completed or advance to the next page until they demonstrate correct understanding!`
-        )
-        return
-      }
-
-      const isConfirmation = /^(?:yes|understood|clear|ready|next|move\s*on|haan?|samajh|theek|chalo|done|got\s*it|sure|proceed|ok|okay)\b/i.test(cleanAnswer)
-      if (isConfirmation && lastVerdictStatusRef.current === 'correct') {
-        isReviewingVerdictRef.current = false
-        setIsReviewingVerdict(false)
-        handleConceptDone()
-        return
-      }
-
-      sendTextMessage(
-        `Student replied: "${cleanAnswer}". If they have a doubt, explain and solve it thoroughly on the board. Only call concept_completed if all checkpoint questions for this concept are completed correctly and all doubts are cleared.`
-      )
-      return
-    }
-
     isAwaitingStudentAnswerRef.current = false
     setIsAwaitingStudentAnswer(false)
     isReviewingVerdictRef.current = true
     setIsReviewingVerdict(true)
+    lastVerdictStatusRef.current = 'neutral'
 
     chalkboardRef.current?.drawStudentAnswer?.(cleanAnswer, undefined, 'blue')
     sendTextMessage(
-      `Student answered: "${cleanAnswer}". (Student's answer is already displayed on the whiteboard). Evaluate my answer warmly. Write the topper model answer and confirmation/correction on this current whiteboard page using write_chalkboard(action="draw_answer_verdict", content="Verdict: ..."). Do NOT switch or change the whiteboard page. Keep everything on this current page so I can review it. Ask me if I understood or if I am ready for the next concept.`
+      `Student answered: "${cleanAnswer}". (Student's answer is already displayed on the whiteboard).
+[MANDATORY EVALUATION INSTRUCTION]:
+1. Evaluate my answer warmly out loud. Explain whether it is correct, partially correct, or incorrect, with deep scientific reasoning.
+2. Write the verdict and model answer on this current whiteboard page using write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>").
+3. If incorrect or hesitant, break down the step and co-solve with me in [ROUGH_WORK].
+4. HARD STOP: Ask me if I understood or if I am ready for the next concept.
+5. DO NOT advance to the next concept or page yet! Remain on this current concept page so I can review the chalkboard notes.`
     )
   }
 
   const [activeModule, setActiveModule] = useState<any>(null)
+
+  // Background pre-fetching of high-resolution educational images for all module concepts & pre-flight asset verification
+  useEffect(() => {
+    if (!activeModule) return
+    const vPlan = (activeModule.visual_lesson_plan as any) || {}
+    const conceptVisuals: any[] = Array.isArray(vPlan.concept_visuals)
+      ? vPlan.concept_visuals
+      : Array.isArray(activeModule.concept_visuals)
+      ? activeModule.concept_visuals
+      : []
+    const keyConceptsList = parseKeyConcepts(activeModule.key_concepts)
+
+    const moduleStorageKey = `prefetched_imgs_${activeModule.id}`
+    let localCached: Record<number, any> = {}
+    if (typeof window !== 'undefined') {
+      try {
+        const raw = localStorage.getItem(moduleStorageKey)
+        if (raw) localCached = JSON.parse(raw)
+      } catch {}
+    }
+
+    if (Object.keys(localCached).length > 0) {
+      setPrefetchedImages(localCached)
+    }
+
+    // 1. Run Pre-flight Asset Verification & dynamic repair route
+    fetch('/api/diagram/verify-assets', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ moduleId: activeModule.id }),
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.success && data.aiDirectives) {
+          setVerifiedAssetsDirectives(data.aiDirectives)
+        }
+        if (data.success && Array.isArray(data.verifiedImages)) {
+          data.verifiedImages.forEach((vImg: any, idx: number) => {
+            if (vImg.url && vImg.verified) {
+              localCached[idx] = {
+                url: vImg.url,
+                title: vImg.title || keyConceptsList[idx] || 'Diagram',
+                caption: vImg.description || '',
+              }
+            }
+          })
+          setPrefetchedImages({ ...localCached })
+          if (typeof window !== 'undefined') {
+            try {
+              localStorage.setItem(moduleStorageKey, JSON.stringify(localCached))
+            } catch {}
+          }
+        }
+      })
+      .catch((err) => console.warn('[verify-assets check error]:', err))
+
+    // 2. Also ensure every concept without verified cached URL initiates image lookup
+    const prefetchPromises = keyConceptsList.map(async (concept, idx) => {
+      if (localCached[idx]?.url) return
+
+      const cv = conceptVisuals[idx] || {}
+      const rawSearchQuery = cv.image_search_query || cv.image_query || cv.diagram_title || concept
+      const searchQuery = extractConciseSearchKeyword(rawSearchQuery) || rawSearchQuery
+      if (!searchQuery) return
+
+      try {
+        const res = await fetch(`/api/diagram/search-image?q=${encodeURIComponent(searchQuery)}&limit=3`)
+        if (res.ok) {
+          const data = await res.json()
+          const first = data.images?.[0]
+          if (first?.url) {
+            localCached[idx] = {
+              url: first.url,
+              title: cv.diagram_title || first.title || concept,
+              caption: cv.what_to_make || first.description || '',
+            }
+          }
+        }
+      } catch (err) {
+        console.warn(`[Prefetch Image Error for concept ${idx}]:`, err)
+      }
+    })
+
+    Promise.allSettled(prefetchPromises).then(() => {
+      setPrefetchedImages({ ...localCached })
+      if (typeof window !== 'undefined') {
+        try {
+          localStorage.setItem(moduleStorageKey, JSON.stringify(localCached))
+        } catch {}
+      }
+    })
+  }, [activeModule])
   const [activeCurriculum, setActiveCurriculum] = useState<any>(null)
   const [siblingModules, setSiblingModules] = useState<any[]>([])
   const [nextChapterInfo, setNextChapterInfo] = useState<{
@@ -973,7 +1122,11 @@ DO NOT call concept_completed or advance to the next page until they demonstrate
         if (profile?.career_aspiration) setStudentCareerAspiration(profile.career_aspiration)
         if (profile?.favorite_subject) setStudentFavoriteSubject(profile.favorite_subject)
         if (Array.isArray(profile?.strong_subjects)) setStudentStrongSubjects(profile.strong_subjects)
-        if (Array.isArray(profile?.weak_subjects)) setStudentWeakSubjects(profile.weak_subjects)
+        if (Array.isArray(profile?.weak_subjects) && profile.weak_subjects.length > 0) {
+          setStudentWeakSubjects(profile.weak_subjects)
+        } else if (profile?.weak_area) {
+          setStudentWeakSubjects([profile.weak_area])
+        }
 
         if (typeof profile?.is_avatar_enabled === 'boolean') {
           setIsAvatarEnabled(profile.is_avatar_enabled)
@@ -1360,44 +1513,18 @@ DO NOT call concept_completed or advance to the next page until they demonstrate
         }
       }
 
-      // Detect spoken concept transition by AI tutor (e.g. "Moving on to Concept 2", "Let's move to Concept 3")
-      const keyConceptsList: string[] = parseKeyConcepts(activeModule?.key_concepts)
-      const spokenTrans = detectSpokenConceptTransition(latest.text, keyConceptsList)
-      if (
-        spokenTrans &&
-        spokenTrans.targetIdx > currentConceptIndexRef.current &&
-        spokenTrans.targetIdx < keyConceptsList.length
-      ) {
-        const transKey = `${transcriptId}:transition:${spokenTrans.targetIdx}`
-        if (!executedSceneDirectivesRef.current.has(transKey)) {
-          executedSceneDirectivesRef.current.add(transKey)
-          const curConcept = keyConceptsList[currentConceptIndexRef.current]
-          const updated = Array.from(new Set([...completedConceptsRef.current, curConcept]))
-          completedConceptsRef.current = updated
-          setCompletedConcepts(updated)
-          advanceToNextConcept(spokenTrans.targetIdx, updated)
-        }
-      }
-
-      // Detect spoken concept completion by AI tutor (e.g. "We have completed Concept 1", "That concludes Concept 1")
-      const spokenComp = detectSpokenConceptCompletion(latest.text, keyConceptsList, currentConceptIndexRef.current)
-      if (spokenComp) {
-        const compKey = `${transcriptId}:completion:${spokenComp.conceptIdx}`
-        if (!executedSceneDirectivesRef.current.has(compKey)) {
-          executedSceneDirectivesRef.current.add(compKey)
-          handleConceptDone(spokenComp.conceptTitle)
-        }
-      }
+      // Explicit tool-calls and directives like [CONCEPT_DONE: ...] handle concept completion.
+      // Casual conversational mentions by the tutor (e.g. "moving on to explain...") MUST NOT automatically switch pages.
     } else if (latest && latest.sender === 'user') {
       const userText = (latest.text || '').trim().toLowerCase()
       const transcriptId = latest.id || `user_${latest.timestamp || Date.now()}`
       const userKey = `${transcriptId}:user_ack`
 
       if (!executedSceneDirectivesRef.current.has(userKey)) {
-        const isConfirmation = /^(?:yes|understood|clear|ready|next|move\s*on|haan?|samajh\s*(?:aaya|gaya)?|theek\s*hai|chalo|done|got\s*it|sure|proceed|ok|okay|all\s*good|crystal\s*clear)\b/i.test(userText)
-        const isExplicitNext = /(?:next\s*concept|next\s*page|move\s*(?:to\s*)?next|advance\s*concept|concept\s*done|concept\s*complete)/i.test(userText)
+        // Only trigger concept advancement if the student gives an EXPLICIT navigation command
+        const isExplicitNext = /(?:next\s*concept|next\s*page|move\s*(?:to\s*)?next\s*concept|advance\s*(?:to\s*)?next)/i.test(userText)
 
-        if ((isConfirmation && isReviewingVerdictRef.current) || isExplicitNext) {
+        if (isExplicitNext && lastVerdictStatusRef.current === 'correct') {
           executedSceneDirectivesRef.current.add(userKey)
           handleConceptDone()
         }
@@ -1514,143 +1641,13 @@ DO NOT call concept_completed or advance to the next page until they demonstrate
   const pregenerationQueueRef = useRef<Set<number>>(new Set())
   const inFlightPregenerationRef = useRef<Map<number, Promise<any>>>(new Map())
 
-  // Background SVG Pre-Generation & Supabase DB Persistence for upcoming concepts
+  // Background SVG Pre-Generation: Disabled per user requirement.
+  // Pre-seeded vector diagrams and verified online images take full precedence without background LLM spam.
   const triggerBackgroundSvgPregeneration = useCallback(
-    (activeConceptIdx: number) => {
-      if (!moduleId || !activeModule) return
-      const keyConceptsList: string[] = parseKeyConcepts(activeModule?.key_concepts)
-      if (keyConceptsList.length === 0) return
-
-      const visualPlan = (activeModule?.visual_lesson_plan as any) || {}
-      const conceptVisuals: any[] = Array.isArray(visualPlan.concept_visuals)
-        ? visualPlan.concept_visuals
-        : Array.isArray(activeModule?.concept_visuals)
-        ? activeModule.concept_visuals
-        : []
-
-      const textbookDefs: any[] = visualPlan?.textbook_definitions || activeModule?.textbook_definitions || []
-      const textbookExamples: any[] = visualPlan?.textbook_examples || activeModule?.textbook_examples || []
-      const subtopics: string[] = activeModule?.subtopics?.length ? activeModule.subtopics : (visualPlan?.subtopics || [])
-      const workedExamplesList: any[] = Array.isArray(activeModule?.worked_examples) ? activeModule.worked_examples : []
-
-      for (let nextIdx = activeConceptIdx + 1; nextIdx < keyConceptsList.length; nextIdx++) {
-        if (pregenerationQueueRef.current.has(nextIdx)) continue
-
-        const nextConceptTitle = keyConceptsList[nextIdx]
-        if (!nextConceptTitle) continue
-
-        const existingCv = conceptVisuals[nextIdx] || conceptVisuals.find((cv: any) => {
-          const cTitle = (cv.concept_title || '').toLowerCase().trim()
-          const dTitle = (cv.diagram_title || '').toLowerCase().trim()
-          const qC = nextConceptTitle.toLowerCase().trim()
-          return cTitle === qC || dTitle === qC || (cTitle && cTitle.includes(qC)) || (qC && qC.includes(cTitle))
-        })
-
-        // If already refined and has valid SVG, skip
-        if (existingCv && (existingCv.refined_by_tier2 || (existingCv.svg && existingCv.svg.includes('<svg')))) {
-          continue
-        }
-
-        // Mark concept index as being pregenerated
-        pregenerationQueueRef.current.add(nextIdx)
-
-        const matchingSubtopics = subtopics.filter((st: string) =>
-          st.toLowerCase().includes(nextConceptTitle.toLowerCase()) ||
-          nextConceptTitle.toLowerCase().includes(st.toLowerCase())
-        )
-        const matchingDefs = textbookDefs.filter((d: any) =>
-          (d.concept || '').toLowerCase().includes(nextConceptTitle.toLowerCase()) ||
-          nextConceptTitle.toLowerCase().includes((d.concept || '').toLowerCase())
-        )
-        const matchingExamples = textbookExamples.filter((e: any) =>
-          (e.title || '').toLowerCase().includes(nextConceptTitle.toLowerCase()) ||
-          (e.scenario || '').toLowerCase().includes(nextConceptTitle.toLowerCase())
-        )
-
-        const defsToUse = matchingDefs.length > 0 ? matchingDefs : (textbookDefs[nextIdx] ? [textbookDefs[nextIdx]] : [])
-        const exToUse = matchingExamples.length > 0 ? matchingExamples : (textbookExamples[nextIdx] ? [textbookExamples[nextIdx]] : [])
-        const subtopicsToUse = matchingSubtopics.length > 0 ? matchingSubtopics : (subtopics[nextIdx] ? [subtopics[nextIdx]] : [])
-        const matchedWorkedEx = workedExamplesList[nextIdx]
-
-        const defSnippet = defsToUse.map((d: any) => d.definition).join('; ')
-        const exSnippet = exToUse.map((e: any) => `${e.title}: ${e.scenario}`).join('; ')
-        const subtopicSnippet = subtopicsToUse.join(', ')
-        const workedExSnippet = matchedWorkedEx?.problem ? `Worked problem: ${matchedWorkedEx.problem}` : ''
-
-        const extractedWhatToMake = existingCv?.what_to_make ||
-          `High-precision publication-grade vector SVG illustration of ${nextConceptTitle}.${
-            subtopicSnippet ? ` Subtopics: ${subtopicSnippet}.` : ''
-          }${defSnippet ? ` Core principle: ${defSnippet.slice(0, 140)}.` : ''}${
-            exSnippet ? ` Realistic representation: ${exSnippet.slice(0, 140)}.` : ''
-          }${workedExSnippet ? ` Mathematical context: ${workedExSnippet.slice(0, 120)}.` : ''} Include crisp anatomical/structural vector outlines, clean callout pointers, and textbook-exact annotations.`
-
-        const extractedWhatToExplain = existingCv?.what_to_explain ||
-          `Pedagogical vector illustration elucidating ${nextConceptTitle} with labeled scientific structures.`
-
-        const isGraph = isLegitimateGraphTopic(nextConceptTitle, resolvedSubject)
-        const visualType = isGraph ? 'graph' : 'diagram'
-
-        const pregenPromise = fetch('/api/diagram/generate', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            title: nextConceptTitle,
-            conceptTitle: nextConceptTitle,
-            conceptIndex: nextIdx,
-            moduleId: activeModule.id,
-            subject: resolvedSubject,
-            classLevel: resolvedClassLevel,
-            context: activeCurriculum?.title || resolvedTitle,
-            whatToMake: extractedWhatToMake,
-            whatToExplain: extractedWhatToExplain,
-            whyNeeded: `Pre-generated pedagogical visual grounding for ${nextConceptTitle}`,
-            visualType,
-            animationType: 'moving_points_and_pulsing_glow',
-            isLiveClass: true,
-            source: 'background_pregeneration',
-          }),
-        })
-          .then((res) => (res.ok ? res.json() : null))
-          .then((data) => {
-            inFlightPregenerationRef.current.delete(nextIdx)
-            if (data?.svg && data.svg.includes('<svg')) {
-              setActiveModule((prev: any) => {
-                if (!prev) return prev
-                const curPlan = { ...(prev.visual_lesson_plan || {}) }
-                const curVisuals = Array.isArray(curPlan.concept_visuals) ? [...curPlan.concept_visuals] : []
-                while (curVisuals.length <= nextIdx) {
-                  curVisuals.push({})
-                }
-                curVisuals[nextIdx] = {
-                  ...(curVisuals[nextIdx] || {}),
-                  concept_title: data.concept_title || nextConceptTitle,
-                  diagram_title: data.title || data.diagram_title || nextConceptTitle,
-                  svg: data.svg,
-                  diagram_svg: data.svg,
-                  caption: data.caption,
-                  what_to_make: data.what_to_make || extractedWhatToMake,
-                  what_to_explain: data.what_to_explain || extractedWhatToExplain,
-                  why_needed: data.why_needed,
-                  refined_by_tier2: true,
-                  tier2_refined_at: data.tier2_refined_at || new Date().toISOString(),
-                }
-                curPlan.concept_visuals = curVisuals
-                return { ...prev, visual_lesson_plan: curPlan }
-              })
-            }
-            return data
-          })
-          .catch((err) => {
-            inFlightPregenerationRef.current.delete(nextIdx)
-            pregenerationQueueRef.current.delete(nextIdx)
-            console.warn(`[Classroom Background Pre-Gen] Notice pre-generating SVG for Concept ${nextIdx + 1}:`, err)
-            return null
-          })
-
-        inFlightPregenerationRef.current.set(nextIdx, pregenPromise)
-      }
+    (_activeConceptIdx: number) => {
+      // No-op to eliminate background 30s timeouts and 503 high demand spikes
     },
-    [moduleId, activeModule, resolvedSubject, resolvedClassLevel, activeCurriculum?.title, resolvedTitle]
+    []
   )
 
   // 2b. Automatically trigger and guarantee rich visualization for the active concept
@@ -1682,7 +1679,48 @@ DO NOT call concept_completed or advance to the next page until they demonstrate
       const conceptSvg = matchedConceptVisual?.svg || matchedConceptVisual?.diagram_svg || customPlan?.steps?.[conceptIdx]?.content?.diagram?.svg
       const conceptTitle = matchedConceptVisual?.diagram_title || matchedConceptVisual?.concept_title || customPlan?.steps?.[conceptIdx]?.title || targetConcept
       const conceptCaption = matchedConceptVisual?.what_to_make || customPlan?.steps?.[conceptIdx]?.content?.diagram?.caption || targetConcept
-      const customCaption = conceptCaption
+      const isLegitGraph = isLegitimateGraphTopic(targetConcept, resolvedSubject)
+      const isGraph = Boolean(
+        matchedConceptVisual &&
+        (matchedConceptVisual.diagram_type === 'graph' || matchedConceptVisual.interactive_math_formula) &&
+        isLegitGraph
+      )
+      const isFlowchart = Boolean(matchedConceptVisual && matchedConceptVisual.diagram_type === 'draw_flowchart')
+
+      if (isGraph && matchedConceptVisual?.interactive_math_formula) {
+        setActiveGraph({
+          formula: matchedConceptVisual.interactive_math_formula,
+          domain: [-10, 10],
+          range: [-10, 50],
+          title: conceptTitle,
+        })
+        chalkboardRef.current.drawGraph?.(matchedConceptVisual.interactive_math_formula)
+        triggerBackgroundSvgPregeneration(conceptIdx)
+        return
+      }
+
+      if (isFlowchart) {
+        chalkboardRef.current.drawFlowchart?.(matchedConceptVisual?.what_to_make || targetConcept)
+        triggerBackgroundSvgPregeneration(conceptIdx)
+        return
+      }
+
+      // Check for pre-fetched or configured high-resolution authentic scientific image
+      const prefetchedImg = prefetchedImagesRef.current[conceptIdx]
+      const conceptImageUrl = matchedConceptVisual?.image_url || matchedConceptVisual?.url || prefetchedImg?.url
+      if (
+        conceptImageUrl &&
+        (matchedConceptVisual?.visual_type === 'image' ||
+          matchedConceptVisual?.diagram_type === 'image' ||
+          !conceptSvg ||
+          !conceptSvg.includes('<svg'))
+      ) {
+        const imageTitle = matchedConceptVisual?.diagram_title || prefetchedImg?.title || conceptTitle
+        const imageCaption = matchedConceptVisual?.what_to_make || prefetchedImg?.caption || conceptCaption
+        chalkboardRef.current.drawImage?.(conceptImageUrl, imageTitle, imageCaption)
+        triggerBackgroundSvgPregeneration(conceptIdx)
+        return
+      }
 
       if (conceptSvg && typeof conceptSvg === 'string' && conceptSvg.includes('<svg')) {
         chalkboardRef.current.drawSvgDiagram?.(conceptTitle, conceptSvg, conceptCaption)
@@ -1775,11 +1813,8 @@ DO NOT call concept_completed or advance to the next page until they demonstrate
         }
       }
 
-      // 2. Render crisp Chalkboard Skeleton Loading Box immediately while diagram generates or resolves
+      // 2. Tier 1: Search online authentic scientific images first via /api/diagram/search-image
       if (typeof window !== 'undefined') {
-        chalkboardRef.current?.drawDiagramSkeleton?.(targetConcept)
-        setGeneratingDiagramTitle(targetConcept)
-
         const handleSuccessData = (data: any) => {
           if (data?.svg && chalkboardRef.current) {
             chalkboardRef.current.drawSvgDiagram?.(
@@ -1811,15 +1846,13 @@ DO NOT call concept_completed or advance to the next page until they demonstrate
           applyDirectiveFallback(targetConcept, conceptCaption)
         }
 
-        const inFlightPromise = inFlightPregenerationRef.current.get(conceptIdx)
-        if (inFlightPromise) {
-          inFlightPromise
-            .then(handleSuccessData)
-            .catch(handleFailure)
-            .finally(() => {
-              setGeneratingDiagramTitle(null)
-            })
-        } else {
+        const runFastDiagramGeneration = () => {
+          chalkboardRef.current?.drawDiagramSkeleton?.(targetConcept)
+          setGeneratingDiagramTitle(targetConcept)
+          sendBoardContext(
+            `[SYSTEM NOTICE: Online search found no exact image. The digital chalkboard is currently generating the detailed vector diagram for "${targetConcept}" via Live Class Fast Diagram Generation. A skeleton preview placeholder is on the board. Continue explaining the intuitive analogy verbally to the student and inform them the drawing will appear in a few moments.]`
+          )
+
           fetch('/api/diagram/generate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -1843,6 +1876,43 @@ DO NOT call concept_completed or advance to the next page until they demonstrate
               setGeneratingDiagramTitle(null)
             })
         }
+
+        const rawSearchQuery =
+          matchedConceptVisual?.image_search_query ||
+          matchedConceptVisual?.image_query ||
+          matchedConceptVisual?.diagram_title ||
+          targetConcept
+
+        const searchQuery = extractConciseSearchKeyword(rawSearchQuery) || rawSearchQuery
+
+        fetch(`/api/diagram/search-image?q=${encodeURIComponent(searchQuery)}&limit=3`)
+          .then((res) => (res.ok ? res.json() : null))
+          .then((data) => {
+            const firstImg = data?.images?.[0]
+            if (firstImg?.url && chalkboardRef.current) {
+              prefetchedImagesRef.current[conceptIdx] = {
+                url: firstImg.url,
+                title: matchedConceptVisual?.diagram_title || firstImg.title || targetConcept,
+                caption: matchedConceptVisual?.what_to_make || firstImg.description || conceptCaption,
+              }
+              chalkboardRef.current.drawImage?.(
+                firstImg.url,
+                matchedConceptVisual?.diagram_title || firstImg.title || targetConcept,
+                matchedConceptVisual?.what_to_make || firstImg.description || conceptCaption
+              )
+              sendBoardContext(
+                `[SYSTEM NOTICE: High-resolution real-world visual for "${targetConcept}" is now displayed on the chalkboard.]`
+              )
+              return
+            }
+
+            // Online search yielded no exact image -> Run Live Class Fast Diagram Generation with increased timeout
+            runFastDiagramGeneration()
+          })
+          .catch((err) => {
+            console.warn('[Classroom] Online search error before diagram generation:', err)
+            runFastDiagramGeneration()
+          })
       }
 
       // Proactively trigger background SVG pre-generation for subsequent concepts N+1, N+2...
@@ -2619,8 +2689,14 @@ ${nextDossier}`
           return `  * Concept #${i + 1} "${c}":\n    - Visual Type: Geometric Shape Primitive\n    - Tool Call Cue: draw_shape(shape="${cv?.what_to_make || 'rectangle'}", label="${vTitle}")\n    - Timing: ${timing}`
         }
 
+        if (cv?.diagram_type === 'image' || cv?.image_url || cv?.image_search_query) {
+          const query = cv?.image_search_query || cv?.diagram_title || c
+          const imgUrl = cv?.image_url || ''
+          return `  * Concept #${i + 1} "${c}":\n    - Visual Type: Authentic Scientific Educational Image / Micrograph\n    - Tool Call Cue: ${imgUrl ? `write_chalkboard(action="draw_image", content="${imgUrl} | ${vTitle} | ${explain || why}")` : `search_and_show_image(query="${query}", title="${vTitle}", caption="${explain || why}")`}\n    - Proactive Visual: Call search_and_show_image if student hesitates or requests another view\n    - Timing: ${timing}`
+        }
+
         const hasSvg = Boolean(cv?.svg || cv?.diagram_svg)
-        if (!cv || (!hasSvg && !cv?.interactive_math_formula && cv?.diagram_type !== 'draw_flowchart' && cv?.diagram_type !== 'draw_shape')) {
+        if (!cv || (!hasSvg && !cv?.interactive_math_formula && cv?.diagram_type !== 'draw_flowchart' && cv?.diagram_type !== 'draw_shape' && cv?.diagram_type !== 'image')) {
           const whatSpec = cv?.what_to_make || `Publication-grade scientific vector diagram illustrating ${c}`
           return `  * Concept #${i + 1} "${c}":\n    - Visual Status: On-Demand Bespoke Vector Generation\n    - Tool Call Cue: render_svg_diagram(title="${c}", what="${whatSpec}")\n    - Timing: ${timing}\n    - Notice: Digital chalkboard will display a live progress card and generate this diagram on-demand.`
         }
@@ -2773,185 +2849,123 @@ ${careerHook ? `- ${careerHook}\n` : ''}${favoriteHook ? `- ${favoriteHook}\n` :
       nextConceptLockedDossier = `\n========================================================================================\nUPCOMING CURRICULUM SYLLABUS DATA (PREVIEW ONLY — STRICTLY LOCKED & GATED):\n========================================================================================\n[STATUS: [LOCKED] UNTIL CONCEPT ${currentConceptIndex + 1} FULLY COMPLETED & CONFIRMED]\nDo NOT teach, explain, or mention the following upcoming concept yet. It is provided ONLY so you are aware of the upcoming curriculum trajectory while the background engine synthesizes its visuals in the database:\n${nextDossierRaw}\n[END LOCKED PREVIEW — REMAIN 100% ON CONCEPT ${currentConceptIndex + 1}: "${currentConcept}"]\n`
     }
 
-    const lessonPrompt = `ROLE: Senior Academic Topper Tutor (1-on-1 spoken class with live chalkboard notes).
+    const lessonPrompt = `ROLE: Senior Academic Topper Tutor (1-on-1 spoken class with live interactive chalkboard).
 ${pedagogicalDossier}
-STUDENT: ${studentFirstName ? studentFirstName + ' | ' : ''}${resolvedClassLevel || 'Class 10'} (${resolvedBoard || 'CBSE'}) | Subject: ${resolvedSubject} (${subjectDirective}) | Capsule: "${resolvedTitle}"${
+STUDENT: ${studentFirstName ? studentFirstName + ' | ' : ''}${resolvedClassLevel || 'Class 9'} (${resolvedBoard || 'CBSE'}) | Subject: ${resolvedSubject} (${subjectDirective}) | Capsule: "${resolvedTitle}"${
   isLastCapsuleOfChapter && nextChapterInfo
     ? ` | Final Capsule (Next: #${nextChapterInfo.orderIndex} "${nextChapterInfo.chapterTitle}")`
     : ''
 }
 ${boardContinuationNote}${
   selectedPyqQuestion
-    ? `\n========================================================================================\nCURRENT BOARD EXAM PYQ PRACTICE FOCUS:\n========================================================================================\nThe student is solving this authentic Board Exam question: "${selectedPyqQuestion}".\n1. Lay out the problem on the board using write_chalkboard(action="draw_question", content="Board PYQ: ${selectedPyqQuestion}", color="amber").\n2. Solve step-by-step with the student using the Trio Combo (Given -> Formula -> Substitution -> Scratchpad in [ROUGH_WORK] -> Boxed Answer).\n`
+    ? `\n========================================================================================\nCURRENT BOARD EXAM PYQ PRACTICE FOCUS:\n========================================================================================\nThe student is solving this authentic Board Exam question: "${selectedPyqQuestion}".\n1. Lay out problem on board: write_chalkboard(action="draw_question", content="Board PYQ: ${selectedPyqQuestion}", color="amber").\n2. Solve step-by-step with the student using the Trio Combo (Given -> Formula -> Substitution -> Scratchpad in [ROUGH_WORK] -> Boxed Answer).\n`
     : ''
 }
 
 ========================================================================================
-MANDATORY CHALKBOARD WRITING INVARIANT (HIGHEST PRIORITY - ZERO EXCEPTIONS):
+MANDATORY CHALKBOARD & SOCRATIC 6-STAGE CADENCE (HIGHEST PRIORITY - ZERO EXCEPTIONS):
 ========================================================================================
-You are an in-person classroom tutor standing at a live chalkboard.
-In EVERY SINGLE SPOKEN TURN, you MUST call write_chalkboard (or write_board) AT LEAST ONCE to write on the board!
-A spoken turn without calling write_chalkboard is a SYSTEM CRITICAL ERROR.
-The student learns visually by watching notes appear as you speak.
-DO NOT wait for the student to tell you "write on board". Write automatically on EVERY TURN!
+You are an inspiring topper tutor standing at a live chalkboard.
+1. WRITE ON EVERY TURN: You MUST call write_chalkboard (or write_board) AT LEAST ONCE in EVERY SPOKEN TURN! The student learns visually as you speak.
+2. TEACH IN SMALL BITES: Speak at most 2-3 sentences per turn. Never lecture continuously.
+3. ANTI-TELEPROMPTER RULE: Never merely recite what is written on the board! Explain the deep conceptual "why" and physical mechanism behind every definition and algebraic transition.
 
-MANDATORY TOOL CALL DISPATCH BY CADENCE STEP:
-- EXPLAIN FIRST, READ ALOUD VERBATIM, WRITE STEP-BY-STEP (NEVER DUMP AT ONCE):
-  You MUST speak aloud what you are writing while you write it.
-- PHASE 1 - INTUITION & GENERATIVE VISUAL:
-  write_chalkboard(action="draw_note", content="Intuition: <everyday physical hook>", color="botanical")
-- PHASE 2 - FORMAL DEFINITION (EXPLAIN FIRST -> READ ALOUD -> WRITE STEP-BY-STEP):
-  write_chalkboard(action="draw_highlight_box", content="Definition: <exact formal law and SI units>", color="coral")
-- PHASE 3 - CONCRETE EXAMPLES (EXPLAIN FIRST -> READ ALOUD -> WRITE STEP-BY-STEP):
-  write_chalkboard(action="draw_note", content="Example: <concrete daily application>", color="blue")
-- PHASE 4 - TUTOR-SOLVED MODEL QUESTION (READ ALOUD & EXPLAIN STEP-BY-STEP):
-    * Problem Context: Explain the physical setup first, read the question aloud verbatim, then write:
-    * write_chalkboard(action="draw_note", content="Problem: <Question>", color="coral")
-    * write_chalkboard(action="draw_step", content="Given: <values> | Method: <chosen theorem>", color="amber")
-    * write_chalkboard(action="draw_rough_work", content="Rough: <scratch calculations / intermediate algebra>", color="white")
-    * write_chalkboard(action="draw_step", content="Derivation: <key line> | Boxed Answer: <answer with SI units>", color="botanical")
-    * If problem involves functions, roots, tangents, or motion: plot_mathematical_graph(formula="...", domain="...", range="...", title="...", callout="...")
-- PHASE 5 - CHECKPOINT QUESTION (BOARD-EXAM CHECKPOINT):
-  write_chalkboard(action="draw_question", content="Q: <Authentic question for student>", color="amber")
-- PHASE 6 - STUDENT ANSWER EVALUATION & VERDICT:
-    * write_chalkboard(action="draw_student_answer", content="Student's Answer: <exact words>", color="blue")
-    * write_chalkboard(action="draw_answer_verdict", content="Verdict: <evaluation & scoring>", color="botanical")
-
-========================================================================================
-MANDATORY VISUAL & DIAGRAM TIMING INVARIANT (PROACTIVE AUTOMATIC DRAWING):
-========================================================================================
-On Step 1 (Intuition) or Step 2 (Definition) of each concept, you MUST execute the visual representation on the chalkboard:
-- If a chapter flowchart is specified: Call write_chalkboard(action="draw_flowchart", content="<Flowchart String>")
-- If a scientific or mathematical diagram is specified: Call write_chalkboard(action="render_svg_diagram", title="<Concept>", caption="<Caption>") or plot_mathematical_graph(...)
-- NEVER wait for the student to ask for a diagram. Draw it automatically on cue!
-- If the student ever asks to see a diagram, visual, picture, or flowchart: Immediately call render_svg_diagram or draw_flowchart!
+STRICT 6-STAGE CADENCE PER CONCEPT:
+- STAGE 1 [REAL-LIFE INTUITION & PROACTIVE VISUAL]:
+  Introduce a tangible everyday hook (2 sentences).
+  MANDATORY: Call write_chalkboard(action="draw_note", content="Intuition: <hook>", color="botanical") AND immediately dispatch the appropriate visual tool (search_and_show_image, search_and_show_video, render_svg_diagram, draw_flowchart, or plot_mathematical_graph). Never wait for the student to ask for a visual!
+- STAGE 2 [CONCEPT FORMULATION & SCIENTIFIC LAW]:
+  State the exact scientific law, definition, and SI units. Explain what is happening under the hood.
+  Call write_chalkboard(action="draw_highlight_box", content="Definition: <exact formal law and SI units>", color="coral").
+- STAGE 3 [CONCRETE WORKED APPLICATION]:
+  Provide an everyday or industrial application addressing common student pitfalls.
+  Call write_chalkboard(action="draw_note", content="Example: <concrete application>", color="blue").
+- STAGE 4 [BOARD NUMERICAL / STEP-BY-STEP DERIVATION]:
+  Lay out the problem clearly:
+  * write_chalkboard(action="draw_note", content="Problem: <Question>", color="coral")
+  * write_chalkboard(action="draw_step", content="Given: <data with units> | Formula: <equation>", color="amber")
+  * write_chalkboard(action="draw_rough_work", content="Rough: <scratchpad arithmetic & unit conversions>", color="white")
+  * write_chalkboard(action="draw_step", content="Boxed Answer: <answer with SI units>", color="botanical")
+  * For functions/kinematics: call plot_mathematical_graph(formula="...", title="...", callout="...")
+- STAGE 5 [CHECKPOINT QUESTION & PATIENCE INVARIANT]:
+  Pose an authentic Board Exam checkpoint question from your prepared micro-dossier:
+  Call write_chalkboard(action="draw_question", content="Q: <Question>", color="amber").
+  PATIENCE INVARIANT: HARD STOP! Stop speaking completely. Wait silently for the student to attempt their answer. NEVER speak or auto-advance on a short pause.
+- STAGE 6 [STUDENT ANSWER EVALUATION & MASTERY GATING]:
+  Evaluate their answer out loud:
+  * write_chalkboard(action="draw_student_answer", content="Student: <their answer>", color="blue")
+  * write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>", color="botanical")
+  * If wrong or hesitant: Break down with visual analogy, co-solve line-by-line in rough work, and re-test.
+  * STRICT PROGRESSION GATING: You are STRICTLY FORBIDDEN from calling concept_completed or advancing if the student made a mistake, hesitates, or has doubts!
+  * Only when ALL checkpoint questions for this concept are answered correctly AND the student confirms zero doubts ("yes", "clear", "understood"), call concept_completed(conceptName="${currentConcept}").
 
 ========================================================================================
-DEEP CONCEPTUAL EXPLANATION INVARIANT (ANTI-TELEPROMPTER RULE):
+EXPERIENCED MASTER TEACHER PEDAGOGY (TEACH LIKE AN ICONIC FACULTY MENTOR):
 ========================================================================================
-1. NEVER MERELY RECITE BOARD TEXT ALOUD:
-   - The chalkboard is your visual summary; your voice is the human mentor.
-   - Do NOT act like a teleprompter or narrator reading out the exact text you just wrote!
-   - When presenting a definition, formula, or law:
-     a) State the law clearly.
-     b) IMMEDIATELY spend 1-2 spoken sentences unpacking the deep physical or conceptual "why" — explain what is actually happening under the hood, the tangible mechanism, and what the equation reveals in real life.
-     c) Highlight the intuitive pitfall or common board-exam misconception.
-2. EXPLAIN THE "WHY" FOR EVERY STEP:
-   - When transitioning between algebraic steps, derivations, or formulas: Speak the reasoning out loud!
-   - Never just say "Next line is 2x minus 4". Explain WHY you factored, WHY you substituted, WHY a minus sign appeared, or WHAT physical condition eliminated a variable.
+1. VOICE, PRESENCE & MANNERISMS:
+   - Radiate calm confidence, intellectual clarity, and genuine warmth.
+   - Speak conversationally and thoughtfully—like a beloved, seasoned professor or master tutor standing right beside the student at the chalkboard.
+   - Pacing: Never rush. Speak in brief, natural thoughts (2 to 3 sentences maximum per turn). Pause naturally so the student can absorb every word.
+   - Anti-Teleprompter: NEVER simply read aloud text from the chalkboard or recite memorized definitions mechanically. Explain the living mechanism, the physical reality, and the intuitive "why".
+   - Dynamic Voice Modulation: Emphasize key physical terms, contrast opposing concepts with intonation, and convey genuine excitement when uncovering a beautiful scientific law or mathematical insight.
+
+2. THE INTRIGUING HOOK (TANGIBLE INTUITION FIRST, TECHNICAL JARGON SECOND):
+   - Never start a concept by throwing formal definitions or abstract variables on the board.
+   - Always ignite curiosity with a tangible everyday phenomenon, question, or mental experiment:
+     e.g., "Have you ever wondered why dried raisins swell up like tiny water balloons when soaked in a bowl of water overnight?"
+     e.g., "When you are riding a bicycle and stop pedaling, why doesn't it halt immediately? What keeps you moving forward?"
+   - Bridge the physical picture directly to the formal law before writing formulas.
+
+3. MASTERFUL CHALKBOARD ECONOMY & BOARD-EXAM FORMAT:
+   - Synchronize writing with speech: write notes, formulas, and diagrams as you explain them.
+   - Problem-Solving Layout (Exact Authentic Board Exam Format):
+     * Given: <extract all known variables with explicit SI units>
+     * To Find: <target unknown quantity>
+     * Formula / Governing Law: <state the exact equation or physical theorem>
+     * [ROUGH_WORK] Scratchpad: Perform all arithmetic, algebra, fraction reductions, and unit conversions on the right-hand margin using write_chalkboard(action="draw_rough_work", content="Rough: <arithmetic & calculations>"). Keep the main board clean and organized!
+     * Boxed Final Answer: Highlight the final numerical result with units clearly boxed using write_chalkboard(action="draw_step", content="Boxed Answer: [ <numerical value> <SI unit> ]").
+
+4. THE SOCRATIC BREATH & UNSHAKABLE PATIENCE (THE HARD STOP):
+   - Ask ONE clear, focused question at a time.
+   - THE HARD STOP: Once you ask a question, IMMEDIATELY STOP SPEAKING. Remain completely silent.
+   - NEVER answer your own question. NEVER speak over the student.
+   - If the student is hesitant or silent, provide a gentle Socratic hint without giving away the answer:
+     e.g., "Take a look at the given data on the chalkboard—what is our initial velocity u?"
+   - Celebrate correct insights enthusiastically: "Spot on!", "Exactly right!", "Shabash! Bilkul sahi pakde!".
+   - If the student makes an error: Pinpoint the misconception with diagnostic kindness:
+     "You got the arithmetic completely right, but look closely at the direction—is the force opposing the motion or assisting it?"
+   - NEVER advance to the next concept or page if the student has lingering doubts or answered incorrectly. Co-solve and confirm 100% understanding first.
+
+5. TEACH ADVANCED TOPICS WITH TRUE RIGOR:
+   - For Classes 11 & 12, higher secondary mathematics, and advanced science: teach with authentic depth and academic elegance, exactly as a master faculty member or board-exam topper.
+   - Definitions & Scientific Laws: Quote verbatim from standard textbooks. State all limiting conditions, assumptions, and exact SI units.
+   - Laboratory Activities: Document every textbook activity with Apparatus, Method, Observation, and Inference.
 
 ========================================================================================
-HEAVY & COMPLEX MATHEMATICS SOLVER (TRIO COMBO ENGINE):
+MULTIMEDIA & SCIENTIFIC VISUAL ENGINE TOOLS:
 ========================================================================================
-For senior school mathematics (Classes 9-12 CBSE, ICSE, IB), handle complex problems with dynamic mastery:
-1. CALCULUS (Derivatives, Integrals, Limits):
-   - Recognize form (chain rule, quotient rule, integration by parts, substitution u = g(x)).
-   - Vocalize the strategic choice out loud before writing.
-   - Write main derivation line with action="draw_step". Put scratch manipulations (du, cancellations, factoring) into action="draw_rough_work".
-   - Conclude with boxed answer.
-   - ALWAYS call plot_mathematical_graph(formula="...", title="...", callout="...") to show the function curve, tangent, or area under curve in the in-board graph box!
-2. ALGEBRA & QUADRATICS / POLYNOMIALS:
-   - Formulate standard form ax^2 + bx + c = 0.
-   - Choose optimal Trio method (Factoring combo, Discriminant/Quadratic formula combo, or Completing the square combo) and explain why it is chosen.
-   - Compute discriminant in rough work (action="draw_rough_work").
-   - Box the roots with action="draw_step".
-   - ALWAYS plot the parabola on the board using plot_mathematical_graph(formula="...", points="...", title="...") showing where it intersects the x-axis!
-3. TRIGONOMETRY & IDENTITIES:
-   - State LHS. Announce strategy (e.g. converting to sin/cos or using Pythagorean identity).
-   - Show progressive step-by-step reduction using draw_step.
-4. KINEMATICS & PHYSICS NUMERICALS:
-   - Extract Given data with SI units + Target unknown + Sign convention.
-   - Select kinematic equation. Solve scratch math in rough work, write formal derivation on board.
-   - Call plot_mathematical_graph to render the velocity-time or displacement curve in the moveable graph box!
-
-========================================================================================
-MOVEABLE IN-BOARD GRAPH CONTAINER DIRECTIVE & STRICT GRAPH GATING INVARIANT:
-========================================================================================
-- The in-board Mafs graph container and plot_mathematical_graph MUST ONLY open when teaching a genuine mathematical function (quadratics, calculus, trigonometry, linear equations) or kinematic curve (velocity-time, displacement-time) with actual mathematical coordinate work.
-- MANDATORY WORK REQUIREMENT: Graphs should open ONLY when they are needed AND WITH ACTUAL MATHEMATICAL WORK. Whenever plotting a graph, you MUST write the worked calculations (roots, intercepts, vertex, slope dy/dx, or table of values) on the chalkboard using action="draw_step" and action="draw_rough_work". A graph must NEVER appear without the accompanying mathematical derivations.
-- STRICTLY PROHIBITED: NEVER call plot_mathematical_graph for non-mathematical topics (such as Biology, Histology, Plant Cell Wall, Chemical Bonding, Tissue Structures, Literature, History, Civics). For all non-mathematical topics, you MUST call render_svg_diagram or draw_flowchart instead!
-Graphs render inside a high-precision Mafs vector box directly on the student's chalkboard.
-The student can drag/move it anywhere across the board, zoom in/out, view coordinates, toggle dy/dx derivatives, or dock it alongside notes.
-Whenever explaining a mathematical function or kinematic curve:
-Call: plot_mathematical_graph(formula="...", domain="[min,max]", range="[min,max]", title="...", callout="...", points="...")
-(Formula examples: "x^2 - 4", "2*x + 3", "sin(x)", "-4.9*x^2 + 20*x", "x^3 - 3*x")
-- SIMULTANEOUS MULTI-GRAPH PLOTTING: Whenever comparing functions, solving pairs of linear equations (intersecting lines, parallel lines, coincident lines), finding intersections of a curve and a line, or comparing motion curves:
-  Plot all curves simultaneously by separating formulas with a semicolon in formula:
-  * Linear Systems (Class 10 Ch 3): formula="x + y = 3; x - y = 1" or formula="2x + 3y = 6; x - 2y = 4"
-  * Parabola vs Line: formula="x^2 - 4; 2*x - 1"
-  * Discriminant Cases Comparison: formula="x^2 - 4; x^2; x^2 + 4"
-  Mafs automatically plots all curves together with clean white chalkboard styling, distinct color coding (Royal Blue, Crimson Red, Emerald Green), and automatically marks their intersection points!
-
-========================================================================================
-STRICT SOCRATIC CADENCE & MANDATORY QUESTION PROGRESSION GATING:
-========================================================================================
-CRITICAL INVARIANT - NEVER ADVANCE ON WRONG ANSWERS:
-- You are STRICTLY FORBIDDEN from calling concept_completed, concept_done, or new_page when the student answers incorrectly, gives an incomplete answer, or is hesitant!
-- If the student makes a mistake:
-  1. Acknowledge and locate the misconception with warmth.
-  2. Write on the board: write_chalkboard(action="draw_answer_verdict", content="Needs Review: <explanation of mistake>", color="coral")
-  3. Co-solve the step on the board using write_chalkboard(action="draw_step", ...).
-  4. Pose a targeted follow-up question or re-test.
-- ALL PREPARED QUESTIONS MUST BE SOLVED: Work through the prepared checkpoint questions for each concept before advancing.
-- ZERO DOUBTS REQUIREMENT: Always ask: "Do you have any doubts on this, or is everything crystal clear?"
-  * Only when ALL questions are answered correctly AND the student confirms zero doubts may you call concept_done or concept_completed.
-- GRAPH DIAGRAM INVARIANT (MATHS & PHYSICS):
-  Whenever an illustration represents a mathematical function, linear equation, coordinate relationship, or kinematic motion curve in Maths or Physics, you MUST plot it dynamically using plot_mathematical_graph matching the textbook presentation.
-1. SESSION START:
-   - Speak FIRST upon connection! Warmly greet ${studentFirstName || 'the student'} in ${studentPreferredLanguage}: "${langGreeting}"
-   - Begin Concept 1 with Step 1 (Intuition). Write intuition to board immediately!
-2. MAX 2-3 SENTENCES PER TURN:
-   - Teach in bite-sized conversational chunks. Never dump intuition, definition, examples, and math in one turn.
-   - After each micro-step: write on the board, ask an intuitive check or basic question, and HARD STOP to wait for the student!
-3. MANDATORY 4-6 EXAM QUESTION CHECKPOINT & STRICT PROGRESSION GATING:
-   - For every concept in this module, you have 4 to 6 authentic board-exam questions prepared in your micro-dossier!
-   - After explaining the concept and model example, you MUST pose at least one of these prepared authentic questions to the student using write_chalkboard(action="draw_question", content="Q: <Question>", color="amber").
-   - HARD STOP: Stop speaking and wait for the student to attempt their answer or ask for the answer!
-   - You are STRICTLY FORBIDDEN from advancing to the next concept until the student answers or asks for the solution!
-   - When the student answers:
-     * Evaluate their answer immediately out loud.
-     * Write on the board:
-       - write_chalkboard(action="draw_student_answer", content="Student: <their answer>", color="blue")
-       - write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>", color="botanical")
-     * If incorrect or hesitant: Break down with visual analogy, co-solve line-by-line on the chalkboard, and ask if it makes sense now.
-     * Once understood, ask: "Are you fully confident with this concept, and ready to move to Concept X?"
-     * HARD STOP: Wait for explicit student confirmation ("yes", "clear", "next", "understood", "chalo")!
-     * Only then call:
-       - write_chalkboard(action="concept_done", content="<Current Concept Name>")
-       - write_chalkboard(action="concept_focus", content="<Next Concept Name>") -> advances to clean new page!
-
-QUIZ TIMING RULE:
-- NEVER mention the 10-MCQ quiz or call conclude_and_open_quiz until ALL concepts have been fully taught, solved, and marked done with concept_done!
-
-DUAL-MODE VISUAL GENERATION & LIVE BACKUP PIPELINE:
-1. Primary Pipeline (Pre-Authored Concept Visual):
-   If the VISUAL ROADMAP specifies an exact pre-authored svg for the current concept, dispatch render_svg_diagram with that exact svg markup.
-2. Live Generative Backup (Real-Time SVG Synthesis):
-   You have a real-time vector whiteboard graphics engine. NEVER tell the student "I am unable to generate images" or "I am an audio AI".
-   When a student asks to see an image, picture, diagram, structure, visual, or custom sketch, OR if a concept does not have an exact pre-authored svg:
-   - Reply enthusiastically: "Drawing that on the chalkboard for you right now!"
-   - Dynamically synthesize and dispatch: render_svg_diagram(title="...", svg="<svg viewBox='0 0 540 280' xmlns='http://www.w3.org/2000/svg' ...>...</svg>", caption="...")
-   - If generating raw SVG markup live is difficult during quick speech, simply call render_svg_diagram(title="<Exact Concept/Figure Name>", caption="<1-line law>") and our deterministic mathematical vector engine will immediately compute and draw the exact diagram on the chalkboard!
+- HIGH-RES SCIENTIFIC IMAGES & MICROGRAPHS:
+  Call search_and_show_image(query="<query>", title="<Title>", caption="<Caption>") or write_chalkboard(action="draw_image", content="<url> | <Title> | <Caption>") for electron micrographs, plant/animal cell organelles, histology tissues, and laboratory apparatus.
+- EDUCATIONAL DEMONSTRATION VIDEOS:
+  Call search_and_show_video(query="<query>", title="<Title>", description="<Description>") or write_chalkboard(action="draw_video", content="<url> | <Title> | <Description>") for dynamic physical experiments, kinematics air tracks, biological mitosis/osmosis, or when the student asks to watch a video demonstration.
+- FLOWCHARTS & DECISION TREES:
+  Call write_chalkboard(action="draw_flowchart", content="<Hierarchical or cycle flowchart string>") for multi-step biological cycles, taxonomic classifications, and chemical reaction pathways.
+- MATHEMATICAL & KINEMATIC FUNCTION GRAPHS:
+  Call plot_mathematical_graph(formula="...", domain="[min,max]", range="[min,max]", title="...", callout="...") with accompanying worked calculations on the board. STRICT GATING: ONLY call this for actual mathematical equations or kinematics curves. NEVER call for Biology, Histology, or non-mathematical topics.
+- VECTOR SVG DIAGRAMS:
+  Call render_svg_diagram(title="<Concept>", caption="<Caption>") for 30° axonometric Hairline isometric illustrations, optics ray diagrams, and circuits.
+${verifiedAssetsDirectives ? `\n========================================================================================\n${verifiedAssetsDirectives}\n` : ''}
 
 ========================================================================================
 CURRENT ACTIVE CONCEPT DOSSIER (SINGLE-CONCEPT GATED PROGRESSION):
 ========================================================================================
 ${singleConceptDossier}${nextConceptLockedDossier}
 
-CRITICAL SINGLE-CONCEPT PROGRESSION & PROHIBITION OF NEXT CONCEPTS:
+CRITICAL SINGLE-CONCEPT PROGRESSION:
 - You are teaching Concept ${currentConceptIndex + 1} of ${keyConcepts.length}: "${currentConcept}".
-- ABSOLUTE PROHIBITION ON FUTURE CONCEPTS: You are STRICTLY AND UNEQUIVOCALLY FORBIDDEN from teaching, explaining, introducing, previewing, or mentioning Concept ${currentConceptIndex + 2}${keyConcepts[currentConceptIndex + 1] ? ` ("${keyConcepts[currentConceptIndex + 1]}")` : ''} or any subsequent concepts until Concept ${currentConceptIndex + 1} ("${currentConcept}") is 100% completed, verified, and explicitly confirmed by the student.
-- Even though the background visual engine is pre-generating visual diagrams for future concepts in the database, YOU MUST REMAIN FOCUSED SOLELY ON CONCEPT ${currentConceptIndex + 1}. Do not leak upcoming topics or rush ahead!
-- You must guide the student through all 6 Socratic stages for "${currentConcept}" (Intuition -> Concept Law & SI Units -> Worked Example -> Step-by-Step Whiteboard Numerical -> Checkpoint Understanding -> Authentic Board Exam Numerical).
-- Once the student confirms understanding of this concept ("yes", "understood", "clear", "chalo"), call concept_completed(conceptName="${currentConcept}") or write_chalkboard(action="concept_done", content="${currentConcept}").
-- The system will then automatically open the next clean whiteboard page and supply you with the next concept's dossier.
-
-ZERO-RUSH & PATIENCE INVARIANT (DO NOT AUTO-ADVANCE ON SILENCE):
-- When asking a check for understanding or checkpoint question, you MUST STOP speaking immediately and remain completely silent.
-- NEVER speak again or advance to the next step after a 1-second pause.
-- WAIT patiently for the student to speak or type their answer, even if there is several seconds of silence while they think.
-${visualRoadmap ? `\n========================================================================================\nVISUAL ROADMAP (MANDATORY UNIQUE CONCEPT VISUALS):\n========================================================================================\n${visualRoadmap}\n- UNIQUE WHITEBOARD INVARIANT: Every concept MUST have its own distinct visual diagram from the roadmap above! NEVER duplicate or re-draw the same diagram for multiple concepts!\n` : ''}${mathProgressionText ? `- ${mathProgressionText}\n` : ''}${aiContextText ? `\n========================================================================================\nAUTHENTIC TEXTBOOK TEACHING DIRECTIVES & CURRICULUM BLUEPRINT:\n========================================================================================\n${aiContextText}\n` : ''}
-RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, intellectually rigorous topper tone.`
+- ABSOLUTE PROHIBITION ON FUTURE CONCEPTS: Never teach, introduce, or preview upcoming concepts until Concept ${currentConceptIndex + 1} is 100% completed and confirmed by the student.
+${visualRoadmap ? `\n========================================================================================\nVISUAL ROADMAP (MANDATORY UNIQUE CONCEPT VISUALS):\n========================================================================================\n${visualRoadmap}\n` : ''}${mathProgressionText ? `- ${mathProgressionText}\n` : ''}${aiContextText ? `\n========================================================================================\nAUTHENTIC TEXTBOOK TEACHING DIRECTIVES & CURRICULUM BLUEPRINT:\n========================================================================================\n${aiContextText}\n` : ''}
+RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for notes. Warm, intellectually rigorous topper tone.`
 
     // Whiteboard 1-Concept-Per-Page: Ensure active concept page is active
     chalkboardRef.current?.goToPage?.(currentConceptIndex)
@@ -3136,12 +3150,117 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
             else chalkboardRef.current.handleAiDirective(`[NUMERICAL: ${content}]`)
           }
           else if (action === 'draw_video' || action === 'video') {
-            const parts = (content || '').split('|').map((s: string) => s.trim())
-            chalkboardRef.current.drawVideoCard?.(parts[0] || 'Demonstration', parts[1] || '')
+            let vidUrl = ''
+            let vidTitle = 'Demonstration Video'
+            let vidDesc = ''
+            let vidMime = 'video/mp4'
+            if (typeof content === 'object' && content !== null) {
+              vidUrl = content.url || content.video_url || ''
+              vidTitle = content.title || 'Demonstration Video'
+              vidDesc = content.description || content.caption || ''
+              vidMime = content.mimeType || content.mime_type || 'video/mp4'
+            } else if (typeof content === 'string') {
+              const trimmed = content.trim()
+              if (trimmed.startsWith('{') && trimmed.endsWith('}')) {
+                try {
+                  const parsed = JSON.parse(trimmed)
+                  vidUrl = parsed.url || parsed.video_url || ''
+                  vidTitle = parsed.title || 'Demonstration Video'
+                  vidDesc = parsed.description || parsed.caption || ''
+                  vidMime = parsed.mimeType || parsed.mime_type || 'video/mp4'
+                } catch {}
+              } else {
+                const parts = trimmed.split('|').map((s: string) => s.trim())
+                if (parts[0]?.startsWith('http')) {
+                  vidUrl = parts[0]
+                  vidTitle = parts[1] || 'Demonstration Video'
+                  vidDesc = parts[2] || ''
+                } else if (parts[1]?.startsWith('http')) {
+                  vidTitle = parts[0]
+                  vidUrl = parts[1]
+                  vidDesc = parts[2] || ''
+                } else {
+                  vidTitle = parts[0]
+                  vidDesc = parts[1] || ''
+                }
+              }
+            }
+
+            if (vidUrl) {
+              chalkboardRef.current?.drawVideoCard?.(vidTitle, vidDesc, vidUrl, vidMime)
+            } else {
+              fetch('/api/diagram/search-video', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query: vidTitle }),
+              })
+                .then((r) => r.json())
+                .then((data) => {
+                  const first = data.videos?.[0]
+                  if (first?.url) {
+                    chalkboardRef.current?.drawVideoCard?.(first.title || vidTitle, vidDesc || first.description, first.url, first.mimeType || 'video/mp4')
+                  } else {
+                    chalkboardRef.current?.drawVideoCard?.(vidTitle, vidDesc)
+                  }
+                })
+                .catch(() => chalkboardRef.current?.drawVideoCard?.(vidTitle, vidDesc))
+            }
+          }
+          else if (action === 'draw_image' || action === 'image') {
+            let imgUrl = ''
+            let imgTitle = 'Educational Visual'
+            let imgCaption = ''
+            if (typeof content === 'object' && content !== null) {
+              imgUrl = content.url || content.image_url || content.fullUrl || ''
+              imgTitle = content.title || 'Educational Visual'
+              imgCaption = content.caption || ''
+            } else if (typeof content === 'string') {
+              const trimmed = content.trim()
+              if (trimmed.startsWith('{') && trimmed.endsWith('}')) {
+                try {
+                  const parsed = JSON.parse(trimmed)
+                  imgUrl = parsed.url || parsed.image_url || parsed.fullUrl || ''
+                  imgTitle = parsed.title || 'Educational Visual'
+                  imgCaption = parsed.caption || ''
+                } catch {}
+              } else {
+                const parts = trimmed.split('|').map((s: string) => s.trim())
+                if (parts[0]?.startsWith('http') || parts[0]?.startsWith('data:')) {
+                  imgUrl = parts[0]
+                  imgTitle = parts[1] || 'Educational Visual'
+                  imgCaption = parts[2] || ''
+                } else if (parts[1]?.startsWith('http') || parts[1]?.startsWith('data:')) {
+                  imgTitle = parts[0]
+                  imgUrl = parts[1]
+                  imgCaption = parts[2] || ''
+                } else {
+                  imgTitle = parts[0]
+                  imgCaption = parts[1] || ''
+                }
+              }
+            }
+
+            if (imgUrl) {
+              chalkboardRef.current?.drawImage?.(imgUrl, imgTitle, imgCaption)
+            } else {
+              fetch('/api/diagram/search-image', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query: extractConciseSearchKeyword(imgTitle) || imgTitle }),
+              })
+                .then((r) => r.json())
+                .then((data) => {
+                  const first = data.images?.[0]
+                  if (first?.url) {
+                    chalkboardRef.current?.drawImage?.(first.url, imgTitle || first.title, imgCaption || first.description)
+                  } else {
+                    chalkboardRef.current?.drawSvgDiagram?.(imgTitle, '', imgCaption)
+                  }
+                })
+                .catch(() => chalkboardRef.current?.drawSvgDiagram?.(imgTitle, '', imgCaption))
+            }
           }
           else if (
-            action === 'draw_image' ||
-            action === 'image' ||
             action === 'draw_diagram' ||
             action === 'diagram' ||
             action === 'render_svg_diagram' ||
@@ -3254,28 +3373,43 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
                 matched.svg || matched.diagram_svg,
                 matched.what_to_make || matched.timing_and_cue || explicitCaption
               )
+              return
+            }
 
-              // If already refined by Tier 2, no further upgrade needed
-              if (matched.refined_by_tier2) {
-                return
-              }
+            // Check default module SVG only if topic matches capsule title
+            if (moduleDefaultSvg && activeModule?.title?.toLowerCase().includes(qLower)) {
+              chalkboardRef.current?.drawSvgDiagram?.(queryTitle, moduleDefaultSvg, vPlan.diagram_idea || explicitCaption)
+              return
+            }
 
-              // 1b. Seamless background upgrade to Tier 2 Aristotle/Gauth publication grade
+            // 2. Tier 1: Search online authentic scientific images first via /api/diagram/search-image
+            const executeFastDiagramGeneration = () => {
+              const isGraph = isLegitimateGraphTopic(queryTitle, resolvedSubject) && (matched?.diagram_type === 'graph' || /graph|parabola|function|kinematic/i.test(queryTitle))
+              const isAnim = matched?.visual_type === 'animation' || /wave|current|flow|circuit|motion/i.test(queryTitle)
+              const resolvedVisualType = isGraph ? 'graph' : isAnim ? 'animation' : (matched?.diagram_type || 'diagram')
+
+              // Display Whiteboard Visual Progress Box, draw crisp chalkboard skeleton placeholder on board, and notify Gemini Live
+              chalkboardRef.current?.drawDiagramSkeleton?.(targetConceptTitle)
+              setGeneratingDiagramTitle(targetConceptTitle)
+              sendBoardContext(
+                `[SYSTEM NOTICE: Online search found no exact image. The digital chalkboard is currently generating the detailed vector diagram for "${targetConceptTitle}" via Live Class Fast Diagram Generation. A skeleton preview placeholder is on the board. Continue explaining the intuitive analogy verbally to the student and inform them the drawing will appear in a few moments.]`
+              )
+
               fetch('/api/diagram/generate', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                  title: matched.diagram_title || matched.concept_title || targetConceptTitle,
+                  title: targetConceptTitle,
                   subject: resolvedSubject,
                   classLevel: resolvedClassLevel,
                   context: targetConceptTitle,
-                  existingSvg: matched.svg || matched.diagram_svg,
-                  whyNeeded: matched.why_needed || '',
-                  whatToExplain: matched.what_to_explain || '',
-                  whatToMake: matched.what_to_make || '',
+                  existingSvg: matched?.svg || matched?.diagram_svg || '',
+                  whyNeeded: matched?.why_needed || '',
+                  whatToExplain: matched?.what_to_explain || explicitCaption || '',
+                  whatToMake: explicitWhat || matched?.what_to_make || '',
                   refinementPrompt: explicitCaption || '',
-                  visualType: matched.diagram_type === 'graph' ? 'graph' : matched.visual_type || 'diagram',
-                  interactiveMathFormula: matched.interactive_math_formula || '',
+                  visualType: resolvedVisualType,
+                  interactiveMathFormula: matched?.interactive_math_formula || '',
                   moduleId: activeModule?.id,
                   conceptIndex: currentConceptIndexRef.current,
                   conceptTitle: targetConceptTitle,
@@ -3286,157 +3420,78 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
               })
                 .then((res) => res.json())
                 .then((data) => {
+                  setGeneratingDiagramTitle(null)
                   if (data?.svg && data.svg.includes('<svg')) {
-                    matched.svg = data.svg
-                    matched.diagram_svg = data.svg
-                    matched.refined_by_tier2 = true
-                    matched.tier2_refined_at = data.tier2_refined_at || new Date().toISOString()
                     chalkboardRef.current?.drawSvgDiagram?.(
-                      data.title || matched.diagram_title || targetConceptTitle,
+                      data.title || targetConceptTitle,
                       data.svg,
                       data.caption || explicitCaption || data.what_to_explain,
                       true
                     )
-                  }
-                })
-                .catch((err) => console.warn('[Classroom Tier 2 Upgrade error]:', err))
-
-              return
-            }
-
-            // Check default module SVG only if topic matches capsule title
-            if (moduleDefaultSvg && activeModule?.title?.toLowerCase().includes(qLower)) {
-              chalkboardRef.current?.drawSvgDiagram?.(queryTitle, moduleDefaultSvg, vPlan.diagram_idea || explicitCaption)
-              if (vPlan.refined_by_tier2) {
-                return
-              }
-
-              // Background Tier 2 refinement for capsule default SVG
-              fetch('/api/diagram/generate', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                  title: queryTitle,
-                  subject: resolvedSubject,
-                  classLevel: resolvedClassLevel,
-                  context: targetConceptTitle,
-                  existingSvg: moduleDefaultSvg,
-                  whyNeeded: vPlan.diagram_idea || '',
-                  whatToExplain: vPlan.what_to_make || '',
-                  whatToMake: vPlan.what_to_make || '',
-                  refinementPrompt: explicitCaption || '',
-                  visualType: vPlan.diagram_type || 'diagram',
-                  moduleId: activeModule?.id,
-                  conceptIndex: 0,
-                  conceptTitle: targetConceptTitle,
-                  animationType: 'moving_points_and_pulsing_glow',
-                  isLiveClass: true,
-                  source: 'live_classroom',
-                }),
-              })
-                .then((res) => res.json())
-                .then((data) => {
-                  if (data?.svg && data.svg.includes('<svg')) {
-                    vPlan.diagram_svg = data.svg
-                    vPlan.refined_by_tier2 = true
-                    vPlan.tier2_refined_at = data.tier2_refined_at || new Date().toISOString()
-                    chalkboardRef.current?.drawSvgDiagram?.(
-                      data.title || queryTitle,
-                      data.svg,
-                      data.caption || explicitCaption || data.what_to_explain,
-                      true
+                    sendBoardContext(
+                      `[SYSTEM NOTICE: Vector diagram for "${targetConceptTitle}" is now live on the chalkboard! You may now direct the student's attention to the labeled parts.]`
                     )
+                    if (activeModule?.id) {
+                      if (!vPlan.concept_visuals) vPlan.concept_visuals = []
+                      if (matched) {
+                        matched.svg = data.svg
+                        matched.diagram_svg = data.svg
+                        matched.refined_by_tier2 = true
+                        matched.tier2_refined_at = data.tier2_refined_at || new Date().toISOString()
+                      } else {
+                        vPlan.concept_visuals.push({
+                          concept_title: targetConceptTitle,
+                          diagram_title: data.title || targetConceptTitle,
+                          svg: data.svg,
+                          diagram_svg: data.svg,
+                          what_to_make: data.what_to_make || explicitWhat || '',
+                          what_to_explain: data.what_to_explain || '',
+                          why_needed: data.why_needed || '',
+                          visual_type: data.visual_type || 'diagram',
+                          interactive_math_formula: data.interactive_math_formula || '',
+                          refined_by_tier2: true,
+                          tier2_refined_at: data.tier2_refined_at || new Date().toISOString(),
+                        })
+                      }
+                    }
+                  } else {
+                    // Only fall back to universal pre-defined SVGs at the very end if all generation models fail
+                    console.warn('[Classroom] On-demand SVG generation returned empty/invalid markup, falling back to universal engine.')
+                    chalkboardRef.current?.clearDiagramSkeleton?.(targetConceptTitle)
+                    chalkboardRef.current?.drawSvgDiagram?.(targetConceptTitle, '', explicitCaption, true)
                   }
                 })
-                .catch((err) => console.warn('[Classroom Tier 2 Upgrade error]:', err))
-
-              return
+                .catch((err) => {
+                  setGeneratingDiagramTitle(null)
+                  chalkboardRef.current?.clearDiagramSkeleton?.(targetConceptTitle)
+                  console.warn('[Classroom] On-demand SVG generation failed, falling back to universal engine:', err)
+                  chalkboardRef.current?.drawSvgDiagram?.(targetConceptTitle, '', explicitCaption, true)
+                })
             }
 
-            // 2. Fetch on-demand bespoke vector diagram from /api/diagram/generate (Tier 2 Fast Synthesis)
-            const isGraph = isLegitimateGraphTopic(queryTitle, resolvedSubject) && (matched?.diagram_type === 'graph' || /graph|parabola|function|kinematic/i.test(queryTitle))
-            const isAnim = matched?.visual_type === 'animation' || /wave|current|flow|circuit|motion/i.test(queryTitle)
-            const resolvedVisualType = isGraph ? 'graph' : isAnim ? 'animation' : (matched?.diagram_type || 'diagram')
-
-            // Display Whiteboard Visual Progress Box, draw crisp chalkboard skeleton placeholder on board, and notify Gemini Live
-            chalkboardRef.current?.drawDiagramSkeleton?.(targetConceptTitle)
-            setGeneratingDiagramTitle(targetConceptTitle)
-            sendBoardContext(
-              `[SYSTEM NOTICE: The digital chalkboard is currently generating the detailed vector diagram for "${targetConceptTitle}". A skeleton preview placeholder is on the board. Continue explaining the intuitive analogy verbally to the student and inform them the drawing will appear in a few moments.]`
-            )
-
-            fetch('/api/diagram/generate', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                title: targetConceptTitle,
-                subject: resolvedSubject,
-                classLevel: resolvedClassLevel,
-                context: targetConceptTitle,
-                existingSvg: matched?.svg || matched?.diagram_svg || '',
-                whyNeeded: matched?.why_needed || '',
-                whatToExplain: matched?.what_to_explain || explicitCaption || '',
-                whatToMake: explicitWhat || matched?.what_to_make || '',
-                refinementPrompt: explicitCaption || '',
-                visualType: resolvedVisualType,
-                interactiveMathFormula: matched?.interactive_math_formula || '',
-                moduleId: activeModule?.id,
-                conceptIndex: currentConceptIndexRef.current,
-                conceptTitle: targetConceptTitle,
-                animationType: 'moving_points_and_pulsing_glow',
-                isLiveClass: true,
-                source: 'live_classroom',
-              }),
-            })
-              .then((res) => res.json())
+            const refinedQuery = extractConciseSearchKeyword(queryTitle) || queryTitle
+            fetch(`/api/diagram/search-image?q=${encodeURIComponent(refinedQuery)}&limit=3`)
+              .then((res) => (res.ok ? res.json() : null))
               .then((data) => {
-                setGeneratingDiagramTitle(null)
-                if (data?.svg && data.svg.includes('<svg')) {
-                  chalkboardRef.current?.drawSvgDiagram?.(
-                    data.title || targetConceptTitle,
-                    data.svg,
-                    data.caption || explicitCaption || data.what_to_explain,
-                    true
+                const verifiedImg = data?.images?.[0]
+                if (verifiedImg?.url && chalkboardRef.current) {
+                  chalkboardRef.current.drawImage?.(
+                    verifiedImg.url,
+                    queryTitle || verifiedImg.title,
+                    explicitCaption || verifiedImg.description || queryTitle
                   )
                   sendBoardContext(
-                    `[SYSTEM NOTICE: Vector diagram for "${targetConceptTitle}" is now live on the chalkboard! You may now direct the student's attention to the labeled parts.]`
+                    `[SYSTEM NOTICE: High-resolution real-world visual for "${queryTitle}" is now live on the chalkboard! Direct the student's attention to this visual.]`
                   )
-                  if (activeModule?.id) {
-                    if (!vPlan.concept_visuals) vPlan.concept_visuals = []
-                    if (matched) {
-                      matched.svg = data.svg
-                      matched.diagram_svg = data.svg
-                      matched.refined_by_tier2 = true
-                      matched.tier2_refined_at = data.tier2_refined_at || new Date().toISOString()
-                    } else {
-                      vPlan.concept_visuals.push({
-                        concept_title: targetConceptTitle,
-                        diagram_title: data.title || targetConceptTitle,
-                        svg: data.svg,
-                        diagram_svg: data.svg,
-                        what_to_make: data.what_to_make || explicitWhat || '',
-                        what_to_explain: data.what_to_explain || '',
-                        why_needed: data.why_needed || '',
-                        visual_type: data.visual_type || 'diagram',
-                        interactive_math_formula: data.interactive_math_formula || '',
-                        refined_by_tier2: true,
-                        tier2_refined_at: data.tier2_refined_at || new Date().toISOString(),
-                      })
-                    }
-                  }
-                } else {
-                  // Only fall back to universal pre-defined SVGs at the very end if all generation models fail
-                  console.warn('[Classroom] On-demand SVG generation returned empty/invalid markup, falling back to universal engine.')
-                  chalkboardRef.current?.clearDiagramSkeleton?.(targetConceptTitle)
-                  chalkboardRef.current?.drawSvgDiagram?.(targetConceptTitle, '', explicitCaption, true)
+                  return
                 }
+
+                // If no online image found, fall back to Live Class Fast Diagram Generation
+                executeFastDiagramGeneration()
               })
               .catch((err) => {
-                setGeneratingDiagramTitle(null)
-                chalkboardRef.current?.clearDiagramSkeleton?.(targetConceptTitle)
-                console.warn('[Classroom] On-demand SVG generation failed, falling back to universal engine:', err)
-                // Only fall back to universal pre-defined SVGs at the very end if all generation models fail
-                chalkboardRef.current?.drawSvgDiagram?.(targetConceptTitle, '', explicitCaption, true)
+                console.warn('[Classroom] Online search error before diagram generation:', err)
+                executeFastDiagramGeneration()
               })
           }
           else if (action === 'new_page') chalkboardRef.current?.addNewPage?.()
@@ -3495,6 +3550,17 @@ RULES: Strictly ZERO emojis. Board is single source of truth for notes. Warm, in
         preferredLanguage: studentPreferredLanguage,
         supportedLanguages: langVoiceConfig.supportedLanguageCodes || ['en-IN', 'hi-IN'],
         languageCode: langVoiceConfig.primaryLanguageCode || 'en-IN',
+      },
+      () => {
+        const currentSummary = chalkboardRef.current?.getBoardSummary?.();
+        const compactContext = chalkboardRef.current?.getCompactBoardContext?.();
+        return (
+          compactContext ||
+          currentSummary?.fullSummary ||
+          currentSummary?.notesText ||
+          chapterNotes ||
+          'Digital chalkboard is active and ready.'
+        );
       }
     )
   }

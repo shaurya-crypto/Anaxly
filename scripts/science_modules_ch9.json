@@ -1,0 +1,1028 @@
+[
+  {
+    "order_index": 1,
+    "title": "Laws of Chemical Combination: Mass Conservation & Constant Proportions",
+    "description": "Analyze Antoine Lavoisier's Law of Conservation of Mass and Joseph Proust's Law of Definite Proportions through rigorous chemical reaction experiments and quantitative mass ratio calculations.",
+    "subtopics": [
+      "Historical Context: Ancient Indian and Greek philosophical atomism (Maharishi Kanad, Pakudha Katyayama, Democritus)",
+      "Antoine Lavoisier's Law of Conservation of Mass: Mass is neither created nor destroyed in a chemical reaction",
+      "Activity 9.1: Dissolving salt in water and verifying total mass invariance",
+      "Activity 9.2: Reaction of vinegar and baking soda in a sealed flask vs open container",
+      "Activity 9.3: Precipitation reactions (Barium chloride + Sodium sulphate) verifying reactant mass = product mass",
+      "Joseph Proust's Law of Constant Proportions: In a chemical substance, elements are always present in definite proportions by mass"
+    ],
+    "key_concepts": [
+      "Philosophical Foundations of Atomism: Maharishi Kanad postulated that if we go on dividing matter (padartha), we shall get smaller particles until we reach parmanu which cannot be divided further.",
+      "Law of Conservation of Mass (Lavoisier, 1774): In any physical change or chemical reaction, the total mass of the products is strictly equal to the total mass of the reactants; mass can neither be created nor destroyed.",
+      "Closed vs Open Reaction Systems: In gas-evolving reactions like sodium bicarbonate + ethanoic acid, mass appears lost only if the reaction vessel is open allowing carbon dioxide gas to escape; in a tightly corked flask, total mass remains invariant.",
+      "Precipitation Mass Invariance: When solutions of barium chloride and sodium sulphate react, insoluble barium sulphate precipitate forms, but total mass on the balance before and after mixing is identical.",
+      "Law of Constant Proportions (Proust, 1799): A pure chemical compound always contains exactly the same elements combined together in the same fixed proportion by mass, irrespective of its source or method of preparation.",
+      "Stoichiometric Mass Ratios: In water (H2O), hydrogen and oxygen are always combined in a 1:8 mass ratio (2 g H : 16 g O); in ammonia (NH3), nitrogen and hydrogen are always in a 14:3 mass ratio."
+    ],
+    "success_criteria": "Student can state both laws of chemical combination, verify mass conservation from experimental data, calculate constituent masses using definite proportions, and explain the need for closed systems.",
+    "chapter_notes": "### 9.1 Ancient Philosophical Foundations of Matter\nAround 500 BC, Indian philosopher **Maharishi Kanad** postulated that dividing matter (*Padartha*) yields smaller particles, culminating in ultimate indivisible particles called ***Parmanu***. Concurrently, Greek philosophers **Democritus** and **Leucippus** termed these indivisible units *atoms* (from Greek *atomos*, meaning indivisible/uncuttable).\n\n### 9.2 The Law of Conservation of Mass (Antoine L. Lavoisier, 1774)\n- **Statement**: *Mass can neither be created nor destroyed in a chemical reaction.*\n$$\\sum m_{\\text{reactants}} = \\sum m_{\\text{products}}$$\n- **Experimental Verification (Activity 9.2 & 9.3)**:\n  1. **Vinegar & Baking Soda**:\n     $$\\text{CH}_3\\text{COOH (aq)} + \\text{NaHCO}_3\\text{ (s)} \\to \\text{CH}_3\\text{COONa (aq)} + \\text{H}_2\\text{O (l)} + \\text{CO}_2\\text{ (g)}$$\n     - If the conical flask is open, $\\text{CO}_2$ gas escapes, showing an apparent mass loss.\n     - When sealed with an airtight rubber cork, the balance reading before and after reaction is identical down to milligrams.\n  2. **Precipitation Reaction (Activity 9.3)**:\n     $$\\text{BaCl}_2\\text{ (aq)} + \\text{Na}_2\\text{SO}_4\\text{ (aq)} \\to \\text{BaSO}_4\\text{ (s, white ppt)} + 2\\text{NaCl (aq)}$$\n     - Reactants mixed inside a sealed vessel show zero mass variation.\n\n### 9.3 The Law of Definite / Constant Proportions (Joseph Proust, 1799)\n- **Statement**: *In a chemical substance, the elements are always present in definite proportions by mass, regardless of the source or method of preparation.*\n- **Canonical Illustrations**:\n  - **Water ($\\text{H}_2\\text{O}$)**: Ratio of hydrogen mass to oxygen mass is always $2\\text{ u} : 16\\text{ u} = \\mathbf{1 : 8}$. Decomposition of $9\\text{ g}$ of water yields exactly $1\\text{ g}$ of hydrogen and $8\\text{ g}$ of oxygen.\n  - **Ammonia ($\\text{NH}_3$)**: Ratio of nitrogen mass to hydrogen mass is always $14\\text{ u} : 3\\text{ u} = \\mathbf{14 : 3}$.",
+    "worked_examples": [
+      {
+        "problem": "In a reaction, 5.3 g of sodium carbonate reacted with 6.0 g of ethanoic acid. The products were 2.2 g of carbon dioxide, 0.9 g of water, and 8.2 g of sodium ethanoate. Show that these observations are in agreement with the law of conservation of mass.",
+        "given": "Mass of reactants: Sodium carbonate = 5.3 g, Ethanoic acid = 6.0 g. Mass of products: Carbon dioxide = 2.2 g, Water = 0.9 g, Sodium ethanoate = 8.2 g.",
+        "formula": "Total Mass of Reactants = Total Mass of Products (Law of Conservation of Mass)",
+        "substitution": "Mass of reactants = 5.3 + 6.0; Mass of products = 2.2 + 0.9 + 8.2",
+        "calculation": "1. Sum of reactants: 5.3 g + 6.0 g = 11.3 g\n2. Sum of products: 2.2 g + 0.9 g + 8.2 g = 11.3 g\n3. Since Total Mass of Reactants (11.3 g) = Total Mass of Products (11.3 g), mass is conserved.",
+        "finalAnswer": "Total mass of reactants (11.3 g) equals total mass of products (11.3 g); mass is conserved.",
+        "unit": "g",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.2: Mass invariance of vinegar and baking soda in closed conical flask"
+      },
+      {
+        "problem": "Hydrogen and oxygen combine in the ratio of 1:8 by mass to form water. What mass of oxygen gas would be required to react completely with 3 g of hydrogen gas?",
+        "given": "Mass ratio of H : O = 1 : 8. Mass of hydrogen = 3 g.",
+        "formula": "Mass of Oxygen = (Mass Ratio of O / Mass Ratio of H) * Mass of Hydrogen",
+        "substitution": "Mass of Oxygen = (8 / 1) * 3 g",
+        "calculation": "Mass of Oxygen = 8 * 3 g = 24 g",
+        "finalAnswer": "24 g of oxygen gas is required to react completely with 3 g of hydrogen.",
+        "unit": "g",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.3: Constant mass ratio of constituent elements in water"
+      },
+      {
+        "problem": "When 3.0 g of carbon is burnt in 8.0 g of oxygen, 11.0 g of carbon dioxide is produced. What mass of carbon dioxide will be formed when 3.0 g of carbon is burnt in 50.0 g of oxygen? Which law of chemical combination governs your answer?",
+        "given": "Carbon = 3.0 g, Oxygen = 8.0 g produces 11.0 g CO2. Second condition: Carbon = 3.0 g, Oxygen = 50.0 g.",
+        "formula": "Law of Definite Proportions: C and O combine strictly in fixed mass ratio 3 : 8.",
+        "substitution": "Only 8.0 g of oxygen reacts with 3.0 g of carbon; remaining oxygen (50.0 - 8.0 = 42.0 g) remains unreacted.",
+        "calculation": "1. Combining mass ratio C : O in CO2 is 3 : 8.\n2. For 3.0 g carbon, exactly 8.0 g oxygen is consumed.\n3. Mass of CO2 formed = 3.0 g + 8.0 g = 11.0 g.\n4. Remaining oxygen = 50.0 g - 8.0 g = 42.0 g unreacted.",
+        "finalAnswer": "11.0 g of CO2 will be formed (with 42.0 g unreacted oxygen); governed by the Law of Definite Proportions.",
+        "unit": "g",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.4: Stoichiometric mass combination governed by Law of Definite Proportions"
+      },
+      {
+        "problem": "A 10.0 g sample of calcium carbonate on heating decomposes to produce 5.6 g of calcium oxide (quicklime) and a gaseous product. Calculate the mass of carbon dioxide gas evolved.",
+        "given": "Mass of reactant: CaCO3 = 10.0 g. Mass of solid product: CaO = 5.6 g.",
+        "formula": "Mass of Reactant = Mass of CaO + Mass of CO2",
+        "substitution": "10.0 g = 5.6 g + Mass of CO2",
+        "calculation": "Mass of CO2 = 10.0 g - 5.6 g = 4.4 g",
+        "finalAnswer": "4.4 g of carbon dioxide gas is evolved.",
+        "unit": "g",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.1: Decomposition mass balance of calcium carbonate"
+      },
+      {
+        "problem": "Explain why the mass of an open beaker decreases when effervescent antacid tablets are dropped into water, whereas the mass of a closed flask remains constant.",
+        "given": "Effervescent tablet reacting with water in open vs closed container.",
+        "formula": "Open System vs Closed System Mass Balance",
+        "substitution": "Reactants produce carbon dioxide gas: Antacid + H2O -> Solution + CO2 (g)",
+        "calculation": "1. In an open beaker, the gaseous CO2 escapes into the surrounding atmosphere, so the remaining mass on the balance decreases by the mass of escaped gas.\n2. In a closed flask, the rubber stopper prevents the gas from leaving the system.\n3. The total number of atoms within the closed boundary remains identical, keeping mass strictly constant.",
+        "finalAnswer": "In an open beaker CO2 gas escapes reducing measured mass; in a closed flask the gas is trapped so total mass is conserved.",
+        "unit": "Law of Conservation of Mass",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.2: Activity 9.2 open vs sealed reaction flask comparison"
+      },
+      {
+        "problem": "Two samples of copper oxide were analyzed. Sample A (2.16 g) yielded 1.73 g of copper on reduction. Sample B (1.35 g) yielded 1.08 g of copper. Show that these data illustrate the Law of Constant Proportions.",
+        "given": "Sample A: total mass = 2.16 g, Cu = 1.73 g. Sample B: total mass = 1.35 g, Cu = 1.08 g.",
+        "formula": "Percentage of Cu = (Mass of Cu / Total Mass of Sample) * 100",
+        "substitution": "% Cu in A = (1.73 / 2.16) * 100; % Cu in B = (1.08 / 1.35) * 100",
+        "calculation": "1. % Cu in Sample A = (1.73 / 2.16) * 100 = 80.09%\n2. % O in Sample A = 100 - 80.09 = 19.91%\n3. % Cu in Sample B = (1.08 / 1.35) * 100 = 80.00%\n4. % O in Sample B = 100 - 80.00 = 20.00%\n5. Within experimental limits, both samples contain Cu and O in the same ~4:1 mass ratio (~80% Cu, 20% O).",
+        "finalAnswer": "Both samples contain ~80% copper and ~20% oxygen by mass, confirming the Law of Constant Proportions.",
+        "unit": "Percentage Ratio",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.4: Constant composition in copper oxide samples"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "Mass is lost when a candle burns or wood turns to ash because ash weighs less than wood.",
+        "correction": "Mass is strictly conserved. Wood reacts with oxygen to form ash, carbon dioxide, and water vapor. If all escaping gases and smoke are captured, total mass is exactly equal.",
+        "why_it_matters": "Fundamental comprehension of conservation of mass in open vs closed systems."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Laws of Chemical Combination Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Philosophical Foundations of Atomism: Maharishi Kanad postulated that if we go on dividing matter (padartha), we shall get smaller particles until we reach parmanu which cannot be divided further.",
+          "diagram_title": "Ancient Atomism & Cinnabar Metallurgy",
+          "diagram_type": "image",
+          "image_query": "cinnabar mercury sulfide mineral ancient metallurgy diagram",
+          "video_query": "history of atom Maharishi Kanad Democritus",
+          "image_url": "/extracted_diagrams/ch9/fig_9_5.webp",
+          "what_to_make": "Textbook image of cinnabar mineral illustrating the ancient extraction of pure mercury through thermal subdivision.",
+          "timing_and_cue": "Mount cinnabar on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_5.webp | Cinnabar & Ancient Atomism | Early subdivision of matter leading to indivisible parmanu\")"
+        },
+        {
+          "concept_title": "Law of Conservation of Mass (Lavoisier, 1774): In any physical change or chemical reaction, the total mass of the products is strictly equal to the total mass of the reactants; mass can neither be created nor destroyed.",
+          "diagram_title": "Mass Invariance in Physical Dissolution",
+          "diagram_type": "image",
+          "image_query": "salt water dissolution weighing balance mass conservation diagram",
+          "video_query": "law of conservation of mass experiment",
+          "image_url": "/extracted_diagrams/ch9/fig_9_1.webp",
+          "what_to_make": "Textbook diagram showing weighing balance measuring water and salt before and after dissolution.",
+          "timing_and_cue": "Mount physical dissolution on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_1.webp | Activity 9.1 Mass Invariance | Total mass remains constant upon salt dissolution\")"
+        },
+        {
+          "concept_title": "Closed vs Open Reaction Systems: In gas-evolving reactions like sodium bicarbonate + ethanoic acid, mass appears lost only if the reaction vessel is open allowing carbon dioxide gas to escape; in a tightly corked flask, total mass remains invariant.",
+          "diagram_title": "Activity 9.2 Vinegar & Baking Soda in Conical Flask",
+          "diagram_type": "image",
+          "image_query": "conical flask vinegar baking soda balance mass conservation diagram",
+          "video_query": "vinegar baking soda conservation of mass lab",
+          "image_url": "/extracted_diagrams/ch9/fig_9_2.webp",
+          "what_to_make": "Textbook experimental setup showing weighing balance with conical flask, vinegar, baking soda, and rubber cork.",
+          "timing_and_cue": "Mount vinegar reaction setup on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_2.webp | Activity 9.2 Conical Flask Setup | Measuring vinegar and baking soda reactants\")"
+        },
+        {
+          "concept_title": "Precipitation Mass Invariance: When solutions of barium chloride and sodium sulphate react, insoluble barium sulphate precipitate forms, but total mass on the balance before and after mixing is identical.",
+          "diagram_title": "Activity 9.3 Precipitation Reaction Setup",
+          "diagram_type": "image",
+          "image_query": "chemical reaction precipitate weighing balance mass conservation diagram",
+          "video_query": "precipitation reaction conservation of mass",
+          "image_url": "/extracted_diagrams/ch9/fig_9_3.webp",
+          "what_to_make": "Textbook diagram showing ignition tube containing solution placed inside conical flask on balance.",
+          "timing_and_cue": "Mount precipitation setup on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_3.webp | Activity 9.3 Precipitation Balance | Insoluble barium sulphate precipitate forming with constant mass\")"
+        },
+        {
+          "concept_title": "Law of Constant Proportions (Proust, 1799): A pure chemical compound always contains exactly the same elements combined together in the same fixed proportion by mass, irrespective of its source or method of preparation.",
+          "diagram_title": "Law of Definite Proportions Stoichiometric Balance",
+          "diagram_type": "image",
+          "image_query": "law of definite proportions water hydrogen oxygen 1 to 8 ratio diagram",
+          "video_query": "law of definite proportions explained",
+          "image_url": "/extracted_diagrams/ch9/fig_9_4.webp",
+          "what_to_make": "Textbook diagram comparing reactant solutions before mixing and product mass balance.",
+          "timing_and_cue": "Mount definite proportions on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_4.webp | Law of Definite Proportions | Constant 1:8 mass ratio in water and 14:3 in ammonia\")"
+        },
+        {
+          "concept_title": "Stoichiometric Mass Ratios: In water (H2O), hydrogen and oxygen are always combined in a 1:8 mass ratio (2 g H : 16 g O); in ammonia (NH3), nitrogen and hydrogen are always in a 14:3 mass ratio.",
+          "diagram_title": "Water & Ammonia Fixed Mass Ratio Diagram",
+          "diagram_type": "image",
+          "image_query": "chemical combination constant mass ratio diagram",
+          "video_query": "constant proportions water stoichiometry",
+          "image_url": "/extracted_diagrams/ch9/fig_9_10.webp",
+          "what_to_make": "Textbook diagram showing formation of water molecule from 2 hydrogen atoms and 1 oxygen atom.",
+          "timing_and_cue": "Mount water molecule on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_10.webp | Water Molecule Formation | Exact 2:1 atomic and 1:8 mass ratio in H2O\")"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you burn 100 grams of wood, the ash left behind weighs only 5 grams. Did 95 grams of matter vanish from the universe, or where did it go?\"\n   - Law: State Lavoisier's Law of Conservation of Mass and Proust's Law of Definite Proportions.\n   - Socratic check: \"Why must the reaction flask with vinegar and baking soda be sealed with a tight rubber cork to prove mass conservation?\" HARD STOP: Wait for student answer!"
+  },
+  {
+    "order_index": 2,
+    "title": "Dalton's Atomic Postulates, IUPAC Chemical Symbols & Atomic Mass Scale",
+    "description": "Examine John Dalton's 6 atomic postulates, master the modern IUPAC rules for chemical symbols, and analyze the Carbon-12 atomic mass standard ($1\\text{ u} = \\frac{1}{12}\\text{ mass of }^{12}C$).",
+    "subtopics": [
+      "John Dalton's Atomic Theory (1808): Explaining the laws of chemical combination",
+      "The 6 Postulates of Dalton's Theory: Indivisible atoms, identity of elements, definite compound ratios",
+      "Berzelius & Modern IUPAC Naming Rules: First letter capital, second letter small",
+      "Symbols derived from Latin/German names: Sodium (Natrium - Na), Potassium (Kalium - K), Iron (Ferrum - Fe)",
+      "The Atomic Mass Unit Scale: Why single atom weighing is impossible ($10^{-24}\\text{ g}$)",
+      "The Carbon-12 Standard: Defining 1 unified atomic mass unit (u) using a sliced watermelon analogy"
+    ],
+    "key_concepts": [
+      "Dalton's Atomic Theory: All matter, whether an element, compound, or mixture, is composed of minute particles called atoms, which participate in chemical reactions.",
+      "Postulates Explaining Mass Conservation & Constant Proportions: Atoms are indivisible particles that cannot be created or destroyed (explains mass conservation), and atoms of different elements combine in small whole-number ratios to form compounds (explains definite proportions).",
+      "Limitations of Dalton's Theory: Dalton claimed atoms were indivisible and indestructible; modern physics showed atoms contain subatomic particles (electrons, protons, neutrons), and isotopes show atoms of the same element can have different masses.",
+      "IUPAC Chemical Symbols: Symbols of elements consist of one or two letters of their English or Latin names; the first letter is always capitalized, and the second letter is strictly lowercase (e.g., Cobalt is Co, not CO which is carbon monoxide).",
+      "Latin Derivations of Symbols: Fe for Iron (Ferrum), Cu for Copper (Cuprum), Ag for Silver (Argentum), Au for Gold (Aurum), Na for Sodium (Natrium), K for Potassium (Kalium), Pb for Lead (Plumbum).",
+      "Unified Atomic Mass Unit (u): One atomic mass unit is defined as a mass exactly equal to 1/12th the mass of one carbon-12 atom (1 u = 1.66 * 10^-27 kg), replacing the older amu designation."
+    ],
+    "success_criteria": "Student can list Dalton's 6 postulates, correlate them to combination laws, write correct IUPAC symbols with correct casing, and calculate relative atomic masses using the Carbon-12 standard.",
+    "chapter_notes": "### 9.4 John Dalton's Atomic Theory (1808)\nDalton provided the first scientific foundation for atomism by explaining Lavoisier's and Proust's laws:\n1. All matter is made of very tiny particles called **atoms**.\n2. Atoms are **indivisible particles**, which cannot be created or destroyed in a chemical reaction. (*Explains Conservation of Mass*)\n3. Atoms of a given element are **identical in mass and chemical properties**.\n4. Atoms of different elements have **different masses and different chemical properties**.\n5. Atoms combine in the **ratio of small whole numbers** to form compounds. (*Explains Definite Proportions*)\n6. The **relative number and kinds of atoms are constant** in a given compound.\n\n### 9.5 Modern IUPAC Chemical Symbols\n**IUPAC** (International Union of Pure and Applied Chemistry) standardizes element names and symbols:\n- **Rule 1**: The first letter is always uppercase, and the second letter (if present) is always lowercase:\n  - Hydrogen $\\to \\text{H}$\n  - Helium $\\to \\text{He}$ (not HE)\n  - Cobalt $\\to \\text{Co}$ (CO is carbon monoxide!)\n  - Aluminium $\\to \\text{Al}$ (not AL)\n- **Rule 2: Latin/Greek/German Etymological Origins**:\n  | Element | Latin / Source Name | Symbol |\n  | :--- | :--- | :--- |\n  | **Sodium** | Natrium | $\\text{Na}$ |\n  | **Potassium** | Kalium | $\\text{K}$ |\n  | **Iron** | Ferrum | $\\text{Fe}$ |\n  | **Copper** | Cuprum | $\\text{Cu}$ |\n  | **Silver** | Argentum | $\\text{Ag}$ |\n  | **Gold** | Aurum | $\\text{Au}$ |\n  | **Lead** | Plumbum | $\\text{Pb}$ |\n  | **Mercury** | Hydrargyrum | $\\text{Hg}$ |\n  | **Tin** | Stannum | $\\text{Sn}$ |\n\n### 9.6 The Atomic Mass Scale & Carbon-12 Standard\nBecause a single atom has an infinitesimal mass ($m_{\\text{atom}} \\sim 10^{-23}\\text{ to } 10^{-24}\\text{ g}$), scientists determine **relative atomic mass** using a reference standard.\n- In 1961, **Carbon-12 ($^{12}\\text{C}$)** was universally adopted as the reference isotope.\n- **Definition of Unified Atomic Mass Unit ($1\\text{ u}$)**:\n  $$1\\text{ u} = \\frac{1}{12} \\times \\text{mass of one atom of Carbon-12} = 1.6605 \\times 10^{-27}\\text{ kg}$$\n- **Watermelon Analogy**: Imagine a fruit seller cutting a watermelon into 12 equal slices. Each slice represents $1\\text{ u}$. An apple that balances with 2 slices has a relative mass of $2\\text{ u}$.",
+    "worked_examples": [
+      {
+        "problem": "Which postulate of Dalton's atomic theory is the result of the law of conservation of mass?",
+        "given": "Dalton's atomic theory postulates vs Law of Conservation of Mass.",
+        "formula": "Indivisibility and Indestructibility of Atoms",
+        "substitution": "Postulate 2: Atoms are indivisible particles that cannot be created or destroyed in a chemical reaction.",
+        "calculation": "1. The law of conservation of mass states mass can neither be created nor destroyed.\n2. Dalton stated that atoms are indivisible particles that cannot be created or destroyed in any chemical reaction.\n3. Therefore, the total number and mass of atoms must remain identical before and after reaction.",
+        "finalAnswer": "Postulate 2: 'Atoms are indivisible particles, which cannot be created or destroyed in a chemical reaction.'",
+        "unit": "Postulate Analysis",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.1: Mass conservation tied directly to Dalton's indivisible atom postulate"
+      },
+      {
+        "problem": "Which postulate of Dalton's atomic theory can explain the law of definite proportions?",
+        "given": "Dalton's atomic theory postulates vs Law of Definite Proportions.",
+        "formula": "Constant Relative Number and Kinds of Atoms in Compounds",
+        "substitution": "Postulates 5 & 6: Atoms combine in small whole-number ratios, and relative kinds and numbers of atoms are constant.",
+        "calculation": "1. Postulate: 'The relative number and kinds of atoms are constant in a given compound.'\n2. Since each atom of a particular element has a fixed mass, combining them in a constant ratio of atoms guarantees a constant ratio of masses.",
+        "finalAnswer": "Postulates 5 and 6: 'Atoms combine in the ratio of small whole numbers to form compounds' and 'The relative number and kinds of atoms are constant in a given compound.'",
+        "unit": "Postulate Analysis",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.4: Definite proportions derived from Dalton's compound atom ratios"
+      },
+      {
+        "problem": "Define atomic mass unit. Why was Carbon-12 chosen as the standard reference instead of Hydrogen or Oxygen-16?",
+        "given": "Carbon-12 atomic mass standard definition.",
+        "formula": "1 u = (1/12) * mass of one Carbon-12 atom.",
+        "substitution": "1 u = 1.6605 * 10^-24 g = 1.6605 * 10^-27 kg.",
+        "calculation": "1. Definition: One atomic mass unit (1 u) is defined as a mass exactly equal to one-twelfth (1/12th) of the mass of one atom of carbon-12.\n2. Carbon-12 was chosen because it gives nearly exact whole-number relative atomic masses for most elements, is highly abundant, stable, and less chemically reactive than oxygen.",
+        "finalAnswer": "1 u is 1/12th the mass of one Carbon-12 atom; C-12 provides the most stable, integer-aligned atomic masses.",
+        "unit": "Atomic Mass Scale",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.5: Relative atomic mass reference scale based on Carbon-12"
+      },
+      {
+        "problem": "Write the IUPAC chemical symbols and their Latin roots for: (a) Sodium, (b) Potassium, (c) Iron, (d) Lead, (e) Gold, (f) Silver.",
+        "given": "Six canonical elements with non-English symbols.",
+        "formula": "IUPAC Latin Symbolism",
+        "substitution": "Map each element to its Latin name and 1-2 letter symbol.",
+        "calculation": "(a) Sodium -> Natrium -> Na\n(b) Potassium -> Kalium -> K\n(c) Iron -> Ferrum -> Fe\n(d) Lead -> Plumbum -> Pb\n(e) Gold -> Aurum -> Au\n(f) Silver -> Argentum -> Ag",
+        "finalAnswer": "Sodium: Na (Natrium), Potassium: K (Kalium), Iron: Fe (Ferrum), Lead: Pb (Plumbum), Gold: Au (Aurum), Silver: Ag (Argentum).",
+        "unit": "Chemical Nomenclature",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.14: Element symbols and atomic lattice organization"
+      },
+      {
+        "problem": "Why is it not possible to see an atom with naked eyes? Give quantitative dimensions of atomic radii.",
+        "given": "Atomic dimensions and human optical resolution.",
+        "formula": "Atomic Radius r ~ 10^-10 m (0.1 nm = 1 Angstrom).",
+        "substitution": "Radius of hydrogen atom = 10^-10 m; human eye resolving power = 10^-4 m (0.1 mm).",
+        "calculation": "1. Atoms are extraordinarily minute, with radii on the order of 10^-10 meters (e.g., Hydrogen atom radius = 10^-10 m = 0.1 nm).\n2. The resolving power of the human eye is ~10^-4 m (0.1 mm), which is 1,000,000 times larger than an atom.\n3. Visible light has wavelengths of 400-700 nm, far larger than atomic diameters, so optical microscopy cannot image individual atoms.",
+        "finalAnswer": "Atoms have radii of ~10^-10 m (0.1 nm), roughly one million times smaller than the optical resolution limit of the human eye.",
+        "unit": "m",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.6: Nanoscale atomic dimension of hydrogen atom"
+      },
+      {
+        "problem": "State two major limitations or drawbacks of Dalton's atomic theory revealed by subsequent scientific discoveries.",
+        "given": "Dalton's postulates vs modern 20th-century atomic discoveries.",
+        "formula": "Subatomic Particles & Isotopic Mass Variations",
+        "substitution": "Postulate 2 (indivisibility) and Postulate 3 (identical mass of all atoms of same element).",
+        "calculation": "1. Indivisibility failed: Atoms are not indivisible; they are composed of subatomic electrons, protons, and neutrons.\n2. Invariant mass failed: Atoms of the same element can have different masses, known as **isotopes** (e.g., Chlorine-35 and Chlorine-37 both have atomic number 17 but different masses).",
+        "finalAnswer": "1. Atoms are divisible into electrons, protons, and neutrons. 2. Atoms of the same element can have different masses (isotopes).",
+        "unit": "Atomic Theory Evolution",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.6: Subatomic electron-pair sharing refuting hard indivisible sphere postulate"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "Cobalt's symbol can be written as CO.",
+        "correction": "Writing CO represents Carbon Monoxide (a lethal toxic compound of 1 carbon and 1 oxygen atom). Cobalt is strictly Co (lowercase 'o'). Capitalization rules in IUPAC symbols are legally binding.",
+        "why_it_matters": "Distinguishes pure chemical elements from binary polyatomic compounds."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Dalton's Theory & IUPAC Nomenclature Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Dalton's Atomic Theory: All matter, whether an element, compound, or mixture, is composed of minute particles called atoms, which participate in chemical reactions.",
+          "diagram_title": "Dalton's Atomic Postulates Framework",
+          "diagram_type": "image",
+          "image_query": "john dalton atomic theory indivisible atoms diagram",
+          "video_query": "Daltons atomic theory explained",
+          "image_url": "/extracted_diagrams/ch9/fig_9_5.webp",
+          "what_to_make": "Textbook diagram showing mineral substance representing particulate nature of chemical matter.",
+          "timing_and_cue": "Mount Dalton atomism on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_5.webp | Dalton Atomic Foundations | All matter composed of indivisible atoms\")"
+        },
+        {
+          "concept_title": "Postulates Explaining Mass Conservation & Constant Proportions: Atoms are indivisible particles that cannot be created or destroyed (explains mass conservation), and atoms of different elements combine in small whole-number ratios to form compounds (explains definite proportions).",
+          "diagram_title": "Mass Conservation & Definite Proportions Synthesis",
+          "diagram_type": "image",
+          "image_query": "law of conservation of mass definite proportions Dalton explanation diagram",
+          "video_query": "how Daltons theory explains laws of chemical combination",
+          "image_url": "/extracted_diagrams/ch9/fig_9_1.webp",
+          "what_to_make": "Textbook diagram connecting balance measurements to indestructible atomic rearrangement.",
+          "timing_and_cue": "Mount atomic combination on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_1.webp | Dalton Postulate Synthesis | Indestructible atoms explaining mass conservation and constant ratios\")"
+        },
+        {
+          "concept_title": "Limitations of Dalton's Theory: Dalton claimed atoms were indivisible and indestructible; modern physics showed atoms contain subatomic particles (electrons, protons, neutrons), and isotopes show atoms of the same element can have different masses.",
+          "diagram_title": "Covalent Electron Sharing Beyond Dalton",
+          "diagram_type": "image",
+          "image_query": "subatomic particles electron sharing breaking dalton model diagram",
+          "video_query": "limitations of Daltons atomic theory",
+          "image_url": "/extracted_diagrams/ch9/fig_9_6.webp",
+          "what_to_make": "Textbook diagram of two hydrogen atoms sharing electron pair, revealing internal subatomic structure.",
+          "timing_and_cue": "Mount subatomic bonding on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_6.webp | Subatomic Reality | Overlapping electron clouds disproving solid indivisible spheres\")"
+        },
+        {
+          "concept_title": "IUPAC Chemical Symbols: Symbols of elements consist of one or two letters of their English or Latin names; the first letter is always capitalized, and the second letter is strictly lowercase (e.g., Cobalt is Co, not CO which is carbon monoxide).",
+          "diagram_title": "IUPAC Element Casing & Chlorine Formation",
+          "diagram_type": "image",
+          "image_query": "chlorine Cl symbol formation molecule diagram",
+          "video_query": "IUPAC rules for writing chemical symbols",
+          "image_url": "/extracted_diagrams/ch9/fig_9_7.webp",
+          "what_to_make": "Textbook diagram of chlorine molecule Cl2 illustrating two-letter IUPAC symbol Cl with capital C and lowercase l.",
+          "timing_and_cue": "Mount chlorine symbol on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_7.webp | IUPAC Casing Rule | Cl molecule showing capital C and lowercase l\")"
+        },
+        {
+          "concept_title": "Latin Derivations of Symbols: Fe for Iron (Ferrum), Cu for Copper (Cuprum), Ag for Silver (Argentum), Au for Gold (Aurum), Na for Sodium (Natrium), K for Potassium (Kalium), Pb for Lead (Plumbum).",
+          "diagram_title": "Latin Symbol Roots & Sodium Chloride Transfer",
+          "diagram_type": "image",
+          "image_query": "sodium Natrium chloride electron transfer diagram",
+          "video_query": "Latin names of elements chemical symbols",
+          "image_url": "/extracted_diagrams/ch9/fig_9_13.webp",
+          "what_to_make": "Textbook diagram showing Na (Natrium) and Cl electron transfer.",
+          "timing_and_cue": "Mount Latin symbols on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_13.webp | Latin Element Roots | Na from Natrium transferring electron to chlorine\")"
+        },
+        {
+          "concept_title": "Unified Atomic Mass Unit (u): One atomic mass unit is defined as a mass exactly equal to 1/12th the mass of one carbon-12 atom (1 u = 1.66 * 10^-27 kg), replacing the older amu designation.",
+          "diagram_title": "Carbon-12 Standard & Ionic Lattice Masses",
+          "diagram_type": "image",
+          "image_query": "atomic mass unit carbon 12 scale relative atomic mass diagram",
+          "video_query": "what is atomic mass unit u C12 scale",
+          "image_url": "/extracted_diagrams/ch9/fig_9_14.webp",
+          "what_to_make": "Textbook diagram of crystalline sodium chloride showing formula units calibrated against atomic mass scale.",
+          "timing_and_cue": "Mount atomic mass scale on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_14.webp | Carbon-12 Calibration | Measuring formula units in atomic mass units (u)\")"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you write 'CO' instead of 'Co' in your chemistry exam, why will the examiner give you zero marks?\"\n   - Law: Detail IUPAC capitalization rules, Latin roots, and the Carbon-12 atomic mass standard.\n   - Socratic check: \"Why did scientists choose 1/12th of Carbon-12 rather than 1/16th of Oxygen-16 as the universal atomic mass unit?\" HARD STOP: Wait for student answer!"
+  },
+  {
+    "order_index": 3,
+    "title": "Molecules of Elements vs Compounds, Atomicity & Covalent Electron Sharing",
+    "description": "Distinguish between molecules of elements and molecules of compounds, calculate atomicity across monoatomic, diatomic, and polyatomic substances, and analyze covalent electron sharing.",
+    "subtopics": [
+      "What is a Molecule: Smallest particle of a substance capable of independent existence",
+      "Molecules of Elements: Monoatomic (noble gases), Diatomic (H2, N2, O2, Cl2), Triatomic (O3), Polyatomic (P4, S8)",
+      "Atomicity Calculation: The number of atoms constituting a molecule",
+      "Molecules of Compounds: Atoms of different elements combining in definite proportions (H2O, NH3, CH4, CO2)",
+      "Covalent Bonding Mechanics: Mutual sharing of electron pairs to achieve noble gas stability",
+      "Comparing H2 (single bond), O2 (double bond), N2 (triple bond), and polar covalent HCl and H2O"
+    ],
+    "key_concepts": [
+      "Definition of a Molecule: A molecule is an electrically neutral group of two or more atoms chemically bonded together by attractive forces, representing the smallest particle of an element or compound capable of independent existence.",
+      "Atomicity Ledger: Atomicity is the number of atoms present in one molecule. Monoatomic: Helium (He), Argon (Ar); Diatomic: Hydrogen (H2), Oxygen (O2), Nitrogen (N2), Chlorine (Cl2); Triatomic: Ozone (O3); Tetra-atomic: Phosphorus (P4); Polyatomic: Sulphur (S8).",
+      "Molecules of Compounds: In a compound molecule, atoms of different elements combine together in definite ratios by mass (Water H2O has mass ratio 1:8, Ammonia NH3 has 14:3, Carbon Dioxide CO2 has 3:8).",
+      "Hydrogen Molecule (H2): Two hydrogen atoms, each having 1 valence electron, share their single electrons to form a single covalent bond (H-H), completing their duplet shell.",
+      "Oxygen & Chlorine Molecules: Chlorine atoms share one electron pair to form Cl-Cl (diatomic); oxygen atoms share two electron pairs to form a double bond (O=O), completing octets.",
+      "Polar Covalent Molecules (HCl & H2O): In hydrogen chloride, hydrogen shares one electron with chlorine (H-Cl); in water, an oxygen atom shares two electron pairs with two separate hydrogen atoms (H-O-H)."
+    ],
+    "success_criteria": "Student can classify substances by atomicity, draw covalent electron sharing for H2, Cl2, O2, HCl, and H2O, and calculate atom ratios from mass percentages.",
+    "chapter_notes": "### 9.7 What is a Molecule?\nA **molecule** is the smallest particle of an element or chemical compound that has an independent existence and retains all the physical and chemical properties of that substance.\n\n### 9.8 Molecules of Elements & Atomicity\n**Atomicity** is defined as the total number of atoms constituting a single molecule:\n| Atomicity Category | Element | Molecular Formula | Structure |\n| :--- | :--- | :--- | :--- |\n| **Monoatomic** (1 atom) | Helium, Neon, Argon | $\\text{He, Ne, Ar}$ | Single independent atoms |\n| **Diatomic** (2 atoms) | Hydrogen, Nitrogen, Oxygen, Fluorine, Chlorine | $\\text{H}_2, \\text{N}_2, \\text{O}_2, \\text{F}_2, \\text{Cl}_2$ | 2 bonded atoms |\n| **Triatomic** (3 atoms) | Ozone | $\\text{O}_3$ | 3 bonded oxygen atoms |\n| **Tetra-atomic** (4 atoms) | Phosphorus | $\\text{P}_4$ | 4 bonded P atoms |\n| **Polyatomic** (>4 atoms) | Sulphur | $\\text{S}_8$ | Crown-shaped ring of 8 atoms |\n\n### 9.9 Molecules of Compounds\nAtoms of different elements combine in fixed whole-number ratios:\n- **Water ($\\text{H}_2\\text{O}$)**: $2\\text{ H} : 1\\text{ O}$ (Mass ratio $1 : 8$).\n- **Ammonia ($\\text{NH}_3$)**: $1\\text{ N} : 3\\text{ H}$ (Mass ratio $14 : 3$).\n- **Methane ($\\text{CH}_4$)**: $1\\text{ C} : 4\\text{ H}$ (Mass ratio $3 : 1$).\n- **Carbon Dioxide ($\\text{CO}_2$)**: $1\\text{ C} : 2\\text{ O}$ (Mass ratio $3 : 8$).\n\n### 9.10 Covalent Electron Sharing Mechanisms\nNon-metal atoms share valence electrons to attain stable noble gas electronic configurations:\n1. **$\\text{H}_2$**: $\\text{H}\\cdot + \\cdot\\text{H} \\to \\text{H}-\\text{H}$ (Single covalent bond, duplet achieved).\n2. **$\\text{Cl}_2$**: Each Cl ($2,8,7$) shares 1 electron pair $\\to \\text{Cl}-\\text{Cl}$ (Octet achieved).\n3. **$\\text{O}_2$**: Each O ($2,6$) shares 2 electron pairs $\\to \\text{O}=\\text{O}$ (Double covalent bond).\n4. **$\\text{HCl}$**: H ($1$) shares 1 electron with Cl ($2,8,7$) $\\to \\text{H}-\\text{Cl}$.\n5. **$\\text{H}_2\\text{O}$**: Central O ($2,6$) shares two separate single electron pairs with two H atoms $\\to \\text{H}-\\text{O}-\\text{H}$.",
+    "worked_examples": [
+      {
+        "problem": "Calculate the atomicity of the following chemical species: (a) Argon, (b) Oxygen, (c) Ozone, (d) Phosphorus, (e) Sulphur.",
+        "given": "Molecular formulas: Ar, O2, O3, P4, S8.",
+        "formula": "Atomicity = Number of atoms per molecule",
+        "substitution": "Count atoms subscripted in each formula.",
+        "calculation": "(a) Argon (Ar) has 1 atom -> Atomicity = 1 (Monoatomic)\n(b) Oxygen (O2) has 2 atoms -> Atomicity = 2 (Diatomic)\n(c) Ozone (O3) has 3 atoms -> Atomicity = 3 (Triatomic)\n(d) Phosphorus (P4) has 4 atoms -> Atomicity = 4 (Tetra-atomic)\n(e) Sulphur (S8) has 8 atoms -> Atomicity = 8 (Polyatomic)",
+        "finalAnswer": "Ar: 1 (Monoatomic), O2: 2 (Diatomic), O3: 3 (Triatomic), P4: 4 (Tetra-atomic), S8: 8 (Polyatomic).",
+        "unit": "Atomicity",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.7: Diatomic chlorine molecule demonstrating atomicity of 2"
+      },
+      {
+        "problem": "Explain with an electron-dot diagram the formation of a covalent bond in a molecule of hydrogen (H2).",
+        "given": "Hydrogen atomic number Z = 1; valence electrons = 1.",
+        "formula": "Duplet Completion via Electron Pair Sharing",
+        "substitution": "Two H atoms each contribute 1 electron to form 1 shared pair.",
+        "calculation": "1. Each isolated H atom has 1 electron in its K shell and needs 1 more electron to achieve the stable helium configuration (2).\n2. The two H atoms bring their atomic orbitals together and mutually share the pair of electrons.\n3. The shared pair belongs equally to both nuclei: H : H or H-H.\n4. This shared pair constitutes a single covalent bond.",
+        "finalAnswer": "Two H atoms mutually share one pair of electrons, forming a stable single covalent bond (H-H) with duplet configuration.",
+        "unit": "Covalent Bond",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.6: Formation of a hydrogen molecule by electron sharing"
+      },
+      {
+        "problem": "Show how an oxygen molecule (O2) is formed by the sharing of electrons. What type of covalent bond is present?",
+        "given": "Oxygen atomic number Z = 8; electronic configuration = 2, 6.",
+        "formula": "Octet Completion: 8 - 6 = 2 electrons needed per oxygen atom.",
+        "substitution": "Two O atoms share 2 electron pairs (4 electrons total).",
+        "calculation": "1. Each oxygen atom has 6 valence electrons and requires 2 additional electrons to complete its L shell octet.\n2. Both oxygen atoms contribute 2 electrons each to form two shared electron pairs.\n3. The resulting molecule contains 4 shared electrons between the nuclei: O :: O or O = O.\n4. A double covalent bond is formed.",
+        "finalAnswer": "Two oxygen atoms share 2 pairs of electrons forming a double covalent bond (O=O) to achieve octet stability.",
+        "unit": "Double Covalent Bond",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.8: Formation of an oxygen molecule with double bond"
+      },
+      {
+        "problem": "Explain the formation of a hydrogen chloride (HCl) molecule using covalent electron sharing.",
+        "given": "Hydrogen Z = 1 (1 electron), Chlorine Z = 17 (2, 8, 7).",
+        "formula": "Duplet for H (needs 1) and Octet for Cl (needs 1).",
+        "substitution": "H contributes 1 electron, Cl contributes 1 electron; 1 shared pair.",
+        "calculation": "1. Hydrogen needs 1 electron to complete its K shell duplet.\n2. Chlorine has 7 valence electrons and needs 1 electron to complete its M shell octet.\n3. Hydrogen and chlorine share one electron pair, forming a single covalent bond H-Cl.\n4. Both atoms attain stable noble gas configurations (He and Ar respectively).",
+        "finalAnswer": "H and Cl share 1 pair of electrons to form a single polar covalent bond in HCl, satisfying both duplet and octet.",
+        "unit": "Hetero-atomic Covalent Bond",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.9: Formation of a hydrogen chloride molecule"
+      },
+      {
+        "problem": "How does an oxygen atom bind with two hydrogen atoms to form a water (H2O) molecule? Detail the number of shared and unshared electrons.",
+        "given": "Central O atom Z = 8 (2, 6); two H atoms Z = 1 (1 each).",
+        "formula": "Covalent Sharing in Triatomic Molecule",
+        "substitution": "Oxygen forms two single covalent bonds with two distinct hydrogen atoms.",
+        "calculation": "1. Central oxygen atom has 6 valence electrons (needs 2 for octet).\n2. Each hydrogen atom has 1 electron (needs 1 for duplet).\n3. Oxygen shares 1 electron with H1 and 1 electron with H2, forming two single O-H bonds.\n4. Total shared electrons = 4 (2 bonding pairs); unshared valence electrons on oxygen = 4 (2 lone pairs).",
+        "finalAnswer": "Oxygen forms two single covalent bonds with two hydrogen atoms (4 shared electrons, 4 non-bonding lone-pair electrons).",
+        "unit": "Molecular Geometry",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.10: Formation of a water molecule"
+      },
+      {
+        "problem": "Using the mass ratio of elements in water (H:O = 1:8) and ammonia (N:H = 14:3), calculate the atomic ratio of combining atoms in both compounds.",
+        "given": "Water: H:O mass ratio = 1:8; Atomic mass H = 1 u, O = 16 u. Ammonia: N:H mass ratio = 14:3; Atomic mass N = 14 u, H = 1 u.",
+        "formula": "Atomic Ratio = (Mass Ratio / Atomic Mass) normalized to simplest integers",
+        "substitution": "H:O = (1/1) : (8/16); N:H = (14/14) : (3/1)",
+        "calculation": "1. Water: H ratio = 1/1 = 1; O ratio = 8/16 = 0.5. Simplest integer ratio = 1 / 0.5 : 0.5 / 0.5 = 2 : 1. Atomic formula = H2O.\n2. Ammonia: N ratio = 14/14 = 1; H ratio = 3/1 = 3. Simplest integer ratio = 1 : 3. Atomic formula = NH3.",
+        "finalAnswer": "Water has atomic ratio H : O = 2 : 1 (H2O); Ammonia has atomic ratio N : H = 1 : 3 (NH3).",
+        "unit": "Atomic Ratio",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.10: Atomic ratio derivation in water molecule"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "Atomicity and valency mean the same thing.",
+        "correction": "Atomicity is the NUMBER of atoms present in one molecule (e.g., O3 has atomicity 3, S8 has atomicity 8). Valency is the COMBINING CAPACITY of an atom (e.g., oxygen has valency 2, nitrogen has valency 3).",
+        "why_it_matters": "Prevents catastrophic confusion in chemical bonding and stoichiometry."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Molecules & Covalent Sharing Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Definition of a Molecule: A molecule is an electrically neutral group of two or more atoms chemically bonded together by attractive forces, representing the smallest particle of an element or compound capable of independent existence.",
+          "diagram_title": "Diatomic Hydrogen Molecule Covalent Bond",
+          "diagram_type": "image",
+          "image_query": "hydrogen molecule H2 formation electron sharing diagram",
+          "video_query": "how hydrogen molecule forms covalent bond",
+          "image_url": "/extracted_diagrams/ch9/fig_9_6.webp",
+          "what_to_make": "Textbook diagram showing two hydrogen atoms overlapping their 1s orbitals to form an H2 molecule.",
+          "timing_and_cue": "Mount H2 molecule on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_6.webp | Hydrogen Molecule Formation | Independent existence of H2 through shared electron pair\")"
+        },
+        {
+          "concept_title": "Atomicity Ledger: Atomicity is the number of atoms present in one molecule. Monoatomic: Helium (He), Argon (Ar); Diatomic: Hydrogen (H2), Oxygen (O2), Nitrogen (N2), Chlorine (Cl2); Triatomic: Ozone (O3); Tetra-atomic: Phosphorus (P4); Polyatomic: Sulphur (S8).",
+          "diagram_title": "Chlorine Molecule Diatomic Octet Completion",
+          "diagram_type": "image",
+          "image_query": "chlorine molecule Cl2 covalent bond diagram",
+          "video_query": "atomicity of elements explained",
+          "image_url": "/extracted_diagrams/ch9/fig_9_7.webp",
+          "what_to_make": "Textbook diagram of two chlorine atoms sharing one electron pair to form Cl2.",
+          "timing_and_cue": "Mount chlorine atomicity on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_7.webp | Diatomic Chlorine Cl2 | Atomicity of 2 with single shared electron pair\")"
+        },
+        {
+          "concept_title": "Molecules of Compounds: In a compound molecule, atoms of different elements combine together in definite ratios by mass (Water H2O has mass ratio 1:8, Ammonia NH3 has 14:3, Carbon Dioxide CO2 has 3:8).",
+          "diagram_title": "Water Molecule Hetero-atomic Bonding",
+          "diagram_type": "image",
+          "image_query": "water molecule H2O covalent bonding diagram",
+          "video_query": "molecules of compounds water ammonia",
+          "image_url": "/extracted_diagrams/ch9/fig_9_10.webp",
+          "what_to_make": "Textbook diagram showing oxygen bonding with two hydrogen atoms in 2:1 atomic and 1:8 mass ratio.",
+          "timing_and_cue": "Mount compound molecule on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_10.webp | Water Compound Molecule | Two H atoms covalently bonded to central oxygen\")"
+        },
+        {
+          "concept_title": "Hydrogen Molecule (H2): Two hydrogen atoms, each having 1 valence electron, share their single electrons to form a single covalent bond (H-H), completing their duplet shell.",
+          "diagram_title": "Single Covalent Bond in H2",
+          "diagram_type": "image",
+          "image_query": "H2 single covalent bond electron pair diagram",
+          "video_query": "single covalent bond in hydrogen",
+          "image_url": "/extracted_diagrams/ch9/fig_9_6.webp",
+          "what_to_make": "Textbook diagram showing single covalent bond electron sharing in H2.",
+          "timing_and_cue": "Mount single covalent bond on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_6.webp | Single Covalent Bond H-H | Duplet completion via 1 shared electron pair\")"
+        },
+        {
+          "concept_title": "Oxygen & Chlorine Molecules: Chlorine atoms share one electron pair to form Cl-Cl (diatomic); oxygen atoms share two electron pairs to form a double bond (O=O), completing octets.",
+          "diagram_title": "Double Covalent Bond in O2",
+          "diagram_type": "image",
+          "image_query": "oxygen molecule O2 double covalent bond diagram",
+          "video_query": "double covalent bond in oxygen O2",
+          "image_url": "/extracted_diagrams/ch9/fig_9_8.webp",
+          "what_to_make": "Textbook diagram showing two oxygen atoms sharing two electron pairs forming O=O.",
+          "timing_and_cue": "Mount double bond on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_8.webp | Double Covalent Bond O=O | Octet completion via 2 shared electron pairs\")"
+        },
+        {
+          "concept_title": "Polar Covalent Molecules (HCl & H2O): In hydrogen chloride, hydrogen shares one electron with chlorine (H-Cl); in water, an oxygen atom shares two electron pairs with two separate hydrogen atoms (H-O-H).",
+          "diagram_title": "Hydrogen Chloride Covalent Formation",
+          "diagram_type": "image",
+          "image_query": "hydrogen chloride HCl covalent sharing diagram",
+          "video_query": "formation of HCl covalent molecule",
+          "image_url": "/extracted_diagrams/ch9/fig_9_9.webp",
+          "what_to_make": "Textbook diagram showing unequal electron sharing in polar covalent HCl.",
+          "timing_and_cue": "Mount HCl molecule on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_9.webp | Polar Covalent HCl | Single electron pair shared between H and Cl\")"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Why do noble gases like Helium and Neon float as single lone atoms, but Hydrogen and Oxygen ALWAYS travel in pairs as H2 and O2?\"\n   - Law: Define molecule, atomicity, duplet/octet rules, and single/double covalent bonding.\n   - Socratic check: \"How many electrons are shared in a double covalent bond in an O2 molecule? Count the shared pairs!\" HARD STOP: Wait for student answer!"
+  },
+  {
+    "order_index": 4,
+    "title": "Ions, Cations, Anions & Ionic Crystal Lattice Architecture",
+    "description": "Analyze the formation of positive cations and negative anions through electron transfer, explore electrostatic ionic bonding, examine 3D NaCl crystal lattice structures, and master polyatomic ions.",
+    "subtopics": [
+      "What is an Ion: Charged chemical species carrying net positive or negative charge",
+      "Cation Formation: Loss of electrons by metal atoms (Na -> Na+ + e-, Mg -> Mg2+ + 2e-)",
+      "Anion Formation: Gain of electrons by non-metal atoms (Cl + e- -> Cl-, O + 2e- -> O2-)",
+      "Electrostatic Ionic Bond: Strong electrostatic force of attraction between oppositely charged ions",
+      "Solid Crystal Lattice: 3D regular repeating cubic arrangement of Na+ and Cl- ions in sodium chloride",
+      "Polyatomic Ions Ledger: Ammonium (NH4+), Hydroxide (OH-), Nitrate (NO3-), Carbonate (CO3^2-), Sulphate (SO4^2-)"
+    ],
+    "key_concepts": [
+      "Definition of Ions: An ion is a charged atom or group of atoms that has acquired an electric charge by either losing or gaining one or more electrons.",
+      "Cations (Positive Ions): Formed when an electropositive metal atom loses one or more valence electrons (e.g., Na -> Na+ + e- with 11 protons and 10 electrons; Ca -> Ca2+ + 2e-), carrying a net positive charge.",
+      "Anions (Negative Ions): Formed when an electronegative non-metal atom gains one or more electrons (e.g., Cl + e- -> Cl- with 17 protons and 18 electrons; O + 2e- -> O2-), carrying a net negative charge.",
+      "Ionic / Electrovalent Bond: The strong non-directional electrostatic force of attraction that holds oppositely charged cations and anions together in an ionic compound.",
+      "Solid Crystal Lattice of NaCl: Solid sodium chloride does not consist of isolated NaCl molecules; instead, it forms an infinite 3D crystalline lattice where every Na+ cation is octahedrally coordinated by 6 Cl- anions, and every Cl- is surrounded by 6 Na+ ions.",
+      "Polyatomic Ions: A cluster of covalently bonded atoms that carries an overall net electrical charge behaving as a single unit (Ammonium NH4^+, Hydroxide OH^-, Nitrate NO3^-, Carbonate CO3^{2-}, Sulphate SO4^{2-}, Phosphate PO4^{3-})."
+    ],
+    "success_criteria": "Student can write electron transfer equations for cation/anion formation, describe the 3D NaCl crystal lattice, differentiate simple vs polyatomic ions, and explain electrical conductivity.",
+    "chapter_notes": "### 9.11 What are Ions?\nCompounds composed of metals and non-metals contain charged species known as **ions**.\n- **Cation**: A positively charged ion formed by electron loss:\n  $$\\text{Na (2,8,1)} \\to \\text{Na}^+\\text{ (2,8)} + e^- \\quad (11 p^+, 10 e^- \\implies \\text{net } +1)$$\n  $$\\text{Mg (2,8,2)} \\to \\text{Mg}^{2+}\\text{ (2,8)} + 2e^- \\quad (12 p^+, 10 e^- \\implies \\text{net } +2)$$\n  $$\\text{Al (2,8,3)} \\to \\text{Al}^{3+}\\text{ (2,8)} + 3e^- \\quad (13 p^+, 10 e^- \\implies \\text{net } +3)$$\n- **Anion**: A negatively charged ion formed by electron gain:\n  $$\\text{Cl (2,8,7)} + e^- \\to \\text{Cl}^-\\text{ (2,8,8)} \\quad (17 p^+, 18 e^- \\implies \\text{net } -1)$$\n  $$\\text{O (2,6)} + 2e^- \\to \\text{O}^{2-}\\text{ (2,8)} \\quad (8 p^+, 10 e^- \\implies \\text{net } -2)$$\n  $$\\text{N (2,5)} + 3e^- \\to \\text{N}^{3-}\\text{ (2,8)} \\quad (7 p^+, 10 e^- \\implies \\text{net } -3)$$\n\n### 9.12 Formation of Ionic Compounds (Sodium Chloride)\n1. Sodium loses its single 3s valence electron to become $\\text{Na}^+$.\n2. Chlorine absorbs that electron into its 3p valence shell to become $\\text{Cl}^-$.\n3. Oppositely charged $\\text{Na}^+$ and $\\text{Cl}^-$ attract via **electrostatic forces**:\n   $$\\text{Na}^+ + \\text{Cl}^- \\to \\text{NaCl (Ionic solid)}$$\n\n### 9.13 The 3D Crystal Lattice of Sodium Chloride\nSolid $\\text{NaCl}$ does **NOT** exist as isolated individual molecules!\n- It forms a giant **3D cubic crystalline lattice**.\n- In the lattice, each $\\text{Na}^+$ ion is surrounded symmetrically by **6 $\\text{Cl}^-$ ions**, and each $\\text{Cl}^-$ ion is surrounded by **6 $\\text{Na}^+$ ions**.\n- This powerful 3D electrostatic binding gives ionic compounds:\n  - Very **high melting and boiling points** ($m.p. \\text{ of NaCl} = 801^\\circ\\text{C}$).\n  - High hardness and brittleness.\n  - Electrical conductivity in **molten or aqueous states** (free mobile ions), but **no conductivity in solid state** (ions locked in fixed lattice sites).\n\n### 9.14 Comprehensive Polyatomic Ions Ledger\n| Ion Name | Chemical Formula | Valency / Charge |\n| :--- | :--- | :--- |\n| **Ammonium** | $\\text{NH}_4^+$ | $+1$ |\n| **Hydroxide** | $\\text{OH}^-$ | $-1$ |\n| **Nitrate** | $\\text{NO}_3^-$ | $-1$ |\n| **Hydrogen Carbonate (Bicarbonate)** | $\\text{HCO}_3^-$ | $-1$ |\n| **Carbonate** | $\\text{CO}_3^{2-}$ | $-2$ |\n| **Sulphite** | $\\text{SO}_3^{2-}$ | $-2$ |\n| **Sulphate** | $\\text{SO}_4^{2-}$ | $-2$ |\n| **Phosphate** | $\\text{PO}_4^{3-}$ | $-3$ |",
+    "worked_examples": [
+      {
+        "problem": "Explain the formation of a sodium ion (Na+) and a chloride ion (Cl-) from their respective neutral atoms in terms of protons, electrons, and electronic configuration.",
+        "given": "Sodium Z = 11; Chlorine Z = 17.",
+        "formula": "Ionization Charge Equation: Q = p+ - e-",
+        "substitution": "Na: 11 p+, 11 e- -> loses 1 e- -> 11 p+, 10 e-. Cl: 17 p+, 17 e- -> gains 1 e- -> 17 p+, 18 e-.",
+        "calculation": "1. Neutral Na atom has 11 protons and 11 electrons (configuration 2, 8, 1). To achieve neon octet (2, 8), it loses 1 valence electron, leaving 11 protons and 10 electrons -> net charge +1 (Na+).\n2. Neutral Cl atom has 17 protons and 17 electrons (configuration 2, 8, 7). To achieve argon octet (2, 8, 8), it gains 1 electron, giving 17 protons and 18 electrons -> net charge -1 (Cl-).",
+        "finalAnswer": "Na loses 1 e- to form Na+ (2,8; net +1); Cl gains 1 e- to form Cl- (2,8,8; net -1).",
+        "unit": "Ion Formation",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.11: Formation of a sodium cation and chloride anion"
+      },
+      {
+        "problem": "Why do solid ionic compounds like NaCl not conduct electricity, whereas their aqueous solutions and molten states conduct electricity readily?",
+        "given": "Electrical conduction requires mobile charge carriers.",
+        "formula": "Conduction = Presence of Mobile Ions",
+        "substitution": "Solid lattice vs Molten/Aqueous hydration.",
+        "calculation": "1. In solid NaCl, ions (Na+ and Cl-) are tightly locked into fixed positions within the rigid 3D crystal lattice by strong electrostatic forces, so ions cannot move when a voltage is applied.\n2. In the molten state or aqueous solution, thermal energy or water dielectric hydration breaks the ionic lattice.\n3. The ions become completely free and mobile, migrating toward the oppositely charged electrodes and conducting electric current.",
+        "finalAnswer": "In solids ions are locked in fixed lattice sites; in molten/aqueous states ions are free and mobile to conduct electricity.",
+        "unit": "Electrical Conductivity",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.15: Experimental set-up for testing electrical conductivity of solutions"
+      },
+      {
+        "problem": "What is a polyatomic ion? Give three examples of polyatomic anions with -1, -2, and -3 charges respectively.",
+        "given": "Definition and charge categories of polyatomic ions.",
+        "formula": "Polyatomic Ion = Covalently bonded cluster carrying net formal charge",
+        "substitution": "Charge -1: Hydroxide or Nitrate; Charge -2: Carbonate or Sulphate; Charge -3: Phosphate.",
+        "calculation": "1. A polyatomic ion is a tightly bound group of atoms that behaves as a single unit and possesses a net electrical charge.\n2. -1 charge: Nitrate ion (NO3-) or Hydroxide ion (OH-).\n3. -2 charge: Sulphate ion (SO4^2-) or Carbonate ion (CO3^2-).\n4. -3 charge: Phosphate ion (PO4^3-).",
+        "finalAnswer": "Polyatomic ion is a charged group of atoms; examples: NO3- (-1), SO4^2- (-2), PO4^3- (-3).",
+        "unit": "Polyatomic Ions",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.16: Ionic compound lattice with polyatomic groups"
+      },
+      {
+        "problem": "Describe the 3D crystal lattice of sodium chloride. Why is it incorrect to speak of a single 'molecule' of solid sodium chloride?",
+        "given": "Crystal structure of rock salt NaCl.",
+        "formula": "Coordination Number & Infinite Lattice Architecture",
+        "substitution": "Each Na+ is coordinated by 6 Cl- ions, and each Cl- by 6 Na+ ions.",
+        "calculation": "1. Solid NaCl consists of an alternating 3D cubic lattice where each sodium ion is surrounded by six chloride ions at the corners of an octahedron, and vice versa.\n2. There are no discrete pairs of isolated Na-Cl units.\n3. Because the lattice extends continuously in all three dimensions until the crystal boundary, the formula NaCl represents only the simplest ratio (formula unit), not a discrete molecule.",
+        "finalAnswer": "NaCl forms a continuous 3D repeating lattice with 6:6 octahedral coordination; no discrete isolated NaCl molecules exist.",
+        "unit": "Crystallography",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.14: Sodium chloride crystal structure and 3D cubic crystal lattice"
+      },
+      {
+        "problem": "Write the electron transfer scheme showing the formation of magnesium oxide (MgO) from magnesium (Z = 12) and oxygen (Z = 8).",
+        "given": "Mg (2, 8, 2) and O (2, 6).",
+        "formula": "Divalent Cation + Divalent Anion Transfer",
+        "substitution": "Mg loses 2 electrons; O gains 2 electrons.",
+        "calculation": "1. Magnesium atom loses its two 3s valence electrons: Mg -> Mg2+ + 2e- (achieving Ne configuration 2, 8).\n2. Oxygen atom accepts the two electrons into its 2p subshell: O + 2e- -> O2- (achieving Ne configuration 2, 8).\n3. Strong electrostatic attraction binds them into an ionic lattice: Mg2+ + O2- -> MgO.",
+        "finalAnswer": "Mg transfers 2 valence electrons to oxygen, forming Mg2+ and O2- ions bound by electrostatic attraction into MgO.",
+        "unit": "Divalent Ionic Bond",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.13: Electron transfer mechanism in binary ionic compound formation"
+      },
+      {
+        "problem": "An element X has atomic number 12, and element Y has atomic number 17. Deduce: (a) Type of bond formed between X and Y, (b) Chemical formula of the compound, (c) Physical state at room temperature.",
+        "given": "X has Z = 12 (Mg: 2, 8, 2); Y has Z = 17 (Cl: 2, 8, 7).",
+        "formula": "Criss-Cross of Valencies: X^2+ and Y^-",
+        "substitution": "X valency = 2, Y valency = 1.",
+        "calculation": "(a) X is a metal that loses 2 electrons to form X2+; Y is a non-metal that gains 1 electron to form Y-. The bond formed is **ionic (electrovalent)**.\n(b) One X2+ cation requires two Y- anions to balance charge: formula is **XY2** (MgCl2).\n(c) Due to strong electrostatic attractions, ionic compounds are **crystalline solids** at room temperature.",
+        "finalAnswer": "(a) Ionic bond, (b) Formula XY2, (c) Crystalline solid at room temperature.",
+        "unit": "Formula Deduction",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.16: Ionic compound lattice characteristics"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "Solid table salt (NaCl) is made up of millions of tiny independent NaCl molecules.",
+        "correction": "There are NO discrete molecules in solid NaCl. It is an infinite 3D crystalline lattice where every sodium ion is surrounded symmetrically by 6 chloride ions, and vice versa. NaCl is a formula unit, not a molecular unit.",
+        "why_it_matters": "Fundamental concept of solid-state ionic lattices vs discrete covalent molecules."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Ions & Crystal Lattice Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Definition of Ions: An ion is a charged atom or group of atoms that has acquired an electric charge by either losing or gaining one or more electrons.",
+          "diagram_title": "Sodium Cation Electron Loss",
+          "diagram_type": "image",
+          "image_query": "sodium cation Na+ formation electron loss diagram",
+          "video_query": "how cations and anions form",
+          "image_url": "/extracted_diagrams/ch9/fig_9_11.webp",
+          "what_to_make": "Textbook diagram showing neutral sodium atom losing its valence electron to form Na+.",
+          "timing_and_cue": "Mount cation formation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_11.webp | Formation of Sodium Cation | Loss of valence electron leaving 11 protons and 10 electrons\")"
+        },
+        {
+          "concept_title": "Cations (Positive Ions): Formed when an electropositive metal atom loses one or more valence electrons (e.g., Na -> Na+ + e- with 11 protons and 10 electrons; Ca -> Ca2+ + 2e-), carrying a net positive charge.",
+          "diagram_title": "Chloride Anion Electron Gain",
+          "diagram_type": "image",
+          "image_query": "chloride anion Cl- formation electron gain diagram",
+          "video_query": "formation of chloride ion",
+          "image_url": "/extracted_diagrams/ch9/fig_9_12.webp",
+          "what_to_make": "Textbook diagram showing neutral chlorine atom gaining an electron to form Cl-.",
+          "timing_and_cue": "Mount anion formation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_12.webp | Formation of Chloride Anion | Chlorine gaining electron to complete M shell octet\")"
+        },
+        {
+          "concept_title": "Anions (Negative Ions): Formed when an electronegative non-metal atom gains one or more electrons (e.g., Cl + e- -> Cl- with 17 protons and 18 electrons; O + 2e- -> O2-), carrying a net negative charge.",
+          "diagram_title": "Electron Transfer in Sodium Chloride Formation",
+          "diagram_type": "image",
+          "image_query": "sodium chloride electron transfer ionic bond diagram",
+          "video_query": "electron transfer sodium to chlorine ionic bonding",
+          "image_url": "/extracted_diagrams/ch9/fig_9_13.webp",
+          "what_to_make": "Textbook diagram showing complete electron transfer from sodium atom to chlorine atom.",
+          "timing_and_cue": "Mount electron transfer on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_13.webp | Ionic Transfer in NaCl | Direct valence electron transfer from Na to Cl\")"
+        },
+        {
+          "concept_title": "Ionic / Electrovalent Bond: The strong non-directional electrostatic force of attraction that holds oppositely charged cations and anions together in an ionic compound.",
+          "diagram_title": "3D Cubic Crystal Lattice of NaCl",
+          "diagram_type": "image",
+          "image_query": "sodium chloride 3D crystal lattice structure cubic diagram",
+          "video_query": "crystal lattice structure of NaCl",
+          "image_url": "/extracted_diagrams/ch9/fig_9_14.webp",
+          "what_to_make": "Textbook diagram showing macroscopic cubic salt crystals and microscopic 3D cubic repeating lattice.",
+          "timing_and_cue": "Mount NaCl crystal lattice on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_14.webp | Sodium Chloride Crystal Lattice | 3D cubic alternating arrangement of Na+ and Cl- ions\")"
+        },
+        {
+          "concept_title": "Solid Crystal Lattice of NaCl: Solid sodium chloride does not consist of isolated NaCl molecules; instead, it forms an infinite 3D crystalline lattice where every Na+ cation is octahedrally coordinated by 6 Cl- anions, and every Cl- is surrounded by 6 Na+ ions.",
+          "diagram_title": "Electrical Conductivity of Solutions Setup",
+          "diagram_type": "image",
+          "image_query": "electrical conductivity solution beaker electrodes bulb diagram",
+          "video_query": "conductivity of ionic vs covalent solutions experiment",
+          "image_url": "/extracted_diagrams/ch9/fig_9_15.webp",
+          "what_to_make": "Textbook circuit diagram testing electrical conductivity of aqueous salt solution with battery, bulb, and graphite electrodes.",
+          "timing_and_cue": "Mount conductivity circuit on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_15.webp | Solution Conductivity Setup | Mobile hydrated ions completing electrical circuit\")"
+        },
+        {
+          "concept_title": "Polyatomic Ions: A cluster of covalently bonded atoms that carries an overall net electrical charge behaving as a single unit (Ammonium NH4^+, Hydroxide OH^-, Nitrate NO3^-, Carbonate CO3^{2-}, Sulphate SO4^{2-}, Phosphate PO4^{3-}).",
+          "diagram_title": "Ionic vs Covalent Compound Comparison Table",
+          "diagram_type": "image",
+          "image_query": "ionic compounds properties high melting point lattice diagram",
+          "video_query": "properties of ionic compounds",
+          "image_url": "/extracted_diagrams/ch9/fig_9_16.webp",
+          "what_to_make": "Textbook summary chart comparing ionic compounds with polyatomic groups and covalent networks.",
+          "timing_and_cue": "Mount ionic compound chart on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_16.webp | Ionic Compound Properties | High melting point and electrical conduction in solution\")"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Dry salt in a salt shaker cannot conduct a single spark of electricity, but the moment you dissolve it in a glass of water, it conducts electricity brilliantly! Why?\"\n   - Law: Detail electron transfer, electrostatic bonding, and the 3D cubic NaCl crystal lattice.\n   - Socratic check: \"In solid NaCl, why can't the ions move to conduct electricity?\" HARD STOP: Wait for student answer!"
+  },
+  {
+    "order_index": 5,
+    "title": "Chemical Formulae Architecture: Valency Mechanics & The Criss-Cross Method",
+    "description": "Master the systematic derivation of chemical formulae for simple binary compounds and complex polyatomic salts using valencies and the cross-over (criss-cross) method with parentheses rules.",
+    "subtopics": [
+      "What is a Chemical Formula: Symbolic representation of a compound's composition",
+      "Valency as Combining Capacity: Hand-holding analogy of octet satisfaction",
+      "The Three Canonical Rules for Writing Chemical Formulae: Charge balance, simplification, parentheses",
+      "Binary Covalent Compounds: Hydrogen chloride (HCl), Hydrogen sulphide (H2S), Carbon tetrachloride (CCl4)",
+      "Binary Ionic Compounds: Magnesium chloride (MgCl2), Aluminium oxide (Al2O3), Calcium oxide (CaO)",
+      "Polyatomic Compounds: Sodium nitrate (NaNO3), Calcium hydroxide (Ca(OH)2), Ammonium sulphate ((NH4)2SO4)"
+    ],
+    "key_concepts": [
+      "Definition of Chemical Formula: The chemical formula of a compound is a symbolic representation of its chemical composition, indicating the elements present and the simplest ratio of their atoms.",
+      "Valency as Combining Capacity: Valency is the combining capacity of an element; it represents the number of electrons an atom loses, gains, or shares to attain a stable octet (e.g., H = 1, O = 2, C = 4, Al = 3, Cl = 1).",
+      "Charge Neutrality Rule: In any neutral chemical formula, the total positive valency/charge must exactly balance the total negative valency/charge.",
+      "Parentheses Rule for Polyatomic Ions: When more than one polyatomic ion is required to balance charge, the formula of the polyatomic ion is enclosed in parentheses with the subscript outside (e.g., Ca(OH)2, (NH4)2SO4); if only one polyatomic ion is present, parentheses are omitted (e.g., NaOH).",
+      "Simplest Ratio Simplification: When valency numbers have a common factor, they are simplified to the lowest whole-number ratio (e.g., Ca2+ and O2- gives Ca2O2 which simplifies to CaO).",
+      "Covalent Molecule Classification: Covalent compounds consist of neutral molecules held by covalent bonds with low melting and boiling points, non-conductors in pure liquid state (e.g., CCl4, CH4)."
+    ],
+    "success_criteria": "Student can determine element valencies, execute criss-cross formulation for any binary or polyatomic compound, apply parentheses correctly, and simplify ratios.",
+    "chapter_notes": "### 9.15 Rules for Writing Chemical Formulae\n1. **Rule 1: The valencies or charges on the ions must balance.**\n2. **Rule 2: Symbol Order**: When a compound consists of a metal and a non-metal, the metal symbol is written first on the left, followed by the non-metal on the right:\n   - Calcium oxide $\\to \\text{CaO}$\n   - Sodium chloride $\\to \\text{NaCl}$\n   - Iron sulphide $\\to \\text{FeS}$\n3. **Rule 3: Parentheses for Polyatomic Ions**:\n   - If more than one unit of a polyatomic ion is needed, enclose it in brackets: $\\text{Ca}(\\text{OH})_2, (\\text{NH}_4)_2\\text{SO}_4, \\text{Al}_2(\\text{SO}_4)_3$.\n   - If only one unit is present, do NOT use brackets: $\\text{NaOH}$ (not $\\text{Na}(\\text{OH})$).\n4. **Rule 4: Simplification**: If subscripts share a common divisor, reduce them to simplest terms:\n   - $\\text{Ca}^{2+} + \\text{O}^{2-} \\to \\text{Ca}_2\\text{O}_2 \\to \\mathbf{\\text{CaO}}$.\n\n### 9.16 Step-by-Step Criss-Cross Formulations\n- **1. Hydrogen Chloride**:\n  - Symbols: $\\text{H} \\quad \\text{Cl}$\n  - Valencies: $1 \\quad 1$\n  - Criss-cross $\\implies \\mathbf{\\text{HCl}}$\n- **2. Hydrogen Sulphide**:\n  - Symbols: $\\text{H} \\quad \\text{S}$\n  - Valencies: $1 \\quad 2$\n  - Criss-cross $\\implies \\mathbf{\\text{H}_2\\text{S}}$\n- **3. Carbon Tetrachloride**:\n  - Symbols: $\\text{C} \\quad \\text{Cl}$\n  - Valencies: $4 \\quad 1$\n  - Criss-cross $\\implies \\mathbf{\\text{CCl}_4}$\n- **4. Aluminium Oxide**:\n  - Symbols: $\\text{Al} \\quad \\text{O}$\n  - Valencies: $3 \\quad 2$\n  - Criss-cross $\\implies \\mathbf{\\text{Al}_2\\text{O}_3}$\n- **5. Calcium Hydroxide**:\n  - Symbols: $\\text{Ca} \\quad \\text{OH}$\n  - Valencies: $2 \\quad 1$\n  - Criss-cross $\\implies \\mathbf{\\text{Ca}(\\text{OH})_2}$\n- **6. Ammonium Sulphate**:\n  - Symbols: $\\text{NH}_4 \\quad \\text{SO}_4$\n  - Valencies: $1 \\quad 2$\n  - Criss-cross $\\implies \\mathbf{(\\text{NH}_4)_2\\text{SO}_4}$",
+    "worked_examples": [
+      {
+        "problem": "Write down the chemical formulae of: (a) Sodium oxide, (b) Aluminium chloride, (c) Sodium sulphide, (d) Magnesium hydroxide.",
+        "given": "Elements and polyatomic ions with their respective valencies.",
+        "formula": "Criss-Cross Valency Formulation Method",
+        "substitution": "(a) Na(1), O(2); (b) Al(3), Cl(1); (c) Na(1), S(2); (d) Mg(2), OH(1).",
+        "calculation": "(a) Sodium oxide: Symbols Na O, Valencies 1 2 -> Na2O\n(b) Aluminium chloride: Symbols Al Cl, Valencies 3 1 -> AlCl3\n(c) Sodium sulphide: Symbols Na S, Valencies 1 2 -> Na2S\n(d) Magnesium hydroxide: Symbols Mg OH, Valencies 2 1 -> Mg(OH)2 (brackets required)",
+        "finalAnswer": "(a) Na2O, (b) AlCl3, (c) Na2S, (d) Mg(OH)2.",
+        "unit": "Chemical Formulae",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.17: Covalent and ionic molecular formula formulation"
+      },
+      {
+        "problem": "Write the names of the compounds represented by the following formulae: (a) Al2(SO4)3, (b) CaCl2, (c) K2SO4, (d) KNO3, (e) CaCO3.",
+        "given": "Chemical formulas composed of metal cations and polyatomic/monoatomic anions.",
+        "formula": "Cation Name + Anion Name Nomenclature",
+        "substitution": "Al3+ = Aluminium, SO4^2- = Sulphate, Ca2+ = Calcium, Cl- = Chloride, K+ = Potassium, NO3- = Nitrate, CO3^2- = Carbonate.",
+        "calculation": "(a) Al2(SO4)3: Aluminium cation + Sulphate polyatomic anion -> Aluminium sulphate\n(b) CaCl2: Calcium cation + Chloride anion -> Calcium chloride\n(c) K2SO4: Potassium cation + Sulphate anion -> Potassium sulphate\n(d) KNO3: Potassium cation + Nitrate anion -> Potassium nitrate\n(e) CaCO3: Calcium cation + Carbonate anion -> Calcium carbonate",
+        "finalAnswer": "(a) Aluminium sulphate, (b) Calcium chloride, (c) Potassium sulphate, (d) Potassium nitrate, (e) Calcium carbonate.",
+        "unit": "Compound Nomenclature",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.16: Polyatomic ionic lattice nomenclature"
+      },
+      {
+        "problem": "Why is the formula of calcium hydroxide written as Ca(OH)2 and not CaOH2?",
+        "given": "Calcium valency = 2; Hydroxide polyatomic ion OH- valency = 1.",
+        "formula": "Polyatomic Group Bracketing Axiom",
+        "substitution": "Ca^2+ requires two complete OH^- polyatomic units.",
+        "calculation": "1. Hydroxide (OH-) is a polyatomic ion consisting of one oxygen atom covalently bonded to one hydrogen atom.\n2. Calcium ion has a charge of +2 (Ca2+), so it requires TWO hydroxide ions to balance the charge: (+2) + 2(-1) = 0.\n3. The formula Ca(OH)2 indicates there are 2 oxygen atoms and 2 hydrogen atoms.\n4. If written as CaOH2, it would erroneously imply 1 calcium, 1 oxygen, and 2 hydrogen atoms.",
+        "finalAnswer": "Brackets in Ca(OH)2 indicate the subscript 2 multiplies both O and H in the hydroxide unit; CaOH2 erroneously doubles only H.",
+        "unit": "Parentheses Rule",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.17: Molecular geometry and formula notation"
+      },
+      {
+        "problem": "Write the chemical formula of carbon tetrachloride and draw its structural formula showing covalent bonds.",
+        "given": "Carbon Z = 6 (valency 4); Chlorine Z = 17 (valency 1).",
+        "formula": "Tetravalent Covalent Formulation",
+        "substitution": "Symbols C Cl, Valencies 4 1 -> CCl4",
+        "calculation": "1. Criss-cross of valency 4 of carbon and valency 1 of chlorine gives CCl4.\n2. Carbon atom sits at the center, sharing one electron pair with each of four chlorine atoms located at tetrahedral vertices.\n3. Each C-Cl bond is a single covalent bond.",
+        "finalAnswer": "Formula is CCl4; central carbon atom forms 4 single covalent bonds with four surrounding chlorine atoms.",
+        "unit": "Binary Covalent Formula",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.9: Single covalent bonding geometry in chlorine compounds"
+      },
+      {
+        "problem": "An element M forms an oxide with formula M2O3. What will be the formula of its: (a) Chloride, (b) Sulphate, (c) Phosphate?",
+        "given": "Formula M2O3; Oxygen valency = 2.",
+        "formula": "Deducing Valency of Unknown Element from Oxide Formula",
+        "substitution": "In M2O3: 2 * (valency of M) = 3 * (valency of O) = 3 * 2 = 6 -> Valency of M = 3.",
+        "calculation": "Valency of M is +3 (M3+).\n(a) Chloride (Cl- valency 1): Symbols M Cl, Valencies 3 1 -> MCl3\n(b) Sulphate (SO4^2- valency 2): Symbols M SO4, Valencies 3 2 -> M2(SO4)3\n(c) Phosphate (PO4^3- valency 3): Symbols M PO4, Valencies 3 3 -> M3(PO4)3 simplifies to MPO4",
+        "finalAnswer": "(a) MCl3, (b) M2(SO4)3, (c) MPO4.",
+        "unit": "Algebraic Formula Deduction",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.16: Trivalent cation salt formulation"
+      },
+      {
+        "problem": "Deduce the chemical formula of iron(III) oxide and copper(II) sulphate.",
+        "given": "Iron(III) means Fe with valency 3. Copper(II) means Cu with valency 2.",
+        "formula": "Stock Notation Criss-Cross",
+        "substitution": "Iron(III) oxide: Fe(3), O(2). Copper(II) sulphate: Cu(2), SO4(2).",
+        "calculation": "1. Iron(III) oxide: Symbols Fe O, Valencies 3 2 -> Criss-cross gives Fe2O3 (Rust / Ferric oxide).\n2. Copper(II) sulphate: Symbols Cu SO4, Valencies 2 2 -> Cu2(SO4)2 simplifies to CuSO4 (Blue vitriol anhydrous).",
+        "finalAnswer": "Iron(III) oxide: Fe2O3; Copper(II) sulphate: CuSO4.",
+        "unit": "Stock Notation",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.14: Transition metal salt crystal lattices"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "When two ions have the same charge like Ca2+ and O2-, the formula is written as Ca2O2.",
+        "correction": "Chemical formulas represent the SIMPLEST empirical whole-number ratio of constituent atoms. Ca2O2 must be simplified by dividing by 2, yielding CaO.",
+        "why_it_matters": "Fundamental rule of empirical and chemical formulas."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Chemical Formulae & Criss-Cross Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Definition of Chemical Formula: The chemical formula of a compound is a symbolic representation of its chemical composition, indicating the elements present and the simplest ratio of their atoms.",
+          "diagram_title": "Binary Covalent CCl4 Compound Structure",
+          "diagram_type": "image",
+          "image_query": "covalent compound carbon tetrachloride molecule diagram",
+          "video_query": "how to write chemical formula criss cross method",
+          "image_url": "/extracted_diagrams/ch9/fig_9_17.webp",
+          "what_to_make": "Textbook diagram showing structure of covalent compounds and discrete molecular bonding.",
+          "timing_and_cue": "Mount formula definition on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_17.webp | Covalent Compound Architecture | Discrete molecular formula representation\")"
+        },
+        {
+          "concept_title": "Valency as Combining Capacity: Valency is the combining capacity of an element; it represents the number of electrons an atom loses, gains, or shares to attain a stable octet (e.g., H = 1, O = 2, C = 4, Al = 3, Cl = 1).",
+          "diagram_title": "Valency Combining Capacity Transfer",
+          "diagram_type": "image",
+          "image_query": "valency combining capacity octet electron transfer diagram",
+          "video_query": "valency of elements explained combining capacity",
+          "image_url": "/extracted_diagrams/ch9/fig_9_13.webp",
+          "what_to_make": "Textbook diagram showing electron exchange reflecting elemental valencies.",
+          "timing_and_cue": "Mount valency on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_13.webp | Valency Mechanics | Electron loss/gain determining chemical combining power\")"
+        },
+        {
+          "concept_title": "Charge Neutrality Rule: In any neutral chemical formula, the total positive valency/charge must exactly balance the total negative valency/charge.",
+          "diagram_title": "Charge Balance in Salt Lattice",
+          "diagram_type": "image",
+          "image_query": "ionic charge balance neutral compound diagram",
+          "video_query": "balancing charges in chemical formulas",
+          "image_url": "/extracted_diagrams/ch9/fig_9_14.webp",
+          "what_to_make": "Textbook diagram showing macro crystals and micro lattice achieving exact net zero electrical charge.",
+          "timing_and_cue": "Mount charge neutrality on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_14.webp | Charge Neutrality | Neutral crystal lattice balancing positive and negative ions\")"
+        },
+        {
+          "concept_title": "Parentheses Rule for Polyatomic Ions: When more than one polyatomic ion is required to balance charge, the formula of the polyatomic ion is enclosed in parentheses with the subscript outside (e.g., Ca(OH)2, (NH4)2SO4); if only one polyatomic ion is present, parentheses are omitted (e.g., NaOH).",
+          "diagram_title": "Polyatomic Bracketing Architecture",
+          "diagram_type": "image",
+          "image_query": "polyatomic ions parentheses brackets formula diagram",
+          "video_query": "how to use brackets in chemical formulas",
+          "image_url": "/extracted_diagrams/ch9/fig_9_16.webp",
+          "what_to_make": "Textbook table and structural representation of polyatomic ionic compounds.",
+          "timing_and_cue": "Mount parentheses rule on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_16.webp | Polyatomic Parentheses Rule | Ca(OH)2 requiring brackets to multiply entire OH unit\")"
+        },
+        {
+          "concept_title": "Simplest Ratio Simplification: When valency numbers have a common factor, they are simplified to the lowest whole-number ratio (e.g., Ca2+ and O2- gives Ca2O2 which simplifies to CaO).",
+          "diagram_title": "Simplification to Empirical Formula Unit",
+          "diagram_type": "image",
+          "image_query": "simplest whole number ratio empirical formula diagram",
+          "video_query": "simplifying chemical formula ratios",
+          "image_url": "/extracted_diagrams/ch9/fig_9_15.webp",
+          "what_to_make": "Textbook diagram showing electrolytic solution verifying 1:1 stoichiometric equivalence.",
+          "timing_and_cue": "Mount simplification on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_15.webp | Empirical Ratio Simplification | Ca2O2 reducing to CaO formula unit\")"
+        },
+        {
+          "concept_title": "Covalent Molecule Classification: Covalent compounds consist of neutral molecules held by covalent bonds with low melting and boiling points, non-conductors in pure liquid state (e.g., CCl4, CH4).",
+          "diagram_title": "Covalent Molecular vs Ionic Lattice Properties",
+          "diagram_type": "image",
+          "image_query": "covalent compounds low melting point electrical insulator diagram",
+          "video_query": "properties of covalent compounds",
+          "image_url": "/extracted_diagrams/ch9/fig_9_17.webp",
+          "what_to_make": "Textbook diagram comparing covalent molecular compounds with non-conducting characteristics.",
+          "timing_and_cue": "Mount covalent properties on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_17.webp | Covalent Compound Properties | Low melting point and electrical insulation\")"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If calcium has valency 2 and hydroxide has valency 1, why will you lose marks if you write CaOH2 without brackets?\"\n   - Law: Teach the criss-cross algorithm, metal-left non-metal-right rule, and polyatomic parentheses.\n   - Socratic check: \"Write the formula of aluminium oxide! Aluminium has valency 3, oxygen has valency 2. Cross them over!\" HARD STOP: Wait for student answer!"
+  },
+  {
+    "order_index": 6,
+    "title": "Molecular Mass, Formula Unit Mass & Master NCERT Stoichiometry Solver",
+    "description": "Calculate molecular masses of covalent molecules, determine formula unit masses of ionic lattices, and solve every worked example, in-text problem, and chapter-end question from NCERT Chapter 9.",
+    "subtopics": [
+      "Molecular Mass Definition: Sum of atomic masses of all atoms in a covalent molecule",
+      "Formula Unit Mass Definition: Sum of atomic masses of all atoms in a formula unit of an ionic compound",
+      "Step-by-step Molecular Mass Calculations: H2, O2, Cl2, CO2, CH4, C2H6, C2H4, NH3, CH3OH, HNO3",
+      "Step-by-step Formula Unit Mass Calculations: NaCl, CaCl2, ZnO, Na2O, K2CO3",
+      "Percentage Composition: Calculating mass percentage of individual elements in compounds",
+      "Comprehensive NCERT Chapter-End Problem Solver: Questions 1 through 11 solved step-by-step"
+    ],
+    "key_concepts": [
+      "Molecular Mass: The molecular mass of a substance is the sum of the atomic masses of all the atoms present in one molecule of that substance, expressed in unified atomic mass units (u).",
+      "Formula Unit Mass: The formula unit mass of a substance is the sum of the atomic masses of all atoms in a formula unit of an ionic compound, used instead of 'molecular mass' because ionic compounds do not contain discrete molecules.",
+      "Unified Units (u): Both molecular mass and formula unit mass are measured in unified mass units (u), where 1 u = 1.66 * 10^-27 kg.",
+      "Percentage Composition: The percentage by mass of an element in a compound is calculated as: % = (Total mass of element in formula / Molecular mass of compound) * 100.",
+      "Stoichiometric Conservation: In any balanced chemical reaction, the sum of molecular/formula unit masses of reactants strictly equals the sum of products, mathematically fulfilling Lavoisier's conservation law.",
+      "NCERT Master Ledger: Mastery over binary nomenclature, criss-cross formulation, and mass calculations ensures 100% board examination accuracy."
+    ],
+    "success_criteria": "Student can calculate molecular mass and formula unit mass for any chemical formula, compute percentage elemental composition, and solve all NCERT chapter-end exercises.",
+    "chapter_notes": "### 9.17 Molecular Mass\nThe **molecular mass** of a substance is the sum of the atomic masses of all the atoms in a molecule:\n$$\\text{Molecular Mass} = \\sum (\\text{Number of atoms of element}_i \\times \\text{Atomic mass of element}_i)$$\n- **Examples**:\n  1. **Water ($\\text{H}_2\\text{O}$)**:\n     $$2 \\times 1\\text{ u} + 1 \\times 16\\text{ u} = 2 + 16 = \\mathbf{18\\text{ u}}$$\n  2. **Nitric Acid ($\\text{HNO}_3$)**:\n     $$1 \\times 1\\text{ u} + 1 \\times 14\\text{ u} + 3 \\times 16\\text{ u} = 1 + 14 + 48 = \\mathbf{63\\text{ u}}$$\n  3. **Methanol ($\\text{CH}_3\\text{OH}$)**:\n     $$1 \\times 12 + 4 \\times 1 + 1 \\times 16 = 12 + 4 + 16 = \\mathbf{32\\text{ u}}$$\n  4. **Carbon Dioxide ($\\text{CO}_2$)**:\n     $$1 \\times 12 + 2 \\times 16 = 12 + 32 = \\mathbf{44\\text{ u}}$$\n\n### 9.18 Formula Unit Mass\nUsed specifically for substances whose constituent particles are **ions** (ionic lattices):\n- **1. Sodium Chloride ($\\text{NaCl}$)**:\n  $$1 \\times 23\\text{ u} + 1 \\times 35.5\\text{ u} = \\mathbf{58.5\\text{ u}}$$\n- **2. Calcium Chloride ($\\text{CaCl}_2$)**:\n  $$1 \\times 40\\text{ u} + 2 \\times 35.5\\text{ u} = 40 + 71 = \\mathbf{111\\text{ u}}$$\n- **3. Potassium Carbonate ($\\text{K}_2\\text{CO}_3$)**:\n  $$2 \\times 39 + 1 \\times 12 + 3 \\times 16 = 78 + 12 + 48 = \\mathbf{138\\text{ u}}$$\n- **4. Zinc Oxide ($\\text{ZnO}$)**:\n  $$1 \\times 65\\text{ u} + 1 \\times 16\\text{ u} = \\mathbf{81\\text{ u}}$$\n\n### 9.19 Mass Percentage Composition\n$$\\%\\text{ of Element} = \\frac{\\text{Total mass of that element in 1 formula unit}}{\\text{Molecular / Formula mass of compound}} \\times 100$$\n- In $\\text{H}_2\\text{O}$ ($18\\text{ u}$):\n  $$\\%\\text{ H} = \\frac{2}{18} \\times 100 = 11.11\\%, \\quad \\%\\text{ O} = \\frac{16}{18} \\times 100 = 88.89\\%$$",
+    "worked_examples": [
+      {
+        "problem": "Calculate the molecular masses of: H2, O2, Cl2, CO2, CH4, C2H6, C2H4, NH3, CH3OH. (Atomic masses: H=1 u, C=12 u, N=14 u, O=16 u, Cl=35.5 u).",
+        "given": "Formulas of 9 covalent compounds with standard atomic masses.",
+        "formula": "Molecular Mass = Sum of (Number of atoms * Atomic mass)",
+        "substitution": "Multiply atom counts by atomic masses and sum.",
+        "calculation": "1. H2 = 2 * 1 = 2 u\n2. O2 = 2 * 16 = 32 u\n3. Cl2 = 2 * 35.5 = 71 u\n4. CO2 = 12 + (2 * 16) = 12 + 32 = 44 u\n5. CH4 = 12 + (4 * 1) = 16 u\n6. C2H6 = (2 * 12) + (6 * 1) = 24 + 6 = 30 u\n7. C2H4 = (2 * 12) + (4 * 1) = 24 + 4 = 28 u\n8. NH3 = 14 + (3 * 1) = 17 u\n9. CH3OH = 12 + (4 * 1) + 16 = 32 u",
+        "finalAnswer": "H2=2 u, O2=32 u, Cl2=71 u, CO2=44 u, CH4=16 u, C2H6=30 u, C2H4=28 u, NH3=17 u, CH3OH=32 u.",
+        "unit": "u",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.17: Molecular masses of covalent species"
+      },
+      {
+        "problem": "Calculate the formula unit masses of ZnO, Na2O, K2CO3. (Atomic masses: Zn=65 u, Na=23 u, K=39 u, C=12 u, O=16 u).",
+        "given": "Formulas of 3 ionic salts with standard atomic masses.",
+        "formula": "Formula Unit Mass = Sum of (Number of ions * Atomic mass)",
+        "substitution": "Substitute atomic masses into formulas.",
+        "calculation": "1. ZnO = 65 + 16 = 81 u\n2. Na2O = (2 * 23) + 16 = 46 + 16 = 62 u\n3. K2CO3 = (2 * 39) + 12 + (3 * 16) = 78 + 12 + 48 = 138 u",
+        "finalAnswer": "ZnO = 81 u, Na2O = 62 u, K2CO3 = 138 u.",
+        "unit": "u",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.14: Formula unit mass in ionic crystal lattices"
+      },
+      {
+        "problem": "Calculate the mass percentage of each element in copper sulphate pentahydrate, CuSO4.5H2O. (Atomic masses: Cu=63.5 u, S=32 u, O=16 u, H=1 u).",
+        "given": "Formula CuSO4.5H2O (Blue vitriol).",
+        "formula": "% Element = (Mass of Element in formula / Total Formula Mass) * 100",
+        "substitution": "Total mass = 63.5 + 32 + (4 * 16) + 5 * (18) = 63.5 + 32 + 64 + 90 = 249.5 u.",
+        "calculation": "1. Cu mass = 63.5 u -> % Cu = (63.5 / 249.5) * 100 = 25.45%\n2. S mass = 32 u -> % S = (32 / 249.5) * 100 = 12.83%\n3. H mass = 10 * 1 = 10 u -> % H = (10 / 249.5) * 100 = 4.01%\n4. O mass = (4 + 5) * 16 = 144 u -> % O = (144 / 249.5) * 100 = 57.71%",
+        "finalAnswer": "Cu: 25.45%, S: 12.83%, H: 4.01%, O: 57.71% (Total = 100.0%).",
+        "unit": "%",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.16: Hydrated copper sulphate crystal lattice composition"
+      },
+      {
+        "problem": "A 0.24 g sample of compound of oxygen and boron was found by analysis to contain 0.096 g of boron and 0.144 g of oxygen. Calculate the percentage composition of the compound by mass.",
+        "given": "Total sample mass = 0.24 g. Mass of Boron = 0.096 g. Mass of Oxygen = 0.144 g.",
+        "formula": "% Element = (Mass of Element / Total Sample Mass) * 100",
+        "substitution": "% B = (0.096 / 0.24) * 100; % O = (0.144 / 0.24) * 100",
+        "calculation": "1. % Boron = (0.096 / 0.24) * 100 = 40%\n2. % Oxygen = (0.144 / 0.24) * 100 = 60%\n3. Sum of percentages = 40% + 60% = 100%",
+        "finalAnswer": "Boron: 40%, Oxygen: 60%.",
+        "unit": "% (NCERT Exercise Q1)",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.4: Analytical mass percentage determination"
+      },
+      {
+        "problem": "Give the names of the elements present in the following compounds: (a) Quick lime, (b) Hydrogen bromide, (c) Baking powder, (d) Potassium sulphate.",
+        "given": "Common chemical names of 4 household and industrial compounds.",
+        "formula": "Chemical Formula -> Constituent Elements Identification",
+        "substitution": "(a) Quick lime = CaO; (b) Hydrogen bromide = HBr; (c) Baking powder = NaHCO3; (d) Potassium sulphate = K2SO4.",
+        "calculation": "(a) Quick lime (CaO): Calcium and Oxygen\n(b) Hydrogen bromide (HBr): Hydrogen and Bromine\n(c) Baking powder (NaHCO3): Sodium, Hydrogen, Carbon, and Oxygen\n(d) Potassium sulphate (K2SO4): Potassium, Sulphur, and Oxygen",
+        "finalAnswer": "(a) Calcium, Oxygen; (b) Hydrogen, Bromine; (c) Sodium, Hydrogen, Carbon, Oxygen; (d) Potassium, Sulphur, Oxygen.",
+        "unit": "NCERT Exercise Q8",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.17: Constituent elements in common compounds"
+      },
+      {
+        "problem": "Which has more atoms: 100 grams of sodium or 100 grams of iron? (Given: atomic mass of Na = 23 u, Fe = 56 u).",
+        "given": "Mass of Na = 100 g, atomic mass = 23 u. Mass of Fe = 100 g, atomic mass = 56 u.",
+        "formula": "Number of atoms N = (Mass / Atomic Mass) * N_A",
+        "substitution": "N_Na = (100 / 23) * N_A; N_Fe = (100 / 56) * N_A",
+        "calculation": "1. Number of atoms in 100 g Na = (100 / 23) * N_A = 4.348 * N_A\n2. Number of atoms in 100 g Fe = (100 / 56) * N_A = 1.786 * N_A\n3. Since 4.348 > 1.786, 100 g of sodium contains significantly more atoms than 100 g of iron.",
+        "finalAnswer": "100 grams of sodium contains more atoms (4.348 N_A atoms) than 100 grams of iron (1.786 N_A atoms) because sodium has a much smaller atomic mass.",
+        "unit": "NCERT Exercise Q11",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 9.1: Atomic mass vs atomic count relationship"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "Formula unit mass and molecular mass are fundamentally different numerical quantities.",
+        "correction": "The arithmetic calculation is identical (sum of constituent atomic masses in unified atomic mass units u). The only difference is terminology: we say 'molecular mass' for covalent molecules (like H2O) and 'formula unit mass' for ionic compounds (like NaCl) because ionic compounds form infinite crystal lattices rather than discrete molecules.",
+        "why_it_matters": "Clarifies terminology vs physical reality in chemistry examinations."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Molecular Mass & Stoichiometry Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Molecular Mass: The molecular mass of a substance is the sum of the atomic masses of all the atoms present in one molecule of that substance, expressed in unified atomic mass units (u).",
+          "diagram_title": "Molecular Mass Summation in Covalent Molecules",
+          "diagram_type": "image",
+          "image_query": "molecular mass covalent molecules calculation diagram",
+          "video_query": "how to calculate molecular mass",
+          "image_url": "/extracted_diagrams/ch9/fig_9_17.webp",
+          "what_to_make": "Textbook diagram showing covalent molecules with summed atomic masses.",
+          "timing_and_cue": "Mount molecular mass on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_17.webp | Molecular Mass Calculation | Summing constituent atomic masses in unified units u\")"
+        },
+        {
+          "concept_title": "Formula Unit Mass: The formula unit mass of a substance is the sum of the atomic masses of all atoms in a formula unit of an ionic compound, used instead of 'molecular mass' because ionic compounds do not contain discrete molecules.",
+          "diagram_title": "Formula Unit Mass in Crystal Lattice",
+          "diagram_type": "image",
+          "image_query": "formula unit mass NaCl ionic lattice diagram",
+          "video_query": "formula unit mass vs molecular mass",
+          "image_url": "/extracted_diagrams/ch9/fig_9_14.webp",
+          "what_to_make": "Textbook diagram showing NaCl formula unit mass (23 + 35.5 = 58.5 u) mapped to crystal lattice.",
+          "timing_and_cue": "Mount formula unit mass on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_14.webp | Formula Unit Mass | Summing ion masses for repeating unit of lattice\")"
+        },
+        {
+          "concept_title": "Unified Units (u): Both molecular mass and formula unit mass are measured in unified mass units (u), where 1 u = 1.66 * 10^-27 kg.",
+          "diagram_title": "Carbon-12 Calibration Scale for Mass Calculations",
+          "diagram_type": "image",
+          "image_query": "atomic mass unit u carbon 12 scale unified mass diagram",
+          "video_query": "what is unified atomic mass unit u",
+          "image_url": "/extracted_diagrams/ch9/fig_9_5.webp",
+          "what_to_make": "Textbook diagram linking relative mass calculations to the fundamental Carbon-12 scale.",
+          "timing_and_cue": "Mount unified scale on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_5.webp | Unified Mass Standard | 1 u calibrated as 1/12th Carbon-12 atom mass\")"
+        },
+        {
+          "concept_title": "Percentage Composition: The percentage by mass of an element in a compound is calculated as: % = (Total mass of element in formula / Molecular mass of compound) * 100.",
+          "diagram_title": "Mass Percentage Analytical Balance",
+          "diagram_type": "image",
+          "image_query": "percentage composition chemistry chemical formula diagram",
+          "video_query": "how to find percent composition of a compound",
+          "image_url": "/extracted_diagrams/ch9/fig_9_4.webp",
+          "what_to_make": "Textbook balance comparison connecting analytical sample masses to elemental percentages.",
+          "timing_and_cue": "Mount percentage composition on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_4.webp | Percentage Composition | Calculating elemental mass fractions in compounds\")"
+        },
+        {
+          "concept_title": "Stoichiometric Conservation: In any balanced chemical reaction, the sum of molecular/formula unit masses of reactants strictly equals the sum of products, mathematically fulfilling Lavoisier's conservation law.",
+          "diagram_title": "Stoichiometric Mass Conservation Reaction",
+          "diagram_type": "image",
+          "image_query": "stoichiometric mass conservation chemical equation diagram",
+          "video_query": "stoichiometry and conservation of mass",
+          "image_url": "/extracted_diagrams/ch9/fig_9_3.webp",
+          "what_to_make": "Textbook diagram showing closed flask mass balance verifying stoichiometric conservation.",
+          "timing_and_cue": "Mount stoichiometry on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_3.webp | Stoichiometric Mass Balance | Sum of reactant molecular masses equals products\")"
+        },
+        {
+          "concept_title": "NCERT Master Ledger: Mastery over binary nomenclature, criss-cross formulation, and mass calculations ensures 100% board examination accuracy.",
+          "diagram_title": "Complete NCERT Chapter 9 Solution Summary",
+          "diagram_type": "image",
+          "image_query": "NCERT class 9 science chapter 3 atoms and molecules exercise solutions diagram",
+          "video_query": "class 9 science chapter 3 NCERT exercise solutions complete",
+          "image_url": "/extracted_diagrams/ch9/fig_9_16.webp",
+          "what_to_make": "Textbook summary chart illustrating all classes of chemical compounds solved in NCERT exercises.",
+          "timing_and_cue": "Mount master summary on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_16.webp | Master NCERT Ledger | Comprehensive solutions for all Chapter 9 exercises\")"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Why do chemists use the term 'molecular mass' for water (H2O), but insist on using 'formula unit mass' for table salt (NaCl)?\"\n   - Law: Guide step-by-step molecular and formula unit mass summation using atomic masses.\n   - Socratic check: \"Calculate the molecular mass of nitric acid (HNO3)! H=1, N=14, O=16. Add them up!\" HARD STOP: Wait for student answer!"
+  }
+]

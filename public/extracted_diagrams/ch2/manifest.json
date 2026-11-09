@@ -1,0 +1,116 @@
+[
+  {
+    "figure_id": "Fig. 2.1",
+    "page_number": 2,
+    "caption": "Fig. 2.1: Size of the objects and its visibility through Curiosity Chapter 2 unaided to aided eye",
+    "filename": "fig_2_1.webp",
+    "file_path": "public/extracted_diagrams/ch2\\fig_2_1.webp",
+    "dimensions": {
+      "width": 1597,
+      "height": 1415,
+      "aspect_ratio": 1.13
+    },
+    "file_size_kb": 232.9,
+    "crop_bbox": [
+      128.8,
+      301.8,
+      593.5,
+      709.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 2.2",
+    "page_number": 3,
+    "caption": "Fig. 2.2: Structure of a light microscope 2. Place the ruler on the stage of microscope, focus on it using the adjustment",
+    "filename": "fig_2_2.webp",
+    "file_path": "public/extracted_diagrams/ch2\\fig_2_2.webp",
+    "dimensions": {
+      "width": 1646,
+      "height": 696,
+      "aspect_ratio": 2.36
+    },
+    "file_size_kb": 139.6,
+    "crop_bbox": [
+      75.4,
+      67.9,
+      553.0,
+      284.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 2.3",
+    "page_number": 3,
+    "caption": "Fig. 2.3: An electron microscope present along the diameter of the field of view in Apart from light",
+    "filename": "fig_2_3.webp",
+    "file_path": "public/extracted_diagrams/ch2\\fig_2_3.webp",
+    "dimensions": {
+      "width": 729,
+      "height": 499,
+      "aspect_ratio": 1.46
+    },
+    "file_size_kb": 45.3,
+    "crop_bbox": [
+      47.7,
+      287.8,
+      257.8,
+      431.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 2.4",
+    "page_number": 4,
+    "caption": "Fig. 2.4: Electron micrograph of lower surface of a Colocasia leaf showing stomata function. For these cells to function as units, they",
+    "filename": "fig_2_4.webp",
+    "file_path": "public/extracted_diagrams/ch2\\fig_2_4.webp",
+    "dimensions": {
+      "width": 699,
+      "height": 690,
+      "aspect_ratio": 1.01
+    },
+    "file_size_kb": 95.1,
+    "crop_bbox": [
+      394.7,
+      36.0,
+      596.1,
+      234.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 2.5",
+    "page_number": 4,
+    "caption": "Fig. 2.5: Experimental set-up, and initial and final states of potato pieces in (a) plain",
+    "filename": "fig_2_5.webp",
+    "file_path": "public/extracted_diagrams/ch2\\fig_2_5.webp",
+    "dimensions": {
+      "width": 785,
+      "height": 1396,
+      "aspect_ratio": 0.56
+    },
+    "file_size_kb": 95.3,
+    "crop_bbox": [
+      305.3,
+      343.1,
+      534.9,
+      745.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 2.6",
+    "page_number": 5,
+    "caption": "Fig. 2.6: Effect of solutions of different concentrations on a cell",
+    "filename": "fig_2_6.webp",
+    "file_path": "public/extracted_diagrams/ch2\\fig_2_6.webp",
+    "dimensions": {
+      "width": 1763,
+      "height": 1408,
+      "aspect_ratio": 1.25
+    },
+    "file_size_kb": 290.6,
+    "crop_bbox": [
+      38.9,
+      149.6,
+      553.9,
+      555.1
+    ]
+  }
+]

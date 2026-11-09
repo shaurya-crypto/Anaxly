@@ -55,12 +55,12 @@ export async function GET(req: Request) {
       )
     }
 
-    // 4. Fetch student's preferred teacher voice & language from profile
+    // 4. Fetch student's preferred teacher voice, language & full onboarding dossier from profile
     let voiceName = 'Leda'
     let preferredLanguage = 'English'
     const { data: profile } = await supabase
       .from('profiles')
-      .select('preferred_teacher_voice, preferred_language')
+      .select('preferred_teacher_voice, preferred_language, full_name, class_level, target_board, learning_pace, weak_area, favorite_subject, learning_style, career_aspiration, study_medium')
       .eq('id', user.id)
       .maybeSingle()
 
@@ -69,6 +69,18 @@ export async function GET(req: Request) {
     }
     if (profile?.preferred_language) {
       preferredLanguage = profile.preferred_language
+    }
+
+    const studentProfile = {
+      fullName: profile?.full_name || 'Student',
+      classLevel: profile?.class_level || 'Class 9',
+      targetBoard: profile?.target_board || 'CBSE',
+      learningPace: profile?.learning_pace || 'steady_and_balanced',
+      weakArea: profile?.weak_area || '',
+      favoriteSubject: profile?.favorite_subject || '',
+      learningStyle: profile?.learning_style || 'socratic',
+      careerAspiration: profile?.career_aspiration || '',
+      studyMedium: profile?.study_medium || 'English',
     }
 
     const langVoiceConfig = getLanguageVoiceConfig(preferredLanguage)
@@ -93,7 +105,7 @@ export async function GET(req: Request) {
     const useExtendedThinking = url.searchParams.get('extended') === 'true'
     const liveModel = useExtendedThinking ? 'gemini-3.8-live-extended-thinking' : 'gemini-3.8-live'
 
-    // ZERO API KEY EXPOSURE: Return only the temporary ephemeral token
+    // ZERO API KEY EXPOSURE: Return only the temporary ephemeral token with student profile
     return NextResponse.json({
       token: token.name,
       model: liveModel,
@@ -101,6 +113,7 @@ export async function GET(req: Request) {
       preferredLanguage,
       supportedLanguages,
       languageCode,
+      studentProfile,
     })
   } catch (err: any) {
     console.error('[Session API] Error minting ephemeral token:', err)

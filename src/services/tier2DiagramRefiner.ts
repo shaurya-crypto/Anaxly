@@ -155,15 +155,15 @@ MANDATORY CSS ANIMATION INVARIANT:
 
   const isLive = Boolean(input.isLiveClass || input.source === 'live_classroom')
   const preferredModels = isLive
-    ? ['gemini-2.5-flash', 'gemini-3.5-flash']
+    ? ['gemini-2.5-flash', 'gemini-3.5-flash', 'gemini-3-flash-preview', 'gemini-2.5-flash-lite']
     : undefined
-  const timeoutMs = isLive ? 30000 : 90000
+  const timeoutMs = isLive ? 75000 : 90000
   const thinkingBudget = isLive ? 1024 : 2048
 
   const { text: rawOutput, modelUsed } = await resilientGenerateContent(ai, {
     contents: [{ role: 'user', parts: [{ text: userPromptText }] }],
     preferredModels,
-    maxRounds: isLive ? 1 : 2,
+    maxRounds: 2,
     config: {
       systemInstruction: TIER2_SYSTEM_INSTRUCTION,
       temperature: 0.15,

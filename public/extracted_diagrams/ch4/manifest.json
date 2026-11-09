@@ -1,0 +1,667 @@
+[
+  {
+    "figure_id": "Fig. 4.1",
+    "page_number": 2,
+    "caption": "Fig. 4.1: Objects in a straight line motion",
+    "filename": "fig_4_1.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_1.webp",
+    "dimensions": {
+      "width": 1744,
+      "height": 1066,
+      "aspect_ratio": 1.64
+    },
+    "file_size_kb": 259.1,
+    "crop_bbox": [
+      82.0,
+      238.3,
+      593.4,
+      550.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.2",
+    "page_number": 3,
+    "caption": "Fig. 4.2: An athlete running on a straight track instants of time are marked by points B and A.",
+    "filename": "fig_4_2.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_2.webp",
+    "dimensions": {
+      "width": 882,
+      "height": 445,
+      "aspect_ratio": 1.98
+    },
+    "file_size_kb": 47.4,
+    "crop_bbox": [
+      39.3,
+      79.2,
+      302.4,
+      218.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.3",
+    "page_number": 3,
+    "caption": "Fig. 4.3: Reference point and positions of the athlete at different instants Note of time on a straight line",
+    "filename": "fig_4_3.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_3.webp",
+    "dimensions": {
+      "width": 1644,
+      "height": 256,
+      "aspect_ratio": 6.42
+    },
+    "file_size_kb": 23.3,
+    "crop_bbox": [
+      80.7,
+      216.1,
+      558.0,
+      290.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.4",
+    "page_number": 3,
+    "caption": "Fig. 4.4: Reference point and positions of athlete at different instants of time specified by just Let us now think",
+    "filename": "fig_4_4.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_4.webp",
+    "dimensions": {
+      "width": 1789,
+      "height": 1106,
+      "aspect_ratio": 1.62
+    },
+    "file_size_kb": 256.5,
+    "crop_bbox": [
+      30.6,
+      287.0,
+      553.0,
+      605.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.5",
+    "page_number": 4,
+    "caption": "Fig. 4.5: A ball (i) It is never zero. in vertical motion (two",
+    "filename": "fig_4_5.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_5.webp",
+    "dimensions": {
+      "width": 1761,
+      "height": 1395,
+      "aspect_ratio": 1.26
+    },
+    "file_size_kb": 237.1,
+    "crop_bbox": [
+      82.7,
+      85.0,
+      596.3,
+      486.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.6",
+    "page_number": 4,
+    "caption": "Fig. 4.6: A ball rolling down an inclined track of the ball (O) to be the origin, can its",
+    "filename": "fig_4_6.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_6.webp",
+    "dimensions": {
+      "width": 1617,
+      "height": 622,
+      "aspect_ratio": 2.6
+    },
+    "file_size_kb": 110.5,
+    "crop_bbox": [
+      83.0,
+      519.7,
+      552.4,
+      698.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.7",
+    "page_number": 6,
+    "caption": "Fig. 4.7: Swimming pool time interval 50 s",
+    "filename": "fig_4_7.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_7.webp",
+    "dimensions": {
+      "width": 1598,
+      "height": 1295,
+      "aspect_ratio": 1.23
+    },
+    "file_size_kb": 262.7,
+    "crop_bbox": [
+      131.6,
+      234.4,
+      598.9,
+      607.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.8",
+    "page_number": 7,
+    "caption": "Fig. 4.8: Direction of average acceleration when magnitude of velocity is (a) increasing, and (b) decreasing",
+    "filename": "fig_4_8.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_8.webp",
+    "dimensions": {
+      "width": 1271,
+      "height": 1146,
+      "aspect_ratio": 1.11
+    },
+    "file_size_kb": 163.7,
+    "crop_bbox": [
+      183.7,
+      423.6,
+      553.0,
+      758.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.9",
+    "page_number": 8,
+    "caption": "Fig. 4.9: A bus moving on a long straight highway very fast and yet have zero Answer: (i) When the driver presses",
+    "filename": "fig_4_9.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_9.webp",
+    "dimensions": {
+      "width": 1754,
+      "height": 1064,
+      "aspect_ratio": 1.65
+    },
+    "file_size_kb": 233.3,
+    "crop_bbox": [
+      82.7,
+      230.6,
+      592.0,
+      539.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.10",
+    "page_number": 9,
+    "caption": "Fig. 4.10: An object acceleration is in the direction of motion. This acceleration is called the dropped from a height acceleration due",
+    "filename": "fig_4_10.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_10.webp",
+    "dimensions": {
+      "width": 1760,
+      "height": 1399,
+      "aspect_ratio": 1.26
+    },
+    "file_size_kb": 283.3,
+    "crop_bbox": [
+      39.5,
+      76.9,
+      553.0,
+      482.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.11",
+    "page_number": 10,
+    "caption": "Fig. 4.11(a): Marking origin, X and Y axes on graph paper",
+    "filename": "fig_4_11.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_11.webp",
+    "dimensions": {
+      "width": 975,
+      "height": 1386,
+      "aspect_ratio": 0.7
+    },
+    "file_size_kb": 115.9,
+    "crop_bbox": [
+      305.3,
+      140.2,
+      589.0,
+      539.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.11",
+    "page_number": 11,
+    "caption": "Fig. 4.11(c): Making a graph This was an example of plotting a position-time graph. Similar procedure can be used to plot the",
+    "filename": "fig_4_11.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_11.webp",
+    "dimensions": {
+      "width": 512,
+      "height": 576,
+      "aspect_ratio": 0.89
+    },
+    "file_size_kb": 47.2,
+    "crop_bbox": [
+      61.1,
+      86.8,
+      212.1,
+      273.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.12",
+    "page_number": 11,
+    "caption": "Fig. 4.12: Position-time graph of the vehicle",
+    "filename": "fig_4_12.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_12.webp",
+    "dimensions": {
+      "width": 878,
+      "height": 1492,
+      "aspect_ratio": 0.59
+    },
+    "file_size_kb": 147.8,
+    "crop_bbox": [
+      61.1,
+      277.6,
+      318.0,
+      707.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.13",
+    "page_number": 12,
+    "caption": "Fig. 4.13: Position-time graph of a moving object",
+    "filename": "fig_4_13.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_13.webp",
+    "dimensions": {
+      "width": 1427,
+      "height": 1022,
+      "aspect_ratio": 1.4
+    },
+    "file_size_kb": 161.7,
+    "crop_bbox": [
+      83.2,
+      187.4,
+      497.7,
+      481.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.14",
+    "page_number": 12,
+    "caption": "Fig. 4.14: Calculating velocity 2 1 from a position-time graph",
+    "filename": "fig_4_14.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_14.webp",
+    "dimensions": {
+      "width": 513,
+      "height": 607,
+      "aspect_ratio": 0.85
+    },
+    "file_size_kb": 51.6,
+    "crop_bbox": [
+      438.2,
+      580.7,
+      589.2,
+      763.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.15",
+    "page_number": 13,
+    "caption": "Fig. 4.15: Position-time graph of a vehicle",
+    "filename": "fig_4_15.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_15.webp",
+    "dimensions": {
+      "width": 935,
+      "height": 1325,
+      "aspect_ratio": 0.71
+    },
+    "file_size_kb": 136.3,
+    "crop_bbox": [
+      45.0,
+      120.6,
+      318.0,
+      502.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.16",
+    "page_number": 13,
+    "caption": "Fig. 4.16(a): Position-time graph of two objects",
+    "filename": "fig_4_16.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_16.webp",
+    "dimensions": {
+      "width": 558,
+      "height": 625,
+      "aspect_ratio": 0.89
+    },
+    "file_size_kb": 46.6,
+    "crop_bbox": [
+      153.9,
+      563.4,
+      316.6,
+      748.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.17",
+    "page_number": 14,
+    "caption": "Fig. 4.17: Velocity-time graph of a moving car",
+    "filename": "fig_4_17.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_17.webp",
+    "dimensions": {
+      "width": 1744,
+      "height": 1371,
+      "aspect_ratio": 1.27
+    },
+    "file_size_kb": 293.5,
+    "crop_bbox": [
+      83.0,
+      250.8,
+      597.9,
+      645.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.17",
+    "page_number": 15,
+    "caption": "Fig. 4.17(d): Calculating acceleration from a velocity-time graph",
+    "filename": "fig_4_17.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_17.webp",
+    "dimensions": {
+      "width": 556,
+      "height": 606,
+      "aspect_ratio": 0.92
+    },
+    "file_size_kb": 54.1,
+    "crop_bbox": [
+      44.6,
+      134.8,
+      209.6,
+      317.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.18",
+    "page_number": 16,
+    "caption": "Fig. 4.18(b): Velocity-time graph of an object moving with changing velocity with constant",
+    "filename": "fig_4_18.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_18.webp",
+    "dimensions": {
+      "width": 966,
+      "height": 1031,
+      "aspect_ratio": 0.94
+    },
+    "file_size_kb": 117.1,
+    "crop_bbox": [
+      313.5,
+      36.0,
+      591.6,
+      333.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.19",
+    "page_number": 16,
+    "caption": "Fig. 4.19: Velocity-time graph where the initial velocity of object is not zero",
+    "filename": "fig_4_19.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_19.webp",
+    "dimensions": {
+      "width": 513,
+      "height": 608,
+      "aspect_ratio": 0.84
+    },
+    "file_size_kb": 48.0,
+    "crop_bbox": [
+      438.8,
+      545.9,
+      591.5,
+      731.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.20",
+    "page_number": 18,
+    "caption": "Fig. 4.20: Safe distance between two moving vehicles There is a vehicle-to-vehicle (V2V) communication technology, now being developed in many countries",
+    "filename": "fig_4_20.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_20.webp",
+    "dimensions": {
+      "width": 1400,
+      "height": 904,
+      "aspect_ratio": 1.55
+    },
+    "file_size_kb": 187.2,
+    "crop_bbox": [
+      83.0,
+      427.5,
+      490.4,
+      687.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.21",
+    "page_number": 19,
+    "caption": "Fig. 4.21: Motion in a plane 4.4.1 Uniform circular motion",
+    "filename": "fig_4_21.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_21.webp",
+    "dimensions": {
+      "width": 1528,
+      "height": 503,
+      "aspect_ratio": 3.04
+    },
+    "file_size_kb": 72.4,
+    "crop_bbox": [
+      99.8,
+      145.8,
+      543.4,
+      290.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.22",
+    "page_number": 19,
+    "caption": "Fig. 4.22: Top view of merry-go-round in So, if the radius of the circular path is R, the distance travelled by the",
+    "filename": "fig_4_22.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_22.webp",
+    "dimensions": {
+      "width": 1165,
+      "height": 571,
+      "aspect_ratio": 2.04
+    },
+    "file_size_kb": 94.0,
+    "crop_bbox": [
+      52.7,
+      277.6,
+      392.6,
+      442.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.23",
+    "page_number": 19,
+    "caption": "Fig. 4.23: An athlete running along (a) a rectangular track, (b) a hexagonal track, and (c) a circular track",
+    "filename": "fig_4_23.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_23.webp",
+    "dimensions": {
+      "width": 1760,
+      "height": 1122,
+      "aspect_ratio": 1.57
+    },
+    "file_size_kb": 174.9,
+    "crop_bbox": [
+      39.3,
+      430.9,
+      553.0,
+      754.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.24",
+    "page_number": 20,
+    "caption": "Fig. 4.24: A marble the ring without disturbing the motion of the marble. What do you moving inside a ring",
+    "filename": "fig_4_24.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_24.webp",
+    "dimensions": {
+      "width": 660,
+      "height": 1150,
+      "aspect_ratio": 0.57
+    },
+    "file_size_kb": 106.7,
+    "crop_bbox": [
+      402.9,
+      36.0,
+      593.2,
+      367.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.25",
+    "page_number": 20,
+    "caption": "Fig. 4.25: Tangent to a of velocity. about it in Mathematics. circle at point B",
+    "filename": "fig_4_25.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_25.webp",
+    "dimensions": {
+      "width": 1784,
+      "height": 814,
+      "aspect_ratio": 2.19
+    },
+    "file_size_kb": 176.0,
+    "crop_bbox": [
+      74.4,
+      367.3,
+      595.4,
+      601.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.26",
+    "page_number": 20,
+    "caption": "Fig. 4.26: A mountain road",
+    "filename": "fig_4_26.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_26.webp",
+    "dimensions": {
+      "width": 1015,
+      "height": 500,
+      "aspect_ratio": 2.03
+    },
+    "file_size_kb": 89.4,
+    "crop_bbox": [
+      305.3,
+      591.4,
+      601.1,
+      739.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.27",
+    "page_number": 22,
+    "caption": "Fig. 4.27 shows a position-time graph of two objects A and B that are moving along the parallel tracks in the same",
+    "filename": "fig_4_27.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_27.webp",
+    "dimensions": {
+      "width": 229,
+      "height": 195,
+      "aspect_ratio": 1.17
+    },
+    "file_size_kb": 8.0,
+    "crop_bbox": [
+      525.1,
+      36.0,
+      591.3,
+      226.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.28",
+    "page_number": 22,
+    "caption": "Fig. 4.28",
+    "filename": "fig_4_28.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_28.webp",
+    "dimensions": {
+      "width": 495,
+      "height": 585,
+      "aspect_ratio": 0.85
+    },
+    "file_size_kb": 43.0,
+    "crop_bbox": [
+      316.8,
+      239.3,
+      459.5,
+      411.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.29",
+    "page_number": 22,
+    "caption": "Fig. 4.29 time? Assume the acceleration to be constant while slowing down.",
+    "filename": "fig_4_29.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_29.webp",
+    "dimensions": {
+      "width": 335,
+      "height": 626,
+      "aspect_ratio": 0.54
+    },
+    "file_size_kb": 29.9,
+    "crop_bbox": [
+      487.7,
+      433.9,
+      593.4,
+      623.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.30",
+    "page_number": 23,
+    "caption": "Fig. 4.30",
+    "filename": "fig_4_30.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_30.webp",
+    "dimensions": {
+      "width": 443,
+      "height": 585,
+      "aspect_ratio": 0.76
+    },
+    "file_size_kb": 37.7,
+    "crop_bbox": [
+      186.0,
+      230.3,
+      318.0,
+      402.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.31",
+    "page_number": 23,
+    "caption": "Fig. 4.31",
+    "filename": "fig_4_31.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_31.webp",
+    "dimensions": {
+      "width": 793,
+      "height": 584,
+      "aspect_ratio": 1.36
+    },
+    "file_size_kb": 48.0,
+    "crop_bbox": [
+      305.3,
+      230.6,
+      533.8,
+      403.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.32",
+    "page_number": 23,
+    "caption": "Fig. 4.32",
+    "filename": "fig_4_32.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_32.webp",
+    "dimensions": {
+      "width": 300,
+      "height": 384,
+      "aspect_ratio": 0.78
+    },
+    "file_size_kb": 19.1,
+    "crop_bbox": [
+      462.5,
+      630.9,
+      553.3,
+      746.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 4.33",
+    "page_number": 24,
+    "caption": "Fig. 4.33 Justify your answer.",
+    "filename": "fig_4_33.webp",
+    "file_path": "public/extracted_diagrams/ch4\\fig_4_33.webp",
+    "dimensions": {
+      "width": 832,
+      "height": 915,
+      "aspect_ratio": 0.91
+    },
+    "file_size_kb": 70.6,
+    "crop_bbox": [
+      351.7,
+      36.0,
+      591.3,
+      299.5
+    ]
+  }
+]
