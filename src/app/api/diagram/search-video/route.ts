@@ -24,7 +24,7 @@ function sanitizeTitle(raw: string): string {
 }
 
 // Fast low-latency link verification (1.5s timeout, parallel execution)
-export async function verifyVideoLink(url: string): Promise<boolean> {
+async function verifyVideoLink(url: string): Promise<boolean> {
   if (!url || (!url.startsWith('http://') && !url.startsWith('https://'))) return false
   try {
     const controller = new AbortController()
