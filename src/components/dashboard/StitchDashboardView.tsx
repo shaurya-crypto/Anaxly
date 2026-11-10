@@ -273,13 +273,13 @@ export function StitchDashboardView({
   const activeModuleIndex = activeModule ? activeCourseModules.findIndex((m) => m.id === activeModule.id) + 1 : 0
   const activeModuleTotal = activeCourseModules.length
 
-  // Universe of curriculums available to the student (deduplicated by id)
-  const allAvailableCurriculums = (() => {
+  // Universe of curriculums available to the student (deduplicated by id) — memoised for stable identity
+  const allAvailableCurriculums = useMemo(() => {
     const map = new Map<string, Curriculum>()
     allCurriculums.forEach((c) => map.set(c.id, c))
     enrolledCurriculums.forEach((c) => map.set(c.id, c))
     return Array.from(map.values()).sort((a, b) => (a.order_index ?? 0) - (b.order_index ?? 0))
-  })()
+  }, [allCurriculums, enrolledCurriculums])
 
   // Distinct subjects / disciplines
   const syllabusSubjects = Array.from(
@@ -362,9 +362,7 @@ export function StitchDashboardView({
   const totalMasteryLessons = profile.total_classes_taken ?? totalCompletedModules ?? 0
 
   // Check client-side cache first to guarantee 0ms instant display without DB read wait
-  const [clientProgress, setClientProgress] = useState<StudentProgressSummary | null>(() => {
-    return getCachedStudentProgress(user.id)
-  })
+  const cachedProgressRef = React.useRef<StudentProgressSummary | null>(getCachedStudentProgress(user.id))
 
   // Calculate completed chapters and progress metrics with client caching
   const studentProgress = useMemo(() => {
@@ -376,12 +374,13 @@ export function StitchDashboardView({
     })
   }, [user.id, allAvailableCurriculums, modules, progressRecords])
 
+  // Persist to client cache without triggering re-render (write-only)
   useEffect(() => {
     setCachedStudentProgress(user.id, studentProgress)
-    setClientProgress(studentProgress)
+    cachedProgressRef.current = studentProgress
   }, [user.id, studentProgress])
 
-  const effectiveProgress = clientProgress || studentProgress
+  const effectiveProgress = studentProgress
 
   const completedChaptersCount = Math.max(
     effectiveProgress.completedChaptersCount,
