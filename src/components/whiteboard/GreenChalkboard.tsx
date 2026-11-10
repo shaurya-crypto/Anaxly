@@ -19,7 +19,6 @@ import {
   Maximize2,
 } from 'lucide-react'
 import { evaluateMathExpression } from '@/lib/mathEvaluator'
-import { createUniversalScientificSvg } from '@/services/universalScientificSvg'
 import { isLegitimateGraphTopic } from '@/lib/graphGating'
 
 // Dynamically import Excalidraw with SSR disabled
@@ -1272,7 +1271,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                     const { isValid, cleanSvg } = validateSvgForExcalidraw(currentFile.dataURL)
                     if (!isValid) {
                       try {
-                        const pngUrl = await rasterizeSvgToPng(cleanSvg || createUniversalScientificSvg('Scientific Diagram').svg, 500, 260)
+                        const pngUrl = await rasterizeSvgToPng(cleanSvg || createFallbackImageSvg('Whiteboard Asset'), 500, 260)
                         const cleanPng = sanitizeBase64DataUrl(pngUrl)
                         if (cleanPng) {
                           currentFile = {
@@ -3658,12 +3657,10 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         let resolvedTitle = (title || '').trim() || 'Scientific Diagram'
         let resolvedCaption = caption
 
-        // If SVG markup is missing or does not contain an <svg tag, dynamically generate an authentic scientific SVG
+        // If SVG markup is missing or does not contain an <svg tag, skip rendering fake/irrelevant diagrams
         if (!cleanSvg.toLowerCase().includes('<svg')) {
-          const generated = createUniversalScientificSvg(resolvedTitle || cleanSvg, caption)
-          cleanSvg = generated.svg
-          resolvedTitle = generated.title
-          if (!resolvedCaption) resolvedCaption = generated.caption
+          console.warn(`[GreenChalkboard] drawSvgDiagram called without valid SVG for "${resolvedTitle}". Skipping diagram render.`)
+          return
         }
 
         // Sanitize SVG via DOMParser to catch malformed XML from Gemini Live output
@@ -3671,11 +3668,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         if (sanitized) {
           cleanSvg = sanitized
         } else {
-          // SVG is irreparably malformed, fall back to universal generator
-          const generated = createUniversalScientificSvg(resolvedTitle, caption)
-          cleanSvg = generated.svg
-          resolvedTitle = generated.title
-          if (!resolvedCaption) resolvedCaption = generated.caption
+          console.warn(`[GreenChalkboard] SVG for "${resolvedTitle}" is malformed. Skipping diagram render.`)
+          return
         }
 
         // Determine dimensions from viewBox or width/height

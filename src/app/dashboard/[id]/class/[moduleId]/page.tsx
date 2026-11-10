@@ -1908,13 +1908,7 @@ export default function ModuleClassroomPage() {
             }
           } else if (rawContent.includes('<svg')) {
             chalkboardRef.current.drawSvgDiagram?.(targetConceptName, rawContent, captionText)
-          } else {
-            // Dynamic scientific vector diagram generated from universal vector engine
-            chalkboardRef.current.drawSvgDiagram?.(targetConceptName, '', captionText)
           }
-        } else {
-          // Fallback: draw dynamic vector SVG diagram
-          chalkboardRef.current.drawSvgDiagram?.(targetConceptName, '', captionText)
         }
       }
 
@@ -1941,14 +1935,12 @@ export default function ModuleClassroomPage() {
             }
           } else {
             chalkboardRef.current?.clearDiagramSkeleton?.(targetConcept)
-            applyDirectiveFallback(targetConcept, conceptCaption)
           }
         }
 
         const handleFailure = (err: any) => {
           console.warn('[Classroom] Notice fetching generated diagram:', err)
           chalkboardRef.current?.clearDiagramSkeleton?.(targetConcept)
-          applyDirectiveFallback(targetConcept, conceptCaption)
         }
 
         const runFastDiagramGeneration = () => {
@@ -3291,6 +3283,97 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
           // Convert content to string for text-based chalkboard drawing
           const stringContent = typeof content === 'string' ? content : (content?.content || content?.text || content?.note || (content ? JSON.stringify(content) : ''))
 
+          const executeLiveDiagramGeneration = (
+            targetTitle: string,
+            explicitCaption?: string,
+            explicitWhat?: string,
+            matchedVisual?: any
+          ) => {
+            const vPlan = (activeModule?.visual_lesson_plan as any) || {}
+            const isGraph =
+              isLegitimateGraphTopic(targetTitle, resolvedSubject) &&
+              (matchedVisual?.diagram_type === 'graph' || /graph|parabola|function|kinematic/i.test(targetTitle))
+            const isAnim =
+              matchedVisual?.visual_type === 'animation' || /wave|current|flow|circuit|motion/i.test(targetTitle)
+            const resolvedVisualType = isGraph ? 'graph' : isAnim ? 'animation' : matchedVisual?.diagram_type || 'diagram'
+
+            chalkboardRef.current?.drawDiagramSkeleton?.(targetTitle)
+            setGeneratingDiagramTitle(targetTitle)
+            sendBoardContext(
+              `[SYSTEM NOTICE: The digital chalkboard is currently generating the detailed vector diagram for "${targetTitle}" via Live Class Fast Diagram Generation. A skeleton preview placeholder is on the board. Continue explaining the intuitive analogy verbally to the student and inform them the drawing will appear in a few moments.]`
+            )
+
+            fetch('/api/diagram/generate', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                title: targetTitle,
+                subject: resolvedSubject,
+                classLevel: resolvedClassLevel,
+                context: targetTitle,
+                existingSvg: matchedVisual?.svg || matchedVisual?.diagram_svg || '',
+                whyNeeded: matchedVisual?.why_needed || '',
+                whatToExplain: matchedVisual?.what_to_explain || explicitCaption || '',
+                whatToMake: explicitWhat || matchedVisual?.what_to_make || '',
+                refinementPrompt: explicitCaption || '',
+                visualType: resolvedVisualType,
+                interactiveMathFormula: matchedVisual?.interactive_math_formula || '',
+                moduleId: activeModule?.id,
+                conceptIndex: currentConceptIndexRef.current,
+                conceptTitle: targetTitle,
+                animationType: 'moving_points_and_pulsing_glow',
+                isLiveClass: true,
+                source: 'live_classroom',
+              }),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                setGeneratingDiagramTitle(null)
+                if (data?.svg && data.svg.includes('<svg')) {
+                  chalkboardRef.current?.drawSvgDiagram?.(
+                    data.title || targetTitle,
+                    data.svg,
+                    data.caption || explicitCaption || data.what_to_explain,
+                    true
+                  )
+                  sendBoardContext(
+                    `[SYSTEM NOTICE: Vector diagram for "${targetTitle}" is now live on the chalkboard! You may now direct the student's attention to the labeled parts.]`
+                  )
+                  if (activeModule?.id) {
+                    if (!vPlan.concept_visuals) vPlan.concept_visuals = []
+                    if (matchedVisual) {
+                      matchedVisual.svg = data.svg
+                      matchedVisual.diagram_svg = data.svg
+                      matchedVisual.refined_by_tier2 = true
+                      matchedVisual.tier2_refined_at = data.tier2_refined_at || new Date().toISOString()
+                    } else {
+                      vPlan.concept_visuals.push({
+                        concept_title: targetTitle,
+                        diagram_title: data.title || targetTitle,
+                        svg: data.svg,
+                        diagram_svg: data.svg,
+                        what_to_make: data.what_to_make || explicitWhat || '',
+                        what_to_explain: data.what_to_explain || '',
+                        why_needed: data.why_needed || '',
+                        visual_type: data.visual_type || 'diagram',
+                        interactive_math_formula: data.interactive_math_formula || '',
+                        refined_by_tier2: true,
+                        tier2_refined_at: data.tier2_refined_at || new Date().toISOString(),
+                      })
+                    }
+                  }
+                } else {
+                  console.warn('[Classroom] Live diagram generation returned empty SVG. Clearing skeleton.')
+                  chalkboardRef.current?.clearDiagramSkeleton?.(targetTitle)
+                }
+              })
+              .catch((err) => {
+                setGeneratingDiagramTitle(null)
+                chalkboardRef.current?.clearDiagramSkeleton?.(targetTitle)
+                console.warn('[Classroom] Live diagram generation failed:', err)
+              })
+          }
+
           if (action === 'set_color' || action === 'chalk_color') {
             chalkboardRef.current.setChalkColor(color || stringContent)
           }
@@ -3402,7 +3485,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
             const isAllowedGraph = isLegitimateGraphTopic(title || formula, resolvedSubject)
             if (!isAllowedGraph) {
               console.log(`[Classroom Graph Gating] Denied graph plot for non-mathematical topic "${title || formula}" in subject ${resolvedSubject}. Rendering SVG diagram instead.`)
-              chalkboardRef.current?.drawSvgDiagram?.(title || 'Scientific Diagram', '', 'Visual conceptual diagram')
+              executeLiveDiagramGeneration(title || 'Scientific Diagram', 'Visual conceptual diagram')
               return
             }
             if (typeof content === 'object' && content !== null) {
@@ -3531,9 +3614,10 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                       }
                     } catch {}
                   }
-                  chalkboardRef.current?.drawSvgDiagram?.(imgTitle, '', imgCaption)
+                  // If online image search found no authentic relevant image, generate an authentic vector diagram
+                  executeLiveDiagramGeneration(imgTitle, imgCaption)
                 })
-                .catch(() => chalkboardRef.current?.drawSvgDiagram?.(imgTitle, '', imgCaption))
+                .catch(() => executeLiveDiagramGeneration(imgTitle, imgCaption))
             }
           }
           else if (
@@ -3658,130 +3742,8 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
               return
             }
 
-            // 2. Tier 1: Search online authentic scientific images first via /api/diagram/search-image
-            const executeFastDiagramGeneration = () => {
-              const isGraph = isLegitimateGraphTopic(queryTitle, resolvedSubject) && (matched?.diagram_type === 'graph' || /graph|parabola|function|kinematic/i.test(queryTitle))
-              const isAnim = matched?.visual_type === 'animation' || /wave|current|flow|circuit|motion/i.test(queryTitle)
-              const resolvedVisualType = isGraph ? 'graph' : isAnim ? 'animation' : (matched?.diagram_type || 'diagram')
-
-              // Display Whiteboard Visual Progress Box, draw crisp chalkboard skeleton placeholder on board, and notify Gemini Live
-              chalkboardRef.current?.drawDiagramSkeleton?.(targetConceptTitle)
-              setGeneratingDiagramTitle(targetConceptTitle)
-              sendBoardContext(
-                `[SYSTEM NOTICE: The digital chalkboard is currently generating the detailed vector diagram for "${targetConceptTitle}" via Live Class Fast Diagram Generation. A skeleton preview placeholder is on the board. Continue explaining the intuitive analogy verbally to the student and inform them the drawing will appear in a few moments.]`
-              )
-
-              fetch('/api/diagram/generate', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                  title: targetConceptTitle,
-                  subject: resolvedSubject,
-                  classLevel: resolvedClassLevel,
-                  context: targetConceptTitle,
-                  existingSvg: matched?.svg || matched?.diagram_svg || '',
-                  whyNeeded: matched?.why_needed || '',
-                  whatToExplain: matched?.what_to_explain || explicitCaption || '',
-                  whatToMake: explicitWhat || matched?.what_to_make || '',
-                  refinementPrompt: explicitCaption || '',
-                  visualType: resolvedVisualType,
-                  interactiveMathFormula: matched?.interactive_math_formula || '',
-                  moduleId: activeModule?.id,
-                  conceptIndex: currentConceptIndexRef.current,
-                  conceptTitle: targetConceptTitle,
-                  animationType: 'moving_points_and_pulsing_glow',
-                  isLiveClass: true,
-                  source: 'live_classroom',
-                }),
-              })
-                .then((res) => res.json())
-                .then((data) => {
-                  setGeneratingDiagramTitle(null)
-                  if (data?.svg && data.svg.includes('<svg')) {
-                    chalkboardRef.current?.drawSvgDiagram?.(
-                      data.title || targetConceptTitle,
-                      data.svg,
-                      data.caption || explicitCaption || data.what_to_explain,
-                      true
-                    )
-                    sendBoardContext(
-                      `[SYSTEM NOTICE: Vector diagram for "${targetConceptTitle}" is now live on the chalkboard! You may now direct the student's attention to the labeled parts.]`
-                    )
-                    if (activeModule?.id) {
-                      if (!vPlan.concept_visuals) vPlan.concept_visuals = []
-                      if (matched) {
-                        matched.svg = data.svg
-                        matched.diagram_svg = data.svg
-                        matched.refined_by_tier2 = true
-                        matched.tier2_refined_at = data.tier2_refined_at || new Date().toISOString()
-                      } else {
-                        vPlan.concept_visuals.push({
-                          concept_title: targetConceptTitle,
-                          diagram_title: data.title || targetConceptTitle,
-                          svg: data.svg,
-                          diagram_svg: data.svg,
-                          what_to_make: data.what_to_make || explicitWhat || '',
-                          what_to_explain: data.what_to_explain || '',
-                          why_needed: data.why_needed || '',
-                          visual_type: data.visual_type || 'diagram',
-                          interactive_math_formula: data.interactive_math_formula || '',
-                          refined_by_tier2: true,
-                          tier2_refined_at: data.tier2_refined_at || new Date().toISOString(),
-                        })
-                      }
-                    }
-                  } else {
-                    // Only fall back to universal pre-defined SVGs at the very end if all generation models fail
-                    console.warn('[Classroom] On-demand SVG generation returned empty/invalid markup, falling back to universal engine.')
-                    chalkboardRef.current?.clearDiagramSkeleton?.(targetConceptTitle)
-                    chalkboardRef.current?.drawSvgDiagram?.(targetConceptTitle, '', explicitCaption, true)
-                  }
-                })
-                .catch((err) => {
-                  setGeneratingDiagramTitle(null)
-                  chalkboardRef.current?.clearDiagramSkeleton?.(targetConceptTitle)
-                  console.warn('[Classroom] On-demand SVG generation failed, falling back to universal engine:', err)
-                  chalkboardRef.current?.drawSvgDiagram?.(targetConceptTitle, '', explicitCaption, true)
-                })
-            }
-
-            const refinedQuery = extractConciseSearchKeyword(queryTitle) || queryTitle
-            fetch(`/api/diagram/search-image?q=${encodeURIComponent(refinedQuery)}&limit=3`)
-              .then((res) => (res.ok ? res.json() : null))
-              .then(async (data) => {
-                const candidateImages: any[] = data?.images || []
-                if (candidateImages.length > 0 && chalkboardRef.current) {
-                  for (const img of candidateImages) {
-                    if (!img?.url) continue
-                    try {
-                      const check = await fetch(`/api/diagram/proxy?dataUrl=true&url=${encodeURIComponent(img.url)}`)
-                      if (check.ok) {
-                        const proxyData = await check.json()
-                        if (proxyData.success && proxyData.dataURL) {
-                          chalkboardRef.current.drawImage?.(
-                            proxyData.dataURL,
-                            queryTitle || img.title,
-                            explicitCaption || img.description || queryTitle
-                          )
-                          sendBoardContext(
-                            `[SYSTEM NOTICE: High-resolution real-world visual for "${queryTitle}" is now live on the chalkboard! Direct the student's attention to this visual.]`
-                          )
-                          return
-                        }
-                      }
-                    } catch {
-                      // Try next candidate image
-                    }
-                  }
-                }
-
-                // If no online image found or accessible, fall back to Live Class Fast Diagram Generation
-                executeFastDiagramGeneration()
-              })
-              .catch((err) => {
-                console.warn('[Classroom] Online search error before diagram generation:', err)
-                executeFastDiagramGeneration()
-              })
+            // Generate publication-grade bespoke vector diagram via Gemini Live Class Fast Diagram Generation
+            executeLiveDiagramGeneration(targetConceptTitle, explicitCaption, explicitWhat, matched)
           }
           else if (action === 'new_page') chalkboardRef.current?.addNewPage?.()
           else if (action === 'clear_board' || action === 'erase_board') chalkboardRef.current?.clearBoard()
