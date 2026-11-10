@@ -178,6 +178,21 @@ export { normalizeTitle, isRedundantConceptOrMasteredText }
 import { wrapText } from './textWrapper'
 export { wrapText }
 
+import {
+  sanitizeBase64DataUrl,
+  isValidBase64DataUrl,
+  svgToBase64DataUrl,
+  validateSvgForExcalidraw,
+  createFallbackImageSvg,
+} from './chalkboardMediaUtils'
+export {
+  sanitizeBase64DataUrl,
+  isValidBase64DataUrl,
+  svgToBase64DataUrl,
+  validateSvgForExcalidraw,
+  createFallbackImageSvg,
+}
+
 const EXCALIDRAW_INITIAL_DATA = {
   appState: {
     viewBackgroundColor: 'transparent',
@@ -809,11 +824,17 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' })
         const url = URL.createObjectURL(blob)
         const img = new Image()
+        const timer = setTimeout(() => {
+          URL.revokeObjectURL(url)
+          reject(new Error('SVG rasterization timeout'))
+        }, 2500)
+
         img.onload = () => {
+          clearTimeout(timer)
           try {
             const canvas = document.createElement('canvas')
-            canvas.width = width * 2  // 2x for sharpness
-            canvas.height = height * 2
+            canvas.width = Math.max(100, width * 2)  // 2x for sharpness
+            canvas.height = Math.max(100, height * 2)
             const ctx = canvas.getContext('2d')
             if (!ctx) { reject(new Error('No canvas context')); URL.revokeObjectURL(url); return }
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
@@ -825,35 +846,13 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             reject(err)
           }
         }
-        img.onerror = (err) => { URL.revokeObjectURL(url); reject(err) }
+        img.onerror = (err) => {
+          clearTimeout(timer)
+          URL.revokeObjectURL(url)
+          reject(err)
+        }
         img.src = url
       })
-    }
-
-    // Helper to safely encode arbitrary UTF-8 SVG markup to base64 Data URL for Excalidraw
-    const svgToBase64DataUrl = (svgString: string): string => {
-      try {
-        if (typeof window !== 'undefined' && typeof window.btoa === 'function') {
-          const bytes = new TextEncoder().encode(svgString)
-          let binary = ''
-          const len = bytes.byteLength
-          for (let i = 0; i < len; i++) {
-            binary += String.fromCharCode(bytes[i])
-          }
-          return `data:image/svg+xml;base64,${window.btoa(binary)}`
-        }
-        if (typeof Buffer !== 'undefined') {
-          return `data:image/svg+xml;base64,${Buffer.from(svgString, 'utf-8').toString('base64')}`
-        }
-        return `data:image/svg+xml;base64,${window.btoa(unescape(encodeURIComponent(svgString)))}`
-      } catch (err) {
-        console.warn('svgToBase64DataUrl conversion error:', err)
-        try {
-          return `data:image/svg+xml;base64,${window.btoa(unescape(encodeURIComponent(svgString)))}`
-        } catch {
-          return 'data:image/svg+xml;base64,'
-        }
-      }
     }
 
     // Debounced persistence to localStorage
@@ -1258,40 +1257,56 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                     }
                   }
 
-                  // Add each file individually with try-catch and PNG rasterization fallback
-                  try {
-                    excalidrawAPI.addFiles([currentFile])
-                    updatedFilesStore[currentFile.id] = currentFile
-                  } catch (fileErr) {
-                    console.warn(`File ${currentFile.id} failed addFiles as SVG, attempting PNG fallback:`, fileErr)
-                    if (isSvg) {
+                  // Sanitize dataURL to ensure valid base64
+                  const cleanDataUrl = sanitizeBase64DataUrl(currentFile.dataURL)
+                  if (!cleanDataUrl) {
+                    const fallbackSvg = createFallbackImageSvg('Whiteboard Asset', typeof currentFile.dataURL === 'string' ? currentFile.dataURL : '')
+                    currentFile.dataURL = svgToBase64DataUrl(fallbackSvg)
+                    currentFile.mimeType = 'image/svg+xml'
+                  } else {
+                    currentFile.dataURL = cleanDataUrl
+                  }
+
+                  // Pre-validate SVG files before addFiles so Excalidraw never logs "Invalid SVG"
+                  if (currentFile.mimeType === 'image/svg+xml') {
+                    const { isValid, cleanSvg } = validateSvgForExcalidraw(currentFile.dataURL)
+                    if (!isValid) {
                       try {
-                        let rawSvg: string | null = null
-                        if (typeof currentFile.dataURL === 'string' && currentFile.dataURL.startsWith('data:image/svg+xml;base64,')) {
-                          const b64 = currentFile.dataURL.slice('data:image/svg+xml;base64,'.length)
-                          const binary = atob(b64)
-                          const bytes = new Uint8Array(binary.length)
-                          for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i)
-                          rawSvg = new TextDecoder().decode(bytes)
+                        const pngUrl = await rasterizeSvgToPng(cleanSvg || createUniversalScientificSvg('Scientific Diagram').svg, 500, 260)
+                        const cleanPng = sanitizeBase64DataUrl(pngUrl)
+                        if (cleanPng) {
+                          currentFile = {
+                            ...currentFile,
+                            dataURL: cleanPng,
+                            mimeType: 'image/png',
+                          }
+                        } else {
+                          const fallbackSvg = createFallbackImageSvg('Whiteboard Asset')
+                          currentFile = {
+                            ...currentFile,
+                            dataURL: svgToBase64DataUrl(fallbackSvg),
+                            mimeType: 'image/svg+xml',
+                          }
                         }
-                        if (!rawSvg) {
-                          const universal = createUniversalScientificSvg('Scientific Diagram')
-                          rawSvg = universal.svg
-                        }
-                        const pngUrl = await rasterizeSvgToPng(rawSvg, 500, 260)
-                        const pngFile = {
+                      } catch {
+                        const fallbackSvg = createFallbackImageSvg('Whiteboard Asset')
+                        currentFile = {
                           ...currentFile,
-                          dataURL: pngUrl,
-                          mimeType: 'image/png',
+                          dataURL: svgToBase64DataUrl(fallbackSvg),
+                          mimeType: 'image/svg+xml',
                         }
-                        excalidrawAPI.addFiles([pngFile])
-                        updatedFilesStore[currentFile.id] = pngFile
-                      } catch (pngErr) {
-                        console.warn(`File ${currentFile.id} could not be rasterized:`, pngErr)
                       }
                     }
                   }
-                }
+
+                  if (isValidBase64DataUrl(currentFile.dataURL)) {
+                    try {
+                      excalidrawAPI.addFiles([currentFile])
+                      updatedFilesStore[currentFile.id] = currentFile
+                    } catch (fileErr) {
+                      console.warn(`File ${currentFile.id} failed addFiles:`, fileErr)
+                    }
+                  }                }
 
                 // Resave cleaned files to localStorage so invalid SVGs are pruned
                 try {
@@ -3699,11 +3714,25 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         if (svgHeight < 140) svgHeight = 160
 
         const fileId = `svg_${Date.now()}_${Math.random().toString(36).substring(2, 8)}` as any
-        const dataURL = svgToBase64DataUrl(cleanSvg) as any
-        let resolvedDataURL = dataURL
+        const rawDataURL = svgToBase64DataUrl(cleanSvg)
+        let resolvedDataURL = sanitizeBase64DataUrl(rawDataURL) || rawDataURL
         let fileMimeType = 'image/svg+xml'
 
-        // Try adding as SVG first; if Excalidraw rejects it, rasterize to PNG as bulletproof fallback
+        // Pre-validate SVG to prevent Excalidraw internal console.error("Invalid SVG")
+        const svgValidation = validateSvgForExcalidraw(resolvedDataURL)
+        if (!svgValidation.isValid) {
+          try {
+            const pngDataUrl = await rasterizeSvgToPng(cleanSvg, svgWidth, svgHeight)
+            const cleanPng = sanitizeBase64DataUrl(pngDataUrl)
+            if (cleanPng) {
+              resolvedDataURL = cleanPng
+              fileMimeType = 'image/png'
+            }
+          } catch (rasterErr) {
+            console.warn('[drawSvgDiagram] SVG rasterization fallback error:', rasterErr)
+          }
+        }
+
         let fileObj: any = {
           id: fileId,
           dataURL: resolvedDataURL,
@@ -3711,20 +3740,13 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           created: Date.now(),
         }
 
-        if (excalidrawAPI.addFiles) {
+        if (excalidrawAPI?.addFiles) {
           try {
-            excalidrawAPI.addFiles([fileObj])
-          } catch (svgErr) {
-            // SVG rejected by Excalidraw's internal parser - rasterize to PNG
-            try {
-              const pngDataUrl = await rasterizeSvgToPng(cleanSvg, svgWidth, svgHeight)
-              fileMimeType = 'image/png'
-              resolvedDataURL = pngDataUrl
-              fileObj = { id: fileId, dataURL: pngDataUrl, mimeType: 'image/png', created: Date.now() }
+            if (isValidBase64DataUrl(fileObj.dataURL)) {
               excalidrawAPI.addFiles([fileObj])
-            } catch (pngErr) {
-              console.warn('Both SVG and PNG fallback failed:', pngErr)
             }
+          } catch (svgErr) {
+            console.warn('[drawSvgDiagram] excalidrawAPI.addFiles warning:', svgErr)
           }
         }
 
@@ -3886,46 +3908,173 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const startX = 60
         const startY = getDynamicNextY(20)
 
-        let finalDataURL = cleanUrl
+        let finalDataURL = ''
         let fileMimeType = 'image/jpeg'
-        if (cleanUrl.endsWith('.png')) fileMimeType = 'image/png'
-        else if (cleanUrl.endsWith('.webp')) fileMimeType = 'image/webp'
-        else if (cleanUrl.endsWith('.svg')) fileMimeType = 'image/svg+xml'
+        const lowerUrl = cleanUrl.toLowerCase()
+        if (lowerUrl.endsWith('.png')) fileMimeType = 'image/png'
+        else if (lowerUrl.endsWith('.webp')) fileMimeType = 'image/webp'
+        else if (lowerUrl.endsWith('.svg')) fileMimeType = 'image/svg+xml'
 
         let imgWidth = 480
         let imgHeight = 280
 
-        if (cleanUrl.startsWith('http://') || cleanUrl.startsWith('https://')) {
+        // Step 1: Detect raw SVG markup (including comments, doctypes, or xml declarations)
+        const isRawSvg = (lowerUrl.includes('<svg') && lowerUrl.includes('</svg>')) ||
+          /^\s*(?:<\?xml|<!DOCTYPE|<!--|<svg)/i.test(cleanUrl)
+
+        if (isRawSvg) {
+          const sanitized = sanitizeSvg(cleanUrl) || cleanUrl
+          finalDataURL = svgToBase64DataUrl(sanitized)
+          fileMimeType = 'image/svg+xml'
+        }
+        // Step 2: Detect unencoded / utf-8 SVG data URI (data:image/svg+xml,... without base64)
+        else if (lowerUrl.startsWith('data:image/svg+xml') && !lowerUrl.includes(';base64,')) {
+          const commaIdx = cleanUrl.indexOf(',')
+          let rawPayload = commaIdx !== -1 ? cleanUrl.slice(commaIdx + 1) : cleanUrl
           try {
-            // Fetch via server proxy to bypass CORS, hotlink protection, and canvas tainting
+            rawPayload = decodeURIComponent(rawPayload)
+          } catch {}
+          const sanitized = sanitizeSvg(rawPayload) || rawPayload
+          finalDataURL = svgToBase64DataUrl(sanitized)
+          fileMimeType = 'image/svg+xml'
+        }
+        // Step 3: Base64 data URL
+        else if (cleanUrl.startsWith('data:')) {
+          const sanitized = sanitizeBase64DataUrl(cleanUrl)
+          if (sanitized) {
+            finalDataURL = sanitized
+            const mimeMatch = sanitized.match(/^data:([^;,]+)/i)
+            if (mimeMatch?.[1]) fileMimeType = mimeMatch[1].toLowerCase().trim()
+          }
+        }
+        // Step 4: Remote HTTP / HTTPS URL
+        else if (cleanUrl.startsWith('http://') || cleanUrl.startsWith('https://')) {
+          let isExplicit404 = false
+          // Attempt A: Server proxy with base64 dataUrl=true
+          try {
             const proxyRes = await fetch(`/api/diagram/proxy?dataUrl=true&url=${encodeURIComponent(cleanUrl)}`)
             if (proxyRes.ok) {
               const proxyData = await proxyRes.json()
               if (proxyData.success && proxyData.dataURL) {
-                finalDataURL = proxyData.dataURL
-                if (proxyData.contentType) fileMimeType = proxyData.contentType
+                const sanitized = sanitizeBase64DataUrl(proxyData.dataURL)
+                if (sanitized) {
+                  finalDataURL = sanitized
+                  if (proxyData.contentType) fileMimeType = proxyData.contentType.split(';')[0].trim().toLowerCase()
+                }
               }
+            } else if (proxyRes.status === 404) {
+              isExplicit404 = true
             }
           } catch (proxyErr) {
             console.warn('[drawImage] Server proxy fallback:', proxyErr)
           }
 
-          if (finalDataURL === cleanUrl) {
+          // Attempt B: Direct CORS fetch if proxy didn't produce valid base64 data URL
+          if (!isExplicit404 && !finalDataURL) {
             try {
               const resp = await fetch(cleanUrl, { mode: 'cors' })
               if (resp.ok) {
                 const blob = await resp.blob()
-                if (blob.type) fileMimeType = blob.type
-                finalDataURL = await new Promise<string>((res, rej) => {
+                if (blob.type) fileMimeType = blob.type.split(';')[0].trim().toLowerCase()
+                const b64 = await new Promise<string>((res, rej) => {
                   const reader = new FileReader()
                   reader.onloadend = () => res(reader.result as string)
                   reader.onerror = rej
                   reader.readAsDataURL(blob)
                 })
+                const sanitized = sanitizeBase64DataUrl(b64)
+                if (sanitized) {
+                  finalDataURL = sanitized
+                }
               }
             } catch (fetchErr) {
-              console.warn('[drawImage] Cross-origin fetch fallback, using direct URL:', fetchErr)
-              finalDataURL = cleanUrl
+              console.warn('[drawImage] Direct fetch fallback:', fetchErr)
+            }
+          }
+
+          // Attempt C: Canvas capture via Image element with crossOrigin='anonymous'
+          if (!finalDataURL && typeof window !== 'undefined') {
+            try {
+              const canvasB64 = await new Promise<string>((resolve, reject) => {
+                const img = new window.Image()
+                img.crossOrigin = 'anonymous'
+                img.onload = () => {
+                  try {
+                    const canvas = document.createElement('canvas')
+                    canvas.width = img.naturalWidth || 480
+                    canvas.height = img.naturalHeight || 280
+                    const ctx = canvas.getContext('2d')
+                    if (!ctx) return reject(new Error('No canvas context'))
+                    ctx.drawImage(img, 0, 0)
+                    resolve(canvas.toDataURL('image/png'))
+                  } catch (err) {
+                    reject(err)
+                  }
+                }
+                img.onerror = reject
+                setTimeout(() => reject(new Error('Canvas image load timeout')), 1500)
+                img.src = cleanUrl
+              })
+              const sanitized = sanitizeBase64DataUrl(canvasB64)
+              if (sanitized) {
+                finalDataURL = sanitized
+                fileMimeType = 'image/png'
+              }
+            } catch {}
+          }
+        }
+        // Step 5: Relative / local URL
+        else if (cleanUrl.startsWith('/') || !cleanUrl.includes('://')) {
+          try {
+            const resp = await fetch(cleanUrl)
+            if (resp.ok) {
+              const blob = await resp.blob()
+              if (blob.type) fileMimeType = blob.type.split(';')[0].trim().toLowerCase()
+              const b64 = await new Promise<string>((res, rej) => {
+                const reader = new FileReader()
+                reader.onloadend = () => res(reader.result as string)
+                reader.onerror = rej
+                reader.readAsDataURL(blob)
+              })
+              const sanitized = sanitizeBase64DataUrl(b64)
+              if (sanitized) {
+                finalDataURL = sanitized
+              }
+            }
+          } catch (relErr) {
+            console.warn('[drawImage] Relative fetch error:', relErr)
+          }
+        }
+
+        // Step 6: Fallback guard for non-base64 or failed sources
+        const sanitizedFinal = sanitizeBase64DataUrl(finalDataURL)
+        if (!sanitizedFinal) {
+          console.warn('[drawImage] Using vector card fallback for non-base64 source:', cleanUrl.slice(0, 60))
+          const fallbackSvg = createFallbackImageSvg(resolvedTitle, cleanUrl)
+          finalDataURL = svgToBase64DataUrl(fallbackSvg)
+          fileMimeType = 'image/svg+xml'
+        } else {
+          finalDataURL = sanitizedFinal
+        }
+
+        // Step 7: SVG Validation & PNG Rasterization guard for Excalidraw
+        if (fileMimeType === 'image/svg+xml') {
+          const { isValid, cleanSvg } = validateSvgForExcalidraw(finalDataURL)
+          if (!isValid) {
+            try {
+              const pngDataUrl = await rasterizeSvgToPng(cleanSvg || cleanUrl, imgWidth, imgHeight)
+              const cleanPng = sanitizeBase64DataUrl(pngDataUrl)
+              if (cleanPng) {
+                finalDataURL = cleanPng
+                fileMimeType = 'image/png'
+              } else {
+                const fallbackSvg = createFallbackImageSvg(resolvedTitle, cleanUrl)
+                finalDataURL = svgToBase64DataUrl(fallbackSvg)
+              }
+            } catch (rasterErr) {
+              console.warn('[drawImage] SVG rasterization fallback error:', rasterErr)
+              const fallbackSvg = createFallbackImageSvg(resolvedTitle, cleanUrl)
+              finalDataURL = svgToBase64DataUrl(fallbackSvg)
             }
           }
         }
@@ -3955,16 +4104,21 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         if (imgHeight < 160) imgHeight = 160
 
         const fileId = `img_${Date.now()}_${Math.random().toString(36).substring(2, 8)}` as any
+        const safeDataURL = sanitizeBase64DataUrl(finalDataURL) || svgToBase64DataUrl(createFallbackImageSvg(resolvedTitle, cleanUrl))
         const fileObj: any = {
           id: fileId,
-          dataURL: finalDataURL,
+          dataURL: safeDataURL,
           mimeType: fileMimeType,
           created: Date.now(),
         }
 
-        if (excalidrawAPI.addFiles) {
+        if (excalidrawAPI?.addFiles) {
           try {
-            excalidrawAPI.addFiles([fileObj])
+            if (isValidBase64DataUrl(fileObj.dataURL)) {
+              excalidrawAPI.addFiles([fileObj])
+            } else {
+              console.warn('[drawImage] Skipping addFiles: invalid base64 dataURL avoided')
+            }
           } catch (fileErr) {
             console.warn('[drawImage] excalidrawAPI.addFiles warning:', fileErr)
           }
@@ -4594,12 +4748,25 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               await drawImage(parts[1], parts[0], parts[2])
             } else {
               try {
-                const res = await fetch(`/api/diagram/search-image?q=${encodeURIComponent(parts[0] || payload)}`)
+                const res = await fetch(`/api/diagram/search-image?q=${encodeURIComponent(parts[0] || payload)}&limit=3`)
                 const data = await res.json()
-                const first = data.images?.[0]
-                if (first?.url) {
-                  await drawImage(first.url, parts[0] || first.title, parts[1] || first.description)
-                } else {
+                const candidateImages: any[] = data.images || []
+                let loaded = false
+                for (const img of candidateImages) {
+                  if (!img?.url) continue
+                  try {
+                    const check = await fetch(`/api/diagram/proxy?dataUrl=true&url=${encodeURIComponent(img.url)}`)
+                    if (check.ok) {
+                      const pData = await check.json()
+                      if (pData.success && pData.dataURL) {
+                        await drawImage(pData.dataURL, parts[0] || img.title, parts[1] || img.description)
+                        loaded = true
+                        break
+                      }
+                    }
+                  } catch {}
+                }
+                if (!loaded) {
                   await drawSvgDiagram(parts[0] || 'Scientific Diagram', '', parts[1] || '')
                 }
               } catch {
@@ -4660,9 +4827,27 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!savedPages || !Array.isArray(savedPages) || savedPages.length === 0) return
       try {
         if (files && excalidrawAPI?.addFiles) {
-          const filesArr = Object.values(files) as any[]
+          const filesArr: any[] = []
+          for (const f of Object.values(files) as any[]) {
+            if (!f || !f.id) continue
+            const cleanDataUrl = sanitizeBase64DataUrl(f.dataURL)
+            if (!cleanDataUrl) continue
+            f.dataURL = cleanDataUrl
+            if (f.mimeType === 'image/svg+xml') {
+              const { isValid } = validateSvgForExcalidraw(cleanDataUrl)
+              if (!isValid) {
+                const fallbackSvg = createFallbackImageSvg('Whiteboard Asset')
+                f.dataURL = svgToBase64DataUrl(fallbackSvg)
+              }
+            }
+            filesArr.push(f)
+          }
           if (filesArr.length > 0) {
-            excalidrawAPI.addFiles(filesArr)
+            try {
+              excalidrawAPI.addFiles(filesArr)
+            } catch (fileErr) {
+              console.warn('[restoreBoardState] excalidrawAPI.addFiles warning:', fileErr)
+            }
           }
         }
         pagesRef.current = savedPages

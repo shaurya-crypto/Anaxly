@@ -143,30 +143,159 @@ export async function completeCapsuleAction(payload: {
     }
   }
 
-  // 3. Update student stats (minutes, lessons, streak)
+  // 3. Update student stats (minutes, lessons, streak) & track completed chapters
   const { data: profile } = await supabase
     .from('profiles')
-    .select('total_learning_minutes, total_classes_taken, current_streak, last_active_date')
+    .select('total_learning_minutes, total_classes_taken, current_streak, last_active_date, completed_chapters_count')
     .eq('id', user.id)
     .single()
 
   const todayStr = new Date().toISOString().split('T')[0]
   const currentStreak = Math.max(1, profile?.current_streak || 1)
 
-  await supabase
+  // Check if chapter is completed
+  let totalDoneChapters = profile?.completed_chapters_count || 0
+  let completedChapterIds: string[] = []
+  if (currentMod?.curriculum_id) {
+    const { data: siblingMods } = await supabase
+      .from('syllabus_modules')
+      .select('id')
+      .eq('curriculum_id', currentMod.curriculum_id)
+
+    const siblingIds = (siblingMods || []).map((m: any) => m.id)
+    if (siblingIds.length > 0) {
+      const { data: completedSiblings } = await supabase
+        .from('user_progress')
+        .select('syllabus_module_id')
+        .eq('user_id', user.id)
+        .in('syllabus_module_id', siblingIds)
+        .or('status.eq.completed,completed_at.not.is.null')
+
+      const completedIds = new Set((completedSiblings || []).map((p: any) => p.syllabus_module_id))
+      completedIds.add(moduleId)
+
+      if (completedIds.size >= siblingIds.length) {
+        // Recalculate total completed chapters
+        const { data: allUserProgress } = await supabase
+          .from('user_progress')
+          .select('syllabus_module_id')
+          .eq('user_id', user.id)
+          .or('status.eq.completed,completed_at.not.is.null')
+
+        const allDone = new Set((allUserProgress || []).map((p: any) => p.syllabus_module_id))
+        allDone.add(moduleId)
+
+        const { data: allMods } = await supabase
+          .from('syllabus_modules')
+          .select('id, curriculum_id')
+
+        const cCounts = new Map<string, number>()
+        const cDoneCounts = new Map<string, number>()
+        ;(allMods || []).forEach((m: any) => {
+          cCounts.set(m.curriculum_id, (cCounts.get(m.curriculum_id) || 0) + 1)
+          if (allDone.has(m.id)) {
+            cDoneCounts.set(m.curriculum_id, (cDoneCounts.get(m.curriculum_id) || 0) + 1)
+          }
+        })
+
+        let calculatedDone = 0
+        const doneChapterIds: string[] = []
+        cCounts.forEach((total, cId) => {
+          const done = cDoneCounts.get(cId) || 0
+          if (total > 0 && done >= total) {
+            calculatedDone += 1
+            doneChapterIds.push(cId)
+          }
+        })
+        totalDoneChapters = calculatedDone
+        completedChapterIds = doneChapterIds
+      }
+    }
+  }
+
+  const profileUpdate: Record<string, any> = {
+    total_learning_minutes: (profile?.total_learning_minutes || 0) + durationMinutes,
+    total_classes_taken: (profile?.total_classes_taken || 0) + 1,
+    current_streak: currentStreak,
+    last_active_date: todayStr,
+    last_class_date: new Date().toISOString(),
+    completed_chapters_count: totalDoneChapters,
+    ...(completedChapterIds.length > 0 ? { completed_chapter_ids: completedChapterIds } : {}),
+    updated_at: new Date().toISOString(),
+  }
+
+  const { error: profErr } = await supabase
     .from('profiles')
-    .update({
-      total_learning_minutes: (profile?.total_learning_minutes || 0) + durationMinutes,
-      total_classes_taken: (profile?.total_classes_taken || 0) + 1,
-      current_streak: currentStreak,
-      last_active_date: todayStr,
-      last_class_date: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    })
+    .update(profileUpdate)
     .eq('id', user.id)
 
+  if (profErr && profErr.code === '42703') {
+    delete profileUpdate.completed_chapter_ids
+    const { error: secondErr } = await supabase.from('profiles').update(profileUpdate).eq('id', user.id)
+    if (secondErr && secondErr.code === '42703') {
+      delete profileUpdate.completed_chapters_count
+      await supabase.from('profiles').update(profileUpdate).eq('id', user.id)
+    }
+  }
+
   revalidatePath(`/dashboard/${user.id}`)
-  return { success: true, nextModuleId }
+  revalidatePath(`/dashboard/${user.id}/profile`)
+  return { success: true, nextModuleId, completedChaptersCount: totalDoneChapters }
+}
+
+export async function saveBoardNotesAction(payload: {
+  moduleId: string
+  notesText?: string
+  roughText?: string
+  fullSummary?: string
+  visualProgress?: any
+  status?: 'in_progress' | 'completed'
+}) {
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (!user) {
+    return { error: 'Unauthorized' }
+  }
+
+  const { moduleId, notesText, fullSummary, visualProgress, status } = payload
+  const notesContent = (fullSummary || notesText || '').trim()
+
+  const updateData: Record<string, any> = {
+    user_id: user.id,
+    syllabus_module_id: moduleId,
+    updated_at: new Date().toISOString(),
+  }
+
+  if (notesContent) {
+    updateData.chapter_notes = notesContent
+  }
+  if (visualProgress) {
+    updateData.visual_progress = visualProgress
+  }
+  if (status) {
+    updateData.status = status
+    if (status === 'completed') {
+      updateData.completed_at = new Date().toISOString()
+    }
+  }
+
+  const { error } = await supabase
+    .from('user_progress')
+    .upsert(updateData, { onConflict: 'user_id,syllabus_module_id' })
+
+  if (error) {
+    if (error.code === '42703' && updateData.visual_progress) {
+      delete updateData.visual_progress
+      await supabase.from('user_progress').upsert(updateData, { onConflict: 'user_id,syllabus_module_id' })
+    } else {
+      return { error: error.message }
+    }
+  }
+
+  return { success: true }
 }
 
 export async function updateStudyPlanAction(payload: {

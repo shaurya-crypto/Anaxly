@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import {
@@ -22,6 +22,13 @@ import { DashboardNav, NavItem } from './DashboardNav'
 import { DailyActivityChart } from './DailyActivityChart'
 import { DashCard, StatTile, SectionHeader } from './primitives'
 import { Subscription, SUBSCRIPTION_PLANS, getClassesRemaining } from '@/lib/types/subscription'
+import {
+  calculateStudentProgress,
+  getCachedStudentProgress,
+  setCachedStudentProgress,
+  getCachedBoardNotes,
+  StudentProgressSummary,
+} from '@/lib/studentProgressService'
 
 interface Module {
   id: string
@@ -47,6 +54,8 @@ interface ProgressRecord {
   score?: number | null
   started_at?: string | null
   completed_at?: string | null
+  chapter_notes?: string | null
+  visual_progress?: any
 }
 
 interface Curriculum {
@@ -92,6 +101,7 @@ interface Profile {
   max_requests?: number | null
   used_requests?: number | null
   subscription_tier?: string | null
+  completed_chapters_count?: number | null
 }
 
 interface StitchDashboardViewProps {
@@ -351,6 +361,36 @@ export function StitchDashboardView({
   const currentStreak = profile.current_streak || 0
   const totalMasteryLessons = profile.total_classes_taken ?? totalCompletedModules ?? 0
 
+  // Check client-side cache first to guarantee 0ms instant display without DB read wait
+  const [clientProgress, setClientProgress] = useState<StudentProgressSummary | null>(() => {
+    return getCachedStudentProgress(user.id)
+  })
+
+  // Calculate completed chapters and progress metrics with client caching
+  const studentProgress = useMemo(() => {
+    return calculateStudentProgress({
+      userId: user.id,
+      curriculums: allAvailableCurriculums,
+      modules,
+      progressRecords,
+    })
+  }, [user.id, allAvailableCurriculums, modules, progressRecords])
+
+  useEffect(() => {
+    setCachedStudentProgress(user.id, studentProgress)
+    setClientProgress(studentProgress)
+  }, [user.id, studentProgress])
+
+  const effectiveProgress = clientProgress || studentProgress
+
+  const completedChaptersCount = Math.max(
+    effectiveProgress.completedChaptersCount,
+    studentProgress.completedChaptersCount,
+    typeof profile.completed_chapters_count === 'number' ? profile.completed_chapters_count : 0
+  )
+
+  const totalChaptersCount = effectiveProgress.totalChaptersCount || studentProgress.totalChaptersCount || allAvailableCurriculums.length
+
   // Weekly Cadence (Mon = 0, Sun = 6)
   const currentDayIndex = (new Date().getDay() + 6) % 7
   const weekDays = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
@@ -585,11 +625,11 @@ export function StitchDashboardView({
 
           <nav className="space-y-0.5">
             <Link
-              href={`/dashboard/${user.id}/settings?tab=account`}
+              href={`/dashboard/${user.id}/profile`}
               className="w-full flex items-center gap-3 text-ink-secondary font-label-md text-label-md pl-3 py-2 rounded-lg hover:text-ink-primary hover:bg-surface-container-low/40 transition-colors text-left cursor-pointer"
             >
-              <span className="material-symbols-outlined text-lg">person</span>
-              <span>Profile</span>
+              <span className="material-symbols-outlined text-lg">school</span>
+              <span>Profile &amp; Notes</span>
             </Link>
             <Link
               href={`/dashboard/${user.id}/settings?tab=avatars`}
@@ -880,26 +920,20 @@ export function StitchDashboardView({
                 <StatTile
                   role="button"
                   tabIndex={0}
-                  onClick={() => setSyllabusModalOpen(true)}
+                  onClick={() => router.push(`/dashboard/${user.id}/profile`)}
                   onKeyDown={(e: React.KeyboardEvent) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault()
-                      setSyllabusModalOpen(true)
+                      router.push(`/dashboard/${user.id}/profile`)
                     }
                   }}
                   className="cursor-pointer transition-colors hover:border-ink-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm"
-                  aria-label={`Syllabus covered: ${overallPercentComplete}%. Open the syllabus.`}
-                  label="Syllabus covered"
-                  value={`${overallPercentComplete}%`}
-                  icon={<span aria-hidden="true" className="material-symbols-outlined text-lg text-ink-muted">menu_book</span>}
-                  hint={
-                    <span className="mt-1 block h-1.5 w-full overflow-hidden rounded-full bg-border-subtle">
-                      <span
-                        className="block h-full rounded-full bg-secondary transition-all duration-500 ease-out"
-                        style={{ width: `${overallPercentComplete}%` }}
-                      />
-                    </span>
-                  }
+                  aria-label={`Chapters completed: ${completedChaptersCount} of ${totalChaptersCount}. Open profile and master notes.`}
+                  label="Chapters completed"
+                  value={`${completedChaptersCount} of ${totalChaptersCount}`}
+                  unit="done"
+                  icon={<span aria-hidden="true" className="material-symbols-outlined text-lg text-ink-muted">school</span>}
+                  hint={completedChaptersCount > 0 ? `${completedChaptersCount} chapters fully mastered • View notes` : 'Master all capsules to complete a chapter'}
                 />
                 <StatTile
                   label="Lessons mastered"
@@ -1493,36 +1527,98 @@ export function StitchDashboardView({
             </DialogDescription>
           </DialogHeader>
 
-          <div className="space-y-4 my-2">
-            <div className="p-4 rounded-2xl bg-canvas border border-border-subtle space-y-2 max-h-60 overflow-y-auto">
-              <span className="font-label-micro text-xs uppercase tracking-wider text-ink-muted">
-                Core Topic Overview & Master Notes
-              </span>
-              <p className="font-body-md text-ink-primary text-sm whitespace-pre-line">
-                {activeModule?.chapter_notes || activeModule?.description || 'Foundational concepts and principles for this chapter.'}
-              </p>
-            </div>
+          {(() => {
+            const activeProgress = activeModule?.id ? progressMap.get(activeModule.id) : null
+            const cachedNotes = activeModule?.id ? getCachedBoardNotes(user.id, activeModule.id) : null
+            const liveNotesContent = (cachedNotes?.fullSummary || activeProgress?.chapter_notes || '').trim()
 
-            {activeModule?.key_concepts && activeModule.key_concepts.length > 0 && (
-              <div className="space-y-2">
-                <span className="font-label-micro text-xs uppercase tracking-wider text-ink-muted">
-                  Key Concepts
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {activeModule.key_concepts.map((concept, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 rounded-lg bg-surface-container-low border border-border-subtle text-xs font-label-md text-ink-primary"
-                    >
-                      {concept}
+            return (
+              <div className="space-y-4 my-2">
+                {liveNotesContent && liveNotesContent.length > 10 ? (
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="font-label-micro text-xs uppercase tracking-wider text-emerald-800 font-semibold flex items-center gap-1.5">
+                        <span className="h-2 w-2 rounded-full bg-emerald-600 animate-pulse" />
+                        Chalkboard Master Notes (Saved Live from Class)
+                      </span>
+                      <Link
+                        href={`/dashboard/${user.id}/profile`}
+                        onClick={() => setNotesDialogOpen(false)}
+                        className="text-xs text-primary underline hover:text-accent-hover font-medium"
+                      >
+                        Open Profile Vault
+                      </Link>
+                    </div>
+                    <div className="p-4 rounded-2xl bg-[#0E2016] border border-[#1A3324] text-[#D8EADB] space-y-2 max-h-64 overflow-y-auto font-mono text-xs whitespace-pre-wrap leading-relaxed shadow-inner">
+                      {liveNotesContent}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="p-4 rounded-2xl bg-canvas border border-border-subtle space-y-2 max-h-60 overflow-y-auto">
+                    <span className="font-label-micro text-xs uppercase tracking-wider text-ink-muted">
+                      Core Topic Overview & Master Notes
                     </span>
-                  ))}
-                </div>
+                    <p className="font-body-md text-ink-primary text-sm whitespace-pre-line">
+                      {activeModule?.chapter_notes || activeModule?.description || 'Foundational concepts and principles for this chapter.'}
+                    </p>
+                  </div>
+                )}
+
+                {activeCourse && (() => {
+                  const courseModuleIds = modules.filter((m) => m.curriculum_id === activeCourse.id).map((m) => m.id)
+                  const otherNotes = studentProgress.savedNotes.filter((n) => courseModuleIds.includes(n.moduleId) && n.moduleId !== activeModule?.id)
+                  if (otherNotes.length === 0) return null
+                  return (
+                    <div className="pt-2 border-t border-border-subtle space-y-1.5">
+                      <span className="font-label-micro text-xs uppercase tracking-wider text-ink-muted">
+                        Other Master Notes in {activeCourse.title}:
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {otherNotes.map((on) => (
+                          <Link
+                            key={on.moduleId}
+                            href={`/dashboard/${user.id}/profile`}
+                            onClick={() => setNotesDialogOpen(false)}
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface border border-border-subtle hover:bg-canvas text-xs text-ink-primary"
+                          >
+                            <span className="material-symbols-outlined text-xs text-secondary">check_circle</span>
+                            <span>{on.moduleTitle}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )
+                })()}
+
+                {activeModule?.key_concepts && activeModule.key_concepts.length > 0 && (
+                  <div className="space-y-2">
+                    <span className="font-label-micro text-xs uppercase tracking-wider text-ink-muted">
+                      Key Concepts
+                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      {activeModule.key_concepts.map((concept, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 rounded-lg bg-surface-container-low border border-border-subtle text-xs font-label-md text-ink-primary"
+                        >
+                          {concept}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
+            )
+          })()}
 
           <DialogFooter className="flex gap-2">
+            <Link
+              href={`/dashboard/${user.id}/profile`}
+              onClick={() => setNotesDialogOpen(false)}
+              className="px-4 py-2 rounded-xl border border-border-subtle text-ink-primary font-label-md hover:bg-canvas cursor-pointer inline-flex items-center justify-center gap-1.5"
+            >
+              <span>Master Notes Vault</span>
+            </Link>
             <button
               onClick={() => setNotesDialogOpen(false)}
               className="px-4 py-2 rounded-xl border border-border-subtle text-ink-primary font-label-md hover:bg-canvas cursor-pointer"
@@ -2030,7 +2126,19 @@ export function StitchDashboardView({
                         )}
 
                         {/* Launch Action */}
-                        <div className="mt-4 pt-3 border-t border-border-subtle/50 flex justify-end">
+                        <div className="mt-4 pt-3 border-t border-border-subtle/50 flex items-center justify-between">
+                          {isDone ? (
+                            <Link
+                              href={`/dashboard/${user.id}/profile`}
+                              onClick={() => setSyllabusModalOpen(false)}
+                              className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-medium cursor-pointer"
+                            >
+                              <span className="material-symbols-outlined text-sm">edit_note</span>
+                              <span>View Saved Notes</span>
+                            </Link>
+                          ) : (
+                            <span />
+                          )}
                           <Link
                             href={`/dashboard/${user.id}/class/${mod.id}`}
                             onClick={(e) => {
@@ -2123,6 +2231,14 @@ export function StitchDashboardView({
               },
             }))}
           />
+          <Link
+            href={`/dashboard/${user.id}/profile`}
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-ink-secondary transition-colors hover:bg-canvas-soft hover:text-ink-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm"
+          >
+            <span aria-hidden="true" className="material-symbols-outlined text-xl">school</span>
+            <span>Profile &amp; Master Notes</span>
+          </Link>
           <Link
             href={`/dashboard/${user.id}/settings?tab=avatars`}
             onClick={() => setMobileMenuOpen(false)}

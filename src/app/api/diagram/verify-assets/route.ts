@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 
+const BROWSER_USER_AGENT =
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
 const WIKIMEDIA_USER_AGENT = 'SobiAITutor/2.0 (https://sobi-ai-tutor.edu; mailto:support@sobi-ai-tutor.edu)'
 
 // Initialize server-side Supabase client
@@ -18,22 +20,57 @@ interface MediaItem {
 
 async function verifyUrl(url: string, isVideo: boolean = false): Promise<boolean> {
   if (!url || (!url.startsWith('http://') && !url.startsWith('https://'))) return false
+  if (!isVideo) {
+    const cleanLower = url.toLowerCase().split('?')[0]
+    if (
+      cleanLower.endsWith('.tif') ||
+      cleanLower.endsWith('.tiff') ||
+      cleanLower.endsWith('.psd') ||
+      cleanLower.endsWith('.eps') ||
+      cleanLower.endsWith('.ai') ||
+      cleanLower.endsWith('.djvu') ||
+      cleanLower.endsWith('.pdf')
+    ) {
+      return false
+    }
+  }
+
   try {
     const controller = new AbortController()
     const timer = setTimeout(() => controller.abort(), 1800)
-    const res = await fetch(url, {
+    let res = await fetch(url, {
       method: 'HEAD',
       signal: controller.signal,
       headers: {
-        'User-Agent': WIKIMEDIA_USER_AGENT,
-        'Accept': isVideo ? 'video/*,*/*' : 'image/*,*/*',
+        'User-Agent': BROWSER_USER_AGENT,
+        'Accept': isVideo ? 'video/*,*/*' : 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
       },
     })
+    if (!isVideo && (res.status === 403 || res.status === 405)) {
+      res = await fetch(url, {
+        method: 'GET',
+        signal: controller.signal,
+        headers: {
+          'User-Agent': BROWSER_USER_AGENT,
+          'Accept': 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+          'Range': 'bytes=0-1024',
+        },
+      })
+    }
     clearTimeout(timer)
-    if (!res.ok) return false
+    if (!res.ok && res.status !== 206 && res.status !== 304) return false
     const ct = (res.headers.get('content-type') || '').toLowerCase()
     if (isVideo) {
       return ct.startsWith('video/') || ct.includes('webm') || ct.includes('mp4') || ct.includes('ogg')
+    }
+    if (
+      ct.includes('tiff') ||
+      ct.includes('djvu') ||
+      ct.includes('photoshop') ||
+      ct.includes('pdf') ||
+      ct.includes('postscript')
+    ) {
+      return false
     }
     return ct.startsWith('image/') || ct.includes('svg')
   } catch {
@@ -43,9 +80,73 @@ async function verifyUrl(url: string, isVideo: boolean = false): Promise<boolean
 
 async function searchLiveImage(query: string): Promise<string | null> {
   try {
-    const cleanQ = query.trim().replace(/^["']|["']$/g, '')
+    const cleanQ = query
+      .trim()
+      .replace(/^["']|["']$/g, '')
+      .replace(/^(?:Activity|Concept|Module|Experiment|Lab|Chapter|Section)\s*[\d\.]*\s*[:\-\)]?\s*/i, '')
+      .replace(/[\(\)\[\]\{\}]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+
+    // 1. Tier 1A: Search broad web images via Bing Images Async
+    try {
+      const controller = new AbortController()
+      const timer = setTimeout(() => controller.abort(), 2200)
+      const bUrl = `https://www.bing.com/images/async?q=${encodeURIComponent(cleanQ)}&first=1&count=10&mmasync=1`
+      const bRes = await fetch(bUrl, {
+        signal: controller.signal,
+        headers: {
+          'User-Agent': BROWSER_USER_AGENT,
+          Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        },
+      })
+      clearTimeout(timer)
+
+      if (bRes.ok) {
+        const html = await bRes.text()
+        const murls = [...html.matchAll(/&quot;murl&quot;:&quot;(https?:\/\/[^&"]+)&quot;/g)]
+        for (const match of murls.slice(0, 5)) {
+          const imgUrl = match[1]
+          if (imgUrl && !imgUrl.toLowerCase().endsWith('.tif') && !imgUrl.toLowerCase().endsWith('.tiff')) {
+            const ok = await verifyUrl(imgUrl, false)
+            if (ok) return imgUrl
+          }
+        }
+      }
+    } catch {
+      // Fall through to Wikipedia / Wikimedia
+    }
+
+    // 2. Tier 1B: Search Wikipedia PageImages API
+    try {
+      const controller = new AbortController()
+      const timer = setTimeout(() => controller.abort(), 1800)
+      const wikiPageUrl = `https://en.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(
+        cleanQ
+      )}&gsrlimit=5&prop=pageimages&pithumbsize=1200&format=json`
+      const wikiPageRes = await fetch(wikiPageUrl, {
+        signal: controller.signal,
+        headers: { 'User-Agent': WIKIMEDIA_USER_AGENT, Accept: 'application/json' },
+      })
+      clearTimeout(timer)
+
+      if (wikiPageRes.ok) {
+        const data = await wikiPageRes.json().catch(() => ({}))
+        const pages = Object.values<any>(data.query?.pages || {})
+        for (const page of pages) {
+          const thumbUrl = page.thumbnail?.source
+          if (thumbUrl && (await verifyUrl(thumbUrl, false))) {
+            return thumbUrl
+          }
+        }
+      }
+    } catch {
+      // Fall through to Wikimedia Commons
+    }
+
+    // 3. Tier 2: Search Wikimedia Commons
     const url = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(
-      cleanQ
+      cleanQ.includes('filetype:') ? cleanQ : `${cleanQ} filetype:bitmap|drawing`
     )}&gsrnamespace=6&prop=imageinfo&iiprop=url|size|mime&format=json&gsrlimit=6`
 
     const res = await fetch(url, {

@@ -433,15 +433,31 @@ export class GeminiLiveClient {
           body: JSON.stringify({ query }),
         })
           .then((res) => res.json())
-          .then((data) => {
-            const firstImg = data.images?.[0];
-            if (firstImg?.url) {
-              this.callbacks.onChalkboardToolCall?.("draw_image", {
-                url: firstImg.url,
-                title: title || firstImg.title,
-                caption: caption || firstImg.description || "",
-              });
-            } else {
+          .then(async (data) => {
+            const candidateImages = data.images || [];
+            let displayed = false;
+            for (const img of candidateImages) {
+              if (!img?.url) continue;
+              try {
+                const check = await fetch(`/api/diagram/proxy?dataUrl=true&url=${encodeURIComponent(img.url)}`);
+                if (check.ok) {
+                  const pData = await check.json();
+                  if (pData.success && pData.dataURL) {
+                    this.callbacks.onChalkboardToolCall?.("draw_image", {
+                      url: pData.dataURL,
+                      title: title || img.title,
+                      caption: caption || img.description || "",
+                    });
+                    displayed = true;
+                    break;
+                  }
+                }
+              } catch {
+                // Failover to next candidate image
+              }
+            }
+            if (!displayed) {
+              // Only fall back to SVG diagram if all online image search candidates fail
               this.callbacks.onChalkboardToolCall?.("render_svg_diagram", {
                 title,
                 caption,

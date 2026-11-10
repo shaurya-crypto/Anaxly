@@ -1083,4 +1083,15 @@ Comprehensive proofs following CBSE Exam Topper standards.""",
         }
     }
 
+    from .ch1_visuals import (
+        get_m1_visuals, get_m2_visuals, get_m3_visuals,
+        get_m4_visuals, get_m5_visuals, get_m6_visuals
+    )
+    m1["visual_lesson_plan"]["concept_visuals"] = get_m1_visuals()
+    m2["visual_lesson_plan"]["concept_visuals"] = get_m2_visuals()
+    m3["visual_lesson_plan"]["concept_visuals"] = get_m3_visuals()
+    m4["visual_lesson_plan"]["concept_visuals"] = get_m4_visuals()
+    m5["visual_lesson_plan"]["concept_visuals"] = get_m5_visuals()
+    m6["visual_lesson_plan"]["concept_visuals"] = get_m6_visuals()
+
     return [m1, m2, m3, m4, m5, m6]

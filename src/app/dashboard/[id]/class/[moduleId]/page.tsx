@@ -53,6 +53,11 @@ import { Button } from '@/components/ui/button'
 import { DashCard } from '@/components/dashboard/primitives'
 import { createClient } from '@/utils/supabase/client'
 import { triggerCompanionGuidance } from '@/components/mascot/Mascot'
+import {
+  setCachedBoardNotes,
+  getCachedBoardNotes,
+  invalidateStudentProgressCache,
+} from '@/lib/studentProgressService'
 
 export const dynamic = 'force-dynamic'
 
@@ -125,18 +130,27 @@ function extractConciseSearchKeyword(raw: string): string {
     }
   }
 
-  // 2. Colon prefix/title (e.g. "Activity 2.1 (Onion Peel Mount): Stripping..." -> "Onion Peel cells")
+  // 2. Colon prefix/title: check after colon first, then before colon
   if (clean.includes(':')) {
-    const beforeColon = clean
-      .split(':')[0]
-      .replace(/^Activity\s*[\d\.]+/i, '')
-      .replace(/^Concept\s*[\d\.]+/i, '')
-      .replace(/[\(\)]/g, '')
-      .replace(/mount|mounts/i, 'cells')
-      .trim()
-    if (beforeColon.length >= 3) {
-      return beforeColon
+    const parts = clean.split(':').map((s) => s.trim()).filter(Boolean)
+    // Check substantive part after colon first (e.g. "Activity 2.1: Onion Epidermal Peel Mount" -> "Onion Epidermal Peel Mount")
+    for (const part of [...parts].reverse()) {
+      const cleanPart = part
+        .replace(/^(?:Activity|Concept|Module|Experiment|Lab|Chapter|Section)\s*[\d\.]*\s*/i, '')
+        .replace(/[\(\)\[\]\{\}]/g, ' ')
+        .trim()
+      if (cleanPart.length >= 3 && !/^\d+[\.\d]*$/.test(cleanPart)) {
+        return cleanPart
+      }
     }
+  }
+
+  // 3. Strip leading activity prefix
+  const stripped = clean
+    .replace(/^(?:Activity|Concept|Module|Experiment|Lab|Chapter|Section)\s*[\d\.]*\s*[:\-\)]?\s*/i, '')
+    .trim()
+  if (stripped.length >= 3 && stripped !== clean) {
+    return stripped
   }
 
   // 3. Known subject keyword mappings
@@ -734,15 +748,36 @@ export default function ModuleClassroomPage() {
 
   const handleBoardContentChange = useCallback(
     (summary: { notesText: string; roughText: string; fullSummary: string }) => {
+      const fullNotesContent = (summary.fullSummary || summary.notesText || '').trim()
       setLatestBoardSummary((prev) => (prev === summary.fullSummary ? prev : summary.fullSummary))
-      const notesContent = summary.notesText.trim()
-      if (notesContent && notesContent !== lastSentBoardNotesRef.current) {
-        lastSentBoardNotesRef.current = notesContent
-        setChapterNotes(notesContent)
-        saveNotesToSupabaseRef.current?.(notesContent)
+
+      if (!fullNotesContent || fullNotesContent === lastSentBoardNotesRef.current) return
+      lastSentBoardNotesRef.current = fullNotesContent
+      setChapterNotes(fullNotesContent)
+
+      // 1. Instant client-side cache write (0ms, zero DB load)
+      if (userId && moduleId) {
+        setCachedBoardNotes({
+          userId,
+          moduleId,
+          notesText: summary.notesText,
+          roughText: summary.roughText,
+          fullSummary: summary.fullSummary,
+          updatedAt: new Date().toISOString(),
+          isDirty: true,
+        })
       }
+
+      // 2. Batch and debounce saves with 12-second idle window to prevent DB overload
+      setNotesSaveStatus('saving')
+      if (saveTimeoutRef.current) {
+        clearTimeout(saveTimeoutRef.current)
+      }
+      saveTimeoutRef.current = setTimeout(() => {
+        saveNotesToSupabaseRef.current?.(fullNotesContent)
+      }, 12000)
     },
-    []
+    [userId, moduleId]
   )
 
   // Interactive page flip barrier: prevents premature page flips until student replies to checkpoint question
@@ -918,13 +953,23 @@ export default function ModuleClassroomPage() {
         const res = await fetch(`/api/diagram/search-image?q=${encodeURIComponent(searchQuery)}&limit=3`)
         if (res.ok) {
           const data = await res.json()
-          const first = data.images?.[0]
-          if (first?.url) {
-            localCached[idx] = {
-              url: first.url,
-              title: cv.diagram_title || first.title || concept,
-              caption: cv.what_to_make || first.description || '',
-            }
+          const candidateImages: any[] = data.images || []
+          for (const img of candidateImages) {
+            if (!img?.url) continue
+            try {
+              const check = await fetch(`/api/diagram/proxy?dataUrl=true&url=${encodeURIComponent(img.url)}`)
+              if (check.ok) {
+                const pData = await check.json()
+                if (pData.success && pData.dataURL) {
+                  localCached[idx] = {
+                    url: pData.dataURL,
+                    title: cv.diagram_title || img.title || concept,
+                    caption: cv.what_to_make || img.description || '',
+                  }
+                  break
+                }
+              }
+            } catch {}
           }
         }
       } catch (err) {
@@ -1345,7 +1390,10 @@ export default function ModuleClassroomPage() {
           if (progress.last_covered_concept) {
             setLastCoveredConcept((prev) => (prev === progress.last_covered_concept ? prev : progress.last_covered_concept))
           }
-          if (progress.chapter_notes) {
+          const cachedLocalNotes = getCachedBoardNotes(userId, moduleId)
+          const hasFreshLocalNotes = cachedLocalNotes?.fullSummary && cachedLocalNotes.fullSummary.trim().length > 10
+
+          if (progress.chapter_notes && !hasFreshLocalNotes) {
             setChapterNotes((prev) => (prev === progress.chapter_notes ? prev : progress.chapter_notes))
           }
 
@@ -1393,6 +1441,14 @@ export default function ModuleClassroomPage() {
     }
 
     if (userId && moduleId) {
+      // Restore from instant local cache if present
+      const cachedNotes = getCachedBoardNotes(userId, moduleId)
+      if (cachedNotes?.fullSummary) {
+        setChapterNotes(cachedNotes.fullSummary)
+        setLatestBoardSummary(cachedNotes.fullSummary)
+        lastSentBoardNotesRef.current = cachedNotes.fullSummary
+      }
+
       loadModuleContext().then(() => {
         setTimeout(() => {
           autoTriggerVisualForConcept(currentConceptIndexRef.current)
@@ -1401,6 +1457,55 @@ export default function ModuleClassroomPage() {
       })
     }
   }, [userId, moduleId])
+
+  // 1c. Zero-loss page unload handler: flush any unsaved chalkboard notes on tab close or route transition
+  useEffect(() => {
+    const handleUnload = () => {
+      if (!userId || !moduleId) return
+      const cached = getCachedBoardNotes(userId, moduleId)
+      if (cached && cached.isDirty && cached.fullSummary) {
+        const payload = JSON.stringify({
+          userId,
+          moduleId,
+          notesText: cached.notesText,
+          roughText: cached.roughText,
+          fullSummary: cached.fullSummary,
+          status: isCompletedBefore || moduleCompletedSuccess ? 'completed' : 'in_progress',
+        })
+
+        // Mark clean locally so duplicate unload events don't re-fire
+        setCachedBoardNotes({
+          ...cached,
+          isDirty: false,
+        })
+
+        let sent = false
+        if (typeof navigator !== 'undefined' && navigator.sendBeacon) {
+          try {
+            const blob = new Blob([payload], { type: 'application/json' })
+            sent = navigator.sendBeacon('/api/student/progress', blob)
+          } catch {}
+        }
+        if (!sent && typeof fetch !== 'undefined') {
+          try {
+            fetch('/api/student/progress', {
+              method: 'POST',
+              body: payload,
+              headers: { 'Content-Type': 'application/json' },
+              keepalive: true,
+            }).catch(() => {})
+          } catch {}
+        }
+      }
+    }
+
+    window.addEventListener('beforeunload', handleUnload)
+    window.addEventListener('pagehide', handleUnload)
+    return () => {
+      window.removeEventListener('beforeunload', handleUnload)
+      window.removeEventListener('pagehide', handleUnload)
+    }
+  }, [userId, moduleId, isCompletedBefore, moduleCompletedSuccess])
 
   // 2. Synchronize AI spoken directives to Green Chalkboard and 3D Simulation Viewport
   useEffect(() => {
@@ -1887,26 +1992,39 @@ export default function ModuleClassroomPage() {
 
         fetch(`/api/diagram/search-image?q=${encodeURIComponent(searchQuery)}&limit=3`)
           .then((res) => (res.ok ? res.json() : null))
-          .then((data) => {
-            const firstImg = data?.images?.[0]
-            if (firstImg?.url && chalkboardRef.current) {
-              prefetchedImagesRef.current[conceptIdx] = {
-                url: firstImg.url,
-                title: matchedConceptVisual?.diagram_title || firstImg.title || targetConcept,
-                caption: matchedConceptVisual?.what_to_make || firstImg.description || conceptCaption,
+          .then(async (data) => {
+            const candidateImages: any[] = data?.images || []
+            if (candidateImages.length > 0 && chalkboardRef.current) {
+              for (const img of candidateImages) {
+                if (!img?.url) continue
+                try {
+                  const check = await fetch(`/api/diagram/proxy?dataUrl=true&url=${encodeURIComponent(img.url)}`)
+                  if (check.ok) {
+                    const proxyData = await check.json()
+                    if (proxyData.success && proxyData.dataURL) {
+                      prefetchedImagesRef.current[conceptIdx] = {
+                        url: proxyData.dataURL,
+                        title: matchedConceptVisual?.diagram_title || img.title || targetConcept,
+                        caption: matchedConceptVisual?.what_to_make || img.description || conceptCaption,
+                      }
+                      chalkboardRef.current.drawImage?.(
+                        proxyData.dataURL,
+                        matchedConceptVisual?.diagram_title || img.title || targetConcept,
+                        matchedConceptVisual?.what_to_make || img.description || conceptCaption
+                      )
+                      sendBoardContext(
+                        `[SYSTEM NOTICE: High-resolution real-world visual for "${targetConcept}" is now displayed on the chalkboard.]`
+                      )
+                      return
+                    }
+                  }
+                } catch {
+                  // Try next candidate image
+                }
               }
-              chalkboardRef.current.drawImage?.(
-                firstImg.url,
-                matchedConceptVisual?.diagram_title || firstImg.title || targetConcept,
-                matchedConceptVisual?.what_to_make || firstImg.description || conceptCaption
-              )
-              sendBoardContext(
-                `[SYSTEM NOTICE: High-resolution real-world visual for "${targetConcept}" is now displayed on the chalkboard.]`
-              )
-              return
             }
 
-            // Online search yielded no exact image -> Run Live Class Fast Diagram Generation with increased timeout
+            // Online search yielded no accessible image -> Run Live Class Fast Diagram Generation
             runFastDiagramGeneration()
           })
           .catch((err) => {
@@ -1921,7 +2039,7 @@ export default function ModuleClassroomPage() {
   }
 
   // 3. Auto-save notes to Supabase user_progress.chapter_notes and visual_progress.whiteboard_pages
-  const saveNotesToSupabase = async (notesToSave: string) => {
+  const saveNotesToSupabase = async (notesToSave: string, forcedStatus?: 'in_progress' | 'completed') => {
     saveNotesToSupabaseRef.current = saveNotesToSupabase
     if (!userId || !moduleId || !notesToSave.trim()) return
     setNotesSaveStatus('saving')
@@ -1939,6 +2057,8 @@ export default function ModuleClassroomPage() {
         } catch {}
       }
 
+      const statusToSet = forcedStatus || (isCompletedBefore || moduleCompletedSuccess ? 'completed' : 'in_progress')
+
       const payload: any = {
         user_id: userId,
         syllabus_module_id: moduleId,
@@ -1946,7 +2066,12 @@ export default function ModuleClassroomPage() {
         current_concept_index: currentConceptIndex,
         completed_concepts: completedConcepts,
         last_covered_concept: lastCoveredConcept,
-        status: isCompletedBefore || moduleCompletedSuccess ? 'completed' : 'in_progress',
+        status: statusToSet,
+        updated_at: new Date().toISOString(),
+      }
+
+      if (statusToSet === 'completed') {
+        payload.completed_at = new Date().toISOString()
       }
 
       if (whiteboardData) {
@@ -1971,6 +2096,17 @@ export default function ModuleClassroomPage() {
           console.warn('Notice saving notes to Supabase:', error.message)
         }
       }
+
+      // Mark clean in client-side cache
+      setCachedBoardNotes({
+        userId,
+        moduleId,
+        notesText: notesToSave,
+        fullSummary: notesToSave,
+        updatedAt: new Date().toISOString(),
+        isDirty: false,
+      })
+
       setNotesSaveStatus('saved')
     } catch (err) {
       console.error('Error auto-saving chapter notes:', err)
@@ -1988,14 +2124,26 @@ export default function ModuleClassroomPage() {
 
       const formatted = prev ? `${prev}\n\n${trimmed}` : trimmed
 
-      // Debounce auto-save to cloud
+      // Immediate local cache write (0ms, 0 DB load)
+      if (userId && moduleId) {
+        setCachedBoardNotes({
+          userId,
+          moduleId,
+          notesText: formatted,
+          fullSummary: formatted,
+          updatedAt: new Date().toISOString(),
+          isDirty: true,
+        })
+      }
+
+      // Debounce auto-save to cloud with 12s idle debounce
       if (saveTimeoutRef.current) {
         clearTimeout(saveTimeoutRef.current)
       }
       setNotesSaveStatus('saving')
       saveTimeoutRef.current = setTimeout(() => {
         saveNotesToSupabase(formatted)
-      }, 1500)
+      }, 12000)
 
       return formatted
     })
@@ -2005,11 +2153,27 @@ export default function ModuleClassroomPage() {
   const markModuleAsCompleted = async (summaryNote?: string) => {
     if (!userId || !moduleId || isMarkingCompleteRef.current) return
     isMarkingCompleteRef.current = true
+
+    // Flush any pending debounced save
+    if (saveTimeoutRef.current) {
+      clearTimeout(saveTimeoutRef.current)
+      saveTimeoutRef.current = null
+    }
+
     try {
       const supabase = createClient()
       const now = new Date().toISOString()
       const todayStr = now.split('T')[0]
       const keyConcepts: string[] = parseKeyConcepts(activeModule?.key_concepts)
+
+      // Invariant 3: Live chalkboard is single source of truth for notes.
+      const boardSummary =
+        chalkboardRef.current?.getBoardSummary()?.fullSummary ||
+        latestBoardSummary ||
+        summaryNote ||
+        chapterNotes
+
+      const finalNotes = (boardSummary || '').trim()
 
       // 1. Update user_progress to completed
       await supabase
@@ -2024,14 +2188,49 @@ export default function ModuleClassroomPage() {
             completed_concepts: keyConcepts.length > 0 ? keyConcepts : completedConcepts,
             last_covered_concept:
               keyConcepts[keyConcepts.length - 1] || activeModule?.title || 'Synthesis',
-            ...(summaryNote
-              ? { chapter_notes: chapterNotes ? `${chapterNotes}\n\n${summaryNote}` : summaryNote }
-              : {}),
+            ...(finalNotes ? { chapter_notes: finalNotes } : {}),
+            updated_at: now,
           },
           { onConflict: 'user_id,syllabus_module_id' }
         )
 
-      // 1b. Automatically unlock next capsule or next chapter's first capsule
+      // Also persist to local cache immediately
+      if (finalNotes) {
+        setCachedBoardNotes({
+          userId,
+          moduleId,
+          notesText: finalNotes,
+          fullSummary: finalNotes,
+          updatedAt: now,
+          isDirty: false,
+        })
+        setChapterNotes(finalNotes)
+      }
+
+      // 1b. Check if this module completion completes all sibling capsules in this chapter
+      const siblingIds = (siblingModules || []).map((m: any) => m.id)
+      let chapterWasCompleted = false
+
+      if (siblingIds.length > 0) {
+        const { data: siblingProgress } = await supabase
+          .from('user_progress')
+          .select('syllabus_module_id, status, completed_at')
+          .eq('user_id', userId)
+          .in('syllabus_module_id', siblingIds)
+
+        const completedSiblingIds = new Set(
+          (siblingProgress || [])
+            .filter((p: any) => p.status === 'completed' || !!p.completed_at)
+            .map((p: any) => p.syllabus_module_id)
+        )
+        completedSiblingIds.add(moduleId)
+
+        if (completedSiblingIds.size >= siblingIds.length) {
+          chapterWasCompleted = true
+        }
+      }
+
+      // Automatically unlock next capsule or next chapter's first capsule
       const nextMod = siblingModules.find(
         (m) => m.order_index > (activeModule?.order_index || 0)
       )
@@ -2048,8 +2247,8 @@ export default function ModuleClassroomPage() {
             },
             { onConflict: 'user_id,syllabus_module_id' }
           )
-      } else if (nextChapterInfo?.firstModuleId) {
-        // Last capsule of chapter completed: unlock first capsule of next chapter
+      } else if (chapterWasCompleted && nextChapterInfo?.firstModuleId) {
+        // Unlock first capsule of next chapter
         await supabase
           .from('user_progress')
           .upsert(
@@ -2078,11 +2277,11 @@ export default function ModuleClassroomPage() {
         }
       }
 
-      // 2. Fetch and increment profiles learning minutes & classes taken (only if not completed before)
+      // 2. Fetch and increment profiles learning minutes, classes taken, and completed chapters
       if (!isCompletedBefore) {
         const { data: prof } = await supabase
           .from('profiles')
-          .select('total_classes_taken, total_learning_minutes, current_streak, last_active_date')
+          .select('total_classes_taken, total_learning_minutes, current_streak, last_active_date, completed_chapters_count')
           .eq('id', userId)
           .single()
 
@@ -2090,19 +2289,72 @@ export default function ModuleClassroomPage() {
         const currentMinutes = prof?.total_learning_minutes || 0
         const estimatedMins = activeModule?.estimated_minutes || 15
 
-        await supabase
-          .from('profiles')
-          .update({
-            total_classes_taken: currentClasses + 1,
-            total_learning_minutes: currentMinutes + estimatedMins,
-            last_active_date: todayStr,
-            updated_at: now,
+        const profileUpdate: Record<string, any> = {
+          total_classes_taken: currentClasses + 1,
+          total_learning_minutes: currentMinutes + estimatedMins,
+          last_active_date: todayStr,
+          updated_at: now,
+        }
+
+        if (chapterWasCompleted) {
+          // Recalculate true completed chapters across all curriculums for accuracy
+          const { data: allUserProgress } = await supabase
+            .from('user_progress')
+            .select('syllabus_module_id, status, completed_at')
+            .eq('user_id', userId)
+            .or('status.eq.completed,completed_at.not.is.null')
+
+          const allDone = new Set((allUserProgress || []).map((p: any) => p.syllabus_module_id))
+          allDone.add(moduleId)
+
+          const { data: allMods } = await supabase
+            .from('syllabus_modules')
+            .select('id, curriculum_id')
+
+          const cCounts = new Map<string, number>()
+          const cDoneCounts = new Map<string, number>()
+          ;(allMods || []).forEach((m: any) => {
+            cCounts.set(m.curriculum_id, (cCounts.get(m.curriculum_id) || 0) + 1)
+            if (allDone.has(m.id)) {
+              cDoneCounts.set(m.curriculum_id, (cDoneCounts.get(m.curriculum_id) || 0) + 1)
+            }
           })
+
+          let calculatedDone = 0
+          const doneChapterIds: string[] = []
+          cCounts.forEach((total, cId) => {
+            const done = cDoneCounts.get(cId) || 0
+            if (total > 0 && done >= total) {
+              calculatedDone += 1
+              doneChapterIds.push(cId)
+            }
+          })
+
+          profileUpdate.completed_chapters_count = calculatedDone
+          profileUpdate.completed_chapter_ids = doneChapterIds
+        }
+
+        const { error: profErr } = await supabase
+          .from('profiles')
+          .update(profileUpdate)
           .eq('id', userId)
+
+        if (profErr && profErr.code === '42703') {
+          delete profileUpdate.completed_chapter_ids
+          const { error: secondErr } = await supabase.from('profiles').update(profileUpdate).eq('id', userId)
+          if (secondErr && secondErr.code === '42703') {
+            delete profileUpdate.completed_chapters_count
+            await supabase.from('profiles').update(profileUpdate).eq('id', userId)
+          }
+        }
       }
 
       setIsCompletedBefore(true)
       setModuleCompletedSuccess(true)
+      setNotesSaveStatus('saved')
+
+      // Invalidate student progress cache so dashboard and profile load fresh data
+      invalidateStudentProgressCache(userId)
 
       // 3. Companion guidance celebration (strictly zero emojis)
       triggerCompanionGuidance({
@@ -2114,20 +2366,6 @@ export default function ModuleClassroomPage() {
           : `Magnificent achievement! You have completed all capsules in this chapter.`,
         autoDismissMs: 12000,
       })
-
-      // 4. Invariant 3: Live chalkboard is single source of truth for notes.
-      // Directly save live chalkboard state to user_progress.chapter_notes
-      const boardSummary =
-        chalkboardRef.current?.getBoardSummary()?.fullSummary ||
-        latestBoardSummary ||
-        summaryNote ||
-        chapterNotes
-
-      if (boardSummary && boardSummary.trim()) {
-        setChapterNotes(boardSummary)
-        await saveNotesToSupabase(boardSummary)
-        setNotesSaveStatus('saved')
-      }
     } catch (err) {
       console.error('Error marking module as completed:', err)
     } finally {
@@ -3249,13 +3487,22 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                 body: JSON.stringify({ query: extractConciseSearchKeyword(imgTitle) || imgTitle }),
               })
                 .then((r) => r.json())
-                .then((data) => {
-                  const first = data.images?.[0]
-                  if (first?.url) {
-                    chalkboardRef.current?.drawImage?.(first.url, imgTitle || first.title, imgCaption || first.description)
-                  } else {
-                    chalkboardRef.current?.drawSvgDiagram?.(imgTitle, '', imgCaption)
+                .then(async (data) => {
+                  const candidateImages: any[] = data.images || []
+                  for (const img of candidateImages) {
+                    if (!img?.url) continue
+                    try {
+                      const check = await fetch(`/api/diagram/proxy?dataUrl=true&url=${encodeURIComponent(img.url)}`)
+                      if (check.ok) {
+                        const pData = await check.json()
+                        if (pData.success && pData.dataURL) {
+                          chalkboardRef.current?.drawImage?.(pData.dataURL, imgTitle || img.title, imgCaption || img.description)
+                          return
+                        }
+                      }
+                    } catch {}
                   }
+                  chalkboardRef.current?.drawSvgDiagram?.(imgTitle, '', imgCaption)
                 })
                 .catch(() => chalkboardRef.current?.drawSvgDiagram?.(imgTitle, '', imgCaption))
             }
@@ -3472,21 +3719,34 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
             const refinedQuery = extractConciseSearchKeyword(queryTitle) || queryTitle
             fetch(`/api/diagram/search-image?q=${encodeURIComponent(refinedQuery)}&limit=3`)
               .then((res) => (res.ok ? res.json() : null))
-              .then((data) => {
-                const verifiedImg = data?.images?.[0]
-                if (verifiedImg?.url && chalkboardRef.current) {
-                  chalkboardRef.current.drawImage?.(
-                    verifiedImg.url,
-                    queryTitle || verifiedImg.title,
-                    explicitCaption || verifiedImg.description || queryTitle
-                  )
-                  sendBoardContext(
-                    `[SYSTEM NOTICE: High-resolution real-world visual for "${queryTitle}" is now live on the chalkboard! Direct the student's attention to this visual.]`
-                  )
-                  return
+              .then(async (data) => {
+                const candidateImages: any[] = data?.images || []
+                if (candidateImages.length > 0 && chalkboardRef.current) {
+                  for (const img of candidateImages) {
+                    if (!img?.url) continue
+                    try {
+                      const check = await fetch(`/api/diagram/proxy?dataUrl=true&url=${encodeURIComponent(img.url)}`)
+                      if (check.ok) {
+                        const proxyData = await check.json()
+                        if (proxyData.success && proxyData.dataURL) {
+                          chalkboardRef.current.drawImage?.(
+                            proxyData.dataURL,
+                            queryTitle || img.title,
+                            explicitCaption || img.description || queryTitle
+                          )
+                          sendBoardContext(
+                            `[SYSTEM NOTICE: High-resolution real-world visual for "${queryTitle}" is now live on the chalkboard! Direct the student's attention to this visual.]`
+                          )
+                          return
+                        }
+                      }
+                    } catch {
+                      // Try next candidate image
+                    }
+                  }
                 }
 
-                // If no online image found, fall back to Live Class Fast Diagram Generation
+                // If no online image found or accessible, fall back to Live Class Fast Diagram Generation
                 executeFastDiagramGeneration()
               })
               .catch((err) => {
