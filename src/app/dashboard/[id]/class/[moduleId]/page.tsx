@@ -48,6 +48,7 @@ import {
   RotateCcw,
   AlertCircle,
   X,
+  ChevronRight,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { DashCard } from '@/components/dashboard/primitives'
@@ -800,8 +801,50 @@ export default function ModuleClassroomPage() {
   const prefetchedImagesRef = useRef<Record<number, { url: string; title: string; caption?: string }>>({})
   prefetchedImagesRef.current = prefetchedImages
   const [verifiedAssetsDirectives, setVerifiedAssetsDirectives] = useState<string>('')
+  const handleConceptDoneRef = useRef<(conceptName?: string) => void>(() => {})
 
+  // Helper to detect if student statement is confirming understanding or requesting next concept
+  const isConfirmationOrNextIntent = (text: string): boolean => {
+    if (!text) return false
+    const clean = text.toLowerCase().trim().replace(/[.,!?;:'"()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
+    if (!clean) return false
 
+    const exactAffirmations = new Set([
+      'yes', 'yeah', 'yep', 'yup', 'sure', 'ok', 'okay', 'alright', 'fine', 'correct',
+      'understood', 'i understood', 'i understand', 'yes understood', 'yes i understood',
+      'got it', 'i got it', 'yes got it', 'clear', 'all clear', 'it is clear', 'its clear',
+      'crystal clear', 'doubts clear', 'no doubts', 'no doubt', 'zero doubts',
+      'ready', 'i am ready', 'im ready', 'ready for next', 'ready to move on',
+      'next', 'next concept', 'next page', 'move on', 'move to next', 'move to next concept',
+      'move to the next concept', 'advance', 'advance to next', 'advance to next concept',
+      'continue', 'proceed', 'go to next', 'go to next concept',
+      'haan', 'haanji', 'samajh gaya', 'samajh aa gaya', 'theek hai', 'bilkul', 'aage badho',
+      'done', 'concept done',
+    ])
+
+    if (exactAffirmations.has(clean)) return true
+
+    // If student provides an explanatory answer starting with yes (e.g. "yes because velocity is zero")
+    if (/\b(?:because|since|due to|as\s+\w+|when\s+\w+|where\s+\w+)\b/i.test(clean) && !/\b(?:next|advance|move\s*on|understood|clear|no\s*doubts?)\b/i.test(clean)) {
+      return false
+    }
+
+    const patterns = [
+      /\b(?:move|go|advance|proceed|step)\s*(?:on\s*)?(?:to\s*)?(?:the\s*)?next\b/i,
+      /\bnext\s*(?:concept|page|topic|chapter|lesson|question)\b/i,
+      /\b(?:i\s*)?(?:have\s*)?understood\b/i,
+      /\b(?:i\s*)?(?:got\s*it|understand)\b/i,
+      /\b(?:it\s*is|its|everything\s*is)?\s*(?:crystal\s*)?clear\b/i,
+      /\b(?:no|zero|without\s*any)\s*doubts?\b/i,
+      /\b(?:ready|prepared)\s*(?:for|to\s*move\s*to)\s*(?:the\s*)?next\b/i,
+      /\b(?:samajh\s*gaya|samajh\s*aa\s*gaya|aage\s*chalo|aage\s*badho)\b/i,
+      /^(?:yes|yeah|yep|yup|sure|ok|okay)(?:\s+(?:sir|teacher|ma'?am|sobi|tutor|please|now))?$/i,
+      /^(?:yes|yeah|yep|yup|sure|ok|okay),?\s*(?:please\s*)?(?:move|continue|proceed|next|advance|understood|clear|i\s*understood|all\s*clear)/i,
+      /(?:understood|clear|got\s*it)[\s\w]*\b(?:move|next|advance|continue|proceed)\b/i,
+    ]
+
+    return patterns.some((p) => p.test(clean))
+  }
 
   // Check and increment request quota
   const checkAndRecordRequestQuota = useCallback(async (): Promise<boolean> => {
@@ -838,8 +881,22 @@ export default function ModuleClassroomPage() {
 
     const cleanAnswer = answer.trim()
 
+    // Socratic Affirmation & Next Concept Fast-Path
+    if (isConfirmationOrNextIntent(cleanAnswer)) {
+      lastVerdictStatusRef.current = 'correct'
+      isReviewingVerdictRef.current = false
+      setIsReviewingVerdict(false)
+      isAwaitingStudentAnswerRef.current = false
+      setIsAwaitingStudentAnswer(false)
+
+      chalkboardRef.current?.drawStudentAnswer?.(cleanAnswer, undefined, 'blue')
+      chalkboardRef.current?.drawAnswerVerdict?.('Understood! Advancing to next concept...', true, 'botanical')
+
+      handleConceptDoneRef.current?.(cleanAnswer)
+      return
+    }
+
     // Socratic Answer Handling: ALWAYS draw student answer and send for evaluation
-    // NEVER automatically jump to next page or call handleConceptDone() from answer input
     isAwaitingStudentAnswerRef.current = false
     setIsAwaitingStudentAnswer(false)
     isReviewingVerdictRef.current = true
@@ -854,7 +911,7 @@ export default function ModuleClassroomPage() {
 2. Write the verdict and model answer on this current whiteboard page using write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>").
 3. If incorrect or hesitant, break down the step and co-solve with me in [ROUGH_WORK].
 4. HARD STOP: Ask me if I understood or if I am ready for the next concept.
-5. DO NOT advance to the next concept or page yet! Remain on this current concept page so I can review the chalkboard notes.`
+5. Once I confirm understanding (e.g. if I say "yes", "understood", "clear", "got it", "move on", "next", "ready"), YOU MUST IMMEDIATELY call concept_completed(conceptName="...") or write_chalkboard(action="concept_done") to advance to the next concept page without asking again.`
     )
   }
 
@@ -865,6 +922,21 @@ export default function ModuleClassroomPage() {
 
     const cleanAnswer = answer.trim()
 
+    // Socratic Affirmation & Next Concept Fast-Path
+    if (isConfirmationOrNextIntent(cleanAnswer)) {
+      lastVerdictStatusRef.current = 'correct'
+      isReviewingVerdictRef.current = false
+      setIsReviewingVerdict(false)
+      isAwaitingStudentAnswerRef.current = false
+      setIsAwaitingStudentAnswer(false)
+
+      chalkboardRef.current?.drawStudentAnswer?.(cleanAnswer, undefined, 'blue')
+      chalkboardRef.current?.drawAnswerVerdict?.('Understood! Advancing to next concept...', true, 'botanical')
+
+      handleConceptDoneRef.current?.(cleanAnswer)
+      return
+    }
+
     isAwaitingStudentAnswerRef.current = false
     setIsAwaitingStudentAnswer(false)
     isReviewingVerdictRef.current = true
@@ -879,7 +951,7 @@ export default function ModuleClassroomPage() {
 2. Write the verdict and model answer on this current whiteboard page using write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>").
 3. If incorrect or hesitant, break down the step and co-solve with me in [ROUGH_WORK].
 4. HARD STOP: Ask me if I understood or if I am ready for the next concept.
-5. DO NOT advance to the next concept or page yet! Remain on this current concept page so I can review the chalkboard notes.`
+5. Once I confirm understanding (e.g. if I say "yes", "understood", "clear", "got it", "move on", "next", "ready"), YOU MUST IMMEDIATELY call concept_completed(conceptName="...") or write_chalkboard(action="concept_done") to advance to the next concept page without asking again.`
     )
   }
 
@@ -1626,12 +1698,14 @@ export default function ModuleClassroomPage() {
       const userKey = `${transcriptId}:user_ack`
 
       if (!executedSceneDirectivesRef.current.has(userKey)) {
-        // Only trigger concept advancement if the student gives an EXPLICIT navigation command
-        const isExplicitNext = /(?:next\s*concept|next\s*page|move\s*(?:to\s*)?next\s*concept|advance\s*(?:to\s*)?next)/i.test(userText)
-
-        if (isExplicitNext && lastVerdictStatusRef.current === 'correct') {
+        if (isConfirmationOrNextIntent(userText)) {
           executedSceneDirectivesRef.current.add(userKey)
-          handleConceptDone()
+          lastVerdictStatusRef.current = 'correct'
+          isReviewingVerdictRef.current = false
+          setIsReviewingVerdict(false)
+          isAwaitingStudentAnswerRef.current = false
+          setIsAwaitingStudentAnswer(false)
+          handleConceptDoneRef.current?.(userText)
         }
       }
     }
@@ -2637,6 +2711,17 @@ ${nextDossier}`
           : `Jumped to Concept ${targetIdx + 1}: "${targetConceptName}". Progress is ${newPercent}%.`,
         autoDismissMs: 5000,
       })
+
+      sendTextMessage(
+        `[JUMP TO CONCEPT ${targetIdx + 1} - PAGE ${targetIdx + 1}]:
+The student navigated directly to Concept ${targetIdx + 1} of ${keyConcepts.length}: "${targetConceptName}".
+The whiteboard has switched to Page ${targetIdx + 1} with the header "CONCEPT ${targetIdx + 1}: ${targetConceptName}".
+
+CRITICAL INSTRUCTIONS:
+1. FOCUS EXCLUSIVELY on this single concept: "${targetConceptName}". Do NOT repeat previous concepts.
+2. Introduce "${targetConceptName}" with an engaging real-life physical intuition hook (2-3 sentences max) and write on the board: write_chalkboard(action="draw_note", content="Intuition: <hook>", color="botanical").
+3. HARD STOP: Ask if the student understood the intuition, and wait for their response.`
+      )
     } catch (err) {
       console.error('Failed to rewind concept in database:', err)
     }
@@ -2706,6 +2791,7 @@ ${nextDossier}`
   }
 
   const handleConceptDone = (conceptName?: string) => {
+    handleConceptDoneRef.current = handleConceptDone
     isAwaitingStudentAnswerRef.current = false
     setIsAwaitingStudentAnswer(false)
     isReviewingVerdictRef.current = false
@@ -2715,7 +2801,7 @@ ${nextDossier}`
     if (keyConcepts.length === 0) return
 
     let matchedIdx = currentConceptIndexRef.current
-    if (conceptName?.trim()) {
+    if (conceptName?.trim() && !isConfirmationOrNextIntent(conceptName)) {
       const numMatch = String(conceptName).match(/\b(\d+)\b/)
       if (numMatch) {
         const parsed = parseInt(numMatch[1], 10)
@@ -3155,8 +3241,8 @@ STRICT 6-STAGE CADENCE PER CONCEPT:
   * write_chalkboard(action="draw_student_answer", content="Student: <their answer>", color="blue")
   * write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>", color="botanical")
   * If wrong or hesitant: Break down with visual analogy, co-solve line-by-line in rough work, and re-test.
-  * STRICT PROGRESSION GATING: You are STRICTLY FORBIDDEN from calling concept_completed or advancing if the student made a mistake, hesitates, or has doubts!
-  * Only when ALL checkpoint questions for this concept are answered correctly AND the student confirms zero doubts ("yes", "clear", "understood"), call concept_completed(conceptName="${currentConcept}").
+  * MANDATORY ADVANCEMENT ON CONFIRMATION: Once the student answers correctly OR confirms understanding (says "yes", "understood", "clear", "got it", "ready", "move on", "next", "no doubts"), YOU MUST IMMEDIATELY call concept_completed(conceptName="${currentConcept}") or write_chalkboard(action="concept_done").
+  * NEVER ask confirmation repeatedly once the student says "yes" or "understood". Advance immediately to keep the class dynamic and motivating!
 
 ========================================================================================
 EXPERIENCED MASTER TEACHER PEDAGOGY (TEACH LIKE AN ICONIC FACULTY MENTOR):
@@ -3767,11 +3853,6 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
               handleConceptFocus(cleanContent)
             }
           } else if (action === 'concept_done') {
-            if (lastVerdictStatusRef.current === 'incorrect') {
-              console.warn('[Classroom] Gating blocked premature concept_done: Student answer was marked incorrect!')
-              sendTextMessage('[SYSTEM NOTICE: GATING BLOCKED: The student answered incorrectly or has an unresolved doubt. You are STRICTLY FORBIDDEN from advancing. Re-explain the concept, solve with them on the chalkboard, and ask a follow-up check before completing this concept.]')
-              return
-            }
             isReviewingVerdictRef.current = false
             setIsReviewingVerdict(false)
             isAwaitingStudentAnswerRef.current = false
@@ -4000,13 +4081,29 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
             </div>
 
             {isCallActive && (
-              <div className="flex justify-center">
-                <CallControls
-                  isMuted={isMuted}
-                  userVolume={userVolume}
-                  onToggleMute={toggleMute}
-                  onEndCall={handleEndClass}
-                />
+              <div className="flex flex-col gap-2.5">
+                <div className="flex justify-center">
+                  <CallControls
+                    isMuted={isMuted}
+                    userVolume={userVolume}
+                    onToggleMute={toggleMute}
+                    onEndCall={handleEndClass}
+                  />
+                </div>
+                <button
+                  id="understood-next-concept-btn"
+                  type="button"
+                  onClick={() => {
+                    lastVerdictStatusRef.current = 'correct'
+                    handleConceptDone()
+                  }}
+                  className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-[var(--accent-sage)] text-white text-xs font-semibold shadow-xs hover:brightness-105 active:scale-[0.99] transition-all cursor-pointer"
+                  title="Mark current concept as understood and advance to next concept"
+                >
+                  <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                  <span>Understood · Next Concept</span>
+                  <ChevronRight className="w-3.5 h-3.5 shrink-0 ml-auto opacity-75" />
+                </button>
               </div>
             )}
 

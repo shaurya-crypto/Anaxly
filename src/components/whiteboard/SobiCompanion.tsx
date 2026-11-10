@@ -345,9 +345,16 @@ export function SobiCompanion({
               </div>
 
               <div className="flex items-center justify-between gap-2 pt-1">
-                <span className="text-[10px] text-[#7A7C75] leading-tight">
-                  {isSubmitting ? 'Writing to board...' : 'Press Enter to submit'}
-                </span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    onSubmitAnswer?.('Understood, move to next concept')
+                  }}
+                  className="px-2 py-1 rounded-lg bg-[#52715D]/15 text-[#52715D] hover:bg-[#52715D]/25 text-[10px] font-semibold transition-colors cursor-pointer"
+                  title="Understood, advance to next concept"
+                >
+                  Understood · Next
+                </button>
                 <button
                   type="submit"
                   disabled={!typedAnswer.trim() || isSubmitting}
