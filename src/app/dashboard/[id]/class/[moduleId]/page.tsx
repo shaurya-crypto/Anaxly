@@ -1955,7 +1955,7 @@ export default function ModuleClassroomPage() {
           chalkboardRef.current?.drawDiagramSkeleton?.(targetConcept)
           setGeneratingDiagramTitle(targetConcept)
           sendBoardContext(
-            `[SYSTEM NOTICE: Online search found no exact image. The digital chalkboard is currently generating the detailed vector diagram for "${targetConcept}" via Live Class Fast Diagram Generation. A skeleton preview placeholder is on the board. Continue explaining the intuitive analogy verbally to the student and inform them the drawing will appear in a few moments.]`
+            `[SYSTEM NOTICE: The digital chalkboard is currently generating the detailed vector diagram for "${targetConcept}" via Live Class Fast Diagram Generation. A skeleton preview placeholder is on the board. Continue explaining the intuitive analogy verbally to the student and inform them the drawing will appear in a few moments.]`
           )
 
           fetch('/api/diagram/generate', {
@@ -2900,49 +2900,78 @@ ${nextDossier}`
       ? activeModule.concept_visuals
       : []
 
-    const visualRoadmap = keyConcepts
-      .map((c: string, i: number) => {
-        const cv =
-          conceptVisuals[i] ||
-          conceptVisuals.find((v: any) =>
-            (v.concept_title || '').toLowerCase().includes(c.toLowerCase()) ||
-            c.toLowerCase().includes((v.concept_title || '').toLowerCase()) ||
-            (v.diagram_title || '').toLowerCase().includes(c.toLowerCase())
-          )
-        const vTitle = cv?.diagram_title || cv?.concept_title || c
-        const timing = cv?.timing_and_cue || 'Step 1 (Intuition) or Step 2 (Definition)'
-        const why = cv?.why_needed || 'Visual grounding of core principles'
-        const explain = cv?.what_to_explain || cv?.what_to_make || ''
+    const formatVisualEntry = (cv: any, conceptName: string, subLabel: string) => {
+      const vTitle = cv?.diagram_title || cv?.concept_title || conceptName
+      const timing = cv?.timing_and_cue || 'Step 1 (Intuition) or Step 2 (Definition) or during problem solving'
+      const why = cv?.why_needed || 'Visual grounding of core principles'
+      const explain = cv?.what_to_explain || cv?.what_to_make || ''
 
-        const isLegitGraph = isLegitimateGraphTopic(c, resolvedSubject)
-        if (isLegitGraph && (cv?.interactive_math_formula || cv?.diagram_type === 'graph')) {
-          return `  * Concept #${i + 1} "${c}":\n    - Visual Type: Interactive Mathematical/Kinematic Graph (Requires Worked Math)\n    - Tool Call Cue: plot_mathematical_graph(formula="${cv?.interactive_math_formula || '2x + 1'}", title="${vTitle}")\n    - Timing: ${timing}\n    - Focus: ${explain || why}\n    - Requirement: Accompany with worked chalkboard calculations (draw_step, draw_rough_work).`
+      const isLegitGraph = isLegitimateGraphTopic(conceptName, resolvedSubject) || isLegitimateGraphTopic(vTitle, resolvedSubject)
+      if (isLegitGraph && (cv?.interactive_math_formula || cv?.diagram_type === 'graph' || cv?.mafs_graph_config)) {
+        return `    - Visual [${subLabel}]: Interactive Mathematical/Kinematic Graph (Requires Worked Math)\n      * Tool Call Cue: plot_mathematical_graph(formula="${cv?.interactive_math_formula || '2x + 1'}", title="${vTitle}")\n      * Timing: ${timing}\n      * Focus: ${explain || why}\n      * Requirement: Accompany with worked chalkboard calculations (draw_step, draw_rough_work).`
+      }
+
+      if (cv?.diagram_type === 'draw_flowchart') {
+        return `    - Visual [${subLabel}]: Process Flowchart\n      * Tool Call Cue: write_chalkboard(action="draw_flowchart", content="${cv?.what_to_make || conceptName}")\n      * Timing: ${timing}`
+      }
+
+      if (cv?.diagram_type === 'draw_shape') {
+        return `    - Visual [${subLabel}]: Geometric Shape Primitive\n      * Tool Call Cue: draw_shape(shape="${cv?.what_to_make || 'rectangle'}", label="${vTitle}")\n      * Timing: ${timing}`
+      }
+
+      if (cv?.diagram_type === 'image' || cv?.image_url || cv?.image_search_query) {
+        const query = cv?.image_search_query || cv?.diagram_title || conceptName
+        const imgUrl = cv?.image_url || ''
+        return `    - Visual [${subLabel}]: Authentic Educational Image / Diagram\n      * Tool Call Cue: ${imgUrl ? `write_chalkboard(action="draw_image", content="${imgUrl} | ${vTitle} | ${explain || why}")` : `search_and_show_image(query="${query}", title="${vTitle}", caption="${explain || why}")`}\n      * Proactive Visual: Call search_and_show_image if student hesitates or requests another view\n      * Timing: ${timing}`
+      }
+
+      const hasSvg = Boolean(cv?.svg || cv?.diagram_svg)
+      if (!cv || (!hasSvg && !cv?.interactive_math_formula && cv?.diagram_type !== 'draw_flowchart' && cv?.diagram_type !== 'draw_shape' && cv?.diagram_type !== 'image')) {
+        const whatSpec = cv?.what_to_make || `Publication-grade scientific vector diagram illustrating ${conceptName}`
+        return `    - Visual [${subLabel}]: On-Demand Bespoke Vector Generation\n      * Tool Call Cue: render_svg_diagram(title="${conceptName}", what="${whatSpec}")\n      * Timing: ${timing}\n      * Notice: Digital chalkboard will display a live progress card and generate this diagram on-demand.`
+      }
+
+      const isAnimated = cv?.visual_type === 'animation' || /wave|current|flow|circuit|motion/i.test(vTitle)
+      return `    - Visual [${subLabel}]: ${isAnimated ? 'Animated Vector Visualization' : 'Tier 2 Publication-Grade Vector SVG'}\n      * Tool Call Cue: render_svg_diagram(title="${vTitle}", caption="${explain || why}")\n      * Timing: ${timing}\n      * Why Needed: ${why}`
+    }
+
+    const usedVisualIndices = new Set<number>()
+    const conceptRoadmaps = keyConcepts.map((c: string, i: number) => {
+      // Find all matching visuals for this concept (no limit to 1 or 2 graphs)
+      const matching: { cv: any; idx: number }[] = []
+      conceptVisuals.forEach((v: any, vIdx: number) => {
+        const vTitle = (v.concept_title || v.diagram_title || '').toLowerCase()
+        const cLower = c.toLowerCase()
+        if (vTitle.includes(cLower) || cLower.includes(vTitle)) {
+          matching.push({ cv: v, idx: vIdx })
+          usedVisualIndices.add(vIdx)
         }
-
-        if (cv?.diagram_type === 'draw_flowchart') {
-          return `  * Concept #${i + 1} "${c}":\n    - Visual Type: Process Flowchart\n    - Tool Call Cue: write_chalkboard(action="draw_flowchart", content="${cv?.what_to_make || c}")\n    - Timing: ${timing}`
-        }
-
-        if (cv?.diagram_type === 'draw_shape') {
-          return `  * Concept #${i + 1} "${c}":\n    - Visual Type: Geometric Shape Primitive\n    - Tool Call Cue: draw_shape(shape="${cv?.what_to_make || 'rectangle'}", label="${vTitle}")\n    - Timing: ${timing}`
-        }
-
-        if (cv?.diagram_type === 'image' || cv?.image_url || cv?.image_search_query) {
-          const query = cv?.image_search_query || cv?.diagram_title || c
-          const imgUrl = cv?.image_url || ''
-          return `  * Concept #${i + 1} "${c}":\n    - Visual Type: Authentic Scientific Educational Image / Micrograph\n    - Tool Call Cue: ${imgUrl ? `write_chalkboard(action="draw_image", content="${imgUrl} | ${vTitle} | ${explain || why}")` : `search_and_show_image(query="${query}", title="${vTitle}", caption="${explain || why}")`}\n    - Proactive Visual: Call search_and_show_image if student hesitates or requests another view\n    - Timing: ${timing}`
-        }
-
-        const hasSvg = Boolean(cv?.svg || cv?.diagram_svg)
-        if (!cv || (!hasSvg && !cv?.interactive_math_formula && cv?.diagram_type !== 'draw_flowchart' && cv?.diagram_type !== 'draw_shape' && cv?.diagram_type !== 'image')) {
-          const whatSpec = cv?.what_to_make || `Publication-grade scientific vector diagram illustrating ${c}`
-          return `  * Concept #${i + 1} "${c}":\n    - Visual Status: On-Demand Bespoke Vector Generation\n    - Tool Call Cue: render_svg_diagram(title="${c}", what="${whatSpec}")\n    - Timing: ${timing}\n    - Notice: Digital chalkboard will display a live progress card and generate this diagram on-demand.`
-        }
-
-        const isAnimated = cv?.visual_type === 'animation' || /wave|current|flow|circuit|motion/i.test(vTitle)
-        return `  * Concept #${i + 1} "${c}":\n    - Visual Type: ${isAnimated ? 'Animated Vector Visualization' : 'Tier 2 Publication-Grade Vector SVG'}\n    - Tool Call Cue: render_svg_diagram(title="${vTitle}", caption="${explain || why}")\n    - Timing: ${timing}\n    - Why Needed: ${why}`
       })
-      .join('\n')
+      if (matching.length === 0 && conceptVisuals[i]) {
+        matching.push({ cv: conceptVisuals[i], idx: i })
+        usedVisualIndices.add(i)
+      }
+
+      if (matching.length === 0) {
+        return `  * Concept #${i + 1} "${c}":\n` + formatVisualEntry(null, c, 'Primary Visual')
+      }
+
+      const visualEntries = matching.map((item, mIdx) =>
+        formatVisualEntry(item.cv, c, `Visual ${mIdx + 1}`)
+      )
+      return `  * Concept #${i + 1} "${c}":\n` + visualEntries.join('\n')
+    })
+
+    const unusedVisuals = conceptVisuals.filter((_, idx) => !usedVisualIndices.has(idx))
+    const additionalVisualsText = unusedVisuals.length > 0
+      ? `\n  * Additional Available Mathematical Graphs & Visuals (Plot as needed, no limit):\n` +
+        unusedVisuals.map((cv, uIdx) => formatVisualEntry(cv, cv.diagram_title || cv.concept_title || 'Additional Visual', `Extra Graph #${uIdx + 1}`)).join('\n')
+      : ''
+
+    const visualRoadmap =
+      `VISUAL FREEDOM DIRECTIVE: You are NOT limited to 1 or 2 graphs per concept. Use interactive graphs (plot_mathematical_graph), vector diagrams (render_svg_diagram), and chalkboard calculations whenever mathematically helpful or requested by the student.\n` +
+      conceptRoadmaps.join('\n') +
+      additionalVisualsText
 
     const studentFirstName = studentName ? studentName.split(' ')[0].trim() : ''
 
@@ -3639,7 +3668,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
               chalkboardRef.current?.drawDiagramSkeleton?.(targetConceptTitle)
               setGeneratingDiagramTitle(targetConceptTitle)
               sendBoardContext(
-                `[SYSTEM NOTICE: Online search found no exact image. The digital chalkboard is currently generating the detailed vector diagram for "${targetConceptTitle}" via Live Class Fast Diagram Generation. A skeleton preview placeholder is on the board. Continue explaining the intuitive analogy verbally to the student and inform them the drawing will appear in a few moments.]`
+                `[SYSTEM NOTICE: The digital chalkboard is currently generating the detailed vector diagram for "${targetConceptTitle}" via Live Class Fast Diagram Generation. A skeleton preview placeholder is on the board. Continue explaining the intuitive analogy verbally to the student and inform them the drawing will appear in a few moments.]`
               )
 
               fetch('/api/diagram/generate', {

@@ -3714,8 +3714,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         if (svgHeight < 140) svgHeight = 160
 
         const fileId = `svg_${Date.now()}_${Math.random().toString(36).substring(2, 8)}` as any
-        const rawDataURL = svgToBase64DataUrl(cleanSvg)
-        let resolvedDataURL = sanitizeBase64DataUrl(rawDataURL) || rawDataURL
+        const dataURL = svgToBase64DataUrl(cleanSvg)
+        let resolvedDataURL = sanitizeBase64DataUrl(dataURL) || dataURL
         let fileMimeType = 'image/svg+xml'
 
         // Pre-validate SVG to prevent Excalidraw internal console.error("Invalid SVG")
