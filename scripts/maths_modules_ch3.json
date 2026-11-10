@@ -1,0 +1,905 @@
+[
+  {
+    "order_index": 1,
+    "title": "Number Foundations: Dawn of Counting, Śhūnya (Zero) & Integer Arithmetic",
+    "description": "Explore the history of numbers from tally marks and Ishango bone prime columns to Indian trade mathematics at Lothal, Brahmagupta's rules of fortunes and debts, and integer arithmetic.",
+    "subtopics": [
+      "Tally sticks and bone markings: The Ishango bone prime sequence (11, 13, 17, 19)",
+      "The Indian Context: Port city of Lothal trade barter ratios",
+      "The Revolution of Śhūnya: Philosophical and mathematical genesis of zero",
+      "The Bakhshālī Manuscript and Brahmagupta's Brahmasphutasiddhanta (628 CE)",
+      "Brahmagupta's rules: Fortunes (positive), Debts (negative), and Zero",
+      "Integer Arithmetic: Sign conventions in addition, subtraction, multiplication"
+    ],
+    "key_concepts": [
+      "Ancient Counting: Numerical tallies evolved into positional decimal systems in India.",
+      "Śhūnya Invariant: Zero is both a place-holder and a full-fledged algebraic number satisfying a + 0 = a, a * 0 = 0.",
+      "Brahmagupta's Debt Rules: Negative numbers (debts) obey: debt minus zero is debt; product of two debts is a fortune ((-) * (-) = (+)); product of a debt and a fortune is a debt ((-) * (+) = (-)).",
+      "Absolute Value: |x| represents distance from zero on the number line; |x| >= 0 for all real numbers."
+    ],
+    "success_criteria": "Student can state historical origins of zero, apply Brahmagupta's rules, and perform integer operations with zero sign errors.",
+    "chapter_notes": "### 1.1 From Tally Marks to Positional Notation\nHumanity recorded counts on bones and clay. The **Ishango bone** (c. 20,000 BCE) contains tally columns displaying primes: $11, 13, 17, 19$. In the Harappan port of **Lothal**, standard weights and exchange ratios governed commerce.\n\n### 1.2 The Revolution of Śhūnya (Zero)\nIn 628 CE, Indian mathematician **Brahmagupta** formulated the algebraic laws of zero (*Śhūnya*), fortunes (*Dhana* / positive), and debts (*Rina* / negative) in the *Brahmasphutasiddhanta*:\n1. A fortune minus zero is a fortune: $(+a) - 0 = +a$.\n2. A debt minus zero is a debt: $(-a) - 0 = -a$.\n3. The product of two fortunes is a fortune: $(+a) \\times (+b) = +(ab)$.\n4. The product of two debts is a fortune: $(-a) \\times (-b) = +(ab)$.\n5. The product of a debt and a fortune is a debt: $(-a) \\times (+b) = -(ab)$.",
+    "worked_examples": [
+      {
+        "problem": "Exercise 3.1 Q1: A merchant in the port city of Lothal is exchanging bags of spices for copper ingots. He receives 15 ingots for every 2 bags of spices. If he brings 12 bags of spices to the market, how many copper ingots will he leave with?",
+        "given": "Exchange rate: 15 copper ingots for every 2 bags of spices. Total bags brought = 12.",
+        "formula": "Total ingots = (Bags / 2) * 15.",
+        "substitution": "Total = (12 / 2) * 15.",
+        "calculation": "Step 1: Find the number of 2-bag units in 12 bags:\n12 / 2 = 6 units.\nStep 2: Multiply by 15 ingots per unit:\n6 * 15 = 90 copper ingots.\nStep 3: Direct proportion check: 15 / 2 = 7.5 ingots/bag. 12 * 7.5 = 90 ingots.",
+        "finalAnswer": "The merchant leaves with 90 copper ingots.",
+        "unit": "ingots",
+        "has_diagram": false
+      },
+      {
+        "problem": "Exercise 3.2 Q1 & Q2: (Q1) The temperature in Ladakh is 4°C at noon. By midnight, it drops by 15°C. What is the midnight temperature? (Q2) A spice trader takes a debt of Rs 850, makes a profit of Rs 1,200, and incurs a loss of Rs 450. What is his net balance?",
+        "given": "Q1: Initial temp = +4°C, drop = 15°C. Q2: Debt = -850, profit = +1200, loss = -450.",
+        "formula": "Q1: T_final = T_initial - drop. Q2: Net = (-850) + (+1200) + (-450).",
+        "substitution": "Q1: 4 - 15. Q2: -850 + 1200 - 450.",
+        "calculation": "Part Q1:\n1. Start at +4 on the number line.\n2. Move 15 units in the negative direction (left):\n4 - 15 = -11°C.\n\nPart Q2:\n1. Combine debts/losses: (-850) + (-450) = -1300 rupees.\n2. Combine with fortune: 1200 + (-1300) = -100 rupees.\n3. Negative 100 means a net debt of Rs 100.",
+        "finalAnswer": "Q1: Midnight temperature = -11°C; Q2: Net balance = -100 rupees (a debt of Rs 100).",
+        "unit": "rupees / °C",
+        "has_diagram": true,
+        "diagram_type": "vector_svg_diagram",
+        "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Integer Number Line: Ladakh Temperature Drop</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Temperature drops 15°C from +4°C to -11°C: 4 - 15 = -11</text>\n        </g>\n        \n  <line x1=\"50\" y1=\"190\" x2=\"530\" y2=\"190\" stroke=\"#334155\" stroke-width=\"2.5\" marker-end=\"url(#arrowSlate)\"/>\n  <line x1=\"80.0\" y1=\"184\" x2=\"80.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"80.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-15</text>\n  <line x1=\"96.79999999999998\" y1=\"184\" x2=\"96.79999999999998\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"96.79999999999998\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-14</text>\n  <line x1=\"113.6\" y1=\"184\" x2=\"113.6\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"113.6\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-13</text>\n  <line x1=\"130.39999999999998\" y1=\"184\" x2=\"130.39999999999998\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"130.39999999999998\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-12</text>\n  <line x1=\"147.2\" y1=\"184\" x2=\"147.2\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"147.2\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-11</text>\n  <line x1=\"164.0\" y1=\"184\" x2=\"164.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"164.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-10</text>\n  <line x1=\"180.79999999999998\" y1=\"184\" x2=\"180.79999999999998\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"180.79999999999998\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-9</text>\n  <line x1=\"197.6\" y1=\"184\" x2=\"197.6\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"197.6\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-8</text>\n  <line x1=\"214.39999999999998\" y1=\"184\" x2=\"214.39999999999998\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"214.39999999999998\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-7</text>\n  <line x1=\"231.2\" y1=\"184\" x2=\"231.2\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"231.2\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-6</text>\n  <line x1=\"248.0\" y1=\"184\" x2=\"248.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"248.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-5</text>\n  <line x1=\"264.8\" y1=\"184\" x2=\"264.8\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"264.8\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-4</text>\n  <line x1=\"281.6\" y1=\"184\" x2=\"281.6\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"281.6\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-3</text>\n  <line x1=\"298.4\" y1=\"184\" x2=\"298.4\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"298.4\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-2</text>\n  <line x1=\"315.2\" y1=\"184\" x2=\"315.2\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"315.2\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-1</text>\n  <line x1=\"332.0\" y1=\"184\" x2=\"332.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"332.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">0</text>\n  <line x1=\"348.8\" y1=\"184\" x2=\"348.8\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"348.8\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">1</text>\n  <line x1=\"365.6\" y1=\"184\" x2=\"365.6\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"365.6\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">2</text>\n  <line x1=\"382.4\" y1=\"184\" x2=\"382.4\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"382.4\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">3</text>\n  <line x1=\"399.2\" y1=\"184\" x2=\"399.2\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"399.2\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">4</text>\n  <line x1=\"416.0\" y1=\"184\" x2=\"416.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"416.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">5</text>\n  <line x1=\"432.8\" y1=\"184\" x2=\"432.8\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"432.8\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">6</text>\n  <line x1=\"449.6\" y1=\"184\" x2=\"449.6\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"449.6\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">7</text>\n  <line x1=\"466.4\" y1=\"184\" x2=\"466.4\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"466.4\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">8</text>\n  <line x1=\"483.20000000000005\" y1=\"184\" x2=\"483.20000000000005\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"483.20000000000005\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">9</text>\n  <line x1=\"500.0\" y1=\"184\" x2=\"500.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"500.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">10</text>\n  <circle cx=\"80.0\" cy=\"190\" r=\"5\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"80.0\" y1=\"182\" x2=\"80.0\" y2=\"160\" stroke=\"#2563EB\" stroke-width=\"1.5\"/>\n  <text x=\"80.0\" y=\"154\" fill=\"#2563EB\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">Midnight -11°C</text>\n  <circle cx=\"332.0\" cy=\"190\" r=\"5\" fill=\"#0F172A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"332.0\" y1=\"182\" x2=\"332.0\" y2=\"160\" stroke=\"#0F172A\" stroke-width=\"1.5\"/>\n  <text x=\"332.0\" y=\"154\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">Śhūnya (0)</text>\n  <circle cx=\"399.2\" cy=\"190\" r=\"5\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"399.2\" y1=\"182\" x2=\"399.2\" y2=\"160\" stroke=\"#DC2626\" stroke-width=\"1.5\"/>\n  <text x=\"399.2\" y=\"154\" fill=\"#DC2626\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">Noon +4°C</text>\n</svg>"
+      }
+    ],
+    "common_misconceptions": [
+      "Thinking that a negative number minus another negative number is always negative: (-5) - (-8) = +3.",
+      "Confusing the operation of subtracting with multiplying negatives: (-3) + (-4) = -7, NOT +12."
+    ],
+    "ai_system_prompt_context": "TEACHING CADENCE: Introduce integers using Brahmagupta's debts and fortunes. Connect with Ladakh temperatures. Draw number line.",
+    "visual_lesson_plan": {
+      "title": "Integer Number Line & Zero Visuals",
+      "diagram_type": "vector_svg_diagram",
+      "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Integer Number Line: Ladakh Temperature Drop</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Temperature drops 15°C from +4°C to -11°C: 4 - 15 = -11</text>\n        </g>\n        \n  <line x1=\"50\" y1=\"190\" x2=\"530\" y2=\"190\" stroke=\"#334155\" stroke-width=\"2.5\" marker-end=\"url(#arrowSlate)\"/>\n  <line x1=\"80.0\" y1=\"184\" x2=\"80.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"80.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-15</text>\n  <line x1=\"96.79999999999998\" y1=\"184\" x2=\"96.79999999999998\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"96.79999999999998\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-14</text>\n  <line x1=\"113.6\" y1=\"184\" x2=\"113.6\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"113.6\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-13</text>\n  <line x1=\"130.39999999999998\" y1=\"184\" x2=\"130.39999999999998\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"130.39999999999998\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-12</text>\n  <line x1=\"147.2\" y1=\"184\" x2=\"147.2\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"147.2\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-11</text>\n  <line x1=\"164.0\" y1=\"184\" x2=\"164.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"164.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-10</text>\n  <line x1=\"180.79999999999998\" y1=\"184\" x2=\"180.79999999999998\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"180.79999999999998\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-9</text>\n  <line x1=\"197.6\" y1=\"184\" x2=\"197.6\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"197.6\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-8</text>\n  <line x1=\"214.39999999999998\" y1=\"184\" x2=\"214.39999999999998\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"214.39999999999998\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-7</text>\n  <line x1=\"231.2\" y1=\"184\" x2=\"231.2\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"231.2\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-6</text>\n  <line x1=\"248.0\" y1=\"184\" x2=\"248.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"248.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-5</text>\n  <line x1=\"264.8\" y1=\"184\" x2=\"264.8\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"264.8\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-4</text>\n  <line x1=\"281.6\" y1=\"184\" x2=\"281.6\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"281.6\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-3</text>\n  <line x1=\"298.4\" y1=\"184\" x2=\"298.4\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"298.4\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-2</text>\n  <line x1=\"315.2\" y1=\"184\" x2=\"315.2\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"315.2\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-1</text>\n  <line x1=\"332.0\" y1=\"184\" x2=\"332.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"332.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">0</text>\n  <line x1=\"348.8\" y1=\"184\" x2=\"348.8\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"348.8\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">1</text>\n  <line x1=\"365.6\" y1=\"184\" x2=\"365.6\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"365.6\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">2</text>\n  <line x1=\"382.4\" y1=\"184\" x2=\"382.4\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"382.4\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">3</text>\n  <line x1=\"399.2\" y1=\"184\" x2=\"399.2\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"399.2\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">4</text>\n  <line x1=\"416.0\" y1=\"184\" x2=\"416.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"416.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">5</text>\n  <line x1=\"432.8\" y1=\"184\" x2=\"432.8\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"432.8\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">6</text>\n  <line x1=\"449.6\" y1=\"184\" x2=\"449.6\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"449.6\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">7</text>\n  <line x1=\"466.4\" y1=\"184\" x2=\"466.4\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"466.4\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">8</text>\n  <line x1=\"483.20000000000005\" y1=\"184\" x2=\"483.20000000000005\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"483.20000000000005\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">9</text>\n  <line x1=\"500.0\" y1=\"184\" x2=\"500.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"500.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">10</text>\n  <circle cx=\"80.0\" cy=\"190\" r=\"5\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"80.0\" y1=\"182\" x2=\"80.0\" y2=\"160\" stroke=\"#2563EB\" stroke-width=\"1.5\"/>\n  <text x=\"80.0\" y=\"154\" fill=\"#2563EB\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">Midnight -11°C</text>\n  <circle cx=\"332.0\" cy=\"190\" r=\"5\" fill=\"#0F172A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"332.0\" y1=\"182\" x2=\"332.0\" y2=\"160\" stroke=\"#0F172A\" stroke-width=\"1.5\"/>\n  <text x=\"332.0\" y=\"154\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">Śhūnya (0)</text>\n  <circle cx=\"399.2\" cy=\"190\" r=\"5\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"399.2\" y1=\"182\" x2=\"399.2\" y2=\"160\" stroke=\"#DC2626\" stroke-width=\"1.5\"/>\n  <text x=\"399.2\" y=\"154\" fill=\"#DC2626\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">Noon +4°C</text>\n</svg>",
+      "what_to_make": "Number line showing zero as origin and positive/negative temperature directions.",
+      "concept_visuals": [
+        {
+          "concept_title": "Brahmagupta Debt and Fortune Framework",
+          "diagram_title": "Integer Number Line Displacements",
+          "diagram_type": "vector_svg_diagram",
+          "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Integer Number Line: Ladakh Temperature Drop</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Temperature drops 15°C from +4°C to -11°C: 4 - 15 = -11</text>\n        </g>\n        \n  <line x1=\"50\" y1=\"190\" x2=\"530\" y2=\"190\" stroke=\"#334155\" stroke-width=\"2.5\" marker-end=\"url(#arrowSlate)\"/>\n  <line x1=\"80.0\" y1=\"184\" x2=\"80.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"80.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-15</text>\n  <line x1=\"96.79999999999998\" y1=\"184\" x2=\"96.79999999999998\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"96.79999999999998\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-14</text>\n  <line x1=\"113.6\" y1=\"184\" x2=\"113.6\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"113.6\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-13</text>\n  <line x1=\"130.39999999999998\" y1=\"184\" x2=\"130.39999999999998\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"130.39999999999998\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-12</text>\n  <line x1=\"147.2\" y1=\"184\" x2=\"147.2\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"147.2\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-11</text>\n  <line x1=\"164.0\" y1=\"184\" x2=\"164.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"164.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-10</text>\n  <line x1=\"180.79999999999998\" y1=\"184\" x2=\"180.79999999999998\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"180.79999999999998\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-9</text>\n  <line x1=\"197.6\" y1=\"184\" x2=\"197.6\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"197.6\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-8</text>\n  <line x1=\"214.39999999999998\" y1=\"184\" x2=\"214.39999999999998\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"214.39999999999998\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-7</text>\n  <line x1=\"231.2\" y1=\"184\" x2=\"231.2\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"231.2\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-6</text>\n  <line x1=\"248.0\" y1=\"184\" x2=\"248.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"248.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-5</text>\n  <line x1=\"264.8\" y1=\"184\" x2=\"264.8\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"264.8\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-4</text>\n  <line x1=\"281.6\" y1=\"184\" x2=\"281.6\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"281.6\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-3</text>\n  <line x1=\"298.4\" y1=\"184\" x2=\"298.4\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"298.4\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-2</text>\n  <line x1=\"315.2\" y1=\"184\" x2=\"315.2\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"315.2\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-1</text>\n  <line x1=\"332.0\" y1=\"184\" x2=\"332.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"332.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">0</text>\n  <line x1=\"348.8\" y1=\"184\" x2=\"348.8\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"348.8\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">1</text>\n  <line x1=\"365.6\" y1=\"184\" x2=\"365.6\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"365.6\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">2</text>\n  <line x1=\"382.4\" y1=\"184\" x2=\"382.4\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"382.4\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">3</text>\n  <line x1=\"399.2\" y1=\"184\" x2=\"399.2\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"399.2\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">4</text>\n  <line x1=\"416.0\" y1=\"184\" x2=\"416.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"416.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">5</text>\n  <line x1=\"432.8\" y1=\"184\" x2=\"432.8\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"432.8\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">6</text>\n  <line x1=\"449.6\" y1=\"184\" x2=\"449.6\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"449.6\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">7</text>\n  <line x1=\"466.4\" y1=\"184\" x2=\"466.4\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"466.4\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">8</text>\n  <line x1=\"483.20000000000005\" y1=\"184\" x2=\"483.20000000000005\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"483.20000000000005\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">9</text>\n  <line x1=\"500.0\" y1=\"184\" x2=\"500.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"500.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">10</text>\n  <circle cx=\"80.0\" cy=\"190\" r=\"5\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"80.0\" y1=\"182\" x2=\"80.0\" y2=\"160\" stroke=\"#2563EB\" stroke-width=\"1.5\"/>\n  <text x=\"80.0\" y=\"154\" fill=\"#2563EB\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">Midnight -11°C</text>\n  <circle cx=\"332.0\" cy=\"190\" r=\"5\" fill=\"#0F172A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"332.0\" y1=\"182\" x2=\"332.0\" y2=\"160\" stroke=\"#0F172A\" stroke-width=\"1.5\"/>\n  <text x=\"332.0\" y=\"154\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">Śhūnya (0)</text>\n  <circle cx=\"399.2\" cy=\"190\" r=\"5\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"399.2\" y1=\"182\" x2=\"399.2\" y2=\"160\" stroke=\"#DC2626\" stroke-width=\"1.5\"/>\n  <text x=\"399.2\" y=\"154\" fill=\"#DC2626\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">Noon +4°C</text>\n</svg>",
+          "interactive_math_formula": "4 - 15 = -11",
+          "mafs_graph_config": {
+            "domain": [
+              -15,
+              10
+            ],
+            "range": [
+              -2,
+              2
+            ],
+            "points": [
+              [
+                -11,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ]
+          },
+          "image_query": "Number line integers positive negative zero",
+          "video_query": "Brahmagupta history of zero and negative numbers animation",
+          "image_url": "/images/curriculum/ch3_integer_line.png",
+          "what_to_make": "Number line showing displacement from +4 by 15 units left to -11.",
+          "what_to_explain": "Explain that negative numbers represent directions opposite to the chosen positive benchmark.",
+          "timing_and_cue": "Introduce at 03:00 during integer subtraction."
+        }
+      ],
+      "concept_questions": [
+        {
+          "concept_index": 0,
+          "concept_title": "Brahmagupta Debt and Fortune Framework",
+          "questions": [
+            {
+              "q_num": "Q1",
+              "type": "1-mark MCQ",
+              "question": "What is the product of two negative numbers according to Brahmagupta's rules?",
+              "ideal_answer": "Positive (a fortune). 'The product of two debts is a fortune.'",
+              "socratic_hint": "Recall: what happens when you multiply (-) by (-)?"
+            },
+            {
+              "q_num": "Q2",
+              "type": "2-mark Short Answer",
+              "question": "Calculate: (-18) - (-25).",
+              "ideal_answer": "(-18) + 25 = 7.",
+              "socratic_hint": "Subtracting a negative number is equivalent to adding its absolute value."
+            },
+            {
+              "q_num": "Q3",
+              "type": "2-mark Short Answer",
+              "question": "What property of the sequence 11, 13, 17, 19 is carved on the Ishango bone?",
+              "ideal_answer": "They are consecutive prime numbers between 10 and 20.",
+              "socratic_hint": "Do any of these four numbers have factors other than 1 and themselves?"
+            },
+            {
+              "q_num": "Q4",
+              "type": "3-mark Short Answer",
+              "question": "Explain why division of a number by zero is not defined.",
+              "ideal_answer": "Division is the inverse of multiplication. If a/0 = k, then k*0 must equal a. But k*0 = 0 for all k, so if a != 0, no such number k exists. If a = 0, any number would work (indeterminate). Hence, division by zero is undefined.",
+              "socratic_hint": "If you multiply any number by zero, can you ever get 5?"
+            },
+            {
+              "q_num": "Q5",
+              "type": "2-mark Short Answer",
+              "question": "What is the absolute value |-42| and what does it physically represent?",
+              "ideal_answer": "|-42| = 42. It represents the physical distance of the point -42 from the origin 0 on the number line.",
+              "socratic_hint": "Can a geometric distance ever be negative?"
+            }
+          ]
+        }
+      ]
+    },
+    "curriculum_id": "09ca99d2-0489-48f2-8d39-8b26ca7885c9",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 25,
+    "quiz_questions": []
+  },
+  {
+    "order_index": 2,
+    "title": "Rational Numbers, Number Line Density & Baudhāyana Square Roots",
+    "description": "Understand rational numbers p/q, rational equality, the dense distribution of rationals on the continuum, Baudhāyana-Pythagoras square root construction (Theodorus spiral), and rigorous contradiction proof of irrationality.",
+    "subtopics": [
+      "Definition of Rational Numbers: p/q where p, q are integers and q != 0",
+      "Equivalent Rational Numbers: a/b = c/d if and only if ad = bc",
+      "Density of Rational Numbers: Infinitely many rationals between any two rationals",
+      "Midpoint method: r = (a + b) / 2",
+      "Baudhāyana square root spiral: Constructing sqrt(2), sqrt(3), sqrt(5) geometrically",
+      "Irrational Numbers: Numbers that cannot be expressed as p/q",
+      "Contradiction proof that sqrt(2) and sqrt(5) are irrational"
+    ],
+    "key_concepts": [
+      "Rational Invariant: Every rational number has a unique canonical representation p/q where gcd(p, q) = 1 and q > 0.",
+      "Density Property: The set of rational numbers Q is dense; between any two distinct rationals r1 < r2, there exist infinitely many rationals.",
+      "Surd Geometry: Square roots of non-square natural numbers (sqrt(2), sqrt(3), sqrt(5)) are lengths of hypotenuses of right triangles with integer/surd legs.",
+      "Irrationality Proof Invariant: Proving sqrt(p) is irrational relies on the Fundamental Theorem of Arithmetic (if p divides a^2, then p divides a)."
+    ],
+    "success_criteria": "Student can construct surds on the number line, find rational numbers between any two fractions, and write the complete contradiction proof of irrationality.",
+    "chapter_notes": "### 2.1 Density of Rational Numbers\nBetween any two distinct rational numbers $a$ and $b$ ($a < b$), there are **infinitely many rational numbers**.\n- A guaranteed rational number between $a$ and $b$ is their arithmetic mean:\n  $$m = \\frac{a + b}{2}$$\n\n### 2.2 Proof that $\\sqrt{5}$ is Irrational (CBSE Exam Topper Proof)\n**Theorem**: $\\sqrt{5}$ is an irrational number.\n1. Assume for contradiction that $\\sqrt{5}$ is rational.\n2. Then $\\sqrt{5} = \\frac{a}{b}$ where $a, b$ are coprime integers ($b \\ne 0, \\gcd(a, b) = 1$).\n3. Squaring both sides: $5 = \\frac{a^2}{b^2} \\implies a^2 = 5b^2$.\n4. This means $5$ divides $a^2$. Since $5$ is prime, **$5$ divides $a$**.\n5. Let $a = 5k$ for some integer $k$.\n6. Substitute into equation: $(5k)^2 = 5b^2 \\implies 25k^2 = 5b^2 \\implies b^2 = 5k^2$.\n7. This means $5$ divides $b^2$. Since $5$ is prime, **$5$ divides $b$**.\n8. Therefore, $5$ is a common factor of both $a$ and $b$.\n9. This contradicts our initial assumption that $\\gcd(a, b) = 1$ (coprime).\n10. Hence, our assumption that $\\sqrt{5}$ is rational is FALSE. **$\\sqrt{5}$ is irrational.** Q.E.D.",
+    "worked_examples": [
+      {
+        "problem": "Textbook Exercise 3.3 Q1: Prove that the following rational numbers are equal: (i) 2/3 and 4/6; (ii) 5/4 and 10/8; (iii) -3/5 and -6/10; (iv) 3 and 9/3.",
+        "given": "Pairs of rational numbers.",
+        "formula": "Two fractions a/b and c/d are equal if and only if cross-products are equal: a*d = b*c.",
+        "substitution": "Check a*d = b*c for each pair.",
+        "calculation": "1. (2/3 and 4/6): Cross products: 2 * 6 = 12, 3 * 4 = 12. Since 12 = 12, 2/3 = 4/6.\n2. (5/4 and 10/8): Cross products: 5 * 8 = 40, 4 * 10 = 40. Since 40 = 40, 5/4 = 10/8.\n3. (-3/5 and -6/10): Cross products: (-3) * 10 = -30, 5 * (-6) = -30. Since -30 = -30, -3/5 = -6/10.\n4. (3/1 and 9/3): Cross products: 3 * 3 = 9, 1 * 9 = 9. Since 9 = 9, 3 = 9/3.",
+        "finalAnswer": "All four pairs are rigorously proven equal via cross-multiplication equality a*d = b*c.",
+        "unit": "dimensionless",
+        "has_diagram": false
+      },
+      {
+        "problem": "End-of-Chapter Q2: Prove that sqrt(5) is an irrational number using the method of contradiction.",
+        "given": "Number sqrt(5).",
+        "formula": "Method of Contradiction: Assume sqrt(5) = a/b where gcd(a, b) = 1.",
+        "substitution": "5 = a^2 / b^2 => a^2 = 5b^2.",
+        "calculation": "Step 1: Assume to the contrary that sqrt(5) is rational.\nThen sqrt(5) = a/b, where a and b are integers, b != 0, and gcd(a, b) = 1 (coprime).\n\nStep 2: Square both sides:\n5 = a^2 / b^2\na^2 = 5b^2\n\nStep 3: Deduce divisibility of a:\nSince 5 divides a^2 and 5 is a prime number, 5 must divide a.\nThus, we can write a = 5k for some integer k.\n\nStep 4: Substitute a = 5k back into the equation:\n(5k)^2 = 5b^2\n25k^2 = 5b^2\nDivide both sides by 5:\nb^2 = 5k^2\n\nStep 5: Deduce divisibility of b:\nSince 5 divides b^2 and 5 is prime, 5 must divide b.\n\nStep 6: State the contradiction:\nFrom Steps 3 and 5, both a and b are divisible by 5. Thus gcd(a, b) >= 5.\nThis directly contradicts the fact that a and b are coprime (gcd(a, b) = 1).\n\nStep 7: Conclusion:\nOur assumption was incorrect. Therefore, sqrt(5) is an irrational number.",
+        "finalAnswer": "Rigorous contradiction proof complete: sqrt(5) is proven irrational.",
+        "unit": "dimensionless",
+        "has_diagram": true,
+        "diagram_type": "vector_svg_diagram",
+        "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Baudhāyana Square Root Spiral on Number Line</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Geometric construction of √2 and √3 via successive unit right triangles</text>\n        </g>\n        \n  <line x1=\"40\" y1=\"285\" x2=\"540\" y2=\"285\" stroke=\"#334155\" stroke-width=\"2\" marker-end=\"url(#arrowSlate)\"/>\n  <line x1=\"100\" y1=\"280\" x2=\"100\" y2=\"290\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"100\" y=\"305\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">0</text>\n  <line x1=\"180\" y1=\"280\" x2=\"180\" y2=\"290\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"180\" y=\"305\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">1</text>\n  <line x1=\"260\" y1=\"280\" x2=\"260\" y2=\"290\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"260\" y=\"305\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">2</text>\n  <line x1=\"340\" y1=\"280\" x2=\"340\" y2=\"290\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"340\" y=\"305\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">3</text>\n  <line x1=\"420\" y1=\"280\" x2=\"420\" y2=\"290\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"420\" y=\"305\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">4</text>\n  <line x1=\"500\" y1=\"280\" x2=\"500\" y2=\"290\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"500\" y=\"305\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">5</text>\n  <polygon points=\"100,285 180,285 180,205\" fill=\"rgba(37,99,235,0.08)\" stroke=\"#2563EB\" stroke-width=\"2\"/>\n  <line x1=\"100\" y1=\"285\" x2=\"180\" y2=\"205\" stroke=\"#DC2626\" stroke-width=\"2\"/>\n  <rect x=\"170\" y=\"275\" width=\"10\" height=\"10\" fill=\"none\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n  <text x=\"140.0\" y=\"279\" fill=\"#2563EB\" font-size=\"11\" font-weight=\"600\">Base = 1</text>\n  <text x=\"188\" y=\"245.0\" fill=\"#2563EB\" font-size=\"11\" font-weight=\"600\">Alt = 1</text>\n  <text x=\"128.0\" y=\"239.0\" fill=\"#DC2626\" font-size=\"12\" font-weight=\"700\">√2 ≈ 1.414</text>\n  <path d=\"M 180 205 A 113.13708498984761 113.13708498984761 0 0 1 213.1370849898476 285\" fill=\"none\" stroke=\"#DC2626\" stroke-width=\"1.8\" stroke-dasharray=\"4,4\"/>\n  <circle cx=\"213.1370849898476\" cy=\"285\" r=\"4\" fill=\"#DC2626\"/>\n  <text x=\"213.1370849898476\" y=\"319\" fill=\"#DC2626\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">√2</text>\n  <line x1=\"180\" y1=\"205\" x2=\"236.5685424949238\" y2=\"261.5685424949238\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <line x1=\"100\" y1=\"285\" x2=\"236.5685424949238\" y2=\"261.5685424949238\" stroke=\"#7C3AED\" stroke-width=\"2\"/>\n  <text x=\"230.5685424949238\" y=\"253.5685424949238\" fill=\"#7C3AED\" font-size=\"12\" font-weight=\"700\">√3 ≈ 1.732</text>\n  <path d=\"M 236.5685424949238 261.5685424949238 A 138.56406460551017 138.56406460551017 0 0 1 238.56406460551017 285\" fill=\"none\" stroke=\"#7C3AED\" stroke-width=\"1.8\" stroke-dasharray=\"4,4\"/>\n  <circle cx=\"238.56406460551017\" cy=\"285\" r=\"4\" fill=\"#7C3AED\"/>\n  <text x=\"238.56406460551017\" y=\"319\" fill=\"#7C3AED\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">√3</text>\n</svg>"
+      }
+    ],
+    "common_misconceptions": [
+      "Asserting that sqrt(5) is irrational simply by computing 2.236... on a calculator (calculators only show finite decimal places; a mathematical proof requires contradiction).",
+      "Forgetting to state that a and b are coprime in the hypothesis."
+    ],
+    "ai_system_prompt_context": "TEACHING CADENCE: Guide student through the 7-step contradiction proof on the chalkboard. Point out why the prime divisor lemma is required.",
+    "visual_lesson_plan": {
+      "title": "Baudhāyana Spiral & Surd Construction Visuals",
+      "diagram_type": "vector_svg_diagram",
+      "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Baudhāyana Square Root Spiral on Number Line</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Geometric construction of √2 and √3 via successive unit right triangles</text>\n        </g>\n        \n  <line x1=\"40\" y1=\"285\" x2=\"540\" y2=\"285\" stroke=\"#334155\" stroke-width=\"2\" marker-end=\"url(#arrowSlate)\"/>\n  <line x1=\"100\" y1=\"280\" x2=\"100\" y2=\"290\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"100\" y=\"305\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">0</text>\n  <line x1=\"180\" y1=\"280\" x2=\"180\" y2=\"290\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"180\" y=\"305\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">1</text>\n  <line x1=\"260\" y1=\"280\" x2=\"260\" y2=\"290\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"260\" y=\"305\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">2</text>\n  <line x1=\"340\" y1=\"280\" x2=\"340\" y2=\"290\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"340\" y=\"305\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">3</text>\n  <line x1=\"420\" y1=\"280\" x2=\"420\" y2=\"290\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"420\" y=\"305\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">4</text>\n  <line x1=\"500\" y1=\"280\" x2=\"500\" y2=\"290\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"500\" y=\"305\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">5</text>\n  <polygon points=\"100,285 180,285 180,205\" fill=\"rgba(37,99,235,0.08)\" stroke=\"#2563EB\" stroke-width=\"2\"/>\n  <line x1=\"100\" y1=\"285\" x2=\"180\" y2=\"205\" stroke=\"#DC2626\" stroke-width=\"2\"/>\n  <rect x=\"170\" y=\"275\" width=\"10\" height=\"10\" fill=\"none\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n  <text x=\"140.0\" y=\"279\" fill=\"#2563EB\" font-size=\"11\" font-weight=\"600\">Base = 1</text>\n  <text x=\"188\" y=\"245.0\" fill=\"#2563EB\" font-size=\"11\" font-weight=\"600\">Alt = 1</text>\n  <text x=\"128.0\" y=\"239.0\" fill=\"#DC2626\" font-size=\"12\" font-weight=\"700\">√2 ≈ 1.414</text>\n  <path d=\"M 180 205 A 113.13708498984761 113.13708498984761 0 0 1 213.1370849898476 285\" fill=\"none\" stroke=\"#DC2626\" stroke-width=\"1.8\" stroke-dasharray=\"4,4\"/>\n  <circle cx=\"213.1370849898476\" cy=\"285\" r=\"4\" fill=\"#DC2626\"/>\n  <text x=\"213.1370849898476\" y=\"319\" fill=\"#DC2626\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">√2</text>\n  <line x1=\"180\" y1=\"205\" x2=\"236.5685424949238\" y2=\"261.5685424949238\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <line x1=\"100\" y1=\"285\" x2=\"236.5685424949238\" y2=\"261.5685424949238\" stroke=\"#7C3AED\" stroke-width=\"2\"/>\n  <text x=\"230.5685424949238\" y=\"253.5685424949238\" fill=\"#7C3AED\" font-size=\"12\" font-weight=\"700\">√3 ≈ 1.732</text>\n  <path d=\"M 236.5685424949238 261.5685424949238 A 138.56406460551017 138.56406460551017 0 0 1 238.56406460551017 285\" fill=\"none\" stroke=\"#7C3AED\" stroke-width=\"1.8\" stroke-dasharray=\"4,4\"/>\n  <circle cx=\"238.56406460551017\" cy=\"285\" r=\"4\" fill=\"#7C3AED\"/>\n  <text x=\"238.56406460551017\" y=\"319\" fill=\"#7C3AED\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">√3</text>\n</svg>",
+      "what_to_make": "Spiral of Theodorus on number line showing right triangles for sqrt(2) and sqrt(3).",
+      "concept_visuals": [
+        {
+          "concept_title": "Geometric Root Construction",
+          "diagram_title": "Wheel of Theodorus on Number Line",
+          "diagram_type": "vector_svg_diagram",
+          "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Baudhāyana Square Root Spiral on Number Line</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Geometric construction of √2 and √3 via successive unit right triangles</text>\n        </g>\n        \n  <line x1=\"40\" y1=\"285\" x2=\"540\" y2=\"285\" stroke=\"#334155\" stroke-width=\"2\" marker-end=\"url(#arrowSlate)\"/>\n  <line x1=\"100\" y1=\"280\" x2=\"100\" y2=\"290\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"100\" y=\"305\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">0</text>\n  <line x1=\"180\" y1=\"280\" x2=\"180\" y2=\"290\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"180\" y=\"305\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">1</text>\n  <line x1=\"260\" y1=\"280\" x2=\"260\" y2=\"290\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"260\" y=\"305\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">2</text>\n  <line x1=\"340\" y1=\"280\" x2=\"340\" y2=\"290\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"340\" y=\"305\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">3</text>\n  <line x1=\"420\" y1=\"280\" x2=\"420\" y2=\"290\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"420\" y=\"305\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">4</text>\n  <line x1=\"500\" y1=\"280\" x2=\"500\" y2=\"290\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"500\" y=\"305\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">5</text>\n  <polygon points=\"100,285 180,285 180,205\" fill=\"rgba(37,99,235,0.08)\" stroke=\"#2563EB\" stroke-width=\"2\"/>\n  <line x1=\"100\" y1=\"285\" x2=\"180\" y2=\"205\" stroke=\"#DC2626\" stroke-width=\"2\"/>\n  <rect x=\"170\" y=\"275\" width=\"10\" height=\"10\" fill=\"none\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n  <text x=\"140.0\" y=\"279\" fill=\"#2563EB\" font-size=\"11\" font-weight=\"600\">Base = 1</text>\n  <text x=\"188\" y=\"245.0\" fill=\"#2563EB\" font-size=\"11\" font-weight=\"600\">Alt = 1</text>\n  <text x=\"128.0\" y=\"239.0\" fill=\"#DC2626\" font-size=\"12\" font-weight=\"700\">√2 ≈ 1.414</text>\n  <path d=\"M 180 205 A 113.13708498984761 113.13708498984761 0 0 1 213.1370849898476 285\" fill=\"none\" stroke=\"#DC2626\" stroke-width=\"1.8\" stroke-dasharray=\"4,4\"/>\n  <circle cx=\"213.1370849898476\" cy=\"285\" r=\"4\" fill=\"#DC2626\"/>\n  <text x=\"213.1370849898476\" y=\"319\" fill=\"#DC2626\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">√2</text>\n  <line x1=\"180\" y1=\"205\" x2=\"236.5685424949238\" y2=\"261.5685424949238\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <line x1=\"100\" y1=\"285\" x2=\"236.5685424949238\" y2=\"261.5685424949238\" stroke=\"#7C3AED\" stroke-width=\"2\"/>\n  <text x=\"230.5685424949238\" y=\"253.5685424949238\" fill=\"#7C3AED\" font-size=\"12\" font-weight=\"700\">√3 ≈ 1.732</text>\n  <path d=\"M 236.5685424949238 261.5685424949238 A 138.56406460551017 138.56406460551017 0 0 1 238.56406460551017 285\" fill=\"none\" stroke=\"#7C3AED\" stroke-width=\"1.8\" stroke-dasharray=\"4,4\"/>\n  <circle cx=\"238.56406460551017\" cy=\"285\" r=\"4\" fill=\"#7C3AED\"/>\n  <text x=\"238.56406460551017\" y=\"319\" fill=\"#7C3AED\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">√3</text>\n</svg>",
+          "interactive_math_formula": "c = \\sqrt{a^2 + b^2} = \\sqrt{1^2 + 1^2} = \\sqrt{2}",
+          "mafs_graph_config": {
+            "domain": [
+              0,
+              5
+            ],
+            "range": [
+              -1,
+              3
+            ],
+            "points": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1.414,
+                0
+              ]
+            ]
+          },
+          "image_query": "Wheel of theodorus square root spiral number line",
+          "video_query": "Constructing irrational numbers on number line animation",
+          "image_url": "/images/curriculum/ch3_root_spiral.png",
+          "what_to_make": "Successive right triangles with altitude 1 dropping arcs to the number line.",
+          "what_to_explain": "Show that surd lengths can be precisely transferred onto the number line using a compass arc.",
+          "timing_and_cue": "Introduce at 03:00 during geometric construction."
+        }
+      ],
+      "concept_questions": [
+        {
+          "concept_index": 0,
+          "concept_title": "Geometric Root Construction",
+          "questions": [
+            {
+              "q_num": "Q1",
+              "type": "1-mark MCQ",
+              "question": "Is sqrt(9) an irrational number?",
+              "ideal_answer": "No. sqrt(9) = 3 = 3/1, which is a rational number.",
+              "socratic_hint": "What is the principal square root of 9?"
+            },
+            {
+              "q_num": "Q2",
+              "type": "2-mark Short Answer",
+              "question": "Find a rational number strictly between 1/3 and 1/2.",
+              "ideal_answer": "Arithmetic mean = (1/3 + 1/2)/2 = (2/6 + 3/6)/2 = (5/6)/2 = 5/12.",
+              "socratic_hint": "Take the average of the two fractions."
+            },
+            {
+              "q_num": "Q3",
+              "type": "2-mark Short Answer",
+              "question": "Why is the sum of a rational number and an irrational number always irrational?",
+              "ideal_answer": "If r is rational and x is irrational, suppose r + x = s (rational). Then x = s - r. Since the difference of two rationals is rational, x would be rational, which contradicts that x is irrational.",
+              "socratic_hint": "Rearrange the equation to isolate the irrational number."
+            },
+            {
+              "q_num": "Q4",
+              "type": "3-mark Short Answer",
+              "question": "How can you construct a segment of length sqrt(5) using a right-angled triangle?",
+              "ideal_answer": "Construct a right triangle with base = 2 units and perpendicular altitude = 1 unit. By Pythagoras theorem, hypotenuse = sqrt(2^2 + 1^2) = sqrt(4 + 1) = sqrt(5) units.",
+              "socratic_hint": "What two integer squares add up to 5?"
+            },
+            {
+              "q_num": "Q5",
+              "type": "2-mark Short Answer",
+              "question": "State the density property of rational numbers.",
+              "ideal_answer": "Between any two distinct rational numbers, there exist infinitely many rational numbers.",
+              "socratic_hint": "How many times can you take the midpoint between two numbers?"
+            }
+          ]
+        }
+      ]
+    },
+    "curriculum_id": "09ca99d2-0489-48f2-8d39-8b26ca7885c9",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 25,
+    "quiz_questions": []
+  },
+  {
+    "order_index": 3,
+    "title": "Decimal Expansions: Terminating, Periodic Repeating & The p/q Conversion Algorithm",
+    "description": "Master long division decimal representations, the prime factorization criterion for terminating decimals (2^m * 5^n), and the exact algebraic algorithm for converting non-terminating repeating decimals into p/q form.",
+    "subtopics": [
+      "Terminating decimals: Remainder becomes zero (e.g. 3/8 = 0.375)",
+      "Non-terminating repeating decimals: Remainder repeats in cycles (e.g. 5/11 = 0.4545...)",
+      "The 2^m * 5^n Denominator Theorem for terminating decimals",
+      "Converting terminating decimals to p/q (e.g. 0.35 = 7/20)",
+      "Single-digit periodic conversion: 0.6 bar = 2/3",
+      "Two-digit periodic conversion: 0.45 bar = 5/11",
+      "Mixed periodic conversion with non-repeating prefixes: 0.16 bar and 2.357 bar"
+    ],
+    "key_concepts": [
+      "Terminating Criterion: A rational number p/q in simplest form has a terminating decimal expansion if and only if prime factorization of q contains only 2s and 5s: q = 2^m * 5^n.",
+      "Repeating Criterion: If q contains any prime factor other than 2 or 5 (such as 3, 7, 11), the decimal expansion is non-terminating and periodic.",
+      "Conversion Algorithm Invariant: Multiply x by 10^k (where k is number of non-repeating digits) to align the repeating bar, then multiply by 10^p (where p is period length) and subtract to eliminate the infinite tail."
+    ],
+    "success_criteria": "Student can predict terminating status without division and convert any repeating decimal into simplest p/q form.",
+    "chapter_notes": "### 3.1 Terminating vs Non-Terminating Decimals\nFor any rational number $\\frac{p}{q}$ in lowest terms:\n1. **Terminating**: $q = 2^m \\times 5^n$ (where $m, n \\ge 0$).\n2. **Non-terminating repeating**: $q$ has a prime factor $\\ne 2, 5$.\n\n### 3.2 The Master Algorithm: Converting Repeating Decimals to $\\frac{p}{q}$\n- **Step 1**: Let $x = 0.\\overline{a_1 \\dots a_p}$.\n- **Step 2**: Multiply by $10^p$ to shift one full period before decimal: $10^p x = a_1\\dots a_p.\\overline{a_1\\dots a_p}$.\n- **Step 3**: Subtract: $(10^p - 1)x = a_1\\dots a_p \\implies x = \\frac{a_1\\dots a_p}{10^p - 1}$.\n- **Step 4**: Reduce to lowest terms.",
+    "worked_examples": [
+      {
+        "problem": "Textbook Examples 5 & 6: Convert the following repeating decimals into p/q form: (i) 0.6 bar (Example 5); (ii) 0.45 bar (Example 6).",
+        "given": "(i) x = 0.666...; (ii) x = 0.454545...",
+        "formula": "Multiply by 10^p where p is the period length, then subtract original equation.",
+        "substitution": "(i) p = 1 -> multiply by 10. (ii) p = 2 -> multiply by 100.",
+        "calculation": "Part (i):\nStep 1: Let x = 0.666... (Equation 1)\nStep 2: Since 1 digit repeats (period p = 1), multiply both sides by 10:\n10x = 6.666... (Equation 2)\nStep 3: Subtract Equation 1 from Equation 2:\n10x - x = 6.666... - 0.666...\n9x = 6\nStep 4: Solve for x:\nx = 6 / 9 = 2 / 3.\n\nPart (ii):\nStep 1: Let x = 0.454545... (Equation 3)\nStep 2: Since 2 digits repeat (period p = 2), multiply both sides by 100:\n100x = 45.4545... (Equation 4)\nStep 3: Subtract Equation 3 from Equation 4:\n100x - x = 45.4545... - 0.4545...\n99x = 45\nStep 4: Solve for x:\nx = 45 / 99 = 5 / 11.",
+        "finalAnswer": "(i) 0.6 bar = 2/3; (ii) 0.45 bar = 5/11.",
+        "unit": "dimensionless",
+        "has_diagram": true,
+        "diagram_type": "vector_svg_diagram",
+        "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Decimal Expansion: 0.666... = 2/3</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Algebraic conversion: 10x - x = 6.666... - 0.666... =&gt; 9x = 6 =&gt; x = 2/3</text>\n        </g>\n        \n  <line x1=\"60.0\" y1=\"60\" x2=\"60.0\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"60.0\" y1=\"275.1818181818182\" x2=\"60.0\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"81.81818181818181\" y1=\"60\" x2=\"81.81818181818181\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"81.81818181818181\" y1=\"275.1818181818182\" x2=\"81.81818181818181\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"103.63636363636363\" y1=\"60\" x2=\"103.63636363636363\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"103.63636363636363\" y1=\"275.1818181818182\" x2=\"103.63636363636363\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"125.45454545454544\" y1=\"60\" x2=\"125.45454545454544\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"125.45454545454544\" y1=\"275.1818181818182\" x2=\"125.45454545454544\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"125.45454545454544\" y=\"294.1818181818182\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"middle\">2</text>\n  <line x1=\"147.27272727272725\" y1=\"60\" x2=\"147.27272727272725\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"147.27272727272725\" y1=\"275.1818181818182\" x2=\"147.27272727272725\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"169.09090909090907\" y1=\"60\" x2=\"169.09090909090907\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"169.09090909090907\" y1=\"275.1818181818182\" x2=\"169.09090909090907\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"169.09090909090907\" y=\"294.1818181818182\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"middle\">4</text>\n  <line x1=\"190.90909090909088\" y1=\"60\" x2=\"190.90909090909088\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"190.90909090909088\" y1=\"275.1818181818182\" x2=\"190.90909090909088\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"212.72727272727272\" y1=\"60\" x2=\"212.72727272727272\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"212.72727272727272\" y1=\"275.1818181818182\" x2=\"212.72727272727272\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"212.72727272727272\" y=\"294.1818181818182\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"middle\">6</text>\n  <line x1=\"234.54545454545453\" y1=\"60\" x2=\"234.54545454545453\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"234.54545454545453\" y1=\"275.1818181818182\" x2=\"234.54545454545453\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"256.3636363636364\" y1=\"60\" x2=\"256.3636363636364\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"256.3636363636364\" y1=\"275.1818181818182\" x2=\"256.3636363636364\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"256.3636363636364\" y=\"294.1818181818182\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"middle\">8</text>\n  <line x1=\"278.18181818181813\" y1=\"60\" x2=\"278.18181818181813\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"278.18181818181813\" y1=\"275.1818181818182\" x2=\"278.18181818181813\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"300.0\" y1=\"60\" x2=\"300.0\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"300.0\" y1=\"275.1818181818182\" x2=\"300.0\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"300.0\" y=\"294.1818181818182\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"middle\">10</text>\n  <line x1=\"40\" y1=\"300.0\" x2=\"540\" y2=\"300.0\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"300.0\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"278.1818181818182\" x2=\"540\" y2=\"278.1818181818182\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"278.1818181818182\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"256.3636363636364\" x2=\"540\" y2=\"256.3636363636364\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"256.3636363636364\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"234.54545454545456\" x2=\"540\" y2=\"234.54545454545456\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"234.54545454545456\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"73.81818181818181\" y=\"237.54545454545456\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"end\">2</text>\n  <line x1=\"40\" y1=\"212.72727272727275\" x2=\"540\" y2=\"212.72727272727275\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"212.72727272727275\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"190.90909090909093\" x2=\"540\" y2=\"190.90909090909093\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"190.90909090909093\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"73.81818181818181\" y=\"193.90909090909093\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"end\">4</text>\n  <line x1=\"40\" y1=\"169.09090909090912\" x2=\"540\" y2=\"169.09090909090912\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"169.09090909090912\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"147.27272727272728\" x2=\"540\" y2=\"147.27272727272728\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"147.27272727272728\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"73.81818181818181\" y=\"150.27272727272728\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"end\">6</text>\n  <line x1=\"40\" y1=\"125.45454545454547\" x2=\"540\" y2=\"125.45454545454547\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"125.45454545454547\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"103.63636363636365\" x2=\"540\" y2=\"103.63636363636365\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"103.63636363636365\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"73.81818181818181\" y=\"106.63636363636365\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"end\">8</text>\n  <line x1=\"40\" y1=\"81.81818181818184\" x2=\"540\" y2=\"81.81818181818184\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"81.81818181818184\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"60.00000000000003\" x2=\"540\" y2=\"60.00000000000003\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"60.00000000000003\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"73.81818181818181\" y=\"63.00000000000003\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"end\">10</text>\n  <line x1=\"40\" y1=\"278.1818181818182\" x2=\"540\" y2=\"278.1818181818182\" stroke=\"#334155\" stroke-width=\"1.8\" marker-end=\"url(#arrowSlate)\"/>\n  <line x1=\"81.81818181818181\" y1=\"320\" x2=\"81.81818181818181\" y2=\"60\" stroke=\"#334155\" stroke-width=\"1.8\" marker-end=\"url(#arrowSlate)\"/>\n  <text x=\"548\" y=\"282.1818181818182\" fill=\"#334155\" font-size=\"12\" font-weight=\"700\">X</text>\n  <text x=\"77.81818181818181\" y=\"52\" fill=\"#334155\" font-size=\"12\" font-weight=\"700\" text-anchor=\"end\">Y</text>\n  <text x=\"73.81818181818181\" y=\"294.1818181818182\" fill=\"#64748B\" font-size=\"11\" font-weight=\"600\">O</text>\n  <line x1=\"81.81818181818181\" y1=\"278.1818181818182\" x2=\"278.18181818181813\" y2=\"147.27272727272728\" stroke=\"#2563EB\" stroke-width=\"2.5\"/>\n  <rect x=\"155.99999999999997\" y=\"196.72727272727275\" width=\"48\" height=\"14\" rx=\"4\" fill=\"#FFFFFF\" opacity=\"0.9\"/>\n  <text x=\"179.99999999999997\" y=\"206.72727272727275\" fill=\"#2563EB\" font-size=\"10\" font-weight=\"600\" text-anchor=\"middle\">x = 2/3 ≈ 0.666...</text>\n  <circle cx=\"300.0\" cy=\"132.7418181818182\" r=\"4.5\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"1.5\"/>\n  <text x=\"308.0\" y=\"124.74181818181819\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"700\" text-anchor=\"start\">10x = 6.666... <tspan fill=\"#64748B\" font-size=\"9\" font-weight=\"500\">(10, 6.666)</tspan></text>\n  <circle cx=\"103.63636363636363\" cy=\"263.65090909090907\" r=\"4.5\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"1.5\"/>\n  <text x=\"111.63636363636363\" y=\"255.65090909090907\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"700\" text-anchor=\"start\">x = 0.666... <tspan fill=\"#64748B\" font-size=\"9\" font-weight=\"500\">(1, 0.666)</tspan></text>\n</svg>"
+      },
+      {
+        "problem": "Textbook Example 7: Convert 0.16 bar (where only 6 repeats) into p/q form.",
+        "given": "x = 0.1666...",
+        "formula": "Shift non-repeating digit by 10, then multiply by 10 again for the repeating period.",
+        "substitution": "Let x = 0.1666...",
+        "calculation": "Step 1: Let x = 0.1666... (Equation 1)\nStep 2: Multiply by 10 to shift non-repeating digit 1 before decimal:\n10x = 1.666... (Equation 2)\nStep 3: Multiply Equation 2 by 10 (since 1 digit repeats):\n100x = 16.666... (Equation 3)\nStep 4: Subtract Equation 2 from Equation 3:\n100x - 10x = 16.666... - 1.666...\n90x = 15\nStep 5: Solve for x:\nx = 15 / 90 = 1 / 6.\nStep 6: Verification: 1/6 = 0.1666... Verified!",
+        "finalAnswer": "0.16 bar = 1/6.",
+        "unit": "dimensionless",
+        "has_diagram": false
+      }
+    ],
+    "common_misconceptions": [
+      "Multiplying by 10 instead of 100 when two digits repeat under the bar.",
+      "Forgetting to multiply by 10 first to shift non-repeating digits before subtracting."
+    ],
+    "ai_system_prompt_context": "SOCRATIC DIRECTIVE: Ask student: 'Why did we multiply by 100 in 0.45 bar, but by 90 in 0.16 bar?' Emphasize alignment of infinite repeating tails.",
+    "visual_lesson_plan": {
+      "title": "Repeating Decimal Elimination Visuals",
+      "diagram_type": "vector_svg_diagram",
+      "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Decimal Expansion: 0.666... = 2/3</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Algebraic conversion: 10x - x = 6.666... - 0.666... =&gt; 9x = 6 =&gt; x = 2/3</text>\n        </g>\n        \n  <line x1=\"60.0\" y1=\"60\" x2=\"60.0\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"60.0\" y1=\"275.1818181818182\" x2=\"60.0\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"81.81818181818181\" y1=\"60\" x2=\"81.81818181818181\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"81.81818181818181\" y1=\"275.1818181818182\" x2=\"81.81818181818181\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"103.63636363636363\" y1=\"60\" x2=\"103.63636363636363\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"103.63636363636363\" y1=\"275.1818181818182\" x2=\"103.63636363636363\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"125.45454545454544\" y1=\"60\" x2=\"125.45454545454544\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"125.45454545454544\" y1=\"275.1818181818182\" x2=\"125.45454545454544\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"125.45454545454544\" y=\"294.1818181818182\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"middle\">2</text>\n  <line x1=\"147.27272727272725\" y1=\"60\" x2=\"147.27272727272725\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"147.27272727272725\" y1=\"275.1818181818182\" x2=\"147.27272727272725\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"169.09090909090907\" y1=\"60\" x2=\"169.09090909090907\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"169.09090909090907\" y1=\"275.1818181818182\" x2=\"169.09090909090907\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"169.09090909090907\" y=\"294.1818181818182\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"middle\">4</text>\n  <line x1=\"190.90909090909088\" y1=\"60\" x2=\"190.90909090909088\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"190.90909090909088\" y1=\"275.1818181818182\" x2=\"190.90909090909088\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"212.72727272727272\" y1=\"60\" x2=\"212.72727272727272\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"212.72727272727272\" y1=\"275.1818181818182\" x2=\"212.72727272727272\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"212.72727272727272\" y=\"294.1818181818182\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"middle\">6</text>\n  <line x1=\"234.54545454545453\" y1=\"60\" x2=\"234.54545454545453\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"234.54545454545453\" y1=\"275.1818181818182\" x2=\"234.54545454545453\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"256.3636363636364\" y1=\"60\" x2=\"256.3636363636364\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"256.3636363636364\" y1=\"275.1818181818182\" x2=\"256.3636363636364\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"256.3636363636364\" y=\"294.1818181818182\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"middle\">8</text>\n  <line x1=\"278.18181818181813\" y1=\"60\" x2=\"278.18181818181813\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"278.18181818181813\" y1=\"275.1818181818182\" x2=\"278.18181818181813\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"300.0\" y1=\"60\" x2=\"300.0\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"300.0\" y1=\"275.1818181818182\" x2=\"300.0\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"300.0\" y=\"294.1818181818182\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"middle\">10</text>\n  <line x1=\"40\" y1=\"300.0\" x2=\"540\" y2=\"300.0\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"300.0\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"278.1818181818182\" x2=\"540\" y2=\"278.1818181818182\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"278.1818181818182\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"256.3636363636364\" x2=\"540\" y2=\"256.3636363636364\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"256.3636363636364\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"234.54545454545456\" x2=\"540\" y2=\"234.54545454545456\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"234.54545454545456\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"73.81818181818181\" y=\"237.54545454545456\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"end\">2</text>\n  <line x1=\"40\" y1=\"212.72727272727275\" x2=\"540\" y2=\"212.72727272727275\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"212.72727272727275\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"190.90909090909093\" x2=\"540\" y2=\"190.90909090909093\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"190.90909090909093\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"73.81818181818181\" y=\"193.90909090909093\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"end\">4</text>\n  <line x1=\"40\" y1=\"169.09090909090912\" x2=\"540\" y2=\"169.09090909090912\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"169.09090909090912\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"147.27272727272728\" x2=\"540\" y2=\"147.27272727272728\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"147.27272727272728\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"73.81818181818181\" y=\"150.27272727272728\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"end\">6</text>\n  <line x1=\"40\" y1=\"125.45454545454547\" x2=\"540\" y2=\"125.45454545454547\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"125.45454545454547\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"103.63636363636365\" x2=\"540\" y2=\"103.63636363636365\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"103.63636363636365\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"73.81818181818181\" y=\"106.63636363636365\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"end\">8</text>\n  <line x1=\"40\" y1=\"81.81818181818184\" x2=\"540\" y2=\"81.81818181818184\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"81.81818181818184\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"60.00000000000003\" x2=\"540\" y2=\"60.00000000000003\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"60.00000000000003\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"73.81818181818181\" y=\"63.00000000000003\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"end\">10</text>\n  <line x1=\"40\" y1=\"278.1818181818182\" x2=\"540\" y2=\"278.1818181818182\" stroke=\"#334155\" stroke-width=\"1.8\" marker-end=\"url(#arrowSlate)\"/>\n  <line x1=\"81.81818181818181\" y1=\"320\" x2=\"81.81818181818181\" y2=\"60\" stroke=\"#334155\" stroke-width=\"1.8\" marker-end=\"url(#arrowSlate)\"/>\n  <text x=\"548\" y=\"282.1818181818182\" fill=\"#334155\" font-size=\"12\" font-weight=\"700\">X</text>\n  <text x=\"77.81818181818181\" y=\"52\" fill=\"#334155\" font-size=\"12\" font-weight=\"700\" text-anchor=\"end\">Y</text>\n  <text x=\"73.81818181818181\" y=\"294.1818181818182\" fill=\"#64748B\" font-size=\"11\" font-weight=\"600\">O</text>\n  <line x1=\"81.81818181818181\" y1=\"278.1818181818182\" x2=\"278.18181818181813\" y2=\"147.27272727272728\" stroke=\"#2563EB\" stroke-width=\"2.5\"/>\n  <rect x=\"155.99999999999997\" y=\"196.72727272727275\" width=\"48\" height=\"14\" rx=\"4\" fill=\"#FFFFFF\" opacity=\"0.9\"/>\n  <text x=\"179.99999999999997\" y=\"206.72727272727275\" fill=\"#2563EB\" font-size=\"10\" font-weight=\"600\" text-anchor=\"middle\">x = 2/3 ≈ 0.666...</text>\n  <circle cx=\"300.0\" cy=\"132.7418181818182\" r=\"4.5\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"1.5\"/>\n  <text x=\"308.0\" y=\"124.74181818181819\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"700\" text-anchor=\"start\">10x = 6.666... <tspan fill=\"#64748B\" font-size=\"9\" font-weight=\"500\">(10, 6.666)</tspan></text>\n  <circle cx=\"103.63636363636363\" cy=\"263.65090909090907\" r=\"4.5\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"1.5\"/>\n  <text x=\"111.63636363636363\" y=\"255.65090909090907\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"700\" text-anchor=\"start\">x = 0.666... <tspan fill=\"#64748B\" font-size=\"9\" font-weight=\"500\">(1, 0.666)</tspan></text>\n</svg>",
+      "what_to_make": "Visual comparison showing how subtracting cancels the infinite decimal tail.",
+      "concept_visuals": [
+        {
+          "concept_title": "Infinite Tail Cancellation",
+          "diagram_title": "Algebraic Tail Elimination",
+          "diagram_type": "vector_svg_diagram",
+          "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Decimal Expansion: 0.666... = 2/3</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Algebraic conversion: 10x - x = 6.666... - 0.666... =&gt; 9x = 6 =&gt; x = 2/3</text>\n        </g>\n        \n  <line x1=\"60.0\" y1=\"60\" x2=\"60.0\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"60.0\" y1=\"275.1818181818182\" x2=\"60.0\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"81.81818181818181\" y1=\"60\" x2=\"81.81818181818181\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"81.81818181818181\" y1=\"275.1818181818182\" x2=\"81.81818181818181\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"103.63636363636363\" y1=\"60\" x2=\"103.63636363636363\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"103.63636363636363\" y1=\"275.1818181818182\" x2=\"103.63636363636363\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"125.45454545454544\" y1=\"60\" x2=\"125.45454545454544\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"125.45454545454544\" y1=\"275.1818181818182\" x2=\"125.45454545454544\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"125.45454545454544\" y=\"294.1818181818182\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"middle\">2</text>\n  <line x1=\"147.27272727272725\" y1=\"60\" x2=\"147.27272727272725\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"147.27272727272725\" y1=\"275.1818181818182\" x2=\"147.27272727272725\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"169.09090909090907\" y1=\"60\" x2=\"169.09090909090907\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"169.09090909090907\" y1=\"275.1818181818182\" x2=\"169.09090909090907\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"169.09090909090907\" y=\"294.1818181818182\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"middle\">4</text>\n  <line x1=\"190.90909090909088\" y1=\"60\" x2=\"190.90909090909088\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"190.90909090909088\" y1=\"275.1818181818182\" x2=\"190.90909090909088\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"212.72727272727272\" y1=\"60\" x2=\"212.72727272727272\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"212.72727272727272\" y1=\"275.1818181818182\" x2=\"212.72727272727272\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"212.72727272727272\" y=\"294.1818181818182\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"middle\">6</text>\n  <line x1=\"234.54545454545453\" y1=\"60\" x2=\"234.54545454545453\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"234.54545454545453\" y1=\"275.1818181818182\" x2=\"234.54545454545453\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"256.3636363636364\" y1=\"60\" x2=\"256.3636363636364\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"256.3636363636364\" y1=\"275.1818181818182\" x2=\"256.3636363636364\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"256.3636363636364\" y=\"294.1818181818182\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"middle\">8</text>\n  <line x1=\"278.18181818181813\" y1=\"60\" x2=\"278.18181818181813\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"278.18181818181813\" y1=\"275.1818181818182\" x2=\"278.18181818181813\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"300.0\" y1=\"60\" x2=\"300.0\" y2=\"320\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"300.0\" y1=\"275.1818181818182\" x2=\"300.0\" y2=\"281.1818181818182\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"300.0\" y=\"294.1818181818182\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"middle\">10</text>\n  <line x1=\"40\" y1=\"300.0\" x2=\"540\" y2=\"300.0\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"300.0\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"278.1818181818182\" x2=\"540\" y2=\"278.1818181818182\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"278.1818181818182\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"256.3636363636364\" x2=\"540\" y2=\"256.3636363636364\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"256.3636363636364\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"234.54545454545456\" x2=\"540\" y2=\"234.54545454545456\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"234.54545454545456\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"73.81818181818181\" y=\"237.54545454545456\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"end\">2</text>\n  <line x1=\"40\" y1=\"212.72727272727275\" x2=\"540\" y2=\"212.72727272727275\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"212.72727272727275\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"190.90909090909093\" x2=\"540\" y2=\"190.90909090909093\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"190.90909090909093\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"73.81818181818181\" y=\"193.90909090909093\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"end\">4</text>\n  <line x1=\"40\" y1=\"169.09090909090912\" x2=\"540\" y2=\"169.09090909090912\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"169.09090909090912\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"147.27272727272728\" x2=\"540\" y2=\"147.27272727272728\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"147.27272727272728\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"73.81818181818181\" y=\"150.27272727272728\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"end\">6</text>\n  <line x1=\"40\" y1=\"125.45454545454547\" x2=\"540\" y2=\"125.45454545454547\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"125.45454545454547\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"103.63636363636365\" x2=\"540\" y2=\"103.63636363636365\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"103.63636363636365\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"73.81818181818181\" y=\"106.63636363636365\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"end\">8</text>\n  <line x1=\"40\" y1=\"81.81818181818184\" x2=\"540\" y2=\"81.81818181818184\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"81.81818181818184\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <line x1=\"40\" y1=\"60.00000000000003\" x2=\"540\" y2=\"60.00000000000003\" stroke=\"#E2E8F0\" stroke-width=\"0.8\"/>\n  <line x1=\"78.81818181818181\" y1=\"60.00000000000003\" x2=\"84.81818181818181\" stroke=\"#94A3B8\" stroke-width=\"1.2\"/>\n  <text x=\"73.81818181818181\" y=\"63.00000000000003\" fill=\"#64748B\" font-size=\"10\" text-anchor=\"end\">10</text>\n  <line x1=\"40\" y1=\"278.1818181818182\" x2=\"540\" y2=\"278.1818181818182\" stroke=\"#334155\" stroke-width=\"1.8\" marker-end=\"url(#arrowSlate)\"/>\n  <line x1=\"81.81818181818181\" y1=\"320\" x2=\"81.81818181818181\" y2=\"60\" stroke=\"#334155\" stroke-width=\"1.8\" marker-end=\"url(#arrowSlate)\"/>\n  <text x=\"548\" y=\"282.1818181818182\" fill=\"#334155\" font-size=\"12\" font-weight=\"700\">X</text>\n  <text x=\"77.81818181818181\" y=\"52\" fill=\"#334155\" font-size=\"12\" font-weight=\"700\" text-anchor=\"end\">Y</text>\n  <text x=\"73.81818181818181\" y=\"294.1818181818182\" fill=\"#64748B\" font-size=\"11\" font-weight=\"600\">O</text>\n  <line x1=\"81.81818181818181\" y1=\"278.1818181818182\" x2=\"278.18181818181813\" y2=\"147.27272727272728\" stroke=\"#2563EB\" stroke-width=\"2.5\"/>\n  <rect x=\"155.99999999999997\" y=\"196.72727272727275\" width=\"48\" height=\"14\" rx=\"4\" fill=\"#FFFFFF\" opacity=\"0.9\"/>\n  <text x=\"179.99999999999997\" y=\"206.72727272727275\" fill=\"#2563EB\" font-size=\"10\" font-weight=\"600\" text-anchor=\"middle\">x = 2/3 ≈ 0.666...</text>\n  <circle cx=\"300.0\" cy=\"132.7418181818182\" r=\"4.5\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"1.5\"/>\n  <text x=\"308.0\" y=\"124.74181818181819\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"700\" text-anchor=\"start\">10x = 6.666... <tspan fill=\"#64748B\" font-size=\"9\" font-weight=\"500\">(10, 6.666)</tspan></text>\n  <circle cx=\"103.63636363636363\" cy=\"263.65090909090907\" r=\"4.5\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"1.5\"/>\n  <text x=\"111.63636363636363\" y=\"255.65090909090907\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"700\" text-anchor=\"start\">x = 0.666... <tspan fill=\"#64748B\" font-size=\"9\" font-weight=\"500\">(1, 0.666)</tspan></text>\n</svg>",
+          "interactive_math_formula": "10x - x = 6.666\\dots - 0.666\\dots = 6 \\implies x = \\frac{2}{3}",
+          "mafs_graph_config": {
+            "domain": [
+              -1,
+              10
+            ],
+            "range": [
+              -1,
+              10
+            ],
+            "lines": [
+              {
+                "formula": "(2/3)*x"
+              }
+            ]
+          },
+          "image_query": "Repeating decimal to fraction algebraic proof",
+          "video_query": "Converting recurring decimals to fractions animation",
+          "image_url": "/images/curriculum/ch3_decimal_conversion.png",
+          "what_to_make": "Alignment of decimal columns showing infinite repeating tails subtracting to zero.",
+          "what_to_explain": "Explain that multiplying by powers of 10 matches the period, allowing clean cancellation.",
+          "timing_and_cue": "Introduce at 03:00 during Example 5 explanation."
+        }
+      ],
+      "concept_questions": [
+        {
+          "concept_index": 0,
+          "concept_title": "Infinite Tail Cancellation",
+          "questions": [
+            {
+              "q_num": "Q1",
+              "type": "1-mark MCQ",
+              "question": "Without division, does 13/80 have a terminating decimal expansion?",
+              "ideal_answer": "Yes, because 80 = 2^4 * 5^1, which has only prime factors 2 and 5.",
+              "socratic_hint": "Find the prime factorization of the denominator 80."
+            },
+            {
+              "q_num": "Q2",
+              "type": "1-mark MCQ",
+              "question": "What is 0.333... expressed as a fraction in simplest form?",
+              "ideal_answer": "1/3.",
+              "socratic_hint": "Solve 9x = 3."
+            },
+            {
+              "q_num": "Q3",
+              "type": "2-mark Short Answer",
+              "question": "Convert 0.27 bar (where 27 repeats) into p/q form.",
+              "ideal_answer": "100x - x = 27 => 99x = 27 => x = 27/99 = 3/11.",
+              "socratic_hint": "Since two digits repeat, divide 27 by 99 and simplify."
+            },
+            {
+              "q_num": "Q4",
+              "type": "2-mark Short Answer",
+              "question": "Why does 7/30 produce a repeating decimal?",
+              "ideal_answer": "Because 30 = 2 * 3 * 5 contains the prime factor 3 (other than 2 and 5), causing an infinite non-terminating repeating remainder.",
+              "socratic_hint": "Does the denominator contain any prime factor other than 2 or 5?"
+            },
+            {
+              "q_num": "Q5",
+              "type": "3-mark Short Answer",
+              "question": "Convert 1.23 bar (where only 3 repeats) into p/q form.",
+              "ideal_answer": "10x = 12.333...; 100x = 123.333...; 90x = 111 => x = 111/90 = 37/30.",
+              "socratic_hint": "Shift 1 non-repeating digit first, then shift the repeating digit."
+            }
+          ]
+        }
+      ]
+    },
+    "curriculum_id": "09ca99d2-0489-48f2-8d39-8b26ca7885c9",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 25,
+    "quiz_questions": []
+  },
+  {
+    "order_index": 4,
+    "title": "Textbook Exercise Solver 1: Exercise 3.1 & Exercise 3.2 (History & Integers)",
+    "description": "Complete step-by-step solutions for all questions in Exercise 3.1 and Exercise 3.2: Lothal spice barter ratios, Ishango bone prime columns, Ladakh temperature drops, and Brahmagupta debt-fortune ledger accounts.",
+    "subtopics": [
+      "Exercise 3.1 Q1: Spice bags to copper ingots ratio (15 ingots per 2 bags for 12 bags)",
+      "Exercise 3.1 Q2: Ishango bone prime sequence analysis (11, 13, 17, 19)",
+      "Exercise 3.2 Q1: Ladakh high-altitude desert noon-to-midnight temperature drop (4 - 15 = -11°C)",
+      "Exercise 3.2 Q2: Spice trader debt (-850), fortune (+1200), and loss (-450) ledger balance"
+    ],
+    "key_concepts": [
+      "Barter Ratio Invariant: Cross-multiplication unit pricing resolves proportional commercial transactions.",
+      "Prime Invariance: Prime numbers possess exactly two distinct positive divisors: 1 and the number itself.",
+      "Net Balance Calculation: Sum of debts and fortunes equals net financial status."
+    ],
+    "success_criteria": "Student can resolve all barter, prime sequence, and integer ledger problems with full step-by-step calculations.",
+    "chapter_notes": "### Step-by-Step Solver: Exercise 3.1 & 3.2\nFull calculations following Topper format with zero skipped steps.",
+    "worked_examples": [
+      {
+        "problem": "Exercise 3.1 Q1: A merchant in Lothal receives 15 copper ingots for every 2 bags of spices. If he brings 12 bags of spices, how many copper ingots will he leave with?",
+        "given": "Rate = 15 ingots / 2 bags. Total bags = 12.",
+        "formula": "Total ingots = Total bags * (Ingots per bag) = 12 * (15 / 2).",
+        "substitution": "Total = 12 * 7.5.",
+        "calculation": "Step 1: Compute unit exchange rate: 15 / 2 = 7.5 ingots per bag.\nStep 2: Multiply by total bags brought: 12 * 7.5 = 90 ingots.\nStep 3: Alternative ratio method:\n2 bags -> 15 ingots\n12 bags -> x ingots\n2/12 = 15/x => 2x = 12 * 15 = 180 => x = 180 / 2 = 90 ingots.",
+        "finalAnswer": "The merchant will leave with 90 copper ingots.",
+        "unit": "ingots",
+        "has_diagram": false
+      },
+      {
+        "problem": "Exercise 3.1 Q2: Look at the sequence on one column of the Ishango bone: 11, 13, 17, 19. What do these numbers have in common? List the next three numbers that share this property.",
+        "given": "Sequence: 11, 13, 17, 19.",
+        "formula": "Prime number definition: A natural number > 1 having no divisors other than 1 and itself.",
+        "substitution": "Analyze factors of 11, 13, 17, 19.",
+        "calculation": "1. Divisors of 11: 1, 11 (Prime).\n2. Divisors of 13: 1, 13 (Prime).\n3. Divisors of 17: 1, 17 (Prime).\n4. Divisors of 19: 1, 19 (Prime).\nCommon property: All four numbers are PRIME NUMBERS.\nNext three prime numbers following 19:\n- 20 is composite (divisible by 2, 4, 5, 10).\n- 21 is composite (divisible by 3, 7).\n- 22 is composite (divisible by 2, 11).\n- 23 is PRIME.\n- 24 is composite.\n- 25 is composite (5*5).\n- 26 is composite.\n- 27 is composite (3*9).\n- 28 is composite.\n- 29 is PRIME.\n- 30 is composite.\n- 31 is PRIME.",
+        "finalAnswer": "They are prime numbers. The next three numbers sharing this property are 23, 29, and 31.",
+        "unit": "dimensionless",
+        "has_diagram": false
+      },
+      {
+        "problem": "Exercise 3.2 Q1: The temperature in the high-altitude desert of Ladakh is recorded as 4°C at noon. By midnight, it drops by 15°C. What is the midnight temperature?",
+        "given": "Noon temperature T1 = +4°C. Temperature decrease Delta T = 15°C.",
+        "formula": "T2 = T1 - Delta T.",
+        "substitution": "T2 = 4 - 15.",
+        "calculation": "Step 1: Write subtraction expression: 4 - 15.\nStep 2: On the integer line, starting at +4 and moving 15 units left passes 0 at 4 units, leaving 15 - 4 = 11 units in the negative direction.\nStep 3: 4 - 15 = -11°C.\nStep 4: Physical check: 11 degrees below freezing.",
+        "finalAnswer": "Midnight temperature = -11°C.",
+        "unit": "°C",
+        "has_diagram": true,
+        "diagram_type": "vector_svg_diagram",
+        "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Exercise 3.1 &amp; 3.2: Temperatures &amp; Barter Math</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Ladakh temperature drops 15°C from +4°C: 4 - 15 = -11°C</text>\n        </g>\n        \n  <line x1=\"50\" y1=\"190\" x2=\"530\" y2=\"190\" stroke=\"#334155\" stroke-width=\"2.5\" marker-end=\"url(#arrowSlate)\"/>\n  <line x1=\"80.0\" y1=\"184\" x2=\"80.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"80.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-15</text>\n  <line x1=\"98.2608695652174\" y1=\"184\" x2=\"98.2608695652174\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"98.2608695652174\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-14</text>\n  <line x1=\"116.52173913043481\" y1=\"184\" x2=\"116.52173913043481\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"116.52173913043481\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-13</text>\n  <line x1=\"134.7826086956522\" y1=\"184\" x2=\"134.7826086956522\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"134.7826086956522\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-12</text>\n  <line x1=\"153.04347826086956\" y1=\"184\" x2=\"153.04347826086956\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"153.04347826086956\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-11</text>\n  <line x1=\"171.30434782608697\" y1=\"184\" x2=\"171.30434782608697\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"171.30434782608697\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-10</text>\n  <line x1=\"189.56521739130437\" y1=\"184\" x2=\"189.56521739130437\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"189.56521739130437\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-9</text>\n  <line x1=\"207.82608695652175\" y1=\"184\" x2=\"207.82608695652175\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"207.82608695652175\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-8</text>\n  <line x1=\"226.08695652173913\" y1=\"184\" x2=\"226.08695652173913\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"226.08695652173913\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-7</text>\n  <line x1=\"244.34782608695653\" y1=\"184\" x2=\"244.34782608695653\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"244.34782608695653\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-6</text>\n  <line x1=\"262.60869565217394\" y1=\"184\" x2=\"262.60869565217394\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"262.60869565217394\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-5</text>\n  <line x1=\"280.8695652173913\" y1=\"184\" x2=\"280.8695652173913\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"280.8695652173913\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-4</text>\n  <line x1=\"299.1304347826087\" y1=\"184\" x2=\"299.1304347826087\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"299.1304347826087\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-3</text>\n  <line x1=\"317.3913043478261\" y1=\"184\" x2=\"317.3913043478261\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"317.3913043478261\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-2</text>\n  <line x1=\"335.6521739130435\" y1=\"184\" x2=\"335.6521739130435\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"335.6521739130435\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-1</text>\n  <line x1=\"353.9130434782609\" y1=\"184\" x2=\"353.9130434782609\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"353.9130434782609\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">0</text>\n  <line x1=\"372.17391304347825\" y1=\"184\" x2=\"372.17391304347825\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"372.17391304347825\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">1</text>\n  <line x1=\"390.4347826086956\" y1=\"184\" x2=\"390.4347826086956\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"390.4347826086956\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">2</text>\n  <line x1=\"408.69565217391306\" y1=\"184\" x2=\"408.69565217391306\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"408.69565217391306\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">3</text>\n  <line x1=\"426.95652173913044\" y1=\"184\" x2=\"426.95652173913044\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"426.95652173913044\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">4</text>\n  <line x1=\"445.2173913043478\" y1=\"184\" x2=\"445.2173913043478\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"445.2173913043478\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">5</text>\n  <line x1=\"463.47826086956525\" y1=\"184\" x2=\"463.47826086956525\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"463.47826086956525\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">6</text>\n  <line x1=\"481.7391304347826\" y1=\"184\" x2=\"481.7391304347826\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"481.7391304347826\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">7</text>\n  <line x1=\"500.0\" y1=\"184\" x2=\"500.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"500.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">8</text>\n  <circle cx=\"153.04347826086956\" cy=\"190\" r=\"5\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"153.04347826086956\" y1=\"182\" x2=\"153.04347826086956\" y2=\"160\" stroke=\"#2563EB\" stroke-width=\"1.5\"/>\n  <text x=\"153.04347826086956\" y=\"154\" fill=\"#2563EB\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">Midnight -11°C</text>\n  <circle cx=\"353.9130434782609\" cy=\"190\" r=\"5\" fill=\"#0F172A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"353.9130434782609\" y1=\"182\" x2=\"353.9130434782609\" y2=\"160\" stroke=\"#0F172A\" stroke-width=\"1.5\"/>\n  <text x=\"353.9130434782609\" y=\"154\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">Zero (0°C)</text>\n  <circle cx=\"426.95652173913044\" cy=\"190\" r=\"5\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"426.95652173913044\" y1=\"182\" x2=\"426.95652173913044\" y2=\"160\" stroke=\"#DC2626\" stroke-width=\"1.5\"/>\n  <text x=\"426.95652173913044\" y=\"154\" fill=\"#DC2626\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">Noon 4°C</text>\n</svg>"
+      },
+      {
+        "problem": "Exercise 3.2 Q2: A spice trader takes a loan (debt) of Rs 850. The next day, he makes a profit (fortune) of Rs 1,200. The following week, he incurs a loss of Rs 450. Write this sequence as an equation using integers and find his final financial standing.",
+        "given": "Loan = -850 rupees, profit = +1200 rupees, loss = -450 rupees.",
+        "formula": "Net Balance = (-850) + (+1200) + (-450).",
+        "substitution": "Net = -850 + 1200 - 450.",
+        "calculation": "Step 1: Formulate integer equation: Net = (-850) + 1200 + (-450).\nStep 2: Group negative debts: (-850) + (-450) = -(850 + 450) = -1300 rupees.\nStep 3: Combine with positive profit: 1200 + (-1300) = 1200 - 1300 = -100 rupees.\nStep 4: Interpretation: A result of -100 means he is in debt by Rs 100.",
+        "finalAnswer": "Equation: (-850) + 1200 + (-450) = -100 rupees. Final standing: Net debt of Rs 100.",
+        "unit": "rupees",
+        "has_diagram": false
+      }
+    ],
+    "common_misconceptions": [
+      "Treating temperature drop as positive addition: 4 + 15 = 19°C instead of 4 - 15 = -11°C.",
+      "Forgetting to interpret negative financial balance as a debt."
+    ],
+    "ai_system_prompt_context": "TEACHING CADENCE: Direct student to write integer signs explicitly: (+1200) + (-850) + (-450). Emphasize debt accounting.",
+    "visual_lesson_plan": {
+      "title": "Exercise 3.1 & 3.2 Solver Visuals",
+      "diagram_type": "vector_svg_diagram",
+      "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Exercise 3.1 &amp; 3.2: Temperatures &amp; Barter Math</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Ladakh temperature drops 15°C from +4°C: 4 - 15 = -11°C</text>\n        </g>\n        \n  <line x1=\"50\" y1=\"190\" x2=\"530\" y2=\"190\" stroke=\"#334155\" stroke-width=\"2.5\" marker-end=\"url(#arrowSlate)\"/>\n  <line x1=\"80.0\" y1=\"184\" x2=\"80.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"80.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-15</text>\n  <line x1=\"98.2608695652174\" y1=\"184\" x2=\"98.2608695652174\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"98.2608695652174\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-14</text>\n  <line x1=\"116.52173913043481\" y1=\"184\" x2=\"116.52173913043481\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"116.52173913043481\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-13</text>\n  <line x1=\"134.7826086956522\" y1=\"184\" x2=\"134.7826086956522\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"134.7826086956522\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-12</text>\n  <line x1=\"153.04347826086956\" y1=\"184\" x2=\"153.04347826086956\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"153.04347826086956\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-11</text>\n  <line x1=\"171.30434782608697\" y1=\"184\" x2=\"171.30434782608697\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"171.30434782608697\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-10</text>\n  <line x1=\"189.56521739130437\" y1=\"184\" x2=\"189.56521739130437\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"189.56521739130437\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-9</text>\n  <line x1=\"207.82608695652175\" y1=\"184\" x2=\"207.82608695652175\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"207.82608695652175\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-8</text>\n  <line x1=\"226.08695652173913\" y1=\"184\" x2=\"226.08695652173913\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"226.08695652173913\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-7</text>\n  <line x1=\"244.34782608695653\" y1=\"184\" x2=\"244.34782608695653\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"244.34782608695653\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-6</text>\n  <line x1=\"262.60869565217394\" y1=\"184\" x2=\"262.60869565217394\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"262.60869565217394\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-5</text>\n  <line x1=\"280.8695652173913\" y1=\"184\" x2=\"280.8695652173913\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"280.8695652173913\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-4</text>\n  <line x1=\"299.1304347826087\" y1=\"184\" x2=\"299.1304347826087\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"299.1304347826087\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-3</text>\n  <line x1=\"317.3913043478261\" y1=\"184\" x2=\"317.3913043478261\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"317.3913043478261\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-2</text>\n  <line x1=\"335.6521739130435\" y1=\"184\" x2=\"335.6521739130435\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"335.6521739130435\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-1</text>\n  <line x1=\"353.9130434782609\" y1=\"184\" x2=\"353.9130434782609\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"353.9130434782609\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">0</text>\n  <line x1=\"372.17391304347825\" y1=\"184\" x2=\"372.17391304347825\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"372.17391304347825\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">1</text>\n  <line x1=\"390.4347826086956\" y1=\"184\" x2=\"390.4347826086956\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"390.4347826086956\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">2</text>\n  <line x1=\"408.69565217391306\" y1=\"184\" x2=\"408.69565217391306\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"408.69565217391306\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">3</text>\n  <line x1=\"426.95652173913044\" y1=\"184\" x2=\"426.95652173913044\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"426.95652173913044\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">4</text>\n  <line x1=\"445.2173913043478\" y1=\"184\" x2=\"445.2173913043478\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"445.2173913043478\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">5</text>\n  <line x1=\"463.47826086956525\" y1=\"184\" x2=\"463.47826086956525\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"463.47826086956525\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">6</text>\n  <line x1=\"481.7391304347826\" y1=\"184\" x2=\"481.7391304347826\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"481.7391304347826\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">7</text>\n  <line x1=\"500.0\" y1=\"184\" x2=\"500.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"500.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">8</text>\n  <circle cx=\"153.04347826086956\" cy=\"190\" r=\"5\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"153.04347826086956\" y1=\"182\" x2=\"153.04347826086956\" y2=\"160\" stroke=\"#2563EB\" stroke-width=\"1.5\"/>\n  <text x=\"153.04347826086956\" y=\"154\" fill=\"#2563EB\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">Midnight -11°C</text>\n  <circle cx=\"353.9130434782609\" cy=\"190\" r=\"5\" fill=\"#0F172A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"353.9130434782609\" y1=\"182\" x2=\"353.9130434782609\" y2=\"160\" stroke=\"#0F172A\" stroke-width=\"1.5\"/>\n  <text x=\"353.9130434782609\" y=\"154\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">Zero (0°C)</text>\n  <circle cx=\"426.95652173913044\" cy=\"190\" r=\"5\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"426.95652173913044\" y1=\"182\" x2=\"426.95652173913044\" y2=\"160\" stroke=\"#DC2626\" stroke-width=\"1.5\"/>\n  <text x=\"426.95652173913044\" y=\"154\" fill=\"#DC2626\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">Noon 4°C</text>\n</svg>",
+      "what_to_make": "Number line showing temperature drops and negative integers.",
+      "concept_visuals": [
+        {
+          "concept_title": "Integer Displacement & Balance",
+          "diagram_title": "Ladakh Temperature Drop",
+          "diagram_type": "vector_svg_diagram",
+          "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Exercise 3.1 &amp; 3.2: Temperatures &amp; Barter Math</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Ladakh temperature drops 15°C from +4°C: 4 - 15 = -11°C</text>\n        </g>\n        \n  <line x1=\"50\" y1=\"190\" x2=\"530\" y2=\"190\" stroke=\"#334155\" stroke-width=\"2.5\" marker-end=\"url(#arrowSlate)\"/>\n  <line x1=\"80.0\" y1=\"184\" x2=\"80.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"80.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-15</text>\n  <line x1=\"98.2608695652174\" y1=\"184\" x2=\"98.2608695652174\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"98.2608695652174\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-14</text>\n  <line x1=\"116.52173913043481\" y1=\"184\" x2=\"116.52173913043481\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"116.52173913043481\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-13</text>\n  <line x1=\"134.7826086956522\" y1=\"184\" x2=\"134.7826086956522\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"134.7826086956522\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-12</text>\n  <line x1=\"153.04347826086956\" y1=\"184\" x2=\"153.04347826086956\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"153.04347826086956\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-11</text>\n  <line x1=\"171.30434782608697\" y1=\"184\" x2=\"171.30434782608697\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"171.30434782608697\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-10</text>\n  <line x1=\"189.56521739130437\" y1=\"184\" x2=\"189.56521739130437\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"189.56521739130437\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-9</text>\n  <line x1=\"207.82608695652175\" y1=\"184\" x2=\"207.82608695652175\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"207.82608695652175\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-8</text>\n  <line x1=\"226.08695652173913\" y1=\"184\" x2=\"226.08695652173913\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"226.08695652173913\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-7</text>\n  <line x1=\"244.34782608695653\" y1=\"184\" x2=\"244.34782608695653\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"244.34782608695653\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-6</text>\n  <line x1=\"262.60869565217394\" y1=\"184\" x2=\"262.60869565217394\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"262.60869565217394\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-5</text>\n  <line x1=\"280.8695652173913\" y1=\"184\" x2=\"280.8695652173913\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"280.8695652173913\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-4</text>\n  <line x1=\"299.1304347826087\" y1=\"184\" x2=\"299.1304347826087\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"299.1304347826087\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-3</text>\n  <line x1=\"317.3913043478261\" y1=\"184\" x2=\"317.3913043478261\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"317.3913043478261\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-2</text>\n  <line x1=\"335.6521739130435\" y1=\"184\" x2=\"335.6521739130435\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"335.6521739130435\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-1</text>\n  <line x1=\"353.9130434782609\" y1=\"184\" x2=\"353.9130434782609\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"353.9130434782609\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">0</text>\n  <line x1=\"372.17391304347825\" y1=\"184\" x2=\"372.17391304347825\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"372.17391304347825\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">1</text>\n  <line x1=\"390.4347826086956\" y1=\"184\" x2=\"390.4347826086956\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"390.4347826086956\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">2</text>\n  <line x1=\"408.69565217391306\" y1=\"184\" x2=\"408.69565217391306\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"408.69565217391306\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">3</text>\n  <line x1=\"426.95652173913044\" y1=\"184\" x2=\"426.95652173913044\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"426.95652173913044\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">4</text>\n  <line x1=\"445.2173913043478\" y1=\"184\" x2=\"445.2173913043478\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"445.2173913043478\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">5</text>\n  <line x1=\"463.47826086956525\" y1=\"184\" x2=\"463.47826086956525\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"463.47826086956525\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">6</text>\n  <line x1=\"481.7391304347826\" y1=\"184\" x2=\"481.7391304347826\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"481.7391304347826\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">7</text>\n  <line x1=\"500.0\" y1=\"184\" x2=\"500.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"500.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">8</text>\n  <circle cx=\"153.04347826086956\" cy=\"190\" r=\"5\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"153.04347826086956\" y1=\"182\" x2=\"153.04347826086956\" y2=\"160\" stroke=\"#2563EB\" stroke-width=\"1.5\"/>\n  <text x=\"153.04347826086956\" y=\"154\" fill=\"#2563EB\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">Midnight -11°C</text>\n  <circle cx=\"353.9130434782609\" cy=\"190\" r=\"5\" fill=\"#0F172A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"353.9130434782609\" y1=\"182\" x2=\"353.9130434782609\" y2=\"160\" stroke=\"#0F172A\" stroke-width=\"1.5\"/>\n  <text x=\"353.9130434782609\" y=\"154\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">Zero (0°C)</text>\n  <circle cx=\"426.95652173913044\" cy=\"190\" r=\"5\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"426.95652173913044\" y1=\"182\" x2=\"426.95652173913044\" y2=\"160\" stroke=\"#DC2626\" stroke-width=\"1.5\"/>\n  <text x=\"426.95652173913044\" y=\"154\" fill=\"#DC2626\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">Noon 4°C</text>\n</svg>",
+          "interactive_math_formula": "4 - 15 = -11^\\circ\\text{C}",
+          "mafs_graph_config": {
+            "domain": [
+              -15,
+              8
+            ],
+            "range": [
+              -2,
+              2
+            ],
+            "points": [
+              [
+                -11,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ]
+          },
+          "image_query": "Integer subtraction on number line",
+          "video_query": "Negative integers real life temperature animation",
+          "image_url": "/images/curriculum/ch3_ladakh_temp.png",
+          "what_to_make": "Number line showing +4°C moving left 15 units to -11°C.",
+          "what_to_explain": "Explain that moving left represents subtraction of positive quantities.",
+          "timing_and_cue": "Introduce at 03:00 during Question 1 explanation."
+        }
+      ],
+      "concept_questions": [
+        {
+          "concept_index": 0,
+          "concept_title": "Integer Displacement & Balance",
+          "questions": [
+            {
+              "q_num": "Q1",
+              "type": "1-mark MCQ",
+              "question": "What is the result of 5 - 18?",
+              "ideal_answer": "-13.",
+              "socratic_hint": "Subtract 5 from 18, and keep the negative sign."
+            },
+            {
+              "q_num": "Q2",
+              "type": "1-mark MCQ",
+              "question": "Is 1 a prime number?",
+              "ideal_answer": "No. A prime number must have exactly two distinct positive divisors. 1 has only one positive divisor (itself).",
+              "socratic_hint": "How many distinct positive factors must a prime have?"
+            },
+            {
+              "q_num": "Q3",
+              "type": "2-mark Short Answer",
+              "question": "If a submarine at -120 m descends another 45 m, what is its new depth?",
+              "ideal_answer": "(-120) + (-45) = -165 m (165 m below sea level).",
+              "socratic_hint": "Add the two downward displacements."
+            },
+            {
+              "q_num": "Q4",
+              "type": "2-mark Short Answer",
+              "question": "Evaluate: (-12) * (-5) * (-2).",
+              "ideal_answer": "(-12) * (-5) = +60; (+60) * (-2) = -120.",
+              "socratic_hint": "Count the number of negative signs: an odd count gives a negative result."
+            },
+            {
+              "q_num": "Q5",
+              "type": "3-mark Short Answer",
+              "question": "Why did Harappan merchants require standardized weights and balance ratios?",
+              "ideal_answer": "Standardized weights ensured fair barter trade across distant regions, preventing disputes by creating universal exchange equivalences (like Lothal copper-to-spice ratios).",
+              "socratic_hint": "What happens in a market if everyone uses different measuring stones?"
+            }
+          ]
+        }
+      ]
+    },
+    "curriculum_id": "09ca99d2-0489-48f2-8d39-8b26ca7885c9",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 25,
+    "quiz_questions": []
+  },
+  {
+    "order_index": 5,
+    "title": "Textbook Exercise Solver 2: Exercises 3.3 & 3.4 (Rational Arithmetic & Density)",
+    "description": "Complete step-by-step solutions for Exercise 3.3 (proving equality, addition, and subtraction of rational numbers) and Exercise 3.4 (representing rationals on a single number line and finding intermediate rationals).",
+    "subtopics": [
+      "Exercise 3.3 Q1: Prove equality of rational pairs: 2/3 = 4/6, 5/4 = 10/8, -3/5 = -6/10, 3 = 9/3",
+      "Exercise 3.3 Q2: Rational addition: 2/5 + 3/10, 7/12 + 5/8, -4/7 + 3/14",
+      "Exercise 3.3 Q3: Rational subtraction: 5/8 - 1/4, 11/15 - 3/10, -2/9 - (-5/6)",
+      "Exercise 3.4 Q1: Represent rational numbers 2/3, -5/4, and 1/2 on a single number line",
+      "Exercise 3.4 Q2: Find three distinct rational numbers strictly between -1/2 and 1/4"
+    ],
+    "key_concepts": [
+      "LCM Denominator Harmonization: Adding or subtracting fractions requires converting to a common denominator via least common multiple.",
+      "Rational Partitioning: To plot a fraction p/q, divide each unit integer interval into q equal segments.",
+      "Density Interpolation: To find n rational numbers between two fractions, convert them to equivalent fractions with common denominator multiplied by (n + 1)."
+    ],
+    "success_criteria": "Student can execute fraction arithmetic with LCM steps and locate/interpolate rational numbers on number lines.",
+    "chapter_notes": "### Step-by-Step Solver: Exercises 3.3 & 3.4\nFull calculations following Topper format with zero skipped steps.",
+    "worked_examples": [
+      {
+        "problem": "Exercise 3.3 Q2: Find the sum: (i) 2/5 + 3/10; (ii) 7/12 + 5/8; (iii) -4/7 + 3/14.",
+        "given": "Three addition problems with unequal denominators.",
+        "formula": "Find LCM of denominators, convert to like fractions, and add numerators.",
+        "substitution": "(i) LCM(5, 10) = 10; (ii) LCM(12, 8) = 24; (iii) LCM(7, 14) = 14.",
+        "calculation": "Part (i): 2/5 + 3/10\n1. LCM of 5 and 10 is 10.\n2. 2/5 = (2 * 2) / (5 * 2) = 4/10.\n3. Sum = 4/10 + 3/10 = (4 + 3)/10 = 7/10.\n\nPart (ii): 7/12 + 5/8\n1. LCM of 12 and 8: 12 = 2^2 * 3, 8 = 2^3 -> LCM = 2^3 * 3 = 24.\n2. 7/12 = (7 * 2)/24 = 14/24.\n3. 5/8 = (5 * 3)/24 = 15/24.\n4. Sum = 14/24 + 15/24 = (14 + 15)/24 = 29/24 = 1 5/24.\n\nPart (iii): -4/7 + 3/14\n1. LCM of 7 and 14 is 14.\n2. -4/7 = (-4 * 2)/14 = -8/14.\n3. Sum = -8/14 + 3/14 = (-8 + 3)/14 = -5/14.",
+        "finalAnswer": "(i) 7/10; (ii) 29/24; (iii) -5/14.",
+        "unit": "dimensionless",
+        "has_diagram": false
+      },
+      {
+        "problem": "Exercise 3.3 Q3: Find the difference: (i) 5/8 - 1/4; (ii) 11/15 - 3/10; (iii) -2/9 - (-5/6).",
+        "given": "Three subtraction problems with rational numbers.",
+        "formula": "LCM denominator harmonization and subtraction of numerators.",
+        "substitution": "(i) LCM(8, 4) = 8; (ii) LCM(15, 10) = 30; (iii) LCM(9, 6) = 18.",
+        "calculation": "Part (i): 5/8 - 1/4\n1. 1/4 = (1 * 2)/8 = 2/8.\n2. Difference = 5/8 - 2/8 = (5 - 2)/8 = 3/8.\n\nPart (ii): 11/15 - 3/10\n1. LCM of 15 and 10 is 30.\n2. 11/15 = (11 * 2)/30 = 22/30.\n3. 3/10 = (3 * 3)/30 = 9/30.\n4. Difference = 22/30 - 9/30 = (22 - 9)/30 = 13/30.\n\nPart (iii): -2/9 - (-5/6)\n1. Subtracting a negative is addition: -2/9 + 5/6.\n2. LCM of 9 and 6 is 18.\n3. -2/9 = (-2 * 2)/18 = -4/18.\n4. 5/6 = (5 * 3)/18 = 15/18.\n5. Result = -4/18 + 15/18 = (-4 + 15)/18 = 11/18.",
+        "finalAnswer": "(i) 3/8; (ii) 13/30; (iii) 11/18.",
+        "unit": "dimensionless",
+        "has_diagram": false
+      },
+      {
+        "problem": "Exercise 3.4 Q1 & Q2: (Q1) Represent 2/3, -5/4, and 1/2 on a single number line. (Q2) Find three distinct rational numbers strictly between -1/2 and 1/4.",
+        "given": "Q1: Numbers 2/3, -5/4, 1/2. Q2: Bounds -1/2 and 1/4.",
+        "formula": "Harmonize denominators with LCM for plotting. For Q2: convert to common denominator and interpolate.",
+        "substitution": "Q1: LCM(3, 4, 2) = 12. Points: 8/12, -15/12, 6/12. Q2: -1/2 = -2/4 = -8/16; 1/4 = 4/16.",
+        "calculation": "Part Q1:\n1. Common denominator is 12:\n- 2/3 = 8/12 ≈ 0.67.\n- 1/2 = 6/12 = 0.50.\n- -5/4 = -15/12 = -1.25 (lies between -1 and -2).\n2. Divide unit intervals into 12 parts and mark points: -15/12 at -1.25, 6/12 at 0.5, 8/12 at 0.67.\n\nPart Q2:\n1. Express -1/2 and 1/4 with a larger common denominator, say 16:\n- -1/2 = -8/16.\n- 1/4 = 4/16.\n2. Integers strictly between -8 and 4 include: -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3.\n3. Select three distinct rational numbers:\n- -4/16 = -1/4.\n- 0/16 = 0.\n- 2/16 = 1/8.\n4. Order check: -1/2 < -1/4 < 0 < 1/8 < 1/4. Verified!",
+        "finalAnswer": "Q1: Plotted accurately on number line; Q2: Three rational numbers are -1/4, 0, and 1/8.",
+        "unit": "dimensionless",
+        "has_diagram": true,
+        "diagram_type": "vector_svg_diagram",
+        "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Exercise 3.4: Plotting Rationals on Number Line</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Plotted points: -5/4 = -1.25, 1/2 = 0.5, and 2/3 ≈ 0.667</text>\n        </g>\n        \n  <line x1=\"50\" y1=\"190\" x2=\"530\" y2=\"190\" stroke=\"#334155\" stroke-width=\"2.5\" marker-end=\"url(#arrowSlate)\"/>\n  <line x1=\"80.0\" y1=\"184\" x2=\"80.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"80.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-2</text>\n  <line x1=\"185.0\" y1=\"184\" x2=\"185.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"185.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-1</text>\n  <line x1=\"290.0\" y1=\"184\" x2=\"290.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"290.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">0</text>\n  <line x1=\"395.0\" y1=\"184\" x2=\"395.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"395.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">1</text>\n  <line x1=\"500.0\" y1=\"184\" x2=\"500.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"500.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">2</text>\n  <circle cx=\"158.75\" cy=\"190\" r=\"5\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"158.75\" y1=\"182\" x2=\"158.75\" y2=\"160\" stroke=\"#DC2626\" stroke-width=\"1.5\"/>\n  <text x=\"158.75\" y=\"154\" fill=\"#DC2626\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">-5/4</text>\n  <circle cx=\"342.5\" cy=\"190\" r=\"5\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"342.5\" y1=\"182\" x2=\"342.5\" y2=\"160\" stroke=\"#16A34A\" stroke-width=\"1.5\"/>\n  <text x=\"342.5\" y=\"154\" fill=\"#16A34A\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">1/2</text>\n  <circle cx=\"359.93\" cy=\"190\" r=\"5\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"359.93\" y1=\"182\" x2=\"359.93\" y2=\"160\" stroke=\"#2563EB\" stroke-width=\"1.5\"/>\n  <text x=\"359.93\" y=\"154\" fill=\"#2563EB\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">2/3</text>\n</svg>"
+      }
+    ],
+    "common_misconceptions": [
+      "Adding numerators and denominators directly: 2/5 + 3/10 != 5/15.",
+      "Forgetting to change signs when subtracting a negative rational: -2/9 - (-5/6) becomes -2/9 + 5/6."
+    ],
+    "ai_system_prompt_context": "TEACHING CADENCE: Emphasize LCM steps. Show student why multiplying numerator and denominator by the same factor preserves value.",
+    "visual_lesson_plan": {
+      "title": "Rational Partitioning & Number Line Visuals",
+      "diagram_type": "vector_svg_diagram",
+      "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Exercise 3.4: Plotting Rationals on Number Line</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Plotted points: -5/4 = -1.25, 1/2 = 0.5, and 2/3 ≈ 0.667</text>\n        </g>\n        \n  <line x1=\"50\" y1=\"190\" x2=\"530\" y2=\"190\" stroke=\"#334155\" stroke-width=\"2.5\" marker-end=\"url(#arrowSlate)\"/>\n  <line x1=\"80.0\" y1=\"184\" x2=\"80.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"80.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-2</text>\n  <line x1=\"185.0\" y1=\"184\" x2=\"185.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"185.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-1</text>\n  <line x1=\"290.0\" y1=\"184\" x2=\"290.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"290.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">0</text>\n  <line x1=\"395.0\" y1=\"184\" x2=\"395.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"395.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">1</text>\n  <line x1=\"500.0\" y1=\"184\" x2=\"500.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"500.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">2</text>\n  <circle cx=\"158.75\" cy=\"190\" r=\"5\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"158.75\" y1=\"182\" x2=\"158.75\" y2=\"160\" stroke=\"#DC2626\" stroke-width=\"1.5\"/>\n  <text x=\"158.75\" y=\"154\" fill=\"#DC2626\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">-5/4</text>\n  <circle cx=\"342.5\" cy=\"190\" r=\"5\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"342.5\" y1=\"182\" x2=\"342.5\" y2=\"160\" stroke=\"#16A34A\" stroke-width=\"1.5\"/>\n  <text x=\"342.5\" y=\"154\" fill=\"#16A34A\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">1/2</text>\n  <circle cx=\"359.93\" cy=\"190\" r=\"5\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"359.93\" y1=\"182\" x2=\"359.93\" y2=\"160\" stroke=\"#2563EB\" stroke-width=\"1.5\"/>\n  <text x=\"359.93\" y=\"154\" fill=\"#2563EB\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">2/3</text>\n</svg>",
+      "what_to_make": "Number line with ticks showing rational locations 2/3, 1/2, and -5/4.",
+      "concept_visuals": [
+        {
+          "concept_title": "Rational Number Line Density",
+          "diagram_title": "Plotting Rational Numbers",
+          "diagram_type": "vector_svg_diagram",
+          "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Exercise 3.4: Plotting Rationals on Number Line</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Plotted points: -5/4 = -1.25, 1/2 = 0.5, and 2/3 ≈ 0.667</text>\n        </g>\n        \n  <line x1=\"50\" y1=\"190\" x2=\"530\" y2=\"190\" stroke=\"#334155\" stroke-width=\"2.5\" marker-end=\"url(#arrowSlate)\"/>\n  <line x1=\"80.0\" y1=\"184\" x2=\"80.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"80.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-2</text>\n  <line x1=\"185.0\" y1=\"184\" x2=\"185.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"185.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">-1</text>\n  <line x1=\"290.0\" y1=\"184\" x2=\"290.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"290.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">0</text>\n  <line x1=\"395.0\" y1=\"184\" x2=\"395.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"395.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">1</text>\n  <line x1=\"500.0\" y1=\"184\" x2=\"500.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"500.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">2</text>\n  <circle cx=\"158.75\" cy=\"190\" r=\"5\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"158.75\" y1=\"182\" x2=\"158.75\" y2=\"160\" stroke=\"#DC2626\" stroke-width=\"1.5\"/>\n  <text x=\"158.75\" y=\"154\" fill=\"#DC2626\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">-5/4</text>\n  <circle cx=\"342.5\" cy=\"190\" r=\"5\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"342.5\" y1=\"182\" x2=\"342.5\" y2=\"160\" stroke=\"#16A34A\" stroke-width=\"1.5\"/>\n  <text x=\"342.5\" y=\"154\" fill=\"#16A34A\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">1/2</text>\n  <circle cx=\"359.93\" cy=\"190\" r=\"5\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"359.93\" y1=\"182\" x2=\"359.93\" y2=\"160\" stroke=\"#2563EB\" stroke-width=\"1.5\"/>\n  <text x=\"359.93\" y=\"154\" fill=\"#2563EB\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">2/3</text>\n</svg>",
+          "interactive_math_formula": "-\\frac{5}{4} = -1.25, \\quad \\frac{1}{2} = 0.5, \\quad \\frac{2}{3} \\approx 0.667",
+          "mafs_graph_config": {
+            "domain": [
+              -2,
+              2
+            ],
+            "range": [
+              -2,
+              2
+            ],
+            "points": [
+              [
+                -1.25,
+                0
+              ],
+              [
+                0.5,
+                0
+              ],
+              [
+                0.667,
+                0
+              ]
+            ]
+          },
+          "image_query": "Rational numbers on number line fractions",
+          "video_query": "Representing fractions on number line animation",
+          "image_url": "/images/curriculum/ch3_rational_line.png",
+          "what_to_make": "Number line with unit subdivided into fraction subdivisions.",
+          "what_to_explain": "Explain that every rational number corresponds to an exact geometric point.",
+          "timing_and_cue": "Introduce at 03:00 during Question 1 explanation."
+        }
+      ],
+      "concept_questions": [
+        {
+          "concept_index": 0,
+          "concept_title": "Rational Number Line Density",
+          "questions": [
+            {
+              "q_num": "Q1",
+              "type": "1-mark MCQ",
+              "question": "What is 3/4 + 1/2?",
+              "ideal_answer": "3/4 + 2/4 = 5/4 = 1 1/4.",
+              "socratic_hint": "Convert 1/2 to fourths."
+            },
+            {
+              "q_num": "Q2",
+              "type": "1-mark MCQ",
+              "question": "Which is greater: -3/4 or -1/2?",
+              "ideal_answer": "-1/2, because -0.5 is to the right of -0.75 on the number line.",
+              "socratic_hint": "Think about which number is closer to 0 on the negative side."
+            },
+            {
+              "q_num": "Q3",
+              "type": "2-mark Short Answer",
+              "question": "Calculate: (-5/6) * (3/10).",
+              "ideal_answer": "(-5 * 3) / (6 * 10) = -15 / 60 = -1/4.",
+              "socratic_hint": "Multiply numerators together and denominators together, then simplify."
+            },
+            {
+              "q_num": "Q4",
+              "type": "3-mark Short Answer",
+              "question": "Find 2 rational numbers between 0.1 and 0.2.",
+              "ideal_answer": "0.1 = 10/100, 0.2 = 20/100. Two rationals are 11/100 (0.11) and 15/100 (0.15 = 3/20).",
+              "socratic_hint": "Rewrite 0.1 and 0.2 as fractions with denominator 100."
+            },
+            {
+              "q_num": "Q5",
+              "type": "2-mark Short Answer",
+              "question": "What is the reciprocal of -7/11?",
+              "ideal_answer": "-11/7.",
+              "socratic_hint": "Invert the numerator and denominator while retaining the negative sign."
+            }
+          ]
+        }
+      ]
+    },
+    "curriculum_id": "09ca99d2-0489-48f2-8d39-8b26ca7885c9",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 25,
+    "quiz_questions": []
+  },
+  {
+    "order_index": 6,
+    "title": "Textbook Exercise Solver 3: Exercise 3.5 & End-of-Chapter Review (Q1 to Q7)",
+    "description": "Exhaustive step-by-step solutions for Exercise 3.5 and End-of-Chapter questions: predicting decimal termination via 2^m * 5^n, long division expansions of 3/50 and 2/9, converting 9 decimal numbers into p/q form, locating decimals on the number line, and finding sets of 5 to 6 rational numbers between intervals.",
+    "subtopics": [
+      "Exercise 3.5 Q1: Testing terminating condition for 7/20, 4/15, 13/250",
+      "End-of-Chapter Q1: Long division decimal conversion for (i) 3/50 and (ii) 2/9",
+      "End-of-Chapter Q3: Converting 9 decimals into p/q form (12.6, 0.0120, 3.052, 1.235 bar, 0.23 bar, 2.05 bar, 2.125 bar, 3.125, 2.1625)",
+      "End-of-Chapter Q4: Number line plotting of 0.532 and 1.15",
+      "End-of-Chapter Q5: Finding 6 rational numbers between 3 and 4",
+      "End-of-Chapter Q6: Finding 5 rational numbers between 2/5 and 3/5",
+      "End-of-Chapter Q7: Finding 5 rational numbers between 1/6 and 2/5"
+    ],
+    "key_concepts": [
+      "Denominator Factorization Test: If denominator q has prime factors only in {2, 5}, decimal terminates. Any other factor causes periodicity.",
+      "Long Division Period Detection: The period of recurring remainders cannot exceed q - 1.",
+      "Density Scaling Formula: To insert k rational numbers between a and b, use scale factor (k + 1)."
+    ],
+    "success_criteria": "Student can classify decimals, convert multi-digit recurring decimals to p/q, and insert arbitrary numbers of rationals between bounds.",
+    "chapter_notes": "### Step-by-Step Solver: Exercise 3.5 & End-of-Chapter Review\nFull calculations following Topper format with zero skipped steps.",
+    "worked_examples": [
+      {
+        "problem": "Exercise 3.5 Q1: Without performing long division, determine which of the following rational numbers will have terminating decimals and which will be repeating: (i) 7/20; (ii) 4/15; (iii) 13/250. Then verify by division.",
+        "given": "Three fractions: 7/20, 4/15, 13/250.",
+        "formula": "A fraction in lowest terms terminates iff denominator q = 2^m * 5^n.",
+        "substitution": "(i) q = 20 = 2^2 * 5^1; (ii) q = 15 = 3 * 5; (iii) q = 250 = 2^1 * 5^3.",
+        "calculation": "1. Fraction 7/20:\n- Denominator 20 = 2^2 * 5^1. Prime factors are only 2 and 5.\n- Prediction: TERMINATING.\n- Verification: 7 / 20 = 0.35 (terminates in 2 decimal places).\n\n2. Fraction 4/15:\n- Denominator 15 = 3 * 5. Contains the prime factor 3 (not 2 or 5).\n- Prediction: NON-TERMINATING REPEATING.\n- Verification: 4 / 15 = 0.2666... = 0.26 bar (repeats).\n\n3. Fraction 13/250:\n- Denominator 250 = 2 * 125 = 2^1 * 5^3. Prime factors are only 2 and 5.\n- Prediction: TERMINATING.\n- Verification: 13 / 250 = (13 * 4) / 1000 = 52 / 1000 = 0.052 (terminates in 3 decimal places).",
+        "finalAnswer": "(i) 7/20 terminates (0.35); (ii) 4/15 repeats (0.26 bar); (iii) 13/250 terminates (0.052).",
+        "unit": "dimensionless",
+        "has_diagram": true,
+        "diagram_type": "vector_svg_diagram",
+        "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Terminating &amp; Repeating Decimals on Continuum</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Comparing terminating fractions (3/50, 7/20) and repeating fractions (2/9)</text>\n        </g>\n        \n  <line x1=\"50\" y1=\"190\" x2=\"530\" y2=\"190\" stroke=\"#334155\" stroke-width=\"2.5\" marker-end=\"url(#arrowSlate)\"/>\n  <line x1=\"164.0\" y1=\"184\" x2=\"164.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"164.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">0</text>\n  <circle cx=\"189.2\" cy=\"190\" r=\"5\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"189.2\" y1=\"182\" x2=\"189.2\" y2=\"160\" stroke=\"#16A34A\" stroke-width=\"1.5\"/>\n  <text x=\"189.2\" y=\"154\" fill=\"#16A34A\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">3/50 = 0.06</text>\n  <circle cx=\"257.24\" cy=\"190\" r=\"5\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"257.24\" y1=\"182\" x2=\"257.24\" y2=\"160\" stroke=\"#DC2626\" stroke-width=\"1.5\"/>\n  <text x=\"257.24\" y=\"154\" fill=\"#DC2626\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">2/9 = 0.222...</text>\n  <circle cx=\"311.0\" cy=\"190\" r=\"5\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"311.0\" y1=\"182\" x2=\"311.0\" y2=\"160\" stroke=\"#16A34A\" stroke-width=\"1.5\"/>\n  <text x=\"311.0\" y=\"154\" fill=\"#16A34A\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">7/20 = 0.35</text>\n  <circle cx=\"387.44\" cy=\"190\" r=\"5\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"387.44\" y1=\"182\" x2=\"387.44\" y2=\"160\" stroke=\"#2563EB\" stroke-width=\"1.5\"/>\n  <text x=\"387.44\" y=\"154\" fill=\"#2563EB\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">0.532</text>\n</svg>"
+      },
+      {
+        "problem": "End-of-Chapter Q1: Convert the following rational numbers into terminating or non-terminating repeating decimals by long division: (i) 3/50; (ii) 2/9.",
+        "given": "(i) 3/50; (ii) 2/9.",
+        "formula": "Standard long division.",
+        "substitution": "(i) Divide 3 by 50; (ii) Divide 2 by 9.",
+        "calculation": "Part (i): 3 / 50\n1. 3 is smaller than 50 -> place decimal: 3.0 / 50 -> quotient 0.0\n2. 300 / 50 = 6 with remainder 0.\n3. Quotient = 0.06 (Terminating decimal).\n\nPart (ii): 2 / 9\n1. 2 / 9: Place decimal -> 20 / 9 = 2 remainder 2.\n2. Bring down 0 -> 20 / 9 = 2 remainder 2.\n3. Remainder 2 repeats indefinitely.\n4. Quotient = 0.222... = 0.2 bar (Non-terminating repeating decimal).",
+        "finalAnswer": "(i) 3/50 = 0.06 (terminating); (ii) 2/9 = 0.2 bar (non-terminating repeating).",
+        "unit": "dimensionless",
+        "has_diagram": false
+      },
+      {
+        "problem": "End-of-Chapter Q3: Convert the following decimal numbers into p/q form: (i) 12.6; (ii) 0.0120; (iv) 1.235 bar (where 235 repeats); (v) 0.23 bar (where 23 repeats).",
+        "given": "Decimal numbers.",
+        "formula": "Terminating: divide by 10^k. Repeating: multiply by 10^p and subtract.",
+        "substitution": "(i) 12.6 = 126/10; (ii) 0.012 = 12/1000; (iv) x = 1.235235...; (v) x = 0.2323...",
+        "calculation": "1. 12.6 = 126 / 10 = 63 / 5.\n\n2. 0.0120 = 12 / 1000 = 3 / 250.\n\n3. 1.235 bar:\nLet x = 1.235235...\n1000x = 1235.235235...\n1000x - x = 1235.235... - 1.235...\n999x = 1234\nx = 1234 / 999.\n\n4. 0.23 bar:\nLet x = 0.232323...\n100x = 23.2323...\n99x = 23\nx = 23 / 99.",
+        "finalAnswer": "(i) 63/5; (ii) 3/250; (iv) 1234/999; (v) 23/99.",
+        "unit": "dimensionless",
+        "has_diagram": false
+      },
+      {
+        "problem": "End-of-Chapter Q5 & Q6: (Q5) Find 6 rational numbers between 3 and 4. (Q6) Find 5 rational numbers between 2/5 and 3/5.",
+        "given": "Q5: Bounds 3 and 4, find 6 numbers. Q6: Bounds 2/5 and 3/5, find 5 numbers.",
+        "formula": "Scale numerator and denominator by (n + 1).",
+        "substitution": "Q5: n = 6 -> scale by 7: 3 = 21/7, 4 = 28/7. Q6: n = 5 -> scale by 6: 2/5 = 12/30, 3/5 = 18/30.",
+        "calculation": "Part Q5:\n1. To find 6 rationals between 3 and 4, multiply by (6 + 1) = 7:\n3 = 3 * 7 / 7 = 21/7.\n4 = 4 * 7 / 7 = 28/7.\n2. Six integers between 21 and 28 are: 22, 23, 24, 25, 26, 27.\n3. Six rational numbers:\n22/7, 23/7, 24/7, 25/7, 26/7, 27/7.\n\nPart Q6:\n1. To find 5 rationals between 2/5 and 3/5, multiply by (5 + 1) = 6:\n2/5 = (2 * 6) / (5 * 6) = 12/30.\n3/5 = (3 * 6) / (5 * 6) = 18/30.\n2. Five integers between 12 and 18 are: 13, 14, 15, 16, 17.\n3. Five rational numbers:\n13/30, 14/30 (=7/15), 15/30 (=1/2), 16/30 (=8/15), 17/30.",
+        "finalAnswer": "Q5: 22/7, 23/7, 24/7, 25/7, 26/7, 27/7; Q6: 13/30, 7/15, 1/2, 8/15, 17/30.",
+        "unit": "dimensionless",
+        "has_diagram": false
+      }
+    ],
+    "common_misconceptions": [
+      "Forgetting to check if fraction is in simplest form before factoring denominator (e.g. 6/15 simplifies to 2/5, so it terminates even though 15 has factor 3).",
+      "Thinking that only 6 rational numbers exist between 3 and 4 (infinitely many exist)."
+    ],
+    "ai_system_prompt_context": "CHALKBOARD DIRECTIVE: Call write_chalkboard(action='draw_svg_diagram', content='Terminating & Repeating Decimals on Continuum'). Emphasize factor check in simplest form.",
+    "visual_lesson_plan": {
+      "title": "Decimals and Density Visuals",
+      "diagram_type": "vector_svg_diagram",
+      "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Terminating &amp; Repeating Decimals on Continuum</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Comparing terminating fractions (3/50, 7/20) and repeating fractions (2/9)</text>\n        </g>\n        \n  <line x1=\"50\" y1=\"190\" x2=\"530\" y2=\"190\" stroke=\"#334155\" stroke-width=\"2.5\" marker-end=\"url(#arrowSlate)\"/>\n  <line x1=\"164.0\" y1=\"184\" x2=\"164.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"164.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">0</text>\n  <circle cx=\"189.2\" cy=\"190\" r=\"5\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"189.2\" y1=\"182\" x2=\"189.2\" y2=\"160\" stroke=\"#16A34A\" stroke-width=\"1.5\"/>\n  <text x=\"189.2\" y=\"154\" fill=\"#16A34A\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">3/50 = 0.06</text>\n  <circle cx=\"257.24\" cy=\"190\" r=\"5\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"257.24\" y1=\"182\" x2=\"257.24\" y2=\"160\" stroke=\"#DC2626\" stroke-width=\"1.5\"/>\n  <text x=\"257.24\" y=\"154\" fill=\"#DC2626\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">2/9 = 0.222...</text>\n  <circle cx=\"311.0\" cy=\"190\" r=\"5\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"311.0\" y1=\"182\" x2=\"311.0\" y2=\"160\" stroke=\"#16A34A\" stroke-width=\"1.5\"/>\n  <text x=\"311.0\" y=\"154\" fill=\"#16A34A\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">7/20 = 0.35</text>\n  <circle cx=\"387.44\" cy=\"190\" r=\"5\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"387.44\" y1=\"182\" x2=\"387.44\" y2=\"160\" stroke=\"#2563EB\" stroke-width=\"1.5\"/>\n  <text x=\"387.44\" y=\"154\" fill=\"#2563EB\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">0.532</text>\n</svg>",
+      "what_to_make": "Number line showing decimal continuum and rational density intervals.",
+      "concept_visuals": [
+        {
+          "concept_title": "Decimal Classification and Density",
+          "diagram_title": "Continuum of Terminating and Repeating Decimals",
+          "diagram_type": "vector_svg_diagram",
+          "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Terminating &amp; Repeating Decimals on Continuum</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Comparing terminating fractions (3/50, 7/20) and repeating fractions (2/9)</text>\n        </g>\n        \n  <line x1=\"50\" y1=\"190\" x2=\"530\" y2=\"190\" stroke=\"#334155\" stroke-width=\"2.5\" marker-end=\"url(#arrowSlate)\"/>\n  <line x1=\"164.0\" y1=\"184\" x2=\"164.0\" y2=\"196\" stroke=\"#475569\" stroke-width=\"1.5\"/>\n  <text x=\"164.0\" y=\"214\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">0</text>\n  <circle cx=\"189.2\" cy=\"190\" r=\"5\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"189.2\" y1=\"182\" x2=\"189.2\" y2=\"160\" stroke=\"#16A34A\" stroke-width=\"1.5\"/>\n  <text x=\"189.2\" y=\"154\" fill=\"#16A34A\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">3/50 = 0.06</text>\n  <circle cx=\"257.24\" cy=\"190\" r=\"5\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"257.24\" y1=\"182\" x2=\"257.24\" y2=\"160\" stroke=\"#DC2626\" stroke-width=\"1.5\"/>\n  <text x=\"257.24\" y=\"154\" fill=\"#DC2626\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">2/9 = 0.222...</text>\n  <circle cx=\"311.0\" cy=\"190\" r=\"5\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"311.0\" y1=\"182\" x2=\"311.0\" y2=\"160\" stroke=\"#16A34A\" stroke-width=\"1.5\"/>\n  <text x=\"311.0\" y=\"154\" fill=\"#16A34A\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">7/20 = 0.35</text>\n  <circle cx=\"387.44\" cy=\"190\" r=\"5\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <line x1=\"387.44\" y1=\"182\" x2=\"387.44\" y2=\"160\" stroke=\"#2563EB\" stroke-width=\"1.5\"/>\n  <text x=\"387.44\" y=\"154\" fill=\"#2563EB\" font-size=\"12\" font-weight=\"700\" text-anchor=\"middle\">0.532</text>\n</svg>",
+          "interactive_math_formula": "q = 2^m \\times 5^n \\implies \\text{Terminating}",
+          "mafs_graph_config": {
+            "domain": [
+              -0.2,
+              0.8
+            ],
+            "range": [
+              -2,
+              2
+            ],
+            "points": [
+              [
+                0.06,
+                0
+              ],
+              [
+                0.222,
+                0
+              ],
+              [
+                0.35,
+                0
+              ],
+              [
+                0.532,
+                0
+              ]
+            ]
+          },
+          "image_query": "Decimal expansion terminating recurring number line",
+          "video_query": "Terminating and recurring decimals animation",
+          "image_url": "/images/curriculum/ch3_decimals_density.png",
+          "what_to_make": "Number line segment comparing terminating decimals with periodic decimals.",
+          "what_to_explain": "Explain that terminating decimals reach exact zero remainder, while repeating decimals loop.",
+          "timing_and_cue": "Introduce at 03:00 during Question 1 explanation."
+        }
+      ],
+      "concept_questions": [
+        {
+          "concept_index": 0,
+          "concept_title": "Decimal Classification and Density",
+          "questions": [
+            {
+              "q_num": "Q1",
+              "type": "1-mark MCQ",
+              "question": "What is the decimal expansion of 7/8?",
+              "ideal_answer": "0.875, which terminates because 8 = 2^3.",
+              "socratic_hint": "Divide 7 by 8 or multiply numerator and denominator by 125."
+            },
+            {
+              "q_num": "Q2",
+              "type": "1-mark MCQ",
+              "question": "Does 6/15 terminate or repeat?",
+              "ideal_answer": "Terminates. In simplest form, 6/15 = 2/5 = 0.4.",
+              "socratic_hint": "Always reduce the fraction to simplest form first."
+            },
+            {
+              "q_num": "Q3",
+              "type": "2-mark Short Answer",
+              "question": "Convert 0.999... into p/q form.",
+              "ideal_answer": "10x - x = 9 => 9x = 9 => x = 1. Thus 0.999... is mathematically identical to 1.",
+              "socratic_hint": "Apply the repeating decimal formula: 9x = 9."
+            },
+            {
+              "q_num": "Q4",
+              "type": "2-mark Short Answer",
+              "question": "Find 3 rational numbers between 1/5 and 1/4.",
+              "ideal_answer": "1/5 = 8/40, 1/4 = 10/40. Scale to 80ths: 16/80 and 20/80. Three rationals: 17/80, 18/80 (=9/40), 19/80.",
+              "socratic_hint": "Find a common denominator with space between numerators."
+            },
+            {
+              "q_num": "Q5",
+              "type": "3-mark Short Answer",
+              "question": "Explain why the decimal expansion of an irrational number is non-terminating and non-repeating.",
+              "ideal_answer": "Any terminating decimal or repeating decimal can be converted into the p/q form of a rational number. Therefore, numbers that cannot be expressed as p/q must have decimal expansions that neither terminate nor repeat.",
+              "socratic_hint": "What kind of numbers do terminating and repeating decimals represent?"
+            }
+          ]
+        }
+      ]
+    },
+    "curriculum_id": "09ca99d2-0489-48f2-8d39-8b26ca7885c9",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 25,
+    "quiz_questions": []
+  }
+]

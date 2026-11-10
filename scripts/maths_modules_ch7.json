@@ -1,0 +1,647 @@
+[
+  {
+    "order_index": 1,
+    "title": "Intuition of Chance: The Continuous [0, 1] Probability Scale & Qualitative Ranking",
+    "description": "Formulate probability as a real number strictly bounded within the closed interval [0, 1]. Map qualitative uncertainty (Impossible, Less Likely, Even Chance, More Likely, Certain) onto numerical values. Master complementary events and P(E) + P(not E) = 1.",
+    "subtopics": [
+      "Everyday uncertainty vs mathematical quantification of chance",
+      "The fundamental probability bounding invariant: 0 <= P(E) <= 1",
+      "Probability of an Impossible event: P(∅) = 0",
+      "Probability of a Certain event: P(S) = 1",
+      "The 'Even Chance' midpoint: P(E) = 0.5 (fair coin toss)",
+      "Complementary events rule: P(not E) = 1 - P(E)"
+    ],
+    "key_concepts": [
+      "Probability Axiom: For any event E, 0 <= P(E) <= 1. A negative probability or a probability greater than 1 is mathematically impossible.",
+      "Qualitative to Quantitative Mapping: Impossible = 0; Less Likely = (0, 0.5); Equally Likely / Even Chance = 0.5; More Likely = (0.5, 1); Certain = 1.",
+      "Complement Invariant: An event E and its complement 'not E' are mutually exhaustive and mutually exclusive. Therefore: P(E) + P(not E) = 1.",
+      "Percentage Equivalence: Probabilities can be expressed as real numbers (0.75), fractions (3/4), or percentages (75%)."
+    ],
+    "success_criteria": "Rank qualitative events on the [0, 1] scale, verify that probabilities are bounded, and calculate complementary probabilities.",
+    "chapter_notes": "Emphasize that probability can NEVER be negative or exceed 1. If a student calculates a probability of 1.25 or -0.3, they must immediately recognize an algebraic error.",
+    "worked_examples": [
+      {
+        "problem": "Textbook Exercise 7.1 Q1: Rank the following events on a continuous scale from 0 to 1, labeling each as Impossible, Less likely, Equally likely, More likely, or Certain: (i) The next Monday will follow Sunday. (ii) Rolling a standard 6-sided die yields an 8. (iii) A tossed fair coin lands heads. (iv) Drawing a red card from a standard deck of 52 cards. (v) It will rain tomorrow in the Sahara Desert during peak dry season.",
+        "given": "Five physical events with real-world contexts.",
+        "formula": "Probability scale: 0 = Impossible, 0.5 = Equally likely, 1.0 = Certain.",
+        "substitution": "Evaluate likelihood of each scenario.",
+        "calculation": "Part (i): Monday following Sunday is a defined calendar certainty. Score = 1.0 (Certain).\\nPart (ii): A standard die only contains faces {1, 2, 3, 4, 5, 6}. Getting an 8 has 0 possible outcomes. Score = 0.0 (Impossible).\\nPart (iii): A fair coin has 2 equally likely outcomes {H, T}. P(H) = 1/2 = 0.5. Score = 0.5 (Equally likely / Even chance).\\nPart (iv): A deck of 52 cards contains exactly 26 red cards and 26 black cards. P(Red) = 26/52 = 1/2 = 0.5. Score = 0.5 (Equally likely).\\nPart (v): Rain in the Sahara during peak dry season is extremely improbable, though not physically impossible. Score approx 0.05 (Less likely).",
+        "finalAnswer": "(i) 1.0 Certain; (ii) 0.0 Impossible; (iii) 0.5 Equally likely; (iv) 0.5 Equally likely; (v) 0.05 Less likely",
+        "unit": "probability scale rankings",
+        "has_diagram": true,
+        "diagram_type": "vector_svg_diagram",
+        "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">The Continuous Probability Scale [0, 1]</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">From Impossible (0) through Even Chance (0.5) to Certain (1.0). Invariant: 0 ≤ P(E) ≤ 1</text>\n        </g>\n        \n  <line x1=\"80\" y1=\"180\" x2=\"500\" y2=\"180\" stroke=\"#334155\" stroke-width=\"4\"/>\n  <circle cx=\"80\" cy=\"180\" r=\"6\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"80\" y=\"162\" fill=\"#DC2626\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0</text>\n  <text x=\"80\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Impossible</text>\n  <circle cx=\"185\" cy=\"180\" r=\"6\" fill=\"#EA580C\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"185\" y=\"162\" fill=\"#EA580C\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0.25</text>\n  <text x=\"185\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Unlikely</text>\n  <circle cx=\"290\" cy=\"180\" r=\"6\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"290\" y=\"162\" fill=\"#2563EB\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0.50</text>\n  <text x=\"290\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Even Chance (50-50)</text>\n  <circle cx=\"395\" cy=\"180\" r=\"6\" fill=\"#0D9488\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"395\" y=\"162\" fill=\"#0D9488\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0.75</text>\n  <text x=\"395\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Likely</text>\n  <circle cx=\"500\" cy=\"180\" r=\"6\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"500\" y=\"162\" fill=\"#16A34A\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">1.0</text>\n  <text x=\"500\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Certain</text>\n  <rect x=\"80\" y=\"240\" width=\"420\" height=\"45\" rx=\"8\" fill=\"#F1F5F9\"/>\n  <text x=\"290\" y=\"268\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">Invariant: For any event E, 0 ≤ P(E) ≤ 1 and P(E) + P(not E) = 1</text>\n</svg>"
+      },
+      {
+        "problem": "Complementary Probability Problem: If the probability of a student passing a mathematics examination is 0.83, find the probability that the student does not pass.",
+        "given": "P(Passing) = P(E) = 0.83.",
+        "formula": "P(E) + P(not E) = 1 => P(not E) = 1 - P(E).",
+        "substitution": "P(not E) = 1 - 0.83.",
+        "calculation": "Step 1: Identify that 'passing' and 'not passing' are complementary events that partition the entire sample space.\\nStep 2: Apply the complement formula:\\n  P(not E) = 1.00 - 0.83\\nStep 3: Perform decimal subtraction:\\n  1.00 - 0.83 = 0.17.\\nStep 4: Express as percentage: 0.17 = 17%.",
+        "finalAnswer": "Probability of not passing = 0.17 (or 17%)",
+        "unit": "probability",
+        "has_diagram": false
+      }
+    ],
+    "common_misconceptions": [
+      "Writing a probability as 75 without the % symbol or without dividing by 100 (probability cannot be 75, it is 0.75).",
+      "Assuming an 'impossible' event can have a tiny positive probability: an impossible event has probability EXACTLY 0."
+    ],
+    "ai_system_prompt_context": "TEACHING CADENCE: Draw a number line with 0 on the left and 1 on the right. Place 1/2 in the middle. Show students that all probabilities in the universe live on this line segment. Call write_chalkboard(action='draw_svg_diagram', content='Continuous Probability Scale').",
+    "visual_lesson_plan": {
+      "title": "Continuous Probability Scale",
+      "diagram_type": "vector_svg_diagram",
+      "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">The Continuous Probability Scale [0, 1]</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">From Impossible (0) through Even Chance (0.5) to Certain (1.0). Invariant: 0 ≤ P(E) ≤ 1</text>\n        </g>\n        \n  <line x1=\"80\" y1=\"180\" x2=\"500\" y2=\"180\" stroke=\"#334155\" stroke-width=\"4\"/>\n  <circle cx=\"80\" cy=\"180\" r=\"6\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"80\" y=\"162\" fill=\"#DC2626\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0</text>\n  <text x=\"80\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Impossible</text>\n  <circle cx=\"185\" cy=\"180\" r=\"6\" fill=\"#EA580C\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"185\" y=\"162\" fill=\"#EA580C\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0.25</text>\n  <text x=\"185\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Unlikely</text>\n  <circle cx=\"290\" cy=\"180\" r=\"6\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"290\" y=\"162\" fill=\"#2563EB\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0.50</text>\n  <text x=\"290\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Even Chance (50-50)</text>\n  <circle cx=\"395\" cy=\"180\" r=\"6\" fill=\"#0D9488\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"395\" y=\"162\" fill=\"#0D9488\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0.75</text>\n  <text x=\"395\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Likely</text>\n  <circle cx=\"500\" cy=\"180\" r=\"6\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"500\" y=\"162\" fill=\"#16A34A\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">1.0</text>\n  <text x=\"500\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Certain</text>\n  <rect x=\"80\" y=\"240\" width=\"420\" height=\"45\" rx=\"8\" fill=\"#F1F5F9\"/>\n  <text x=\"290\" y=\"268\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">Invariant: For any event E, 0 ≤ P(E) ≤ 1 and P(E) + P(not E) = 1</text>\n</svg>",
+      "what_to_make": "Number line from 0 to 1 with event probability markers.",
+      "concept_visuals": [
+        {
+          "concept_title": "The [0, 1] Scale",
+          "diagram_title": "Probability Axis",
+          "diagram_type": "vector_svg_diagram",
+          "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">The Continuous Probability Scale [0, 1]</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">From Impossible (0) through Even Chance (0.5) to Certain (1.0). Invariant: 0 ≤ P(E) ≤ 1</text>\n        </g>\n        \n  <line x1=\"80\" y1=\"180\" x2=\"500\" y2=\"180\" stroke=\"#334155\" stroke-width=\"4\"/>\n  <circle cx=\"80\" cy=\"180\" r=\"6\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"80\" y=\"162\" fill=\"#DC2626\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0</text>\n  <text x=\"80\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Impossible</text>\n  <circle cx=\"185\" cy=\"180\" r=\"6\" fill=\"#EA580C\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"185\" y=\"162\" fill=\"#EA580C\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0.25</text>\n  <text x=\"185\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Unlikely</text>\n  <circle cx=\"290\" cy=\"180\" r=\"6\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"290\" y=\"162\" fill=\"#2563EB\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0.50</text>\n  <text x=\"290\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Even Chance (50-50)</text>\n  <circle cx=\"395\" cy=\"180\" r=\"6\" fill=\"#0D9488\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"395\" y=\"162\" fill=\"#0D9488\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0.75</text>\n  <text x=\"395\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Likely</text>\n  <circle cx=\"500\" cy=\"180\" r=\"6\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"500\" y=\"162\" fill=\"#16A34A\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">1.0</text>\n  <text x=\"500\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Certain</text>\n  <rect x=\"80\" y=\"240\" width=\"420\" height=\"45\" rx=\"8\" fill=\"#F1F5F9\"/>\n  <text x=\"290\" y=\"268\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">Invariant: For any event E, 0 ≤ P(E) ≤ 1 and P(E) + P(not E) = 1</text>\n</svg>",
+          "interactive_math_formula": "0 <= P(E) <= 1",
+          "mafs_graph_config": {
+            "domain": [
+              -0.2,
+              1.2
+            ],
+            "range": [
+              -1,
+              2
+            ]
+          },
+          "image_query": "Probability scale from 0 to 1 impossible even chance certain math",
+          "video_query": "Probability scale from 0 to 1 explained for students",
+          "image_url": "/images/curriculum/ch7_prob_scale.png",
+          "what_to_make": "Number line with labels: Impossible, Unlikely, Even, Likely, Certain.",
+          "what_to_explain": "Walk through the endpoints 0 and 1, and the midpoint 0.5.",
+          "timing_and_cue": "Show immediately during Stage 1 intuition."
+        }
+      ],
+      "concept_questions": [
+        {
+          "concept_index": 0,
+          "concept_title": "Probability Axioms",
+          "questions": [
+            {
+              "q_num": "Q1",
+              "type": "1-mark MCQ",
+              "question": "Which of the following CANNOT be the probability of an event: (A) 2/3, (B) -1.5, (C) 15%, (D) 0.7?",
+              "ideal_answer": "(B) -1.5, because probability can never be negative (0 <= P(E) <= 1).",
+              "socratic_hint": "Check which option violates 0 <= P(E) <= 1."
+            },
+            {
+              "q_num": "Q2",
+              "type": "2-mark Short Answer",
+              "question": "If P(E) = 0.05, what is the probability of 'not E'?",
+              "ideal_answer": "P(not E) = 1 - 0.05 = 0.95.",
+              "socratic_hint": "Subtract 0.05 from 1."
+            },
+            {
+              "q_num": "Q3",
+              "type": "2-mark Problem",
+              "question": "An event has probability 3/8. What is the probability of its complement?",
+              "ideal_answer": "P(complement) = 1 - 3/8 = 5/8.",
+              "socratic_hint": "Subtract 3/8 from 8/8."
+            },
+            {
+              "q_num": "Q4",
+              "type": "1-mark True/False",
+              "question": "True or False: If an event is certain to occur, its probability is 100.",
+              "ideal_answer": "False. Its probability is 1 (or 100%, but 100 without a percent sign is invalid).",
+              "socratic_hint": "Is 100 the same as 100%?"
+            },
+            {
+              "q_num": "Q5",
+              "type": "3-mark Board Question",
+              "question": "A bag contains white, black, and red balls. If P(white) = 0.3 and P(black) = 0.45, find P(red).",
+              "ideal_answer": "The sum of all elementary probabilities is 1: P(white) + P(black) + P(red) = 1 => 0.3 + 0.45 + P(red) = 1 => 0.75 + P(red) = 1 => P(red) = 1 - 0.75 = 0.25.",
+              "socratic_hint": "The sum of probabilities of all mutually exclusive and exhaustive outcomes is 1."
+            }
+          ]
+        }
+      ]
+    },
+    "curriculum_id": "257078e3-5cf0-4286-a1e3-661ce480edc3",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 25,
+    "quiz_questions": []
+  },
+  {
+    "order_index": 2,
+    "title": "Empirical Probability: Relative Frequencies, Sweet Sampling & The Law of Large Numbers",
+    "description": "Distinguish between theoretical and experimental probability. Compute empirical probability using relative frequency P(E) = m / N. Formulate the Law of Large Numbers: empirical relative frequency converges to theoretical probability as sample size N grows without bound.",
+    "subtopics": [
+      "Experimental / Empirical probability definition via real-world trials",
+      "Formula: P(E) = (Number of trials with outcome E) / (Total number of trials N)",
+      "Sweet sampling experiment: 30 sweets of 4 colours (Red, Green, Yellow, Blue)",
+      "Multi-outcome event probabilities: P(Red or Blue) = P(Red) + P(Blue)",
+      "The Law of Large Numbers: Long-run stability of random frequencies",
+      "Buffon's coin tosses: How 10 tosses can be 70% heads, but 10,000 tosses approach 50%"
+    ],
+    "key_concepts": [
+      "Empirical Probability Definition: P_emp(E) = f / N, where f is the observed frequency of event E in N independent trials.",
+      "Law of Large Numbers Invariant: As the number of trials N approaches infinity, the empirical relative frequency f / N converges mathematically to the theoretical probability P(E).",
+      "Disjoint Event Addition: For mutually exclusive colours (e.g. sweet cannot be both red and blue), P(Red or Blue) = P(Red) + P(Blue) = 10/30 + 5/30 = 15/30 = 1/2.",
+      "Sample Size Sensitivity: In small samples (N = 10), high variance and fluctuation occur. Reliability requires sufficiently large N."
+    ],
+    "success_criteria": "Calculate empirical probabilities from frequency tables, solve union problems for disjoint events, and state the Law of Large Numbers.",
+    "chapter_notes": "The sweet bag experiment in Ganita Manjari Chapter 7 is the core concrete model. Ensure students leave answers in reduced fraction form.",
+    "worked_examples": [
+      {
+        "problem": "Textbook Exercise 7.2 Q1: A teacher mixes a large bag of sweets of different colours and randomly selects a sample of 30 sweets. The counts are: 10 red, 8 green, 7 yellow, 5 blue. Calculate the empirical probability of picking: (i) a red sweet, (ii) a green sweet, (iii) a yellow sweet, (iv) a blue sweet, (v) a sweet that is red or blue, (vi) a sweet that is NOT red.",
+        "given": "Sample size N = 30. Frequencies: Red = 10, Green = 8, Yellow = 7, Blue = 5.",
+        "formula": "P(E) = Frequency(E) / Total N.",
+        "substitution": "N = 30. (i) 10/30; (ii) 8/30; (iii) 7/30; (iv) 5/30; (v) (10+5)/30; (vi) 1 - 10/30.",
+        "calculation": "Step 1: Check total sample count:\\n  10 + 8 + 7 + 5 = 30. (Valid!)\\nStep 2: Compute individual probabilities:\\n  (i) P(Red) = 10 / 30 = 1 / 3.\\n  (ii) P(Green) = 8 / 30 = 4 / 15.\\n  (iii) P(Yellow) = 7 / 30.\\n  (iv) P(Blue) = 5 / 30 = 1 / 6.\\nStep 3: Compute compound probability (Red or Blue):\\n  Since a sweet cannot be simultaneously red and blue (disjoint events):\\n  P(Red or Blue) = P(Red) + P(Blue) = 10/30 + 5/30 = 15 / 30 = 1 / 2.\\nStep 4: Compute complement (NOT Red):\\n  P(not Red) = 1 - P(Red) = 1 - 1/3 = 2 / 3\\n  (Or count others: (8 + 7 + 5)/30 = 20/30 = 2/3).",
+        "finalAnswer": "(i) 1/3; (ii) 4/15; (iii) 7/30; (iv) 1/6; (v) 1/2; (vi) 2/3",
+        "unit": "probabilities as reduced fractions",
+        "has_diagram": true,
+        "diagram_type": "vector_svg_diagram",
+        "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Empirical Probability &amp; Sweet Bag Sampling</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Sample of 30 sweets: 10 Red (1/3), 8 Green (4/15), 7 Yellow (7/30), 5 Blue (1/6)</text>\n        </g>\n        \n  <line x1=\"80\" y1=\"180\" x2=\"500\" y2=\"180\" stroke=\"#334155\" stroke-width=\"4\"/>\n  <circle cx=\"80\" cy=\"180\" r=\"6\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"80\" y=\"162\" fill=\"#DC2626\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0</text>\n  <text x=\"80\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Impossible</text>\n  <circle cx=\"185\" cy=\"180\" r=\"6\" fill=\"#EA580C\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"185\" y=\"162\" fill=\"#EA580C\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0.25</text>\n  <text x=\"185\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Unlikely</text>\n  <circle cx=\"290\" cy=\"180\" r=\"6\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"290\" y=\"162\" fill=\"#2563EB\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0.50</text>\n  <text x=\"290\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Even Chance (50-50)</text>\n  <circle cx=\"395\" cy=\"180\" r=\"6\" fill=\"#0D9488\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"395\" y=\"162\" fill=\"#0D9488\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0.75</text>\n  <text x=\"395\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Likely</text>\n  <circle cx=\"500\" cy=\"180\" r=\"6\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"500\" y=\"162\" fill=\"#16A34A\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">1.0</text>\n  <text x=\"500\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Certain</text>\n  <rect x=\"80\" y=\"240\" width=\"420\" height=\"45\" rx=\"8\" fill=\"#F1F5F9\"/>\n  <text x=\"290\" y=\"268\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">Invariant: For any event E, 0 ≤ P(E) ≤ 1 and P(E) + P(not E) = 1</text>\n</svg>"
+      },
+      {
+        "problem": "Coin Tossing Simulation & Law of Large Numbers: A coin is tossed 500 times with frequencies: Head = 240, Tail = 260. Another coin is tossed 10,000 times with frequencies: Head = 4,985, Tail = 5,015. Compare the empirical probabilities of getting a head.",
+        "given": "Experiment 1: N_1 = 500, H_1 = 240. Experiment 2: N_2 = 10,000, H_2 = 4,985.",
+        "formula": "P(H) = H / N. Theoretical P(H) = 0.5000.",
+        "substitution": "P_1(H) = 240 / 500; P_2(H) = 4,985 / 10,000.",
+        "calculation": "Step 1: Compute P_1(H) for 500 tosses:\\n  P_1(H) = 240 / 500 = 48 / 100 = 0.480 (Difference from theoretical: |0.480 - 0.500| = 0.020).\\nStep 2: Compute P_2(H) for 10,000 tosses:\\n  P_2(H) = 4,985 / 10,000 = 0.4985 (Difference from theoretical: |0.4985 - 0.5000| = 0.0015).\\nStep 3: Analysis:\\n  As sample size increased from 500 to 10,000, the error dropped from 2.0% to 0.15%.\\n  This directly verifies the Law of Large Numbers: relative frequency stabilizes to theoretical probability 0.5 as N grows.",
+        "finalAnswer": "500 tosses: P(H) = 0.480; 10,000 tosses: P(H) = 0.4985 (converging to 0.5000 by Law of Large Numbers)",
+        "unit": "relative frequencies",
+        "has_diagram": false
+      }
+    ],
+    "common_misconceptions": [
+      "Believing the Law of Large Numbers means the coin 'owes' a head after many tails (the Gambler's Fallacy). The coin has no memory; each flip remains independent with P(H) = 0.5.",
+      "Leaving fractions unsimplified (e.g. 10/30 instead of 1/3)."
+    ],
+    "ai_system_prompt_context": "TEACHING CADENCE: Clarify the difference between the Gambler's Fallacy and the Law of Large Numbers. The Law of Large Numbers does not compensate for past flips; it simply dilutes them over a massive denominator N. Call write_chalkboard(action='draw_svg_diagram', content='Sweet Bag Sampling').",
+    "visual_lesson_plan": {
+      "title": "Empirical Frequency & Convergence",
+      "diagram_type": "vector_svg_diagram",
+      "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Empirical Probability &amp; Sweet Bag Sampling</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Sample of 30 sweets: 10 Red (1/3), 8 Green (4/15), 7 Yellow (7/30), 5 Blue (1/6)</text>\n        </g>\n        \n  <line x1=\"80\" y1=\"180\" x2=\"500\" y2=\"180\" stroke=\"#334155\" stroke-width=\"4\"/>\n  <circle cx=\"80\" cy=\"180\" r=\"6\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"80\" y=\"162\" fill=\"#DC2626\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0</text>\n  <text x=\"80\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Impossible</text>\n  <circle cx=\"185\" cy=\"180\" r=\"6\" fill=\"#EA580C\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"185\" y=\"162\" fill=\"#EA580C\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0.25</text>\n  <text x=\"185\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Unlikely</text>\n  <circle cx=\"290\" cy=\"180\" r=\"6\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"290\" y=\"162\" fill=\"#2563EB\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0.50</text>\n  <text x=\"290\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Even Chance (50-50)</text>\n  <circle cx=\"395\" cy=\"180\" r=\"6\" fill=\"#0D9488\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"395\" y=\"162\" fill=\"#0D9488\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0.75</text>\n  <text x=\"395\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Likely</text>\n  <circle cx=\"500\" cy=\"180\" r=\"6\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"500\" y=\"162\" fill=\"#16A34A\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">1.0</text>\n  <text x=\"500\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Certain</text>\n  <rect x=\"80\" y=\"240\" width=\"420\" height=\"45\" rx=\"8\" fill=\"#F1F5F9\"/>\n  <text x=\"290\" y=\"268\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">Invariant: For any event E, 0 ≤ P(E) ≤ 1 and P(E) + P(not E) = 1</text>\n</svg>",
+      "what_to_make": "Bar chart of sweet frequencies and coin convergence graph.",
+      "concept_visuals": [
+        {
+          "concept_title": "Relative Frequency Convergence",
+          "diagram_title": "Sweet Frequency & Convergence",
+          "diagram_type": "vector_svg_diagram",
+          "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Empirical Probability &amp; Sweet Bag Sampling</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Sample of 30 sweets: 10 Red (1/3), 8 Green (4/15), 7 Yellow (7/30), 5 Blue (1/6)</text>\n        </g>\n        \n  <line x1=\"80\" y1=\"180\" x2=\"500\" y2=\"180\" stroke=\"#334155\" stroke-width=\"4\"/>\n  <circle cx=\"80\" cy=\"180\" r=\"6\" fill=\"#DC2626\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"80\" y=\"162\" fill=\"#DC2626\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0</text>\n  <text x=\"80\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Impossible</text>\n  <circle cx=\"185\" cy=\"180\" r=\"6\" fill=\"#EA580C\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"185\" y=\"162\" fill=\"#EA580C\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0.25</text>\n  <text x=\"185\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Unlikely</text>\n  <circle cx=\"290\" cy=\"180\" r=\"6\" fill=\"#2563EB\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"290\" y=\"162\" fill=\"#2563EB\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0.50</text>\n  <text x=\"290\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Even Chance (50-50)</text>\n  <circle cx=\"395\" cy=\"180\" r=\"6\" fill=\"#0D9488\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"395\" y=\"162\" fill=\"#0D9488\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">0.75</text>\n  <text x=\"395\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Likely</text>\n  <circle cx=\"500\" cy=\"180\" r=\"6\" fill=\"#16A34A\" stroke=\"#FFFFFF\" stroke-width=\"2\"/>\n  <text x=\"500\" y=\"162\" fill=\"#16A34A\" font-size=\"13\" font-weight=\"700\" text-anchor=\"middle\">1.0</text>\n  <text x=\"500\" y=\"206\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"600\" text-anchor=\"middle\">Certain</text>\n  <rect x=\"80\" y=\"240\" width=\"420\" height=\"45\" rx=\"8\" fill=\"#F1F5F9\"/>\n  <text x=\"290\" y=\"268\" fill=\"#334155\" font-size=\"12\" font-weight=\"600\" text-anchor=\"middle\">Invariant: For any event E, 0 ≤ P(E) ≤ 1 and P(E) + P(not E) = 1</text>\n</svg>",
+          "interactive_math_formula": "P(E) = f / N -> P_theor as N -> infty",
+          "mafs_graph_config": {
+            "domain": [
+              0,
+              100
+            ],
+            "range": [
+              0,
+              1
+            ]
+          },
+          "image_query": "Relative frequency convergence law of large numbers math graph",
+          "video_query": "Law of large numbers simulation coin toss animated",
+          "image_url": "/images/curriculum/ch7_convergence.png",
+          "what_to_make": "Graph showing coin toss proportion stabilizing toward 0.5.",
+          "what_to_explain": "Explain why large N produces predictable aggregate results.",
+          "timing_and_cue": "Show during Law of Large Numbers discussion."
+        }
+      ],
+      "concept_questions": [
+        {
+          "concept_index": 0,
+          "concept_title": "Empirical Probability",
+          "questions": [
+            {
+              "q_num": "Q1",
+              "type": "1-mark MCQ",
+              "question": "In a survey of 100 families, 65 own a bicycle. What is the empirical probability of a randomly chosen family owning a bicycle?",
+              "ideal_answer": "0.65 (or 13/20).",
+              "socratic_hint": "Divide 65 by 100."
+            },
+            {
+              "q_num": "Q2",
+              "type": "2-mark Short Answer",
+              "question": "What is the Gambler's Fallacy?",
+              "ideal_answer": "The mistaken belief that if an event has occurred more frequently than normal in the past, it is less likely to happen in the future, even though individual trials are independent.",
+              "socratic_hint": "Does a coin remember previous tosses?"
+            },
+            {
+              "q_num": "Q3",
+              "type": "2-mark Problem",
+              "question": "A die is rolled 60 times and a 4 appears 15 times. What is the empirical probability of getting a 4, and how does it compare to the theoretical probability?",
+              "ideal_answer": "Empirical P(4) = 15/60 = 1/4 = 0.25. Theoretical P(4) = 1/6 approx 0.167. The empirical probability is higher than theoretical in this sample.",
+              "socratic_hint": "Compute 15/60 and compare with 1/6."
+            },
+            {
+              "q_num": "Q4",
+              "type": "2-mark Problem",
+              "question": "If 12 out of 50 seeds fail to germinate, what is the probability of a randomly picked seed germinating successfully?",
+              "ideal_answer": "Number germinating = 50 - 12 = 38. P(germinating) = 38/50 = 19/25 = 0.76 (or 76%).",
+              "socratic_hint": "Subtract failed seeds from total seeds, then divide by 50."
+            },
+            {
+              "q_num": "Q5",
+              "type": "3-mark Board Question",
+              "question": "Three coins are tossed simultaneously 200 times with frequencies: 3 Heads: 23; 2 Heads: 72; 1 Head: 77; No Head: 28. If the three coins are tossed again, find the empirical probability of getting: (i) 2 heads, (ii) at least 2 heads.",
+              "ideal_answer": "(i) P(2 Heads) = 72 / 200 = 9 / 25 = 0.36. (ii) 'At least 2 heads' means 2 heads or 3 heads: 72 + 23 = 95. P(at least 2 heads) = 95 / 200 = 19 / 40 = 0.475.",
+              "socratic_hint": "Add the outcomes for 2 heads and 3 heads to find 'at least 2 heads'."
+            }
+          ]
+        }
+      ]
+    },
+    "curriculum_id": "257078e3-5cf0-4286-a1e3-661ce480edc3",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 25,
+    "quiz_questions": []
+  },
+  {
+    "order_index": 3,
+    "title": "Classical Theoretical Probability: Sample Spaces, Equally Likely Outcomes & Dice/Card Models",
+    "description": "Formulate Laplace's classical definition of theoretical probability P(E) = n(E) / n(S) under equally likely outcomes. Construct exhaustive sample spaces for single and multi-stage experiments: fair dice, coin tosses, and standard 52-card decks.",
+    "subtopics": [
+      "Classical / Theoretical probability definition: P(E) = n(E) / n(S)",
+      "Assumption of equally likely outcomes and symmetric balance",
+      "Sample space construction: S for single die = {1, 2, 3, 4, 5, 6}",
+      "Composite sample space: Rolling a die and tossing a coin (12 outcomes)",
+      "Standard 52-card deck architecture: 4 suits, 13 denominations, 12 face cards",
+      "Prime numbers, composite numbers, and perfect squares on a 6-sided die"
+    ],
+    "key_concepts": [
+      "Classical Probability Ratio: P(E) = n(E) / n(S) = (Number of favorable outcomes) / (Total number of equally likely outcomes in sample space).",
+      "Equally Likely Condition: The outcomes must have no intrinsic physical or statistical bias favoring one over another.",
+      "Die Outcome Partitions: On a fair 6-sided die: Prime numbers are {2, 3, 5} => P(Prime) = 3/6 = 1/2. Note that 1 is NEITHER prime nor composite!",
+      "Card Deck Hierarchy: 52 cards total = 26 Red (13 Hearts + 13 Diamonds) + 26 Black (13 Spades + 13 Clubs). Each suit has 1 Ace, 9 Number cards (2 to 10), and 3 Face cards (Jack, Queen, King). Total face cards = 4 * 3 = 12."
+    ],
+    "success_criteria": "Construct sample spaces for standard experiments, identify favorable subsets, and compute exact theoretical probabilities for dice and card decks.",
+    "chapter_notes": "Pay extreme attention to 1: 1 is NOT a prime number. Students who include 1 as a prime will get P(Prime) = 4/6 instead of 3/6 and lose marks.",
+    "worked_examples": [
+      {
+        "problem": "Textbook Exercise 7.3 Q1 & Q2: (Q1) When a single 6-sided die is rolled, what is the total number of possible outcomes? Find P(Odd), P(Prime), P(Number > 4). (Q2) For the experiment of rolling a die and tossing a coin together, write down the complete sample space S.",
+        "given": "Q1: Single 6-sided die. Q2: Single die and coin tossed together.",
+        "formula": "P(E) = n(E) / n(S). Sample Space S = Cartesian product of outcomes.",
+        "substitution": "Q1: S = {1, 2, 3, 4, 5, 6}, n(S) = 6. Q2: Die outcomes {1..6} x Coin outcomes {H, T}.",
+        "calculation": "Part (Q1):\\nStep 1: Total outcomes n(S) = 6.\\nStep 2: Odd numbers = {1, 3, 5} => n(Odd) = 3. P(Odd) = 3/6 = 1/2.\\nStep 3: Prime numbers = {2, 3, 5} (1 is not prime!) => n(Prime) = 3. P(Prime) = 3/6 = 1/2.\\nStep 4: Numbers strictly greater than 4 = {5, 6} => n(>4) = 2. P(>4) = 2/6 = 1/3.\\n\\nPart (Q2):\\nStep 1: Each die face (1 to 6) can be paired with either Head (H) or Tail (T):\\n  S = {(1, H), (1, T), (2, H), (2, T), (3, H), (3, T), (4, H), (4, T), (5, H), (5, T), (6, H), (6, T)}.\\nStep 2: Total outcomes n(S) = 6 * 2 = 12 equally likely outcomes.",
+        "finalAnswer": "Q1: n(S)=6; P(Odd)=1/2, P(Prime)=1/2, P(>4)=1/3; Q2: S has 12 outcomes {(1,H), (1,T), ..., (6,T)}",
+        "unit": "probabilities and set of outcomes",
+        "has_diagram": true,
+        "diagram_type": "vector_svg_diagram",
+        "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Sample Space &amp; Tree Diagram: Two Coin Tosses</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Sample Space S = {HH, HT, TH, TT}. 4 equally likely outcomes, each with probability 1/4</text>\n        </g>\n        \n  <circle cx=\"80\" cy=\"180\" r=\"6\" fill=\"#334155\"/>\n  <text x=\"70\" y=\"184\" fill=\"#334155\" font-size=\"11\" font-weight=\"700\" text-anchor=\"end\">Start</text>\n  <line x1=\"80\" y1=\"180\" x2=\"220\" y2=\"120\" stroke=\"#2563EB\" stroke-width=\"2\"/>\n  <line x1=\"80\" y1=\"180\" x2=\"220\" y2=\"240\" stroke=\"#2563EB\" stroke-width=\"2\"/>\n  <text x=\"140\" y=\"140\" fill=\"#2563EB\" font-size=\"11\" font-weight=\"600\">H (1/2)</text>\n  <text x=\"140\" y=\"228\" fill=\"#2563EB\" font-size=\"11\" font-weight=\"600\">T (1/2)</text>\n  <line x1=\"220\" y1=\"120\" x2=\"380\" y2=\"90\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <line x1=\"220\" y1=\"120\" x2=\"380\" y2=\"150\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"96\" fill=\"#16A34A\" font-size=\"10\">H (1/2)</text>\n  <text x=\"300\" y=\"144\" fill=\"#16A34A\" font-size=\"10\">T (1/2)</text>\n  <line x1=\"220\" y1=\"240\" x2=\"380\" y2=\"210\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <line x1=\"220\" y1=\"240\" x2=\"380\" y2=\"270\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"216\" fill=\"#16A34A\" font-size=\"10\">H (1/2)</text>\n  <text x=\"300\" y=\"264\" fill=\"#16A34A\" font-size=\"10\">T (1/2)</text>\n  <circle cx=\"380\" cy=\"90\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"94\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">HH <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n  <circle cx=\"380\" cy=\"150\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"154\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">HT <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n  <circle cx=\"380\" cy=\"210\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"214\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">TH <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n  <circle cx=\"380\" cy=\"270\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"274\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">TT <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n</svg>"
+      },
+      {
+        "problem": "Standard 52-Card Deck Problem: One card is drawn from a well-shuffled deck of 52 cards. Find the probability of getting: (i) a king of red colour, (ii) a face card, (iii) a red face card, (iv) the jack of hearts, (v) a spade, (vi) the queen of diamonds.",
+        "given": "Standard deck of cards: n(S) = 52.",
+        "formula": "P(E) = n(E) / 52.",
+        "substitution": "(i) 2 red kings; (ii) 12 face cards; (iii) 6 red face cards; (iv) 1 jack of hearts; (v) 13 spades; (vi) 1 queen of diamonds.",
+        "calculation": "Step 1: (i) Red kings: King of Hearts, King of Diamonds => n = 2.\\n  P(Red King) = 2 / 52 = 1 / 26.\\nStep 2: (ii) Face cards: Jacks, Queens, Kings across 4 suits => 4 * 3 = 12.\\n  P(Face card) = 12 / 52 = 3 / 13.\\nStep 3: (iii) Red face cards: 3 in Hearts + 3 in Diamonds = 6.\\n  P(Red face card) = 6 / 52 = 3 / 26.\\nStep 4: (iv) Jack of hearts: exactly 1 such card.\\n  P(Jack of Hearts) = 1 / 52.\\nStep 5: (v) Spade: 13 cards in the spade suit.\\n  P(Spade) = 13 / 52 = 1 / 4.\\nStep 6: (vi) Queen of diamonds: exactly 1 such card.\\n  P(Queen of Diamonds) = 1 / 52.",
+        "finalAnswer": "(i) 1/26; (ii) 3/13; (iii) 3/26; (iv) 1/52; (v) 1/4; (vi) 1/52",
+        "unit": "probabilities as reduced fractions",
+        "has_diagram": false
+      }
+    ],
+    "common_misconceptions": [
+      "Counting Ace as a face card. An Ace has a letter (A) but does NOT have a human face printed on it; face cards are strictly Jacks, Queens, and Kings (12 total).",
+      "Treating 1 as a prime number (1 has only one divisor, whereas primes must have exactly two distinct positive divisors)."
+    ],
+    "ai_system_prompt_context": "TEACHING CADENCE: Teach card deck architecture visually. Show the 4 suits laid out, pointing out the 3 face cards per suit (Jack, Queen, King). Remind them that Aces are not face cards. Call write_chalkboard(action='draw_svg_diagram', content='Sample Space & Tree Diagram').",
+    "visual_lesson_plan": {
+      "title": "Theoretical Probability Models",
+      "diagram_type": "vector_svg_diagram",
+      "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Sample Space &amp; Tree Diagram: Two Coin Tosses</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Sample Space S = {HH, HT, TH, TT}. 4 equally likely outcomes, each with probability 1/4</text>\n        </g>\n        \n  <circle cx=\"80\" cy=\"180\" r=\"6\" fill=\"#334155\"/>\n  <text x=\"70\" y=\"184\" fill=\"#334155\" font-size=\"11\" font-weight=\"700\" text-anchor=\"end\">Start</text>\n  <line x1=\"80\" y1=\"180\" x2=\"220\" y2=\"120\" stroke=\"#2563EB\" stroke-width=\"2\"/>\n  <line x1=\"80\" y1=\"180\" x2=\"220\" y2=\"240\" stroke=\"#2563EB\" stroke-width=\"2\"/>\n  <text x=\"140\" y=\"140\" fill=\"#2563EB\" font-size=\"11\" font-weight=\"600\">H (1/2)</text>\n  <text x=\"140\" y=\"228\" fill=\"#2563EB\" font-size=\"11\" font-weight=\"600\">T (1/2)</text>\n  <line x1=\"220\" y1=\"120\" x2=\"380\" y2=\"90\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <line x1=\"220\" y1=\"120\" x2=\"380\" y2=\"150\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"96\" fill=\"#16A34A\" font-size=\"10\">H (1/2)</text>\n  <text x=\"300\" y=\"144\" fill=\"#16A34A\" font-size=\"10\">T (1/2)</text>\n  <line x1=\"220\" y1=\"240\" x2=\"380\" y2=\"210\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <line x1=\"220\" y1=\"240\" x2=\"380\" y2=\"270\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"216\" fill=\"#16A34A\" font-size=\"10\">H (1/2)</text>\n  <text x=\"300\" y=\"264\" fill=\"#16A34A\" font-size=\"10\">T (1/2)</text>\n  <circle cx=\"380\" cy=\"90\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"94\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">HH <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n  <circle cx=\"380\" cy=\"150\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"154\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">HT <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n  <circle cx=\"380\" cy=\"210\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"214\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">TH <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n  <circle cx=\"380\" cy=\"270\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"274\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">TT <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n</svg>",
+      "what_to_make": "Tree diagram for 2 coins and card deck breakdown.",
+      "concept_visuals": [
+        {
+          "concept_title": "Classical Sample Spaces",
+          "diagram_title": "Sample Space Tree",
+          "diagram_type": "vector_svg_diagram",
+          "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Sample Space &amp; Tree Diagram: Two Coin Tosses</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Sample Space S = {HH, HT, TH, TT}. 4 equally likely outcomes, each with probability 1/4</text>\n        </g>\n        \n  <circle cx=\"80\" cy=\"180\" r=\"6\" fill=\"#334155\"/>\n  <text x=\"70\" y=\"184\" fill=\"#334155\" font-size=\"11\" font-weight=\"700\" text-anchor=\"end\">Start</text>\n  <line x1=\"80\" y1=\"180\" x2=\"220\" y2=\"120\" stroke=\"#2563EB\" stroke-width=\"2\"/>\n  <line x1=\"80\" y1=\"180\" x2=\"220\" y2=\"240\" stroke=\"#2563EB\" stroke-width=\"2\"/>\n  <text x=\"140\" y=\"140\" fill=\"#2563EB\" font-size=\"11\" font-weight=\"600\">H (1/2)</text>\n  <text x=\"140\" y=\"228\" fill=\"#2563EB\" font-size=\"11\" font-weight=\"600\">T (1/2)</text>\n  <line x1=\"220\" y1=\"120\" x2=\"380\" y2=\"90\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <line x1=\"220\" y1=\"120\" x2=\"380\" y2=\"150\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"96\" fill=\"#16A34A\" font-size=\"10\">H (1/2)</text>\n  <text x=\"300\" y=\"144\" fill=\"#16A34A\" font-size=\"10\">T (1/2)</text>\n  <line x1=\"220\" y1=\"240\" x2=\"380\" y2=\"210\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <line x1=\"220\" y1=\"240\" x2=\"380\" y2=\"270\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"216\" fill=\"#16A34A\" font-size=\"10\">H (1/2)</text>\n  <text x=\"300\" y=\"264\" fill=\"#16A34A\" font-size=\"10\">T (1/2)</text>\n  <circle cx=\"380\" cy=\"90\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"94\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">HH <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n  <circle cx=\"380\" cy=\"150\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"154\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">HT <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n  <circle cx=\"380\" cy=\"210\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"214\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">TH <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n  <circle cx=\"380\" cy=\"270\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"274\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">TT <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n</svg>",
+          "interactive_math_formula": "P(E) = n(E) / n(S)",
+          "mafs_graph_config": {
+            "domain": [
+              -5,
+              5
+            ],
+            "range": [
+              -5,
+              5
+            ]
+          },
+          "image_query": "Sample space probability tree diagram coins dice cards math",
+          "video_query": "Probability sample spaces and card decks explained",
+          "image_url": "/images/curriculum/ch7_cards_dice.png",
+          "what_to_make": "Tree diagram showing branching outcomes.",
+          "what_to_explain": "Walk through n(E)/n(S) for cards and dice.",
+          "timing_and_cue": "Show before card problem calculation."
+        }
+      ],
+      "concept_questions": [
+        {
+          "concept_index": 0,
+          "concept_title": "Theoretical Sample Spaces",
+          "questions": [
+            {
+              "q_num": "Q1",
+              "type": "1-mark MCQ",
+              "question": "How many total face cards are in a standard deck of 52 playing cards?",
+              "ideal_answer": "12 (4 Jacks, 4 Queens, 4 Kings).",
+              "socratic_hint": "There are 3 face cards in each of the 4 suits."
+            },
+            {
+              "q_num": "Q2",
+              "type": "2-mark Short Answer",
+              "question": "Why is 1 not considered a prime number in probability questions?",
+              "ideal_answer": "By definition, a prime number has exactly two distinct positive divisors (1 and itself). The number 1 has only one positive divisor (itself).",
+              "socratic_hint": "How many divisors does a prime number need?"
+            },
+            {
+              "q_num": "Q3",
+              "type": "2-mark Problem",
+              "question": "What is the probability of rolling a multiple of 3 on a standard 6-sided die?",
+              "ideal_answer": "Multiples of 3 are {3, 6} => n(E) = 2. P(Multiple of 3) = 2/6 = 1/3.",
+              "socratic_hint": "Which numbers between 1 and 6 are divisible by 3?"
+            },
+            {
+              "q_num": "Q4",
+              "type": "2-mark Problem",
+              "question": "Two coins are tossed simultaneously. What is the probability of getting at least one head?",
+              "ideal_answer": "S = {HH, HT, TH, TT}. Favorable = {HH, HT, TH} => n(E) = 3. P(at least 1 head) = 3/4.",
+              "socratic_hint": "Find the complement: what is the only outcome with NO heads?"
+            },
+            {
+              "q_num": "Q5",
+              "type": "3-mark Board Question",
+              "question": "A box contains 90 discs numbered 1 to 90. If one disc is drawn at random, find the probability that it bears: (i) a two-digit number, (ii) a perfect square number.",
+              "ideal_answer": "Total discs n(S) = 90. (i) Single-digit numbers are 1 to 9 (9 discs). Two-digit numbers = 90 - 9 = 81 discs. P(two-digit) = 81 / 90 = 9 / 10 = 0.9. (ii) Perfect squares from 1 to 90 are {1, 4, 9, 16, 25, 36, 49, 64, 81} (9 numbers). P(perfect square) = 9 / 90 = 1 / 10 = 0.1.",
+              "socratic_hint": "Count how many single digit numbers exist, and list the perfect squares up to 90."
+            }
+          ]
+        }
+      ]
+    },
+    "curriculum_id": "257078e3-5cf0-4286-a1e3-661ce480edc3",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 25,
+    "quiz_questions": []
+  },
+  {
+    "order_index": 4,
+    "title": "Two-Stage Experiments: Tree Diagrams, Multi-Branch Probabilities & Sampling Dynamics",
+    "description": "Construct two-stage tree diagrams to trace sequential random experiments. Formulate the multiplication rule along branches. Analyze the profound difference between sampling with replacement (independent stages) and sampling without replacement (conditional dependency).",
+    "subtopics": [
+      "Sequential vs simultaneous multi-stage random experiments",
+      "Constructing tree diagrams: Root, branches, node splits, and leaf outcomes",
+      "Multiplication rule along branches: P(A and B) = P(A) * P(B|A)",
+      "Textbook Fruit Basket Problem: Basket A (1 Apple, 2 Oranges) and Basket B (1 Banana, 1 Mango)",
+      "Sampling with replacement: Constant probabilities and stage independence",
+      "Sampling without replacement: Decreasing denominators and changing compositions"
+    ],
+    "key_concepts": [
+      "Tree Diagram Multiplicative Invariant: To find the probability of any specific outcome path from root to leaf, MULTIPLY the branch probabilities along that path.",
+      "Leaf Outcome Sum Invariant: The sum of the probabilities of all terminal leaf outcomes in a complete tree diagram must ALWAYS equal 1.0.",
+      "Fruit Basket Analysis: Basket A has 3 fruits (1 Apple, 2 Oranges); Basket B has 2 fruits (1 Banana, 1 Mango). Total outcome pairs = 3 * 2 = 6 pairs: {AB, AM, O_1B, O_1M, O_2B, O_2M}.",
+      "Sampling Without Replacement Dynamic: When a ball or card is removed without replacement, the total count drops by 1 (e.g. from 52 to 51), and the count of the chosen category drops by 1, altering all subsequent probabilities."
+    ],
+    "success_criteria": "Draw two-stage tree diagrams, apply the branch multiplication rule, and calculate probabilities for sampling with and without replacement.",
+    "chapter_notes": "Emphasize multiplying ALONG a branch (AND rule), and adding ACROSS different branches (OR rule).",
+    "worked_examples": [
+      {
+        "problem": "Textbook Exercise 7.4 Q1: There are two fruit baskets A and B. Basket A contains 1 apple and 2 oranges. Basket B contains 1 banana and 1 mango. You randomly pick one fruit from each basket. (i) Draw a tree diagram showing all possible pairs of fruits. (ii) List the sample space. (iii) Find the probability of picking an apple and a mango.",
+        "given": "Basket A: 1 Apple (A), 2 Oranges (O_1, O_2). Total in A = 3. Basket B: 1 Banana (B), 1 Mango (M). Total in B = 2.",
+        "formula": "Multiplication principle: n(S) = n(A) * n(B). P(Path) = P(A_choice) * P(B_choice).",
+        "substitution": "P(Apple) = 1/3, P(Orange) = 2/3. P(Banana) = 1/2, P(Mango) = 1/2.",
+        "calculation": "Step 1: First stage (Basket A):\\n  Branch 1: Apple with probability 1/3.\\n  Branch 2: Orange with probability 2/3.\\nStep 2: Second stage (Basket B):\\n  From Apple: Banana (prob 1/2) => Pair (Apple, Banana) with prob (1/3)*(1/2) = 1/6.\\n  From Apple: Mango (prob 1/2) => Pair (Apple, Mango) with prob (1/3)*(1/2) = 1/6.\\n  From Orange: Banana (prob 1/2) => Pair (Orange, Banana) with prob (2/3)*(1/2) = 2/6 = 1/3.\\n  From Orange: Mango (prob 1/2) => Pair (Orange, Mango) with prob (2/3)*(1/2) = 2/6 = 1/3.\\nStep 3: Verify sum of probabilities:\\n  1/6 + 1/6 + 2/6 + 2/6 = 6/6 = 1.0. (Valid!)\\nStep 4: Sample Space S = {(Apple, Banana), (Apple, Mango), (Orange, Banana), (Orange, Mango)}.\\nStep 5: Probability of picking an apple and a mango:\\n  P(Apple and Mango) = 1/6.",
+        "finalAnswer": "Sample space has 6 elementary outcomes; P(Apple and Mango) = 1/6",
+        "unit": "probability and sample space",
+        "has_diagram": true,
+        "diagram_type": "vector_svg_diagram",
+        "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Two-Stage Experiment: Fruit Baskets Tree Diagram</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Basket A (1 Apple, 2 Oranges) × Basket B (1 Banana, 1 Mango). Multi-branch probabilities</text>\n        </g>\n        \n  <circle cx=\"80\" cy=\"180\" r=\"6\" fill=\"#334155\"/>\n  <text x=\"70\" y=\"184\" fill=\"#334155\" font-size=\"11\" font-weight=\"700\" text-anchor=\"end\">Start</text>\n  <line x1=\"80\" y1=\"180\" x2=\"220\" y2=\"120\" stroke=\"#2563EB\" stroke-width=\"2\"/>\n  <line x1=\"80\" y1=\"180\" x2=\"220\" y2=\"240\" stroke=\"#2563EB\" stroke-width=\"2\"/>\n  <text x=\"140\" y=\"140\" fill=\"#2563EB\" font-size=\"11\" font-weight=\"600\">H (1/2)</text>\n  <text x=\"140\" y=\"228\" fill=\"#2563EB\" font-size=\"11\" font-weight=\"600\">T (1/2)</text>\n  <line x1=\"220\" y1=\"120\" x2=\"380\" y2=\"90\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <line x1=\"220\" y1=\"120\" x2=\"380\" y2=\"150\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"96\" fill=\"#16A34A\" font-size=\"10\">H (1/2)</text>\n  <text x=\"300\" y=\"144\" fill=\"#16A34A\" font-size=\"10\">T (1/2)</text>\n  <line x1=\"220\" y1=\"240\" x2=\"380\" y2=\"210\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <line x1=\"220\" y1=\"240\" x2=\"380\" y2=\"270\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"216\" fill=\"#16A34A\" font-size=\"10\">H (1/2)</text>\n  <text x=\"300\" y=\"264\" fill=\"#16A34A\" font-size=\"10\">T (1/2)</text>\n  <circle cx=\"380\" cy=\"90\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"94\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">HH <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n  <circle cx=\"380\" cy=\"150\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"154\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">HT <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n  <circle cx=\"380\" cy=\"210\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"214\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">TH <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n  <circle cx=\"380\" cy=\"270\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"274\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">TT <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n</svg>"
+      },
+      {
+        "problem": "Sampling Without Replacement Problem: A bag contains 5 red balls and 3 white balls. Two balls are drawn at random one after another WITHOUT replacement. Find the probability that: (i) both balls are red, (ii) both balls are white, (iii) one is red and one is white.",
+        "given": "Initial: 5 Red, 3 White. Total = 8. Two draws without replacement.",
+        "formula": "Branch multiplication rule with decreasing denominators.",
+        "substitution": "Draw 1: Total 8. Draw 2: Total 7.",
+        "calculation": "Step 1: (i) Both Red (R1 and R2):\\n  P(R1) = 5/8.\\n  After drawing 1 red, 4 red remain out of 7: P(R2|R1) = 4/7.\\n  P(Both Red) = (5/8) * (4/7) = 20 / 56 = 5 / 14.\\n\\nStep 2: (ii) Both White (W1 and W2):\\n  P(W1) = 3/8.\\n  After drawing 1 white, 2 white remain out of 7: P(W2|W1) = 2/7.\\n  P(Both White) = (3/8) * (2/7) = 6 / 56 = 3 / 28.\\n\\nStep 3: (iii) One Red and One White:\\n  Case A (Red first, then White): (5/8) * (3/7) = 15/56.\\n  Case B (White first, then Red): (3/8) * (5/7) = 15/56.\\n  Total P(One Red and One White) = 15/56 + 15/56 = 30 / 56 = 15 / 28.\\n\\nStep 4: Check sum of all cases: 20/56 + 6/56 + 30/56 = 56/56 = 1.0.",
+        "finalAnswer": "(i) Both Red = 5/14; (ii) Both White = 3/28; (iii) One Red and One White = 15/28",
+        "unit": "probabilities",
+        "has_diagram": false
+      }
+    ],
+    "common_misconceptions": [
+      "Using 8 as the denominator in the second draw when sampling WITHOUT replacement. The denominator drops to 7!",
+      "Forgetting that 'one red and one white' has TWO orderings: (Red, White) and (White, Red)."
+    ],
+    "ai_system_prompt_context": "TEACHING CADENCE: Teach tree diagrams by showing the branching tree limbs. Remind them: 'Multiply along branches, Add across branches'. Show how the denominator decreases when without replacement. Call write_chalkboard(action='draw_svg_diagram', content='Fruit Baskets Tree Diagram').",
+    "visual_lesson_plan": {
+      "title": "Tree Diagrams & Multi-Stage Sampling",
+      "diagram_type": "vector_svg_diagram",
+      "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Two-Stage Experiment: Fruit Baskets Tree Diagram</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Basket A (1 Apple, 2 Oranges) × Basket B (1 Banana, 1 Mango). Multi-branch probabilities</text>\n        </g>\n        \n  <circle cx=\"80\" cy=\"180\" r=\"6\" fill=\"#334155\"/>\n  <text x=\"70\" y=\"184\" fill=\"#334155\" font-size=\"11\" font-weight=\"700\" text-anchor=\"end\">Start</text>\n  <line x1=\"80\" y1=\"180\" x2=\"220\" y2=\"120\" stroke=\"#2563EB\" stroke-width=\"2\"/>\n  <line x1=\"80\" y1=\"180\" x2=\"220\" y2=\"240\" stroke=\"#2563EB\" stroke-width=\"2\"/>\n  <text x=\"140\" y=\"140\" fill=\"#2563EB\" font-size=\"11\" font-weight=\"600\">H (1/2)</text>\n  <text x=\"140\" y=\"228\" fill=\"#2563EB\" font-size=\"11\" font-weight=\"600\">T (1/2)</text>\n  <line x1=\"220\" y1=\"120\" x2=\"380\" y2=\"90\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <line x1=\"220\" y1=\"120\" x2=\"380\" y2=\"150\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"96\" fill=\"#16A34A\" font-size=\"10\">H (1/2)</text>\n  <text x=\"300\" y=\"144\" fill=\"#16A34A\" font-size=\"10\">T (1/2)</text>\n  <line x1=\"220\" y1=\"240\" x2=\"380\" y2=\"210\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <line x1=\"220\" y1=\"240\" x2=\"380\" y2=\"270\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"216\" fill=\"#16A34A\" font-size=\"10\">H (1/2)</text>\n  <text x=\"300\" y=\"264\" fill=\"#16A34A\" font-size=\"10\">T (1/2)</text>\n  <circle cx=\"380\" cy=\"90\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"94\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">HH <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n  <circle cx=\"380\" cy=\"150\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"154\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">HT <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n  <circle cx=\"380\" cy=\"210\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"214\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">TH <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n  <circle cx=\"380\" cy=\"270\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"274\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">TT <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n</svg>",
+      "what_to_make": "Tree diagram with branch probabilities and leaf outcome probabilities.",
+      "concept_visuals": [
+        {
+          "concept_title": "Two-Stage Branching",
+          "diagram_title": "Fruit Baskets Tree",
+          "diagram_type": "vector_svg_diagram",
+          "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Two-Stage Experiment: Fruit Baskets Tree Diagram</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">Basket A (1 Apple, 2 Oranges) × Basket B (1 Banana, 1 Mango). Multi-branch probabilities</text>\n        </g>\n        \n  <circle cx=\"80\" cy=\"180\" r=\"6\" fill=\"#334155\"/>\n  <text x=\"70\" y=\"184\" fill=\"#334155\" font-size=\"11\" font-weight=\"700\" text-anchor=\"end\">Start</text>\n  <line x1=\"80\" y1=\"180\" x2=\"220\" y2=\"120\" stroke=\"#2563EB\" stroke-width=\"2\"/>\n  <line x1=\"80\" y1=\"180\" x2=\"220\" y2=\"240\" stroke=\"#2563EB\" stroke-width=\"2\"/>\n  <text x=\"140\" y=\"140\" fill=\"#2563EB\" font-size=\"11\" font-weight=\"600\">H (1/2)</text>\n  <text x=\"140\" y=\"228\" fill=\"#2563EB\" font-size=\"11\" font-weight=\"600\">T (1/2)</text>\n  <line x1=\"220\" y1=\"120\" x2=\"380\" y2=\"90\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <line x1=\"220\" y1=\"120\" x2=\"380\" y2=\"150\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"96\" fill=\"#16A34A\" font-size=\"10\">H (1/2)</text>\n  <text x=\"300\" y=\"144\" fill=\"#16A34A\" font-size=\"10\">T (1/2)</text>\n  <line x1=\"220\" y1=\"240\" x2=\"380\" y2=\"210\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <line x1=\"220\" y1=\"240\" x2=\"380\" y2=\"270\" stroke=\"#16A34A\" stroke-width=\"1.8\"/>\n  <text x=\"300\" y=\"216\" fill=\"#16A34A\" font-size=\"10\">H (1/2)</text>\n  <text x=\"300\" y=\"264\" fill=\"#16A34A\" font-size=\"10\">T (1/2)</text>\n  <circle cx=\"380\" cy=\"90\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"94\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">HH <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n  <circle cx=\"380\" cy=\"150\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"154\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">HT <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n  <circle cx=\"380\" cy=\"210\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"214\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">TH <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n  <circle cx=\"380\" cy=\"270\" r=\"4\" fill=\"#0F172A\"/>\n  <text x=\"392\" y=\"274\" fill=\"#0F172A\" font-size=\"12\" font-weight=\"700\">TT <tspan fill=\"#64748B\" font-size=\"10\" font-weight=\"500\">→ P = 1/4 = 0.25</tspan></text>\n</svg>",
+          "interactive_math_formula": "P(A and B) = P(A) * P(B)",
+          "mafs_graph_config": {
+            "domain": [
+              -5,
+              5
+            ],
+            "range": [
+              -5,
+              5
+            ]
+          },
+          "image_query": "Tree diagram probability two stage branching multiplication rule math",
+          "video_query": "Probability tree diagrams with and without replacement explained",
+          "image_url": "/images/curriculum/ch7_tree_diagrams.png",
+          "what_to_make": "Tree diagram showing branch multiplication.",
+          "what_to_explain": "Walk through branch multiplication and leaf summation to 1.",
+          "timing_and_cue": "Show during tree diagram construction."
+        }
+      ],
+      "concept_questions": [
+        {
+          "concept_index": 0,
+          "concept_title": "Multi-Stage Probability",
+          "questions": [
+            {
+              "q_num": "Q1",
+              "type": "1-mark MCQ",
+              "question": "When moving along a single path of a tree diagram from root to leaf, which arithmetic operation is applied to the branch probabilities?",
+              "ideal_answer": "Multiplication.",
+              "socratic_hint": "Do you add or multiply sequential probabilities?"
+            },
+            {
+              "q_num": "Q2",
+              "type": "2-mark Short Answer",
+              "question": "What is the key difference between sampling with replacement and sampling without replacement?",
+              "ideal_answer": "In sampling with replacement, the drawn item is returned, keeping sample size and probabilities constant; in sampling without replacement, the item is removed, decreasing the denominator and changing probabilities.",
+              "socratic_hint": "Is the item returned to the bag or kept outside?"
+            },
+            {
+              "q_num": "Q3",
+              "type": "2-mark Problem",
+              "question": "A coin is tossed 3 times. How many total leaf outcomes exist on the tree diagram?",
+              "ideal_answer": "2 * 2 * 2 = 8 outcomes (HHH, HHT, HTH, HTT, THH, THT, TTH, TTT).",
+              "socratic_hint": "Each toss has 2 branches: compute 2^3."
+            },
+            {
+              "q_num": "Q4",
+              "type": "2-mark Problem",
+              "question": "From a deck of 52 cards, two cards are drawn without replacement. What is the probability that both are aces?",
+              "ideal_answer": "P(Ace 1) = 4/52. P(Ace 2) = 3/51. P(Both Aces) = (4/52) * (3/51) = (1/13) * (1/17) = 1 / 221.",
+              "socratic_hint": "How many aces remain after the first ace is drawn?"
+            },
+            {
+              "q_num": "Q5",
+              "type": "3-mark Board Question",
+              "question": "A bag contains 4 red balls and 6 black balls. A ball is drawn, its colour noted, and returned to the bag. Then a second ball is drawn. Find the probability of getting: (i) 2 red balls, (ii) 1 red and 1 black ball.",
+              "ideal_answer": "Sampling WITH replacement, so probabilities remain constant: P(Red) = 4/10 = 0.4, P(Black) = 6/10 = 0.6. (i) P(Both Red) = 0.4 * 0.4 = 0.16 (or 4/25). (ii) P(1 Red, 1 Black) = P(RB) + P(BR) = (0.4 * 0.6) + (0.6 * 0.4) = 0.24 + 0.24 = 0.48 (or 12/25).",
+              "socratic_hint": "Since it is WITH replacement, the denominator remains 10 for both draws."
+            }
+          ]
+        }
+      ]
+    },
+    "curriculum_id": "257078e3-5cf0-4286-a1e3-661ce480edc3",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 25,
+    "quiz_questions": []
+  },
+  {
+    "order_index": 5,
+    "title": "Textbook Exercise Solver: Geometric Probability, Dice Sums & End-of-Chapter Review",
+    "description": "Complete solutions for geometric target probabilities (dartboards and landing zones), the complete 36-outcome sample space of two dice, and all End-of-Chapter synthesis questions Q1 through Q10 with zero skipped calculations.",
+    "subtopics": [
+      "Geometric probability definition: P(E) = Area of favorable region / Total area",
+      "Dartboard problems: Circular bullseye inside square region",
+      "Two 6-sided dice sum matrix: The complete 36-outcome sample space",
+      "Sum probability distribution: Maximum at sum = 7 (P = 6/36 = 1/6)",
+      "End-of-Chapter Q1 to Q5: Conceptual fill-in-the-blanks and spinner models",
+      "End-of-Chapter Q6 to Q10: Multi-stage real-world probability synthesis"
+    ],
+    "key_concepts": [
+      "Geometric Probability Invariant: When outcomes correspond to continuous regions in a plane, P(E) = Measure(Region E) / Measure(Total Space S). Under uniform randomness, probability equals the ratio of areas.",
+      "Two Dice Cartesian Grid: Rolling two fair dice yields 6 * 6 = 36 equally likely ordered pairs (i, j).",
+      "Symmetric Sum Distribution: Sums range from 2 to 12. Sum 7 has the highest frequency (6 pairs: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1)) with P = 6/36 = 1/6.",
+      "Independent Compound Rules: For independent events A and B, P(A and B) = P(A) * P(B)."
+    ],
+    "success_criteria": "Calculate geometric area probabilities, solve two-dice sum problems from the 36-outcome matrix, and complete all end-of-chapter questions.",
+    "chapter_notes": "Geometric probability bridges Class 9 geometry (areas of circles and squares) with probability. Make students compute exact area ratios before simplifying.",
+    "worked_examples": [
+      {
+        "problem": "Geometric Dartboard Problem: A dart is thrown at a square dartboard of side 20 cm. Inside the square, a circular target of radius 7 cm is drawn. Assuming the dart lands randomly inside the square, what is the probability that it lands INSIDE the circle? (Use π = 22/7)",
+        "given": "Square side a = 20 cm. Circular target radius r = 7 cm.",
+        "formula": "Geometric Probability: P(E) = Area(Circle) / Area(Square).",
+        "substitution": "Area_circle = (22/7) * (7)^2. Area_square = 20 * 20.",
+        "calculation": "Step 1: Compute area of circular target:\\n  Area_circle = π * r^2 = (22/7) * 49 = 22 * 7 = 154 cm^2.\\nStep 2: Compute total area of the square board:\\n  Area_square = a^2 = 20 * 20 = 400 cm^2.\\nStep 3: Compute geometric probability:\\n  P(Lands in circle) = Area_circle / Area_square\\n  P = 154 / 400\\nStep 4: Reduce the fraction:\\n  154 / 400 = 77 / 200 = 0.385 (or 38.5%).",
+        "finalAnswer": "Probability of landing inside circle = 77/200 = 0.385 (38.5%)",
+        "unit": "probability",
+        "has_diagram": true,
+        "diagram_type": "vector_svg_diagram",
+        "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Geometric Probability: Circular Target inside Square Grid</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">P(Landing in Target) = Area(Circle) / Area(Square) = πr² / a² ≈ 78.5%</text>\n        </g>\n        \n  <circle cx=\"290\" cy=\"190\" r=\"100\" fill=\"#EFF6FF\" stroke=\"#3B82F6\" stroke-width=\"2\"/>\n  <circle cx=\"290\" cy=\"190\" r=\"60\" fill=\"#FEF3C7\" stroke=\"#F59E0B\" stroke-width=\"2\"/>\n  <circle cx=\"290\" cy=\"190\" r=\"25\" fill=\"#FEE2E2\" stroke=\"#EF4444\" stroke-width=\"2\"/>\n  <circle cx=\"290\" cy=\"190\" r=\"3\" fill=\"#DC2626\"/>\n  <rect x=\"80\" y=\"305\" width=\"420\" height=\"35\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"290\" y=\"327\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">Geometric Probability: P(Hit Target Region) = Area(Region) / Total Area</text>\n</svg>"
+      },
+      {
+        "problem": "Two Dice Sum Problem: Two dice are thrown simultaneously. Find the probability of getting: (i) a doublet (same number on both dice), (ii) a sum of 8, (iii) a sum of at least 10, (iv) a sum less than or equal to 3.",
+        "given": "Two fair 6-sided dice. Total outcomes n(S) = 6 * 6 = 36.",
+        "formula": "P(E) = n(E) / 36.",
+        "substitution": "(i) Doublets: (1,1)..(6,6); (ii) Sum 8 pairs; (iii) Sum >= 10 pairs; (iv) Sum <= 3 pairs.",
+        "calculation": "Step 1: (i) Doublets: {(1,1), (2,2), (3,3), (4,4), (5,5), (6,6)} => n = 6.\\n  P(Doublet) = 6 / 36 = 1 / 6.\\n\\nStep 2: (ii) Sum of 8: {(2,6), (3,5), (4,4), (5,3), (6,2)} => n = 5.\\n  P(Sum of 8) = 5 / 36.\\n\\nStep 3: (iii) Sum of at least 10 (Sum 10, 11, or 12):\\n  Sum 10: {(4,6), (5,5), (6,4)} (3 pairs)\\n  Sum 11: {(5,6), (6,5)} (2 pairs)\\n  Sum 12: {(6,6)} (1 pair)\\n  Total favorable = 3 + 2 + 1 = 6 pairs.\\n  P(Sum >= 10) = 6 / 36 = 1 / 6.\\n\\nStep 4: (iv) Sum less than or equal to 3 (Sum 2 or 3):\\n  Sum 2: {(1,1)} (1 pair)\\n  Sum 3: {(1,2), (2,1)} (2 pairs)\\n  Total favorable = 1 + 2 = 3 pairs.\\n  P(Sum <= 3) = 3 / 36 = 1 / 12.",
+        "finalAnswer": "(i) Doublet = 1/6; (ii) Sum 8 = 5/36; (iii) Sum >= 10 = 1/6; (iv) Sum <= 3 = 1/12",
+        "unit": "probabilities",
+        "has_diagram": false
+      }
+    ],
+    "common_misconceptions": [
+      "Assuming there are 11 outcomes for two dice because sums go from 2 to 12. The sums are NOT equally likely! There are 36 equally likely ordered pairs.",
+      "Forgetting that (2, 6) and (6, 2) are distinct outcomes representing different dice."
+    ],
+    "ai_system_prompt_context": "TEACHING CADENCE: Draw the 6x6 grid for two dice. Show students why 7 is the most frequent sum by pointing out the long main counter-diagonal with 6 pairs. Call write_chalkboard(action='draw_svg_diagram', content='Geometric Probability Target').",
+    "visual_lesson_plan": {
+      "title": "Geometric Targets & Two-Dice Grid",
+      "diagram_type": "vector_svg_diagram",
+      "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Geometric Probability: Circular Target inside Square Grid</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">P(Landing in Target) = Area(Circle) / Area(Square) = πr² / a² ≈ 78.5%</text>\n        </g>\n        \n  <circle cx=\"290\" cy=\"190\" r=\"100\" fill=\"#EFF6FF\" stroke=\"#3B82F6\" stroke-width=\"2\"/>\n  <circle cx=\"290\" cy=\"190\" r=\"60\" fill=\"#FEF3C7\" stroke=\"#F59E0B\" stroke-width=\"2\"/>\n  <circle cx=\"290\" cy=\"190\" r=\"25\" fill=\"#FEE2E2\" stroke=\"#EF4444\" stroke-width=\"2\"/>\n  <circle cx=\"290\" cy=\"190\" r=\"3\" fill=\"#DC2626\"/>\n  <rect x=\"80\" y=\"305\" width=\"420\" height=\"35\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"290\" y=\"327\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">Geometric Probability: P(Hit Target Region) = Area(Region) / Total Area</text>\n</svg>",
+      "what_to_make": "Target dartboard and 6x6 dice sum distribution matrix.",
+      "concept_visuals": [
+        {
+          "concept_title": "Geometric Probability & Dice Grids",
+          "diagram_title": "Dartboard Target",
+          "diagram_type": "vector_svg_diagram",
+          "diagram_svg": "<svg viewBox=\"0 0 580 360\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; border:1.5px solid #E2E8F0; border-radius:12px; font-family:system-ui, -apple-system, sans-serif;\">\n  <defs>\n    <pattern id=\"gridPattern\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.8\"/>\n    </pattern>\n    <marker id=\"arrowBlue\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#2563EB\"/>\n    </marker>\n    <marker id=\"arrowSlate\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#475569\"/>\n    </marker>\n    <marker id=\"arrowRed\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1.5 L 8 5 L 0 8.5 z\" fill=\"#DC2626\"/>\n    </marker>\n  </defs>\n  <rect width=\"580\" height=\"360\" fill=\"#FFFFFF\" rx=\"12\"/>\n  <rect width=\"580\" height=\"360\" fill=\"url(#gridPattern)\" rx=\"12\"/>\n  \n        <g id=\"header\">\n          <text x=\"24\" y=\"32\" fill=\"#0F172A\" font-size=\"14\" font-weight=\"700\" font-family=\"system-ui, -apple-system, sans-serif\">Geometric Probability: Circular Target inside Square Grid</text>\n          <text x=\"24\" y=\"48\" fill=\"#64748B\" font-size=\"11\" font-family=\"system-ui, -apple-system, sans-serif\">P(Landing in Target) = Area(Circle) / Area(Square) = πr² / a² ≈ 78.5%</text>\n        </g>\n        \n  <circle cx=\"290\" cy=\"190\" r=\"100\" fill=\"#EFF6FF\" stroke=\"#3B82F6\" stroke-width=\"2\"/>\n  <circle cx=\"290\" cy=\"190\" r=\"60\" fill=\"#FEF3C7\" stroke=\"#F59E0B\" stroke-width=\"2\"/>\n  <circle cx=\"290\" cy=\"190\" r=\"25\" fill=\"#FEE2E2\" stroke=\"#EF4444\" stroke-width=\"2\"/>\n  <circle cx=\"290\" cy=\"190\" r=\"3\" fill=\"#DC2626\"/>\n  <rect x=\"80\" y=\"305\" width=\"420\" height=\"35\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"290\" y=\"327\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"700\" text-anchor=\"middle\">Geometric Probability: P(Hit Target Region) = Area(Region) / Total Area</text>\n</svg>",
+          "interactive_math_formula": "P = Area_target / Area_total",
+          "mafs_graph_config": {
+            "domain": [
+              -10,
+              10
+            ],
+            "range": [
+              -10,
+              10
+            ]
+          },
+          "image_query": "Geometric probability dartboard circle inside square area problem",
+          "video_query": "Two dice sample space 36 outcomes sum probability table",
+          "image_url": "/images/curriculum/ch7_geometric_target.png",
+          "what_to_make": "Square with inscribed circle showing area ratio 154/400.",
+          "what_to_explain": "Walk through geometric ratio: 154/400 = 77/200.",
+          "timing_and_cue": "Show before dartboard problem calculation."
+        }
+      ],
+      "concept_questions": [
+        {
+          "concept_index": 0,
+          "concept_title": "Advanced Probability Models",
+          "questions": [
+            {
+              "q_num": "Q1",
+              "type": "1-mark MCQ",
+              "question": "What is the most probable sum when two fair 6-sided dice are rolled?",
+              "ideal_answer": "7, with a probability of 6/36 = 1/6.",
+              "socratic_hint": "Which sum has the most ordered pairs in the 6x6 grid?"
+            },
+            {
+              "q_num": "Q2",
+              "type": "2-mark Short Answer",
+              "question": "In geometric probability, what is the probability of a randomly thrown point hitting an exact line segment of width zero inside a 2D region?",
+              "ideal_answer": "0, because the area of a line segment is 0, and 0 / Total Area = 0.",
+              "socratic_hint": "What is the area of a one-dimensional line?"
+            },
+            {
+              "q_num": "Q3",
+              "type": "2-mark Problem",
+              "question": "What is the probability of getting a sum of 7 or 11 (a 'natural' in craps) when two dice are rolled?",
+              "ideal_answer": "Sum 7 has 6 pairs; sum 11 has 2 pairs. Total favorable = 6 + 2 = 8. P = 8/36 = 2/9.",
+              "socratic_hint": "Add the outcomes for sum 7 and sum 11."
+            },
+            {
+              "q_num": "Q4",
+              "type": "2-mark Problem",
+              "question": "A helicopter crashes randomly somewhere in a rectangular region of dimensions 9 km by 4.5 km. In this region, there is a lake of diameter 3 km. Find the probability that it crashed inside the lake.",
+              "ideal_answer": "Total area = 9 * 4.5 = 40.5 km^2. Lake radius = 1.5 km. Area of lake = π * (1.5)^2 = 2.25π km^2. P = 2.25π / 40.5 = π / 18 approx 0.1745 (or 17.5%).",
+              "socratic_hint": "Divide the lake area (circle) by the rectangle area."
+            },
+            {
+              "q_num": "Q5",
+              "type": "3-mark Board Question",
+              "question": "A game consists of spinning an arrow which comes to rest pointing at one of the numbers 1, 2, 3, 4, 5, 6, 7, 8 on an 8-sector wheel. Find the probability that it will point at: (i) an odd number, (ii) a number greater than 2, (iii) a number less than 9.",
+              "ideal_answer": "Total sectors n(S) = 8. (i) Odd numbers = {1, 3, 5, 7} => 4 numbers. P(Odd) = 4/8 = 1/2. (ii) Numbers > 2 = {3, 4, 5, 6, 7, 8} => 6 numbers. P(>2) = 6/8 = 3/4. (iii) Numbers < 9: All 8 numbers are less than 9 => P(<9) = 8/8 = 1 (Certain event).",
+              "socratic_hint": "Count the favorable sectors for each part and divide by 8."
+            }
+          ]
+        }
+      ]
+    },
+    "curriculum_id": "257078e3-5cf0-4286-a1e3-661ce480edc3",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 25,
+    "quiz_questions": []
+  }
+]
