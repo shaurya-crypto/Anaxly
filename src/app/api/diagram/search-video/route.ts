@@ -14,6 +14,7 @@ const videoSearchCache = new Map<string, { timestamp: number; videos: VideoResul
 const CACHE_TTL_MS = 12 * 60 * 60 * 1000
 
 const WIKIMEDIA_USER_AGENT = 'SobiAITutor/2.0 (https://sobi-ai-tutor.edu; mailto:support@sobi-ai-tutor.edu)'
+const BROWSER_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
 
 function sanitizeTitle(raw: string): string {
   return raw
@@ -23,9 +24,34 @@ function sanitizeTitle(raw: string): string {
     .trim()
 }
 
+/**
+ * Strict Safety Guard for Online Videos:
+ * Filters out harmful, adult, violent, prank, gambling, or music content.
+ */
+const HARMFUL_VIDEO_PATTERNS = [
+  /\b(?:porn|pornography|sex|sexual|nsfw|erotic|nude|nudity|stripper|escort|dating)\b/i,
+  /\b(?:gore|murder|decapitation|terrorist|isis|execution|beheading|suicide)\b/i,
+  /\b(?:casino|gambling|betting|poker|slots|roulette|crypto|bitcoin|forex)\b/i,
+  /\b(?:prank|troll|fight|brawl|drama|roast|gossip|vlog|tik\s*tok|challenge)\b/i,
+  /\b(?:song|music\s*video|album|remix|dance|lyrics|concert|trailer|teaser)\b/i,
+]
+
+function isSafeEducationalVideo(title: string, description: string): boolean {
+  const combined = `${title} ${description}`.toLowerCase()
+  for (const pattern of HARMFUL_VIDEO_PATTERNS) {
+    if (pattern.test(combined)) {
+      return false
+    }
+  }
+  return true
+}
+
 // Fast low-latency link verification (1.5s timeout, parallel execution)
 async function verifyVideoLink(url: string): Promise<boolean> {
   if (!url || (!url.startsWith('http://') && !url.startsWith('https://'))) return false
+  // YouTube videos are verified via their existence in search results and embed capability
+  if (url.includes('youtube.com') || url.includes('youtu.be')) return true
+
   try {
     const controller = new AbortController()
     const timer = setTimeout(() => controller.abort(), 2000)
@@ -46,10 +72,81 @@ async function verifyVideoLink(url: string): Promise<boolean> {
   }
 }
 
-// Search Wikimedia Commons videos using exact filemime syntax
+/**
+ * TIER 1: Online Video Search Engine (YouTube & Web Video Search).
+ * Prioritized FIRST per user mandate.
+ */
+async function searchOnlineVideos(query: string, limit: number = 5): Promise<VideoResult[]> {
+  try {
+    const cleanQ = query.trim().replace(/[^\w\s-]/g, ' ')
+    const searchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(cleanQ + ' physics experiment demonstration')}`
+    const controller = new AbortController()
+    const timer = setTimeout(() => controller.abort(), 4000)
+
+    const res = await fetch(searchUrl, {
+      signal: controller.signal,
+      headers: {
+        'User-Agent': BROWSER_USER_AGENT,
+        'Accept-Language': 'en-US,en;q=0.9',
+      },
+    })
+    clearTimeout(timer)
+
+    if (!res.ok) return []
+    const html = await res.text()
+    const m = html.match(/var ytInitialData = ({.*?});<\/script>/)
+    if (!m) return []
+
+    const data = JSON.parse(m[1])
+    const sectionList = data?.contents?.twoColumnSearchResultsRenderer?.primaryContents?.sectionListRenderer?.contents || []
+    const videos: VideoResult[] = []
+    const seenIds = new Set<string>()
+
+    for (const sec of sectionList) {
+      const itemSection = sec?.itemSectionRenderer?.contents || []
+      for (const item of itemSection) {
+        const vr = item?.videoRenderer
+        if (vr && vr.videoId && !seenIds.has(vr.videoId)) {
+          seenIds.add(vr.videoId)
+          const rawTitle = vr.title?.runs?.[0]?.text || vr.title?.simpleText || ''
+          const title = rawTitle.replace(/[\(\)\[\]]/g, ' ').replace(/\s+/g, ' ').trim()
+          if (!title || title.length < 3 || /playlist|channel|mix/i.test(title)) continue
+
+          const desc = vr.detailedMetadataSnippets?.[0]?.snippetText?.runs?.map((r: any) => r.text).join('') || `Educational experiment demonstration: ${title}`
+          if (!isSafeEducationalVideo(title, desc)) continue
+
+          const thumb = vr.thumbnail?.thumbnails?.[0]?.url || `https://i.ytimg.com/vi/${vr.videoId}/hqdefault.jpg`
+
+          videos.push({
+            url: `https://www.youtube.com/watch?v=${vr.videoId}`,
+            title: title || query,
+            description: desc,
+            mimeType: 'video/youtube',
+            thumbnailUrl: thumb,
+            source: 'Online Video Search (YouTube)',
+          })
+
+          if (videos.length >= limit) break
+        }
+      }
+      if (videos.length >= limit) break
+    }
+
+    return videos
+  } catch (err: any) {
+    if (err?.name !== 'AbortError') {
+      console.warn('[searchOnlineVideos notice]:', err?.message || err)
+    }
+    return []
+  }
+}
+
+/**
+ * TIER 2: Wikimedia Commons Videos (Secondary Fallback).
+ * Curated open-source scientific animations and experimental recordings.
+ */
 async function searchWikimediaVideos(query: string, limit: number = 6): Promise<VideoResult[]> {
   try {
-    // 1. First attempt: target webm/video files directly
     const cleanQ = query.trim().replace(/[^\w\s-]/g, ' ')
     const searchTerms = [
       `${cleanQ} filemime:video/webm`,
@@ -81,6 +178,8 @@ async function searchWikimediaVideos(query: string, limit: number = 6): Promise<
         if (!mime.startsWith('video/')) continue
 
         const title = sanitizeTitle(page.title || query)
+        if (!isSafeEducationalVideo(title, 'Scientific video demonstration')) continue
+
         results.push({
           url: info.url,
           title,
@@ -97,7 +196,7 @@ async function searchWikimediaVideos(query: string, limit: number = 6): Promise<
 
     return []
   } catch (err) {
-    console.warn('[searchWikimediaVideos error]:', err)
+    console.warn('[searchWikimediaVideos notice]:', err)
     return []
   }
 }
@@ -120,7 +219,14 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: true, videos: cached.videos, cached: true })
     }
 
-    // Dynamic search across open scientific video index
+    // 1. Online Video Search Engine FIRST (YouTube / Web)
+    const onlineVideos = await searchOnlineVideos(cleanQuery, limit)
+    if (onlineVideos.length > 0) {
+      videoSearchCache.set(cacheKey, { timestamp: Date.now(), videos: onlineVideos })
+      return NextResponse.json({ success: true, videos: onlineVideos, totalFound: onlineVideos.length, source: 'online_search' })
+    }
+
+    // 2. Wikimedia Commons Videos SECOND (Fallback)
     const candidates = await searchWikimediaVideos(cleanQuery, limit)
 
     // Parallel low-latency link verification
@@ -137,7 +243,7 @@ export async function POST(req: Request) {
     // Cache the verified results
     videoSearchCache.set(cacheKey, { timestamp: Date.now(), videos: verified })
 
-    return NextResponse.json({ success: true, videos: verified, totalFound: verified.length })
+    return NextResponse.json({ success: true, videos: verified, totalFound: verified.length, source: 'wikimedia_fallback' })
   } catch (err: any) {
     console.error('search-video route error:', err)
     return NextResponse.json({ success: false, error: err.message, videos: [] }, { status: 500 })
@@ -153,7 +259,6 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ success: true, videos: [] })
   }
 
-  // Delegate to POST logic
   return POST(new Request(req.url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

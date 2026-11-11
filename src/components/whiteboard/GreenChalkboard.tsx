@@ -36,6 +36,7 @@ const Excalidraw = dynamic(
 )
 
 export interface GreenChalkboardRef {
+  highlightText: (text: string, color?: string) => Promise<boolean>
   drawText: (text: string, x?: number, y?: number, color?: string) => void
   drawTitle: (title: string, color?: string) => void
   drawStep: (stepText: string, color?: string) => void
@@ -174,8 +175,8 @@ import {
 } from './chalkboardFilter'
 export { normalizeTitle, isRedundantConceptOrMasteredText }
 
-import { wrapText } from './textWrapper'
-export { wrapText }
+import { wrapText, cleanChalkboardTypography } from './textWrapper'
+export { wrapText, cleanChalkboardTypography }
 
 import {
   sanitizeBase64DataUrl,
@@ -217,6 +218,50 @@ const EXCALIDRAW_UI_OPTIONS = {
     image: false,
   },
   welcomeScreen: false,
+}
+
+/**
+ * Safely saves whiteboard data to localStorage with automatic LRU pruning of stale module data
+ * to completely eliminate QuotaExceededError in the browser.
+ */
+function safeSaveWhiteboardStorage(key: string, data: any, isFilesStore = false): void {
+  if (typeof window === 'undefined' || !key) return
+  try {
+    const jsonStr = JSON.stringify(data)
+    // If files store is large (>250KB), do not store raw base64 files to localStorage to protect browser quota
+    if (isFilesStore && jsonStr.length > 250 * 1024) {
+      return
+    }
+    localStorage.setItem(key, jsonStr)
+  } catch (err: any) {
+    if (err?.name === 'QuotaExceededError' || err?.code === 22) {
+      try {
+        const toRemove: string[] = []
+        for (let i = 0; i < localStorage.length; i++) {
+          const k = localStorage.key(i)
+          if (!k) continue
+          // Prune heavy file payloads from other modules
+          if (k.includes('_files') && !k.startsWith(key)) {
+            toRemove.push(k)
+          }
+          // Prune pages from other modules
+          else if (k.startsWith('whiteboard_pages_') && !k.startsWith(key)) {
+            toRemove.push(k)
+          }
+          // Prune notes from other modules
+          else if (k.startsWith('ai_tutor_board_notes_')) {
+            toRemove.push(k)
+          }
+        }
+        for (const k of toRemove) localStorage.removeItem(k)
+
+        // Retry saving current module state
+        if (!isFilesStore) {
+          localStorage.setItem(key, JSON.stringify(data))
+        }
+      } catch {}
+    }
+  }
 }
 
 export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardProps>(
@@ -867,11 +912,11 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (persistTimeoutRef.current) clearTimeout(persistTimeoutRef.current)
       persistTimeoutRef.current = setTimeout(() => {
         try {
-          localStorage.setItem(storageKey, JSON.stringify(pagesRef.current))
+          safeSaveWhiteboardStorage(storageKey, pagesRef.current)
           if (excalidrawAPI?.getFiles) {
             const files = excalidrawAPI.getFiles()
             if (files && Object.keys(files).length > 0) {
-              localStorage.setItem(`${storageKey}_files`, JSON.stringify(files))
+              safeSaveWhiteboardStorage(`${storageKey}_files`, files, true)
             }
           }
           if (onBoardContentChange) {
@@ -1309,7 +1354,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
                 // Resave cleaned files to localStorage so invalid SVGs are pruned
                 try {
-                  localStorage.setItem(`${storageKey}_files`, JSON.stringify(updatedFilesStore))
+                  safeSaveWhiteboardStorage(`${storageKey}_files`, updatedFilesStore, true)
                 } catch {}
               }
             }
@@ -1407,7 +1452,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     // Draw text in permanent notes column (left side)
     const drawText = async (text: string, x = 60, customY?: number, color?: string) => {
       if (!excalidrawAPI || !text?.trim()) return
-      const clean = text.trim()
+      const clean = cleanChalkboardTypography(text.trim())
       if (checkIsRedundant(clean)) return
       if (executedTextHistoryRef.current.has(clean.toLowerCase())) return
       executedTextHistoryRef.current.add(clean.toLowerCase())
@@ -1450,13 +1495,14 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!excalidrawAPI) return
       const raw = typeof title === 'string' ? title : (title?.content || title?.text || title?.title || (title ? JSON.stringify(title) : ''))
       if (!raw?.trim()) return
-      const clean = raw
+      const rawClean = raw
         .replace(/^focus:\s*/i, '')
         .replace(/^concept\s*\d*:\s*/i, '')
         .replace(/[\(\)\[\]\{\}\"]/g, '')
         .replace(/^'+|'+$/g, '')
         .replace(/\s+/g, ' ')
         .trim()
+      const clean = cleanChalkboardTypography(rawClean)
       if (!clean) return
 
       // Invariant: Never write Mastered or Concept Done as a title
@@ -1532,7 +1578,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!excalidrawAPI) return
       const raw = typeof noteText === 'string' ? noteText : (noteText?.content || noteText?.text || noteText?.note || (noteText ? JSON.stringify(noteText) : ''))
       if (!raw?.trim()) return
-      const clean = raw.trim()
+      const clean = cleanChalkboardTypography(raw.trim())
       if (checkIsRedundant(clean)) return
       if (shouldSkipDuplicate('draw_note', clean)) return
 
@@ -1590,7 +1636,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!excalidrawAPI) return
       const raw = typeof stepText === 'string' ? stepText : (stepText?.content || stepText?.text || stepText?.step || (stepText ? JSON.stringify(stepText) : ''))
       if (!raw?.trim()) return
-      const clean = raw.trim()
+      const clean = cleanChalkboardTypography(raw.trim())
       if (checkIsRedundant(clean)) return
       if (shouldSkipDuplicate('draw_step', clean)) return
       const lines = wrapText(clean, cols(60))
@@ -1636,7 +1682,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!excalidrawAPI) return
       const raw = typeof text === 'string' ? text : (text?.content || text?.text || text?.box || (text ? JSON.stringify(text) : ''))
       if (!raw?.trim()) return
-      const clean = raw.trim()
+      const clean = cleanChalkboardTypography(raw.trim())
       if (checkIsRedundant(clean)) return
       if (shouldSkipDuplicate('draw_highlight_box', clean)) return
       const lines = wrapText(clean, cols(60))
@@ -1696,7 +1742,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!excalidrawAPI) return
       const raw = typeof questionText === 'string' ? questionText : (questionText?.content || questionText?.text || questionText?.question || (questionText ? JSON.stringify(questionText) : ''))
       if (!raw?.trim()) return
-      const clean = raw.trim()
+      const clean = cleanChalkboardTypography(raw.trim())
       if (shouldSkipDuplicate('draw_question', clean)) return
       const lines = wrapText(clean, cols(64))
       const lineHeight = 22
@@ -1770,7 +1816,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     // Draw Student's Spoken Answer on Whiteboard
     const drawStudentAnswer = async (answerText: string, isCorrect?: boolean, color?: string) => {
       if (!excalidrawAPI || !answerText?.trim()) return
-      const clean = answerText.trim()
+      const clean = cleanChalkboardTypography(answerText.trim())
 
       // Deduplicate recent identical or redundant student responses within 30 seconds
       const cleanLower = clean.toLowerCase().replace(/^(?:student(?:'s)?\s*answer:?\s*)+/i, '').trim()
@@ -1848,7 +1894,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     // Draw Answer Verdict / Correction on Whiteboard
     const drawAnswerVerdict = async (verdictText: string, isCorrect?: boolean, color?: string) => {
       if (!excalidrawAPI || !verdictText?.trim()) return
-      const clean = verdictText.trim()
+      const clean = cleanChalkboardTypography(verdictText.trim())
       const looksCorrect =
         isCorrect === true ||
         /^(correct|spot on|perfect|exactly|well done|excellent|right|yes)\b/i.test(clean) ||
@@ -1932,12 +1978,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (shouldSkipDuplicate('draw_exam_question', question)) return
 
       // Support "question | model answer" in single string if modelAnswer omitted
-      let qText = question.trim()
-      let aText = (modelAnswer || '').trim()
+      let qText = cleanChalkboardTypography(question.trim())
+      let aText = cleanChalkboardTypography((modelAnswer || '').trim())
       if (!aText && qText.includes('|')) {
         const parts = qText.split('|').map((s) => s.trim())
-        qText = parts[0]
-        aText = parts.slice(1).join(' | ').replace(/^answer:\s*/i, '')
+        qText = cleanChalkboardTypography(parts[0])
+        aText = cleanChalkboardTypography(parts.slice(1).join(' | ').replace(/^answer:\s*/i, ''))
       }
 
       const qLines = wrapText(qText, cols(60))
@@ -2871,7 +2917,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!excalidrawAPI) return
       const raw = typeof workText === 'string' ? workText : (workText?.content || workText?.text || workText?.work || (workText ? JSON.stringify(workText) : ''))
       if (!raw?.trim()) return
-      const clean = raw.trim()
+      const clean = cleanChalkboardTypography(raw.trim())
       await checkAutoPageOverflow(46)
       try {
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
@@ -2914,6 +2960,112 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       } catch (err) {
         console.error('clearRough error:', err)
       }
+    }
+
+    // Live AI Chalk Highlighter: Highlight Word / Sentence on Whiteboard
+    const highlightText = async (text: string, color?: string): Promise<boolean> => {
+      if (!excalidrawAPI) return false
+      const raw = typeof text === 'string' ? text : (text as any)?.text || ''
+      if (!raw?.trim()) return false
+      const clean = raw.trim()
+      const searchTarget = clean.toLowerCase()
+
+      try {
+        const elements = getCurrentElements()
+        const matchingTextElements = elements.filter((el: any) => {
+          if (el.isDeleted || el.type !== 'text') return false
+          const elText = (el.text || '').toLowerCase()
+          return elText.includes(searchTarget)
+        })
+
+        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const markerColor = resolveChalkColor(color, INK_AMBER)
+
+        if (matchingTextElements.length > 0) {
+          const newHighlighters: any[] = []
+          for (const match of matchingTextElements.slice(0, 3)) {
+            const hId = `hl_${Date.now()}_${Math.random().toString(36).substr(2, 4)}`
+            const padX = 6
+            const padY = 4
+            const width = Math.min((match.width || 200) + padX * 2, 780)
+            const height = (match.height || 24) + padY * 2
+
+            newHighlighters.push({
+              id: hId,
+              type: 'rectangle',
+              x: match.x - padX,
+              y: match.y - padY,
+              width: width,
+              height: height,
+              strokeColor: 'transparent',
+              backgroundColor: markerColor === INK_AMBER ? '#FEF3C7' : `${markerColor}33`,
+              fillStyle: 'solid',
+              strokeWidth: 1,
+              strokeStyle: 'solid',
+              roughness: 0,
+              opacity: 45,
+              roundness: { type: 3 },
+              customData: { isHighlight: true, targetText: clean },
+            })
+          }
+
+          if (newHighlighters.length > 0) {
+            const excalElements = convertToExcalidrawElements(newHighlighters)
+            const updated = [...elements, ...excalElements]
+            updateCurrentPageElements(updated, nextYRef.current)
+
+            // Auto-clear highlight after 6 seconds so it behaves as an active optical pointer
+            setTimeout(() => {
+              try {
+                const current = getCurrentElements()
+                const filtered = current.filter((el: any) => !el.id?.startsWith('hl_'))
+                updateCurrentPageElements(filtered, nextYRef.current)
+              } catch (_) {}
+            }, 6000)
+            return true
+          }
+        } else {
+          // If the term is not yet on the board, draw an elegant key term badge so the student sees the focused term
+          await checkAutoPageOverflow(46)
+          const startX = 60
+          const startY = getDynamicNextY(12)
+          const badgeElements = convertToExcalidrawElements([
+            {
+              id: `hl_badge_${Date.now()}`,
+              type: 'rectangle',
+              x: startX,
+              y: startY,
+              width: Math.min(Math.max(clean.length * 10 + 40, 180), 720),
+              height: 32,
+              strokeColor: markerColor,
+              backgroundColor: '#FEF3C7',
+              fillStyle: 'solid',
+              strokeWidth: 1.5,
+              roughness: 1,
+              opacity: 90,
+              roundness: { type: 3 },
+              customData: { isHighlight: true },
+            },
+            {
+              id: `hl_badgetxt_${Date.now()}`,
+              type: 'text',
+              x: startX + 14,
+              y: startY + 7,
+              text: `* Focus: ${clean}`,
+              fontSize: 14,
+              fontFamily: 1,
+              strokeColor: markerColor === INK_AMBER ? '#92400E' : markerColor,
+              customData: { isHighlight: true },
+            },
+          ])
+          const updated = [...elements, ...badgeElements]
+          updateCurrentPageElements(updated, startY + 40)
+          return true
+        }
+      } catch (err) {
+        console.warn('[GreenChalkboard] Error highlighting text:', err)
+      }
+      return false
     }
 
     // Clear Notes on current page
@@ -3409,11 +3561,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         // 1. Problem / Numerical Statement
         if (solution.problem) {
+          const problemText = cleanChalkboardTypography(solution.problem)
           elements.push({
             type: 'text',
             x: startX,
             y: curY,
-            text: `Problem: ${solution.problem}`,
+            text: `Problem: ${problemText}`,
             fontSize: 15,
             fontFamily: 1,
             strokeColor: INK_PRIMARY,
@@ -3424,11 +3577,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         // 2. Given Parameters
         if (solution.given) {
+          const givenText = cleanChalkboardTypography(solution.given)
           elements.push({
             type: 'text',
             x: startX + 10,
             y: curY,
-            text: `• Given: ${solution.given}`,
+            text: `• Given: ${givenText}`,
             fontSize: 14,
             fontFamily: 1,
             strokeColor: INK_SECONDARY,
@@ -3439,11 +3593,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         // 3. Formula / Governing Law
         if (solution.formula) {
+          const formulaText = cleanChalkboardTypography(solution.formula)
           elements.push({
             type: 'text',
             x: startX + 10,
             y: curY,
-            text: `Formula: ${solution.formula}`,
+            text: `Formula: ${formulaText}`,
             fontSize: 15,
             fontFamily: 1,
             strokeColor: INK_BOTANICAL,
@@ -3454,11 +3609,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         // 4. Substitution Step
         if (solution.substitution) {
+          const subText = cleanChalkboardTypography(solution.substitution)
           elements.push({
             type: 'text',
             x: startX + 10,
             y: curY,
-            text: `-> Substitution: ${solution.substitution}`,
+            text: `-> Substitution: ${subText}`,
             fontSize: 14,
             fontFamily: 1,
             strokeColor: INK_SECONDARY,
@@ -3468,7 +3624,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         }
 
         // 5. Boxed Final Answer with SI Units
-        const ansText = `Answer: ${solution.answer}${solution.unit ? ' ' + solution.unit : ''}`
+        const cleanAns = cleanChalkboardTypography(solution.answer)
+        const cleanUnit = solution.unit ? cleanChalkboardTypography(solution.unit) : ''
+        const ansText = `Answer: ${cleanAns}${cleanUnit ? ' ' + cleanUnit : ''}`
         const boxWidth = Math.min(Math.max(ansText.length * 11 + 32, 240), 400)
         elements.push(
           {
@@ -3504,7 +3662,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         // 6. Scratchpad / Calculation in Right Rough Margin
         if (solution.calculation) {
-          await drawRoughWork(`Calculation:\n${solution.calculation}`)
+          await drawRoughWork(`Calculation:\n${cleanChalkboardTypography(solution.calculation)}`)
         }
 
         onNoteRecorded?.(`**Solved Numerical**: ${solution.problem || solution.formula || ansText}`)
@@ -3750,7 +3908,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             const rawFiles = localStorage.getItem(`${storageKey}_files`)
             const existingFiles = rawFiles ? JSON.parse(rawFiles) : {}
             existingFiles[fileId] = fileObj
-            localStorage.setItem(`${storageKey}_files`, JSON.stringify(existingFiles))
+            safeSaveWhiteboardStorage(`${storageKey}_files`, existingFiles, true)
           } catch (e) {
             console.warn('Error saving whiteboard file to localStorage:', e)
           }
@@ -4123,7 +4281,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             const rawFiles = localStorage.getItem(`${storageKey}_files`)
             const existingFiles = rawFiles ? JSON.parse(rawFiles) : {}
             existingFiles[fileId] = fileObj
-            localStorage.setItem(`${storageKey}_files`, JSON.stringify(existingFiles))
+            safeSaveWhiteboardStorage(`${storageKey}_files`, existingFiles, true)
           } catch (e) {
             console.warn('Error saving whiteboard file to localStorage:', e)
           }
@@ -4499,10 +4657,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                 await drawSvgDiagram(trimmed, '');
               }
             }
+          } else if (action === 'highlight_text' || action === 'highlight_word' || action === 'highlight_sentence' || action === 'highlight') {
+            if (content) await highlightText(content, color);
           } else if (action === 'draw_flowchart' || action === 'flowchart') {
             if (content) await drawFlowchart(content, color);
           } else if (action === 'draw_rough_work' || action === 'rough_work' || action === 'rough') {
-            if (content) await drawRoughWork(content, color);
+            if (content) await drawStep(content, color);
           } else if (action === 'new_page') {
             await addNewPage();
           } else if (action === 'clear_rough') {
@@ -4636,10 +4796,15 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               const [flowText, color] = payload.includes('|') && !payload.includes('->') ? payload.split('|').map((s) => s.trim()) : [payload, undefined]
               await drawFlowchart(flowText, color)
             }
+          } else if (tagType === 'HIGHLIGHT' || tagType === 'HIGHLIGHT_WORD' || tagType === 'HIGHLIGHT_SENTENCE' || tagType === 'FOCUS_WORD') {
+            if (payload) {
+              const [hlText, color] = payload.includes('|') ? payload.split('|').map((s) => s.trim()) : [payload, undefined]
+              await highlightText(hlText, color)
+            }
           } else if (tagType === 'ROUGH_WORK' || tagType === 'ROUGH') {
             if (payload) {
               const [roughText, color] = payload.includes('|') ? payload.split('|').map((s) => s.trim()) : [payload, undefined]
-              await drawRoughWork(roughText, color)
+              await drawStep(roughText, color)
             }
           } else if (tagType === 'SET_COLOR' || tagType === 'CHALK_COLOR' || tagType === 'COLOR') {
             if (payload) setChalkColor(payload)
@@ -4867,9 +5032,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         }
 
         if (storageKey && typeof window !== 'undefined') {
-          localStorage.setItem(storageKey, JSON.stringify(savedPages))
+          safeSaveWhiteboardStorage(storageKey, savedPages)
           if (files) {
-            localStorage.setItem(`${storageKey}_files`, JSON.stringify(files))
+            safeSaveWhiteboardStorage(`${storageKey}_files`, files, true)
           }
         }
       } catch (err) {
@@ -4879,6 +5044,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
     // Expose imperative API
     useImperativeHandle(ref, () => ({
+      highlightText: (text: string, color?: string) => enqueueOperation(async () => highlightText(text, color)),
       drawText: (text: string, x?: number, y?: number, color?: string) => enqueueOperation(async () => drawText(text, x, y, color)),
       drawTitle: (title: string, color?: string) => enqueueOperation(async () => drawTitle(title, color)),
       drawStep: (stepText: any, color?: string) => enqueueOperation(async () => drawStep(stepText, color)),
@@ -5264,20 +5430,38 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
               {/* Video Player */}
               <div className="w-full bg-black flex items-center justify-center aspect-video max-h-[65vh]">
-                <video
-                  src={videoModal.url}
-                  controls
-                  autoPlay
-                  playsInline
-                  {...({ referrerPolicy: 'no-referrer' } as any)}
-                  className="w-full h-full object-contain"
-                  onError={(e) => {
-                    const target = e.currentTarget
-                    if (!target.src.includes('/api/diagram/proxy')) {
-                      target.src = `/api/diagram/proxy?url=${encodeURIComponent(videoModal.url)}`
-                    }
-                  }}
-                />
+                {(() => {
+                  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/
+                  const match = videoModal.url.match(regExp)
+                  const ytId = match && match[2].length === 11 ? match[2] : null
+                  if (ytId) {
+                    return (
+                      <iframe
+                        src={`https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0`}
+                        title={videoModal.title}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className="w-full h-full border-0"
+                      />
+                    )
+                  }
+                  return (
+                    <video
+                      src={videoModal.url}
+                      controls
+                      autoPlay
+                      playsInline
+                      {...({ referrerPolicy: 'no-referrer' } as any)}
+                      className="w-full h-full object-contain"
+                      onError={(e) => {
+                        const target = e.currentTarget
+                        if (!target.src.includes('/api/diagram/proxy')) {
+                          target.src = `/api/diagram/proxy?url=${encodeURIComponent(videoModal.url)}`
+                        }
+                      }}
+                    />
+                  )
+                })()}
               </div>
 
               {/* Video Modal Footer */}

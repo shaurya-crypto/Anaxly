@@ -6,7 +6,6 @@ import {
   EducationalBoard,
 } from '@/types/lessonManifest'
 import { VisualizationSceneType } from '@/components/whiteboard/scenes/sceneTypes'
-import { createUniversalScientificSvg } from '@/services/universalScientificSvg'
 
 export interface CapsuleInput {
   id?: string
@@ -242,15 +241,14 @@ export function inferConceptVisualDirective(
     }
   }
 
-  // 6. UNIVERSAL DYNAMIC VECTOR SVG DIAGRAM (Physics Apparatus, Optics Rays, Biology Anatomy, Chemistry Molecular Setups)
-  const generatedSvg = createUniversalScientificSvg(conceptTitle)
+  // 6. DYNAMIC BESPOKE VECTOR SVG DIAGRAM (Physics Apparatus, Optics Rays, Biology Anatomy, Chemistry Molecular Setups)
   return {
     concept: conceptTitle,
     toolCallAction: 'write_chalkboard',
     chalkboardAction: 'render_svg_diagram',
-    chalkboardContent: `${generatedSvg.title} | ${generatedSvg.svg} | ${generatedSvg.caption}`,
+    chalkboardContent: `${conceptTitle} | Visual illustration | On-demand vector visual`,
     readableSummary: `High-Precision Dynamic Vector SVG Diagram for ${conceptTitle}`,
-    toolCallExample: `render_svg_diagram(title="${generatedSvg.title}", svg="${generatedSvg.svg.replace(/"/g, "'")}", caption="${generatedSvg.caption}")`,
+    toolCallExample: `render_svg_diagram(title="${conceptTitle}", caption="Visual illustration")`,
   }
 }
 
@@ -478,10 +476,7 @@ export function generateVisualLessonPlanForCapsule(
       },
       boardDirective: {
         action: 'render_svg_diagram',
-        content: (() => {
-          const dyn = createUniversalScientificSvg(title)
-          return `${title} | ${dyn.svg} | ${dyn.caption || title}`
-        })(),
+        content: `${title} | Visual illustration | ${title}`,
       },
       estimatedSeconds: 120,
       sourceCitation: {

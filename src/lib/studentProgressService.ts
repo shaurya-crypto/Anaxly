@@ -404,6 +404,35 @@ export function invalidateStudentProgressCache(userId: string): void {
 /**
  * Cache individual board notes for a module (text, rough work, full summary, visual state).
  */
+/**
+ * Safely evicts older cached board notes and whiteboard keys when localStorage quota is exceeded.
+ */
+function pruneStaleLocalStorageKeys(currentModuleId?: string): void {
+  if (typeof window === 'undefined') return
+  try {
+    const keysToRemove: string[] = []
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i)
+      if (!key) continue
+      // Prune old whiteboard file payloads from other modules (largest consumers of quota)
+      if (key.includes('_files') && (!currentModuleId || !key.includes(currentModuleId))) {
+        keysToRemove.push(key)
+      }
+      // Prune old whiteboard pages from other modules
+      else if (key.startsWith('whiteboard_pages_') && (!currentModuleId || !key.includes(currentModuleId))) {
+        keysToRemove.push(key)
+      }
+      // Prune older notes entries
+      else if (key.startsWith('ai_tutor_board_notes_') && (!currentModuleId || !key.includes(currentModuleId))) {
+        keysToRemove.push(key)
+      }
+    }
+    for (const k of keysToRemove) {
+      localStorage.removeItem(k)
+    }
+  } catch {}
+}
+
 export function setCachedBoardNotes(item: BoardNotesCacheItem): void {
   if (!item.userId || !item.moduleId) return
 
@@ -411,11 +440,19 @@ export function setCachedBoardNotes(item: BoardNotesCacheItem): void {
   inMemoryNotesCache.set(key, item)
 
   if (typeof window !== 'undefined') {
+    const storageKey = `ai_tutor_board_notes_${item.userId}_${item.moduleId}`
     try {
-      const storageKey = `ai_tutor_board_notes_${item.userId}_${item.moduleId}`
       localStorage.setItem(storageKey, JSON.stringify(item))
-    } catch (err) {
-      console.warn('Failed saving board notes to localStorage:', err)
+    } catch (err: any) {
+      if (err?.name === 'QuotaExceededError' || err?.code === 22) {
+        // Prune older entries from other modules and retry once
+        pruneStaleLocalStorageKeys(item.moduleId)
+        try {
+          localStorage.setItem(storageKey, JSON.stringify(item))
+        } catch {
+          // In-memory cache retains full state safely; suppress further console noise
+        }
+      }
     }
   }
 }

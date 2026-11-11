@@ -3,7 +3,7 @@
 import React, { forwardRef, useState, useEffect, useCallback, useRef } from 'react'
 import { GreenChalkboard, GreenChalkboardRef, WritingPositionInfo } from './GreenChalkboard'
 import { SobiCompanion } from './SobiCompanion'
-import { LiveChalkSubtitleStreamer } from './LiveChalkSubtitleStreamer'
+import { LiveChalkSubtitleStreamer, ActiveHighlight } from './LiveChalkSubtitleStreamer'
 import { VisualizationViewport } from './VisualizationViewport'
 import { MafsGraphCanvas, MafsGraphCanvasProps, GraphDisplayMode } from './MafsGraphCanvas'
 import { VisualizationSceneType } from './scenes/sceneTypes'
@@ -52,6 +52,7 @@ export interface WhiteboardWorkspaceProps {
   activeGraph?: MafsGraphCanvasProps | null
   onCloseGraph?: () => void
   generatingDiagramTitle?: string | null
+  activeHighlight?: ActiveHighlight | null
 }
 
 export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWorkspaceProps>(
@@ -88,6 +89,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
       activeGraph = null,
       onCloseGraph,
       generatingDiagramTitle = null,
+      activeHighlight = null,
     },
     ref
   ) => {
@@ -223,6 +225,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
           <LiveChalkSubtitleStreamer
             latestTranscript={latestTranscript}
             isTeacherSpeaking={isTeacherSpeaking}
+            activeHighlight={activeHighlight}
           />
 
           {/* In-Whiteboard 3D Simulation Box (Rendered directly inside whiteboard area) */}

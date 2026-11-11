@@ -1,4 +1,5 @@
 import { GoogleGenAI, Type, Behavior } from '@google/genai';
+import { cleanChalkboardTypography } from '../components/whiteboard/chalkboardTypography';
 
 export interface CustomizedAvatarConfig {
   imageData?: string;
@@ -25,6 +26,7 @@ export interface GeminiLiveCallbacks {
   onChalkboardToolCall?: (action: string, content: any, color?: string) => void;
   onVisualAction?: (action: string, params: Record<string, any>) => void;
   onGetBoardContent?: () => string;
+  onHighlightText?: (text: string, target?: string, color?: string) => void;
 }
 
 export class GeminiLiveClient {
@@ -79,7 +81,7 @@ export class GeminiLiveClient {
     this.avatarConfig = options?.avatarConfig;
     this.systemInstruction =
       options?.systemInstruction ||
-      "You are an inspiring, experienced Master Academic Topper Tutor conducting an authentic 1-on-1 spoken tutoring session with a live chalkboard. TEACH LIKE AN EXPERIENCED FACULTY MENTOR: Radiate calm confidence, intellectual clarity, and genuine warmth. Speak conversationally and thoughtfully—like a beloved, seasoned professor or master tutor standing right beside the student at the chalkboard. Pacing: Never rush. Speak in brief, natural thoughts (2 to 3 sentences maximum per turn). Pause naturally so the student can absorb every word. TANGIBLE INTUITION FIRST: Never start a concept by throwing formal definitions or abstract variables on the board; always ignite curiosity with a tangible everyday phenomenon or mental experiment first. MANDATORY INVARIANT: On EVERY turn, you MUST call write_chalkboard (or write_board) to write on the board. MANDATORY PROACTIVE DIAGRAMS: Call render_svg_diagram proactively on Step 1 of each concept without waiting for the student to ask. MANDATORY HAIRLINE 3D AXONOMETRIC SPECIFICATION: Whenever calling render_svg_diagram or drawing physical apparatus, optical instruments, circuits, inclined planes, or 3D geometry, strictly output clean 30° axonometric isometric projections with rounded wireframe solids, top/front bevels, laser-sharp leader callouts, and clean white (#FFFFFF) background matching the whiteboard. Never draw flat 2D clipart. ANTI-TELEPROMPTER RULE: Never merely recite what is written on the board! Explain the living mechanism, the physical reality, and the intuitive 'why' in conversational speech. Solve problems using the authentic 5-step board layout: Given -> To Find -> Formula -> Rough Calculation in [ROUGH_WORK] scratchpad -> Boxed Answer. ZERO-RUSH PATIENCE INVARIANT & THE HARD STOP: When you ask a question or check understanding, you MUST stop speaking completely and remain silent. NEVER answer your own question. Wait patiently for the student's response. STRICT SOCRATIC MASTERY GATING: NEVER call concept_completed, concept_done, or new_page if the student answers incorrectly or has unresolved doubts! If the student answers wrong or hesitates, explain the mistake with diagnostic kindness, co-solve in rough work, and re-test. Advance to the next concept ONLY after ALL module questions for the current concept are answered correctly AND the student confirms all doubts are cleared. MANDATORY ADVANCEMENT: Once the student answers correctly or confirms understanding ('yes', 'understood', 'clear', 'move on', 'next', 'no doubts'), you MUST IMMEDIATELY call concept_completed(conceptName=...) or write_chalkboard(action=\"concept_done\") without delay. Never repeat the same question or ask for confirmation multiple times once the student says yes. BOARD STATE CONTINUITY: Respect [CURRENT_BOARD_STATE] — never rewrite or redraw notes or diagrams already present on the active page; continue directly from the next step.";
+      "You are an inspiring, experienced Master Academic Topper Tutor conducting an authentic 1-on-1 spoken tutoring session with a live chalkboard. TEACH LIKE AN EXPERIENCED FACULTY MENTOR: Radiate calm confidence, intellectual clarity, and genuine warmth. Speak conversationally and thoughtfully—like a beloved, seasoned professor or master tutor standing right beside the student at the chalkboard. Pacing: Never rush. Speak in brief, natural thoughts (2 to 3 sentences maximum per turn). Pause naturally so the student can absorb every word. TANGIBLE INTUITION FIRST: Never start a concept by throwing formal definitions or abstract variables on the board; always ignite curiosity with a tangible everyday phenomenon or mental experiment first. MANDATORY INVARIANT: On EVERY turn, you MUST call write_chalkboard to write on the board. MANDATORY PROACTIVE DIAGRAMS: Call render_svg_diagram proactively on Step 1 of each concept without waiting for the student to ask. MANDATORY HAIRLINE 3D AXONOMETRIC SPECIFICATION: Whenever calling render_svg_diagram or drawing physical apparatus, optical instruments, circuits, inclined planes, or 3D geometry, strictly output clean 30° axonometric isometric projections with rounded wireframe solids, top/front bevels, laser-sharp leader callouts, and clean white (#FFFFFF) background matching the whiteboard. Never draw flat 2D clipart. PROACTIVE LIVE HIGHLIGHTING: Proactively invoke highlight_text(text=\"...\", color=\"amber\") on critical keywords, formulas, and laws as you speak so the student's chalkboard and subtitles illuminate with laser focus. ANTI-TELEPROMPTER RULE: Never merely recite what is written on the board! Explain the living mechanism, the physical reality, and the intuitive 'why' in conversational speech. CHALKBOARD TYPOGRAPHY INVARIANT: NEVER write raw programming operators (*, **, //, ^) on the board! Never use * for multiplication (use × or ·), never use ** for bolding, never use // (use ÷ or /), never use ^ for powers (write standard Unicode superscripts: x², v², u², t², 10⁸, 10⁻¹¹, m/s², s⁻¹). Use authentic textbook notation: F = m × a, v² = u² + 2as, W = F · d · cos θ, Δx = v₀t + ½at². Solve numericals using authentic structured steps: Given -> To Find -> Formula -> Substitution -> Boxed Answer via solve_step_by_step_numerical. ZERO-RUSH PATIENCE INVARIANT & THE HARD STOP: When you ask a question or check understanding, you MUST stop speaking completely and remain silent. NEVER answer your own question. Wait patiently for the student's response. STRICT SOCRATIC MASTERY GATING: NEVER call concept_completed, concept_done, or new_page if the student answers incorrectly or has unresolved doubts! If the student answers wrong or hesitates, explain the mistake with diagnostic kindness, co-solve step-by-step, and re-test. STRICT 6-STAGE CADENCE & ADVANCEMENT GATING: In Stages 1 to 4 (Intuition, Formulation, Application, Board Numerical), when the student affirms understanding ('yes', 'samajh gaya', 'ok'), DO NOT call concept_completed! It simply means they followed the initial explanation—smoothly proceed to the next stage of this concept (formulate the scientific law, work through the board numerical, or pose the Stage 5 Checkpoint Question). Call concept_completed(conceptName=...) or write_chalkboard(action=\"concept_done\") ONLY after the Stage 5/6 checkpoint question has been attempted and resolved, or if the student explicitly commands 'next concept' or 'next page'. Transition immediately to the next concept with an everyday intuition hook! BOARD STATE CONTINUITY: Respect [CURRENT_BOARD_STATE] — never rewrite or redraw notes or diagrams already present on the active page; continue directly from the next step.";
     this.ai = new GoogleGenAI({
       apiKey: this.apiKey,
       httpOptions: { apiVersion: "v1alpha" },
@@ -101,8 +103,20 @@ export class GeminiLiveClient {
       }
     }
 
+    // 1a2. Match pseudo-code: highlight_text(...) or highlight_word(...)
+    const highlightRegex = /(?:highlight_text|highlight_word|highlight_sentence)\s*\(\s*(?:(?:text|targetText|content)\s*=\s*)?(?:["']([^"']*)["']|([^"',\)]*))(?:\s*,\s*(?:target\s*=\s*)?["']?([a-zA-Z0-9_\-]+)["']?)?(?:\s*,\s*(?:color\s*=\s*)?["']?([a-zA-Z0-9_#]+)["']?)?\s*\)/gi;
+    let hm;
+    while ((hm = highlightRegex.exec(rawText)) !== null) {
+      const text = (hm[1] ?? hm[2] ?? "").trim();
+      const target = hm[3]?.trim() || "both";
+      const color = hm[4]?.trim() || "amber";
+      if (text) {
+        this.handleSingleToolCall("highlight_text", { text, target, color });
+      }
+    }
+
     // 1b. Match bracket directives: [NOTE: ...], [STEP: ...], [DEFINITION: ...], [HIGHLIGHT: ...], etc.
-    const bracketRegex = /\[(NOTE|INTUITION|INSIGHT|DEFINITION|LAW|FORMULA|HIGHLIGHT|EXAMPLE|ILLUSTRATION|STEP|DERIVATION|CALCULATION|QUESTION|CHECKPOINT_QUESTION|BOARD_QUESTION|STUDENT_ANSWER|STUDENT|VERDICT|ANSWER_VERDICT|CORRECTION|ROUGH_WORK|ROUGH|CONCEPT_DONE|CONCEPT_COMPLETED|CONCEPT_MASTERED|MASTERED|NEXT_CONCEPT|ADVANCE_CONCEPT|CONCEPT_FOCUS):\s*([^\]]+)\]/gi;
+    const bracketRegex = /\[(NOTE|INTUITION|INSIGHT|DEFINITION|LAW|FORMULA|HIGHLIGHT|HIGHLIGHT_WORD|HIGHLIGHT_SENTENCE|FOCUS_WORD|FOCUS_PHRASE|EXAMPLE|ILLUSTRATION|STEP|DERIVATION|CALCULATION|QUESTION|CHECKPOINT_QUESTION|BOARD_QUESTION|STUDENT_ANSWER|STUDENT|VERDICT|ANSWER_VERDICT|CORRECTION|CONCEPT_DONE|CONCEPT_COMPLETED|CONCEPT_MASTERED|MASTERED|NEXT_CONCEPT|ADVANCE_CONCEPT|CONCEPT_FOCUS):\s*([^\]]+)\]/gi;
     let bm;
     while ((bm = bracketRegex.exec(rawText)) !== null) {
       const type = bm[1]?.toUpperCase() || "";
@@ -110,7 +124,15 @@ export class GeminiLiveClient {
       if (!content) continue;
       if (type === "NOTE" || type === "INTUITION" || type === "INSIGHT") {
         this.handleSingleToolCall("write_chalkboard", { action: "draw_note", content: type === "INTUITION" ? `Intuition: ${content}` : content, color: "botanical" });
-      } else if (type === "DEFINITION" || type === "LAW" || type === "FORMULA" || type === "HIGHLIGHT") {
+      } else if (type === "HIGHLIGHT_WORD" || type === "HIGHLIGHT_SENTENCE" || type === "FOCUS_WORD" || type === "FOCUS_PHRASE") {
+        this.handleSingleToolCall("highlight_text", { text: content, target: "both", color: "amber" });
+      } else if (type === "HIGHLIGHT") {
+        if (content.length <= 45) {
+          this.handleSingleToolCall("highlight_text", { text: content, target: "both", color: "amber" });
+        } else {
+          this.handleSingleToolCall("write_chalkboard", { action: "draw_highlight_box", content: content, color: "coral" });
+        }
+      } else if (type === "DEFINITION" || type === "LAW" || type === "FORMULA") {
         this.handleSingleToolCall("write_chalkboard", { action: "draw_highlight_box", content: content, color: "coral" });
       } else if (type === "EXAMPLE" || type === "ILLUSTRATION") {
         this.handleSingleToolCall("write_chalkboard", { action: "draw_note", content: `Example: ${content}`, color: "blue" });
@@ -122,8 +144,6 @@ export class GeminiLiveClient {
         this.handleSingleToolCall("write_chalkboard", { action: "draw_student_answer", content: content, color: "blue" });
       } else if (type === "VERDICT" || type === "ANSWER_VERDICT" || type === "CORRECTION") {
         this.handleSingleToolCall("write_chalkboard", { action: "draw_answer_verdict", content: content, color: "botanical" });
-      } else if (type === "ROUGH_WORK" || type === "ROUGH") {
-        this.handleSingleToolCall("write_chalkboard", { action: "draw_rough_work", content: content, color: "white" });
       } else if (type === "CONCEPT_DONE" || type === "CONCEPT_COMPLETED" || type === "CONCEPT_MASTERED" || type === "MASTERED" || type === "NEXT_CONCEPT" || type === "ADVANCE_CONCEPT") {
         this.handleSingleToolCall("concept_completed", { conceptName: content });
       } else if (type === "CONCEPT_FOCUS") {
@@ -327,6 +347,9 @@ export class GeminiLiveClient {
       .replace(stripCall("advance_concept"), "")
       .replace(stripCall("concept_focus"), "")
       .replace(stripCall("focus_concept"), "")
+      .replace(stripCall("highlight_text"), "")
+      .replace(stripCall("highlight_word"), "")
+      .replace(stripCall("highlight_sentence"), "")
       .replace(stripCall("render_svg_diagram"), "")
       .replace(/render_svg_diagram\s*\([\s\S]*?\)/gi, "")
       .replace(stripCall("search_and_show_image"), "")
@@ -388,7 +411,20 @@ export class GeminiLiveClient {
         }
       }
 
-      this.callbacks.onChalkboardToolCall?.(action, textContent, color);
+      if (typeof textContent === "string") {
+        textContent = cleanChalkboardTypography(textContent);
+      }
+
+      if (action === "highlight_text" || action === "highlight_word" || action === "highlight_sentence") {
+        this.callbacks.onHighlightText?.(textContent, "both", color || "amber");
+      } else {
+        this.callbacks.onChalkboardToolCall?.(action, textContent, color);
+      }
+    } else if (name === "highlight_text" || name === "highlight_word" || name === "highlight_sentence") {
+      const textToHighlight = args.text || args.content || args.word || args.sentence || (typeof args === "string" ? args : "");
+      const target = args.target || "both";
+      const color = args.color || "amber";
+      this.callbacks.onHighlightText?.(textToHighlight, target, color);
     } else if (name === "execute_visual_action") {
       const action = args.action || "";
       const parameters = args.parameters || {};
@@ -568,6 +604,12 @@ export class GeminiLiveClient {
         liveConfig.avatarConfig = this.avatarConfig;
       }
 
+      if (this.model.includes("extended-thinking")) {
+        liveConfig.thinkingConfig = {
+          thinkingLevel: "high",
+        };
+      }
+
       if (this.enableFunctionCalling) {
         liveConfig.tools = [
           {
@@ -592,19 +634,15 @@ export class GeminiLiveClient {
                         "draw_exam_question",
                         "draw_flowchart",
                         "draw_table",
-                        "draw_rough_work",
                         "draw_image",
                         "draw_video",
-                        "render_svg_diagram",
+                        "highlight_text",
                         "concept_done",
                         "concept_focus",
-                        "next_concept",
-                        "advance_concept",
-                        "open_quiz",
                         "set_color",
                         "new_page",
                       ],
-                      description: "The chalkboard action to perform (e.g. draw_note, draw_step, draw_highlight_box, draw_question, draw_student_answer, draw_answer_verdict, draw_exam_question, draw_flowchart, draw_table, draw_rough_work, concept_done, concept_focus, set_color, new_page)",
+                      description: "The chalkboard action to perform (e.g. draw_note, draw_step, draw_highlight_box, draw_question, draw_student_answer, draw_answer_verdict, draw_exam_question, draw_flowchart, draw_table, highlight_text, concept_done, concept_focus, set_color, new_page)",
                     },
                     content: {
                       type: Type.STRING,
@@ -634,97 +672,33 @@ export class GeminiLiveClient {
                 },
               },
               {
-                name: "write_board",
-                description: "MANDATORY CHALKBOARD TOOL: You MUST invoke this tool in EVERY spoken turn to write notes, definitions, steps, formulas, worked examples, and questions on the student's live chalkboard. Speaking without calling this tool is strictly prohibited.",
+                name: "highlight_text",
+                description: "LIVE AI HIGHLIGHTER: Temporarily highlight key words, terms, laws, formulas, or sentences on the student's chalkboard notes and/or live spoken subtitle streamer with an animated golden/amber glow pill marker. Call this dynamically while speaking to direct the student's visual focus to critical terms, exam keywords, or specific derivations.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,
                   properties: {
-                    action: {
+                    text: {
                       type: Type.STRING,
-                      enum: [
-                        "draw_title",
-                        "draw_note",
-                        "draw_step",
-                        "draw_highlight_box",
-                        "draw_question",
-                        "draw_student_answer",
-                        "draw_answer_verdict",
-                        "draw_exam_question",
-                        "draw_flowchart",
-                        "draw_table",
-                        "draw_rough_work",
-                        "draw_image",
-                        "draw_video",
-                        "concept_done",
-                        "concept_focus",
-                        "set_color",
-                        "new_page",
-                      ],
-                      description: "The chalkboard action to perform (e.g. draw_note, draw_step, draw_highlight_box, draw_question, draw_student_answer, draw_answer_verdict, draw_exam_question, draw_flowchart, draw_table, draw_rough_work, concept_done, concept_focus, set_color, new_page)",
+                      description: "The specific word, phrase, key term, or sentence to highlight (e.g. 'Photosynthesis', 'F = ma', 'Cellulose microfibrils', 'SI unit: Newton').",
                     },
-                    content: {
+                    target: {
                       type: Type.STRING,
-                      description: "The text to write, equation, table markup, flowchart text, or color name to apply to the chalkboard.",
+                      enum: ["both", "chalkboard", "subtitles"],
+                      description: "Where to render the highlight: 'both' (default), 'chalkboard' (marks text on the digital board), or 'subtitles' (glows in the live speech streamer).",
                     },
                     color: {
                       type: Type.STRING,
-                      enum: [
-                        "white",
-                        "primary",
-                        "botanical",
-                        "green",
-                        "coral",
-                        "red",
-                        "amber",
-                        "yellow",
-                        "blue",
-                        "cyan",
-                        "purple",
-                        "lavender",
-                        "rose",
-                      ],
-                      description: "Optional chalk color to write with (botanical, coral, amber, blue, purple, white).",
+                      enum: ["amber", "yellow", "cyan", "botanical", "coral"],
+                      description: "Chalk marker color: 'amber' (default golden marker), 'yellow', 'cyan', 'botanical', 'coral'.",
                     },
                   },
-                  required: ["action"],
-                },
-              },
-              {
-                name: "execute_visual_action",
-                description: "Present or update interactive visual teaching elements on the multimedia stage (images, videos, 3D scenes, graphs, progressive diagrams, animations, or quick checks).",
-                behavior: Behavior.NON_BLOCKING,
-                parameters: {
-                  type: Type.OBJECT,
-                  properties: {
-                    action: {
-                      type: Type.STRING,
-                      enum: [
-                        "SHOW_MEDIA",
-                        "SHOW_SCENE",
-                        "UPDATE_GRAPH",
-                        "REVEAL_DIAGRAM_STEP",
-                        "HIGHLIGHT_BOARD",
-                        "PLAY_ANIMATION",
-                        "PAUSE_MEDIA",
-                        "ASK_CHECK",
-                        "SAVE_LESSON_POSITION",
-                        "UPDATE_SCENE",
-                        "CLOSE_SCENE",
-                      ],
-                      description: "The visual action to execute on the stage",
-                    },
-                    parameters: {
-                      type: Type.OBJECT,
-                      description: "Action-specific parameters (e.g. sceneType, stepIndex, variableName, value, url)",
-                    },
-                  },
-                  required: ["action"],
+                  required: ["text"],
                 },
               },
               {
                 name: "plot_mathematical_graph",
-                description: "CRITICAL GRAPH GATING: Plot an interactive mathematical or kinematic function graph directly on the whiteboard canvas (e.g. quadratic parabola, calculus derivative, trigonometric curve, kinematics velocity-time or distance-time curve) ONLY when the student's lesson explicitly requires plotting a mathematical function with actual mathematical coordinates AND WORKED CALCULATIONS (roots, intercepts, vertex, slope, or table of values). You MUST write the mathematical work on the chalkboard using action='draw_step' and action='draw_rough_work' whenever presenting a graph. NEVER call this tool for non-mathematical topics (Biology, Anatomy, Histology, Chemical Bonding, Tissue Structures, Literature, History) — use render_svg_diagram or draw_flowchart instead.",
+                description: "CRITICAL GRAPH GATING: Plot an interactive mathematical or kinematic function graph directly on the whiteboard canvas (e.g. quadratic parabola, calculus derivative, trigonometric curve, kinematics velocity-time or distance-time curve) ONLY when the student's lesson explicitly requires plotting a mathematical function with actual mathematical coordinates AND WORKED CALCULATIONS (roots, intercepts, vertex, slope, or table of values). You MUST write the mathematical work on the chalkboard using action='draw_step' whenever presenting a graph. NEVER call this tool for non-mathematical topics (Biology, Anatomy, Histology, Chemical Bonding, Tissue Structures, Literature, History) — use render_svg_diagram or draw_flowchart instead.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,
@@ -1155,7 +1129,32 @@ export class GeminiLiveClient {
           callbacks: sessionCallbacks,
         });
       } catch (connectError: any) {
-        if (this.avatarConfig) {
+        if (this.model.includes("extended-thinking")) {
+          console.warn("[GeminiLive] Extended thinking live model unavailable or rejected. Self-healing fallback to standard gemini-3.8-live:", connectError);
+          this.model = "gemini-3.8-live";
+          delete liveConfig.thinkingConfig;
+          try {
+            this.session = await this.ai.live.connect({
+              model: this.model,
+              config: liveConfig,
+              callbacks: sessionCallbacks,
+            });
+          } catch (retryError: any) {
+            if (this.avatarConfig) {
+              console.warn("[GeminiLive] Native video avatar modality rejected. Fallback to audio stream:", retryError);
+              this.avatarConfig = undefined;
+              liveConfig.responseModalities = ["AUDIO" as any];
+              delete liveConfig.avatarConfig;
+              this.session = await this.ai.live.connect({
+                model: this.model,
+                config: liveConfig,
+                callbacks: sessionCallbacks,
+              });
+            } else {
+              throw retryError;
+            }
+          }
+        } else if (this.avatarConfig) {
           console.warn("[GeminiLive] Native video avatar modality rejected or unsupported by current endpoint/credentials. Self-healing fallback to high-fidelity audio stream:", connectError);
           this.avatarConfig = undefined;
           liveConfig.responseModalities = ["AUDIO" as any];

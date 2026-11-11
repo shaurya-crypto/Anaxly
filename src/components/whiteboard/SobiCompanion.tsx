@@ -234,78 +234,21 @@ export function SobiCompanion({
     }
   }
 
-  // 7. Calculate dynamic glide coordinates on the chalkboard
-  // Excalidraw default zoom in GreenChalkboard is 0.7
-  const zoomFactor = 0.7
-  const topOffset = 48 // Header offset
-  const maxSafeTop = Math.max(60, containerHeight - (isQuestionActive ? 280 : 160))
-  const scrollY = writingPosition?.scrollY || 0
-  const rawTargetY = isQuestionActive && activeQuestion?.y
-    ? (activeQuestion.y + scrollY) * zoomFactor + topOffset - 15
-    : ((writingPosition?.nextY || 140) + scrollY) * zoomFactor + topOffset - 30
-  const computedY = Math.min(Math.max(rawTargetY, 50), maxSafeTop)
-
-  // When question is active and screen is wide enough, dock Sobi directly to the right of the question box (560px)
-  const isDockedToQuestion = isQuestionActive && containerWidth >= 920
-
+  // 7. Stationary bottom corner docking (cleanly above bottom navigation bar)
   return (
     <aside
       ref={containerRef}
       style={{
         position: 'absolute',
-        top: `${computedY}px`,
-        left: isDockedToQuestion ? '575px' : 'auto',
-        right: isDockedToQuestion ? 'auto' : '18px',
+        bottom: '48px',
+        right: '18px',
         zIndex: 25,
-        transition: 'top 0.75s cubic-bezier(0.32, 0.72, 0, 1), left 0.75s cubic-bezier(0.32, 0.72, 0, 1), right 0.75s cubic-bezier(0.32, 0.72, 0, 1)',
       }}
       aria-label="Sobi Intelligent Whiteboard Companion"
-      className="select-none pointer-events-none flex flex-col items-end max-w-[340px] sm:max-w-[400px]"
+      className="select-none pointer-events-none flex flex-col items-end"
     >
-      {/* Speech Transcription & Thought Bubble */}
-      {speechBubbleOpen && (lastSpeechBubble || activeConceptTitle || isQuestionActive) && (
-        <div
-          className={`hidden sm:block pointer-events-auto mb-2 p-3 rounded-2xl backdrop-blur-xl border transition-all duration-300 shadow-[0_12px_32px_rgba(23,24,23,0.08)] text-xs text-[#171817] relative animate-in fade-in slide-in-from-right-4 ${
-            isQuestionActive
-              ? 'bg-[#EEF5FA] border-[#255D88]/40 ring-2 ring-[#255D88]/15'
-              : 'bg-[#F8F6F0]/95 border-[#E5E3DB]'
-          }`}
-        >
-          <div className="flex items-start gap-2">
-            <span
-              className={`p-1 rounded-lg shrink-0 mt-0.5 ${
-                isQuestionActive ? 'bg-[#255D88]/10 text-[#255D88]' : 'bg-[#52715D]/10 text-[#52715D]'
-              }`}
-            >
-              {isQuestionActive ? (
-                <HelpCircle className="w-3.5 h-3.5 animate-pulse" />
-              ) : isTeacherSpeaking ? (
-                <Volume2 className="w-3.5 h-3.5 animate-pulse" />
-              ) : (
-                <Sparkles className="w-3.5 h-3.5" />
-              )}
-            </span>
-            <div className="flex-1 min-w-0 pr-1">
-              <p className="text-[11px] font-bold tracking-tight text-[#171817] mb-0.5 flex items-center gap-1.5">
-                <span>{isQuestionActive ? 'Checkpoint Question' : 'Sobi Companion'}</span>
-                {activeConceptTitle && !isQuestionActive && (
-                  <span className="text-[9px] font-mono uppercase px-1.5 py-0.2 rounded bg-white/80 border border-[#E5E3DB] text-[#555852] truncate max-w-[120px]">
-                    {activeConceptTitle}
-                  </span>
-                )}
-              </p>
-              <p className="text-[11px] text-[#555852] leading-relaxed line-clamp-3">
-                {isQuestionActive
-                  ? activeQuestion?.text || lastSpeechBubble
-                  : lastSpeechBubble || `Listening and taking structured notes on "${activeConceptTitle || 'current topic'}"`}
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Main Avatar & Interactive Pod Area */}
-      <div className="flex items-start gap-3 justify-end pointer-events-auto">
+      <div className="flex items-center gap-3 justify-end pointer-events-auto">
         {/* Interactive Response Pod (Glides with Sobi and opens when question is active) */}
         {isQuestionActive && (
           <div className="p-3 rounded-2xl bg-white/95 backdrop-blur-xl border border-[#255D88]/30 shadow-[0_16px_40px_rgba(37,93,136,0.15)] w-[260px] sm:w-[290px] animate-in fade-in zoom-in-95 duration-300">

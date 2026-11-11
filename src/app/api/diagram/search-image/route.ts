@@ -166,6 +166,53 @@ function isImageRelevantToQuery(query: string, title: string, url: string): bool
 }
 
 /**
+ * Strict Content Safety and Watermark/Anti-Hotlink Filter:
+ * Ensures harmful, adult, gambling, violence, or broken watermarked stock images are never returned.
+ */
+const HARMFUL_IMAGE_PATTERNS = [
+  /\b(?:porn|pornography|sex|sexual|nsfw|erotic|nude|nudity|escort|dating|bikini|lingerie)\b/i,
+  /\b(?:gore|murder|corpse|execution|suicide|decapitat|mutilat|bloodshed)\b/i,
+  /\b(?:casino|gambling|betting|poker|slots|crypto|bitcoin|forex)\b/i,
+  /\b(?:shutterstock|gettyimages|alamy|dreamstime|123rf|istockphoto|stock-photo|depositphotos)\b/i,
+  /\b(?:pinterest\.com|pinimg\.com)\b/i,
+]
+
+function isSafeEducationalImage(title: string, url: string): boolean {
+  const combined = `${title} ${url}`.toLowerCase()
+  for (const pattern of HARMFUL_IMAGE_PATTERNS) {
+    if (pattern.test(combined)) {
+      return false
+    }
+  }
+  return true
+}
+
+/**
+ * Educational Domain Scoring:
+ * Computes priority weight for search candidates.
+ * High authority encyclopedic & educational institutions score highest.
+ */
+function scoreEducationalImage(url: string, title: string, query: string): number {
+  let score = 0
+  const lowerUrl = url.toLowerCase()
+  const lowerTitle = title.toLowerCase()
+
+  // High authority educational domains
+  if (lowerUrl.includes('wikimedia.org') || lowerUrl.includes('wikipedia.org')) score += 50
+  if (lowerUrl.includes('.edu') || lowerUrl.includes('.gov') || lowerUrl.includes('.ac.in')) score += 40
+  if (lowerUrl.includes('openstax.org') || lowerUrl.includes('khanacademy.org')) score += 35
+  if (lowerUrl.includes('britannica.com') || lowerUrl.includes('physicsclassroom.com')) score += 30
+  if (lowerUrl.includes('libretexts.org') || lowerUrl.includes('sciencedirect.com')) score += 25
+  if (lowerUrl.includes('phet.colorado.edu') || lowerUrl.includes('ck12.org')) score += 25
+
+  // Diagram / vector / formula / experiment keywords in title
+  if (/diagram|schematic|ray diagram|cross section|ultrastructure|circuit|apparatus/i.test(lowerTitle)) score += 15
+  if (/experiment|observation|microscope|vector|formula|graph/i.test(lowerTitle)) score += 10
+
+  return score
+}
+
+/**
  * Intelligent query sanitization:
  * Distills raw activity titles (e.g. "Activity 2.1: Onion Epidermal Peel Mount")
  * into prioritized, high-accuracy queries for both broad web search and encyclopedic archives.
@@ -313,14 +360,18 @@ function extractSmartImageSearchQueries(raw: string): string[] {
 /**
  * TIER 1A: Broad Web Image Search Engine (Bing Images Async).
  * Instant, high-yield web image search without API keys or bot tokens.
+ * Prioritized FIRST as primary search engine source.
  */
 async function searchBingImages(query: string, limit: number = 8): Promise<ImageResult[]> {
   try {
     const controller = new AbortController()
     const timer = setTimeout(() => controller.abort(), 3500)
+    const cleanTerm = /diagram|chart|graph|figure|experiment|photo|illustration/i.test(query)
+      ? query
+      : `${query} diagram`
     const url = `https://www.bing.com/images/async?q=${encodeURIComponent(
-      `${query} educational diagram`
-    )}&first=1&count=${Math.max(limit * 2, 12)}&mmasync=1`
+      cleanTerm
+    )}&first=1&count=${Math.max(limit * 2, 12)}&mmasync=1&adlt=strict`
 
     const res = await fetch(url, {
       signal: controller.signal,
@@ -357,6 +408,11 @@ async function searchBingImages(query: string, limit: number = 8): Promise<Image
         .replace(/&gt;/g, '>')
         .trim()
 
+      // Content safety guard
+      if (!isSafeEducationalImage(rawTitle, imgUrl)) {
+        continue
+      }
+
       // Strict relevance validation: Must match query topic
       if (!isImageRelevantToQuery(query, rawTitle, imgUrl)) {
         continue
@@ -369,7 +425,7 @@ async function searchBingImages(query: string, limit: number = 8): Promise<Image
         description: rawTitle || `Web visual for ${query}`,
         width: 800,
         height: 600,
-        source: 'Web Search (Bing Images)',
+        source: 'Web Search Engine (Bing Images)',
       })
 
       if (results.length >= limit) break
@@ -536,6 +592,9 @@ async function searchWikimediaCommons(query: string, limit: number = 8): Promise
       }
 
       const title = sanitizeTitle(page.title || query)
+      if (!isSafeEducationalImage(title, info.url)) {
+        continue
+      }
       if (!isImageRelevantToQuery(query, title, info.url)) {
         continue
       }
@@ -570,10 +629,10 @@ async function searchWikimediaCommons(query: string, limit: number = 8): Promise
 
 /**
  * Executes Fast Parallel Multi-Source Image Search:
- * 1. Concurrently queries Wikipedia PageImages, Wikimedia Commons, and Bing Images.
- * 2. Filters strictly for concept relevance to eliminate cross-domain noise.
- * 3. Verifies top candidate links in parallel with 2.5s timeout.
- * 4. Total latency bounded to ~3.5s (never 40+ seconds).
+ * 1. Search Engine (Bing Images & Web Image Search) prioritized FIRST per user instruction.
+ * 2. Wikipedia Encyclopedic lead illustrations queried SECOND as high-authority reference.
+ * 3. Wikimedia Commons scientific diagrams & vector graphics queried THIRD.
+ * 4. Verifies top candidate links in parallel with 2.5s timeout.
  * 5. If no verified relevant image is found, cleanly returns [] so live classroom fast AI diagram generation activates!
  */
 async function getVerifiedImages(cleanQuery: string, limit: number): Promise<ImageResult[]> {
@@ -581,16 +640,26 @@ async function getVerifiedImages(cleanQuery: string, limit: number): Promise<Ima
   const primaryQuery = candidateQueries[0] || cleanQuery
 
   // Query top sources in parallel for fast low-latency response
-  const [wikiPageRes, wikimediaRes, bingRes] = await Promise.allSettled([
+  const [bingRes, wikiPageRes, wikimediaRes] = await Promise.allSettled([
+    searchBingImages(primaryQuery, limit),
     searchWikipediaPageImages(primaryQuery, limit),
     searchWikimediaCommons(primaryQuery, limit),
-    searchBingImages(primaryQuery, limit),
   ])
 
   const candidates: ImageResult[] = []
   const seenUrls = new Set<string>()
 
-  // 1. Authoritative encyclopedic illustrations first
+  // 1. Search Engine (Bing Images / Web Search) FIRST
+  if (bingRes.status === 'fulfilled') {
+    for (const img of bingRes.value) {
+      if (!seenUrls.has(img.url)) {
+        seenUrls.add(img.url)
+        candidates.push(img)
+      }
+    }
+  }
+
+  // 2. Authoritative Wikipedia encyclopedic illustrations SECOND
   if (wikiPageRes.status === 'fulfilled') {
     for (const img of wikiPageRes.value) {
       if (!seenUrls.has(img.url)) {
@@ -600,19 +669,9 @@ async function getVerifiedImages(cleanQuery: string, limit: number): Promise<Ima
     }
   }
 
-  // 2. Curated scientific diagrams and micrographs second
+  // 3. Curated Wikimedia Commons scientific diagrams THIRD
   if (wikimediaRes.status === 'fulfilled') {
     for (const img of wikimediaRes.value) {
-      if (!seenUrls.has(img.url)) {
-        seenUrls.add(img.url)
-        candidates.push(img)
-      }
-    }
-  }
-
-  // 3. Verified broad web images third
-  if (bingRes.status === 'fulfilled') {
-    for (const img of bingRes.value) {
       if (!seenUrls.has(img.url)) {
         seenUrls.add(img.url)
         candidates.push(img)
@@ -623,10 +682,19 @@ async function getVerifiedImages(cleanQuery: string, limit: number): Promise<Ima
   // If primary query yielded zero candidates and a secondary refined query exists, try secondary
   if (candidates.length === 0 && candidateQueries.length > 1) {
     const secondaryQuery = candidateQueries[1]
-    const [secWiki, secCommons] = await Promise.allSettled([
+    const [secBing, secWiki, secCommons] = await Promise.allSettled([
+      searchBingImages(secondaryQuery, limit),
       searchWikipediaPageImages(secondaryQuery, limit),
       searchWikimediaCommons(secondaryQuery, limit),
     ])
+    if (secBing.status === 'fulfilled') {
+      for (const img of secBing.value) {
+        if (!seenUrls.has(img.url)) {
+          seenUrls.add(img.url)
+          candidates.push(img)
+        }
+      }
+    }
     if (secWiki.status === 'fulfilled') {
       for (const img of secWiki.value) {
         if (!seenUrls.has(img.url)) {
@@ -648,6 +716,13 @@ async function getVerifiedImages(cleanQuery: string, limit: number): Promise<Ima
   if (candidates.length === 0) {
     return []
   }
+
+  // Prioritize high-authority educational domains (.edu, .gov, wikipedia, wikimedia, openstax, etc.)
+  candidates.sort((a, b) => {
+    const scoreA = scoreEducationalImage(a.url, a.title, primaryQuery)
+    const scoreB = scoreEducationalImage(b.url, b.title, primaryQuery)
+    return scoreB - scoreA
+  })
 
   // Parallel verification of the top candidates
   const batchToVerify = candidates.slice(0, Math.min(candidates.length, limit * 2))

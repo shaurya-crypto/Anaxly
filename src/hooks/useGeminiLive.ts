@@ -17,6 +17,8 @@ export function useGeminiLive() {
   const [latestVideoFrame, setLatestVideoFrame] = useState<string | null>(null);
   const [videoMimeType, setVideoMimeType] = useState<string>("image/jpeg");
   const [studentProfile, setStudentProfile] = useState<any>(null);
+  const [activeHighlight, setActiveHighlight] = useState<{ text: string; color?: string; timestamp: number } | null>(null);
+  const highlightTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const audioPlayerRef = useRef<AudioPlayer | null>(null);
   const audioStreamerRef = useRef<AudioStreamer | null>(null);
@@ -60,12 +62,12 @@ export function useGeminiLive() {
       if (last && last.sender === sender && Date.now() - last.timestamp < 3500) {
         return [
           ...prev.slice(0, -1),
-          { ...last, text: `${last.text} ${text.trim()}` },
+          { ...last, text: `${last.text} ${text.trim()}`, id: `${last.id.split('_')[0]}_${Date.now()}` },
         ];
       }
       return [
         ...prev.slice(-8),
-        { id: Math.random().toString(36).substring(7), sender, text: text.trim(), timestamp: Date.now() },
+        { id: `${Math.random().toString(36).substring(7)}_${Date.now()}`, sender, text: text.trim(), timestamp: Date.now() },
       ];
     });
   }, []);
@@ -85,7 +87,8 @@ export function useGeminiLive() {
       supportedLanguages?: string[];
       languageCode?: string;
     },
-    onGetBoardContent?: () => string
+    onGetBoardContent?: () => string,
+    onHighlightText?: (text: string, target?: string, color?: string) => void
   ) => {
     setErrorMessage(null);
     setConnectionState("CONNECTING");
@@ -214,6 +217,16 @@ export function useGeminiLive() {
           onVisualAction: (action, params) => {
             onVisualAction?.(action, params);
           },
+          onHighlightText: (text, target, color) => {
+            if (target === "subtitles" || target === "both" || !target) {
+              setActiveHighlight({ text, color, timestamp: Date.now() });
+              if (highlightTimeoutRef.current) clearTimeout(highlightTimeoutRef.current);
+              highlightTimeoutRef.current = setTimeout(() => {
+                setActiveHighlight(null);
+              }, 4500);
+            }
+            onHighlightText?.(text, target, color);
+          },
           onGetBoardContent: () => {
             return onGetBoardContent?.() || "";
           },
@@ -303,6 +316,8 @@ export function useGeminiLive() {
 
     setLatestVideoFrame(null);
     setIsMuted(false);
+    setActiveHighlight(null);
+    if (highlightTimeoutRef.current) clearTimeout(highlightTimeoutRef.current);
     setConnectionState((prev) => (prev === "ERROR" ? "ERROR" : "DISCONNECTED"));
   }, [stopVolumeLoop]);
 
@@ -352,6 +367,8 @@ export function useGeminiLive() {
     latestVideoFrame,
     videoMimeType,
     studentProfile,
+    activeHighlight,
+    setActiveHighlight,
     startClass,
     toggleMute,
     setTeacherAudioMuted,

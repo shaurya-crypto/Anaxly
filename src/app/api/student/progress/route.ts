@@ -167,7 +167,6 @@ export async function POST(req: NextRequest) {
     const progressPayload: any = {
       user_id: userId,
       syllabus_module_id: moduleId,
-      updated_at: now,
     }
 
     if (notesToPersist) {

@@ -266,7 +266,6 @@ export async function saveBoardNotesAction(payload: {
   const updateData: Record<string, any> = {
     user_id: user.id,
     syllabus_module_id: moduleId,
-    updated_at: new Date().toISOString(),
   }
 
   if (notesContent) {

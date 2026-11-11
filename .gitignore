@@ -21,7 +21,8 @@ __tests__/
 /blob-report/
 
 # Agent skills, workflows & IDE tooling
-/.agents/
+/.agents/*
+!/.agents/rules/
 /.claude/
 skills-lock.json
 
@@ -32,6 +33,7 @@ skills-lock.json
 *.orig
 *~
 scratch_curriculums.json
+scripts/*.txt
 
 # Next.js & Build outputs
 /.next/

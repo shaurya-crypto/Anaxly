@@ -663,6 +663,7 @@ export default function ModuleClassroomPage() {
     setSelectedVoice,
     latestVideoFrame,
     videoMimeType,
+    activeHighlight,
     startClass,
     toggleMute,
     setTeacherAudioMuted,
@@ -803,6 +804,31 @@ export default function ModuleClassroomPage() {
   const [verifiedAssetsDirectives, setVerifiedAssetsDirectives] = useState<string>('')
   const handleConceptDoneRef = useRef<(conceptName?: string) => void>(() => {})
 
+  // Helper to detect if student statement is an EXPLICIT command to advance to the next concept/page
+  const isExplicitNextConceptIntent = (text: string): boolean => {
+    if (!text) return false
+    const clean = text.toLowerCase().trim().replace(/[.,!?;:'"()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
+    if (!clean) return false
+
+    // Explicit single-phrase advancement commands
+    const explicitCommands = new Set([
+      'next concept', 'next page', 'move to next concept', 'move to the next concept',
+      'advance to next concept', 'go to next concept', 'skip to next concept',
+      'next topic', 'move to next page', 'turn the page', 'next question',
+      'agle concept pe chalo', 'agle concept pe aao', 'aage badho agle concept pe',
+    ])
+    if (explicitCommands.has(clean)) return true
+
+    // Must explicitly contain "next concept", "next page", "move to next", etc.
+    const explicitPatterns = [
+      /\b(?:move|go|advance|proceed|step|skip)\s*(?:on\s*)?(?:to\s*)?(?:the\s*)?next\s*(?:concept|page|topic)\b/i,
+      /\bnext\s*(?:concept|page|topic)\b/i,
+      /\b(?:ready|prepared)\s*(?:for|to\s*move\s*to)\s*(?:the\s*)?next\s*(?:concept|page|topic)\b/i,
+      /\b(?:agle|agle\s*wale)\s*(?:concept|topic|page)\s*(?:pe|par)\s*(?:chalo|badho|aao)\b/i,
+    ]
+    return explicitPatterns.some((p) => p.test(clean))
+  }
+
   // Helper to detect if student statement is confirming understanding or requesting next concept
   const isConfirmationOrNextIntent = (text: string): boolean => {
     if (!text) return false
@@ -881,8 +907,8 @@ export default function ModuleClassroomPage() {
 
     const cleanAnswer = answer.trim()
 
-    // Socratic Affirmation & Next Concept Fast-Path
-    if (isConfirmationOrNextIntent(cleanAnswer)) {
+    // Explicit next concept fast-path (only when user explicitly requests advancement)
+    if (isExplicitNextConceptIntent(cleanAnswer)) {
       lastVerdictStatusRef.current = 'correct'
       isReviewingVerdictRef.current = false
       setIsReviewingVerdict(false)
@@ -890,7 +916,7 @@ export default function ModuleClassroomPage() {
       setIsAwaitingStudentAnswer(false)
 
       chalkboardRef.current?.drawStudentAnswer?.(cleanAnswer, undefined, 'blue')
-      chalkboardRef.current?.drawAnswerVerdict?.('Understood! Advancing to next concept...', true, 'botanical')
+      chalkboardRef.current?.drawAnswerVerdict?.('Advancing to next concept...', true, 'botanical')
 
       handleConceptDoneRef.current?.(cleanAnswer)
       return
@@ -906,12 +932,14 @@ export default function ModuleClassroomPage() {
     chalkboardRef.current?.drawStudentAnswer?.(cleanAnswer, undefined, 'blue')
     sendTextMessage(
       `Student answered: "${cleanAnswer}". (Student's answer is already displayed on the whiteboard).
-[MANDATORY EVALUATION INSTRUCTION]:
-1. Evaluate my answer warmly out loud. Explain whether it is correct, partially correct, or incorrect, with deep scientific reasoning.
-2. Write the verdict and model answer on this current whiteboard page using write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>").
-3. If incorrect or hesitant, break down the step and co-solve with me in [ROUGH_WORK].
-4. HARD STOP: Ask me if I understood or if I am ready for the next concept.
-5. Once I confirm understanding (e.g. if I say "yes", "understood", "clear", "got it", "move on", "next", "ready"), YOU MUST IMMEDIATELY call concept_completed(conceptName="...") or write_chalkboard(action="concept_done") to advance to the next concept page without asking again.`
+[MANDATORY SOCRATIC INSTRUCTION]:
+1. Evaluate my answer warmly out loud. Explain whether it is correct, partially correct, or an affirmation.
+2. If this was a check-for-understanding confirmation (e.g. "yes", "understood", "samajh gaya", "ok"), acknowledge warmly and proceed directly to the NEXT STAGE of this concept (e.g. formulate the formal law with SI units, solve the step-by-step board numerical, or pose the Stage 5/6 checkpoint question). DO NOT call concept_completed yet!
+3. If this was an answer to a question or numerical:
+   - Write the verdict and model answer on this current whiteboard page using write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>").
+   - If incorrect or hesitant, break down the step and co-solve with me in [ROUGH_WORK].
+4. HARD STOP: Do not lecture continuously. Ask if I followed or have any doubts before proceeding.
+5. ONLY after Stage 5/6 (the checkpoint numerical question) has been solved and verified, or if I explicitly ask to move to the next concept, call concept_completed(conceptName="...") or write_chalkboard(action="concept_done") to advance to the next concept page.`
     )
   }
 
@@ -922,8 +950,8 @@ export default function ModuleClassroomPage() {
 
     const cleanAnswer = answer.trim()
 
-    // Socratic Affirmation & Next Concept Fast-Path
-    if (isConfirmationOrNextIntent(cleanAnswer)) {
+    // Explicit next concept fast-path (only when user explicitly requests advancement)
+    if (isExplicitNextConceptIntent(cleanAnswer)) {
       lastVerdictStatusRef.current = 'correct'
       isReviewingVerdictRef.current = false
       setIsReviewingVerdict(false)
@@ -931,7 +959,7 @@ export default function ModuleClassroomPage() {
       setIsAwaitingStudentAnswer(false)
 
       chalkboardRef.current?.drawStudentAnswer?.(cleanAnswer, undefined, 'blue')
-      chalkboardRef.current?.drawAnswerVerdict?.('Understood! Advancing to next concept...', true, 'botanical')
+      chalkboardRef.current?.drawAnswerVerdict?.('Advancing to next concept...', true, 'botanical')
 
       handleConceptDoneRef.current?.(cleanAnswer)
       return
@@ -946,12 +974,14 @@ export default function ModuleClassroomPage() {
     chalkboardRef.current?.drawStudentAnswer?.(cleanAnswer, undefined, 'blue')
     sendTextMessage(
       `Student answered: "${cleanAnswer}". (Student's answer is already displayed on the whiteboard).
-[MANDATORY EVALUATION INSTRUCTION]:
-1. Evaluate my answer warmly out loud. Explain whether it is correct, partially correct, or incorrect, with deep scientific reasoning.
-2. Write the verdict and model answer on this current whiteboard page using write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>").
-3. If incorrect or hesitant, break down the step and co-solve with me in [ROUGH_WORK].
-4. HARD STOP: Ask me if I understood or if I am ready for the next concept.
-5. Once I confirm understanding (e.g. if I say "yes", "understood", "clear", "got it", "move on", "next", "ready"), YOU MUST IMMEDIATELY call concept_completed(conceptName="...") or write_chalkboard(action="concept_done") to advance to the next concept page without asking again.`
+[MANDATORY SOCRATIC INSTRUCTION]:
+1. Evaluate my answer warmly out loud. Explain whether it is correct, partially correct, or an affirmation.
+2. If this was a check-for-understanding confirmation (e.g. "yes", "understood", "samajh gaya", "ok"), acknowledge warmly and proceed directly to the NEXT STAGE of this concept (e.g. formulate the formal law with SI units, solve the step-by-step board numerical, or pose the Stage 5/6 checkpoint question). DO NOT call concept_completed yet!
+3. If this was an answer to a question or numerical:
+   - Write the verdict and model answer on this current whiteboard page using write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>").
+   - If incorrect or hesitant, break down the step and co-solve with me in [ROUGH_WORK].
+4. HARD STOP: Do not lecture continuously. Ask if I followed or have any doubts before proceeding.
+5. ONLY after Stage 5/6 (the checkpoint numerical question) has been solved and verified, or if I explicitly ask to move to the next concept, call concept_completed(conceptName="...") or write_chalkboard(action="concept_done") to advance to the next concept page.`
     )
   }
 
@@ -1698,7 +1728,7 @@ export default function ModuleClassroomPage() {
       const userKey = `${transcriptId}:user_ack`
 
       if (!executedSceneDirectivesRef.current.has(userKey)) {
-        if (isConfirmationOrNextIntent(userText)) {
+        if (isExplicitNextConceptIntent(userText)) {
           executedSceneDirectivesRef.current.add(userKey)
           lastVerdictStatusRef.current = 'correct'
           isReviewingVerdictRef.current = false
@@ -1706,6 +1736,9 @@ export default function ModuleClassroomPage() {
           isAwaitingStudentAnswerRef.current = false
           setIsAwaitingStudentAnswer(false)
           handleConceptDoneRef.current?.(userText)
+          sendTextMessage(
+            `[STUDENT REQUESTED NEXT CONCEPT]: Student requested: "${userText}". Transitioning to the next concept page now. Introduce the new concept warmly with an everyday physical intuition hook.`
+          )
         }
       }
     }
@@ -2133,7 +2166,6 @@ export default function ModuleClassroomPage() {
         completed_concepts: completedConcepts,
         last_covered_concept: lastCoveredConcept,
         status: statusToSet,
-        updated_at: new Date().toISOString(),
       }
 
       if (statusToSet === 'completed') {
@@ -2255,7 +2287,6 @@ export default function ModuleClassroomPage() {
             last_covered_concept:
               keyConcepts[keyConcepts.length - 1] || activeModule?.title || 'Synthesis',
             ...(finalNotes ? { chapter_notes: finalNotes } : {}),
-            updated_at: now,
           },
           { onConflict: 'user_id,syllabus_module_id' }
         )
@@ -3214,6 +3245,12 @@ You are an inspiring topper tutor standing at a live chalkboard.
 1. WRITE ON EVERY TURN: You MUST call write_chalkboard (or write_board) AT LEAST ONCE in EVERY SPOKEN TURN! The student learns visually as you speak.
 2. TEACH IN SMALL BITES: Speak at most 2-3 sentences per turn. Never lecture continuously.
 3. ANTI-TELEPROMPTER RULE: Never merely recite what is written on the board! Explain the deep conceptual "why" and physical mechanism behind every definition and algebraic transition.
+4. CHALKBOARD TYPOGRAPHY & MATHEMATICAL NOTATION MANDATE:
+   - ZERO RAW CODE OR MARKDOWN OPERATORS: NEVER output raw programming syntax or markdown formatting on the chalkboard.
+   - NO RAW ASTERISKS: NEVER write "*" or "**" for multiplication or bolding. Use standard multiplication "×" (e.g. 5 × 10⁸, 2 × π × r) or dot "·" (e.g. F = m · a, W = F · d · cos θ).
+   - NO RAW CARET POWERS: NEVER write "^" for exponents or powers. Output standard Unicode superscripts: x², v², u², t², r³, 10⁸, 10⁻¹¹, m/s², kg·m/s², s⁻¹.
+   - NO RAW SLASH DIVISION: NEVER write "//" for division. Use clean inline division "/" or "÷" (e.g. ρ = m / V, a = Δv / Δt).
+   - USE CLEAN UNICODE GREEK & VECTORS: Use θ, α, β, γ, Δ, λ, μ, π, ρ, σ, τ, ω, Ω, √, ≈, ≤, ≥, ≠, ±, F⃗, v⃗, a⃗, p⃗, î, ĵ, k̂.
 
 STRICT 6-STAGE CADENCE PER CONCEPT:
 - STAGE 1 [REAL-LIFE INTUITION & PROACTIVE VISUAL]:
@@ -3241,8 +3278,8 @@ STRICT 6-STAGE CADENCE PER CONCEPT:
   * write_chalkboard(action="draw_student_answer", content="Student: <their answer>", color="blue")
   * write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>", color="botanical")
   * If wrong or hesitant: Break down with visual analogy, co-solve line-by-line in rough work, and re-test.
-  * MANDATORY ADVANCEMENT ON CONFIRMATION: Once the student answers correctly OR confirms understanding (says "yes", "understood", "clear", "got it", "ready", "move on", "next", "no doubts"), YOU MUST IMMEDIATELY call concept_completed(conceptName="${currentConcept}") or write_chalkboard(action="concept_done").
-  * NEVER ask confirmation repeatedly once the student says "yes" or "understood". Advance immediately to keep the class dynamic and motivating!
+  * MANDATORY ADVANCEMENT ONLY AFTER STAGE 6: Do NOT advance or call concept_completed during Stages 1 to 4! When the student affirms understanding during introductory or derivation stages ('yes', 'samajh gaya', 'ok'), smoothly proceed to the next stage of the current concept. Call concept_completed(conceptName="${currentConcept}") or write_chalkboard(action="concept_done") ONLY after the Stage 5/6 checkpoint question has been attempted and resolved, or if the student explicitly asks to go to the next concept.
+  * STRICT ZERO REPETITION MANDATE: NEVER ask "is it clear?", "did you understand?", or ask for confirmation again once the student has already said yes or confirmed. Once the concept is genuinely complete, proceed to teach the next concept without delay! Transition immediately with an everyday physical hook.
 
 ========================================================================================
 EXPERIENCED MASTER TEACHER PEDAGOGY (TEACH LIKE AN ICONIC FACULTY MENTOR):
@@ -3289,10 +3326,12 @@ EXPERIENCED MASTER TEACHER PEDAGOGY (TEACH LIKE AN ICONIC FACULTY MENTOR):
 ========================================================================================
 MULTIMEDIA & SCIENTIFIC VISUAL ENGINE TOOLS:
 ========================================================================================
-- HIGH-RES SCIENTIFIC IMAGES & MICROGRAPHS:
-  Call search_and_show_image(query="<query>", title="<Title>", caption="<Caption>") or write_chalkboard(action="draw_image", content="<url> | <Title> | <Caption>") for electron micrographs, plant/animal cell organelles, histology tissues, and laboratory apparatus.
-- EDUCATIONAL DEMONSTRATION VIDEOS:
-  Call search_and_show_video(query="<query>", title="<Title>", description="<Description>") or write_chalkboard(action="draw_video", content="<url> | <Title> | <Description>") for dynamic physical experiments, kinematics air tracks, biological mitosis/osmosis, or when the student asks to watch a video demonstration.
+- HIGH-RES SCIENTIFIC IMAGES & DIAGRAMS (ONLINE SEARCH ENGINE FIRST):
+  Call search_and_show_image(query="<query>", title="<Title>", caption="<Caption>") or write_chalkboard(action="draw_image", content="<query> | <Title> | <Caption>") for electron micrographs, plant/animal cell organelles, histology tissues, physics experiments, and laboratory apparatus.
+  * MANDATE: Do NOT invent or hardcode static image URLs. Provide a precise, descriptive search query (e.g. "Carnot cycle indicator diagram" or "hydraulic lift Pascal law apparatus"). The platform searches online search engines (Bing/Web) FIRST and Wikipedia SECOND to retrieve and display authentic educational diagrams.
+- EDUCATIONAL DEMONSTRATION VIDEOS (ONLINE VIDEO SEARCH FIRST):
+  Call search_and_show_video(query="<query>", title="<Title>", description="<Description>") or write_chalkboard(action="draw_video", content="<query> | <Title> | <Description>") for dynamic physical experiments, kinematics demonstrations, wave resonance, or when the student asks to watch a video demonstration.
+  * MANDATE: The platform dynamically searches online video engines (YouTube/Web) FIRST and Wikimedia SECOND to display real playable video demonstrations directly on the chalkboard.
 - FLOWCHARTS & DECISION TREES:
   Call write_chalkboard(action="draw_flowchart", content="<Hierarchical or cycle flowchart string>") for multi-step biological cycles, taxonomic classifications, and chemical reaction pathways.
 - MATHEMATICAL & KINEMATIC FUNCTION GRAPHS:
@@ -3479,8 +3518,9 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
             chalkboardRef.current.drawHighlightBox(stringContent, color)
             handleNoteRecorded(`**Core Formulation:** ${stringContent}`)
           }
-          else if (action === 'draw_rough_work' || action === 'rough_work' || action === 'rough') chalkboardRef.current.drawRoughWork(stringContent, color)
-          else if (action === 'clear_rough') chalkboardRef.current.clearRough()
+          else if (action === 'highlight_text' || action === 'highlight_word' || action === 'highlight_sentence') {
+            chalkboardRef.current.highlightText?.(stringContent, color)
+          }
           else if (action === 'clear_notes') chalkboardRef.current.clearNotes()
           else if (action === 'rewrite_notes') chalkboardRef.current.rewriteNotes(stringContent)
           else if (action === 'draw_question' || action === 'question') {
@@ -3893,6 +3933,11 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
           chapterNotes ||
           'Digital chalkboard is active and ready.'
         );
+      },
+      (highlightText, target, color) => {
+        if (target === 'chalkboard' || target === 'both' || !target) {
+          chalkboardRef.current?.highlightText?.(highlightText, color)
+        }
       }
     )
   }
@@ -4347,6 +4392,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
             onSubmitStudentAnswer={handleStudentSubmitAnswer}
             onVoiceStudentAnswer={handleStudentVoiceAnswer}
             generatingDiagramTitle={generatingDiagramTitle}
+            activeHighlight={activeHighlight}
           />
         </div>
       </div>
