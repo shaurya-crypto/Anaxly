@@ -452,8 +452,11 @@ function buildSingleConceptMicroDossier(
 
   // Model problem
   const ex1 = workedExamples[conceptIdx] || workedExamples[0]
+  const figPrompt = ex1?.image_url
+    ? ` [BOOK FIGURE ATTACHED: CALL write_chalkboard(action="draw_image", content="${ex1.image_url} | ${ex1.figure_id || 'Question Figure'} | ${ex1.caption || 'Textbook Question Diagram'}")]`
+    : ''
   const q1 = ex1?.problem
-    ? `Model Problem: "${ex1.problem}" (Given: ${ex1.given || ''}, Formula: ${ex1.formula || ''}, Substitution: ${ex1.substitution || ''}, Ans: ${ex1.finalAnswer || ''} ${ex1.unit || ''})`
+    ? `Model Problem: "${ex1.problem}"${figPrompt} (Given: ${ex1.given || ''}, Formula: ${ex1.formula || ''}, Substitution: ${ex1.substitution || ''}, Ans: ${ex1.finalAnswer || ''} ${ex1.unit || ''})`
     : `Model Concept Question: State the law and formula for ${conceptName} under ${resolvedBoard} standards.`
 
   // Misconception
@@ -483,7 +486,10 @@ function buildSingleConceptMicroDossier(
           (q: any, qIdx: number) => {
             const ans = q.ideal_answer || (q.options && q.correct_option_index !== undefined ? q.options[q.correct_option_index] : '') || q.explanation || ''
             const hint = q.socratic_hint || q.explanation || ''
-            return `     - [Q${qIdx + 1} (${q.type || 'Checkpoint'})]: "${q.question}" -> Model Answer: "${ans}"${hint ? ` (Hint/Explanation: "${hint}")` : ''}`
+            const figCue = q.image_url
+              ? ` [BOOK FIGURE ATTACHED: CALL write_chalkboard(action="draw_image", content="${q.image_url} | ${q.figure_id || 'Question Figure'} | ${q.caption || 'Textbook Question Diagram'}")]`
+              : ''
+            return `     - [Q${qIdx + 1} (${q.type || 'Checkpoint'})]: "${q.question}"${figCue} -> Model Answer: "${ans}"${hint ? ` (Hint/Explanation: "${hint}")` : ''}`
           }
         )
         .join('\n')
@@ -2973,8 +2979,10 @@ CRITICAL INSTRUCTIONS:
       parsedWorkedExamples.length > 0
         ? parsedWorkedExamples
             .map(
-              (ex: any, i: number) =>
-                `#${i + 1}: "${ex.problem || ''}" | Given: ${ex.given || ''} | Formula: ${ex.formula || ''} | Sub: ${ex.substitution || ''} | Calc: ${ex.calculation || ''} | Ans: ${ex.finalAnswer || ''} ${ex.unit || ''}`.trim()
+              (ex: any, i: number) => {
+                const figCue = ex.image_url ? ` | [BOOK FIGURE ATTACHED: CALL write_chalkboard(action="draw_image", content="${ex.image_url} | ${ex.figure_id || 'Question Figure'} | ${ex.caption || 'Textbook Question Diagram'}")]` : ''
+                return `#${i + 1}: "${ex.problem || ''}" | Given: ${ex.given || ''} | Formula: ${ex.formula || ''} | Sub: ${ex.substitution || ''} | Calc: ${ex.calculation || ''} | Ans: ${ex.finalAnswer || ''} ${ex.unit || ''}${figCue}`.trim()
+              }
             )
             .join('\n')
         : ''

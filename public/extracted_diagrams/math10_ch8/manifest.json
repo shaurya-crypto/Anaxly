@@ -1,0 +1,382 @@
+[
+  {
+    "figure_id": "Fig. 8.1",
+    "page_number": 1,
+    "caption": "Fig. 8.1 river. She is looking down at a flower",
+    "filename": "fig_8_1.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_1.webp",
+    "dimensions": {
+      "width": 1053,
+      "height": 979,
+      "aspect_ratio": 1.08
+    },
+    "file_size_kb": 122.5,
+    "crop_bbox": [
+      59.3,
+      180.4,
+      444.0,
+      539.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.2",
+    "page_number": 1,
+    "caption": "Fig. 8.2",
+    "filename": "fig_8_2.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_2.webp",
+    "dimensions": {
+      "width": 542,
+      "height": 298,
+      "aspect_ratio": 1.82
+    },
+    "file_size_kb": 15.7,
+    "crop_bbox": [
+      241.9,
+      526.2,
+      440.0,
+      636.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.3",
+    "page_number": 2,
+    "caption": "Fig. 8.3 find the altitude of B from the ground?",
+    "filename": "fig_8_3.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_3.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 461,
+      "aspect_ratio": 2.28
+    },
+    "file_size_kb": 50.7,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.0,
+      263.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.4",
+    "page_number": 2,
+    "caption": "Fig. 8.4 adjacent to angle A.",
+    "filename": "fig_8_4.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_4.webp",
+    "dimensions": {
+      "width": 326,
+      "height": 449,
+      "aspect_ratio": 0.73
+    },
+    "file_size_kb": 12.1,
+    "crop_bbox": [
+      303.3,
+      476.9,
+      427.2,
+      649.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.5",
+    "page_number": 3,
+    "caption": "Fig. 8.5 side opposite to angle A BC sine of  A = ",
+    "filename": "fig_8_5.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_5.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 568,
+      "aspect_ratio": 1.85
+    },
+    "file_size_kb": 58.8,
+    "crop_bbox": [
+      60.0,
+      84.1,
+      444.0,
+      293.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.7",
+    "page_number": 5,
+    "caption": "Fig. 8.7 k is any positive number. To determine other",
+    "filename": "fig_8_7.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_7.webp",
+    "dimensions": {
+      "width": 1053,
+      "height": 1109,
+      "aspect_ratio": 0.95
+    },
+    "file_size_kb": 146.4,
+    "crop_bbox": [
+      60.0,
+      84.1,
+      444.0,
+      487.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.8",
+    "page_number": 6,
+    "caption": "Fig. 8.8 Now, by using the Pythagoras Theorem, we have",
+    "filename": "fig_8_8.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_8.webp",
+    "dimensions": {
+      "width": 1053,
+      "height": 639,
+      "aspect_ratio": 1.65
+    },
+    "file_size_kb": 58.1,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.1,
+      327.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.9",
+    "page_number": 6,
+    "caption": "Fig. 8.9 AC We have sin B = AB",
+    "filename": "fig_8_9.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_9.webp",
+    "dimensions": {
+      "width": 950,
+      "height": 692,
+      "aspect_ratio": 1.37
+    },
+    "file_size_kb": 39.3,
+    "crop_bbox": [
+      96.9,
+      372.2,
+      441.9,
+      621.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.10",
+    "page_number": 7,
+    "caption": "Fig. 8.10",
+    "filename": "fig_8_10.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_10.webp",
+    "dimensions": {
+      "width": 551,
+      "height": 1081,
+      "aspect_ratio": 0.51
+    },
+    "file_size_kb": 29.0,
+    "crop_bbox": [
+      241.9,
+      113.5,
+      444.0,
+      510.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.11",
+    "page_number": 8,
+    "caption": "Fig. 8.11 Let AB = BC = k, where k is a positive number.",
+    "filename": "fig_8_11.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_11.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 433,
+      "aspect_ratio": 2.42
+    },
+    "file_size_kb": 27.5,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.0,
+      253.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.12",
+    "page_number": 8,
+    "caption": "Fig. 8.12 7 24",
+    "filename": "fig_8_12.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_12.webp",
+    "dimensions": {
+      "width": 797,
+      "height": 1022,
+      "aspect_ratio": 0.78
+    },
+    "file_size_kb": 49.9,
+    "crop_bbox": [
+      144.0,
+      254.4,
+      431.3,
+      622.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.13",
+    "page_number": 9,
+    "caption": "Fig. 8.13 12",
+    "filename": "fig_8_13.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_13.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 523,
+      "aspect_ratio": 2.01
+    },
+    "file_size_kb": 38.5,
+    "crop_bbox": [
+      60.0,
+      84.1,
+      444.0,
+      276.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.14",
+    "page_number": 10,
+    "caption": "Fig. 8.14 Then by Pythagoras Theorem, AC2 = AB2 + BC2 = a2 + a2 = 2a2,",
+    "filename": "fig_8_14.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_14.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 381,
+      "aspect_ratio": 2.76
+    },
+    "file_size_kb": 31.1,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.0,
+      234.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.15",
+    "page_number": 10,
+    "caption": "Fig. 8.15 Now  ABD   ACD (Why?)",
+    "filename": "fig_8_15.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_15.webp",
+    "dimensions": {
+      "width": 902,
+      "height": 949,
+      "aspect_ratio": 0.95
+    },
+    "file_size_kb": 73.8,
+    "crop_bbox": [
+      101.6,
+      224.5,
+      426.5,
+      567.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.16",
+    "page_number": 11,
+    "caption": "Fig. 8.16 to 0°, AC becomes almost the same as AB (see Fig. 8.17).",
+    "filename": "fig_8_16.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_16.webp",
+    "dimensions": {
+      "width": 765,
+      "height": 1104,
+      "aspect_ratio": 0.69
+    },
+    "file_size_kb": 65.9,
+    "crop_bbox": [
+      139.2,
+      152.1,
+      415.0,
+      552.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.17",
+    "page_number": 11,
+    "caption": "Fig. 8.17",
+    "filename": "fig_8_17.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_17.webp",
+    "dimensions": {
+      "width": 1057,
+      "height": 247,
+      "aspect_ratio": 4.28
+    },
+    "file_size_kb": 16.2,
+    "crop_bbox": [
+      59.5,
+      553.1,
+      446.1,
+      644.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.18",
+    "page_number": 12,
+    "caption": "Fig. 8.18",
+    "filename": "fig_8_18.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_18.webp",
+    "dimensions": {
+      "width": 1053,
+      "height": 1102,
+      "aspect_ratio": 0.96
+    },
+    "file_size_kb": 110.1,
+    "crop_bbox": [
+      60.0,
+      113.7,
+      444.1,
+      510.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.19",
+    "page_number": 13,
+    "caption": "Fig. 8.19",
+    "filename": "fig_8_19.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_19.webp",
+    "dimensions": {
+      "width": 553,
+      "height": 1095,
+      "aspect_ratio": 0.51
+    },
+    "file_size_kb": 40.8,
+    "crop_bbox": [
+      241.9,
+      158.1,
+      444.1,
+      555.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.20",
+    "page_number": 14,
+    "caption": "Fig. 8.20 3 1",
+    "filename": "fig_8_20.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_20.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 889,
+      "aspect_ratio": 1.18
+    },
+    "file_size_kb": 58.1,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.0,
+      417.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.21",
+    "page_number": 16,
+    "caption": "Fig. 8.21 trigonometric identities.",
+    "filename": "fig_8_21.webp",
+    "file_path": "public/extracted_diagrams/math10_ch8\\fig_8_21.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 413,
+      "aspect_ratio": 2.54
+    },
+    "file_size_kb": 48.6,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.0,
+      246.0
+    ]
+  }
+]

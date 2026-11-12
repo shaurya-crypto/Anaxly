@@ -1,0 +1,553 @@
+[
+  {
+    "figure_id": "Fig. 5.1",
+    "page_number": 1,
+    "caption": "Fig. 5.1",
+    "filename": "fig_5_1.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_1.webp",
+    "dimensions": {
+      "width": 696,
+      "height": 1072,
+      "aspect_ratio": 0.65
+    },
+    "file_size_kb": 119.0,
+    "crop_bbox": [
+      253.4,
+      50.0,
+      504.0,
+      439.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.3",
+    "page_number": 2,
+    "caption": "Fig. 5.3: Circle, Centre A, Chord BC to any point on the circle is the radius of the circle. In Fig 5.3,",
+    "filename": "fig_5_3.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_3.webp",
+    "dimensions": {
+      "width": 1053,
+      "height": 1032,
+      "aspect_ratio": 1.02
+    },
+    "file_size_kb": 135.3,
+    "crop_bbox": [
+      72.0,
+      180.6,
+      456.0,
+      555.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.4",
+    "page_number": 4,
+    "caption": "Fig. 5.4: Circles through two points Think and Reflect",
+    "filename": "fig_5_4.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_4.webp",
+    "dimensions": {
+      "width": 525,
+      "height": 717,
+      "aspect_ratio": 0.73
+    },
+    "file_size_kb": 25.1,
+    "crop_bbox": [
+      72.0,
+      201.2,
+      264.0,
+      462.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.5",
+    "page_number": 5,
+    "caption": "Fig. 5.5: The circumcircle of triangle ABC",
+    "filename": "fig_5_5.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_5.webp",
+    "dimensions": {
+      "width": 667,
+      "height": 990,
+      "aspect_ratio": 0.67
+    },
+    "file_size_kb": 69.7,
+    "crop_bbox": [
+      135.5,
+      297.0,
+      375.9,
+      657.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.6",
+    "page_number": 6,
+    "caption": "Fig. 5.6: Obtuse-angled triangle: Circumcentre O is outside the triangle Perpendicular bisector",
+    "filename": "fig_5_6.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_6.webp",
+    "dimensions": {
+      "width": 792,
+      "height": 640,
+      "aspect_ratio": 1.24
+    },
+    "file_size_kb": 36.6,
+    "crop_bbox": [
+      97.7,
+      227.8,
+      382.9,
+      461.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.7",
+    "page_number": 6,
+    "caption": "Fig. 5.7: Right-angled triangle: Circumcentre O is at the midpoint of the hypotenuse",
+    "filename": "fig_5_7.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_7.webp",
+    "dimensions": {
+      "width": 813,
+      "height": 500,
+      "aspect_ratio": 1.63
+    },
+    "file_size_kb": 22.1,
+    "crop_bbox": [
+      89.6,
+      461.9,
+      385.7,
+      646.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.8",
+    "page_number": 7,
+    "caption": "Fig. 5.8: Chords and radii wheel.",
+    "filename": "fig_5_8.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_8.webp",
+    "dimensions": {
+      "width": 612,
+      "height": 402,
+      "aspect_ratio": 1.52
+    },
+    "file_size_kb": 48.2,
+    "crop_bbox": [
+      78.4,
+      509.0,
+      302.0,
+      658.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.9",
+    "page_number": 8,
+    "caption": "Fig. 5.9 at the centre are equal. Now suppose we have",
+    "filename": "fig_5_9.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_9.webp",
+    "dimensions": {
+      "width": 366,
+      "height": 467,
+      "aspect_ratio": 0.78
+    },
+    "file_size_kb": 13.1,
+    "crop_bbox": [
+      88.1,
+      305.7,
+      220.1,
+      476.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.10",
+    "page_number": 8,
+    "caption": "Fig. 5.10",
+    "filename": "fig_5_10.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_10.webp",
+    "dimensions": {
+      "width": 310,
+      "height": 369,
+      "aspect_ratio": 0.84
+    },
+    "file_size_kb": 9.4,
+    "crop_bbox": [
+      89.8,
+      510.4,
+      208.0,
+      647.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.11",
+    "page_number": 9,
+    "caption": "Fig. 5.11",
+    "filename": "fig_5_11.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_11.webp",
+    "dimensions": {
+      "width": 379,
+      "height": 438,
+      "aspect_ratio": 0.87
+    },
+    "file_size_kb": 8.8,
+    "crop_bbox": [
+      94.0,
+      223.9,
+      233.8,
+      383.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.12",
+    "page_number": 10,
+    "caption": "Fig. 5.12 a line).",
+    "filename": "fig_5_12.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_12.webp",
+    "dimensions": {
+      "width": 403,
+      "height": 458,
+      "aspect_ratio": 0.88
+    },
+    "file_size_kb": 9.0,
+    "crop_bbox": [
+      83.3,
+      170.1,
+      234.6,
+      344.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.13",
+    "page_number": 11,
+    "caption": "Fig. 5.13 B). Now fold the paper again, so that the end points of the chord meet. Open the",
+    "filename": "fig_5_13.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_13.webp",
+    "dimensions": {
+      "width": 1333,
+      "height": 527,
+      "aspect_ratio": 2.53
+    },
+    "file_size_kb": 59.7,
+    "crop_bbox": [
+      24.0,
+      36.0,
+      504.0,
+      225.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.14",
+    "page_number": 12,
+    "caption": "Fig. 5.14 So, CE and CH are the distances",
+    "filename": "fig_5_14.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_14.webp",
+    "dimensions": {
+      "width": 403,
+      "height": 541,
+      "aspect_ratio": 0.74
+    },
+    "file_size_kb": 15.2,
+    "crop_bbox": [
+      90.0,
+      215.4,
+      235.1,
+      412.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.15",
+    "page_number": 13,
+    "caption": "Fig. 5.15. If CE is perpendicular B E A to AB, CH is perpendicular to GH, and CE = CH, show that",
+    "filename": "fig_5_15.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_15.webp",
+    "dimensions": {
+      "width": 715,
+      "height": 341,
+      "aspect_ratio": 2.1
+    },
+    "file_size_kb": 24.3,
+    "crop_bbox": [
+      183.5,
+      210.6,
+      441.1,
+      336.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.16",
+    "page_number": 14,
+    "caption": "Fig. 5.16 the midpoints of AB and DE).",
+    "filename": "fig_5_16.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_16.webp",
+    "dimensions": {
+      "width": 377,
+      "height": 437,
+      "aspect_ratio": 0.86
+    },
+    "file_size_kb": 8.8,
+    "crop_bbox": [
+      86.3,
+      219.3,
+      227.6,
+      378.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.17",
+    "page_number": 15,
+    "caption": "Fig. 5.17: Major arc AYB and minor arc AXB",
+    "filename": "fig_5_17.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_17.webp",
+    "dimensions": {
+      "width": 434,
+      "height": 513,
+      "aspect_ratio": 0.85
+    },
+    "file_size_kb": 10.7,
+    "crop_bbox": [
+      80.8,
+      224.3,
+      239.9,
+      411.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.18",
+    "page_number": 15,
+    "caption": "Fig. 5.18",
+    "filename": "fig_5_18.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_18.webp",
+    "dimensions": {
+      "width": 428,
+      "height": 486,
+      "aspect_ratio": 0.88
+    },
+    "file_size_kb": 11.7,
+    "crop_bbox": [
+      271.1,
+      418.1,
+      427.9,
+      597.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.19",
+    "page_number": 16,
+    "caption": "Fig. 5.19",
+    "filename": "fig_5_19.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_19.webp",
+    "dimensions": {
+      "width": 433,
+      "height": 495,
+      "aspect_ratio": 0.87
+    },
+    "file_size_kb": 10.4,
+    "crop_bbox": [
+      277.5,
+      100.1,
+      437.5,
+      280.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.20",
+    "page_number": 16,
+    "caption": "Fig. 5.20 of the circle outside the arc. We shall show",
+    "filename": "fig_5_20.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_20.webp",
+    "dimensions": {
+      "width": 384,
+      "height": 446,
+      "aspect_ratio": 0.86
+    },
+    "file_size_kb": 11.5,
+    "crop_bbox": [
+      317.4,
+      401.2,
+      462.8,
+      583.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.21",
+    "page_number": 17,
+    "caption": "Fig. 5.21: Angle subtended later. by arc AFB",
+    "filename": "fig_5_21.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_21.webp",
+    "dimensions": {
+      "width": 373,
+      "height": 449,
+      "aspect_ratio": 0.83
+    },
+    "file_size_kb": 12.3,
+    "crop_bbox": [
+      87.6,
+      156.3,
+      228.2,
+      324.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.23",
+    "page_number": 18,
+    "caption": "Fig. 5.23: Angles subtended by an arc are equal Let us understand",
+    "filename": "fig_5_23.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_23.webp",
+    "dimensions": {
+      "width": 522,
+      "height": 1166,
+      "aspect_ratio": 0.45
+    },
+    "file_size_kb": 53.0,
+    "crop_bbox": [
+      72.0,
+      126.3,
+      264.0,
+      546.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.24",
+    "page_number": 19,
+    "caption": "Fig. 5.24",
+    "filename": "fig_5_24.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_24.webp",
+    "dimensions": {
+      "width": 524,
+      "height": 591,
+      "aspect_ratio": 0.89
+    },
+    "file_size_kb": 22.7,
+    "crop_bbox": [
+      72.4,
+      134.5,
+      264.0,
+      350.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.25",
+    "page_number": 19,
+    "caption": "Fig. 5.25: Points and the chord",
+    "filename": "fig_5_25.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_25.webp",
+    "dimensions": {
+      "width": 399,
+      "height": 557,
+      "aspect_ratio": 0.72
+    },
+    "file_size_kb": 21.0,
+    "crop_bbox": [
+      95.1,
+      350.1,
+      241.8,
+      550.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.26",
+    "page_number": 20,
+    "caption": "Fig. 5.26 5.8 Concyclicity of Points",
+    "filename": "fig_5_26.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_26.webp",
+    "dimensions": {
+      "width": 300,
+      "height": 406,
+      "aspect_ratio": 0.74
+    },
+    "file_size_kb": 8.5,
+    "crop_bbox": [
+      342.8,
+      126.9,
+      457.3,
+      275.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.27",
+    "page_number": 20,
+    "caption": "Fig. 5.27 A Fig. 5.27 B",
+    "filename": "fig_5_27.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_27.webp",
+    "dimensions": {
+      "width": 998,
+      "height": 464,
+      "aspect_ratio": 2.15
+    },
+    "file_size_kb": 25.2,
+    "crop_bbox": [
+      90.0,
+      488.8,
+      451.8,
+      660.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.28",
+    "page_number": 21,
+    "caption": "Fig. 5.28 How shall we show that this",
+    "filename": "fig_5_28.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_28.webp",
+    "dimensions": {
+      "width": 483,
+      "height": 558,
+      "aspect_ratio": 0.87
+    },
+    "file_size_kb": 23.4,
+    "crop_bbox": [
+      90.0,
+      378.5,
+      264.0,
+      579.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.29",
+    "page_number": 22,
+    "caption": "Fig. 5.29 We deal only with the first",
+    "filename": "fig_5_29.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_29.webp",
+    "dimensions": {
+      "width": 510,
+      "height": 1132,
+      "aspect_ratio": 0.45
+    },
+    "file_size_kb": 63.8,
+    "crop_bbox": [
+      80.3,
+      140.8,
+      264.0,
+      550.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.30",
+    "page_number": 25,
+    "caption": "Fig. 5.30",
+    "filename": "fig_5_30.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_30.webp",
+    "dimensions": {
+      "width": 289,
+      "height": 359,
+      "aspect_ratio": 0.81
+    },
+    "file_size_kb": 6.9,
+    "crop_bbox": [
+      253.4,
+      127.5,
+      360.3,
+      263.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.31",
+    "page_number": 25,
+    "caption": "Fig. 5.31",
+    "filename": "fig_5_31.webp",
+    "file_path": "public/extracted_diagrams/math9_ch5\\fig_5_31.webp",
+    "dimensions": {
+      "width": 238,
+      "height": 470,
+      "aspect_ratio": 0.51
+    },
+    "file_size_kb": 10.3,
+    "crop_bbox": [
+      253.4,
+      369.0,
+      341.1,
+      542.4
+    ]
+  }
+]

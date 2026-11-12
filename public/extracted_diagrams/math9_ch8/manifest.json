@@ -1,0 +1,249 @@
+[
+  {
+    "figure_id": "Fig. 8.1",
+    "page_number": 2,
+    "caption": "Fig. 8.1: The first five triangular numbers",
+    "filename": "fig_8_1.webp",
+    "file_path": "public/extracted_diagrams/math9_ch8\\fig_8_1.webp",
+    "dimensions": {
+      "width": 926,
+      "height": 487,
+      "aspect_ratio": 1.9
+    },
+    "file_size_kb": 45.2,
+    "crop_bbox": [
+      97.3,
+      250.4,
+      430.6,
+      426.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.2",
+    "page_number": 2,
+    "caption": "Fig. 8.2: Square numbers and odd numbers",
+    "filename": "fig_8_2.webp",
+    "file_path": "public/extracted_diagrams/math9_ch8\\fig_8_2.webp",
+    "dimensions": {
+      "width": 360,
+      "height": 419,
+      "aspect_ratio": 0.86
+    },
+    "file_size_kb": 36.9,
+    "crop_bbox": [
+      307.4,
+      499.6,
+      442.6,
+      661.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.3",
+    "page_number": 7,
+    "caption": "Fig. 8.3: Growing pattern of squares",
+    "filename": "fig_8_3.webp",
+    "file_path": "public/extracted_diagrams/math9_ch8\\fig_8_3.webp",
+    "dimensions": {
+      "width": 983,
+      "height": 486,
+      "aspect_ratio": 2.02
+    },
+    "file_size_kb": 24.8,
+    "crop_bbox": [
+      84.1,
+      275.5,
+      443.9,
+      450.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.4",
+    "page_number": 9,
+    "caption": "Fig. 8.4: Growing pattern of squares represented by a linear pattern Exercise: Verify that",
+    "filename": "fig_8_4.webp",
+    "file_path": "public/extracted_diagrams/math9_ch8\\fig_8_4.webp",
+    "dimensions": {
+      "width": 481,
+      "height": 918,
+      "aspect_ratio": 0.52
+    },
+    "file_size_kb": 156.6,
+    "crop_bbox": [
+      177.7,
+      165.0,
+      350.9,
+      498.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.5",
+    "page_number": 11,
+    "caption": "Fig. 8.5",
+    "filename": "fig_8_5.webp",
+    "file_path": "public/extracted_diagrams/math9_ch8\\fig_8_5.webp",
+    "dimensions": {
+      "width": 557,
+      "height": 1038,
+      "aspect_ratio": 0.54
+    },
+    "file_size_kb": 56.4,
+    "crop_bbox": [
+      253.4,
+      87.0,
+      456.0,
+      468.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.6",
+    "page_number": 13,
+    "caption": "Fig. 8.6: A growing pattern of squares",
+    "filename": "fig_8_6.webp",
+    "file_path": "public/extracted_diagrams/math9_ch8\\fig_8_6.webp",
+    "dimensions": {
+      "width": 673,
+      "height": 506,
+      "aspect_ratio": 1.33
+    },
+    "file_size_kb": 28.2,
+    "crop_bbox": [
+      142.8,
+      290.6,
+      385.2,
+      472.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.7",
+    "page_number": 15,
+    "caption": "Fig. 8.7",
+    "filename": "fig_8_7.webp",
+    "file_path": "public/extracted_diagrams/math9_ch8\\fig_8_7.webp",
+    "dimensions": {
+      "width": 395,
+      "height": 276,
+      "aspect_ratio": 1.43
+    },
+    "file_size_kb": 12.4,
+    "crop_bbox": [
+      253.4,
+      467.8,
+      399.7,
+      571.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.8",
+    "page_number": 17,
+    "caption": "Fig. 8.8 concepts in mathematics.",
+    "filename": "fig_8_8.webp",
+    "file_path": "public/extracted_diagrams/math9_ch8\\fig_8_8.webp",
+    "dimensions": {
+      "width": 1052,
+      "height": 1145,
+      "aspect_ratio": 0.92
+    },
+    "file_size_kb": 148.4,
+    "crop_bbox": [
+      72.0,
+      161.7,
+      456.7,
+      575.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.10",
+    "page_number": 18,
+    "caption": "Fig. 8.10 B shows the graph where stage numbers are represented on the x-axis and the",
+    "filename": "fig_8_10.webp",
+    "file_path": "public/extracted_diagrams/math9_ch8\\fig_8_10.webp",
+    "dimensions": {
+      "width": 1053,
+      "height": 491,
+      "aspect_ratio": 2.14
+    },
+    "file_size_kb": 82.7,
+    "crop_bbox": [
+      72.0,
+      87.2,
+      456.0,
+      267.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.9",
+    "page_number": 18,
+    "caption": "Fig. 8.9: Points emerging from a GP do not lie on a straight line",
+    "filename": "fig_8_9.webp",
+    "file_path": "public/extracted_diagrams/math9_ch8\\fig_8_9.webp",
+    "dimensions": {
+      "width": 668,
+      "height": 911,
+      "aspect_ratio": 0.73
+    },
+    "file_size_kb": 180.8,
+    "crop_bbox": [
+      143.7,
+      314.1,
+      384.3,
+      646.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.10",
+    "page_number": 19,
+    "caption": "Fig. 8.10: Points emerging from a GP arising out of the stages of the Sierpiński Triangle Here is another example in",
+    "filename": "fig_8_10.webp",
+    "file_path": "public/extracted_diagrams/math9_ch8\\fig_8_10.webp",
+    "dimensions": {
+      "width": 1047,
+      "height": 793,
+      "aspect_ratio": 1.32
+    },
+    "file_size_kb": 235.1,
+    "crop_bbox": [
+      74.3,
+      88.6,
+      454.0,
+      377.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.11",
+    "page_number": 20,
+    "caption": "Fig. 8.11",
+    "filename": "fig_8_11.webp",
+    "file_path": "public/extracted_diagrams/math9_ch8\\fig_8_11.webp",
+    "dimensions": {
+      "width": 348,
+      "height": 577,
+      "aspect_ratio": 0.6
+    },
+    "file_size_kb": 73.1,
+    "crop_bbox": [
+      253.4,
+      87.2,
+      379.0,
+      297.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 8.12",
+    "page_number": 21,
+    "caption": "Fig. 8.12 shows Stages 0 to 3 of the Sierpiński square carpet. Stage 0 of this fractal is a square sheet of",
+    "filename": "fig_8_12.webp",
+    "file_path": "public/extracted_diagrams/math9_ch8\\fig_8_12.webp",
+    "dimensions": {
+      "width": 134,
+      "height": 150,
+      "aspect_ratio": 0.89
+    },
+    "file_size_kb": 4.0,
+    "crop_bbox": [
+      248.4,
+      89.2,
+      296.9,
+      146.7
+    ]
+  }
+]
