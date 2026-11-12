@@ -1,0 +1,116 @@
+[
+  {
+    "figure_id": "Fig. 10.1",
+    "page_number": 12,
+    "caption": "Fig. 10.1: Two cluster-column graphs showing different ways of visualising the data in Table 10.2",
+    "filename": "fig_10_1.webp",
+    "file_path": "public/extracted_diagrams/math9_ch10\\fig_10_1.webp",
+    "dimensions": {
+      "width": 1183,
+      "height": 586,
+      "aspect_ratio": 2.02
+    },
+    "file_size_kb": 59.1,
+    "crop_bbox": [
+      48.1,
+      124.4,
+      479.9,
+      338.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.2",
+    "page_number": 13,
+    "caption": "Fig. 10.2: A Stacked Bar Chart of the data in Table 10.2 Such a graph/chart is called",
+    "filename": "fig_10_2.webp",
+    "file_path": "public/extracted_diagrams/math9_ch10\\fig_10_2.webp",
+    "dimensions": {
+      "width": 1055,
+      "height": 469,
+      "aspect_ratio": 2.25
+    },
+    "file_size_kb": 53.7,
+    "crop_bbox": [
+      72.0,
+      228.4,
+      456.0,
+      397.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.3",
+    "page_number": 15,
+    "caption": "Fig. 10.3: Pie charts of data of each family in Table 10.2 Now, consider the following",
+    "filename": "fig_10_3.webp",
+    "file_path": "public/extracted_diagrams/math9_ch10\\fig_10_3.webp",
+    "dimensions": {
+      "width": 1178,
+      "height": 1079,
+      "aspect_ratio": 1.09
+    },
+    "file_size_kb": 124.6,
+    "crop_bbox": [
+      49.0,
+      256.4,
+      478.7,
+      645.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.4",
+    "page_number": 16,
+    "caption": "Fig. 10.4: A 100% stacked bar chart of data in Table 10.2 Here, the total expenditure",
+    "filename": "fig_10_4.webp",
+    "file_path": "public/extracted_diagrams/math9_ch10\\fig_10_4.webp",
+    "dimensions": {
+      "width": 1054,
+      "height": 469,
+      "aspect_ratio": 2.25
+    },
+    "file_size_kb": 46.1,
+    "crop_bbox": [
+      72.0,
+      85.9,
+      456.0,
+      259.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.5",
+    "page_number": 19,
+    "caption": "Fig. 10.5: Time spent on different activities in a day by an average Indian (Values are rounded off)",
+    "filename": "fig_10_5.webp",
+    "file_path": "public/extracted_diagrams/math9_ch10\\fig_10_5.webp",
+    "dimensions": {
+      "width": 676,
+      "height": 754,
+      "aspect_ratio": 0.9
+    },
+    "file_size_kb": 39.2,
+    "crop_bbox": [
+      210.8,
+      369.3,
+      461.8,
+      643.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.6",
+    "page_number": 20,
+    "caption": "Fig. 10.6: Age-wise grouping of data (Values are rounded off) Think and Reflect",
+    "filename": "fig_10_6.webp",
+    "file_path": "public/extracted_diagrams/math9_ch10\\fig_10_6.webp",
+    "dimensions": {
+      "width": 1054,
+      "height": 1068,
+      "aspect_ratio": 0.99
+    },
+    "file_size_kb": 66.8,
+    "crop_bbox": [
+      72.4,
+      123.1,
+      455.6,
+      514.1
+    ]
+  }
+]

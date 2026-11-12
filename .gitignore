@@ -34,6 +34,7 @@ skills-lock.json
 *~
 scratch_curriculums.json
 scripts/*.txt
+scripts/extracted_ch_texts/
 
 # Next.js & Build outputs
 /.next/

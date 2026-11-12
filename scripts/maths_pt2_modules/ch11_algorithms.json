@@ -1,0 +1,347 @@
+[
+  {
+    "curriculum_id": "8c3aa719-1f5a-4931-8eea-cfa85e042048",
+    "order_index": 1,
+    "title": "The Foundations of Algorithms: Step-by-Step Procedures & Columnar Addition Invariants",
+    "estimated_minutes": 25,
+    "class_level": "Class 9",
+    "board": "CBSE",
+    "description": "Formulate the rigorous definition of an algorithm: a finite, unambiguous, step-by-step computational procedure. Deconstruct the Indian base-10 digit-by-digit columnar addition algorithm, prove why carry cannot exceed 1 when adding two numbers, and generalize to decimal fractions.",
+    "key_concepts": [
+      "Algorithm Definition: A finite, well-defined sequence of unambiguous instructions that takes an input and produces a correct output in a finite number of steps",
+      "Positional Place-Value Invariant: Aligning numbers right-to-left ensures that units add to units, tens to tens, and hundreds to hundreds (powers of 10 must match)",
+      "The Carry Invariant: In base 10, the maximum sum of two digits plus a previous carry is 9 + 9 + 1 = 19; therefore, the carry to the next column can NEVER exceed 1",
+      "Termination Property: An algorithm must always halt after a finite number of well-defined operations",
+      "Extension to Decimal Fractions: Alignment shifts from the rightmost digit to the decimal point to maintain identical place-value alignment (tenths to tenths, hundredths to hundredths)"
+    ],
+    "subtopics": [
+      "What distinguishes an algorithm from informal calculation",
+      "Detailed step-by-step trace of digit-by-digit addition",
+      "Formal proof that carry ≤ 1 for binary addition of two numbers",
+      "Handling unequal digit lengths (e.g. 5-digit plus 3-digit number)",
+      "Extending columnar addition to decimal numbers and multi-digit integers"
+    ],
+    "success_criteria": [
+      "Write out the precise step-by-step algorithm for columnar addition in formal algorithmic notation",
+      "Prove why the carry value is bounded by 1 when adding two decimal numbers",
+      "Explain why right-to-left alignment is mathematically mandatory in positional notation"
+    ],
+    "chapter_notes": "# Chapter 11: The World of Algorithms\n## Module 1: Foundations of Algorithms & Addition Invariants\n\n### 1. What is an Algorithm?\nThe word *algorithm* traces its roots to the 9th-century Persian mathematician Muhammad ibn Musa al-Khwarizmi, whose treatise introduced Hindu-Arabic positional numerals to the Western world.\n> **Definition (Algorithm):**  \n> An algorithm is a finite, step-by-step, unambiguous sequence of instructions designed to perform a specific computational task or solve a class of problems.\n\n---\n\n### 2. The Columnar Addition Algorithm\n1. **Input:** Two non-negative integers $A$ and $B$.\n2. **Step 1:** Write the numbers one below the other, aligning their rightmost digits (units place). Initialize $\\text{carry} = 0$.\n3. **Step 2:** Add the current column of digits along with $\\text{carry}$. Let the sum be $S = d_A + d_B + \\text{carry}$.\n4. **Step 3:** Write the units digit of $S$ ($S \\bmod 10$) beneath the column. Update $\\text{carry} = \\lfloor S / 10 \\rfloor$.\n5. **Step 4:** Move one column to the left and repeat from Step 2 until all digits are exhausted.\n6. **Step 5:** If a final carry of 1 remains, write it as the leftmost digit.\n\n---\n\n### 3. The Carry Bound Theorem\n**Theorem:** When adding two single decimal digits $a, b \\in \\{0, 1, \\dots, 9\\}$ with an incoming carry $c_{\\text{in}} \\in \\{0, 1\\}$:\n$$S = a + b + c_{\\text{in}}$$\nThe maximum possible value occurs when $a = 9$, $b = 9$, and $c_{\\text{in}} = 1$:\n$$S_{\\max} = 9 + 9 + 1 = 19$$\nThe outgoing carry is:\n$$c_{\\text{out}} = \\lfloor 19 / 10 \\rfloor = 1$$\nTherefore, **the carry value into any column can never be 2 or more**!\n",
+    "worked_examples": [
+      {
+        "problem": "Section 11.1, Question 4: Prove mathematically why the value of the carry cannot be more than 1 when adding two numbers together digit by digit in the standard base-10 system.",
+        "solution": "GIVEN:\nTwo arbitrary non-negative integers represented in base-10 positional notation.\n\nTO PROVE:\nIn digit-by-digit columnar addition of two numbers, the carry generated at any column is strictly at most 1 (carry ∈ {0, 1}).\n\nSTEP-BY-STEP PROOF:\nStep 1: Set up the domain of single digits:\nIn the base-10 Hindu-Arabic numeral system, the allowable digits are {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}.\nThe maximum value for any single digit is 9.\n\nStep 2: Base case (rightmost column):\nIn the rightmost column (units place), there is no incoming carry (carry_in = 0).\nThe maximum possible sum of the two units digits is:\nSum_max = 9 + 9 = 18.\nIn 18, the tens digit is 1, and the units digit is 8.\nTherefore, the outgoing carry is carry_out = 1.\nThus, carry_out ≤ 1 holds for the first column.\n\nStep 3: Inductive step (any subsequent column):\nAssume by mathematical induction that the incoming carry from the previous column satisfies carry_in ≤ 1 (i.e. carry_in is either 0 or 1).\nThe maximum sum in the current column is:\nSum_max = digit_1 + digit_2 + carry_in\nSum_max = 9 + 9 + 1 = 19.\nIn 19, the tens digit is 1.\nTherefore, the outgoing carry to the next column is carry_out = 1.\n\nStep 4: Conclusion:\nSince the sum can never reach 20 (it reaches at most 19), the carry can NEVER be 2, 3, or any larger integer.\nHence, carry ≤ 1 is an invariant across all columns.\n\n[ROUGH_WORK]\nMax digits: 9 + 9 = 18. Max with carry: 9 + 9 + 1 = 19. Tens place of 19 is 1. To get carry 2, sum must be ≥ 20, which is impossible with two digits and carry 1!\nBoxed Answer: [ Proved: Maximum sum is 9 + 9 + 1 = 19, so carry ≤ 1 for all columns ].",
+        "concept_questions": [
+          "What would the maximum carry be if we were adding three numbers together?",
+          "What is the maximum carry in base 2 (binary) addition of two numbers?"
+        ]
+      }
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Final-Term",
+      "image_search_query": "column addition place value carry algorithm diagram mathematics",
+      "video_search_query": "addition algorithm carry proof base 10 class 9",
+      "concept_questions": [
+        "Why must columns be aligned from right to left in addition?",
+        "What happens if two numbers with different numbers of digits are aligned to the left?",
+        "How must the algorithm be adapted when adding decimal numbers like 14.25 and 3.8?",
+        "Why does the carry invariant guarantee that the final sum has at most one more digit than the largest addend?"
+      ]
+    },
+    "common_misconceptions": [
+      {
+        "misconception": "Thinking carry can be 2 when adding two numbers.",
+        "correction": "Carry can only be 2 if you are adding THREE or more numbers together (e.g. 9 + 9 + 9 = 27, carry 2)."
+      }
+    ],
+    "quiz_questions": [
+      {
+        "question": "What is the maximum possible carry when adding two decimal integers digit by digit?",
+        "options": [
+          "(Recommended) 1",
+          "2",
+          "9",
+          "0"
+        ],
+        "correct_index": 0,
+        "explanation": "The maximum sum in any column is 9 + 9 + 1 = 19, which produces a carry of at most 1."
+      }
+    ]
+  },
+  {
+    "curriculum_id": "8c3aa719-1f5a-4931-8eea-cfa85e042048",
+    "order_index": 2,
+    "title": "Divisors & The Greatest Common Divisor: Exhaustive Search & List Intersection Algorithms",
+    "estimated_minutes": 25,
+    "class_level": "Class 9",
+    "board": "CBSE",
+    "description": "Construct systematic algorithms for computing the complete list of divisors of a number. Formulate the Greatest Common Divisor (GCD) as the maximum of list intersections, and analyze computational time complexity when scaling to large numbers.",
+    "key_concepts": [
+      "Divisor Condition: An integer d divides n (denoted d | n) if the remainder of n divided by d is exactly 0: n mod d = 0",
+      "Naive Divisor Algorithm: Testing all integers j from 1 to n requires n trial divisions (O(n) complexity)",
+      "Optimized Divisor Algorithm: Divisors always come in reciprocal pairs (d, n/d); testing up to √n captures all divisors in O(√n) operations",
+      "Greatest Common Divisor (GCD): The largest positive integer that divides both m and n without remainder: gcd(m, n) = max(Divisors(m) ∩ Divisors(n))",
+      "The First GCD Algorithm: Generate list L₁ of divisors of m, list L₂ of divisors of n, construct their intersection, and select the maximum element"
+    ],
+    "subtopics": [
+      "Systematic algorithm for computing Divisors(n)",
+      "List intersection algorithm for finding common divisors",
+      "Why the naive algorithm is hopelessly slow for 100-digit numbers",
+      "Counting-down optimization starting from min(m, n)"
+    ],
+    "success_criteria": [
+      "Trace the divisor generation algorithm for any two-digit number",
+      "Compute gcd(m, n) using the list intersection method",
+      "Explain why divisors appear in pairs and how this cuts computation from n to √n"
+    ],
+    "chapter_notes": "# Chapter 11: The World of Algorithms\n## Module 2: Divisors & Greatest Common Divisor\n\n### 1. Generating Divisors\nTo find all divisors of $n$:\n```python\ndivisors = []\nfor j from 1 to n:\n    if n mod j == 0:\n        divisors.append(j)\nreturn divisors\n```\n- **Symmetry of Divisors:** If $j$ divides $n$, then $n/j$ is also an integer that divides $n$.\n  One of the factors $j$ or $n/j$ must be $\\le \\sqrt{n}$.  \n  Therefore, we only need to test up to $\\sqrt{n}$!\n\n---\n\n### 2. First Algorithm for GCD (List Intersection)\n1. **Input:** Positive integers $m$ and $n$.\n2. Compute `divisors_m = Divisors(m)`.\n3. Compute `divisors_n = Divisors(n)`.\n4. Find common divisors: `common = [d for d in divisors_m if d in divisors_n]`.\n5. Return the maximum element of `common`.\n",
+    "worked_examples": [
+      {
+        "problem": "Section 11.2: Compute the greatest common divisor of 60 and 24 using the list intersection algorithm, and explain each step.",
+        "solution": "GIVEN:\nTwo integers m = 60 and n = 24.\n\nTO COMPUTE:\ngcd(60, 24) using the list intersection algorithm.\n\nSTEP-BY-STEP TRACE:\nStep 1: Compute all divisors of 60:\n1 | 60, 2 | 60, 3 | 60, 4 | 60, 5 | 60, 6 | 60, 10 | 60, 12 | 60, 15 | 60, 20 | 60, 30 | 60, 60 | 60.\nDivisors(60) = {1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60}.\n\nStep 2: Compute all divisors of 24:\n1 | 24, 2 | 24, 3 | 24, 4 | 24, 6 | 24, 8 | 24, 12 | 24, 24 | 24.\nDivisors(24) = {1, 2, 3, 4, 6, 8, 12, 24}.\n\nStep 3: Compute the intersection of the two sets:\nCommon Divisors = Divisors(60) ∩ Divisors(24)\nCommon Divisors = {1, 2, 3, 4, 6, 12}.\n\nStep 4: Extract the greatest element:\nMax(Common Divisors) = 12.\nTherefore, gcd(60, 24) = 12.\n\n[ROUGH_WORK]\nCommon elements: 1, 2, 3, 4, 6, 12. Largest is 12. 60 = 12 × 5, 24 = 12 × 2.\nBoxed Answer: [ gcd(60, 24) = 12 ].",
+        "concept_questions": [
+          "What is the difference between a common divisor and the greatest common divisor?",
+          "How many steps did this algorithm take?"
+        ]
+      }
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Final-Term",
+      "image_search_query": "venn diagram intersection greatest common factor divisors math",
+      "video_search_query": "finding gcd by listing divisors algorithm class 9",
+      "concept_questions": [
+        "Why must one of the divisors in a pair be less than or equal to √n?",
+        "If n = 100, what is the largest number we need to test to find all divisors?",
+        "What happens to this algorithm if m and n have 50 digits each?"
+      ]
+    },
+    "common_misconceptions": [
+      {
+        "misconception": "Believing that you must test all numbers up to n to find every divisor.",
+        "correction": "Divisors come in pairs. Finding a divisor d ≤ √n immediately gives the paired divisor n/d ≥ √n."
+      }
+    ],
+    "quiz_questions": [
+      {
+        "question": "To find all divisors of 144, what is the maximum number we need to test by trial division?",
+        "options": [
+          "(Recommended) 12",
+          "144",
+          "72",
+          "24"
+        ],
+        "correct_index": 0,
+        "explanation": "Because √144 = 12, all divisor pairs (d, 144/d) have at least one factor ≤ 12. Testing up to 12 finds all divisors."
+      }
+    ]
+  },
+  {
+    "curriculum_id": "8c3aa719-1f5a-4931-8eea-cfa85e042048",
+    "order_index": 3,
+    "title": "Euclid's Subtraction Algorithm & Geometric Rectangle Tiling",
+    "estimated_minutes": 25,
+    "class_level": "Class 9",
+    "board": "CBSE",
+    "description": "Master Euclid's classic subtraction algorithm for computing the greatest common divisor. Prove the fundamental invariant gcd(m, n) = gcd(n, m - n), visualize the process geometrically as cutting squares from an m × n rectangle, and discover its worst-case behavior on consecutive Fibonacci numbers.",
+    "key_concepts": [
+      "Subtraction Invariant Theorem: If d divides both m and n, d must divide their difference m - n; conversely, if d divides n and m - n, d divides m = n + (m - n)",
+      "Equivalence of Common Divisors: CommonDivisors(m, n) = CommonDivisors(n, m - n), which implies gcd(m, n) = gcd(n, m - n)",
+      "Euclid's Subtraction Algorithm: While m ≠ n, replace the larger number by the difference of the two numbers; when m = n, report m as the GCD",
+      "Geometric Tiling Interpretation: Tiling an m × n floor using the largest possible square tiles without cutting corresponds precisely to finding gcd(m, n)",
+      "Worst-Case Complexity on Fibonacci Numbers: When m = F_{k+1} and n = F_k, subtraction proceeds step by slow step, requiring F_{k-1} subtraction operations"
+    ],
+    "subtopics": [
+      "Formal algebraic proof of gcd(m, n) = gcd(n, m - n)",
+      "Full trace of Euclid's subtraction algorithm on concrete numerical pairs",
+      "Geometric visualization: Tiling a rectangle with square cuts",
+      "Analyzing efficiency: Why repeated subtraction becomes sluggish when m >> n"
+    ],
+    "success_criteria": [
+      "Prove the subtraction invariant gcd(m, n) = gcd(n, m - n)",
+      "Trace Euclid's subtraction algorithm step-by-step until termination",
+      "Illustrate how subtracting squares from a rectangle geometrically determines the GCD tile size"
+    ],
+    "chapter_notes": "# Chapter 11: The World of Algorithms\n## Module 3: Euclid's Subtraction Algorithm\n\n### 1. The Subtraction Invariant\n**Theorem:** For any positive integers $m \\ge n$:\n$$\\gcd(m, n) = \\gcd(n, m - n)$$\n\n#### Proof:\n1. Let $d$ be a common divisor of $m$ and $n$.\n   Then $m = k_1 d$ and $n = k_2 d$ for some integers $k_1, k_2$.\n   $$m - n = k_1 d - k_2 d = (k_1 - k_2) d$$\n   Since $k_1 - k_2$ is an integer, $d$ divides $m - n$.\n   Therefore, every common divisor of $m$ and $n$ is also a common divisor of $n$ and $m - n$.\n\n2. Conversely, let $c$ be a common divisor of $n$ and $m - n$.\n   Then $n = j_1 c$ and $m - n = j_2 c$.\n   $$m = n + (m - n) = j_1 c + j_2 c = (j_1 + j_2) c$$\n   Since $j_1 + j_2$ is an integer, $c$ divides $m$.\n   Therefore, every common divisor of $n$ and $m - n$ is a common divisor of $m$ and $n$.\n\n3. Since the set of common divisors is identical, the greatest common divisor must be identical:\n   $$\\gcd(m, n) = \\gcd(n, m - n) \\quad \\text{(Proved!)}$$\n\n---\n\n### 2. Geometric Interpretation (Tiling Squares)\nImagine a rectangular floor of dimensions $m \\times n$ (with $m > n$).\n- We can cut off an $n \\times n$ square.\n- The remaining floor has dimensions $n \\times (m - n)$.\n- Any square tile that can tile both $m$ and $n$ must also be able to tile the remaining $n \\times (m - n)$ strip!\n",
+    "worked_examples": [
+      {
+        "problem": "Section 11.3: Trace Euclid's subtraction algorithm to find gcd(60, 16) step-by-step.",
+        "solution": "GIVEN:\nTwo integers m = 60 and n = 16.\n\nTO FIND:\ngcd(60, 16) using Euclid's Subtraction Algorithm.\n\nSTEP-BY-STEP TRACE:\n- Step 1: Compare numbers: 60 > 16. Replace 60 with 60 - 16 = 44.\n  Pair becomes: (44, 16).\n- Step 2: Compare numbers: 44 > 16. Replace 44 with 44 - 16 = 28.\n  Pair becomes: (28, 16).\n- Step 3: Compare numbers: 28 > 16. Replace 28 with 28 - 16 = 12.\n  Pair becomes: (12, 16).\n- Step 4: Compare numbers: 16 > 12. Replace 16 with 16 - 12 = 4.\n  Pair becomes: (12, 4).\n- Step 5: Compare numbers: 12 > 4. Replace 12 with 12 - 4 = 8.\n  Pair becomes: (8, 4).\n- Step 6: Compare numbers: 8 > 4. Replace 8 with 8 - 4 = 4.\n  Pair becomes: (4, 4).\n- Step 7: Since both numbers are equal (4 = 4), the algorithm terminates!\nOutput = 4.\nTherefore, gcd(60, 16) = 4.\n\n[ROUGH_WORK]\n60 - 16 = 44; 44 - 16 = 28; 28 - 16 = 12; 16 - 12 = 4; 12 - 4 = 8; 8 - 4 = 4. Done in 6 subtraction steps!\nBoxed Answer: [ gcd(60, 16) = 4 ].",
+        "concept_questions": [
+          "Why did we subtract 16 three times from 60?",
+          "What is 60 mod 16?"
+        ]
+      }
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Final-Term",
+      "image_search_query": "euclidean algorithm geometric square tiling rectangle gcd diagram",
+      "video_search_query": "euclid subtraction algorithm gcd geometric proof class 9",
+      "concept_questions": [
+        "How does subtracting squares from a rectangle reveal the greatest common divisor?",
+        "Why does subtracting a smaller number from a larger number preserve the set of common divisors?",
+        "What makes the subtraction algorithm slow when computing gcd(1000000, 2)?"
+      ]
+    },
+    "common_misconceptions": [
+      {
+        "misconception": "Believing that subtracting a number changes the common factors.",
+        "correction": "As proved algebraically, any factor that divides both a and b must divide their difference a - b without exception."
+      }
+    ],
+    "quiz_questions": [
+      {
+        "question": "What is the result of applying one step of Euclid's subtraction algorithm to the pair (35, 14)?",
+        "options": [
+          "(Recommended) (21, 14)",
+          "(49, 14)",
+          "(14, 7)",
+          "(35, 7)"
+        ],
+        "correct_index": 0,
+        "explanation": "We replace the larger number 35 with 35 - 14 = 21, resulting in the new pair (21, 14)."
+      }
+    ]
+  },
+  {
+    "curriculum_id": "8c3aa719-1f5a-4931-8eea-cfa85e042048",
+    "order_index": 4,
+    "title": "Āryabhaṭa's Division Algorithm (Kuṭṭaka) & Euclidean Remainder Chains",
+    "estimated_minutes": 25,
+    "class_level": "Class 9",
+    "board": "CBSE",
+    "description": "Discover Āryabhaṭa's profound insight in the Aryabhatiya (499 CE): compressing repeated subtractions into single quotient-remainder division steps. Master Āryabhaṭa's Division Algorithm (the modern Euclidean Algorithm), construct step-by-step division ladders, and trace gcd(825, 375) and gcd(99, 2).",
+    "key_concepts": [
+      "Āryabhaṭa's Historical Contribution: In 499 CE, Indian astronomer-mathematician Āryabhaṭa codified the pulverizer algorithm (Kuṭṭaka) using division remainders to solve linear Diophantine equations and astronomical cycles",
+      "Division as Accelerated Subtraction: Instead of subtracting n from m repeatedly q times until m < n, single division gives m = q · n + r, with remainder r = m mod n",
+      "Remainder Invariant: gcd(m, n) = gcd(n, m mod n)",
+      "Logarithmic Convergence: In every two consecutive division steps, the remainder decreases by at least half: r_{i+2} < (1/2) r_i, guaranteeing super-fast convergence even for astronomical numbers",
+      "Termination Condition: When remainder reaches 0, the last non-zero divisor is the greatest common divisor"
+    ],
+    "subtopics": [
+      "From repeated subtraction to division remainders",
+      "Formal structure of Āryabhaṭa's division algorithm",
+      "Worked example: gcd(99, 2) in one division step",
+      "Worked example: gcd(825, 375) division ladder",
+      "Comparison of step counts: Euclid subtraction vs Āryabhaṭa division"
+    ],
+    "success_criteria": [
+      "Trace Āryabhaṭa's division algorithm using the standard quotient-remainder ladder",
+      "Compute the GCD of any pair of large 3-digit or 4-digit numbers in fewer than 5 steps",
+      "Explain why Āryabhaṭa's division algorithm is exponentially faster than repeated subtraction"
+    ],
+    "chapter_notes": "# Chapter 11: The World of Algorithms\n## Module 4: Āryabhaṭa's Division Algorithm\n\n### 1. Āryabhaṭa's Insight (499 CE)\nIn Chapter 11.3.4 of Ganita Manjari, we discover that repeated subtraction of $n$ from $m$ is simply integer division!  \nIf we divide $m$ by $n$:\n$$m = q \\cdot n + r, \\quad 0 \\le r < n$$\nHere $r = m \\bmod n$ is the remainder after subtracting $n$ a total of $q$ times.\nTherefore:\n$$\\gcd(m, n) = \\gcd(n, m \\bmod n)$$\n\n---\n\n### 2. The Division Algorithm Ladder\n1. If $n = 0$, return $m$.\n2. Otherwise, replace $(m, n)$ with $(n, m \\bmod n)$ and repeat.\n\n#### Comparison for $\\gcd(99, 2)$:\n- **Subtraction Algorithm:** $99 - 2 = 97, 97 - 2 = 95, \\dots$ requires **49 tedious subtraction steps**!\n- **Āryabhaṭa's Division Algorithm:**\n  $$99 = 49 \\times 2 + 1$$\n  $$\\gcd(99, 2) = \\gcd(2, 1) = 1$$\n  Takes **exactly 1 division step**!\n",
+    "worked_examples": [
+      {
+        "problem": "Section 11.3.4 (NCERT): Use Āryabhaṭa's Division Algorithm to compute: (1) gcd(99, 2), (2) gcd(825, 375).",
+        "solution": "GIVEN:\nPairs to compute: (1) gcd(99, 2), (2) gcd(825, 375).\n\nTO COMPUTE:\nThe greatest common divisor using division remainder chains.\n\nSTEP-BY-STEP SOLUTION:\n\nPart 1: gcd(99, 2)\nStep 1: Divide 99 by 2:\n99 = 2 × 49 + 1 (Quotient = 49, Remainder = 1).\nBy remainder invariant: gcd(99, 2) = gcd(2, 1).\nStep 2: Divide 2 by 1:\n2 = 1 × 2 + 0 (Remainder = 0).\nSince the remainder is 0, the last non-zero divisor is 1.\nTherefore, gcd(99, 2) = 1.\n(Total steps: 2 steps, compared to 49 subtraction steps!)\n\nPart 2: gcd(825, 375)\nStep 1: Divide 825 by 375:\n825 ÷ 375:\n375 × 2 = 750.\n825 - 750 = 75.\nSo, 825 = 375 × 2 + 75 (Remainder = 75).\nBy remainder invariant: gcd(825, 375) = gcd(375, 75).\n\nStep 2: Divide 375 by 75:\n375 ÷ 75:\n75 × 5 = 375.\n375 - 375 = 0.\nSo, 375 = 75 × 5 + 0 (Remainder = 0).\nSince the remainder is 0, the last non-zero divisor is 75.\nTherefore, gcd(825, 375) = 75.\n\n[ROUGH_WORK]\n825 = 375 × 2 + 75\n375 = 75 × 5 + 0\nLast non-zero remainder = 75. Done in just 2 division steps!\nBoxed Answer: [ (1) gcd(99, 2) = 1, (2) gcd(825, 375) = 75 ].",
+        "concept_questions": [
+          "Why did gcd(825, 375) take only 2 steps?",
+          "What is 75 in terms of prime factors?"
+        ]
+      }
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Final-Term",
+      "image_search_query": "euclidean division algorithm ladder quotient remainder diagram",
+      "video_search_query": "aryabhata division algorithm gcd class 9 maths",
+      "concept_questions": [
+        "Why is division simply accelerated subtraction?",
+        "What is the mathematical meaning of the remainder becoming 0?",
+        "How many division steps does it take to compute gcd(1000, 1)?"
+      ]
+    },
+    "common_misconceptions": [
+      {
+        "misconception": "Taking the quotient instead of the remainder as the new number in the algorithm.",
+        "correction": "The algorithm carries forward the divisor and the REMAINDER, discarding the quotient."
+      }
+    ],
+    "quiz_questions": [
+      {
+        "question": "In Āryabhaṭa's division algorithm, what is the next step after writing 60 = 16 × 3 + 12?",
+        "options": [
+          "(Recommended) Compute gcd(16, 12) by dividing 16 by 12.",
+          "Compute gcd(60, 3).",
+          "Divide 60 by 12.",
+          "Stop because 12 is less than 16."
+        ],
+        "correct_index": 0,
+        "explanation": "The algorithm replaces (m, n) with (n, r), so gcd(60, 16) becomes gcd(16, 12)."
+      }
+    ]
+  },
+  {
+    "curriculum_id": "8c3aa719-1f5a-4931-8eea-cfa85e042048",
+    "order_index": 5,
+    "title": "Chapter Algorithm Solver & Computational Number Theory: Primality, LCM & Efficiency",
+    "estimated_minutes": 25,
+    "class_level": "Class 9",
+    "board": "CBSE",
+    "description": "Synthesize computational algorithms across number theory: design an optimal primality verification algorithm prime(n) running in O(√n), prove the fundamental product identity lcm(a, b) · gcd(a, b) = a · b, and trace GCD computations for complex numbers.",
+    "key_concepts": [
+      "Primality Testing Algorithm: An integer n > 1 is prime if and only if it has no divisors among 2, 3, ..., ⌊√n⌋",
+      "LCM Algorithm via GCD: Computing lcm(a, b) = (a · b) / gcd(a, b) is vastly faster than listing multiples",
+      "Divisor Equivalence Lemma: d divides m and n if and only if d divides n and (m mod n)",
+      "Algorithmic Complexity Hierarchy: Comparing O(n) naive listing vs O(log n) Euclidean division"
+    ],
+    "subtopics": [
+      "Full pseudocode and trace for prime(n) algorithm",
+      "Derivation and algorithmic formulation of LCM from GCD",
+      "Solving all Chapter 11 Think and Reflect exercises",
+      "Summary of computational invariants in mathematics"
+    ],
+    "success_criteria": [
+      "Write the complete algorithm prime(n) in structured pseudocode",
+      "Compute the LCM of two 3-digit numbers using Āryabhaṭa's GCD algorithm",
+      "Prove why checking up to √n is sufficient to guarantee primality"
+    ],
+    "chapter_notes": "# Chapter 11: The World of Algorithms\n## Module 5: Chapter Algorithm Solver & Number Theory\n\n### 1. Primality Testing Algorithm `prime(n)`\nTo check if a number $n$ is prime:\n```\nAlgorithm prime(n):\n1. If n <= 1: return False\n2. If n == 2: return True\n3. If n is even: return False\n4. For d from 3 to floor(sqrt(n)) with step 2:\n     If n mod d == 0:\n         return False\n5. Return True\n```\n- **Why up to $\\sqrt{n}$?** If $n = a \\times b$, both factors cannot be greater than $\\sqrt{n}$. If one were, their product would exceed $\\sqrt{n} \\times \\sqrt{n} = n$, a contradiction.\n\n---\n\n### 2. The Fundamental LCM-GCD Theorem\n$$\\text{lcm}(a, b) \\times \\gcd(a, b) = a \\times b$$\n$$\\text{lcm}(a, b) = \\frac{a \\times b}{\\gcd(a, b)}$$\n",
+    "worked_examples": [
+      {
+        "problem": "Chapter 11, Exercise 3: Write an algorithm prime(n) to check if an integer n is prime. Trace your algorithm for n = 29 and n = 49.",
+        "solution": "GIVEN:\nAn integer n > 1.\n\nTO DESIGN AND TRACE:\nAn algorithm prime(n) to determine primality.\n\nALGORITHM SPECIFICATION:\nAlgorithm prime(n):\nStep 1: If n ≤ 1, return False (numbers ≤ 1 are not prime).\nStep 2: If n = 2 or n = 3, return True.\nStep 3: If n mod 2 = 0, return False (even numbers > 2 are composite).\nStep 4: Set limit = ⌊√n⌋.\nStep 5: For d = 3 to limit step 2:\n          If n mod d = 0, return False (found a factor).\nStep 6: Return True (no factor found, n is prime).\n\nTRACE 1: Test n = 29:\n- Step 1: 29 > 1.\n- Step 2: 29 ≠ 2, 3.\n- Step 3: 29 mod 2 = 1 ≠ 0.\n- Step 4: √29 ≈ 5.385, so limit = ⌊5.385⌋ = 5.\n- Step 5: Test odd divisors from 3 to 5:\n  - For d = 3: 29 mod 3 = 2 ≠ 0 (not divisible).\n  - For d = 5: 29 mod 5 = 4 ≠ 0 (not divisible).\n- Step 6: Loop terminates. Return True!\nConclusion: 29 is PRIME.\n\nTRACE 2: Test n = 49:\n- Step 1 to 3: 49 is odd.\n- Step 4: √49 = 7, so limit = 7.\n- Step 5: Test odd divisors from 3 to 7:\n  - For d = 3: 49 mod 3 = 1 ≠ 0.\n  - For d = 5: 49 mod 5 = 4 ≠ 0.\n  - For d = 7: 49 mod 7 = 0! Factor found!\n  Return False!\nConclusion: 49 is COMPOSITE (divisible by 7).\n\n[ROUGH_WORK]\n29: limit 5. Only check 3 and 5. Neither divides 29 ⇒ Prime! 49: limit 7. 49 = 7 × 7 ⇒ Composite!\nBoxed Answer: [ prime(29) = True (Prime), prime(49) = False (Composite) ].",
+        "concept_questions": [
+          "Why does the loop step by 2 instead of 1?",
+          "What is the limit for n = 97?"
+        ]
+      },
+      {
+        "problem": "Chapter 11, Section 11.3: Describe an efficient algorithm to compute the Least Common Multiple (LCM) of two numbers m and n, and compute lcm(60, 24).",
+        "solution": "GIVEN:\nTwo integers m = 60 and n = 24.\n\nTO DESIGN AND COMPUTE:\nAn efficient algorithm for lcm(m, n) using gcd(m, n).\n\nALGORITHM SPECIFICATION:\nAlgorithm compute_lcm(m, n):\nStep 1: Compute g = gcd(m, n) using Āryabhaṭa's division algorithm.\nStep 2: Compute lcm = (m / g) × n.\nStep 3: Return lcm.\n\nSTEP-BY-STEP CALCULATION FOR (60, 24):\nStep 1: Compute gcd(60, 24):\n60 = 24 × 2 + 12 (Remainder = 12)\n24 = 12 × 2 + 0 (Remainder = 0)\nSo g = gcd(60, 24) = 12.\n\nStep 2: Compute LCM:\nlcm(60, 24) = (60 / 12) × 24\nlcm(60, 24) = 5 × 24 = 120.\n\nVerification:\nMultiples of 60: 60, 120, 180, ...\nMultiples of 24: 24, 48, 72, 96, 120, ...\nFirst common multiple = 120.\nFormula product check: 60 × 24 = 1440. gcd × lcm = 12 × 120 = 1440. Match!\n\n[ROUGH_WORK]\ngcd(60, 24) = 12. lcm = (60 × 24) / 12 = 5 × 24 = 120.\nBoxed Answer: [ lcm(60, 24) = 120 ].",
+        "concept_questions": [
+          "Why do we compute (m / g) × n instead of (m × n) / g?",
+          "What is the advantage of dividing first in computer programming?"
+        ]
+      }
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Final-Term",
+      "image_search_query": "prime sieve trial division square root bound number theory diagram",
+      "video_search_query": "primality testing square root trial division algorithm class 9",
+      "concept_questions": [
+        "Why does dividing by g before multiplying prevent arithmetic overflow in computer programs?",
+        "What is the maximum number of tests needed to prove whether 101 is prime?",
+        "How does the identity lcm(a, b) · gcd(a, b) = a · b follow from prime factorizations?"
+      ]
+    },
+    "common_misconceptions": [
+      {
+        "misconception": "Thinking that checking up to n/2 is the fastest way to test primality.",
+        "correction": "Checking up to √n is exponentially faster than n/2. For n = 1,000,000, n/2 is 500,000 checks, while √n is only 1,000 checks!"
+      }
+    ],
+    "quiz_questions": [
+      {
+        "question": "To determine whether 89 is a prime number, which trial divisors must be tested?",
+        "options": [
+          "(Recommended) 3, 5, 7",
+          "2, 3, 4, 5, 6, 7, 8, 9",
+          "All numbers up to 44",
+          "Only 2 and 3"
+        ],
+        "correct_index": 0,
+        "explanation": "Since √89 < 10, the only prime divisors to test are odd primes ≤ 9: namely 3, 5, and 7. Since none divide 89, 89 is prime."
+      }
+    ]
+  }
+]

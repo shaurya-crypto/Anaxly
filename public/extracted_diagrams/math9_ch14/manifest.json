@@ -1,0 +1,401 @@
+[
+  {
+    "figure_id": "Fig. 14.1A",
+    "page_number": 1,
+    "caption": "Fig. 14.1A: Cuboid bricks Fig. 14.1B: Rubik’s Cube Fig. 14.1C: Cuboid A cuboid has the",
+    "filename": "fig_14_1A.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_1A.webp",
+    "dimensions": {
+      "width": 1333,
+      "height": 1127,
+      "aspect_ratio": 1.18
+    },
+    "file_size_kb": 132.1,
+    "crop_bbox": [
+      24.0,
+      49.0,
+      504.0,
+      457.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.1B",
+    "page_number": 1,
+    "caption": "Fig. 14.1B: Rubik’s Cube Fig. 14.1C: Cuboid",
+    "filename": "fig_14_1B.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_1B.webp",
+    "dimensions": {
+      "width": 1333,
+      "height": 1051,
+      "aspect_ratio": 1.27
+    },
+    "file_size_kb": 118.9,
+    "crop_bbox": [
+      24.0,
+      49.0,
+      504.0,
+      430.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.1C",
+    "page_number": 1,
+    "caption": "Fig. 14.1C: Cuboid",
+    "filename": "fig_14_1C.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_1C.webp",
+    "dimensions": {
+      "width": 696,
+      "height": 1051,
+      "aspect_ratio": 0.66
+    },
+    "file_size_kb": 61.9,
+    "crop_bbox": [
+      253.4,
+      49.0,
+      504.0,
+      430.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.2",
+    "page_number": 1,
+    "caption": "Fig. 14.2",
+    "filename": "fig_14_2.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_2.webp",
+    "dimensions": {
+      "width": 454,
+      "height": 372,
+      "aspect_ratio": 1.22
+    },
+    "file_size_kb": 4.1,
+    "crop_bbox": [
+      286.7,
+      504.4,
+      455.7,
+      644.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.3",
+    "page_number": 2,
+    "caption": "Fig. 14.3",
+    "filename": "fig_14_3.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_3.webp",
+    "dimensions": {
+      "width": 476,
+      "height": 384,
+      "aspect_ratio": 1.24
+    },
+    "file_size_kb": 35.3,
+    "crop_bbox": [
+      291.8,
+      217.9,
+      465.9,
+      360.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.4",
+    "page_number": 2,
+    "caption": "Fig. 14.4",
+    "filename": "fig_14_4.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_4.webp",
+    "dimensions": {
+      "width": 554,
+      "height": 599,
+      "aspect_ratio": 0.92
+    },
+    "file_size_kb": 22.3,
+    "crop_bbox": [
+      253.4,
+      361.0,
+      455.6,
+      579.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.5A",
+    "page_number": 6,
+    "caption": "Fig. 14.5A",
+    "filename": "fig_14_5A.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_5A.webp",
+    "dimensions": {
+      "width": 901,
+      "height": 349,
+      "aspect_ratio": 2.58
+    },
+    "file_size_kb": 17.0,
+    "crop_bbox": [
+      99.8,
+      185.2,
+      428.2,
+      311.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.6",
+    "page_number": 7,
+    "caption": "Fig. 14.6 Radius of the base of the·cylindrical kaleidoscope (r) = 3.5 cm.",
+    "filename": "fig_14_6.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_6.webp",
+    "dimensions": {
+      "width": 654,
+      "height": 295,
+      "aspect_ratio": 2.22
+    },
+    "file_size_kb": 25.0,
+    "crop_bbox": [
+      222.8,
+      105.2,
+      459.3,
+      211.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.7A",
+    "page_number": 8,
+    "caption": "Fig. 14.7A Fig. 14.7B Fig: 14.7C A right circular cone is generated",
+    "filename": "fig_14_7A.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_7A.webp",
+    "dimensions": {
+      "width": 1055,
+      "height": 593,
+      "aspect_ratio": 1.78
+    },
+    "file_size_kb": 48.3,
+    "crop_bbox": [
+      72.0,
+      119.2,
+      456.0,
+      332.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.7B",
+    "page_number": 8,
+    "caption": "Fig. 14.7B Fig: 14.7C",
+    "filename": "fig_14_7B.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_7B.webp",
+    "dimensions": {
+      "width": 532,
+      "height": 532,
+      "aspect_ratio": 1.0
+    },
+    "file_size_kb": 15.8,
+    "crop_bbox": [
+      253.4,
+      119.2,
+      444.9,
+      310.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.8",
+    "page_number": 8,
+    "caption": "Fig. 14.8",
+    "filename": "fig_14_8.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_8.webp",
+    "dimensions": {
+      "width": 342,
+      "height": 420,
+      "aspect_ratio": 0.81
+    },
+    "file_size_kb": 8.5,
+    "crop_bbox": [
+      253.4,
+      366.9,
+      379.1,
+      521.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.9",
+    "page_number": 9,
+    "caption": "Fig. 14.9",
+    "filename": "fig_14_9.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_9.webp",
+    "dimensions": {
+      "width": 392,
+      "height": 407,
+      "aspect_ratio": 0.96
+    },
+    "file_size_kb": 11.1,
+    "crop_bbox": [
+      253.4,
+      117.5,
+      397.9,
+      266.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.10",
+    "page_number": 10,
+    "caption": "Fig. 14.10",
+    "filename": "fig_14_10.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_10.webp",
+    "dimensions": {
+      "width": 1079,
+      "height": 1041,
+      "aspect_ratio": 1.04
+    },
+    "file_size_kb": 159.0,
+    "crop_bbox": [
+      65.9,
+      113.0,
+      462.2,
+      489.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.11A",
+    "page_number": 12,
+    "caption": "Fig. 14.11A Fig. 14.11B",
+    "filename": "fig_14_11A.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_11A.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 717,
+      "aspect_ratio": 1.46
+    },
+    "file_size_kb": 103.5,
+    "crop_bbox": [
+      72.0,
+      323.0,
+      457.1,
+      584.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.11B",
+    "page_number": 12,
+    "caption": "Fig. 14.11B",
+    "filename": "fig_14_11B.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_11B.webp",
+    "dimensions": {
+      "width": 555,
+      "height": 717,
+      "aspect_ratio": 0.77
+    },
+    "file_size_kb": 53.9,
+    "crop_bbox": [
+      253.4,
+      323.0,
+      457.1,
+      584.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.12",
+    "page_number": 14,
+    "caption": "Fig. 14.12.",
+    "filename": "fig_14_12.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_12.webp",
+    "dimensions": {
+      "width": 560,
+      "height": 582,
+      "aspect_ratio": 0.96
+    },
+    "file_size_kb": 58.5,
+    "crop_bbox": [
+      253.4,
+      174.9,
+      456.0,
+      388.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.13",
+    "page_number": 15,
+    "caption": "Fig. 14.13: Rectangular map projection Source: https://en.wikipedia.org/wiki/Equirectangular_projection#/media/ File:Equirectangular_projection_SW.jpg",
+    "filename": "fig_14_13.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_13.webp",
+    "dimensions": {
+      "width": 946,
+      "height": 580,
+      "aspect_ratio": 1.63
+    },
+    "file_size_kb": 85.1,
+    "crop_bbox": [
+      92.2,
+      87.0,
+      435.8,
+      299.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.14",
+    "page_number": 17,
+    "caption": "Fig. 14.14",
+    "filename": "fig_14_14.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_14.webp",
+    "dimensions": {
+      "width": 539,
+      "height": 359,
+      "aspect_ratio": 1.5
+    },
+    "file_size_kb": 44.0,
+    "crop_bbox": [
+      164.2,
+      158.8,
+      363.8,
+      291.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.15",
+    "page_number": 17,
+    "caption": "Fig. 14.15: Hemispheres",
+    "filename": "fig_14_15.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_15.webp",
+    "dimensions": {
+      "width": 888,
+      "height": 365,
+      "aspect_ratio": 2.43
+    },
+    "file_size_kb": 36.7,
+    "crop_bbox": [
+      101.4,
+      452.9,
+      424.8,
+      587.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.16",
+    "page_number": 19,
+    "caption": "Fig. 14.16 14.6 Areas and Volumes Around Us",
+    "filename": "fig_14_16.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_16.webp",
+    "dimensions": {
+      "width": 202,
+      "height": 261,
+      "aspect_ratio": 0.77
+    },
+    "file_size_kb": 3.6,
+    "crop_bbox": [
+      385.9,
+      109.1,
+      464.4,
+      217.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.17",
+    "page_number": 21,
+    "caption": "Fig. 14.17: These are some of the ordered ways of packing spheres in a cuboidal structure",
+    "filename": "fig_14_17.webp",
+    "file_path": "public/extracted_diagrams/math9_ch14\\fig_14_17.webp",
+    "dimensions": {
+      "width": 1054,
+      "height": 838,
+      "aspect_ratio": 1.26
+    },
+    "file_size_kb": 98.2,
+    "crop_bbox": [
+      72.0,
+      126.3,
+      456.0,
+      431.1
+    ]
+  }
+]

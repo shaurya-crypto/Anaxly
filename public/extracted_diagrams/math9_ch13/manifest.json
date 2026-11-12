@@ -1,0 +1,306 @@
+[
+  {
+    "figure_id": "Fig. 13.1",
+    "page_number": 5,
+    "caption": "Fig. 13.1",
+    "filename": "fig_13_1.webp",
+    "file_path": "public/extracted_diagrams/math9_ch13\\fig_13_1.webp",
+    "dimensions": {
+      "width": 382,
+      "height": 862,
+      "aspect_ratio": 0.44
+    },
+    "file_size_kb": 122.0,
+    "crop_bbox": [
+      253.4,
+      96.4,
+      391.2,
+      410.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.2",
+    "page_number": 6,
+    "caption": "Fig. 13.2: Graph of the linear equation 2x + y = 7",
+    "filename": "fig_13_2.webp",
+    "file_path": "public/extracted_diagrams/math9_ch13\\fig_13_2.webp",
+    "dimensions": {
+      "width": 704,
+      "height": 914,
+      "aspect_ratio": 0.77
+    },
+    "file_size_kb": 193.2,
+    "crop_bbox": [
+      137.4,
+      116.2,
+      390.8,
+      448.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.3",
+    "page_number": 7,
+    "caption": "Fig. 13.3: Graph of the linear equation 4x + 3y = 12 (ii) Substituting x = 0, we get",
+    "filename": "fig_13_3.webp",
+    "file_path": "public/extracted_diagrams/math9_ch13\\fig_13_3.webp",
+    "dimensions": {
+      "width": 760,
+      "height": 683,
+      "aspect_ratio": 1.11
+    },
+    "file_size_kb": 161.5,
+    "crop_bbox": [
+      137.1,
+      87.0,
+      410.9,
+      336.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.4",
+    "page_number": 7,
+    "caption": "Fig. 13.4: Graph of the linear equation 2x + 5y = 0",
+    "filename": "fig_13_4.webp",
+    "file_path": "public/extracted_diagrams/math9_ch13\\fig_13_4.webp",
+    "dimensions": {
+      "width": 874,
+      "height": 811,
+      "aspect_ratio": 1.08
+    },
+    "file_size_kb": 141.4,
+    "crop_bbox": [
+      121.6,
+      337.2,
+      436.5,
+      632.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.5",
+    "page_number": 11,
+    "caption": "Fig. 13.5: (i) represents the case of a positive slope, whereas (ii) represents that of a negative slope. Case (i):",
+    "filename": "fig_13_5.webp",
+    "file_path": "public/extracted_diagrams/math9_ch13\\fig_13_5.webp",
+    "dimensions": {
+      "width": 596,
+      "height": 85,
+      "aspect_ratio": 7.01
+    },
+    "file_size_kb": 4.2,
+    "crop_bbox": [
+      173.4,
+      123.3,
+      388.1,
+      155.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.6",
+    "page_number": 11,
+    "caption": "Fig. 13.6",
+    "filename": "fig_13_6.webp",
+    "file_path": "public/extracted_diagrams/math9_ch13\\fig_13_6.webp",
+    "dimensions": {
+      "width": 491,
+      "height": 814,
+      "aspect_ratio": 0.6
+    },
+    "file_size_kb": 84.0,
+    "crop_bbox": [
+      253.4,
+      142.3,
+      430.2,
+      435.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.7",
+    "page_number": 12,
+    "caption": "Fig. 13.7",
+    "filename": "fig_13_7.webp",
+    "file_path": "public/extracted_diagrams/math9_ch13\\fig_13_7.webp",
+    "dimensions": {
+      "width": 396,
+      "height": 517,
+      "aspect_ratio": 0.77
+    },
+    "file_size_kb": 76.7,
+    "crop_bbox": [
+      253.4,
+      90.7,
+      396.2,
+      280.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.8",
+    "page_number": 12,
+    "caption": "Fig. 13.8",
+    "filename": "fig_13_8.webp",
+    "file_path": "public/extracted_diagrams/math9_ch13\\fig_13_8.webp",
+    "dimensions": {
+      "width": 459,
+      "height": 901,
+      "aspect_ratio": 0.51
+    },
+    "file_size_kb": 121.8,
+    "crop_bbox": [
+      253.4,
+      310.5,
+      418.7,
+      637.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.9",
+    "page_number": 13,
+    "caption": "Fig. 13.9",
+    "filename": "fig_13_9.webp",
+    "file_path": "public/extracted_diagrams/math9_ch13\\fig_13_9.webp",
+    "dimensions": {
+      "width": 560,
+      "height": 1092,
+      "aspect_ratio": 0.51
+    },
+    "file_size_kb": 115.7,
+    "crop_bbox": [
+      253.4,
+      104.2,
+      456.0,
+      500.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.10",
+    "page_number": 14,
+    "caption": "Fig. 13.10",
+    "filename": "fig_13_10.webp",
+    "file_path": "public/extracted_diagrams/math9_ch13\\fig_13_10.webp",
+    "dimensions": {
+      "width": 689,
+      "height": 510,
+      "aspect_ratio": 1.35
+    },
+    "file_size_kb": 136.1,
+    "crop_bbox": [
+      136.8,
+      91.2,
+      391.2,
+      280.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.11",
+    "page_number": 16,
+    "caption": "Fig. 13.11: Graph of the linear equation y = –5x + 3 Let us further explore the",
+    "filename": "fig_13_11.webp",
+    "file_path": "public/extracted_diagrams/math9_ch13\\fig_13_11.webp",
+    "dimensions": {
+      "width": 636,
+      "height": 981,
+      "aspect_ratio": 0.65
+    },
+    "file_size_kb": 198.6,
+    "crop_bbox": [
+      157.0,
+      87.4,
+      386.2,
+      443.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.12",
+    "page_number": 17,
+    "caption": "Fig. 13.12: Graph of y = 5",
+    "filename": "fig_13_12.webp",
+    "file_path": "public/extracted_diagrams/math9_ch13\\fig_13_12.webp",
+    "dimensions": {
+      "width": 585,
+      "height": 588,
+      "aspect_ratio": 0.99
+    },
+    "file_size_kb": 113.2,
+    "crop_bbox": [
+      157.2,
+      87.4,
+      371.1,
+      301.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.13",
+    "page_number": 17,
+    "caption": "Fig. 13.13: Graph of x = 2",
+    "filename": "fig_13_13.webp",
+    "file_path": "public/extracted_diagrams/math9_ch13\\fig_13_13.webp",
+    "dimensions": {
+      "width": 586,
+      "height": 643,
+      "aspect_ratio": 0.91
+    },
+    "file_size_kb": 129.5,
+    "crop_bbox": [
+      157.2,
+      378.2,
+      371.1,
+      612.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.14",
+    "page_number": 30,
+    "caption": "Fig. 13.14: Graph of the pair of linear equations x + 3y = 6 and 2x – 3y = 12. They have",
+    "filename": "fig_13_14.webp",
+    "file_path": "public/extracted_diagrams/math9_ch13\\fig_13_14.webp",
+    "dimensions": {
+      "width": 784,
+      "height": 625,
+      "aspect_ratio": 1.25
+    },
+    "file_size_kb": 130.5,
+    "crop_bbox": [
+      143.6,
+      171.3,
+      426.1,
+      396.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.15",
+    "page_number": 31,
+    "caption": "Fig. 13.15: Graph of the pair of linear equations 2x + 4y – 12 = 0 and x + 2y – 4",
+    "filename": "fig_13_15.webp",
+    "file_path": "public/extracted_diagrams/math9_ch13\\fig_13_15.webp",
+    "dimensions": {
+      "width": 854,
+      "height": 817,
+      "aspect_ratio": 1.05
+    },
+    "file_size_kb": 154.0,
+    "crop_bbox": [
+      145.3,
+      122.2,
+      453.0,
+      419.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 13.16",
+    "page_number": 32,
+    "caption": "Fig. 13.16: Graphs of the pair of linear equations 2x + 3y = 9 and 4x + 6y = 18. The two",
+    "filename": "fig_13_16.webp",
+    "file_path": "public/extracted_diagrams/math9_ch13\\fig_13_16.webp",
+    "dimensions": {
+      "width": 681,
+      "height": 662,
+      "aspect_ratio": 1.03
+    },
+    "file_size_kb": 169.3,
+    "crop_bbox": [
+      139.8,
+      90.7,
+      388.3,
+      332.6
+    ]
+  }
+]

@@ -67,16 +67,22 @@ Whenever designing, prompting, or updating the AI tutor voice instruction:
   * Chapter-end questions and in-text questions are resolved in dedicated solver modules at the end of the chapter.
   * Every explanatory module MUST STILL retain its 4 to 6 prepared concept questions (`concept_questions`) for active Socratic dialogue during class.
 
-## 11. Senior Secondary & Multi-Term Syllabus Architecture (Classes 11 & 12)
+## 11. Secondary & Senior Secondary Multi-Term Syllabus Architecture (Classes 9–12)
 - **Mid-Term & Final-Term Partitioning**: Every subject curriculum must partition chapters according to the official board syllabus into **Mid-Term** (Part 1 textbook) and **Final-Term / Annual Exam** (Part 2 textbook). Every module must clearly carry its syllabus term tag (`Mid-Term` vs. `Final-Term`).
-- **No Artificial Module Length Limits**: Module content must scale to full textbook chapter depth. Senior secondary modules (Classes 11–12) require rigorous physical intuition, formal mathematical derivations with calculus, physical mechanisms, boundary conditions, and engineering applications.
+  * **Class 9 Mathematics**: Part 1 (*Ganita Prakash / Manjari* Part 1, Chapters 1–8) tagged strictly as `[CBSE Mid-Term Examination Syllabus]`. Part 2 (*Ganita Manjari* Part 2, Chapters 9–14) tagged strictly as `[CBSE Final-Term Examination Syllabus]`.
+  * **Class 10 Mathematics**: Partitioned strictly per DoE / CBSE official syllabus bifurcation: Mid-Term (Ch 1, 3, 5, 6, 7, 8) vs Final-Term (Ch 2, 4, 9, 10, 11, 12, 13, 14).
+  * **Class 9 Science**: Mid-Term (Ch 2, 3, 4, 5, 6) vs Final-Term (Ch 7, 8, 9, 10, 11, 12, 13).
+  * **Class 10 Science**: Mid-Term (Ch 1, 2, 3, 5, 6, 9, 10) vs Final-Term (Ch 4, 7, 8, 11, 12, 13).
+  * **Class 11 Physics**: Part 1 (Ch 1–7) tagged `Mid-Term`; Part 2 (Ch 8–14) tagged `Final-Term`.
+- **No Artificial Module Length Limits**: Module content must scale to full textbook chapter depth. Senior secondary modules (Classes 11–12) and secondary milestone modules (Classes 9–10) require rigorous physical intuition, formal mathematical derivations, geometric proofs, physical mechanisms, and real-world applications.
 - **Exact Textbook Topic Headings**: Every module must preserve the verbatim topic titles, section numbers, theorems, lab experiments, and worked examples from the standard textbook with zero omissions.
 
-## 12. Dynamic Live Visuals & Content Safety Invariant
-- **Zero Static Hardcoded Image URLs**: Modules must NEVER store hardcoded or brittle external image links in database tables or module JSONs. 
-- **Search Engine First**: Visual search must query Search Engines (Bing Images with strict SafeSearch) FIRST for exact topic diagrams, Wikipedia PageImages SECOND for authoritative encyclopedic figures, and Wikimedia Commons THIRD.
+## 12. Dynamic Live Visuals & Question-Only Diagram Invariant
+- **Zero Static Hardcoded Image URLs in Theory**: Modules must NEVER store hardcoded or brittle external image links for theory concepts in database tables or module JSONs.
+- **Search Engine First for Concepts**: Concept visuals must query Search Engines (Bing Images with strict SafeSearch) FIRST for exact topic diagrams, Wikipedia PageImages SECOND for authoritative encyclopedic figures, and Wikimedia Commons THIRD.
+- **Authentic Book Figures Strictly For Questions**: High-resolution diagrams extracted directly from textbook PDFs (`public/extracted_diagrams/`) are preserved and bound EXCLUSIVELY to questions (worked examples and practice/quiz problems) that explicitly cite a figure (e.g., "In Fig. 12.10...", "refer to the figure below"). The digital chalkboard automatically renders these figures via `draw_image` when the tutor presents that specific problem.
 - **Strict Content Safety Filter**: Every visual query must pass through `isSafeEducationalImage` and `isSafeEducationalVideo` filters with strict SafeSearch (`&adlt=strict` / SafeSearch=Strict) to permanently block adult, violent, harmful, or non-educational content.
-- **YouTube Classroom Video Demonstrations**: Scientific videos must play seamlessly inside the whiteboard modal via responsive, secure YouTube embedded iframes (`video/youtube`), with native HTML5 fallback for direct media streams.
+- **YouTube Classroom Video Demonstrations**: Scientific and mathematical videos must play seamlessly inside the whiteboard modal via responsive, secure YouTube embedded iframes (`video/youtube`), with native HTML5 fallback for direct media streams.
 
 ## 13. Socratic Cadence Gating & Anti-Premature Page Turn Guard
 - **No Premature Page Flips on Affirmations**: Casual conversational affirmations (`"yes"`, `"ok"`, `"haan"`, `"sure"`, `"understood"`) in voice or text MUST NEVER advance the concept or turn the chalkboard page.
@@ -86,3 +92,14 @@ Whenever designing, prompting, or updating the AI tutor voice instruction:
 ## 14. Pure Chalkboard Mathematical Typography
 - **Zero Raw Programming Operators**: The chalkboard must NEVER render raw code syntax: no raw asterisks (`*`, `**`, `***`), no raw carets (`^`), and no raw double slashes (`//`).
 - **Authentic Unicode Mathematics**: All mathematical expressions must format as standard textbook mathematics with superscripts ($x², v², 10⁻¹¹$), subscripts ($v₀, F_{\text{net}}$), Greek letters ($\theta, \alpha, \beta, \gamma, \Delta, \lambda, \mu, \pi, \rho, \sigma, \tau, \omega, \Omega$), calculus symbols ($\int, \iint, \oint, \sum, \prod, \partial, \nabla$), and standard arithmetic operators ($\times, \cdot, \div, \pm, \le, \ge, \ne, \approx, \to, \Rightarrow, \rightleftharpoons$).
+
+## 15. Exhaustive Problem Solving & Step-by-Step Pedagogical Layout
+- **Zero Omission Invariant**: Every single textbook exercise question (all parts (i), (ii), (iii)...), worked example, and "Think and Reflect" / "Try These" problem must be fully solved in the curriculum modules.
+- **Step-by-Step Topper Layout**: All problem solutions must adhere to the standard board topper layout:
+  * **Given**: Stating all given quantities with symbols and standard units.
+  * **To Prove / To Find**: Clear mathematical objective.
+  * **Formula / Theorem Used**: Explicit naming of theorems, axioms, or algebraic identities.
+  * **Construction (for Geometry)**: Precise construction lines/points.
+  * **Step-by-Step Proof / Calculation**: Clear logical transitions without skipping steps.
+  * **Rough Work Margin**: Secondary scratch calculations.
+  * **Boxed Final Answer**: Explicit final answer with correct units or "Hence Proved!".

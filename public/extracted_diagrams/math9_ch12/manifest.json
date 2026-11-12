@@ -1,0 +1,838 @@
+[
+  {
+    "figure_id": "Fig. 12.1A",
+    "page_number": 1,
+    "caption": "Fig. 12.1A Fig. 12.1B",
+    "filename": "fig_12_1A.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_1A.webp",
+    "dimensions": {
+      "width": 1049,
+      "height": 1071,
+      "aspect_ratio": 0.98
+    },
+    "file_size_kb": 154.2,
+    "crop_bbox": [
+      72.0,
+      261.8,
+      456.1,
+      650.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.1B",
+    "page_number": 1,
+    "caption": "Fig. 12.1B",
+    "filename": "fig_12_1B.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_1B.webp",
+    "dimensions": {
+      "width": 554,
+      "height": 1071,
+      "aspect_ratio": 0.52
+    },
+    "file_size_kb": 78.0,
+    "crop_bbox": [
+      253.4,
+      261.8,
+      456.1,
+      650.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.2",
+    "page_number": 2,
+    "caption": "Fig. 12.2",
+    "filename": "fig_12_2.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_2.webp",
+    "dimensions": {
+      "width": 554,
+      "height": 899,
+      "aspect_ratio": 0.62
+    },
+    "file_size_kb": 44.4,
+    "crop_bbox": [
+      253.4,
+      306.8,
+      455.6,
+      633.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.3",
+    "page_number": 3,
+    "caption": "Fig. 12.3: Not a triangle",
+    "filename": "fig_12_3.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_3.webp",
+    "dimensions": {
+      "width": 537,
+      "height": 127,
+      "aspect_ratio": 4.23
+    },
+    "file_size_kb": 3.6,
+    "crop_bbox": [
+      172.7,
+      149.6,
+      372.5,
+      201.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.4",
+    "page_number": 4,
+    "caption": "Fig. 12.4 B A",
+    "filename": "fig_12_4.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_4.webp",
+    "dimensions": {
+      "width": 517,
+      "height": 450,
+      "aspect_ratio": 1.15
+    },
+    "file_size_kb": 17.7,
+    "crop_bbox": [
+      73.0,
+      395.2,
+      262.5,
+      557.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.5",
+    "page_number": 4,
+    "caption": "Fig. 12.5",
+    "filename": "fig_12_5.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_5.webp",
+    "dimensions": {
+      "width": 519,
+      "height": 294,
+      "aspect_ratio": 1.77
+    },
+    "file_size_kb": 9.9,
+    "crop_bbox": [
+      73.0,
+      552.6,
+      264.0,
+      661.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.6",
+    "page_number": 7,
+    "caption": "Fig. 12.6",
+    "filename": "fig_12_6.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_6.webp",
+    "dimensions": {
+      "width": 552,
+      "height": 336,
+      "aspect_ratio": 1.64
+    },
+    "file_size_kb": 10.0,
+    "crop_bbox": [
+      253.4,
+      396.9,
+      455.6,
+      520.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.7",
+    "page_number": 8,
+    "caption": "Fig. 12.7: Converse to (a)",
+    "filename": "fig_12_7.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_7.webp",
+    "dimensions": {
+      "width": 344,
+      "height": 273,
+      "aspect_ratio": 1.26
+    },
+    "file_size_kb": 7.6,
+    "crop_bbox": [
+      200.9,
+      254.5,
+      327.9,
+      355.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.8",
+    "page_number": 8,
+    "caption": "Fig. 12.8: Converse to (b) 2(x + y) = 360°",
+    "filename": "fig_12_8.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_8.webp",
+    "dimensions": {
+      "width": 333,
+      "height": 297,
+      "aspect_ratio": 1.12
+    },
+    "file_size_kb": 8.3,
+    "crop_bbox": [
+      201.0,
+      549.5,
+      327.0,
+      662.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.9",
+    "page_number": 9,
+    "caption": "Fig. 12.9: Converse to (c)",
+    "filename": "fig_12_9.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_9.webp",
+    "dimensions": {
+      "width": 1055,
+      "height": 837,
+      "aspect_ratio": 1.26
+    },
+    "file_size_kb": 108.9,
+    "crop_bbox": [
+      72.0,
+      151.2,
+      456.0,
+      455.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.10",
+    "page_number": 9,
+    "caption": "Fig. 12.10 other. By the converse of (c), ABCD is a parallelogram.",
+    "filename": "fig_12_10.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_10.webp",
+    "dimensions": {
+      "width": 377,
+      "height": 285,
+      "aspect_ratio": 1.32
+    },
+    "file_size_kb": 7.3,
+    "crop_bbox": [
+      83.0,
+      533.5,
+      225.7,
+      651.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.11",
+    "page_number": 10,
+    "caption": "Fig. 12.11",
+    "filename": "fig_12_11.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_11.webp",
+    "dimensions": {
+      "width": 469,
+      "height": 277,
+      "aspect_ratio": 1.69
+    },
+    "file_size_kb": 8.6,
+    "crop_bbox": [
+      271.0,
+      406.1,
+      442.6,
+      509.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.12",
+    "page_number": 11,
+    "caption": "Fig. 12.12 them to each other and to the",
+    "filename": "fig_12_12.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_12.webp",
+    "dimensions": {
+      "width": 507,
+      "height": 395,
+      "aspect_ratio": 1.28
+    },
+    "file_size_kb": 10.4,
+    "crop_bbox": [
+      79.8,
+      432.1,
+      266.4,
+      574.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.13",
+    "page_number": 12,
+    "caption": "Fig. 12.13 third side and has half the length! Let",
+    "filename": "fig_12_13.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_13.webp",
+    "dimensions": {
+      "width": 1054,
+      "height": 715,
+      "aspect_ratio": 1.47
+    },
+    "file_size_kb": 89.4,
+    "crop_bbox": [
+      72.0,
+      87.0,
+      456.0,
+      347.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.14",
+    "page_number": 12,
+    "caption": "Fig. 12.14",
+    "filename": "fig_12_14.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_14.webp",
+    "dimensions": {
+      "width": 454,
+      "height": 338,
+      "aspect_ratio": 1.34
+    },
+    "file_size_kb": 8.7,
+    "crop_bbox": [
+      78.3,
+      440.0,
+      245.5,
+      561.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.15",
+    "page_number": 14,
+    "caption": "Fig. 12.15 Second, PQ = QR, so PQ = PR = BC . 2 2 We have deduced the",
+    "filename": "fig_12_15.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_15.webp",
+    "dimensions": {
+      "width": 979,
+      "height": 447,
+      "aspect_ratio": 2.19
+    },
+    "file_size_kb": 43.5,
+    "crop_bbox": [
+      82.4,
+      103.4,
+      434.8,
+      264.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.16",
+    "page_number": 14,
+    "caption": "Fig. 12.16 Q. This is what we wanted! We used the Midpoint",
+    "filename": "fig_12_16.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_16.webp",
+    "dimensions": {
+      "width": 422,
+      "height": 501,
+      "aspect_ratio": 0.84
+    },
+    "file_size_kb": 12.3,
+    "crop_bbox": [
+      72.0,
+      382.9,
+      227.3,
+      563.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.17",
+    "page_number": 15,
+    "caption": "Fig. 12.17 will now show why this is always true. Geometric reasoning:",
+    "filename": "fig_12_17.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_17.webp",
+    "dimensions": {
+      "width": 439,
+      "height": 380,
+      "aspect_ratio": 1.16
+    },
+    "file_size_kb": 15.3,
+    "crop_bbox": [
+      77.9,
+      301.4,
+      236.0,
+      440.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.18",
+    "page_number": 15,
+    "caption": "Fig. 12.18 of CP are equal. Let Y and X be the midpoints",
+    "filename": "fig_12_18.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_18.webp",
+    "dimensions": {
+      "width": 595,
+      "height": 416,
+      "aspect_ratio": 1.43
+    },
+    "file_size_kb": 18.0,
+    "crop_bbox": [
+      75.2,
+      476.1,
+      289.8,
+      625.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.19",
+    "page_number": 16,
+    "caption": "Fig. 12.19",
+    "filename": "fig_12_19.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_19.webp",
+    "dimensions": {
+      "width": 748,
+      "height": 517,
+      "aspect_ratio": 1.45
+    },
+    "file_size_kb": 33.3,
+    "crop_bbox": [
+      107.2,
+      106.6,
+      376.8,
+      292.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.20",
+    "page_number": 16,
+    "caption": "Fig. 12.20 M be on segment AS? Does your placement",
+    "filename": "fig_12_20.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_20.webp",
+    "dimensions": {
+      "width": 1054,
+      "height": 593,
+      "aspect_ratio": 1.78
+    },
+    "file_size_kb": 86.9,
+    "crop_bbox": [
+      71.3,
+      429.2,
+      456.7,
+      642.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.21",
+    "page_number": 17,
+    "caption": "Fig. 12.21 is a parallelogram. We have deduced the following",
+    "filename": "fig_12_21.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_21.webp",
+    "dimensions": {
+      "width": 446,
+      "height": 456,
+      "aspect_ratio": 0.98
+    },
+    "file_size_kb": 16.2,
+    "crop_bbox": [
+      84.9,
+      179.1,
+      245.5,
+      345.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.22",
+    "page_number": 17,
+    "caption": "Fig. 12.22",
+    "filename": "fig_12_22.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_22.webp",
+    "dimensions": {
+      "width": 357,
+      "height": 637,
+      "aspect_ratio": 0.56
+    },
+    "file_size_kb": 21.4,
+    "crop_bbox": [
+      253.4,
+      413.4,
+      382.1,
+      645.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.23",
+    "page_number": 18,
+    "caption": "Fig. 12.23",
+    "filename": "fig_12_23.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_23.webp",
+    "dimensions": {
+      "width": 336,
+      "height": 295,
+      "aspect_ratio": 1.14
+    },
+    "file_size_kb": 5.1,
+    "crop_bbox": [
+      200.3,
+      124.3,
+      327.8,
+      235.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.24",
+    "page_number": 18,
+    "caption": "Fig. 12.24",
+    "filename": "fig_12_24.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_24.webp",
+    "dimensions": {
+      "width": 345,
+      "height": 275,
+      "aspect_ratio": 1.25
+    },
+    "file_size_kb": 8.9,
+    "crop_bbox": [
+      197.3,
+      281.0,
+      324.9,
+      382.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.25",
+    "page_number": 18,
+    "caption": "Fig. 12.25",
+    "filename": "fig_12_25.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_25.webp",
+    "dimensions": {
+      "width": 770,
+      "height": 275,
+      "aspect_ratio": 2.8
+    },
+    "file_size_kb": 13.3,
+    "crop_bbox": [
+      131.8,
+      481.5,
+      412.2,
+      583.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.26",
+    "page_number": 19,
+    "caption": "Fig. 12.26 1, 2, 3, 4. Remember that they add up",
+    "filename": "fig_12_26.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_26.webp",
+    "dimensions": {
+      "width": 849,
+      "height": 920,
+      "aspect_ratio": 0.92
+    },
+    "file_size_kb": 185.4,
+    "crop_bbox": [
+      110.1,
+      301.4,
+      415.9,
+      632.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.27",
+    "page_number": 20,
+    "caption": "Fig. 12.27",
+    "filename": "fig_12_27.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_27.webp",
+    "dimensions": {
+      "width": 1069,
+      "height": 795,
+      "aspect_ratio": 1.34
+    },
+    "file_size_kb": 115.0,
+    "crop_bbox": [
+      67.3,
+      138.0,
+      457.1,
+      427.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.28",
+    "page_number": 20,
+    "caption": "Fig. 12.28",
+    "filename": "fig_12_28.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_28.webp",
+    "dimensions": {
+      "width": 517,
+      "height": 433,
+      "aspect_ratio": 1.19
+    },
+    "file_size_kb": 26.1,
+    "crop_bbox": [
+      167.1,
+      447.5,
+      360.8,
+      606.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.29",
+    "page_number": 21,
+    "caption": "Fig. 12.29",
+    "filename": "fig_12_29.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_29.webp",
+    "dimensions": {
+      "width": 803,
+      "height": 327,
+      "aspect_ratio": 2.46
+    },
+    "file_size_kb": 21.4,
+    "crop_bbox": [
+      117.4,
+      184.3,
+      410.5,
+      306.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.30",
+    "page_number": 21,
+    "caption": "Fig. 12.30 A Fig. 12.30 B",
+    "filename": "fig_12_30.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_30.webp",
+    "dimensions": {
+      "width": 889,
+      "height": 511,
+      "aspect_ratio": 1.74
+    },
+    "file_size_kb": 28.4,
+    "crop_bbox": [
+      89.5,
+      451.5,
+      438.8,
+      638.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.31",
+    "page_number": 22,
+    "caption": "Fig. 12.31 shows the result: It appears that the Varignon parallelograms form a grid, giving the same parallelogram",
+    "filename": "fig_12_31.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_31.webp",
+    "dimensions": {
+      "width": 1333,
+      "height": 405,
+      "aspect_ratio": 3.29
+    },
+    "file_size_kb": 56.8,
+    "crop_bbox": [
+      24.0,
+      36.0,
+      504.0,
+      182.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.32",
+    "page_number": 23,
+    "caption": "Fig. 12.32",
+    "filename": "fig_12_32.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_32.webp",
+    "dimensions": {
+      "width": 1074,
+      "height": 810,
+      "aspect_ratio": 1.33
+    },
+    "file_size_kb": 61.1,
+    "crop_bbox": [
+      59.3,
+      148.5,
+      461.4,
+      455.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.33",
+    "page_number": 25,
+    "caption": "Fig. 12.33",
+    "filename": "fig_12_33.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_33.webp",
+    "dimensions": {
+      "width": 743,
+      "height": 735,
+      "aspect_ratio": 1.01
+    },
+    "file_size_kb": 47.0,
+    "crop_bbox": [
+      133.0,
+      153.2,
+      400.6,
+      420.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.34",
+    "page_number": 25,
+    "caption": "Fig. 12.34",
+    "filename": "fig_12_34.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_34.webp",
+    "dimensions": {
+      "width": 361,
+      "height": 277,
+      "aspect_ratio": 1.3
+    },
+    "file_size_kb": 8.2,
+    "crop_bbox": [
+      204.0,
+      534.3,
+      340.3,
+      639.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.35",
+    "page_number": 26,
+    "caption": "Fig. 12.35",
+    "filename": "fig_12_35.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_35.webp",
+    "dimensions": {
+      "width": 453,
+      "height": 424,
+      "aspect_ratio": 1.07
+    },
+    "file_size_kb": 13.5,
+    "crop_bbox": [
+      191.1,
+      118.4,
+      354.2,
+      274.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.36",
+    "page_number": 27,
+    "caption": "Fig. 12.36",
+    "filename": "fig_12_36.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_36.webp",
+    "dimensions": {
+      "width": 307,
+      "height": 301,
+      "aspect_ratio": 1.02
+    },
+    "file_size_kb": 4.7,
+    "crop_bbox": [
+      214.8,
+      184.4,
+      331.2,
+      295.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.37",
+    "page_number": 27,
+    "caption": "Fig. 12.37",
+    "filename": "fig_12_37.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_37.webp",
+    "dimensions": {
+      "width": 746,
+      "height": 737,
+      "aspect_ratio": 1.01
+    },
+    "file_size_kb": 69.9,
+    "crop_bbox": [
+      138.9,
+      308.7,
+      407.6,
+      577.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.38",
+    "page_number": 28,
+    "caption": "Fig. 12.38",
+    "filename": "fig_12_38.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_38.webp",
+    "dimensions": {
+      "width": 443,
+      "height": 418,
+      "aspect_ratio": 1.06
+    },
+    "file_size_kb": 6.6,
+    "crop_bbox": [
+      179.5,
+      91.1,
+      345.7,
+      246.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.39",
+    "page_number": 28,
+    "caption": "Fig. 12.39",
+    "filename": "fig_12_39.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_39.webp",
+    "dimensions": {
+      "width": 1033,
+      "height": 402,
+      "aspect_ratio": 2.57
+    },
+    "file_size_kb": 25.1,
+    "crop_bbox": [
+      77.0,
+      376.6,
+      456.0,
+      521.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.40",
+    "page_number": 29,
+    "caption": "Fig. 12.40",
+    "filename": "fig_12_40.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_40.webp",
+    "dimensions": {
+      "width": 314,
+      "height": 231,
+      "aspect_ratio": 1.36
+    },
+    "file_size_kb": 7.0,
+    "crop_bbox": [
+      212.8,
+      180.1,
+      332.3,
+      268.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.41",
+    "page_number": 29,
+    "caption": "Fig. 12.41",
+    "filename": "fig_12_41.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_41.webp",
+    "dimensions": {
+      "width": 514,
+      "height": 313,
+      "aspect_ratio": 1.64
+    },
+    "file_size_kb": 6.5,
+    "crop_bbox": [
+      183.5,
+      521.5,
+      376.0,
+      639.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.42",
+    "page_number": 30,
+    "caption": "Fig. 12.42",
+    "filename": "fig_12_42.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_42.webp",
+    "dimensions": {
+      "width": 510,
+      "height": 407,
+      "aspect_ratio": 1.25
+    },
+    "file_size_kb": 11.4,
+    "crop_bbox": [
+      179.6,
+      425.7,
+      366.0,
+      575.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 12.43",
+    "page_number": 33,
+    "caption": "Fig. 12.43",
+    "filename": "fig_12_43.webp",
+    "file_path": "public/extracted_diagrams/math9_ch12\\fig_12_43.webp",
+    "dimensions": {
+      "width": 405,
+      "height": 460,
+      "aspect_ratio": 0.88
+    },
+    "file_size_kb": 10.8,
+    "crop_bbox": [
+      189.5,
+      178.0,
+      338.5,
+      346.9
+    ]
+  }
+]

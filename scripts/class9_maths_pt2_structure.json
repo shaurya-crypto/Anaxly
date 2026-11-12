@@ -1,0 +1,195 @@
+{
+  "Chapter 9": {
+    "file": "public/9/class9_maths/pt2\\iemh201.pdf",
+    "pages": 7,
+    "first_lines": [
+      "Propositions and",
+      "9",
+      "their Converses",
+      "Consider the following statement:",
+      "Statement 1: If two sides of a triangle are equal, then the angles opposite",
+      "the equal sides are equal."
+    ],
+    "sections": [],
+    "exercises": [],
+    "theorems": [],
+    "examples": [
+      "Example 1",
+      "Example 2",
+      "Example 3",
+      "Example 4",
+      "Example 5"
+    ]
+  },
+  "Chapter 10": {
+    "file": "public/9/class9_maths/pt2\\iemh202.pdf",
+    "pages": 29,
+    "first_lines": [
+      "How Quantities Combine:",
+      "10",
+      "Understanding Data",
+      "10.1 Combining Things",
+      "In earlier grades, we looked at how the average conveys the \u2018centre\u2019 of",
+      "given data. In this chapter, we shall extend the concept of average to a"
+    ],
+    "sections": [
+      "10.1 Combining Things",
+      "10.1.1 Average of Averages",
+      "165.5 + 149.33 165 + 169 + 164 + 167 + 170 + 159 + 164 + 166 + 146 + 149 + 153",
+      "314.83\n= 1772",
+      "46.63 (64 +79 + 90)",
+      "10.1.2 Mixtures",
+      "0.55 =",
+      "0.55 =",
+      "0.55 (320 + y) = 200 + 0.45y.",
+      "10.1.3 Custom Weights",
+      "16.5 + 13.8",
+      "10.2 Visualising and Interpreting Data",
+      "10.2.1 Stacking Columns",
+      "10.2.2 An Alternative to Pie Chart"
+    ],
+    "exercises": [],
+    "theorems": [],
+    "examples": [
+      "Example 1",
+      "Example 2",
+      "Example 3",
+      "Example 4",
+      "Example 5",
+      "Example 6",
+      "Example 7",
+      "Example 8",
+      "Example 9"
+    ]
+  },
+  "Chapter 11": {
+    "file": "public/9/class9_maths/pt2\\iemh203.pdf",
+    "pages": 14,
+    "first_lines": [
+      "11",
+      "The World of Algorithms",
+      "These days the word \u2018algorithm\u2019 pops up everywhere. What exactly is",
+      "an algorithm? What does it have to do with mathematics?",
+      "11.1 Adding Numbers",
+      "We first learned to add numbers by counting the"
+    ],
+    "sections": [
+      "11.1 Adding Numbers",
+      "11.1.1 Adding Numbers Digit by Digit",
+      "11.2 Greatest Common Divisor",
+      "11.2.1 Computing the Divisors of a Number",
+      "11.2.2 Finding the Greatest Common Divisor",
+      "11.2.3 First Algorithm for gcd",
+      "11.3 Data Structures",
+      "11.3.1 Improving the Algorithm",
+      "11.3.2 Analysing these Algorithms",
+      "11.3.3 Euclid\u2019s Subtraction Algorithm",
+      "11.3.4 \u0100ryabha\u1e6da\u2019s Division Algorithm"
+    ],
+    "exercises": [],
+    "theorems": [],
+    "examples": []
+  },
+  "Chapter 12": {
+    "file": "public/9/class9_maths/pt2\\iemh204.pdf",
+    "pages": 34,
+    "first_lines": [
+      "12",
+      "Quadrilaterals",
+      "Quadrilaterals, which we also call 4-gons, occur everywhere in daily",
+      "life. For example, we often see flooring made of square tiles. We say that",
+      "the floor has been \u2018tiled\u2019 using those squares.",
+      "Think and Reflect"
+    ],
+    "sections": [
+      "12.1 What Exactly is a Quadrilateral?",
+      "12.2 Parallelograms",
+      "12.3 Applications of Parallelograms",
+      "12.3.1 An Important Property of Triangles",
+      "12.3.2 A Surprising Property of Medians",
+      "12.4 Tiling the Plane Using Any 4-gon"
+    ],
+    "exercises": [],
+    "theorems": [],
+    "examples": []
+  },
+  "Chapter 13": {
+    "file": "public/9/class9_maths/pt2\\iemh205.pdf",
+    "pages": 38,
+    "first_lines": [
+      "13",
+      "Two Variables, One Line",
+      "In Chapter 2 of Ganita Manjari, Part I, we explored linear patterns and",
+      "learnt about linear polynomials. In this chapter, we will go a step further",
+      "in exploring linear equations in two variables, by learning how to solve",
+      "a pair of linear equations."
+    ],
+    "sections": [
+      "13.1 L e t V",
+      "13.1.1 Standard Form of Linear Equations in Two Variables",
+      "13.2 Solution of Linear Equation in Two Variables",
+      "13.2.1 Algebraic Meaning of Solution",
+      "13.2.2 Geometric Visualisation of Solutions",
+      "13.3 Slope-intercept form of a Linear Equation",
+      "13.3.1 Understanding Slope",
+      "13.3.2 Slope-Intercept Form",
+      "13.4. Pair of Linear Equations in Two Variables",
+      "13.5 Finding Solutions to a Pair of Linear Equations",
+      "13.5.1 Algebraic Methods for Solving a Pair of Linear Equations",
+      "13.6 Graphical Method for Solving A Pair of Linear"
+    ],
+    "exercises": [],
+    "theorems": [],
+    "examples": [
+      "Example 1",
+      "Example 10",
+      "Example 11",
+      "Example 12",
+      "Example 13",
+      "Example 2",
+      "Example 3",
+      "Example 4",
+      "Example 5",
+      "Example 6",
+      "Example 7",
+      "Example 8",
+      "Example 9"
+    ]
+  },
+  "Chapter 14": {
+    "file": "public/9/class9_maths/pt2\\iemh206.pdf",
+    "pages": 42,
+    "first_lines": [
+      "Math of Space:",
+      "14",
+      "Surface Area and Volume",
+      "In the previous grade we explored nets of some solids including cubes,",
+      "cylinders, and cones. We saw that solids have a surface and occupy",
+      "some space or volume. In this chapter, we will learn how to determine"
+    ],
+    "sections": [
+      "14.1 Cuboids and Cubes",
+      "14.2 Right Circular Cylinder",
+      "14.2.1 Another Way of Understanding Why the",
+      "3.5 cm radius? You may take \u03c0 = .",
+      "14.3 Cones",
+      "14.4 Pyramidal Shapes",
+      "14.5 Spheres and Hemispheres",
+      "14.5.1 Hands-on Activity to Verify the Formula for Surface",
+      "14.5.2 Hemisphere",
+      "14.6 Areas and Volumes Around Us",
+      "14.6.1 Guesstimates: Did You Ever Wonder?",
+      "8.5 18"
+    ],
+    "exercises": [],
+    "theorems": [],
+    "examples": [
+      "Example 1",
+      "Example 2",
+      "Example 3",
+      "Example 4",
+      "Example 5",
+      "Example 6"
+    ]
+  }
+}

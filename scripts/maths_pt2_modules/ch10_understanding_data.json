@@ -1,0 +1,410 @@
+[
+  {
+    "curriculum_id": "371d932e-e821-45ad-bb65-3a53ba0ade31",
+    "order_index": 1,
+    "title": "The Mathematics of Combining: Average of Averages & Weighted Mean Invariants",
+    "estimated_minutes": 25,
+    "class_level": "Class 9",
+    "board": "CBSE",
+    "description": "Examine the common fallacy of averaging averages without weighting by sample size. Formulate the rigorous weighted mean theorem, master proportional weighting when combining subgroups of unequal sizes, and apply to athletic cohorts, academic grading, and demographic metrics.",
+    "key_concepts": [
+      "The Fallacy of Averaging Averages: Taking the simple arithmetic mean of subgroup averages (x̄₁ + x̄₂)/2 is mathematically invalid unless subgroup sample sizes n₁ and n₂ are identical",
+      "Weighted Mean Definition: x̄_w = (∑ wᵢ xᵢ) / (∑ wᵢ), where each value xᵢ is weighted by its frequency or importance wᵢ",
+      "Subgroup Size as Natural Weight: When combining k groups with counts n₁, n₂, ..., nₖ and means x̄₁, x̄₂, ..., x̄ₖ, the pooled grand mean is x̄ = (n₁x̄₁ + n₂x̄₂ + ··· + nₖx̄ₖ) / (n₁ + n₂ + ··· + nₖ)",
+      "Total Sum Invariant: The numerator n₁x̄₁ + n₂x̄₂ equals the true aggregate sum of all raw measurements in the combined population",
+      "Boundedness Invariant: The grand weighted mean must strictly lie between the minimum subgroup mean and the maximum subgroup mean: min(x̄ᵢ) ≤ x̄_w ≤ max(x̄ᵢ)"
+    ],
+    "subtopics": [
+      "Why simple averages fail when subgroup sizes differ",
+      "Derivation of the pooled mean formula from raw sum invariants",
+      "Worked Example 1: Badminton academy student heights",
+      "Worked Example 2: Jaspreet's multi-stage examination performance",
+      "Properties of weights: Scaling invariance and normalization"
+    ],
+    "success_criteria": [
+      "Calculate the true pooled grand mean for two or more groups with unequal counts",
+      "Identify and correct the fallacy of taking a simple average of averages",
+      "Demonstrate algebraically why the weighted mean is invariant under uniform weight scaling"
+    ],
+    "chapter_notes": "# Chapter 10: How Quantities Combine: Understanding Data\n## Module 1: Average of Averages & Weighted Mean Invariants\n\n### 1. The Trap of Averaging Averages\nSuppose Group A has 10 students with an average score of $80\\%$, and Group B has only 2 students with an average score of $50\\%$.  \nIf we calculate the simple average of the two group averages:\n$$\\frac{80 + 50}{2} = 65\\% \\quad \\text{(FALSE!)}$$\nThis is completely misleading because the high score of $80\\%$ belongs to **10 students**, while the low score of $50\\%$ belongs to only **2 students**. The 10 students contribute far more to the total marks than the 2 students!\n\n### 2. The True Pooled Mean\nTo find the correct overall mean, we must sum the total marks of all $10 + 2 = 12$ students:\n$$\\text{Total Marks} = (10 \\times 80) + (2 \\times 50) = 800 + 100 = 900$$\n$$\\bar{x} = \\frac{900}{12} = 75\\%$$\nNotice that $75\\%$ is much closer to $80\\%$ than $65\\%$ was, correctly reflecting the larger size of Group A!\n\n### 3. General Weighted Mean Formula\nFor data values $x_1, x_2, \\dots, x_k$ with corresponding weights $w_1, w_2, \\dots, w_k$:\n$$\\bar{x}_w = \\frac{\\sum_{i=1}^k w_i x_i}{\\sum_{i=1}^k w_i} = \\frac{w_1 x_1 + w_2 x_2 + \\cdots + w_k x_k}{w_1 + w_2 + \\cdots + w_k}$$\n\n- **Scaling Invariance:** If every weight $w_i$ is multiplied by a positive constant $c$, the weighted mean $\\bar{x}_w$ remains **completely unchanged**:\n  $$\\frac{\\sum (c w_i) x_i}{\\sum (c w_i)} = \\frac{c \\sum w_i x_i}{c \\sum w_i} = \\bar{x}_w$$\n",
+    "worked_examples": [
+      {
+        "problem": "Example 1 (NCERT): In a badminton academy, Group 1 has 8 students with an average height of 165.5 cm. Group 2 has 4 students with an average height of 149.33 cm. Find the overall average height of all 12 students in the academy.",
+        "solution": "GIVEN:\nGroup 1: Number of students n₁ = 8, Average height x̄₁ = 165.5 cm\nGroup 2: Number of students n₂ = 4, Average height x̄₂ = 149.33 cm\nTotal students n = n₁ + n₂ = 8 + 4 = 12\n\nTO FIND:\nOverall pooled average height x̄.\n\nFORMULA USED:\nx̄ = (n₁x̄₁ + n₂x̄₂) / (n₁ + n₂)\n\nSTEP-BY-STEP CALCULATION:\nStep 1: Compute total height of Group 1:\nTotal Height₁ = n₁ × x̄₁ = 8 × 165.5 cm = 1324.0 cm\n\nStep 2: Compute total height of Group 2:\nTotal Height₂ = n₂ × x̄₂ = 4 × 149.33 cm = 597.32 cm\n\nStep 3: Compute aggregate height of all 12 students:\nTotal Height = 1324.0 + 597.32 = 1921.32 cm\n\nStep 4: Divide by total student count:\nx̄ = 1921.32 / 12 = 160.11 cm.\n\n[ROUGH_WORK]\nNotice: Simple average would be (165.5 + 149.33)/2 = 157.42 cm (Too low, because Group 1 has twice as many students!). Correct weighted mean = 160.11 cm.\nBoxed Answer: [ 160.11 cm ].",
+        "concept_questions": [
+          "Why is the true average closer to 165.5 cm than to 149.33 cm?",
+          "What would the average be if both groups had 8 students?"
+        ]
+      },
+      {
+        "problem": "Example 2 (NCERT): Jaspreet appeared for a series of mathematics tests. In the first 6 tests, her average score was 64. In the next 3 tests, her average score was 79. In the final 2 tests, her average score was 90. Find her grand overall average score across all tests.",
+        "solution": "GIVEN:\nPhase 1: n₁ = 6 tests, average score x̄₁ = 64\nPhase 2: n₂ = 3 tests, average score x̄₂ = 79\nPhase 3: n₃ = 2 tests, average score x̄₃ = 90\nTotal tests n = 6 + 3 + 2 = 11 tests.\n\nTO FIND:\nGrand overall average score x̄.\n\nFORMULA USED:\nx̄ = (n₁x̄₁ + n₂x̄₂ + n₃x̄₃) / (n₁ + n₂ + n₃)\n\nSTEP-BY-STEP CALCULATION:\nStep 1: Compute total score in each phase:\nPhase 1 Total = 6 × 64 = 384\nPhase 2 Total = 3 × 79 = 237\nPhase 3 Total = 2 × 90 = 180\n\nStep 2: Compute aggregate score across all 11 tests:\nTotal Marks = 384 + 237 + 180 = 801\n\nStep 3: Calculate grand weighted mean:\nx̄ = 801 / 11 = 72.8181... ≈ 72.82.\n\n[ROUGH_WORK]\n801 ÷ 11: 11 × 72 = 792. Remainder = 9. 9/11 = 0.8181... ⇒ 72.82.\nBoxed Answer: [ 72.82 ].",
+        "concept_questions": [
+          "Did Jaspreet's performance improve over time?",
+          "What weight did the final two tests have compared to the first six tests?"
+        ]
+      }
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Final-Term",
+      "image_search_query": "weighted average balance beam fulcrum physics mathematics diagram",
+      "video_search_query": "weighted mean average of averages class 9 maths",
+      "concept_questions": [
+        "Under what exact condition is the simple average of averages equal to the weighted average?",
+        "If group A has 30 students with average 70 and group B has 10 students with average 90, which average does the pooled mean lie closer to?",
+        "If all weights in a weighted average calculation are multiplied by 5, what happens to the resulting average?",
+        "Can a weighted average ever be higher than the highest individual value?"
+      ]
+    },
+    "common_misconceptions": [
+      {
+        "misconception": "Averaging percentages or averages directly by summing them and dividing by the number of categories.",
+        "correction": "You must always multiply each average by the total number of items (or weight) in that group before summing and dividing by the total weight."
+      },
+      {
+        "misconception": "Believing that doubling all weights doubles the weighted average.",
+        "correction": "Weights represent relative proportions. Multiplying all weights by a constant multiplies both numerator and denominator by that constant, canceling out completely."
+      }
+    ],
+    "quiz_questions": [
+      {
+        "question": "A class has 20 boys with an average score of 80 and 10 girls with an average score of 50. What is the overall class average?",
+        "options": [
+          "(Recommended) 70",
+          "65",
+          "75",
+          "60"
+        ],
+        "correct_index": 0,
+        "explanation": "Total score = (20 × 80) + (10 × 50) = 1600 + 500 = 2100. Overall average = 2100 / (20 + 10) = 2100 / 30 = 70."
+      },
+      {
+        "question": "If you calculate the simple average of two group averages (80 and 50) as (80 + 50)/2 = 65, under what condition is this 65 mathematically correct?",
+        "options": [
+          "(Recommended) Only when both groups contain the exact same number of students.",
+          "Whenever the groups are from the same school.",
+          "Always, averages can always be averaged.",
+          "Never, it is always invalid."
+        ],
+        "correct_index": 0,
+        "explanation": "The simple average of group averages is valid if and only if both groups have identical sizes (n₁ = n₂), making both weights equal."
+      }
+    ]
+  },
+  {
+    "curriculum_id": "371d932e-e821-45ad-bb65-3a53ba0ade31",
+    "order_index": 2,
+    "title": "Mixtures, Concentration Mathematics & Custom Weighting Systems",
+    "estimated_minutes": 25,
+    "class_level": "Class 9",
+    "board": "CBSE",
+    "description": "Apply weighted average principles to physical mixtures, liquid concentrations, and alloy metallurgy. Master the Rule of Alligation, volume-concentration products, and custom rubric weighting used in board examination grading schemes.",
+    "key_concepts": [
+      "Concentration Definition: Percentage or fraction of pure solute relative to total solution volume: C = (Volume of Solute) / (Total Volume)",
+      "Conservation of Solute: In mixing two solutions of volumes V₁ and V₂ with concentrations C₁ and C₂, total solute is C₁V₁ + C₂V₂",
+      "Combined Concentration Formula: C_final = (C₁V₁ + C₂V₂) / (V₁ + V₂), which is precisely a weighted average of concentrations with volumes as weights",
+      "Rule of Alligation: The ratio of volumes V₁ : V₂ required to obtain a desired intermediate concentration C_target is (C₂ - C_target) : (C_target - C₁)",
+      "Custom Weights in Grading: Assigning non-sample-size weights reflecting institutional importance: Final Grade = ∑(Weight × Component Score)"
+    ],
+    "subtopics": [
+      "Combining equal vs unequal volumes of lemonade and sugar solutions",
+      "Worked Example 3 & 4: Lemonade jaggery concentration",
+      "Worked Example 5: Brass alloy copper and zinc proportions",
+      "Worked Example 6: Rehmat's weighted course evaluation",
+      "Derivation of the Rule of Alligation from the linear equation of mixture balance"
+    ],
+    "success_criteria": [
+      "Determine the resultant concentration when mixing multiple solutions with different strengths and volumes",
+      "Use the Rule of Alligation to determine the exact mixing ratio of two components to achieve a target concentration",
+      "Calculate composite academic scores using custom percentage weighting rubrics"
+    ],
+    "chapter_notes": "# Chapter 10: How Quantities Combine: Understanding Data\n## Module 2: Mixtures, Concentration Mathematics & Custom Weighting\n\n### 1. Liquid Mixtures as Weighted Averages\nWhen we mix two solutions, their volumes act as the **weights**, and their percentage concentrations act as the **values**:\n$$\\text{Solute in Solution 1} = C_1 \\times V_1$$\n$$\\text{Solute in Solution 2} = C_2 \\times V_2$$\n$$\\text{Total Solute} = C_1 V_1 + C_2 V_2$$\n$$\\text{Total Volume} = V_1 + V_2$$\n\n$$\\text{Final Concentration } C_{\\text{final}} = \\frac{C_1 V_1 + C_2 V_2}{V_1 + V_2}$$\n\n---\n\n### 2. The Rule of Alligation (Ratio of Mixing)\nSuppose we want to mix solution 1 (concentration $C_1$) with solution 2 (concentration $C_2$, where $C_2 > C_1$) to obtain an exact target concentration $C_{\\text{target}}$.\n$$C_{\\text{target}} (V_1 + V_2) = C_1 V_1 + C_2 V_2$$\n$$C_{\\text{target}} V_1 + C_{\\text{target}} V_2 = C_1 V_1 + C_2 V_2$$\n$$(C_2 - C_{\\text{target}}) V_2 = (C_{\\text{target}} - C_1) V_1$$\n\n$$\\frac{V_1}{V_2} = \\frac{C_2 - C_{\\text{target}}}{C_{\\text{target}} - C_1}$$\n\nThis powerful cross-difference ratio allows instant determination of mixture proportions!\n",
+    "worked_examples": [
+      {
+        "problem": "Example 4 (NCERT): A bowl of 500 mL lemonade has 10% jaggery. A glass of 250 mL lemonade with 16% jaggery is added to the bowl. Find the percentage concentration of jaggery in the final mixture.",
+        "solution": "GIVEN:\nBowl: Volume V₁ = 500 mL, Jaggery concentration C₁ = 10% = 0.10\nGlass: Volume V₂ = 250 mL, Jaggery concentration C₂ = 16% = 0.16\nTotal Volume V = V₁ + V₂ = 500 + 250 = 750 mL.\n\nTO FIND:\nFinal concentration C_final.\n\nFORMULA USED:\nC_final = (C₁V₁ + C₂V₂) / (V₁ + V₂)\n\nSTEP-BY-STEP CALCULATION:\nStep 1: Compute pure jaggery content in the bowl:\nJaggery₁ = 500 mL × 0.10 = 50 mL\n\nStep 2: Compute pure jaggery content in the glass:\nJaggery₂ = 250 mL × 0.16 = 40 mL\n\nStep 3: Total pure jaggery in combined mixture:\nTotal Jaggery = 50 mL + 40 mL = 90 mL\n\nStep 4: Compute final percentage concentration:\nC_final = (90 mL / 750 mL) × 100%\nC_final = (9 / 75) × 100% = (3 / 25) × 100% = 3 × 4% = 12%.\n\n[ROUGH_WORK]\nNotice: The volume ratio is 500 : 250 = 2 : 1. The average is pulled twice as close to 10% as to 16%. 10% + (16% - 10%)/3 = 12%.\nBoxed Answer: [ 12% ].",
+        "concept_questions": [
+          "Why is the final concentration 12% and not 13%?",
+          "What would the concentration be if equal volumes (500 mL each) were mixed?"
+        ]
+      },
+      {
+        "problem": "Example 5 (NCERT): Brass is an alloy of copper and zinc. Batch A of brass contains 60% copper, and Batch B contains 70% copper. In what ratio should Batch A and Batch B be melted together to produce a new batch of brass containing 64% copper?",
+        "solution": "GIVEN:\nBatch A Copper percentage C₁ = 60%\nBatch B Copper percentage C₂ = 70%\nDesired target alloy copper percentage C_target = 64%\n\nTO FIND:\nMixing ratio of mass of Batch A to Batch B (m_A : m_B).\n\nMETHOD 1: ALGEBRAIC MIXTURE EQUATION:\nLet mass of Batch A be x and mass of Batch B be y.\nTotal copper = 0.60x + 0.70y.\nTotal alloy mass = x + y.\nDesired concentration = 0.64(x + y).\nSet them equal:\n0.60x + 0.70y = 0.64x + 0.64y\n0.70y - 0.64y = 0.64x - 0.60x\n0.06y = 0.04x\nDivide both sides by 0.02:\n3y = 2x\nx / y = 3 / 2.\n\nMETHOD 2: RULE OF ALLIGATION:\nDifference for A: |C_target - C₁| = |64 - 60| = 4\nDifference for B: |C₂ - C_target| = |70 - 64| = 6\nRatio m_A : m_B = (C₂ - C_target) : (C_target - C₁) = 6 : 4 = 3 : 2.\n\n[ROUGH_WORK]\n60% ------- 4 ------- 64% ------- 6 ------- 70%\nCross-ratio: 6 parts of Batch A to 4 parts of Batch B = 3 : 2.\nBoxed Answer: [ 3 : 2 (Batch A to Batch B) ].",
+        "concept_questions": [
+          "Why does 64% require more of Batch A than Batch B?",
+          "If the target were 65%, what would the ratio be?"
+        ]
+      },
+      {
+        "problem": "Example 6 (NCERT): Rehmat's marks in Mathematics are as follows: 60% in internal assessments, 75% in the mid-term examination, and 80% in the final examination. The school assigns custom weights of 20% for internal assessments, 30% for mid-term, and 50% for final examination. Find Rehmat's final composite percentage in Mathematics.",
+        "solution": "GIVEN:\nInternal Assessment: Score x₁ = 60%, Weight w₁ = 20% = 0.20\nMid-Term Examination: Score x₂ = 75%, Weight w₂ = 30% = 0.30\nFinal Examination: Score x₃ = 80%, Weight w₃ = 50% = 0.50\nTotal Weight = 20% + 30% + 50% = 100% = 1.0\n\nTO FIND:\nFinal composite weighted score x̄_w.\n\nFORMULA USED:\nx̄_w = (w₁x₁ + w₂x₂ + w₃x₃) / (w₁ + w₂ + w₃)\n\nSTEP-BY-STEP CALCULATION:\nStep 1: Compute contribution from each component:\nInternal contribution = 60 × 0.20 = 12.0 marks\nMid-Term contribution = 75 × 0.30 = 22.5 marks\nFinal Exam contribution = 80 × 0.50 = 40.0 marks\n\nStep 2: Sum the weighted contributions:\nx̄_w = 12.0 + 22.5 + 40.0 = 74.5%.\n\n[ROUGH_WORK]\nNotice: The simple average would be (60 + 75 + 80)/3 = 215/3 = 71.67%. Because Rehmat scored best (80%) in the component with highest weight (50%), his final grade is 74.5%, higher than the simple mean!\nBoxed Answer: [ 74.5% ].",
+        "concept_questions": [
+          "Why is 74.5% higher than the unweighted average 71.67%?",
+          "What would his score be if internal was weighted 50% and final 20%?"
+        ]
+      }
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Final-Term",
+      "image_search_query": "alligation cross method mixture concentration diagram chemistry mathematics",
+      "video_search_query": "rule of alligation mixture problems class 9",
+      "concept_questions": [
+        "How is the Rule of Alligation derived from the conservation of solute?",
+        "If you mix equal volumes of 20% acid and 40% acid, what is the concentration?",
+        "In custom weighting, why must the sum of weights typically equal 100% or 1?",
+        "What happens to a student's final grade if they perform best in the lowest-weighted test?"
+      ]
+    },
+    "common_misconceptions": [
+      {
+        "misconception": "Thinking that mixing equal volumes always gives the arithmetic mean of percentages, but unequal volumes do too.",
+        "correction": "Unequal volumes pull the concentration toward the larger volume in exact proportion to the volume ratio."
+      },
+      {
+        "misconception": "Inverting the alligation ratio.",
+        "correction": "The difference between the higher concentration and target gives the parts of the LOWER concentration component, and vice versa."
+      }
+    ],
+    "quiz_questions": [
+      {
+        "question": "In what ratio should 10% saline solution be mixed with 30% saline solution to create a 25% saline solution?",
+        "options": [
+          "(Recommended) 1 : 3",
+          "3 : 1",
+          "1 : 2",
+          "2 : 3"
+        ],
+        "correct_index": 0,
+        "explanation": "By Alligation: |30 - 25| = 5 parts of 10% solution; |25 - 10| = 15 parts of 30% solution. Ratio = 5 : 15 = 1 : 3."
+      },
+      {
+        "question": "If test A has weight 40% and test B has weight 60%, and a student scores 90 on A and 70 on B, what is the weighted score?",
+        "options": [
+          "(Recommended) 78",
+          "80",
+          "75",
+          "82"
+        ],
+        "correct_index": 0,
+        "explanation": "Weighted score = (90 × 0.40) + (70 × 0.60) = 36 + 42 = 78."
+      }
+    ]
+  },
+  {
+    "curriculum_id": "371d932e-e821-45ad-bb65-3a53ba0ade31",
+    "order_index": 3,
+    "title": "Visual Data Systems: 100% Stacked Bar Charts vs Pie Charts & Proportion Comparisons",
+    "estimated_minutes": 25,
+    "class_level": "Class 9",
+    "board": "CBSE",
+    "description": "Analyze multi-category comparative data using 100% Stacked Bar Charts, Clustered Columns, and Pie Charts (Fig. 10.1 to Fig. 10.6). Understand perceptual cognitive limitations in angular judgment versus linear segment alignment, and interpret category-wise consumption trends across diverse households.",
+    "key_concepts": [
+      "Clustered Column Chart (Fig. 10.1): Groups bars by category or household, effective for comparing absolute amounts but cluttered for cross-proportions",
+      "100% Stacked Bar Chart (Fig. 10.2): Standardizes each bar to 100% total height, segmenting by percentage contribution of each category",
+      "Perceptual Advantage of Stacked Bars over Pie Charts: Human vision perceives length differences along a common aligned scale far more accurately than central sector angles",
+      "Comparison of Multiple Distributions: Multiple pie charts (Fig. 10.3) require scanning across circular centers; stacked bars align categories in parallel horizontal strips for instant visual trend detection",
+      "Absolute vs Relative Interpretation: A category may represent a higher percentage in a smaller household, yet have a lower absolute consumption in kilowatt-hours or rupees"
+    ],
+    "subtopics": [
+      "Interpreting Table 10.2: Family electricity consumption data",
+      "Clustered columns vs Stacked bars (Fig. 10.1 & Fig. 10.2)",
+      "Why pie charts struggle with multi-group comparison (Fig. 10.3)",
+      "Worked Examples 7, 8, and 9 from NCERT",
+      "Reading 100% stacked bar proportions and calculating implied absolute values"
+    ],
+    "success_criteria": [
+      "Accurately read and compute category percentages from a 100% stacked bar chart",
+      "Distinguish between percentage share (relative) and total expenditure/consumption (absolute)",
+      "Justify why stacked bar charts provide superior readability compared to arrays of pie charts"
+    ],
+    "chapter_notes": "# Chapter 10: How Quantities Combine: Understanding Data\n## Module 3: 100% Stacked Bar Charts vs Pie Charts\n\n### 1. The Challenge of Comparing Multiple Distributions\nWhen comparing how different entities (e.g. four families A, B, C, D) divide their resources among several categories (Food, Rent, Electricity, Transport):\n- **Clustered Bar Chart:** Bars are placed side-by-side. Good for absolute numbers, but makes it hard to compare overall shares.\n- **Multiple Pie Charts:** Each family gets a separate circle. However, comparing slice angles across different circles is difficult for the human eye!\n- **100% Stacked Bar Chart:** Each bar represents a family, scaled to a uniform $100\\%$ height. Sub-segments represent the percentage share of each category.\n\n### 2. Cognitive Principles in Data Visualization\n- **Angle vs Length:** Psychology experiments show that humans estimate linear lengths with $< 3\\%$ error, but estimate angles and areas with $15 - 25\\%$ error.\n- **Common Baseline:** The lowest segment in a stacked bar chart shares a flat common baseline, making it trivial to compare. Middle segments can be compared by observing strip thicknesses.\n",
+    "worked_examples": [
+      {
+        "problem": "Example 7 & 8 (NCERT, Refer to Fig. 10.1 & Fig. 10.2): Table 10.2 shows the category-wise monthly electricity consumption (in kWh) for Families A, B, and C: Lighting (A: 40, B: 60, C: 50), Refrigeration (A: 60, B: 90, C: 100), Air Conditioning (A: 100, B: 150, C: 250). (i) Compute the total consumption for each family. (ii) Compute the percentage share of Air Conditioning for each family. (iii) Which visualization (Clustered or 100% Stacked Bar) best displays who devotes the greatest budget proportion to Air Conditioning?",
+        "figure_path": "/extracted_diagrams/math9_ch10/fig_10_2.webp",
+        "solution": "GIVEN:\nElectricity consumption (kWh):\nFamily A: Lighting = 40, Refrigeration = 60, AC = 100\nFamily B: Lighting = 60, Refrigeration = 90, AC = 150\nFamily C: Lighting = 50, Refrigeration = 100, AC = 250\n\nTO COMPUTE & EVALUATE:\n(i) Total consumption for each family.\n(ii) Percentage share of AC for each family.\n(iii) Visual comparison evaluation.\n\nSTEP-BY-STEP CALCULATION:\nStep 1: Compute totals:\nTotal A = 40 + 60 + 100 = 200 kWh\nTotal B = 60 + 90 + 150 = 300 kWh\nTotal C = 50 + 100 + 250 = 400 kWh\n\nStep 2: Compute AC percentage shares:\nFamily A: AC % = (100 / 200) × 100% = 50.0%\nFamily B: AC % = (150 / 300) × 100% = 50.0%\nFamily C: AC % = (250 / 400) × 100% = (25 / 40) × 100% = 62.5%\n\nStep 3: Visual comparison evaluation:\nIn Fig. 10.1 (Clustered columns), AC bars are 100, 150, and 250 kWh, which shows absolute usage increasing, but masks the fact that Family A and Family B have the EXACT SAME proportional reliance on AC (50%).\nIn Fig. 10.2 (100% Stacked Bar Chart), each column is normalized to 100%. One can instantly see that Family A and B have identical 50% top blocks, while Family C devotes an even larger fraction (62.5%) of its total power to AC.\n\n[ROUGH_WORK]\nTotal A = 200 kWh, Total B = 300 kWh, Total C = 400 kWh. Shares: A: 50%, B: 50%, C: 62.5%. Stacked bar makes proportions crystal clear!\nBoxed Answer: [ (i) A: 200 kWh, B: 300 kWh, C: 400 kWh; (ii) A: 50%, B: 50%, C: 62.5%; (iii) 100% Stacked Bar Chart (Fig. 10.2) ].",
+        "concept_questions": [
+          "Does Family C using the most kWh automatically mean they have the highest AC percentage?",
+          "Why is the percentage for A and B both 50% even though B used 50 kWh more?"
+        ]
+      }
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Final-Term",
+      "image_search_query": "100 percent stacked bar chart vs clustered column chart data visualization",
+      "video_search_query": "stacked bar charts vs pie charts class 9 statistics",
+      "concept_questions": [
+        "Why is it difficult to compare slices across four separate pie charts?",
+        "What information is lost when raw values are converted to a 100% stacked bar chart?",
+        "How can one recover the absolute values from a 100% stacked bar chart?",
+        "Which category in a stacked bar chart is easiest to compare across groups?"
+      ]
+    },
+    "common_misconceptions": [
+      {
+        "misconception": "Confusing absolute values with percentage shares on a 100% stacked bar chart.",
+        "correction": "A larger block in a 100% stacked bar chart means a higher percentage share of that group's total, not necessarily a larger absolute quantity."
+      }
+    ],
+    "quiz_questions": [
+      {
+        "question": "What is the primary advantage of a 100% Stacked Bar Chart over multiple Pie Charts?",
+        "options": [
+          "(Recommended) Enables easy linear length comparison of category proportions along a parallel aligned axis.",
+          "It displays 3D spherical projections.",
+          "It only works with financial data.",
+          "It eliminates the need for any percentages."
+        ],
+        "correct_index": 0,
+        "explanation": "Human visual perception is much more accurate at judging linear segment lengths along a parallel grid than judging circular angles across separate pie charts."
+      }
+    ]
+  },
+  {
+    "curriculum_id": "371d932e-e821-45ad-bb65-3a53ba0ade31",
+    "order_index": 4,
+    "title": "Exercise Solver Part 1: Weighted Averages, Sports Statistics & Mixture Proportion Problems",
+    "estimated_minutes": 25,
+    "class_level": "Class 9",
+    "board": "CBSE",
+    "description": "Solve Chapter 10 Exercises 1 through 8 with full board topper layouts. Calculate cricket batting averages across formats, combined examination scores with section weights, milk-water dilution ratios, and consumer basket index calculations.",
+    "key_concepts": [
+      "Sports Batting Average Invariant: Overall batting average is total runs scored divided by total completed innings, NOT the average of match averages",
+      "Multi-Section Examination Consolidation: Combining scores across classroom sections with different student populations",
+      "Dilution and Concentration Invariants: Adding pure water (0% concentration) or pure solute (100% concentration) to an existing solution",
+      "Price Index Weighting: Weighted average of commodity price relatives weighted by household consumption quantities"
+    ],
+    "subtopics": [
+      "Full solutions to Exercises 1, 2, 3, and 4",
+      "Full solutions to Exercises 5, 6, 7, and 8",
+      "Step-by-step layout with [ROUGH_WORK] and units verification"
+    ],
+    "success_criteria": [
+      "Solve multi-stage cricket and academic average problems without falling for the simple mean fallacy",
+      "Calculate dilution concentrations when solvent is added to a solution",
+      "Compute weighted indices for consumer price baskets"
+    ],
+    "chapter_notes": "# Chapter 10: How Quantities Combine: Understanding Data\n## Module 4: Exercise Solver Part 1\n\n### Key Problem Archetypes:\n1. **Sports Batting Averages:**\n   $$\\text{Grand Average} = \\frac{\\text{Total Runs}}{\\text{Total Dismissals}} = \\frac{n_1 \\bar{x}_1 + n_2 \\bar{x}_2}{n_1 + n_2}$$\n2. **Dilution with Pure Water:**\n   Pure water has $0\\%$ solute concentration. If $V_w$ of water is added to volume $V_1$ of concentration $C_1$:\n   $$C_{\\text{new}} = \\frac{C_1 V_1 + 0 \\times V_w}{V_1 + V_w} = \\frac{C_1 V_1}{V_1 + V_w}$$\n",
+    "worked_examples": [
+      {
+        "problem": "Chapter 10, Exercise 1: A cricket batsman has an average of 45 runs in 18 matches played in Home conditions, and an average of 30 runs in 12 matches played in Away conditions. Find his overall batting average across all 30 matches.",
+        "solution": "GIVEN:\nHome matches: n₁ = 18, Average score x̄₁ = 45 runs\nAway matches: n₂ = 12, Average score x̄₂ = 30 runs\nTotal matches n = 18 + 12 = 30 matches.\n\nTO FIND:\nOverall batting average x̄.\n\nFORMULA USED:\nx̄ = (n₁x̄₁ + n₂x̄₂) / (n₁ + n₂)\n\nSTEP-BY-STEP CALCULATION:\nStep 1: Compute total runs scored in Home matches:\nTotal Runs₁ = 18 × 45 = 810 runs\n\nStep 2: Compute total runs scored in Away matches:\nTotal Runs₂ = 12 × 30 = 360 runs\n\nStep 3: Compute aggregate runs across all matches:\nTotal Runs = 810 + 360 = 1170 runs\n\nStep 4: Divide by total matches:\nx̄ = 1170 / 30 = 117 / 3 = 39 runs.\n\n[ROUGH_WORK]\n18 × 45 = 18 × (40 + 5) = 720 + 90 = 810.\n12 × 30 = 360.\n810 + 360 = 1170. 1170 / 30 = 39. Notice: (45 + 30)/2 = 37.5 (Incorrect). 39 is correct!\nBoxed Answer: [ 39 runs ].",
+        "concept_questions": [
+          "Why is the true average 39 and not 37.5?",
+          "How many runs would he need in match 31 to bring his average to 40?"
+        ]
+      },
+      {
+        "problem": "Chapter 10, Exercise 4: A 20-litre container holds a solution of 15% acid. How many litres of pure water must be added to dilute the solution to a 10% acid solution?",
+        "solution": "GIVEN:\nInitial volume V₁ = 20 L\nInitial concentration C₁ = 15% = 0.15\nAdded water volume = x L\nConcentration of pure water C₂ = 0%\nTarget concentration C_target = 10% = 0.10\nTotal final volume V = 20 + x L\n\nTO FIND:\nVolume of water x (in litres).\n\nSTEP-BY-STEP CALCULATION:\nStep 1: Compute pure acid present initially:\nPure Acid = 20 L × 0.15 = 3.0 L\n\nStep 2: Formulate equation of conservation of acid:\nSince adding water adds 0 litres of acid, the final 3.0 L of acid must equal 10% of the new total volume (20 + x):\n0.10 × (20 + x) = 3.0\n\nStep 3: Solve for x:\n20 + x = 3.0 / 0.10\n20 + x = 30\nx = 30 - 20\nx = 10 L.\n\n[ROUGH_WORK]\nCheck: Total volume = 20 + 10 = 30 L. Pure acid = 3 L. Concentration = 3 / 30 = 10%. Perfect match!\nBoxed Answer: [ 10 L of pure water ].",
+        "concept_questions": [
+          "Why is the concentration of pure water taken as 0%?",
+          "What would happen if 100% concentrated acid were added instead?"
+        ]
+      }
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Final-Term",
+      "image_search_query": "dilution of acid solution beaker concentration math diagram",
+      "video_search_query": "dilution problems weighted average class 9",
+      "concept_questions": [
+        "In a dilution problem, what quantity remains strictly constant?",
+        "Why does adding water decrease percentage concentration but leave solute volume identical?",
+        "How does the Rule of Alligation verify x = 10 L in the dilution problem?"
+      ]
+    },
+    "common_misconceptions": [
+      {
+        "misconception": "Adding the percentages directly when diluting with water.",
+        "correction": "Water has 0% solute. You must write an equation for the total volume of solute: C_final = (Pure Solute) / (Initial Vol + Added Water)."
+      }
+    ],
+    "quiz_questions": [
+      {
+        "question": "If 10 litres of 20% alcohol solution is mixed with 10 litres of pure water, what is the new concentration?",
+        "options": [
+          "(Recommended) 10%",
+          "15%",
+          "5%",
+          "20%"
+        ],
+        "correct_index": 0,
+        "explanation": "Pure alcohol = 10 × 0.20 = 2 L. Total volume = 10 + 10 = 20 L. New concentration = 2 / 20 = 10%."
+      }
+    ]
+  },
+  {
+    "curriculum_id": "371d932e-e821-45ad-bb65-3a53ba0ade31",
+    "order_index": 5,
+    "title": "Exercise Solver Part 2: Advanced Weighted Means, Algebraic Shift Invariants & Population Dynamics",
+    "estimated_minutes": 25,
+    "class_level": "Class 9",
+    "board": "CBSE",
+    "description": "Solve Chapter 10 advanced problems 9 to 16. Prove algebraically the Weight Shift Invariant (Question 15: increasing all weights by a constant c pulls the weighted average toward the unweighted arithmetic mean), and analyze multi-species population share shifts (Question 16).",
+    "key_concepts": [
+      "Weight Shift Invariant Theorem (Q15): If each weight wᵢ is increased by a constant c > 0 to wᵢ' = wᵢ + c, the new weighted average is a convex combination of the original weighted mean and the unweighted simple mean",
+      "Convergence to Simple Mean: As the constant shift c → ∞, the contribution of individual original weights diminishes, and x̄_w approaches the simple arithmetic mean (1/n)∑ xᵢ",
+      "Population Percentage Dynamics (Q16): When all subgroup populations decrease, their percentage shares depend entirely on the relative rates of decrease, allowing individual percentage shares to rise, fall, or stay constant"
+    ],
+    "subtopics": [
+      "Full algebraic proof of Exercise 15 (Weight shift invariant)",
+      "Full combinatorial analysis of Exercise 16 (Livestock population dynamics)",
+      "Step-by-step solutions to Exercises 9, 10, 11, 12, 13, and 14",
+      "Summary of Chapter 10 core invariants"
+    ],
+    "success_criteria": [
+      "Rigorously prove using algebra that adding c to all weights pulls the average toward the simple mean",
+      "Determine all possible combinations of percentage share changes when overall populations decline",
+      "Solve complex multi-group economic and demographic weighted mean problems"
+    ],
+    "chapter_notes": "# Chapter 10: How Quantities Combine: Understanding Data\n## Module 5: Exercise Solver Part 2\n\n### 1. The Weight Shift Theorem (Exercise 15)\nLet data values be $x_1, x_2, \\dots, x_n$ with positive weights $w_1, w_2, \\dots, w_n$.\nThe original weighted average is:\n$$\\bar{x}_w = \\frac{\\sum w_i x_i}{\\sum w_i}$$\nNow, suppose every weight is increased by a constant $c > 0$:\n$$w_i' = w_i + c$$\nThe new weighted average is:\n$$\\bar{x}_w' = \\frac{\\sum (w_i + c) x_i}{\\sum (w_i + c)} = \\frac{\\sum w_i x_i + c \\sum x_i}{\\sum w_i + n c}$$\n\nLet $W = \\sum w_i$ and $S = \\sum x_i = n \\bar{x}_{\\text{simple}}$. Then:\n$$\\bar{x}_w' = \\frac{W \\bar{x}_w + (n c) \\bar{x}_{\\text{simple}}}{W + n c}$$\n\nThis proves that $\\bar{x}_w'$ is an exact weighted average of the **original weighted mean** $\\bar{x}_w$ and the **unweighted arithmetic mean** $\\bar{x}_{\\text{simple}}$!\n- Therefore, increasing all weights by $c$ **strictly pulls the average toward the unweighted arithmetic mean**!\n\n---\n\n### 2. Multi-Species Population Dynamics (Exercise 16)\nIf cows, sheep, and chickens all decrease in raw numbers, their shares in the total population depend on who decreased by the highest percentage. The species with the smallest percentage decrease will see its **share of the total increase**, even though its own raw count decreased!\n",
+    "worked_examples": [
+      {
+        "problem": "Chapter 10, Exercise 15 (NCERT): Given some data with corresponding weights, what would happen to the weighted average if all the weights are increased by a constant value, say c = 1? Experiment with some data and justify your answer using algebra.",
+        "solution": "GIVEN:\nData values x₁, x₂, ..., xₙ with initial weights w₁, w₂, ..., wₙ.\nEach weight is transformed to wᵢ' = wᵢ + c, where c = 1 (or any positive constant).\n\nTO PROVE / ANALYZE:\nThe mathematical effect on the new weighted average x̄_w'.\n\nSTEP-BY-STEP ALGEBRAIC PROOF:\nStep 1: Write definitions of initial weighted mean and simple mean:\nInitial Weighted Mean: x̄_w = (∑ wᵢ xᵢ) / W, where W = ∑ wᵢ.\nSimple Arithmetic Mean: x̄_s = (∑ xᵢ) / n, so ∑ xᵢ = n · x̄_s.\n\nStep 2: Express the new weighted mean:\nx̄_w' = [ ∑ (wᵢ + c) xᵢ ] / [ ∑ (wᵢ + c) ]\nNumerator = ∑ wᵢ xᵢ + c ∑ xᵢ = W · x̄_w + c (n · x̄_s).\nDenominator = ∑ wᵢ + ∑ c = W + n · c.\n\nStep 3: Combine terms:\nx̄_w' = [ W · x̄_w + (nc) · x̄_s ] / [ W + nc ].\n\nStep 4: Interpret the result:\nNotice that x̄_w' is a weighted average of x̄_w (with weight W) and x̄_s (with weight nc).\n- If x̄_w > x̄_s, then x̄_w' < x̄_w (the average decreases toward x̄_s).\n- If x̄_w < x̄_s, then x̄_w' > x̄_w (the average increases toward x̄_s).\n- If x̄_w = x̄_s, then x̄_w' = x̄_w (remains unchanged).\nConclusion: Increasing all weights by a constant value c strictly pulls the weighted average toward the unweighted simple arithmetic mean.\n\n[ROUGH_WORK]\nNumerical Test: Data = {10, 20}. Weights = {1, 9}. x̄_w = (10 + 180)/10 = 19. Simple mean x̄_s = 15. If we add c = 1 to weights: weights become {2, 10}. New x̄_w' = (20 + 200)/12 = 220/12 = 18.33. Indeed pulled toward 15!\nBoxed Answer: [ The new weighted average is pulled toward the unweighted simple arithmetic mean: x̄_w' = (W · x̄_w + nc · x̄_s) / (W + nc) ].",
+        "concept_questions": [
+          "What happens as c approaches infinity?",
+          "Under what circumstance would the average not change at all?"
+        ]
+      },
+      {
+        "problem": "Chapter 10, Exercise 16 (NCERT): A farm has cows (60%), sheep (25%), and chickens (15%). There was a decrease in the number of all three animals over the year. Which of the following possibilities could occur for the change in their respective percentage shares of the population? (i) All three percentages decreased. (ii) All three percentages increased. (iii) All three percentages remained the same. (iv) % of cows decreased, % of sheep increased, % of chickens remained the same. (v) % of cows increased, % of sheep increased, % of chickens decreased.",
+        "solution": "GIVEN:\nInitial shares: Cows = 60%, Sheep = 25%, Chickens = 15%.\nAll three animal populations experienced a strictly positive numerical decrease.\n\nTO EVALUATE:\nWhich possibilities (i) to (v) are mathematically possible.\n\nSTEP-BY-STEP MATHEMATICAL ANALYSIS:\nKey Invariant: At all times, the sum of all percentage shares MUST equal 100%:\n% Cows + % Sheep + % Chickens = 100%.\n\nEvaluation of Cases:\n- Case (i): 'All three percentages decreased.'\n  If all three decrease, their sum must become < 100%. This violates the fundamental axiom that total shares sum to 100%. IMPOSSIBLE!\n\n- Case (ii): 'All three percentages increased.'\n  If all three increase, their sum must become > 100%. IMPOSSIBLE!\n\n- Case (iii): 'All three percentages remained the same.'\n  If all three populations decreased by the EXACT SAME percentage (e.g. each decreased by 20% of its initial count), their ratios remain identical (60 : 25 : 15). Their percentage shares will remain exactly 60%, 25%, and 15%. POSSIBLE!\n\n- Case (iv): '% of cows decreased, % of sheep increased, % of chickens remained the same.'\n  Example: Suppose Cows drop sharply, Chickens drop by the exact overall average rate, and Sheep drop very little. The increase in Sheep % can exactly offset the decrease in Cows %, keeping Chickens % unchanged. POSSIBLE!\n\n- Case (v): '% of cows increased, % of sheep increased, % of chickens decreased.'\n  Example: Suppose Chickens suffer a catastrophic 90% loss, while Cows and Sheep lose only 1% each. Chickens' share collapses, allowing both Cows' and Sheep's shares to rise. Sum remains 100%. POSSIBLE!\n\n[ROUGH_WORK]\nTotal shares must always sum to 100%. Therefore, it is impossible for all to increase or all to decrease. Cases (iii), (iv), and (v) are all valid!\nBoxed Answer: [ Possibilities (iii), (iv), and (v) are mathematically possible; (i) and (ii) are strictly impossible because sum of shares must remain 100% ].",
+        "concept_questions": [
+          "Can an animal's percentage share increase even while its population is falling?",
+          "What is required for percentage shares to remain unchanged?"
+        ]
+      }
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Final-Term",
+      "image_search_query": "population share percentage pie chart shift statistics diagram",
+      "video_search_query": "weighted mean algebraic properties class 9",
+      "concept_questions": [
+        "Why can't all percentage shares in a population decrease simultaneously?",
+        "If all weights in a dataset are shifted by +5, what does the new weighted average approach?",
+        "How does relative rate of change differ from absolute numerical change?"
+      ]
+    },
+    "common_misconceptions": [
+      {
+        "misconception": "Believing that if an animal population decreases, its percentage share must also decrease.",
+        "correction": "Percentage share is relative to the total. If the total population falls faster than a specific subpopulation, that subpopulation's share will INCREASE."
+      }
+    ],
+    "quiz_questions": [
+      {
+        "question": "Can the percentage shares of all categories in a survey increase at the same time?",
+        "options": [
+          "(Recommended) No, because the sum of all percentage shares must always equal 100%.",
+          "Yes, if the overall sample size decreases.",
+          "Yes, if the population grows rapidly.",
+          "It depends on the standard deviation."
+        ],
+        "correct_index": 0,
+        "explanation": "Because the sum of percentage shares of all exhaustive disjoint categories is identically 100%, if one category's share increases, at least one other must decrease."
+      }
+    ]
+  }
+]
