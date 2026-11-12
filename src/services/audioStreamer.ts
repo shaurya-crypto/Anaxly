@@ -215,12 +215,12 @@ export class AudioStreamer {
       }
     } else {
       this.consecutiveSpeechFrames = 0;
-      const SPEECH_HANGOVER_MS = 2400; // generous 2400ms speech hangover so student natural pauses are not cut off
+      // Human conversational silence hangover: 650ms after speech ends to signal turn transition instantly
+      const SPEECH_HANGOVER_MS = 650;
       if (this.wasSpeechActive && now - this.lastSpeechTime > SPEECH_HANGOVER_MS) {
-        // 1400ms of quiet after confirmed speech -> inform hybrid VAD of speech end
         this.wasSpeechActive = false;
-        // Only trigger speech end if student actually spoke for at least 500ms
-        if (this.lastSpeechTime - this.speechStartTime >= 500) {
+        // Trigger speech end for any genuine speech utterance (>= 120ms), including short affirmations ("yes", "ok", "got it")
+        if (this.lastSpeechTime - this.speechStartTime >= 120) {
           this.onSpeechEnd?.();
         }
       }
