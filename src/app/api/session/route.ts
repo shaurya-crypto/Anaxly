@@ -102,9 +102,9 @@ export async function GET(req: Request) {
     }
 
     const url = new URL(req.url)
-    const disableExtended = url.searchParams.get('extended') === 'false'
-    const liveModel = disableExtended ? 'gemini-3.8-live' : 'gemini-3.8-live-extended-thinking'
-    const thinkingLevel = disableExtended ? undefined : 'high'
+    const useExtended = url.searchParams.get('extended') === 'true'
+    const liveModel = useExtended ? 'gemini-3.8-live-extended-thinking' : 'gemini-3.8-live'
+    const thinkingLevel = useExtended ? 'low' : undefined
 
     // ZERO API KEY EXPOSURE: Return only the temporary ephemeral token with student profile
     return NextResponse.json({

@@ -708,7 +708,7 @@ export default function ModuleClassroomPage() {
   // Google Gemini 3.8 Live Avatar configuration state
   const [avatarConfig, setAvatarConfig] = useState<LiveAvatarConfig | null>(null)
   const simliControllerRef = useRef<SimliAvatarController | null>(null)
-  const saveNotesToSupabaseRef = useRef<((notes: string) => Promise<void>) | null>(null)
+  const saveNotesToSupabaseRef = useRef<((notes: string, forcedStatus?: 'in_progress' | 'completed') => Promise<void>) | null>(null)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -770,14 +770,14 @@ export default function ModuleClassroomPage() {
         })
       }
 
-      // 2. Batch and debounce saves with 12-second idle window to prevent DB overload
+      // 2. Batch and debounce saves with 4-second idle window to persist chalkboard notes promptly
       setNotesSaveStatus('saving')
       if (saveTimeoutRef.current) {
         clearTimeout(saveTimeoutRef.current)
       }
       saveTimeoutRef.current = setTimeout(() => {
         saveNotesToSupabaseRef.current?.(fullNotesContent)
-      }, 12000)
+      }, 4000)
     },
     [userId, moduleId]
   )
@@ -2211,6 +2211,10 @@ export default function ModuleClassroomPage() {
       setNotesSaveStatus('idle')
     }
   }
+  saveNotesToSupabaseRef.current = saveNotesToSupabase
+  useEffect(() => {
+    saveNotesToSupabaseRef.current = saveNotesToSupabase
+  })
 
   // 4. Handle note recorded from chalkboard directives
   const handleNoteRecorded = (note: string) => {
@@ -2871,6 +2875,10 @@ CRITICAL INSTRUCTIONS:
       }
 
       if (userId && moduleId) {
+        const latestBoardNotes = (chalkboardRef.current?.getBoardSummary()?.fullSummary || latestBoardSummary || chapterNotes || '').trim()
+        const isModuleCompleted = updated.length >= keyConcepts.length
+        const targetStatus = isModuleCompleted ? 'completed' : 'in_progress'
+
         const supabase = createClient()
         supabase
           .from('user_progress')
@@ -2881,11 +2889,16 @@ CRITICAL INSTRUCTIONS:
               completed_concepts: updated,
               current_concept_index: matchedIdx,
               last_covered_concept: canonicalConcept,
-              status: updated.length >= keyConcepts.length ? 'completed' : 'in_progress',
+              status: targetStatus,
+              ...(latestBoardNotes ? { chapter_notes: latestBoardNotes } : {}),
             },
             { onConflict: 'user_id,syllabus_module_id' }
           )
           .then(() => {})
+
+        if (latestBoardNotes) {
+          saveNotesToSupabaseRef.current?.(latestBoardNotes, targetStatus)
+        }
       }
     }
 
@@ -3253,8 +3266,8 @@ You are an inspiring topper tutor standing at a live chalkboard.
    - USE CLEAN UNICODE GREEK & VECTORS: Use θ, α, β, γ, Δ, λ, μ, π, ρ, σ, τ, ω, Ω, √, ≈, ≤, ≥, ≠, ±, F⃗, v⃗, a⃗, p⃗, î, ĵ, k̂.
 
 STRICT 6-STAGE CADENCE PER CONCEPT:
-- STAGE 1 [REAL-LIFE INTUITION & PROACTIVE VISUAL]:
-  Introduce a tangible everyday hook (2 sentences).
+- STAGE 1 [REAL-LIFE INTUITION & PROACTIVE VISUAL] (PHASE 1 - INTUITION & GENERATIVE VISUAL):
+  Introduce a tangible everyday hook (2 sentences). NEVER tell the student "I am unable to generate images".
   MANDATORY: Call write_chalkboard(action="draw_note", content="Intuition: <hook>", color="botanical") AND immediately dispatch the appropriate visual tool (search_and_show_image, search_and_show_video, render_svg_diagram, draw_flowchart, or plot_mathematical_graph). Never wait for the student to ask for a visual!
 - STAGE 2 [CONCEPT FORMULATION & SCIENTIFIC LAW]:
   State the exact scientific law, definition, and SI units. Explain what is happening under the hood.
@@ -3262,7 +3275,7 @@ STRICT 6-STAGE CADENCE PER CONCEPT:
 - STAGE 3 [CONCRETE WORKED APPLICATION]:
   Provide an everyday or industrial application addressing common student pitfalls.
   Call write_chalkboard(action="draw_note", content="Example: <concrete application>", color="blue").
-- STAGE 4 [BOARD NUMERICAL / STEP-BY-STEP DERIVATION]:
+- STAGE 4 [BOARD NUMERICAL / STEP-BY-STEP DERIVATION / TUTOR-SOLVED MODEL QUESTION (READ ALOUD & EXPLAIN STEP-BY-STEP)]:
   Lay out the problem clearly:
   * write_chalkboard(action="draw_note", content="Problem: <Question>", color="coral")
   * write_chalkboard(action="draw_step", content="Given: <data with units> | Formula: <equation>", color="amber")
@@ -3409,43 +3422,44 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
           const stringContent = typeof content === 'string' ? content : (content?.content || content?.text || content?.note || (content ? JSON.stringify(content) : ''))
 
           const executeLiveDiagramGeneration = (
-            targetTitle: string,
+            targetConceptTitle: string,
             explicitCaption?: string,
             explicitWhat?: string,
             matchedVisual?: any
           ) => {
+            const matched = matchedVisual
             const vPlan = (activeModule?.visual_lesson_plan as any) || {}
             const isGraph =
-              isLegitimateGraphTopic(targetTitle, resolvedSubject) &&
-              (matchedVisual?.diagram_type === 'graph' || /graph|parabola|function|kinematic/i.test(targetTitle))
+              isLegitimateGraphTopic(targetConceptTitle, resolvedSubject) &&
+              (matchedVisual?.diagram_type === 'graph' || /graph|parabola|function|kinematic/i.test(targetConceptTitle))
             const isAnim =
-              matchedVisual?.visual_type === 'animation' || /wave|current|flow|circuit|motion/i.test(targetTitle)
+              matchedVisual?.visual_type === 'animation' || /wave|current|flow|circuit|motion/i.test(targetConceptTitle)
             const resolvedVisualType = isGraph ? 'graph' : isAnim ? 'animation' : matchedVisual?.diagram_type || 'diagram'
 
-            chalkboardRef.current?.drawDiagramSkeleton?.(targetTitle)
-            setGeneratingDiagramTitle(targetTitle)
+            chalkboardRef.current?.drawDiagramSkeleton?.(targetConceptTitle)
+            setGeneratingDiagramTitle(targetConceptTitle)
             sendBoardContext(
-              `[SYSTEM NOTICE: The digital chalkboard is currently generating the detailed vector diagram for "${targetTitle}" via Live Class Fast Diagram Generation. A skeleton preview placeholder is on the board. Continue explaining the intuitive analogy verbally to the student and inform them the drawing will appear in a few moments.]`
+              `[SYSTEM NOTICE: The digital chalkboard is currently generating the detailed vector diagram for "${targetConceptTitle}" via Live Class Fast Diagram Generation. A skeleton preview placeholder is on the board. Continue explaining the intuitive analogy verbally to the student and inform them the drawing will appear in a few moments.]`
             )
 
             fetch('/api/diagram/generate', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                title: targetTitle,
+                title: targetConceptTitle,
                 subject: resolvedSubject,
                 classLevel: resolvedClassLevel,
-                context: targetTitle,
+                context: targetConceptTitle,
                 existingSvg: matchedVisual?.svg || matchedVisual?.diagram_svg || '',
                 whyNeeded: matchedVisual?.why_needed || '',
                 whatToExplain: matchedVisual?.what_to_explain || explicitCaption || '',
-                whatToMake: explicitWhat || matchedVisual?.what_to_make || '',
+                whatToMake: explicitWhat || matched?.what_to_make || '',
                 refinementPrompt: explicitCaption || '',
                 visualType: resolvedVisualType,
                 interactiveMathFormula: matchedVisual?.interactive_math_formula || '',
                 moduleId: activeModule?.id,
                 conceptIndex: currentConceptIndexRef.current,
-                conceptTitle: targetTitle,
+                conceptTitle: targetConceptTitle,
                 animationType: 'moving_points_and_pulsing_glow',
                 isLiveClass: true,
                 source: 'live_classroom',
@@ -3456,13 +3470,13 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                 setGeneratingDiagramTitle(null)
                 if (data?.svg && data.svg.includes('<svg')) {
                   chalkboardRef.current?.drawSvgDiagram?.(
-                    data.title || targetTitle,
+                    data.title || targetConceptTitle,
                     data.svg,
                     data.caption || explicitCaption || data.what_to_explain,
                     true
                   )
                   sendBoardContext(
-                    `[SYSTEM NOTICE: Vector diagram for "${targetTitle}" is now live on the chalkboard! You may now direct the student's attention to the labeled parts.]`
+                    `[SYSTEM NOTICE: Vector diagram for "${targetConceptTitle}" is now live on the chalkboard! You may now direct the student's attention to the labeled parts.]`
                   )
                   if (activeModule?.id) {
                     if (!vPlan.concept_visuals) vPlan.concept_visuals = []
@@ -3473,8 +3487,8 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                       matchedVisual.tier2_refined_at = data.tier2_refined_at || new Date().toISOString()
                     } else {
                       vPlan.concept_visuals.push({
-                        concept_title: targetTitle,
-                        diagram_title: data.title || targetTitle,
+                        concept_title: targetConceptTitle,
+                        diagram_title: data.title || targetConceptTitle,
                         svg: data.svg,
                         diagram_svg: data.svg,
                         what_to_make: data.what_to_make || explicitWhat || '',
@@ -3489,12 +3503,12 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                   }
                 } else {
                   console.warn('[Classroom] Live diagram generation returned empty SVG. Clearing skeleton.')
-                  chalkboardRef.current?.clearDiagramSkeleton?.(targetTitle)
+                  chalkboardRef.current?.clearDiagramSkeleton?.(targetConceptTitle)
                 }
               })
               .catch((err) => {
                 setGeneratingDiagramTitle(null)
-                chalkboardRef.current?.clearDiagramSkeleton?.(targetTitle)
+                chalkboardRef.current?.clearDiagramSkeleton?.(targetConceptTitle)
                 console.warn('[Classroom] Live diagram generation failed:', err)
               })
           }

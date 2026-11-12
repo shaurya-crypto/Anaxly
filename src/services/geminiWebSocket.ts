@@ -1,4 +1,4 @@
-import { GoogleGenAI, Type, Behavior } from '@google/genai';
+import { GoogleGenAI, Type, Behavior, FunctionResponseScheduling } from '@google/genai';
 import { cleanChalkboardTypography } from '../components/whiteboard/chalkboardTypography';
 
 export interface CustomizedAvatarConfig {
@@ -606,7 +606,7 @@ export class GeminiLiveClient {
 
       if (this.model.includes("extended-thinking")) {
         liveConfig.thinkingConfig = {
-          thinkingLevel: "high",
+          thinkingLevel: "low",
         };
       }
 
@@ -1009,13 +1009,23 @@ export class GeminiLiveClient {
            // Handle root tool calls for chalkboard writing, visual stage, and dedicated tools
            if (msg.toolCall && msg.toolCall.functionCalls) {
              const responses: any[] = [];
+             const isExtendedThinking = this.model.includes("extended-thinking");
              for (const call of msg.toolCall.functionCalls) {
+               if (!call.id || this.executedToolCallIds.has(call.id)) {
+                 continue;
+               }
                const toolResult = this.handleSingleToolCall(call.name, call.args || {}, call.id);
-               responses.push({
+               const isQuery = call.name === "get_board_content" || call.name === "read_board_content" || call.name === "get_board_state";
+               const responsePayload = (toolResult && typeof toolResult === 'object') ? toolResult : { result: "ok" };
+               const fnResponse: any = {
                  id: call.id,
                  name: call.name,
-                 response: toolResult || { result: "ok" },
-               });
+                 response: responsePayload,
+               };
+               if (!isExtendedThinking) {
+                 fnResponse.scheduling = isQuery ? FunctionResponseScheduling.WHEN_IDLE : FunctionResponseScheduling.SILENT;
+               }
+               responses.push(fnResponse);
              }
              if (responses.length > 0 && this.session) {
                try {
@@ -1083,25 +1093,41 @@ export class GeminiLiveClient {
                  }
                }
                if (part.functionCall) {
-                 const toolResult = this.handleSingleToolCall(part.functionCall.name, part.functionCall.args || {}, part.functionCall.id);
-                 try {
-                   this.session?.sendToolResponse({
-                     functionResponses: [
-                       {
-                         id: part.functionCall.id,
-                         name: part.functionCall.name,
-                         response: toolResult || { result: "ok" },
-                       },
-                     ],
-                   });
-                 } catch (e) {
-                   console.warn(`[GeminiLive] Failed to send tool response for ${part.functionCall.name}:`, e);
+                 const call = part.functionCall;
+                 if (call.id && !this.executedToolCallIds.has(call.id)) {
+                   const toolResult = this.handleSingleToolCall(call.name, call.args || {}, call.id);
+                   const isQuery = call.name === "get_board_content" || call.name === "read_board_content" || call.name === "get_board_state";
+                   const isExtendedThinking = this.model.includes("extended-thinking");
+                   const responsePayload = (toolResult && typeof toolResult === 'object') ? toolResult : { result: "ok" };
+
+                   const fnResponse: any = {
+                     id: call.id,
+                     name: call.name,
+                     response: responsePayload,
+                   };
+
+                   if (!isExtendedThinking) {
+                     fnResponse.scheduling = isQuery ? FunctionResponseScheduling.WHEN_IDLE : FunctionResponseScheduling.SILENT;
+                   }
+
+                   try {
+                     this.session?.sendToolResponse({
+                       functionResponses: [fnResponse],
+                     });
+                   } catch (e) {
+                     console.warn(`[GeminiLive] Failed to send tool response for ${call.name}:`, e);
+                   }
                  }
                }
              }
            }
 
+           const currentStatus = content.interactionStatus || msg.interactionStatus;
            if (content.turnComplete) {
+             if (currentStatus !== "IN_PROGRESS") {
+               this.callbacks.onTurnComplete();
+             }
+           } else if (currentStatus === "IDLE") {
              this.callbacks.onTurnComplete();
            }
         },

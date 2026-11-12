@@ -46,9 +46,10 @@ export class AudioStreamer {
       this.mediaStream = await navigator.mediaDevices.getUserMedia({
         audio: {
           channelCount: 1,
-          echoCancellation: { ideal: true },
-          noiseSuppression: { ideal: true },
-          autoGainControl: { ideal: true },
+          sampleRate: { ideal: 16000 },
+          echoCancellation: true,
+          noiseSuppression: true,
+          autoGainControl: true,
         },
       });
     } catch (err: unknown) {
@@ -79,17 +80,17 @@ export class AudioStreamer {
     const inputSampleRate = this.audioCtx.sampleRate;
     const targetSampleRate = 16000;
 
-    // 3. Audio Graph with Voice-Band Filtering (100 Hz highpass, 5000 Hz lowpass)
-    // Cuts out laptop fan drone, table rumbles, and electrical hiss while preserving human vocal formants
+    // 3. Audio Graph with Voice-Band Filtering (120 Hz highpass, 4000 Hz lowpass)
+    // Cuts out laptop fan drone, desk bump rumbles, AC hum, and electrical hiss while preserving human vocal formants
     this.sourceNode = this.audioCtx.createMediaStreamSource(this.mediaStream);
 
     this.highpassFilter = this.audioCtx.createBiquadFilter();
     this.highpassFilter.type = "highpass";
-    this.highpassFilter.frequency.value = 100; // eliminate low-frequency rumble
+    this.highpassFilter.frequency.value = 120; // eliminate low-frequency rumble & fan hum
 
     this.lowpassFilter = this.audioCtx.createBiquadFilter();
     this.lowpassFilter.type = "lowpass";
-    this.lowpassFilter.frequency.value = 5500; // eliminate high-frequency hiss
+    this.lowpassFilter.frequency.value = 4000; // eliminate high-frequency static & hiss
 
     this.analyser = this.audioCtx.createAnalyser();
     this.analyser.fftSize = 256;
@@ -159,20 +160,21 @@ export class AudioStreamer {
 
     // 1. TEACHER SPEAKING (SPEAKER SUPPRESSION & HIGH-FIDELITY DELIBERATE BARGE-IN):
     if (this.isTeacherSpeaking) {
-      // Grace period (300ms) after teacher starts speaking to ignore initial speaker activation transients
-      if (now - this.teacherSpeechStartTime < 300) {
+      // Grace period (500ms) after teacher starts speaking to ignore initial speaker transients / reflections
+      if (now - this.teacherSpeechStartTime < 500) {
         this.consecutiveBargeInFrames = 0;
         return;
       }
 
-      // Responsive conversational voice detection threshold for barge-in (normal voice into mic)
-      const BARGE_IN_THRESHOLD = Math.max(0.022, this.noiseFloor * 1.8);
-      const requiredFrames = 2; // ~80ms of intentional voice is enough to trigger barge-in
+      // Robust conversational voice detection threshold for barge-in (intentional voice directly into mic)
+      // Normal speaking voice produces RMS 0.07-0.35. Ambient noise/bleed stays below 0.05.
+      const BARGE_IN_THRESHOLD = Math.max(0.075, this.noiseFloor * 3.0);
+      const requiredFrames = 5; // ~250-350ms of sustained intentional voice required to trigger barge-in
 
       if (rms >= BARGE_IN_THRESHOLD) {
         this.consecutiveBargeInFrames++;
         if (this.consecutiveBargeInFrames >= requiredFrames) {
-          console.log(`[AudioStreamer] Student voice detected during teacher speech (RMS: ${rms.toFixed(4)}). Triggering barge-in.`);
+          console.log(`[AudioStreamer] Student voice confirmed during teacher speech (RMS: ${rms.toFixed(4)}, frames: ${this.consecutiveBargeInFrames}). Triggering barge-in.`);
           this.isTeacherSpeaking = false;
           this.consecutiveBargeInFrames = 0;
           this.lastSpeechTime = now;
@@ -192,28 +194,58 @@ export class AudioStreamer {
 
     // 2. DYNAMIC NOISE TRACKING & VAD EVENTS:
     if (!this.wasSpeechActive) {
-      this.noiseFloor = Math.min(0.02, Math.max(0.003, this.noiseFloor * 0.96 + rms * 0.04));
+      this.noiseFloor = Math.min(0.035, Math.max(0.005, this.noiseFloor * 0.96 + rms * 0.04));
+    } else if (now - this.lastSpeechTime > 3000 && rms < this.noiseFloor * 1.5) {
+      // If speech was supposedly active but current energy is low, gently adapt noise floor
+      this.noiseFloor = Math.min(0.035, Math.max(0.005, this.noiseFloor * 0.98 + rms * 0.02));
     }
 
-    // Sensitive voice detection threshold for normal conversational speaking voice on any microphone
-    const voiceThreshold = Math.max(0.010, this.noiseFloor * 1.3);
+    // Calibrated voice threshold for normal conversational speaking voice into any mic
+    // Ambient noise in typical rooms is 0.015 - 0.045 RMS; intentional speaking voice is 0.06 - 0.35 RMS.
+    const voiceThreshold = Math.max(0.052, this.noiseFloor * 2.2);
 
     if (rms >= voiceThreshold) {
       this.lastSpeechTime = now;
-      if (!this.wasSpeechActive) {
+      this.consecutiveSpeechFrames++;
+      // Debounce: require 4 consecutive frames (~180-220ms) of vocal energy before marking speech active
+      if (!this.wasSpeechActive && this.consecutiveSpeechFrames >= 4) {
         this.wasSpeechActive = true;
         this.speechStartTime = now;
         this.onSpeechStart?.();
       }
-    } else if (this.wasSpeechActive && now - this.lastSpeechTime > 1800) {
-      // 1.8s of silence after speech -> inform hybrid VAD of speech end
-      this.wasSpeechActive = false;
-      this.onSpeechEnd?.();
+    } else {
+      this.consecutiveSpeechFrames = 0;
+      const SPEECH_HANGOVER_MS = 2400; // generous 2400ms speech hangover so student natural pauses are not cut off
+      if (this.wasSpeechActive && now - this.lastSpeechTime > SPEECH_HANGOVER_MS) {
+        // 2400ms of quiet after confirmed speech -> inform hybrid VAD of speech end
+        this.wasSpeechActive = false;
+        // Only trigger speech end if student actually spoke for at least 500ms
+        if (this.lastSpeechTime - this.speechStartTime >= 500) {
+          this.onSpeechEnd?.();
+        }
+      }
     }
 
-    // 3. ALWAYS STREAM AUDIO WHEN TEACHER IS NOT SPEAKING:
-    // Gemini Live server-side neural VAD requires a continuous PCM stream to hear the student!
-    const resampledData = this.resampleAudio(inputData, inputRate, targetRate);
+    // 3. NOISE-GATED AUDIO STREAMING:
+    // Soft noise gate: when energy is below voice threshold, attenuate ambient background hiss / fan drone
+    let audioToStream = inputData;
+    if (rms < voiceThreshold) {
+      const denom = Math.max(0.005, voiceThreshold - this.noiseFloor);
+      const gateFactor = Math.max(0, Math.min(1.0, (rms - this.noiseFloor) / denom));
+      if (gateFactor < 0.3) {
+        // Pure ambient background hiss - send clean silence
+        audioToStream = new Float32Array(inputData.length);
+      } else {
+        // Smooth quadratic attenuation curve
+        audioToStream = new Float32Array(inputData.length);
+        const smoothFactor = gateFactor * gateFactor;
+        for (let i = 0; i < inputData.length; i++) {
+          audioToStream[i] = inputData[i] * smoothFactor;
+        }
+      }
+    }
+
+    const resampledData = this.resampleAudio(audioToStream, inputRate, targetRate);
     const pcm16 = this.floatTo16BitPCM(resampledData);
     const base64 = this.arrayBufferToBase64(pcm16.buffer);
 

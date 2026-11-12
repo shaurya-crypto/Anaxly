@@ -26,10 +26,15 @@ export function useGeminiLive() {
   const animationFrameRef = useRef<number | null>(null);
   const sharedAudioCtxRef = useRef<AudioContext | null>(null);
   const isMutedRef = useRef(false);
+  const connectionStateRef = useRef<ConnectionState>("IDLE");
 
   useEffect(() => {
     isMutedRef.current = isMuted;
   }, [isMuted]);
+
+  useEffect(() => {
+    connectionStateRef.current = connectionState;
+  }, [connectionState]);
 
   // Volume visualizer loop for fluid UI animations
   const startVolumeLoop = useCallback(() => {
@@ -144,8 +149,8 @@ export function useGeminiLive() {
           setConnectionState((prev) => (prev !== "MUTED" ? "LISTENING" : "MUTED"));
         },
         () => {
-          console.log("[useGeminiLive] Student finished speaking: dispatching audioStreamEnd");
-          if (geminiClientRef.current) {
+          if (geminiClientRef.current && connectionStateRef.current !== "TEACHER_SPEAKING") {
+            console.log("[useGeminiLive] Student finished speaking: dispatching audioStreamEnd");
             geminiClientRef.current.sendAudioStreamEnd();
           }
         }
@@ -185,13 +190,10 @@ export function useGeminiLive() {
             }
           },
           onUserSpeechStart: () => {
-            console.log("[useGeminiLive] onUserSpeechStart: Server detected human voice activity, cutting off teacher playback");
-            if (audioPlayerRef.current) {
-              audioPlayerRef.current.stopAndClear();
-            }
-            onSpeechInterrupted?.();
-            audioStreamerRef.current?.setTeacherSpeaking(false);
-            setConnectionState((prev) => (prev !== "MUTED" ? "LISTENING" : "MUTED"));
+            console.log("[useGeminiLive] onUserSpeechStart: Server detected voice activity");
+            // Non-destructive: do NOT stop teacher audio playback on raw server VAD activity.
+            // Deliberate student barge-in is handled client-side by onBargeIn, or server-side by onInterrupted.
+            setConnectionState((prev) => (prev !== "MUTED" && prev !== "TEACHER_SPEAKING" ? "LISTENING" : prev));
           },
           onInterrupted: () => {
             console.log("[useGeminiLive] onInterrupted: Server confirmed barge-in");

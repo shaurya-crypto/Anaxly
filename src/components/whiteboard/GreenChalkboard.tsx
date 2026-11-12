@@ -232,6 +232,7 @@ function safeSaveWhiteboardStorage(key: string, data: any, isFilesStore = false)
     if (isFilesStore && jsonStr.length > 250 * 1024) {
       return
     }
+    // Persist whiteboard state or files: localStorage.setItem(`${storageKey}_files`, jsonStr)
     localStorage.setItem(key, jsonStr)
   } catch (err: any) {
     if (err?.name === 'QuotaExceededError' || err?.code === 22) {
