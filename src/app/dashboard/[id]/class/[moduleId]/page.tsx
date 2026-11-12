@@ -117,44 +117,53 @@ function parseKeyConcepts(raw: any): string[] {
  */
 function extractConciseSearchKeyword(raw: string): string {
   if (!raw || !raw.trim()) return ''
-  const clean = raw.trim().replace(/^["']|["']$/g, '')
+  let clean = raw.trim().replace(/^["']|["']$/g, '')
 
   // 1. Direct parenthetical match (e.g. "(Onion Peel Mount)" -> "Onion Peel cells microscope")
   const parenMatch = clean.match(/\(([^\)]+)\)/)
   if (parenMatch && parenMatch[1]) {
     const inside = parenMatch[1]
       .replace(/^(activity|module|step|exp|experiment)\s*[\d\.]*/i, '')
-      .replace(/mount|mounts/i, 'cells')
       .trim()
-    if (inside.length >= 3) {
-      return `${inside} microscope`
+    if (/peel|mount|cell|tissue|specimen|stomata/i.test(inside)) {
+      return `${inside.replace(/mount|mounts/i, 'cells')} microscope`
+    }
+    if (inside.length >= 3 && inside.length <= 40 && !/^\d+$/.test(inside)) {
+      return inside
     }
   }
 
-  // 2. Colon prefix/title: check after colon first, then before colon
+  // 2. Strip leading curriculum prefixes
+  clean = clean
+    .replace(/^(?:Activity|Concept|Module|Experiment|Lab|Chapter|Section|Exercise)\s*[\d\.]*\s*[:\-\)]?\s*/i, '')
+    .trim()
+
+  // 3. Colon prefix/subtitle handling: extract substantive primary title
   if (clean.includes(':')) {
     const parts = clean.split(':').map((s) => s.trim()).filter(Boolean)
-    // Check substantive part after colon first (e.g. "Activity 2.1: Onion Epidermal Peel Mount" -> "Onion Epidermal Peel Mount")
-    for (const part of [...parts].reverse()) {
-      const cleanPart = part
-        .replace(/^(?:Activity|Concept|Module|Experiment|Lab|Chapter|Section)\s*[\d\.]*\s*/i, '')
-        .replace(/[\(\)\[\]\{\}]/g, ' ')
-        .trim()
-      if (cleanPart.length >= 3 && !/^\d+[\.\d]*$/.test(cleanPart)) {
-        return cleanPart
-      }
+    const part0 = parts[0]?.replace(/[\(\)\[\]\{\}]/g, ' ').replace(/\s+/g, ' ').trim() || ''
+    const part1 = parts[1]?.replace(/[\(\)\[\]\{\}]/g, ' ').replace(/\s+/g, ' ').trim() || ''
+
+    const isPart0Generic = /^(?:part|step|subpart|case|fig|figure|section|table|row|col|overview|introduction)\s*[\d\w\.]*$/i.test(part0)
+    if (part0.length >= 3 && part0.length <= 45 && part0.split(' ').length <= 6 && !isPart0Generic) {
+      clean = part0
+    } else if (part1.length >= 3 && part1.length <= 45 && part1.split(' ').length <= 6) {
+      clean = part1
+    } else if (part0.length >= 3) {
+      clean = part0.slice(0, 45).trim()
     }
   }
 
-  // 3. Strip leading activity prefix
-  const stripped = clean
-    .replace(/^(?:Activity|Concept|Module|Experiment|Lab|Chapter|Section)\s*[\d\.]*\s*[:\-\)]?\s*/i, '')
-    .trim()
-  if (stripped.length >= 3 && stripped !== clean) {
-    return stripped
-  }
+  // 4. Known subject keyword mappings (Mathematics & Logic)
+  if (/proposition|statement.*truth/i.test(clean)) return 'Propositional Logic Truth Table'
+  if (/truth\s*table/i.test(clean)) return 'Truth Table logic proposition'
+  if (/quadrilateral|parallelogram/i.test(clean)) return 'Parallelogram properties geometry'
+  if (/linear\s*equation/i.test(clean)) return 'Linear equation coordinate graph'
+  if (/surface\s*area|volume.*(cylinder|cone|sphere)/i.test(clean)) return 'Surface area and volume geometry'
+  if (/histogram|frequency\s*polygon/i.test(clean)) return 'Histogram frequency polygon statistics'
+  if (/algorithm|flowchart/i.test(clean)) return 'Algorithm flowchart diagram'
 
-  // 3. Known subject keyword mappings
+  // Known subject keyword mappings (Science, Biology, Physics)
   if (/onion\s*peel/i.test(clean)) return 'Onion peel cells microscope'
   if (/human\s*cheek.*methylene|cheek.*methylene/i.test(clean)) return 'Human Cheek Cells Methylene Blue Stain'
   if (/human\s*cheek|cheek\s*cell/i.test(clean)) return 'Human cheek cells microscope'
@@ -171,10 +180,10 @@ function extractConciseSearchKeyword(raw: string): string {
   if (/osmosis/i.test(clean)) return 'Osmosis experiment diagram'
   if (/diffusion/i.test(clean)) return 'Diffusion experiment diagram'
 
-  // 4. If short enough, keep as is
+  // 5. If short enough, keep as is
   if (clean.length <= 40) return clean
 
-  // 5. Filter out filler words to get top keywords
+  // 6. Filter out filler words to get top keywords
   const words = clean
     .replace(/^Activity\s*[\d\.]+\s*[:\-\(]?/i, '')
     .replace(/[\(\)\[\]\{\}:,;]/g, ' ')
@@ -187,7 +196,7 @@ function extractConciseSearchKeyword(raw: string): string {
           w
         )
     )
-  return words.slice(0, 3).join(' ') || clean.slice(0, 40)
+  return words.slice(0, 4).join(' ') || clean.slice(0, 40)
 }
 
 /**
@@ -2063,9 +2072,13 @@ export default function ModuleClassroomPage() {
             `[SYSTEM NOTICE: The digital chalkboard is currently generating the detailed vector diagram for "${targetConcept}" via Live Class Fast Diagram Generation. A skeleton preview placeholder is on the board. Continue explaining the intuitive analogy verbally to the student and inform them the drawing will appear in a few moments.]`
           )
 
+          const genController = new AbortController()
+          const genTimer = setTimeout(() => genController.abort(), 15000)
+
           fetch('/api/diagram/generate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            signal: genController.signal,
             body: JSON.stringify({
               title: targetConcept,
               conceptTitle: targetConcept,
@@ -2079,10 +2092,14 @@ export default function ModuleClassroomPage() {
               source: 'live_classroom',
             }),
           })
-            .then((res) => (res.ok ? res.json() : null))
+            .then((res) => {
+              clearTimeout(genTimer)
+              return res.ok ? res.json() : null
+            })
             .then(handleSuccessData)
             .catch(handleFailure)
             .finally(() => {
+              clearTimeout(genTimer)
               setGeneratingDiagramTitle(null)
             })
         }
@@ -3450,9 +3467,13 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
               `[SYSTEM NOTICE: The digital chalkboard is currently generating the detailed vector diagram for "${targetConceptTitle}" via Live Class Fast Diagram Generation. A skeleton preview placeholder is on the board. Continue explaining the intuitive analogy verbally to the student and inform them the drawing will appear in a few moments.]`
             )
 
+            const genController = new AbortController()
+            const genTimer = setTimeout(() => genController.abort(), 15000)
+
             fetch('/api/diagram/generate', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
+              signal: genController.signal,
               body: JSON.stringify({
                 title: targetConceptTitle,
                 subject: resolvedSubject,
@@ -3473,7 +3494,10 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                 source: 'live_classroom',
               }),
             })
-              .then((res) => res.json())
+              .then((res) => {
+                clearTimeout(genTimer)
+                return res.ok ? res.json() : null
+              })
               .then((data) => {
                 setGeneratingDiagramTitle(null)
                 if (data?.svg && data.svg.includes('<svg')) {
@@ -3632,8 +3656,36 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
             }
             const isAllowedGraph = isLegitimateGraphTopic(title || formula, resolvedSubject)
             if (!isAllowedGraph) {
-              console.log(`[Classroom Graph Gating] Denied graph plot for non-mathematical topic "${title || formula}" in subject ${resolvedSubject}. Rendering SVG diagram instead.`)
-              executeLiveDiagramGeneration(title || 'Scientific Diagram', 'Visual conceptual diagram')
+              console.log(`[Classroom Graph Gating] Denied graph plot for non-mathematical topic "${title || formula}" in subject ${resolvedSubject}. Rendering search-engine diagram instead.`)
+              const searchKw = extractConciseSearchKeyword(title || formula) || title || 'Scientific Diagram'
+              fetch('/api/diagram/search-image', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query: searchKw, limit: 3 }),
+              })
+                .then((r) => (r.ok ? r.json() : null))
+                .then(async (data) => {
+                  const candidateImages: any[] = data?.images || []
+                  for (const img of candidateImages) {
+                    if (!img?.url) continue
+                    try {
+                      const check = await fetch(`/api/diagram/proxy?dataUrl=true&url=${encodeURIComponent(img.url)}`)
+                      if (check.ok) {
+                        const pData = await check.json()
+                        if (pData?.success && pData?.dataURL) {
+                          chalkboardRef.current?.drawImage?.(
+                            pData.dataURL,
+                            title || img.title || 'Scientific Diagram',
+                            'Visual conceptual diagram'
+                          )
+                          return
+                        }
+                      }
+                    } catch {}
+                  }
+                  executeLiveDiagramGeneration(title || 'Scientific Diagram', 'Visual conceptual diagram')
+                })
+                .catch(() => executeLiveDiagramGeneration(title || 'Scientific Diagram', 'Visual conceptual diagram'))
               return
             }
             if (typeof content === 'object' && content !== null) {
@@ -3890,8 +3942,43 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
               return
             }
 
-            // Generate publication-grade bespoke vector diagram via Gemini Live Class Fast Diagram Generation
-            executeLiveDiagramGeneration(targetConceptTitle, explicitCaption, explicitWhat, matched)
+            // MANDATE: Search Engine First before falling back to bespoke LLM agent generation
+            const searchKw = extractConciseSearchKeyword(targetConceptTitle) || targetConceptTitle
+            fetch('/api/diagram/search-image', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ query: searchKw, limit: 3 }),
+            })
+              .then((r) => (r.ok ? r.json() : null))
+              .then(async (data) => {
+                const candidateImages: any[] = data?.images || []
+                for (const img of candidateImages) {
+                  if (!img?.url) continue
+                  try {
+                    const check = await fetch(`/api/diagram/proxy?dataUrl=true&url=${encodeURIComponent(img.url)}`)
+                    if (check.ok) {
+                      const pData = await check.json()
+                      if (pData?.success && pData?.dataURL) {
+                        chalkboardRef.current?.drawImage?.(
+                          pData.dataURL,
+                          targetConceptTitle || img.title,
+                          explicitCaption || img.description || 'Educational Diagram'
+                        )
+                        sendBoardContext(
+                          `[SYSTEM NOTICE: High-resolution visual diagram for "${targetConceptTitle}" from online search engine is now displayed on the chalkboard.]`
+                        )
+                        return
+                      }
+                    }
+                  } catch {}
+                }
+                // Online search yielded no usable image -> fall back to bespoke agent SVG generator
+                executeLiveDiagramGeneration(targetConceptTitle, explicitCaption, explicitWhat, matched)
+              })
+              .catch(() => {
+                // Online search network error -> fall back to bespoke agent SVG generator
+                executeLiveDiagramGeneration(targetConceptTitle, explicitCaption, explicitWhat, matched)
+              })
           }
           else if (action === 'new_page') chalkboardRef.current?.addNewPage?.()
           else if (action === 'clear_board' || action === 'erase_board') chalkboardRef.current?.clearBoard()

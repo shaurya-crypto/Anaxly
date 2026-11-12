@@ -79,7 +79,17 @@ async function verifyVideoLink(url: string): Promise<boolean> {
 async function searchOnlineVideos(query: string, limit: number = 5): Promise<VideoResult[]> {
   try {
     const cleanQ = query.trim().replace(/[^\w\s-]/g, ' ')
-    const searchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(cleanQ + ' physics experiment demonstration')}`
+    let contextKeyword = 'educational demonstration'
+    if (/math|geometry|algebra|equation|proposition|logic|graph|calculus|trigonometry|quadrilateral|polygon/i.test(cleanQ)) {
+      contextKeyword = 'concept animation explanation'
+    } else if (/cell|tissue|microscope|plant|animal|biology|organelle|stomata|blood|peel/i.test(cleanQ)) {
+      contextKeyword = 'microscope lab experiment demonstration'
+    } else if (/acid|base|reaction|chemistry|element|compound|molecule|atom/i.test(cleanQ)) {
+      contextKeyword = 'chemistry lab experiment demonstration'
+    } else if (/physics|motion|force|optics|light|ray|circuit|electric|lens|mirror|velocity|gravity/i.test(cleanQ)) {
+      contextKeyword = 'physics experiment demonstration'
+    }
+    const searchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(`${cleanQ} ${contextKeyword}`)}`
     const controller = new AbortController()
     const timer = setTimeout(() => controller.abort(), 4000)
 

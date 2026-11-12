@@ -39,5 +39,13 @@
 - Dynamic Search Engine First visual cues for concepts; authentic book diagrams bound exclusively to question problems citing figures (66 diagrams bound across 36 modules).
 - Pure mathematical typography enforced across all modules (zero raw programming operators `*`, `**`, `//`, `^`).
 
+## Phase 8 Documentation & Handover
+- Phase 8 has ended and is officially signed off.
+- Search-Engine-First visual retrieval pipeline permanently integrated into classroom live directives (`render_svg_diagram`, `draw_diagram`, `draw_image`, and graph gating fallbacks).
+- Ranking algorithm updated: Search Engine (Bing Images) prioritized FIRST, Wikipedia PageImages SECOND, Wikimedia Commons THIRD.
+- Political ballot propositions, election results, and non-educational matches permanently filtered and blocked.
+- Dynamic query extraction (`extractConciseSearchKeyword`) distillations prevent sentence-length search misses.
+- Live LLM SVG generator (`/api/diagram/generate`) strictly gated as last-resort fallback with 15-second abort controller.
+
 
 

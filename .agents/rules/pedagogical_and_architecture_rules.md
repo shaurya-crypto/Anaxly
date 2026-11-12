@@ -103,3 +103,10 @@ Whenever designing, prompting, or updating the AI tutor voice instruction:
   * **Step-by-Step Proof / Calculation**: Clear logical transitions without skipping steps.
   * **Rough Work Margin**: Secondary scratch calculations.
   * **Boxed Final Answer**: Explicit final answer with correct units or "Hence Proved!".
+
+## 16. Search-Engine-First Visual Execution & LLM Diagram Fallback Guard
+- **Zero Premature LLM Generation during Live Instruction**: When visual diagrams are requested by the tutor (`render_svg_diagram`, `draw_diagram`, `draw_image`, or graph gating fallbacks), the classroom must query the online search engine pipeline (`/api/diagram/search-image`) FIRST.
+- **Concise Topic Keywords**: Queries sent to the image search engine must be distilled into concise 2–5 word academic topic keywords (`extractConciseSearchKeyword`), permanently stripping lengthy definitions, subclauses, or descriptive sentences.
+- **Search Engine First, Wikipedia Second**: Online image searches prioritize Bing Images web search engine candidates first, authoritative Wikipedia encyclopedic figures second, and Wikimedia Commons third.
+- **Harmful & Political Result Blocking**: Political ballot propositions, election results, party campaigns, and watermarked stock photos are permanently filtered and blocked from educational search candidates.
+- **Last Resort Fallback Only**: Live bespoke LLM SVG generation (`/api/diagram/generate`) serves strictly as a last resort when online search finds zero accessible educational diagrams or encounters a network failure, protected by a strict 15-second abort controller.

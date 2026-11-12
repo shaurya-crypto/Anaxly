@@ -162,6 +162,13 @@ function isImageRelevantToQuery(query: string, title: string, url: string): bool
     return false
   }
 
+  // Reject political / election results when query is educational math/science/logic
+  if (/\b(?:proposition\s*\d+|ballot|election|referendum|county results|voter|campaign|caucus|primary)\b/i.test(target)) {
+    if (!/election|ballot|vote|referendum|politics/i.test(query)) {
+      return false
+    }
+  }
+
   return true
 }
 
@@ -190,24 +197,42 @@ function isSafeEducationalImage(title: string, url: string): boolean {
 /**
  * Educational Domain Scoring:
  * Computes priority weight for search candidates.
- * High authority encyclopedic & educational institutions score highest.
+ * User Invariant Mandate: Search Engine FIRST, Wikipedia as SECOND, Wikimedia THIRD.
  */
-function scoreEducationalImage(url: string, title: string, query: string): number {
+function scoreEducationalImage(url: string, title: string, query: string, source?: string): number {
   let score = 0
   const lowerUrl = url.toLowerCase()
   const lowerTitle = title.toLowerCase()
+  const lowerSource = (source || '').toLowerCase()
+
+  // 1. Search Engine (Bing Images / Web Search Engine) prioritized FIRST (+70 points)
+  if (lowerSource.includes('bing') || lowerSource.includes('search engine') || lowerSource.includes('web')) {
+    score += 70
+  }
+  // 2. Authoritative Wikipedia PageImages queried SECOND (+35 points)
+  else if (lowerSource.includes('wikipedia')) {
+    score += 35
+  }
+  // 3. Wikimedia Commons queried THIRD (+15 points)
+  else if (lowerSource.includes('wikimedia')) {
+    score += 15
+  }
 
   // High authority educational domains
-  if (lowerUrl.includes('wikimedia.org') || lowerUrl.includes('wikipedia.org')) score += 50
-  if (lowerUrl.includes('.edu') || lowerUrl.includes('.gov') || lowerUrl.includes('.ac.in')) score += 40
-  if (lowerUrl.includes('openstax.org') || lowerUrl.includes('khanacademy.org')) score += 35
-  if (lowerUrl.includes('britannica.com') || lowerUrl.includes('physicsclassroom.com')) score += 30
-  if (lowerUrl.includes('libretexts.org') || lowerUrl.includes('sciencedirect.com')) score += 25
-  if (lowerUrl.includes('phet.colorado.edu') || lowerUrl.includes('ck12.org')) score += 25
+  if (lowerUrl.includes('.edu') || lowerUrl.includes('.gov') || lowerUrl.includes('.ac.in')) score += 30
+  if (lowerUrl.includes('openstax.org') || lowerUrl.includes('khanacademy.org')) score += 25
+  if (lowerUrl.includes('libretexts.org') || lowerUrl.includes('sciencedirect.com')) score += 20
+  if (lowerUrl.includes('britannica.com') || lowerUrl.includes('physicsclassroom.com')) score += 20
+  if (lowerUrl.includes('phet.colorado.edu') || lowerUrl.includes('ck12.org')) score += 20
 
   // Diagram / vector / formula / experiment keywords in title
-  if (/diagram|schematic|ray diagram|cross section|ultrastructure|circuit|apparatus/i.test(lowerTitle)) score += 15
-  if (/experiment|observation|microscope|vector|formula|graph/i.test(lowerTitle)) score += 10
+  if (/diagram|schematic|ray diagram|cross section|ultrastructure|circuit|apparatus|truth table|logic diagram|geometry|graph/i.test(lowerTitle)) score += 20
+  if (/experiment|observation|microscope|vector|formula|proof|solution|concept/i.test(lowerTitle)) score += 10
+
+  // Strict negative penalty for political ballot propositions, election results, party politics
+  if (/\b(?:proposition\s*\d+|ballot|election|referendum|county results|voter|campaign|caucus|primary)\b/i.test(lowerTitle)) {
+    score -= 150
+  }
 
   return score
 }
@@ -335,6 +360,30 @@ function extractSmartImageSearchQueries(raw: string): string[] {
     // General mount / peel / specimen -> add "under microscope"
     else if (/mount|peel|specimen|slide|stain/i.test(q) && !lq.includes('microscope')) {
       expanded.push(`${q} under microscope`)
+    }
+    // Propositional logic & truth tables
+    else if (lq.includes('proposition') || (lq.includes('statement') && (lq.includes('truth') || lq.includes('logic')))) {
+      expanded.push('Propositional logic truth table diagram')
+      expanded.push('truth table logic diagram')
+      expanded.push('statement proposition logic')
+    }
+    // Quadrilaterals & parallelograms
+    else if (lq.includes('quadrilateral') || lq.includes('parallelogram')) {
+      expanded.push('Parallelogram properties geometry diagram')
+      expanded.push('types of quadrilaterals geometry diagram')
+    }
+    // Linear equations
+    else if (lq.includes('linear equation') || (lq.includes('linear') && lq.includes('graph'))) {
+      expanded.push('Linear equation in two variables graph diagram')
+      expanded.push('graph of linear equation coordinate plane')
+    }
+    // Surface areas and volumes
+    else if (lq.includes('surface area') || lq.includes('volume') || lq.includes('cylinder') || lq.includes('cone')) {
+      expanded.push('Surface area volume cylinder cone formula diagram')
+    }
+    // Statistics & Data
+    else if (lq.includes('frequency polygon') || lq.includes('histogram') || lq.includes('statistics')) {
+      expanded.push('Histogram frequency polygon statistics diagram')
     }
   }
 
@@ -718,9 +767,10 @@ async function getVerifiedImages(cleanQuery: string, limit: number): Promise<Ima
   }
 
   // Prioritize high-authority educational domains (.edu, .gov, wikipedia, wikimedia, openstax, etc.)
+  // with Search Engine prioritized FIRST, Wikipedia SECOND, Wikimedia THIRD.
   candidates.sort((a, b) => {
-    const scoreA = scoreEducationalImage(a.url, a.title, primaryQuery)
-    const scoreB = scoreEducationalImage(b.url, b.title, primaryQuery)
+    const scoreA = scoreEducationalImage(a.url, a.title, primaryQuery, a.source)
+    const scoreB = scoreEducationalImage(b.url, b.title, primaryQuery, b.source)
     return scoreB - scoreA
   })
 
