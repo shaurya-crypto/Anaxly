@@ -180,8 +180,8 @@ function extractConciseSearchKeyword(raw: string): string {
   if (/osmosis/i.test(clean)) return 'Osmosis experiment diagram'
   if (/diffusion/i.test(clean)) return 'Diffusion experiment diagram'
 
-  // 5. If short enough, keep as is
-  if (clean.length <= 40) return clean
+  // 5. If short enough or already a detailed academic query, keep as is
+  if (clean.length <= 140 && clean.split(' ').length <= 16) return clean
 
   // 6. Filter out filler words to get top keywords
   const words = clean
@@ -196,7 +196,7 @@ function extractConciseSearchKeyword(raw: string): string {
           w
         )
     )
-  return words.slice(0, 4).join(' ') || clean.slice(0, 40)
+  return words.slice(0, 16).join(' ') || clean.slice(0, 140)
 }
 
 /**
@@ -384,6 +384,95 @@ function buildConceptMicroDossiers(
  * Gating invariant: Provides 100% textbook facts, SI units, governing equations,
  * and 4-6 authentic board-exam questions for ONLY the single active concept being taught.
  */
+function buildDetailedEducationalQueries(
+  conceptTitle: string,
+  moduleTitle: string,
+  cv?: any,
+  subject: string = 'Science'
+): { image_search_query: string; video_search_query: string } {
+  const existingImg = (cv?.image_search_query || cv?.image_query || '').trim()
+  const existingVid = (cv?.video_search_query || cv?.video_query || '').trim()
+
+  if (
+    existingImg &&
+    !existingImg.includes('chemistry laboratory apparatus setup diagram of') &&
+    !existingImg.includes('sound wave physics diagram of') &&
+    existingVid &&
+    !existingVid.includes('chemistry laboratory experiment demonstration')
+  ) {
+    return {
+      image_search_query: existingImg,
+      video_search_query: existingVid
+    }
+  }
+
+  const rawConceptTitle = conceptTitle || cv?.concept_title || ''
+  const rawDiagramTitle = cv?.diagram_title || ''
+  const rawWhatToMake = cv?.what_to_make || ''
+
+  const cleanMathAndLatex = (str: string) =>
+    str
+      .replace(/\$[^$]*\$/g, '')
+      .replace(/\\text\{([^}]+)\}/g, '$1')
+      .replace(/\\\w+/g, '')
+      .replace(/[\(\)\[\]\{\}]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+
+  const cleanPrefixes = (str: string) =>
+    str
+      .replace(/^(?:Vector diagram illustrating|Textbook diagram illustrating|Textbook diagram showing|Diagram illustrating|Diagram showing|Textbook diagram of|Diagram of|Schematic diagram of|Textbook anatomical diagram of|Interactive coordinate canvas plotting)\s*/i, '')
+      .replace(/\s*(?:with precise mathematical labels and parameters|with precise components, axes, vectors|with clear labels and annotations|clearly on the chalkboard)\s*$/i, '')
+      .trim()
+
+  let baseConcept = rawConceptTitle.includes(':') 
+    ? rawConceptTitle.split(':')[0].trim() 
+    : (rawDiagramTitle || rawConceptTitle)
+  baseConcept = cleanMathAndLatex(baseConcept).replace(/Illustrated$/i, '').trim()
+
+  let baseDiagram = cleanMathAndLatex(rawDiagramTitle).replace(/Illustrated$/i, '').trim()
+  let cleanedWhatToMake = cleanPrefixes(cleanMathAndLatex(rawWhatToMake))
+
+  const lowerMod = (moduleTitle || '').toLowerCase()
+  const lowerConcept = (rawConceptTitle + ' ' + rawDiagramTitle + ' ' + rawWhatToMake).toLowerCase()
+
+  const isMath = lowerMod.includes('math') || lowerMod.includes('linear equation') || lowerMod.includes('hcf') || lowerMod.includes('lcm') || lowerMod.includes('polynomial') || lowerMod.includes('quadratic') || lowerMod.includes('triangle') || lowerMod.includes('circle') || lowerMod.includes('coordinate') || lowerMod.includes('arithmetic') || lowerMod.includes('statistics') || lowerMod.includes('probability') || lowerMod.includes('surface area') || lowerMod.includes('volume') || lowerMod.includes('trigonometr')
+
+  const isCircuit = lowerConcept.includes('circuit') || (lowerConcept.includes('current') && (lowerConcept.includes('ammeter') || lowerConcept.includes('resistor') || lowerConcept.includes('switch')))
+
+  let imgQuery = existingImg
+  let vidQuery = existingVid
+
+  if (isCircuit) {
+    let circuitDetails = cleanedWhatToMake || baseDiagram
+    if (/circuit diagram with/i.test(circuitDetails)) {
+      imgQuery = `${circuitDetails}, ammeter, voltmeter, switch, and current direction arrows`
+    } else {
+      imgQuery = `electric circuit diagram of ${baseDiagram} with battery, ammeter, resistors, switch, and current direction arrows`
+    }
+    vidQuery = `${baseDiagram} electric circuit laboratory experiment demonstration`
+  } else if (isMath) {
+    const mathTopic = baseDiagram || baseConcept
+    imgQuery = `${mathTopic} step by step mathematical chalkboard solution diagram`
+    vidQuery = `${mathTopic} mathematics explanation`
+  } else {
+    let descriptiveCore = cleanedWhatToMake
+    if (!descriptiveCore || descriptiveCore.length < 10) {
+      descriptiveCore = baseDiagram || baseConcept
+    }
+    imgQuery = `${descriptiveCore} scientific educational diagram with clear labels`
+    vidQuery = `${baseDiagram || baseConcept} educational demonstration video`
+  }
+
+  imgQuery = imgQuery.replace(/\s+/g, ' ').replace(/\.{2,}/g, '.').trim()
+  vidQuery = vidQuery.replace(/\s+/g, ' ').replace(/\.{2,}/g, '.').trim()
+
+  return {
+    image_search_query: imgQuery,
+    video_search_query: vidQuery
+  }
+}
+
 function buildSingleConceptMicroDossier(
   conceptIdx: number,
   keyConcepts: string[],
@@ -525,24 +614,25 @@ function buildSingleConceptMicroDossier(
     isLegitimateGraph
   )
   const isFlowchart = Boolean(matchedCv && matchedCv.diagram_type === 'draw_flowchart')
-  const isImage = Boolean(matchedCv && (matchedCv.diagram_type === 'image' || matchedCv.image_url || matchedCv.image_search_query) && !isGraph)
   const diagramTitle = matchedCv?.diagram_title || matchedCv?.concept_title || conceptName
   const whatSpec = matchedCv?.what_to_make || whatToMake || `Publication-grade scientific vector diagram illustrating ${conceptName} with precise components, axes, vectors, callout pointer dots, and SI unit annotations`
+
+  const { image_search_query: fullImgQuery, video_search_query: fullVidQuery } = buildDetailedEducationalQueries(
+    conceptName,
+    chapterName || activeModule?.title || '',
+    matchedCv,
+    resolvedSubject
+  )
 
   let visualDirective = ''
   if (isGraph) {
     visualDirective = `\n   * MANDATORY GRAPH PLOT: Call plot_mathematical_graph(formula="${matchedCv?.interactive_math_formula || 'formula'}", title="${diagramTitle}") on Step 1!`
   } else if (isFlowchart) {
     visualDirective = `\n   * MANDATORY FLOWCHART: Call write_chalkboard(action="draw_flowchart", content="${matchedCv?.what_to_make || conceptName}") on Step 1!`
-  } else if (isImage) {
-    const imgUrl = matchedCv?.image_url || ''
-    const searchQuery = matchedCv?.image_search_query || matchedCv?.diagram_title || conceptName
-    const imgAction = imgUrl
-      ? `write_chalkboard(action="draw_image", content="${imgUrl} | ${diagramTitle} | ${whatSpec.slice(0, 100)}")`
-      : `search_and_show_image(query="${searchQuery}", title="${diagramTitle}")`
-    visualDirective = `\n   * MANDATORY EDUCATIONAL IMAGE: Call ${imgAction} ON YOUR VERY FIRST TURN to display the authentic high-resolution micrograph/diagram on the board! If the student hesitates or requests another view, proactively call search_and_show_image(query="${searchQuery}", title="${diagramTitle}").`
   } else {
-    visualDirective = `\n   * MANDATORY PROACTIVE DIAGRAM: You MUST call render_svg_diagram(title="${diagramTitle}", what="${whatSpec.slice(0, 160)}") ON YOUR VERY FIRST TURN! The student will not ask for a diagram -- draw it proactively!`
+    // Concepts strictly search for images dynamically - zero hardcoded links!
+    visualDirective = `\n   * MANDATORY EDUCATIONAL IMAGE: Call search_and_show_image(query="${fullImgQuery}", title="${diagramTitle}") ON YOUR VERY FIRST TURN to display the authentic high-resolution diagram on the board!
+   * PROACTIVE DEMONSTRATION VIDEO: If teaching physical motion, dynamic process, lab experiment, or if student requests a video demonstration, call search_and_show_video(query="${fullVidQuery}", title="${diagramTitle}").`
   }
 
   return `========================================================================================
@@ -3169,11 +3259,14 @@ CRITICAL INSTRUCTIONS:
         return `    - Visual [${subLabel}]: Geometric Shape Primitive\n      * Tool Call Cue: draw_shape(shape="${cv?.what_to_make || 'rectangle'}", label="${vTitle}")\n      * Timing: ${timing}`
       }
 
-      if (cv?.diagram_type === 'image' || cv?.image_url || cv?.image_search_query) {
-        const query = cv?.image_search_query || cv?.diagram_title || conceptName
-        const imgUrl = cv?.image_url || ''
-        return `    - Visual [${subLabel}]: Authentic Educational Image / Diagram\n      * Tool Call Cue: ${imgUrl ? `write_chalkboard(action="draw_image", content="${imgUrl} | ${vTitle} | ${explain || why}")` : `search_and_show_image(query="${query}", title="${vTitle}", caption="${explain || why}")`}\n      * Proactive Visual: Call search_and_show_image if student hesitates or requests another view\n      * Timing: ${timing}`
-      }
+      // Authentic Educational Image & Video Demonstration - strictly dynamic, zero hardcoded URLs
+      const { image_search_query: fullImgQ, video_search_query: fullVidQ } = buildDetailedEducationalQueries(
+        conceptName,
+        activeModule?.title || '',
+        cv,
+        resolvedSubject
+      )
+      return `    - Visual [${subLabel}]: Authentic Educational Image & Video Demonstration\n      * Image Search Cue: search_and_show_image(query="${fullImgQ}", title="${vTitle}", caption="${explain || why}")\n      * Video Search Cue: search_and_show_video(query="${fullVidQ}", title="${vTitle}")\n      * Proactive Visual: Call search_and_show_image to display authentic diagram; call search_and_show_video for dynamic demonstration\n      * Timing: ${timing}`
 
       const hasSvg = Boolean(cv?.svg || cv?.diagram_svg)
       if (!cv || (!hasSvg && !cv?.interactive_math_formula && cv?.diagram_type !== 'draw_flowchart' && cv?.diagram_type !== 'draw_shape' && cv?.diagram_type !== 'image')) {

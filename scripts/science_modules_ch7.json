@@ -35,7 +35,7 @@
         "figure_caption": "Fig. 7.3: Work done by a force while displacing an object"
       },
       {
-        "problem": "A porter lifts luggage of 15 kg from the ground and puts it on his head 1.5 m above the ground. Calculate the work done by him on the luggage. (Take g = 10 m/s\u00b2).",
+        "problem": "A porter lifts luggage of 15 kg from the ground and puts it on his head 1.5 m above the ground. Calculate the work done by him on the luggage. (Take g = 10 m/s²).",
         "given": "Mass $m = 15\\text{ kg}$, height $s = h = 1.5\\text{ m}$, acceleration due to gravity $g = 10\\text{ m/s}^2$.",
         "formula": "$W = F \\times s = (m \\cdot g) \\times h$.",
         "substitution": "$W = (15 \\times 10) \\times 1.5 = 150 \\times 1.5$.",
@@ -109,62 +109,68 @@
         {
           "concept_title": "Scientific Work Conditions: Work is done if and only if a force acts on an object and the object undergoes displacement along or inclined to the line of action of the force.",
           "diagram_title": "Energy and Mechanical Work in Daily Tasks",
-          "diagram_type": "image",
-          "image_query": "mechanical work force displacement physics diagram",
-          "video_query": "work done by force physics animation",
-          "image_url": "/extracted_diagrams/ch7/fig_7_1.webp",
+          "diagram_type": "image_search",
+          "image_query": "energy applied to carry out everyday tasks vs scientific displacement. scientific educational diagram with clear labels",
+          "video_query": "Energy and Mechanical Work in Daily Tasks educational demonstration video",
           "what_to_make": "Textbook diagram showing energy applied to carry out everyday tasks vs scientific displacement.",
-          "timing_and_cue": "Mount work conditions on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_1.webp | Everyday Tasks vs Mechanical Work | Force and non-zero displacement requirement\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"energy applied to carry out everyday tasks vs scientific displacement. scientific educational diagram with clear labels\", title=\"Energy and Mechanical Work in Daily Tasks\") | Proactive video: search_and_show_video(query=\"Energy and Mechanical Work in Daily Tasks educational demonstration video\", title=\"Energy and Mechanical Work in Daily Tasks\")",
+          "image_search_query": "energy applied to carry out everyday tasks vs scientific displacement. scientific educational diagram with clear labels",
+          "video_search_query": "Energy and Mechanical Work in Daily Tasks educational demonstration video"
         },
         {
           "concept_title": "Mathematical Work Formulation: Work done by a constant force is the product of the magnitude of the force and the distance moved in the direction of the force: W = F * s (SI unit: Joule).",
           "diagram_title": "Force Displacing Object Diagram",
-          "diagram_type": "image",
-          "image_query": "work done by a force displacement vector diagram",
-          "video_query": "work formula F s physics",
-          "image_url": "/extracted_diagrams/ch7/fig_7_3.webp",
+          "diagram_type": "image_search",
+          "image_query": "block displaced by distance s under constant horizontal force F. scientific educational diagram with clear labels",
+          "video_query": "Force Displacing Object Diagram educational demonstration video",
           "what_to_make": "Textbook diagram illustrating block displaced by distance s under constant horizontal force F.",
-          "timing_and_cue": "Mount W = Fs formula on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_3.webp | Mechanical Work Formulation | W = F * s in direction of motion\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"block displaced by distance s under constant horizontal force F. scientific educational diagram with clear labels\", title=\"Force Displacing Object Diagram\") | Proactive video: search_and_show_video(query=\"Force Displacing Object Diagram educational demonstration video\", title=\"Force Displacing Object Diagram\")",
+          "image_search_query": "block displaced by distance s under constant horizontal force F. scientific educational diagram with clear labels",
+          "video_search_query": "Force Displacing Object Diagram educational demonstration video"
         },
         {
           "concept_title": "One Joule Invariant: 1 Joule is the amount of work done on an object when a force of 1 Newton displaces it by 1 meter along the line of action of the force.",
           "diagram_title": "One Joule Force-Displacement Definition",
-          "diagram_type": "image",
-          "image_query": "one joule definition newton meter physics",
-          "video_query": "what is one joule physics",
-          "image_url": "/extracted_diagrams/ch7/fig_7_4.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook force-displacement graph illustrating area equal to 1 Joule. scientific educational diagram with clear labels",
+          "video_query": "One Joule Force-Displacement Definition educational demonstration video",
           "what_to_make": "Textbook force-displacement graph illustrating area equal to 1 Joule.",
-          "timing_and_cue": "Mount 1 Joule invariant on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_4.webp | 1 Joule Standard | 1 N force acting across 1 m displacement\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook force-displacement graph illustrating area equal to 1 Joule. scientific educational diagram with clear labels\", title=\"One Joule Force-Displacement Definition\") | Proactive video: search_and_show_video(query=\"One Joule Force-Displacement Definition educational demonstration video\", title=\"One Joule Force-Displacement Definition\")",
+          "image_search_query": "Textbook force-displacement graph illustrating area equal to 1 Joule. scientific educational diagram with clear labels",
+          "video_search_query": "One Joule Force-Displacement Definition educational demonstration video"
         },
         {
           "concept_title": "Angle Geometry & Trigonometric Work: When force and displacement are at an angle theta, W = F * s * cos(theta). Work is positive when theta < 90 deg, zero when theta = 90 deg, and negative when 90 < theta <= 180 deg.",
           "diagram_title": "Work at Inclined Angle Theta",
-          "diagram_type": "image",
-          "image_query": "work done at an angle cosine theta vector diagram",
-          "video_query": "work done at an angle physics",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Work_done_by_a_force_at_an_angle.svg",
+          "diagram_type": "image_search",
+          "image_query": "Vector diagram showing force vector resolved into F cos theta parallel to displacement and F sin theta perpendicular. scientific educational diagram with clear labels",
+          "video_query": "Work at Inclined Angle Theta educational demonstration video",
           "what_to_make": "Vector diagram showing force vector resolved into F cos(theta) parallel to displacement and F sin(theta) perpendicular.",
-          "timing_and_cue": "Mount angle resolution on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/e/e0/Work_done_by_a_force_at_an_angle.svg | W = F s cos(theta) | Resolving force parallel to displacement\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Vector diagram showing force vector resolved into F cos theta parallel to displacement and F sin theta perpendicular. scientific educational diagram with clear labels\", title=\"Work at Inclined Angle Theta\") | Proactive video: search_and_show_video(query=\"Work at Inclined Angle Theta educational demonstration video\", title=\"Work at Inclined Angle Theta\")",
+          "image_search_query": "Vector diagram showing force vector resolved into F cos theta parallel to displacement and F sin theta perpendicular. scientific educational diagram with clear labels",
+          "video_search_query": "Work at Inclined Angle Theta educational demonstration video"
         },
         {
           "concept_title": "Negative Work of Friction: When force opposes motion (theta = 180 deg, cos 180 = -1), work done by friction is negative: W = -f * s.",
           "diagram_title": "Negative Work by Opposing Friction Force",
-          "diagram_type": "image",
-          "image_query": "friction force negative work physics diagram",
-          "video_query": "negative work friction physics",
-          "image_url": "/extracted_diagrams/ch7/fig_7_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "opposing kinetic friction vector doing negative work. scientific educational diagram with clear labels",
+          "video_query": "Negative Work by Opposing Friction Force educational demonstration video",
           "what_to_make": "Textbook diagram showing opposing kinetic friction vector doing negative work.",
-          "timing_and_cue": "Mount negative work on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_7.webp | Negative Work of Friction | Opposing displacement vector at 180 degrees\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"opposing kinetic friction vector doing negative work. scientific educational diagram with clear labels\", title=\"Negative Work by Opposing Friction Force\") | Proactive video: search_and_show_video(query=\"Negative Work by Opposing Friction Force educational demonstration video\", title=\"Negative Work by Opposing Friction Force\")",
+          "image_search_query": "opposing kinetic friction vector doing negative work. scientific educational diagram with clear labels",
+          "video_search_query": "Negative Work by Opposing Friction Force educational demonstration video"
         },
         {
           "concept_title": "Zero Work by Orthogonal Forces: When force is perpendicular to displacement (theta = 90 deg, cos 90 = 0), work done is identically zero (e.g. porter carrying load horizontally on head).",
           "diagram_title": "Zero Work Porter Carrying Load",
-          "diagram_type": "image",
-          "image_query": "porter carrying load zero work physics diagram",
-          "video_query": "why porter does zero work physics",
-          "image_url": "/extracted_diagrams/ch7/fig_7_6.webp",
+          "diagram_type": "image_search",
+          "image_query": "porter walking horizontally while luggage weight acts downward at 90 degrees. scientific educational diagram with clear labels",
+          "video_query": "Zero Work Porter Carrying Load educational demonstration video",
           "what_to_make": "Textbook diagram showing porter walking horizontally while luggage weight acts downward at 90 degrees.",
-          "timing_and_cue": "Mount zero work scenario on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_6.webp | Zero Work Scenario | Orthogonal force and displacement (cos 90 = 0)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"porter walking horizontally while luggage weight acts downward at 90 degrees. scientific educational diagram with clear labels\", title=\"Zero Work Porter Carrying Load\") | Proactive video: search_and_show_video(query=\"Zero Work Porter Carrying Load educational demonstration video\", title=\"Zero Work Porter Carrying Load\")",
+          "image_search_query": "porter walking horizontally while luggage weight acts downward at 90 degrees. scientific educational diagram with clear labels",
+          "video_search_query": "Zero Work Porter Carrying Load educational demonstration video"
         }
       ]
     },
@@ -280,62 +286,68 @@
         {
           "concept_title": "Energy Definition: The capacity of an object to do work is called its energy. It is a scalar quantity sharing the SI unit of work: Joule (J).",
           "diagram_title": "Energy Forms and Capacity for Work",
-          "diagram_type": "image",
-          "image_query": "forms of energy kinetic potential physics diagram",
-          "video_query": "what is energy physics animation",
-          "image_url": "/extracted_diagrams/ch7/fig_7_1.webp",
+          "diagram_type": "image_search",
+          "image_query": "energy conversion across physical systems. scientific educational diagram with clear labels",
+          "video_query": "Energy Forms and Capacity for Work educational demonstration video",
           "what_to_make": "Textbook diagram showing energy conversion across physical systems.",
-          "timing_and_cue": "Mount energy concept on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_1.webp | Energy Capacity to Do Work | Scalar property measured in Joules\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"energy conversion across physical systems. scientific educational diagram with clear labels\", title=\"Energy Forms and Capacity for Work\") | Proactive video: search_and_show_video(query=\"Energy Forms and Capacity for Work educational demonstration video\", title=\"Energy Forms and Capacity for Work\")",
+          "image_search_query": "energy conversion across physical systems. scientific educational diagram with clear labels",
+          "video_search_query": "Energy Forms and Capacity for Work educational demonstration video"
         },
         {
           "concept_title": "Kinetic Energy Nature: Kinetic energy is the energy possessed by an object on account of its motion: E_k = 1/2 m v^2.",
           "diagram_title": "Moving Mass Kinetic Energy Blueprint",
-          "diagram_type": "image",
-          "image_query": "kinetic energy moving object mass velocity diagram",
-          "video_query": "kinetic energy 1/2 mv^2 physics",
-          "image_url": "/extracted_diagrams/ch7/fig_7_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "mass m moving with velocity v possessing 1/2 m v^2. scientific educational diagram with clear labels",
+          "video_query": "Moving Mass Kinetic Energy Blueprint educational demonstration video",
           "what_to_make": "Textbook diagram showing mass m moving with velocity v possessing 1/2 m v^2.",
-          "timing_and_cue": "Mount kinetic energy on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_7.webp | Kinetic Energy Blueprint | E_k = 1/2 m v^2\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"mass m moving with velocity v possessing 1/2 m v^2. scientific educational diagram with clear labels\", title=\"Moving Mass Kinetic Energy Blueprint\") | Proactive video: search_and_show_video(query=\"Moving Mass Kinetic Energy Blueprint educational demonstration video\", title=\"Moving Mass Kinetic Energy Blueprint\")",
+          "image_search_query": "mass m moving with velocity v possessing 1/2 m v^2. scientific educational diagram with clear labels",
+          "video_search_query": "Moving Mass Kinetic Energy Blueprint educational demonstration video"
         },
         {
           "concept_title": "Work-Energy Derivation: Integrating F * ds using the third kinematic equation v^2 - u^2 = 2as proves that W = 1/2 m v^2 - 1/2 m u^2.",
           "diagram_title": "Kinematic Derivation of Work-Energy Relation",
-          "diagram_type": "image",
-          "image_query": "work energy theorem derivation v2 u2 2as diagram",
-          "video_query": "derivation of kinetic energy formula",
-          "image_url": "/extracted_diagrams/ch7/fig_7_8.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook schematic showing constant acceleration displacing mass and deriving 1/2 m v^2 - u^2 . scientific educational diagram with clear labels",
+          "video_query": "Kinematic Derivation of Work-Energy Relation educational demonstration video",
           "what_to_make": "Textbook schematic showing constant acceleration displacing mass and deriving 1/2 m(v^2 - u^2).",
-          "timing_and_cue": "Mount derivation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_8.webp | Work-Energy Derivation | Linking F = ma and v^2 - u^2 = 2as\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook schematic showing constant acceleration displacing mass and deriving 1/2 m v^2 - u^2 . scientific educational diagram with clear labels\", title=\"Kinematic Derivation of Work-Energy Relation\") | Proactive video: search_and_show_video(query=\"Kinematic Derivation of Work-Energy Relation educational demonstration video\", title=\"Kinematic Derivation of Work-Energy Relation\")",
+          "image_search_query": "Textbook schematic showing constant acceleration displacing mass and deriving 1/2 m v^2 - u^2 . scientific educational diagram with clear labels",
+          "video_search_query": "Kinematic Derivation of Work-Energy Relation educational demonstration video"
         },
         {
           "concept_title": "Work-Energy Theorem: The net work done by all acting forces on a rigid body is identically equal to the change in its kinetic energy: W_net = Delta E_k.",
           "diagram_title": "Work-Energy Theorem Application",
-          "diagram_type": "image",
-          "image_query": "work energy theorem net work equals change in kinetic energy",
-          "video_query": "work energy theorem explained",
-          "image_url": "/extracted_diagrams/ch7/fig_7_10.webp",
+          "diagram_type": "image_search",
+          "image_query": "net work done accelerating vehicle from speed u to speed v. scientific educational diagram with clear labels",
+          "video_query": "Work-Energy Theorem Application educational demonstration video",
           "what_to_make": "Textbook diagram showing net work done accelerating vehicle from speed u to speed v.",
-          "timing_and_cue": "Mount Work-Energy Theorem on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_10.webp | Work-Energy Theorem | W_net = Delta E_k = 1/2 m(v^2 - u^2)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"net work done accelerating vehicle from speed u to speed v. scientific educational diagram with clear labels\", title=\"Work-Energy Theorem Application\") | Proactive video: search_and_show_video(query=\"Work-Energy Theorem Application educational demonstration video\", title=\"Work-Energy Theorem Application\")",
+          "image_search_query": "net work done accelerating vehicle from speed u to speed v. scientific educational diagram with clear labels",
+          "video_search_query": "Work-Energy Theorem Application educational demonstration video"
         },
         {
           "concept_title": "Quadratic Velocity Scaling: Because E_k is proportional to v^2, an automobile traveling at 60 km/h possesses 4 times the kinetic energy of the same car at 30 km/h, requiring 4 times the stopping distance.",
           "diagram_title": "Quadratic Velocity vs Stopping Distance",
-          "diagram_type": "image",
-          "image_query": "speed vs stopping distance physics quadratic graph",
-          "video_query": "stopping distance quadratic speed",
-          "image_url": "/extracted_diagrams/ch7/fig_7_11.webp",
+          "diagram_type": "image_search",
+          "image_query": "Graph illustrating parabolic growth of kinetic energy and quadrupled braking distance. scientific educational diagram with clear labels",
+          "video_query": "Quadratic Velocity vs Stopping Distance educational demonstration video",
           "what_to_make": "Graph illustrating parabolic growth of kinetic energy and quadrupled braking distance.",
-          "timing_and_cue": "Mount quadratic velocity scaling on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_11.webp | Quadratic Velocity Dependency | Doubling velocity quadruples kinetic energy and braking distance\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Graph illustrating parabolic growth of kinetic energy and quadrupled braking distance. scientific educational diagram with clear labels\", title=\"Quadratic Velocity vs Stopping Distance\") | Proactive video: search_and_show_video(query=\"Quadratic Velocity vs Stopping Distance educational demonstration video\", title=\"Quadratic Velocity vs Stopping Distance\")",
+          "image_search_query": "Graph illustrating parabolic growth of kinetic energy and quadrupled braking distance. scientific educational diagram with clear labels",
+          "video_search_query": "Quadratic Velocity vs Stopping Distance educational demonstration video"
         },
         {
           "concept_title": "Penetration Depth Proportionality: Work done by resistive medium during stopping equals initial kinetic energy (F_resist * d = 1/2 m v^2), so penetration depth d is directly proportional to v^2.",
           "diagram_title": "Activity 7.3 Sand Trough Penetration Depth",
-          "diagram_type": "image",
-          "image_query": "ball dropped in sand kinetic energy penetration depth activity",
-          "video_query": "kinetic energy sand penetration experiment",
-          "image_url": "/extracted_diagrams/ch7/fig_7_12.webp",
+          "diagram_type": "image_search",
+          "image_query": "steel ball dropped into sand measuring penetration crater depth. scientific educational diagram with clear labels",
+          "video_query": "Activity 7.3 Sand Trough Penetration Depth educational demonstration video",
           "what_to_make": "Textbook diagram showing steel ball dropped into sand measuring penetration crater depth.",
-          "timing_and_cue": "Mount Activity 7.3 on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_12.webp | Activity 7.3 Sand Trough Lab | Penetration depth proves E_k proportionality\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"steel ball dropped into sand measuring penetration crater depth. scientific educational diagram with clear labels\", title=\"Activity 7.3 Sand Trough Penetration Depth\") | Proactive video: search_and_show_video(query=\"Activity 7.3 Sand Trough Penetration Depth educational demonstration video\", title=\"Activity 7.3 Sand Trough Penetration Depth\")",
+          "image_search_query": "steel ball dropped into sand measuring penetration crater depth. scientific educational diagram with clear labels",
+          "video_search_query": "Activity 7.3 Sand Trough Penetration Depth educational demonstration video"
         }
       ]
     },
@@ -365,7 +377,7 @@
     "chapter_notes": "### 7.9 Potential Energy ($E_p$)\nPotential energy is energy stored within a system due to its position or mechanical deformation (e.g. stretched rubber band, compressed spring, wound-up toy car spring, water stored in high dam).\n\n### 7.10 Gravitational Potential Energy ($E_p = mgh$)\nWhen an object of mass $m$ is raised through vertical height $h$ against gravity:\n1. Minimum upward force required equals weight: $F = mg$.\n2. Work done against gravity:\n   $$W = F \\times h = (mg) \\times h = mgh$$\n3. This work is stored as gravitational potential energy:\n   $$\\mathbf{E_p = mgh}$$\n\n### 7.11 Path Independence in Gravitational Fields\nGravity is a **conservative force**. Whether a block is lifted vertically upward by height $h$ or pushed up a gentle ramp of length $L$ to the same height $h$:\n$$W = mg \\times h$$\nThe work done depends **only on the vertical height difference**, not on the path traveled.\n\n### 7.12 Law of Conservation of Energy\n$$\\mathbf{E_{total} = E_k + E_p = \\text{Constant}}$$\n*Energy can neither be created nor destroyed; it can only be transformed from one form to another.*\n\n### 7.13 Free Fall Verification Ledger\nConsider mass $m$ dropped from height $H$ ($u = 0$):\n1. **At Point A (Top, height $H$)**:\n   - $v_A = 0 \\implies E_k = 0$\n   - $E_p = mgH$\n   - **Total Energy** $= 0 + mgH = \\mathbf{mgH}$.\n2. **At Point B (Intermediate, fallen distance $x$, height $H - x$)**:\n   - $v_B^2 = 0 + 2gx = 2gx$\n   - $E_k = \\frac{1}{2}m(2gx) = mgx$\n   - $E_p = mg(H - x) = mgH - mgx$\n   - **Total Energy** $= mgx + (mgH - mgx) = \\mathbf{mgH}$.\n3. **At Point C (Ground, height $0$)**:\n   - $v_C^2 = 0 + 2gH = 2gH \\implies v_C = \\sqrt{2gH}$\n   - $E_k = \\frac{1}{2}m(2gH) = mgH$\n   - $E_p = 0$\n   - **Total Energy** $= mgH + 0 = \\mathbf{mgH}$.\nAt every instant, potential energy converts continuously into kinetic energy while total mechanical energy remains invariant.",
     "worked_examples": [
       {
-        "problem": "Find the energy possessed by an object of mass 10 kg when it is at a height of 6 m above the ground. Given, g = 9.8 m/s\u00b2.",
+        "problem": "Find the energy possessed by an object of mass 10 kg when it is at a height of 6 m above the ground. Given, g = 9.8 m/s².",
         "given": "Mass $m = 10\\text{ kg}$, height $h = 6\\text{ m}$, acceleration due to gravity $g = 9.8\\text{ m/s}^2$.",
         "formula": "$E_p = mgh$.",
         "substitution": "$E_p = 10 \\times 9.8 \\times 6$.",
@@ -377,7 +389,7 @@
         "figure_caption": "Fig. 7.13: Potential energy at elevated height h"
       },
       {
-        "problem": "An object of mass 12 kg is at a certain height above the ground. If the potential energy of the object is 480 J, find the height at which the object is with respect to the ground. Given, g = 10 m/s\u00b2.",
+        "problem": "An object of mass 12 kg is at a certain height above the ground. If the potential energy of the object is 480 J, find the height at which the object is with respect to the ground. Given, g = 10 m/s².",
         "given": "Mass $m = 12\\text{ kg}$, potential energy $E_p = 480\\text{ J}, g = 10\\text{ m/s}^2$.",
         "formula": "$E_p = mgh \\implies h = \\frac{E_p}{mg}$.",
         "substitution": "$h = \\frac{480}{12 \\times 10} = \\frac{480}{120}$.",
@@ -389,7 +401,7 @@
         "figure_caption": "Fig. 7.15: Elevation height determined from potential energy"
       },
       {
-        "problem": "A body of mass 2 kg is dropped from a height of 20 m. Calculate: (a) Potential energy at release, (b) Kinetic energy and velocity after falling 10 m, and (c) Kinetic energy and impact velocity just before hitting the ground. (Take g = 10 m/s\u00b2).",
+        "problem": "A body of mass 2 kg is dropped from a height of 20 m. Calculate: (a) Potential energy at release, (b) Kinetic energy and velocity after falling 10 m, and (c) Kinetic energy and impact velocity just before hitting the ground. (Take g = 10 m/s²).",
         "given": "Mass $m = 2\\text{ kg}$, total height $H = 20\\text{ m}, g = 10\\text{ m/s}^2$.",
         "formula": "Conservation of Mechanical Energy: $E_k + E_p = mgH$; $v = \\sqrt{2gx}$.",
         "substitution": "(a) $E_p = 2 \\times 10 \\times 20$. (b) $x = 10\\text{ m} \\implies E_k = mgx = 2 \\times 10 \\times 10$. (c) $h = 0 \\implies E_k = mgH = 400\\text{ J}$.",
@@ -451,62 +463,68 @@
         {
           "concept_title": "Potential Energy Definition: Potential energy is the energy possessed by an object by virtue of its position, elevated height, or deformed mechanical configuration.",
           "diagram_title": "Deformed Mechanical Potential Energy",
-          "diagram_type": "image",
-          "image_query": "elastic potential energy stretched bow spring physics diagram",
-          "video_query": "elastic potential energy physics",
-          "image_url": "/extracted_diagrams/ch7/fig_7_13.webp",
+          "diagram_type": "image_search",
+          "image_query": "stretched bow and arrow storing elastic potential energy. scientific educational diagram with clear labels",
+          "video_query": "Deformed Mechanical Potential Energy educational demonstration video",
           "what_to_make": "Textbook diagram showing stretched bow and arrow storing elastic potential energy.",
-          "timing_and_cue": "Mount potential energy on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_13.webp | Elastic & Positional Potential Energy | Stored capacity to do work\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"stretched bow and arrow storing elastic potential energy. scientific educational diagram with clear labels\", title=\"Deformed Mechanical Potential Energy\") | Proactive video: search_and_show_video(query=\"Deformed Mechanical Potential Energy educational demonstration video\", title=\"Deformed Mechanical Potential Energy\")",
+          "image_search_query": "stretched bow and arrow storing elastic potential energy. scientific educational diagram with clear labels",
+          "video_search_query": "Deformed Mechanical Potential Energy educational demonstration video"
         },
         {
           "concept_title": "Gravitational Potential Energy Equation: The gravitational potential energy of an object of mass m raised through height h against gravity is E_p = mgh.",
           "diagram_title": "Gravitational Potential Energy Formulation",
-          "diagram_type": "image",
-          "image_query": "gravitational potential energy mgh elevated height diagram",
-          "video_query": "gravitational potential energy mgh physics",
-          "image_url": "/extracted_diagrams/ch7/fig_7_15.webp",
+          "diagram_type": "image_search",
+          "image_query": "object of mass m lifted through height h with Ep = mgh. scientific educational diagram with clear labels",
+          "video_query": "Gravitational Potential Energy Formulation educational demonstration video",
           "what_to_make": "Textbook diagram showing object of mass m lifted through height h with Ep = mgh.",
-          "timing_and_cue": "Mount E_p = mgh on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_15.webp | Gravitational Potential Energy | E_p = mgh against downward gravity\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"object of mass m lifted through height h with Ep = mgh. scientific educational diagram with clear labels\", title=\"Gravitational Potential Energy Formulation\") | Proactive video: search_and_show_video(query=\"Gravitational Potential Energy Formulation educational demonstration video\", title=\"Gravitational Potential Energy Formulation\")",
+          "image_search_query": "object of mass m lifted through height h with Ep = mgh. scientific educational diagram with clear labels",
+          "video_search_query": "Gravitational Potential Energy Formulation educational demonstration video"
         },
         {
           "concept_title": "Conservative Path Independence: Work done against gravity depends exclusively on initial and final vertical positions (Delta h) and is completely independent of the slope or curved path taken.",
           "diagram_title": "Path Independence in Gravity",
-          "diagram_type": "image",
-          "image_query": "work done path independence conservative gravity ramp stairs diagram",
-          "video_query": "conservative force path independence physics",
-          "image_url": "/extracted_diagrams/ch7/fig_7_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook comparative diagram showing lifting directly vs rolling up inclined ramp to same height h. scientific educational diagram with clear labels",
+          "video_query": "Path Independence in Gravity educational demonstration video",
           "what_to_make": "Textbook comparative diagram showing lifting directly vs rolling up inclined ramp to same height h.",
-          "timing_and_cue": "Mount path independence on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_16.webp | Path Independence | Work depends exclusively on vertical height Delta h\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook comparative diagram showing lifting directly vs rolling up inclined ramp to same height h. scientific educational diagram with clear labels\", title=\"Path Independence in Gravity\") | Proactive video: search_and_show_video(query=\"Path Independence in Gravity educational demonstration video\", title=\"Path Independence in Gravity\")",
+          "image_search_query": "Textbook comparative diagram showing lifting directly vs rolling up inclined ramp to same height h. scientific educational diagram with clear labels",
+          "video_search_query": "Path Independence in Gravity educational demonstration video"
         },
         {
           "concept_title": "Law of Conservation of Energy: In any isolated physical system, total energy remains strictly constant; energy can transform from one form to another, but the sum remains invariant.",
           "diagram_title": "Universal Energy Transformation Flowchart",
-          "diagram_type": "image",
-          "image_query": "conservation of energy transformations flowchart physics",
-          "video_query": "law of conservation of energy animation",
-          "image_url": "/extracted_diagrams/ch7/fig_7_17.webp",
+          "diagram_type": "image_search",
+          "image_query": "cyclical energy conversion across potential, kinetic, electrical, and thermal forms. scientific educational diagram with clear labels",
+          "video_query": "Universal Energy Transformation Flowchart educational demonstration video",
           "what_to_make": "Textbook diagram showing cyclical energy conversion across potential, kinetic, electrical, and thermal forms.",
-          "timing_and_cue": "Mount conservation law on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_17.webp | Universal Conservation Law | Energy can neither be created nor destroyed\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"cyclical energy conversion across potential, kinetic, electrical, and thermal forms. scientific educational diagram with clear labels\", title=\"Universal Energy Transformation Flowchart\") | Proactive video: search_and_show_video(query=\"Universal Energy Transformation Flowchart educational demonstration video\", title=\"Universal Energy Transformation Flowchart\")",
+          "image_search_query": "cyclical energy conversion across potential, kinetic, electrical, and thermal forms. scientific educational diagram with clear labels",
+          "video_search_query": "Universal Energy Transformation Flowchart educational demonstration video"
         },
         {
           "concept_title": "Mechanical Energy Conservation: Total mechanical energy E_total = E_k + E_p = 1/2 mv^2 + mgh = constant throughout free fall.",
           "diagram_title": "Free Fall Mechanical Energy Exchange",
-          "diagram_type": "image",
-          "image_query": "free fall energy conservation kinetic potential constant diagram",
-          "video_query": "energy conservation free fall physics",
-          "image_url": "/extracted_diagrams/ch7/fig_7_18.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook 3-point free fall diagram Top A, Middle B, Ground C showing Ep converting to Ek. scientific educational diagram with clear labels",
+          "video_query": "Free Fall Mechanical Energy Exchange educational demonstration video",
           "what_to_make": "Textbook 3-point free fall diagram (Top A, Middle B, Ground C) showing Ep converting to Ek.",
-          "timing_and_cue": "Mount free fall ledger on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_18.webp | Free Fall Energy Ledger | E_total = E_k + E_p = constant at all points\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook 3-point free fall diagram Top A, Middle B, Ground C showing Ep converting to Ek. scientific educational diagram with clear labels\", title=\"Free Fall Mechanical Energy Exchange\") | Proactive video: search_and_show_video(query=\"Free Fall Mechanical Energy Exchange educational demonstration video\", title=\"Free Fall Mechanical Energy Exchange\")",
+          "image_search_query": "Textbook 3-point free fall diagram Top A, Middle B, Ground C showing Ep converting to Ek. scientific educational diagram with clear labels",
+          "video_search_query": "Free Fall Mechanical Energy Exchange educational demonstration video"
         },
         {
           "concept_title": "Oscillatory Pendulum Dynamics: At extreme positions, kinetic energy is zero and potential energy is maximum; at the mean position, potential energy is minimum and kinetic energy is maximum.",
           "diagram_title": "Simple Pendulum Energy Transformation",
-          "diagram_type": "image",
-          "image_query": "simple pendulum energy exchange kinetic potential mean extreme diagram",
-          "video_query": "simple pendulum energy conservation physics",
-          "image_url": "/extracted_diagrams/ch7/fig_7_19.webp",
+          "diagram_type": "image_search",
+          "image_query": "swinging pendulum with potential and kinetic energy bar charts at positions A, B, and C. scientific educational diagram with clear labels",
+          "video_query": "Simple Pendulum Energy Transformation educational demonstration video",
           "what_to_make": "Textbook diagram of swinging pendulum with potential and kinetic energy bar charts at positions A, B, and C.",
-          "timing_and_cue": "Mount pendulum dynamics on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_19.webp | Pendulum Energy Oscillation | Continuous exchange between kinetic and potential energy\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"swinging pendulum with potential and kinetic energy bar charts at positions A, B, and C. scientific educational diagram with clear labels\", title=\"Simple Pendulum Energy Transformation\") | Proactive video: search_and_show_video(query=\"Simple Pendulum Energy Transformation educational demonstration video\", title=\"Simple Pendulum Energy Transformation\")",
+          "image_search_query": "swinging pendulum with potential and kinetic energy bar charts at positions A, B, and C. scientific educational diagram with clear labels",
+          "video_search_query": "Simple Pendulum Energy Transformation educational demonstration video"
         }
       ]
     },
@@ -548,7 +566,7 @@
         "figure_caption": "Fig. 7.20: Power comparison of rope climbing girls"
       },
       {
-        "problem": "A boy of mass 50 kg runs up a staircase of 45 steps in 9 s. If the height of each step is 15 cm, find his power. Take g = 10 m/s\u00b2.",
+        "problem": "A boy of mass 50 kg runs up a staircase of 45 steps in 9 s. If the height of each step is 15 cm, find his power. Take g = 10 m/s².",
         "given": "Mass $m = 50\\text{ kg}$, number of steps $= 45$, step height $= 15\\text{ cm} = 0.15\\text{ m}$, total height $h = 45 \\times 0.15 = 6.75\\text{ m}$, time $t = 9\\text{ s}, g = 10\\text{ m/s}^2$.",
         "formula": "Work $W = mgh$; Power $P = \\frac{W}{t}$.",
         "substitution": "$W = 50 \\times 10 \\times 6.75 = 500 \\times 6.75 = 3375\\text{ J}$. $P = \\frac{3375}{9}$.",
@@ -596,7 +614,7 @@
         "figure_caption": "Fig. 7.24: High power electrical appliance power dissipation"
       },
       {
-        "problem": "An electric motor of an elevator lifts a mass of 1200 kg through a vertical height of 20 m in 40 s. Calculate the power delivered by the motor in Watts and in Horsepower. (Take g = 10 m/s\u00b2).",
+        "problem": "An electric motor of an elevator lifts a mass of 1200 kg through a vertical height of 20 m in 40 s. Calculate the power delivered by the motor in Watts and in Horsepower. (Take g = 10 m/s²).",
         "given": "Mass $m = 1200\\text{ kg}, h = 20\\text{ m}, t = 40\\text{ s}, g = 10\\text{ m/s}^2$.",
         "formula": "$W = mgh$; $P = \\frac{W}{t}$; $P_{hp} = \\frac{P}{746}$.",
         "substitution": "$W = 1200 \\times 10 \\times 20 = 240000\\text{ J}$. $P = \\frac{240000}{40} = 6000\\text{ W}$. $P_{hp} = \\frac{6000}{746}$.",
@@ -622,62 +640,68 @@
         {
           "concept_title": "Power Definition: Power is defined as the rate of doing work or the rate of transfer of energy: P = W / t.",
           "diagram_title": "Rate of Doing Work Mechanical Blueprint",
-          "diagram_type": "image",
-          "image_query": "power rate of doing work physics diagram",
-          "video_query": "power formula physics animation",
-          "image_url": "/extracted_diagrams/ch7/fig_7_20.webp",
+          "diagram_type": "image_search",
+          "image_query": "two individuals lifting same load in different times. scientific educational diagram with clear labels",
+          "video_query": "Rate of Doing Work Mechanical Blueprint educational demonstration video",
           "what_to_make": "Textbook diagram showing two individuals lifting same load in different times.",
-          "timing_and_cue": "Mount power definition on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_20.webp | Power: Rate of Work | P = W / t in Joules per second\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"two individuals lifting same load in different times. scientific educational diagram with clear labels\", title=\"Rate of Doing Work Mechanical Blueprint\") | Proactive video: search_and_show_video(query=\"Rate of Doing Work Mechanical Blueprint educational demonstration video\", title=\"Rate of Doing Work Mechanical Blueprint\")",
+          "image_search_query": "two individuals lifting same load in different times. scientific educational diagram with clear labels",
+          "video_search_query": "Rate of Doing Work Mechanical Blueprint educational demonstration video"
         },
         {
           "concept_title": "SI Unit of Power (Watt): The SI unit of power is the Watt (W), named in honor of James Watt. 1 Watt is the power of an agent that does work at the rate of 1 Joule per second.",
           "diagram_title": "Watt Standard Unit Architecture",
-          "diagram_type": "image",
-          "image_query": "one watt joule per second james watt physics",
-          "video_query": "what is a watt power unit",
-          "image_url": "/extracted_diagrams/ch7/fig_7_21.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook schematic of 1 Watt power dissipation rate. scientific educational diagram with clear labels",
+          "video_query": "Watt Standard Unit Architecture educational demonstration video",
           "what_to_make": "Textbook schematic of 1 Watt power dissipation rate.",
-          "timing_and_cue": "Mount 1 Watt standard on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_21.webp | 1 Watt Definition | 1 Joule of energy expended in 1 second\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook schematic of 1 Watt power dissipation rate. scientific educational diagram with clear labels\", title=\"Watt Standard Unit Architecture\") | Proactive video: search_and_show_video(query=\"Watt Standard Unit Architecture educational demonstration video\", title=\"Watt Standard Unit Architecture\")",
+          "image_search_query": "Textbook schematic of 1 Watt power dissipation rate. scientific educational diagram with clear labels",
+          "video_search_query": "Watt Standard Unit Architecture educational demonstration video"
         },
         {
           "concept_title": "Average Power Calculation: Average power is total work done divided by total time taken: P_avg = Total Energy Consumed / Total Time.",
           "diagram_title": "Staircase Climb Muscle Power Lab",
-          "diagram_type": "image",
-          "image_query": "running upstairs power calculation physics experiment",
-          "video_query": "human power output stair climb",
-          "image_url": "/extracted_diagrams/ch7/fig_7_22.webp",
+          "diagram_type": "image_search",
+          "image_query": "student climbing stairs measuring mass, vertical height, and stopwatch duration. scientific educational diagram with clear labels",
+          "video_query": "Staircase Climb Muscle Power Lab educational demonstration video",
           "what_to_make": "Textbook diagram of student climbing stairs measuring mass, vertical height, and stopwatch duration.",
-          "timing_and_cue": "Mount staircase power lab on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_22.webp | Muscle Power Measurement | P = mgh / t during stair climb\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"student climbing stairs measuring mass, vertical height, and stopwatch duration. scientific educational diagram with clear labels\", title=\"Staircase Climb Muscle Power Lab\") | Proactive video: search_and_show_video(query=\"Staircase Climb Muscle Power Lab educational demonstration video\", title=\"Staircase Climb Muscle Power Lab\")",
+          "image_search_query": "student climbing stairs measuring mass, vertical height, and stopwatch duration. scientific educational diagram with clear labels",
+          "video_search_query": "Staircase Climb Muscle Power Lab educational demonstration video"
         },
         {
           "concept_title": "Commercial Energy Unit (Kilowatt-Hour): The Joule is too small for practical commercial accounting; electricity supply boards bill electrical energy in kilowatt-hours (kWh), where 1 kWh is commonly termed '1 unit' of electricity.",
           "diagram_title": "Domestic Electricity Meter Billing",
-          "diagram_type": "image",
-          "image_query": "electric meter kilowatt hour commercial unit diagram",
-          "video_query": "kilowatt hour electric meter explained",
-          "image_url": "/extracted_diagrams/ch7/fig_7_23.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook photo of domestic electricity meter recording kWh consumption. scientific educational diagram with clear labels",
+          "video_query": "Domestic Electricity Meter Billing educational demonstration video",
           "what_to_make": "Textbook photo of domestic electricity meter recording kWh consumption.",
-          "timing_and_cue": "Mount commercial unit on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_23.webp | Commercial Unit: kWh | 1 Board of Trade Unit = 1 kWh\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook photo of domestic electricity meter recording kWh consumption. scientific educational diagram with clear labels\", title=\"Domestic Electricity Meter Billing\") | Proactive video: search_and_show_video(query=\"Domestic Electricity Meter Billing educational demonstration video\", title=\"Domestic Electricity Meter Billing\")",
+          "image_search_query": "Textbook photo of domestic electricity meter recording kWh consumption. scientific educational diagram with clear labels",
+          "video_search_query": "Domestic Electricity Meter Billing educational demonstration video"
         },
         {
           "concept_title": "Joule-kWh Conversion: 1 kWh = 1 kW * 1 h = 1000 W * 3600 s = 3,600,000 Joules = 3.6 * 10^6 J.",
           "diagram_title": "kWh to Joule Conversion Matrix",
-          "diagram_type": "image",
-          "image_query": "1 kwh equals 3.6 million joules derivation diagram",
-          "video_query": "kwh to joules conversion",
-          "image_url": "/extracted_diagrams/ch7/fig_7_24.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook calculation showing conversion of 1 kW * 1 h into 3.6 * 10^6 Joules. scientific educational diagram with clear labels",
+          "video_query": "kWh to Joule Conversion Matrix educational demonstration video",
           "what_to_make": "Textbook calculation showing conversion of 1 kW * 1 h into 3.6 * 10^6 Joules.",
-          "timing_and_cue": "Mount Joule conversion on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_24.webp | 1 kWh = 3.6 * 10^6 J | Fundamental commercial energy equivalence\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook calculation showing conversion of 1 kW * 1 h into 3.6 * 10^6 Joules. scientific educational diagram with clear labels\", title=\"kWh to Joule Conversion Matrix\") | Proactive video: search_and_show_video(query=\"kWh to Joule Conversion Matrix educational demonstration video\", title=\"kWh to Joule Conversion Matrix\")",
+          "image_search_query": "Textbook calculation showing conversion of 1 kW * 1 h into 3.6 * 10^6 Joules. scientific educational diagram with clear labels",
+          "video_search_query": "kWh to Joule Conversion Matrix educational demonstration video"
         },
         {
           "concept_title": "Human Muscle Power Output: Muscle power during rapid climbing is P = mgh / t. Athletic humans can generate 500-800 W burst power and ~100 W sustained power.",
           "diagram_title": "Human Energy Expenditure Comparison",
-          "diagram_type": "image",
-          "image_query": "human power output watts cycling climbing chart",
-          "video_query": "human mechanical power watts",
-          "image_url": "/extracted_diagrams/ch7/fig_7_25.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook comparison of human power output during sprinting vs sustained labor. scientific educational diagram with clear labels",
+          "video_query": "Human Energy Expenditure Comparison educational demonstration video",
           "what_to_make": "Textbook comparison of human power output during sprinting vs sustained labor.",
-          "timing_and_cue": "Mount muscle output on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_25.webp | Human Bioenergetic Output | Peak burst vs sustained thermodynamic power\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook comparison of human power output during sprinting vs sustained labor. scientific educational diagram with clear labels\", title=\"Human Energy Expenditure Comparison\") | Proactive video: search_and_show_video(query=\"Human Energy Expenditure Comparison educational demonstration video\", title=\"Human Energy Expenditure Comparison\")",
+          "image_search_query": "Textbook comparison of human power output during sprinting vs sustained labor. scientific educational diagram with clear labels",
+          "video_search_query": "Human Energy Expenditure Comparison educational demonstration video"
         }
       ]
     },
@@ -767,7 +791,7 @@
         "figure_caption": "Fig. 7.30: Single movable pulley system doubling force"
       },
       {
-        "problem": "An inclined plane of length 5 m is used to roll a 200 kg barrel onto a truck platform 1 m high. Calculate: (a) Ideal Mechanical Advantage, and (b) Minimum effort force required along the incline. (Take g = 10 m/s\u00b2).",
+        "problem": "An inclined plane of length 5 m is used to roll a 200 kg barrel onto a truck platform 1 m high. Calculate: (a) Ideal Mechanical Advantage, and (b) Minimum effort force required along the incline. (Take g = 10 m/s²).",
         "given": "Incline length $L = 5\\text{ m}$, platform height $h = 1\\text{ m}$, barrel mass $m = 200\\text{ kg} \\implies \\text{Weight } W = mg = 2000\\text{ N}$.",
         "formula": "Ideal Incline: $MA = \\frac{L}{h}$; Effort $E = \\frac{W}{MA}$.",
         "substitution": "$MA = \\frac{5}{1} = 5$. $E = \\frac{2000}{5}$.",
@@ -793,62 +817,68 @@
         {
           "concept_title": "Machine Axiom: A machine cannot create energy; it allows a small effort force to overcome a large load by trading distance for force, or changes the direction of force to make work convenient.",
           "diagram_title": "Simple Machines Principles Overview",
-          "diagram_type": "image",
-          "image_query": "simple machines mechanical advantage trade off distance force diagram",
-          "video_query": "how simple machines work physics",
-          "image_url": "/extracted_diagrams/ch7/fig_7_26.webp",
+          "diagram_type": "image_search",
+          "image_query": "load, effort, and fulcrum interaction. scientific educational diagram with clear labels",
+          "video_query": "Simple Machines Principles Overview educational demonstration video",
           "what_to_make": "Textbook diagram showing load, effort, and fulcrum interaction.",
-          "timing_and_cue": "Mount machine axiom on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_26.webp | Simple Machines Principle | Trading distance for force multiplication\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"load, effort, and fulcrum interaction. scientific educational diagram with clear labels\", title=\"Simple Machines Principles Overview\") | Proactive video: search_and_show_video(query=\"Simple Machines Principles Overview educational demonstration video\", title=\"Simple Machines Principles Overview\")",
+          "image_search_query": "load, effort, and fulcrum interaction. scientific educational diagram with clear labels",
+          "video_search_query": "Simple Machines Principles Overview educational demonstration video"
         },
         {
           "concept_title": "Mechanical Advantage (MA): MA = Load / Effort = L / E. When MA > 1, the machine acts as a force multiplier.",
           "diagram_title": "Mechanical Advantage Force Multiplier",
-          "diagram_type": "image",
-          "image_query": "mechanical advantage load over effort formula physics",
-          "video_query": "mechanical advantage explained",
-          "image_url": "/extracted_diagrams/ch7/fig_7_27.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook formula chart defining MA = Load / Effort. scientific educational diagram with clear labels",
+          "video_query": "Mechanical Advantage Force Multiplier educational demonstration video",
           "what_to_make": "Textbook formula chart defining MA = Load / Effort.",
-          "timing_and_cue": "Mount MA formulation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_27.webp | Mechanical Advantage | MA = Load / Effort\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook formula chart defining MA = Load / Effort. scientific educational diagram with clear labels\", title=\"Mechanical Advantage Force Multiplier\") | Proactive video: search_and_show_video(query=\"Mechanical Advantage Force Multiplier educational demonstration video\", title=\"Mechanical Advantage Force Multiplier\")",
+          "image_search_query": "Textbook formula chart defining MA = Load / Effort. scientific educational diagram with clear labels",
+          "video_search_query": "Mechanical Advantage Force Multiplier educational demonstration video"
         },
         {
           "concept_title": "Velocity Ratio (VR): VR = Distance moved by effort / Distance moved by load = d_E / d_L. It is a purely geometric property independent of friction.",
           "diagram_title": "Velocity Ratio Geometric Displacement",
-          "diagram_type": "image",
-          "image_query": "velocity ratio distance moved by effort over load diagram",
-          "video_query": "velocity ratio vs mechanical advantage",
-          "image_url": "/extracted_diagrams/ch7/fig_7_28.webp",
+          "diagram_type": "image_search",
+          "image_query": "effort displacement d_E vs load displacement d_L. scientific educational diagram with clear labels",
+          "video_query": "Velocity Ratio Geometric Displacement educational demonstration video",
           "what_to_make": "Textbook diagram illustrating effort displacement d_E vs load displacement d_L.",
-          "timing_and_cue": "Mount VR concept on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_28.webp | Velocity Ratio (VR) | Purely geometric displacement ratio d_E / d_L\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"effort displacement d_E vs load displacement d_L. scientific educational diagram with clear labels\", title=\"Velocity Ratio Geometric Displacement\") | Proactive video: search_and_show_video(query=\"Velocity Ratio Geometric Displacement educational demonstration video\", title=\"Velocity Ratio Geometric Displacement\")",
+          "image_search_query": "effort displacement d_E vs load displacement d_L. scientific educational diagram with clear labels",
+          "video_search_query": "Velocity Ratio Geometric Displacement educational demonstration video"
         },
         {
           "concept_title": "Efficiency Formulation: Efficiency eta = Work Output / Work Input = (Load * d_L) / (Effort * d_E) = MA / VR. For real machines with friction, eta < 1 (or < 100%).",
           "diagram_title": "Machine Efficiency Relation MA and VR",
-          "diagram_type": "image",
-          "image_query": "machine efficiency eta equals MA over VR physics diagram",
-          "video_query": "efficiency of machines formula",
-          "image_url": "/extracted_diagrams/ch7/fig_7_29.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook derivation showing efficiency equals MA / VR. scientific educational diagram with clear labels",
+          "video_query": "Machine Efficiency Relation MA and VR educational demonstration video",
           "what_to_make": "Textbook derivation showing efficiency equals MA / VR.",
-          "timing_and_cue": "Mount efficiency formula on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_29.webp | Machine Efficiency | eta = MA / VR <= 100% due to friction losses\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook derivation showing efficiency equals MA / VR. scientific educational diagram with clear labels\", title=\"Machine Efficiency Relation MA and VR\") | Proactive video: search_and_show_video(query=\"Machine Efficiency Relation MA and VR educational demonstration video\", title=\"Machine Efficiency Relation MA and VR\")",
+          "image_search_query": "Textbook derivation showing efficiency equals MA / VR. scientific educational diagram with clear labels",
+          "video_search_query": "Machine Efficiency Relation MA and VR educational demonstration video"
         },
         {
           "concept_title": "Lever Classification Law: Class 1 levers have Fulcrum between Effort and Load (crowbar, scissors, seesaw); Class 2 levers have Load between Fulcrum and Effort (wheelbarrow, nutcracker, bottle opener, always MA > 1); Class 3 levers have Effort between Fulcrum and Load (sugar tongs, human forearm, tweezers, always MA < 1, acts as speed multiplier).",
           "diagram_title": "Three Classes of Levers Architecture",
-          "diagram_type": "image",
-          "image_query": "three classes of levers class 1 2 3 fulcrum load effort diagram",
-          "video_query": "classes of levers physics",
-          "image_url": "/extracted_diagrams/ch7/fig_7_30.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook master diagram displaying Class 1, Class 2, and Class 3 lever blueprints with fulcrum, load, and effort positions. scientific educational diagram with clear labels",
+          "video_query": "Three Classes of Levers Architecture educational demonstration video",
           "what_to_make": "Textbook master diagram displaying Class 1, Class 2, and Class 3 lever blueprints with fulcrum, load, and effort positions.",
-          "timing_and_cue": "Mount lever classes on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_30.webp | Three Classes of Levers | Class 1 (F middle), Class 2 (L middle), Class 3 (E middle)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook master diagram displaying Class 1, Class 2, and Class 3 lever blueprints with fulcrum, load, and effort positions. scientific educational diagram with clear labels\", title=\"Three Classes of Levers Architecture\") | Proactive video: search_and_show_video(query=\"Three Classes of Levers Architecture educational demonstration video\", title=\"Three Classes of Levers Architecture\")",
+          "image_search_query": "Textbook master diagram displaying Class 1, Class 2, and Class 3 lever blueprints with fulcrum, load, and effort positions. scientific educational diagram with clear labels",
+          "video_search_query": "Three Classes of Levers Architecture educational demonstration video"
         },
         {
           "concept_title": "Pulley & Incline Mechanics: A single fixed pulley changes direction of effort with MA = 1; a single movable pulley doubles effort force with ideal MA = 2; an inclined plane has ideal MA = Length / Height = L / h.",
           "diagram_title": "Pulleys and Inclined Plane Mechanics",
-          "diagram_type": "image",
-          "image_query": "single fixed movable pulley inclined plane simple machines diagram",
-          "video_query": "pulleys and inclined planes physics",
-          "image_url": "/extracted_diagrams/ch7/fig_7_31.webp",
+          "diagram_type": "image_search",
+          "image_query": "fixed pulley, movable pulley, and inclined plane. scientific educational diagram with clear labels",
+          "video_query": "Pulleys and Inclined Plane Mechanics educational demonstration video",
           "what_to_make": "Textbook diagram showing fixed pulley, movable pulley, and inclined plane.",
-          "timing_and_cue": "Mount pulley and incline on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_31.webp | Pulleys & Inclines | Single fixed (direction), movable (MA=2), incline (MA=L/h)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"fixed pulley, movable pulley, and inclined plane. scientific educational diagram with clear labels\", title=\"Pulleys and Inclined Plane Mechanics\") | Proactive video: search_and_show_video(query=\"Pulleys and Inclined Plane Mechanics educational demonstration video\", title=\"Pulleys and Inclined Plane Mechanics\")",
+          "image_search_query": "fixed pulley, movable pulley, and inclined plane. scientific educational diagram with clear labels",
+          "video_search_query": "Pulleys and Inclined Plane Mechanics educational demonstration video"
         }
       ]
     },
@@ -923,7 +953,7 @@
         "figure_caption": "Fig. 7.37: Stopping work calculation for moving automobile"
       },
       {
-        "problem": "NCERT Ex Q21. A body of mass 40 kg is raised to a height of 5 m above the ground. What is its potential energy? If the object is allowed to fall, find its kinetic energy when it is half-way down. (Take g = 10 m/s\u00b2).",
+        "problem": "NCERT Ex Q21. A body of mass 40 kg is raised to a height of 5 m above the ground. What is its potential energy? If the object is allowed to fall, find its kinetic energy when it is half-way down. (Take g = 10 m/s²).",
         "given": "Mass $m = 40\\text{ kg}$, initial height $h = 5\\text{ m}, g = 10\\text{ m/s}^2$.",
         "formula": "Initial Potential Energy $E_p = mgh$; Half-way height $h' = 2.5\\text{ m} \\implies E_k = \\text{Loss in } E_p = mg(h - h')$.",
         "substitution": "Initial $E_p = 40 \\times 10 \\times 5 = 2000\\text{ J}$. Half-way: $E_k = 40 \\times 10 \\times 2.5$.",
@@ -949,52 +979,57 @@
         {
           "concept_title": "Comprehensive Work Identification: Determining whether work is positive, negative, or zero across arbitrary physical scenarios.",
           "diagram_title": "Work Determination Flowchart",
-          "diagram_type": "image",
-          "image_query": "work done positive negative zero examples diagram",
-          "video_query": "types of work done physics",
-          "image_url": "/extracted_diagrams/ch7/fig_7_34.webp",
+          "diagram_type": "image_search",
+          "image_query": "positive, negative, and zero work cases. scientific educational diagram with clear labels",
+          "video_query": "Work Determination Flowchart educational demonstration video",
           "what_to_make": "Textbook diagram showing positive, negative, and zero work cases.",
-          "timing_and_cue": "Mount work identification on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_34.webp | Work Identification Matrix | Positive vs negative vs zero work criteria\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"positive, negative, and zero work cases. scientific educational diagram with clear labels\", title=\"Work Determination Flowchart\") | Proactive video: search_and_show_video(query=\"Work Determination Flowchart educational demonstration video\", title=\"Work Determination Flowchart\")",
+          "image_search_query": "positive, negative, and zero work cases. scientific educational diagram with clear labels",
+          "video_search_query": "Work Determination Flowchart educational demonstration video"
         },
         {
           "concept_title": "Work-Energy Problem Solving: Linking net work done to kinetic energy change: W = 1/2 m(v^2 - u^2).",
           "diagram_title": "Work-Energy Theorem Solver",
-          "diagram_type": "image",
-          "image_query": "work energy theorem calculation vehicle stopping diagram",
-          "video_query": "work energy theorem numericals",
-          "image_url": "/extracted_diagrams/ch7/fig_7_35.webp",
+          "diagram_type": "image_search",
+          "image_query": "braking vehicle deceleration work. scientific educational diagram with clear labels",
+          "video_query": "Work-Energy Theorem Solver educational demonstration video",
           "what_to_make": "Textbook diagram showing braking vehicle deceleration work.",
-          "timing_and_cue": "Mount work-energy solver on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_35.webp | Work-Energy Solver | W = 1/2 m(v^2 - u^2) braking problem\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"braking vehicle deceleration work. scientific educational diagram with clear labels\", title=\"Work-Energy Theorem Solver\") | Proactive video: search_and_show_video(query=\"Work-Energy Theorem Solver educational demonstration video\", title=\"Work-Energy Theorem Solver\")",
+          "image_search_query": "braking vehicle deceleration work. scientific educational diagram with clear labels",
+          "video_search_query": "Work-Energy Theorem Solver educational demonstration video"
         },
         {
           "concept_title": "Potential Energy Conversions: Applying E_p = mgh and verifying constant mechanical energy in free fall.",
           "diagram_title": "Free Fall Potential Energy Partitioning",
-          "diagram_type": "image",
-          "image_query": "free fall energy calculation half way height diagram",
-          "video_query": "free fall energy conservation numericals",
-          "image_url": "/extracted_diagrams/ch7/fig_7_36.webp",
+          "diagram_type": "image_search",
+          "image_query": "half-way fall energy split 50% Ep and 50% Ek. scientific educational diagram with clear labels",
+          "video_query": "Free Fall Potential Energy Partitioning educational demonstration video",
           "what_to_make": "Textbook diagram showing half-way fall energy split 50% Ep and 50% Ek.",
-          "timing_and_cue": "Mount potential energy split on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_36.webp | Free Fall Energy Split | 50% Ep and 50% Ek at half-way elevation\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"half-way fall energy split 50% Ep and 50% Ek. scientific educational diagram with clear labels\", title=\"Free Fall Potential Energy Partitioning\") | Proactive video: search_and_show_video(query=\"Free Fall Potential Energy Partitioning educational demonstration video\", title=\"Free Fall Potential Energy Partitioning\")",
+          "image_search_query": "half-way fall energy split 50% Ep and 50% Ek. scientific educational diagram with clear labels",
+          "video_search_query": "Free Fall Potential Energy Partitioning educational demonstration video"
         },
         {
           "concept_title": "Commercial Energy Accounting: Converting electrical appliances usage into kWh units and billing.",
           "diagram_title": "Appliance Energy Consumption Matrix",
-          "diagram_type": "image",
-          "image_query": "electricity bill calculation kwh units appliance power chart",
-          "video_query": "how to calculate electricity bill kwh",
-          "image_url": "/extracted_diagrams/ch7/fig_7_37.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook electrical appliances power table and unit calculations. scientific educational diagram with clear labels",
+          "video_query": "Appliance Energy Consumption Matrix educational demonstration video",
           "what_to_make": "Textbook electrical appliances power table and unit calculations.",
-          "timing_and_cue": "Mount commercial energy accounting on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_37.webp | Electricity Accounting | Units = (Watts * hours) / 1000\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook electrical appliances power table and unit calculations. scientific educational diagram with clear labels\", title=\"Appliance Energy Consumption Matrix\") | Proactive video: search_and_show_video(query=\"Appliance Energy Consumption Matrix educational demonstration video\", title=\"Appliance Energy Consumption Matrix\")",
+          "image_search_query": "Textbook electrical appliances power table and unit calculations. scientific educational diagram with clear labels",
+          "video_search_query": "Appliance Energy Consumption Matrix educational demonstration video"
         },
         {
           "concept_title": "Simple Machine Problem Solving: Solving levers and pulleys with MA = Load / Effort and eta = MA / VR.",
           "diagram_title": "Simple Machines Master Problem Solver",
-          "diagram_type": "image",
-          "image_query": "levers pulleys simple machines numerical calculations diagram",
-          "video_query": "simple machines numericals class 9",
-          "image_url": "/extracted_diagrams/ch7/fig_7_40.webp",
+          "diagram_type": "image_search",
+          "image_query": "mechanical advantage calculations across lever and pulley machines. scientific educational diagram with clear labels",
+          "video_query": "Simple Machines Master Problem Solver educational demonstration video",
           "what_to_make": "Textbook diagram illustrating mechanical advantage calculations across lever and pulley machines.",
-          "timing_and_cue": "Mount machine solver on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch7/fig_7_40.webp | Machine Dynamics Solver | MA = L / E and eta = MA / VR\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"mechanical advantage calculations across lever and pulley machines. scientific educational diagram with clear labels\", title=\"Simple Machines Master Problem Solver\") | Proactive video: search_and_show_video(query=\"Simple Machines Master Problem Solver educational demonstration video\", title=\"Simple Machines Master Problem Solver\")",
+          "image_search_query": "mechanical advantage calculations across lever and pulley machines. scientific educational diagram with clear labels",
+          "video_search_query": "Simple Machines Master Problem Solver educational demonstration video"
         }
       ]
     },

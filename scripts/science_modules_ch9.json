@@ -109,62 +109,68 @@
         {
           "concept_title": "Philosophical Foundations of Atomism: Maharishi Kanad postulated that if we go on dividing matter (padartha), we shall get smaller particles until we reach parmanu which cannot be divided further.",
           "diagram_title": "Ancient Atomism & Cinnabar Metallurgy",
-          "diagram_type": "image",
-          "image_query": "cinnabar mercury sulfide mineral ancient metallurgy diagram",
-          "video_query": "history of atom Maharishi Kanad Democritus",
-          "image_url": "/extracted_diagrams/ch9/fig_9_5.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook image of cinnabar mineral illustrating the ancient extraction of pure mercury through thermal subdivision. scientific educational diagram with clear labels",
+          "video_query": "Ancient Atomism & Cinnabar Metallurgy educational demonstration video",
           "what_to_make": "Textbook image of cinnabar mineral illustrating the ancient extraction of pure mercury through thermal subdivision.",
-          "timing_and_cue": "Mount cinnabar on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_5.webp | Cinnabar & Ancient Atomism | Early subdivision of matter leading to indivisible parmanu\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook image of cinnabar mineral illustrating the ancient extraction of pure mercury through thermal subdivision. scientific educational diagram with clear labels\", title=\"Ancient Atomism & Cinnabar Metallurgy\") | Proactive video: search_and_show_video(query=\"Ancient Atomism & Cinnabar Metallurgy educational demonstration video\", title=\"Ancient Atomism & Cinnabar Metallurgy\")",
+          "image_search_query": "Textbook image of cinnabar mineral illustrating the ancient extraction of pure mercury through thermal subdivision. scientific educational diagram with clear labels",
+          "video_search_query": "Ancient Atomism & Cinnabar Metallurgy educational demonstration video"
         },
         {
           "concept_title": "Law of Conservation of Mass (Lavoisier, 1774): In any physical change or chemical reaction, the total mass of the products is strictly equal to the total mass of the reactants; mass can neither be created nor destroyed.",
           "diagram_title": "Mass Invariance in Physical Dissolution",
-          "diagram_type": "image",
-          "image_query": "salt water dissolution weighing balance mass conservation diagram",
-          "video_query": "law of conservation of mass experiment",
-          "image_url": "/extracted_diagrams/ch9/fig_9_1.webp",
+          "diagram_type": "image_search",
+          "image_query": "weighing balance measuring water and salt before and after dissolution. scientific educational diagram with clear labels",
+          "video_query": "Mass Invariance in Physical Dissolution educational demonstration video",
           "what_to_make": "Textbook diagram showing weighing balance measuring water and salt before and after dissolution.",
-          "timing_and_cue": "Mount physical dissolution on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_1.webp | Activity 9.1 Mass Invariance | Total mass remains constant upon salt dissolution\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"weighing balance measuring water and salt before and after dissolution. scientific educational diagram with clear labels\", title=\"Mass Invariance in Physical Dissolution\") | Proactive video: search_and_show_video(query=\"Mass Invariance in Physical Dissolution educational demonstration video\", title=\"Mass Invariance in Physical Dissolution\")",
+          "image_search_query": "weighing balance measuring water and salt before and after dissolution. scientific educational diagram with clear labels",
+          "video_search_query": "Mass Invariance in Physical Dissolution educational demonstration video"
         },
         {
           "concept_title": "Closed vs Open Reaction Systems: In gas-evolving reactions like sodium bicarbonate + ethanoic acid, mass appears lost only if the reaction vessel is open allowing carbon dioxide gas to escape; in a tightly corked flask, total mass remains invariant.",
           "diagram_title": "Activity 9.2 Vinegar & Baking Soda in Conical Flask",
-          "diagram_type": "image",
-          "image_query": "conical flask vinegar baking soda balance mass conservation diagram",
-          "video_query": "vinegar baking soda conservation of mass lab",
-          "image_url": "/extracted_diagrams/ch9/fig_9_2.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook experimental setup showing weighing balance with conical flask, vinegar, baking soda, and rubber cork. scientific educational diagram with clear labels",
+          "video_query": "Activity 9.2 Vinegar & Baking Soda in Conical Flask educational demonstration video",
           "what_to_make": "Textbook experimental setup showing weighing balance with conical flask, vinegar, baking soda, and rubber cork.",
-          "timing_and_cue": "Mount vinegar reaction setup on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_2.webp | Activity 9.2 Conical Flask Setup | Measuring vinegar and baking soda reactants\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook experimental setup showing weighing balance with conical flask, vinegar, baking soda, and rubber cork. scientific educational diagram with clear labels\", title=\"Activity 9.2 Vinegar & Baking Soda in Conical Flask\") | Proactive video: search_and_show_video(query=\"Activity 9.2 Vinegar & Baking Soda in Conical Flask educational demonstration video\", title=\"Activity 9.2 Vinegar & Baking Soda in Conical Flask\")",
+          "image_search_query": "Textbook experimental setup showing weighing balance with conical flask, vinegar, baking soda, and rubber cork. scientific educational diagram with clear labels",
+          "video_search_query": "Activity 9.2 Vinegar & Baking Soda in Conical Flask educational demonstration video"
         },
         {
           "concept_title": "Precipitation Mass Invariance: When solutions of barium chloride and sodium sulphate react, insoluble barium sulphate precipitate forms, but total mass on the balance before and after mixing is identical.",
           "diagram_title": "Activity 9.3 Precipitation Reaction Setup",
-          "diagram_type": "image",
-          "image_query": "chemical reaction precipitate weighing balance mass conservation diagram",
-          "video_query": "precipitation reaction conservation of mass",
-          "image_url": "/extracted_diagrams/ch9/fig_9_3.webp",
+          "diagram_type": "image_search",
+          "image_query": "ignition tube containing solution placed inside conical flask on balance. scientific educational diagram with clear labels",
+          "video_query": "Activity 9.3 Precipitation Reaction Setup educational demonstration video",
           "what_to_make": "Textbook diagram showing ignition tube containing solution placed inside conical flask on balance.",
-          "timing_and_cue": "Mount precipitation setup on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_3.webp | Activity 9.3 Precipitation Balance | Insoluble barium sulphate precipitate forming with constant mass\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"ignition tube containing solution placed inside conical flask on balance. scientific educational diagram with clear labels\", title=\"Activity 9.3 Precipitation Reaction Setup\") | Proactive video: search_and_show_video(query=\"Activity 9.3 Precipitation Reaction Setup educational demonstration video\", title=\"Activity 9.3 Precipitation Reaction Setup\")",
+          "image_search_query": "ignition tube containing solution placed inside conical flask on balance. scientific educational diagram with clear labels",
+          "video_search_query": "Activity 9.3 Precipitation Reaction Setup educational demonstration video"
         },
         {
           "concept_title": "Law of Constant Proportions (Proust, 1799): A pure chemical compound always contains exactly the same elements combined together in the same fixed proportion by mass, irrespective of its source or method of preparation.",
           "diagram_title": "Law of Definite Proportions Stoichiometric Balance",
-          "diagram_type": "image",
-          "image_query": "law of definite proportions water hydrogen oxygen 1 to 8 ratio diagram",
-          "video_query": "law of definite proportions explained",
-          "image_url": "/extracted_diagrams/ch9/fig_9_4.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram comparing reactant solutions before mixing and product mass balance. scientific educational diagram with clear labels",
+          "video_query": "Law of Definite Proportions Stoichiometric Balance educational demonstration video",
           "what_to_make": "Textbook diagram comparing reactant solutions before mixing and product mass balance.",
-          "timing_and_cue": "Mount definite proportions on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_4.webp | Law of Definite Proportions | Constant 1:8 mass ratio in water and 14:3 in ammonia\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram comparing reactant solutions before mixing and product mass balance. scientific educational diagram with clear labels\", title=\"Law of Definite Proportions Stoichiometric Balance\") | Proactive video: search_and_show_video(query=\"Law of Definite Proportions Stoichiometric Balance educational demonstration video\", title=\"Law of Definite Proportions Stoichiometric Balance\")",
+          "image_search_query": "Textbook diagram comparing reactant solutions before mixing and product mass balance. scientific educational diagram with clear labels",
+          "video_search_query": "Law of Definite Proportions Stoichiometric Balance educational demonstration video"
         },
         {
           "concept_title": "Stoichiometric Mass Ratios: In water (H2O), hydrogen and oxygen are always combined in a 1:8 mass ratio (2 g H : 16 g O); in ammonia (NH3), nitrogen and hydrogen are always in a 14:3 mass ratio.",
           "diagram_title": "Water & Ammonia Fixed Mass Ratio Diagram",
-          "diagram_type": "image",
-          "image_query": "chemical combination constant mass ratio diagram",
-          "video_query": "constant proportions water stoichiometry",
-          "image_url": "/extracted_diagrams/ch9/fig_9_10.webp",
+          "diagram_type": "image_search",
+          "image_query": "formation of water molecule from 2 hydrogen atoms and 1 oxygen atom. scientific educational diagram with clear labels",
+          "video_query": "Water & Ammonia Fixed Mass Ratio Diagram educational demonstration video",
           "what_to_make": "Textbook diagram showing formation of water molecule from 2 hydrogen atoms and 1 oxygen atom.",
-          "timing_and_cue": "Mount water molecule on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_10.webp | Water Molecule Formation | Exact 2:1 atomic and 1:8 mass ratio in H2O\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"formation of water molecule from 2 hydrogen atoms and 1 oxygen atom. scientific educational diagram with clear labels\", title=\"Water & Ammonia Fixed Mass Ratio Diagram\") | Proactive video: search_and_show_video(query=\"Water & Ammonia Fixed Mass Ratio Diagram educational demonstration video\", title=\"Water & Ammonia Fixed Mass Ratio Diagram\")",
+          "image_search_query": "formation of water molecule from 2 hydrogen atoms and 1 oxygen atom. scientific educational diagram with clear labels",
+          "video_search_query": "Water & Ammonia Fixed Mass Ratio Diagram educational demonstration video"
         }
       ]
     },
@@ -280,62 +286,68 @@
         {
           "concept_title": "Dalton's Atomic Theory: All matter, whether an element, compound, or mixture, is composed of minute particles called atoms, which participate in chemical reactions.",
           "diagram_title": "Dalton's Atomic Postulates Framework",
-          "diagram_type": "image",
-          "image_query": "john dalton atomic theory indivisible atoms diagram",
-          "video_query": "Daltons atomic theory explained",
-          "image_url": "/extracted_diagrams/ch9/fig_9_5.webp",
+          "diagram_type": "image_search",
+          "image_query": "mineral substance representing particulate nature of chemical matter. scientific educational diagram with clear labels",
+          "video_query": "Dalton's Atomic Postulates Framework educational demonstration video",
           "what_to_make": "Textbook diagram showing mineral substance representing particulate nature of chemical matter.",
-          "timing_and_cue": "Mount Dalton atomism on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_5.webp | Dalton Atomic Foundations | All matter composed of indivisible atoms\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"mineral substance representing particulate nature of chemical matter. scientific educational diagram with clear labels\", title=\"Dalton's Atomic Postulates Framework\") | Proactive video: search_and_show_video(query=\"Dalton's Atomic Postulates Framework educational demonstration video\", title=\"Dalton's Atomic Postulates Framework\")",
+          "image_search_query": "mineral substance representing particulate nature of chemical matter. scientific educational diagram with clear labels",
+          "video_search_query": "Dalton's Atomic Postulates Framework educational demonstration video"
         },
         {
           "concept_title": "Postulates Explaining Mass Conservation & Constant Proportions: Atoms are indivisible particles that cannot be created or destroyed (explains mass conservation), and atoms of different elements combine in small whole-number ratios to form compounds (explains definite proportions).",
           "diagram_title": "Mass Conservation & Definite Proportions Synthesis",
-          "diagram_type": "image",
-          "image_query": "law of conservation of mass definite proportions Dalton explanation diagram",
-          "video_query": "how Daltons theory explains laws of chemical combination",
-          "image_url": "/extracted_diagrams/ch9/fig_9_1.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram connecting balance measurements to indestructible atomic rearrangement. scientific educational diagram with clear labels",
+          "video_query": "Mass Conservation & Definite Proportions Synthesis educational demonstration video",
           "what_to_make": "Textbook diagram connecting balance measurements to indestructible atomic rearrangement.",
-          "timing_and_cue": "Mount atomic combination on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_1.webp | Dalton Postulate Synthesis | Indestructible atoms explaining mass conservation and constant ratios\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram connecting balance measurements to indestructible atomic rearrangement. scientific educational diagram with clear labels\", title=\"Mass Conservation & Definite Proportions Synthesis\") | Proactive video: search_and_show_video(query=\"Mass Conservation & Definite Proportions Synthesis educational demonstration video\", title=\"Mass Conservation & Definite Proportions Synthesis\")",
+          "image_search_query": "Textbook diagram connecting balance measurements to indestructible atomic rearrangement. scientific educational diagram with clear labels",
+          "video_search_query": "Mass Conservation & Definite Proportions Synthesis educational demonstration video"
         },
         {
           "concept_title": "Limitations of Dalton's Theory: Dalton claimed atoms were indivisible and indestructible; modern physics showed atoms contain subatomic particles (electrons, protons, neutrons), and isotopes show atoms of the same element can have different masses.",
           "diagram_title": "Covalent Electron Sharing Beyond Dalton",
-          "diagram_type": "image",
-          "image_query": "subatomic particles electron sharing breaking dalton model diagram",
-          "video_query": "limitations of Daltons atomic theory",
-          "image_url": "/extracted_diagrams/ch9/fig_9_6.webp",
+          "diagram_type": "image_search",
+          "image_query": "two hydrogen atoms sharing electron pair, revealing internal subatomic structure. scientific educational diagram with clear labels",
+          "video_query": "Covalent Electron Sharing Beyond Dalton educational demonstration video",
           "what_to_make": "Textbook diagram of two hydrogen atoms sharing electron pair, revealing internal subatomic structure.",
-          "timing_and_cue": "Mount subatomic bonding on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_6.webp | Subatomic Reality | Overlapping electron clouds disproving solid indivisible spheres\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"two hydrogen atoms sharing electron pair, revealing internal subatomic structure. scientific educational diagram with clear labels\", title=\"Covalent Electron Sharing Beyond Dalton\") | Proactive video: search_and_show_video(query=\"Covalent Electron Sharing Beyond Dalton educational demonstration video\", title=\"Covalent Electron Sharing Beyond Dalton\")",
+          "image_search_query": "two hydrogen atoms sharing electron pair, revealing internal subatomic structure. scientific educational diagram with clear labels",
+          "video_search_query": "Covalent Electron Sharing Beyond Dalton educational demonstration video"
         },
         {
           "concept_title": "IUPAC Chemical Symbols: Symbols of elements consist of one or two letters of their English or Latin names; the first letter is always capitalized, and the second letter is strictly lowercase (e.g., Cobalt is Co, not CO which is carbon monoxide).",
           "diagram_title": "IUPAC Element Casing & Chlorine Formation",
-          "diagram_type": "image",
-          "image_query": "chlorine Cl symbol formation molecule diagram",
-          "video_query": "IUPAC rules for writing chemical symbols",
-          "image_url": "/extracted_diagrams/ch9/fig_9_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "chlorine molecule Cl2 illustrating two-letter IUPAC symbol Cl with capital C and lowercase l. scientific educational diagram with clear labels",
+          "video_query": "IUPAC Element Casing & Chlorine Formation educational demonstration video",
           "what_to_make": "Textbook diagram of chlorine molecule Cl2 illustrating two-letter IUPAC symbol Cl with capital C and lowercase l.",
-          "timing_and_cue": "Mount chlorine symbol on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_7.webp | IUPAC Casing Rule | Cl molecule showing capital C and lowercase l\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"chlorine molecule Cl2 illustrating two-letter IUPAC symbol Cl with capital C and lowercase l. scientific educational diagram with clear labels\", title=\"IUPAC Element Casing & Chlorine Formation\") | Proactive video: search_and_show_video(query=\"IUPAC Element Casing & Chlorine Formation educational demonstration video\", title=\"IUPAC Element Casing & Chlorine Formation\")",
+          "image_search_query": "chlorine molecule Cl2 illustrating two-letter IUPAC symbol Cl with capital C and lowercase l. scientific educational diagram with clear labels",
+          "video_search_query": "IUPAC Element Casing & Chlorine Formation educational demonstration video"
         },
         {
           "concept_title": "Latin Derivations of Symbols: Fe for Iron (Ferrum), Cu for Copper (Cuprum), Ag for Silver (Argentum), Au for Gold (Aurum), Na for Sodium (Natrium), K for Potassium (Kalium), Pb for Lead (Plumbum).",
           "diagram_title": "Latin Symbol Roots & Sodium Chloride Transfer",
-          "diagram_type": "image",
-          "image_query": "sodium Natrium chloride electron transfer diagram",
-          "video_query": "Latin names of elements chemical symbols",
-          "image_url": "/extracted_diagrams/ch9/fig_9_13.webp",
+          "diagram_type": "image_search",
+          "image_query": "Na Natrium and Cl electron transfer. scientific educational diagram with clear labels",
+          "video_query": "Latin Symbol Roots & Sodium Chloride Transfer educational demonstration video",
           "what_to_make": "Textbook diagram showing Na (Natrium) and Cl electron transfer.",
-          "timing_and_cue": "Mount Latin symbols on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_13.webp | Latin Element Roots | Na from Natrium transferring electron to chlorine\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Na Natrium and Cl electron transfer. scientific educational diagram with clear labels\", title=\"Latin Symbol Roots & Sodium Chloride Transfer\") | Proactive video: search_and_show_video(query=\"Latin Symbol Roots & Sodium Chloride Transfer educational demonstration video\", title=\"Latin Symbol Roots & Sodium Chloride Transfer\")",
+          "image_search_query": "Na Natrium and Cl electron transfer. scientific educational diagram with clear labels",
+          "video_search_query": "Latin Symbol Roots & Sodium Chloride Transfer educational demonstration video"
         },
         {
           "concept_title": "Unified Atomic Mass Unit (u): One atomic mass unit is defined as a mass exactly equal to 1/12th the mass of one carbon-12 atom (1 u = 1.66 * 10^-27 kg), replacing the older amu designation.",
           "diagram_title": "Carbon-12 Standard & Ionic Lattice Masses",
-          "diagram_type": "image",
-          "image_query": "atomic mass unit carbon 12 scale relative atomic mass diagram",
-          "video_query": "what is atomic mass unit u C12 scale",
-          "image_url": "/extracted_diagrams/ch9/fig_9_14.webp",
+          "diagram_type": "image_search",
+          "image_query": "crystalline sodium chloride showing formula units calibrated against atomic mass scale. scientific educational diagram with clear labels",
+          "video_query": "Carbon-12 Standard & Ionic Lattice Masses educational demonstration video",
           "what_to_make": "Textbook diagram of crystalline sodium chloride showing formula units calibrated against atomic mass scale.",
-          "timing_and_cue": "Mount atomic mass scale on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_14.webp | Carbon-12 Calibration | Measuring formula units in atomic mass units (u)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"crystalline sodium chloride showing formula units calibrated against atomic mass scale. scientific educational diagram with clear labels\", title=\"Carbon-12 Standard & Ionic Lattice Masses\") | Proactive video: search_and_show_video(query=\"Carbon-12 Standard & Ionic Lattice Masses educational demonstration video\", title=\"Carbon-12 Standard & Ionic Lattice Masses\")",
+          "image_search_query": "crystalline sodium chloride showing formula units calibrated against atomic mass scale. scientific educational diagram with clear labels",
+          "video_search_query": "Carbon-12 Standard & Ionic Lattice Masses educational demonstration video"
         }
       ]
     },
@@ -451,62 +463,68 @@
         {
           "concept_title": "Definition of a Molecule: A molecule is an electrically neutral group of two or more atoms chemically bonded together by attractive forces, representing the smallest particle of an element or compound capable of independent existence.",
           "diagram_title": "Diatomic Hydrogen Molecule Covalent Bond",
-          "diagram_type": "image",
-          "image_query": "hydrogen molecule H2 formation electron sharing diagram",
-          "video_query": "how hydrogen molecule forms covalent bond",
-          "image_url": "/extracted_diagrams/ch9/fig_9_6.webp",
+          "diagram_type": "image_search",
+          "image_query": "two hydrogen atoms overlapping their 1s orbitals to form an H2 molecule. scientific educational diagram with clear labels",
+          "video_query": "Diatomic Hydrogen Molecule Covalent Bond educational demonstration video",
           "what_to_make": "Textbook diagram showing two hydrogen atoms overlapping their 1s orbitals to form an H2 molecule.",
-          "timing_and_cue": "Mount H2 molecule on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_6.webp | Hydrogen Molecule Formation | Independent existence of H2 through shared electron pair\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"two hydrogen atoms overlapping their 1s orbitals to form an H2 molecule. scientific educational diagram with clear labels\", title=\"Diatomic Hydrogen Molecule Covalent Bond\") | Proactive video: search_and_show_video(query=\"Diatomic Hydrogen Molecule Covalent Bond educational demonstration video\", title=\"Diatomic Hydrogen Molecule Covalent Bond\")",
+          "image_search_query": "two hydrogen atoms overlapping their 1s orbitals to form an H2 molecule. scientific educational diagram with clear labels",
+          "video_search_query": "Diatomic Hydrogen Molecule Covalent Bond educational demonstration video"
         },
         {
           "concept_title": "Atomicity Ledger: Atomicity is the number of atoms present in one molecule. Monoatomic: Helium (He), Argon (Ar); Diatomic: Hydrogen (H2), Oxygen (O2), Nitrogen (N2), Chlorine (Cl2); Triatomic: Ozone (O3); Tetra-atomic: Phosphorus (P4); Polyatomic: Sulphur (S8).",
           "diagram_title": "Chlorine Molecule Diatomic Octet Completion",
-          "diagram_type": "image",
-          "image_query": "chlorine molecule Cl2 covalent bond diagram",
-          "video_query": "atomicity of elements explained",
-          "image_url": "/extracted_diagrams/ch9/fig_9_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "two chlorine atoms sharing one electron pair to form Cl2. scientific educational diagram with clear labels",
+          "video_query": "Chlorine Molecule Diatomic Octet Completion educational demonstration video",
           "what_to_make": "Textbook diagram of two chlorine atoms sharing one electron pair to form Cl2.",
-          "timing_and_cue": "Mount chlorine atomicity on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_7.webp | Diatomic Chlorine Cl2 | Atomicity of 2 with single shared electron pair\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"two chlorine atoms sharing one electron pair to form Cl2. scientific educational diagram with clear labels\", title=\"Chlorine Molecule Diatomic Octet Completion\") | Proactive video: search_and_show_video(query=\"Chlorine Molecule Diatomic Octet Completion educational demonstration video\", title=\"Chlorine Molecule Diatomic Octet Completion\")",
+          "image_search_query": "two chlorine atoms sharing one electron pair to form Cl2. scientific educational diagram with clear labels",
+          "video_search_query": "Chlorine Molecule Diatomic Octet Completion educational demonstration video"
         },
         {
           "concept_title": "Molecules of Compounds: In a compound molecule, atoms of different elements combine together in definite ratios by mass (Water H2O has mass ratio 1:8, Ammonia NH3 has 14:3, Carbon Dioxide CO2 has 3:8).",
           "diagram_title": "Water Molecule Hetero-atomic Bonding",
-          "diagram_type": "image",
-          "image_query": "water molecule H2O covalent bonding diagram",
-          "video_query": "molecules of compounds water ammonia",
-          "image_url": "/extracted_diagrams/ch9/fig_9_10.webp",
+          "diagram_type": "image_search",
+          "image_query": "oxygen bonding with two hydrogen atoms in 2:1 atomic and 1:8 mass ratio. scientific educational diagram with clear labels",
+          "video_query": "Water Molecule Hetero-atomic Bonding educational demonstration video",
           "what_to_make": "Textbook diagram showing oxygen bonding with two hydrogen atoms in 2:1 atomic and 1:8 mass ratio.",
-          "timing_and_cue": "Mount compound molecule on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_10.webp | Water Compound Molecule | Two H atoms covalently bonded to central oxygen\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"oxygen bonding with two hydrogen atoms in 2:1 atomic and 1:8 mass ratio. scientific educational diagram with clear labels\", title=\"Water Molecule Hetero-atomic Bonding\") | Proactive video: search_and_show_video(query=\"Water Molecule Hetero-atomic Bonding educational demonstration video\", title=\"Water Molecule Hetero-atomic Bonding\")",
+          "image_search_query": "oxygen bonding with two hydrogen atoms in 2:1 atomic and 1:8 mass ratio. scientific educational diagram with clear labels",
+          "video_search_query": "Water Molecule Hetero-atomic Bonding educational demonstration video"
         },
         {
           "concept_title": "Hydrogen Molecule (H2): Two hydrogen atoms, each having 1 valence electron, share their single electrons to form a single covalent bond (H-H), completing their duplet shell.",
           "diagram_title": "Single Covalent Bond in H2",
-          "diagram_type": "image",
-          "image_query": "H2 single covalent bond electron pair diagram",
-          "video_query": "single covalent bond in hydrogen",
-          "image_url": "/extracted_diagrams/ch9/fig_9_6.webp",
+          "diagram_type": "image_search",
+          "image_query": "single covalent bond electron sharing in H2. scientific educational diagram with clear labels",
+          "video_query": "Single Covalent Bond in H2 educational demonstration video",
           "what_to_make": "Textbook diagram showing single covalent bond electron sharing in H2.",
-          "timing_and_cue": "Mount single covalent bond on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_6.webp | Single Covalent Bond H-H | Duplet completion via 1 shared electron pair\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"single covalent bond electron sharing in H2. scientific educational diagram with clear labels\", title=\"Single Covalent Bond in H2\") | Proactive video: search_and_show_video(query=\"Single Covalent Bond in H2 educational demonstration video\", title=\"Single Covalent Bond in H2\")",
+          "image_search_query": "single covalent bond electron sharing in H2. scientific educational diagram with clear labels",
+          "video_search_query": "Single Covalent Bond in H2 educational demonstration video"
         },
         {
           "concept_title": "Oxygen & Chlorine Molecules: Chlorine atoms share one electron pair to form Cl-Cl (diatomic); oxygen atoms share two electron pairs to form a double bond (O=O), completing octets.",
           "diagram_title": "Double Covalent Bond in O2",
-          "diagram_type": "image",
-          "image_query": "oxygen molecule O2 double covalent bond diagram",
-          "video_query": "double covalent bond in oxygen O2",
-          "image_url": "/extracted_diagrams/ch9/fig_9_8.webp",
+          "diagram_type": "image_search",
+          "image_query": "two oxygen atoms sharing two electron pairs forming O=O. scientific educational diagram with clear labels",
+          "video_query": "Double Covalent Bond in O2 educational demonstration video",
           "what_to_make": "Textbook diagram showing two oxygen atoms sharing two electron pairs forming O=O.",
-          "timing_and_cue": "Mount double bond on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_8.webp | Double Covalent Bond O=O | Octet completion via 2 shared electron pairs\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"two oxygen atoms sharing two electron pairs forming O=O. scientific educational diagram with clear labels\", title=\"Double Covalent Bond in O2\") | Proactive video: search_and_show_video(query=\"Double Covalent Bond in O2 educational demonstration video\", title=\"Double Covalent Bond in O2\")",
+          "image_search_query": "two oxygen atoms sharing two electron pairs forming O=O. scientific educational diagram with clear labels",
+          "video_search_query": "Double Covalent Bond in O2 educational demonstration video"
         },
         {
           "concept_title": "Polar Covalent Molecules (HCl & H2O): In hydrogen chloride, hydrogen shares one electron with chlorine (H-Cl); in water, an oxygen atom shares two electron pairs with two separate hydrogen atoms (H-O-H).",
           "diagram_title": "Hydrogen Chloride Covalent Formation",
-          "diagram_type": "image",
-          "image_query": "hydrogen chloride HCl covalent sharing diagram",
-          "video_query": "formation of HCl covalent molecule",
-          "image_url": "/extracted_diagrams/ch9/fig_9_9.webp",
+          "diagram_type": "image_search",
+          "image_query": "unequal electron sharing in polar covalent HCl. scientific educational diagram with clear labels",
+          "video_query": "Hydrogen Chloride Covalent Formation educational demonstration video",
           "what_to_make": "Textbook diagram showing unequal electron sharing in polar covalent HCl.",
-          "timing_and_cue": "Mount HCl molecule on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_9.webp | Polar Covalent HCl | Single electron pair shared between H and Cl\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"unequal electron sharing in polar covalent HCl. scientific educational diagram with clear labels\", title=\"Hydrogen Chloride Covalent Formation\") | Proactive video: search_and_show_video(query=\"Hydrogen Chloride Covalent Formation educational demonstration video\", title=\"Hydrogen Chloride Covalent Formation\")",
+          "image_search_query": "unequal electron sharing in polar covalent HCl. scientific educational diagram with clear labels",
+          "video_search_query": "Hydrogen Chloride Covalent Formation educational demonstration video"
         }
       ]
     },
@@ -622,62 +640,68 @@
         {
           "concept_title": "Definition of Ions: An ion is a charged atom or group of atoms that has acquired an electric charge by either losing or gaining one or more electrons.",
           "diagram_title": "Sodium Cation Electron Loss",
-          "diagram_type": "image",
-          "image_query": "sodium cation Na+ formation electron loss diagram",
-          "video_query": "how cations and anions form",
-          "image_url": "/extracted_diagrams/ch9/fig_9_11.webp",
+          "diagram_type": "image_search",
+          "image_query": "neutral sodium atom losing its valence electron to form Na+. scientific educational diagram with clear labels",
+          "video_query": "Sodium Cation Electron Loss educational demonstration video",
           "what_to_make": "Textbook diagram showing neutral sodium atom losing its valence electron to form Na+.",
-          "timing_and_cue": "Mount cation formation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_11.webp | Formation of Sodium Cation | Loss of valence electron leaving 11 protons and 10 electrons\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"neutral sodium atom losing its valence electron to form Na+. scientific educational diagram with clear labels\", title=\"Sodium Cation Electron Loss\") | Proactive video: search_and_show_video(query=\"Sodium Cation Electron Loss educational demonstration video\", title=\"Sodium Cation Electron Loss\")",
+          "image_search_query": "neutral sodium atom losing its valence electron to form Na+. scientific educational diagram with clear labels",
+          "video_search_query": "Sodium Cation Electron Loss educational demonstration video"
         },
         {
           "concept_title": "Cations (Positive Ions): Formed when an electropositive metal atom loses one or more valence electrons (e.g., Na -> Na+ + e- with 11 protons and 10 electrons; Ca -> Ca2+ + 2e-), carrying a net positive charge.",
           "diagram_title": "Chloride Anion Electron Gain",
-          "diagram_type": "image",
-          "image_query": "chloride anion Cl- formation electron gain diagram",
-          "video_query": "formation of chloride ion",
-          "image_url": "/extracted_diagrams/ch9/fig_9_12.webp",
+          "diagram_type": "image_search",
+          "image_query": "neutral chlorine atom gaining an electron to form Cl-. scientific educational diagram with clear labels",
+          "video_query": "Chloride Anion Electron Gain educational demonstration video",
           "what_to_make": "Textbook diagram showing neutral chlorine atom gaining an electron to form Cl-.",
-          "timing_and_cue": "Mount anion formation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_12.webp | Formation of Chloride Anion | Chlorine gaining electron to complete M shell octet\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"neutral chlorine atom gaining an electron to form Cl-. scientific educational diagram with clear labels\", title=\"Chloride Anion Electron Gain\") | Proactive video: search_and_show_video(query=\"Chloride Anion Electron Gain educational demonstration video\", title=\"Chloride Anion Electron Gain\")",
+          "image_search_query": "neutral chlorine atom gaining an electron to form Cl-. scientific educational diagram with clear labels",
+          "video_search_query": "Chloride Anion Electron Gain educational demonstration video"
         },
         {
           "concept_title": "Anions (Negative Ions): Formed when an electronegative non-metal atom gains one or more electrons (e.g., Cl + e- -> Cl- with 17 protons and 18 electrons; O + 2e- -> O2-), carrying a net negative charge.",
           "diagram_title": "Electron Transfer in Sodium Chloride Formation",
-          "diagram_type": "image",
-          "image_query": "sodium chloride electron transfer ionic bond diagram",
-          "video_query": "electron transfer sodium to chlorine ionic bonding",
-          "image_url": "/extracted_diagrams/ch9/fig_9_13.webp",
+          "diagram_type": "image_search",
+          "image_query": "complete electron transfer from sodium atom to chlorine atom. scientific educational diagram with clear labels",
+          "video_query": "Electron Transfer in Sodium Chloride Formation educational demonstration video",
           "what_to_make": "Textbook diagram showing complete electron transfer from sodium atom to chlorine atom.",
-          "timing_and_cue": "Mount electron transfer on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_13.webp | Ionic Transfer in NaCl | Direct valence electron transfer from Na to Cl\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"complete electron transfer from sodium atom to chlorine atom. scientific educational diagram with clear labels\", title=\"Electron Transfer in Sodium Chloride Formation\") | Proactive video: search_and_show_video(query=\"Electron Transfer in Sodium Chloride Formation educational demonstration video\", title=\"Electron Transfer in Sodium Chloride Formation\")",
+          "image_search_query": "complete electron transfer from sodium atom to chlorine atom. scientific educational diagram with clear labels",
+          "video_search_query": "Electron Transfer in Sodium Chloride Formation educational demonstration video"
         },
         {
           "concept_title": "Ionic / Electrovalent Bond: The strong non-directional electrostatic force of attraction that holds oppositely charged cations and anions together in an ionic compound.",
           "diagram_title": "3D Cubic Crystal Lattice of NaCl",
-          "diagram_type": "image",
-          "image_query": "sodium chloride 3D crystal lattice structure cubic diagram",
-          "video_query": "crystal lattice structure of NaCl",
-          "image_url": "/extracted_diagrams/ch9/fig_9_14.webp",
+          "diagram_type": "image_search",
+          "image_query": "macroscopic cubic salt crystals and microscopic 3D cubic repeating lattice. scientific educational diagram with clear labels",
+          "video_query": "3D Cubic Crystal Lattice of NaCl educational demonstration video",
           "what_to_make": "Textbook diagram showing macroscopic cubic salt crystals and microscopic 3D cubic repeating lattice.",
-          "timing_and_cue": "Mount NaCl crystal lattice on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_14.webp | Sodium Chloride Crystal Lattice | 3D cubic alternating arrangement of Na+ and Cl- ions\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"macroscopic cubic salt crystals and microscopic 3D cubic repeating lattice. scientific educational diagram with clear labels\", title=\"3D Cubic Crystal Lattice of NaCl\") | Proactive video: search_and_show_video(query=\"3D Cubic Crystal Lattice of NaCl educational demonstration video\", title=\"3D Cubic Crystal Lattice of NaCl\")",
+          "image_search_query": "macroscopic cubic salt crystals and microscopic 3D cubic repeating lattice. scientific educational diagram with clear labels",
+          "video_search_query": "3D Cubic Crystal Lattice of NaCl educational demonstration video"
         },
         {
           "concept_title": "Solid Crystal Lattice of NaCl: Solid sodium chloride does not consist of isolated NaCl molecules; instead, it forms an infinite 3D crystalline lattice where every Na+ cation is octahedrally coordinated by 6 Cl- anions, and every Cl- is surrounded by 6 Na+ ions.",
           "diagram_title": "Electrical Conductivity of Solutions Setup",
-          "diagram_type": "image",
-          "image_query": "electrical conductivity solution beaker electrodes bulb diagram",
-          "video_query": "conductivity of ionic vs covalent solutions experiment",
-          "image_url": "/extracted_diagrams/ch9/fig_9_15.webp",
+          "diagram_type": "image_search",
+          "image_query": "electric circuit diagram of Electrical Conductivity of Solutions Setup with battery, ammeter, resistors, switch, and current direction arrows",
+          "video_query": "Electrical Conductivity of Solutions Setup electric circuit laboratory experiment demonstration",
           "what_to_make": "Textbook circuit diagram testing electrical conductivity of aqueous salt solution with battery, bulb, and graphite electrodes.",
-          "timing_and_cue": "Mount conductivity circuit on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_15.webp | Solution Conductivity Setup | Mobile hydrated ions completing electrical circuit\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"electric circuit diagram of Electrical Conductivity of Solutions Setup with battery, ammeter, resistors, switch, and current direction arrows\", title=\"Electrical Conductivity of Solutions Setup\") | Proactive video: search_and_show_video(query=\"Electrical Conductivity of Solutions Setup electric circuit laboratory experiment demonstration\", title=\"Electrical Conductivity of Solutions Setup\")",
+          "image_search_query": "electric circuit diagram of Electrical Conductivity of Solutions Setup with battery, ammeter, resistors, switch, and current direction arrows",
+          "video_search_query": "Electrical Conductivity of Solutions Setup electric circuit laboratory experiment demonstration"
         },
         {
           "concept_title": "Polyatomic Ions: A cluster of covalently bonded atoms that carries an overall net electrical charge behaving as a single unit (Ammonium NH4^+, Hydroxide OH^-, Nitrate NO3^-, Carbonate CO3^{2-}, Sulphate SO4^{2-}, Phosphate PO4^{3-}).",
           "diagram_title": "Ionic vs Covalent Compound Comparison Table",
-          "diagram_type": "image",
-          "image_query": "ionic compounds properties high melting point lattice diagram",
-          "video_query": "properties of ionic compounds",
-          "image_url": "/extracted_diagrams/ch9/fig_9_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook summary chart comparing ionic compounds with polyatomic groups and covalent networks. scientific educational diagram with clear labels",
+          "video_query": "Ionic vs Covalent Compound Comparison Table educational demonstration video",
           "what_to_make": "Textbook summary chart comparing ionic compounds with polyatomic groups and covalent networks.",
-          "timing_and_cue": "Mount ionic compound chart on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_16.webp | Ionic Compound Properties | High melting point and electrical conduction in solution\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook summary chart comparing ionic compounds with polyatomic groups and covalent networks. scientific educational diagram with clear labels\", title=\"Ionic vs Covalent Compound Comparison Table\") | Proactive video: search_and_show_video(query=\"Ionic vs Covalent Compound Comparison Table educational demonstration video\", title=\"Ionic vs Covalent Compound Comparison Table\")",
+          "image_search_query": "Textbook summary chart comparing ionic compounds with polyatomic groups and covalent networks. scientific educational diagram with clear labels",
+          "video_search_query": "Ionic vs Covalent Compound Comparison Table educational demonstration video"
         }
       ]
     },
@@ -793,62 +817,68 @@
         {
           "concept_title": "Definition of Chemical Formula: The chemical formula of a compound is a symbolic representation of its chemical composition, indicating the elements present and the simplest ratio of their atoms.",
           "diagram_title": "Binary Covalent CCl4 Compound Structure",
-          "diagram_type": "image",
-          "image_query": "covalent compound carbon tetrachloride molecule diagram",
-          "video_query": "how to write chemical formula criss cross method",
-          "image_url": "/extracted_diagrams/ch9/fig_9_17.webp",
+          "diagram_type": "image_search",
+          "image_query": "structure of covalent compounds and discrete molecular bonding. scientific educational diagram with clear labels",
+          "video_query": "Binary Covalent CCl4 Compound Structure educational demonstration video",
           "what_to_make": "Textbook diagram showing structure of covalent compounds and discrete molecular bonding.",
-          "timing_and_cue": "Mount formula definition on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_17.webp | Covalent Compound Architecture | Discrete molecular formula representation\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"structure of covalent compounds and discrete molecular bonding. scientific educational diagram with clear labels\", title=\"Binary Covalent CCl4 Compound Structure\") | Proactive video: search_and_show_video(query=\"Binary Covalent CCl4 Compound Structure educational demonstration video\", title=\"Binary Covalent CCl4 Compound Structure\")",
+          "image_search_query": "structure of covalent compounds and discrete molecular bonding. scientific educational diagram with clear labels",
+          "video_search_query": "Binary Covalent CCl4 Compound Structure educational demonstration video"
         },
         {
           "concept_title": "Valency as Combining Capacity: Valency is the combining capacity of an element; it represents the number of electrons an atom loses, gains, or shares to attain a stable octet (e.g., H = 1, O = 2, C = 4, Al = 3, Cl = 1).",
           "diagram_title": "Valency Combining Capacity Transfer",
-          "diagram_type": "image",
-          "image_query": "valency combining capacity octet electron transfer diagram",
-          "video_query": "valency of elements explained combining capacity",
-          "image_url": "/extracted_diagrams/ch9/fig_9_13.webp",
+          "diagram_type": "image_search",
+          "image_query": "electron exchange reflecting elemental valencies. scientific educational diagram with clear labels",
+          "video_query": "Valency Combining Capacity Transfer educational demonstration video",
           "what_to_make": "Textbook diagram showing electron exchange reflecting elemental valencies.",
-          "timing_and_cue": "Mount valency on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_13.webp | Valency Mechanics | Electron loss/gain determining chemical combining power\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"electron exchange reflecting elemental valencies. scientific educational diagram with clear labels\", title=\"Valency Combining Capacity Transfer\") | Proactive video: search_and_show_video(query=\"Valency Combining Capacity Transfer educational demonstration video\", title=\"Valency Combining Capacity Transfer\")",
+          "image_search_query": "electron exchange reflecting elemental valencies. scientific educational diagram with clear labels",
+          "video_search_query": "Valency Combining Capacity Transfer educational demonstration video"
         },
         {
           "concept_title": "Charge Neutrality Rule: In any neutral chemical formula, the total positive valency/charge must exactly balance the total negative valency/charge.",
           "diagram_title": "Charge Balance in Salt Lattice",
-          "diagram_type": "image",
-          "image_query": "ionic charge balance neutral compound diagram",
-          "video_query": "balancing charges in chemical formulas",
-          "image_url": "/extracted_diagrams/ch9/fig_9_14.webp",
+          "diagram_type": "image_search",
+          "image_query": "macro crystals and micro lattice achieving exact net zero electrical charge. scientific educational diagram with clear labels",
+          "video_query": "Charge Balance in Salt Lattice educational demonstration video",
           "what_to_make": "Textbook diagram showing macro crystals and micro lattice achieving exact net zero electrical charge.",
-          "timing_and_cue": "Mount charge neutrality on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_14.webp | Charge Neutrality | Neutral crystal lattice balancing positive and negative ions\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"macro crystals and micro lattice achieving exact net zero electrical charge. scientific educational diagram with clear labels\", title=\"Charge Balance in Salt Lattice\") | Proactive video: search_and_show_video(query=\"Charge Balance in Salt Lattice educational demonstration video\", title=\"Charge Balance in Salt Lattice\")",
+          "image_search_query": "macro crystals and micro lattice achieving exact net zero electrical charge. scientific educational diagram with clear labels",
+          "video_search_query": "Charge Balance in Salt Lattice educational demonstration video"
         },
         {
           "concept_title": "Parentheses Rule for Polyatomic Ions: When more than one polyatomic ion is required to balance charge, the formula of the polyatomic ion is enclosed in parentheses with the subscript outside (e.g., Ca(OH)2, (NH4)2SO4); if only one polyatomic ion is present, parentheses are omitted (e.g., NaOH).",
           "diagram_title": "Polyatomic Bracketing Architecture",
-          "diagram_type": "image",
-          "image_query": "polyatomic ions parentheses brackets formula diagram",
-          "video_query": "how to use brackets in chemical formulas",
-          "image_url": "/extracted_diagrams/ch9/fig_9_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook table and structural representation of polyatomic ionic compounds. scientific educational diagram with clear labels",
+          "video_query": "Polyatomic Bracketing Architecture educational demonstration video",
           "what_to_make": "Textbook table and structural representation of polyatomic ionic compounds.",
-          "timing_and_cue": "Mount parentheses rule on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_16.webp | Polyatomic Parentheses Rule | Ca(OH)2 requiring brackets to multiply entire OH unit\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook table and structural representation of polyatomic ionic compounds. scientific educational diagram with clear labels\", title=\"Polyatomic Bracketing Architecture\") | Proactive video: search_and_show_video(query=\"Polyatomic Bracketing Architecture educational demonstration video\", title=\"Polyatomic Bracketing Architecture\")",
+          "image_search_query": "Textbook table and structural representation of polyatomic ionic compounds. scientific educational diagram with clear labels",
+          "video_search_query": "Polyatomic Bracketing Architecture educational demonstration video"
         },
         {
           "concept_title": "Simplest Ratio Simplification: When valency numbers have a common factor, they are simplified to the lowest whole-number ratio (e.g., Ca2+ and O2- gives Ca2O2 which simplifies to CaO).",
           "diagram_title": "Simplification to Empirical Formula Unit",
-          "diagram_type": "image",
-          "image_query": "simplest whole number ratio empirical formula diagram",
-          "video_query": "simplifying chemical formula ratios",
-          "image_url": "/extracted_diagrams/ch9/fig_9_15.webp",
+          "diagram_type": "image_search",
+          "image_query": "electrolytic solution verifying 1:1 stoichiometric equivalence. scientific educational diagram with clear labels",
+          "video_query": "Simplification to Empirical Formula Unit educational demonstration video",
           "what_to_make": "Textbook diagram showing electrolytic solution verifying 1:1 stoichiometric equivalence.",
-          "timing_and_cue": "Mount simplification on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_15.webp | Empirical Ratio Simplification | Ca2O2 reducing to CaO formula unit\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"electrolytic solution verifying 1:1 stoichiometric equivalence. scientific educational diagram with clear labels\", title=\"Simplification to Empirical Formula Unit\") | Proactive video: search_and_show_video(query=\"Simplification to Empirical Formula Unit educational demonstration video\", title=\"Simplification to Empirical Formula Unit\")",
+          "image_search_query": "electrolytic solution verifying 1:1 stoichiometric equivalence. scientific educational diagram with clear labels",
+          "video_search_query": "Simplification to Empirical Formula Unit educational demonstration video"
         },
         {
           "concept_title": "Covalent Molecule Classification: Covalent compounds consist of neutral molecules held by covalent bonds with low melting and boiling points, non-conductors in pure liquid state (e.g., CCl4, CH4).",
           "diagram_title": "Covalent Molecular vs Ionic Lattice Properties",
-          "diagram_type": "image",
-          "image_query": "covalent compounds low melting point electrical insulator diagram",
-          "video_query": "properties of covalent compounds",
-          "image_url": "/extracted_diagrams/ch9/fig_9_17.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram comparing covalent molecular compounds with non-conducting characteristics. scientific educational diagram with clear labels",
+          "video_query": "Covalent Molecular vs Ionic Lattice Properties educational demonstration video",
           "what_to_make": "Textbook diagram comparing covalent molecular compounds with non-conducting characteristics.",
-          "timing_and_cue": "Mount covalent properties on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_17.webp | Covalent Compound Properties | Low melting point and electrical insulation\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram comparing covalent molecular compounds with non-conducting characteristics. scientific educational diagram with clear labels\", title=\"Covalent Molecular vs Ionic Lattice Properties\") | Proactive video: search_and_show_video(query=\"Covalent Molecular vs Ionic Lattice Properties educational demonstration video\", title=\"Covalent Molecular vs Ionic Lattice Properties\")",
+          "image_search_query": "Textbook diagram comparing covalent molecular compounds with non-conducting characteristics. scientific educational diagram with clear labels",
+          "video_search_query": "Covalent Molecular vs Ionic Lattice Properties educational demonstration video"
         }
       ]
     },
@@ -964,62 +994,68 @@
         {
           "concept_title": "Molecular Mass: The molecular mass of a substance is the sum of the atomic masses of all the atoms present in one molecule of that substance, expressed in unified atomic mass units (u).",
           "diagram_title": "Molecular Mass Summation in Covalent Molecules",
-          "diagram_type": "image",
-          "image_query": "molecular mass covalent molecules calculation diagram",
-          "video_query": "how to calculate molecular mass",
-          "image_url": "/extracted_diagrams/ch9/fig_9_17.webp",
+          "diagram_type": "image_search",
+          "image_query": "covalent molecules with summed atomic masses. scientific educational diagram with clear labels",
+          "video_query": "Molecular Mass Summation in Covalent Molecules educational demonstration video",
           "what_to_make": "Textbook diagram showing covalent molecules with summed atomic masses.",
-          "timing_and_cue": "Mount molecular mass on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_17.webp | Molecular Mass Calculation | Summing constituent atomic masses in unified units u\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"covalent molecules with summed atomic masses. scientific educational diagram with clear labels\", title=\"Molecular Mass Summation in Covalent Molecules\") | Proactive video: search_and_show_video(query=\"Molecular Mass Summation in Covalent Molecules educational demonstration video\", title=\"Molecular Mass Summation in Covalent Molecules\")",
+          "image_search_query": "covalent molecules with summed atomic masses. scientific educational diagram with clear labels",
+          "video_search_query": "Molecular Mass Summation in Covalent Molecules educational demonstration video"
         },
         {
           "concept_title": "Formula Unit Mass: The formula unit mass of a substance is the sum of the atomic masses of all atoms in a formula unit of an ionic compound, used instead of 'molecular mass' because ionic compounds do not contain discrete molecules.",
           "diagram_title": "Formula Unit Mass in Crystal Lattice",
-          "diagram_type": "image",
-          "image_query": "formula unit mass NaCl ionic lattice diagram",
-          "video_query": "formula unit mass vs molecular mass",
-          "image_url": "/extracted_diagrams/ch9/fig_9_14.webp",
+          "diagram_type": "image_search",
+          "image_query": "NaCl formula unit mass 23 + 35.5 = 58.5 u mapped to crystal lattice. scientific educational diagram with clear labels",
+          "video_query": "Formula Unit Mass in Crystal Lattice educational demonstration video",
           "what_to_make": "Textbook diagram showing NaCl formula unit mass (23 + 35.5 = 58.5 u) mapped to crystal lattice.",
-          "timing_and_cue": "Mount formula unit mass on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_14.webp | Formula Unit Mass | Summing ion masses for repeating unit of lattice\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"NaCl formula unit mass 23 + 35.5 = 58.5 u mapped to crystal lattice. scientific educational diagram with clear labels\", title=\"Formula Unit Mass in Crystal Lattice\") | Proactive video: search_and_show_video(query=\"Formula Unit Mass in Crystal Lattice educational demonstration video\", title=\"Formula Unit Mass in Crystal Lattice\")",
+          "image_search_query": "NaCl formula unit mass 23 + 35.5 = 58.5 u mapped to crystal lattice. scientific educational diagram with clear labels",
+          "video_search_query": "Formula Unit Mass in Crystal Lattice educational demonstration video"
         },
         {
           "concept_title": "Unified Units (u): Both molecular mass and formula unit mass are measured in unified mass units (u), where 1 u = 1.66 * 10^-27 kg.",
           "diagram_title": "Carbon-12 Calibration Scale for Mass Calculations",
-          "diagram_type": "image",
-          "image_query": "atomic mass unit u carbon 12 scale unified mass diagram",
-          "video_query": "what is unified atomic mass unit u",
-          "image_url": "/extracted_diagrams/ch9/fig_9_5.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram linking relative mass calculations to the fundamental Carbon-12 scale. scientific educational diagram with clear labels",
+          "video_query": "Carbon-12 Calibration Scale for Mass Calculations educational demonstration video",
           "what_to_make": "Textbook diagram linking relative mass calculations to the fundamental Carbon-12 scale.",
-          "timing_and_cue": "Mount unified scale on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_5.webp | Unified Mass Standard | 1 u calibrated as 1/12th Carbon-12 atom mass\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram linking relative mass calculations to the fundamental Carbon-12 scale. scientific educational diagram with clear labels\", title=\"Carbon-12 Calibration Scale for Mass Calculations\") | Proactive video: search_and_show_video(query=\"Carbon-12 Calibration Scale for Mass Calculations educational demonstration video\", title=\"Carbon-12 Calibration Scale for Mass Calculations\")",
+          "image_search_query": "Textbook diagram linking relative mass calculations to the fundamental Carbon-12 scale. scientific educational diagram with clear labels",
+          "video_search_query": "Carbon-12 Calibration Scale for Mass Calculations educational demonstration video"
         },
         {
           "concept_title": "Percentage Composition: The percentage by mass of an element in a compound is calculated as: % = (Total mass of element in formula / Molecular mass of compound) * 100.",
           "diagram_title": "Mass Percentage Analytical Balance",
-          "diagram_type": "image",
-          "image_query": "percentage composition chemistry chemical formula diagram",
-          "video_query": "how to find percent composition of a compound",
-          "image_url": "/extracted_diagrams/ch9/fig_9_4.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook balance comparison connecting analytical sample masses to elemental percentages. scientific educational diagram with clear labels",
+          "video_query": "Mass Percentage Analytical Balance educational demonstration video",
           "what_to_make": "Textbook balance comparison connecting analytical sample masses to elemental percentages.",
-          "timing_and_cue": "Mount percentage composition on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_4.webp | Percentage Composition | Calculating elemental mass fractions in compounds\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook balance comparison connecting analytical sample masses to elemental percentages. scientific educational diagram with clear labels\", title=\"Mass Percentage Analytical Balance\") | Proactive video: search_and_show_video(query=\"Mass Percentage Analytical Balance educational demonstration video\", title=\"Mass Percentage Analytical Balance\")",
+          "image_search_query": "Textbook balance comparison connecting analytical sample masses to elemental percentages. scientific educational diagram with clear labels",
+          "video_search_query": "Mass Percentage Analytical Balance educational demonstration video"
         },
         {
           "concept_title": "Stoichiometric Conservation: In any balanced chemical reaction, the sum of molecular/formula unit masses of reactants strictly equals the sum of products, mathematically fulfilling Lavoisier's conservation law.",
           "diagram_title": "Stoichiometric Mass Conservation Reaction",
-          "diagram_type": "image",
-          "image_query": "stoichiometric mass conservation chemical equation diagram",
-          "video_query": "stoichiometry and conservation of mass",
-          "image_url": "/extracted_diagrams/ch9/fig_9_3.webp",
+          "diagram_type": "image_search",
+          "image_query": "closed flask mass balance verifying stoichiometric conservation. scientific educational diagram with clear labels",
+          "video_query": "Stoichiometric Mass Conservation Reaction educational demonstration video",
           "what_to_make": "Textbook diagram showing closed flask mass balance verifying stoichiometric conservation.",
-          "timing_and_cue": "Mount stoichiometry on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_3.webp | Stoichiometric Mass Balance | Sum of reactant molecular masses equals products\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"closed flask mass balance verifying stoichiometric conservation. scientific educational diagram with clear labels\", title=\"Stoichiometric Mass Conservation Reaction\") | Proactive video: search_and_show_video(query=\"Stoichiometric Mass Conservation Reaction educational demonstration video\", title=\"Stoichiometric Mass Conservation Reaction\")",
+          "image_search_query": "closed flask mass balance verifying stoichiometric conservation. scientific educational diagram with clear labels",
+          "video_search_query": "Stoichiometric Mass Conservation Reaction educational demonstration video"
         },
         {
           "concept_title": "NCERT Master Ledger: Mastery over binary nomenclature, criss-cross formulation, and mass calculations ensures 100% board examination accuracy.",
           "diagram_title": "Complete NCERT Chapter 9 Solution Summary",
-          "diagram_type": "image",
-          "image_query": "NCERT class 9 science chapter 3 atoms and molecules exercise solutions diagram",
-          "video_query": "class 9 science chapter 3 NCERT exercise solutions complete",
-          "image_url": "/extracted_diagrams/ch9/fig_9_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook summary chart illustrating all classes of chemical compounds solved in NCERT exercises. scientific educational diagram with clear labels",
+          "video_query": "Complete NCERT Chapter 9 Solution Summary educational demonstration video",
           "what_to_make": "Textbook summary chart illustrating all classes of chemical compounds solved in NCERT exercises.",
-          "timing_and_cue": "Mount master summary on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch9/fig_9_16.webp | Master NCERT Ledger | Comprehensive solutions for all Chapter 9 exercises\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook summary chart illustrating all classes of chemical compounds solved in NCERT exercises. scientific educational diagram with clear labels\", title=\"Complete NCERT Chapter 9 Solution Summary\") | Proactive video: search_and_show_video(query=\"Complete NCERT Chapter 9 Solution Summary educational demonstration video\", title=\"Complete NCERT Chapter 9 Solution Summary\")",
+          "image_search_query": "Textbook summary chart illustrating all classes of chemical compounds solved in NCERT exercises. scientific educational diagram with clear labels",
+          "video_search_query": "Complete NCERT Chapter 9 Solution Summary educational demonstration video"
         }
       ]
     },

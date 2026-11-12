@@ -113,62 +113,68 @@
         {
           "concept_title": "Plant vs Animal Architectural Divergence: Plants are stationary requiring dead mechanical tissues; animals are motile with uniform living tissues.",
           "diagram_title": "Plant vs Animal Tissue Strategy Divergence",
-          "diagram_type": "image",
-          "image_query": "Plant tissue animal tissue biology",
-          "video_query": "plant vs animal tissues",
-          "image_url": "/extracted_diagrams/ch3/fig_3_1.webp",
+          "diagram_type": "image_search",
+          "image_query": "Comparative diagram illustrating stationary plant architecture with localized meristems vs active animal locomotion with uniform tissue distribution. scientific educational diagram with clear labels",
+          "video_query": "Plant vs Animal Tissue Strategy Divergence educational demonstration video",
           "what_to_make": "Comparative diagram illustrating stationary plant architecture with localized meristems vs active animal locomotion with uniform tissue distribution.",
-          "timing_and_cue": "Mount divergence comparison on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_1.webp | Plant vs Animal Strategy | Stationary mechanical demands vs motile metabolic demands\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Comparative diagram illustrating stationary plant architecture with localized meristems vs active animal locomotion with uniform tissue distribution. scientific educational diagram with clear labels\", title=\"Plant vs Animal Tissue Strategy Divergence\") | Proactive video: search_and_show_video(query=\"Plant vs Animal Tissue Strategy Divergence educational demonstration video\", title=\"Plant vs Animal Tissue Strategy Divergence\")",
+          "image_search_query": "Comparative diagram illustrating stationary plant architecture with localized meristems vs active animal locomotion with uniform tissue distribution. scientific educational diagram with clear labels",
+          "video_search_query": "Plant vs Animal Tissue Strategy Divergence educational demonstration video"
         },
         {
           "concept_title": "Meristematic Cytology: Actively dividing cells characterized by thin cellulose walls, dense protoplasm, prominent nuclei, and no vacuoles.",
           "diagram_title": "Meristematic Cells Under Light Microscope",
-          "diagram_type": "image",
-          "image_query": "Root apical meristem light microscope",
-          "video_query": "meristematic cells mitosis",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Root_Apical_Meristem_cell.jpg",
+          "diagram_type": "image_search",
+          "image_query": "High-power light micrograph of root apical meristem showing dense cytoplasm, prominent spherical nuclei, thin cellulose walls, and complete absence of central vacuoles. scientific educational diagram with clear labels",
+          "video_query": "Meristematic Cells Under Light Microscope educational demonstration video",
           "what_to_make": "High-power light micrograph of root apical meristem showing dense cytoplasm, prominent spherical nuclei, thin cellulose walls, and complete absence of central vacuoles.",
-          "timing_and_cue": "Mount meristem cytology on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/7/7f/Root_Apical_Meristem_cell.jpg | Root Apical Meristem Micrograph | Actively dividing cells with dense protoplasm and no central vacuoles\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"High-power light micrograph of root apical meristem showing dense cytoplasm, prominent spherical nuclei, thin cellulose walls, and complete absence of central vacuoles. scientific educational diagram with clear labels\", title=\"Meristematic Cells Under Light Microscope\") | Proactive video: search_and_show_video(query=\"Meristematic Cells Under Light Microscope educational demonstration video\", title=\"Meristematic Cells Under Light Microscope\")",
+          "image_search_query": "High-power light micrograph of root apical meristem showing dense cytoplasm, prominent spherical nuclei, thin cellulose walls, and complete absence of central vacuoles. scientific educational diagram with clear labels",
+          "video_search_query": "Meristematic Cells Under Light Microscope educational demonstration video"
         },
         {
           "concept_title": "Apical Meristem: Located at growing tips of stems and roots, responsible for vertical primary elongation.",
           "diagram_title": "Shoot Apical Meristem Longitudinal Section",
-          "diagram_type": "image",
-          "image_query": "Shoot apical meristem diagram plant",
-          "video_query": "shoot apical meristem growth",
-          "image_url": "/extracted_diagrams/ch3/fig_3_3.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook longitudinal section of shoot apex showing the dome of apical meristem surrounded by leaf primordia driving longitudinal primary growth. scientific educational diagram with clear labels",
+          "video_query": "Shoot Apical Meristem Longitudinal Section educational demonstration video",
           "what_to_make": "Textbook longitudinal section of shoot apex showing the dome of apical meristem surrounded by leaf primordia driving longitudinal primary growth.",
-          "timing_and_cue": "Mount apical meristem zone on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_3.webp | Apical Meristem Apex | Primary vertical elongation engine at root and shoot tips\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook longitudinal section of shoot apex showing the dome of apical meristem surrounded by leaf primordia driving longitudinal primary growth. scientific educational diagram with clear labels\", title=\"Shoot Apical Meristem Longitudinal Section\") | Proactive video: search_and_show_video(query=\"Shoot Apical Meristem Longitudinal Section educational demonstration video\", title=\"Shoot Apical Meristem Longitudinal Section\")",
+          "image_search_query": "Textbook longitudinal section of shoot apex showing the dome of apical meristem surrounded by leaf primordia driving longitudinal primary growth. scientific educational diagram with clear labels",
+          "video_search_query": "Shoot Apical Meristem Longitudinal Section educational demonstration video"
         },
         {
           "concept_title": "Lateral Meristem (Vascular & Cork Cambium): Located radially, responsible for secondary growth and increasing stem/root girth.",
           "diagram_title": "Lateral Meristem Vascular Cambium Cylinder",
-          "diagram_type": "image",
-          "image_query": "Vascular cambium plant stem cross section",
-          "video_query": "secondary growth cambium tree",
-          "image_url": "/extracted_diagrams/ch3/fig_3_5.webp",
+          "diagram_type": "image_search",
+          "image_query": "Stem cross-section showing cylindrical lateral cambium rings that produce secondary xylem internally and secondary phloem externally to increase diameter. scientific educational diagram with clear labels",
+          "video_query": "Lateral Meristem Vascular Cambium Cylinder educational demonstration video",
           "what_to_make": "Stem cross-section showing cylindrical lateral cambium rings that produce secondary xylem internally and secondary phloem externally to increase diameter.",
-          "timing_and_cue": "Mount lateral meristem on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_5.webp | Lateral Meristem & Cambium | Drives secondary radial growth and stem girth\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Stem cross-section showing cylindrical lateral cambium rings that produce secondary xylem internally and secondary phloem externally to increase diameter. scientific educational diagram with clear labels\", title=\"Lateral Meristem Vascular Cambium Cylinder\") | Proactive video: search_and_show_video(query=\"Lateral Meristem Vascular Cambium Cylinder educational demonstration video\", title=\"Lateral Meristem Vascular Cambium Cylinder\")",
+          "image_search_query": "Stem cross-section showing cylindrical lateral cambium rings that produce secondary xylem internally and secondary phloem externally to increase diameter. scientific educational diagram with clear labels",
+          "video_search_query": "Lateral Meristem Vascular Cambium Cylinder educational demonstration video"
         },
         {
           "concept_title": "Intercalary Meristem: Located at leaf bases and internodes of grasses/monocots, enabling rapid regrowth after grazing.",
           "diagram_title": "Intercalary Meristem at Grass Internodes",
-          "diagram_type": "image",
-          "image_query": "Intercalary meristem monocot grass stem",
-          "video_query": "intercalary meristem sugarcane",
-          "image_url": "/extracted_diagrams/ch3/fig_3_6.webp",
+          "diagram_type": "image_search",
+          "image_query": "Botanical diagram of monocot grass stem showing intercalary meristem bands located at node bases responsible for rapid blade regrowth after lawn mowing or grazing. scientific educational diagram with clear labels",
+          "video_query": "Intercalary Meristem at Grass Internodes educational demonstration video",
           "what_to_make": "Botanical diagram of monocot grass stem showing intercalary meristem bands located at node bases responsible for rapid blade regrowth after lawn mowing or grazing.",
-          "timing_and_cue": "Mount intercalary meristem on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_6.webp | Intercalary Meristem | Nodal regrowth engine in grasses and sugarcane\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Botanical diagram of monocot grass stem showing intercalary meristem bands located at node bases responsible for rapid blade regrowth after lawn mowing or grazing. scientific educational diagram with clear labels\", title=\"Intercalary Meristem at Grass Internodes\") | Proactive video: search_and_show_video(query=\"Intercalary Meristem at Grass Internodes educational demonstration video\", title=\"Intercalary Meristem at Grass Internodes\")",
+          "image_search_query": "Botanical diagram of monocot grass stem showing intercalary meristem bands located at node bases responsible for rapid blade regrowth after lawn mowing or grazing. scientific educational diagram with clear labels",
+          "video_search_query": "Intercalary Meristem at Grass Internodes educational demonstration video"
         },
         {
           "concept_title": "Root Tip Excision Dynamics: Cutting root tips removes apical meristems, arresting further longitudinal mitotic division.",
           "diagram_title": "Activity 3.1 Onion Root Tip Growth Experiment",
-          "diagram_type": "image",
-          "image_query": "Onion root tip water jar experiment",
-          "video_query": "onion root tip squash mitosis",
-          "image_url": "/extracted_diagrams/ch3/fig_3_2.webp",
+          "diagram_type": "image_search",
+          "image_query": "Comparative experimental apparatus of two onion bulbs in water jars showing continued growth in uncut Jar A and complete arrest of growth in tip-excised Jar B. scientific educational diagram with clear labels",
+          "video_query": "Activity 3.1 Onion Root Tip Growth Experiment educational demonstration video",
           "what_to_make": "Comparative experimental apparatus of two onion bulbs in water jars showing continued growth in uncut Jar A and complete arrest of growth in tip-excised Jar B.",
-          "timing_and_cue": "Mount Activity 3.1 experiment on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_2.webp | Activity 3.1 Onion Root Tip Lab | Demonstrating growth arrest upon apical excision\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Comparative experimental apparatus of two onion bulbs in water jars showing continued growth in uncut Jar A and complete arrest of growth in tip-excised Jar B. scientific educational diagram with clear labels\", title=\"Activity 3.1 Onion Root Tip Growth Experiment\") | Proactive video: search_and_show_video(query=\"Activity 3.1 Onion Root Tip Growth Experiment educational demonstration video\", title=\"Activity 3.1 Onion Root Tip Growth Experiment\")",
+          "image_search_query": "Comparative experimental apparatus of two onion bulbs in water jars showing continued growth in uncut Jar A and complete arrest of growth in tip-excised Jar B. scientific educational diagram with clear labels",
+          "video_search_query": "Activity 3.1 Onion Root Tip Growth Experiment educational demonstration video"
         }
       ]
     },
@@ -288,62 +294,68 @@
         {
           "concept_title": "Cellular Differentiation: Permanent loss of division ability to assume specific morphological functions.",
           "diagram_title": "Stem Section Showing Tissue Differentiation",
-          "diagram_type": "image",
-          "image_query": "Dicot stem cross section tissue layers microscope",
-          "video_query": "stem cross section plant tissues",
-          "image_url": "/extracted_diagrams/ch3/fig_3_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "Transverse section of dicot stem showing progression from outer epidermis down through collenchyma hypodermis, parenchymatous cortex, and vascular bundle ring. scientific educational diagram with clear labels",
+          "video_query": "Stem Section Showing Tissue Differentiation educational demonstration video",
           "what_to_make": "Transverse section of dicot stem showing progression from outer epidermis down through collenchyma hypodermis, parenchymatous cortex, and vascular bundle ring.",
-          "timing_and_cue": "Mount stem section on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_7.webp | Dicot Stem Tissue Map | Showing spatial layering of parenchyma, collenchyma, and vascular bundles\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Transverse section of dicot stem showing progression from outer epidermis down through collenchyma hypodermis, parenchymatous cortex, and vascular bundle ring. scientific educational diagram with clear labels\", title=\"Stem Section Showing Tissue Differentiation\") | Proactive video: search_and_show_video(query=\"Stem Section Showing Tissue Differentiation educational demonstration video\", title=\"Stem Section Showing Tissue Differentiation\")",
+          "image_search_query": "Transverse section of dicot stem showing progression from outer epidermis down through collenchyma hypodermis, parenchymatous cortex, and vascular bundle ring. scientific educational diagram with clear labels",
+          "video_search_query": "Stem Section Showing Tissue Differentiation educational demonstration video"
         },
         {
           "concept_title": "Parenchyma Architecture: Loosely packed living cells with thin cellulose walls, large central vacuoles, and intercellular spaces for food storage.",
           "diagram_title": "Parenchyma Tissue Transverse Section",
-          "diagram_type": "image",
-          "image_query": "Parenchyma plant tissue light microscope",
-          "video_query": "parenchyma plant cells",
-          "image_url": "/extracted_diagrams/ch3/fig_3_10.webp",
+          "diagram_type": "image_search",
+          "image_query": "Micrograph of parenchyma showing thin primary cellulose cell walls, large central vacuoles, and prominent triangular intercellular air spaces. scientific educational diagram with clear labels",
+          "video_query": "Parenchyma Tissue Transverse Section educational demonstration video",
           "what_to_make": "Micrograph of parenchyma showing thin primary cellulose cell walls, large central vacuoles, and prominent triangular intercellular air spaces.",
-          "timing_and_cue": "Mount parenchyma on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_10.webp | Parenchyma Micrograph | Thin walls, loose packing, and large food-storage vacuoles\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Micrograph of parenchyma showing thin primary cellulose cell walls, large central vacuoles, and prominent triangular intercellular air spaces. scientific educational diagram with clear labels\", title=\"Parenchyma Tissue Transverse Section\") | Proactive video: search_and_show_video(query=\"Parenchyma Tissue Transverse Section educational demonstration video\", title=\"Parenchyma Tissue Transverse Section\")",
+          "image_search_query": "Micrograph of parenchyma showing thin primary cellulose cell walls, large central vacuoles, and prominent triangular intercellular air spaces. scientific educational diagram with clear labels",
+          "video_search_query": "Parenchyma Tissue Transverse Section educational demonstration video"
         },
         {
           "concept_title": "Chlorenchyma vs Aerenchyma: Chlorenchyma contains chloroplasts for photosynthesis; Aerenchyma contains large air cavities providing buoyancy in aquatic plants.",
           "diagram_title": "Aerenchyma in Aquatic Plant Petiole",
-          "diagram_type": "image",
-          "image_query": "Aerenchyma aquatic plant cross section microscope",
-          "video_query": "aerenchyma buoyancy aquatic plants",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Aerenchyma_in_hydrophyte_stem.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Cross section of hydrophyte water lily or Eichhornia petiole displaying immense lacunar air cavities surrounded by delicate parenchymatous trabeculae. scientific educational diagram with clear labels",
+          "video_query": "Aerenchyma in Aquatic Plant Petiole educational demonstration video",
           "what_to_make": "Cross section of hydrophyte (water lily or Eichhornia) petiole displaying immense lacunar air cavities surrounded by delicate parenchymatous trabeculae.",
-          "timing_and_cue": "Mount aerenchyma on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/e/e0/Aerenchyma_in_hydrophyte_stem.jpg | Aerenchyma Air Cavities | Specialized buoyancy parenchyma in aquatic hydrophytes\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Cross section of hydrophyte water lily or Eichhornia petiole displaying immense lacunar air cavities surrounded by delicate parenchymatous trabeculae. scientific educational diagram with clear labels\", title=\"Aerenchyma in Aquatic Plant Petiole\") | Proactive video: search_and_show_video(query=\"Aerenchyma in Aquatic Plant Petiole educational demonstration video\", title=\"Aerenchyma in Aquatic Plant Petiole\")",
+          "image_search_query": "Cross section of hydrophyte water lily or Eichhornia petiole displaying immense lacunar air cavities surrounded by delicate parenchymatous trabeculae. scientific educational diagram with clear labels",
+          "video_search_query": "Aerenchyma in Aquatic Plant Petiole educational demonstration video"
         },
         {
           "concept_title": "Collenchyma Mechanics: Flexible mechanical tissue with corner wall thickenings of cellulose and pectin, allowing leaves and tendrils to bend without snapping.",
           "diagram_title": "Collenchyma Tissue Corner Thickenings",
-          "diagram_type": "image",
-          "image_query": "Collenchyma tissue plant stem microscope",
-          "video_query": "collenchyma plant flexibility",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/90/Collenchyma_cells.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Transverse section of collenchyma showing prominent corner wall thickenings rich in pectin and cellulose, with living protoplasts and absence of intercellular voids. scientific educational diagram with clear labels",
+          "video_query": "Collenchyma Tissue Corner Thickenings educational demonstration video",
           "what_to_make": "Transverse section of collenchyma showing prominent corner wall thickenings rich in pectin and cellulose, with living protoplasts and absence of intercellular voids.",
-          "timing_and_cue": "Mount collenchyma on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/9/90/Collenchyma_cells.jpg | Collenchyma Micrograph | Corner pectin thickenings conferring mechanical flexibility\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Transverse section of collenchyma showing prominent corner wall thickenings rich in pectin and cellulose, with living protoplasts and absence of intercellular voids. scientific educational diagram with clear labels\", title=\"Collenchyma Tissue Corner Thickenings\") | Proactive video: search_and_show_video(query=\"Collenchyma Tissue Corner Thickenings educational demonstration video\", title=\"Collenchyma Tissue Corner Thickenings\")",
+          "image_search_query": "Transverse section of collenchyma showing prominent corner wall thickenings rich in pectin and cellulose, with living protoplasts and absence of intercellular voids. scientific educational diagram with clear labels",
+          "video_search_query": "Collenchyma Tissue Corner Thickenings educational demonstration video"
         },
         {
           "concept_title": "Sclerenchyma Anatomy: Dead cells with thick secondary walls cemented by lignin, possessing narrow pits and providing maximum mechanical strength (e.g., coconut husk).",
           "diagram_title": "Sclerenchyma Thickened Walls & Narrow Lumen",
-          "diagram_type": "image",
-          "image_query": "Sclerenchyma fibres cross section microscope",
-          "video_query": "sclerenchyma plant fibres",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Sclerenchyma_fibers.jpg",
+          "diagram_type": "image_search",
+          "image_query": "High-magnification cross-section of sclerenchyma showing massive lignified secondary cell walls, narrow central lumen, simple pits, and complete absence of living protoplasts. scientific educational diagram with clear labels",
+          "video_query": "Sclerenchyma Thickened Walls & Narrow Lumen educational demonstration video",
           "what_to_make": "High-magnification cross-section of sclerenchyma showing massive lignified secondary cell walls, narrow central lumen, simple pits, and complete absence of living protoplasts.",
-          "timing_and_cue": "Mount sclerenchyma on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/4/4e/Sclerenchyma_fibers.jpg | Sclerenchyma Fibres | Heavily lignified dead cells with obliterated lumen\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"High-magnification cross-section of sclerenchyma showing massive lignified secondary cell walls, narrow central lumen, simple pits, and complete absence of living protoplasts. scientific educational diagram with clear labels\", title=\"Sclerenchyma Thickened Walls & Narrow Lumen\") | Proactive video: search_and_show_video(query=\"Sclerenchyma Thickened Walls & Narrow Lumen educational demonstration video\", title=\"Sclerenchyma Thickened Walls & Narrow Lumen\")",
+          "image_search_query": "High-magnification cross-section of sclerenchyma showing massive lignified secondary cell walls, narrow central lumen, simple pits, and complete absence of living protoplasts. scientific educational diagram with clear labels",
+          "video_search_query": "Sclerenchyma Thickened Walls & Narrow Lumen educational demonstration video"
         },
         {
           "concept_title": "Coconut Husk Fibres: Consist entirely of dead sclerenchyma sclereids and fibres providing water-resistant impact protection.",
           "diagram_title": "Coconut Husk Sclerenchyma Fibres",
-          "diagram_type": "image",
-          "image_query": "Coconut husk sclerenchyma fibres microscope",
-          "video_query": "coir coconut fibre sclerenchyma",
-          "image_url": "/extracted_diagrams/ch3/fig_3_10.webp",
+          "diagram_type": "image_search",
+          "image_query": "Isolated coconut coir fibres showing elongated spindle-shaped sclerenchyma cells with thick lignified walls and simple pits. scientific educational diagram with clear labels",
+          "video_query": "Coconut Husk Sclerenchyma Fibres educational demonstration video",
           "what_to_make": "Isolated coconut coir fibres showing elongated spindle-shaped sclerenchyma cells with thick lignified walls and simple pits.",
-          "timing_and_cue": "Mount coconut husk visual on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_10.webp | Coconut Husk Sclerenchyma | Dead coir fibres cemented with impermeable lignin\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Isolated coconut coir fibres showing elongated spindle-shaped sclerenchyma cells with thick lignified walls and simple pits. scientific educational diagram with clear labels\", title=\"Coconut Husk Sclerenchyma Fibres\") | Proactive video: search_and_show_video(query=\"Coconut Husk Sclerenchyma Fibres educational demonstration video\", title=\"Coconut Husk Sclerenchyma Fibres\")",
+          "image_search_query": "Isolated coconut coir fibres showing elongated spindle-shaped sclerenchyma cells with thick lignified walls and simple pits. scientific educational diagram with clear labels",
+          "video_search_query": "Coconut Husk Sclerenchyma Fibres educational demonstration video"
         }
       ]
     },
@@ -375,7 +387,7 @@
       "Cork Suberin Shield: Dead, compactly arranged bark cells coated with suberin, making stems impervious to gases and water."
     ],
     "success_criteria": "Student can contrast xylem and phloem in directionality, cellular components, and living status, describe stomatal guard cell mechanics, and explain suberin's protective role.",
-    "chapter_notes": "### 3.7 Complex Permanent Tissues\nUnlike simple tissues, complex tissues are made of **more than one type of cell** working together as a conducting unit (**Vascular Bundle**).\n\n### 3.8 Xylem (Wood) \u2014 Water Conduction Pipeline\n- **Direction**: Strictly **Unidirectional** (Roots -> Stem -> Leaves).\n- **Driving Force**: Passive transpiration pull + root pressure (does NOT require ATP).\n- **Four Elements**:\n  1. **Tracheids**: Elongated, dead, tube-like cells with tapering ends and lignified walls with pits.\n  2. **Vessels**: Long, tube-like cylindrical pipes placed end-to-end with perforated transverse walls. Major conducting element in angiosperms.\n  3. **Xylem Parenchyma**: **Only living component**; stores starch and conducts water radially (ray parenchyma).\n  4. **Xylem Sclerenchyma (Fibres)**: Dead, thick lignified fibres providing tensile support.\n\n### 3.9 Phloem (Bast) \u2014 Food Translocation Pipeline\n- **Direction**: **Bidirectional** (Source leaves -> Storage roots, or Stored starch in spring -> Growing buds).\n- **Driving Force**: Active transport consuming **ATP**; builds osmotic pressure to push sap.\n- **Four Elements**:\n  1. **Sieve Tubes**: Tubular cells with perforated end-walls (**sieve plates**). Possess peripheral cytoplasm but **lack a nucleus** at maturity!\n  2. **Companion Cells**: Specialized parenchymatous cells with dense cytoplasm and large nuclei; connected via plasmodesmata to regulate enucleated sieve tubes.\n  3. **Phloem Parenchyma**: Living cells storing resins, latex, and nutrients.\n  4. **Phloem Fibres (Bast fibres)**: **Only dead component**; provides mechanical strength (e.g., jute, flax, hemp fibres used in ropes).\n\n### 3.10 Epidermis, Stomata & Cork\n1. **Epidermis**: Single outer protective cell layer coated with water-resistant waxy **cutin**.\n2. **Stomata**: Small pores in leaf epidermis enclosed by two kidney/bean-shaped **guard cells**. Regulates transpiration and gas exchange ($O_2, CO_2$).\n3. **Cork (Bark)**: In older stems, secondary lateral meristem (cork cambium) replaces epidermis with compact dead cork cells impregnated with **suberin**, making it completely impervious to gases and water.",
+    "chapter_notes": "### 3.7 Complex Permanent Tissues\nUnlike simple tissues, complex tissues are made of **more than one type of cell** working together as a conducting unit (**Vascular Bundle**).\n\n### 3.8 Xylem (Wood) — Water Conduction Pipeline\n- **Direction**: Strictly **Unidirectional** (Roots -> Stem -> Leaves).\n- **Driving Force**: Passive transpiration pull + root pressure (does NOT require ATP).\n- **Four Elements**:\n  1. **Tracheids**: Elongated, dead, tube-like cells with tapering ends and lignified walls with pits.\n  2. **Vessels**: Long, tube-like cylindrical pipes placed end-to-end with perforated transverse walls. Major conducting element in angiosperms.\n  3. **Xylem Parenchyma**: **Only living component**; stores starch and conducts water radially (ray parenchyma).\n  4. **Xylem Sclerenchyma (Fibres)**: Dead, thick lignified fibres providing tensile support.\n\n### 3.9 Phloem (Bast) — Food Translocation Pipeline\n- **Direction**: **Bidirectional** (Source leaves -> Storage roots, or Stored starch in spring -> Growing buds).\n- **Driving Force**: Active transport consuming **ATP**; builds osmotic pressure to push sap.\n- **Four Elements**:\n  1. **Sieve Tubes**: Tubular cells with perforated end-walls (**sieve plates**). Possess peripheral cytoplasm but **lack a nucleus** at maturity!\n  2. **Companion Cells**: Specialized parenchymatous cells with dense cytoplasm and large nuclei; connected via plasmodesmata to regulate enucleated sieve tubes.\n  3. **Phloem Parenchyma**: Living cells storing resins, latex, and nutrients.\n  4. **Phloem Fibres (Bast fibres)**: **Only dead component**; provides mechanical strength (e.g., jute, flax, hemp fibres used in ropes).\n\n### 3.10 Epidermis, Stomata & Cork\n1. **Epidermis**: Single outer protective cell layer coated with water-resistant waxy **cutin**.\n2. **Stomata**: Small pores in leaf epidermis enclosed by two kidney/bean-shaped **guard cells**. Regulates transpiration and gas exchange ($O_2, CO_2$).\n3. **Cork (Bark)**: In older stems, secondary lateral meristem (cork cambium) replaces epidermis with compact dead cork cells impregnated with **suberin**, making it completely impervious to gases and water.",
     "worked_examples": [
       {
         "problem": "Why are xylem and phloem classified as complex permanent tissues rather than simple tissues?",
@@ -464,62 +476,68 @@
         {
           "concept_title": "Complex Permanent Tissues: Composed of more than one cell type cooperating to execute a single coordinated function.",
           "diagram_title": "Vascular Bundle Cross Section",
-          "diagram_type": "image",
-          "image_query": "Vascular bundle xylem phloem stem cross section",
-          "video_query": "vascular bundle plant anatomy",
-          "image_url": "/extracted_diagrams/ch3/fig_3_13.webp",
+          "diagram_type": "image_search",
+          "image_query": "Cross section showing adjacent xylem vessels and phloem sieve clusters bounded by vascular bundle sheath. scientific educational diagram with clear labels",
+          "video_query": "Vascular Bundle Cross Section educational demonstration video",
           "what_to_make": "Cross section showing adjacent xylem vessels and phloem sieve clusters bounded by vascular bundle sheath.",
-          "timing_and_cue": "Mount vascular bundle on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_13.webp | Vascular Bundle Map | Integrated water (xylem) and food (phloem) highways\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Cross section showing adjacent xylem vessels and phloem sieve clusters bounded by vascular bundle sheath. scientific educational diagram with clear labels\", title=\"Vascular Bundle Cross Section\") | Proactive video: search_and_show_video(query=\"Vascular Bundle Cross Section educational demonstration video\", title=\"Vascular Bundle Cross Section\")",
+          "image_search_query": "Cross section showing adjacent xylem vessels and phloem sieve clusters bounded by vascular bundle sheath. scientific educational diagram with clear labels",
+          "video_search_query": "Vascular Bundle Cross Section educational demonstration video"
         },
         {
           "concept_title": "Xylem Pipeline: Consists of tracheids, vessels, xylem fibres (all dead), and xylem parenchyma (only living component); conducts water and minerals unidirectionally.",
           "diagram_title": "Xylem Tracheids & Vessels Under Microscope",
-          "diagram_type": "image",
-          "image_query": "Xylem vessels tracheids light microscope",
-          "video_query": "xylem water transport transpiration",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Xylem_cells_in_stem_cross-section.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Micrograph of xylem showing wide circular vessel lumens with pitted lignified walls and adjacent elongated tracheids. scientific educational diagram with clear labels",
+          "video_query": "Xylem Tracheids & Vessels Under Microscope educational demonstration video",
           "what_to_make": "Micrograph of xylem showing wide circular vessel lumens with pitted lignified walls and adjacent elongated tracheids.",
-          "timing_and_cue": "Mount xylem on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/e/ec/Xylem_cells_in_stem_cross-section.jpg | Xylem Pipeline Micrograph | Wide continuous vessel barrels driven by transpiration pull\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Micrograph of xylem showing wide circular vessel lumens with pitted lignified walls and adjacent elongated tracheids. scientific educational diagram with clear labels\", title=\"Xylem Tracheids & Vessels Under Microscope\") | Proactive video: search_and_show_video(query=\"Xylem Tracheids & Vessels Under Microscope educational demonstration video\", title=\"Xylem Tracheids & Vessels Under Microscope\")",
+          "image_search_query": "Micrograph of xylem showing wide circular vessel lumens with pitted lignified walls and adjacent elongated tracheids. scientific educational diagram with clear labels",
+          "video_search_query": "Xylem Tracheids & Vessels Under Microscope educational demonstration video"
         },
         {
           "concept_title": "Phloem Pipeline: Consists of sieve tubes, companion cells, phloem parenchyma (all living), and phloem fibres (only dead component); transports organic nutrients bidirectionally.",
           "diagram_title": "Phloem Sieve Tube & Companion Cell Architecture",
-          "diagram_type": "image",
-          "image_query": "Phloem sieve tube companion cell microscope",
-          "video_query": "phloem translocation sucrose",
-          "image_url": "/extracted_diagrams/ch3/fig_3_14.webp",
+          "diagram_type": "image_search",
+          "image_query": "Longitudinal section showing enucleated sieve tube elements joined by perforated sieve plates alongside dense nucleated companion cells. scientific educational diagram with clear labels",
+          "video_query": "Phloem Sieve Tube & Companion Cell Architecture educational demonstration video",
           "what_to_make": "Longitudinal section showing enucleated sieve tube elements joined by perforated sieve plates alongside dense nucleated companion cells.",
-          "timing_and_cue": "Mount phloem on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_14.webp | Phloem Sieve Tubes | Sieve plates and metabolically coupled companion cells\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Longitudinal section showing enucleated sieve tube elements joined by perforated sieve plates alongside dense nucleated companion cells. scientific educational diagram with clear labels\", title=\"Phloem Sieve Tube & Companion Cell Architecture\") | Proactive video: search_and_show_video(query=\"Phloem Sieve Tube & Companion Cell Architecture educational demonstration video\", title=\"Phloem Sieve Tube & Companion Cell Architecture\")",
+          "image_search_query": "Longitudinal section showing enucleated sieve tube elements joined by perforated sieve plates alongside dense nucleated companion cells. scientific educational diagram with clear labels",
+          "video_search_query": "Phloem Sieve Tube & Companion Cell Architecture educational demonstration video"
         },
         {
           "concept_title": "Active Translocation in Phloem: Food transport requires cellular energy (ATP) to build osmotic pressure, unlike passive xylem transpiration pull.",
           "diagram_title": "Pressure Flow Translocation Mechanism",
-          "diagram_type": "image",
-          "image_query": "Pressure flow hypothesis phloem translocation diagram",
-          "video_query": "pressure flow hypothesis phloem",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Phloem_translocation.svg",
+          "diagram_type": "image_search",
+          "image_query": "Biophysical schematic showing active loading of sucrose into sieve tubes using ATP, osmotic water influx from xylem, and mass flow toward sink organs. scientific educational diagram with clear labels",
+          "video_query": "Pressure Flow Translocation Mechanism educational demonstration video",
           "what_to_make": "Biophysical schematic showing active loading of sucrose into sieve tubes using ATP, osmotic water influx from xylem, and mass flow toward sink organs.",
-          "timing_and_cue": "Mount translocation on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/4/4b/Phloem_translocation.svg | Pressure-Flow Model | ATP-driven osmotic pumping of photosynthate sap\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Biophysical schematic showing active loading of sucrose into sieve tubes using ATP, osmotic water influx from xylem, and mass flow toward sink organs. scientific educational diagram with clear labels\", title=\"Pressure Flow Translocation Mechanism\") | Proactive video: search_and_show_video(query=\"Pressure Flow Translocation Mechanism educational demonstration video\", title=\"Pressure Flow Translocation Mechanism\")",
+          "image_search_query": "Biophysical schematic showing active loading of sucrose into sieve tubes using ATP, osmotic water influx from xylem, and mass flow toward sink organs. scientific educational diagram with clear labels",
+          "video_search_query": "Pressure Flow Translocation Mechanism educational demonstration video"
         },
         {
           "concept_title": "Epidermal Stomata & Guard Cells: Kidney-shaped guard cells regulate pore opening for CO2 intake and transpiration water loss.",
           "diagram_title": "Leaf Epidermis Guard Cells & Stomatal Pore",
-          "diagram_type": "image",
-          "image_query": "Leaf stomata guard cells microscope",
-          "video_query": "stomata opening closing time lapse",
-          "image_url": "/extracted_diagrams/ch3/fig_3_11.webp",
+          "diagram_type": "image_search",
+          "image_query": "Peel of leaf epidermis showing kidney-shaped guard cells with chloroplasts flanking open and closed stomatal apertures. scientific educational diagram with clear labels",
+          "video_query": "Leaf Epidermis Guard Cells & Stomatal Pore educational demonstration video",
           "what_to_make": "Peel of leaf epidermis showing kidney-shaped guard cells with chloroplasts flanking open and closed stomatal apertures.",
-          "timing_and_cue": "Mount stomata on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_11.webp | Guard Cells & Stomata | Turgor-driven osmotic valve controlling gas exchange and transpiration\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Peel of leaf epidermis showing kidney-shaped guard cells with chloroplasts flanking open and closed stomatal apertures. scientific educational diagram with clear labels\", title=\"Leaf Epidermis Guard Cells & Stomatal Pore\") | Proactive video: search_and_show_video(query=\"Leaf Epidermis Guard Cells & Stomatal Pore educational demonstration video\", title=\"Leaf Epidermis Guard Cells & Stomatal Pore\")",
+          "image_search_query": "Peel of leaf epidermis showing kidney-shaped guard cells with chloroplasts flanking open and closed stomatal apertures. scientific educational diagram with clear labels",
+          "video_search_query": "Leaf Epidermis Guard Cells & Stomatal Pore educational demonstration video"
         },
         {
           "concept_title": "Cork Suberin Shield: Dead, compactly arranged bark cells coated with suberin, making stems impervious to gases and water.",
           "diagram_title": "Cork Protective Bark Cross Section",
-          "diagram_type": "image",
-          "image_query": "Cork cells suberin tree bark cross section",
-          "video_query": "cork cambium tree bark",
-          "image_url": "/extracted_diagrams/ch3/fig_3_12.webp",
+          "diagram_type": "image_search",
+          "image_query": "Multilayered dead cork cells without intercellular spaces showing thick suberized walls insulating tree trunks. scientific educational diagram with clear labels",
+          "video_query": "Cork Protective Bark Cross Section educational demonstration video",
           "what_to_make": "Multilayered dead cork cells without intercellular spaces showing thick suberized walls insulating tree trunks.",
-          "timing_and_cue": "Mount cork on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_12.webp | Suberized Cork Bark | Multilayered dead barrier preventing desiccation and infection\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Multilayered dead cork cells without intercellular spaces showing thick suberized walls insulating tree trunks. scientific educational diagram with clear labels\", title=\"Cork Protective Bark Cross Section\") | Proactive video: search_and_show_video(query=\"Cork Protective Bark Cross Section educational demonstration video\", title=\"Cork Protective Bark Cross Section\")",
+          "image_search_query": "Multilayered dead cork cells without intercellular spaces showing thick suberized walls insulating tree trunks. scientific educational diagram with clear labels",
+          "video_search_query": "Cork Protective Bark Cross Section educational demonstration video"
         }
       ]
     },
@@ -640,62 +658,68 @@
         {
           "concept_title": "Epithelial Tissue Architecture: Continuous protective sheet resting on an extracellular fibrous basement membrane with minimal intercellular matrix.",
           "diagram_title": "Types of Epithelial Tissues Master Diagram",
-          "diagram_type": "image",
-          "image_query": "Epithelial tissue types squamous cuboidal columnar",
-          "video_query": "epithelial tissue histology",
-          "image_url": "/extracted_diagrams/ch3/fig_3_17.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook panel illustrating the 4 major epithelial sheet geometries resting on basement membranes. scientific educational diagram with clear labels",
+          "video_query": "Types of Epithelial Tissues Master Diagram educational demonstration video",
           "what_to_make": "Textbook panel illustrating the 4 major epithelial sheet geometries resting on basement membranes.",
-          "timing_and_cue": "Mount epithelial panel on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_17.webp | Epithelial Morphologies | Squamous, Stratified, Cuboidal, and Ciliated sheets\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook panel illustrating the 4 major epithelial sheet geometries resting on basement membranes. scientific educational diagram with clear labels\", title=\"Types of Epithelial Tissues Master Diagram\") | Proactive video: search_and_show_video(query=\"Types of Epithelial Tissues Master Diagram educational demonstration video\", title=\"Types of Epithelial Tissues Master Diagram\")",
+          "image_search_query": "Textbook panel illustrating the 4 major epithelial sheet geometries resting on basement membranes. scientific educational diagram with clear labels",
+          "video_search_query": "Types of Epithelial Tissues Master Diagram educational demonstration video"
         },
         {
           "concept_title": "Simple Squamous Epithelium: Flat, disc-like thin cells facilitating passive diffusion in lung alveoli and capillary walls.",
           "diagram_title": "Simple Squamous Epithelium Micrograph",
-          "diagram_type": "image",
-          "image_query": "Simple squamous epithelium light microscope",
-          "video_query": "simple squamous epithelium histology",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Simple_squamous_epithelium.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Light micrograph showing flat fried-egg-shaped polygonal squamous cells with central oval nuclei forming an ultra-thin diffusion boundary. scientific educational diagram with clear labels",
+          "video_query": "Simple Squamous Epithelium Micrograph educational demonstration video",
           "what_to_make": "Light micrograph showing flat fried-egg-shaped polygonal squamous cells with central oval nuclei forming an ultra-thin diffusion boundary.",
-          "timing_and_cue": "Mount simple squamous on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/8/8f/Simple_squamous_epithelium.jpg | Simple Squamous Micrograph | Ultra-thin pavement cells specialized for rapid gas and solute diffusion\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Light micrograph showing flat fried-egg-shaped polygonal squamous cells with central oval nuclei forming an ultra-thin diffusion boundary. scientific educational diagram with clear labels\", title=\"Simple Squamous Epithelium Micrograph\") | Proactive video: search_and_show_video(query=\"Simple Squamous Epithelium Micrograph educational demonstration video\", title=\"Simple Squamous Epithelium Micrograph\")",
+          "image_search_query": "Light micrograph showing flat fried-egg-shaped polygonal squamous cells with central oval nuclei forming an ultra-thin diffusion boundary. scientific educational diagram with clear labels",
+          "video_search_query": "Simple Squamous Epithelium Micrograph educational demonstration video"
         },
         {
           "concept_title": "Stratified Squamous Epithelium: Multilayered arrangement preventing wear and tear; forms skin epidermis.",
           "diagram_title": "Stratified Squamous Epidermis Cross Section",
-          "diagram_type": "image",
-          "image_query": "Stratified squamous epithelium skin microscope",
-          "video_query": "stratified squamous epithelium skin",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Stratified_squamous_epithelium.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Cross-section of epidermis showing deep dividing basal layers and multilayered flattened surface cells providing abrasion resistance. scientific educational diagram with clear labels",
+          "video_query": "Stratified Squamous Epidermis Cross Section educational demonstration video",
           "what_to_make": "Cross-section of epidermis showing deep dividing basal layers and multilayered flattened surface cells providing abrasion resistance.",
-          "timing_and_cue": "Mount stratified squamous on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/a/a2/Stratified_squamous_epithelium.jpg | Stratified Squamous Skin | Multilayered armour shielding against physical wear and tear\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Cross-section of epidermis showing deep dividing basal layers and multilayered flattened surface cells providing abrasion resistance. scientific educational diagram with clear labels\", title=\"Stratified Squamous Epidermis Cross Section\") | Proactive video: search_and_show_video(query=\"Stratified Squamous Epidermis Cross Section educational demonstration video\", title=\"Stratified Squamous Epidermis Cross Section\")",
+          "image_search_query": "Cross-section of epidermis showing deep dividing basal layers and multilayered flattened surface cells providing abrasion resistance. scientific educational diagram with clear labels",
+          "video_search_query": "Stratified Squamous Epidermis Cross Section educational demonstration video"
         },
         {
           "concept_title": "Cuboidal & Glandular Epithelium: Cube-shaped cells offering mechanical support in kidney tubules; folds inward to form multicellular glands.",
           "diagram_title": "Simple Cuboidal Epithelium in Kidney Tubules",
-          "diagram_type": "image",
-          "image_query": "Simple cuboidal epithelium kidney tubules microscope",
-          "video_query": "simple cuboidal epithelium kidney",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Simple_cuboidal_epithelium.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Micrograph of renal nephron tubules showing single-ringed cube-shaped cells with central round nuclei specialized for filtration and reabsorption. scientific educational diagram with clear labels",
+          "video_query": "Simple Cuboidal Epithelium in Kidney Tubules educational demonstration video",
           "what_to_make": "Micrograph of renal nephron tubules showing single-ringed cube-shaped cells with central round nuclei specialized for filtration and reabsorption.",
-          "timing_and_cue": "Mount cuboidal epithelium on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/2/22/Simple_cuboidal_epithelium.jpg | Cuboidal Tubule Micrograph | Cube cells providing mechanical strength and solute transport in kidneys\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Micrograph of renal nephron tubules showing single-ringed cube-shaped cells with central round nuclei specialized for filtration and reabsorption. scientific educational diagram with clear labels\", title=\"Simple Cuboidal Epithelium in Kidney Tubules\") | Proactive video: search_and_show_video(query=\"Simple Cuboidal Epithelium in Kidney Tubules educational demonstration video\", title=\"Simple Cuboidal Epithelium in Kidney Tubules\")",
+          "image_search_query": "Micrograph of renal nephron tubules showing single-ringed cube-shaped cells with central round nuclei specialized for filtration and reabsorption. scientific educational diagram with clear labels",
+          "video_search_query": "Simple Cuboidal Epithelium in Kidney Tubules educational demonstration video"
         },
         {
           "concept_title": "Columnar & Ciliated Epithelium: Tall pillar cells; possesses cilia in respiratory tract to rhythmically sweep mucus outward.",
           "diagram_title": "Ciliated Columnar Epithelium Respiratory Tract",
-          "diagram_type": "image",
-          "image_query": "Ciliated pseudostratified columnar epithelium trachea microscope",
-          "video_query": "ciliated epithelium trachea cilia movement",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Bronchus_surface_showing_cilia.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Scanning electron micrograph of respiratory airway surface displaying thousands of hair-like cilia sweeping mucus. scientific educational diagram with clear labels",
+          "video_query": "Ciliated Columnar Epithelium Respiratory Tract educational demonstration video",
           "what_to_make": "Scanning electron micrograph of respiratory airway surface displaying thousands of hair-like cilia sweeping mucus.",
-          "timing_and_cue": "Mount ciliated epithelium on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/7/70/Bronchus_surface_showing_cilia.jpg | Respiratory Cilia SEM | Dense carpet of hair-like cilia driving the mucociliary escalator\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Scanning electron micrograph of respiratory airway surface displaying thousands of hair-like cilia sweeping mucus. scientific educational diagram with clear labels\", title=\"Ciliated Columnar Epithelium Respiratory Tract\") | Proactive video: search_and_show_video(query=\"Ciliated Columnar Epithelium Respiratory Tract educational demonstration video\", title=\"Ciliated Columnar Epithelium Respiratory Tract\")",
+          "image_search_query": "Scanning electron micrograph of respiratory airway surface displaying thousands of hair-like cilia sweeping mucus. scientific educational diagram with clear labels",
+          "video_search_query": "Ciliated Columnar Epithelium Respiratory Tract educational demonstration video"
         },
         {
           "concept_title": "Blood Composition: Liquid matrix (plasma 55%) containing suspended erythrocytes (O2 transport), leukocytes (immune defense), and platelets (thrombosis).",
           "diagram_title": "Human Blood Smear Under Light Microscope",
-          "diagram_type": "image",
-          "image_query": "Human blood smear RBC WBC platelets microscope",
-          "video_query": "blood smear light microscope RBC WBC",
-          "image_url": "/extracted_diagrams/ch3/fig_3_18.webp",
+          "diagram_type": "image_search",
+          "image_query": "Giemsa-stained human blood smear showing abundant pink biconcave RBCs, multi-lobed neutrophils, lymphocytes, and tiny platelet clusters. scientific educational diagram with clear labels",
+          "video_query": "Human Blood Smear Under Light Microscope educational demonstration video",
           "what_to_make": "Giemsa-stained human blood smear showing abundant pink biconcave RBCs, multi-lobed neutrophils, lymphocytes, and tiny platelet clusters.",
-          "timing_and_cue": "Mount blood smear on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_18.webp | Human Blood Smear | Erythrocytes, immune leukocytes, and clotting thrombocytes in plasma\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Giemsa-stained human blood smear showing abundant pink biconcave RBCs, multi-lobed neutrophils, lymphocytes, and tiny platelet clusters. scientific educational diagram with clear labels\", title=\"Human Blood Smear Under Light Microscope\") | Proactive video: search_and_show_video(query=\"Human Blood Smear Under Light Microscope educational demonstration video\", title=\"Human Blood Smear Under Light Microscope\")",
+          "image_search_query": "Giemsa-stained human blood smear showing abundant pink biconcave RBCs, multi-lobed neutrophils, lymphocytes, and tiny platelet clusters. scientific educational diagram with clear labels",
+          "video_search_query": "Human Blood Smear Under Light Microscope educational demonstration video"
         }
       ]
     },
@@ -815,62 +839,68 @@
         {
           "concept_title": "Connective Tissue Ground Matrix: Matrix may be jelly-like, fluid, dense, or rigid depending on specific functional demands.",
           "diagram_title": "Connective Tissues Master Plate",
-          "diagram_type": "image",
-          "image_query": "Connective tissue types histology bone cartilage areolar",
-          "video_query": "connective tissue histology",
-          "image_url": "/extracted_diagrams/ch3/fig_3_18.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook panel illustrating the spectrum of connective tissue matrices: fluid blood, spongy areolar, lipid adipose, pliable cartilage, and mineralized bone. scientific educational diagram with clear labels",
+          "video_query": "Connective Tissues Master Plate educational demonstration video",
           "what_to_make": "Textbook panel illustrating the spectrum of connective tissue matrices: fluid blood, spongy areolar, lipid adipose, pliable cartilage, and mineralized bone.",
-          "timing_and_cue": "Mount connective panel on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_18.webp | Connective Tissue Family | Diverse matrices engineered for support, binding, and transport\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook panel illustrating the spectrum of connective tissue matrices: fluid blood, spongy areolar, lipid adipose, pliable cartilage, and mineralized bone. scientific educational diagram with clear labels\", title=\"Connective Tissues Master Plate\") | Proactive video: search_and_show_video(query=\"Connective Tissues Master Plate educational demonstration video\", title=\"Connective Tissues Master Plate\")",
+          "image_search_query": "Textbook panel illustrating the spectrum of connective tissue matrices: fluid blood, spongy areolar, lipid adipose, pliable cartilage, and mineralized bone. scientific educational diagram with clear labels",
+          "video_search_query": "Connective Tissues Master Plate educational demonstration video"
         },
         {
           "concept_title": "Bone Rigid Matrix: Hard, porous matrix impregnated with calcium phosphate and carbonate, housing osteocytes in concentric Haversian systems.",
           "diagram_title": "Compact Bone Haversian System Micrograph",
-          "diagram_type": "image",
-          "image_query": "Compact bone ground section Haversian canal microscope",
-          "video_query": "compact bone haversian system histology",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Cross-section_of_Bone.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Ground section of compact human bone showing concentric lamellae, central Haversian canal, osteocyte lacunae, and radiating canaliculi. scientific educational diagram with clear labels",
+          "video_query": "Compact Bone Haversian System Micrograph educational demonstration video",
           "what_to_make": "Ground section of compact human bone showing concentric lamellae, central Haversian canal, osteocyte lacunae, and radiating canaliculi.",
-          "timing_and_cue": "Mount bone histology on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/e/ec/Cross-section_of_Bone.jpg | Compact Bone Osteon | Concentric mineralized lamellae surrounding central neurovascular canals\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Ground section of compact human bone showing concentric lamellae, central Haversian canal, osteocyte lacunae, and radiating canaliculi. scientific educational diagram with clear labels\", title=\"Compact Bone Haversian System Micrograph\") | Proactive video: search_and_show_video(query=\"Compact Bone Haversian System Micrograph educational demonstration video\", title=\"Compact Bone Haversian System Micrograph\")",
+          "image_search_query": "Ground section of compact human bone showing concentric lamellae, central Haversian canal, osteocyte lacunae, and radiating canaliculi. scientific educational diagram with clear labels",
+          "video_search_query": "Compact Bone Haversian System Micrograph educational demonstration video"
         },
         {
           "concept_title": "Cartilage Flexibility: Pliable matrix of chondroitin sulfate and collagen, smoothing bone surfaces at movable joints.",
           "diagram_title": "Hyaline Cartilage Under Light Microscope",
-          "diagram_type": "image",
-          "image_query": "Hyaline cartilage light microscope chondrocytes",
-          "video_query": "hyaline cartilage histology",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Hyaline_Cartilage.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Micrograph of hyaline cartilage showing clear glass-like basophilic matrix with chondrocytes situated in rounded lacunae spaces. scientific educational diagram with clear labels",
+          "video_query": "Hyaline Cartilage Under Light Microscope educational demonstration video",
           "what_to_make": "Micrograph of hyaline cartilage showing clear glass-like basophilic matrix with chondrocytes situated in rounded lacunae spaces.",
-          "timing_and_cue": "Mount cartilage on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/7/7b/Hyaline_Cartilage.jpg | Hyaline Cartilage Micrograph | Smooth glassy matrix with paired chondrocytes providing pliable joint cushioning\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Micrograph of hyaline cartilage showing clear glass-like basophilic matrix with chondrocytes situated in rounded lacunae spaces. scientific educational diagram with clear labels\", title=\"Hyaline Cartilage Under Light Microscope\") | Proactive video: search_and_show_video(query=\"Hyaline Cartilage Under Light Microscope educational demonstration video\", title=\"Hyaline Cartilage Under Light Microscope\")",
+          "image_search_query": "Micrograph of hyaline cartilage showing clear glass-like basophilic matrix with chondrocytes situated in rounded lacunae spaces. scientific educational diagram with clear labels",
+          "video_search_query": "Hyaline Cartilage Under Light Microscope educational demonstration video"
         },
         {
           "concept_title": "Ligament vs Tendon Distinction: Ligaments connect bone to bone with high elasticity; Tendons connect muscle to bone with immense tensile stiffness.",
           "diagram_title": "Tendon and Ligament Structural Contrast",
-          "diagram_type": "image",
-          "image_query": "Tendon vs ligament joint anatomy diagram",
-          "video_query": "tendons vs ligaments joint movement",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Knee_diagram.svg",
+          "diagram_type": "image_search",
+          "image_query": "Knee joint anatomical schematic clearly distinguishing patellar tendon muscle-to-bone from cruciate and collateral ligaments bone-to-bone . scientific educational diagram with clear labels",
+          "video_query": "Tendon and Ligament Structural Contrast educational demonstration video",
           "what_to_make": "Knee joint anatomical schematic clearly distinguishing patellar tendon (muscle-to-bone) from cruciate and collateral ligaments (bone-to-bone).",
-          "timing_and_cue": "Mount joint mechanics on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/e/e2/Knee_diagram.svg | Joint Biomechanics | Tendons transmit muscle pull; Ligaments stabilize bone-to-bone alignment\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Knee joint anatomical schematic clearly distinguishing patellar tendon muscle-to-bone from cruciate and collateral ligaments bone-to-bone . scientific educational diagram with clear labels\", title=\"Tendon and Ligament Structural Contrast\") | Proactive video: search_and_show_video(query=\"Tendon and Ligament Structural Contrast educational demonstration video\", title=\"Tendon and Ligament Structural Contrast\")",
+          "image_search_query": "Knee joint anatomical schematic clearly distinguishing patellar tendon muscle-to-bone from cruciate and collateral ligaments bone-to-bone . scientific educational diagram with clear labels",
+          "video_search_query": "Tendon and Ligament Structural Contrast educational demonstration video"
         },
         {
           "concept_title": "Areolar Tissue Function: Loose matrix supporting internal organs and facilitating tissue repair across interstitial spaces.",
           "diagram_title": "Areolar Connective Tissue Spread",
-          "diagram_type": "image",
-          "image_query": "Areolar connective tissue light microscope fibroblasts collagen elastin",
-          "video_query": "areolar tissue histology",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Areolar_connective_tissue.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Microscopic spread of areolar tissue showing criss-crossing pink collagen bundles, thin dark elastin fibres, fibroblasts, and mast cells. scientific educational diagram with clear labels",
+          "video_query": "Areolar Connective Tissue Spread educational demonstration video",
           "what_to_make": "Microscopic spread of areolar tissue showing criss-crossing pink collagen bundles, thin dark elastin fibres, fibroblasts, and mast cells.",
-          "timing_and_cue": "Mount areolar tissue on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/5/5a/Areolar_connective_tissue.jpg | Areolar Tissue Spread | Loose network of collagen and elastin packing spaces between organs\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Microscopic spread of areolar tissue showing criss-crossing pink collagen bundles, thin dark elastin fibres, fibroblasts, and mast cells. scientific educational diagram with clear labels\", title=\"Areolar Connective Tissue Spread\") | Proactive video: search_and_show_video(query=\"Areolar Connective Tissue Spread educational demonstration video\", title=\"Areolar Connective Tissue Spread\")",
+          "image_search_query": "Microscopic spread of areolar tissue showing criss-crossing pink collagen bundles, thin dark elastin fibres, fibroblasts, and mast cells. scientific educational diagram with clear labels",
+          "video_search_query": "Areolar Connective Tissue Spread educational demonstration video"
         },
         {
           "concept_title": "Adipose Tissue Insulation: Subcutaneous fat globules that cushion visceral organs and prevent bodily heat dissipation.",
           "diagram_title": "Adipose Tissue Fat Cells Under Microscope",
-          "diagram_type": "image",
-          "image_query": "Adipose tissue white fat cells microscope",
-          "video_query": "adipose tissue histology fat storage",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Adipose_tissue.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Histological slide of white adipose tissue showing signet-ring shaped adipocytes with huge lipid droplets pushing nuclei to the periphery. scientific educational diagram with clear labels",
+          "video_query": "Adipose Tissue Fat Cells Under Microscope educational demonstration video",
           "what_to_make": "Histological slide of white adipose tissue showing signet-ring shaped adipocytes with huge lipid droplets pushing nuclei to the periphery.",
-          "timing_and_cue": "Mount adipose tissue on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/b/b3/Adipose_tissue.jpg | Adipose Tissue Micrograph | Signet-ring fat cells functioning as metabolic reserve and thermal blanket\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Histological slide of white adipose tissue showing signet-ring shaped adipocytes with huge lipid droplets pushing nuclei to the periphery. scientific educational diagram with clear labels\", title=\"Adipose Tissue Fat Cells Under Microscope\") | Proactive video: search_and_show_video(query=\"Adipose Tissue Fat Cells Under Microscope educational demonstration video\", title=\"Adipose Tissue Fat Cells Under Microscope\")",
+          "image_search_query": "Histological slide of white adipose tissue showing signet-ring shaped adipocytes with huge lipid droplets pushing nuclei to the periphery. scientific educational diagram with clear labels",
+          "video_search_query": "Adipose Tissue Fat Cells Under Microscope educational demonstration video"
         }
       ]
     },
@@ -990,62 +1020,68 @@
         {
           "concept_title": "Muscle Contractility: Muscle cells contain specialized contractile proteins (actin and myosin) that shorten and relax to generate kinetic force.",
           "diagram_title": "Types of Muscle Fibres Master Plate",
-          "diagram_type": "image",
-          "image_query": "Types of muscle tissue skeletal smooth cardiac diagram",
-          "video_query": "muscle contraction actin myosin",
-          "image_url": "/extracted_diagrams/ch3/fig_3_19.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook panel illustrating striated cylindrical skeletal muscle, spindle-shaped smooth muscle, and branched cardiac muscle with intercalated discs. scientific educational diagram with clear labels",
+          "video_query": "Types of Muscle Fibres Master Plate educational demonstration video",
           "what_to_make": "Textbook panel illustrating striated cylindrical skeletal muscle, spindle-shaped smooth muscle, and branched cardiac muscle with intercalated discs.",
-          "timing_and_cue": "Mount muscle panel on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_19.webp | The Three Muscle Fibres | Skeletal (voluntary), Smooth (involuntary), and Cardiac (auto-rhythmic)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook panel illustrating striated cylindrical skeletal muscle, spindle-shaped smooth muscle, and branched cardiac muscle with intercalated discs. scientific educational diagram with clear labels\", title=\"Types of Muscle Fibres Master Plate\") | Proactive video: search_and_show_video(query=\"Types of Muscle Fibres Master Plate educational demonstration video\", title=\"Types of Muscle Fibres Master Plate\")",
+          "image_search_query": "Textbook panel illustrating striated cylindrical skeletal muscle, spindle-shaped smooth muscle, and branched cardiac muscle with intercalated discs. scientific educational diagram with clear labels",
+          "video_search_query": "Types of Muscle Fibres Master Plate educational demonstration video"
         },
         {
           "concept_title": "Skeletal Muscle Architecture: Voluntary, long cylindrical fibres with multiple peripheral nuclei and prominent transverse striations anchored to skeleton.",
           "diagram_title": "Striated Skeletal Muscle Under Light Microscope",
-          "diagram_type": "image",
-          "image_query": "Skeletal muscle striated light microscope peripheral nuclei",
-          "video_query": "skeletal muscle histology striations",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Skeletal_muscle_-_cross_section%2C_nerve_bundle.jpg",
+          "diagram_type": "image_search",
+          "image_query": "High-magnification micrograph of skeletal muscle showing regular transverse striations and peripheral multinucleated nuclei. scientific educational diagram with clear labels",
+          "video_query": "Striated Skeletal Muscle Under Light Microscope educational demonstration video",
           "what_to_make": "High-magnification micrograph of skeletal muscle showing regular transverse striations and peripheral multinucleated nuclei.",
-          "timing_and_cue": "Mount skeletal muscle on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/e/e2/Skeletal_muscle_-_cross_section%2C_nerve_bundle.jpg | Striated Skeletal Muscle | Multinucleated cylindrical fibres displaying crisp transverse sarcomere banding\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"High-magnification micrograph of skeletal muscle showing regular transverse striations and peripheral multinucleated nuclei. scientific educational diagram with clear labels\", title=\"Striated Skeletal Muscle Under Light Microscope\") | Proactive video: search_and_show_video(query=\"Striated Skeletal Muscle Under Light Microscope educational demonstration video\", title=\"Striated Skeletal Muscle Under Light Microscope\")",
+          "image_search_query": "High-magnification micrograph of skeletal muscle showing regular transverse striations and peripheral multinucleated nuclei. scientific educational diagram with clear labels",
+          "video_search_query": "Striated Skeletal Muscle Under Light Microscope educational demonstration video"
         },
         {
           "concept_title": "Smooth Muscle Architecture: Involuntary, spindle-shaped tapering cells with a single central nucleus and no striations lining hollow internal viscera.",
           "diagram_title": "Smooth Muscle Tissue Histology",
-          "diagram_type": "image",
-          "image_query": "Smooth muscle tissue spindle shaped cells microscope",
-          "video_query": "smooth muscle histology peristalsis",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Smooth_muscle_tissue.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Micrograph of visceral smooth muscle showing fusiform spindle-shaped cells with central oval nuclei and absence of striations. scientific educational diagram with clear labels",
+          "video_query": "Smooth Muscle Tissue Histology educational demonstration video",
           "what_to_make": "Micrograph of visceral smooth muscle showing fusiform spindle-shaped cells with central oval nuclei and absence of striations.",
-          "timing_and_cue": "Mount smooth muscle on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/9/91/Smooth_muscle_tissue.jpg | Smooth Visceral Muscle | Involuntary spindle cells driving peristalsis and vascular constriction\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Micrograph of visceral smooth muscle showing fusiform spindle-shaped cells with central oval nuclei and absence of striations. scientific educational diagram with clear labels\", title=\"Smooth Muscle Tissue Histology\") | Proactive video: search_and_show_video(query=\"Smooth Muscle Tissue Histology educational demonstration video\", title=\"Smooth Muscle Tissue Histology\")",
+          "image_search_query": "Micrograph of visceral smooth muscle showing fusiform spindle-shaped cells with central oval nuclei and absence of striations. scientific educational diagram with clear labels",
+          "video_search_query": "Smooth Muscle Tissue Histology educational demonstration video"
         },
         {
           "concept_title": "Cardiac Muscle Architecture: Involuntary, branched rhythmic fibres with single central nuclei and dark intercalated discs that pump blood tirelessly.",
           "diagram_title": "Cardiac Muscle Histology & Intercalated Discs",
-          "diagram_type": "image",
-          "image_query": "Cardiac muscle intercalated discs light microscope",
-          "video_query": "cardiac muscle histology heart contraction",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Cardiac_muscle.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Microscopic slide of cardiac muscle showing branched cylindrical fibres, central nuclei, and transverse dark intercalated discs. scientific educational diagram with clear labels",
+          "video_query": "Cardiac Muscle Histology & Intercalated Discs educational demonstration video",
           "what_to_make": "Microscopic slide of cardiac muscle showing branched cylindrical fibres, central nuclei, and transverse dark intercalated discs.",
-          "timing_and_cue": "Mount cardiac muscle on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/2/23/Cardiac_muscle.jpg | Cardiac Muscle Micrograph | Branched fibres joined by intercalated discs for synchronized lifelong pumping\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Microscopic slide of cardiac muscle showing branched cylindrical fibres, central nuclei, and transverse dark intercalated discs. scientific educational diagram with clear labels\", title=\"Cardiac Muscle Histology & Intercalated Discs\") | Proactive video: search_and_show_video(query=\"Cardiac Muscle Histology & Intercalated Discs educational demonstration video\", title=\"Cardiac Muscle Histology & Intercalated Discs\")",
+          "image_search_query": "Microscopic slide of cardiac muscle showing branched cylindrical fibres, central nuclei, and transverse dark intercalated discs. scientific educational diagram with clear labels",
+          "video_search_query": "Cardiac Muscle Histology & Intercalated Discs educational demonstration video"
         },
         {
           "concept_title": "Neuron Structural Anatomy: Cell body (soma) containing nucleus and Nissl granules, branching receptive dendrites, and an elongated conducting axon.",
           "diagram_title": "Anatomy of a Multipolar Neuron",
-          "diagram_type": "image",
-          "image_query": "Neuron anatomy diagram cyton axon dendrites",
-          "video_query": "neuron anatomy and action potential",
-          "image_url": "/extracted_diagrams/ch3/fig_3_20.webp",
+          "diagram_type": "image_search",
+          "image_query": "Detailed diagram of multipolar motor neuron showing cell body with nucleus, branching dendrites, myelinated axon with Schwann cells, and terminal synaptic bulbs. scientific educational diagram with clear labels",
+          "video_query": "Anatomy of a Multipolar Neuron educational demonstration video",
           "what_to_make": "Detailed diagram of multipolar motor neuron showing cell body with nucleus, branching dendrites, myelinated axon with Schwann cells, and terminal synaptic bulbs.",
-          "timing_and_cue": "Mount neuron anatomy on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_20.webp | Motor Neuron Structure | Receptive dendrites, central soma, and myelinated axonal transmission cable\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Detailed diagram of multipolar motor neuron showing cell body with nucleus, branching dendrites, myelinated axon with Schwann cells, and terminal synaptic bulbs. scientific educational diagram with clear labels\", title=\"Anatomy of a Multipolar Neuron\") | Proactive video: search_and_show_video(query=\"Anatomy of a Multipolar Neuron educational demonstration video\", title=\"Anatomy of a Multipolar Neuron\")",
+          "image_search_query": "Detailed diagram of multipolar motor neuron showing cell body with nucleus, branching dendrites, myelinated axon with Schwann cells, and terminal synaptic bulbs. scientific educational diagram with clear labels",
+          "video_search_query": "Anatomy of a Multipolar Neuron educational demonstration video"
         },
         {
           "concept_title": "Electrochemical Nerve Impulse: Rapid transmission of electric action potentials along the axon to axon terminals for synaptic communication.",
           "diagram_title": "Synaptic Transmission & Action Potential",
-          "diagram_type": "image",
-          "image_query": "Synapse neurotransmitter vesicle action potential diagram",
-          "video_query": "synapse chemical transmission neurotransmitter",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Chemical_synapse_schema_cropped.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Synaptic cleft diagram showing influx of action potential, fusion of neurotransmitter vesicles with presynaptic membrane, and receptor binding on postsynaptic dendrite. scientific educational diagram with clear labels",
+          "video_query": "Synaptic Transmission & Action Potential educational demonstration video",
           "what_to_make": "Synaptic cleft diagram showing influx of action potential, fusion of neurotransmitter vesicles with presynaptic membrane, and receptor binding on postsynaptic dendrite.",
-          "timing_and_cue": "Mount synapse on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/3/30/Chemical_synapse_schema_cropped.jpg | Synaptic Transmission | Chemical neurotransmitter relay bridging the microscopic gap between neurons\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Synaptic cleft diagram showing influx of action potential, fusion of neurotransmitter vesicles with presynaptic membrane, and receptor binding on postsynaptic dendrite. scientific educational diagram with clear labels\", title=\"Synaptic Transmission & Action Potential\") | Proactive video: search_and_show_video(query=\"Synaptic Transmission & Action Potential educational demonstration video\", title=\"Synaptic Transmission & Action Potential\")",
+          "image_search_query": "Synaptic cleft diagram showing influx of action potential, fusion of neurotransmitter vesicles with presynaptic membrane, and receptor binding on postsynaptic dendrite. scientific educational diagram with clear labels",
+          "video_search_query": "Synaptic Transmission & Action Potential educational demonstration video"
         }
       ]
     },
@@ -1150,52 +1186,57 @@
         {
           "concept_title": "Tissue Definition & Division of Labour: A group of structurally similar cells working together to perform a specific physiological task with higher systemic efficiency.",
           "diagram_title": "Tissue Hierarchy in Living Systems",
-          "diagram_type": "image",
-          "image_query": "Biological hierarchy cell tissue organ system diagram",
-          "video_query": "division of labour multicellular organisms tissues",
-          "image_url": "/extracted_diagrams/ch3/fig_3_22.webp",
+          "diagram_type": "image_search",
+          "image_query": "Schematic demonstrating cellular specialization and division of labour from isolated cell to organized functional tissues. scientific educational diagram with clear labels",
+          "video_query": "Tissue Hierarchy in Living Systems educational demonstration video",
           "what_to_make": "Schematic demonstrating cellular specialization and division of labour from isolated cell to organized functional tissues.",
-          "timing_and_cue": "Mount tissue hierarchy on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_22.webp | Tissue Hierarchy | Division of labour maximizing metabolic efficiency in multicellular organisms\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Schematic demonstrating cellular specialization and division of labour from isolated cell to organized functional tissues. scientific educational diagram with clear labels\", title=\"Tissue Hierarchy in Living Systems\") | Proactive video: search_and_show_video(query=\"Tissue Hierarchy in Living Systems educational demonstration video\", title=\"Tissue Hierarchy in Living Systems\")",
+          "image_search_query": "Schematic demonstrating cellular specialization and division of labour from isolated cell to organized functional tissues. scientific educational diagram with clear labels",
+          "video_search_query": "Tissue Hierarchy in Living Systems educational demonstration video"
         },
         {
           "concept_title": "Simple vs Complex Tissue Contrast: Simple tissues contain a single homogeneous cell morphology; complex tissues contain multiple cooperating cell types.",
           "diagram_title": "Simple vs Complex Plant Tissues Comparison",
-          "diagram_type": "image",
-          "image_query": "Simple vs complex plant tissues parenchyma xylem diagram",
-          "video_query": "simple vs complex tissues biology",
-          "image_url": "/extracted_diagrams/ch3/fig_3_10.webp",
+          "diagram_type": "image_search",
+          "image_query": "Comparative graphic contrasting homogeneous simple parenchyma/collenchyma against heterogeneous complex xylem/phloem bundles. scientific educational diagram with clear labels",
+          "video_query": "Simple vs Complex Plant Tissues Comparison educational demonstration video",
           "what_to_make": "Comparative graphic contrasting homogeneous simple parenchyma/collenchyma against heterogeneous complex xylem/phloem bundles.",
-          "timing_and_cue": "Mount simple vs complex on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_10.webp | Simple vs Complex Tissues | Single cell type morphology vs multi-cellular conducting units\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Comparative graphic contrasting homogeneous simple parenchyma/collenchyma against heterogeneous complex xylem/phloem bundles. scientific educational diagram with clear labels\", title=\"Simple vs Complex Plant Tissues Comparison\") | Proactive video: search_and_show_video(query=\"Simple vs Complex Plant Tissues Comparison educational demonstration video\", title=\"Simple vs Complex Plant Tissues Comparison\")",
+          "image_search_query": "Comparative graphic contrasting homogeneous simple parenchyma/collenchyma against heterogeneous complex xylem/phloem bundles. scientific educational diagram with clear labels",
+          "video_search_query": "Simple vs Complex Plant Tissues Comparison educational demonstration video"
         },
         {
           "concept_title": "Tissue Identification Matrix: Skin = Stratified Squamous; Bark = Cork; Kidney tubule = Cuboidal; Vascular bundle = Xylem & Phloem; Bone = Osseous tissue with calcium/phosphorus.",
           "diagram_title": "Master Anatomical Tissue Identification Chart",
-          "diagram_type": "image",
-          "image_query": "Animal and plant tissues identification chart biology",
-          "video_query": "identifying tissues under microscope biology",
-          "image_url": "/extracted_diagrams/ch3/fig_3_17.webp",
+          "diagram_type": "image_search",
+          "image_query": "Comprehensive reference card summarizing histological characteristics of skin, bark, kidney tubules, bone, and vascular pipelines. scientific educational diagram with clear labels",
+          "video_query": "Master Anatomical Tissue Identification Chart educational demonstration video",
           "what_to_make": "Comprehensive reference card summarizing histological characteristics of skin, bark, kidney tubules, bone, and vascular pipelines.",
-          "timing_and_cue": "Mount identification chart on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_17.webp | Master Tissue Identifier | Topper revision matrix for all 15 NCERT exercise questions\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Comprehensive reference card summarizing histological characteristics of skin, bark, kidney tubules, bone, and vascular pipelines. scientific educational diagram with clear labels\", title=\"Master Anatomical Tissue Identification Chart\") | Proactive video: search_and_show_video(query=\"Master Anatomical Tissue Identification Chart educational demonstration video\", title=\"Master Anatomical Tissue Identification Chart\")",
+          "image_search_query": "Comprehensive reference card summarizing histological characteristics of skin, bark, kidney tubules, bone, and vascular pipelines. scientific educational diagram with clear labels",
+          "video_search_query": "Master Anatomical Tissue Identification Chart educational demonstration video"
         },
         {
           "concept_title": "Stomatal Mechanics: Transpiration cooling, osmotic water regulation, and stomatal gas exchange for photosynthesis and respiration.",
           "diagram_title": "Stomatal Pore Regulation Mechanism",
-          "diagram_type": "image",
-          "image_query": "Stoma open closed turgor pressure diagram",
-          "video_query": "stomata opening closing mechanism biology",
-          "image_url": "/extracted_diagrams/ch3/fig_3_11.webp",
+          "diagram_type": "image_search",
+          "image_query": "Dual-panel diagram showing guard cell swelling upon water influx to open pore and shrinking upon water loss to seal stoma. scientific educational diagram with clear labels",
+          "video_query": "Stomatal Pore Regulation Mechanism educational demonstration video",
           "what_to_make": "Dual-panel diagram showing guard cell swelling upon water influx to open pore and shrinking upon water loss to seal stoma.",
-          "timing_and_cue": "Mount stomatal pore on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_11.webp | Stomatal Action | Turgor-driven osmotic regulation of gas exchange and transpiration\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Dual-panel diagram showing guard cell swelling upon water influx to open pore and shrinking upon water loss to seal stoma. scientific educational diagram with clear labels\", title=\"Stomatal Pore Regulation Mechanism\") | Proactive video: search_and_show_video(query=\"Stomatal Pore Regulation Mechanism educational demonstration video\", title=\"Stomatal Pore Regulation Mechanism\")",
+          "image_search_query": "Dual-panel diagram showing guard cell swelling upon water influx to open pore and shrinking upon water loss to seal stoma. scientific educational diagram with clear labels",
+          "video_search_query": "Stomatal Pore Regulation Mechanism educational demonstration video"
         },
         {
           "concept_title": "Cardiac Muscle Uniqueness: Auto-rhythmic, involuntary, non-fatiguing branched muscle joined by intercalated discs to maintain lifelong cardiovascular circulation.",
           "diagram_title": "Cardiac Muscle Action & Non-Fatiguing Architecture",
-          "diagram_type": "image",
-          "image_query": "Cardiac muscle tissue histology heart contraction diagram",
-          "video_query": "cardiac muscle contraction heart",
-          "image_url": "/extracted_diagrams/ch3/fig_3_19.webp",
+          "diagram_type": "image_search",
+          "image_query": "Cardiovascular histological plate showing branched cardiac syncytium with intercalated discs ensuring non-fatiguing rhythmic contraction. scientific educational diagram with clear labels",
+          "video_query": "Cardiac Muscle Action & Non-Fatiguing Architecture educational demonstration video",
           "what_to_make": "Cardiovascular histological plate showing branched cardiac syncytium with intercalated discs ensuring non-fatiguing rhythmic contraction.",
-          "timing_and_cue": "Mount cardiac uniqueness on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch3/fig_3_19.webp | Cardiac Muscle Uniqueness | The tireless branched engine powering lifelong systemic circulation\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Cardiovascular histological plate showing branched cardiac syncytium with intercalated discs ensuring non-fatiguing rhythmic contraction. scientific educational diagram with clear labels\", title=\"Cardiac Muscle Action & Non-Fatiguing Architecture\") | Proactive video: search_and_show_video(query=\"Cardiac Muscle Action & Non-Fatiguing Architecture educational demonstration video\", title=\"Cardiac Muscle Action & Non-Fatiguing Architecture\")",
+          "image_search_query": "Cardiovascular histological plate showing branched cardiac syncytium with intercalated discs ensuring non-fatiguing rhythmic contraction. scientific educational diagram with clear labels",
+          "video_search_query": "Cardiac Muscle Action & Non-Fatiguing Architecture educational demonstration video"
         }
       ]
     },

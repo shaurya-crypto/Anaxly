@@ -109,62 +109,68 @@
         {
           "concept_title": "Biological Continuity of Species: Reproduction is the biological process by which existing organisms produce new individuals of their own kind, ensuring the continuation of life and preventing species extinction across generations.",
           "diagram_title": "Generational Succession in Living Systems",
-          "diagram_type": "image",
-          "image_query": "biological reproduction continuity of life species diagram",
-          "video_query": "why reproduction is essential for life continuity",
-          "image_url": "/extracted_diagrams/ch11/fig_11_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "biological inheritance and cellular continuity. scientific educational diagram with clear labels",
+          "video_query": "Generational Succession in Living Systems educational demonstration video",
           "what_to_make": "Textbook diagram illustrating biological inheritance and cellular continuity.",
-          "timing_and_cue": "Mount biological continuity on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_16.webp | Biological Continuity | Generational inheritance safeguarding species from extinction\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"biological inheritance and cellular continuity. scientific educational diagram with clear labels\", title=\"Generational Succession in Living Systems\") | Proactive video: search_and_show_video(query=\"Generational Succession in Living Systems educational demonstration video\", title=\"Generational Succession in Living Systems\")",
+          "image_search_query": "biological inheritance and cellular continuity. scientific educational diagram with clear labels",
+          "video_search_query": "Generational Succession in Living Systems educational demonstration video"
         },
         {
           "concept_title": "Chromosomes & DNA Blueprint: The cell nucleus contains chromosomes which carry information for the inheritance of features from parents to offspring in the form of DNA (Deoxyribonucleic Acid) molecules; DNA is the master blueprint for protein synthesis.",
           "diagram_title": "DNA Replication & Chromosome Duplication",
-          "diagram_type": "image",
-          "image_query": "DNA replication chromosomes nucleus cell division diagram",
-          "video_query": "DNA copying during cell division class 10 9",
-          "image_url": "/extracted_diagrams/ch11/fig_11_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "DNA duplication and chromosome allocation to daughter cells. scientific educational diagram with clear labels",
+          "video_query": "DNA Replication & Chromosome Duplication educational demonstration video",
           "what_to_make": "Textbook diagram showing DNA duplication and chromosome allocation to daughter cells.",
-          "timing_and_cue": "Mount DNA blueprint on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_16.webp | DNA Replication Blueprint | Nucleotide copying synthesizing protein blueprints for daughter cells\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"DNA duplication and chromosome allocation to daughter cells. scientific educational diagram with clear labels\", title=\"DNA Replication & Chromosome Duplication\") | Proactive video: search_and_show_video(query=\"DNA Replication & Chromosome Duplication educational demonstration video\", title=\"DNA Replication & Chromosome Duplication\")",
+          "image_search_query": "DNA duplication and chromosome allocation to daughter cells. scientific educational diagram with clear labels",
+          "video_search_query": "DNA Replication & Chromosome Duplication educational demonstration video"
         },
         {
           "concept_title": "DNA Replication Invariant: A dividing cell must replicate its DNA so each daughter cell receives an identical copy of the genetic blueprint; replication is accompanied by the creation of an additional cellular apparatus so each daughter cell is viable.",
           "diagram_title": "Cellular Apparatus Synthesis During Division",
-          "diagram_type": "image",
-          "image_query": "cellular division organelle replication cytokinesis diagram",
-          "video_query": "cell division DNA and cellular apparatus duplication",
-          "image_url": "/extracted_diagrams/ch11/fig_11_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "cytoplasmic apparatus generation alongside genome copying. scientific educational diagram with clear labels",
+          "video_query": "Cellular Apparatus Synthesis During Division educational demonstration video",
           "what_to_make": "Textbook diagram illustrating cytoplasmic apparatus generation alongside genome copying.",
-          "timing_and_cue": "Mount cellular apparatus on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_16.webp | Complete Cell Duplication | Creating cellular organelles and membranes to support replicated DNA\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"cytoplasmic apparatus generation alongside genome copying. scientific educational diagram with clear labels\", title=\"Cellular Apparatus Synthesis During Division\") | Proactive video: search_and_show_video(query=\"Cellular Apparatus Synthesis During Division educational demonstration video\", title=\"Cellular Apparatus Synthesis During Division\")",
+          "image_search_query": "cytoplasmic apparatus generation alongside genome copying. scientific educational diagram with clear labels",
+          "video_search_query": "Cellular Apparatus Synthesis During Division educational demonstration video"
         },
         {
           "concept_title": "Biochemical Error & Variation: No biochemical copying mechanism is 100% reliable; subtle copying errors during DNA replication introduce genetic variations, making offspring subtly distinct from parents.",
           "diagram_title": "Genetic Variation & Morphological Diversity",
-          "diagram_type": "image",
-          "image_query": "genetic variation DNA copying errors diversity diagram",
-          "video_query": "how DNA copying leads to variation",
-          "image_url": "/extracted_diagrams/ch11/fig_11_17.webp",
+          "diagram_type": "image_search",
+          "image_query": "distinct developmental phenotypes across insect life stages. scientific educational diagram with clear labels",
+          "video_query": "Genetic Variation & Morphological Diversity educational demonstration video",
           "what_to_make": "Textbook diagram showing distinct developmental phenotypes across insect life stages.",
-          "timing_and_cue": "Mount replication variation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_17.webp | Replication Inaccuracies | Inherent biochemical variations producing phenotypic diversity\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"distinct developmental phenotypes across insect life stages. scientific educational diagram with clear labels\", title=\"Genetic Variation & Morphological Diversity\") | Proactive video: search_and_show_video(query=\"Genetic Variation & Morphological Diversity educational demonstration video\", title=\"Genetic Variation & Morphological Diversity\")",
+          "image_search_query": "distinct developmental phenotypes across insect life stages. scientific educational diagram with clear labels",
+          "video_search_query": "Genetic Variation & Morphological Diversity educational demonstration video"
         },
         {
           "concept_title": "Survival Value of Variations: Variations are not necessarily beneficial to an individual, but they are vital for the survival of the species over time under severe environmental changes (e.g., global warming, drought, epidemics).",
           "diagram_title": "Ecological Adaptation & Natural Selection",
-          "diagram_type": "image",
-          "image_query": "importance of variation natural selection species survival diagram",
-          "video_query": "importance of variation in organisms class 10",
-          "image_url": "/extracted_diagrams/ch11/fig_11_17.webp",
+          "diagram_type": "image_search",
+          "image_query": "adaptive survival across environmental transformations. scientific educational diagram with clear labels",
+          "video_query": "Ecological Adaptation & Natural Selection educational demonstration video",
           "what_to_make": "Textbook diagram illustrating adaptive survival across environmental transformations.",
-          "timing_and_cue": "Mount survival variation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_17.webp | Survival Value of Variation | Genetic plasticity protecting populations during climatic catastrophes\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"adaptive survival across environmental transformations. scientific educational diagram with clear labels\", title=\"Ecological Adaptation & Natural Selection\") | Proactive video: search_and_show_video(query=\"Ecological Adaptation & Natural Selection educational demonstration video\", title=\"Ecological Adaptation & Natural Selection\")",
+          "image_search_query": "adaptive survival across environmental transformations. scientific educational diagram with clear labels",
+          "video_search_query": "Ecological Adaptation & Natural Selection educational demonstration video"
         },
         {
           "concept_title": "Metamorphosis & Developmental Plasticity: In holometabolous insects like butterflies, reproduction initiates an embryonic and larval life cycle (egg -> larva/caterpillar -> pupa/chrysalis -> adult butterfly) where distinct body plans adapt to different ecological niches.",
           "diagram_title": "Complete Metamorphosis of Butterfly",
-          "diagram_type": "image",
-          "image_query": "life cycle of butterfly egg larva caterpillar pupa chrysalis adult diagram",
-          "video_query": "butterfly metamorphosis life cycle animation",
-          "image_url": "/extracted_diagrams/ch11/fig_11_17.webp",
+          "diagram_type": "image_search",
+          "image_query": "the four developmental stages of the butterfly life cycle. scientific educational diagram with clear labels",
+          "video_query": "Complete Metamorphosis of Butterfly educational demonstration video",
           "what_to_make": "Textbook diagram of the four developmental stages of the butterfly life cycle.",
-          "timing_and_cue": "Mount butterfly metamorphosis on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_17.webp | Butterfly Metamorphosis | Four-stage holometabolous development: Egg, Larva, Pupa, Adult\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"the four developmental stages of the butterfly life cycle. scientific educational diagram with clear labels\", title=\"Complete Metamorphosis of Butterfly\") | Proactive video: search_and_show_video(query=\"Complete Metamorphosis of Butterfly educational demonstration video\", title=\"Complete Metamorphosis of Butterfly\")",
+          "image_search_query": "the four developmental stages of the butterfly life cycle. scientific educational diagram with clear labels",
+          "video_search_query": "Complete Metamorphosis of Butterfly educational demonstration video"
         }
       ]
     },
@@ -280,62 +286,68 @@
         {
           "concept_title": "Asexual Reproduction Definition: A mode of reproduction involving a single parent without the production or fusion of gametes, producing genetically identical clones of the parent organism.",
           "diagram_title": "Asexual Mitotic Cloning Framework",
-          "diagram_type": "image",
-          "image_query": "asexual reproduction single parent cloning diagram",
-          "video_query": "asexual reproduction methods overview",
-          "image_url": "/extracted_diagrams/ch11/fig_11_1.webp",
+          "diagram_type": "image_search",
+          "image_query": "vegetative asexual propagation generating identical clonal plantlets. scientific educational diagram with clear labels",
+          "video_query": "Asexual Mitotic Cloning Framework educational demonstration video",
           "what_to_make": "Textbook diagram showing vegetative asexual propagation generating identical clonal plantlets.",
-          "timing_and_cue": "Mount asexual framework on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_1.webp | Asexual Reproduction Overview | Single-parent mitotic proliferation producing identical genetic clones\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"vegetative asexual propagation generating identical clonal plantlets. scientific educational diagram with clear labels\", title=\"Asexual Mitotic Cloning Framework\") | Proactive video: search_and_show_video(query=\"Asexual Mitotic Cloning Framework educational demonstration video\", title=\"Asexual Mitotic Cloning Framework\")",
+          "image_search_query": "vegetative asexual propagation generating identical clonal plantlets. scientific educational diagram with clear labels",
+          "video_search_query": "Asexual Mitotic Cloning Framework educational demonstration video"
         },
         {
           "concept_title": "Binary Fission (Amoeba & Leishmania): In Amoeba, cell division occurs across any plane; in Leishmania (the pathogen causing Kala-azar / visceral leishmaniasis), binary fission occurs in a definite longitudinal orientation relative to the whip-like flagellum at one end.",
           "diagram_title": "Binary Fission in Amoeba & Leishmania",
-          "diagram_type": "image",
-          "image_query": "binary fission amoeba leishmania longitudinal division diagram",
-          "video_query": "binary fission in amoeba and leishmania",
-          "image_url": "/extracted_diagrams/ch11/fig_11_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "nuclear elongation, division plane, and cytokinesis. scientific educational diagram with clear labels",
+          "video_query": "Binary Fission in Amoeba & Leishmania educational demonstration video",
           "what_to_make": "Textbook diagram showing nuclear elongation, division plane, and cytokinesis.",
-          "timing_and_cue": "Mount binary fission on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_16.webp | Binary Fission Planes | Any plane in Amoeba versus longitudinal plane in flagellated Leishmania\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"nuclear elongation, division plane, and cytokinesis. scientific educational diagram with clear labels\", title=\"Binary Fission in Amoeba & Leishmania\") | Proactive video: search_and_show_video(query=\"Binary Fission in Amoeba & Leishmania educational demonstration video\", title=\"Binary Fission in Amoeba & Leishmania\")",
+          "image_search_query": "nuclear elongation, division plane, and cytokinesis. scientific educational diagram with clear labels",
+          "video_search_query": "Binary Fission in Amoeba & Leishmania educational demonstration video"
         },
         {
           "concept_title": "Multiple Fission (Plasmodium): Under adverse conditions, the malarial parasite Plasmodium forms a protective cyst around itself; the nucleus divides repeatedly by mitosis into numerous nuclei, which synchronously hatch into hundreds of daughter cells upon cyst rupture.",
           "diagram_title": "Multiple Fission in Encysted Plasmodium",
-          "diagram_type": "image",
-          "image_query": "multiple fission plasmodium cyst daughter cells diagram",
-          "video_query": "multiple fission in plasmodium animation",
-          "image_url": "/extracted_diagrams/ch11/fig_11_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "encysted cell with repeated nuclear division bursting into daughter cells. scientific educational diagram with clear labels",
+          "video_query": "Multiple Fission in Encysted Plasmodium educational demonstration video",
           "what_to_make": "Textbook diagram showing encysted cell with repeated nuclear division bursting into daughter cells.",
-          "timing_and_cue": "Mount multiple fission on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_16.webp | Multiple Fission | Synchronous release of hundreds of daughter cells upon cyst rupture\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"encysted cell with repeated nuclear division bursting into daughter cells. scientific educational diagram with clear labels\", title=\"Multiple Fission in Encysted Plasmodium\") | Proactive video: search_and_show_video(query=\"Multiple Fission in Encysted Plasmodium educational demonstration video\", title=\"Multiple Fission in Encysted Plasmodium\")",
+          "image_search_query": "encysted cell with repeated nuclear division bursting into daughter cells. scientific educational diagram with clear labels",
+          "video_search_query": "Multiple Fission in Encysted Plasmodium educational demonstration video"
         },
         {
           "concept_title": "Budding Mechanics (Hydra & Yeast): A small regenerative outgrowth or 'bud' forms on the parent body through repeated localized mitotic cell divisions; the bud grows, develops mouth and tentacles (in Hydra), and detaches to live independently.",
           "diagram_title": "Budding in Hydra & Miniature Detachment",
-          "diagram_type": "image",
-          "image_query": "budding in hydra tentacles yeast bud diagram",
-          "video_query": "budding in hydra under microscope",
-          "image_url": "/extracted_diagrams/ch11/fig_11_1.webp",
+          "diagram_type": "image_search",
+          "image_query": "localized cellular proliferation forming miniature independent offspring. scientific educational diagram with clear labels",
+          "video_query": "Budding in Hydra & Miniature Detachment educational demonstration video",
           "what_to_make": "Textbook diagram illustrating localized cellular proliferation forming miniature independent offspring.",
-          "timing_and_cue": "Mount budding on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_1.webp | Budding in Hydra | Localized mitotic outgrowth developing tentacles and detaching\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"localized cellular proliferation forming miniature independent offspring. scientific educational diagram with clear labels\", title=\"Budding in Hydra & Miniature Detachment\") | Proactive video: search_and_show_video(query=\"Budding in Hydra & Miniature Detachment educational demonstration video\", title=\"Budding in Hydra & Miniature Detachment\")",
+          "image_search_query": "localized cellular proliferation forming miniature independent offspring. scientific educational diagram with clear labels",
+          "video_search_query": "Budding in Hydra & Miniature Detachment educational demonstration video"
         },
         {
           "concept_title": "Spore Formation (Rhizopus): In bread mould (Rhizopus), thread-like non-reproductive hyphae give rise to erect bloblike structures called sporangia; sporangia contain hundreds of spores protected by thick walls that resist harsh heat and drought until landing on moist food.",
           "diagram_title": "Spore Formation in Bread Mould Rhizopus",
-          "diagram_type": "image",
-          "image_query": "spore formation rhizopus bread mould sporangium hyphae diagram",
-          "video_query": "spore formation in rhizopus bread mould",
-          "image_url": "/extracted_diagrams/ch11/fig_11_1.webp",
+          "diagram_type": "image_search",
+          "image_query": "Rhizopus showing hyphae, erect sporangiophores, and sporangia releasing spores. scientific educational diagram with clear labels",
+          "video_query": "Spore Formation in Bread Mould Rhizopus educational demonstration video",
           "what_to_make": "Textbook diagram of Rhizopus showing hyphae, erect sporangiophores, and sporangia releasing spores.",
-          "timing_and_cue": "Mount spore formation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_1.webp | Spore Formation in Rhizopus | Thick-walled protective spores released from aerial sporangia\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Rhizopus showing hyphae, erect sporangiophores, and sporangia releasing spores. scientific educational diagram with clear labels\", title=\"Spore Formation in Bread Mould Rhizopus\") | Proactive video: search_and_show_video(query=\"Spore Formation in Bread Mould Rhizopus educational demonstration video\", title=\"Spore Formation in Bread Mould Rhizopus\")",
+          "image_search_query": "Rhizopus showing hyphae, erect sporangiophores, and sporangia releasing spores. scientific educational diagram with clear labels",
+          "video_search_query": "Spore Formation in Bread Mould Rhizopus educational demonstration video"
         },
         {
           "concept_title": "Fragmentation vs Regeneration: Fragmentation is a natural reproductive method in simple multicellular organisms like Spirogyra, which simply break into smaller fragments upon maturity; Regeneration (in Planaria and Hydra) is the specialized ability of damaged organisms to regrow lost body parts, which is not purely a reproductive strategy.",
           "diagram_title": "Spirogyra Fragmentation vs Planaria Regeneration",
-          "diagram_type": "image",
-          "image_query": "fragmentation spirogyra regeneration planaria diagram",
-          "video_query": "fragmentation in spirogyra vs regeneration in planaria",
-          "image_url": "/extracted_diagrams/ch11/fig_11_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram comparing simple filament fragmentation with complex stem-cell regeneration. scientific educational diagram with clear labels",
+          "video_query": "Spirogyra Fragmentation vs Planaria Regeneration educational demonstration video",
           "what_to_make": "Textbook diagram comparing simple filament fragmentation with complex stem-cell regeneration.",
-          "timing_and_cue": "Mount fragmentation vs regeneration on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_16.webp | Fragmentation vs Regeneration | Natural filament division in Spirogyra versus wound-healing regeneration in Planaria\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram comparing simple filament fragmentation with complex stem-cell regeneration. scientific educational diagram with clear labels\", title=\"Spirogyra Fragmentation vs Planaria Regeneration\") | Proactive video: search_and_show_video(query=\"Spirogyra Fragmentation vs Planaria Regeneration educational demonstration video\", title=\"Spirogyra Fragmentation vs Planaria Regeneration\")",
+          "image_search_query": "Textbook diagram comparing simple filament fragmentation with complex stem-cell regeneration. scientific educational diagram with clear labels",
+          "video_search_query": "Spirogyra Fragmentation vs Planaria Regeneration educational demonstration video"
         }
       ]
     },
@@ -451,62 +463,68 @@
         {
           "concept_title": "Vegetative Propagation Principle: A form of asexual reproduction in plants where new individuals develop from vegetative structures such as roots, stems, or leaves, without the production of seeds or spores.",
           "diagram_title": "Bryophyllum Leaf Notch Propagation",
-          "diagram_type": "image",
-          "image_query": "bryophyllum leaf vegetative propagation adventitious buds diagram",
-          "video_query": "bryophyllum leaf propagation under microscope",
-          "image_url": "/extracted_diagrams/ch11/fig_11_1.webp",
+          "diagram_type": "image_search",
+          "image_query": "Bryophyllum leaf showing adventitious buds sprouting roots and shoots in margin notches. scientific educational diagram with clear labels",
+          "video_query": "Bryophyllum Leaf Notch Propagation educational demonstration video",
           "what_to_make": "Textbook diagram of Bryophyllum leaf showing adventitious buds sprouting roots and shoots in margin notches.",
-          "timing_and_cue": "Mount Bryophyllum on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_1.webp | Bryophyllum Foliar Propagation | Adventitious buds sprouting roots and shoots in leaf margin notches\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Bryophyllum leaf showing adventitious buds sprouting roots and shoots in margin notches. scientific educational diagram with clear labels\", title=\"Bryophyllum Leaf Notch Propagation\") | Proactive video: search_and_show_video(query=\"Bryophyllum Leaf Notch Propagation educational demonstration video\", title=\"Bryophyllum Leaf Notch Propagation\")",
+          "image_search_query": "Bryophyllum leaf showing adventitious buds sprouting roots and shoots in margin notches. scientific educational diagram with clear labels",
+          "video_search_query": "Bryophyllum Leaf Notch Propagation educational demonstration video"
         },
         {
           "concept_title": "Leaf Propagation in Bryophyllum: The leaves of Bryophyllum produce adventitious buds in the notches along their margins; when mature leaves detach and fall on moist soil, each bud develops roots and shoots into a viable independent plant.",
           "diagram_title": "Stem Cutting Technique in Horticulture",
-          "diagram_type": "image",
-          "image_query": "stem cutting vegetative propagation rose sugarcane diagram",
-          "video_query": "how to propagate plants from stem cuttings",
-          "image_url": "/extracted_diagrams/ch11/fig_11_2.webp",
+          "diagram_type": "image_search",
+          "image_query": "severed stem cuttings planted in moist soil producing adventitious roots. scientific educational diagram with clear labels",
+          "video_query": "Stem Cutting Technique in Horticulture educational demonstration video",
           "what_to_make": "Textbook diagram showing severed stem cuttings planted in moist soil producing adventitious roots.",
-          "timing_and_cue": "Mount stem cutting on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_2.webp | Stem Cutting Technique | Inserting severed node in soil to induce adventitious root growth\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"severed stem cuttings planted in moist soil producing adventitious roots. scientific educational diagram with clear labels\", title=\"Stem Cutting Technique in Horticulture\") | Proactive video: search_and_show_video(query=\"Stem Cutting Technique in Horticulture educational demonstration video\", title=\"Stem Cutting Technique in Horticulture\")",
+          "image_search_query": "severed stem cuttings planted in moist soil producing adventitious roots. scientific educational diagram with clear labels",
+          "video_search_query": "Stem Cutting Technique in Horticulture educational demonstration video"
         },
         {
           "concept_title": "Stem Adaptations (Tubers & Rhizomes): Potato tubers possess modified vegetative buds called 'eyes' capable of sprouting; ginger and turmeric reproduce through underground creeping stems called rhizomes; onions reproduce via modified bulbs.",
           "diagram_title": "Underground Stem Morphologies",
-          "diagram_type": "image",
-          "image_query": "potato tuber eyes ginger rhizome onion bulb vegetative propagation diagram",
-          "video_query": "vegetative propagation from underground stems",
-          "image_url": "/extracted_diagrams/ch11/fig_11_1.webp",
+          "diagram_type": "image_search",
+          "image_query": "modified underground storage organs bearing active nodal buds. scientific educational diagram with clear labels",
+          "video_query": "Underground Stem Morphologies educational demonstration video",
           "what_to_make": "Textbook diagram of modified underground storage organs bearing active nodal buds.",
-          "timing_and_cue": "Mount underground stems on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_1.webp | Underground Stem Organs | Potato eyes, ginger rhizomes, and onion bulbs sprouting shoots\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"modified underground storage organs bearing active nodal buds. scientific educational diagram with clear labels\", title=\"Underground Stem Morphologies\") | Proactive video: search_and_show_video(query=\"Underground Stem Morphologies educational demonstration video\", title=\"Underground Stem Morphologies\")",
+          "image_search_query": "modified underground storage organs bearing active nodal buds. scientific educational diagram with clear labels",
+          "video_search_query": "Underground Stem Morphologies educational demonstration video"
         },
         {
           "concept_title": "Artificial Horticultural Techniques: Cutting (planting a severed stem with nodes in moist soil, e.g., rose), Layering (bending a lower branch into moist soil to develop adventitious roots before cutting from parent, e.g., jasmine), Grafting (joining the shoot scion of a high-yield plant onto the rooted stock of a hardy plant).",
           "diagram_title": "Layering Technique in Jasmine Plants",
-          "diagram_type": "image",
-          "image_query": "layering plant propagation jasmine branch bent soil roots diagram",
-          "video_query": "layering technique in plants animation",
-          "image_url": "/extracted_diagrams/ch11/fig_11_4.webp",
+          "diagram_type": "image_search",
+          "image_query": "a jasmine branch pegged beneath the soil to develop adventitious roots. scientific educational diagram with clear labels",
+          "video_query": "Layering Technique in Jasmine Plants educational demonstration video",
           "what_to_make": "Textbook diagram of a jasmine branch pegged beneath the soil to develop adventitious roots.",
-          "timing_and_cue": "Mount layering on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_4.webp | Plant Layering Method | Bending flexible low branch into soil to establish roots before detachment\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"a jasmine branch pegged beneath the soil to develop adventitious roots. scientific educational diagram with clear labels\", title=\"Layering Technique in Jasmine Plants\") | Proactive video: search_and_show_video(query=\"Layering Technique in Jasmine Plants educational demonstration video\", title=\"Layering Technique in Jasmine Plants\")",
+          "image_search_query": "a jasmine branch pegged beneath the soil to develop adventitious roots. scientific educational diagram with clear labels",
+          "video_search_query": "Layering Technique in Jasmine Plants educational demonstration video"
         },
         {
           "concept_title": "Tissue Culture (Micropropagation): Cells or small tissue explants from the growing shoot tip of a plant are placed on a sterile nutrient medium containing vitamins and hormones to form an undifferentiated cellular mass called a callus; hormones induce differentiation into plantlets, producing thousands of disease-free clones.",
           "diagram_title": "Plant Tissue Culture Callus Differentiation",
-          "diagram_type": "image",
-          "image_query": "plant tissue culture micropropagation callus test tube plantlets diagram",
-          "video_query": "plant tissue culture technique step by step",
-          "image_url": "/extracted_diagrams/ch11/fig_11_2.webp",
+          "diagram_type": "image_search",
+          "image_query": "explant culture on sterile nutrient agar developing into plantlets. scientific educational diagram with clear labels",
+          "video_query": "Plant Tissue Culture Callus Differentiation educational demonstration video",
           "what_to_make": "Textbook diagram illustrating explant culture on sterile nutrient agar developing into plantlets.",
-          "timing_and_cue": "Mount tissue culture on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_2.webp | Micropropagation Laboratory | Culturing meristematic explants on nutrient agar to produce disease-free clones\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"explant culture on sterile nutrient agar developing into plantlets. scientific educational diagram with clear labels\", title=\"Plant Tissue Culture Callus Differentiation\") | Proactive video: search_and_show_video(query=\"Plant Tissue Culture Callus Differentiation educational demonstration video\", title=\"Plant Tissue Culture Callus Differentiation\")",
+          "image_search_query": "explant culture on sterile nutrient agar developing into plantlets. scientific educational diagram with clear labels",
+          "video_search_query": "Plant Tissue Culture Callus Differentiation educational demonstration video"
         },
         {
           "concept_title": "Agronomic Advantages: Vegetative propagation enables propagation of seedless fruit varieties (banana, seedless grapes, oranges), yields earlier flowering and fruiting compared to seed-grown plants, and produces genetically identical crops with uniform yield and taste.",
           "diagram_title": "Commercial Clonal Orchard Architecture",
-          "diagram_type": "image",
-          "image_query": "seedless banana orange vegetative propagation advantages diagram",
-          "video_query": "advantages of vegetative propagation in agriculture",
-          "image_url": "/extracted_diagrams/ch11/fig_11_1.webp",
+          "diagram_type": "image_search",
+          "image_query": "clonal crop uniformity and earlier agricultural fruiting cycles. scientific educational diagram with clear labels",
+          "video_query": "Commercial Clonal Orchard Architecture educational demonstration video",
           "what_to_make": "Textbook diagram showing clonal crop uniformity and earlier agricultural fruiting cycles.",
-          "timing_and_cue": "Mount agronomic advantages on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_1.webp | Commercial Orchard Benefits | Propagating seedless bananas and oranges with uniform high-yield harvests\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"clonal crop uniformity and earlier agricultural fruiting cycles. scientific educational diagram with clear labels\", title=\"Commercial Clonal Orchard Architecture\") | Proactive video: search_and_show_video(query=\"Commercial Clonal Orchard Architecture educational demonstration video\", title=\"Commercial Clonal Orchard Architecture\")",
+          "image_search_query": "clonal crop uniformity and earlier agricultural fruiting cycles. scientific educational diagram with clear labels",
+          "video_search_query": "Commercial Clonal Orchard Architecture educational demonstration video"
         }
       ]
     },
@@ -622,62 +640,68 @@
         {
           "concept_title": "Angiosperm Flower Structure: The flower is the specialized reproductive organ of angiosperms consisting of four concentric whorls: calyx (protective green sepals), corolla (attractive petals), androecium (male stamens), and gynoecium (female carpel/pistil).",
           "diagram_title": "Complete Flower Longitudinal Anatomy",
-          "diagram_type": "image",
-          "image_query": "flower anatomy longitudinal section sepals petals stamen carpel diagram",
-          "video_query": "flower anatomy and reproductive parts 3d animation",
-          "image_url": "/extracted_diagrams/ch11/fig_11_11.webp",
+          "diagram_type": "image_search",
+          "image_query": "longitudinal section of flower displaying all four whorls. scientific educational diagram with clear labels",
+          "video_query": "Complete Flower Longitudinal Anatomy educational demonstration video",
           "what_to_make": "Textbook diagram showing longitudinal section of flower displaying all four whorls.",
-          "timing_and_cue": "Mount floral anatomy on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_11.webp | Anatomy of Angiosperm Flower | Calyx, corolla, male stamens, and female pistil whorls\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"longitudinal section of flower displaying all four whorls. scientific educational diagram with clear labels\", title=\"Complete Flower Longitudinal Anatomy\") | Proactive video: search_and_show_video(query=\"Complete Flower Longitudinal Anatomy educational demonstration video\", title=\"Complete Flower Longitudinal Anatomy\")",
+          "image_search_query": "longitudinal section of flower displaying all four whorls. scientific educational diagram with clear labels",
+          "video_search_query": "Complete Flower Longitudinal Anatomy educational demonstration video"
         },
         {
           "concept_title": "Unisexual vs Bisexual Flowers: Unisexual flowers contain either stamens or carpels but not both (e.g., papaya, watermelon); bisexual flowers contain both stamens and carpels in the same flower (e.g., hibiscus, mustard).",
           "diagram_title": "Pistil Structure & Floral Sexuality",
-          "diagram_type": "image",
-          "image_query": "unisexual vs bisexual flower papaya hibiscus diagram",
-          "video_query": "unisexual and bisexual flowers explained",
-          "image_url": "/extracted_diagrams/ch11/fig_11_11.webp",
+          "diagram_type": "image_search",
+          "image_query": "pistil showing structural components in bisexual flower. scientific educational diagram with clear labels",
+          "video_query": "Pistil Structure & Floral Sexuality educational demonstration video",
           "what_to_make": "Textbook diagram of pistil showing structural components in bisexual flower.",
-          "timing_and_cue": "Mount floral sexuality on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_11.webp | Floral Sexuality | Bisexual flower containing both stamen and pistil on single receptacle\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"pistil showing structural components in bisexual flower. scientific educational diagram with clear labels\", title=\"Pistil Structure & Floral Sexuality\") | Proactive video: search_and_show_video(query=\"Pistil Structure & Floral Sexuality educational demonstration video\", title=\"Pistil Structure & Floral Sexuality\")",
+          "image_search_query": "pistil showing structural components in bisexual flower. scientific educational diagram with clear labels",
+          "video_search_query": "Pistil Structure & Floral Sexuality educational demonstration video"
         },
         {
           "concept_title": "Pistil (Carpel) Architecture: The central female organ composed of three parts: the sticky terminal stigma which receives pollen grains, the elongated slender style through which the pollen tube grows, and the swollen basal ovary which houses one or more ovules containing the female egg cell.",
           "diagram_title": "Pistil Tri-Partite Anatomy Schema",
-          "diagram_type": "image",
-          "image_query": "pistil carpel stigma style ovary ovule diagram",
-          "video_query": "structure of carpel or pistil in flower",
-          "image_url": "/extracted_diagrams/ch11/fig_11_11.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram detailing sticky stigma, conducting style, and basal ovary with internal ovule. scientific educational diagram with clear labels",
+          "video_query": "Pistil Tri-Partite Anatomy Schema educational demonstration video",
           "what_to_make": "Textbook diagram detailing sticky stigma, conducting style, and basal ovary with internal ovule.",
-          "timing_and_cue": "Mount pistil architecture on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_11.webp | Pistil Anatomy | Stigma for pollen landing, style for tube passage, and ovary housing ovules\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram detailing sticky stigma, conducting style, and basal ovary with internal ovule. scientific educational diagram with clear labels\", title=\"Pistil Tri-Partite Anatomy Schema\") | Proactive video: search_and_show_video(query=\"Pistil Tri-Partite Anatomy Schema educational demonstration video\", title=\"Pistil Tri-Partite Anatomy Schema\")",
+          "image_search_query": "Textbook diagram detailing sticky stigma, conducting style, and basal ovary with internal ovule. scientific educational diagram with clear labels",
+          "video_search_query": "Pistil Tri-Partite Anatomy Schema educational demonstration video"
         },
         {
           "concept_title": "Pollination Mechanisms: Pollination is the transfer of pollen grains from the anther to the stigma; Self-pollination occurs when pollen settles on the stigma of the same flower or another flower on the same plant; Cross-pollination occurs when pollen is transferred to a flower on a different plant of the same species by wind, water, or animal pollinators.",
           "diagram_title": "Self vs Cross-Pollination Pathways",
-          "diagram_type": "image",
-          "image_query": "self pollination cross pollination anther stigma insect wind diagram",
-          "video_query": "pollination self vs cross pollination class 10 9",
-          "image_url": "/extracted_diagrams/ch11/fig_11_13.webp",
+          "diagram_type": "image_search",
+          "image_query": "pollen transfer vectors for self-pollination and insect cross-pollination. scientific educational diagram with clear labels",
+          "video_query": "Self vs Cross-Pollination Pathways educational demonstration video",
           "what_to_make": "Textbook diagram showing pollen transfer vectors for self-pollination and insect cross-pollination.",
-          "timing_and_cue": "Mount pollination on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_13.webp | Pollination Mechanics | Self-pollination within same plant versus cross-pollination between plants\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"pollen transfer vectors for self-pollination and insect cross-pollination. scientific educational diagram with clear labels\", title=\"Self vs Cross-Pollination Pathways\") | Proactive video: search_and_show_video(query=\"Self vs Cross-Pollination Pathways educational demonstration video\", title=\"Self vs Cross-Pollination Pathways\")",
+          "image_search_query": "pollen transfer vectors for self-pollination and insect cross-pollination. scientific educational diagram with clear labels",
+          "video_search_query": "Self vs Cross-Pollination Pathways educational demonstration video"
         },
         {
           "concept_title": "Pollen Tube Chemotropism: After landing on a compatible stigma, the pollen grain absorbs sugary exudates and germinates, producing a long pollen tube that grows down through the style guided chemotropically toward the ovule micropyle.",
           "diagram_title": "Pollen Germination & Siphonogamy Pathway",
-          "diagram_type": "image",
-          "image_query": "pollen germination stigma pollen tube growth female gametophyte diagram",
-          "video_query": "pollen tube growth and fertilization in plants",
-          "image_url": "/extracted_diagrams/ch11/fig_11_14.webp",
+          "diagram_type": "image_search",
+          "image_query": "pollen grains germinating on stigma, pushing pollen tube down through style into ovary. scientific educational diagram with clear labels",
+          "video_query": "Pollen Germination & Siphonogamy Pathway educational demonstration video",
           "what_to_make": "Textbook diagram of pollen grains germinating on stigma, pushing pollen tube down through style into ovary.",
-          "timing_and_cue": "Mount pollen tube on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_14.webp | Pollen Tube Chemotropism | Pollen tube growing through style to deliver male gametes to ovule\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"pollen grains germinating on stigma, pushing pollen tube down through style into ovary. scientific educational diagram with clear labels\", title=\"Pollen Germination & Siphonogamy Pathway\") | Proactive video: search_and_show_video(query=\"Pollen Germination & Siphonogamy Pathway educational demonstration video\", title=\"Pollen Germination & Siphonogamy Pathway\")",
+          "image_search_query": "pollen grains germinating on stigma, pushing pollen tube down through style into ovary. scientific educational diagram with clear labels",
+          "video_search_query": "Pollen Germination & Siphonogamy Pathway educational demonstration video"
         },
         {
           "concept_title": "Post-Fertilization Transformations: Following fertilization (syngamy of male gamete with egg cell): the zygote divides into an embryo, the ovule develops a tough protective coat and becomes the seed, and the ovary ripens and enlarges into the fruit; sepals, petals, and stamens typically shrivel and fall off.",
           "diagram_title": "Ovary to Fruit & Ovule to Seed Metamorphosis",
-          "diagram_type": "image",
-          "image_query": "transformation of ovary into fruit ovule into seed diagram",
-          "video_query": "how flowers turn into fruits post fertilization changes",
-          "image_url": "/extracted_diagrams/ch11/fig_11_15.webp",
+          "diagram_type": "image_search",
+          "image_query": "fertilized floral ovary expanding and transforming into a fruit with internal seeds. scientific educational diagram with clear labels",
+          "video_query": "Ovary to Fruit & Ovule to Seed Metamorphosis educational demonstration video",
           "what_to_make": "Textbook diagram showing fertilized floral ovary expanding and transforming into a fruit with internal seeds.",
-          "timing_and_cue": "Mount fruit metamorphosis on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_15.webp | Fruit & Seed Development | Swollen ovary transforming into fruit and fertilized ovule into seed\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"fertilized floral ovary expanding and transforming into a fruit with internal seeds. scientific educational diagram with clear labels\", title=\"Ovary to Fruit & Ovule to Seed Metamorphosis\") | Proactive video: search_and_show_video(query=\"Ovary to Fruit & Ovule to Seed Metamorphosis educational demonstration video\", title=\"Ovary to Fruit & Ovule to Seed Metamorphosis\")",
+          "image_search_query": "fertilized floral ovary expanding and transforming into a fruit with internal seeds. scientific educational diagram with clear labels",
+          "video_search_query": "Ovary to Fruit & Ovule to Seed Metamorphosis educational demonstration video"
         }
       ]
     },
@@ -793,62 +817,68 @@
         {
           "concept_title": "Puberty & Endocrine Activation: Puberty is the developmental phase during adolescence when reproductive organs mature and secondary sexual characteristics develop, driven by testosterone in males and estrogen/progesterone in females.",
           "diagram_title": "Pubertal Endocrine Cascade & Maturation",
-          "diagram_type": "image",
-          "image_query": "puberty secondary sexual characteristics endocrine male female diagram",
-          "video_query": "puberty changes in boys and girls class 10 8",
-          "image_url": "/extracted_diagrams/ch11/fig_11_18.webp",
+          "diagram_type": "image_search",
+          "image_query": "male reproductive organ system and hormonal maturation. scientific educational diagram with clear labels",
+          "video_query": "Pubertal Endocrine Cascade & Maturation educational demonstration video",
           "what_to_make": "Textbook diagram showing male reproductive organ system and hormonal maturation.",
-          "timing_and_cue": "Mount pubertal endocrine on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_18.webp | Pubertal Maturation | Endocrine activation of secondary sexual characteristics and gametogenesis\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"male reproductive organ system and hormonal maturation. scientific educational diagram with clear labels\", title=\"Pubertal Endocrine Cascade & Maturation\") | Proactive video: search_and_show_video(query=\"Pubertal Endocrine Cascade & Maturation educational demonstration video\", title=\"Pubertal Endocrine Cascade & Maturation\")",
+          "image_search_query": "male reproductive organ system and hormonal maturation. scientific educational diagram with clear labels",
+          "video_search_query": "Pubertal Endocrine Cascade & Maturation educational demonstration video"
         },
         {
           "concept_title": "Scrotal Thermoregulation Axiom: The testes are located outside the abdominal cavity in a pouch of skin called the scrotum because normal human body temperature ($37^\\circ\\text{C}$) is too high for viable spermatogenesis; the scrotum maintains a temperature $2\\text{ to }2.5^\\circ\\text{C}$ lower than body core temperature.",
           "diagram_title": "Male Reproductive System & Scrotum Schema",
-          "diagram_type": "image",
-          "image_query": "male reproductive system testes scrotum vas deferens prostate diagram",
-          "video_query": "male reproductive system 3d animation",
-          "image_url": "/extracted_diagrams/ch11/fig_11_18.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram detailing testes in scrotum, epididymis, vas deferens, and penile urethra. scientific educational diagram with clear labels",
+          "video_query": "Male Reproductive System & Scrotum Schema educational demonstration video",
           "what_to_make": "Textbook diagram detailing testes in scrotum, epididymis, vas deferens, and penile urethra.",
-          "timing_and_cue": "Mount male system on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_18.webp | Male Reproductive System | Scrotum thermoregulation maintaining 2-2.5°C lower temperature for spermatogenesis\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram detailing testes in scrotum, epididymis, vas deferens, and penile urethra. scientific educational diagram with clear labels\", title=\"Male Reproductive System & Scrotum Schema\") | Proactive video: search_and_show_video(query=\"Male Reproductive System & Scrotum Schema educational demonstration video\", title=\"Male Reproductive System & Scrotum Schema\")",
+          "image_search_query": "Textbook diagram detailing testes in scrotum, epididymis, vas deferens, and penile urethra. scientific educational diagram with clear labels",
+          "video_search_query": "Male Reproductive System & Scrotum Schema educational demonstration video"
         },
         {
           "concept_title": "Male Accessory Gland Secretions: The seminal vesicles and prostate gland secrete alkaline fluids containing fructose, mucus, and clotting enzymes into the vas deferens; this fluid nourishes sperm, provides a fluid transport medium, and neutralizes vaginal acidity, forming semen.",
           "diagram_title": "Accessory Gland Duct Convergence",
-          "diagram_type": "image",
-          "image_query": "seminal vesicles prostate gland semen formation diagram",
-          "video_query": "functions of prostate and seminal vesicles",
-          "image_url": "/extracted_diagrams/ch11/fig_11_18.webp",
+          "diagram_type": "image_search",
+          "image_query": "seminal vesicles and prostate gland emptying into urethra. scientific educational diagram with clear labels",
+          "video_query": "Accessory Gland Duct Convergence educational demonstration video",
           "what_to_make": "Textbook diagram showing seminal vesicles and prostate gland emptying into urethra.",
-          "timing_and_cue": "Mount accessory glands on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_18.webp | Accessory Glands | Seminal vesicles providing fructose and prostate neutralizing acidity\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"seminal vesicles and prostate gland emptying into urethra. scientific educational diagram with clear labels\", title=\"Accessory Gland Duct Convergence\") | Proactive video: search_and_show_video(query=\"Accessory Gland Duct Convergence educational demonstration video\", title=\"Accessory Gland Duct Convergence\")",
+          "image_search_query": "seminal vesicles and prostate gland emptying into urethra. scientific educational diagram with clear labels",
+          "video_search_query": "Accessory Gland Duct Convergence educational demonstration video"
         },
         {
           "concept_title": "Female Ovarian Function & Ovulation: Human females are born with thousands of immature oocytes in both ovaries; starting at puberty, one mature ovum is released alternately by one of the ovaries roughly every 28 days (ovulation).",
           "diagram_title": "Female Reproductive System Schema",
-          "diagram_type": "image",
-          "image_query": "female reproductive system ovary fallopian tube uterus cervix vagina diagram",
-          "video_query": "female reproductive system 3d animation",
-          "image_url": "/extracted_diagrams/ch11/fig_11_19.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram detailing bilateral ovaries, fallopian tubes, uterus, cervix, and vagina. scientific educational diagram with clear labels",
+          "video_query": "Female Reproductive System Schema educational demonstration video",
           "what_to_make": "Textbook diagram detailing bilateral ovaries, fallopian tubes, uterus, cervix, and vagina.",
-          "timing_and_cue": "Mount female system on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_19.webp | Female Reproductive System | Ovaries releasing mature ovum alternately every 28 days\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram detailing bilateral ovaries, fallopian tubes, uterus, cervix, and vagina. scientific educational diagram with clear labels\", title=\"Female Reproductive System Schema\") | Proactive video: search_and_show_video(query=\"Female Reproductive System Schema educational demonstration video\", title=\"Female Reproductive System Schema\")",
+          "image_search_query": "Textbook diagram detailing bilateral ovaries, fallopian tubes, uterus, cervix, and vagina. scientific educational diagram with clear labels",
+          "video_search_query": "Female Reproductive System Schema educational demonstration video"
         },
         {
           "concept_title": "Fallopian Tube (Oviduct) as Site of Fertilization: The fallopian tube captures the released ovum with its ciliated fimbriae; fertilization of the ovum by sperm takes place strictly within the ampulla of the fallopian tube.",
           "diagram_title": "Fallopian Tube Ampullary Fertilization Locus",
-          "diagram_type": "image",
-          "image_query": "fallopian tube oviduct fertilization site sperm egg diagram",
-          "video_query": "fertilization in fallopian tube animation",
-          "image_url": "/extracted_diagrams/ch11/fig_11_19.webp",
+          "diagram_type": "image_search",
+          "image_query": "ovum pathway into the fallopian tube ampulla where fertilization occurs. scientific educational diagram with clear labels",
+          "video_query": "Fallopian Tube Ampullary Fertilization Locus educational demonstration video",
           "what_to_make": "Textbook diagram showing ovum pathway into the fallopian tube ampulla where fertilization occurs.",
-          "timing_and_cue": "Mount fertilization site on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_19.webp | Site of Fertilization | Fallopian tube (oviduct) capturing ovum for syngamy with sperm\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"ovum pathway into the fallopian tube ampulla where fertilization occurs. scientific educational diagram with clear labels\", title=\"Fallopian Tube Ampullary Fertilization Locus\") | Proactive video: search_and_show_video(query=\"Fallopian Tube Ampullary Fertilization Locus educational demonstration video\", title=\"Fallopian Tube Ampullary Fertilization Locus\")",
+          "image_search_query": "ovum pathway into the fallopian tube ampulla where fertilization occurs. scientific educational diagram with clear labels",
+          "video_search_query": "Fallopian Tube Ampullary Fertilization Locus educational demonstration video"
         },
         {
           "concept_title": "The Uterus (Womb) Architecture: The uterus is an elastic, pear-shaped muscular organ designed to nurture a developing fetus; its inner lining (endometrium) thickens with blood vessels every month to prepare for embryonic implantation.",
           "diagram_title": "Uterine Muscular Wall & Endometrial Architecture",
-          "diagram_type": "image",
-          "image_query": "uterus endometrium myometrium implantation diagram",
-          "video_query": "uterus structure and endometrial cycle",
-          "image_url": "/extracted_diagrams/ch11/fig_11_19.webp",
+          "diagram_type": "image_search",
+          "image_query": "hollow pear-shaped muscular uterus with vascular lining. scientific educational diagram with clear labels",
+          "video_query": "Uterine Muscular Wall & Endometrial Architecture educational demonstration video",
           "what_to_make": "Textbook diagram showing hollow pear-shaped muscular uterus with vascular lining.",
-          "timing_and_cue": "Mount uterus architecture on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_19.webp | Uterine Architecture | Muscular womb with vascular endometrium prepared for embryonic implantation\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"hollow pear-shaped muscular uterus with vascular lining. scientific educational diagram with clear labels\", title=\"Uterine Muscular Wall & Endometrial Architecture\") | Proactive video: search_and_show_video(query=\"Uterine Muscular Wall & Endometrial Architecture educational demonstration video\", title=\"Uterine Muscular Wall & Endometrial Architecture\")",
+          "image_search_query": "hollow pear-shaped muscular uterus with vascular lining. scientific educational diagram with clear labels",
+          "video_search_query": "Uterine Muscular Wall & Endometrial Architecture educational demonstration video"
         }
       ]
     },
@@ -964,62 +994,68 @@
         {
           "concept_title": "The 28-Day Menstrual Cycle: In human females, if the released egg is not fertilized, the thickened vascular lining of the uterus (endometrium) along with its blood vessels sloughs off and exits through the vagina as menstrual flow lasting 3 to 5 days; ovulation occurs roughly midway on Day 14.",
           "diagram_title": "28-Day Menstrual Cycle Timeline",
-          "diagram_type": "image",
-          "image_query": "menstrual cycle 28 days phases menstruation ovulation luteal diagram",
-          "video_query": "menstrual cycle animation class 10 3d",
-          "image_url": "/extracted_diagrams/ch11/fig_11_21.webp",
+          "diagram_type": "image_search",
+          "image_query": "28-day menstrual cycle timeline and uterine endometrial thickness curve. scientific educational diagram with clear labels",
+          "video_query": "28-Day Menstrual Cycle Timeline educational demonstration video",
           "what_to_make": "Textbook diagram showing 28-day menstrual cycle timeline and uterine endometrial thickness curve.",
-          "timing_and_cue": "Mount menstrual cycle on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_21.webp | Menstrual Cycle Timeline | 28-day cycle: Days 1-5 menstruation, Day 14 ovulation, Days 15-28 luteal phase\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"28-day menstrual cycle timeline and uterine endometrial thickness curve. scientific educational diagram with clear labels\", title=\"28-Day Menstrual Cycle Timeline\") | Proactive video: search_and_show_video(query=\"28-Day Menstrual Cycle Timeline educational demonstration video\", title=\"28-Day Menstrual Cycle Timeline\")",
+          "image_search_query": "28-day menstrual cycle timeline and uterine endometrial thickness curve. scientific educational diagram with clear labels",
+          "video_search_query": "28-Day Menstrual Cycle Timeline educational demonstration video"
         },
         {
           "concept_title": "Implantation: Following fertilization in the fallopian tube, the zygote divides repeatedly to form an embryo (blastocyst) that travels into the uterus and embeds itself into the vascular endometrial lining, establishing pregnancy.",
           "diagram_title": "Blastocyst Implantation in Endometrium",
-          "diagram_type": "image",
-          "image_query": "blastocyst implantation uterine wall endometrium diagram",
-          "video_query": "fertilization to implantation animation 3d",
-          "image_url": "/extracted_diagrams/ch11/fig_11_22.webp",
+          "diagram_type": "image_search",
+          "image_query": "early embryonic cleavage stages and uterine implantation. scientific educational diagram with clear labels",
+          "video_query": "Blastocyst Implantation in Endometrium educational demonstration video",
           "what_to_make": "Textbook diagram showing early embryonic cleavage stages and uterine implantation.",
-          "timing_and_cue": "Mount implantation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_22.webp | Blastocyst Implantation | Embryo embedding into vascular endometrium establishing pregnancy\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"early embryonic cleavage stages and uterine implantation. scientific educational diagram with clear labels\", title=\"Blastocyst Implantation in Endometrium\") | Proactive video: search_and_show_video(query=\"Blastocyst Implantation in Endometrium educational demonstration video\", title=\"Blastocyst Implantation in Endometrium\")",
+          "image_search_query": "early embryonic cleavage stages and uterine implantation. scientific educational diagram with clear labels",
+          "video_search_query": "Blastocyst Implantation in Endometrium educational demonstration video"
         },
         {
           "concept_title": "The Placenta as Maternal-Fetal Conduit: The placenta is a specialized disc-shaped organ embedded in the uterine wall containing embryonic chorionic villi surrounded by maternal blood spaces; it provides a vast surface area for glucose and oxygen to diffuse from mother to embryo, and metabolic wastes (CO2, urea) to pass from embryo to mother.",
           "diagram_title": "Placental Villi Maternal-Fetal Exchange",
-          "diagram_type": "image",
-          "image_query": "placenta structure chorionic villi umbilical cord exchange diagram",
-          "video_query": "how the placenta works 3d animation",
-          "image_url": "/extracted_diagrams/ch11/fig_11_22.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram detailing placenta, umbilical cord, chorionic villi, and maternal blood pools. scientific educational diagram with clear labels",
+          "video_query": "Placental Villi Maternal-Fetal Exchange educational demonstration video",
           "what_to_make": "Textbook diagram detailing placenta, umbilical cord, chorionic villi, and maternal blood pools.",
-          "timing_and_cue": "Mount placenta on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_22.webp | Placental Architecture | Chorionic villi delivering oxygen and nutrients while clearing fetal metabolic wastes\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram detailing placenta, umbilical cord, chorionic villi, and maternal blood pools. scientific educational diagram with clear labels\", title=\"Placental Villi Maternal-Fetal Exchange\") | Proactive video: search_and_show_video(query=\"Placental Villi Maternal-Fetal Exchange educational demonstration video\", title=\"Placental Villi Maternal-Fetal Exchange\")",
+          "image_search_query": "Textbook diagram detailing placenta, umbilical cord, chorionic villi, and maternal blood pools. scientific educational diagram with clear labels",
+          "video_search_query": "Placental Villi Maternal-Fetal Exchange educational demonstration video"
         },
         {
           "concept_title": "Contraceptive Methodologies: Contraceptive methods prevent unwanted pregnancy: Mechanical barriers (condoms) prevent sperm entry and protect against STIs; Hormonal pills alter endocrine balance to prevent ovulation; Intrauterine Devices (Copper-T / IUDs) prevent implantation; Surgical sterilisation (Vasectomy in males, Tubectomy in females) permanently blocks gamete transit.",
           "diagram_title": "Intrauterine Contraceptive Device (Copper-T)",
-          "diagram_type": "image",
-          "image_query": "copper T intrauterine device contraception diagram",
-          "video_query": "contraception methods copper T vasectomy tubectomy",
-          "image_url": "/extracted_diagrams/ch11/fig_11_23.webp",
+          "diagram_type": "image_search",
+          "image_query": "Copper-T IUD positioned inside uterine cavity. scientific educational diagram with clear labels",
+          "video_query": "Intrauterine Contraceptive Device Copper-T educational demonstration video",
           "what_to_make": "Textbook diagram showing Copper-T IUD positioned inside uterine cavity.",
-          "timing_and_cue": "Mount Copper-T on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_23.webp | Intra-Uterine Device (Copper-T) | Releasing copper ions to suppress sperm motility and prevent implantation\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Copper-T IUD positioned inside uterine cavity. scientific educational diagram with clear labels\", title=\"Intrauterine Contraceptive Device (Copper-T)\") | Proactive video: search_and_show_video(query=\"Intrauterine Contraceptive Device Copper-T educational demonstration video\", title=\"Intrauterine Contraceptive Device (Copper-T)\")",
+          "image_search_query": "Copper-T IUD positioned inside uterine cavity. scientific educational diagram with clear labels",
+          "video_search_query": "Intrauterine Contraceptive Device Copper-T educational demonstration video"
         },
         {
           "concept_title": "STI Prevention & Reproductive Health: Sexually Transmitted Infections are transmitted via sexual contact; bacterial STIs (Gonorrhoea, Syphilis) can be cured with antibiotics, whereas viral STIs (Genital Warts, HIV/AIDS) have no cure; barrier methods (latex condoms) provide effective dual protection.",
           "diagram_title": "Reproductive Health & Barrier Protection",
-          "diagram_type": "image",
-          "image_query": "barrier contraception condom sexually transmitted infection prevention diagram",
-          "video_query": "reproductive health and sexually transmitted diseases class 10",
-          "image_url": "/extracted_diagrams/ch11/fig_11_23.webp",
+          "diagram_type": "image_search",
+          "image_query": "clinical contraception and STI barrier defense. scientific educational diagram with clear labels",
+          "video_query": "Reproductive Health & Barrier Protection educational demonstration video",
           "what_to_make": "Textbook diagram illustrating clinical contraception and STI barrier defense.",
-          "timing_and_cue": "Mount STI prevention on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_23.webp | Reproductive Health & STI Defense | Barrier methods providing indispensable protection against viral and bacterial STIs\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"clinical contraception and STI barrier defense. scientific educational diagram with clear labels\", title=\"Reproductive Health & Barrier Protection\") | Proactive video: search_and_show_video(query=\"Reproductive Health & Barrier Protection educational demonstration video\", title=\"Reproductive Health & Barrier Protection\")",
+          "image_search_query": "clinical contraception and STI barrier defense. scientific educational diagram with clear labels",
+          "video_search_query": "Reproductive Health & Barrier Protection educational demonstration video"
         },
         {
           "concept_title": "PCPNDT Act & Female Foeticide Prohibition: Prenatal sex determination using ultrasound is strictly illegal under Indian law (Pre-Conception and Pre-Natal Diagnostic Techniques Act) to prevent female foeticide and restore balanced child sex ratios.",
           "diagram_title": "PCPNDT Act Legal Protection Framework",
-          "diagram_type": "image",
-          "image_query": "PCPNDT act female foeticide child sex ratio legal protection diagram",
-          "video_query": "PCPNDT act female foeticide prohibition",
-          "image_url": "/extracted_diagrams/ch11/fig_11_23.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook statutory advisory prohibiting prenatal fetal sex determination under Indian law. scientific educational diagram with clear labels",
+          "video_query": "PCPNDT Act Legal Protection Framework educational demonstration video",
           "what_to_make": "Textbook statutory advisory prohibiting prenatal fetal sex determination under Indian law.",
-          "timing_and_cue": "Mount PCPNDT Act on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch11/fig_11_23.webp | Statutory PCPNDT Prohibition | Absolute legal ban on prenatal sex determination to eliminate female foeticide\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook statutory advisory prohibiting prenatal fetal sex determination under Indian law. scientific educational diagram with clear labels\", title=\"PCPNDT Act Legal Protection Framework\") | Proactive video: search_and_show_video(query=\"PCPNDT Act Legal Protection Framework educational demonstration video\", title=\"PCPNDT Act Legal Protection Framework\")",
+          "image_search_query": "Textbook statutory advisory prohibiting prenatal fetal sex determination under Indian law. scientific educational diagram with clear labels",
+          "video_search_query": "PCPNDT Act Legal Protection Framework educational demonstration video"
         }
       ]
     },

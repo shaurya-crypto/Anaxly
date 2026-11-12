@@ -109,62 +109,68 @@
         {
           "concept_title": "Earth as a Closed Biogeochemical System: The Earth operates as an interconnected closed system for matter (nutrients and elements recycle continuously) and an open system for energy (solar radiation enters, powers biospheric processes, and radiates back to space as infrared heat).",
           "diagram_title": "Interconnected Earth Spheres Interface",
-          "diagram_type": "image",
-          "image_query": "features of Earth surface lithosphere hydrosphere atmosphere biosphere diagram",
-          "video_query": "earth as a system spheres interaction",
-          "image_url": "/extracted_diagrams/ch13/fig_13_1.webp",
+          "diagram_type": "image_search",
+          "image_query": "cross-section of Earth's surface integrating mountains, oceans, atmosphere, and vegetation. scientific educational diagram with clear labels",
+          "video_query": "Interconnected Earth Spheres Interface educational demonstration video",
           "what_to_make": "Textbook diagram showing cross-section of Earth's surface integrating mountains, oceans, atmosphere, and vegetation.",
-          "timing_and_cue": "Mount Earth spheres on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_1.webp | Earth System Spheres | Dynamic interaction of Lithosphere, Hydrosphere, Atmosphere, and Biosphere\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"cross-section of Earth's surface integrating mountains, oceans, atmosphere, and vegetation. scientific educational diagram with clear labels\", title=\"Interconnected Earth Spheres Interface\") | Proactive video: search_and_show_video(query=\"Interconnected Earth Spheres Interface educational demonstration video\", title=\"Interconnected Earth Spheres Interface\")",
+          "image_search_query": "cross-section of Earth's surface integrating mountains, oceans, atmosphere, and vegetation. scientific educational diagram with clear labels",
+          "video_search_query": "Interconnected Earth Spheres Interface educational demonstration video"
         },
         {
           "concept_title": "The Four Earth Spheres: Lithosphere (outer solid mineral crust and soil), Hydrosphere (71% of surface covered by oceans, seas, rivers, ground water, and polar ice caps), Atmosphere (multi-layered blanket of gases enveloping Earth), and Biosphere (the narrow global life-supporting zone where lithosphere, hydrosphere, and atmosphere interact).",
           "diagram_title": "Solar Radiation Mapping of India (Anna Mani)",
-          "diagram_type": "image",
-          "image_query": "solar radiation over India Anna Mani meteorological map diagram",
-          "video_query": "Anna Mani Indian meteorologist pioneer",
-          "image_url": "/extracted_diagrams/ch13/fig_13_3.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook solar radiation contour map of the Indian subcontinent authored by Anna Mani. scientific educational diagram with clear labels",
+          "video_query": "Solar Radiation Mapping of India Anna Mani educational demonstration video",
           "what_to_make": "Textbook solar radiation contour map of the Indian subcontinent authored by Anna Mani.",
-          "timing_and_cue": "Mount Anna Mani solar map on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_3.webp | Solar Radiation over India | Pioneer meteorological solar flux mapping by Anna Mani\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook solar radiation contour map of the Indian subcontinent authored by Anna Mani. scientific educational diagram with clear labels\", title=\"Solar Radiation Mapping of India (Anna Mani)\") | Proactive video: search_and_show_video(query=\"Solar Radiation Mapping of India Anna Mani educational demonstration video\", title=\"Solar Radiation Mapping of India (Anna Mani)\")",
+          "image_search_query": "Textbook solar radiation contour map of the Indian subcontinent authored by Anna Mani. scientific educational diagram with clear labels",
+          "video_search_query": "Solar Radiation Mapping of India Anna Mani educational demonstration video"
         },
         {
           "concept_title": "Solar Radiation Budget: The Sun is the primary source of virtually all energy on Earth; of incoming shortwave solar radiation, ~30% is reflected back to space (albedo by clouds and ice), ~20% is absorbed by the atmosphere, and ~50% is absorbed by the land and oceans, powering weather, ocean currents, and photosynthesis.",
           "diagram_title": "Desert Solar Photovoltaic Generation",
-          "diagram_type": "image",
-          "image_query": "solar panel desert renewable energy photovoltaic diagram",
-          "video_query": "solar panels in desert renewable energy potential",
-          "image_url": "/extracted_diagrams/ch13/fig_13_4.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook image of desert photovoltaic solar arrays capturing high solar irradiance. scientific educational diagram with clear labels",
+          "video_query": "Desert Solar Photovoltaic Generation educational demonstration video",
           "what_to_make": "Textbook image of desert photovoltaic solar arrays capturing high solar irradiance.",
-          "timing_and_cue": "Mount desert solar on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_4.webp | Desert Solar Harvesting | Capturing cloudless solar radiation to generate clean zero-emission electricity\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook image of desert photovoltaic solar arrays capturing high solar irradiance. scientific educational diagram with clear labels\", title=\"Desert Solar Photovoltaic Generation\") | Proactive video: search_and_show_video(query=\"Desert Solar Photovoltaic Generation educational demonstration video\", title=\"Desert Solar Photovoltaic Generation\")",
+          "image_search_query": "Textbook image of desert photovoltaic solar arrays capturing high solar irradiance. scientific educational diagram with clear labels",
+          "video_search_query": "Desert Solar Photovoltaic Generation educational demonstration video"
         },
         {
           "concept_title": "Atmospheric Thermal Blanket: Air is a very poor conductor of heat; during the day, the atmosphere prevents solar radiation from heating Earth's surface to unlivable extremes; at night, it slows down the radiant escape of heat into cold space, preventing freezing.",
           "diagram_title": "Solar Radiation & Surface Thermal Warming",
-          "diagram_type": "image",
-          "image_query": "solar radiation warming of earth energy budget balance diagram",
-          "video_query": "earth solar radiation budget animation",
-          "image_url": "/extracted_diagrams/ch13/fig_13_5.webp",
+          "diagram_type": "image_search",
+          "image_query": "solar rays warming ground and longwave infrared radiative feedback. scientific educational diagram with clear labels",
+          "video_query": "Solar Radiation & Surface Thermal Warming educational demonstration video",
           "what_to_make": "Textbook diagram showing solar rays warming ground and longwave infrared radiative feedback.",
-          "timing_and_cue": "Mount solar budget on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_5.webp | Solar Radiation Budget | Incoming shortwave solar flux and terrestrial infrared radiative equilibrium\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"solar rays warming ground and longwave infrared radiative feedback. scientific educational diagram with clear labels\", title=\"Solar Radiation & Surface Thermal Warming\") | Proactive video: search_and_show_video(query=\"Solar Radiation & Surface Thermal Warming educational demonstration video\", title=\"Solar Radiation & Surface Thermal Warming\")",
+          "image_search_query": "solar rays warming ground and longwave infrared radiative feedback. scientific educational diagram with clear labels",
+          "video_search_query": "Solar Radiation & Surface Thermal Warming educational demonstration video"
         },
         {
           "concept_title": "Earth vs Moon Temperature Contrast: The Moon is the same distance from the Sun as Earth, but has zero atmosphere; consequently, temperatures on the lunar surface swing violently from -190°C during the night to +110°C during the lunar day, proving the indispensable moderating role of Earth's atmosphere.",
           "diagram_title": "Thermal Moderation & Atmospheric Insulation",
-          "diagram_type": "image",
-          "image_query": "earth vs moon temperature atmosphere thermal buffer diagram",
-          "video_query": "why the moon has extreme temperatures while earth does not",
-          "image_url": "/extracted_diagrams/ch13/fig_13_5.webp",
+          "diagram_type": "image_search",
+          "image_query": "atmospheric insulating blanket keeping diurnal temperatures stable. scientific educational diagram with clear labels",
+          "video_query": "Thermal Moderation & Atmospheric Insulation educational demonstration video",
           "what_to_make": "Textbook diagram illustrating atmospheric insulating blanket keeping diurnal temperatures stable.",
-          "timing_and_cue": "Mount thermal insulation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_5.webp | Atmospheric Thermal Buffer | Low thermal conductivity of air preventing extreme lunar-like temperature swings\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"atmospheric insulating blanket keeping diurnal temperatures stable. scientific educational diagram with clear labels\", title=\"Thermal Moderation & Atmospheric Insulation\") | Proactive video: search_and_show_video(query=\"Thermal Moderation & Atmospheric Insulation educational demonstration video\", title=\"Thermal Moderation & Atmospheric Insulation\")",
+          "image_search_query": "atmospheric insulating blanket keeping diurnal temperatures stable. scientific educational diagram with clear labels",
+          "video_search_query": "Thermal Moderation & Atmospheric Insulation educational demonstration video"
         },
         {
           "concept_title": "Urban Heat Island Effect: Urban metropolitan areas experience significantly higher ambient temperatures than surrounding rural landscapes due to dark asphalt and concrete absorbing solar radiation, tall building canyons trapping heat, waste heat from air conditioning/vehicles, and loss of cooling vegetative evapotranspiration.",
           "diagram_title": "Urban Heat Island Thermal Profile in Cities",
-          "diagram_type": "image",
-          "image_query": "urban heat island effect city temperature profile asphalt concrete diagram",
-          "video_query": "urban heat island effect animation",
-          "image_url": "/extracted_diagrams/ch13/fig_13_6.webp",
+          "diagram_type": "image_search",
+          "image_query": "city skyscrapers and temperature profile demonstrating urban heat island effect. scientific educational diagram with clear labels",
+          "video_query": "Urban Heat Island Thermal Profile in Cities educational demonstration video",
           "what_to_make": "Textbook diagram of city skyscrapers and temperature profile demonstrating urban heat island effect.",
-          "timing_and_cue": "Mount urban heat island on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_6.webp | Urban Heat Island Effect | Concrete surfaces and anthropogenic waste heat elevating metropolitan temperatures\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"city skyscrapers and temperature profile demonstrating urban heat island effect. scientific educational diagram with clear labels\", title=\"Urban Heat Island Thermal Profile in Cities\") | Proactive video: search_and_show_video(query=\"Urban Heat Island Thermal Profile in Cities educational demonstration video\", title=\"Urban Heat Island Thermal Profile in Cities\")",
+          "image_search_query": "city skyscrapers and temperature profile demonstrating urban heat island effect. scientific educational diagram with clear labels",
+          "video_search_query": "Urban Heat Island Thermal Profile in Cities educational demonstration video"
         }
       ]
     },
@@ -280,62 +286,68 @@
         {
           "concept_title": "Vertical Atmospheric Stratification: The atmosphere is divided into layers based on temperature lapse rates: Troposphere ($0-12\\text{ km}$, where all clouds and weather occur; temperature falls with height), Stratosphere ($12-50\\text{ km}$, temperature increases with height due to UV absorption by ozone), Mesosphere ($50-80\\text{ km}$, coldest layer at $-90^\\circ\\text{C}$), and Thermosphere ($>80\\text{ km}$, high temperature due to solar X-ray ionization).",
           "diagram_title": "Vertical Layers of Earth's Atmosphere",
-          "diagram_type": "image",
-          "image_query": "layers of earth atmosphere troposphere stratosphere mesosphere thermosphere diagram",
-          "video_query": "layers of the atmosphere 3d animation",
-          "image_url": "/extracted_diagrams/ch13/fig_13_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "altitude scale and temperature curve from Troposphere to Thermosphere. scientific educational diagram with clear labels",
+          "video_query": "Vertical Layers of Earth's Atmosphere educational demonstration video",
           "what_to_make": "Textbook diagram showing altitude scale and temperature curve from Troposphere to Thermosphere.",
-          "timing_and_cue": "Mount atmospheric layers on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_7.webp | Layers of the Atmosphere | Troposphere weather zone, ozone-rich Stratosphere, cold Mesosphere, and Ionosphere\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"altitude scale and temperature curve from Troposphere to Thermosphere. scientific educational diagram with clear labels\", title=\"Vertical Layers of Earth's Atmosphere\") | Proactive video: search_and_show_video(query=\"Vertical Layers of Earth's Atmosphere educational demonstration video\", title=\"Vertical Layers of Earth's Atmosphere\")",
+          "image_search_query": "altitude scale and temperature curve from Troposphere to Thermosphere. scientific educational diagram with clear labels",
+          "video_search_query": "Vertical Layers of Earth's Atmosphere educational demonstration video"
         },
         {
           "concept_title": "Pressure Gradient & Wind Generation: Wind is simply the horizontal movement of air from a region of high atmospheric pressure to a region of low atmospheric pressure; pressure differences are created by the uneven heating of Earth's surface by solar radiation.",
           "diagram_title": "Valley & Mountain Breeze Convection",
-          "diagram_type": "image",
-          "image_query": "valley breeze mountain breeze diurnal slope winds diagram",
-          "video_query": "valley breeze and mountain breeze animation",
-          "image_url": "/extracted_diagrams/ch13/fig_13_8.webp",
+          "diagram_type": "image_search",
+          "image_query": "daytime upslope valley breeze and nighttime downslope katabatic mountain breeze. scientific educational diagram with clear labels",
+          "video_query": "Valley & Mountain Breeze Convection educational demonstration video",
           "what_to_make": "Textbook diagram showing daytime upslope valley breeze and nighttime downslope katabatic mountain breeze.",
-          "timing_and_cue": "Mount breeze convection on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_8.webp | Valley & Mountain Breezes | Differential slope heating driving diurnal thermal convective winds\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"daytime upslope valley breeze and nighttime downslope katabatic mountain breeze. scientific educational diagram with clear labels\", title=\"Valley & Mountain Breeze Convection\") | Proactive video: search_and_show_video(query=\"Valley & Mountain Breeze Convection educational demonstration video\", title=\"Valley & Mountain Breeze Convection\")",
+          "image_search_query": "daytime upslope valley breeze and nighttime downslope katabatic mountain breeze. scientific educational diagram with clear labels",
+          "video_search_query": "Valley & Mountain Breeze Convection educational demonstration video"
         },
         {
           "concept_title": "Coastal Sea Breeze vs Land Breeze: Land has a lower specific heat capacity than water and heats up/cools down much faster than the sea: During the day, air over land heats up, expands, and rises (low pressure), drawing cool dense air from the sea (Sea Breeze); at night, land cools rapidly (high pressure), so cool breeze blows from land toward the warm sea (Land Breeze).",
           "diagram_title": "Global Wind Circulation & Hadley Cells",
-          "diagram_type": "image",
-          "image_query": "wind circulation equatorial low pressure belt trade winds hadley cell diagram",
-          "video_query": "global wind patterns hadley cell Coriolis effect",
-          "image_url": "/extracted_diagrams/ch13/fig_13_9.webp",
+          "diagram_type": "image_search",
+          "image_query": "global atmospheric circulation belts between equatorial low and subtropical highs. scientific educational diagram with clear labels",
+          "video_query": "Global Wind Circulation & Hadley Cells educational demonstration video",
           "what_to_make": "Textbook diagram illustrating global atmospheric circulation belts between equatorial low and subtropical highs.",
-          "timing_and_cue": "Mount global circulation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_9.webp | Global Wind Circulation | Equatorial low pressure belt driving trade winds and global convective cells\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"global atmospheric circulation belts between equatorial low and subtropical highs. scientific educational diagram with clear labels\", title=\"Global Wind Circulation & Hadley Cells\") | Proactive video: search_and_show_video(query=\"Global Wind Circulation & Hadley Cells educational demonstration video\", title=\"Global Wind Circulation & Hadley Cells\")",
+          "image_search_query": "global atmospheric circulation belts between equatorial low and subtropical highs. scientific educational diagram with clear labels",
+          "video_search_query": "Global Wind Circulation & Hadley Cells educational demonstration video"
         },
         {
           "concept_title": "Valley and Mountain Breezes: During daylight, mountain slopes heat rapidly, causing air to expand and flow uphill along the slope (Valley Breeze); after sunset, rapid radiation cools the slopes, and dense cold air drains down into the valley floor (Mountain / Katabatic Breeze).",
           "diagram_title": "Thermal Katabatic Airflow Scheme",
-          "diagram_type": "image",
-          "image_query": "katabatic cold air drainage mountain breeze diagram",
-          "video_query": "katabatic winds mountain drainage animation",
-          "image_url": "/extracted_diagrams/ch13/fig_13_8.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram detailing cold gravity air drainage into valley floors at night. scientific educational diagram with clear labels",
+          "video_query": "Thermal Katabatic Airflow Scheme educational demonstration video",
           "what_to_make": "Textbook diagram detailing cold gravity air drainage into valley floors at night.",
-          "timing_and_cue": "Mount katabatic airflow on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_8.webp | Katabatic Night Drainage | Cold dense air flowing under gravity from cooled ridges into valleys\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram detailing cold gravity air drainage into valley floors at night. scientific educational diagram with clear labels\", title=\"Thermal Katabatic Airflow Scheme\") | Proactive video: search_and_show_video(query=\"Thermal Katabatic Airflow Scheme educational demonstration video\", title=\"Thermal Katabatic Airflow Scheme\")",
+          "image_search_query": "Textbook diagram detailing cold gravity air drainage into valley floors at night. scientific educational diagram with clear labels",
+          "video_search_query": "Thermal Katabatic Airflow Scheme educational demonstration video"
         },
         {
           "concept_title": "Global Wind Circulation Belts: Intense solar heating at the equator creates an equatorial low-pressure belt (doldrums) where warm air rises, flows poleward aloft, cools, and sinks around $30^\\circ\\text{ N/S}$ latitude, producing the Trade Winds and prevailing Westerlies under Earth's rotational Coriolis deflection.",
           "diagram_title": "The Gulf Stream Oceanic Warm Water Conveyor",
-          "diagram_type": "image",
-          "image_query": "gulf stream ocean current warm water north atlantic conveyor diagram",
-          "video_query": "how the Gulf Stream works animation climate",
-          "image_url": "/extracted_diagrams/ch13/fig_13_10.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook map of the Atlantic Ocean tracing the warm Gulf Stream from Caribbean to Western Europe. scientific educational diagram with clear labels",
+          "video_query": "The Gulf Stream Oceanic Warm Water Conveyor educational demonstration video",
           "what_to_make": "Textbook map of the Atlantic Ocean tracing the warm Gulf Stream from Caribbean to Western Europe.",
-          "timing_and_cue": "Mount Gulf Stream on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_10.webp | The Gulf Stream Conveyor | Transporting tropical heat northward to moderate Western European climate\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook map of the Atlantic Ocean tracing the warm Gulf Stream from Caribbean to Western Europe. scientific educational diagram with clear labels\", title=\"The Gulf Stream Oceanic Warm Water Conveyor\") | Proactive video: search_and_show_video(query=\"The Gulf Stream Oceanic Warm Water Conveyor educational demonstration video\", title=\"The Gulf Stream Oceanic Warm Water Conveyor\")",
+          "image_search_query": "Textbook map of the Atlantic Ocean tracing the warm Gulf Stream from Caribbean to Western Europe. scientific educational diagram with clear labels",
+          "video_search_query": "The Gulf Stream Oceanic Warm Water Conveyor educational demonstration video"
         },
         {
           "concept_title": "Oceanic Thermal Conveyors (The Gulf Stream): The atmosphere is closely coupled with the oceans; major ocean currents like the Gulf Stream carry enormous volumes of warm tropical seawater northward across the Atlantic, dramatically moderating the climates of Western and Northern Europe.",
           "diagram_title": "IITM Pune Meteorological Supercomputing Center",
-          "diagram_type": "image",
-          "image_query": "Indian institute of tropical meteorology IITM Pune monsoon research diagram",
-          "video_query": "IITM Pune weather and monsoon modeling",
-          "image_url": "/extracted_diagrams/ch13/fig_13_11.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook photograph of the Indian Institute of Tropical Meteorology IITM in Pune. scientific educational diagram with clear labels",
+          "video_query": "IITM Pune Meteorological Supercomputing Center educational demonstration video",
           "what_to_make": "Textbook photograph of the Indian Institute of Tropical Meteorology (IITM) in Pune.",
-          "timing_and_cue": "Mount IITM Pune on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_11.webp | IITM Meteorological Center | National institute in Pune spearheading high-resolution tropical weather modeling\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook photograph of the Indian Institute of Tropical Meteorology IITM in Pune. scientific educational diagram with clear labels\", title=\"IITM Pune Meteorological Supercomputing Center\") | Proactive video: search_and_show_video(query=\"IITM Pune Meteorological Supercomputing Center educational demonstration video\", title=\"IITM Pune Meteorological Supercomputing Center\")",
+          "image_search_query": "Textbook photograph of the Indian Institute of Tropical Meteorology IITM in Pune. scientific educational diagram with clear labels",
+          "video_search_query": "IITM Pune Meteorological Supercomputing Center educational demonstration video"
         }
       ]
     },
@@ -451,62 +463,68 @@
         {
           "concept_title": "Global Water Distribution Ledger: Water covers ~71% of Earth's surface, but 97.5% is saline ocean water unusable for terrestrial consumption; only 2.5% is freshwater, of which nearly 69% is locked in glaciers/ice sheets, 30% is subterranean groundwater, and less than 1.2% is easily accessible surface freshwater in lakes and rivers.",
           "diagram_title": "The Biogeochemical Water Cycle Schema",
-          "diagram_type": "image",
-          "image_query": "water cycle evaporation condensation precipitation groundwater diagram",
-          "video_query": "the water cycle class 9 3d animation",
-          "image_url": "/extracted_diagrams/ch13/fig_13_12.webp",
+          "diagram_type": "image_search",
+          "image_query": "continuous cycling of water through evaporation, transpiration, condensation, and runoff. scientific educational diagram with clear labels",
+          "video_query": "The Biogeochemical Water Cycle Schema educational demonstration video",
           "what_to_make": "Textbook diagram showing continuous cycling of water through evaporation, transpiration, condensation, and runoff.",
-          "timing_and_cue": "Mount water cycle on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_12.webp | The Water Cycle | Continuous circulation connecting cryosphere, hydrosphere, atmosphere, and lithosphere\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"continuous cycling of water through evaporation, transpiration, condensation, and runoff. scientific educational diagram with clear labels\", title=\"The Biogeochemical Water Cycle Schema\") | Proactive video: search_and_show_video(query=\"The Biogeochemical Water Cycle Schema educational demonstration video\", title=\"The Biogeochemical Water Cycle Schema\")",
+          "image_search_query": "continuous cycling of water through evaporation, transpiration, condensation, and runoff. scientific educational diagram with clear labels",
+          "video_search_query": "The Biogeochemical Water Cycle Schema educational demonstration video"
         },
         {
           "concept_title": "Biogeochemical Water Cycle: The continuous circulation of water from Earth's surface to the atmosphere and back through physical phase changes: Evaporation (oceans and soil), Transpiration (plant leaves), Condensation (forming clouds), Precipitation (rain, snow), Surface runoff, and Infiltration/Percolation into underground aquifers.",
           "diagram_title": "Hydrological Transpiration & Cloud Formation",
-          "diagram_type": "image",
-          "image_query": "transpiration evaporation cloud formation rain runoff diagram",
-          "video_query": "evaporation and transpiration in water cycle",
-          "image_url": "/extracted_diagrams/ch13/fig_13_12.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram detailing vegetal transpiration and atmospheric condensation pathways. scientific educational diagram with clear labels",
+          "video_query": "Hydrological Transpiration & Cloud Formation educational demonstration video",
           "what_to_make": "Textbook diagram detailing vegetal transpiration and atmospheric condensation pathways.",
-          "timing_and_cue": "Mount transpiration on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_12.webp | Transpiration & Infiltration | Plant transpiration and precipitation replenishing subterranean aquifers\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram detailing vegetal transpiration and atmospheric condensation pathways. scientific educational diagram with clear labels\", title=\"Hydrological Transpiration & Cloud Formation\") | Proactive video: search_and_show_video(query=\"Hydrological Transpiration & Cloud Formation educational demonstration video\", title=\"Hydrological Transpiration & Cloud Formation\")",
+          "image_search_query": "Textbook diagram detailing vegetal transpiration and atmospheric condensation pathways. scientific educational diagram with clear labels",
+          "video_search_query": "Hydrological Transpiration & Cloud Formation educational demonstration video"
         },
         {
           "concept_title": "Water as Universal Chemical Solvent: Due to its bent molecular geometry and strong electric dipole moment, water possesses a very high dielectric constant; as it flows over rocks and soils, it dissolves essential mineral ions (calcium, magnesium, nitrates, phosphates) and delivers them to biological roots and aquatic food webs.",
           "diagram_title": "Universal Solvent Mineral Weathering",
-          "diagram_type": "image",
-          "image_query": "water dissolving minerals rock weathering soil solution diagram",
-          "video_query": "water as a universal solvent why it dissolves minerals",
-          "image_url": "/extracted_diagrams/ch13/fig_13_1.webp",
+          "diagram_type": "image_search",
+          "image_query": "water interacting with surface rocks and soils to dissolve vital minerals. scientific educational diagram with clear labels",
+          "video_query": "Universal Solvent Mineral Weathering educational demonstration video",
           "what_to_make": "Textbook diagram showing water interacting with surface rocks and soils to dissolve vital minerals.",
-          "timing_and_cue": "Mount universal solvent on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_1.webp | Universal Chemical Solvent | High dielectric constant dissolving essential rock minerals for plant nutrition\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"water interacting with surface rocks and soils to dissolve vital minerals. scientific educational diagram with clear labels\", title=\"Universal Solvent Mineral Weathering\") | Proactive video: search_and_show_video(query=\"Universal Solvent Mineral Weathering educational demonstration video\", title=\"Universal Solvent Mineral Weathering\")",
+          "image_search_query": "water interacting with surface rocks and soils to dissolve vital minerals. scientific educational diagram with clear labels",
+          "video_search_query": "Universal Solvent Mineral Weathering educational demonstration video"
         },
         {
           "concept_title": "Water Pollution Definition: Any physical, chemical, or biological change in water quality that adversely impacts living organisms or makes water unsuitable for use, caused by toxic industrial chemicals, untreated sewage, thermal discharge from power plants, or agrochemicals.",
           "diagram_title": "Aquatic Ecosystem Pollution Profiling",
-          "diagram_type": "image",
-          "image_query": "water pollution industrial effluents sewage river degradation diagram",
-          "video_query": "water pollution causes and effects class 9",
-          "image_url": "/extracted_diagrams/ch13/fig_13_17.webp",
+          "diagram_type": "image_search",
+          "image_query": "degraded aquatic waterway contaminated by pollutants. scientific educational diagram with clear labels",
+          "video_query": "Aquatic Ecosystem Pollution Profiling educational demonstration video",
           "what_to_make": "Textbook diagram showing degraded aquatic waterway contaminated by pollutants.",
-          "timing_and_cue": "Mount water pollution on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_17.webp | Aquatic Pollution Profiling | Toxic chemicals, sewage, and agrochemicals degrading natural water bodies\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"degraded aquatic waterway contaminated by pollutants. scientific educational diagram with clear labels\", title=\"Aquatic Ecosystem Pollution Profiling\") | Proactive video: search_and_show_video(query=\"Aquatic Ecosystem Pollution Profiling educational demonstration video\", title=\"Aquatic Ecosystem Pollution Profiling\")",
+          "image_search_query": "degraded aquatic waterway contaminated by pollutants. scientific educational diagram with clear labels",
+          "video_search_query": "Aquatic Ecosystem Pollution Profiling educational demonstration video"
         },
         {
           "concept_title": "Eutrophication Cascade: Excess nitrogen and phosphorus fertilizers washed from agricultural fields into water bodies cause explosive growth of algae (algal bloom); the thick algal mat blocks sunlight from reaching underwater plants, halting aquatic photosynthesis.",
           "diagram_title": "Eutrophication Algal Bloom & Sunlight Blockade",
-          "diagram_type": "image",
-          "image_query": "eutrophication algal bloom green surface water light blocked diagram",
-          "video_query": "eutrophication process step by step animation",
-          "image_url": "/extracted_diagrams/ch13/fig_13_17.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook photograph of a green algal bloom covering an aquatic water surface. scientific educational diagram with clear labels",
+          "video_query": "Eutrophication Algal Bloom & Sunlight Blockade educational demonstration video",
           "what_to_make": "Textbook photograph of a green algal bloom covering an aquatic water surface.",
-          "timing_and_cue": "Mount algal bloom on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_17.webp | Algal Bloom (Eutrophication) | Explosive surface algal growth blocking sunlight from submerged aquatic flora\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook photograph of a green algal bloom covering an aquatic water surface. scientific educational diagram with clear labels\", title=\"Eutrophication Algal Bloom & Sunlight Blockade\") | Proactive video: search_and_show_video(query=\"Eutrophication Algal Bloom & Sunlight Blockade educational demonstration video\", title=\"Eutrophication Algal Bloom & Sunlight Blockade\")",
+          "image_search_query": "Textbook photograph of a green algal bloom covering an aquatic water surface. scientific educational diagram with clear labels",
+          "video_search_query": "Eutrophication Algal Bloom & Sunlight Blockade educational demonstration video"
         },
         {
           "concept_title": "Decomposition Hypoxia & BOD Surge: When the massive algal bloom dies, aerobic decomposing bacteria multiply exponentially and consume the water's Dissolved Oxygen (DO); Biological Oxygen Demand (BOD) skyrockets, dissolved oxygen drops to near-zero (hypoxia), resulting in mass asphyxiation and death of fish and aquatic fauna.",
           "diagram_title": "Decomposition Hypoxia & Fish Mortality",
-          "diagram_type": "image",
-          "image_query": "hypoxia dissolved oxygen depletion dead fish eutrophication diagram",
-          "video_query": "how eutrophication causes fish kill hypoxia",
-          "image_url": "/extracted_diagrams/ch13/fig_13_17.webp",
+          "diagram_type": "image_search",
+          "image_query": "biological oxygen depletion causing mass fish mortality. scientific educational diagram with clear labels",
+          "video_query": "Decomposition Hypoxia & Fish Mortality educational demonstration video",
           "what_to_make": "Textbook diagram illustrating biological oxygen depletion causing mass fish mortality.",
-          "timing_and_cue": "Mount hypoxia on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_17.webp | Aquatic Hypoxia & Collapse | Bacterial decomposition depleting dissolved oxygen, triggering mass fish asphyxiation\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"biological oxygen depletion causing mass fish mortality. scientific educational diagram with clear labels\", title=\"Decomposition Hypoxia & Fish Mortality\") | Proactive video: search_and_show_video(query=\"Decomposition Hypoxia & Fish Mortality educational demonstration video\", title=\"Decomposition Hypoxia & Fish Mortality\")",
+          "image_search_query": "biological oxygen depletion causing mass fish mortality. scientific educational diagram with clear labels",
+          "video_search_query": "Decomposition Hypoxia & Fish Mortality educational demonstration video"
         }
       ]
     },
@@ -622,62 +640,68 @@
         {
           "concept_title": "Carbon as Element of Life: Carbon is the universal structural backbone of all biological macromolecules: proteins, carbohydrates, lipids, nucleic acids (DNA/RNA), and vitamins; it occurs in elemental form as diamond and graphite, and in combined form as atmospheric CO2 and carbonate minerals.",
           "diagram_title": "The Biogeochemical Carbon Cycle Schema",
-          "diagram_type": "image",
-          "image_query": "carbon cycle photosynthesis respiration fossil fuels carbonate rocks diagram",
-          "video_query": "the carbon cycle class 9 animation",
-          "image_url": "/extracted_diagrams/ch13/fig_13_13.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook master diagram of the carbon cycle connecting atmosphere, photosynthesis, respiration, and fossil fuels. scientific educational diagram with clear labels",
+          "video_query": "The Biogeochemical Carbon Cycle Schema educational demonstration video",
           "what_to_make": "Textbook master diagram of the carbon cycle connecting atmosphere, photosynthesis, respiration, and fossil fuels.",
-          "timing_and_cue": "Mount carbon cycle on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_13.webp | The Carbon Cycle | Photosynthetic fixation and respiratory release linking living biosphere to lithosphere\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook master diagram of the carbon cycle connecting atmosphere, photosynthesis, respiration, and fossil fuels. scientific educational diagram with clear labels\", title=\"The Biogeochemical Carbon Cycle Schema\") | Proactive video: search_and_show_video(query=\"The Biogeochemical Carbon Cycle Schema educational demonstration video\", title=\"The Biogeochemical Carbon Cycle Schema\")",
+          "image_search_query": "Textbook master diagram of the carbon cycle connecting atmosphere, photosynthesis, respiration, and fossil fuels. scientific educational diagram with clear labels",
+          "video_search_query": "The Biogeochemical Carbon Cycle Schema educational demonstration video"
         },
         {
           "concept_title": "Photosynthetic Carbon Fixation: Green plants, algae, and cyanobacteria absorb atmospheric CO2 and convert it into energy-rich glucose via photosynthesis: $6\\text{CO}_2 + 6\\text{H}_2\\text{O} \\xrightarrow{\\text{sunlight, chlorophyll}} \\text{C}_6\\text{H}_{12}\\text{O}_6 + 6\\text{O}_2$; this is the primary entry gate of carbon into the living biosphere.",
           "diagram_title": "Photosynthetic Fixation & Biomass Accumulation",
-          "diagram_type": "image",
-          "image_query": "photosynthesis carbon fixation chloroplast glucose equation diagram",
-          "video_query": "photosynthesis carbon fixation animation",
-          "image_url": "/extracted_diagrams/ch13/fig_13_13.webp",
+          "diagram_type": "image_search",
+          "image_query": "plant leaves fixing atmospheric CO2 into glucose organic molecules. scientific educational diagram with clear labels",
+          "video_query": "Photosynthetic Fixation & Biomass Accumulation educational demonstration video",
           "what_to_make": "Textbook diagram showing plant leaves fixing atmospheric CO2 into glucose organic molecules.",
-          "timing_and_cue": "Mount carbon fixation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_13.webp | Photosynthetic Fixation | Transforming atmospheric CO2 into organic glucose molecules\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"plant leaves fixing atmospheric CO2 into glucose organic molecules. scientific educational diagram with clear labels\", title=\"Photosynthetic Fixation & Biomass Accumulation\") | Proactive video: search_and_show_video(query=\"Photosynthetic Fixation & Biomass Accumulation educational demonstration video\", title=\"Photosynthetic Fixation & Biomass Accumulation\")",
+          "image_search_query": "plant leaves fixing atmospheric CO2 into glucose organic molecules. scientific educational diagram with clear labels",
+          "video_search_query": "Photosynthetic Fixation & Biomass Accumulation educational demonstration video"
         },
         {
           "concept_title": "Respiratory and Combustion Release: Carbon is returned to the atmosphere as CO2 through cellular respiration ($C_6H_{12}O_6 + 6O_2 \\to 6CO_2 + 6H_2O + \\text{Energy}$), decomposition of dead organic matter by bacteria/fungi, and combustion of biomass and fossil fuels (coal, petroleum, natural gas).",
           "diagram_title": "Respiration, Decomposition & Combustion Pathways",
-          "diagram_type": "image",
-          "image_query": "respiration decomposition combustion carbon dioxide release diagram",
-          "video_query": "respiration and combustion carbon cycle",
-          "image_url": "/extracted_diagrams/ch13/fig_13_13.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram detailing CO2 release from respiratory exhalation and industrial chimneys. scientific educational diagram with clear labels",
+          "video_query": "Respiration, Decomposition & Combustion Pathways educational demonstration video",
           "what_to_make": "Textbook diagram detailing CO2 release from respiratory exhalation and industrial chimneys.",
-          "timing_and_cue": "Mount carbon release on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_13.webp | Carbon Release Pathways | Cellular respiration, bacterial decomposition, and fossil combustion emitting CO2\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram detailing CO2 release from respiratory exhalation and industrial chimneys. scientific educational diagram with clear labels\", title=\"Respiration, Decomposition & Combustion Pathways\") | Proactive video: search_and_show_video(query=\"Respiration, Decomposition & Combustion Pathways educational demonstration video\", title=\"Respiration, Decomposition & Combustion Pathways\")",
+          "image_search_query": "Textbook diagram detailing CO2 release from respiratory exhalation and industrial chimneys. scientific educational diagram with clear labels",
+          "video_search_query": "Respiration, Decomposition & Combustion Pathways educational demonstration video"
         },
         {
           "concept_title": "Marine Carbonate Sinks: Aquatic marine organisms (molluscs, corals, foraminifera) absorb dissolved carbonates from seawater to synthesize hard calcium carbonate ($CaCO_3$) shells; when they die, their shells accumulate on the ocean floor to form limestone and chalk deposits over millions of years.",
           "diagram_title": "Marine Shell Formation & Limestone Carbon Sink",
-          "diagram_type": "image",
-          "image_query": "marine carbonate sink limestone shell formation calcium carbonate diagram",
-          "video_query": "ocean carbon cycle limestone formation",
-          "image_url": "/extracted_diagrams/ch13/fig_13_13.webp",
+          "diagram_type": "image_search",
+          "image_query": "marine shell deposition forming geological limestone beds. scientific educational diagram with clear labels",
+          "video_query": "Marine Shell Formation & Limestone Carbon Sink educational demonstration video",
           "what_to_make": "Textbook diagram showing marine shell deposition forming geological limestone beds.",
-          "timing_and_cue": "Mount marine carbon sink on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_13.webp | Oceanic Carbonate Sinks | Calcium carbonate shell deposition sequestering carbon into limestone strata\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"marine shell deposition forming geological limestone beds. scientific educational diagram with clear labels\", title=\"Marine Shell Formation & Limestone Carbon Sink\") | Proactive video: search_and_show_video(query=\"Marine Shell Formation & Limestone Carbon Sink educational demonstration video\", title=\"Marine Shell Formation & Limestone Carbon Sink\")",
+          "image_search_query": "marine shell deposition forming geological limestone beds. scientific educational diagram with clear labels",
+          "video_search_query": "Marine Shell Formation & Limestone Carbon Sink educational demonstration video"
         },
         {
           "concept_title": "The Greenhouse Effect: Certain atmospheric gases (carbon dioxide, methane, nitrous oxide, and water vapor) are transparent to incoming shortwave solar radiation, but absorb outgoing longwave infrared (thermal) radiation re-emitted by Earth's surface, re-radiating heat back to Earth and maintaining a global average temperature of $+15^\\circ\\text{C}$.",
           "diagram_title": "The Greenhouse Effect Radiative Physics",
-          "diagram_type": "image",
-          "image_query": "greenhouse effect mechanism shortwave solar longwave infrared diagram",
-          "video_query": "greenhouse effect explained 3d animation",
-          "image_url": "/extracted_diagrams/ch13/fig_13_5.webp",
+          "diagram_type": "image_search",
+          "image_query": "incoming shortwave sunlight and trapped longwave infrared heat rays. scientific educational diagram with clear labels",
+          "video_query": "The Greenhouse Effect Radiative Physics educational demonstration video",
           "what_to_make": "Textbook diagram showing incoming shortwave sunlight and trapped longwave infrared heat rays.",
-          "timing_and_cue": "Mount greenhouse effect on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_5.webp | The Greenhouse Effect | Greenhouse gases selectively trapping outgoing terrestrial infrared radiation\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"incoming shortwave sunlight and trapped longwave infrared heat rays. scientific educational diagram with clear labels\", title=\"The Greenhouse Effect Radiative Physics\") | Proactive video: search_and_show_video(query=\"The Greenhouse Effect Radiative Physics educational demonstration video\", title=\"The Greenhouse Effect Radiative Physics\")",
+          "image_search_query": "incoming shortwave sunlight and trapped longwave infrared heat rays. scientific educational diagram with clear labels",
+          "video_search_query": "The Greenhouse Effect Radiative Physics educational demonstration video"
         },
         {
           "concept_title": "Anthropogenic Global Warming: Massive combustion of fossil fuels and worldwide deforestation have driven atmospheric CO2 concentrations from pre-industrial levels of $280\\text{ ppm}$ to over $420\\text{ ppm}$, intensifying the greenhouse effect and causing polar ice melting, rising sea levels, ocean acidification, and extreme weather disasters.",
           "diagram_title": "Clean Solar Energy Mitigating Global Warming",
-          "diagram_type": "image",
-          "image_query": "clean solar energy decarbonization combating global warming diagram",
-          "video_query": "combating climate change solar energy transition",
-          "image_url": "/extracted_diagrams/ch13/fig_13_4.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook image of desert solar photovoltaic installations demonstrating zero-carbon energy generation. scientific educational diagram with clear labels",
+          "video_query": "Clean Solar Energy Mitigating Global Warming educational demonstration video",
           "what_to_make": "Textbook image of desert solar photovoltaic installations demonstrating zero-carbon energy generation.",
-          "timing_and_cue": "Mount clean energy on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_4.webp | Decarbonization & Clean Energy | Transitioning to solar photovoltaics to eliminate fossil combustion emissions\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook image of desert solar photovoltaic installations demonstrating zero-carbon energy generation. scientific educational diagram with clear labels\", title=\"Clean Solar Energy Mitigating Global Warming\") | Proactive video: search_and_show_video(query=\"Clean Solar Energy Mitigating Global Warming educational demonstration video\", title=\"Clean Solar Energy Mitigating Global Warming\")",
+          "image_search_query": "Textbook image of desert solar photovoltaic installations demonstrating zero-carbon energy generation. scientific educational diagram with clear labels",
+          "video_search_query": "Clean Solar Energy Mitigating Global Warming educational demonstration video"
         }
       ]
     },
@@ -793,62 +817,68 @@
         {
           "concept_title": "The Atmospheric Nitrogen Paradox: Nitrogen gas constitutes 78% of Earth's atmosphere and is an indispensable component of amino acids, proteins, nucleic acids (DNA/RNA), chlorophyll, and ATP; however, plants and animals cannot absorb gaseous molecular N2 directly from the air.",
           "diagram_title": "The Biogeochemical Nitrogen Cycle Master Schema",
-          "diagram_type": "image",
-          "image_query": "nitrogen cycle fixation nitrification assimilation ammonification denitrification diagram",
-          "video_query": "the nitrogen cycle class 9 animation step by step",
-          "image_url": "/extracted_diagrams/ch13/fig_13_15.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook master diagram of the nitrogen cycle showing atmospheric N2, root nodules, soil nitrification, and denitrification. scientific educational diagram with clear labels",
+          "video_query": "The Biogeochemical Nitrogen Cycle Master Schema educational demonstration video",
           "what_to_make": "Textbook master diagram of the nitrogen cycle showing atmospheric N2, root nodules, soil nitrification, and denitrification.",
-          "timing_and_cue": "Mount nitrogen cycle on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_15.webp | The Nitrogen Cycle | Comprehensive pathways of Fixation, Nitrification, Assimilation, Ammonification, and Denitrification\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook master diagram of the nitrogen cycle showing atmospheric N2, root nodules, soil nitrification, and denitrification. scientific educational diagram with clear labels\", title=\"The Biogeochemical Nitrogen Cycle Master Schema\") | Proactive video: search_and_show_video(query=\"The Biogeochemical Nitrogen Cycle Master Schema educational demonstration video\", title=\"The Biogeochemical Nitrogen Cycle Master Schema\")",
+          "image_search_query": "Textbook master diagram of the nitrogen cycle showing atmospheric N2, root nodules, soil nitrification, and denitrification. scientific educational diagram with clear labels",
+          "video_search_query": "The Biogeochemical Nitrogen Cycle Master Schema educational demonstration video"
         },
         {
           "concept_title": "The Invariant Chemical Barrier: Nitrogen molecules exist as two nitrogen atoms held together by an extremely strong triple covalent bond ($N \\equiv N$) with massive bond dissociation energy ($945\\text{ kJ/mol}$); breaking this inert bond requires specialized biological enzymes (nitrogenase) or high-energy physical discharges.",
           "diagram_title": "Triple Covalent Bond & Nitrogenase Cleavage",
-          "diagram_type": "image",
-          "image_query": "nitrogen molecule triple covalent bond nitrogenase enzyme cleavage diagram",
-          "video_query": "why nitrogen is inert triple bond nitrogenase",
-          "image_url": "/extracted_diagrams/ch13/fig_13_15.webp",
+          "diagram_type": "image_search",
+          "image_query": "N2 triple bond structure and high energy requirement for cleavage. scientific educational diagram with clear labels",
+          "video_query": "Triple Covalent Bond & Nitrogenase Cleavage educational demonstration video",
           "what_to_make": "Textbook diagram showing N2 triple bond structure and high energy requirement for cleavage.",
-          "timing_and_cue": "Mount triple bond barrier on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_15.webp | The N2 Triple Bond Barrier | 945 kJ/mol bond dissociation energy requiring nitrogenase enzyme for fixation\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"N2 triple bond structure and high energy requirement for cleavage. scientific educational diagram with clear labels\", title=\"Triple Covalent Bond & Nitrogenase Cleavage\") | Proactive video: search_and_show_video(query=\"Triple Covalent Bond & Nitrogenase Cleavage educational demonstration video\", title=\"Triple Covalent Bond & Nitrogenase Cleavage\")",
+          "image_search_query": "N2 triple bond structure and high energy requirement for cleavage. scientific educational diagram with clear labels",
+          "video_search_query": "Triple Covalent Bond & Nitrogenase Cleavage educational demonstration video"
         },
         {
           "concept_title": "Biological Nitrogen Fixation (BNF): Certain prokaryotic microorganisms possess the enzyme nitrogenase capable of fixing atmospheric N2 into ammonia: 1. Symbiotic bacteria (*Rhizobium*) living inside specialized root nodules of leguminous plants (pea, gram, bean, clover); 2. Free-living soil bacteria (*Azotobacter*, *Clostridium*); 3. Cyanobacteria (*Anabaena*, *Nostoc*).",
           "diagram_title": "Rhizobium Root Nodule Symbiosis",
-          "diagram_type": "image",
-          "image_query": "rhizobium root nodules leguminous plant nitrogen fixation diagram",
-          "video_query": "root nodules rhizobium symbiosis animation",
-          "image_url": "/extracted_diagrams/ch13/fig_13_15.webp",
+          "diagram_type": "image_search",
+          "image_query": "legume root nodules harboring symbiotic Rhizobium bacteria. scientific educational diagram with clear labels",
+          "video_query": "Rhizobium Root Nodule Symbiosis educational demonstration video",
           "what_to_make": "Textbook diagram showing legume root nodules harboring symbiotic Rhizobium bacteria.",
-          "timing_and_cue": "Mount root nodules on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_15.webp | Biological Nitrogen Fixation | Symbiotic Rhizobium in legume root nodules fixing atmospheric N2 into ammonia\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"legume root nodules harboring symbiotic Rhizobium bacteria. scientific educational diagram with clear labels\", title=\"Rhizobium Root Nodule Symbiosis\") | Proactive video: search_and_show_video(query=\"Rhizobium Root Nodule Symbiosis educational demonstration video\", title=\"Rhizobium Root Nodule Symbiosis\")",
+          "image_search_query": "legume root nodules harboring symbiotic Rhizobium bacteria. scientific educational diagram with clear labels",
+          "video_search_query": "Rhizobium Root Nodule Symbiosis educational demonstration video"
         },
         {
           "concept_title": "Physical Fixation by Lightning: During thunderstorms, high temperatures and electric voltages of lightning force atmospheric nitrogen and oxygen to combine into nitrogen oxides ($NO$ and $NO_2$); these dissolve in rainwater to form nitric acid ($HNO_3$), which washes into soil reacting with minerals to form soluble nitrates ($NO_3^-$).",
           "diagram_title": "Atmospheric Lightning Nitrogen Fixation",
-          "diagram_type": "image",
-          "image_query": "lightning thunderstorm nitrogen fixation nitric acid rain nitrates diagram",
-          "video_query": "nitrogen fixation by lightning thunderstorm",
-          "image_url": "/extracted_diagrams/ch13/fig_13_15.webp",
+          "diagram_type": "image_search",
+          "image_query": "thunderstorm lightning synthesizing nitrogen oxides washed into soil as nitrates. scientific educational diagram with clear labels",
+          "video_query": "Atmospheric Lightning Nitrogen Fixation educational demonstration video",
           "what_to_make": "Textbook diagram showing thunderstorm lightning synthesizing nitrogen oxides washed into soil as nitrates.",
-          "timing_and_cue": "Mount lightning fixation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_15.webp | Lightning Fixation | Thunderstorm plasma synthesizing nitrogen oxides washed into soil by rain\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"thunderstorm lightning synthesizing nitrogen oxides washed into soil as nitrates. scientific educational diagram with clear labels\", title=\"Atmospheric Lightning Nitrogen Fixation\") | Proactive video: search_and_show_video(query=\"Atmospheric Lightning Nitrogen Fixation educational demonstration video\", title=\"Atmospheric Lightning Nitrogen Fixation\")",
+          "image_search_query": "thunderstorm lightning synthesizing nitrogen oxides washed into soil as nitrates. scientific educational diagram with clear labels",
+          "video_search_query": "Atmospheric Lightning Nitrogen Fixation educational demonstration video"
         },
         {
           "concept_title": "Nitrification (Two-Step Soil Bacterial Conversion): Soil nitrifying bacteria convert toxic ammonia into forms usable by plants: Step 1: *Nitrosomonas* bacteria oxidize ammonia ($NH_3$) into nitrites ($NO_2^-$); Step 2: *Nitrobacter* bacteria oxidize nitrites ($NO_2^-$) into nitrates ($NO_3^-$), which plant roots readily absorb.",
           "diagram_title": "Nitrification: Nitrosomonas & Nitrobacter Pathways",
-          "diagram_type": "image",
-          "image_query": "nitrification nitrosomonas nitrobacter ammonia nitrite nitrate diagram",
-          "video_query": "nitrification steps nitrosomonas nitrobacter",
-          "image_url": "/extracted_diagrams/ch13/fig_13_15.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram detailing the sequential enzymatic oxidation from ammonia to nitrite to nitrate. scientific educational diagram with clear labels",
+          "video_query": "Nitrification: Nitrosomonas & Nitrobacter Pathways educational demonstration video",
           "what_to_make": "Textbook diagram detailing the sequential enzymatic oxidation from ammonia to nitrite to nitrate.",
-          "timing_and_cue": "Mount nitrification on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_15.webp | Soil Nitrification | Nitrosomonas converting ammonia to nitrites, and Nitrobacter oxidizing nitrites to nitrates\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram detailing the sequential enzymatic oxidation from ammonia to nitrite to nitrate. scientific educational diagram with clear labels\", title=\"Nitrification: Nitrosomonas & Nitrobacter Pathways\") | Proactive video: search_and_show_video(query=\"Nitrification: Nitrosomonas & Nitrobacter Pathways educational demonstration video\", title=\"Nitrification: Nitrosomonas & Nitrobacter Pathways\")",
+          "image_search_query": "Textbook diagram detailing the sequential enzymatic oxidation from ammonia to nitrite to nitrate. scientific educational diagram with clear labels",
+          "video_search_query": "Nitrification: Nitrosomonas & Nitrobacter Pathways educational demonstration video"
         },
         {
           "concept_title": "Ammonification and Denitrification: In Ammonification, putrefying bacteria and fungi decompose nitrogenous animal wastes (urea, uric acid) and dead bodies into ammonia ($NH_3$); in Denitrification, anaerobic denitrifying bacteria (such as *Pseudomonas*) reduce nitrates ($NO_3^-$) back into inert elemental nitrogen gas ($N_2$), returning it to the atmosphere and completing the biogeochemical cycle.",
           "diagram_title": "Denitrification by Pseudomonas Closing the Cycle",
-          "diagram_type": "image",
-          "image_query": "denitrification pseudomonas nitrates to nitrogen gas cycle closure diagram",
-          "video_query": "ammonification and denitrification explained",
-          "image_url": "/extracted_diagrams/ch13/fig_13_15.webp",
+          "diagram_type": "image_search",
+          "image_query": "Pseudomonas reducing nitrates back into atmospheric N2 gas. scientific educational diagram with clear labels",
+          "video_query": "Denitrification by Pseudomonas Closing the Cycle educational demonstration video",
           "what_to_make": "Textbook diagram showing Pseudomonas reducing nitrates back into atmospheric N2 gas.",
-          "timing_and_cue": "Mount denitrification on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_15.webp | Cycle Closure (Denitrification) | Anaerobic Pseudomonas reducing soil nitrates back to N2 gas\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Pseudomonas reducing nitrates back into atmospheric N2 gas. scientific educational diagram with clear labels\", title=\"Denitrification by Pseudomonas Closing the Cycle\") | Proactive video: search_and_show_video(query=\"Denitrification by Pseudomonas Closing the Cycle educational demonstration video\", title=\"Denitrification by Pseudomonas Closing the Cycle\")",
+          "image_search_query": "Pseudomonas reducing nitrates back into atmospheric N2 gas. scientific educational diagram with clear labels",
+          "video_search_query": "Denitrification by Pseudomonas Closing the Cycle educational demonstration video"
         }
       ]
     },
@@ -964,62 +994,68 @@
         {
           "concept_title": "The Biogeochemical Oxygen Cycle: Oxygen constitutes ~21% of atmospheric air, ~89% of water by mass, and ~47% of Earth's crust (as oxides of silicon and metals); it is consumed by cellular respiration, combustion of fuels, and oxidation of minerals (rusting), and replenished exclusively by oxygenic photosynthesis in plants and marine phytoplankton.",
           "diagram_title": "The Biogeochemical Oxygen Cycle Schema",
-          "diagram_type": "image",
-          "image_query": "oxygen cycle respiration combustion photosynthesis atmospheric oxygen diagram",
-          "video_query": "the oxygen cycle class 9 animation",
-          "image_url": "/extracted_diagrams/ch13/fig_13_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook master diagram of the oxygen cycle showing respiration, combustion, and photosynthetic oxygen release. scientific educational diagram with clear labels",
+          "video_query": "The Biogeochemical Oxygen Cycle Schema educational demonstration video",
           "what_to_make": "Textbook master diagram of the oxygen cycle showing respiration, combustion, and photosynthetic oxygen release.",
-          "timing_and_cue": "Mount oxygen cycle on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_16.webp | The Oxygen Cycle | Dynamic equilibrium between photosynthetic oxygen generation and respiratory/combustive consumption\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook master diagram of the oxygen cycle showing respiration, combustion, and photosynthetic oxygen release. scientific educational diagram with clear labels\", title=\"The Biogeochemical Oxygen Cycle Schema\") | Proactive video: search_and_show_video(query=\"The Biogeochemical Oxygen Cycle Schema educational demonstration video\", title=\"The Biogeochemical Oxygen Cycle Schema\")",
+          "image_search_query": "Textbook master diagram of the oxygen cycle showing respiration, combustion, and photosynthetic oxygen release. scientific educational diagram with clear labels",
+          "video_search_query": "The Biogeochemical Oxygen Cycle Schema educational demonstration video"
         },
         {
           "concept_title": "Oxygen Toxicity to Anaerobic Life: While elemental diatomic oxygen ($O_2$) is indispensable for aerobic respiration, it is intensely toxic to obligate anaerobic bacteria (such as *Clostridium tetani* and nitrogen-fixing *Rhizobium* in root nodules), requiring specialized biochemical protection (leghaemoglobin).",
           "diagram_title": "Aerobic vs Anaerobic Biochemical Metabolic Pathways",
-          "diagram_type": "image",
-          "image_query": "oxygen toxicity anaerobic bacteria cellular respiration diagram",
-          "video_query": "oxygen toxicity to obligate anaerobes",
-          "image_url": "/extracted_diagrams/ch13/fig_13_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram contrasting aerobic respiration pathways with anaerobic metabolic niches. scientific educational diagram with clear labels",
+          "video_query": "Aerobic vs Anaerobic Biochemical Metabolic Pathways educational demonstration video",
           "what_to_make": "Textbook diagram contrasting aerobic respiration pathways with anaerobic metabolic niches.",
-          "timing_and_cue": "Mount oxygen paradox on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_16.webp | The Oxygen Paradox | Indispensable fuel for aerobes, yet lethal to obligate anaerobic nitrogen-fixing organisms\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram contrasting aerobic respiration pathways with anaerobic metabolic niches. scientific educational diagram with clear labels\", title=\"Aerobic vs Anaerobic Biochemical Metabolic Pathways\") | Proactive video: search_and_show_video(query=\"Aerobic vs Anaerobic Biochemical Metabolic Pathways educational demonstration video\", title=\"Aerobic vs Anaerobic Biochemical Metabolic Pathways\")",
+          "image_search_query": "Textbook diagram contrasting aerobic respiration pathways with anaerobic metabolic niches. scientific educational diagram with clear labels",
+          "video_search_query": "Aerobic vs Anaerobic Biochemical Metabolic Pathways educational demonstration video"
         },
         {
           "concept_title": "Photochemical Formation of Ozone ($O_3$): In the stratosphere ($15-30\\text{ km}$), high-energy solar ultraviolet radiation splits diatomic oxygen molecules into free nascent oxygen atoms: $O_2 \\xrightarrow{UV} O + O$; these nascent oxygen atoms instantly react with molecular oxygen to produce triatomic ozone: $O + O_2 \\to O_3$.",
           "diagram_title": "Stratospheric Ozone Photochemical Synthesis",
-          "diagram_type": "image",
-          "image_query": "ozone formation chapman cycle UV photolysis O2 to O3 diagram",
-          "video_query": "how ozone layer is formed in stratosphere",
-          "image_url": "/extracted_diagrams/ch13/fig_13_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "solar UV photolysis synthesizing stratospheric ozone molecules. scientific educational diagram with clear labels",
+          "video_query": "Stratospheric Ozone Photochemical Synthesis educational demonstration video",
           "what_to_make": "Textbook diagram showing solar UV photolysis synthesizing stratospheric ozone molecules.",
-          "timing_and_cue": "Mount ozone synthesis on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_7.webp | Photochemical Ozone Synthesis | Solar UV rays dissociating O2 to form protective triatomic ozone O3\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"solar UV photolysis synthesizing stratospheric ozone molecules. scientific educational diagram with clear labels\", title=\"Stratospheric Ozone Photochemical Synthesis\") | Proactive video: search_and_show_video(query=\"Stratospheric Ozone Photochemical Synthesis educational demonstration video\", title=\"Stratospheric Ozone Photochemical Synthesis\")",
+          "image_search_query": "solar UV photolysis synthesizing stratospheric ozone molecules. scientific educational diagram with clear labels",
+          "video_search_query": "Stratospheric Ozone Photochemical Synthesis educational demonstration video"
         },
         {
           "concept_title": "The Stratospheric Ozone Shield: Triatomic ozone forms a protective layer in the stratosphere that absorbs over 98% of high-energy, lethal solar ultraviolet radiation ($UV-B$ and $UV-C$), preventing it from reaching the Earth's surface; UV radiation causes skin cancer, cataract blindness, retinal damage, suppression of the human immune system, and destroys marine phytoplankton.",
           "diagram_title": "Stratospheric Ultraviolet Absorption Shield",
-          "diagram_type": "image",
-          "image_query": "ozone layer UV shield absorbing UVB UVC radiation diagram",
-          "video_query": "how the ozone layer protects earth from UV radiation",
-          "image_url": "/extracted_diagrams/ch13/fig_13_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "the stratospheric ozone layer absorbing lethal UV rays while transmitting visible light. scientific educational diagram with clear labels",
+          "video_query": "Stratospheric Ultraviolet Absorption Shield educational demonstration video",
           "what_to_make": "Textbook diagram illustrating the stratospheric ozone layer absorbing lethal UV rays while transmitting visible light.",
-          "timing_and_cue": "Mount ozone shield on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_7.webp | The Stratospheric Ozone Shield | Absorbing over 98% of lethal UV-B and UV-C rays to protect cellular DNA\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"the stratospheric ozone layer absorbing lethal UV rays while transmitting visible light. scientific educational diagram with clear labels\", title=\"Stratospheric Ultraviolet Absorption Shield\") | Proactive video: search_and_show_video(query=\"Stratospheric Ultraviolet Absorption Shield educational demonstration video\", title=\"Stratospheric Ultraviolet Absorption Shield\")",
+          "image_search_query": "the stratospheric ozone layer absorbing lethal UV rays while transmitting visible light. scientific educational diagram with clear labels",
+          "video_search_query": "Stratospheric Ultraviolet Absorption Shield educational demonstration video"
         },
         {
           "concept_title": "Catalytic Ozone Depletion by CFCs: Synthetic industrial Chlorofluorocarbons (CFCs) used in refrigerators, air conditioners, and aerosol propellants are exceptionally stable in the troposphere; when they drift into the stratosphere, UV rays break them down, releasing highly reactive chlorine free radicals ($Cl^\\bullet$): $Cl^\\bullet + O_3 \\to ClO^\\bullet + O_2$; a single chlorine radical can catalytically destroy more than 100,000 ozone molecules before being neutralized.",
           "diagram_title": "CFC Catalytic Ozone Destruction Cycle",
-          "diagram_type": "image",
-          "image_query": "CFC chlorofluorocarbon ozone depletion chlorine radical catalytic cycle diagram",
-          "video_query": "how CFCs destroy the ozone layer animation",
-          "image_url": "/extracted_diagrams/ch13/fig_13_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "chlorine radical catalytic destruction of ozone molecules. scientific educational diagram with clear labels",
+          "video_query": "CFC Catalytic Ozone Destruction Cycle educational demonstration video",
           "what_to_make": "Textbook diagram showing chlorine radical catalytic destruction of ozone molecules.",
-          "timing_and_cue": "Mount CFC depletion on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_7.webp | Catalytic Ozone Depletion | Chlorine radicals from CFCs catalytically destroying over 100,000 ozone molecules\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"chlorine radical catalytic destruction of ozone molecules. scientific educational diagram with clear labels\", title=\"CFC Catalytic Ozone Destruction Cycle\") | Proactive video: search_and_show_video(query=\"CFC Catalytic Ozone Destruction Cycle educational demonstration video\", title=\"CFC Catalytic Ozone Destruction Cycle\")",
+          "image_search_query": "chlorine radical catalytic destruction of ozone molecules. scientific educational diagram with clear labels",
+          "video_search_query": "CFC Catalytic Ozone Destruction Cycle educational demonstration video"
         },
         {
           "concept_title": "The Antarctic Ozone Hole & Montreal Protocol (1987): In 1985, scientists discovered severe seasonal thinning of the ozone layer over Antarctica ('the ozone hole'); in response, the international community signed the historic Montreal Protocol (1987) freezing and phasing out CFC production, leading to progressive stratospheric ozone recovery.",
           "diagram_title": "IITM Atmospheric Monitoring & Montreal Protocol",
-          "diagram_type": "image",
-          "image_query": "meteorological monitoring ozone layer recovery Montreal protocol diagram",
-          "video_query": "Montreal protocol ozone layer recovery success story",
-          "image_url": "/extracted_diagrams/ch13/fig_13_11.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook photograph of meteorological research monitoring station tracking atmospheric composition and ozone recovery. scientific educational diagram with clear labels",
+          "video_query": "IITM Atmospheric Monitoring & Montreal Protocol educational demonstration video",
           "what_to_make": "Textbook photograph of meteorological research monitoring station tracking atmospheric composition and ozone recovery.",
-          "timing_and_cue": "Mount Montreal Protocol on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch13/fig_13_11.webp | Atmospheric Monitoring & Recovery | Montreal Protocol phasing out CFCs to ensure stratospheric ozone healing\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook photograph of meteorological research monitoring station tracking atmospheric composition and ozone recovery. scientific educational diagram with clear labels\", title=\"IITM Atmospheric Monitoring & Montreal Protocol\") | Proactive video: search_and_show_video(query=\"IITM Atmospheric Monitoring & Montreal Protocol educational demonstration video\", title=\"IITM Atmospheric Monitoring & Montreal Protocol\")",
+          "image_search_query": "Textbook photograph of meteorological research monitoring station tracking atmospheric composition and ozone recovery. scientific educational diagram with clear labels",
+          "video_search_query": "IITM Atmospheric Monitoring & Montreal Protocol educational demonstration video"
         }
       ]
     },

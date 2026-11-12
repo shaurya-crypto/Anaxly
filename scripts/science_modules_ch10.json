@@ -109,62 +109,68 @@
         {
           "concept_title": "Vibrational Origin of Sound: Sound is produced due to the vibration of objects; a vibration is a rapid to-and-fro or periodic back-and-forth motion of an object about its central equilibrium position.",
           "diagram_title": "Vibrating Rubber Band Sound Generation",
-          "diagram_type": "image",
-          "image_query": "vibrating rubber band produces sound diagram",
-          "video_query": "vibration produces sound rubber band experiment",
-          "image_url": "/extracted_diagrams/ch10/fig_10_2.webp",
+          "diagram_type": "image_search",
+          "image_query": "stretched rubber band vibrating to generate sound. scientific educational diagram with clear labels",
+          "video_query": "Vibrating Rubber Band Sound Generation educational demonstration video",
           "what_to_make": "Textbook diagram showing stretched rubber band vibrating to generate sound.",
-          "timing_and_cue": "Mount vibrating band on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_2.webp | Vibrational Sound Generation | Rapid to-and-fro oscillation of stretched rubber band\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"stretched rubber band vibrating to generate sound. scientific educational diagram with clear labels\", title=\"Vibrating Rubber Band Sound Generation\") | Proactive video: search_and_show_video(query=\"Vibrating Rubber Band Sound Generation educational demonstration video\", title=\"Vibrating Rubber Band Sound Generation\")",
+          "image_search_query": "stretched rubber band vibrating to generate sound. scientific educational diagram with clear labels",
+          "video_search_query": "Vibrating Rubber Band Sound Generation educational demonstration video"
         },
         {
           "concept_title": "Human Vocal Mechanism: In humans, sound is produced by the voice box or larynx; two vocal cords are stretched across the larynx leaving a narrow slit for the passage of air; air expelled from the lungs forces the cords to vibrate, producing voice.",
           "diagram_title": "Vocal Cords in Human Larynx",
-          "diagram_type": "image",
-          "image_query": "human vocal cords in larynx voice box diagram",
-          "video_query": "how vocal cords produce sound",
-          "image_url": "/extracted_diagrams/ch10/fig_10_3.webp",
+          "diagram_type": "image_search",
+          "image_query": "human vocal cords in the larynx showing air slit and muscular tensioning. scientific educational diagram with clear labels",
+          "video_query": "Vocal Cords in Human Larynx educational demonstration video",
           "what_to_make": "Textbook anatomical diagram of human vocal cords in the larynx showing air slit and muscular tensioning.",
-          "timing_and_cue": "Mount vocal cords on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_3.webp | Human Vocal Cords | Air from lungs vibrating slit in larynx to produce speech\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"human vocal cords in the larynx showing air slit and muscular tensioning. scientific educational diagram with clear labels\", title=\"Vocal Cords in Human Larynx\") | Proactive video: search_and_show_video(query=\"Vocal Cords in Human Larynx educational demonstration video\", title=\"Vocal Cords in Human Larynx\")",
+          "image_search_query": "human vocal cords in the larynx showing air slit and muscular tensioning. scientific educational diagram with clear labels",
+          "video_search_query": "Vocal Cords in Human Larynx educational demonstration video"
         },
         {
           "concept_title": "Material Medium Requirement: Sound is a mechanical wave that requires a material medium (solid, liquid, or gas) for its transmission; it cannot travel through a vacuum because there are no particles to collide and transfer momentum.",
           "diagram_title": "Tuning Fork Vibration & Pith Ball",
-          "diagram_type": "image",
-          "image_query": "tuning fork vibrating ping pong pith ball splash water diagram",
-          "video_query": "tuning fork vibration water splash experiment",
-          "image_url": "/extracted_diagrams/ch10/fig_10_4.webp",
+          "diagram_type": "image_search",
+          "image_query": "tuning fork struck against rubber pad and touching ear or water surface. scientific educational diagram with clear labels",
+          "video_query": "Tuning Fork Vibration & Pith Ball educational demonstration video",
           "what_to_make": "Textbook diagram showing tuning fork struck against rubber pad and touching ear or water surface.",
-          "timing_and_cue": "Mount tuning fork on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_4.webp | Tuning Fork Vibrations | Rapid prong oscillations transferring mechanical disturbance\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"tuning fork struck against rubber pad and touching ear or water surface. scientific educational diagram with clear labels\", title=\"Tuning Fork Vibration & Pith Ball\") | Proactive video: search_and_show_video(query=\"Tuning Fork Vibration & Pith Ball educational demonstration video\", title=\"Tuning Fork Vibration & Pith Ball\")",
+          "image_search_query": "tuning fork struck against rubber pad and touching ear or water surface. scientific educational diagram with clear labels",
+          "video_search_query": "Tuning Fork Vibration & Pith Ball educational demonstration video"
         },
         {
           "concept_title": "The Bell Jar Vacuum Proof: When an electric bell rings inside a glass bell jar connected to a vacuum pump, the sound gradually weakens as air is evacuated and ceases completely when a full vacuum is reached, even though the hammer continues striking the gong.",
           "diagram_title": "Vacuum Bell Jar Experiment Setup",
-          "diagram_type": "image",
-          "image_query": "electric bell jar vacuum pump experiment diagram",
-          "video_query": "bell jar experiment sound needs medium vacuum",
-          "image_url": "/extracted_diagrams/ch10/fig_10_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "airtight glass bell jar, electric bell, and vacuum pump demonstrating silence in vacuum. scientific educational diagram with clear labels",
+          "video_query": "Vacuum Bell Jar Experiment Setup educational demonstration video",
           "what_to_make": "Textbook diagram of airtight glass bell jar, electric bell, and vacuum pump demonstrating silence in vacuum.",
-          "timing_and_cue": "Mount bell jar experiment on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_7.webp | Vacuum Bell Jar Setup | Total silence when air is evacuated proving sound requires a medium\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"airtight glass bell jar, electric bell, and vacuum pump demonstrating silence in vacuum. scientific educational diagram with clear labels\", title=\"Vacuum Bell Jar Experiment Setup\") | Proactive video: search_and_show_video(query=\"Vacuum Bell Jar Experiment Setup educational demonstration video\", title=\"Vacuum Bell Jar Experiment Setup\")",
+          "image_search_query": "airtight glass bell jar, electric bell, and vacuum pump demonstrating silence in vacuum. scientific educational diagram with clear labels",
+          "video_search_query": "Vacuum Bell Jar Experiment Setup educational demonstration video"
         },
         {
           "concept_title": "Propagation as Energy Transfer: When a vibrating object moves forward, it pushes and compresses the medium in front of it creating a region of high pressure (compression); when it moves backward, it creates a region of low pressure (rarefaction).",
           "diagram_title": "Sound Propagation Through Solid Medium",
-          "diagram_type": "image",
-          "image_query": "sound travels through solid table meter rod experiment diagram",
-          "video_query": "sound transmission through solids",
-          "image_url": "/extracted_diagrams/ch10/fig_10_5.webp",
+          "diagram_type": "image_search",
+          "image_query": "student listening to tapping sounds transmitted through a solid wooden table. scientific educational diagram with clear labels",
+          "video_query": "Sound Propagation Through Solid Medium educational demonstration video",
           "what_to_make": "Textbook diagram showing student listening to tapping sounds transmitted through a solid wooden table.",
-          "timing_and_cue": "Mount solid transmission on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_5.webp | Sound in Solids | Fast acoustic transmission through solid lattice particles\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"student listening to tapping sounds transmitted through a solid wooden table. scientific educational diagram with clear labels\", title=\"Sound Propagation Through Solid Medium\") | Proactive video: search_and_show_video(query=\"Sound Propagation Through Solid Medium educational demonstration video\", title=\"Sound Propagation Through Solid Medium\")",
+          "image_search_query": "student listening to tapping sounds transmitted through a solid wooden table. scientific educational diagram with clear labels",
+          "video_search_query": "Sound Propagation Through Solid Medium educational demonstration video"
         },
         {
           "concept_title": "Zero Bulk Particle Transport: During sound propagation, individual particles of the medium do not travel from the source to the listener; they merely oscillate locally about their mean equilibrium positions, passing the disturbance to neighboring particles.",
           "diagram_title": "Spherical Wave Energy Propagation",
-          "diagram_type": "image",
-          "image_query": "spherical sound waves point source propagation diagram",
-          "video_query": "how sound waves travel compression rarefaction",
-          "image_url": "/extracted_diagrams/ch10/fig_10_10.webp",
+          "diagram_type": "image_search",
+          "image_query": "spherical wavefronts radiating from a point source through local particle oscillations. scientific educational diagram with clear labels",
+          "video_query": "Spherical Wave Energy Propagation educational demonstration video",
           "what_to_make": "Textbook diagram showing spherical wavefronts radiating from a point source through local particle oscillations.",
-          "timing_and_cue": "Mount spherical wave on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_10.webp | Spherical Wavefronts | Acoustic energy expanding in all directions without net particle drift\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"spherical wavefronts radiating from a point source through local particle oscillations. scientific educational diagram with clear labels\", title=\"Spherical Wave Energy Propagation\") | Proactive video: search_and_show_video(query=\"Spherical Wave Energy Propagation educational demonstration video\", title=\"Spherical Wave Energy Propagation\")",
+          "image_search_query": "spherical wavefronts radiating from a point source through local particle oscillations. scientific educational diagram with clear labels",
+          "video_search_query": "Spherical Wave Energy Propagation educational demonstration video"
         }
       ]
     },
@@ -280,62 +286,68 @@
         {
           "concept_title": "Longitudinal Wave Definition: A wave in which the individual particles of the medium oscillate back and forth parallel to the direction of wave propagation (e.g., sound waves in gases and liquids, compressional pulses in a slinky spring).",
           "diagram_title": "Slinky Spring Longitudinal Wave Pulse",
-          "diagram_type": "image",
-          "image_query": "slinky spring longitudinal wave compressions rarefactions diagram",
-          "video_query": "longitudinal wave slinky demonstration",
-          "image_url": "/extracted_diagrams/ch10/fig_10_8.webp",
+          "diagram_type": "image_search",
+          "image_query": "Slinky Spring Longitudinal Wave Pulse step by step mathematical chalkboard solution diagram",
+          "video_query": "Slinky Spring Longitudinal Wave Pulse class 10 9 mathematics explanation",
           "what_to_make": "Textbook diagram showing compressions and rarefactions traveling along a stretched slinky.",
-          "timing_and_cue": "Mount slinky wave on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_8.webp | Slinky Longitudinal Waves | Alternating coils showing compressions and rarefactions\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Slinky Spring Longitudinal Wave Pulse step by step mathematical chalkboard solution diagram\", title=\"Slinky Spring Longitudinal Wave Pulse\") | Proactive video: search_and_show_video(query=\"Slinky Spring Longitudinal Wave Pulse class 10 9 mathematics explanation\", title=\"Slinky Spring Longitudinal Wave Pulse\")",
+          "image_search_query": "Slinky Spring Longitudinal Wave Pulse step by step mathematical chalkboard solution diagram",
+          "video_search_query": "Slinky Spring Longitudinal Wave Pulse class 10 9 mathematics explanation"
         },
         {
           "concept_title": "Transverse Wave Definition: A wave in which the particles of the medium oscillate up and down perpendicular to the direction of wave propagation (e.g., ripples on a water surface, light waves), characterized by crests and troughs.",
           "diagram_title": "Piston Air Tube Density Disturbance",
-          "diagram_type": "image",
-          "image_query": "air density tube piston longitudinal sound wave diagram",
-          "video_query": "longitudinal vs transverse waves difference",
-          "image_url": "/extracted_diagrams/ch10/fig_10_9.webp",
+          "diagram_type": "image_search",
+          "image_query": "Piston Air Tube Density Disturbance step by step mathematical chalkboard solution diagram",
+          "video_query": "Piston Air Tube Density Disturbance class 10 9 mathematics explanation",
           "what_to_make": "Textbook diagram showing oscillating piston generating density variations in an air tube.",
-          "timing_and_cue": "Mount air piston on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_9.webp | Air Density in Tube | Piston oscillations creating alternating density bands\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Piston Air Tube Density Disturbance step by step mathematical chalkboard solution diagram\", title=\"Piston Air Tube Density Disturbance\") | Proactive video: search_and_show_video(query=\"Piston Air Tube Density Disturbance class 10 9 mathematics explanation\", title=\"Piston Air Tube Density Disturbance\")",
+          "image_search_query": "Piston Air Tube Density Disturbance step by step mathematical chalkboard solution diagram",
+          "video_search_query": "Piston Air Tube Density Disturbance class 10 9 mathematics explanation"
         },
         {
           "concept_title": "Wavelength (lambda): The linear distance between two consecutive compressions or two consecutive rarefactions in a longitudinal wave, measured in meters (m).",
           "diagram_title": "Longitudinal Waveform Anatomy",
-          "diagram_type": "image",
-          "image_query": "longitudinal wave anatomy wavelength compression rarefaction diagram",
-          "video_query": "wavelength of sound wave explained",
-          "image_url": "/extracted_diagrams/ch10/fig_10_12.webp",
+          "diagram_type": "image_search",
+          "image_query": "Longitudinal Waveform Anatomy step by step mathematical chalkboard solution diagram",
+          "video_query": "Longitudinal Waveform Anatomy class 10 9 mathematics explanation",
           "what_to_make": "Textbook anatomical diagram of a longitudinal wave marking wavelength between compressions.",
-          "timing_and_cue": "Mount wave anatomy on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_12.webp | Longitudinal Wave Anatomy | Distance lambda between consecutive compressions\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Longitudinal Waveform Anatomy step by step mathematical chalkboard solution diagram\", title=\"Longitudinal Waveform Anatomy\") | Proactive video: search_and_show_video(query=\"Longitudinal Waveform Anatomy class 10 9 mathematics explanation\", title=\"Longitudinal Waveform Anatomy\")",
+          "image_search_query": "Longitudinal Waveform Anatomy step by step mathematical chalkboard solution diagram",
+          "video_search_query": "Longitudinal Waveform Anatomy class 10 9 mathematics explanation"
         },
         {
           "concept_title": "Frequency (nu or f) & Time Period (T): Frequency is the number of complete wave cycles or oscillations passing a point per second, measured in Hertz (1 Hz = 1 s^-1); Time period is the time taken for one complete oscillation (T = 1 / nu).",
           "diagram_title": "Density Variation Sinusoidal Graph",
-          "diagram_type": "image",
-          "image_query": "sound wave density distance variation sine graph crest trough diagram",
-          "video_query": "frequency time period sound wave graph",
-          "image_url": "/extracted_diagrams/ch10/fig_10_16a.webp",
+          "diagram_type": "image_search",
+          "image_query": "Density Variation Sinusoidal Graph step by step mathematical chalkboard solution diagram",
+          "video_query": "Density Variation Sinusoidal Graph class 10 9 mathematics explanation",
           "what_to_make": "Textbook graph plotting periodic medium density variation against distance at a fixed instant.",
-          "timing_and_cue": "Mount density curve on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_16a.webp | Periodic Density Variation | Sinusoidal curve mapping compressions as crests and rarefactions as troughs\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Density Variation Sinusoidal Graph step by step mathematical chalkboard solution diagram\", title=\"Density Variation Sinusoidal Graph\") | Proactive video: search_and_show_video(query=\"Density Variation Sinusoidal Graph class 10 9 mathematics explanation\", title=\"Density Variation Sinusoidal Graph\")",
+          "image_search_query": "Density Variation Sinusoidal Graph step by step mathematical chalkboard solution diagram",
+          "video_search_query": "Density Variation Sinusoidal Graph class 10 9 mathematics explanation"
         },
         {
           "concept_title": "Amplitude (A): The magnitude of the maximum displacement of particles of the medium from their mean position on either side, representing the wave's energy.",
           "diagram_title": "Dual Representation: Density Medium & Sinusoid",
-          "diagram_type": "image",
-          "image_query": "sound wave graphical representation density pressure diagram",
-          "video_query": "amplitude of sound wave explained",
-          "image_url": "/extracted_diagrams/ch10/fig_10_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "Dual Representation: Density Medium & Sinusoid step by step mathematical chalkboard solution diagram",
+          "video_query": "Dual Representation: Density Medium & Sinusoid class 10 9 mathematics explanation",
           "what_to_make": "Textbook dual diagram displaying physical compressed air layers aligned directly above the sine wave graph.",
-          "timing_and_cue": "Mount dual representation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_16.webp | Medium Density & Waveform | Direct alignment of physical compressions with graph peaks\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Dual Representation: Density Medium & Sinusoid step by step mathematical chalkboard solution diagram\", title=\"Dual Representation: Density Medium & Sinusoid\") | Proactive video: search_and_show_video(query=\"Dual Representation: Density Medium & Sinusoid class 10 9 mathematics explanation\", title=\"Dual Representation: Density Medium & Sinusoid\")",
+          "image_search_query": "Dual Representation: Density Medium & Sinusoid step by step mathematical chalkboard solution diagram",
+          "video_search_query": "Dual Representation: Density Medium & Sinusoid class 10 9 mathematics explanation"
         },
         {
           "concept_title": "Fundamental Wave Equation: The speed of a wave equals the product of its frequency and wavelength: v = nu * lambda, or v = lambda / T, measured in meters per second (m/s).",
           "diagram_title": "Wave Speed & Frequency Relationship Curve",
-          "diagram_type": "image",
-          "image_query": "graphical representation sound wave frequency wavelength speed diagram",
-          "video_query": "v equals f lambda wave equation derivation",
-          "image_url": "/extracted_diagrams/ch10/fig_10_19.webp",
+          "diagram_type": "image_search",
+          "image_query": "Wave Speed & Frequency Relationship Curve step by step mathematical chalkboard solution diagram",
+          "video_query": "Wave Speed & Frequency Relationship Curve class 10 9 mathematics explanation",
           "what_to_make": "Textbook mathematical graph illustrating wave parameters governing v = nu * lambda.",
-          "timing_and_cue": "Mount wave equation graph on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_19.webp | Wave Equation Geometry | Connecting frequency, wavelength, and propagation velocity\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Wave Speed & Frequency Relationship Curve step by step mathematical chalkboard solution diagram\", title=\"Wave Speed & Frequency Relationship Curve\") | Proactive video: search_and_show_video(query=\"Wave Speed & Frequency Relationship Curve class 10 9 mathematics explanation\", title=\"Wave Speed & Frequency Relationship Curve\")",
+          "image_search_query": "Wave Speed & Frequency Relationship Curve step by step mathematical chalkboard solution diagram",
+          "video_search_query": "Wave Speed & Frequency Relationship Curve class 10 9 mathematics explanation"
         }
       ]
     },
@@ -451,62 +463,68 @@
         {
           "concept_title": "Pitch (Shrillness): Pitch is the auditory sensation that allows us to classify a sound as shrill or grave/flat; it is governed entirely by the frequency of vibration—higher frequency corresponds to higher pitch.",
           "diagram_title": "Pitch vs Frequency Wave Comparison",
-          "diagram_type": "image",
-          "image_query": "pitch and frequency sound wave high low pitch graph diagram",
-          "video_query": "pitch and frequency of sound waves",
-          "image_url": "/extracted_diagrams/ch10/fig_10_17.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook comparative graph showing two waveforms: low frequency low pitch and high frequency high pitch . scientific educational diagram with clear labels",
+          "video_query": "Pitch vs Frequency Wave Comparison educational demonstration video",
           "what_to_make": "Textbook comparative graph showing two waveforms: low frequency (low pitch) and high frequency (high pitch).",
-          "timing_and_cue": "Mount pitch graph on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_17.webp | Pitch & Frequency | Comparing low-frequency bass with high-frequency shrill wave\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook comparative graph showing two waveforms: low frequency low pitch and high frequency high pitch . scientific educational diagram with clear labels\", title=\"Pitch vs Frequency Wave Comparison\") | Proactive video: search_and_show_video(query=\"Pitch vs Frequency Wave Comparison educational demonstration video\", title=\"Pitch vs Frequency Wave Comparison\")",
+          "image_search_query": "Textbook comparative graph showing two waveforms: low frequency low pitch and high frequency high pitch . scientific educational diagram with clear labels",
+          "video_search_query": "Pitch vs Frequency Wave Comparison educational demonstration video"
         },
         {
           "concept_title": "Loudness & Amplitude Squared: Loudness is the measure of auditory response of the ear to sound energy, determined primarily by the amplitude of the vibrating body ($Loudness \\propto Amplitude^2$); doubling the amplitude quadruples the loudness.",
           "diagram_title": "Loudness & Amplitude Wave Comparison",
-          "diagram_type": "image",
-          "image_query": "loudness and amplitude sound wave soft loud sound graph diagram",
-          "video_query": "loudness and amplitude sound waves",
-          "image_url": "/extracted_diagrams/ch10/fig_10_22.webp",
+          "diagram_type": "image_search",
+          "image_query": "soft sound small amplitude vs loud sound large amplitude . scientific educational diagram with clear labels",
+          "video_query": "Loudness & Amplitude Wave Comparison educational demonstration video",
           "what_to_make": "Textbook diagram showing soft sound (small amplitude) vs loud sound (large amplitude).",
-          "timing_and_cue": "Mount amplitude graph on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_22.webp | Loudness & Amplitude | Small amplitude for soft sound vs tall amplitude for loud sound\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"soft sound small amplitude vs loud sound large amplitude . scientific educational diagram with clear labels\", title=\"Loudness & Amplitude Wave Comparison\") | Proactive video: search_and_show_video(query=\"Loudness & Amplitude Wave Comparison educational demonstration video\", title=\"Loudness & Amplitude Wave Comparison\")",
+          "image_search_query": "soft sound small amplitude vs loud sound large amplitude . scientific educational diagram with clear labels",
+          "video_search_query": "Loudness & Amplitude Wave Comparison educational demonstration video"
         },
         {
           "concept_title": "Intensity of Sound: Intensity is the physical acoustic power transmitted per unit area perpendicular to wave direction ($\\text{W/m}^2$), an objective quantity independent of human ear sensitivity, whereas loudness is a subjective psychological sensation.",
           "diagram_title": "Sound Energy Dispersion Over Area",
-          "diagram_type": "image",
-          "image_query": "sound energy spreading over area inverse square law diagram",
-          "video_query": "sound intensity vs loudness",
-          "image_url": "/extracted_diagrams/ch10/fig_10_21.webp",
+          "diagram_type": "image_search",
+          "image_query": "sound energy spreading over expanding spherical areas as distance increases. scientific educational diagram with clear labels",
+          "video_query": "Sound Energy Dispersion Over Area educational demonstration video",
           "what_to_make": "Textbook diagram showing sound energy spreading over expanding spherical areas as distance increases.",
-          "timing_and_cue": "Mount intensity dispersion on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_21.webp | Acoustic Intensity Dispersion | Energy spreading over expanding spherical wavefronts\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"sound energy spreading over expanding spherical areas as distance increases. scientific educational diagram with clear labels\", title=\"Sound Energy Dispersion Over Area\") | Proactive video: search_and_show_video(query=\"Sound Energy Dispersion Over Area educational demonstration video\", title=\"Sound Energy Dispersion Over Area\")",
+          "image_search_query": "sound energy spreading over expanding spherical areas as distance increases. scientific educational diagram with clear labels",
+          "video_search_query": "Sound Energy Dispersion Over Area educational demonstration video"
         },
         {
           "concept_title": "Quality or Timbre: Quality or timbre is the characteristic of a musical sound that enables us to distinguish between two sounds having the identical pitch and loudness emitted by different sources, determined by the harmonic waveform shape.",
           "diagram_title": "Musical Instrument Timbre Waveforms",
-          "diagram_type": "image",
-          "image_query": "timbre quality sound waveform harmonics musical instruments diagram",
-          "video_query": "timbre and quality of musical instruments",
-          "image_url": "/extracted_diagrams/ch10/fig_10_25.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram displaying distinct complex waveforms for different musical instruments. scientific educational diagram with clear labels",
+          "video_query": "Musical Instrument Timbre Waveforms educational demonstration video",
           "what_to_make": "Textbook diagram displaying distinct complex waveforms for different musical instruments.",
-          "timing_and_cue": "Mount timbre waveforms on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_25.webp | Timbre & Harmonics | Unique waveform shapes distinguishing flute, violin, and voice\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram displaying distinct complex waveforms for different musical instruments. scientific educational diagram with clear labels\", title=\"Musical Instrument Timbre Waveforms\") | Proactive video: search_and_show_video(query=\"Musical Instrument Timbre Waveforms educational demonstration video\", title=\"Musical Instrument Timbre Waveforms\")",
+          "image_search_query": "Textbook diagram displaying distinct complex waveforms for different musical instruments. scientific educational diagram with clear labels",
+          "video_search_query": "Musical Instrument Timbre Waveforms educational demonstration video"
         },
         {
           "concept_title": "Tone vs Note: A sound of a single, pure frequency is called a tone (e.g., from an ideal tuning fork); a rich pleasant sound produced by a mixture of several frequencies is called a note (musical chord).",
           "diagram_title": "Tabla Acoustic Percussion Mechanics",
-          "diagram_type": "image",
-          "image_query": "tabla set percussion membrane vibration acoustic harmonics diagram",
-          "video_query": "harmonics and overtones in Indian percussion tabla",
-          "image_url": "/extracted_diagrams/ch10/fig_10_26.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook image of a tabla set demonstrating acoustic membrane harmonics and rich tonal quality. scientific educational diagram with clear labels",
+          "video_query": "Tabla Acoustic Percussion Mechanics educational demonstration video",
           "what_to_make": "Textbook image of a tabla set demonstrating acoustic membrane harmonics and rich tonal quality.",
-          "timing_and_cue": "Mount tabla harmonics on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_26.webp | Percussion Acoustics | Stretched membrane vibrating with rich harmonic overtones\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook image of a tabla set demonstrating acoustic membrane harmonics and rich tonal quality. scientific educational diagram with clear labels\", title=\"Tabla Acoustic Percussion Mechanics\") | Proactive video: search_and_show_video(query=\"Tabla Acoustic Percussion Mechanics educational demonstration video\", title=\"Tabla Acoustic Percussion Mechanics\")",
+          "image_search_query": "Textbook image of a tabla set demonstrating acoustic membrane harmonics and rich tonal quality. scientific educational diagram with clear labels",
+          "video_search_query": "Tabla Acoustic Percussion Mechanics educational demonstration video"
         },
         {
           "concept_title": "Noise vs Music: Noise is an unpleasant, irregular, and jarring acoustic waveform that irritates the ear, whereas music consists of harmonious, periodic, and mathematically ordered waveforms.",
           "diagram_title": "Harmonic Order vs Noise Waveform",
-          "diagram_type": "image",
-          "image_query": "music vs noise waveforms regular vs irregular diagram",
-          "video_query": "difference between music and noise acoustics",
-          "image_url": "/extracted_diagrams/ch10/fig_10_20.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook comparative waveforms showing smooth periodic musical tones versus chaotic jagged noise. scientific educational diagram with clear labels",
+          "video_query": "Harmonic Order vs Noise Waveform educational demonstration video",
           "what_to_make": "Textbook comparative waveforms showing smooth periodic musical tones versus chaotic jagged noise.",
-          "timing_and_cue": "Mount noise vs music on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_20.webp | Musical Order vs Noise | Regular periodic curves for music versus erratic spikes for noise\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook comparative waveforms showing smooth periodic musical tones versus chaotic jagged noise. scientific educational diagram with clear labels\", title=\"Harmonic Order vs Noise Waveform\") | Proactive video: search_and_show_video(query=\"Harmonic Order vs Noise Waveform educational demonstration video\", title=\"Harmonic Order vs Noise Waveform\")",
+          "image_search_query": "Textbook comparative waveforms showing smooth periodic musical tones versus chaotic jagged noise. scientific educational diagram with clear labels",
+          "video_search_query": "Harmonic Order vs Noise Waveform educational demonstration video"
         }
       ]
     },
@@ -622,62 +640,68 @@
         {
           "concept_title": "Speed of Sound Invariant: Sound travels fastest in solids, slower in liquids, and slowest in gases ($v_{\\text{solids}} > v_{\\text{liquids}} > v_{\\text{gases}}$); in air at $22^\\circ\\text{C}$ it travels at $344\\text{ m/s}$, and in iron at $5950\\text{ m/s}$.",
           "diagram_title": "Speed of Sound Across Media Scales",
-          "diagram_type": "image",
-          "image_query": "speed of sound in solids liquids gases comparison table diagram",
-          "video_query": "speed of sound in different materials",
-          "image_url": "/extracted_diagrams/ch10/fig_10_5.webp",
+          "diagram_type": "image_search",
+          "image_query": "acoustic transmission through dense solids demonstrating high propagation speeds. scientific educational diagram with clear labels",
+          "video_query": "Speed of Sound Across Media Scales educational demonstration video",
           "what_to_make": "Textbook diagram showing acoustic transmission through dense solids demonstrating high propagation speeds.",
-          "timing_and_cue": "Mount speed comparison on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_5.webp | Speed in Media | Solids transmit sound fastest due to high elastic modulus\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"acoustic transmission through dense solids demonstrating high propagation speeds. scientific educational diagram with clear labels\", title=\"Speed of Sound Across Media Scales\") | Proactive video: search_and_show_video(query=\"Speed of Sound Across Media Scales educational demonstration video\", title=\"Speed of Sound Across Media Scales\")",
+          "image_search_query": "acoustic transmission through dense solids demonstrating high propagation speeds. scientific educational diagram with clear labels",
+          "video_search_query": "Speed of Sound Across Media Scales educational demonstration video"
         },
         {
           "concept_title": "Temperature Dependence: The speed of sound increases with increase in temperature; in air, it increases by approximately $0.6\\text{ m/s}$ per degree Celsius rise ($v = 331 + 0.6 T$).",
           "diagram_title": "Atmospheric Thermal Sound Convection",
-          "diagram_type": "image",
-          "image_query": "speed of sound temperature dependence refraction diagram",
-          "video_query": "how temperature affects speed of sound",
-          "image_url": "/extracted_diagrams/ch10/fig_10_10.webp",
+          "diagram_type": "image_search",
+          "image_query": "spherical wavefronts spreading in atmospheric temperature gradients. scientific educational diagram with clear labels",
+          "video_query": "Atmospheric Thermal Sound Convection educational demonstration video",
           "what_to_make": "Textbook diagram showing spherical wavefronts spreading in atmospheric temperature gradients.",
-          "timing_and_cue": "Mount temperature dependence on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_10.webp | Temperature & Acoustic Speed | Velocity rising 0.6 m/s per degree Celsius in air\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"spherical wavefronts spreading in atmospheric temperature gradients. scientific educational diagram with clear labels\", title=\"Atmospheric Thermal Sound Convection\") | Proactive video: search_and_show_video(query=\"Atmospheric Thermal Sound Convection educational demonstration video\", title=\"Atmospheric Thermal Sound Convection\")",
+          "image_search_query": "spherical wavefronts spreading in atmospheric temperature gradients. scientific educational diagram with clear labels",
+          "video_search_query": "Atmospheric Thermal Sound Convection educational demonstration video"
         },
         {
           "concept_title": "Sonic Boom: When an object moves at supersonic speed (faster than the speed of sound in air), it produces conical pressure shock waves in the air; these shock waves carry enormous energy perceived as a thunderous, glass-shattering sonic boom.",
           "diagram_title": "Supersonic Aircraft Conical Shock Waves",
-          "diagram_type": "image",
-          "image_query": "supersonic aircraft shock wave sonic boom mach cone diagram",
-          "video_query": "how sonic boom works supersonic flight",
-          "image_url": "/extracted_diagrams/ch10/fig_10_11.webp",
+          "diagram_type": "image_search",
+          "image_query": "supersonic jet showing shock waves coalescing into Mach cone. scientific educational diagram with clear labels",
+          "video_query": "Supersonic Aircraft Conical Shock Waves educational demonstration video",
           "what_to_make": "Textbook diagram of supersonic jet showing shock waves coalescing into Mach cone.",
-          "timing_and_cue": "Mount sonic boom on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_11.webp | Sonic Boom Shock Waves | Conical pressure wave from supersonic aircraft shattering window panes\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"supersonic jet showing shock waves coalescing into Mach cone. scientific educational diagram with clear labels\", title=\"Supersonic Aircraft Conical Shock Waves\") | Proactive video: search_and_show_video(query=\"Supersonic Aircraft Conical Shock Waves educational demonstration video\", title=\"Supersonic Aircraft Conical Shock Waves\")",
+          "image_search_query": "supersonic jet showing shock waves coalescing into Mach cone. scientific educational diagram with clear labels",
+          "video_search_query": "Supersonic Aircraft Conical Shock Waves educational demonstration video"
         },
         {
           "concept_title": "Laws of Reflection of Sound: Sound reflects off hard surfaces following the same laws as light: the incident wave, the normal, and the reflected wave all lie in the same plane, and the angle of incidence equals the angle of reflection ($\\angle i = \\angle r$).",
           "diagram_title": "Law of Reflection for Acoustic Waves",
-          "diagram_type": "image",
-          "image_query": "reflection of sound angle of incidence angle of reflection diagram",
-          "video_query": "reflection of sound experiment",
-          "image_url": "/extracted_diagrams/ch10/fig_10_23.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook experimental setup showing sound reflecting off wooden barrier with equal incidence and reflection angles. scientific educational diagram with clear labels",
+          "video_query": "Law of Reflection for Acoustic Waves educational demonstration video",
           "what_to_make": "Textbook experimental setup showing sound reflecting off wooden barrier with equal incidence and reflection angles.",
-          "timing_and_cue": "Mount sound reflection on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_23.webp | Sound Reflection Laws | Angle of incidence equals angle of reflection at hard barriers\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook experimental setup showing sound reflecting off wooden barrier with equal incidence and reflection angles. scientific educational diagram with clear labels\", title=\"Law of Reflection for Acoustic Waves\") | Proactive video: search_and_show_video(query=\"Law of Reflection for Acoustic Waves educational demonstration video\", title=\"Law of Reflection for Acoustic Waves\")",
+          "image_search_query": "Textbook experimental setup showing sound reflecting off wooden barrier with equal incidence and reflection angles. scientific educational diagram with clear labels",
+          "video_search_query": "Law of Reflection for Acoustic Waves educational demonstration video"
         },
         {
           "concept_title": "Minimum Echo Distance: The human brain retains auditory sensations for $0.1\\text{ s}$ (persistence of hearing); to hear a distinct echo, reflected sound must arrive after at least $0.1\\text{ s}$, requiring total round-trip distance $2d = v \\times 0.1$, so $d \\ge \\frac{344 \\times 0.1}{2} = \\mathbf{17.2\\text{ m}}$ at $22^\\circ\\text{C}$.",
           "diagram_title": "Echo Geometry & Minimum 17.2 m Distance",
-          "diagram_type": "image",
-          "image_query": "echo minimum distance 17.2 meters persistence of hearing diagram",
-          "video_query": "how to calculate minimum distance for echo 17.2m",
-          "image_url": "/extracted_diagrams/ch10/fig_10_23.webp",
+          "diagram_type": "image_search",
+          "image_query": "2d round trip path for sound echoing from a distant wall. scientific educational diagram with clear labels",
+          "video_query": "Echo Geometry & Minimum 17.2 m Distance educational demonstration video",
           "what_to_make": "Textbook diagram illustrating 2d round trip path for sound echoing from a distant wall.",
-          "timing_and_cue": "Mount echo distance on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_23.webp | Echo Geometry 17.2 m | Minimum obstacle distance required for distinct auditory reflection\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"2d round trip path for sound echoing from a distant wall. scientific educational diagram with clear labels\", title=\"Echo Geometry & Minimum 17.2 m Distance\") | Proactive video: search_and_show_video(query=\"Echo Geometry & Minimum 17.2 m Distance educational demonstration video\", title=\"Echo Geometry & Minimum 17.2 m Distance\")",
+          "image_search_query": "2d round trip path for sound echoing from a distant wall. scientific educational diagram with clear labels",
+          "video_search_query": "Echo Geometry & Minimum 17.2 m Distance educational demonstration video"
         },
         {
           "concept_title": "Reverberation Control: The persistence of sound in an enclosed hall due to repeated successive reflections is called reverberation; excessive reverberation causes words to overlap into muddy noise, controlled by lining walls with sound-absorbing acoustic materials.",
           "diagram_title": "Auditorium Acoustic Absorption & Soundboard",
-          "diagram_type": "image",
-          "image_query": "auditorium acoustics curved ceiling reverberation absorption diagram",
-          "video_query": "reverberation in auditoriums and how to reduce it",
-          "image_url": "/extracted_diagrams/ch10/fig_10_21.webp",
+          "diagram_type": "image_search",
+          "image_query": "acoustic reflections and absorptive wall panels in halls. scientific educational diagram with clear labels",
+          "video_query": "Auditorium Acoustic Absorption & Soundboard educational demonstration video",
           "what_to_make": "Textbook diagram showing acoustic reflections and absorptive wall panels in halls.",
-          "timing_and_cue": "Mount reverberation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_21.webp | Reverberation Control | Sound-absorbing tiles preventing garbled acoustic reflections\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"acoustic reflections and absorptive wall panels in halls. scientific educational diagram with clear labels\", title=\"Auditorium Acoustic Absorption & Soundboard\") | Proactive video: search_and_show_video(query=\"Auditorium Acoustic Absorption & Soundboard educational demonstration video\", title=\"Auditorium Acoustic Absorption & Soundboard\")",
+          "image_search_query": "acoustic reflections and absorptive wall panels in halls. scientific educational diagram with clear labels",
+          "video_search_query": "Auditorium Acoustic Absorption & Soundboard educational demonstration video"
         }
       ]
     },
@@ -793,62 +817,68 @@
         {
           "concept_title": "Auditory Spectrum: Human hearing is sensitive to frequencies from $20\\text{ Hz}$ to $20,000\\text{ Hz}$ ($20\\text{ kHz}$); frequencies below $20\\text{ Hz}$ are infrasonic, and frequencies above $20\\text{ kHz}$ are ultrasonic.",
           "diagram_title": "Auditory Spectrum Frequency Scale",
-          "diagram_type": "image",
-          "image_query": "auditory spectrum human hearing 20 Hz 20 kHz infrasound ultrasound diagram",
-          "video_query": "range of hearing infrasound ultrasound explained",
-          "image_url": "/extracted_diagrams/ch10/fig_10_27.webp",
+          "diagram_type": "image_search",
+          "image_query": "acoustic frequency ranges from infrasound to ultrasound. scientific educational diagram with clear labels",
+          "video_query": "Auditory Spectrum Frequency Scale educational demonstration video",
           "what_to_make": "Textbook diagram showing acoustic frequency ranges from infrasound to ultrasound.",
-          "timing_and_cue": "Mount hearing spectrum on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_27.webp | The Acoustic Spectrum | Infrasound below 20 Hz, audible 20 Hz-20 kHz, ultrasound above 20 kHz\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"acoustic frequency ranges from infrasound to ultrasound. scientific educational diagram with clear labels\", title=\"Auditory Spectrum Frequency Scale\") | Proactive video: search_and_show_video(query=\"Auditory Spectrum Frequency Scale educational demonstration video\", title=\"Auditory Spectrum Frequency Scale\")",
+          "image_search_query": "acoustic frequency ranges from infrasound to ultrasound. scientific educational diagram with clear labels",
+          "video_search_query": "Auditory Spectrum Frequency Scale educational demonstration video"
         },
         {
           "concept_title": "Infrasound Phenomena: Rhinoceroses communicate using infrasound frequencies as low as $5\\text{ Hz}$; whales and elephants produce infrasound; earthquakes produce low-frequency infrasonic waves before main shockwaves that animals perceive.",
           "diagram_title": "Longitudinal Infrasonic Ground Waves",
-          "diagram_type": "image",
-          "image_query": "infrasound earthquake waves elephant communication diagram",
-          "video_query": "infrasound animals communication earthquake",
-          "image_url": "/extracted_diagrams/ch10/fig_10_8.webp",
+          "diagram_type": "image_search",
+          "image_query": "long-wavelength low-frequency longitudinal pulses traveling through dense media. scientific educational diagram with clear labels",
+          "video_query": "Longitudinal Infrasonic Ground Waves educational demonstration video",
           "what_to_make": "Textbook diagram showing long-wavelength low-frequency longitudinal pulses traveling through dense media.",
-          "timing_and_cue": "Mount infrasound on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_8.webp | Infrasound Waves | Sub-audible low-frequency waves (<20 Hz) traveling over vast distances\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"long-wavelength low-frequency longitudinal pulses traveling through dense media. scientific educational diagram with clear labels\", title=\"Longitudinal Infrasonic Ground Waves\") | Proactive video: search_and_show_video(query=\"Longitudinal Infrasonic Ground Waves educational demonstration video\", title=\"Longitudinal Infrasonic Ground Waves\")",
+          "image_search_query": "long-wavelength low-frequency longitudinal pulses traveling through dense media. scientific educational diagram with clear labels",
+          "video_search_query": "Longitudinal Infrasonic Ground Waves educational demonstration video"
         },
         {
           "concept_title": "Bat Ultrasonic Navigation: Bats emit high-frequency ultrasonic clicks; these waves reflect off flying insects and surrounding obstacles; by timing the returning echoes and frequency shifts, bats pinpoint prey position with millimeter accuracy in total darkness.",
           "diagram_title": "Bat Echolocation Ultrasonic Tracking",
-          "diagram_type": "image",
-          "image_query": "echolocation bats hunting insect ultrasound diagram",
-          "video_query": "how bats use echolocation animation",
-          "image_url": "/extracted_diagrams/ch10/fig_10_27.webp",
+          "diagram_type": "image_search",
+          "image_query": "bat emitting ultrasound pulses and receiving reflected echoes from flying insect. scientific educational diagram with clear labels",
+          "video_query": "Bat Echolocation Ultrasonic Tracking educational demonstration video",
           "what_to_make": "Textbook diagram of bat emitting ultrasound pulses and receiving reflected echoes from flying insect.",
-          "timing_and_cue": "Mount bat echolocation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_27.webp | Bat Echolocation | High-frequency ultrasound pulses reflecting off prey in complete darkness\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"bat emitting ultrasound pulses and receiving reflected echoes from flying insect. scientific educational diagram with clear labels\", title=\"Bat Echolocation Ultrasonic Tracking\") | Proactive video: search_and_show_video(query=\"Bat Echolocation Ultrasonic Tracking educational demonstration video\", title=\"Bat Echolocation Ultrasonic Tracking\")",
+          "image_search_query": "bat emitting ultrasound pulses and receiving reflected echoes from flying insect. scientific educational diagram with clear labels",
+          "video_search_query": "Bat Echolocation Ultrasonic Tracking educational demonstration video"
         },
         {
           "concept_title": "SONAR Operating Principle: SONAR (Sound Navigation And Ranging) consists of an ultrasonic transmitter and detector mounted on a ship hull; transmitter beams ultrasound pulses to the seabed; detector catches the reflected echo.",
           "diagram_title": "SONAR Ship Seabed Echo Transmission",
-          "diagram_type": "image",
-          "image_query": "sonar transmitter receiver seabed underwater echo diagram",
-          "video_query": "how SONAR works underwater sound navigation and ranging",
-          "image_url": "/extracted_diagrams/ch10/fig_10_28.webp",
+          "diagram_type": "image_search",
+          "image_query": "ship emitting ultrasonic waves down to seabed and detector catching reflected echo. scientific educational diagram with clear labels",
+          "video_query": "SONAR Ship Seabed Echo Transmission educational demonstration video",
           "what_to_make": "Textbook diagram showing ship emitting ultrasonic waves down to seabed and detector catching reflected echo.",
-          "timing_and_cue": "Mount SONAR on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_28.webp | SONAR Working Principle | Transmitter sending ultrasonic pulse and detector recording echo time delay\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"ship emitting ultrasonic waves down to seabed and detector catching reflected echo. scientific educational diagram with clear labels\", title=\"SONAR Ship Seabed Echo Transmission\") | Proactive video: search_and_show_video(query=\"SONAR Ship Seabed Echo Transmission educational demonstration video\", title=\"SONAR Ship Seabed Echo Transmission\")",
+          "image_search_query": "ship emitting ultrasonic waves down to seabed and detector catching reflected echo. scientific educational diagram with clear labels",
+          "video_search_query": "SONAR Ship Seabed Echo Transmission educational demonstration video"
         },
         {
           "concept_title": "SONAR Depth Equation: If the time between transmission and reception is $t$, and the speed of sound in seawater is $v$, the seabed depth $d$ is given by $2d = v \\times t \\implies d = \\frac{v \\times t}{2}$.",
           "diagram_title": "Quantitative SONAR Depth Formulation",
-          "diagram_type": "image",
-          "image_query": "SONAR depth calculation 2d equals vt diagram",
-          "video_query": "SONAR numericals class 9 science",
-          "image_url": "/extracted_diagrams/ch10/fig_10_28.webp",
+          "diagram_type": "image_search",
+          "image_query": "2d path geometry for underwater echo ranging. scientific educational diagram with clear labels",
+          "video_query": "Quantitative SONAR Depth Formulation educational demonstration video",
           "what_to_make": "Textbook diagram illustrating 2d path geometry for underwater echo ranging.",
-          "timing_and_cue": "Mount SONAR calculation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_28.webp | SONAR Depth Equation | 2d = v * t formula for measuring ocean depth and tracking submarines\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"2d path geometry for underwater echo ranging. scientific educational diagram with clear labels\", title=\"Quantitative SONAR Depth Formulation\") | Proactive video: search_and_show_video(query=\"Quantitative SONAR Depth Formulation educational demonstration video\", title=\"Quantitative SONAR Depth Formulation\")",
+          "image_search_query": "2d path geometry for underwater echo ranging. scientific educational diagram with clear labels",
+          "video_search_query": "Quantitative SONAR Depth Formulation educational demonstration video"
         },
         {
           "concept_title": "Medical & Industrial Ultrasound: Ultrasound waves have high frequency and short wavelength, enabling them to penetrate tissues and metal blocks; used in Echocardiography (heart imaging), Ultrasonography (fetal scanning), Lithotripsy (crushing kidney stones into fine powder), and detecting microscopic internal cracks in metallurgical castings.",
           "diagram_title": "Acoustic Remote Sensing & Drone Technology",
-          "diagram_type": "image",
-          "image_query": "ultrasonic sensor flaw detection drone acoustic diagram",
-          "video_query": "ultrasound applications medicine and industry",
-          "image_url": "/extracted_diagrams/ch10/fig_10_29.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook image of acoustic sensing drone demonstrating industrial ultrasound navigation and flaw detection. scientific educational diagram with clear labels",
+          "video_query": "Acoustic Remote Sensing & Drone Technology educational demonstration video",
           "what_to_make": "Textbook image of acoustic sensing drone demonstrating industrial ultrasound navigation and flaw detection.",
-          "timing_and_cue": "Mount industrial ultrasound on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_29.webp | Modern Acoustic Sensing | Ultrasonic transducers for non-destructive testing and medical imaging\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook image of acoustic sensing drone demonstrating industrial ultrasound navigation and flaw detection. scientific educational diagram with clear labels\", title=\"Acoustic Remote Sensing & Drone Technology\") | Proactive video: search_and_show_video(query=\"Acoustic Remote Sensing & Drone Technology educational demonstration video\", title=\"Acoustic Remote Sensing & Drone Technology\")",
+          "image_search_query": "Textbook image of acoustic sensing drone demonstrating industrial ultrasound navigation and flaw detection. scientific educational diagram with clear labels",
+          "video_search_query": "Acoustic Remote Sensing & Drone Technology educational demonstration video"
         }
       ]
     },
@@ -964,62 +994,68 @@
         {
           "concept_title": "Outer Ear Architecture: The outer ear consists of the pinna which collects sound waves from surroundings, guiding them through the auditory canal to strike the thin elastic tympanic membrane (eardrum).",
           "diagram_title": "Complete Human Ear Anatomy Schema",
-          "diagram_type": "image",
-          "image_query": "human ear anatomy pinna auditory canal eardrum ossicles cochlea diagram",
-          "video_query": "how the human ear works animation 3d",
-          "image_url": "/extracted_diagrams/ch10/fig_10_24.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook schematic anatomical diagram of the human ear detailing outer, middle, and inner sections. scientific educational diagram with clear labels",
+          "video_query": "Complete Human Ear Anatomy Schema educational demonstration video",
           "what_to_make": "Textbook schematic anatomical diagram of the human ear detailing outer, middle, and inner sections.",
-          "timing_and_cue": "Mount ear anatomy on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_24.webp | Human Ear Anatomy | Outer pinna, middle ossicles, and inner cochlea transduction cascade\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook schematic anatomical diagram of the human ear detailing outer, middle, and inner sections. scientific educational diagram with clear labels\", title=\"Complete Human Ear Anatomy Schema\") | Proactive video: search_and_show_video(query=\"Complete Human Ear Anatomy Schema educational demonstration video\", title=\"Complete Human Ear Anatomy Schema\")",
+          "image_search_query": "Textbook schematic anatomical diagram of the human ear detailing outer, middle, and inner sections. scientific educational diagram with clear labels",
+          "video_search_query": "Complete Human Ear Anatomy Schema educational demonstration video"
         },
         {
           "concept_title": "Tympanic Membrane Vibration: When a compression reaches the eardrum, external pressure pushes it inward; when a rarefaction arrives, pressure decreases and the membrane moves outward, vibrating in sync with sound frequency.",
           "diagram_title": "Eardrum Membrane Acoustic Oscillation",
-          "diagram_type": "image",
-          "image_query": "tympanic membrane eardrum vibration sound pressure diagram",
-          "video_query": "how eardrum vibrates with sound",
-          "image_url": "/extracted_diagrams/ch10/fig_10_14.webp",
+          "diagram_type": "image_search",
+          "image_query": "acoustic vibrations moving particles across stretched membrane. scientific educational diagram with clear labels",
+          "video_query": "Eardrum Membrane Acoustic Oscillation educational demonstration video",
           "what_to_make": "Textbook diagram showing acoustic vibrations moving particles across stretched membrane.",
-          "timing_and_cue": "Mount eardrum vibration on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_14.webp | Eardrum Vibration | Elastic membrane oscillating inward and outward with air pressure pulses\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"acoustic vibrations moving particles across stretched membrane. scientific educational diagram with clear labels\", title=\"Eardrum Membrane Acoustic Oscillation\") | Proactive video: search_and_show_video(query=\"Eardrum Membrane Acoustic Oscillation educational demonstration video\", title=\"Eardrum Membrane Acoustic Oscillation\")",
+          "image_search_query": "acoustic vibrations moving particles across stretched membrane. scientific educational diagram with clear labels",
+          "video_search_query": "Eardrum Membrane Acoustic Oscillation educational demonstration video"
         },
         {
           "concept_title": "Middle Ear Ossicular Amplification: The middle ear houses three tiny bones—the hammer (malleus), anvil (incus), and stirrup (stapes)—which act as a compound mechanical lever system, amplifying the mechanical vibrations more than 20 to 30 times.",
           "diagram_title": "Middle Ear Ossicle Lever Amplification",
-          "diagram_type": "image",
-          "image_query": "middle ear bones malleus incus stapes lever amplification diagram",
-          "video_query": "middle ear ossicles mechanism animation",
-          "image_url": "/extracted_diagrams/ch10/fig_10_24.webp",
+          "diagram_type": "image_search",
+          "image_query": "magnified view of hammer, anvil, and stirrup lever system. scientific educational diagram with clear labels",
+          "video_query": "Middle Ear Ossicle Lever Amplification educational demonstration video",
           "what_to_make": "Textbook diagram showing magnified view of hammer, anvil, and stirrup lever system.",
-          "timing_and_cue": "Mount ossicles on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_24.webp | Ossicle Lever System | Hammer, anvil, and stirrup amplifying vibrations over 20-30 times\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"magnified view of hammer, anvil, and stirrup lever system. scientific educational diagram with clear labels\", title=\"Middle Ear Ossicle Lever Amplification\") | Proactive video: search_and_show_video(query=\"Middle Ear Ossicle Lever Amplification educational demonstration video\", title=\"Middle Ear Ossicle Lever Amplification\")",
+          "image_search_query": "magnified view of hammer, anvil, and stirrup lever system. scientific educational diagram with clear labels",
+          "video_search_query": "Middle Ear Ossicle Lever Amplification educational demonstration video"
         },
         {
           "concept_title": "Inner Ear Cochlear Transduction: The stapes pushes against the oval window of the cochlea (a fluid-filled spiral snail-shell structure); fluid pressure waves stimulate specialized microscopic sensory hair cells in the organ of Corti, converting vibrations into electrical nerve signals.",
           "diagram_title": "Cochlea Fluid Wave Sensory Transduction",
-          "diagram_type": "image",
-          "image_query": "inner ear cochlea organ of corti hair cells electrical impulse diagram",
-          "video_query": "cochlea hair cells sound transduction",
-          "image_url": "/extracted_diagrams/ch10/fig_10_24.webp",
+          "diagram_type": "image_search",
+          "image_query": "spiral cochlea fluid chambers and auditory nerve pathway. scientific educational diagram with clear labels",
+          "video_query": "Cochlea Fluid Wave Sensory Transduction educational demonstration video",
           "what_to_make": "Textbook diagram showing spiral cochlea fluid chambers and auditory nerve pathway.",
-          "timing_and_cue": "Mount cochlea on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_24.webp | Cochlear Transduction | Fluid pressure waves stimulating hair cells to generate electrical impulses\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"spiral cochlea fluid chambers and auditory nerve pathway. scientific educational diagram with clear labels\", title=\"Cochlea Fluid Wave Sensory Transduction\") | Proactive video: search_and_show_video(query=\"Cochlea Fluid Wave Sensory Transduction educational demonstration video\", title=\"Cochlea Fluid Wave Sensory Transduction\")",
+          "image_search_query": "spiral cochlea fluid chambers and auditory nerve pathway. scientific educational diagram with clear labels",
+          "video_search_query": "Cochlea Fluid Wave Sensory Transduction educational demonstration video"
         },
         {
           "concept_title": "Auditory Nerve Transmission: Electrical nerve impulses generated by cochlear hair cells are transmitted via the auditory nerve directly to the temporal lobe of the brain, which interprets the signals as sound.",
           "diagram_title": "Acoustic Frequency Processing Spectrum",
-          "diagram_type": "image",
-          "image_query": "auditory nerve brain sound perception pathway diagram",
-          "video_query": "auditory pathway to brain",
-          "image_url": "/extracted_diagrams/ch10/fig_10_25.webp",
+          "diagram_type": "image_search",
+          "image_query": "neural acoustic response curves across auditory spectrum. scientific educational diagram with clear labels",
+          "video_query": "Acoustic Frequency Processing Spectrum educational demonstration video",
           "what_to_make": "Textbook diagram showing neural acoustic response curves across auditory spectrum.",
-          "timing_and_cue": "Mount neural transmission on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_25.webp | Auditory Pathway | Auditory nerve delivering action potentials to temporal brain cortex\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"neural acoustic response curves across auditory spectrum. scientific educational diagram with clear labels\", title=\"Acoustic Frequency Processing Spectrum\") | Proactive video: search_and_show_video(query=\"Acoustic Frequency Processing Spectrum educational demonstration video\", title=\"Acoustic Frequency Processing Spectrum\")",
+          "image_search_query": "neural acoustic response curves across auditory spectrum. scientific educational diagram with clear labels",
+          "video_search_query": "Acoustic Frequency Processing Spectrum educational demonstration video"
         },
         {
           "concept_title": "Complete NCERT Chapter 10 Mastery: Step-by-step solutions for all in-text questions and chapter-end numerical exercises guaranteeing 100% board accuracy.",
           "diagram_title": "NCERT Comparative Acoustic Waveforms",
-          "diagram_type": "image",
-          "image_query": "NCERT class 9 science sound chapter exercise question 19 waveforms diagram",
-          "video_query": "class 9 science chapter sound NCERT exercise complete solutions",
-          "image_url": "/extracted_diagrams/ch10/fig_10_30.webp",
+          "diagram_type": "image_search",
+          "image_query": "comparative waveforms A, B, and C used in NCERT Chapter-End Problem 19. scientific educational diagram with clear labels",
+          "video_query": "NCERT Comparative Acoustic Waveforms educational demonstration video",
           "what_to_make": "Textbook diagram of comparative waveforms A, B, and C used in NCERT Chapter-End Problem 19.",
-          "timing_and_cue": "Mount NCERT waveforms on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch10/fig_10_30.webp | NCERT Master Problem 19 | Comparing amplitude and frequency waveforms A, B, and C\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"comparative waveforms A, B, and C used in NCERT Chapter-End Problem 19. scientific educational diagram with clear labels\", title=\"NCERT Comparative Acoustic Waveforms\") | Proactive video: search_and_show_video(query=\"NCERT Comparative Acoustic Waveforms educational demonstration video\", title=\"NCERT Comparative Acoustic Waveforms\")",
+          "image_search_query": "comparative waveforms A, B, and C used in NCERT Chapter-End Problem 19. scientific educational diagram with clear labels",
+          "video_search_query": "NCERT Comparative Acoustic Waveforms educational demonstration video"
         }
       ]
     },

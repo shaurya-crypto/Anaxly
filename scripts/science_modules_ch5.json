@@ -99,52 +99,57 @@
         {
           "concept_title": "Pure Substance Definition: Matter having invariant chemical composition and definite physical constants (melting/boiling points).",
           "diagram_title": "Pure Substances vs Mixtures Taxonomy Tree",
-          "diagram_type": "image",
-          "image_query": "Classification of matter elements compounds mixtures diagram",
-          "video_query": "pure substances and mixtures chemistry",
-          "image_url": "/extracted_diagrams/ch5/fig_5_1.webp",
+          "diagram_type": "image_search",
+          "image_query": "Classification tree branching from Matter into Pure Substances Elements, Compounds and Mixtures Homogeneous, Heterogeneous . scientific educational diagram with clear labels",
+          "video_query": "Pure Substances vs Mixtures Taxonomy Tree educational demonstration video",
           "what_to_make": "Classification tree branching from Matter into Pure Substances (Elements, Compounds) and Mixtures (Homogeneous, Heterogeneous).",
-          "timing_and_cue": "Mount classification tree on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_1.webp | Matter Taxonomy | Pure substances with fixed properties vs variable physical mixtures\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Classification tree branching from Matter into Pure Substances Elements, Compounds and Mixtures Homogeneous, Heterogeneous . scientific educational diagram with clear labels\", title=\"Pure Substances vs Mixtures Taxonomy Tree\") | Proactive video: search_and_show_video(query=\"Pure Substances vs Mixtures Taxonomy Tree educational demonstration video\", title=\"Pure Substances vs Mixtures Taxonomy Tree\")",
+          "image_search_query": "Classification tree branching from Matter into Pure Substances Elements, Compounds and Mixtures Homogeneous, Heterogeneous . scientific educational diagram with clear labels",
+          "video_search_query": "Pure Substances vs Mixtures Taxonomy Tree educational demonstration video"
         },
         {
           "concept_title": "Mixture Definition: Physical combination of two or more substances in any proportion where components retain their individual identities.",
           "diagram_title": "Heterogeneous Phase Interface",
-          "diagram_type": "image",
-          "image_query": "Heterogeneous mixture distinct phases sand water microscope",
-          "video_query": "heterogeneous mixture examples",
-          "image_url": "/extracted_diagrams/ch5/fig_5_2.webp",
+          "diagram_type": "image_search",
+          "image_query": "Microscopic view of heterogeneous mixture showing distinct phase boundaries between sand grains and water molecules. scientific educational diagram with clear labels",
+          "video_query": "Heterogeneous Phase Interface educational demonstration video",
           "what_to_make": "Microscopic view of heterogeneous mixture showing distinct phase boundaries between sand grains and water molecules.",
-          "timing_and_cue": "Mount heterogeneous interface on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_2.webp | Heterogeneous Interface | Observable physical boundaries between distinct constituent phases\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Microscopic view of heterogeneous mixture showing distinct phase boundaries between sand grains and water molecules. scientific educational diagram with clear labels\", title=\"Heterogeneous Phase Interface\") | Proactive video: search_and_show_video(query=\"Heterogeneous Phase Interface educational demonstration video\", title=\"Heterogeneous Phase Interface\")",
+          "image_search_query": "Microscopic view of heterogeneous mixture showing distinct phase boundaries between sand grains and water molecules. scientific educational diagram with clear labels",
+          "video_search_query": "Heterogeneous Phase Interface educational demonstration video"
         },
         {
           "concept_title": "Homogeneous System: Uniform single phase without visible boundaries of separation (e.g. Copper sulfate in water, brass).",
           "diagram_title": "Homogeneous Copper Sulfate Solution",
-          "diagram_type": "image",
-          "image_query": "Copper sulfate solution homogeneous blue liquid beaker",
-          "video_query": "homogeneous copper sulfate solution",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Copper_sulfate_solution.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Beaker of brilliant blue copper sulfate solution showing completely uniform single-phase color distribution. scientific educational diagram with clear labels",
+          "video_query": "Homogeneous Copper Sulfate Solution educational demonstration video",
           "what_to_make": "Beaker of brilliant blue copper sulfate solution showing completely uniform single-phase color distribution.",
-          "timing_and_cue": "Mount homogeneous solution on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/2/23/Copper_sulfate_solution.jpg | Homogeneous Solution | Uniform molecular dissolution without phase boundaries\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Beaker of brilliant blue copper sulfate solution showing completely uniform single-phase color distribution. scientific educational diagram with clear labels\", title=\"Homogeneous Copper Sulfate Solution\") | Proactive video: search_and_show_video(query=\"Homogeneous Copper Sulfate Solution educational demonstration video\", title=\"Homogeneous Copper Sulfate Solution\")",
+          "image_search_query": "Beaker of brilliant blue copper sulfate solution showing completely uniform single-phase color distribution. scientific educational diagram with clear labels",
+          "video_search_query": "Homogeneous Copper Sulfate Solution educational demonstration video"
         },
         {
           "concept_title": "Heterogeneous System: Physically distinct parts with observable interfaces (e.g. Oil in water, chalk suspension).",
           "diagram_title": "Oil and Water Immiscible Heterogeneous System",
-          "diagram_type": "image",
-          "image_query": "Oil and water emulsion heterogeneous two layers beaker",
-          "video_query": "oil and water immiscible mixture",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Oil_and_water.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Two-phase system showing lower aqueous layer and upper lipid layer with sharp meniscus boundary. scientific educational diagram with clear labels",
+          "video_query": "Oil and Water Immiscible Heterogeneous System educational demonstration video",
           "what_to_make": "Two-phase system showing lower aqueous layer and upper lipid layer with sharp meniscus boundary.",
-          "timing_and_cue": "Mount oil-water on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/7/73/Oil_and_water.jpg | Two-Phase Heterogeneous System | Immiscible liquids maintaining sharp boundary interface\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Two-phase system showing lower aqueous layer and upper lipid layer with sharp meniscus boundary. scientific educational diagram with clear labels\", title=\"Oil and Water Immiscible Heterogeneous System\") | Proactive video: search_and_show_video(query=\"Oil and Water Immiscible Heterogeneous System educational demonstration video\", title=\"Oil and Water Immiscible Heterogeneous System\")",
+          "image_search_query": "Two-phase system showing lower aqueous layer and upper lipid layer with sharp meniscus boundary. scientific educational diagram with clear labels",
+          "video_search_query": "Oil and Water Immiscible Heterogeneous System educational demonstration video"
         },
         {
           "concept_title": "Activity 5.1 Group Testing: Differentiating true solution, suspension, and colloid by stability, filtration, and beam scattering.",
           "diagram_title": "Activity 5.1 Four Groups Testing Matrix",
-          "diagram_type": "image",
-          "image_query": "Filtration and stability of mixture test beakers funnel",
-          "video_query": "activity 2.1 class 9 science mixtures",
-          "image_url": "/extracted_diagrams/ch5/fig_5_3.webp",
+          "diagram_type": "image_search",
+          "image_query": "Four test beakers undergoing laser beam illumination, filtration, and undisturbed settling. scientific educational diagram with clear labels",
+          "video_query": "Activity 5.1 Four Groups Testing Matrix educational demonstration video",
           "what_to_make": "Four test beakers undergoing laser beam illumination, filtration, and undisturbed settling.",
-          "timing_and_cue": "Mount Activity 5.1 on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_3.webp | Activity 5.1 Testing Array | Comparing filtration, stability, and optical path across 4 mixtures\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Four test beakers undergoing laser beam illumination, filtration, and undisturbed settling. scientific educational diagram with clear labels\", title=\"Activity 5.1 Four Groups Testing Matrix\") | Proactive video: search_and_show_video(query=\"Activity 5.1 Four Groups Testing Matrix educational demonstration video\", title=\"Activity 5.1 Four Groups Testing Matrix\")",
+          "image_search_query": "Four test beakers undergoing laser beam illumination, filtration, and undisturbed settling. scientific educational diagram with clear labels",
+          "video_search_query": "Activity 5.1 Four Groups Testing Matrix educational demonstration video"
         }
       ]
     },
@@ -190,11 +195,11 @@
         "figure_caption": "Fig. 5.6: Mass percentage concentration formula and solution beaker"
       },
       {
-        "problem": "What is a saturated solution? What happens when a saturated solution prepared at 60\u00b0C is allowed to cool slowly to room temperature (25\u00b0C)?",
-        "given": "Saturated aqueous solution cooled from 60\u00b0C to 25\u00b0C.",
+        "problem": "What is a saturated solution? What happens when a saturated solution prepared at 60°C is allowed to cool slowly to room temperature (25°C)?",
+        "given": "Saturated aqueous solution cooled from 60°C to 25°C.",
         "formula": "Solubility-Temperature Relationship: $\\frac{dS}{dT} > 0$ for endothermic dissolution.",
         "substitution": "Solubility of most solid solutes decreases as temperature decreases.",
-        "calculation": "1. A saturated solution is one in which no more solute can dissolve at that specific temperature.\n2. At 60\u00b0C, the solvent holds a higher concentration of dissolved solute.\n3. Upon cooling to 25\u00b0C, thermal kinetic energy decreases and solubility drops.\n4. The excess dissolved solute precipitates out in the form of pure solid crystals at the bottom of the container.",
+        "calculation": "1. A saturated solution is one in which no more solute can dissolve at that specific temperature.\n2. At 60°C, the solvent holds a higher concentration of dissolved solute.\n3. Upon cooling to 25°C, thermal kinetic energy decreases and solubility drops.\n4. The excess dissolved solute precipitates out in the form of pure solid crystals at the bottom of the container.",
         "finalAnswer": "A saturated solution contains the maximum possible dissolved solute at that temperature; cooling causes excess solute to precipitate out as pure crystals.",
         "unit": "Solubility Dynamics",
         "has_diagram": true,
@@ -264,62 +269,68 @@
         {
           "concept_title": "Solution Components: Solute (dissolved substance) + Solvent (dissolving medium) = Solution.",
           "diagram_title": "Solute and Solvent Dissolution Model",
-          "diagram_type": "image",
-          "image_query": "Solute solvent solution dissolution particles diagram chemistry",
-          "video_query": "how solutions form chemistry solute solvent",
-          "image_url": "/extracted_diagrams/ch5/fig_5_4.webp",
+          "diagram_type": "image_search",
+          "image_query": "Solute and Solvent Dissolution Model step by step mathematical chalkboard solution diagram",
+          "video_query": "Solute and Solvent Dissolution Model class 10 9 mathematics explanation",
           "what_to_make": "Microscopic diagram showing solid solute lattice dissolving into solvent liquid molecules.",
-          "timing_and_cue": "Mount dissolution model on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_4.webp | Solution Dissolution | Solute particles completely dispersed in solvent molecular matrix\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Solute and Solvent Dissolution Model step by step mathematical chalkboard solution diagram\", title=\"Solute and Solvent Dissolution Model\") | Proactive video: search_and_show_video(query=\"Solute and Solvent Dissolution Model class 10 9 mathematics explanation\", title=\"Solute and Solvent Dissolution Model\")",
+          "image_search_query": "Solute and Solvent Dissolution Model step by step mathematical chalkboard solution diagram",
+          "video_search_query": "Solute and Solvent Dissolution Model class 10 9 mathematics explanation"
         },
         {
           "concept_title": "Nanoscale Dimension: True solution solute particles are smaller than 1 nanometer (10^-9 m) and do not scatter light.",
           "diagram_title": "Sub-Nanometer Particle Scale",
-          "diagram_type": "image",
-          "image_query": "Nanometer scale true solution colloid suspension particle size diagram",
-          "video_query": "particle size in solutions colloids suspensions",
-          "image_url": "/extracted_diagrams/ch5/fig_5_5.webp",
+          "diagram_type": "image_search",
+          "image_query": "Sub-Nanometer Particle Scale step by step mathematical chalkboard solution diagram",
+          "video_query": "Sub-Nanometer Particle Scale class 10 9 mathematics explanation",
           "what_to_make": "Logarithmic scale comparison showing true solution (< 1 nm), colloid (1-100 nm), and suspension (> 100 nm).",
-          "timing_and_cue": "Mount scale on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_5.webp | Particle Scale | Solute particles < 1 nm cannot scatter visible light photons\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Sub-Nanometer Particle Scale step by step mathematical chalkboard solution diagram\", title=\"Sub-Nanometer Particle Scale\") | Proactive video: search_and_show_video(query=\"Sub-Nanometer Particle Scale class 10 9 mathematics explanation\", title=\"Sub-Nanometer Particle Scale\")",
+          "image_search_query": "Sub-Nanometer Particle Scale step by step mathematical chalkboard solution diagram",
+          "video_search_query": "Sub-Nanometer Particle Scale class 10 9 mathematics explanation"
         },
         {
           "concept_title": "Saturation Dynamic: A solution in which no more solute can be dissolved at that specific temperature is called a saturated solution.",
           "diagram_title": "Saturated Solution Dynamic Equilibrium",
-          "diagram_type": "image",
-          "image_query": "Saturated unsaturated solution dynamic equilibrium diagram",
-          "video_query": "saturated and unsaturated solutions chemistry",
-          "image_url": "/extracted_diagrams/ch5/fig_5_6.webp",
+          "diagram_type": "image_search",
+          "image_query": "Saturated Solution Dynamic Equilibrium step by step mathematical chalkboard solution diagram",
+          "video_query": "Saturated Solution Dynamic Equilibrium class 10 9 mathematics explanation",
           "what_to_make": "Beaker showing undissolved solute crystals at bottom in dynamic equilibrium with dissolved solute ions.",
-          "timing_and_cue": "Mount saturation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_6.webp | Saturation Equilibrium | Rate of dissolution equals rate of precipitation\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Saturated Solution Dynamic Equilibrium step by step mathematical chalkboard solution diagram\", title=\"Saturated Solution Dynamic Equilibrium\") | Proactive video: search_and_show_video(query=\"Saturated Solution Dynamic Equilibrium class 10 9 mathematics explanation\", title=\"Saturated Solution Dynamic Equilibrium\")",
+          "image_search_query": "Saturated Solution Dynamic Equilibrium step by step mathematical chalkboard solution diagram",
+          "video_search_query": "Saturated Solution Dynamic Equilibrium class 10 9 mathematics explanation"
         },
         {
           "concept_title": "Thermal Effect on Solubility: Solubility of solid solutes generally increases with temperature; cooling a saturated solution causes crystallization.",
           "diagram_title": "Solubility Curves vs Temperature",
-          "diagram_type": "image",
-          "image_query": "Solubility curve temperature graph KNO3 NaCl chemistry",
-          "video_query": "solubility curves chemistry explained",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Solubility_curves.svg",
+          "diagram_type": "image_search",
+          "image_query": "Solubility Curves vs Temperature step by step mathematical chalkboard solution diagram",
+          "video_query": "Solubility Curves vs Temperature class 10 9 mathematics explanation",
           "what_to_make": "Solubility graph plotting grams of solute per 100g water vs temperature for KNO3, NaCl, and CuSO4.",
-          "timing_and_cue": "Mount solubility curves on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/e/ec/Solubility_curves.svg | Thermal Solubility Curves | Solute capacity expanding with temperature for solid salts\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Solubility Curves vs Temperature step by step mathematical chalkboard solution diagram\", title=\"Solubility Curves vs Temperature\") | Proactive video: search_and_show_video(query=\"Solubility Curves vs Temperature class 10 9 mathematics explanation\", title=\"Solubility Curves vs Temperature\")",
+          "image_search_query": "Solubility Curves vs Temperature step by step mathematical chalkboard solution diagram",
+          "video_search_query": "Solubility Curves vs Temperature class 10 9 mathematics explanation"
         },
         {
           "concept_title": "Concentration by Mass %: (Mass of solute / Total mass of solution) * 100.",
           "diagram_title": "Mass by Mass Concentration Card",
-          "diagram_type": "image",
-          "image_query": "Mass percentage concentration formula chemistry card",
-          "video_query": "how to calculate mass percent concentration",
-          "image_url": "/extracted_diagrams/ch5/fig_5_4.webp",
+          "diagram_type": "image_search",
+          "image_query": "Mass by Mass Concentration Card step by step mathematical chalkboard solution diagram",
+          "video_query": "Mass by Mass Concentration Card class 10 9 mathematics explanation",
           "what_to_make": "Formula card emphasizing Total Mass of Solution = Solute + Solvent in denominator.",
-          "timing_and_cue": "Mount mass percent card on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_4.webp | Mass Percent Formula | Mass % = (m_solute / m_total_solution) * 100\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Mass by Mass Concentration Card step by step mathematical chalkboard solution diagram\", title=\"Mass by Mass Concentration Card\") | Proactive video: search_and_show_video(query=\"Mass by Mass Concentration Card class 10 9 mathematics explanation\", title=\"Mass by Mass Concentration Card\")",
+          "image_search_query": "Mass by Mass Concentration Card step by step mathematical chalkboard solution diagram",
+          "video_search_query": "Mass by Mass Concentration Card class 10 9 mathematics explanation"
         },
         {
           "concept_title": "Concentration by Volume %: (Volume of solute / Total volume of solution) * 100.",
           "diagram_title": "Volume by Volume Concentration in Saline/Alcohol",
-          "diagram_type": "image",
-          "image_query": "Volume percent concentration alcohol in water graduated cylinder",
-          "video_query": "volume percent concentration chemistry",
-          "image_url": "/extracted_diagrams/ch5/fig_5_5.webp",
+          "diagram_type": "image_search",
+          "image_query": "Volume by Volume Concentration in Saline/Alcohol step by step mathematical chalkboard solution diagram",
+          "video_query": "Volume by Volume Concentration in Saline/Alcohol class 10 9 mathematics explanation",
           "what_to_make": "Graduated cylinder showing volume by volume solution mixing and meniscus reading.",
-          "timing_and_cue": "Mount volume percent on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_5.webp | Volume Percent Formula | Vol % = (V_solute / V_solution) * 100\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Volume by Volume Concentration in Saline/Alcohol step by step mathematical chalkboard solution diagram\", title=\"Volume by Volume Concentration in Saline/Alcohol\") | Proactive video: search_and_show_video(query=\"Volume by Volume Concentration in Saline/Alcohol class 10 9 mathematics explanation\", title=\"Volume by Volume Concentration in Saline/Alcohol\")",
+          "image_search_query": "Volume by Volume Concentration in Saline/Alcohol step by step mathematical chalkboard solution diagram",
+          "video_search_query": "Volume by Volume Concentration in Saline/Alcohol class 10 9 mathematics explanation"
         }
       ]
     },
@@ -404,7 +415,7 @@
         "problem": "Why can milk not be separated by simple filtration, and what technique is used instead?",
         "given": "Colloidal emulsion structure of cow/buffalo milk.",
         "formula": "Pore Size vs Centrifugal Force: $F_c = m \\omega^2 r$",
-        "substitution": "Colloidal fat globules (~1-10 \u03bcm) pass through ordinary filter paper pores.",
+        "substitution": "Colloidal fat globules (~1-10 μm) pass through ordinary filter paper pores.",
         "calculation": "1. Filter paper pores are larger than colloidal droplet sizes, so milk passes through as filtrate without leaving cream.\n2. Centrifugation spins the milk at high angular velocity in a centrifuge.\n3. The denser skim milk (water, proteins, lactose) is forced outward to the bottom, while lighter fat globules coalesce and float to the top as cream.",
         "finalAnswer": "Milk passes through filter paper pores; centrifugation is used instead to separate lighter cream from denser skim milk using centrifugal force.",
         "unit": "Separation Principle",
@@ -439,62 +450,68 @@
         {
           "concept_title": "Suspension Instability: Suspended particles settle down under gravity when left undisturbed; filtration separates them.",
           "diagram_title": "Suspension Sedimentation & Filtration",
-          "diagram_type": "image",
-          "image_query": "Chalk water suspension sedimentation beaker filter funnel diagram",
-          "video_query": "suspension settling sedimentation chemistry",
-          "image_url": "/extracted_diagrams/ch5/fig_5_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "Beaker of muddy suspension showing coarse particles settling to bottom and clear supernatant liquid above. scientific educational diagram with clear labels",
+          "video_query": "Suspension Sedimentation & Filtration educational demonstration video",
           "what_to_make": "Beaker of muddy suspension showing coarse particles settling to bottom and clear supernatant liquid above.",
-          "timing_and_cue": "Mount suspension on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_7.webp | Suspension Sedimentation | Coarse particles (> 100 nm) settling under gravity\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Beaker of muddy suspension showing coarse particles settling to bottom and clear supernatant liquid above. scientific educational diagram with clear labels\", title=\"Suspension Sedimentation & Filtration\") | Proactive video: search_and_show_video(query=\"Suspension Sedimentation & Filtration educational demonstration video\", title=\"Suspension Sedimentation & Filtration\")",
+          "image_search_query": "Beaker of muddy suspension showing coarse particles settling to bottom and clear supernatant liquid above. scientific educational diagram with clear labels",
+          "video_search_query": "Suspension Sedimentation & Filtration educational demonstration video"
         },
         {
           "concept_title": "Colloid Stability: Colloidal particles do not settle because continuous Brownian thermal impacts overcome gravity.",
           "diagram_title": "Brownian Motion in Colloidal Sol",
-          "diagram_type": "image",
-          "image_query": "Brownian motion zig zag particle trajectory colloid diagram",
-          "video_query": "brownian motion microscope colloidal particles",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Brownian_motion_large.gif",
+          "diagram_type": "image_search",
+          "image_query": "Erratic zig-zag trajectory of colloidal particle buffeted by invisible thermal collisions with solvent molecules. scientific educational diagram with clear labels",
+          "video_query": "Brownian Motion in Colloidal Sol educational demonstration video",
           "what_to_make": "Erratic zig-zag trajectory of colloidal particle buffeted by invisible thermal collisions with solvent molecules.",
-          "timing_and_cue": "Mount Brownian motion on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/3/30/Brownian_motion_large.gif | Brownian Motion | Continuous thermal impacts preventing colloidal sedimentation\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Erratic zig-zag trajectory of colloidal particle buffeted by invisible thermal collisions with solvent molecules. scientific educational diagram with clear labels\", title=\"Brownian Motion in Colloidal Sol\") | Proactive video: search_and_show_video(query=\"Brownian Motion in Colloidal Sol educational demonstration video\", title=\"Brownian Motion in Colloidal Sol\")",
+          "image_search_query": "Erratic zig-zag trajectory of colloidal particle buffeted by invisible thermal collisions with solvent molecules. scientific educational diagram with clear labels",
+          "video_search_query": "Brownian Motion in Colloidal Sol educational demonstration video"
         },
         {
           "concept_title": "Tyndall Scattering Physics: Colloidal particles are large enough (1-100 nm) to scatter visible light wavelengths, illuminating the beam path.",
           "diagram_title": "Laser Beam Tyndall Scattering in Colloid",
-          "diagram_type": "image",
-          "image_query": "Tyndall effect laser beam through solution and colloid beaker photo",
-          "video_query": "tyndall effect laser light experiment",
-          "image_url": "/extracted_diagrams/ch5/fig_5_3.webp",
+          "diagram_type": "image_search",
+          "image_query": "Side-by-side comparison of red laser beam passing invisibly through copper sulfate but brightly illuminating milk colloid. scientific educational diagram with clear labels",
+          "video_query": "Laser Beam Tyndall Scattering in Colloid educational demonstration video",
           "what_to_make": "Side-by-side comparison of red laser beam passing invisibly through copper sulfate but brightly illuminating milk colloid.",
-          "timing_and_cue": "Mount Tyndall effect on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_3.webp | Tyndall Optical Cone | Colloid particles (1-100 nm) scattering visible light photons\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Side-by-side comparison of red laser beam passing invisibly through copper sulfate but brightly illuminating milk colloid. scientific educational diagram with clear labels\", title=\"Laser Beam Tyndall Scattering in Colloid\") | Proactive video: search_and_show_video(query=\"Laser Beam Tyndall Scattering in Colloid educational demonstration video\", title=\"Laser Beam Tyndall Scattering in Colloid\")",
+          "image_search_query": "Side-by-side comparison of red laser beam passing invisibly through copper sulfate but brightly illuminating milk colloid. scientific educational diagram with clear labels",
+          "video_search_query": "Laser Beam Tyndall Scattering in Colloid educational demonstration video"
         },
         {
           "concept_title": "Dispersed Phase vs Dispersion Medium: Dispersed phase = solute-like component; Dispersion medium = solvent-like continuous phase.",
           "diagram_title": "Colloidal Component Architecture",
-          "diagram_type": "image",
-          "image_query": "Dispersed phase dispersion medium colloid diagram",
-          "video_query": "dispersed phase dispersion medium chemistry",
-          "image_url": "/extracted_diagrams/ch5/fig_5_8.webp",
+          "diagram_type": "image_search",
+          "image_query": "microscopic micelles of dispersed phase suspended in continuous dispersion medium. scientific educational diagram with clear labels",
+          "video_query": "Colloidal Component Architecture educational demonstration video",
           "what_to_make": "Diagram showing microscopic micelles of dispersed phase suspended in continuous dispersion medium.",
-          "timing_and_cue": "Mount colloidal components on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_8.webp | Colloidal Architecture | Dispersed Phase (solute analog) in Dispersion Medium (solvent analog)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"microscopic micelles of dispersed phase suspended in continuous dispersion medium. scientific educational diagram with clear labels\", title=\"Colloidal Component Architecture\") | Proactive video: search_and_show_video(query=\"Colloidal Component Architecture educational demonstration video\", title=\"Colloidal Component Architecture\")",
+          "image_search_query": "microscopic micelles of dispersed phase suspended in continuous dispersion medium. scientific educational diagram with clear labels",
+          "video_search_query": "Colloidal Component Architecture educational demonstration video"
         },
         {
           "concept_title": "The 8 Colloidal Classes Table: Master taxonomy pairing phases (Liquid in gas = Aerosol/fog; Liquid in liquid = Emulsion/milk; Solid in liquid = Sol/paint).",
           "diagram_title": "Master 8 Colloidal Types Chart",
-          "diagram_type": "image",
-          "image_query": "Types of colloids table aerosol foam emulsion sol gel",
-          "video_query": "8 types of colloids classification table",
-          "image_url": "/extracted_diagrams/ch5/fig_5_9.webp",
+          "diagram_type": "image_search",
+          "image_query": "NCERT 8-colloid master matrix pairing phase states with everyday consumer examples. scientific educational diagram with clear labels",
+          "video_query": "Master 8 Colloidal Types Chart educational demonstration video",
           "what_to_make": "NCERT 8-colloid master matrix pairing phase states with everyday consumer examples.",
-          "timing_and_cue": "Mount colloid table on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_9.webp | Master Colloid Taxonomy | Aerosol, Foam, Emulsion, Sol, and Gel classifications\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"NCERT 8-colloid master matrix pairing phase states with everyday consumer examples. scientific educational diagram with clear labels\", title=\"Master 8 Colloidal Types Chart\") | Proactive video: search_and_show_video(query=\"Master 8 Colloidal Types Chart educational demonstration video\", title=\"Master 8 Colloidal Types Chart\")",
+          "image_search_query": "NCERT 8-colloid master matrix pairing phase states with everyday consumer examples. scientific educational diagram with clear labels",
+          "video_search_query": "Master 8 Colloidal Types Chart educational demonstration video"
         },
         {
           "concept_title": "Forest Canopy Tyndall Effect: Sunlight passing through tree mist where fine water droplets scatter rays in a dense forest.",
           "diagram_title": "Sunlight Beams in Misty Forest Canopy",
-          "diagram_type": "image",
-          "image_query": "Sunlight rays through forest canopy mist Tyndall effect photo",
-          "video_query": "sunlight rays in forest mist tyndall effect",
-          "image_url": "/extracted_diagrams/ch5/fig_5_10.webp",
+          "diagram_type": "image_search",
+          "image_query": "Sunbeams streaming through dark canopy of forest scattered by tiny atmospheric water droplet aerosols. scientific educational diagram with clear labels",
+          "video_query": "Sunlight Beams in Misty Forest Canopy educational demonstration video",
           "what_to_make": "Sunbeams streaming through dark canopy of forest scattered by tiny atmospheric water droplet aerosols.",
-          "timing_and_cue": "Mount forest canopy on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_10.webp | Natural Tyndall Effect | Sunbeams illuminated by mist droplet aerosol in dense forest\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Sunbeams streaming through dark canopy of forest scattered by tiny atmospheric water droplet aerosols. scientific educational diagram with clear labels\", title=\"Sunlight Beams in Misty Forest Canopy\") | Proactive video: search_and_show_video(query=\"Sunlight Beams in Misty Forest Canopy educational demonstration video\", title=\"Sunlight Beams in Misty Forest Canopy\")",
+          "image_search_query": "Sunbeams streaming through dark canopy of forest scattered by tiny atmospheric water droplet aerosols. scientific educational diagram with clear labels",
+          "video_search_query": "Sunlight Beams in Misty Forest Canopy educational demonstration video"
         }
       ]
     },
@@ -614,62 +631,68 @@
         {
           "concept_title": "Separation Property Match: Every separation technique targets a specific differential physical property between constituents.",
           "diagram_title": "Separation Strategy Decision Tree",
-          "diagram_type": "image",
-          "image_query": "Methods of separation of mixtures flow chart diagram",
-          "video_query": "separation techniques chemistry class 9",
-          "image_url": "/extracted_diagrams/ch5/fig_5_11.webp",
+          "diagram_type": "image_search",
+          "image_query": "Flowchart routing mixtures to evaporation, centrifugation, sublimation, filtration, or distillation. scientific educational diagram with clear labels",
+          "video_query": "Separation Strategy Decision Tree educational demonstration video",
           "what_to_make": "Flowchart routing mixtures to evaporation, centrifugation, sublimation, filtration, or distillation.",
-          "timing_and_cue": "Mount separation decision tree on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_11.webp | Separation Logic | Choosing physical methods based on boiling, density, and sublimation contrasts\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Flowchart routing mixtures to evaporation, centrifugation, sublimation, filtration, or distillation. scientific educational diagram with clear labels\", title=\"Separation Strategy Decision Tree\") | Proactive video: search_and_show_video(query=\"Separation Strategy Decision Tree educational demonstration video\", title=\"Separation Strategy Decision Tree\")",
+          "image_search_query": "Flowchart routing mixtures to evaporation, centrifugation, sublimation, filtration, or distillation. scientific educational diagram with clear labels",
+          "video_search_query": "Separation Strategy Decision Tree educational demonstration video"
         },
         {
           "concept_title": "Indirect Evaporation: Ink is heated over a water bath rather than direct flame to prevent thermal decomposition of organic dyes.",
           "diagram_title": "Activity 5.4 Evaporation of Ink Over Water Bath",
-          "diagram_type": "image",
-          "image_query": "Evaporation of ink water bath watch glass beaker diagram chemistry",
-          "video_query": "evaporation of ink class 9 chemistry",
-          "image_url": "/extracted_diagrams/ch5/fig_5_13.webp",
+          "diagram_type": "image_search",
+          "image_query": "Laboratory setup showing beaker of boiling water heating a watch glass of ink above it. scientific educational diagram with clear labels",
+          "video_query": "Activity 5.4 Evaporation of Ink Over Water Bath educational demonstration video",
           "what_to_make": "Laboratory setup showing beaker of boiling water heating a watch glass of ink above it.",
-          "timing_and_cue": "Mount evaporation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_13.webp | Indirect Evaporation Lab | Steam bath heating preventing thermal decomposition of ink dye\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Laboratory setup showing beaker of boiling water heating a watch glass of ink above it. scientific educational diagram with clear labels\", title=\"Activity 5.4 Evaporation of Ink Over Water Bath\") | Proactive video: search_and_show_video(query=\"Activity 5.4 Evaporation of Ink Over Water Bath educational demonstration video\", title=\"Activity 5.4 Evaporation of Ink Over Water Bath\")",
+          "image_search_query": "Laboratory setup showing beaker of boiling water heating a watch glass of ink above it. scientific educational diagram with clear labels",
+          "video_search_query": "Activity 5.4 Evaporation of Ink Over Water Bath educational demonstration video"
         },
         {
           "concept_title": "Centrifugal Density Partitioning: Dense particles are forced radially outward to the tube bottom while lighter particles stay at the top under rapid spin.",
           "diagram_title": "Centrifugation Separation Mechanism",
-          "diagram_type": "image",
-          "image_query": "Centrifugation laboratory tubes cream from milk diagram",
-          "video_query": "centrifugation separation technique demonstration",
-          "image_url": "/extracted_diagrams/ch5/fig_5_14.webp",
+          "diagram_type": "image_search",
+          "image_query": "High-speed rotor spinning test tubes showing centrifugal force packing dense precipitates to tube bottom. scientific educational diagram with clear labels",
+          "video_query": "Centrifugation Separation Mechanism educational demonstration video",
           "what_to_make": "High-speed rotor spinning test tubes showing centrifugal force packing dense precipitates to tube bottom.",
-          "timing_and_cue": "Mount centrifugation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_14.webp | Centrifugation Dynamics | High g-force separating blood cells, milk cream, and fine colloids\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"High-speed rotor spinning test tubes showing centrifugal force packing dense precipitates to tube bottom. scientific educational diagram with clear labels\", title=\"Centrifugation Separation Mechanism\") | Proactive video: search_and_show_video(query=\"Centrifugation Separation Mechanism educational demonstration video\", title=\"Centrifugation Separation Mechanism\")",
+          "image_search_query": "High-speed rotor spinning test tubes showing centrifugal force packing dense precipitates to tube bottom. scientific educational diagram with clear labels",
+          "video_search_query": "Centrifugation Separation Mechanism educational demonstration video"
         },
         {
           "concept_title": "Sublimation Phase Transition: Direct solid-to-gas transition upon heating without melting into an intermediate liquid phase.",
           "diagram_title": "Activity 5.7 Sublimation of Ammonium Chloride",
-          "diagram_type": "image",
-          "image_query": "Sublimation of ammonium chloride inverted funnel cotton plug diagram",
-          "video_query": "sublimation of ammonium chloride experiment",
-          "image_url": "/extracted_diagrams/ch5/fig_5_11.webp",
+          "diagram_type": "image_search",
+          "image_query": "China dish on wire gauze with inverted cotton-plugged funnel showing sublimate crust on funnel neck. scientific educational diagram with clear labels",
+          "video_query": "Activity 5.7 Sublimation of Ammonium Chloride educational demonstration video",
           "what_to_make": "China dish on wire gauze with inverted cotton-plugged funnel showing sublimate crust on funnel neck.",
-          "timing_and_cue": "Mount sublimation lab on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_11.webp | Sublimation Apparatus | Solid NH4Cl vaporizing and depositing on cool inverted funnel\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"China dish on wire gauze with inverted cotton-plugged funnel showing sublimate crust on funnel neck. scientific educational diagram with clear labels\", title=\"Activity 5.7 Sublimation of Ammonium Chloride\") | Proactive video: search_and_show_video(query=\"Activity 5.7 Sublimation of Ammonium Chloride educational demonstration video\", title=\"Activity 5.7 Sublimation of Ammonium Chloride\")",
+          "image_search_query": "China dish on wire gauze with inverted cotton-plugged funnel showing sublimate crust on funnel neck. scientific educational diagram with clear labels",
+          "video_search_query": "Activity 5.7 Sublimation of Ammonium Chloride educational demonstration video"
         },
         {
           "concept_title": "Sublimate Deposition: Gaseous ammonium chloride vapor condenses as a solid crust on cold inverted funnel walls with a cotton plug.",
           "diagram_title": "Sublimate Crystals Deposition Micrograph",
-          "diagram_type": "image",
-          "image_query": "Ammonium chloride sublimate crystals funnel glass photo",
-          "video_query": "ammonium chloride crystals sublimation",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Ammonium-chloride-sublimation.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Crystalline crust of pure white ammonium chloride deposited on glass surface. scientific educational diagram with clear labels",
+          "video_query": "Sublimate Crystals Deposition Micrograph educational demonstration video",
           "what_to_make": "Crystalline crust of pure white ammonium chloride deposited on glass surface.",
-          "timing_and_cue": "Mount sublimate crystals on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/1/18/Ammonium-chloride-sublimation.jpg | Sublimate Deposition | Pure crystalline crust formed by desublimation\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Crystalline crust of pure white ammonium chloride deposited on glass surface. scientific educational diagram with clear labels\", title=\"Sublimate Crystals Deposition Micrograph\") | Proactive video: search_and_show_video(query=\"Sublimate Crystals Deposition Micrograph educational demonstration video\", title=\"Sublimate Crystals Deposition Micrograph\")",
+          "image_search_query": "Crystalline crust of pure white ammonium chloride deposited on glass surface. scientific educational diagram with clear labels",
+          "video_search_query": "Sublimate Crystals Deposition Micrograph educational demonstration video"
         },
         {
           "concept_title": "Clinical Applications: Centrifugation is universally used in diagnostic blood and urine labs, and in washing machine spin dryers.",
           "diagram_title": "Medical Blood Centrifugation Tube Layers",
-          "diagram_type": "image",
-          "image_query": "Centrifuged blood tube plasma buffy coat RBC layers photo",
-          "video_query": "blood centrifugation hematocrit layers",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Blood_centrifugation.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Diagnostic vacutainer showing clear yellow plasma at top, thin white buffy coat in middle, and dense red RBC pellet at bottom. scientific educational diagram with clear labels",
+          "video_query": "Medical Blood Centrifugation Tube Layers educational demonstration video",
           "what_to_make": "Diagnostic vacutainer showing clear yellow plasma at top, thin white buffy coat in middle, and dense red RBC pellet at bottom.",
-          "timing_and_cue": "Mount clinical blood tube on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/e/eb/Blood_centrifugation.jpg | Diagnostic Centrifugation | Blood partitioned into plasma, leukocyte buffy coat, and erythrocyte pellet\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Diagnostic vacutainer showing clear yellow plasma at top, thin white buffy coat in middle, and dense red RBC pellet at bottom. scientific educational diagram with clear labels\", title=\"Medical Blood Centrifugation Tube Layers\") | Proactive video: search_and_show_video(query=\"Medical Blood Centrifugation Tube Layers educational demonstration video\", title=\"Medical Blood Centrifugation Tube Layers\")",
+          "image_search_query": "Diagnostic vacutainer showing clear yellow plasma at top, thin white buffy coat in middle, and dense red RBC pellet at bottom. scientific educational diagram with clear labels",
+          "video_search_query": "Medical Blood Centrifugation Tube Layers educational demonstration video"
         }
       ]
     },
@@ -679,7 +702,7 @@
     "curriculum_id": "8d01a5f5-bf82-49c2-9fab-253d26b086f4",
     "order_index": 5,
     "title": "Separation Mechanics II: Immiscible Liquids, Distillation & Chromatography",
-    "description": "Master advanced separation systems: separating funnels for immiscible liquids, paper chromatography based on differential Rf solubility, simple distillation (delta Tb > 25\u00b0C), and fractional distillation of air (delta Tb < 25\u00b0C).",
+    "description": "Master advanced separation systems: separating funnels for immiscible liquids, paper chromatography based on differential Rf solubility, simple distillation (delta Tb > 25°C), and fractional distillation of air (delta Tb < 25°C).",
     "board": "CBSE",
     "class_level": "Class 9",
     "estimated_minutes": 20,
@@ -687,16 +710,16 @@
       "Immiscible Liquids (Activity 5.6): Density layering and stopcock control in a separating funnel (kerosene oil and water)",
       "Paper Chromatography (Activity 5.8): Separation of black ink dye pigments based on differential capillary solubility",
       "Chromatography Principle & Rf Value: Ratio of solute migration distance to mobile phase solvent front",
-      "Simple Distillation (Activity 5.9): Miscible liquids with boiling point difference delta Tb > 25\u00b0C (acetone 56\u00b0C and water 100\u00b0C)",
-      "Fractional Distillation (Activity 5.10): Miscible liquids with delta Tb < 25\u00b0C utilizing glass bead packed fractionating columns",
+      "Simple Distillation (Activity 5.9): Miscible liquids with boiling point difference delta Tb > 25°C (acetone 56°C and water 100°C)",
+      "Fractional Distillation (Activity 5.10): Miscible liquids with delta Tb < 25°C utilizing glass bead packed fractionating columns",
       "Atmospheric Air Separation: Liquefaction through compression/cooling followed by fractional distillation (N2, Ar, O2)"
     ],
     "key_concepts": [
       "Immiscible Density Stratification: Liquids that do not mix form separate layers; denser liquid drains first via the stopcock.",
       "Differential Chromatographic Solubility: The pigment component more soluble in water rises faster with the capillary solvent front.",
-      "Simple Distillation 25\u00b0C Rule: Simple distillation requires a large boiling point difference (delta Tb > 25\u00b0C) to prevent vapor co-condensation.",
+      "Simple Distillation 25°C Rule: Simple distillation requires a large boiling point difference (delta Tb > 25°C) to prevent vapor co-condensation.",
       "Fractionating Column Function: Packed glass beads provide extensive surface area for repeated condensation and vapor-liquid equilibration.",
-      "Air Liquefaction Order: Air is filtered, compressed, cooled to liquid state, then slowly warmed: Nitrogen boils at -196\u00b0C, Argon at -186\u00b0C, Oxygen at -183\u00b0C.",
+      "Air Liquefaction Order: Air is filtered, compressed, cooled to liquid state, then slowly warmed: Nitrogen boils at -196°C, Argon at -186°C, Oxygen at -183°C.",
       "Petroleum Refining: Fractional distillation tower separates crude oil into gasoline, diesel, kerosene, and lubricating oils."
     ],
     "success_criteria": "Student can contrast simple vs fractional distillation, draw the separating funnel and fractionating column, calculate chromatography Rf values, and explain atmospheric air separation.",
@@ -732,7 +755,7 @@
         "formula": "Cryogenic Liquefaction + Fractional Distillation",
         "substitution": "Air is compressed, cooled, expanded to liquefy, then warmed slowly in a fractional distillation column.",
         "calculation": "1. **Filtration & Compression**: Air is filtered to remove dust, compressed to high pressure (200 atm), and cooled by passing through freezing water pipes.\n2. **Expansion**: Compressed cold air expands rapidly through a jet nozzle, liquefying into liquid air at $-200^\\circ\\text{C}$ ($CO_2$ separates as dry ice solid).\n3. **Fractional Distillation**: Liquid air warms up slowly. Nitrogen boils off first at $-196^\\circ\\text{C}$; Argon boils off next at $-186^\\circ\\text{C}$; Oxygen remains as liquid at bottom (b.p. $-183^\\circ\\text{C}$).",
-        "finalAnswer": "Air is liquefied by compression and cooling, then subjected to fractional distillation where Nitrogen (-196\u00b0C) boils first, then Argon (-186\u00b0C), leaving liquid Oxygen (-183\u00b0C).",
+        "finalAnswer": "Air is liquefied by compression and cooling, then subjected to fractional distillation where Nitrogen (-196°C) boils first, then Argon (-186°C), leaving liquid Oxygen (-183°C).",
         "unit": "Cryogenic Separation",
         "has_diagram": true,
         "diagram_source": "book_extracted",
@@ -768,7 +791,7 @@
         "formula": "Simple Distillation: Applicable because boiling point difference $\\Delta T = 100 - 56 = 44^\\circ\\text{C} > 25\\text{ K}$.",
         "substitution": "Acetone vaporizes at $56^\\circ\\text{C}$, condenses in Liebig condenser, leaving water in distillation flask.",
         "calculation": "1. Pour mixture into distillation flask fitted with a thermometer and water condenser.\n2. Heat gently. Acetone boils at $56^\\circ\\text{C}$, vapors rise, enter the water-cooled condenser, liquefy, and collect in the receiver flask.\n3. Water has higher boiling point ($100^\\circ\\text{C}$) and remains in the distillation flask.",
-        "finalAnswer": "Acetone boils at 56\u00b0C and is condensed and collected in receiver flask; water remains in the distillation flask due to the 44\u00b0C boiling point difference.",
+        "finalAnswer": "Acetone boils at 56°C and is condensed and collected in receiver flask; water remains in the distillation flask due to the 44°C boiling point difference.",
         "unit": "Distillation Engineering",
         "has_diagram": true,
         "diagram_source": "book_extracted",
@@ -777,8 +800,8 @@
     ],
     "common_misconceptions": [
       {
-        "misconception": "You can use simple distillation to separate liquids whose boiling points differ by only 10\u00b0C.",
-        "correction": "When boiling point difference is less than 25\u00b0C, vapors of both liquids will co-evaporate and condense together in simple distillation. A fractionating column with glass beads is MANDATORY for repeated condensation stages.",
+        "misconception": "You can use simple distillation to separate liquids whose boiling points differ by only 10°C.",
+        "correction": "When boiling point difference is less than 25°C, vapors of both liquids will co-evaporate and condense together in simple distillation. A fractionating column with glass beads is MANDATORY for repeated condensation stages.",
         "why_it_matters": "A core distinction tested on all Class 9 CBSE chemistry exams."
       }
     ],
@@ -789,66 +812,72 @@
         {
           "concept_title": "Immiscible Density Stratification: Liquids that do not mix form separate layers; denser liquid drains first via the stopcock.",
           "diagram_title": "Activity 5.6 Separating Funnel Apparatus",
-          "diagram_type": "image",
-          "image_query": "Separating funnel kerosene water immiscible liquids diagram",
-          "video_query": "separating funnel demonstration chemistry",
-          "image_url": "/extracted_diagrams/ch5/fig_5_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "Pear-shaped separating funnel showing upper kerosene layer, lower water layer, and ground-glass stopcock draining into a conical flask. scientific educational diagram with clear labels",
+          "video_query": "Activity 5.6 Separating Funnel Apparatus educational demonstration video",
           "what_to_make": "Pear-shaped separating funnel showing upper kerosene layer, lower water layer, and ground-glass stopcock draining into a conical flask.",
-          "timing_and_cue": "Mount separating funnel on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_16.webp | Separating Funnel | Denser water layer drained through stopcock leaving lighter kerosene\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Pear-shaped separating funnel showing upper kerosene layer, lower water layer, and ground-glass stopcock draining into a conical flask. scientific educational diagram with clear labels\", title=\"Activity 5.6 Separating Funnel Apparatus\") | Proactive video: search_and_show_video(query=\"Activity 5.6 Separating Funnel Apparatus educational demonstration video\", title=\"Activity 5.6 Separating Funnel Apparatus\")",
+          "image_search_query": "Pear-shaped separating funnel showing upper kerosene layer, lower water layer, and ground-glass stopcock draining into a conical flask. scientific educational diagram with clear labels",
+          "video_search_query": "Activity 5.6 Separating Funnel Apparatus educational demonstration video"
         },
         {
           "concept_title": "Differential Chromatographic Solubility: The pigment component more soluble in water rises faster with the capillary solvent front.",
           "diagram_title": "Activity 5.8 Paper Chromatography Strip",
-          "diagram_type": "image",
-          "image_query": "Paper chromatography black ink dye pigments separation strip diagram",
-          "video_query": "paper chromatography black ink experiment",
-          "image_url": "/extracted_diagrams/ch5/fig_5_20.webp",
+          "diagram_type": "image_search",
+          "image_query": "Chromatography paper strip suspended in gas jar showing spot of ink resolved into separate blue, red, and yellow pigment bands. scientific educational diagram with clear labels",
+          "video_query": "Activity 5.8 Paper Chromatography Strip educational demonstration video",
           "what_to_make": "Chromatography paper strip suspended in gas jar showing spot of ink resolved into separate blue, red, and yellow pigment bands.",
-          "timing_and_cue": "Mount chromatography on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_20.webp | Paper Chromatography | Pigments separated based on differential solubility in mobile phase water\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Chromatography paper strip suspended in gas jar showing spot of ink resolved into separate blue, red, and yellow pigment bands. scientific educational diagram with clear labels\", title=\"Activity 5.8 Paper Chromatography Strip\") | Proactive video: search_and_show_video(query=\"Activity 5.8 Paper Chromatography Strip educational demonstration video\", title=\"Activity 5.8 Paper Chromatography Strip\")",
+          "image_search_query": "Chromatography paper strip suspended in gas jar showing spot of ink resolved into separate blue, red, and yellow pigment bands. scientific educational diagram with clear labels",
+          "video_search_query": "Activity 5.8 Paper Chromatography Strip educational demonstration video"
         },
         {
-          "concept_title": "Simple Distillation 25\u00b0C Rule: Simple distillation requires a large boiling point difference (delta Tb > 25\u00b0C) to prevent vapor co-condensation.",
+          "concept_title": "Simple Distillation 25°C Rule: Simple distillation requires a large boiling point difference (delta Tb > 25°C) to prevent vapor co-condensation.",
           "diagram_title": "Activity 5.9 Simple Distillation Setup",
-          "diagram_type": "image",
-          "image_query": "Simple distillation apparatus acetone water condenser diagram",
-          "video_query": "simple distillation experiment chemistry",
-          "image_url": "/extracted_diagrams/ch5/fig_5_18.webp",
+          "diagram_type": "image_search",
+          "image_query": "Distillation flask with thermometer, water-cooled Liebig condenser, and conical flask receiver for acetone and water separation. scientific educational diagram with clear labels",
+          "video_query": "Activity 5.9 Simple Distillation Setup educational demonstration video",
           "what_to_make": "Distillation flask with thermometer, water-cooled Liebig condenser, and conical flask receiver for acetone and water separation.",
-          "timing_and_cue": "Mount simple distillation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_18.webp | Simple Distillation | Exploiting large boiling point difference (delta Tb > 25\u00b0C) for miscible liquids\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Distillation flask with thermometer, water-cooled Liebig condenser, and conical flask receiver for acetone and water separation. scientific educational diagram with clear labels\", title=\"Activity 5.9 Simple Distillation Setup\") | Proactive video: search_and_show_video(query=\"Activity 5.9 Simple Distillation Setup educational demonstration video\", title=\"Activity 5.9 Simple Distillation Setup\")",
+          "image_search_query": "Distillation flask with thermometer, water-cooled Liebig condenser, and conical flask receiver for acetone and water separation. scientific educational diagram with clear labels",
+          "video_search_query": "Activity 5.9 Simple Distillation Setup educational demonstration video"
         },
         {
           "concept_title": "Fractionating Column Function: Packed glass beads provide extensive surface area for repeated condensation and vapor-liquid equilibration.",
           "diagram_title": "Activity 5.10 Fractional Distillation Apparatus",
-          "diagram_type": "image",
-          "image_query": "Fractional distillation fractionating column glass beads diagram",
-          "video_query": "fractional distillation lab demonstration",
-          "image_url": "/extracted_diagrams/ch5/fig_5_21.webp",
+          "diagram_type": "image_search",
+          "image_query": "Distillation apparatus equipped with vertical column packed with glass beads enabling multi-stage condensation. scientific educational diagram with clear labels",
+          "video_query": "Activity 5.10 Fractional Distillation Apparatus educational demonstration video",
           "what_to_make": "Distillation apparatus equipped with vertical column packed with glass beads enabling multi-stage condensation.",
-          "timing_and_cue": "Mount fractional distillation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_21.webp | Fractionating Column | Glass beads providing surface area for repeated condensation cycles (delta Tb < 25\u00b0C)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Distillation apparatus equipped with vertical column packed with glass beads enabling multi-stage condensation. scientific educational diagram with clear labels\", title=\"Activity 5.10 Fractional Distillation Apparatus\") | Proactive video: search_and_show_video(query=\"Activity 5.10 Fractional Distillation Apparatus educational demonstration video\", title=\"Activity 5.10 Fractional Distillation Apparatus\")",
+          "image_search_query": "Distillation apparatus equipped with vertical column packed with glass beads enabling multi-stage condensation. scientific educational diagram with clear labels",
+          "video_search_query": "Activity 5.10 Fractional Distillation Apparatus educational demonstration video"
         },
         {
-          "concept_title": "Air Liquefaction Order: Air is filtered, compressed, cooled to liquid state, then slowly warmed: Nitrogen boils at -196\u00b0C, Argon at -186\u00b0C, Oxygen at -183\u00b0C.",
+          "concept_title": "Air Liquefaction Order: Air is filtered, compressed, cooled to liquid state, then slowly warmed: Nitrogen boils at -196°C, Argon at -186°C, Oxygen at -183°C.",
           "diagram_title": "Separation of Components of Air Flowsheet",
-          "diagram_type": "image",
-          "image_query": "Separation of gases from air flowchart liquefaction fractional distillation",
-          "video_query": "how oxygen is separated from air fractional distillation",
-          "image_url": "/extracted_diagrams/ch5/fig_5_22.webp",
+          "diagram_type": "image_search",
+          "image_query": "Industrial flowsheet: Air -> Filter -> Compressor -> Cold water cooling -> Expansion valve -> Liquid air -> Fractionating column N2, Ar, O2 . scientific educational diagram with clear labels",
+          "video_query": "Separation of Components of Air Flowsheet educational demonstration video",
           "what_to_make": "Industrial flowsheet: Air -> Filter -> Compressor -> Cold water cooling -> Expansion valve -> Liquid air -> Fractionating column (N2, Ar, O2).",
-          "timing_and_cue": "Mount air flowsheet on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_22.webp | Air Separation Industrial Flowsheet | Multi-stage liquefaction and fractional boiling of N2, Ar, and O2\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Industrial flowsheet: Air -> Filter -> Compressor -> Cold water cooling -> Expansion valve -> Liquid air -> Fractionating column N2, Ar, O2 . scientific educational diagram with clear labels\", title=\"Separation of Components of Air Flowsheet\") | Proactive video: search_and_show_video(query=\"Separation of Components of Air Flowsheet educational demonstration video\", title=\"Separation of Components of Air Flowsheet\")",
+          "image_search_query": "Industrial flowsheet: Air -> Filter -> Compressor -> Cold water cooling -> Expansion valve -> Liquid air -> Fractionating column N2, Ar, O2 . scientific educational diagram with clear labels",
+          "video_search_query": "Separation of Components of Air Flowsheet educational demonstration video"
         },
         {
           "concept_title": "Petroleum Refining: Fractional distillation tower separates crude oil into gasoline, diesel, kerosene, and lubricating oils.",
           "diagram_title": "Crude Oil Fractionating Tower",
-          "diagram_type": "image",
-          "image_query": "Petroleum fractional distillation refinery tower fractions diagram",
-          "video_query": "fractional distillation of crude oil petroleum",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Crude_Oil_Distillation.png",
+          "diagram_type": "image_search",
+          "image_query": "Industrial petroleum distillation tower showing temperature gradient and tapped fractions from refinery gases down to bitumen residue. scientific educational diagram with clear labels",
+          "video_query": "Crude Oil Fractionating Tower educational demonstration video",
           "what_to_make": "Industrial petroleum distillation tower showing temperature gradient and tapped fractions from refinery gases down to bitumen residue.",
-          "timing_and_cue": "Mount petroleum tower on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/4/4b/Crude_Oil_Distillation.png | Petroleum Refinery Tower | Thermal fractional column partitioning hydrocarbons by molecular weight\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Industrial petroleum distillation tower showing temperature gradient and tapped fractions from refinery gases down to bitumen residue. scientific educational diagram with clear labels\", title=\"Crude Oil Fractionating Tower\") | Proactive video: search_and_show_video(query=\"Crude Oil Fractionating Tower educational demonstration video\", title=\"Crude Oil Fractionating Tower\")",
+          "image_search_query": "Industrial petroleum distillation tower showing temperature gradient and tapped fractions from refinery gases down to bitumen residue. scientific educational diagram with clear labels",
+          "video_search_query": "Crude Oil Fractionating Tower educational demonstration video"
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount verified image from concept_visuals on Step 1 of each concept.\n2. 6-STAGE SOCRATIC CADENCE:\n   - Stage 1: Intuition hook (How commercial factories extract pure breathing oxygen for hospitals from ambient air).\n   - Stage 2: Distillation 25\u00b0C rule and fractionating column mechanics.\n   - Stage 3: Common pitfall (Simple vs fractional distillation selection criteria).\n   - Stage 4: Chalkboard flowsheet tracing air liquefaction: N2 (-196\u00b0C) -> Ar (-186\u00b0C) -> O2 (-183\u00b0C).\n   - Stage 5: Socratic check: \"Why do we pack glass beads inside a fractionating column?\" HARD STOP: Wait for student response!\n   - Stage 6: Authentic CBSE numerical and theoretical question."
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount verified image from concept_visuals on Step 1 of each concept.\n2. 6-STAGE SOCRATIC CADENCE:\n   - Stage 1: Intuition hook (How commercial factories extract pure breathing oxygen for hospitals from ambient air).\n   - Stage 2: Distillation 25°C rule and fractionating column mechanics.\n   - Stage 3: Common pitfall (Simple vs fractional distillation selection criteria).\n   - Stage 4: Chalkboard flowsheet tracing air liquefaction: N2 (-196°C) -> Ar (-186°C) -> O2 (-183°C).\n   - Stage 5: Socratic check: \"Why do we pack glass beads inside a fractionating column?\" HARD STOP: Wait for student response!\n   - Stage 6: Authentic CBSE numerical and theoretical question."
   },
   {
     "curriculum_id": "8d01a5f5-bf82-49c2-9fab-253d26b086f4",
@@ -905,7 +934,7 @@
         "formula": "Solubility Calculation: $\\text{Mass in } 50\\text{ g} = \\frac{\\text{Solubility}}{2}$; Crystallized mass $= S_{T1} - S_{T2}$.",
         "substitution": "(a) At 313 K, solubility of $KNO_3 = 62\\text{ g}/100\\text{ g}$. For 50 g: $62 \\times \\frac{50}{100} = 31\\text{ g}$.\n(b) At 353 K, $KCl$ solubility $= 54\\text{ g}$; at 293 K, solubility $= 35\\text{ g}$. Mass precipitated $= 54 - 35 = 19\\text{ g}$.",
         "calculation": "1. (a) Mass of $KNO_3$ in 50 g water $= \\frac{62}{2} = \\mathbf{31\\text{ g}}$.\n2. (b) When cooled from 353 K to 293 K, $54 - 35 = \\mathbf{19\\text{ g}}$ of pure potassium chloride crystals precipitate out.\n3. (c) At 293 K: $KNO_3 = 32\\text{ g}, NaCl = 36\\text{ g}, KCl = 35\\text{ g}$. **Sodium chloride** ($NaCl$) has the highest solubility ($36\\text{ g}$).\n4. (d) Solubility of solid salts generally **increases** with an increase in temperature (dramatically for $KNO_3$, moderately for $KCl$, very slightly for $NaCl$).",
-        "finalAnswer": "(a) 31 g KNO\u2083, (b) 19 g KCl crystals precipitate out, (c) Sodium chloride (36 g), (d) Solubility increases with temperature.",
+        "finalAnswer": "(a) 31 g KNO₃, (b) 19 g KCl crystals precipitate out, (c) Sodium chloride (36 g), (d) Solubility increases with temperature.",
         "unit": "NCERT Master Exercise Q3",
         "has_diagram": true,
         "diagram_source": "book_extracted",
@@ -950,52 +979,57 @@
         {
           "concept_title": "Municipal Water Purification Stages: Physical sedimentation of suspended solids, alum loading for colloidal clay, sand/gravel filtration, and chemical chlorination.",
           "diagram_title": "City Water Purification Plant Flowsheet",
-          "diagram_type": "image",
-          "image_query": "Water purification system in water works diagram ncert",
-          "video_query": "water purification plant municipal supply animation",
-          "image_url": "/extracted_diagrams/ch5/fig_5_24.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook flowsheet showing reservoir -> sedimentation tank -> loading tank -> filtration tank sand/gravel -> chlorination tank -> home distribution. scientific educational diagram with clear labels",
+          "video_query": "City Water Purification Plant Flowsheet educational demonstration video",
           "what_to_make": "Textbook flowsheet showing reservoir -> sedimentation tank -> loading tank -> filtration tank (sand/gravel) -> chlorination tank -> home distribution.",
-          "timing_and_cue": "Mount water plant on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_24.webp | Water Purification Flowsheet | Multi-stage physical filtration and chlorination for municipal drinking supply\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook flowsheet showing reservoir -> sedimentation tank -> loading tank -> filtration tank sand/gravel -> chlorination tank -> home distribution. scientific educational diagram with clear labels\", title=\"City Water Purification Plant Flowsheet\") | Proactive video: search_and_show_video(query=\"City Water Purification Plant Flowsheet educational demonstration video\", title=\"City Water Purification Plant Flowsheet\")",
+          "image_search_query": "Textbook flowsheet showing reservoir -> sedimentation tank -> loading tank -> filtration tank sand/gravel -> chlorination tank -> home distribution. scientific educational diagram with clear labels",
+          "video_search_query": "City Water Purification Plant Flowsheet educational demonstration video"
         },
         {
           "concept_title": "Crystallization Advantage: Avoids thermal decomposition and charring of solids; impurities remain dissolved in filtrate mother liquor.",
           "diagram_title": "Activity 5.11 Pure Copper Sulfate Crystallization",
-          "diagram_type": "image",
-          "image_query": "Copper sulfate crystallization crystals china dish beaker photo",
-          "video_query": "crystallization of copper sulfate class 9",
-          "image_url": "/extracted_diagrams/ch5/fig_5_25.webp",
+          "diagram_type": "image_search",
+          "image_query": "Photograph of magnificent blue rhombic copper sulfate crystals grown by slow cooling of saturated solution. scientific educational diagram with clear labels",
+          "video_query": "Activity 5.11 Pure Copper Sulfate Crystallization educational demonstration video",
           "what_to_make": "Photograph of magnificent blue rhombic copper sulfate crystals grown by slow cooling of saturated solution.",
-          "timing_and_cue": "Mount crystallization on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_25.webp | Crystallization Superiority | Growing pure copper sulfate crystal lattice while impurities stay in solution\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Photograph of magnificent blue rhombic copper sulfate crystals grown by slow cooling of saturated solution. scientific educational diagram with clear labels\", title=\"Activity 5.11 Pure Copper Sulfate Crystallization\") | Proactive video: search_and_show_video(query=\"Activity 5.11 Pure Copper Sulfate Crystallization educational demonstration video\", title=\"Activity 5.11 Pure Copper Sulfate Crystallization\")",
+          "image_search_query": "Photograph of magnificent blue rhombic copper sulfate crystals grown by slow cooling of saturated solution. scientific educational diagram with clear labels",
+          "video_search_query": "Activity 5.11 Pure Copper Sulfate Crystallization educational demonstration video"
         },
         {
           "concept_title": "Physical vs Chemical Change Test: Physical changes alter shape/state without forming new chemical bonds; Chemical changes yield new substances with distinct chemical properties.",
           "diagram_title": "Physical vs Chemical Change Comparison Card",
-          "diagram_type": "image",
-          "image_query": "Physical vs chemical change comparison chart ice melting rusting",
-          "video_query": "physical vs chemical changes chemistry",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Rusting_iron.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Comparative graphic of reversible ice melting vs irreversible rusting of iron chain. scientific educational diagram with clear labels",
+          "video_query": "Physical vs Chemical Change Comparison Card educational demonstration video",
           "what_to_make": "Comparative graphic of reversible ice melting vs irreversible rusting of iron chain.",
-          "timing_and_cue": "Mount physical vs chemical on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/e/e2/Rusting_iron.jpg | Physical vs Chemical Changes | Reversible phase transitions vs irreversible chemical bond alterations\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Comparative graphic of reversible ice melting vs irreversible rusting of iron chain. scientific educational diagram with clear labels\", title=\"Physical vs Chemical Change Comparison Card\") | Proactive video: search_and_show_video(query=\"Physical vs Chemical Change Comparison Card educational demonstration video\", title=\"Physical vs Chemical Change Comparison Card\")",
+          "image_search_query": "Comparative graphic of reversible ice melting vs irreversible rusting of iron chain. scientific educational diagram with clear labels",
+          "video_search_query": "Physical vs Chemical Change Comparison Card educational demonstration video"
         },
         {
           "concept_title": "Pragmatic Separation Routing: Choosing precise apparatus (centrifuge, separating funnel, chromatography, distillation) for arbitrary multi-component mixtures.",
           "diagram_title": "Master Separation Method Selection Matrix",
-          "diagram_type": "image",
-          "image_query": "Methods of separating mixtures table chemistry review",
-          "video_query": "how to choose separation method chemistry",
-          "image_url": "/extracted_diagrams/ch5/fig_5_26.webp",
+          "diagram_type": "image_search",
+          "image_query": "Comprehensive reference matrix linking mixture properties immiscible, boiling point, density, volatility to separation tools. scientific educational diagram with clear labels",
+          "video_query": "Master Separation Method Selection Matrix educational demonstration video",
           "what_to_make": "Comprehensive reference matrix linking mixture properties (immiscible, boiling point, density, volatility) to separation tools.",
-          "timing_and_cue": "Mount separation matrix on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_26.webp | Master Separation Matrix | Topper revision card for all 11 NCERT chapter-end questions\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Comprehensive reference matrix linking mixture properties immiscible, boiling point, density, volatility to separation tools. scientific educational diagram with clear labels\", title=\"Master Separation Method Selection Matrix\") | Proactive video: search_and_show_video(query=\"Master Separation Method Selection Matrix educational demonstration video\", title=\"Master Separation Method Selection Matrix\")",
+          "image_search_query": "Comprehensive reference matrix linking mixture properties immiscible, boiling point, density, volatility to separation tools. scientific educational diagram with clear labels",
+          "video_search_query": "Master Separation Method Selection Matrix educational demonstration video"
         },
         {
           "concept_title": "Full 11-Question Master Ledger: Complete structured solutions matching CBSE marking schemes.",
           "diagram_title": "NCERT Chapter 5 Master Solutions Review",
-          "diagram_type": "image",
-          "image_query": "Class 9 science is matter around us pure summary sheet",
-          "video_query": "is matter around us pure full chapter revision",
-          "image_url": "/extracted_diagrams/ch5/fig_5_1.webp",
+          "diagram_type": "image_search",
+          "image_query": "NCERT chapter-end solutions overview summarizing core distinctions and separation schemes. scientific educational diagram with clear labels",
+          "video_query": "NCERT Chapter 5 Master Solutions Review educational demonstration video",
           "what_to_make": "NCERT chapter-end solutions overview summarizing core distinctions and separation schemes.",
-          "timing_and_cue": "Mount solutions overview on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch5/fig_5_1.webp | NCERT Chapter 5 Master Ledger | 100% verified solutions matching official board exam rubrics\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"NCERT chapter-end solutions overview summarizing core distinctions and separation schemes. scientific educational diagram with clear labels\", title=\"NCERT Chapter 5 Master Solutions Review\") | Proactive video: search_and_show_video(query=\"NCERT Chapter 5 Master Solutions Review educational demonstration video\", title=\"NCERT Chapter 5 Master Solutions Review\")",
+          "image_search_query": "NCERT chapter-end solutions overview summarizing core distinctions and separation schemes. scientific educational diagram with clear labels",
+          "video_search_query": "NCERT Chapter 5 Master Solutions Review educational demonstration video"
         }
       ]
     },

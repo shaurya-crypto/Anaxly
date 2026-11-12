@@ -942,7 +942,7 @@ export class GeminiLiveClient {
                   properties: {
                     query: {
                       type: Type.STRING,
-                      description: "Specific search query, e.g. 'plant cell wall ultrastructure diagram' or 'onion peel cells under microscope'",
+                      description: "Mandatory fully-detailed, specific educational search query. NEVER use vague 1-word terms like 'circuit' or 'cell'. Specify the exact system and components (e.g. for circuits: 'series electric circuit diagram with battery cells, closed plug key switch, ammeter in series, resistors in series, and direction of electric current'; for biology/optics: 'human eye labeled anatomy diagram showing cornea, iris, lens, retina, and optic nerve').",
                     },
                     title: {
                       type: Type.STRING,
@@ -965,7 +965,7 @@ export class GeminiLiveClient {
                   properties: {
                     query: {
                       type: Type.STRING,
-                      description: "Specific video search query, e.g. 'mitosis cell division under microscope' or 'air track kinematics uniform acceleration' or 'osmosis egg experiment'",
+                      description: "Mandatory fully-detailed educational experiment or demonstration video search query (e.g. 'series electric circuit connection with battery bulb and ammeter laboratory experiment demonstration' or 'verification of Ohm's law physics laboratory experiment demonstration' or 'vibrating rubber band producing sound experiment demonstration').",
                     },
                     title: {
                       type: Type.STRING,

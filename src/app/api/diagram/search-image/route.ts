@@ -387,9 +387,12 @@ function extractSmartImageSearchQueries(raw: string): string[] {
     }
   }
 
-  // Combine expanded queries first (most targeted), then stripped queries, then clean
+  // Combine queries: if the caller provided a detailed query (>= 4 words), prioritize it first
   const cleanStripped = clean.replace(/[\(\)\[\]\{\}]/g, ' ').replace(/\s+/g, ' ').trim()
-  const all = [...expanded, ...queries, cleanStripped]
+  const isDetailedCallerQuery = cleanStripped.split(' ').length >= 4
+  const all = isDetailedCallerQuery
+    ? [cleanStripped, ...queries, ...expanded]
+    : [...expanded, ...queries, cleanStripped]
 
   // Filter and deduplicate preserving priority order
   const seen = new Set<string>()

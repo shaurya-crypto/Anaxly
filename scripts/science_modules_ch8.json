@@ -109,62 +109,68 @@
         {
           "concept_title": "Electrical Nature of Matter: Matter contains charged particles, proven by frictional electricity (combing dry hair attracts small bits of paper, rubbing glass rod with silk cloth).",
           "diagram_title": "Triboelectric Frictional Charging",
-          "diagram_type": "image",
-          "image_query": "static electricity comb attracting paper bits diagram",
-          "video_query": "static electricity comb paper experiment",
-          "image_url": "/extracted_diagrams/ch8/fig_8_10.webp",
+          "diagram_type": "image_search",
+          "image_query": "plastic comb rubbed with hair attracting small bits of paper. scientific educational diagram with clear labels",
+          "video_query": "Triboelectric Frictional Charging educational demonstration video",
           "what_to_make": "Textbook diagram showing plastic comb rubbed with hair attracting small bits of paper.",
-          "timing_and_cue": "Mount frictional electricity on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_10.webp | Frictional Electricity | Proving matter possesses subatomic electrical charge\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"plastic comb rubbed with hair attracting small bits of paper. scientific educational diagram with clear labels\", title=\"Triboelectric Frictional Charging\") | Proactive video: search_and_show_video(query=\"Triboelectric Frictional Charging educational demonstration video\", title=\"Triboelectric Frictional Charging\")",
+          "image_search_query": "plastic comb rubbed with hair attracting small bits of paper. scientific educational diagram with clear labels",
+          "video_search_query": "Triboelectric Frictional Charging educational demonstration video"
         },
         {
           "concept_title": "Cathode Rays & Electron Discovery: J.J. Thomson (1897) identified cathode rays as streams of negatively charged subatomic particles called electrons, with negligible mass (~1/2000 of a hydrogen atom) and unit negative charge (-1.6 * 10^-19 C).",
           "diagram_title": "Thomson Cathode Ray Discharge Tube",
-          "diagram_type": "image",
-          "image_query": "cathode ray tube JJ Thomson electron experiment diagram",
-          "video_query": "JJ Thomson cathode ray tube experiment",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Cathode_ray_tube_diagram-en.svg",
+          "diagram_type": "image_search",
+          "image_query": "discharge tube showing cathode, anode, fluorescent screen, and electric deflection plates. scientific educational diagram with clear labels",
+          "video_query": "Thomson Cathode Ray Discharge Tube educational demonstration video",
           "what_to_make": "Diagram of discharge tube showing cathode, anode, fluorescent screen, and electric deflection plates.",
-          "timing_and_cue": "Mount cathode ray tube on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/e/e0/Cathode_ray_tube_diagram-en.svg | Cathode Ray Tube | Discovery of electron by deflection toward positive plate\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"discharge tube showing cathode, anode, fluorescent screen, and electric deflection plates. scientific educational diagram with clear labels\", title=\"Thomson Cathode Ray Discharge Tube\") | Proactive video: search_and_show_video(query=\"Thomson Cathode Ray Discharge Tube educational demonstration video\", title=\"Thomson Cathode Ray Discharge Tube\")",
+          "image_search_query": "discharge tube showing cathode, anode, fluorescent screen, and electric deflection plates. scientific educational diagram with clear labels",
+          "video_search_query": "Thomson Cathode Ray Discharge Tube educational demonstration video"
         },
         {
           "concept_title": "Canal Rays & Proton Discovery: E. Goldstein (1886) discovered positively charged radiations in a modified gas discharge tube called canal rays, leading to the identification of the proton with mass equal to 1 atomic mass unit and unit positive charge (+1.6 * 10^-19 C).",
           "diagram_title": "Goldstein Canal Ray Discharge Tube",
-          "diagram_type": "image",
-          "image_query": "canal rays anode rays goldstein perforated cathode discharge tube diagram",
-          "video_query": "canal rays goldstein proton discovery",
-          "image_url": "/extracted_diagrams/ch8/fig_8_2.webp",
+          "diagram_type": "image_search",
+          "image_query": "Goldstein's discharge tube with perforated cathode showing canal rays. scientific educational diagram with clear labels",
+          "video_query": "Goldstein Canal Ray Discharge Tube educational demonstration video",
           "what_to_make": "Textbook diagram of Goldstein's discharge tube with perforated cathode showing canal rays.",
-          "timing_and_cue": "Mount canal rays on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_2.webp | Goldstein Canal Rays | Positive ions passing through perforated cathode\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Goldstein's discharge tube with perforated cathode showing canal rays. scientific educational diagram with clear labels\", title=\"Goldstein Canal Ray Discharge Tube\") | Proactive video: search_and_show_video(query=\"Goldstein Canal Ray Discharge Tube educational demonstration video\", title=\"Goldstein Canal Ray Discharge Tube\")",
+          "image_search_query": "Goldstein's discharge tube with perforated cathode showing canal rays. scientific educational diagram with clear labels",
+          "video_search_query": "Goldstein Canal Ray Discharge Tube educational demonstration video"
         },
         {
           "concept_title": "Neutron Discovery: James Chadwick (1932) discovered subatomic particles having no electrical charge and a mass nearly equal to that of a proton, designated as neutrons (n), located within the atomic nucleus.",
           "diagram_title": "Chadwick Neutron Discovery Experiment",
-          "diagram_type": "image",
-          "image_query": "james chadwick discovery of neutron experiment diagram",
-          "video_query": "discovery of neutron chadwick animation",
-          "image_url": "/extracted_diagrams/ch8/fig_8_9.webp",
+          "diagram_type": "image_search",
+          "image_query": "alpha particle bombardment on beryllium target releasing neutral neutrons. scientific educational diagram with clear labels",
+          "video_query": "Chadwick Neutron Discovery Experiment educational demonstration video",
           "what_to_make": "Textbook diagram showing alpha particle bombardment on beryllium target releasing neutral neutrons.",
-          "timing_and_cue": "Mount neutron discovery on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_9.webp | Chadwick Neutron Discovery | Neutral penetrating radiation from beryllium bombardment\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"alpha particle bombardment on beryllium target releasing neutral neutrons. scientific educational diagram with clear labels\", title=\"Chadwick Neutron Discovery Experiment\") | Proactive video: search_and_show_video(query=\"Chadwick Neutron Discovery Experiment educational demonstration video\", title=\"Chadwick Neutron Discovery Experiment\")",
+          "image_search_query": "alpha particle bombardment on beryllium target releasing neutral neutrons. scientific educational diagram with clear labels",
+          "video_search_query": "Chadwick Neutron Discovery Experiment educational demonstration video"
         },
         {
           "concept_title": "Tri-Particulate Atomic Ledger: An atom consists of three fundamental subatomic particles: Protons (+1 charge, 1 u mass in nucleus), Neutrons (0 charge, 1 u mass in nucleus), and Electrons (-1 charge, 1/1840 u mass in orbits).",
           "diagram_title": "Tri-Particulate Subatomic Particle Table",
-          "diagram_type": "image",
-          "image_query": "subatomic particles electron proton neutron mass charge table diagram",
-          "video_query": "subatomic particles explained",
-          "image_url": "/extracted_diagrams/ch8/fig_8_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook comparative ledger comparing electron, proton, and neutron characteristics. scientific educational diagram with clear labels",
+          "video_query": "Tri-Particulate Subatomic Particle Table educational demonstration video",
           "what_to_make": "Textbook comparative ledger comparing electron, proton, and neutron characteristics.",
-          "timing_and_cue": "Mount subatomic ledger on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_7.webp | Subatomic Triad | Electron, Proton, Neutron mass and charge properties\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook comparative ledger comparing electron, proton, and neutron characteristics. scientific educational diagram with clear labels\", title=\"Tri-Particulate Subatomic Particle Table\") | Proactive video: search_and_show_video(query=\"Tri-Particulate Subatomic Particle Table educational demonstration video\", title=\"Tri-Particulate Subatomic Particle Table\")",
+          "image_search_query": "Textbook comparative ledger comparing electron, proton, and neutron characteristics. scientific educational diagram with clear labels",
+          "video_search_query": "Tri-Particulate Subatomic Particle Table educational demonstration video"
         },
         {
           "concept_title": "Electrical Neutrality Axiom: In any neutral atom, the number of positive protons inside the nucleus identically equals the number of negative electrons revolving outside.",
           "diagram_title": "Electrical Neutrality Atomic Balance",
-          "diagram_type": "image",
-          "image_query": "neutral atom protons equal electrons balance diagram",
-          "video_query": "why atoms are electrically neutral",
-          "image_url": "/extracted_diagrams/ch8/fig_8_4.webp",
+          "diagram_type": "image_search",
+          "image_query": "positive nucleus balanced by surrounding negative electrons. scientific educational diagram with clear labels",
+          "video_query": "Electrical Neutrality Atomic Balance educational demonstration video",
           "what_to_make": "Textbook diagram showing positive nucleus balanced by surrounding negative electrons.",
-          "timing_and_cue": "Mount electrical neutrality on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_4.webp | Electrical Neutrality | Number of protons equals number of electrons\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"positive nucleus balanced by surrounding negative electrons. scientific educational diagram with clear labels\", title=\"Electrical Neutrality Atomic Balance\") | Proactive video: search_and_show_video(query=\"Electrical Neutrality Atomic Balance educational demonstration video\", title=\"Electrical Neutrality Atomic Balance\")",
+          "image_search_query": "positive nucleus balanced by surrounding negative electrons. scientific educational diagram with clear labels",
+          "video_search_query": "Electrical Neutrality Atomic Balance educational demonstration video"
         }
       ]
     },
@@ -198,7 +204,7 @@
         "given": "Rutherford's gold foil alpha scattering experiment.",
         "formula": "Observation -> Physical Deduction Matrix",
         "substitution": "Correlate particle trajectories with nuclear structure.",
-        "calculation": "1. **Observation 1**: Most alpha particles passed straight through without deflection.\n   *Deduction*: Most of the space inside the atom is completely empty.\n2. **Observation 2**: A few alpha particles were deflected through small and large angles.\n   *Deduction*: The positive charge occupies very little volume inside the atom.\n3. **Observation 3**: 1 in ~12,000 alpha particles rebounded back (theta ~ 180\u00b0).\n   *Deduction*: All positive charge and nearly all atomic mass is concentrated in an ultra-dense, tiny central core called the **nucleus**.",
+        "calculation": "1. **Observation 1**: Most alpha particles passed straight through without deflection.\n   *Deduction*: Most of the space inside the atom is completely empty.\n2. **Observation 2**: A few alpha particles were deflected through small and large angles.\n   *Deduction*: The positive charge occupies very little volume inside the atom.\n3. **Observation 3**: 1 in ~12,000 alpha particles rebounded back (theta ~ 180°).\n   *Deduction*: All positive charge and nearly all atomic mass is concentrated in an ultra-dense, tiny central core called the **nucleus**.",
         "finalAnswer": "(1) Most pass straight -> atom is mostly empty; (2) Few deflect -> positive charge occupies little space; (3) 1 in 12,000 rebounds -> mass and positive charge concentrated in tiny central nucleus.",
         "unit": "Nuclear Epistemology",
         "has_diagram": true,
@@ -246,7 +252,7 @@
         "given": "Hypothetical alpha scattering through Thomson's uniform positive sphere.",
         "formula": "Coulomb Repulsion in Diffuse Charge Distribution",
         "substitution": "Thomson's model has positive charge and mass spread thinly across the entire volume.",
-        "calculation": "1. In Thomson's model, positive charge is diluted over the entire atom (~10^-10 m), creating a very weak electric field.\n2. Heavy, high-speed alpha particles (4 u) would easily punch through this diffuse positive sphere with almost zero resistance.\n3. Deflections, if any, would be fractions of a degree.\n4. No particle would ever deflect at large angles (>90\u00b0), and a 180\u00b0 rebound would be physically impossible.",
+        "calculation": "1. In Thomson's model, positive charge is diluted over the entire atom (~10^-10 m), creating a very weak electric field.\n2. Heavy, high-speed alpha particles (4 u) would easily punch through this diffuse positive sphere with almost zero resistance.\n3. Deflections, if any, would be fractions of a degree.\n4. No particle would ever deflect at large angles (>90°), and a 180° rebound would be physically impossible.",
         "finalAnswer": "All alpha particles would have passed straight through with negligible deflections; large angle deflections and rebounds would never have occurred.",
         "unit": "Theoretical Deduction",
         "has_diagram": true,
@@ -255,7 +261,7 @@
       },
       {
         "problem": "Why did Rutherford's observation that 1 in 12,000 alpha particles rebounded lead to the conclusion that atomic mass is concentrated in the nucleus?",
-        "given": "1 in 12,000 alpha particles rebounding at 180\u00b0.",
+        "given": "1 in 12,000 alpha particles rebounding at 180°.",
         "formula": "Head-on Elastic Collision Dynamics",
         "substitution": "An alpha particle has high mass (4 u) and immense speed (~10^7 m/s).",
         "calculation": "1. For a projectile with mass 4 u and speed 1.5 * 10^7 m/s to stop and reverse direction completely, it must collide head-on with a stationary target that is vastly heavier than itself.\n2. If atomic mass was spread thinly throughout the atom (as Thomson believed), the alpha particle would push through like a bullet through fog.\n3. The violent rebound proves the alpha particle hit a rigid, ultra-heavy, concentrated obstacle containing virtually the entire mass of the gold atom.",
@@ -280,62 +286,68 @@
         {
           "concept_title": "Thomson's Model (Plum Pudding): An atom consists of a positively charged sphere with electrons embedded in it like raisins in a Christmas pudding or seeds in a red watermelon.",
           "diagram_title": "Thomson Plum Pudding Watermelon Model",
-          "diagram_type": "image",
-          "image_query": "JJ Thomson plum pudding model watermelon diagram atom",
-          "video_query": "thomson atomic model animation",
-          "image_url": "/extracted_diagrams/ch8/fig_8_2.webp",
+          "diagram_type": "image_search",
+          "image_query": "Thomson's positive sphere with embedded negative electrons. scientific educational diagram with clear labels",
+          "video_query": "Thomson Plum Pudding Watermelon Model educational demonstration video",
           "what_to_make": "Textbook diagram showing Thomson's positive sphere with embedded negative electrons.",
-          "timing_and_cue": "Mount Thomson model on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_2.webp | Thomson's Model | Positive sphere embedded with negative electrons\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Thomson's positive sphere with embedded negative electrons. scientific educational diagram with clear labels\", title=\"Thomson Plum Pudding Watermelon Model\") | Proactive video: search_and_show_video(query=\"Thomson Plum Pudding Watermelon Model educational demonstration video\", title=\"Thomson Plum Pudding Watermelon Model\")",
+          "image_search_query": "Thomson's positive sphere with embedded negative electrons. scientific educational diagram with clear labels",
+          "video_search_query": "Thomson Plum Pudding Watermelon Model educational demonstration video"
         },
         {
           "concept_title": "Thomson's Success & Failure: It successfully explained the overall electrical neutrality of atoms, but failed completely to predict the scattering of alpha particles.",
           "diagram_title": "Thomson Electrical Neutrality Balance",
-          "diagram_type": "image",
-          "image_query": "thomson model electrical neutrality positive sphere diagram",
-          "video_query": "drawbacks of thomson atomic model",
-          "image_url": "/extracted_diagrams/ch8/fig_8_4.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook schematic contrasting Thomson's diffuse atom with experimental reality. scientific educational diagram with clear labels",
+          "video_query": "Thomson Electrical Neutrality Balance educational demonstration video",
           "what_to_make": "Textbook schematic contrasting Thomson's diffuse atom with experimental reality.",
-          "timing_and_cue": "Mount Thomson limitations on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_4.webp | Thomson Limitation | Explains neutrality but fails alpha scattering\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook schematic contrasting Thomson's diffuse atom with experimental reality. scientific educational diagram with clear labels\", title=\"Thomson Electrical Neutrality Balance\") | Proactive video: search_and_show_video(query=\"Thomson Electrical Neutrality Balance educational demonstration video\", title=\"Thomson Electrical Neutrality Balance\")",
+          "image_search_query": "Textbook schematic contrasting Thomson's diffuse atom with experimental reality. scientific educational diagram with clear labels",
+          "video_search_query": "Thomson Electrical Neutrality Balance educational demonstration video"
         },
         {
           "concept_title": "Rutherford's Alpha-Scattering Design: High-energy alpha particles (doubly ionized helium nuclei, 4 u mass) directed at ultra-thin gold foil (~1000 atoms thick, 100 nm) surrounded by a circular fluorescent zinc sulphide screen.",
           "diagram_title": "Rutherford Gold Foil Experimental Apparatus",
-          "diagram_type": "image",
-          "image_query": "rutherford gold foil experiment apparatus radioactive source screen diagram",
-          "video_query": "rutherford gold foil experiment setup",
-          "image_url": "/extracted_diagrams/ch8/fig_8_4.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook layout of alpha source, collimator, gold foil, and rotatable scintillation screen. scientific educational diagram with clear labels",
+          "video_query": "Rutherford Gold Foil Experimental Apparatus educational demonstration video",
           "what_to_make": "Textbook layout of alpha source, collimator, gold foil, and rotatable scintillation screen.",
-          "timing_and_cue": "Mount experiment setup on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_4.webp | Rutherford Experiment Setup | Alpha source directed at 1000-atom gold leaf\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook layout of alpha source, collimator, gold foil, and rotatable scintillation screen. scientific educational diagram with clear labels\", title=\"Rutherford Gold Foil Experimental Apparatus\") | Proactive video: search_and_show_video(query=\"Rutherford Gold Foil Experimental Apparatus educational demonstration video\", title=\"Rutherford Gold Foil Experimental Apparatus\")",
+          "image_search_query": "Textbook layout of alpha source, collimator, gold foil, and rotatable scintillation screen. scientific educational diagram with clear labels",
+          "video_search_query": "Rutherford Gold Foil Experimental Apparatus educational demonstration video"
         },
         {
           "concept_title": "Observation 1 (Empty Space): Most of the fast-moving alpha particles passed straight through the gold foil without any deflection, proving most of the atom is empty space.",
           "diagram_title": "Undeflected Alpha Particle Beam",
-          "diagram_type": "image",
-          "image_query": "rutherford alpha scattering straight pass undeflected empty space diagram",
-          "video_query": "alpha particles passing through empty space",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Rutherford_gold_foil_experiment_results.svg",
+          "diagram_type": "image_search",
+          "image_query": "99.9% of alpha rays passing straight through atomic lattices without interaction. scientific educational diagram with clear labels",
+          "video_query": "Undeflected Alpha Particle Beam educational demonstration video",
           "what_to_make": "Diagram showing 99.9% of alpha rays passing straight through atomic lattices without interaction.",
-          "timing_and_cue": "Mount empty space deduction on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/e/e1/Rutherford_gold_foil_experiment_results.svg | Observation 1: Empty Space | 99.9% particles pass straight through\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"99.9% of alpha rays passing straight through atomic lattices without interaction. scientific educational diagram with clear labels\", title=\"Undeflected Alpha Particle Beam\") | Proactive video: search_and_show_video(query=\"Undeflected Alpha Particle Beam educational demonstration video\", title=\"Undeflected Alpha Particle Beam\")",
+          "image_search_query": "99.9% of alpha rays passing straight through atomic lattices without interaction. scientific educational diagram with clear labels",
+          "video_search_query": "Undeflected Alpha Particle Beam educational demonstration video"
         },
         {
           "concept_title": "Observation 2 (Concentrated Positive Charge): A small fraction of alpha particles were deflected by small and large angles, proving positive charge occupies very little volume.",
           "diagram_title": "Scattering Angle Coulomb Deflection",
-          "diagram_type": "image",
-          "image_query": "alpha particle coulomb deflection nucleus scattering angle diagram",
-          "video_query": "alpha particle deflection angle",
-          "image_url": "/extracted_diagrams/ch8/fig_8_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook trajectory diagram showing hyperbolic Coulomb deflection around positive nucleus. scientific educational diagram with clear labels",
+          "video_query": "Scattering Angle Coulomb Deflection educational demonstration video",
           "what_to_make": "Textbook trajectory diagram showing hyperbolic Coulomb deflection around positive nucleus.",
-          "timing_and_cue": "Mount deflection angles on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_7.webp | Observation 2: Small & Large Deflections | Hyperbolic repulsion by concentrated positive charge\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook trajectory diagram showing hyperbolic Coulomb deflection around positive nucleus. scientific educational diagram with clear labels\", title=\"Scattering Angle Coulomb Deflection\") | Proactive video: search_and_show_video(query=\"Scattering Angle Coulomb Deflection educational demonstration video\", title=\"Scattering Angle Coulomb Deflection\")",
+          "image_search_query": "Textbook trajectory diagram showing hyperbolic Coulomb deflection around positive nucleus. scientific educational diagram with clear labels",
+          "video_search_query": "Scattering Angle Coulomb Deflection educational demonstration video"
         },
         {
           "concept_title": "Observation 3 (Dense Core Rebound): Astonishingly, about 1 in 12,000 particles rebounded back (theta = 180 deg), proving all the mass and positive charge is concentrated in a tiny dense core called the nucleus.",
           "diagram_title": "Head-On Rebound and Nuclear Concentrated Mass",
-          "diagram_type": "image",
-          "image_query": "rutherford alpha particle 1 in 12000 rebound nucleus diagram",
-          "video_query": "rutherford alpha rebound 180 degrees",
-          "image_url": "/extracted_diagrams/ch8/fig_8_8.webp",
+          "diagram_type": "image_search",
+          "image_query": "head-on collision of alpha particle with ultra-dense nucleus rebounding 180 degrees. scientific educational diagram with clear labels",
+          "video_query": "Head-On Rebound and Nuclear Concentrated Mass educational demonstration video",
           "what_to_make": "Textbook diagram showing head-on collision of alpha particle with ultra-dense nucleus rebounding 180 degrees.",
-          "timing_and_cue": "Mount 180-degree rebound on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_8.webp | Observation 3: 180\u00b0 Rebound | Proving all atomic mass is in the ultra-dense nucleus\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"head-on collision of alpha particle with ultra-dense nucleus rebounding 180 degrees. scientific educational diagram with clear labels\", title=\"Head-On Rebound and Nuclear Concentrated Mass\") | Proactive video: search_and_show_video(query=\"Head-On Rebound and Nuclear Concentrated Mass educational demonstration video\", title=\"Head-On Rebound and Nuclear Concentrated Mass\")",
+          "image_search_query": "head-on collision of alpha particle with ultra-dense nucleus rebounding 180 degrees. scientific educational diagram with clear labels",
+          "video_search_query": "Head-On Rebound and Nuclear Concentrated Mass educational demonstration video"
         }
       ]
     },
@@ -451,62 +463,68 @@
         {
           "concept_title": "Rutherford's Nuclear Model: An atom has a positively charged, ultra-dense center called the nucleus containing nearly all atomic mass; electrons revolve around the nucleus in circular planetary paths.",
           "diagram_title": "Rutherford Nuclear Planetary Model",
-          "diagram_type": "image",
-          "image_query": "rutherford planetary model nucleus orbiting electrons diagram",
-          "video_query": "rutherford atomic model animation",
-          "image_url": "/extracted_diagrams/ch8/fig_8_4.webp",
+          "diagram_type": "image_search",
+          "image_query": "central nucleus with revolving electrons in circular orbits. scientific educational diagram with clear labels",
+          "video_query": "Rutherford Nuclear Planetary Model educational demonstration video",
           "what_to_make": "Textbook diagram showing central nucleus with revolving electrons in circular orbits.",
-          "timing_and_cue": "Mount Rutherford model on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_4.webp | Rutherford Nuclear Model | Central positive nucleus surrounded by orbiting electrons\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"central nucleus with revolving electrons in circular orbits. scientific educational diagram with clear labels\", title=\"Rutherford Nuclear Planetary Model\") | Proactive video: search_and_show_video(query=\"Rutherford Nuclear Planetary Model educational demonstration video\", title=\"Rutherford Nuclear Planetary Model\")",
+          "image_search_query": "central nucleus with revolving electrons in circular orbits. scientific educational diagram with clear labels",
+          "video_search_query": "Rutherford Nuclear Planetary Model educational demonstration video"
         },
         {
           "concept_title": "Rutherford Nuclear Postulate 2: The size of the nucleus is extremely small (~10^-15 m) compared to the overall atom (~10^-10 m).",
           "diagram_title": "Scale Comparison Atom vs Nucleus",
-          "diagram_type": "image",
-          "image_query": "atom vs nucleus size comparison cricket stadium marble diagram",
-          "video_query": "scale of the atom vs nucleus",
-          "image_url": "/extracted_diagrams/ch8/fig_8_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook scale diagram illustrating 100,000x size difference between atom and nucleus. scientific educational diagram with clear labels",
+          "video_query": "Scale Comparison Atom vs Nucleus educational demonstration video",
           "what_to_make": "Textbook scale diagram illustrating 100,000x size difference between atom and nucleus.",
-          "timing_and_cue": "Mount atomic scale on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_7.webp | Scale Dimension | Nucleus is 100,000 times smaller than the atom\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook scale diagram illustrating 100,000x size difference between atom and nucleus. scientific educational diagram with clear labels\", title=\"Scale Comparison Atom vs Nucleus\") | Proactive video: search_and_show_video(query=\"Scale Comparison Atom vs Nucleus educational demonstration video\", title=\"Scale Comparison Atom vs Nucleus\")",
+          "image_search_query": "Textbook scale diagram illustrating 100,000x size difference between atom and nucleus. scientific educational diagram with clear labels",
+          "video_search_query": "Scale Comparison Atom vs Nucleus educational demonstration video"
         },
         {
           "concept_title": "The Electro-Dynamic Collapse Paradox: According to classical electromagnetism (Maxwell), any charged particle undergoing circular acceleration must continuously radiate electromagnetic energy, losing speed and spiraling into the nucleus within 10^-8 seconds.",
           "diagram_title": "Electrodynamic Spiral Collapse Paradox",
-          "diagram_type": "image",
-          "image_query": "rutherford atomic model electron spiral into nucleus collapse diagram",
-          "video_query": "drawback of rutherford model spiral collapse",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Rutherford_atom_instability.svg",
+          "diagram_type": "image_search",
+          "image_query": "electron spiraling inward toward the nucleus due to continuous energy radiation. scientific educational diagram with clear labels",
+          "video_query": "Electrodynamic Spiral Collapse Paradox educational demonstration video",
           "what_to_make": "Diagram showing electron spiraling inward toward the nucleus due to continuous energy radiation.",
-          "timing_and_cue": "Mount spiral collapse on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/e/ec/Rutherford_atom_instability.svg | The Collapse Paradox | Maxwell radiation causes 10^-8 s inward spiral\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"electron spiraling inward toward the nucleus due to continuous energy radiation. scientific educational diagram with clear labels\", title=\"Electrodynamic Spiral Collapse Paradox\") | Proactive video: search_and_show_video(query=\"Electrodynamic Spiral Collapse Paradox educational demonstration video\", title=\"Electrodynamic Spiral Collapse Paradox\")",
+          "image_search_query": "electron spiraling inward toward the nucleus due to continuous energy radiation. scientific educational diagram with clear labels",
+          "video_search_query": "Electrodynamic Spiral Collapse Paradox educational demonstration video"
         },
         {
           "concept_title": "Bohr's First Postulate (Discrete Orbits): Only certain special orbits known as discrete orbits or stationary states of electrons are allowed inside the atom.",
           "diagram_title": "Bohr Quantized Discrete Orbits",
-          "diagram_type": "image",
-          "image_query": "bohr model discrete quantized orbits stationary states diagram",
-          "video_query": "bohrs postulates class 9",
-          "image_url": "/extracted_diagrams/ch8/fig_8_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "discrete non-radiating quantized orbits. scientific educational diagram with clear labels",
+          "video_query": "Bohr Quantized Discrete Orbits educational demonstration video",
           "what_to_make": "Textbook diagram showing discrete non-radiating quantized orbits.",
-          "timing_and_cue": "Mount discrete orbits on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_7.webp | Bohr Postulate 1 | Only discrete stationary orbits are permitted\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"discrete non-radiating quantized orbits. scientific educational diagram with clear labels\", title=\"Bohr Quantized Discrete Orbits\") | Proactive video: search_and_show_video(query=\"Bohr Quantized Discrete Orbits educational demonstration video\", title=\"Bohr Quantized Discrete Orbits\")",
+          "image_search_query": "discrete non-radiating quantized orbits. scientific educational diagram with clear labels",
+          "video_search_query": "Bohr Quantized Discrete Orbits educational demonstration video"
         },
         {
           "concept_title": "Bohr's Second Postulate (Zero Radiation): While revolving in these discrete orbits, electrons do NOT radiate energy, keeping the atom completely stable.",
           "diagram_title": "Non-Radiating Stationary States",
-          "diagram_type": "image",
-          "image_query": "bohr stationary states non radiating electrons stability diagram",
-          "video_query": "why electrons do not fall into nucleus bohr",
-          "image_url": "/extracted_diagrams/ch8/fig_8_8.webp",
+          "diagram_type": "image_search",
+          "image_query": "stable non-radiating orbital circulation. scientific educational diagram with clear labels",
+          "video_query": "Non-Radiating Stationary States educational demonstration video",
           "what_to_make": "Textbook diagram showing stable non-radiating orbital circulation.",
-          "timing_and_cue": "Mount zero radiation postulate on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_8.webp | Bohr Postulate 2 | Stationary orbits do not radiate energy, guaranteeing stability\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"stable non-radiating orbital circulation. scientific educational diagram with clear labels\", title=\"Non-Radiating Stationary States\") | Proactive video: search_and_show_video(query=\"Non-Radiating Stationary States educational demonstration video\", title=\"Non-Radiating Stationary States\")",
+          "image_search_query": "stable non-radiating orbital circulation. scientific educational diagram with clear labels",
+          "video_search_query": "Non-Radiating Stationary States educational demonstration video"
         },
         {
           "concept_title": "Bohr's Energy Shells: Energy levels are represented by letters K, L, M, N... or integer numbers n = 1, 2, 3, 4... where energy increases with distance from nucleus.",
           "diagram_title": "Energy Levels K L M N Shells",
-          "diagram_type": "image",
-          "image_query": "energy levels in an atom K L M N shells n equals 1 2 3 4 diagram",
-          "video_query": "energy shells K L M N bohr model",
-          "image_url": "/extracted_diagrams/ch8/fig_8_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "central nucleus with concentric shells K n=1 , L n=2 , M n=3 , N n=4 . scientific educational diagram with clear labels",
+          "video_query": "Energy Levels K L M N Shells educational demonstration video",
           "what_to_make": "Textbook diagram showing central nucleus with concentric shells K (n=1), L (n=2), M (n=3), N (n=4).",
-          "timing_and_cue": "Mount K L M N shells on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_7.webp | Energy Levels K, L, M, N | Shell index n = 1, 2, 3, 4 with increasing energy\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"central nucleus with concentric shells K n=1 , L n=2 , M n=3 , N n=4 . scientific educational diagram with clear labels\", title=\"Energy Levels K L M N Shells\") | Proactive video: search_and_show_video(query=\"Energy Levels K L M N Shells educational demonstration video\", title=\"Energy Levels K L M N Shells\")",
+          "image_search_query": "central nucleus with concentric shells K n=1 , L n=2 , M n=3 , N n=4 . scientific educational diagram with clear labels",
+          "video_search_query": "Energy Levels K L M N Shells educational demonstration video"
         }
       ]
     },
@@ -514,8 +532,8 @@
   },
   {
     "order_index": 4,
-    "title": "Electronic Configuration Architecture: The Bohr-Bury Scheme (2n\u00b2) & Shell Distribution",
-    "description": "Master the Bohr-Bury rules governing electron distribution across shells, formulate the 2n\u00b2 capacity law, apply the octet limit on outermost shells, and construct complete geometric atomic configurations for the first 20 elements (H to Ca).",
+    "title": "Electronic Configuration Architecture: The Bohr-Bury Scheme (2n²) & Shell Distribution",
+    "description": "Master the Bohr-Bury rules governing electron distribution across shells, formulate the 2n² capacity law, apply the octet limit on outermost shells, and construct complete geometric atomic configurations for the first 20 elements (H to Ca).",
     "subtopics": [
       "Bohr-Bury Rule 1: Maximum capacity of a shell is given by 2n^2 (K=2, L=8, M=18, N=32)",
       "Bohr-Bury Rule 2: The maximum number of electrons accommodated in the outermost valence shell is 8",
@@ -622,62 +640,68 @@
         {
           "concept_title": "2n^2 Capacity Rule: The maximum number of electrons present in an energy shell is given by the formula 2n^2, where n is the orbit number (K shell: 2(1)^2 = 2; L shell: 2(2)^2 = 8; M shell: 2(3)^2 = 18; N shell: 2(4)^2 = 32).",
           "diagram_title": "2n^2 Shell Capacity Formula Architecture",
-          "diagram_type": "image",
-          "image_query": "bohr bury rules 2n squared formula shell capacity diagram",
-          "video_query": "bohr bury rules electron distribution",
-          "image_url": "/extracted_diagrams/ch8/fig_8_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "mathematical 2n^2 derivation for shells K, L, M, N. scientific educational diagram with clear labels",
+          "video_query": "2n^2 Shell Capacity Formula Architecture educational demonstration video",
           "what_to_make": "Textbook diagram showing mathematical 2n^2 derivation for shells K, L, M, N.",
-          "timing_and_cue": "Mount 2n^2 rule on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_7.webp | 2n^2 Capacity Rule | K=2, L=8, M=18, N=32 maximum capacities\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"mathematical 2n^2 derivation for shells K, L, M, N. scientific educational diagram with clear labels\", title=\"2n^2 Shell Capacity Formula Architecture\") | Proactive video: search_and_show_video(query=\"2n^2 Shell Capacity Formula Architecture educational demonstration video\", title=\"2n^2 Shell Capacity Formula Architecture\")",
+          "image_search_query": "mathematical 2n^2 derivation for shells K, L, M, N. scientific educational diagram with clear labels",
+          "video_search_query": "2n^2 Shell Capacity Formula Architecture educational demonstration video"
         },
         {
           "concept_title": "Outermost Octet Rule: The maximum number of electrons that can be accommodated in the outermost shell of an atom is 8, even if that shell has capacity for more (e.g. M-shell holds max 8 until N-shell starts).",
           "diagram_title": "Outermost Valence Shell Octet Constraint",
-          "diagram_type": "image",
-          "image_query": "outermost shell max 8 electrons octet rule bohr bury diagram",
-          "video_query": "octet rule outermost shell",
-          "image_url": "/extracted_diagrams/ch8/fig_8_11.webp",
+          "diagram_type": "image_search",
+          "image_query": "8-electron limit on outermost valence shells. scientific educational diagram with clear labels",
+          "video_query": "Outermost Valence Shell Octet Constraint educational demonstration video",
           "what_to_make": "Textbook diagram showing 8-electron limit on outermost valence shells.",
-          "timing_and_cue": "Mount octet limit on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_11.webp | Outermost Octet Limit | Valence shell cannot hold more than 8 electrons\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"8-electron limit on outermost valence shells. scientific educational diagram with clear labels\", title=\"Outermost Valence Shell Octet Constraint\") | Proactive video: search_and_show_video(query=\"Outermost Valence Shell Octet Constraint educational demonstration video\", title=\"Outermost Valence Shell Octet Constraint\")",
+          "image_search_query": "8-electron limit on outermost valence shells. scientific educational diagram with clear labels",
+          "video_search_query": "Outermost Valence Shell Octet Constraint educational demonstration video"
         },
         {
           "concept_title": "Step-Wise Aufbau Invariant: Electrons do not enter an outer shell until the inner shells are completely filled (shells are filled in a step-wise manner).",
           "diagram_title": "Step-Wise Shell Filling Sequence",
-          "diagram_type": "image",
-          "image_query": "step wise filling of shells electron configuration diagram",
-          "video_query": "how electron shells fill step by step",
-          "image_url": "/extracted_diagrams/ch8/fig_8_12.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook schematic showing sequential filling from inner K to outer N shells. scientific educational diagram with clear labels",
+          "video_query": "Step-Wise Shell Filling Sequence educational demonstration video",
           "what_to_make": "Textbook schematic showing sequential filling from inner K to outer N shells.",
-          "timing_and_cue": "Mount step-wise filling on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_12.webp | Step-Wise Filling | Inner shells must fill before outer shells receive electrons\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook schematic showing sequential filling from inner K to outer N shells. scientific educational diagram with clear labels\", title=\"Step-Wise Shell Filling Sequence\") | Proactive video: search_and_show_video(query=\"Step-Wise Shell Filling Sequence educational demonstration video\", title=\"Step-Wise Shell Filling Sequence\")",
+          "image_search_query": "Textbook schematic showing sequential filling from inner K to outer N shells. scientific educational diagram with clear labels",
+          "video_search_query": "Step-Wise Shell Filling Sequence educational demonstration video"
         },
         {
           "concept_title": "First 10 Elements Configurations: H (1), He (2), Li (2, 1), Be (2, 2), B (2, 3), C (2, 4), N (2, 5), O (2, 6), F (2, 7), Ne (2, 8).",
           "diagram_title": "Bohr Dot Models Elements 1 to 10",
-          "diagram_type": "image",
-          "image_query": "atomic structure of first 18 elements ncert textbook diagram",
-          "video_query": "first 18 elements electronic configuration",
-          "image_url": "/extracted_diagrams/ch8/fig_8_11.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook master diagram displaying Bohr dot models of Hydrogen through Neon. scientific educational diagram with clear labels",
+          "video_query": "Bohr Dot Models Elements 1 to 10 educational demonstration video",
           "what_to_make": "Textbook master diagram displaying Bohr dot models of Hydrogen through Neon.",
-          "timing_and_cue": "Mount elements 1-10 on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_11.webp | Elements 1 to 10 Models | Concentric Bohr electron dot diagrams\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook master diagram displaying Bohr dot models of Hydrogen through Neon. scientific educational diagram with clear labels\", title=\"Bohr Dot Models Elements 1 to 10\") | Proactive video: search_and_show_video(query=\"Bohr Dot Models Elements 1 to 10 educational demonstration video\", title=\"Bohr Dot Models Elements 1 to 10\")",
+          "image_search_query": "Textbook master diagram displaying Bohr dot models of Hydrogen through Neon. scientific educational diagram with clear labels",
+          "video_search_query": "Bohr Dot Models Elements 1 to 10 educational demonstration video"
         },
         {
           "concept_title": "Elements 11 to 20 Configurations: Na (2, 8, 1), Mg (2, 8, 2), Al (2, 8, 3), Si (2, 8, 4), P (2, 8, 5), S (2, 8, 6), Cl (2, 8, 7), Ar (2, 8, 8), K (2, 8, 8, 1), Ca (2, 8, 8, 2).",
           "diagram_title": "Bohr Dot Models Elements 11 to 20",
-          "diagram_type": "image",
-          "image_query": "bohr models sodium to calcium electronic configuration diagram",
-          "video_query": "electronic configuration 11 to 20 elements",
-          "image_url": "/extracted_diagrams/ch8/fig_8_13.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook master diagram displaying Bohr dot models of Sodium through Calcium. scientific educational diagram with clear labels",
+          "video_query": "Bohr Dot Models Elements 11 to 20 educational demonstration video",
           "what_to_make": "Textbook master diagram displaying Bohr dot models of Sodium through Calcium.",
-          "timing_and_cue": "Mount elements 11-20 on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_13.webp | Elements 11 to 20 Models | Sodium to Calcium configurations\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook master diagram displaying Bohr dot models of Sodium through Calcium. scientific educational diagram with clear labels\", title=\"Bohr Dot Models Elements 11 to 20\") | Proactive video: search_and_show_video(query=\"Bohr Dot Models Elements 11 to 20 educational demonstration video\", title=\"Bohr Dot Models Elements 11 to 20\")",
+          "image_search_query": "Textbook master diagram displaying Bohr dot models of Sodium through Calcium. scientific educational diagram with clear labels",
+          "video_search_query": "Bohr Dot Models Elements 11 to 20 educational demonstration video"
         },
         {
           "concept_title": "Noble Gas Duplet and Octet Stability: Helium possesses a stable duplet (2 electrons filling K shell); Neon and Argon possess stable octets (8 valence electrons), explaining their chemical inertness.",
           "diagram_title": "Noble Gas Duplet and Octet Invariance",
-          "diagram_type": "image",
-          "image_query": "noble gases helium neon argon stable octet duplet diagram",
-          "video_query": "why noble gases are inert octet rule",
-          "image_url": "/extracted_diagrams/ch8/fig_8_14.webp",
+          "diagram_type": "image_search",
+          "image_query": "complete outer shells of Helium 2 , Neon 8 , and Argon 8 . scientific educational diagram with clear labels",
+          "video_query": "Noble Gas Duplet and Octet Invariance educational demonstration video",
           "what_to_make": "Textbook diagram showing complete outer shells of Helium (2), Neon (8), and Argon (8).",
-          "timing_and_cue": "Mount noble gas stability on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_14.webp | Noble Gas Stability | Duplet (He) and Octets (Ne, Ar) driving chemical inertness\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"complete outer shells of Helium 2 , Neon 8 , and Argon 8 . scientific educational diagram with clear labels\", title=\"Noble Gas Duplet and Octet Invariance\") | Proactive video: search_and_show_video(query=\"Noble Gas Duplet and Octet Invariance educational demonstration video\", title=\"Noble Gas Duplet and Octet Invariance\")",
+          "image_search_query": "complete outer shells of Helium 2 , Neon 8 , and Argon 8 . scientific educational diagram with clear labels",
+          "video_search_query": "Noble Gas Duplet and Octet Invariance educational demonstration video"
         }
       ]
     },
@@ -793,62 +817,68 @@
         {
           "concept_title": "Valence Electrons Definition: The electrons present in the outermost shell of an atom are called valence electrons. They dictate all chemical bonding and reactivity.",
           "diagram_title": "Valence Shell Electron Identification",
-          "diagram_type": "image",
-          "image_query": "valence electrons outermost shell chemistry diagram",
-          "video_query": "what are valence electrons chemistry",
-          "image_url": "/extracted_diagrams/ch8/fig_8_11.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram highlighting outermost valence electrons in Na, Mg, Al, and Cl. scientific educational diagram with clear labels",
+          "video_query": "Valence Shell Electron Identification educational demonstration video",
           "what_to_make": "Textbook diagram highlighting outermost valence electrons in Na, Mg, Al, and Cl.",
-          "timing_and_cue": "Mount valence electrons on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_11.webp | Valence Electrons | Outermost electrons governing chemical bonding\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram highlighting outermost valence electrons in Na, Mg, Al, and Cl. scientific educational diagram with clear labels\", title=\"Valence Shell Electron Identification\") | Proactive video: search_and_show_video(query=\"Valence Shell Electron Identification educational demonstration video\", title=\"Valence Shell Electron Identification\")",
+          "image_search_query": "Textbook diagram highlighting outermost valence electrons in Na, Mg, Al, and Cl. scientific educational diagram with clear labels",
+          "video_search_query": "Valence Shell Electron Identification educational demonstration video"
         },
         {
           "concept_title": "Valency Definition: The combining capacity of an atom of an element to achieve a completely filled outermost shell (octet or duplet) is called its valency.",
           "diagram_title": "Combining Capacity Valency Scheme",
-          "diagram_type": "image",
-          "image_query": "valency combining capacity octet duplet diagram",
-          "video_query": "how to find valency of an element",
-          "image_url": "/extracted_diagrams/ch8/fig_8_12.webp",
+          "diagram_type": "image_search",
+          "image_query": "valency formulas V and 8-V. scientific educational diagram with clear labels",
+          "video_query": "Combining Capacity Valency Scheme educational demonstration video",
           "what_to_make": "Textbook diagram showing valency formulas V and 8-V.",
-          "timing_and_cue": "Mount valency definition on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_12.webp | Valency Formulation | Combining capacity: V for metals, 8-V for non-metals\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"valency formulas V and 8-V. scientific educational diagram with clear labels\", title=\"Combining Capacity Valency Scheme\") | Proactive video: search_and_show_video(query=\"Combining Capacity Valency Scheme educational demonstration video\", title=\"Combining Capacity Valency Scheme\")",
+          "image_search_query": "valency formulas V and 8-V. scientific educational diagram with clear labels",
+          "video_search_query": "Combining Capacity Valency Scheme educational demonstration video"
         },
         {
           "concept_title": "Metal Valency Formula: For atoms with 1, 2, or 3 valence electrons (metals), atoms readily lose these electrons: Valency = Number of valence electrons (Na: 1, Mg: 2, Al: 3).",
           "diagram_title": "Electropositive Metal Electron Loss",
-          "diagram_type": "image",
-          "image_query": "metal electron loss positive cation formation diagram",
-          "video_query": "why metals lose electrons cation",
-          "image_url": "/extracted_diagrams/ch8/fig_8_13.webp",
+          "diagram_type": "image_search",
+          "image_query": "Na losing 1e- to form Na+ and Mg losing 2e- to form Mg2+. scientific educational diagram with clear labels",
+          "video_query": "Electropositive Metal Electron Loss educational demonstration video",
           "what_to_make": "Textbook diagram showing Na losing 1e- to form Na+ and Mg losing 2e- to form Mg2+.",
-          "timing_and_cue": "Mount metal valency on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_13.webp | Metallic Cation Formation | Losing 1, 2, or 3 valence electrons to achieve stable octet\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Na losing 1e- to form Na+ and Mg losing 2e- to form Mg2+. scientific educational diagram with clear labels\", title=\"Electropositive Metal Electron Loss\") | Proactive video: search_and_show_video(query=\"Electropositive Metal Electron Loss educational demonstration video\", title=\"Electropositive Metal Electron Loss\")",
+          "image_search_query": "Na losing 1e- to form Na+ and Mg losing 2e- to form Mg2+. scientific educational diagram with clear labels",
+          "video_search_query": "Electropositive Metal Electron Loss educational demonstration video"
         },
         {
           "concept_title": "Non-Metal Valency Formula: For atoms with 4, 5, 6, or 7 valence electrons (non-metals), it is energetically easier to gain or share electrons: Valency = 8 - Number of valence electrons (N: 8 - 5 = 3, O: 8 - 6 = 2, F: 8 - 7 = 1).",
           "diagram_title": "Electronegative Non-Metal Octet Gain",
-          "diagram_type": "image",
-          "image_query": "non metal electron gain negative anion formation diagram",
-          "video_query": "why non metals gain electrons anion",
-          "image_url": "/extracted_diagrams/ch8/fig_8_14.webp",
+          "diagram_type": "image_search",
+          "image_query": "Cl gaining 1e- to form Cl- and O gaining 2e- to form O2-. scientific educational diagram with clear labels",
+          "video_query": "Electronegative Non-Metal Octet Gain educational demonstration video",
           "what_to_make": "Textbook diagram showing Cl gaining 1e- to form Cl- and O gaining 2e- to form O2-.",
-          "timing_and_cue": "Mount non-metal valency on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_14.webp | Non-Metallic Anion Formation | Gaining 8 - V electrons to complete octet\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Cl gaining 1e- to form Cl- and O gaining 2e- to form O2-. scientific educational diagram with clear labels\", title=\"Electronegative Non-Metal Octet Gain\") | Proactive video: search_and_show_video(query=\"Electronegative Non-Metal Octet Gain educational demonstration video\", title=\"Electronegative Non-Metal Octet Gain\")",
+          "image_search_query": "Cl gaining 1e- to form Cl- and O gaining 2e- to form O2-. scientific educational diagram with clear labels",
+          "video_search_query": "Electronegative Non-Metal Octet Gain educational demonstration video"
         },
         {
           "concept_title": "Zero Valency of Noble Gases: Noble gases (He, Ne, Ar) have completely filled outermost shells (2 in He, 8 in Ne/Ar), meaning their combining capacity is zero (Valency = 0).",
           "diagram_title": "Noble Gas Zero Valency Architecture",
-          "diagram_type": "image",
-          "image_query": "noble gas zero valency inert electron shell diagram",
-          "video_query": "noble gases zero valency explained",
-          "image_url": "/extracted_diagrams/ch8/fig_8_14.webp",
+          "diagram_type": "image_search",
+          "image_query": "zero combining capacity of full shell noble gases. scientific educational diagram with clear labels",
+          "video_query": "Noble Gas Zero Valency Architecture educational demonstration video",
           "what_to_make": "Textbook diagram illustrating zero combining capacity of full shell noble gases.",
-          "timing_and_cue": "Mount zero valency on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_14.webp | Zero Valency Invariant | Fully saturated outer shell gives zero combining capacity\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"zero combining capacity of full shell noble gases. scientific educational diagram with clear labels\", title=\"Noble Gas Zero Valency Architecture\") | Proactive video: search_and_show_video(query=\"Noble Gas Zero Valency Architecture educational demonstration video\", title=\"Noble Gas Zero Valency Architecture\")",
+          "image_search_query": "zero combining capacity of full shell noble gases. scientific educational diagram with clear labels",
+          "video_search_query": "Noble Gas Zero Valency Architecture educational demonstration video"
         },
         {
           "concept_title": "Tetravalency of Carbon: Carbon has 4 valence electrons and shares 4 electrons with other atoms, exhibiting tetravalency (Valency = 4).",
           "diagram_title": "Tetravalent Carbon Covalent Sharing",
-          "diagram_type": "image",
-          "image_query": "carbon tetravalency covalent bonding methane diagram",
-          "video_query": "tetravalency of carbon explained",
-          "image_url": "/extracted_diagrams/ch8/fig_8_11.webp",
+          "diagram_type": "image_search",
+          "image_query": "carbon sharing 4 electrons with 4 hydrogen atoms in methane. scientific educational diagram with clear labels",
+          "video_query": "Tetravalent Carbon Covalent Sharing educational demonstration video",
           "what_to_make": "Textbook diagram showing carbon sharing 4 electrons with 4 hydrogen atoms in methane.",
-          "timing_and_cue": "Mount carbon tetravalency on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_11.webp | Carbon Tetravalency | Sharing 4 valence electrons to satisfy octet\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"carbon sharing 4 electrons with 4 hydrogen atoms in methane. scientific educational diagram with clear labels\", title=\"Tetravalent Carbon Covalent Sharing\") | Proactive video: search_and_show_video(query=\"Tetravalent Carbon Covalent Sharing educational demonstration video\", title=\"Tetravalent Carbon Covalent Sharing\")",
+          "image_search_query": "carbon sharing 4 electrons with 4 hydrogen atoms in methane. scientific educational diagram with clear labels",
+          "video_search_query": "Tetravalent Carbon Covalent Sharing educational demonstration video"
         }
       ]
     },
@@ -954,62 +984,68 @@
         {
           "concept_title": "Atomic Number (Z): The total number of protons present in the nucleus of an atom is defined as its atomic number (Z). It identifies the chemical identity of the element.",
           "diagram_title": "Atomic Number and Nuclear Protons",
-          "diagram_type": "image",
-          "image_query": "atomic number Z number of protons periodic table diagram",
-          "video_query": "what is atomic number chemistry",
-          "image_url": "/extracted_diagrams/ch8/fig_8_11.webp",
+          "diagram_type": "image_search",
+          "image_query": "Z = number of protons in nucleus. scientific educational diagram with clear labels",
+          "video_query": "Atomic Number and Nuclear Protons educational demonstration video",
           "what_to_make": "Textbook diagram showing Z = number of protons in nucleus.",
-          "timing_and_cue": "Mount atomic number on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_11.webp | Atomic Number (Z) | Total protons in nucleus determining chemical identity\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Z = number of protons in nucleus. scientific educational diagram with clear labels\", title=\"Atomic Number and Nuclear Protons\") | Proactive video: search_and_show_video(query=\"Atomic Number and Nuclear Protons educational demonstration video\", title=\"Atomic Number and Nuclear Protons\")",
+          "image_search_query": "Z = number of protons in nucleus. scientific educational diagram with clear labels",
+          "video_search_query": "Atomic Number and Nuclear Protons educational demonstration video"
         },
         {
           "concept_title": "Mass Number (A): The total number of protons and neutrons (collectively termed nucleons) present in the nucleus: A = Protons (Z) + Neutrons (N).",
           "diagram_title": "Mass Number Nucleon Sum Formulation",
-          "diagram_type": "image",
-          "image_query": "mass number nucleons protons plus neutrons notation diagram",
-          "video_query": "mass number and atomic number",
-          "image_url": "/extracted_diagrams/ch8/fig_8_12.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook formula chart defining A = Z + N and standard symbol notation. scientific educational diagram with clear labels",
+          "video_query": "Mass Number Nucleon Sum Formulation educational demonstration video",
           "what_to_make": "Textbook formula chart defining A = Z + N and standard symbol notation.",
-          "timing_and_cue": "Mount mass number on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_12.webp | Mass Number (A) | Total nucleons: A = Z + N\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook formula chart defining A = Z + N and standard symbol notation. scientific educational diagram with clear labels\", title=\"Mass Number Nucleon Sum Formulation\") | Proactive video: search_and_show_video(query=\"Mass Number Nucleon Sum Formulation educational demonstration video\", title=\"Mass Number Nucleon Sum Formulation\")",
+          "image_search_query": "Textbook formula chart defining A = Z + N and standard symbol notation. scientific educational diagram with clear labels",
+          "video_search_query": "Mass Number Nucleon Sum Formulation educational demonstration video"
         },
         {
           "concept_title": "Isotopes Invariant: Isotopes are defined as atoms of the SAME element having the same atomic number (Z) but different mass numbers (A), possessing identical chemical properties but different physical masses.",
           "diagram_title": "Isotopes of Hydrogen Protium Deuterium Tritium",
-          "diagram_type": "image",
-          "image_query": "isotopes of hydrogen protium deuterium tritium nuclear structure diagram",
-          "video_query": "isotopes of hydrogen animation",
-          "image_url": "/extracted_diagrams/ch8/fig_8_8.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram displaying Protium 1p, 0n , Deuterium 1p, 1n , and Tritium 1p, 2n . scientific educational diagram with clear labels",
+          "video_query": "Isotopes of Hydrogen Protium Deuterium Tritium educational demonstration video",
           "what_to_make": "Textbook diagram displaying Protium (1p, 0n), Deuterium (1p, 1n), and Tritium (1p, 2n).",
-          "timing_and_cue": "Mount hydrogen isotopes on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_8.webp | Hydrogen Isotopes | Protium (0n), Deuterium (1n), Tritium (2n)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram displaying Protium 1p, 0n , Deuterium 1p, 1n , and Tritium 1p, 2n . scientific educational diagram with clear labels\", title=\"Isotopes of Hydrogen Protium Deuterium Tritium\") | Proactive video: search_and_show_video(query=\"Isotopes of Hydrogen Protium Deuterium Tritium educational demonstration video\", title=\"Isotopes of Hydrogen Protium Deuterium Tritium\")",
+          "image_search_query": "Textbook diagram displaying Protium 1p, 0n , Deuterium 1p, 1n , and Tritium 1p, 2n . scientific educational diagram with clear labels",
+          "video_search_query": "Isotopes of Hydrogen Protium Deuterium Tritium educational demonstration video"
         },
         {
           "concept_title": "Fractional Atomic Masses: The mass of an element is the weighted average mass of its naturally occurring isotopes based on their percentage abundance: Cl = (35 * 75% + 37 * 25%) = 35.5 u.",
           "diagram_title": "Chlorine Fractional Atomic Mass Calculation",
-          "diagram_type": "image",
-          "image_query": "fractional atomic mass of chlorine 35.5 u calculation diagram",
-          "video_query": "how to calculate fractional atomic mass chlorine",
-          "image_url": "/extracted_diagrams/ch8/fig_8_13.webp",
+          "diagram_type": "image_search",
+          "image_query": "75% Cl-35 and 25% Cl-37 weighted average calculation. scientific educational diagram with clear labels",
+          "video_query": "Chlorine Fractional Atomic Mass Calculation educational demonstration video",
           "what_to_make": "Textbook diagram showing 75% Cl-35 and 25% Cl-37 weighted average calculation.",
-          "timing_and_cue": "Mount fractional mass on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_13.webp | Fractional Atomic Mass | Chlorine 35.5 u from 75% Cl-35 and 25% Cl-37\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"75% Cl-35 and 25% Cl-37 weighted average calculation. scientific educational diagram with clear labels\", title=\"Chlorine Fractional Atomic Mass Calculation\") | Proactive video: search_and_show_video(query=\"Chlorine Fractional Atomic Mass Calculation educational demonstration video\", title=\"Chlorine Fractional Atomic Mass Calculation\")",
+          "image_search_query": "75% Cl-35 and 25% Cl-37 weighted average calculation. scientific educational diagram with clear labels",
+          "video_search_query": "Chlorine Fractional Atomic Mass Calculation educational demonstration video"
         },
         {
           "concept_title": "Isobars Invariant: Isobars are defined as atoms of DIFFERENT elements having the same mass number (A) but different atomic numbers (Z), such as Calcium-40 (Z=20) and Argon-40 (Z=18).",
           "diagram_title": "Isobars Argon-40 and Calcium-40 Structure",
-          "diagram_type": "image",
-          "image_query": "isobars calcium 40 argon 40 atomic structure diagram",
-          "video_query": "isotopes vs isobars chemistry",
-          "image_url": "/extracted_diagrams/ch8/fig_8_14.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram comparing nuclear structures of Argon-40 18p, 22n and Calcium-40 20p, 20n . scientific educational diagram with clear labels",
+          "video_query": "Isobars Argon-40 and Calcium-40 Structure educational demonstration video",
           "what_to_make": "Textbook diagram comparing nuclear structures of Argon-40 (18p, 22n) and Calcium-40 (20p, 20n).",
-          "timing_and_cue": "Mount isobars on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_14.webp | Isobars (Same A=40) | Argon (18p, 22n) vs Calcium (20p, 20n)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram comparing nuclear structures of Argon-40 18p, 22n and Calcium-40 20p, 20n . scientific educational diagram with clear labels\", title=\"Isobars Argon-40 and Calcium-40 Structure\") | Proactive video: search_and_show_video(query=\"Isobars Argon-40 and Calcium-40 Structure educational demonstration video\", title=\"Isobars Argon-40 and Calcium-40 Structure\")",
+          "image_search_query": "Textbook diagram comparing nuclear structures of Argon-40 18p, 22n and Calcium-40 20p, 20n . scientific educational diagram with clear labels",
+          "video_search_query": "Isobars Argon-40 and Calcium-40 Structure educational demonstration video"
         },
         {
           "concept_title": "Medical & Industrial Radioisotopes: Uranium-235 is used as nuclear fuel; Cobalt-60 is used in the treatment of cancer; Iodine-131 is used in the treatment of goitre.",
           "diagram_title": "Applications of Radioactive Isotopes",
-          "diagram_type": "image",
-          "image_query": "applications of radioisotopes cobalt 60 iodine 131 uranium 235 diagram",
-          "video_query": "uses of radioactive isotopes in medicine",
-          "image_url": "/extracted_diagrams/ch8/fig_8_8.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook photo of Bhabha Atomic Research Centre and radioisotope applications. scientific educational diagram with clear labels",
+          "video_query": "Applications of Radioactive Isotopes educational demonstration video",
           "what_to_make": "Textbook photo of Bhabha Atomic Research Centre and radioisotope applications.",
-          "timing_and_cue": "Mount radioisotopes on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch8/fig_8_8.webp | Radioisotopes in Medicine & Energy | Cobalt-60 cancer therapy, Iodine-131 goitre, Uranium-235 fuel\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook photo of Bhabha Atomic Research Centre and radioisotope applications. scientific educational diagram with clear labels\", title=\"Applications of Radioactive Isotopes\") | Proactive video: search_and_show_video(query=\"Applications of Radioactive Isotopes educational demonstration video\", title=\"Applications of Radioactive Isotopes\")",
+          "image_search_query": "Textbook photo of Bhabha Atomic Research Centre and radioisotope applications. scientific educational diagram with clear labels",
+          "video_search_query": "Applications of Radioactive Isotopes educational demonstration video"
         }
       ]
     },

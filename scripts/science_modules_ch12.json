@@ -109,62 +109,68 @@
         {
           "concept_title": "Biological Diversity (Biodiversity): The vast variety of life forms inhabiting the Earth, ranging from microscopic bacteria ($1-2\\;\\mu\\text{m}$) to giant blue whales ($30\\text{ m}$) and redwood trees ($100\\text{ m}$), exhibiting endless variations in size, color, habitat, and lifespan.",
           "diagram_title": "Endemic Fauna of Western Ghats Hotspot",
-          "diagram_type": "image",
-          "image_query": "nilgiri tahr lion tailed macaque western ghats biodiversity hotspot diagram",
-          "video_query": "biodiversity hotspots in India Western Ghats",
-          "image_url": "/extracted_diagrams/ch12/fig_12_1.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook photograph collage of endemic Western Ghats wildlife Nilgiri tahr, lion-tailed macaque . scientific educational diagram with clear labels",
+          "video_query": "Endemic Fauna of Western Ghats Hotspot educational demonstration video",
           "what_to_make": "Textbook photograph collage of endemic Western Ghats wildlife (Nilgiri tahr, lion-tailed macaque).",
-          "timing_and_cue": "Mount Western Ghats fauna on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_1.webp | Biodiversity Hotspots | Endemic fauna of Western Ghats: Nilgiri tahr and Lion-tailed macaque\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook photograph collage of endemic Western Ghats wildlife Nilgiri tahr, lion-tailed macaque . scientific educational diagram with clear labels\", title=\"Endemic Fauna of Western Ghats Hotspot\") | Proactive video: search_and_show_video(query=\"Endemic Fauna of Western Ghats Hotspot educational demonstration video\", title=\"Endemic Fauna of Western Ghats Hotspot\")",
+          "image_search_query": "Textbook photograph collage of endemic Western Ghats wildlife Nilgiri tahr, lion-tailed macaque . scientific educational diagram with clear labels",
+          "video_search_query": "Endemic Fauna of Western Ghats Hotspot educational demonstration video"
         },
         {
           "concept_title": "Flaws of Habitat-Based Classification: Aristotle classified organisms based on where they lived (in water, on land, or in air); this artificial system failed because it grouped completely unrelated organisms together (e.g., placing fish, whales, octopuses, and corals in one group simply because they all live in water).",
           "diagram_title": "Ecosystem Diversity & Habitat Niches",
-          "diagram_type": "image",
-          "image_query": "diversity of animals ecosystem habitat niches diagram",
-          "video_query": "why Aristotle classification failed habitat",
-          "image_url": "/extracted_diagrams/ch12/fig_12_2.webp",
+          "diagram_type": "image_search",
+          "image_query": "diversity of animals across ecosystem niches illustrating flaws of pure habitat grouping. scientific educational diagram with clear labels",
+          "video_query": "Ecosystem Diversity & Habitat Niches educational demonstration video",
           "what_to_make": "Textbook diagram showing diversity of animals across ecosystem niches illustrating flaws of pure habitat grouping.",
-          "timing_and_cue": "Mount ecosystem diversity on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_2.webp | Ecosystem Diversity | Wide variation of animal body plans within shared ecological habitats\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"diversity of animals across ecosystem niches illustrating flaws of pure habitat grouping. scientific educational diagram with clear labels\", title=\"Ecosystem Diversity & Habitat Niches\") | Proactive video: search_and_show_video(query=\"Ecosystem Diversity & Habitat Niches educational demonstration video\", title=\"Ecosystem Diversity & Habitat Niches\")",
+          "image_search_query": "diversity of animals across ecosystem niches illustrating flaws of pure habitat grouping. scientific educational diagram with clear labels",
+          "video_search_query": "Ecosystem Diversity & Habitat Niches educational demonstration video"
         },
         {
           "concept_title": "Fundamental Classification Hierarchy: Modern scientific taxonomy groups organisms according to fundamental evolutionary characteristics: cell structure (prokaryotic vs eukaryotic), body organization (unicellular vs multicellular), and nutrition (autotrophic vs heterotrophic).",
           "diagram_title": "Pakke Hornbill Avian Diversity",
-          "diagram_type": "image",
-          "image_query": "four species of hornbill pakke tiger reserve biodiversity diagram",
-          "video_query": "basis of classification in biology class 9",
-          "image_url": "/extracted_diagrams/ch12/fig_12_3.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook image displaying four distinct hornbill species demonstrating morphological specialization. scientific educational diagram with clear labels",
+          "video_query": "Pakke Hornbill Avian Diversity educational demonstration video",
           "what_to_make": "Textbook image displaying four distinct hornbill species demonstrating morphological specialization.",
-          "timing_and_cue": "Mount hornbill diversity on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_3.webp | Species Diversity | Four sympatric hornbill species in Pakke showing distinct morphological adaptations\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook image displaying four distinct hornbill species demonstrating morphological specialization. scientific educational diagram with clear labels\", title=\"Pakke Hornbill Avian Diversity\") | Proactive video: search_and_show_video(query=\"Pakke Hornbill Avian Diversity educational demonstration video\", title=\"Pakke Hornbill Avian Diversity\")",
+          "image_search_query": "Textbook image displaying four distinct hornbill species demonstrating morphological specialization. scientific educational diagram with clear labels",
+          "video_search_query": "Pakke Hornbill Avian Diversity educational demonstration video"
         },
         {
           "concept_title": "Taxonomic Hierarchy of Categories: Classification follows a step-by-step pyramid of categories: Kingdom -> Phylum (for animals) / Division (for plants) -> Class -> Order -> Family -> Genus -> Species; Species is the basic fundamental unit consisting of individuals capable of interbreeding.",
           "diagram_title": "Taxonomic Hierarchy Pyramid",
-          "diagram_type": "image",
-          "image_query": "taxonomic hierarchy pyramid kingdom phylum class order family genus species diagram",
-          "video_query": "taxonomic hierarchy of classification explained",
-          "image_url": "/extracted_diagrams/ch12/fig_12_17.webp",
+          "diagram_type": "image_search",
+          "image_query": "the classification pyramid from broad Kingdom at top to specific Species at base. scientific educational diagram with clear labels",
+          "video_query": "Taxonomic Hierarchy Pyramid educational demonstration video",
           "what_to_make": "Textbook diagram of the classification pyramid from broad Kingdom at top to specific Species at base.",
-          "timing_and_cue": "Mount hierarchy pyramid on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_17.webp | Taxonomic Hierarchy Pyramid | Step-by-step hierarchy: Kingdom, Phylum, Class, Order, Family, Genus, Species\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"the classification pyramid from broad Kingdom at top to specific Species at base. scientific educational diagram with clear labels\", title=\"Taxonomic Hierarchy Pyramid\") | Proactive video: search_and_show_video(query=\"Taxonomic Hierarchy Pyramid educational demonstration video\", title=\"Taxonomic Hierarchy Pyramid\")",
+          "image_search_query": "the classification pyramid from broad Kingdom at top to specific Species at base. scientific educational diagram with clear labels",
+          "video_search_query": "Taxonomic Hierarchy Pyramid educational demonstration video"
         },
         {
           "concept_title": "Rules of Binomial Nomenclature: Devised by Carl Linnaeus; every organism is given a universal scientific name with two Latin words: the Genus name (capitalized) followed by the species epithet (all lowercase); printed in *italics* or underlined separately when handwritten (e.g., *Homo sapiens*, *Mangifera indica*, *Panthera leo*).",
           "diagram_title": "Linnaean Classification of Modern Humans",
-          "diagram_type": "image",
-          "image_query": "human classification kingdom animalia chordata mammalia primates hominidae homo sapiens diagram",
-          "video_query": "binomial nomenclature rules and examples",
-          "image_url": "/extracted_diagrams/ch12/fig_12_17.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook chart detailing human classification from Animalia down to Homo sapiens. scientific educational diagram with clear labels",
+          "video_query": "Linnaean Classification of Modern Humans educational demonstration video",
           "what_to_make": "Textbook chart detailing human classification from Animalia down to Homo sapiens.",
-          "timing_and_cue": "Mount human classification on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_17.webp | Binomial Classification | Complete classification of Homo sapiens under Linnaean protocol\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook chart detailing human classification from Animalia down to Homo sapiens. scientific educational diagram with clear labels\", title=\"Linnaean Classification of Modern Humans\") | Proactive video: search_and_show_video(query=\"Linnaean Classification of Modern Humans educational demonstration video\", title=\"Linnaean Classification of Modern Humans\")",
+          "image_search_query": "Textbook chart detailing human classification from Animalia down to Homo sapiens. scientific educational diagram with clear labels",
+          "video_search_query": "Linnaean Classification of Modern Humans educational demonstration video"
         },
         {
           "concept_title": "Three Domains Paradigm: Carl Woese divided Kingdom Monera into Archaebacteria (ancient extremophiles) and Eubacteria (true bacteria), establishing the Three Domains of Life: Archaea, Bacteria, and Eukarya.",
           "diagram_title": "The Three Domains of Life (Woese)",
-          "diagram_type": "image",
-          "image_query": "three domains of life archaea bacteria eukarya carl woese tree diagram",
-          "video_query": "three domains of life explained Archaea Bacteria Eukarya",
-          "image_url": "/extracted_diagrams/ch12/fig_12_19.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook phylogenetic tree illustrating the Three Domains of Life branching from the universal ancestor. scientific educational diagram with clear labels",
+          "video_query": "The Three Domains of Life Woese educational demonstration video",
           "what_to_make": "Textbook phylogenetic tree illustrating the Three Domains of Life branching from the universal ancestor.",
-          "timing_and_cue": "Mount three domains on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_19.webp | Three Domains of Life | Carl Woese's molecular phylogeny: Archaea, Bacteria, and Eukarya\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook phylogenetic tree illustrating the Three Domains of Life branching from the universal ancestor. scientific educational diagram with clear labels\", title=\"The Three Domains of Life (Woese)\") | Proactive video: search_and_show_video(query=\"The Three Domains of Life Woese educational demonstration video\", title=\"The Three Domains of Life (Woese)\")",
+          "image_search_query": "Textbook phylogenetic tree illustrating the Three Domains of Life branching from the universal ancestor. scientific educational diagram with clear labels",
+          "video_search_query": "The Three Domains of Life Woese educational demonstration video"
         }
       ]
     },
@@ -280,62 +286,68 @@
         {
           "concept_title": "Whittaker's Five Kingdoms: Proposed in 1969 by Robert H. Whittaker; classifies all living organisms into five kingdoms: Monera, Protista, Fungi, Plantae, and Animalia.",
           "diagram_title": "Five Kingdom Classification Flowchart",
-          "diagram_type": "image",
-          "image_query": "five kingdom classification flowchart whittaker monera protista fungi plantae animalia diagram",
-          "video_query": "five kingdom classification class 9 animation",
-          "image_url": "/extracted_diagrams/ch12/fig_12_5.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook master flowchart showing the hierarchical branch points for the Five Kingdoms. scientific educational diagram with clear labels",
+          "video_query": "Five Kingdom Classification Flowchart educational demonstration video",
           "what_to_make": "Textbook master flowchart showing the hierarchical branch points for the Five Kingdoms.",
-          "timing_and_cue": "Mount Five Kingdoms on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_5.webp | Five Kingdom Flowchart | Whittaker's branching schema: Monera, Protista, Fungi, Plantae, Animalia\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook master flowchart showing the hierarchical branch points for the Five Kingdoms. scientific educational diagram with clear labels\", title=\"Five Kingdom Classification Flowchart\") | Proactive video: search_and_show_video(query=\"Five Kingdom Classification Flowchart educational demonstration video\", title=\"Five Kingdom Classification Flowchart\")",
+          "image_search_query": "Textbook master flowchart showing the hierarchical branch points for the Five Kingdoms. scientific educational diagram with clear labels",
+          "video_search_query": "Five Kingdom Classification Flowchart educational demonstration video"
         },
         {
           "concept_title": "Four Universal Criteria: 1. Complexity of cell structure (prokaryotic vs eukaryotic); 2. Complexity of body organization (unicellular vs multicellular); 3. Mode of nutrition (autotrophic vs heterotrophic by absorption/ingestion); 4. Major ecological lifestyles (producer, consumer, decomposer).",
           "diagram_title": "Whittaker Taxonomic Diagnostic Framework",
-          "diagram_type": "image",
-          "image_query": "whittaker criteria classification prokaryote eukaryote unicellular multicellular diagram",
-          "video_query": "criteria for five kingdom classification",
-          "image_url": "/extracted_diagrams/ch12/fig_12_5.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram mapping cellular, structural, and nutritional criteria. scientific educational diagram with clear labels",
+          "video_query": "Whittaker Taxonomic Diagnostic Framework educational demonstration video",
           "what_to_make": "Textbook diagram mapping cellular, structural, and nutritional criteria.",
-          "timing_and_cue": "Mount classification criteria on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_5.webp | Diagnostic Criteria | Cell structure, body organization, nutrition mode, and ecological roles\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram mapping cellular, structural, and nutritional criteria. scientific educational diagram with clear labels\", title=\"Whittaker Taxonomic Diagnostic Framework\") | Proactive video: search_and_show_video(query=\"Whittaker Taxonomic Diagnostic Framework educational demonstration video\", title=\"Whittaker Taxonomic Diagnostic Framework\")",
+          "image_search_query": "Textbook diagram mapping cellular, structural, and nutritional criteria. scientific educational diagram with clear labels",
+          "video_search_query": "Whittaker Taxonomic Diagnostic Framework educational demonstration video"
         },
         {
           "concept_title": "Kingdom Monera Characteristics: Organisms do not have a defined nucleus or membrane-bound organelles (prokaryotes); unicellular; microscopic; possess a peptidoglycan cell wall (except *Mycoplasma*); nutritional diversity includes photoautotrophs (cyanobacteria/blue-green algae), chemoautotrophs, and heterotrophs/saprophytes.",
           "diagram_title": "Members of Kingdom Monera",
-          "diagram_type": "image",
-          "image_query": "members of kingdom monera bacteria shapes cyanobacteria diagram",
-          "video_query": "kingdom monera characteristics bacteria",
-          "image_url": "/extracted_diagrams/ch12/fig_12_6.webp",
+          "diagram_type": "image_search",
+          "image_query": "prokaryotic bacterial cells and cyanobacterial filaments. scientific educational diagram with clear labels",
+          "video_query": "Members of Kingdom Monera educational demonstration video",
           "what_to_make": "Textbook diagram showing prokaryotic bacterial cells and cyanobacterial filaments.",
-          "timing_and_cue": "Mount Monera on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_6.webp | Kingdom Monera | Unicellular prokaryotes lacking nuclear membrane and organelles\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"prokaryotic bacterial cells and cyanobacterial filaments. scientific educational diagram with clear labels\", title=\"Members of Kingdom Monera\") | Proactive video: search_and_show_video(query=\"Members of Kingdom Monera educational demonstration video\", title=\"Members of Kingdom Monera\")",
+          "image_search_query": "prokaryotic bacterial cells and cyanobacterial filaments. scientific educational diagram with clear labels",
+          "video_search_query": "Members of Kingdom Monera educational demonstration video"
         },
         {
           "concept_title": "Bacterial Morphologies: Monerans exhibit four canonical morphological forms: Coccus (spherical), Bacillus (rod-shaped), Spirillum (spiral-shaped), and Vibrio (comma-shaped).",
           "diagram_title": "Bacterial Morphological Quadriad",
-          "diagram_type": "image",
-          "image_query": "bacteria shapes coccus bacillus spirillum vibrio diagram",
-          "video_query": "shapes of bacteria coccus bacillus spirillum vibrio",
-          "image_url": "/extracted_diagrams/ch12/fig_12_6.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram displaying cocci, bacilli, spirilla, and vibrio shapes. scientific educational diagram with clear labels",
+          "video_query": "Bacterial Morphological Quadriad educational demonstration video",
           "what_to_make": "Textbook diagram displaying cocci, bacilli, spirilla, and vibrio shapes.",
-          "timing_and_cue": "Mount bacterial shapes on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_6.webp | Bacterial Shapes | Cocci spheres, bacilli rods, spirilla spirals, and vibrio commas\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram displaying cocci, bacilli, spirilla, and vibrio shapes. scientific educational diagram with clear labels\", title=\"Bacterial Morphological Quadriad\") | Proactive video: search_and_show_video(query=\"Bacterial Morphological Quadriad educational demonstration video\", title=\"Bacterial Morphological Quadriad\")",
+          "image_search_query": "Textbook diagram displaying cocci, bacilli, spirilla, and vibrio shapes. scientific educational diagram with clear labels",
+          "video_search_query": "Bacterial Morphological Quadriad educational demonstration video"
         },
         {
           "concept_title": "Kingdom Protista Characteristics: Unicellular eukaryotic organisms having a well-defined membrane-bound nucleus and specialized cytoplasmic organelles (mitochondria, chloroplasts, vacuoles); predominantly aquatic.",
           "diagram_title": "Microscopic Unicellular Eukaryotes (Protista)",
-          "diagram_type": "image",
-          "image_query": "kingdom protista microscopic amoeba paramecium euglena diagram",
-          "video_query": "kingdom protista unicellular eukaryotes class 9",
-          "image_url": "/extracted_diagrams/ch12/fig_12_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook microscopic illustration of Amoeba, Paramecium, and Euglena. scientific educational diagram with clear labels",
+          "video_query": "Microscopic Unicellular Eukaryotes Protista educational demonstration video",
           "what_to_make": "Textbook microscopic illustration of Amoeba, Paramecium, and Euglena.",
-          "timing_and_cue": "Mount Protista on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_7.webp | Kingdom Protista | Aquatic unicellular eukaryotes with membrane-bound nuclei and organelles\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook microscopic illustration of Amoeba, Paramecium, and Euglena. scientific educational diagram with clear labels\", title=\"Microscopic Unicellular Eukaryotes (Protista)\") | Proactive video: search_and_show_video(query=\"Microscopic Unicellular Eukaryotes Protista educational demonstration video\", title=\"Microscopic Unicellular Eukaryotes (Protista)\")",
+          "image_search_query": "Textbook microscopic illustration of Amoeba, Paramecium, and Euglena. scientific educational diagram with clear labels",
+          "video_search_query": "Microscopic Unicellular Eukaryotes Protista educational demonstration video"
         },
         {
           "concept_title": "Protistan Locomotory & Nutritional Diversity: Protists employ specialized locomotory organelles: pseudopodia (*Amoeba*), cilia (*Paramecium*), or whip-like flagella (*Euglena*); *Euglena* is mixotrophic—photosynthetic in sunlight, predatory heterotrophic in darkness.",
           "diagram_title": "Protistan Locomotion: Cilia, Flagella, Pseudopodia",
-          "diagram_type": "image",
-          "image_query": "amoeba pseudopodia paramecium cilia euglena flagellum locomotion diagram",
-          "video_query": "locomotion in protists amoeba paramecium euglena",
-          "image_url": "/extracted_diagrams/ch12/fig_12_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "pseudopodial streaming, ciliary beating, and flagellar motion. scientific educational diagram with clear labels",
+          "video_query": "Protistan Locomotion: Cilia, Flagella, Pseudopodia educational demonstration video",
           "what_to_make": "Textbook diagram showing pseudopodial streaming, ciliary beating, and flagellar motion.",
-          "timing_and_cue": "Mount protistan locomotion on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_7.webp | Protistan Locomotion | Pseudopodia in Amoeba, cilia in Paramecium, and flagellum in Euglena\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"pseudopodial streaming, ciliary beating, and flagellar motion. scientific educational diagram with clear labels\", title=\"Protistan Locomotion: Cilia, Flagella, Pseudopodia\") | Proactive video: search_and_show_video(query=\"Protistan Locomotion: Cilia, Flagella, Pseudopodia educational demonstration video\", title=\"Protistan Locomotion: Cilia, Flagella, Pseudopodia\")",
+          "image_search_query": "pseudopodial streaming, ciliary beating, and flagellar motion. scientific educational diagram with clear labels",
+          "video_search_query": "Protistan Locomotion: Cilia, Flagella, Pseudopodia educational demonstration video"
         }
       ]
     },
@@ -451,62 +463,68 @@
         {
           "concept_title": "Kingdom Fungi Characteristics: Eukaryotic heterotrophic organisms that absorb organic nutrients from decaying matter (saprophytes) or living hosts (parasites); possess a rigid cell wall composed of chitin; body consists of a network of thread-like filaments called hyphae forming a mycelium (unicellular in *Yeast*).",
           "diagram_title": "Kingdom Fungi Common Morphologies",
-          "diagram_type": "image",
-          "image_query": "common fungi rhizopus penicillium agaricus mushroom mycelium diagram",
-          "video_query": "kingdom fungi characteristics and classification class 9",
-          "image_url": "/extracted_diagrams/ch12/fig_12_8.webp",
+          "diagram_type": "image_search",
+          "image_query": "Rhizopus bread mould, Penicillium brush conidiophores, and Agaricus mushroom. scientific educational diagram with clear labels",
+          "video_query": "Kingdom Fungi Common Morphologies educational demonstration video",
           "what_to_make": "Textbook diagram showing Rhizopus bread mould, Penicillium brush conidiophores, and Agaricus mushroom.",
-          "timing_and_cue": "Mount Fungi on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_8.webp | Kingdom Fungi | Saprophytic heterotrophs with chitin cell walls: Rhizopus, Penicillium, Agaricus\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Rhizopus bread mould, Penicillium brush conidiophores, and Agaricus mushroom. scientific educational diagram with clear labels\", title=\"Kingdom Fungi Common Morphologies\") | Proactive video: search_and_show_video(query=\"Kingdom Fungi Common Morphologies educational demonstration video\", title=\"Kingdom Fungi Common Morphologies\")",
+          "image_search_query": "Rhizopus bread mould, Penicillium brush conidiophores, and Agaricus mushroom. scientific educational diagram with clear labels",
+          "video_search_query": "Kingdom Fungi Common Morphologies educational demonstration video"
         },
         {
           "concept_title": "Symbiosis in Lichens: Lichens are permanent mutually beneficial symbiotic associations between a photosynthetic green alga or cyanobacterium (photobiont providing carbohydrates) and a fungus (mycobiont providing anchorage, water, minerals, and shelter); sensitive bioindicators of air pollution.",
           "diagram_title": "Lichen Crustose & Foliose Bioindicators",
-          "diagram_type": "image",
-          "image_query": "lichens symbiotic association alga fungus air pollution indicator diagram",
-          "video_query": "lichens symbiotic relationship and pollution indicators",
-          "image_url": "/extracted_diagrams/ch12/fig_12_8.webp",
+          "diagram_type": "image_search",
+          "image_query": "symbiotic lichen thallus on tree bark. scientific educational diagram with clear labels",
+          "video_query": "Lichen Crustose & Foliose Bioindicators educational demonstration video",
           "what_to_make": "Textbook diagram illustrating symbiotic lichen thallus on tree bark.",
-          "timing_and_cue": "Mount lichens on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_8.webp | Symbiotic Lichens | Mutualistic algal-fungal holobiont acting as bioindicator of SO2 pollution\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"symbiotic lichen thallus on tree bark. scientific educational diagram with clear labels\", title=\"Lichen Crustose & Foliose Bioindicators\") | Proactive video: search_and_show_video(query=\"Lichen Crustose & Foliose Bioindicators educational demonstration video\", title=\"Lichen Crustose & Foliose Bioindicators\")",
+          "image_search_query": "symbiotic lichen thallus on tree bark. scientific educational diagram with clear labels",
+          "video_search_query": "Lichen Crustose & Foliose Bioindicators educational demonstration video"
         },
         {
           "concept_title": "Kingdom Plantae Classification Framework: Differentiated according to: 1. Whether the plant body has well-differentiated roots, stems, and leaves; 2. Whether specialized vascular tissues (xylem and phloem) are present for conducting water and food; 3. Whether seeds are produced; 4. Whether seeds are naked or enclosed inside fruits.",
           "diagram_title": "Plant Kingdom Classification Flowchart",
-          "diagram_type": "image",
-          "image_query": "plant kingdom classification thallophyta bryophyta pteridophyta gymnosperm angiosperm diagram",
-          "video_query": "classification of plant kingdom class 9 animation",
-          "image_url": "/extracted_diagrams/ch12/fig_12_5.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook flowchart detailing plant division branch points. scientific educational diagram with clear labels",
+          "video_query": "Plant Kingdom Classification Flowchart educational demonstration video",
           "what_to_make": "Textbook flowchart detailing plant division branch points.",
-          "timing_and_cue": "Mount plant classification on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_5.webp | Plant Kingdom Division Schema | Branching based on body differentiation, vascular tissues, and seed enclosure\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook flowchart detailing plant division branch points. scientific educational diagram with clear labels\", title=\"Plant Kingdom Classification Flowchart\") | Proactive video: search_and_show_video(query=\"Plant Kingdom Classification Flowchart educational demonstration video\", title=\"Plant Kingdom Classification Flowchart\")",
+          "image_search_query": "Textbook flowchart detailing plant division branch points. scientific educational diagram with clear labels",
+          "video_search_query": "Plant Kingdom Classification Flowchart educational demonstration video"
         },
         {
           "concept_title": "Division Thallophyta (Algae): Plants that do not have a well-differentiated body design; body consists of an undifferentiated thallus; lack vascular tissue; predominantly aquatic (marine and freshwater); examples include *Spirogyra*, *Ulothrix*, *Cladophora*, *Ulva*, and *Chara*.",
           "diagram_title": "Spirogyra Filamentous Algal Morphology",
-          "diagram_type": "image",
-          "image_query": "spirogyra filamentous green alga spiral chloroplast diagram",
-          "video_query": "spirogyra structure and reproduction under microscope",
-          "image_url": "/extracted_diagrams/ch12/fig_12_9.webp",
+          "diagram_type": "image_search",
+          "image_query": "Spirogyra showing spiral ribbon chloroplasts and unbranched thalloid filaments. scientific educational diagram with clear labels",
+          "video_query": "Spirogyra Filamentous Algal Morphology educational demonstration video",
           "what_to_make": "Textbook diagram of Spirogyra showing spiral ribbon chloroplasts and unbranched thalloid filaments.",
-          "timing_and_cue": "Mount Spirogyra on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_9.webp | Division Thallophyta (Algae) | Spirogyra thallus with spiral chloroplasts and lack of vascular tissues\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Spirogyra showing spiral ribbon chloroplasts and unbranched thalloid filaments. scientific educational diagram with clear labels\", title=\"Spirogyra Filamentous Algal Morphology\") | Proactive video: search_and_show_video(query=\"Spirogyra Filamentous Algal Morphology educational demonstration video\", title=\"Spirogyra Filamentous Algal Morphology\")",
+          "image_search_query": "Spirogyra showing spiral ribbon chloroplasts and unbranched thalloid filaments. scientific educational diagram with clear labels",
+          "video_search_query": "Spirogyra Filamentous Algal Morphology educational demonstration video"
         },
         {
           "concept_title": "Division Bryophyta ('Amphibians of the Plant Kingdom'): Bryophytes grow on damp, shaded terrestrial soil but are strictly dependent on surface water for the swimming of male biflagellate antherozoids to fertilize the egg; plant body is differentiated into root-like rhizoids, stem-like axes, and leaf-like structures; lack true vascular tissues.",
           "diagram_title": "Bryophyta Morphology: Marchantia & Funaria",
-          "diagram_type": "image",
-          "image_query": "bryophyta marchantia liverwort funaria moss rhizoids diagram",
-          "video_query": "bryophytes amphibians of plant kingdom class 9",
-          "image_url": "/extracted_diagrams/ch12/fig_12_10.webp",
+          "diagram_type": "image_search",
+          "image_query": "Marchantia thallus with gemma cups and Funaria moss with capsule. scientific educational diagram with clear labels",
+          "video_query": "Bryophyta Morphology: Marchantia & Funaria educational demonstration video",
           "what_to_make": "Textbook diagram showing Marchantia thallus with gemma cups and Funaria moss with capsule.",
-          "timing_and_cue": "Mount Bryophyta on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_10.webp | Division Bryophyta | 'Amphibians of plant kingdom': Marchantia and Funaria moss with rhizoids\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Marchantia thallus with gemma cups and Funaria moss with capsule. scientific educational diagram with clear labels\", title=\"Bryophyta Morphology: Marchantia & Funaria\") | Proactive video: search_and_show_video(query=\"Bryophyta Morphology: Marchantia & Funaria educational demonstration video\", title=\"Bryophyta Morphology: Marchantia & Funaria\")",
+          "image_search_query": "Marchantia thallus with gemma cups and Funaria moss with capsule. scientific educational diagram with clear labels",
+          "video_search_query": "Bryophyta Morphology: Marchantia & Funaria educational demonstration video"
         },
         {
           "concept_title": "Bryophyte Representative Species: Includes liverworts like *Marchantia* (flat ribbon-like thallus bearing gemma cups) and mosses like *Funaria* (erect leafy axis terminating in capsule-bearing sporophyte).",
           "diagram_title": "Funaria Moss Sporophyte & Gametophyte",
-          "diagram_type": "image",
-          "image_query": "funaria moss life cycle gametophyte sporophyte capsule diagram",
-          "video_query": "funaria moss structure and reproduction",
-          "image_url": "/extracted_diagrams/ch12/fig_12_10.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook anatomical view of Funaria showing leafy gametophyte supporting spore capsule. scientific educational diagram with clear labels",
+          "video_query": "Funaria Moss Sporophyte & Gametophyte educational demonstration video",
           "what_to_make": "Textbook anatomical view of Funaria showing leafy gametophyte supporting spore capsule.",
-          "timing_and_cue": "Mount moss anatomy on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_10.webp | Funaria Moss Architecture | Leafy terrestrial gametophyte dependent on external water for flagellated fertilization\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook anatomical view of Funaria showing leafy gametophyte supporting spore capsule. scientific educational diagram with clear labels\", title=\"Funaria Moss Sporophyte & Gametophyte\") | Proactive video: search_and_show_video(query=\"Funaria Moss Sporophyte & Gametophyte educational demonstration video\", title=\"Funaria Moss Sporophyte & Gametophyte\")",
+          "image_search_query": "Textbook anatomical view of Funaria showing leafy gametophyte supporting spore capsule. scientific educational diagram with clear labels",
+          "video_search_query": "Funaria Moss Sporophyte & Gametophyte educational demonstration video"
         }
       ]
     },
@@ -622,62 +640,68 @@
         {
           "concept_title": "Cryptogams vs Phanerogams: Cryptogams ('hidden marriage') have inconspicuous, naked reproductive organs and reproduce by spores without seeds (Thallophytes, Bryophytes, Pteridophytes); Phanerogams ('evident marriage') have well-differentiated reproductive organs that produce seeds (Gymnosperms, Angiosperms).",
           "diagram_title": "Cryptogams vs Phanerogams Evolutionary Tree",
-          "diagram_type": "image",
-          "image_query": "cryptogams vs phanerogams seedless vs seed plants evolutionary tree diagram",
-          "video_query": "cryptogams and phanerogams class 9",
-          "image_url": "/extracted_diagrams/ch12/fig_12_5.webp",
+          "diagram_type": "image_search",
+          "image_query": "evolutionary divergence between spore-bearing cryptogams and seed-bearing phanerogams. scientific educational diagram with clear labels",
+          "video_query": "Cryptogams vs Phanerogams Evolutionary Tree educational demonstration video",
           "what_to_make": "Textbook diagram showing evolutionary divergence between spore-bearing cryptogams and seed-bearing phanerogams.",
-          "timing_and_cue": "Mount cryptogam phanerogam on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_5.webp | Cryptogams vs Phanerogams | Spore-bearing seedless cryptogams versus seed-bearing phanerogams\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"evolutionary divergence between spore-bearing cryptogams and seed-bearing phanerogams. scientific educational diagram with clear labels\", title=\"Cryptogams vs Phanerogams Evolutionary Tree\") | Proactive video: search_and_show_video(query=\"Cryptogams vs Phanerogams Evolutionary Tree educational demonstration video\", title=\"Cryptogams vs Phanerogams Evolutionary Tree\")",
+          "image_search_query": "evolutionary divergence between spore-bearing cryptogams and seed-bearing phanerogams. scientific educational diagram with clear labels",
+          "video_search_query": "Cryptogams vs Phanerogams Evolutionary Tree educational demonstration video"
         },
         {
           "concept_title": "Division Pteridophyta Invariants: Pteridophytes are the first true terrestrial vascular plants; their body is differentiated into true roots, stems, and leaves; possess specialized vascular tissues (xylem and phloem); reproduce via spores formed on leaves; examples: *Marsilea*, ferns (*Pteris*, *Adiantum*), and horse-tails.",
           "diagram_title": "Pteridophyte Vascular Bundle Organization",
-          "diagram_type": "image",
-          "image_query": "pteridophyte vascular bundles xylem phloem ferns diagram",
-          "video_query": "pteridophytes characteristics and reproduction",
-          "image_url": "/extracted_diagrams/ch12/fig_12_15.webp",
+          "diagram_type": "image_search",
+          "image_query": "cross-section of plant vascular bundle with xylem and phloem vessels. scientific educational diagram with clear labels",
+          "video_query": "Pteridophyte Vascular Bundle Organization educational demonstration video",
           "what_to_make": "Textbook diagram showing cross-section of plant vascular bundle with xylem and phloem vessels.",
-          "timing_and_cue": "Mount vascular bundles on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_15.webp | Vascular Tissue Evolution | First true xylem and phloem conducting vessels emerging in Pteridophytes\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"cross-section of plant vascular bundle with xylem and phloem vessels. scientific educational diagram with clear labels\", title=\"Pteridophyte Vascular Bundle Organization\") | Proactive video: search_and_show_video(query=\"Pteridophyte Vascular Bundle Organization educational demonstration video\", title=\"Pteridophyte Vascular Bundle Organization\")",
+          "image_search_query": "cross-section of plant vascular bundle with xylem and phloem vessels. scientific educational diagram with clear labels",
+          "video_search_query": "Pteridophyte Vascular Bundle Organization educational demonstration video"
         },
         {
           "concept_title": "Division Gymnosperms Characteristics: Plants with naked seeds (Gymno = naked, sperma = seed); seeds are not enclosed inside an ovary or fruit; woody, perennial, evergreen trees or shrubs; produce distinct male and female reproductive cones; examples: *Pinus* (pine) and *Cycas*.",
           "diagram_title": "Gymnosperm Pine Cone (Naked Seeds)",
-          "diagram_type": "image",
-          "image_query": "cone of pine gymnosperm naked seeds woody scales diagram",
-          "video_query": "gymnosperms pine cone naked seeds animation",
-          "image_url": "/extracted_diagrams/ch12/fig_12_12.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook photograph of a pine cone *Pinus* displaying woody scales bearing exposed naked seeds. scientific educational diagram with clear labels",
+          "video_query": "Gymnosperm Pine Cone Naked Seeds educational demonstration video",
           "what_to_make": "Textbook photograph of a pine cone (*Pinus*) displaying woody scales bearing exposed naked seeds.",
-          "timing_and_cue": "Mount pine cone on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_12.webp | Division Gymnosperms | Pine cone (Pinus) bearing exposed naked seeds without fruit enclosure\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook photograph of a pine cone *Pinus* displaying woody scales bearing exposed naked seeds. scientific educational diagram with clear labels\", title=\"Gymnosperm Pine Cone (Naked Seeds)\") | Proactive video: search_and_show_video(query=\"Gymnosperm Pine Cone Naked Seeds educational demonstration video\", title=\"Gymnosperm Pine Cone (Naked Seeds)\")",
+          "image_search_query": "Textbook photograph of a pine cone *Pinus* displaying woody scales bearing exposed naked seeds. scientific educational diagram with clear labels",
+          "video_search_query": "Gymnosperm Pine Cone Naked Seeds educational demonstration video"
         },
         {
           "concept_title": "Division Angiosperms Characteristics: Highly evolved vascular plants whose seeds develop enclosed inside an ovary that matures into a fruit (Angio = covered, sperma = seed); possess flowers as specialized reproductive organs; exhibit double fertilization.",
           "diagram_title": "Angiosperm Mature Tree Habit",
-          "diagram_type": "image",
-          "image_query": "angiosperm tree flowering plant covered seeds fruit diagram",
-          "video_query": "angiosperms flowering plants characteristics",
-          "image_url": "/extracted_diagrams/ch12/fig_12_13.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook image of a mature angiosperm tree bearing flowers and enclosed fruits. scientific educational diagram with clear labels",
+          "video_query": "Angiosperm Mature Tree Habit educational demonstration video",
           "what_to_make": "Textbook image of a mature angiosperm tree bearing flowers and enclosed fruits.",
-          "timing_and_cue": "Mount angiosperm tree on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_13.webp | Division Angiosperms | Highly evolved flowering tree enclosing seeds within protective fruits\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook image of a mature angiosperm tree bearing flowers and enclosed fruits. scientific educational diagram with clear labels\", title=\"Angiosperm Mature Tree Habit\") | Proactive video: search_and_show_video(query=\"Angiosperm Mature Tree Habit educational demonstration video\", title=\"Angiosperm Mature Tree Habit\")",
+          "image_search_query": "Textbook image of a mature angiosperm tree bearing flowers and enclosed fruits. scientific educational diagram with clear labels",
+          "video_search_query": "Angiosperm Mature Tree Habit educational demonstration video"
         },
         {
           "concept_title": "Monocotyledonous Plants (Monocots): Seeds contain a single cotyledon; leaves display parallel venation (veins run parallel); root system consists of a fibrous root bundle; flower parts are in multiples of three (trimerous); examples: wheat, maize, rice, grass, bamboo, banana.",
           "diagram_title": "Angiosperm Flower & Trimerous Symmetry",
-          "diagram_type": "image",
-          "image_query": "longitudinal section flower angiosperm carpel stamen diagram",
-          "video_query": "monocots vs dicots flower and seed anatomy",
-          "image_url": "/extracted_diagrams/ch12/fig_12_14.webp",
+          "diagram_type": "image_search",
+          "image_query": "longitudinal section of flower displaying reproductive whorls. scientific educational diagram with clear labels",
+          "video_query": "Angiosperm Flower & Trimerous Symmetry educational demonstration video",
           "what_to_make": "Textbook diagram showing longitudinal section of flower displaying reproductive whorls.",
-          "timing_and_cue": "Mount floral section on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_14.webp | Angiosperm Floral Anatomy | Concentric floral whorls determining trimerous (monocot) or pentamerous (dicot) symmetry\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"longitudinal section of flower displaying reproductive whorls. scientific educational diagram with clear labels\", title=\"Angiosperm Flower & Trimerous Symmetry\") | Proactive video: search_and_show_video(query=\"Angiosperm Flower & Trimerous Symmetry educational demonstration video\", title=\"Angiosperm Flower & Trimerous Symmetry\")",
+          "image_search_query": "longitudinal section of flower displaying reproductive whorls. scientific educational diagram with clear labels",
+          "video_search_query": "Angiosperm Flower & Trimerous Symmetry educational demonstration video"
         },
         {
           "concept_title": "Dicotyledonous Plants (Dicots): Seeds contain two cotyledons; leaves display reticulate (net-like) venation; root system consists of a prominent central taproot with lateral branches; flower parts are in multiples of four or five (tetramerous or pentamerous); examples: pea, gram, bean, sunflower, mustard, mango.",
           "diagram_title": "Monocot vs Dicot Internal Stem Architecture",
-          "diagram_type": "image",
-          "image_query": "internal structure angiosperm stem dicot ring monocot scattered diagram",
-          "video_query": "monocot vs dicot stem internal structure under microscope",
-          "image_url": "/extracted_diagrams/ch12/fig_12_15.webp",
+          "diagram_type": "image_search",
+          "image_query": "ringed vascular bundles in dicot stems versus scattered bundles in monocots. scientific educational diagram with clear labels",
+          "video_query": "Monocot vs Dicot Internal Stem Architecture educational demonstration video",
           "what_to_make": "Textbook diagram illustrating ringed vascular bundles in dicot stems versus scattered bundles in monocots.",
-          "timing_and_cue": "Mount stem anatomy on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_15.webp | Dicot vs Monocot Stem Anatomy | Ringed vascular bundles in dicots versus scattered bundles in monocots\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"ringed vascular bundles in dicot stems versus scattered bundles in monocots. scientific educational diagram with clear labels\", title=\"Monocot vs Dicot Internal Stem Architecture\") | Proactive video: search_and_show_video(query=\"Monocot vs Dicot Internal Stem Architecture educational demonstration video\", title=\"Monocot vs Dicot Internal Stem Architecture\")",
+          "image_search_query": "ringed vascular bundles in dicot stems versus scattered bundles in monocots. scientific educational diagram with clear labels",
+          "video_search_query": "Monocot vs Dicot Internal Stem Architecture educational demonstration video"
         }
       ]
     },
@@ -793,62 +817,68 @@
         {
           "concept_title": "Kingdom Animalia Definition: Multicellular eukaryotic organisms that lack cell walls, possess ingestive heterotrophic (holozoic) nutrition, demonstrate specialized sensory-nervous coordination, and are typically motile.",
           "diagram_title": "Animal Kingdom Comprehensive Phylogenetic Flowchart",
-          "diagram_type": "image",
-          "image_query": "animal kingdom phylogenetic tree classification porifera to chordata diagram",
-          "video_query": "animal kingdom classification overview class 9 animation",
-          "image_url": "/extracted_diagrams/ch12/fig_12_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook master flowchart classifying the entire animal kingdom based on organization level, symmetry, and coelom. scientific educational diagram with clear labels",
+          "video_query": "Animal Kingdom Comprehensive Phylogenetic Flowchart educational demonstration video",
           "what_to_make": "Textbook master flowchart classifying the entire animal kingdom based on organization level, symmetry, and coelom.",
-          "timing_and_cue": "Mount Animalia flowchart on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_16.webp | Kingdom Animalia Master Architecture | Flowchart branching from cellular Porifera to true coelomate Chordates\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook master flowchart classifying the entire animal kingdom based on organization level, symmetry, and coelom. scientific educational diagram with clear labels\", title=\"Animal Kingdom Comprehensive Phylogenetic Flowchart\") | Proactive video: search_and_show_video(query=\"Animal Kingdom Comprehensive Phylogenetic Flowchart educational demonstration video\", title=\"Animal Kingdom Comprehensive Phylogenetic Flowchart\")",
+          "image_search_query": "Textbook master flowchart classifying the entire animal kingdom based on organization level, symmetry, and coelom. scientific educational diagram with clear labels",
+          "video_search_query": "Animal Kingdom Comprehensive Phylogenetic Flowchart educational demonstration video"
         },
         {
           "concept_title": "Architectural Classification Baselines: 1. Level of Organization: Cellular (Porifera), Tissue (Coelenterata), Organ/Organ-system (Platyhelminthes to Chordata); 2. Body Symmetry: Asymmetrical (sponges), Radial (coelenterates, adult echinoderms), Bilateral (platyhelminthes onwards); 3. Germ Layers: Diploblastic (ectoderm + endoderm) vs Triploblastic (ectoderm + mesoderm + endoderm).",
           "diagram_title": "Symmetry & Germ Layer Diagnostic Schemas",
-          "diagram_type": "image",
-          "image_query": "radial bilateral symmetry diploblastic triploblastic animal classification diagram",
-          "video_query": "symmetry and germ layers in animals",
-          "image_url": "/extracted_diagrams/ch12/fig_12_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "radial vs bilateral cleavage and triploblastic layer cross-sections. scientific educational diagram with clear labels",
+          "video_query": "Symmetry & Germ Layer Diagnostic Schemas educational demonstration video",
           "what_to_make": "Textbook diagram showing radial vs bilateral cleavage and triploblastic layer cross-sections.",
-          "timing_and_cue": "Mount architectural baselines on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_16.webp | Architectural Baselines | Symmetry (radial vs bilateral) and germ layer organization (diploblastic vs triploblastic)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"radial vs bilateral cleavage and triploblastic layer cross-sections. scientific educational diagram with clear labels\", title=\"Symmetry & Germ Layer Diagnostic Schemas\") | Proactive video: search_and_show_video(query=\"Symmetry & Germ Layer Diagnostic Schemas educational demonstration video\", title=\"Symmetry & Germ Layer Diagnostic Schemas\")",
+          "image_search_query": "radial vs bilateral cleavage and triploblastic layer cross-sections. scientific educational diagram with clear labels",
+          "video_search_query": "Symmetry & Germ Layer Diagnostic Schemas educational demonstration video"
         },
         {
           "concept_title": "Coelom (Body Cavity) Spectrum: The true coelom is an internal fluid-filled body cavity lined completely by mesoderm on all sides: Acoelomates lack any body cavity (Platyhelminthes); Pseudocoelomates have false body cavity unlined by mesoderm (Nematoda / roundworms); Eucoelomates possess true mesodermal coelom (Annelida onwards).",
           "diagram_title": "Coelom Cross-Sections: Acoelomate, Pseudocoelomate, Eucoelomate",
-          "diagram_type": "image",
-          "image_query": "acoelomate pseudocoelomate coelomate body cavity cross section diagram",
-          "video_query": "types of coelom acoelomate pseudocoelomate eucoelomate",
-          "image_url": "/extracted_diagrams/ch12/fig_12_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook cross-sectional comparison of solid acoelomate, unlined pseudocoelomate, and peritoneum-lined eucoelomate. scientific educational diagram with clear labels",
+          "video_query": "Coelom Cross-Sections: Acoelomate, Pseudocoelomate, Eucoelomate educational demonstration video",
           "what_to_make": "Textbook cross-sectional comparison of solid acoelomate, unlined pseudocoelomate, and peritoneum-lined eucoelomate.",
-          "timing_and_cue": "Mount coelom types on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_16.webp | Coelom Typology | Acoelomate (Platyhelminthes), pseudocoelomate (Nematoda), and true coelomate (Annelida onwards)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook cross-sectional comparison of solid acoelomate, unlined pseudocoelomate, and peritoneum-lined eucoelomate. scientific educational diagram with clear labels\", title=\"Coelom Cross-Sections: Acoelomate, Pseudocoelomate, Eucoelomate\") | Proactive video: search_and_show_video(query=\"Coelom Cross-Sections: Acoelomate, Pseudocoelomate, Eucoelomate educational demonstration video\", title=\"Coelom Cross-Sections: Acoelomate, Pseudocoelomate, Eucoelomate\")",
+          "image_search_query": "Textbook cross-sectional comparison of solid acoelomate, unlined pseudocoelomate, and peritoneum-lined eucoelomate. scientific educational diagram with clear labels",
+          "video_search_query": "Coelom Cross-Sections: Acoelomate, Pseudocoelomate, Eucoelomate educational demonstration video"
         },
         {
           "concept_title": "Porifera & Coelenterata Architecture: Porifera (sponges) are sessile non-motile organisms with a cellular level of organization, porous body with ostia and osculum forming a water canal system, and spicules skeleton; Coelenterata (Cnidaria) possess tissue level, radial symmetry, gastrovascular cavity with single opening, and stinging tentacles with cnidoblasts (*Hydra*, jellyfish).",
           "diagram_title": "Sponges Canal System & Hydra Cnidoblasts",
-          "diagram_type": "image",
-          "image_query": "porifera sponge water canal system coelenterata hydra cnidoblast diagram",
-          "video_query": "porifera and coelenterata characteristics comparison",
-          "image_url": "/extracted_diagrams/ch12/fig_12_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "sponge water currents and Hydra stinging tentacles. scientific educational diagram with clear labels",
+          "video_query": "Sponges Canal System & Hydra Cnidoblasts educational demonstration video",
           "what_to_make": "Textbook diagram showing sponge water currents and Hydra stinging tentacles.",
-          "timing_and_cue": "Mount Porifera and Cnidaria on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_16.webp | Porifera & Cnidaria | Porous water canal system in sponges versus stinging cnidoblasts in Hydra\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"sponge water currents and Hydra stinging tentacles. scientific educational diagram with clear labels\", title=\"Sponges Canal System & Hydra Cnidoblasts\") | Proactive video: search_and_show_video(query=\"Sponges Canal System & Hydra Cnidoblasts educational demonstration video\", title=\"Sponges Canal System & Hydra Cnidoblasts\")",
+          "image_search_query": "sponge water currents and Hydra stinging tentacles. scientific educational diagram with clear labels",
+          "video_search_query": "Sponges Canal System & Hydra Cnidoblasts educational demonstration video"
         },
         {
           "concept_title": "Worm Phyla Comparison: Platyhelminthes are dorsoventrally flattened acoelomate triploblastic flatworms (*Planaria*, tapeworm); Nematoda are cylindrical unsegmented pseudocoelomates (*Ascaris*, *Wuchereria*); Annelida possess true metameric segmentation, true coelom, and closed circulation (earthworm, leech).",
           "diagram_title": "Comparative Triad of Worm Phyla",
-          "diagram_type": "image",
-          "image_query": "platyhelminthes flatworm nematoda roundworm annelida earthworm comparison diagram",
-          "video_query": "difference between platyhelminthes nematoda and annelida",
-          "image_url": "/extracted_diagrams/ch12/fig_12_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram comparing flat tapeworms, cylindrical roundworms, and ring-segmented earthworms. scientific educational diagram with clear labels",
+          "video_query": "Comparative Triad of Worm Phyla educational demonstration video",
           "what_to_make": "Textbook diagram comparing flat tapeworms, cylindrical roundworms, and ring-segmented earthworms.",
-          "timing_and_cue": "Mount worm triad on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_16.webp | The Worm Phyla | Flat acoelomate Platyhelminthes, pseudocoelomate Nematoda, and metameric Annelida\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram comparing flat tapeworms, cylindrical roundworms, and ring-segmented earthworms. scientific educational diagram with clear labels\", title=\"Comparative Triad of Worm Phyla\") | Proactive video: search_and_show_video(query=\"Comparative Triad of Worm Phyla educational demonstration video\", title=\"Comparative Triad of Worm Phyla\")",
+          "image_search_query": "Textbook diagram comparing flat tapeworms, cylindrical roundworms, and ring-segmented earthworms. scientific educational diagram with clear labels",
+          "video_search_query": "Comparative Triad of Worm Phyla educational demonstration video"
         },
         {
           "concept_title": "Dominant Invertebrate Phyla: Arthropoda is the largest animal phylum characterized by jointed appendages, chitinous exoskeleton, and open circulation (prawn, insects, scorpion); Mollusca is the second largest with soft unsegmented bodies, muscular foot, and calcareous shell (snail, octopus); Echinodermata are exclusively marine spiny-skinned triploblastic coelomates with water vascular system (starfish, sea urchin).",
           "diagram_title": "Higher Invertebrates: Arthropoda, Mollusca, Echinodermata",
-          "diagram_type": "image",
-          "image_query": "arthropoda jointed legs mollusca shell echinodermata spiny skin diagram",
-          "video_query": "arthropoda mollusca and echinodermata characteristics",
-          "image_url": "/extracted_diagrams/ch12/fig_12_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram detailing jointed limbs of insects, mantle shells of molluscs, and tube feet of echinoderms. scientific educational diagram with clear labels",
+          "video_query": "Higher Invertebrates: Arthropoda, Mollusca, Echinodermata educational demonstration video",
           "what_to_make": "Textbook diagram detailing jointed limbs of insects, mantle shells of molluscs, and tube feet of echinoderms.",
-          "timing_and_cue": "Mount higher invertebrates on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_16.webp | Higher Invertebrates | Jointed appendages in Arthropoda, mantle shell in Mollusca, and water vascular system in Echinodermata\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram detailing jointed limbs of insects, mantle shells of molluscs, and tube feet of echinoderms. scientific educational diagram with clear labels\", title=\"Higher Invertebrates: Arthropoda, Mollusca, Echinodermata\") | Proactive video: search_and_show_video(query=\"Higher Invertebrates: Arthropoda, Mollusca, Echinodermata educational demonstration video\", title=\"Higher Invertebrates: Arthropoda, Mollusca, Echinodermata\")",
+          "image_search_query": "Textbook diagram detailing jointed limbs of insects, mantle shells of molluscs, and tube feet of echinoderms. scientific educational diagram with clear labels",
+          "video_search_query": "Higher Invertebrates: Arthropoda, Mollusca, Echinodermata educational demonstration video"
         }
       ]
     },
@@ -964,62 +994,68 @@
         {
           "concept_title": "The Four Chordate Hallmarks: All chordates possess four definitive anatomical structures at some stage of life: 1. A dorsal rod-like flexible skeletal support called the **Notochord**; 2. A **Dorsal hollow nerve cord**; 3. Paired **Pharyngeal gill slits**; 4. A **Post-anal tail**; along with bilateral symmetry, triploblastic organization, and true coelom.",
           "diagram_title": "Vertebrate Classes Evolutionary Lineage",
-          "diagram_type": "image",
-          "image_query": "phylum chordata hallmarks notochord nerve cord gill slits diagram",
-          "video_query": "phylum chordata characteristics animation",
-          "image_url": "/extracted_diagrams/ch12/fig_12_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "vertebrate lineage branching from ancestral chordates. scientific educational diagram with clear labels",
+          "video_query": "Vertebrate Classes Evolutionary Lineage educational demonstration video",
           "what_to_make": "Textbook diagram showing vertebrate lineage branching from ancestral chordates.",
-          "timing_and_cue": "Mount chordate hallmarks on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_16.webp | Phylum Chordata Hallmarks | Notochord, dorsal nerve cord, pharyngeal gill slits, and post-anal tail\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"vertebrate lineage branching from ancestral chordates. scientific educational diagram with clear labels\", title=\"Vertebrate Classes Evolutionary Lineage\") | Proactive video: search_and_show_video(query=\"Vertebrate Classes Evolutionary Lineage educational demonstration video\", title=\"Vertebrate Classes Evolutionary Lineage\")",
+          "image_search_query": "vertebrate lineage branching from ancestral chordates. scientific educational diagram with clear labels",
+          "video_search_query": "Vertebrate Classes Evolutionary Lineage educational demonstration video"
         },
         {
           "concept_title": "Protochordates vs Vertebrates: Protochordates (e.g., *Balanoglossus*, *Amphioxus*, *Herdmania*) are primitive marine organisms possessing a rudimentary notochord; in Subphylum Vertebrata, the embryonic notochord is completely replaced in adults by a cartilaginous or bony articulated **vertebral column (backbone)**.",
           "diagram_title": "Vertebral Column Replacement Schema",
-          "diagram_type": "image",
-          "image_query": "protochordata vs vertebrata vertebral column replacement diagram",
-          "video_query": "protochordates vs vertebrates difference class 9",
-          "image_url": "/extracted_diagrams/ch12/fig_12_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram detailing embryonic notochord replacement by articulated vertebral column. scientific educational diagram with clear labels",
+          "video_query": "Vertebral Column Replacement Schema educational demonstration video",
           "what_to_make": "Textbook diagram detailing embryonic notochord replacement by articulated vertebral column.",
-          "timing_and_cue": "Mount vertebral column on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_16.webp | Subphylum Vertebrata | Replacement of embryonic notochord by articulated bony or cartilaginous vertebral column\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram detailing embryonic notochord replacement by articulated vertebral column. scientific educational diagram with clear labels\", title=\"Vertebral Column Replacement Schema\") | Proactive video: search_and_show_video(query=\"Vertebral Column Replacement Schema educational demonstration video\", title=\"Vertebral Column Replacement Schema\")",
+          "image_search_query": "Textbook diagram detailing embryonic notochord replacement by articulated vertebral column. scientific educational diagram with clear labels",
+          "video_search_query": "Vertebral Column Replacement Schema educational demonstration video"
         },
         {
           "concept_title": "Class Pisces (Fishes): Exclusively aquatic, cold-blooded (poikilothermic); body covered with dermal scales/plates; respire through gills; possess a **2-chambered heart** (one atrium, one ventricle) pumping deoxygenated blood to gills (single circulation); cartilaginous (*Scoliodon* / dogfish shark) or bony (*Rohu*, *Catla*).",
           "diagram_title": "Class Pisces Morphology & Gill Circulation",
-          "diagram_type": "image",
-          "image_query": "class pisces fish 2 chambered heart gills scales diagram",
-          "video_query": "class pisces characteristics bony and cartilaginous fish",
-          "image_url": "/extracted_diagrams/ch12/fig_12_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "fish streamlined body, fins, lateral line, and 2-chambered heart. scientific educational diagram with clear labels",
+          "video_query": "Class Pisces Morphology & Gill Circulation educational demonstration video",
           "what_to_make": "Textbook diagram showing fish streamlined body, fins, lateral line, and 2-chambered heart.",
-          "timing_and_cue": "Mount Pisces on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_16.webp | Class Pisces | Cold-blooded aquatic vertebrates with dermal scales, gill respiration, and 2-chambered heart\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"fish streamlined body, fins, lateral line, and 2-chambered heart. scientific educational diagram with clear labels\", title=\"Class Pisces Morphology & Gill Circulation\") | Proactive video: search_and_show_video(query=\"Class Pisces Morphology & Gill Circulation educational demonstration video\", title=\"Class Pisces Morphology & Gill Circulation\")",
+          "image_search_query": "fish streamlined body, fins, lateral line, and 2-chambered heart. scientific educational diagram with clear labels",
+          "video_search_query": "Class Pisces Morphology & Gill Circulation educational demonstration video"
         },
         {
           "concept_title": "Class Amphibia (Amphibians): Can live both in fresh water and on moist land; cold-blooded; lack scales; skin is moist with mucous glands; possess a **3-chambered heart** (two atria, one ventricle); respire through gills (larvae), lungs, and skin (cutaneous respiration in adults); lay eggs in water (*Frog*, *Toad*, *Salamander*, *Purple frog*).",
           "diagram_title": "Western Ghats Endemic Purple Frog",
-          "diagram_type": "image",
-          "image_query": "purple frog nasikabatrachus sahyadrensis western ghats wet soil diagram",
-          "video_query": "purple frog Western Ghats living fossil",
-          "image_url": "/extracted_diagrams/ch12/fig_12_20.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook photograph of the rare subterranean Purple Frog *Nasikabatrachus sahyadrensis* on wet soil. scientific educational diagram with clear labels",
+          "video_query": "Western Ghats Endemic Purple Frog educational demonstration video",
           "what_to_make": "Textbook photograph of the rare subterranean Purple Frog (*Nasikabatrachus sahyadrensis*) on wet soil.",
-          "timing_and_cue": "Mount Purple Frog on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_20.webp | Class Amphibia Endemism | The Purple Frog (Nasikabatrachus) of the Western Ghats, a subterranean fossorial amphibian\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook photograph of the rare subterranean Purple Frog *Nasikabatrachus sahyadrensis* on wet soil. scientific educational diagram with clear labels\", title=\"Western Ghats Endemic Purple Frog\") | Proactive video: search_and_show_video(query=\"Western Ghats Endemic Purple Frog educational demonstration video\", title=\"Western Ghats Endemic Purple Frog\")",
+          "image_search_query": "Textbook photograph of the rare subterranean Purple Frog *Nasikabatrachus sahyadrensis* on wet soil. scientific educational diagram with clear labels",
+          "video_search_query": "Western Ghats Endemic Purple Frog educational demonstration video"
         },
         {
           "concept_title": "Class Reptilia (Reptiles): Cold-blooded creeping or crawling animals; body covered by dry cornified skin with epidermal scales or scutes; respire exclusively through lungs; possess a **3-chambered heart** (incompletely divided ventricle, except **Crocodiles which have a fully 4-chambered heart**); lay tough, leathery, waterproof shelled eggs (cleidoic amniotic eggs) on dry land (*Snakes*, *Lizards*, *Turtles*, *Crocodiles*).",
           "diagram_title": "Class Reptilia Amniotic Land Adaptations",
-          "diagram_type": "image",
-          "image_query": "class reptilia epidermal scales cleidoic egg 3 chambered heart diagram",
-          "video_query": "class reptilia characteristics amniotic egg",
-          "image_url": "/extracted_diagrams/ch12/fig_12_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "scaly epidermal skin, amniotic cleidoic egg, and lung respiration. scientific educational diagram with clear labels",
+          "video_query": "Class Reptilia Amniotic Land Adaptations educational demonstration video",
           "what_to_make": "Textbook diagram showing scaly epidermal skin, amniotic cleidoic egg, and lung respiration.",
-          "timing_and_cue": "Mount Reptilia on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_16.webp | Class Reptilia | Dry scaly skin, lung respiration, 3-chambered heart (4 in crocodile), and terrestrial cleidoic eggs\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"scaly epidermal skin, amniotic cleidoic egg, and lung respiration. scientific educational diagram with clear labels\", title=\"Class Reptilia Amniotic Land Adaptations\") | Proactive video: search_and_show_video(query=\"Class Reptilia Amniotic Land Adaptations educational demonstration video\", title=\"Class Reptilia Amniotic Land Adaptations\")",
+          "image_search_query": "scaly epidermal skin, amniotic cleidoic egg, and lung respiration. scientific educational diagram with clear labels",
+          "video_search_query": "Class Reptilia Amniotic Land Adaptations educational demonstration video"
         },
         {
           "concept_title": "Aves vs Mammalia (Homeotherms): Both are warm-blooded (homeotherms) with **4-chambered hearts** (complete separation of oxygenated and deoxygenated blood); Aves (birds) have forelimbs modified into wings, pneumatic hollow bones, and feathers; Mammalia possess **mammary glands** to nourish young with milk, hair/fur on skin, external ear pinnae, and are viviparous (giving birth to live young, except egg-laying platypus and echidna).",
           "diagram_title": "Homeothermic 4-Chambered Aves & Mammalia",
-          "diagram_type": "image",
-          "image_query": "aves vs mammalia 4 chambered heart homeotherms feathers hair diagram",
-          "video_query": "aves vs mammalia characteristics comparison",
-          "image_url": "/extracted_diagrams/ch12/fig_12_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram comparing avian flight architecture with mammalian fur and mammary glands. scientific educational diagram with clear labels",
+          "video_query": "Homeothermic 4-Chambered Aves & Mammalia educational demonstration video",
           "what_to_make": "Textbook diagram comparing avian flight architecture with mammalian fur and mammary glands.",
-          "timing_and_cue": "Mount Aves and Mammalia on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch12/fig_12_16.webp | Aves & Mammalia | Warm-blooded homeotherms with 4-chambered hearts: feathers in Aves versus mammary glands in Mammalia\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram comparing avian flight architecture with mammalian fur and mammary glands. scientific educational diagram with clear labels\", title=\"Homeothermic 4-Chambered Aves & Mammalia\") | Proactive video: search_and_show_video(query=\"Homeothermic 4-Chambered Aves & Mammalia educational demonstration video\", title=\"Homeothermic 4-Chambered Aves & Mammalia\")",
+          "image_search_query": "Textbook diagram comparing avian flight architecture with mammalian fur and mammary glands. scientific educational diagram with clear labels",
+          "video_search_query": "Homeothermic 4-Chambered Aves & Mammalia educational demonstration video"
         }
       ]
     },

@@ -80,7 +80,7 @@
         "formula": "Distance $d = s_1 + s_2$; Displacement $|\\vec{s}| = \\sqrt{s_1^2 + s_2^2}$; Direction $\\theta = \\arctan(s_1 / s_2)$.",
         "substitution": "$d = 3 + 4 = 7\\text{ m}$. $|\\vec{s}| = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5\\text{ m}$.",
         "calculation": "1. Distance is scalar sum: $3\\text{ m} + 4\\text{ m} = 7\\text{ m}$.\n2. Net vector $\\vec{s} = 4\\hat{i} + 3\\hat{j}$. Magnitude $= \\sqrt{4^2 + 3^2} = 5\\text{ m}$.\n3. Angle $\\theta = \\arctan(3/4) = 36.87^\\circ$ North of East.",
-        "finalAnswer": "(a) Distance = 7 m; (b) Displacement = 5 m at 36.9\u00b0 North of East.",
+        "finalAnswer": "(a) Distance = 7 m; (b) Displacement = 5 m at 36.9° North of East.",
         "unit": "m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
@@ -113,62 +113,68 @@
         {
           "concept_title": "Relativity of Motion: An object may be perceived as moving by one observer and stationary by another depending on the reference frame.",
           "diagram_title": "Relative Motion & Reference Frame",
-          "diagram_type": "image",
-          "image_query": "Relative motion reference frame train platform diagram",
-          "video_query": "frames of reference relative motion physics",
-          "image_url": "/extracted_diagrams/ch4/fig_4_1.webp",
+          "diagram_type": "image_search",
+          "image_query": "Textbook schematic of objects in straight-line motion relative to roadside and train observers. scientific educational diagram with clear labels",
+          "video_query": "Relative Motion & Reference Frame educational demonstration video",
           "what_to_make": "Textbook schematic of objects in straight-line motion relative to roadside and train observers.",
-          "timing_and_cue": "Mount reference frame on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_1.webp | Reference Frames | Motion described relative to chosen observer coordinates\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook schematic of objects in straight-line motion relative to roadside and train observers. scientific educational diagram with clear labels\", title=\"Relative Motion & Reference Frame\") | Proactive video: search_and_show_video(query=\"Relative Motion & Reference Frame educational demonstration video\", title=\"Relative Motion & Reference Frame\")",
+          "image_search_query": "Textbook schematic of objects in straight-line motion relative to roadside and train observers. scientific educational diagram with clear labels",
+          "video_search_query": "Relative Motion & Reference Frame educational demonstration video"
         },
         {
           "concept_title": "Reference Point (Origin): The fixed landmark or coordinate origin from which all spatial positions are measured.",
           "diagram_title": "1D Linear Coordinate Axis with Origin",
-          "diagram_type": "image",
-          "image_query": "Position coordinates origin number line physics",
-          "video_query": "position vector coordinate origin physics",
-          "image_url": "/extracted_diagrams/ch4/fig_4_3.webp",
+          "diagram_type": "image_search",
+          "image_query": "Position axis showing origin O 0 km , point A 25 km , point B 35 km , and point C 60 km . scientific educational diagram with clear labels",
+          "video_query": "1D Linear Coordinate Axis with Origin educational demonstration video",
           "what_to_make": "Position axis showing origin O (0 km), point A (25 km), point B (35 km), and point C (60 km).",
-          "timing_and_cue": "Mount coordinate axis on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_3.webp | Position Axis | Measuring linear coordinates from origin reference point O\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Position axis showing origin O 0 km , point A 25 km , point B 35 km , and point C 60 km . scientific educational diagram with clear labels\", title=\"1D Linear Coordinate Axis with Origin\") | Proactive video: search_and_show_video(query=\"1D Linear Coordinate Axis with Origin educational demonstration video\", title=\"1D Linear Coordinate Axis with Origin\")",
+          "image_search_query": "Position axis showing origin O 0 km , point A 25 km , point B 35 km , and point C 60 km . scientific educational diagram with clear labels",
+          "video_search_query": "1D Linear Coordinate Axis with Origin educational demonstration video"
         },
         {
           "concept_title": "Distance (Scalar): Total ground path covered by a body, possessing magnitude only and never decreasing with time.",
           "diagram_title": "Scalar Distance Path Length",
-          "diagram_type": "image",
-          "image_query": "Distance vs displacement path comparison diagram",
-          "video_query": "distance vs displacement scalar vector physics",
-          "image_url": "/extracted_diagrams/ch4/fig_4_4.webp",
+          "diagram_type": "image_search",
+          "image_query": "Curvilinear path tracing total ground path length traversed by an object. scientific educational diagram with clear labels",
+          "video_query": "Scalar Distance Path Length educational demonstration video",
           "what_to_make": "Curvilinear path tracing total ground path length traversed by an object.",
-          "timing_and_cue": "Mount distance on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_4.webp | Distance Path Length | Total scalar ground trajectory traversed\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Curvilinear path tracing total ground path length traversed by an object. scientific educational diagram with clear labels\", title=\"Scalar Distance Path Length\") | Proactive video: search_and_show_video(query=\"Scalar Distance Path Length educational demonstration video\", title=\"Scalar Distance Path Length\")",
+          "image_search_query": "Curvilinear path tracing total ground path length traversed by an object. scientific educational diagram with clear labels",
+          "video_search_query": "Scalar Distance Path Length educational demonstration video"
         },
         {
           "concept_title": "Displacement (Vector): Shortest directed straight-line segment from initial position to final position, possessing both magnitude and direction.",
           "diagram_title": "Vector Displacement Arrow",
-          "diagram_type": "image",
-          "image_query": "Vector displacement straight line initial final position",
-          "video_query": "displacement vector physics animation",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Displacement_vector.svg",
+          "diagram_type": "image_search",
+          "image_query": "Direct straight-line arrow connecting initial point A to final point B across an arbitrary winding path. scientific educational diagram with clear labels",
+          "video_query": "Vector Displacement Arrow educational demonstration video",
           "what_to_make": "Direct straight-line arrow connecting initial point A to final point B across an arbitrary winding path.",
-          "timing_and_cue": "Mount displacement vector on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/4/4d/Displacement_vector.svg | Displacement Vector | Shortest straight-line arrow from start to finish\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Direct straight-line arrow connecting initial point A to final point B across an arbitrary winding path. scientific educational diagram with clear labels\", title=\"Vector Displacement Arrow\") | Proactive video: search_and_show_video(query=\"Vector Displacement Arrow educational demonstration video\", title=\"Vector Displacement Arrow\")",
+          "image_search_query": "Direct straight-line arrow connecting initial point A to final point B across an arbitrary winding path. scientific educational diagram with clear labels",
+          "video_search_query": "Vector Displacement Arrow educational demonstration video"
         },
         {
           "concept_title": "Geometric Bound: Displacement magnitude is always less than or equal to distance traveled (|s| <= d); equality holds only for straight line motion without reversing.",
           "diagram_title": "Triangle Inequality of Displacement",
-          "diagram_type": "image",
-          "image_query": "Triangle inequality displacement distance physics",
-          "video_query": "why displacement is less than distance",
-          "image_url": "/extracted_diagrams/ch4/fig_4_2.webp",
+          "diagram_type": "image_search",
+          "image_query": "Athlete running path demonstrating that the straight-line chord is always shorter than or equal to the perimeter arc. scientific educational diagram with clear labels",
+          "video_query": "Triangle Inequality of Displacement educational demonstration video",
           "what_to_make": "Athlete running path demonstrating that the straight-line chord is always shorter than or equal to the perimeter arc.",
-          "timing_and_cue": "Mount geometric bound on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_2.webp | Geometric Bound | Magnitude of displacement is always <= total distance\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Athlete running path demonstrating that the straight-line chord is always shorter than or equal to the perimeter arc. scientific educational diagram with clear labels\", title=\"Triangle Inequality of Displacement\") | Proactive video: search_and_show_video(query=\"Triangle Inequality of Displacement educational demonstration video\", title=\"Triangle Inequality of Displacement\")",
+          "image_search_query": "Athlete running path demonstrating that the straight-line chord is always shorter than or equal to the perimeter arc. scientific educational diagram with clear labels",
+          "video_search_query": "Triangle Inequality of Displacement educational demonstration video"
         },
         {
           "concept_title": "Zero Displacement Scenario: When an object returns to its starting point, displacement is exactly zero even if thousands of meters were traveled.",
           "diagram_title": "Circular Track Zero Displacement Paradox",
-          "diagram_type": "image",
-          "image_query": "Circular motion zero displacement round trip diagram",
-          "video_query": "zero displacement round trip circular track",
-          "image_url": "/extracted_diagrams/ch4/fig_4_5.webp",
+          "diagram_type": "image_search",
+          "image_query": "Ball thrown vertically upwards and returning to thrower's hand showing distance = 2h and displacement = 0. scientific educational diagram with clear labels",
+          "video_query": "Circular Track Zero Displacement Paradox educational demonstration video",
           "what_to_make": "Ball thrown vertically upwards and returning to thrower's hand showing distance = 2h and displacement = 0.",
-          "timing_and_cue": "Mount zero displacement on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_5.webp | Vertical Round Trip | Upward ascent and downward descent yielding net zero displacement\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Ball thrown vertically upwards and returning to thrower's hand showing distance = 2h and displacement = 0. scientific educational diagram with clear labels\", title=\"Circular Track Zero Displacement Paradox\") | Proactive video: search_and_show_video(query=\"Circular Track Zero Displacement Paradox educational demonstration video\", title=\"Circular Track Zero Displacement Paradox\")",
+          "image_search_query": "Ball thrown vertically upwards and returning to thrower's hand showing distance = 2h and displacement = 0. scientific educational diagram with clear labels",
+          "video_search_query": "Circular Track Zero Displacement Paradox educational demonstration video"
         }
       ]
     },
@@ -243,8 +249,8 @@
         "formula": "Acceleration $a = \\frac{v - u}{t}$.",
         "substitution": "Case 1: $a_1 = \\frac{6 - 0}{30}$. Case 2: $a_2 = \\frac{4 - 6}{5}$.",
         "calculation": "1. Case 1 (speeding up): $a_1 = \\frac{6}{30} = +\\mathbf{0.2\\text{ m/s}^2}$.\n2. Case 2 (braking/retardation): $a_2 = \\frac{-2}{5} = -\\mathbf{0.4\\text{ m/s}^2}$.",
-        "finalAnswer": "Acceleration in first case = +0.2 m/s\u00b2; in second case = -0.4 m/s\u00b2 (retardation of 0.4 m/s\u00b2).",
-        "unit": "m/s\u00b2",
+        "finalAnswer": "Acceleration in first case = +0.2 m/s²; in second case = -0.4 m/s² (retardation of 0.4 m/s²).",
+        "unit": "m/s²",
         "has_diagram": true,
         "diagram_source": "book_extracted",
         "figure_caption": "Fig. 4.8: Two-phase motion graph showing acceleration and deceleration"
@@ -255,8 +261,8 @@
         "formula": "Acceleration $a = \\frac{v - u}{t}$.",
         "substitution": "$a = \\frac{16.67 - 22.22}{5} = \\frac{-5.55}{5}$.",
         "calculation": "$a = -\\mathbf{1.11\\text{ m/s}^2}$.",
-        "finalAnswer": "Acceleration = -1.11 m/s\u00b2 (or retardation of 1.11 m/s\u00b2).",
-        "unit": "m/s\u00b2",
+        "finalAnswer": "Acceleration = -1.11 m/s² (or retardation of 1.11 m/s²).",
+        "unit": "m/s²",
         "has_diagram": true,
         "diagram_source": "book_extracted",
         "figure_caption": "Fig. 4.9: Negative acceleration (deceleration) velocity profile"
@@ -267,8 +273,8 @@
         "formula": "Acceleration $a = \\frac{v - u}{t}$.",
         "substitution": "$a = \\frac{\\frac{100}{9} - 0}{600} = \\frac{100}{5400} = \\frac{1}{54}$.",
         "calculation": "$a = \\frac{1}{54} \\approx \\mathbf{0.0185\\text{ m/s}^2}$.",
-        "finalAnswer": "Acceleration = 0.0185 m/s\u00b2 (or 1/54 m/s\u00b2).",
-        "unit": "m/s\u00b2",
+        "finalAnswer": "Acceleration = 0.0185 m/s² (or 1/54 m/s²).",
+        "unit": "m/s²",
         "has_diagram": true,
         "diagram_source": "book_extracted",
         "figure_caption": "Fig. 4.10: Uniform acceleration of train from rest"
@@ -288,62 +294,68 @@
         {
           "concept_title": "Uniform Motion: Constant speed in a fixed straight-line direction with zero acceleration.",
           "diagram_title": "Uniform Motion Linear Trajectory",
-          "diagram_type": "image",
-          "image_query": "Uniform motion physics diagram equal distance equal time",
-          "video_query": "uniform motion physics demonstration",
-          "image_url": "/extracted_diagrams/ch4/fig_4_7.webp",
+          "diagram_type": "image_search",
+          "image_query": "Vehicle moving along a linear highway covering equal 10 m increments every second. scientific educational diagram with clear labels",
+          "video_query": "Uniform Motion Linear Trajectory educational demonstration video",
           "what_to_make": "Vehicle moving along a linear highway covering equal 10 m increments every second.",
-          "timing_and_cue": "Mount uniform motion on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_7.webp | Uniform Motion | Equal distances in equal time intervals with zero acceleration\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Vehicle moving along a linear highway covering equal 10 m increments every second. scientific educational diagram with clear labels\", title=\"Uniform Motion Linear Trajectory\") | Proactive video: search_and_show_video(query=\"Uniform Motion Linear Trajectory educational demonstration video\", title=\"Uniform Motion Linear Trajectory\")",
+          "image_search_query": "Vehicle moving along a linear highway covering equal 10 m increments every second. scientific educational diagram with clear labels",
+          "video_search_query": "Uniform Motion Linear Trajectory educational demonstration video"
         },
         {
           "concept_title": "Speed vs Velocity: Speed is scalar magnitude; velocity includes directional orientation. Velocity changes if speed changes, direction changes, or both change.",
           "diagram_title": "Speedometer & Odometer Instrument Cluster",
-          "diagram_type": "image",
-          "image_query": "Automobile speedometer odometer instrument cluster",
-          "video_query": "speedometer odometer instantaneous speed",
-          "image_url": "/extracted_diagrams/ch4/fig_4_8.webp",
+          "diagram_type": "image_search",
+          "image_query": "Car dashboard showing speedometer measuring instantaneous speed in km/h and odometer measuring total distance. scientific educational diagram with clear labels",
+          "video_query": "Speedometer & Odometer Instrument Cluster educational demonstration video",
           "what_to_make": "Car dashboard showing speedometer measuring instantaneous speed in km/h and odometer measuring total distance.",
-          "timing_and_cue": "Mount speedometer on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_8.webp | Speedometer vs Odometer | Instantaneous scalar speed vs cumulative distance\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Car dashboard showing speedometer measuring instantaneous speed in km/h and odometer measuring total distance. scientific educational diagram with clear labels\", title=\"Speedometer & Odometer Instrument Cluster\") | Proactive video: search_and_show_video(query=\"Speedometer & Odometer Instrument Cluster educational demonstration video\", title=\"Speedometer & Odometer Instrument Cluster\")",
+          "image_search_query": "Car dashboard showing speedometer measuring instantaneous speed in km/h and odometer measuring total distance. scientific educational diagram with clear labels",
+          "video_search_query": "Speedometer & Odometer Instrument Cluster educational demonstration video"
         },
         {
           "concept_title": "Unit Conversion Constant: To convert km/h to m/s, multiply by 5/18; to convert m/s to km/h, multiply by 18/5.",
           "diagram_title": "Speed Unit Conversion Factor 5/18",
-          "diagram_type": "image",
-          "image_query": "Speed conversion km per hour to meters per second diagram",
-          "video_query": "convert km/h to m/s physics",
-          "image_url": "/extracted_diagrams/ch4/fig_4_9.webp",
+          "diagram_type": "image_search",
+          "image_query": "Graphic badge showing arithmetic proof: 1000m / 3600s = 5/18. scientific educational diagram with clear labels",
+          "video_query": "Speed Unit Conversion Factor 5/18 educational demonstration video",
           "what_to_make": "Graphic badge showing arithmetic proof: 1000m / 3600s = 5/18.",
-          "timing_and_cue": "Mount unit conversion on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_9.webp | Unit Conversion Rule | Multiply by 5/18 for m/s; multiply by 18/5 for km/h\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Graphic badge showing arithmetic proof: 1000m / 3600s = 5/18. scientific educational diagram with clear labels\", title=\"Speed Unit Conversion Factor 5/18\") | Proactive video: search_and_show_video(query=\"Speed Unit Conversion Factor 5/18 educational demonstration video\", title=\"Speed Unit Conversion Factor 5/18\")",
+          "image_search_query": "Graphic badge showing arithmetic proof: 1000m / 3600s = 5/18. scientific educational diagram with clear labels",
+          "video_search_query": "Speed Unit Conversion Factor 5/18 educational demonstration video"
         },
         {
           "concept_title": "Average Velocity Equation: For uniformly changing velocity, v_avg = (u + v) / 2; generally v_avg = total displacement / total time.",
           "diagram_title": "Average Velocity in Swimmer Round Trip",
-          "diagram_type": "image",
-          "image_query": "Average speed vs average velocity round trip swimmer diagram",
-          "video_query": "average speed and average velocity examples",
-          "image_url": "/extracted_diagrams/ch4/fig_4_10.webp",
+          "diagram_type": "image_search",
+          "image_query": "pool showing 180 m round trip with 3 m/s average speed and 0 m/s average velocity. scientific educational diagram with clear labels",
+          "video_query": "Average Velocity in Swimmer Round Trip educational demonstration video",
           "what_to_make": "Diagram of pool showing 180 m round trip with 3 m/s average speed and 0 m/s average velocity.",
-          "timing_and_cue": "Mount average velocity on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_10.webp | Round Trip Velocity | Demonstrating non-zero average speed with zero average velocity\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"pool showing 180 m round trip with 3 m/s average speed and 0 m/s average velocity. scientific educational diagram with clear labels\", title=\"Average Velocity in Swimmer Round Trip\") | Proactive video: search_and_show_video(query=\"Average Velocity in Swimmer Round Trip educational demonstration video\", title=\"Average Velocity in Swimmer Round Trip\")",
+          "image_search_query": "pool showing 180 m round trip with 3 m/s average speed and 0 m/s average velocity. scientific educational diagram with clear labels",
+          "video_search_query": "Average Velocity in Swimmer Round Trip educational demonstration video"
         },
         {
           "concept_title": "Acceleration Formulation: a = (v - u) / t; positive when velocity increases (acceleration), negative when velocity decreases (retardation/deceleration).",
           "diagram_title": "Acceleration Vector & Velocity Change",
-          "diagram_type": "image",
-          "image_query": "Acceleration velocity time rate of change diagram physics",
-          "video_query": "acceleration physics explained",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Acceleration_concept.svg",
+          "diagram_type": "image_search",
+          "image_query": "Car accelerating from initial velocity u to final velocity v showing positive acceleration vector. scientific educational diagram with clear labels",
+          "video_query": "Acceleration Vector & Velocity Change educational demonstration video",
           "what_to_make": "Car accelerating from initial velocity u to final velocity v showing positive acceleration vector.",
-          "timing_and_cue": "Mount acceleration on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/1/1d/Acceleration_concept.svg | Acceleration Dynamics | a = (v - u) / t measured in m/s^2\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Car accelerating from initial velocity u to final velocity v showing positive acceleration vector. scientific educational diagram with clear labels\", title=\"Acceleration Vector & Velocity Change\") | Proactive video: search_and_show_video(query=\"Acceleration Vector & Velocity Change educational demonstration video\", title=\"Acceleration Vector & Velocity Change\")",
+          "image_search_query": "Car accelerating from initial velocity u to final velocity v showing positive acceleration vector. scientific educational diagram with clear labels",
+          "video_search_query": "Acceleration Vector & Velocity Change educational demonstration video"
         },
         {
           "concept_title": "Non-Zero Acceleration at Constant Speed: In circular motion, speed is constant but direction changes continuously, creating acceleration.",
           "diagram_title": "Centripetal Directional Acceleration",
-          "diagram_type": "image",
-          "image_query": "Centripetal acceleration constant speed circular motion diagram",
-          "video_query": "acceleration without change in speed circular motion",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Centripetal_force_diagram.svg",
+          "diagram_type": "image_search",
+          "image_query": "Circular path showing tangential velocity vectors rotating continuously inward under centripetal acceleration. scientific educational diagram with clear labels",
+          "video_query": "Centripetal Directional Acceleration educational demonstration video",
           "what_to_make": "Circular path showing tangential velocity vectors rotating continuously inward under centripetal acceleration.",
-          "timing_and_cue": "Mount directional acceleration on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/7/71/Centripetal_force_diagram.svg | Directional Acceleration | Constant speed with non-zero acceleration due to rotating direction vector\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Circular path showing tangential velocity vectors rotating continuously inward under centripetal acceleration. scientific educational diagram with clear labels\", title=\"Centripetal Directional Acceleration\") | Proactive video: search_and_show_video(query=\"Centripetal Directional Acceleration educational demonstration video\", title=\"Centripetal Directional Acceleration\")",
+          "image_search_query": "Circular path showing tangential velocity vectors rotating continuously inward under centripetal acceleration. scientific educational diagram with clear labels",
+          "video_search_query": "Centripetal Directional Acceleration educational demonstration video"
         }
       ]
     },
@@ -406,8 +418,8 @@
         "formula": "(a) $a = \\frac{v - u}{t}$; (b) Area of trapezium $= \\frac{1}{2}(u + v)t$.",
         "substitution": "$a = \\frac{10 - 5}{5} = 1\\text{ m/s}^2$. Distance $s = \\frac{1}{2}(5 + 10) \\times 5$.",
         "calculation": "1. Acceleration: $a = \\frac{5}{5} = \\mathbf{1\\text{ m/s}^2}$.\n2. Distance: Area of rectangle under $u$ + Area of triangle under acceleration slope:\n   $s = (u \\times t) + \\frac{1}{2}(v - u)t = (5 \\times 5) + \\frac{1}{2}(5)(5) = 25 + 12.5 = \\mathbf{37.5\\text{ m}}$.",
-        "finalAnswer": "(a) Acceleration = 1 m/s\u00b2; (b) Distance covered = 37.5 m.",
-        "unit": "m/s\u00b2 and m",
+        "finalAnswer": "(a) Acceleration = 1 m/s²; (b) Distance covered = 37.5 m.",
+        "unit": "m/s² and m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
         "figure_caption": "Fig. 4.13: Trapezium area decomposition on v-t graph for uniform acceleration"
@@ -442,8 +454,8 @@
         "formula": "Slope $a = \\frac{v - u}{t}$; Area of triangle $s = \\frac{1}{2} \\times \\text{base} \\times \\text{height}$.",
         "substitution": "$a = \\frac{0 - 25}{5} = -5\\text{ m/s}^2$. $s = \\frac{1}{2} \\times 5 \\times 25$.",
         "calculation": "1. Acceleration: $a = -\\mathbf{5\\text{ m/s}^2}$ (uniform retardation).\n2. Distance: $s = \\frac{125}{2} = \\mathbf{62.5\\text{ m}}$.",
-        "finalAnswer": "Acceleration = -5 m/s\u00b2 (retardation = 5 m/s\u00b2); stopping distance = 62.5 m.",
-        "unit": "m/s\u00b2 and m",
+        "finalAnswer": "Acceleration = -5 m/s² (retardation = 5 m/s²); stopping distance = 62.5 m.",
+        "unit": "m/s² and m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
         "figure_caption": "Fig. 4.16: Triangular area under uniform retardation velocity-time graph"
@@ -463,62 +475,68 @@
         {
           "concept_title": "Distance-Time Graph Slope: The gradient (slope = (s2 - s1) / (t2 - t1)) represents the speed of the moving object.",
           "diagram_title": "Distance-Time Graph for Uniform Speed",
-          "diagram_type": "graph",
-          "image_query": "Distance time graph uniform speed straight line slope diagram",
-          "video_query": "distance time graph physics tutorial",
-          "image_url": "/extracted_diagrams/ch4/fig_4_11.webp",
+          "diagram_type": "image_search",
+          "image_query": "Mafs coordinate plot of linear distance-time curve s = 5t showing slope calculation triangle. scientific educational diagram with clear labels",
+          "video_query": "Distance-Time Graph for Uniform Speed educational demonstration video",
           "what_to_make": "Mafs coordinate plot of linear distance-time curve s = 5t showing slope calculation triangle.",
-          "timing_and_cue": "Mount s-t plot on Step 1: plot_mathematical_graph(title=\"Distance-Time Graph: Uniform Speed\", equation=\"5*x\", xMin=0, xMax=10, yMin=0, yMax=50, xLabel=\"Time t (s)\", yLabel=\"Distance s (m)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Mafs coordinate plot of linear distance-time curve s = 5t showing slope calculation triangle. scientific educational diagram with clear labels\", title=\"Distance-Time Graph for Uniform Speed\") | Proactive video: search_and_show_video(query=\"Distance-Time Graph for Uniform Speed educational demonstration video\", title=\"Distance-Time Graph for Uniform Speed\")",
+          "image_search_query": "Mafs coordinate plot of linear distance-time curve s = 5t showing slope calculation triangle. scientific educational diagram with clear labels",
+          "video_search_query": "Distance-Time Graph for Uniform Speed educational demonstration video"
         },
         {
           "concept_title": "Stationary Object s-t Profile: A horizontal line parallel to the time axis indicates zero speed (object at rest).",
           "diagram_title": "Distance-Time Graph for Stationary Body",
-          "diagram_type": "graph",
-          "image_query": "Distance time graph stationary object horizontal line diagram",
-          "video_query": "stationary object distance time graph",
-          "image_url": "/extracted_diagrams/ch4/fig_4_13.webp",
+          "diagram_type": "image_search",
+          "image_query": "Mafs plot of horizontal line s = 20 demonstrating zero slope and zero speed. scientific educational diagram with clear labels",
+          "video_query": "Distance-Time Graph for Stationary Body educational demonstration video",
           "what_to_make": "Mafs plot of horizontal line s = 20 demonstrating zero slope and zero speed.",
-          "timing_and_cue": "Mount stationary plot on Step 1: plot_mathematical_graph(title=\"Distance-Time Graph: Object at Rest\", equation=\"20\", xMin=0, xMax=10, yMin=0, yMax=40, xLabel=\"Time t (s)\", yLabel=\"Distance s (m)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Mafs plot of horizontal line s = 20 demonstrating zero slope and zero speed. scientific educational diagram with clear labels\", title=\"Distance-Time Graph for Stationary Body\") | Proactive video: search_and_show_video(query=\"Distance-Time Graph for Stationary Body educational demonstration video\", title=\"Distance-Time Graph for Stationary Body\")",
+          "image_search_query": "Mafs plot of horizontal line s = 20 demonstrating zero slope and zero speed. scientific educational diagram with clear labels",
+          "video_search_query": "Distance-Time Graph for Stationary Body educational demonstration video"
         },
         {
           "concept_title": "Velocity-Time Graph Slope: The gradient (slope = (v2 - v1) / (t2 - t1)) represents the acceleration of the object.",
           "diagram_title": "Velocity-Time Graph for Uniform Acceleration",
-          "diagram_type": "graph",
-          "image_query": "Velocity time graph uniform acceleration straight line slope diagram",
-          "video_query": "velocity time graph acceleration slope",
-          "image_url": "/extracted_diagrams/ch4/fig_4_15.webp",
+          "diagram_type": "image_search",
+          "image_query": "Mafs plot of v = 2 + 1.5t showing steady linear acceleration with positive slope. scientific educational diagram with clear labels",
+          "video_query": "Velocity-Time Graph for Uniform Acceleration educational demonstration video",
           "what_to_make": "Mafs plot of v = 2 + 1.5t showing steady linear acceleration with positive slope.",
-          "timing_and_cue": "Mount v-t plot on Step 1: plot_mathematical_graph(title=\"Velocity-Time Graph: Uniform Acceleration\", equation=\"2 + 1.5*x\", xMin=0, xMax=10, yMin=0, yMax=20, xLabel=\"Time t (s)\", yLabel=\"Velocity v (m/s)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Mafs plot of v = 2 + 1.5t showing steady linear acceleration with positive slope. scientific educational diagram with clear labels\", title=\"Velocity-Time Graph for Uniform Acceleration\") | Proactive video: search_and_show_video(query=\"Velocity-Time Graph for Uniform Acceleration educational demonstration video\", title=\"Velocity-Time Graph for Uniform Acceleration\")",
+          "image_search_query": "Mafs plot of v = 2 + 1.5t showing steady linear acceleration with positive slope. scientific educational diagram with clear labels",
+          "video_search_query": "Velocity-Time Graph for Uniform Acceleration educational demonstration video"
         },
         {
           "concept_title": "Area Theorem of v-t Graphs: The geometric area bounded by the v-t curve and the time axis equals the exact displacement covered.",
           "diagram_title": "Displacement as Area Under v-t Curve",
-          "diagram_type": "image",
-          "image_query": "Area under velocity time graph displacement rectangle diagram",
-          "video_query": "area under velocity time graph displacement",
-          "image_url": "/extracted_diagrams/ch4/fig_4_17.webp",
+          "diagram_type": "image_search",
+          "image_query": "shaded rectangle representing displacement s = v * t for uniform motion. scientific educational diagram with clear labels",
+          "video_query": "Displacement as Area Under v-t Curve educational demonstration video",
           "what_to_make": "Textbook diagram showing shaded rectangle representing displacement s = v * t for uniform motion.",
-          "timing_and_cue": "Mount area theorem on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_17.webp | Area Theorem | Displacement equals the geometric area bounded under v-t graph\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"shaded rectangle representing displacement s = v * t for uniform motion. scientific educational diagram with clear labels\", title=\"Displacement as Area Under v-t Curve\") | Proactive video: search_and_show_video(query=\"Displacement as Area Under v-t Curve educational demonstration video\", title=\"Displacement as Area Under v-t Curve\")",
+          "image_search_query": "shaded rectangle representing displacement s = v * t for uniform motion. scientific educational diagram with clear labels",
+          "video_search_query": "Displacement as Area Under v-t Curve educational demonstration video"
         },
         {
           "concept_title": "Rectangle + Triangle Decomposition: The area under a uniformly accelerating v-t curve decomposes into a lower rectangle (u * t) and an upper triangle (1/2 * a * t^2).",
           "diagram_title": "Trapezoid Decomposition Area Under v-t Graph",
-          "diagram_type": "image",
-          "image_query": "Velocity time graph trapezoid area rectangle triangle derivation",
-          "video_query": "deriving equations of motion graphically velocity time graph",
-          "image_url": "/extracted_diagrams/ch4/fig_4_18.webp",
+          "diagram_type": "image_search",
+          "image_query": "Geometric trapezoid partitioned into base rectangle OACD u*t and top triangle ABD 1/2 * at^2 . scientific educational diagram with clear labels",
+          "video_query": "Trapezoid Decomposition Area Under v-t Graph educational demonstration video",
           "what_to_make": "Geometric trapezoid partitioned into base rectangle OACD (u*t) and top triangle ABD (1/2 * at^2).",
-          "timing_and_cue": "Mount trapezoid decomposition on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_18.webp | Trapezoid Decomposition | Area = Rectangle (u*t) + Triangle (1/2*a*t^2)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Geometric trapezoid partitioned into base rectangle OACD u*t and top triangle ABD 1/2 * at^2 . scientific educational diagram with clear labels\", title=\"Trapezoid Decomposition Area Under v-t Graph\") | Proactive video: search_and_show_video(query=\"Trapezoid Decomposition Area Under v-t Graph educational demonstration video\", title=\"Trapezoid Decomposition Area Under v-t Graph\")",
+          "image_search_query": "Geometric trapezoid partitioned into base rectangle OACD u*t and top triangle ABD 1/2 * at^2 . scientific educational diagram with clear labels",
+          "video_search_query": "Trapezoid Decomposition Area Under v-t Graph educational demonstration video"
         },
         {
           "concept_title": "Mafs Interactive Plotting: Interactive real-time coordinate curves allow dynamic visualization of kinematic equations.",
           "diagram_title": "Dynamic Multi-Phase Kinematic Curve",
-          "diagram_type": "graph",
-          "image_query": "Kinematics position velocity acceleration graphs physics",
-          "video_query": "interactive graphing kinematics mafs",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Kinematic_graph_example.svg",
+          "diagram_type": "image_search",
+          "image_query": "multi-phase acceleration and deceleration profiles. scientific educational diagram with clear labels",
+          "video_query": "Dynamic Multi-Phase Kinematic Curve educational demonstration video",
           "what_to_make": "Interactive coordinate canvas plotting multi-phase acceleration and deceleration profiles.",
-          "timing_and_cue": "Mount dynamic graph on Step 1: plot_mathematical_graph(title=\"Multi-Phase Kinematics\", equation=\"4*x - 0.4*x^2\", xMin=0, xMax=10, yMin=0, yMax=15, xLabel=\"Time t (s)\", yLabel=\"Velocity v (m/s)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"multi-phase acceleration and deceleration profiles. scientific educational diagram with clear labels\", title=\"Dynamic Multi-Phase Kinematic Curve\") | Proactive video: search_and_show_video(query=\"Dynamic Multi-Phase Kinematic Curve educational demonstration video\", title=\"Dynamic Multi-Phase Kinematic Curve\")",
+          "image_search_query": "multi-phase acceleration and deceleration profiles. scientific educational diagram with clear labels",
+          "video_search_query": "Dynamic Multi-Phase Kinematic Curve educational demonstration video"
         }
       ]
     },
@@ -557,8 +575,8 @@
         "formula": "(a) $v = u + at \\implies a = \\frac{v - u}{t}$; (b) $s = ut + \\frac{1}{2}at^2$.",
         "substitution": "(a) $a = \\frac{20 - 0}{300} = \\frac{1}{15}\\text{ m/s}^2$. (b) $s = 0 + \\frac{1}{2} \\times \\frac{1}{15} \\times (300)^2$.",
         "calculation": "1. Acceleration: $a = \\frac{1}{15} \\approx \\mathbf{0.067\\text{ m/s}^2}$.\n2. Distance: $s = \\frac{1}{30} \\times 90000 = \\mathbf{3000\\text{ m}} = \\mathbf{3\\text{ km}}$.",
-        "finalAnswer": "(a) Acceleration = 1/15 m/s\u00b2 (0.067 m/s\u00b2); (b) Distance traveled = 3000 m (3 km).",
-        "unit": "m/s\u00b2 and m",
+        "finalAnswer": "(a) Acceleration = 1/15 m/s² (0.067 m/s²); (b) Distance traveled = 3000 m (3 km).",
+        "unit": "m/s² and m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
         "figure_caption": "Fig. 4.17: Kinematic derivation geometry for v = u + at"
@@ -576,31 +594,31 @@
         "figure_caption": "Fig. 4.18: Standard NCERT graphical derivation figure for three kinematic equations"
       },
       {
-        "problem": "Derive graphically the second equation of motion: s = ut + (1/2)at\u00b2.",
+        "problem": "Derive graphically the second equation of motion: s = ut + (1/2)at².",
         "given": "Displacement $s$ equals the total area of the trapezium $OABD$ beneath the $v-t$ graph.",
         "formula": "$\\text{Area}(OABD) = \\text{Area of rectangle } OADC + \\text{Area of triangle } ACB$.",
         "substitution": "$\\text{Area}(OADC) = OA \\times OD = u \\times t$; $\\text{Area}(ACB) = \\frac{1}{2} \\times AC \\times BC = \\frac{1}{2} \\times t \\times (v - u)$.",
         "calculation": "1. $s = u \\cdot t + \\frac{1}{2} t (v - u)$.\n2. From the first equation, $v - u = at$.\n3. Substitute $at$ for $(v - u)$: $s = ut + \\frac{1}{2} t (at) = \\mathbf{ut + \\frac{1}{2}at^2}$.",
-        "finalAnswer": "s = ut + 1/2 at\u00b2 (Second equation of motion derived from area decomposition).",
+        "finalAnswer": "s = ut + 1/2 at² (Second equation of motion derived from area decomposition).",
         "unit": "Derivation",
         "has_diagram": true,
         "diagram_source": "book_extracted",
         "figure_caption": "Fig. 4.18: Area decomposition into rectangle and triangle beneath v-t line"
       },
       {
-        "problem": "Derive graphically the third equation of motion: v\u00b2 - u\u00b2 = 2as.",
+        "problem": "Derive graphically the third equation of motion: v² - u² = 2as.",
         "given": "Total distance $s$ is the area of trapezium $OABD$ with parallel sides $OA$ and $BD$.",
         "formula": "$s = \\frac{\\text{Sum of parallel sides} \\times \\text{Perpendicular distance}}{2} = \\frac{(OA + BD) \\times OD}{2}$.",
         "substitution": "$OA = u, BD = v, OD = t \\implies s = \\frac{(u + v)t}{2}$. From first equation, $t = \\frac{v - u}{a}$.",
         "calculation": "1. Substitute $t = \\frac{v - u}{a}$ into the area formula:\n   $s = \\frac{(v + u)(v - u)}{2a}$.\n2. Using algebraic identity $(v + u)(v - u) = v^2 - u^2$:\n   $s = \\frac{v^2 - u^2}{2a}$.\n3. Multiplying both sides by $2a$: $\\mathbf{2as = v^2 - u^2} \\implies \\mathbf{v^2 - u^2 = 2as}$.",
-        "finalAnswer": "v\u00b2 - u\u00b2 = 2as (Third equation of motion relating velocity, acceleration, and displacement).",
+        "finalAnswer": "v² - u² = 2as (Third equation of motion relating velocity, acceleration, and displacement).",
         "unit": "Derivation",
         "has_diagram": true,
         "diagram_source": "book_extracted",
         "figure_caption": "Fig. 4.18: Trapezium geometry for eliminating time t in kinematic derivation"
       },
       {
-        "problem": "The brakes applied to a car produce an acceleration of 6 m/s\u00b2 in the opposite direction to the motion. If the car takes 2 s to stop after the application of brakes, calculate the distance it travels during this time.",
+        "problem": "The brakes applied to a car produce an acceleration of 6 m/s² in the opposite direction to the motion. If the car takes 2 s to stop after the application of brakes, calculate the distance it travels during this time.",
         "given": "$a = -6\\text{ m/s}^2$ (retardation). $t = 2\\text{ s}$. Final velocity $v = 0\\text{ m/s}$.",
         "formula": "$v = u + at \\implies u = v - at$; $s = ut + \\frac{1}{2}at^2$.",
         "substitution": "$0 = u + (-6)(2) \\implies u = 12\\text{ m/s}$. $s = (12)(2) + \\frac{1}{2}(-6)(2)^2$.",
@@ -612,7 +630,7 @@
         "figure_caption": "Fig. 4.19: Retardation braking trajectory and stopping displacement"
       },
       {
-        "problem": "A car accelerates uniformly from rest at 2 m/s\u00b2 for 10 s. How far does it travel, and what is its final speed?",
+        "problem": "A car accelerates uniformly from rest at 2 m/s² for 10 s. How far does it travel, and what is its final speed?",
         "given": "$u = 0\\text{ m/s}, a = 2\\text{ m/s}^2, t = 10\\text{ s}$.",
         "formula": "$v = u + at$; $s = ut + \\frac{1}{2}at^2$.",
         "substitution": "$v = 0 + (2)(10) = 20\\text{ m/s}$. $s = 0 + \\frac{1}{2}(2)(10)^2$.",
@@ -638,62 +656,68 @@
         {
           "concept_title": "The Three Master Equations: The closed-form algebraic system governing 1D motion under constant acceleration.",
           "diagram_title": "Kinematic Equations Formula Card",
-          "diagram_type": "image",
-          "image_query": "Equations of motion physics formula derivation summary",
-          "video_query": "three equations of motion derivation",
-          "image_url": "/extracted_diagrams/ch4/fig_4_24.webp",
+          "diagram_type": "image_search",
+          "image_query": "Master reference chart displaying the three equations with their physical names and geometric equivalents. scientific educational diagram with clear labels",
+          "video_query": "Kinematic Equations Formula Card educational demonstration video",
           "what_to_make": "Master reference chart displaying the three equations with their physical names and geometric equivalents.",
-          "timing_and_cue": "Mount equations card on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_24.webp | Master Kinematic Equations | Closed-form algebraic system for uniform acceleration\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Master reference chart displaying the three equations with their physical names and geometric equivalents. scientific educational diagram with clear labels\", title=\"Kinematic Equations Formula Card\") | Proactive video: search_and_show_video(query=\"Kinematic Equations Formula Card educational demonstration video\", title=\"Kinematic Equations Formula Card\")",
+          "image_search_query": "Master reference chart displaying the three equations with their physical names and geometric equivalents. scientific educational diagram with clear labels",
+          "video_search_query": "Kinematic Equations Formula Card educational demonstration video"
         },
         {
           "concept_title": "Derivation of v = u + at: Gradient of line AB equals acceleration a = (v - u) / t, which rearranges to v = u + at.",
           "diagram_title": "Velocity-Time Slope Derivation Graphic",
-          "diagram_type": "image",
-          "image_query": "Velocity time graph derivation v equals u plus at",
-          "video_query": "derive v u at graphically",
-          "image_url": "/extracted_diagrams/ch4/fig_4_25.webp",
+          "diagram_type": "image_search",
+          "image_query": "Slope triangle ABD illustrating slope a = BD / AD = v - u / t. scientific educational diagram with clear labels",
+          "video_query": "Velocity-Time Slope Derivation Graphic educational demonstration video",
           "what_to_make": "Slope triangle ABD illustrating slope a = BD / AD = (v - u) / t.",
-          "timing_and_cue": "Mount slope derivation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_25.webp | First Equation Derivation | Slope a = BD/AD = (v - u)/t yields v = u + at\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Slope triangle ABD illustrating slope a = BD / AD = v - u / t. scientific educational diagram with clear labels\", title=\"Velocity-Time Slope Derivation Graphic\") | Proactive video: search_and_show_video(query=\"Velocity-Time Slope Derivation Graphic educational demonstration video\", title=\"Velocity-Time Slope Derivation Graphic\")",
+          "image_search_query": "Slope triangle ABD illustrating slope a = BD / AD = v - u / t. scientific educational diagram with clear labels",
+          "video_search_query": "Velocity-Time Slope Derivation Graphic educational demonstration video"
         },
         {
           "concept_title": "Derivation of s = ut + 1/2*at^2: Area under AB equals sum of base rectangle OACD (u*t) and triangle ABD (1/2 * (v - u) * t = 1/2 * a * t^2).",
           "diagram_title": "Area Partitioning Derivation Graphic",
-          "diagram_type": "image",
-          "image_query": "Derivation s equals ut plus half at squared area under vt graph",
-          "video_query": "derive s ut half at2 graphically",
-          "image_url": "/extracted_diagrams/ch4/fig_4_26.webp",
+          "diagram_type": "image_search",
+          "image_query": "Trapezoid split into cyan rectangle u*t and yellow triangle 1/2 * at^2 . scientific educational diagram with clear labels",
+          "video_query": "Area Partitioning Derivation Graphic educational demonstration video",
           "what_to_make": "Trapezoid split into cyan rectangle (u*t) and yellow triangle (1/2 * at^2).",
-          "timing_and_cue": "Mount area derivation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_26.webp | Second Equation Derivation | Rectangle OADC (ut) + Triangle ABD (1/2 at^2)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Trapezoid split into cyan rectangle u*t and yellow triangle 1/2 * at^2 . scientific educational diagram with clear labels\", title=\"Area Partitioning Derivation Graphic\") | Proactive video: search_and_show_video(query=\"Area Partitioning Derivation Graphic educational demonstration video\", title=\"Area Partitioning Derivation Graphic\")",
+          "image_search_query": "Trapezoid split into cyan rectangle u*t and yellow triangle 1/2 * at^2 . scientific educational diagram with clear labels",
+          "video_search_query": "Area Partitioning Derivation Graphic educational demonstration video"
         },
         {
           "concept_title": "Derivation of v^2 - u^2 = 2as: Area of trapezoid OABC = 1/2 * (sum of parallel sides) * height = 1/2 * (u + v) * t; substituting t = (v - u) / a gives 2as = v^2 - u^2.",
           "diagram_title": "Trapezoid Area Substitution Derivation",
-          "diagram_type": "image",
-          "image_query": "Derivation v squared minus u squared equals 2as trapezoid formula",
-          "video_query": "derive v2 u2 2as graphically",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Trapezoid_motion_derivation.svg",
+          "diagram_type": "image_search",
+          "image_query": "Trapezoid formula schematic demonstrating algebraic substitution of t = v - u / a. scientific educational diagram with clear labels",
+          "video_query": "Trapezoid Area Substitution Derivation educational demonstration video",
           "what_to_make": "Trapezoid formula schematic demonstrating algebraic substitution of t = (v - u) / a.",
-          "timing_and_cue": "Mount third equation on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/e/ea/Trapezoid_motion_derivation.svg | Third Equation Derivation | Area = 1/2 (u + v) t yields 2as = v^2 - u^2\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Trapezoid formula schematic demonstrating algebraic substitution of t = v - u / a. scientific educational diagram with clear labels\", title=\"Trapezoid Area Substitution Derivation\") | Proactive video: search_and_show_video(query=\"Trapezoid Area Substitution Derivation educational demonstration video\", title=\"Trapezoid Area Substitution Derivation\")",
+          "image_search_query": "Trapezoid formula schematic demonstrating algebraic substitution of t = v - u / a. scientific educational diagram with clear labels",
+          "video_search_query": "Trapezoid Area Substitution Derivation educational demonstration video"
         },
         {
           "concept_title": "Constant Acceleration Pre-Condition: These equations are valid ONLY when acceleration 'a' is strictly constant.",
           "diagram_title": "Constant vs Variable Acceleration Contrast",
-          "diagram_type": "image",
-          "image_query": "Constant acceleration vs variable acceleration graph physics",
-          "video_query": "when to use equations of motion constant acceleration",
-          "image_url": "/extracted_diagrams/ch4/fig_4_18.webp",
+          "diagram_type": "image_search",
+          "image_query": "Comparison showing straight-line v-t graph valid for equations vs curved v-t graph requires calculus integration . scientific educational diagram with clear labels",
+          "video_query": "Constant vs Variable Acceleration Contrast educational demonstration video",
           "what_to_make": "Comparison showing straight-line v-t graph (valid for equations) vs curved v-t graph (requires calculus integration).",
-          "timing_and_cue": "Mount condition contrast on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_18.webp | Pre-condition Guard | Equations apply ONLY when acceleration is strictly constant\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Comparison showing straight-line v-t graph valid for equations vs curved v-t graph requires calculus integration . scientific educational diagram with clear labels\", title=\"Constant vs Variable Acceleration Contrast\") | Proactive video: search_and_show_video(query=\"Constant vs Variable Acceleration Contrast educational demonstration video\", title=\"Constant vs Variable Acceleration Contrast\")",
+          "image_search_query": "Comparison showing straight-line v-t graph valid for equations vs curved v-t graph requires calculus integration . scientific educational diagram with clear labels",
+          "video_search_query": "Constant vs Variable Acceleration Contrast educational demonstration video"
         },
         {
           "concept_title": "Rest and Braking Limits: If starting from rest, u = 0; if coming to a stop, v = 0 with negative acceleration.",
           "diagram_title": "Rest and Braking Boundary Conditions",
-          "diagram_type": "image",
-          "image_query": "Starting from rest stopping braking kinematics diagram",
-          "video_query": "stopping distance physics kinematics",
-          "image_url": "/extracted_diagrams/ch4/fig_4_20.webp",
+          "diagram_type": "image_search",
+          "image_query": "Vehicle acceleration from rest and braking to rest with boundary condition indicators. scientific educational diagram with clear labels",
+          "video_query": "Rest and Braking Boundary Conditions educational demonstration video",
           "what_to_make": "Vehicle acceleration from rest and braking to rest with boundary condition indicators.",
-          "timing_and_cue": "Mount boundary conditions on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_20.webp | Boundary Conditions | Rest implies u = 0; Braking stop implies v = 0\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Vehicle acceleration from rest and braking to rest with boundary condition indicators. scientific educational diagram with clear labels\", title=\"Rest and Braking Boundary Conditions\") | Proactive video: search_and_show_video(query=\"Rest and Braking Boundary Conditions educational demonstration video\", title=\"Rest and Braking Boundary Conditions\")",
+          "image_search_query": "Vehicle acceleration from rest and braking to rest with boundary condition indicators. scientific educational diagram with clear labels",
+          "video_search_query": "Rest and Braking Boundary Conditions educational demonstration video"
         }
       ]
     },
@@ -727,7 +751,7 @@
     "chapter_notes": "### 4.12 Retardation & Braking Dynamics\nWhen brakes are applied, the acceleration acts in the opposite direction to velocity ($a < 0$).\nFrom $v^2 = u^2 + 2as$, setting final velocity $v = 0$ (car stops):\n$$0 = u^2 - 2as \\implies s_{\\text{braking}} = \\frac{u^2}{2a}$$\n**CRITICAL INSIGHT**: Stopping distance is proportional to the **square of velocity** ($s \\propto u^2$).\n- If speed doubles ($2\\times$), stopping distance increases **$4\\times$**!\n- If speed triples ($3\\times$), stopping distance increases **$9\\times$**!\n\n### 4.13 Reaction Time and Total Stopping Distance\n$$\\text{Total Stopping Distance} = s_{\\text{reaction}} + s_{\\text{braking}} = (u \\times t_r) + \\frac{u^2}{2a}$$\nWhere $t_r$ is the human driver's neural perception-reaction time (~$0.2 - 0.7\\text{ s}$).\n\n### 4.14 Vertical Motion Under Gravity\nWhen an object is thrown vertically upwards:\n- Acceleration $a = -g = -9.8\\text{ m/s}^2$ (downward acceleration opposes upward motion).\n- At the **highest point**, final velocity **$v = 0$**.\n- Maximum height reached: $h_{\\text{max}} = \\frac{u^2}{2g}$.\n- Time of ascent: $t_{\\text{up}} = \\frac{u}{g}$.\n- Total flight time: $T = 2 \\times t_{\\text{up}} = \\frac{2u}{g}$.",
     "worked_examples": [
       {
-        "problem": "A ball is thrown vertically upwards with a velocity of 5 m/s. If the acceleration of the ball during its motion is 10 m/s\u00b2 in the downward direction, what will be the height attained by the ball and how much time will it take to reach there?",
+        "problem": "A ball is thrown vertically upwards with a velocity of 5 m/s. If the acceleration of the ball during its motion is 10 m/s² in the downward direction, what will be the height attained by the ball and how much time will it take to reach there?",
         "given": "$u = +5\\text{ m/s}$, $a = -10\\text{ m/s}^2$ (downward), final velocity at top $v = 0\\text{ m/s}$.",
         "formula": "$v^2 = u^2 + 2as \\implies s = \\frac{v^2 - u^2}{2a}$; $v = u + at \\implies t = \\frac{v - u}{a}$.",
         "substitution": "$s = \\frac{0^2 - 5^2}{2(-10)} = \\frac{-25}{-20}$; $t = \\frac{0 - 5}{-10}$.",
@@ -739,7 +763,7 @@
         "figure_caption": "Fig. 4.21: Vertical projectile trajectory under gravitational acceleration"
       },
       {
-        "problem": "A stone is dropped from the top of a building 45 m high. Calculate its velocity just before it hits the ground, and the time taken to fall. (Take g = 10 m/s\u00b2).",
+        "problem": "A stone is dropped from the top of a building 45 m high. Calculate its velocity just before it hits the ground, and the time taken to fall. (Take g = 10 m/s²).",
         "given": "$u = 0\\text{ m/s}$, $s = -45\\text{ m}$, $a = -10\\text{ m/s}^2$.",
         "formula": "$v^2 = u^2 + 2as$; $v = u + at$.",
         "substitution": "$v^2 = 0 + 2(-10)(-45) = 900 \\implies v = -30\\text{ m/s}$. $-30 = 0 + (-10)t$.",
@@ -751,7 +775,7 @@
         "figure_caption": "Fig. 4.22: Free fall downward under constant gravitational acceleration g"
       },
       {
-        "problem": "A car driver traveling at 25 m/s sees an obstruction and hits the brakes after a reaction time of 0.2 s. The brakes produce a deceleration of 5 m/s\u00b2. Calculate the total stopping distance of the car.",
+        "problem": "A car driver traveling at 25 m/s sees an obstruction and hits the brakes after a reaction time of 0.2 s. The brakes produce a deceleration of 5 m/s². Calculate the total stopping distance of the car.",
         "given": "Speed $u = 25\\text{ m/s}$, reaction time $t_r = 0.2\\text{ s}$, deceleration $a = -5\\text{ m/s}^2$.",
         "formula": "Total Stopping Distance $s_{total} = s_{react} + s_{brake} = (u \\cdot t_r) + \\frac{u^2}{2|a|}$.",
         "substitution": "$s_{react} = 25 \\times 0.2 = 5\\text{ m}$; $s_{brake} = \\frac{25^2}{2 \\times 5} = \\frac{625}{10} = 62.5\\text{ m}$.",
@@ -763,7 +787,7 @@
         "figure_caption": "Fig. 4.23: Two-phase stopping distance (reaction distance + braking distance)"
       },
       {
-        "problem": "A racing car has a uniform acceleration of 4 m/s\u00b2. What distance will it cover in 10 s after start?",
+        "problem": "A racing car has a uniform acceleration of 4 m/s². What distance will it cover in 10 s after start?",
         "given": "$u = 0\\text{ m/s}, a = 4\\text{ m/s}^2, t = 10\\text{ s}$.",
         "formula": "$s = ut + \\frac{1}{2}at^2$.",
         "substitution": "$s = (0)(10) + \\frac{1}{2}(4)(10)^2$.",
@@ -775,7 +799,7 @@
         "figure_caption": "Fig. 4.24: Acceleration displacement parabola for racing car"
       },
       {
-        "problem": "A trolley going down an inclined plane has an acceleration of 2 cm/s\u00b2. What will be its velocity 3 s after the start?",
+        "problem": "A trolley going down an inclined plane has an acceleration of 2 cm/s². What will be its velocity 3 s after the start?",
         "given": "$u = 0, a = 2\\text{ cm/s}^2 = 0.02\\text{ m/s}^2, t = 3\\text{ s}$.",
         "formula": "$v = u + at$.",
         "substitution": "$v = 0 + (2)(3) = 6\\text{ cm/s}$.",
@@ -813,62 +837,68 @@
         {
           "concept_title": "Retardation / Deceleration: Acceleration vector pointing in opposite direction to velocity, causing speed to drop.",
           "diagram_title": "Braking Retardation Vector Profile",
-          "diagram_type": "image",
-          "image_query": "Car braking deceleration vector diagram physics",
-          "video_query": "braking deceleration physics",
-          "image_url": "/extracted_diagrams/ch4/fig_4_21.webp",
+          "diagram_type": "image_search",
+          "image_query": "Vehicle braking profile showing velocity vector forward and deceleration force vector backward. scientific educational diagram with clear labels",
+          "video_query": "Braking Retardation Vector Profile educational demonstration video",
           "what_to_make": "Vehicle braking profile showing velocity vector forward and deceleration force vector backward.",
-          "timing_and_cue": "Mount retardation on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_21.webp | Retardation Mechanics | Negative acceleration vector opposing velocity\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Vehicle braking profile showing velocity vector forward and deceleration force vector backward. scientific educational diagram with clear labels\", title=\"Braking Retardation Vector Profile\") | Proactive video: search_and_show_video(query=\"Braking Retardation Vector Profile educational demonstration video\", title=\"Braking Retardation Vector Profile\")",
+          "image_search_query": "Vehicle braking profile showing velocity vector forward and deceleration force vector backward. scientific educational diagram with clear labels",
+          "video_search_query": "Braking Retardation Vector Profile educational demonstration video"
         },
         {
           "concept_title": "Quadratic Stopping Distance: Doubling vehicle speed quadruples the required braking distance (s proportional to u^2).",
           "diagram_title": "Quadratic Speed vs Stopping Distance Chart",
-          "diagram_type": "image",
-          "image_query": "Stopping distance vs speed quadratic chart physics road safety",
-          "video_query": "speed vs stopping distance physics",
-          "image_url": "/extracted_diagrams/ch4/fig_4_22.webp",
+          "diagram_type": "image_search",
+          "image_query": "Bar graph illustrating non-linear stopping distances at 30 km/h, 60 km/h, and 90 km/h. scientific educational diagram with clear labels",
+          "video_query": "Quadratic Speed vs Stopping Distance Chart educational demonstration video",
           "what_to_make": "Bar graph illustrating non-linear stopping distances at 30 km/h, 60 km/h, and 90 km/h.",
-          "timing_and_cue": "Mount stopping distance chart on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_22.webp | Quadratic Stopping Law | Braking distance scales with u^2 (2x speed = 4x distance)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Bar graph illustrating non-linear stopping distances at 30 km/h, 60 km/h, and 90 km/h. scientific educational diagram with clear labels\", title=\"Quadratic Speed vs Stopping Distance Chart\") | Proactive video: search_and_show_video(query=\"Quadratic Speed vs Stopping Distance Chart educational demonstration video\", title=\"Quadratic Speed vs Stopping Distance Chart\")",
+          "image_search_query": "Bar graph illustrating non-linear stopping distances at 30 km/h, 60 km/h, and 90 km/h. scientific educational diagram with clear labels",
+          "video_search_query": "Quadratic Speed vs Stopping Distance Chart educational demonstration video"
         },
         {
           "concept_title": "Two-Phase Braking Model: Total distance = Perception phase (constant speed u*t_r) + Braking phase (u^2 / 2a).",
           "diagram_title": "Two-Phase Reaction & Braking Timeline",
-          "diagram_type": "image",
-          "image_query": "Thinking distance braking distance stopping distance timeline diagram",
-          "video_query": "reaction time and stopping distance demonstration",
-          "image_url": "/extracted_diagrams/ch4/fig_4_23.webp",
+          "diagram_type": "image_search",
+          "image_query": "Timeline showing driver perception lag followed by mechanical brake pad application. scientific educational diagram with clear labels",
+          "video_query": "Two-Phase Reaction & Braking Timeline educational demonstration video",
           "what_to_make": "Timeline showing driver perception lag followed by mechanical brake pad application.",
-          "timing_and_cue": "Mount two-phase braking on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_23.webp | Two-Phase Braking Model | Total distance = Thinking distance + Braking distance\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Timeline showing driver perception lag followed by mechanical brake pad application. scientific educational diagram with clear labels\", title=\"Two-Phase Reaction & Braking Timeline\") | Proactive video: search_and_show_video(query=\"Two-Phase Reaction & Braking Timeline educational demonstration video\", title=\"Two-Phase Reaction & Braking Timeline\")",
+          "image_search_query": "Timeline showing driver perception lag followed by mechanical brake pad application. scientific educational diagram with clear labels",
+          "video_search_query": "Two-Phase Reaction & Braking Timeline educational demonstration video"
         },
         {
           "concept_title": "Free Fall Under Gravity: All objects in vacuum accelerate downward at constant g = 9.8 m/s^2 regardless of mass.",
           "diagram_title": "Free Fall Vacuum Chamber Experiment",
-          "diagram_type": "image",
-          "image_query": "Feather and coin free fall vacuum tube experiment diagram",
-          "video_query": "feather and bowling ball vacuum chamber bbc",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Free_fall_vacuum.svg",
+          "diagram_type": "image_search",
+          "image_query": "Dual tube comparison showing feather and coin falling together in vacuum vs air resistance lag. scientific educational diagram with clear labels",
+          "video_query": "Free Fall Vacuum Chamber Experiment educational demonstration video",
           "what_to_make": "Dual tube comparison showing feather and coin falling together in vacuum vs air resistance lag.",
-          "timing_and_cue": "Mount free fall on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/e/ec/Free_fall_vacuum.svg | Galileo Free Fall | Constant g = 9.8 m/s^2 independent of mass in vacuum\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Dual tube comparison showing feather and coin falling together in vacuum vs air resistance lag. scientific educational diagram with clear labels\", title=\"Free Fall Vacuum Chamber Experiment\") | Proactive video: search_and_show_video(query=\"Free Fall Vacuum Chamber Experiment educational demonstration video\", title=\"Free Fall Vacuum Chamber Experiment\")",
+          "image_search_query": "Dual tube comparison showing feather and coin falling together in vacuum vs air resistance lag. scientific educational diagram with clear labels",
+          "video_search_query": "Free Fall Vacuum Chamber Experiment educational demonstration video"
         },
         {
           "concept_title": "Vertical Ascent Sign Convention: Taking upward as positive: a = -g = -9.8 m/s^2; at maximum peak, v = 0.",
           "diagram_title": "Vertical Projectile Kinematics Trajectory",
-          "diagram_type": "image",
-          "image_query": "Vertical projectile motion upward ascent peak zero velocity diagram",
-          "video_query": "vertical motion under gravity physics",
-          "image_url": "/extracted_diagrams/ch4/fig_4_5.webp",
+          "diagram_type": "image_search",
+          "image_query": "Vertical trajectory showing upward ascent with decreasing velocity, apex at v = 0, and accelerating downward descent. scientific educational diagram with clear labels",
+          "video_query": "Vertical Projectile Kinematics Trajectory educational demonstration video",
           "what_to_make": "Vertical trajectory showing upward ascent with decreasing velocity, apex at v = 0, and accelerating downward descent.",
-          "timing_and_cue": "Mount vertical kinematics on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_5.webp | Vertical Trajectory | Apex velocity v = 0 under constant downward gravity a = -g\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Vertical trajectory showing upward ascent with decreasing velocity, apex at v = 0, and accelerating downward descent. scientific educational diagram with clear labels\", title=\"Vertical Projectile Kinematics Trajectory\") | Proactive video: search_and_show_video(query=\"Vertical Projectile Kinematics Trajectory educational demonstration video\", title=\"Vertical Projectile Kinematics Trajectory\")",
+          "image_search_query": "Vertical trajectory showing upward ascent with decreasing velocity, apex at v = 0, and accelerating downward descent. scientific educational diagram with clear labels",
+          "video_search_query": "Vertical Projectile Kinematics Trajectory educational demonstration video"
         },
         {
           "concept_title": "Kinematic Symmetry: An object thrown upwards takes exactly the same time to rise as to fall back to the launch height.",
           "diagram_title": "Time of Ascent & Descent Parabolic Symmetry",
-          "diagram_type": "image",
-          "image_query": "Time of ascent equals time of descent parabolic trajectory physics",
-          "video_query": "projectile motion symmetry physics",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/75/Parabolic_motion.svg",
+          "diagram_type": "image_search",
+          "image_query": "Symmetrical parabola showing equal time intervals on upward and downward limbs. scientific educational diagram with clear labels",
+          "video_query": "Time of Ascent & Descent Parabolic Symmetry educational demonstration video",
           "what_to_make": "Symmetrical parabola showing equal time intervals on upward and downward limbs.",
-          "timing_and_cue": "Mount symmetry on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/7/75/Parabolic_motion.svg | Temporal Symmetry | Time of ascent strictly equals time of descent\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Symmetrical parabola showing equal time intervals on upward and downward limbs. scientific educational diagram with clear labels\", title=\"Time of Ascent & Descent Parabolic Symmetry\") | Proactive video: search_and_show_video(query=\"Time of Ascent & Descent Parabolic Symmetry educational demonstration video\", title=\"Time of Ascent & Descent Parabolic Symmetry\")",
+          "image_search_query": "Symmetrical parabola showing equal time intervals on upward and downward limbs. scientific educational diagram with clear labels",
+          "video_search_query": "Time of Ascent & Descent Parabolic Symmetry educational demonstration video"
         }
       ]
     },
@@ -988,62 +1018,68 @@
         {
           "concept_title": "UCM Definition: When an object moves in a circular path with constant speed, its motion is called Uniform Circular Motion.",
           "diagram_title": "Polygonal to Circular Track Evolution",
-          "diagram_type": "image",
-          "image_query": "Polygonal track to circular track transition physics diagram",
-          "video_query": "uniform circular motion intro physics",
-          "image_url": "/extracted_diagrams/ch4/fig_4_30.webp",
+          "diagram_type": "image_search",
+          "image_query": "Evolution from rectangular track 4 turns to hexagonal 6 to octagonal 8 to smooth circle infinite turns . scientific educational diagram with clear labels",
+          "video_query": "Polygonal to Circular Track Evolution educational demonstration video",
           "what_to_make": "Evolution from rectangular track (4 turns) to hexagonal (6) to octagonal (8) to smooth circle (infinite turns).",
-          "timing_and_cue": "Mount track evolution on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_30.webp | Polygonal to Circle Transition | Showing continuous direction change at infinite points\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Evolution from rectangular track 4 turns to hexagonal 6 to octagonal 8 to smooth circle infinite turns . scientific educational diagram with clear labels\", title=\"Polygonal to Circular Track Evolution\") | Proactive video: search_and_show_video(query=\"Polygonal to Circular Track Evolution educational demonstration video\", title=\"Polygonal to Circular Track Evolution\")",
+          "image_search_query": "Evolution from rectangular track 4 turns to hexagonal 6 to octagonal 8 to smooth circle infinite turns . scientific educational diagram with clear labels",
+          "video_search_query": "Polygonal to Circular Track Evolution educational demonstration video"
         },
         {
           "concept_title": "Perpetual Acceleration Invariant: Even though speed is invariant, the continuous turning of the velocity direction vector makes UCM an accelerated motion.",
           "diagram_title": "Rotating Velocity Vectors in Circular Path",
-          "diagram_type": "image",
-          "image_query": "Uniform circular motion velocity vector direction change diagram",
-          "video_query": "why circular motion is accelerated physics",
-          "image_url": "/extracted_diagrams/ch4/fig_4_31.webp",
+          "diagram_type": "image_search",
+          "image_query": "Circle with four tangential velocity vectors v showing equal magnitude but continuously shifting angles. scientific educational diagram with clear labels",
+          "video_query": "Rotating Velocity Vectors in Circular Path educational demonstration video",
           "what_to_make": "Circle with four tangential velocity vectors v showing equal magnitude but continuously shifting angles.",
-          "timing_and_cue": "Mount rotating vectors on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_31.webp | Rotating Velocity Vectors | Invariant speed with changing direction yields perpetual acceleration\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Circle with four tangential velocity vectors v showing equal magnitude but continuously shifting angles. scientific educational diagram with clear labels\", title=\"Rotating Velocity Vectors in Circular Path\") | Proactive video: search_and_show_video(query=\"Rotating Velocity Vectors in Circular Path educational demonstration video\", title=\"Rotating Velocity Vectors in Circular Path\")",
+          "image_search_query": "Circle with four tangential velocity vectors v showing equal magnitude but continuously shifting angles. scientific educational diagram with clear labels",
+          "video_search_query": "Rotating Velocity Vectors in Circular Path educational demonstration video"
         },
         {
           "concept_title": "Tangential Direction: The instantaneous velocity vector at any point on the circle points along the tangent to the circle at that point.",
           "diagram_title": "Whirling Stone Tangential Release (Activity 4.11)",
-          "diagram_type": "image",
-          "image_query": "Whirling stone on string tangential release diagram physics",
-          "video_query": "stone released from string tangential motion",
-          "image_url": "/extracted_diagrams/ch4/fig_4_32.webp",
+          "diagram_type": "image_search",
+          "image_query": "Person whirling a stone tied to a string with release point showing tangential straight-line exit path. scientific educational diagram with clear labels",
+          "video_query": "Whirling Stone Tangential Release Activity 4.11 educational demonstration video",
           "what_to_make": "Person whirling a stone tied to a string with release point showing tangential straight-line exit path.",
-          "timing_and_cue": "Mount tangential release on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_32.webp | Tangential Release | Instantaneous velocity points strictly along the tangent\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Person whirling a stone tied to a string with release point showing tangential straight-line exit path. scientific educational diagram with clear labels\", title=\"Whirling Stone Tangential Release (Activity 4.11)\") | Proactive video: search_and_show_video(query=\"Whirling Stone Tangential Release Activity 4.11 educational demonstration video\", title=\"Whirling Stone Tangential Release (Activity 4.11)\")",
+          "image_search_query": "Person whirling a stone tied to a string with release point showing tangential straight-line exit path. scientific educational diagram with clear labels",
+          "video_search_query": "Whirling Stone Tangential Release Activity 4.11 educational demonstration video"
         },
         {
           "concept_title": "UCM Speed Formula: v = (2 * pi * r) / T, where r is orbital radius and T is period of revolution.",
           "diagram_title": "Satellite Orbital Kinematics Geometry",
-          "diagram_type": "image",
-          "image_query": "Satellite circular orbit radius period formula diagram",
-          "video_query": "satellite orbital velocity calculation",
-          "image_url": "/extracted_diagrams/ch4/fig_4_33.webp",
+          "diagram_type": "image_search",
+          "image_query": "Earth with orbiting satellite showing orbital radius r = 42250 km and 24 h revolution path. scientific educational diagram with clear labels",
+          "video_query": "Satellite Orbital Kinematics Geometry educational demonstration video",
           "what_to_make": "Earth with orbiting satellite showing orbital radius r = 42250 km and 24 h revolution path.",
-          "timing_and_cue": "Mount satellite kinematics on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_33.webp | Satellite Orbital Speed | v = 2*pi*r / T = 3.07 km/s for geostationary orbit\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Earth with orbiting satellite showing orbital radius r = 42250 km and 24 h revolution path. scientific educational diagram with clear labels\", title=\"Satellite Orbital Kinematics Geometry\") | Proactive video: search_and_show_video(query=\"Satellite Orbital Kinematics Geometry educational demonstration video\", title=\"Satellite Orbital Kinematics Geometry\")",
+          "image_search_query": "Earth with orbiting satellite showing orbital radius r = 42250 km and 24 h revolution path. scientific educational diagram with clear labels",
+          "video_search_query": "Satellite Orbital Kinematics Geometry educational demonstration video"
         },
         {
           "concept_title": "Centripetal Inward Force: An inward acceleration (a = v^2 / r) directed toward the circle center is required to maintain the curved path.",
           "diagram_title": "Centripetal Acceleration Vector",
-          "diagram_type": "image",
-          "image_query": "Centripetal acceleration inward vector circle diagram",
-          "video_query": "centripetal acceleration explained",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Centripetal_force_diagram.svg",
+          "diagram_type": "image_search",
+          "image_query": "Circle with radial arrows pointing to origin indicating inward centripetal acceleration vector. scientific educational diagram with clear labels",
+          "video_query": "Centripetal Acceleration Vector educational demonstration video",
           "what_to_make": "Circle with radial arrows pointing to origin indicating inward centripetal acceleration vector.",
-          "timing_and_cue": "Mount centripetal vector on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/7/71/Centripetal_force_diagram.svg | Inward Centripetal Acceleration | Radially directed acceleration maintaining circular trajectory\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Circle with radial arrows pointing to origin indicating inward centripetal acceleration vector. scientific educational diagram with clear labels\", title=\"Centripetal Acceleration Vector\") | Proactive video: search_and_show_video(query=\"Centripetal Acceleration Vector educational demonstration video\", title=\"Centripetal Acceleration Vector\")",
+          "image_search_query": "Circle with radial arrows pointing to origin indicating inward centripetal acceleration vector. scientific educational diagram with clear labels",
+          "video_search_query": "Centripetal Acceleration Vector educational demonstration video"
         },
         {
           "concept_title": "Inertial Tangential Release: When the centripetal constraint is severed (e.g. string breaks), the object continues straight along the instantaneous tangent.",
           "diagram_title": "Sparks from Grinding Wheel Tangential Flight",
-          "diagram_type": "image",
-          "image_query": "Sparks flying tangentially from grinding wheel physics photo",
-          "video_query": "grinding wheel sparks tangential direction",
-          "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Angle_grinder_sparks.jpg",
+          "diagram_type": "image_search",
+          "image_query": "Photograph of industrial grinding wheel showing incandescent metal particles flying along tangents. scientific educational diagram with clear labels",
+          "video_query": "Sparks from Grinding Wheel Tangential Flight educational demonstration video",
           "what_to_make": "Photograph of industrial grinding wheel showing incandescent metal particles flying along tangents.",
-          "timing_and_cue": "Mount grinding sparks on Step 1: write_chalkboard(action=\"draw_image\", content=\"https://upload.wikimedia.org/wikipedia/commons/4/4b/Angle_grinder_sparks.jpg | Tangential Spark Trajectories | Natural proof of tangential velocity in circular systems\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Photograph of industrial grinding wheel showing incandescent metal particles flying along tangents. scientific educational diagram with clear labels\", title=\"Sparks from Grinding Wheel Tangential Flight\") | Proactive video: search_and_show_video(query=\"Sparks from Grinding Wheel Tangential Flight educational demonstration video\", title=\"Sparks from Grinding Wheel Tangential Flight\")",
+          "image_search_query": "Photograph of industrial grinding wheel showing incandescent metal particles flying along tangents. scientific educational diagram with clear labels",
+          "video_search_query": "Sparks from Grinding Wheel Tangential Flight educational demonstration video"
         }
       ]
     },
@@ -1112,7 +1148,7 @@
         "figure_caption": "Fig. 4.6: Round trip harmonic mean average speed diagram"
       },
       {
-        "problem": "NCERT Ex Q4. A motorboat starting from rest on a lake accelerates in a straight line at a constant rate of 3.0 m/s\u00b2 for 8.0 s. How far does the boat travel during this time?",
+        "problem": "NCERT Ex Q4. A motorboat starting from rest on a lake accelerates in a straight line at a constant rate of 3.0 m/s² for 8.0 s. How far does the boat travel during this time?",
         "given": "$u = 0\\text{ m/s}, a = 3.0\\text{ m/s}^2, t = 8.0\\text{ s}$.",
         "formula": "$s = ut + \\frac{1}{2}at^2$.",
         "substitution": "$s = (0)(8.0) + \\frac{1}{2}(3.0)(8.0)^2 = \\frac{1}{2}(3.0)(64)$.",
@@ -1124,7 +1160,7 @@
         "figure_caption": "Fig. 4.20: Straight-line boat acceleration profile"
       },
       {
-        "problem": "NCERT Ex Q7. A ball is gently dropped from a height of 20 m. If its velocity increases uniformly at the rate of 10 m/s\u00b2, with what velocity will it strike the ground? After what time will it strike the ground?",
+        "problem": "NCERT Ex Q7. A ball is gently dropped from a height of 20 m. If its velocity increases uniformly at the rate of 10 m/s², with what velocity will it strike the ground? After what time will it strike the ground?",
         "given": "$u = 0\\text{ m/s}, s = 20\\text{ m}, a = 10\\text{ m/s}^2$.",
         "formula": "$v^2 = u^2 + 2as$; $v = u + at \\implies t = \\frac{v - u}{a}$.",
         "substitution": "$v^2 = 0 + 2(10)(20) = 400 \\implies v = \\sqrt{400} = 20\\text{ m/s}$. $t = \\frac{20 - 0}{10} = 2\\text{ s}$.",
@@ -1150,52 +1186,57 @@
         {
           "concept_title": "Harmonic Average Speed Invariant: For equal distances traveled at speeds v1 and v2, average speed is the harmonic mean: v_avg = 2*v1*v2 / (v1 + v2).",
           "diagram_title": "Abdul Round Trip Commute Model",
-          "diagram_type": "image",
-          "image_query": "Average speed harmonic mean round trip commute diagram physics",
-          "video_query": "average speed harmonic mean physics",
-          "image_url": "/extracted_diagrams/ch4/fig_4_14.webp",
+          "diagram_type": "image_search",
+          "image_query": "Two-way route schematic showing 20 km/h outbound and 30 km/h inbound with total time analysis. scientific educational diagram with clear labels",
+          "video_query": "Abdul Round Trip Commute Model educational demonstration video",
           "what_to_make": "Two-way route schematic showing 20 km/h outbound and 30 km/h inbound with total time analysis.",
-          "timing_and_cue": "Mount commute model on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_14.webp | Harmonic Average Speed | v_avg = 24 km/h (not 25 km/h!) due to unequal time weighting\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Two-way route schematic showing 20 km/h outbound and 30 km/h inbound with total time analysis. scientific educational diagram with clear labels\", title=\"Abdul Round Trip Commute Model\") | Proactive video: search_and_show_video(query=\"Abdul Round Trip Commute Model educational demonstration video\", title=\"Abdul Round Trip Commute Model\")",
+          "image_search_query": "Two-way route schematic showing 20 km/h outbound and 30 km/h inbound with total time analysis. scientific educational diagram with clear labels",
+          "video_search_query": "Abdul Round Trip Commute Model educational demonstration video"
         },
         {
           "concept_title": "Multi-Segment JRF Modeling: Displacements add vectorially while distances add arithmetically.",
           "diagram_title": "Joseph Jogging Trajectory Map",
-          "diagram_type": "image",
-          "image_query": "Displacement vs distance jogging path vector diagram physics",
-          "video_query": "jogger distance and displacement physics",
-          "image_url": "/extracted_diagrams/ch4/fig_4_2.webp",
+          "diagram_type": "image_search",
+          "image_query": "Linear trajectory from A to B 300 m with reversal to C 100 m showing distance = 400 m and displacement = 200 m. scientific educational diagram with clear labels",
+          "video_query": "Joseph Jogging Trajectory Map educational demonstration video",
           "what_to_make": "Linear trajectory from A to B (300 m) with reversal to C (100 m) showing distance = 400 m and displacement = 200 m.",
-          "timing_and_cue": "Mount jogger trajectory on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_2.webp | Jogging Trajectory Map | Total ground path (400 m) vs Net vector displacement (200 m)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Linear trajectory from A to B 300 m with reversal to C 100 m showing distance = 400 m and displacement = 200 m. scientific educational diagram with clear labels\", title=\"Joseph Jogging Trajectory Map\") | Proactive video: search_and_show_video(query=\"Joseph Jogging Trajectory Map educational demonstration video\", title=\"Joseph Jogging Trajectory Map\")",
+          "image_search_query": "Linear trajectory from A to B 300 m with reversal to C 100 m showing distance = 400 m and displacement = 200 m. scientific educational diagram with clear labels",
+          "video_search_query": "Joseph Jogging Trajectory Map educational demonstration video"
         },
         {
           "concept_title": "Graphical Braking Distance Comparison: Comparing areas of right-angled triangles under v-t graphs for two braking cars.",
           "diagram_title": "Two Braking Cars v-t Comparison Graph",
-          "diagram_type": "graph",
-          "image_query": "Two cars braking velocity time graph comparison diagram physics",
-          "video_query": "comparing braking distance using velocity time graph",
-          "image_url": "/extracted_diagrams/ch4/fig_4_16.webp",
+          "diagram_type": "image_search",
+          "image_query": "Dual plot showing Car 1 14.44 m/s stopping in 5 s vs Car 2 0.83 m/s stopping in 10 s . scientific educational diagram with clear labels",
+          "video_query": "Two Braking Cars v-t Comparison Graph educational demonstration video",
           "what_to_make": "Dual plot showing Car 1 (14.44 m/s stopping in 5 s) vs Car 2 (0.83 m/s stopping in 10 s).",
-          "timing_and_cue": "Mount braking comparison on Step 1: plot_mathematical_graph(title=\"Two Braking Cars Comparison\", equation=\"14.44 - 2.888*x\", xMin=0, xMax=10, yMin=0, yMax=16, xLabel=\"Time t (s)\", yLabel=\"Velocity v (m/s)\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Dual plot showing Car 1 14.44 m/s stopping in 5 s vs Car 2 0.83 m/s stopping in 10 s . scientific educational diagram with clear labels\", title=\"Two Braking Cars v-t Comparison Graph\") | Proactive video: search_and_show_video(query=\"Two Braking Cars v-t Comparison Graph educational demonstration video\", title=\"Two Braking Cars v-t Comparison Graph\")",
+          "image_search_query": "Dual plot showing Car 1 14.44 m/s stopping in 5 s vs Car 2 0.83 m/s stopping in 10 s . scientific educational diagram with clear labels",
+          "video_search_query": "Two Braking Cars v-t Comparison Graph educational demonstration video"
         },
         {
           "concept_title": "Kinematic Area Calculus: Area of trapezoid represents displacement irrespective of the initial speed.",
           "diagram_title": "Motorboat Acceleration Distance Area",
-          "diagram_type": "image",
-          "image_query": "Motorboat acceleration constant slope v-t graph distance",
-          "video_query": "motorboat acceleration kinematics",
-          "image_url": "/extracted_diagrams/ch4/fig_4_12.webp",
+          "diagram_type": "image_search",
+          "image_query": "Triangular v-t area for motorboat starting from rest reaching 24 m/s in 8 s yielding 96 m distance. scientific educational diagram with clear labels",
+          "video_query": "Motorboat Acceleration Distance Area educational demonstration video",
           "what_to_make": "Triangular v-t area for motorboat starting from rest reaching 24 m/s in 8 s yielding 96 m distance.",
-          "timing_and_cue": "Mount motorboat area on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_12.webp | Motorboat Kinematic Area | Triangular area = 1/2 * 8s * 24 m/s = 96 m distance\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Triangular v-t area for motorboat starting from rest reaching 24 m/s in 8 s yielding 96 m distance. scientific educational diagram with clear labels\", title=\"Motorboat Acceleration Distance Area\") | Proactive video: search_and_show_video(query=\"Motorboat Acceleration Distance Area educational demonstration video\", title=\"Motorboat Acceleration Distance Area\")",
+          "image_search_query": "Triangular v-t area for motorboat starting from rest reaching 24 m/s in 8 s yielding 96 m distance. scientific educational diagram with clear labels",
+          "video_search_query": "Motorboat Acceleration Distance Area educational demonstration video"
         },
         {
           "concept_title": "Full 10-Question Master Ledger: Complete structured solutions with given, formula, substitution, calculation, and boxed units.",
           "diagram_title": "NCERT Motion Master Chapter Review Card",
-          "diagram_type": "image",
-          "image_query": "Motion physics formulas and graphs master summary sheet",
-          "video_query": "class 9 science motion full chapter review",
-          "image_url": "/extracted_diagrams/ch4/fig_4_1.webp",
+          "diagram_type": "image_search",
+          "image_query": "Comprehensive formula and graphical cheatsheet covering all 10 NCERT exercise questions. scientific educational diagram with clear labels",
+          "video_query": "NCERT Motion Master Chapter Review Card educational demonstration video",
           "what_to_make": "Comprehensive formula and graphical cheatsheet covering all 10 NCERT exercise questions.",
-          "timing_and_cue": "Mount review card on Step 1: write_chalkboard(action=\"draw_image\", content=\"/extracted_diagrams/ch4/fig_4_1.webp | NCERT Motion Master Review | All 10 exercise solutions verified to 100% board accuracy\")"
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Comprehensive formula and graphical cheatsheet covering all 10 NCERT exercise questions. scientific educational diagram with clear labels\", title=\"NCERT Motion Master Chapter Review Card\") | Proactive video: search_and_show_video(query=\"NCERT Motion Master Chapter Review Card educational demonstration video\", title=\"NCERT Motion Master Chapter Review Card\")",
+          "image_search_query": "Comprehensive formula and graphical cheatsheet covering all 10 NCERT exercise questions. scientific educational diagram with clear labels",
+          "video_search_query": "NCERT Motion Master Chapter Review Card educational demonstration video"
         }
       ]
     },

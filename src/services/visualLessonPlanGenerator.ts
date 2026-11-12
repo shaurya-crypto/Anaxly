@@ -320,9 +320,43 @@ export function generateVisualLessonPlanForCapsule(
   const board = ((capsule.board as EducationalBoard) || 'CBSE')
   const classLevel = capsule.class_level || 'Class 10'
   const title = capsule.title
-  const subtopics = capsule.subtopics || []
-  const keyConcepts = capsule.key_concepts || []
-  const workedEx = capsule.worked_examples || []
+  let subtopics: string[] = []
+  if (Array.isArray(capsule.subtopics)) {
+    subtopics = capsule.subtopics
+  } else if (typeof capsule.subtopics === 'string') {
+    try {
+      const parsed = JSON.parse(capsule.subtopics)
+      if (Array.isArray(parsed)) subtopics = parsed
+      else if (capsule.subtopics) subtopics = [capsule.subtopics]
+    } catch {
+      if (capsule.subtopics) subtopics = [capsule.subtopics]
+    }
+  }
+
+  let keyConcepts: string[] = []
+  if (Array.isArray(capsule.key_concepts)) {
+    keyConcepts = capsule.key_concepts
+  } else if (typeof capsule.key_concepts === 'string') {
+    try {
+      const parsed = JSON.parse(capsule.key_concepts)
+      if (Array.isArray(parsed)) keyConcepts = parsed
+      else if (capsule.key_concepts) keyConcepts = [capsule.key_concepts]
+    } catch {
+      if (capsule.key_concepts) keyConcepts = [capsule.key_concepts]
+    }
+  }
+
+  let workedEx: any[] = []
+  if (Array.isArray(capsule.worked_examples)) {
+    workedEx = capsule.worked_examples
+  } else if (typeof capsule.worked_examples === 'string') {
+    try {
+      const parsed = JSON.parse(capsule.worked_examples)
+      if (Array.isArray(parsed)) workedEx = parsed
+    } catch {
+      workedEx = []
+    }
+  }
 
   const visualMapping = inferOptimalVisualType(title, keyConcepts, capsule.category || 'Science')
   const steps: LessonStep[] = []
@@ -488,7 +522,20 @@ export function generateVisualLessonPlanForCapsule(
   }
 
   // 4. QUICK_CHECK: Micro-Assessment Checkpoint
-  const firstExample = workedEx[0]
+  const firstExample: any = workedEx[0]
+  let checkQuestion = `Which of the following correctly describes ${title}?`
+  if (typeof firstExample === 'string' && firstExample.trim()) {
+    checkQuestion = `In the context of ${title}, how do we approach: "${firstExample.trim().substring(0, 80)}"?`
+  } else if (firstExample && typeof firstExample === 'object') {
+    if (typeof firstExample.given === 'string' && firstExample.given.trim()) {
+      checkQuestion = `If ${firstExample.given.trim().substring(0, 80)}, what is the value?`
+    } else if (typeof firstExample.problem === 'string' && firstExample.problem.trim()) {
+      checkQuestion = `In the problem "${firstExample.problem.trim().substring(0, 80)}", what is the governing principle?`
+    } else if (typeof firstExample.question === 'string' && firstExample.question.trim()) {
+      checkQuestion = firstExample.question.trim().substring(0, 100)
+    }
+  }
+
   steps.push({
     id: `step_${moduleId}_4`,
     stepNumber: 4,
@@ -497,9 +544,7 @@ export function generateVisualLessonPlanForCapsule(
     assetStatus: 'ready',
     content: {
       quickCheck: {
-        question: firstExample
-          ? `If ${firstExample.given.substring(0, 80)}, what is the value?`
-          : `Which of the following correctly describes ${title}?`,
+        question: checkQuestion,
         options: [
           { id: 'opt_a', text: keyConcepts[0] || 'Proportional with constant rate of change' },
           { id: 'opt_b', text: 'Inversely proportional with zero baseline' },
