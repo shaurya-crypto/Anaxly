@@ -217,7 +217,7 @@ export class AudioStreamer {
       this.consecutiveSpeechFrames = 0;
       const SPEECH_HANGOVER_MS = 2400; // generous 2400ms speech hangover so student natural pauses are not cut off
       if (this.wasSpeechActive && now - this.lastSpeechTime > SPEECH_HANGOVER_MS) {
-        // 2400ms of quiet after confirmed speech -> inform hybrid VAD of speech end
+        // 1400ms of quiet after confirmed speech -> inform hybrid VAD of speech end
         this.wasSpeechActive = false;
         // Only trigger speech end if student actually spoke for at least 500ms
         if (this.lastSpeechTime - this.speechStartTime >= 500) {
@@ -232,11 +232,11 @@ export class AudioStreamer {
     if (rms < voiceThreshold) {
       const denom = Math.max(0.005, voiceThreshold - this.noiseFloor);
       const gateFactor = Math.max(0, Math.min(1.0, (rms - this.noiseFloor) / denom));
-      if (gateFactor < 0.3) {
+      if (!this.wasSpeechActive || gateFactor < 0.7) {
         // Pure ambient background hiss - send clean silence
         audioToStream = new Float32Array(inputData.length);
       } else {
-        // Smooth quadratic attenuation curve
+        // Smooth quadratic attenuation curve during natural speech trailing pauses
         audioToStream = new Float32Array(inputData.length);
         const smoothFactor = gateFactor * gateFactor;
         for (let i = 0; i < inputData.length; i++) {

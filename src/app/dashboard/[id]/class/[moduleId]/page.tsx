@@ -887,6 +887,28 @@ export default function ModuleClassroomPage() {
     return patterns.some((p) => p.test(clean))
   }
 
+  // Helper to detect if student statement is asking a question or expressing doubt/confusion
+  const isStudentQuestionOrDoubt = (text: string): boolean => {
+    if (!text) return false
+    const clean = text.toLowerCase().trim().replace(/[.,!;:()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
+    if (!clean) return false
+    if (text.includes('?')) return true
+
+    const questionPatterns = [
+      /\b(?:why|what|how|when|where|who|which)\b/i,
+      /\b(?:can|could|will|would)\s+(?:you|we)\b/i,
+      /\b(?:is|are|does|do|did|was|were)\s+(?:it|this|that|there)\b/i,
+      /\b(?:explain|repeat|clarify|elaborate)\b/i,
+      /\b(?:doubt|doubts|confusion|confused|unclear)\b/i,
+      /\b(?:not\s*sure|don't\s*get|didn't\s*get|did\s*not\s*get|don't\s*understand|didn't\s*understand)\b/i,
+      /\b(?:help\s*me|once\s*more|one\s*more\s*time|again)\b/i,
+      /\b(?:kya|kyun|kyu|kaise|kab|kahan|kaun)\b/i,
+      /\b(?:samajh\s*nahi\s*aaya|samajh\s*na\s*aaya|dobara|phir\s*se|batao|samjha\s*do)\b/i,
+      /\b(?:wait|hold\s*on|what\s*if)\b/i,
+    ]
+    return questionPatterns.some((p) => p.test(clean))
+  }
+
   // Check and increment request quota
   const checkAndRecordRequestQuota = useCallback(async (): Promise<boolean> => {
     if (userQuota.limit_type !== 'requests') return true
@@ -937,6 +959,24 @@ export default function ModuleClassroomPage() {
       return
     }
 
+    // 0. Question / Doubt fast-path: Address student doubt without evaluating as a test answer or advancing
+    if (isStudentQuestionOrDoubt(cleanAnswer)) {
+      isAwaitingStudentAnswerRef.current = false
+      setIsAwaitingStudentAnswer(false)
+      isReviewingVerdictRef.current = false
+      setIsReviewingVerdict(false)
+
+      chalkboardRef.current?.drawNote?.(`Student Query: ${cleanAnswer}`, 'coral')
+      sendTextMessage(
+        `[STUDENT QUESTION / DOUBT ON CURRENT CONCEPT]: The student asked: "${cleanAnswer}".
+CRITICAL DIRECTIVE:
+1. Address the student's question/doubt immediately with complete, crystal-clear explanation and step-by-step guidance on the current chalkboard. Speak in complete, articulate sentences with proper teaching depth (do NOT stop abruptly after just one short sentence).
+2. STRICT LOCK: DO NOT evaluate this as a test answer, and DO NOT call concept_completed or advance to the next concept.
+3. Keep answering on the CURRENT concept until the student's doubt is completely cleared.`
+      )
+      return
+    }
+
     // Socratic Answer Handling: ALWAYS draw student answer and send for evaluation
     isAwaitingStudentAnswerRef.current = false
     setIsAwaitingStudentAnswer(false)
@@ -946,15 +986,15 @@ export default function ModuleClassroomPage() {
 
     chalkboardRef.current?.drawStudentAnswer?.(cleanAnswer, undefined, 'blue')
     sendTextMessage(
-      `Student answered: "${cleanAnswer}". (Student's answer is already displayed on the whiteboard).
+      `Student response: "${cleanAnswer}". (Student's input is displayed on the whiteboard).
 [MANDATORY SOCRATIC INSTRUCTION]:
-1. Evaluate my answer warmly out loud. Explain whether it is correct, partially correct, or an affirmation.
-2. If this was a check-for-understanding confirmation (e.g. "yes", "understood", "samajh gaya", "ok"), acknowledge warmly and proceed directly to the NEXT STAGE of this concept (e.g. formulate the formal law with SI units, solve the step-by-step board numerical, or pose the Stage 5/6 checkpoint question). DO NOT call concept_completed yet!
+1. Evaluate my response warmly out loud. Explain whether it is correct, partially correct, or an affirmation. Speak in complete, articulate, well-formed sentences with proper teacherly depth (do NOT stop abruptly after just one short sentence!).
+2. If this was a check-for-understanding confirmation (e.g. "yes", "understood", "samajh gaya", "ok"), acknowledge warmly and proceed directly to the NEXT STAGE of this SAME concept (e.g. formulate the formal law with SI units, solve the step-by-step board numerical, or pose the Stage 5/6 checkpoint question). DO NOT call concept_completed yet!
 3. If this was an answer to a question or numerical:
    - Write the verdict and model answer on this current whiteboard page using write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>").
    - If incorrect or hesitant, break down the step and co-solve with me in [ROUGH_WORK].
-4. HARD STOP: Do not lecture continuously. Ask if I followed or have any doubts before proceeding.
-5. ONLY after Stage 5/6 (the checkpoint numerical question) has been solved and verified, or if I explicitly ask to move to the next concept, call concept_completed(conceptName="...") or write_chalkboard(action="concept_done") to advance to the next concept page.`
+4. HARD STOP: Deliver complete, well-formed teacherly explanations. Ask if I followed or have any doubts before proceeding.
+5. ADVANCEMENT GATING: Call concept_completed(conceptName="...") or write_chalkboard(action="concept_done") ONLY after the Stage 5/6 checkpoint question has been solved and verified, or if the student explicitly commands moving to the next concept. NEVER skip concepts.`
     )
   }
 
@@ -980,6 +1020,24 @@ export default function ModuleClassroomPage() {
       return
     }
 
+    // 0. Question / Doubt fast-path: Address student doubt without evaluating as a test answer or advancing
+    if (isStudentQuestionOrDoubt(cleanAnswer)) {
+      isAwaitingStudentAnswerRef.current = false
+      setIsAwaitingStudentAnswer(false)
+      isReviewingVerdictRef.current = false
+      setIsReviewingVerdict(false)
+
+      chalkboardRef.current?.drawNote?.(`Student Query: ${cleanAnswer}`, 'coral')
+      sendTextMessage(
+        `[STUDENT QUESTION / DOUBT ON CURRENT CONCEPT]: The student asked: "${cleanAnswer}".
+CRITICAL DIRECTIVE:
+1. Address the student's question/doubt immediately with complete, crystal-clear explanation and step-by-step guidance on the current chalkboard. Speak in complete, articulate sentences with proper teaching depth (do NOT stop abruptly after just one short sentence).
+2. STRICT LOCK: DO NOT evaluate this as a test answer, and DO NOT call concept_completed or advance to the next concept.
+3. Keep answering on the CURRENT concept until the student's doubt is completely cleared.`
+      )
+      return
+    }
+
     isAwaitingStudentAnswerRef.current = false
     setIsAwaitingStudentAnswer(false)
     isReviewingVerdictRef.current = true
@@ -988,15 +1046,15 @@ export default function ModuleClassroomPage() {
 
     chalkboardRef.current?.drawStudentAnswer?.(cleanAnswer, undefined, 'blue')
     sendTextMessage(
-      `Student answered: "${cleanAnswer}". (Student's answer is already displayed on the whiteboard).
+      `Student response: "${cleanAnswer}". (Student's input is displayed on the whiteboard).
 [MANDATORY SOCRATIC INSTRUCTION]:
-1. Evaluate my answer warmly out loud. Explain whether it is correct, partially correct, or an affirmation.
-2. If this was a check-for-understanding confirmation (e.g. "yes", "understood", "samajh gaya", "ok"), acknowledge warmly and proceed directly to the NEXT STAGE of this concept (e.g. formulate the formal law with SI units, solve the step-by-step board numerical, or pose the Stage 5/6 checkpoint question). DO NOT call concept_completed yet!
+1. Evaluate my response warmly out loud. Explain whether it is correct, partially correct, or an affirmation. Speak in complete, articulate, well-formed sentences with proper teacherly depth (do NOT stop abruptly after just one short sentence!).
+2. If this was a check-for-understanding confirmation (e.g. "yes", "understood", "samajh gaya", "ok"), acknowledge warmly and proceed directly to the NEXT STAGE of this SAME concept (e.g. formulate the formal law with SI units, solve the step-by-step board numerical, or pose the Stage 5/6 checkpoint question). DO NOT call concept_completed yet!
 3. If this was an answer to a question or numerical:
    - Write the verdict and model answer on this current whiteboard page using write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>").
    - If incorrect or hesitant, break down the step and co-solve with me in [ROUGH_WORK].
-4. HARD STOP: Do not lecture continuously. Ask if I followed or have any doubts before proceeding.
-5. ONLY after Stage 5/6 (the checkpoint numerical question) has been solved and verified, or if I explicitly ask to move to the next concept, call concept_completed(conceptName="...") or write_chalkboard(action="concept_done") to advance to the next concept page.`
+4. HARD STOP: Deliver complete, well-formed teacherly explanations. Ask if I followed or have any doubts before proceeding.
+5. ADVANCEMENT GATING: Call concept_completed(conceptName="...") or write_chalkboard(action="concept_done") ONLY after the Stage 5/6 checkpoint question has been solved and verified, or if the student explicitly commands moving to the next concept. NEVER skip concepts.`
     )
   }
 
@@ -1724,8 +1782,8 @@ export default function ModuleClassroomPage() {
         }
       }
 
-      // Check for [CONCEPT_FOCUS: ...] or [FOCUS: ...] or write_chalkboard(action="concept_focus")
-      const focusMatches = Array.from(latest.text.matchAll(/\[(?:CONCEPT_FOCUS|FOCUS):\s*([^\]]+)\]|write_chalkboard\s*\(\s*(?:action\s*=\s*)?["']?(?:concept_focus|focus)["']?\s*,\s*(?:content\s*=\s*)?["']?([^"'\)]+)["']?/gi))
+      // Check for [CONCEPT_FOCUS: ...] or write_chalkboard(action="concept_focus")
+      const focusMatches = Array.from(latest.text.matchAll(/\[CONCEPT_FOCUS:\s*([^\]]+)\]|write_chalkboard\s*\(\s*(?:action\s*=\s*)?["']?concept_focus["']?\s*,\s*(?:content\s*=\s*)?["']?([^"'\)]+)["']?/gi))
       for (const fm of focusMatches) {
         const tag = fm[0]
         const key = `${transcriptId}:${tag}`
@@ -2796,7 +2854,9 @@ CRITICAL INSTRUCTIONS:
       targetIdx = Math.max(0, Math.min(conceptName - 1, keyConcepts.length - 1))
     } else {
       const raw = String(conceptName || '').trim()
-      const numMatch = raw.match(/(?:concept\s*#?\s*)?(\d+)/i)
+      // STRICT: Must explicitly state "concept <num>", e.g. "Concept 2" or "Concept #2".
+      // NEVER match arbitrary standalone numbers like "4 m/s", "Step 4", "Example 4"!
+      const numMatch = raw.match(/\bconcept\s*#?\s*(\d+)\b/i)
       if (numMatch && numMatch[1]) {
         const parsedNum = parseInt(numMatch[1], 10)
         if (parsedNum >= 1 && parsedNum <= keyConcepts.length) {
@@ -2814,10 +2874,11 @@ CRITICAL INSTRUCTIONS:
             .replace(/[^a-z0-9]/g, '')
 
         const targetNorm = norm(raw)
-        if (targetNorm) {
+        // Only match if targetNorm has substantial length (at least 4 chars) to prevent accidental partial substring match
+        if (targetNorm && targetNorm.length >= 4) {
           const matchedIdx = keyConcepts.findIndex((c) => {
             const cNorm = norm(c)
-            return cNorm === targetNorm || cNorm.includes(targetNorm) || targetNorm.includes(cNorm)
+            return cNorm === targetNorm || (cNorm.length >= 6 && targetNorm.length >= 6 && (cNorm.includes(targetNorm) || targetNorm.includes(cNorm)))
           })
           if (matchedIdx >= 0) {
             targetIdx = matchedIdx
@@ -2825,13 +2886,18 @@ CRITICAL INSTRUCTIONS:
         }
       }
 
+      // CRITICAL: If no valid concept was matched, DO NOT jump or advance!
       if (targetIdx === -1) {
-        if (currentConceptIndexRef.current < keyConcepts.length - 1) {
-          targetIdx = currentConceptIndexRef.current + 1
-        } else {
-          return
-        }
+        return
       }
+    }
+
+    // ANTI-SKIPPING GUARD:
+    // During classroom flow, never skip ahead arbitrarily (e.g. from Concept 1 to Concept 4).
+    // Target can only be an earlier concept, the current concept, or at most the immediate next concept.
+    if (targetIdx > currentConceptIndexRef.current + 1) {
+      console.warn(`[Classroom] Blocked invalid forward skip from concept ${currentConceptIndexRef.current + 1} to ${targetIdx + 1}. Restricting to sequential step.`);
+      targetIdx = currentConceptIndexRef.current + 1;
     }
 
     // Debounce guard: do not jump to the same page or rapid-fire jump within 1500ms
@@ -2850,21 +2916,31 @@ CRITICAL INSTRUCTIONS:
 
   const handleConceptDone = (conceptName?: string) => {
     handleConceptDoneRef.current = handleConceptDone
-    isAwaitingStudentAnswerRef.current = false
-    setIsAwaitingStudentAnswer(false)
     isReviewingVerdictRef.current = false
     setIsReviewingVerdict(false)
 
     const keyConcepts: string[] = parseKeyConcepts(activeModule?.key_concepts)
     if (keyConcepts.length === 0) return
 
-    let matchedIdx = currentConceptIndexRef.current
+    // Debounce guard: prevent rapid multiple triggers within 2500ms
+    const now = Date.now()
+    if (now - lastConceptDoneTimeRef.current < 2500) {
+      return
+    }
+    lastConceptDoneTimeRef.current = now
+
+    // Sequential progression: complete the current active concept
+    const currentIdx = currentConceptIndexRef.current
+    let matchedIdx = currentIdx
     if (conceptName?.trim() && !isConfirmationOrNextIntent(conceptName)) {
-      const numMatch = String(conceptName).match(/\b(\d+)\b/)
-      if (numMatch) {
+      // STRICT: Must explicitly state "concept <num>", e.g. "Concept 2"
+      // NEVER match arbitrary standalone numbers like "4", "40", "Question 4"!
+      const numMatch = String(conceptName).match(/\bconcept\s*#?\s*(\d+)\b/i)
+      if (numMatch && numMatch[1]) {
         const parsed = parseInt(numMatch[1], 10)
         if (parsed >= 1 && parsed <= keyConcepts.length) {
-          matchedIdx = parsed - 1
+          // Never allow jumping ahead: cap at current concept index
+          matchedIdx = Math.min(parsed - 1, currentIdx)
         }
       } else {
         const norm = (s: string) =>
@@ -2876,15 +2952,19 @@ CRITICAL INSTRUCTIONS:
             .replace(/[^a-z0-9]/g, '')
 
         const targetNorm = norm(conceptName)
-        const found = keyConcepts.findIndex((c) => {
-          const cNorm = norm(c)
-          return cNorm === targetNorm || cNorm.includes(targetNorm) || targetNorm.includes(cNorm)
-        })
-        if (found >= 0) matchedIdx = found
+        if (targetNorm && targetNorm.length >= 4) {
+          const found = keyConcepts.findIndex((c) => {
+            const cNorm = norm(c)
+            return cNorm === targetNorm || (cNorm.length >= 6 && targetNorm.length >= 6 && (cNorm.includes(targetNorm) || targetNorm.includes(cNorm)))
+          })
+          if (found >= 0) {
+            matchedIdx = Math.min(found, currentIdx)
+          }
+        }
       }
     }
 
-    const canonicalConcept = keyConcepts[matchedIdx] || keyConcepts[currentConceptIndexRef.current]
+    const canonicalConcept = keyConcepts[currentIdx] || keyConcepts[matchedIdx]
     let updated = completedConceptsRef.current
     if (canonicalConcept && !completedConceptsRef.current.includes(canonicalConcept)) {
       updated = [...completedConceptsRef.current, canonicalConcept]
@@ -2910,7 +2990,7 @@ CRITICAL INSTRUCTIONS:
               user_id: userId,
               syllabus_module_id: moduleId,
               completed_concepts: updated,
-              current_concept_index: matchedIdx,
+              current_concept_index: currentIdx,
               last_covered_concept: canonicalConcept,
               status: targetStatus,
               ...(latestBoardNotes ? { chapter_notes: latestBoardNotes } : {}),
@@ -2925,12 +3005,35 @@ CRITICAL INSTRUCTIONS:
       }
     }
 
-    const nextIdx = matchedIdx + 1
+    // STRICT SEQUENTIAL STEP: Advance strictly by +1 from CURRENT concept
+    const nextIdx = currentIdx + 1
     if (nextIdx < keyConcepts.length) {
       advanceToNextConcept(nextIdx, updated)
     } else {
-      markModuleAsCompleted()
-      triggerModuleCompletionAndAdvance()
+      // Verify all concepts are actually completed before ending the module
+      const allCompleted = keyConcepts.every((k) =>
+        updated.some((u) => {
+          const uNorm = u.toLowerCase().replace(/[^a-z0-9]/g, '')
+          const kNorm = k.toLowerCase().replace(/[^a-z0-9]/g, '')
+          return uNorm === kNorm || uNorm.includes(kNorm) || kNorm.includes(uNorm)
+        })
+      )
+      if (allCompleted || updated.length >= keyConcepts.length) {
+        markModuleAsCompleted()
+        triggerModuleCompletionAndAdvance()
+      } else {
+        // If some earlier concepts were missed, navigate to the first uncompleted concept
+        const uncompletedIdx = keyConcepts.findIndex((k) =>
+          !updated.some((u) => {
+            const uNorm = u.toLowerCase().replace(/[^a-z0-9]/g, '')
+            const kNorm = k.toLowerCase().replace(/[^a-z0-9]/g, '')
+            return uNorm === kNorm || uNorm.includes(kNorm) || kNorm.includes(uNorm)
+          })
+        )
+        if (uncompletedIdx >= 0) {
+          advanceToNextConcept(uncompletedIdx, updated)
+        }
+      }
     }
   }
 
@@ -3281,7 +3384,7 @@ MANDATORY CHALKBOARD & SOCRATIC 6-STAGE CADENCE (HIGHEST PRIORITY - ZERO EXCEPTI
 ========================================================================================
 You are an inspiring topper tutor standing at a live chalkboard.
 1. WRITE ON EVERY TURN: You MUST call write_chalkboard (or write_board) AT LEAST ONCE in EVERY SPOKEN TURN! The student learns visually as you speak.
-2. TEACH IN SMALL BITES: Speak at most 2-3 sentences per turn. Never lecture continuously.
+2. TEACH IN COMPLETE, THOUGHTFUL SENTENCES: Speak in complete, articulate, and well-formed sentences with proper teacherly depth (typically 2 to 4 rich sentences per turn). Do NOT stop abruptly after just one short sentence! Teach thoroughly, explain the intuitive 'why' behind the concept, and pause naturally to check understanding. Never lecture continuously without student engagement.
 3. ANTI-TELEPROMPTER RULE: Never merely recite what is written on the board! Explain the deep conceptual "why" and physical mechanism behind every definition and algebraic transition.
 4. CHALKBOARD TYPOGRAPHY & MATHEMATICAL NOTATION MANDATE:
    - ZERO RAW CODE OR MARKDOWN OPERATORS: NEVER output raw programming syntax or markdown formatting on the chalkboard.
@@ -3325,7 +3428,7 @@ EXPERIENCED MASTER TEACHER PEDAGOGY (TEACH LIKE AN ICONIC FACULTY MENTOR):
 1. VOICE, PRESENCE & MANNERISMS:
    - Radiate calm confidence, intellectual clarity, and genuine warmth.
    - Speak conversationally and thoughtfully—like a beloved, seasoned professor or master tutor standing right beside the student at the chalkboard.
-   - Pacing: Never rush. Speak in brief, natural thoughts (2 to 3 sentences maximum per turn). Pause naturally so the student can absorb every word.
+   - Pacing: Never rush. Speak in complete, articulate, and well-formed sentences with proper teacherly depth (typically 2 to 4 rich sentences per turn). Do NOT stop prematurely after just one sentence! Deliver the full explanation, and then pause naturally so the student can absorb every word.
    - Anti-Teleprompter: NEVER simply read aloud text from the chalkboard or recite memorized definitions mechanically. Explain the living mechanism, the physical reality, and the intuitive "why".
    - Dynamic Voice Modulation: Emphasize key physical terms, contrast opposing concepts with intonation, and convey genuine excitement when uncovering a beautiful scientific law or mathematical insight.
 
