@@ -169,6 +169,29 @@ async function bindQuestionDiagrams() {
         }
       }
 
+      // 3. Process textbook_exercises in visual_lesson_plan
+      if (Array.isArray(vlp.textbook_exercises)) {
+        for (const exGroup of vlp.textbook_exercises) {
+          if (Array.isArray(exGroup.questions)) {
+            for (const q of exGroup.questions) {
+              const qText = q.question || '';
+              const match = qText.match(/Fig(?:ure)?\.?\s*(\d+[\.\d\w]*)/i);
+              if (match) {
+                const figId = match[1];
+                const diagram = findExtractedDiagram(folder, figId);
+                if (diagram) {
+                  q.image_url = diagram.url;
+                  q.figure_id = diagram.figure_id;
+                  q.caption = diagram.caption;
+                  modified = true;
+                  totalQuestionsBound++;
+                }
+              }
+            }
+          }
+        }
+      }
+
       if (modified) {
         await supabase
           .from('syllabus_modules')

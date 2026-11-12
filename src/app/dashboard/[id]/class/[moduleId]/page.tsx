@@ -545,7 +545,12 @@ function buildSingleConceptMicroDossier(
   )
   const exerciseStr = matchingExercises.length > 0
     ? `\n   * Linked Textbook In-Text / Board Exercise:\n` +
-      matchingExercises.slice(0, 2).map((q: any) => `     - [${q.exercise_number || 'Ex'} ${q.q_num || 'Q'}]: ${q.question}${q.solution_method ? ` (Solve: ${q.solution_method})` : ''}`).join('\n')
+      matchingExercises.slice(0, 2).map((q: any) => {
+        const figExCue = q.image_url
+          ? ` [BOOK FIGURE ATTACHED: CALL write_chalkboard(action="draw_image", content="${q.image_url} | ${q.figure_id || 'Exercise Figure'} | ${q.caption || 'Textbook Exercise Diagram'}")]`
+          : ''
+        return `     - [${q.exercise_number || 'Ex'} ${q.q_num || 'Q'}]: ${q.question}${figExCue}${q.solution_method ? ` (Solve: ${q.solution_method})` : ''}`
+      }).join('\n')
     : ''
 
   // Model problem
@@ -632,7 +637,8 @@ function buildSingleConceptMicroDossier(
   } else {
     // Concepts strictly search for images dynamically - zero hardcoded links!
     visualDirective = `\n   * MANDATORY EDUCATIONAL IMAGE: Call search_and_show_image(query="${fullImgQuery}", title="${diagramTitle}") ON YOUR VERY FIRST TURN to display the authentic high-resolution diagram on the board!
-   * PROACTIVE DEMONSTRATION VIDEO: If teaching physical motion, dynamic process, lab experiment, or if student requests a video demonstration, call search_and_show_video(query="${fullVidQuery}", title="${diagramTitle}").`
+   * PROACTIVE DEMONSTRATION VIDEO: If teaching physical motion, dynamic process, lab experiment, or if student requests a video demonstration, call search_and_show_video(query="${fullVidQuery}", title="${diagramTitle}").
+   * VECTOR SVG FALLBACK: If an authentic web image is unavailable or if teaching abstract geometry/theory, call render_svg_diagram(title="${diagramTitle}", what="${whatSpec.slice(0, 160)}") to render the bespoke vector SVG on the chalkboard!`
   }
 
   return `========================================================================================
@@ -3266,7 +3272,7 @@ CRITICAL INSTRUCTIONS:
         cv,
         resolvedSubject
       )
-      return `    - Visual [${subLabel}]: Authentic Educational Image & Video Demonstration\n      * Image Search Cue: search_and_show_image(query="${fullImgQ}", title="${vTitle}", caption="${explain || why}")\n      * Video Search Cue: search_and_show_video(query="${fullVidQ}", title="${vTitle}")\n      * Proactive Visual: Call search_and_show_image to display authentic diagram; call search_and_show_video for dynamic demonstration\n      * Timing: ${timing}`
+      return `    - Visual [${subLabel}]: Authentic Educational Image & Video Demonstration\n      * Image Search Cue: search_and_show_image(query="${fullImgQ}", title="${vTitle}", caption="${explain || why}")\n      * Video Search Cue: search_and_show_video(query="${fullVidQ}", title="${vTitle}")\n      * Vector SVG Fallback: render_svg_diagram(title="${vTitle}", what="${explain || why}") if online diagram is unavailable or for bespoke vector illustration\n      * Proactive Visual: Call search_and_show_image to display authentic diagram; call search_and_show_video for dynamic demonstration\n      * Timing: ${timing}`
 
       const hasSvg = Boolean(cv?.svg || cv?.diagram_svg)
       if (!cv || (!hasSvg && !cv?.interactive_math_formula && cv?.diagram_type !== 'draw_flowchart' && cv?.diagram_type !== 'draw_shape' && cv?.diagram_type !== 'image')) {
