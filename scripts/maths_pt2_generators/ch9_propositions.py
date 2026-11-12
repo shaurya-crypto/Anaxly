@@ -98,6 +98,38 @@ A universal conditional proposition *"If P, then Q"* asserts that whenever $P$ o
             ],
             "visual_lesson_plan": {
                 "syllabus_term": "Final-Term",
+                "concept_visuals": [
+                    {
+                        "concept_title": "Statement vs Proposition",
+                        "diagram_title": "Statement vs Mathematical Proposition",
+                        "image_search_query": "mathematical proposition declarative sentence truth value diagram",
+                        "what_to_make": "Comparison diagram showing declarative statement versus mathematical proposition with binary True/False truth values."
+                    },
+                    {
+                        "concept_title": "Conditional Statement",
+                        "diagram_title": "Conditional Statement Implication",
+                        "image_search_query": "conditional statement implication hypothesis conclusion logic diagram",
+                        "what_to_make": "Logic diagram showing 'If P, then Q' conditional statement structure with Hypothesis P and Conclusion Q."
+                    },
+                    {
+                        "concept_title": "Hypothesis (P)",
+                        "diagram_title": "Hypothesis Antecedent in Logic",
+                        "image_search_query": "hypothesis antecedent in conditional logic statement diagram",
+                        "what_to_make": "Diagram illustrating the hypothesis premise P setting the starting condition."
+                    },
+                    {
+                        "concept_title": "Conclusion (Q)",
+                        "diagram_title": "Conclusion Consequent in Logic",
+                        "image_search_query": "conclusion consequent in conditional logic deduction diagram",
+                        "what_to_make": "Diagram illustrating conclusion Q following from hypothesis premise P."
+                    },
+                    {
+                        "concept_title": "Truth Value Verification",
+                        "diagram_title": "Conditional Truth Table Verification",
+                        "image_search_query": "truth table conditional statement logic verification diagram",
+                        "what_to_make": "Truth table diagram verifying truth values of conditional statement P implies Q."
+                    }
+                ],
                 "image_search_query": "mathematical logic conditional statement truth table diagram",
                 "video_search_query": "conditional statements hypothesis and conclusion class 9",
                 "concept_questions": [
@@ -233,6 +265,44 @@ However, to prove that a universal statement is **false**, one needs only **one 
             ],
             "visual_lesson_plan": {
                 "syllabus_term": "Final-Term",
+                "concept_visuals": [
+                    {
+                        "concept_title": "Converse of a Proposition",
+                        "diagram_title": "Converse of Conditional Statement",
+                        "image_search_query": "converse of conditional statement hypothesis conclusion swap logic diagram",
+                        "what_to_make": "Infographic showing conditional statement P implies Q transposing to converse Q implies P."
+                    },
+                    {
+                        "concept_title": "Independence of Truth Values",
+                        "diagram_title": "Truth Values of Conditional and Converse",
+                        "image_search_query": "conditional statement converse truth values logic diagram",
+                        "what_to_make": "Truth table diagram demonstrating independence of truth values between P implies Q and Q implies P."
+                    },
+                    {
+                        "concept_title": "Counterexample",
+                        "diagram_title": "Mathematical Counterexample Disproof",
+                        "image_search_query": "mathematical counterexample logic proof diagram",
+                        "what_to_make": "Visual counterexample showing hypothesis satisfied while conclusion fails to disprove universal statement."
+                    },
+                    {
+                        "concept_title": "Baudhāyana–Pythagoras Theorem",
+                        "diagram_title": "Baudhāyana–Pythagoras Right Triangle Theorem",
+                        "image_search_query": "baudhayana pythagoras theorem right angled triangle proof diagram",
+                        "what_to_make": "Right triangle geometric diagram with sides a, b and hypotenuse c illustrating a² + b² = c²."
+                    },
+                    {
+                        "concept_title": "Converse of Baudhāyana–Pythagoras Theorem",
+                        "diagram_title": "Converse of Pythagoras Theorem",
+                        "image_search_query": "converse of pythagoras theorem right triangle proof diagram",
+                        "what_to_make": "Geometric diagram showing if triangle sides satisfy a² + b² = c², the angle opposite side c is 90 degrees."
+                    },
+                    {
+                        "concept_title": "Biconditional ('If and only if')",
+                        "diagram_title": "Biconditional Equivalence",
+                        "image_search_query": "biconditional statement if and only if logic equivalence diagram",
+                        "what_to_make": "Logic equivalence diagram showing double implication P iff Q (P <=> Q)."
+                    }
+                ],
                 "image_search_query": "pythagorean theorem converse geometry diagram right triangle",
                 "video_search_query": "converse of pythagoras theorem proof class 9",
                 "concept_questions": [

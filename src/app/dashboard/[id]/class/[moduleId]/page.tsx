@@ -119,51 +119,81 @@ function extractConciseSearchKeyword(raw: string): string {
   if (!raw || !raw.trim()) return ''
   let clean = raw.trim().replace(/^["']|["']$/g, '')
 
-  // 1. Direct parenthetical match (e.g. "(Onion Peel Mount)" -> "Onion Peel cells microscope")
-  const parenMatch = clean.match(/\(([^\)]+)\)/)
-  if (parenMatch && parenMatch[1]) {
-    const inside = parenMatch[1]
-      .replace(/^(activity|module|step|exp|experiment)\s*[\d\.]*/i, '')
-      .trim()
-    if (/peel|mount|cell|tissue|specimen|stomata/i.test(inside)) {
-      return `${inside.replace(/mount|mounts/i, 'cells')} microscope`
-    }
-    if (inside.length >= 3 && inside.length <= 40 && !/^\d+$/.test(inside)) {
-      return inside
-    }
-  }
-
-  // 2. Strip leading curriculum prefixes
+  // 1. Strip leading curriculum prefixes like "Activity 2.1: ", "Concept 3: ", "Module 1 - "
   clean = clean
     .replace(/^(?:Activity|Concept|Module|Experiment|Lab|Chapter|Section|Exercise)\s*[\d\.]*\s*[:\-\)]?\s*/i, '')
     .trim()
 
-  // 3. Colon prefix/subtitle handling: extract substantive primary title
+  // 2. Colon prefix/subtitle handling: ALWAYS isolate the core concept title BEFORE the colon
   if (clean.includes(':')) {
     const parts = clean.split(':').map((s) => s.trim()).filter(Boolean)
     const part0 = parts[0]?.replace(/[\(\)\[\]\{\}]/g, ' ').replace(/\s+/g, ' ').trim() || ''
     const part1 = parts[1]?.replace(/[\(\)\[\]\{\}]/g, ' ').replace(/\s+/g, ' ').trim() || ''
 
     const isPart0Generic = /^(?:part|step|subpart|case|fig|figure|section|table|row|col|overview|introduction)\s*[\d\w\.]*$/i.test(part0)
-    if (part0.length >= 3 && part0.length <= 45 && part0.split(' ').length <= 6 && !isPart0Generic) {
+    if (part0.length >= 3 && part0.length <= 60 && !isPart0Generic) {
       clean = part0
-    } else if (part1.length >= 3 && part1.length <= 45 && part1.split(' ').length <= 6) {
+    } else if (part1.length >= 3 && part1.length <= 60 && part1.split(' ').length <= 7) {
       clean = part1
     } else if (part0.length >= 3) {
-      clean = part0.slice(0, 45).trim()
+      clean = part0.slice(0, 60).trim()
     }
   }
 
-  // 4. Known subject keyword mappings (Mathematics & Logic)
-  if (/proposition|statement.*truth/i.test(clean)) return 'Propositional Logic Truth Table'
-  if (/truth\s*table/i.test(clean)) return 'Truth Table logic proposition'
-  if (/quadrilateral|parallelogram/i.test(clean)) return 'Parallelogram properties geometry'
-  if (/linear\s*equation/i.test(clean)) return 'Linear equation coordinate graph'
-  if (/surface\s*area|volume.*(cylinder|cone|sphere)/i.test(clean)) return 'Surface area and volume geometry'
-  if (/histogram|frequency\s*polygon/i.test(clean)) return 'Histogram frequency polygon statistics'
+  // 3. Parenthetical handling on the isolated title ONLY (e.g. "Activity (Onion Peel)" -> "Onion Peel cells microscope")
+  const parenMatch = clean.match(/\(([^\)]+)\)/)
+  if (parenMatch && parenMatch[1]) {
+    const inside = parenMatch[1]
+      .replace(/^(activity|module|step|exp|experiment)\s*[\d\.]*/i, '')
+      .replace(/['"]/g, '')
+      .trim()
+    if (/peel|mount|cell|tissue|specimen|stomata/i.test(inside)) {
+      return `${inside.replace(/mount|mounts/i, 'cells')} microscope`
+    }
+    if (/if and only if/i.test(inside)) {
+      clean = 'Biconditional statement if and only if'
+    } else if (clean.startsWith('Activity') && inside.length >= 3) {
+      clean = inside
+    }
+  }
+
+  // Clean remaining parenthetical marks
+  clean = clean.replace(/[\(\)\[\]\{\}'"]/g, ' ').replace(/\s+/g, ' ').trim()
+
+  // 4. Fine-grained Academic Mathematics & Logic mappings
+  if (/converse/i.test(clean) && /baudhayana|pythagor/i.test(clean)) {
+    return 'Converse of Pythagoras theorem right triangle proof'
+  }
+  if (/baudhayana|pythagor/i.test(clean)) {
+    return 'Baudhayana Pythagoras theorem right triangle proof'
+  }
+  if (/converse/i.test(clean)) {
+    return 'Converse of conditional statement logic'
+  }
+  if (/biconditional|if and only if/i.test(clean)) {
+    return 'Biconditional statement if and only if logic'
+  }
+  if (/counterexample/i.test(clean)) {
+    return 'Mathematical counterexample logic diagram'
+  }
+  if (/truth\s*value|independence\s*of\s*truth/i.test(clean)) {
+    return 'Conditional statement converse truth values'
+  }
+  if (/truth\s*table/i.test(clean)) {
+    return 'Truth Table logic proposition'
+  }
+  if (/proposition|statement.*truth/i.test(clean)) {
+    return 'Propositional logic statement truth'
+  }
+
+  // Geometry & Algebra mappings
+  if (/quadrilateral|parallelogram/i.test(clean)) return 'Parallelogram properties geometry diagram'
+  if (/linear\s*equation/i.test(clean)) return 'Linear equation coordinate graph diagram'
+  if (/surface\s*area|volume.*(cylinder|cone|sphere)/i.test(clean)) return 'Surface area and volume geometry formula'
+  if (/histogram|frequency\s*polygon/i.test(clean)) return 'Histogram frequency polygon statistics diagram'
   if (/algorithm|flowchart/i.test(clean)) return 'Algorithm flowchart diagram'
 
-  // Known subject keyword mappings (Science, Biology, Physics)
+  // Science mappings
   if (/onion\s*peel/i.test(clean)) return 'Onion peel cells microscope'
   if (/human\s*cheek.*methylene|cheek.*methylene/i.test(clean)) return 'Human Cheek Cells Methylene Blue Stain'
   if (/human\s*cheek|cheek\s*cell/i.test(clean)) return 'Human cheek cells microscope'
@@ -1175,6 +1205,21 @@ CRITICAL DIRECTIVE:
         if (raw) localCached = JSON.parse(raw)
       } catch {}
     }
+
+    // Filter out any stale, low-quality slide decks or blog URLs that were previously cached in localStorage
+    Object.keys(localCached).forEach((k) => {
+      const item = localCached[Number(k)]
+      if (
+        item?.url &&
+        (item.url.includes('slideserve') ||
+          item.url.includes('slideshare') ||
+          item.url.includes('slideplayer') ||
+          item.url.includes('factmyth') ||
+          item.url.includes('Alpha'))
+      ) {
+        delete localCached[Number(k)]
+      }
+    })
 
     if (Object.keys(localCached).length > 0) {
       setPrefetchedImages(localCached)

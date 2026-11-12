@@ -218,16 +218,67 @@ function scoreEducationalImage(url: string, title: string, query: string, source
     score += 15
   }
 
-  // High authority educational domains
-  if (lowerUrl.includes('.edu') || lowerUrl.includes('.gov') || lowerUrl.includes('.ac.in')) score += 30
-  if (lowerUrl.includes('openstax.org') || lowerUrl.includes('khanacademy.org')) score += 25
-  if (lowerUrl.includes('libretexts.org') || lowerUrl.includes('sciencedirect.com')) score += 20
-  if (lowerUrl.includes('britannica.com') || lowerUrl.includes('physicsclassroom.com')) score += 20
-  if (lowerUrl.includes('phet.colorado.edu') || lowerUrl.includes('ck12.org')) score += 20
+  // Strong bonus for authentic educational math & science publishers (+45 points)
+  if (
+    lowerUrl.includes('cuemath.com') ||
+    lowerUrl.includes('teachoo.com') ||
+    lowerUrl.includes('learncbse.in') ||
+    lowerUrl.includes('livephysics.com') ||
+    lowerUrl.includes('calcworkshop.com') ||
+    lowerUrl.includes('geogebra.org') ||
+    lowerUrl.includes('onlinemathlearning.com') ||
+    lowerUrl.includes('mathmonks.com') ||
+    lowerUrl.includes('mathopenref.com') ||
+    lowerUrl.includes('studymathnow.com') ||
+    lowerUrl.includes('storyofmathematics.com') ||
+    lowerUrl.includes('byjus.com') ||
+    lowerUrl.includes('toppr.com') ||
+    lowerUrl.includes('geeksforgeeks.org') ||
+    lowerUrl.includes('khanacademy.org') ||
+    lowerUrl.includes('openstax.org') ||
+    lowerUrl.includes('libretexts.org') ||
+    lowerUrl.includes('physicsclassroom.com') ||
+    lowerUrl.includes('britannica.com') ||
+    lowerUrl.includes('sciencedirect.com') ||
+    lowerUrl.includes('phet.colorado.edu') ||
+    lowerUrl.includes('ck12.org') ||
+    lowerUrl.includes('.edu') ||
+    lowerUrl.includes('.gov') ||
+    lowerUrl.includes('.ac.in')
+  ) {
+    score += 45
+  }
+
+  // High authority encyclopedic institutions
+  if (lowerUrl.includes('openstax.org') || lowerUrl.includes('khanacademy.org')) score += 20
+  if (lowerUrl.includes('libretexts.org') || lowerUrl.includes('sciencedirect.com')) score += 15
 
   // Diagram / vector / formula / experiment keywords in title
   if (/diagram|schematic|ray diagram|cross section|ultrastructure|circuit|apparatus|truth table|logic diagram|geometry|graph/i.test(lowerTitle)) score += 20
   if (/experiment|observation|microscope|vector|formula|proof|solution|concept/i.test(lowerTitle)) score += 10
+
+  // Prefer clean vector / diagram web formats
+  if (lowerUrl.endsWith('.png') || lowerUrl.endsWith('.svg') || lowerUrl.endsWith('.webp')) {
+    score += 15
+  }
+
+  // Heavy negative penalty for low-quality PPT slide decks, clip art, and ad scrapers (-80 points)
+  if (
+    lowerUrl.includes('slideserve.com') ||
+    lowerUrl.includes('slidesharecdn.com') ||
+    lowerUrl.includes('slideshare.net') ||
+    lowerUrl.includes('slideplayer.com') ||
+    lowerUrl.includes('slidetodoc.com') ||
+    lowerUrl.includes('clipart') ||
+    lowerUrl.includes('factmyth.com') ||
+    lowerUrl.includes('facts.net') ||
+    lowerTitle.includes('powerpoint') ||
+    lowerTitle.startsWith('ppt -') ||
+    lowerTitle.includes('slide presentation') ||
+    lowerTitle.includes('worksheet')
+  ) {
+    score -= 80
+  }
 
   // Strict negative penalty for political ballot propositions, election results, party politics
   if (/\b(?:proposition\s*\d+|ballot|election|referendum|county results|voter|campaign|caucus|primary)\b/i.test(lowerTitle)) {
@@ -423,7 +474,7 @@ async function searchBingImages(query: string, limit: number = 8): Promise<Image
       : `${query} diagram`
     const url = `https://www.bing.com/images/async?q=${encodeURIComponent(
       cleanTerm
-    )}&first=1&count=${Math.max(limit * 2, 12)}&mmasync=1&adlt=strict`
+    )}&first=1&count=${Math.max(limit * 3, 24)}&mmasync=1&adlt=strict`
 
     const res = await fetch(url, {
       signal: controller.signal,
@@ -812,9 +863,16 @@ export async function GET(req: NextRequest) {
 
     const cached = imageSearchCache.get(cacheKey)
     if (cached) {
-      const ttl = cached.images.length > 0 ? CACHE_TTL_MS : EMPTY_CACHE_TTL_MS
-      if (Date.now() - cached.timestamp < ttl) {
-        return NextResponse.json({ success: true, images: cached.images, cached: true })
+      const hasStaleSlide = cached.images.some((img) =>
+        /slideserve|slideshare|slideplayer|factmyth|proposition\s*\d+/i.test(`${img.url} ${img.title}`)
+      )
+      if (!hasStaleSlide) {
+        const ttl = cached.images.length > 0 ? CACHE_TTL_MS : EMPTY_CACHE_TTL_MS
+        if (Date.now() - cached.timestamp < ttl) {
+          return NextResponse.json({ success: true, images: cached.images, cached: true })
+        }
+      } else {
+        imageSearchCache.delete(cacheKey)
       }
     }
 
@@ -848,9 +906,16 @@ export async function POST(req: Request) {
 
     const cached = imageSearchCache.get(cacheKey)
     if (cached) {
-      const ttl = cached.images.length > 0 ? CACHE_TTL_MS : EMPTY_CACHE_TTL_MS
-      if (Date.now() - cached.timestamp < ttl) {
-        return NextResponse.json({ success: true, images: cached.images, cached: true })
+      const hasStaleSlide = cached.images.some((img) =>
+        /slideserve|slideshare|slideplayer|factmyth|proposition\s*\d+/i.test(`${img.url} ${img.title}`)
+      )
+      if (!hasStaleSlide) {
+        const ttl = cached.images.length > 0 ? CACHE_TTL_MS : EMPTY_CACHE_TTL_MS
+        if (Date.now() - cached.timestamp < ttl) {
+          return NextResponse.json({ success: true, images: cached.images, cached: true })
+        }
+      } else {
+        imageSearchCache.delete(cacheKey)
       }
     }
 
