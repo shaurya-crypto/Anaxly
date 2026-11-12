@@ -17,7 +17,6 @@ import {
   ZoomIn,
   ZoomOut,
   Maximize2,
-  Grid,
 } from 'lucide-react'
 import { evaluateMathExpression } from '@/lib/mathEvaluator'
 import { isLegitimateGraphTopic } from '@/lib/graphGating'
@@ -74,9 +73,6 @@ export interface GreenChalkboardRef {
   drawExamQuestion?: (questionText: string, modelAnswer?: string, marks?: string, color?: string) => void
   addNewPage?: () => void
   goToPage: (pageIndex: number, title?: string) => void
-  toggleGrid?: () => void
-  setGridEnabled?: (enabled: boolean) => void
-  isGridEnabled?: () => boolean
   clearNotes: () => void
   rewriteNotes: (newNotes: string) => Promise<void>
   getBoardSummary: () => { notesText: string; roughText: string; fullSummary: string }
@@ -352,45 +348,6 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     const activeChalkColorRef = useRef<string>(INK_PRIMARY)
     const lastDrawnStudentAnswerRef = useRef<{ text: string; time: number } | null>(null)
     const lastExecutedActionTimeRef = useRef<Map<string, number>>(new Map())
-
-    // Whiteboard Grid Mode state (Default: OPEN/ON)
-    const [isGridOn, setIsGridOn] = useState<boolean>(() => {
-      if (typeof window !== 'undefined') {
-        const saved = localStorage.getItem('whiteboard_grid_enabled')
-        if (saved !== null) {
-          return saved === 'true'
-        }
-      }
-      return true
-    })
-    const isGridOnRef = useRef<boolean>(true)
-    useEffect(() => {
-      isGridOnRef.current = isGridOn
-    }, [isGridOn])
-
-    const toggleGrid = useCallback(() => {
-      setIsGridOn((prev) => {
-        const next = !prev
-        isGridOnRef.current = next
-        if (typeof window !== 'undefined') {
-          try {
-            localStorage.setItem('whiteboard_grid_enabled', String(next))
-          } catch {}
-        }
-        if (excalidrawAPIRef.current) {
-          try {
-            excalidrawAPIRef.current.updateScene({
-              appState: {
-                gridModeEnabled: next,
-              },
-            })
-          } catch (err) {
-            console.warn('[GreenChalkboard] Error toggling grid mode:', err)
-          }
-        }
-        return next
-      })
-    }, [])
 
     // High-Resolution Interactive Image Lightbox
     const [lightboxImage, setLightboxImage] = useState<{
@@ -1065,7 +1022,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     useEffect(() => {
       if (!excalidrawAPI) return
       try {
-        excalidrawAPI.updateScene({ appState: { zoom: { value: boardZoom }, gridModeEnabled: isGridOnRef.current } })
+        excalidrawAPI.updateScene({ appState: { zoom: { value: boardZoom }, gridModeEnabled: true } })
       } catch {}
     }, [boardZoom, excalidrawAPI])
 
@@ -1080,7 +1037,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               api.updateScene({
                 appState: {
                   zoom: { value: boardZoomRef.current },
-                  gridModeEnabled: isGridOnRef.current,
+                  gridModeEnabled: true,
                 },
               })
             } catch (err) {}
@@ -1138,7 +1095,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             currentItemStrokeColor: INK_PRIMARY,
             currentItemFontFamily: 1,
             currentItemRoughness: 0,
-            gridModeEnabled: isGridOnRef.current,
+            gridModeEnabled: true,
             zoom: { value: boardZoomRef.current },
             scrollX: 0,
             scrollY: 0,
@@ -1235,7 +1192,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             currentItemStrokeColor: INK_PRIMARY,
             currentItemFontFamily: 1,
             currentItemRoughness: 0,
-            gridModeEnabled: isGridOnRef.current,
+            gridModeEnabled: true,
             zoom: { value: boardZoomRef.current },
             scrollX: 0,
             scrollY: 0,
@@ -1445,7 +1402,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                 currentItemStrokeColor: INK_PRIMARY,
                 currentItemFontFamily: 1,
                 currentItemRoughness: 0,
-                gridModeEnabled: isGridOnRef.current,
+                gridModeEnabled: true,
                 zoom: { value: boardZoomRef.current },
                 scrollX: 0,
                 scrollY: 0,
@@ -1485,7 +1442,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               currentItemStrokeColor: INK_PRIMARY,
               currentItemFontFamily: 1,
               currentItemRoughness: 0,
-              gridModeEnabled: isGridOnRef.current,
+              gridModeEnabled: true,
               zoom: { value: boardZoomRef.current },
               scrollX: 0,
               scrollY: 0,
@@ -3171,7 +3128,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             currentItemStrokeColor: INK_PRIMARY,
             currentItemFontFamily: 1,
             currentItemRoughness: 0,
-            gridModeEnabled: isGridOnRef.current,
+            gridModeEnabled: true,
             zoom: { value: boardZoomRef.current },
             scrollX: 0,
             scrollY: 0,
@@ -5076,7 +5033,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               currentItemStrokeColor: INK_PRIMARY,
               currentItemFontFamily: 1,
               currentItemRoughness: 0,
-              gridModeEnabled: isGridOnRef.current,
+              gridModeEnabled: true,
               zoom: { value: boardZoomRef.current },
               scrollX: 0,
               scrollY: 0,
@@ -5128,26 +5085,6 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       drawExamQuestion: (questionText: string, modelAnswer?: string, marks?: string, color?: string) => enqueueOperation(async () => drawExamQuestion(questionText, modelAnswer, marks, color)),
       addNewPage,
       goToPage,
-      toggleGrid,
-      setGridEnabled: (enabled: boolean) => {
-        setIsGridOn(enabled)
-        isGridOnRef.current = enabled
-        if (typeof window !== 'undefined') {
-          try {
-            localStorage.setItem('whiteboard_grid_enabled', String(enabled))
-          } catch {}
-        }
-        if (excalidrawAPIRef.current) {
-          try {
-            excalidrawAPIRef.current.updateScene({
-              appState: {
-                gridModeEnabled: enabled,
-              },
-            })
-          } catch (err) {}
-        }
-      },
-      isGridEnabled: () => isGridOnRef.current,
       getBoardSummary,
       getCompactBoardContext,
       handleAiDirective,
@@ -5171,7 +5108,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             onChange={handleExcalidrawChange}
             theme="light"
             viewModeEnabled={true}
-            gridModeEnabled={isGridOn}
+            gridModeEnabled={true}
             initialData={EXCALIDRAW_INITIAL_DATA}
             UIOptions={EXCALIDRAW_UI_OPTIONS}
           />
@@ -5262,26 +5199,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           )}
         </div>
 
-        {/* Floating Top-Right Whiteboard Controls: Grid Toggle & Clear Board Action */}
+        {/* Floating Top-Right Whiteboard Controls: Clear Board Action */}
         <div className="absolute top-3 right-3 z-30 flex items-center gap-2 pointer-events-auto">
-          {/* Whiteboard Grid Toggle Button */}
-          <button
-            type="button"
-            onClick={toggleGrid}
-            className={`group flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border transition-all shadow-xs hover:shadow-sm cursor-pointer active:scale-95 text-xs font-mono select-none backdrop-blur-md ${
-              isGridOn
-                ? 'border-[#52715D]/40 bg-[#E8F0EA]/95 text-[#2D4536] font-semibold ring-1 ring-[#52715D]/20 shadow-xs'
-                : 'border-[#E5E3DB] bg-white/95 text-[#7A7C75] hover:text-[#171817] hover:border-[#D5D3CB]'
-            }`}
-            title={isGridOn ? 'Grid is ON (Click to toggle)' : 'Grid is OFF (Click to turn on)'}
-            aria-label="Toggle Whiteboard Grid"
-          >
-            <Grid className={`w-3.5 h-3.5 transition-colors ${isGridOn ? 'text-[#52715D]' : 'text-[#7A7C75] group-hover:text-[#171817]'}`} />
-            <span className="hidden sm:inline font-medium">Grid: {isGridOn ? 'ON' : 'OFF'}</span>
-            <span className="sm:hidden font-medium">Grid</span>
-          </button>
-
-          {/* Clear Board Action */}
           <button
             type="button"
             onClick={() => {
