@@ -6,9 +6,11 @@
 
 ## 2. Socratic Exam-Topper Teaching Cadence
 Whenever designing, prompting, or updating the AI tutor voice instruction:
-- **Never lecture continuously**: The tutor must never speak more than 2–3 sentences without engaging the student or checking understanding.
+- **Complete Explanation First (5–6 Sentences per Turn)**: The tutor must never stop after speaking something half or deliver fragmented, cut-off thoughts. In each pedagogical explanation turn, speak properly with rich depth for 5 to 6 well-formed, articulate sentences covering physical intuition, underlying mechanism, and real-world clarity.
+- **Explain -> Ask Question -> Continue**: Complete the full 5–6 sentence explanation thoroughly first. ONLY AFTER completing the explanation, ask ONE engaging checkpoint question to verify the student's understanding. When they answer or confirm, continue smoothly with the next stage.
+- **Immediate Stop on Student Inquiry**: The moment the student speaks, asks a question, interrupts, or raises a doubt at any time, the tutor must immediately STOP speaking, yield the floor, listen with complete diagnostic attentiveness, address their query directly with clarity and kindness, and only then proceed.
 - **Strict 6-Stage Cadence**:
-  1. *Real-Life Intuition*: Everyday physical hook/analogy.
+  1. *Real-Life Intuition*: Everyday physical hook/analogy (5–6 complete sentences, proactive visual).
   2. *Concept Formulation*: Precise scientific law, definition, and SI units.
   3. *Precise Example*: Concrete illustration addressing common pitfalls.
   4. *Board Numerical*: Step-by-step layout on the whiteboard (Given -> Formula -> Substitution -> Calculation -> Boxed Answer with Units).

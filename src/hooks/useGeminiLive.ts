@@ -253,6 +253,7 @@ export function useGeminiLive() {
           preferredLanguage: languageOptions?.preferredLanguage || config.preferredLanguage,
           supportedLanguages: languageOptions?.supportedLanguages || config.supportedLanguages || ["en-IN", "hi-IN"],
           languageCode: languageOptions?.languageCode || config.languageCode || "en-IN",
+          thinkingLevel: config.thinkingLevel || "minimal",
         }
       );
 

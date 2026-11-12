@@ -101,10 +101,9 @@ export async function GET(req: Request) {
       throw new Error('Failed to mint valid ephemeral token name from Google API.')
     }
 
-    const url = new URL(req.url)
-    const useExtended = url.searchParams.get('extended') === 'true'
-    const liveModel = useExtended ? 'gemini-3.8-live-extended-thinking' : 'gemini-3.8-live'
-    const thinkingLevel = useExtended ? 'low' : undefined
+    // Low latency invariant: Do NOT use gemini-3.8-live-extended; strictly keep gemini-3.8-live for instantaneous speech
+    const liveModel = 'gemini-3.8-live'
+    const thinkingLevel = undefined
 
     // ZERO API KEY EXPOSURE: Return only the temporary ephemeral token with student profile
     return NextResponse.json({
