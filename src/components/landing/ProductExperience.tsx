@@ -116,13 +116,13 @@ export function ProductExperience() {
                   showCaption={false}
                 />
               </div>
-              <ul className="sm:col-span-2 divide-y divide-border-subtle border-y border-border-subtle">
+              <ul className="sm:col-span-2 grid grid-cols-3 gap-3 border-y border-border-subtle sm:block sm:divide-y sm:divide-border-subtle">
                 {[
                   ['2–3', 'sentences per turn, then a question back to you'],
                   ['Live', 'chalkboard steps become your Master Notes'],
                   ['Units', 'checked on every final answer'],
                 ].map(([k, v]) => (
-                  <li key={k} className="py-3">
+                  <li key={k} className="py-3 min-w-0">
                     <p className="font-serif text-xl text-ink-primary">{k}</p>
                     <p className="mt-0.5 text-xs leading-snug text-ink-muted">{v}</p>
                   </li>
