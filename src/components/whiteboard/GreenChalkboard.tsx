@@ -4646,6 +4646,28 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         }
       }
 
+      // Real first frame for the thumbnail (falls back to the dark play tile)
+      let frameFileId: any = null
+      const frameDataUrl = resolvedUrl ? sanitizeBase64DataUrl((await captureVideoFirstFrame(resolvedUrl)) || '') : null
+      if (frameDataUrl && excalidrawAPI?.addFiles) {
+        try {
+          frameFileId = `vidframe_${Date.now()}_${Math.random().toString(36).substring(2, 8)}`
+          const fileObj: any = { id: frameFileId, dataURL: frameDataUrl, mimeType: 'image/jpeg', created: Date.now() }
+          excalidrawAPI.addFiles([fileObj])
+          if (storageKey) {
+            try {
+              const rawFiles = localStorage.getItem(`${storageKey}_files`)
+              const existingFiles = rawFiles ? JSON.parse(rawFiles) : {}
+              existingFiles[frameFileId] = fileObj
+              safeSaveWhiteboardStorage(`${storageKey}_files`, existingFiles, true)
+            } catch { }
+          }
+        } catch (frameErr) {
+          console.warn('[drawVideoCard] first-frame preview skipped:', frameErr)
+          frameFileId = null
+        }
+      }
+
       await checkAutoPageOverflow(160)
       try {
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
@@ -4709,6 +4731,18 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             roundness: { type: 3 },
             customData: customPayload,
           },
+          ...(frameFileId
+            ? [{
+                type: 'image',
+                x: thumbX,
+                y: thumbY,
+                width: THUMB_W,
+                height: THUMB_H,
+                fileId: frameFileId,
+                status: 'saved',
+                customData: { ...customPayload, isVideoFirstFrame: true },
+              } as any]
+            : []),
           {
             type: 'ellipse',
             x: playCx - playR,
@@ -5725,6 +5759,74 @@ function extractYoutubeId(rawUrl: string): string | null {
   return match && match[1] ? match[1] : null
 }
 
+// Grab the first frame of a video as a JPEG data URL (for the board preview).
+// YouTube -> official thumbnail; direct files -> seek to ~0.1s via the same-origin
+// proxy (keeps the canvas untainted). Resolves null on any failure/timeout.
+async function captureVideoFirstFrame(rawUrl: string, timeoutMs = 6000): Promise<string | null> {
+  if (typeof window === 'undefined' || !rawUrl) return null
+  const ytId = extractYoutubeId(rawUrl)
+  try {
+    if (ytId) {
+      const thumb = `https://i.ytimg.com/vi/${ytId}/hqdefault.jpg`
+      const res = await fetch(`/api/diagram/proxy?url=${encodeURIComponent(thumb)}`)
+      if (!res.ok) return null
+      const blob = await res.blob()
+      return await new Promise<string | null>((resolve) => {
+        const reader = new FileReader()
+        reader.onloadend = () => resolve(typeof reader.result === 'string' ? reader.result : null)
+        reader.onerror = () => resolve(null)
+        reader.readAsDataURL(blob)
+      })
+    }
+
+    const src = rawUrl.startsWith('/') ? rawUrl : `/api/diagram/proxy?url=${encodeURIComponent(rawUrl)}`
+    return await new Promise<string | null>((resolve) => {
+      const video = document.createElement('video')
+      let settled = false
+      const finish = (val: string | null) => {
+        if (settled) return
+        settled = true
+        clearTimeout(timer)
+        video.removeAttribute('src')
+        video.load()
+        resolve(val)
+      }
+      const timer = setTimeout(() => finish(null), timeoutMs)
+      video.muted = true
+      video.playsInline = true
+      video.preload = 'auto'
+      video.crossOrigin = 'anonymous'
+      video.onloadeddata = () => {
+        try {
+          video.currentTime = Math.min(0.1, (video.duration || 1) / 2)
+        } catch {
+          finish(null)
+        }
+      }
+      video.onseeked = () => {
+        try {
+          const w = video.videoWidth || 640
+          const h = video.videoHeight || 360
+          const scale = Math.min(1, 640 / w)
+          const canvas = document.createElement('canvas')
+          canvas.width = Math.round(w * scale)
+          canvas.height = Math.round(h * scale)
+          const ctx = canvas.getContext('2d')
+          if (!ctx) return finish(null)
+          ctx.drawImage(video, 0, 0, canvas.width, canvas.height)
+          finish(canvas.toDataURL('image/jpeg', 0.82))
+        } catch {
+          finish(null)
+        }
+      }
+      video.onerror = () => finish(null)
+      video.src = src
+    })
+  } catch {
+    return null
+  }
+}
+
 function ChalkboardVideoPlayerModal({
   modal,
   onClose,
@@ -5735,6 +5837,17 @@ function ChalkboardVideoPlayerModal({
   const [activeUrl, setActiveUrl] = useState<string>(modal.url || '')
   const [loading, setLoading] = useState<boolean>(!modal.url)
   const [hasError, setHasError] = useState<boolean>(false)
+  const [posterUrl, setPosterUrl] = useState<string | null>(null)
+
+  // Show the video's first frame while it buffers instead of a black box
+  useEffect(() => {
+    if (!activeUrl || extractYoutubeId(activeUrl)) return
+    let cancelled = false
+    captureVideoFirstFrame(activeUrl).then((frame) => {
+      if (!cancelled && frame) setPosterUrl(frame)
+    })
+    return () => { cancelled = true }
+  }, [activeUrl])
 
   useEffect(() => {
     if (modal.url) {
@@ -5821,6 +5934,8 @@ function ChalkboardVideoPlayerModal({
           ) : activeUrl && !hasError ? (
             <video
               src={activeUrl}
+              poster={posterUrl || undefined}
+              preload="metadata"
               controls
               autoPlay
               playsInline
