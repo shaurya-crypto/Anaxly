@@ -437,14 +437,19 @@ export class GeminiLiveClient {
       const parameters = args.parameters || {};
       this.callbacks.onVisualAction?.(action, parameters);
     } else if (name === "plot_mathematical_graph") {
+      const formulasList = Array.isArray(args.formulas) ? args.formulas.join('; ') : '';
+      const formulaStr = args.formula || formulasList || 'linear';
       const formatted = [
-        args.formula ? `formula=${args.formula}` : '',
-        args.domain ? `domain=${args.domain}` : '',
-        args.range ? `range=${args.range}` : '',
+        formulaStr ? `formula=${formulaStr}` : '',
+        formulasList ? `formulas=${formulasList}` : '',
+        args.domain ? `domain=${typeof args.domain === 'string' ? args.domain : JSON.stringify(args.domain)}` : '',
+        args.range ? `range=${typeof args.range === 'string' ? args.range : JSON.stringify(args.range)}` : '',
         args.title ? `title=${args.title}` : '',
         args.callout ? `callout=${args.callout}` : '',
-        args.points ? `points=${args.points}` : '',
-      ].filter(Boolean).join(' | ') || args.formula || 'linear';
+        args.points ? `points=${typeof args.points === 'string' ? args.points : JSON.stringify(args.points)}` : '',
+        args.slope ? `slope=true` : '',
+        args.overwrite ? `overwrite=true` : '',
+      ].filter(Boolean).join(' | ');
       this.callbacks.onChalkboardToolCall?.("draw_graph", formatted);
     } else if (name === "open_interactive_simulation") {
       const sceneType = args.sceneType || "geometry";
@@ -734,6 +739,19 @@ export class GeminiLiveClient {
                       type: Type.STRING,
                       description: "Critical coordinate points to highlight, e.g. '(0, -4), (2, 0), (-2, 0)'",
                     },
+                    formulas: {
+                      type: Type.ARRAY,
+                      items: { type: Type.STRING },
+                      description: "Optional list of multiple formulas for comparative multi-curve graphs (e.g. ['2x + 1', '-x + 4']).",
+                    },
+                    slope: {
+                      type: Type.BOOLEAN,
+                      description: "Whether to render a slope triangle (Delta y / Delta x) displaying rate of change or velocity.",
+                    },
+                    overwrite: {
+                      type: Type.BOOLEAN,
+                      description: "Set to true to overwrite/update the existing graph on the current page instead of adding another.",
+                    },
                   },
                   required: ["formula"],
                 },
@@ -805,6 +823,14 @@ export class GeminiLiveClient {
                     label: {
                       type: Type.STRING,
                       description: "Educational formula, dimension callout, or label (e.g. 'Length = 30cm, Breadth = 15cm | Area = 450cm²')",
+                    },
+                    values: {
+                      type: Type.OBJECT,
+                      description: "Custom dimension and angle values to display on the figure (e.g. { length: '12 cm', breadth: '5 cm', hypotenuse: '13 cm', angleA: '60°' }). Use standard school units (cm, m, °), NEVER pixels.",
+                    },
+                    overwrite: {
+                      type: Type.BOOLEAN,
+                      description: "Set to true to overwrite and update the existing shape on the current page instead of adding a new one below.",
                     },
                     color: {
                       type: Type.STRING,
@@ -1308,15 +1334,15 @@ export class GeminiLiveClient {
 
   public sendBoardContext(summaryText: string): void {
     if (!summaryText?.trim()) return;
+    // CRITICAL: Block disruptive system notices from being injected as user turns that abort teacher voice generation mid-speech!
     if (summaryText.includes('[SYSTEM NOTICE:') || summaryText.includes('SYSTEM NOTICE')) {
-      this.sendTextMessage(summaryText);
       return;
     }
     const trimmed = summaryText.trim();
     if (this.lastSentBoardContextHash === trimmed) return;
     this.lastSentBoardContextHash = trimmed;
     this.sendTextMessage(
-      `[CURRENT_BOARD_STATE]\n${trimmed}\n[MANDATE: The notes and diagrams above are ALREADY VISIBLE on the student's chalkboard. Continue teaching directly from where you left off. DO NOT re-write or re-draw items already listed above. Live diagram generation remains fully available for new concepts!]`
+      `[CURRENT_BOARD_STATE]\n${trimmed}\n[MANDATE: The notes and diagrams above are ALREADY VISIBLE on the student's chalkboard. Continue teaching directly from where you left off. DO NOT re-write or re-draw items already listed above.]`
     );
   }
 

@@ -27,6 +27,7 @@ export function useGeminiLive() {
   const sharedAudioCtxRef = useRef<AudioContext | null>(null);
   const isMutedRef = useRef(false);
   const connectionStateRef = useRef<ConnectionState>("IDLE");
+  const lockedVoiceRef = useRef<GeminiVoice | null>(null);
 
   useEffect(() => {
     isMutedRef.current = isMuted;
@@ -158,7 +159,8 @@ export function useGeminiLive() {
       await streamer.start(audioCtx);
       audioStreamerRef.current = streamer;
 
-      const activeVoice = voiceOverride || selectedVoice || config.voiceName || "Leda";
+      const activeVoice = (lockedVoiceRef.current || voiceOverride || selectedVoice || config.voiceName || "Leda") as GeminiVoice;
+      lockedVoiceRef.current = activeVoice;
       if (voiceOverride && voiceOverride !== selectedVoice) {
         setSelectedVoice(voiceOverride);
       }
@@ -277,9 +279,9 @@ export function useGeminiLive() {
     audioStreamerRef.current.setMuted(nextMuted);
     setIsMuted(nextMuted);
     
+    // When muting, cleanly close open student audio stream without sending phantom turn completions
     if (nextMuted && geminiClientRef.current) {
-        geminiClientRef.current.sendAudioStreamEnd();
-        geminiClientRef.current.sendTurnComplete();
+      geminiClientRef.current.sendAudioStreamEnd();
     }
 
     setConnectionState((prev) => {

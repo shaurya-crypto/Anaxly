@@ -1175,7 +1175,7 @@ CRITICAL DIRECTIVE:
       `Student response: "${cleanAnswer}". (Student's input is displayed on the whiteboard).
 [MANDATORY SOCRATIC INSTRUCTION]:
 1. Evaluate my response warmly out loud. Explain whether it is correct, partially correct, or an affirmation. Speak in complete, articulate, well-formed sentences with proper teacherly depth (do NOT stop abruptly after just one short sentence!).
-2. If this was a check-for-understanding confirmation (e.g. "yes", "understood", "samajh gaya", "ok"), acknowledge warmly and proceed directly to the NEXT STAGE of this SAME concept (e.g. formulate the formal law with SI units, solve the step-by-step board numerical, or pose the Stage 5/6 checkpoint question). DO NOT call concept_completed yet!
+2. If this was a check-for-understanding confirmation (e.g. "yes", "understood", "samajh gaya", "ok"), acknowledge warmly and proceed directly to the NEXT STAGE of this SAME concept (e.g. formulate the formal law with SI units, solve the step-by-step board numerical, or pose the Stage 5/6 checkpoint question). DO NOT call concept_completed yet only when module's concept done!
 3. If this was an answer to a question or numerical:
    - Write the verdict and model answer on this current whiteboard page using write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>").
    - If incorrect or hesitant, break down the step and co-solve with me in [ROUGH_WORK].
@@ -1912,30 +1912,8 @@ CRITICAL DIRECTIVE:
         }
       }
 
-      // Check for [CONCEPT_DONE: ...] or [CONCEPT_DONE] or write_chalkboard(action="concept_done")
-      const doneMatches = Array.from(latest.text.matchAll(/\[(?:CONCEPT_DONE|CONCEPT_MASTERED|MASTERED)(?::\s*([^\]]*))?\]|write_chalkboard\s*\(\s*(?:action\s*=\s*)?["']?(?:concept_done|concept_mastered)["']?(?:\s*,\s*(?:content\s*=\s*)?["']?([^"'\)]*)["']?)?/gi))
-      for (const dm of doneMatches) {
-        const tag = dm[0]
-        const key = `${transcriptId}:${tag}`
-        if (!executedSceneDirectivesRef.current.has(key)) {
-          executedSceneDirectivesRef.current.add(key)
-          handleConceptDone(dm[1] || dm[2] || '')
-        }
-      }
-
-      // Check for [CONCEPT_FOCUS: ...] or write_chalkboard(action="concept_focus")
-      const focusMatches = Array.from(latest.text.matchAll(/\[CONCEPT_FOCUS:\s*([^\]]+)\]|write_chalkboard\s*\(\s*(?:action\s*=\s*)?["']?concept_focus["']?\s*,\s*(?:content\s*=\s*)?["']?([^"'\)]+)["']?/gi))
-      for (const fm of focusMatches) {
-        const tag = fm[0]
-        const key = `${transcriptId}:${tag}`
-        if (!executedSceneDirectivesRef.current.has(key)) {
-          executedSceneDirectivesRef.current.add(key)
-          handleConceptFocus(fm[1] || fm[2] || '')
-        }
-      }
-
-      // Explicit tool-calls and directives like [CONCEPT_DONE: ...] handle concept completion.
-      // Casual conversational mentions by the tutor (e.g. "moving on to explain...") MUST NOT automatically switch pages.
+      // Directives and tool calls like concept_completed handled via onChalkboardToolCall
+      // Transcript matching for [CONCEPT_DONE] is intentionally omitted to avoid premature advancement from verbal mentions.
     } else if (latest && latest.sender === 'user') {
       const userText = (latest.text || '').trim().toLowerCase()
       const transcriptId = latest.id || `user_${latest.timestamp || Date.now()}`
@@ -2267,9 +2245,6 @@ CRITICAL DIRECTIVE:
         const runFastDiagramGeneration = () => {
           chalkboardRef.current?.drawDiagramSkeleton?.(targetConcept)
           setGeneratingDiagramTitle(targetConcept)
-          sendBoardContext(
-            `[SYSTEM NOTICE: The digital chalkboard is currently generating the detailed vector diagram for "${targetConcept}" via Live Class Fast Diagram Generation. A skeleton preview placeholder is on the board. Continue explaining the intuitive analogy verbally to the student and inform them the drawing will appear in a few moments.]`
-          )
 
           const genController = new AbortController()
           const genTimer = setTimeout(() => genController.abort(), 15000)
@@ -2332,9 +2307,6 @@ CRITICAL DIRECTIVE:
                         proxyData.dataURL,
                         matchedConceptVisual?.diagram_title || img.title || targetConcept,
                         matchedConceptVisual?.what_to_make || img.description || conceptCaption
-                      )
-                      sendBoardContext(
-                        `[SYSTEM NOTICE: High-resolution real-world visual for "${targetConcept}" is now displayed on the chalkboard.]`
                       )
                       return
                     }
@@ -2783,12 +2755,6 @@ CRITICAL DIRECTIVE:
         .replace(/[^a-z0-9]/g, '')
 
     const updated = [...completedList]
-    for (let i = 0; i < nextIdx; i++) {
-      const prevC = keyConcepts[i]
-      if (prevC && !updated.some((u) => norm(u) === norm(prevC))) {
-        updated.push(prevC)
-      }
-    }
     completedConceptsRef.current = updated
     setCompletedConcepts(updated)
 
@@ -2884,10 +2850,11 @@ A clean new whiteboard page (Page ${nextIdx + 1}) has been opened with the heade
 
 CRITICAL INSTRUCTIONS:
 1. FOCUS EXCLUSIVELY on this single concept: "${nextConceptTitle}". Do NOT jump ahead or mention future concepts.
-2. FIRST TURN REQUIREMENT: Speak FIRST to introduce "${nextConceptTitle}" with an engaging real-life physical intuition hook (2-3 sentences max). YOU MUST write the intuition on the whiteboard: write_chalkboard(action="draw_note", content="Intuition: <hook>", color="botanical") AND proactively render the visual: ${nextVisualCue}.
+2. FIRST TURN REQUIREMENT: Speak FIRST to introduce "${nextConceptTitle}" with an engaging real-life physical intuition hook (2-3 sentences max) exactly like real teacher. YOU MUST write the intuition on the whiteboard: write_chalkboard(action="draw_note", content="Intuition: <hook>", color="botanical") AND proactively render the visual: ${nextVisualCue} must.
 3. PATIENCE REQUIREMENT: After asking if the student understood the intuition, STOP speaking immediately and wait for the student's answer.
 4. When student confirms, teach definition, worked example, and board checkpoint question.
-5. Once this concept is finished, call concept_completed(conceptName="${nextConceptTitle}").
+5. Once this concept is finished, call concept_completed(conceptName="${nextConceptTitle}") only then.
+6. Never move or jump to directly next 2-3 concepts if current concept done only move to just next one of current concept and according to concept add page.
 
 ${nextDossier}`
     )
@@ -2913,9 +2880,12 @@ ${nextDossier}`
         if (found >= 0) {
           targetIdx = found
         } else {
-          const num = parseInt(lower.replace(/\D/g, ''), 10)
-          if (!isNaN(num) && num > 0) {
-            targetIdx = Math.max(0, Math.min(num - 1, Math.max(0, keyConcepts.length - 1)))
+          const conceptNumMatch = lower.match(/\bconcept\s*#?\s*(\d+)\b/i)
+          if (conceptNumMatch && conceptNumMatch[1]) {
+            const num = parseInt(conceptNumMatch[1], 10)
+            if (!isNaN(num) && num > 0) {
+              targetIdx = Math.max(0, Math.min(num - 1, Math.max(0, keyConcepts.length - 1)))
+            }
           }
         }
       }
@@ -3033,26 +3003,17 @@ CRITICAL INSTRUCTIONS:
       }
     }
 
-    // ANTI-SKIPPING GUARD:
-    // During classroom flow, never skip ahead arbitrarily (e.g. from Concept 1 to Concept 4).
-    // Target can only be an earlier concept, the current concept, or at most the immediate next concept.
-    if (targetIdx > currentConceptIndexRef.current + 1) {
-      console.warn(`[Classroom] Blocked invalid forward skip from concept ${currentConceptIndexRef.current + 1} to ${targetIdx + 1}. Restricting to sequential step.`);
-      targetIdx = currentConceptIndexRef.current + 1;
+    // Concept focus: visual indicator and guidance only. NEVER jump or advance concepts automatically!
+    const targetConceptName = keyConcepts[targetIdx] || ''
+    if (targetConceptName && targetIdx !== currentConceptIndexRef.current) {
+      triggerCompanionGuidance({
+        animation: 'listening',
+        expression: 'attentive-left',
+        mood: 'thinking',
+        message: `Currently focusing on Concept ${currentConceptIndexRef.current + 1}: "${keyConcepts[currentConceptIndexRef.current]}". We will proceed to "${targetConceptName}" once current concept is mastered.`,
+        autoDismissMs: 4000,
+      })
     }
-
-    // Debounce guard: do not jump to the same page or rapid-fire jump within 1500ms
-    const now = Date.now()
-    if (
-      targetIdx === currentConceptIndexRef.current ||
-      (targetIdx === lastTargetIdxRef.current && now - lastPageJumpTimeRef.current < 1500)
-    ) {
-      return
-    }
-
-    lastPageJumpTimeRef.current = now
-    lastTargetIdxRef.current = targetIdx
-    handleConceptGoto(targetIdx + 1)
   }
 
   const handleConceptDone = (conceptName?: string) => {
@@ -3159,7 +3120,7 @@ CRITICAL INSTRUCTIONS:
           return uNorm === kNorm || uNorm.includes(kNorm) || kNorm.includes(uNorm)
         })
       )
-      if (allCompleted || updated.length >= keyConcepts.length) {
+      if (allCompleted && updated.length >= keyConcepts.length) {
         markModuleAsCompleted()
         triggerModuleCompletionAndAdvance()
       } else {
@@ -3456,9 +3417,9 @@ ${careerHook ? `- ${careerHook}\n` : ''}${favoriteHook ? `- ${favoriteHook}\n` :
       : ''
 
     const langGreeting = studentPreferredLanguage === 'Hindi'
-      ? `Namaste ${studentFirstName || 'विद्यार्थी'}! Aaj ki class mein aapka swagat hai. Aaj hum ${resolvedTitle} ko ekdum achhe se samajhne wale hain.`
+      ? `Namaste ${studentFirstName || 'विद्यार्थी'}! Aaj ham ${resolvedTitle} start karenge. `
       : studentPreferredLanguage === 'Hinglish'
-      ? `Hello ${studentFirstName || 'yaar'}! Welcome to today's class on ${resolvedTitle}! Aaj hum ekdum crystal-clear way mein ${firstConcept} seekhenge.`
+      ? `Hello ${studentFirstName || 'yaar'}! Welcome to today's class on ${resolvedTitle}! Aaj hum ${firstConcept} seekhenge Lets GO.`
       : studentPreferredLanguage === 'Spanish'
       ? `¡Hola ${studentFirstName || 'allí'}! Bienvenido a la clase de hoy sobre ${resolvedTitle}.`
       : studentPreferredLanguage === 'French'
@@ -3645,8 +3606,8 @@ CRITICAL SINGLE-CONCEPT PROGRESSION:
 ${visualRoadmap ? `\n========================================================================================\nVISUAL ROADMAP (MANDATORY UNIQUE CONCEPT VISUALS):\n========================================================================================\n${visualRoadmap}\n` : ''}${mathProgressionText ? `- ${mathProgressionText}\n` : ''}${aiContextText ? `\n========================================================================================\nAUTHENTIC TEXTBOOK TEACHING DIRECTIVES & CURRICULUM BLUEPRINT:\n========================================================================================\n${aiContextText}\n` : ''}
 RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for notes. Warm, intellectually rigorous topper tone.`
 
-    // Whiteboard 1-Concept-Per-Page: Ensure active concept page is active
-    chalkboardRef.current?.goToPage?.(currentConceptIndex)
+    // Whiteboard 1-Concept-Per-Page: Ensure active concept page is active with proper title
+    chalkboardRef.current?.goToPage?.(currentConceptIndex, currentConcept)
     setTimeout(() => {
       autoTriggerVisualForConcept(currentConceptIndexRef.current)
     }, 500)
@@ -3719,9 +3680,6 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
 
             chalkboardRef.current?.drawDiagramSkeleton?.(targetConceptTitle)
             setGeneratingDiagramTitle(targetConceptTitle)
-            sendBoardContext(
-              `[SYSTEM NOTICE: The digital chalkboard is currently generating the detailed vector diagram for "${targetConceptTitle}" via Live Class Fast Diagram Generation. A skeleton preview placeholder is on the board. Continue explaining the intuitive analogy verbally to the student and inform them the drawing will appear in a few moments.]`
-            )
 
             const genController = new AbortController()
             const genTimer = setTimeout(() => genController.abort(), 15000)
@@ -3762,9 +3720,6 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                     data.svg,
                     data.caption || explicitCaption || data.what_to_explain,
                     true
-                  )
-                  sendBoardContext(
-                    `[SYSTEM NOTICE: Vector diagram for "${targetConceptTitle}" is now live on the chalkboard! You may now direct the student's attention to the labeled parts.]`
                   )
                   if (activeModule?.id) {
                     if (!vPlan.concept_visuals) vPlan.concept_visuals = []
@@ -4219,9 +4174,6 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                           pData.dataURL,
                           targetConceptTitle || img.title,
                           explicitCaption || img.description || 'Educational Diagram'
-                        )
-                        sendBoardContext(
-                          `[SYSTEM NOTICE: High-resolution visual diagram for "${targetConceptTitle}" from online search engine is now displayed on the chalkboard.]`
                         )
                         return
                       }

@@ -17,6 +17,7 @@ import {
   ZoomIn,
   ZoomOut,
   Maximize2,
+  ExternalLink,
 } from 'lucide-react'
 import { evaluateMathExpression } from '@/lib/mathEvaluator'
 import { isLegitimateGraphTopic } from '@/lib/graphGating'
@@ -2105,6 +2106,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       height: number
       radius?: number
       label?: string
+      values?: Record<string, any>
+      overwrite?: boolean
       color?: string
       fillColor?: string
     } => {
@@ -2113,12 +2116,16 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const width = Number(input.width || input.w || input.dimension1 || input.length || 260)
         const height = Number(input.height || input.h || input.dimension2 || 140)
         const radius = input.radius !== undefined ? Number(input.radius) : undefined
+        const values = input.values || (input.params ? input.params : undefined)
+        const overwrite = Boolean(input.overwrite || input.replace || input.update)
         return {
           shape,
           width,
           height,
           radius,
           label: input.label || input.title || input.text || '',
+          values: typeof values === 'object' ? values : undefined,
+          overwrite,
           color: input.color,
           fillColor: input.fillColor || input.fill || input.bg,
         }
@@ -2137,6 +2144,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       let height = 140
       let radius: number | undefined
       let label = ''
+      let values: Record<string, any> | undefined
+      let overwrite = false
       let color: string | undefined
       let fillColor: string | undefined
 
@@ -2151,6 +2160,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       else if (lower.includes('polygon')) shape = 'polygon'
       else if (lower.includes('arrow') || lower.includes('line')) shape = 'arrow'
       else if (lower.includes('rectangle')) shape = 'rectangle'
+
+      if (lower.includes('overwrite=true') || lower.includes('replace=true')) overwrite = true
 
       const wMatch = str.match(/\b(?:width|w|length|len)[:=]\s*(\d+(?:\.\d+)?)/i)
       if (wMatch) width = parseFloat(wMatch[1])
@@ -2177,13 +2188,13 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         }
       }
 
-      return { shape, width, height, radius, label, color, fillColor }
+      return { shape, width, height, radius, label, values, overwrite, color, fillColor }
     }
 
     // Draw Geometric Shape with Complete Size, Dimension & Label Control
     const drawShape = async (shapeInput: any) => {
       if (!excalidrawAPI) return
-      const { shape, width, height, radius, label, color, fillColor } = parseShapeInput(shapeInput)
+      const { shape, width, height, radius, label, values, overwrite, color, fillColor } = parseShapeInput(shapeInput)
       const stroke = resolveChalkColor(color, INK_BOTANICAL)
       const bg = fillColor || (stroke === INK_CORAL ? INK_CORAL_SOFT : '#F0F6F2')
 
@@ -2193,6 +2204,11 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (shape === 'square') {
         w = Math.min(w, h)
         h = w
+      }
+
+      // Overwrite: remove previously drawn shape elements on current page if requested
+      if (overwrite && boardElementsRef.current && boardElementsRef.current.length > 0) {
+        boardElementsRef.current = boardElementsRef.current.filter((el: any) => el.customData?.isShapeFigure !== true)
       }
 
       await checkAutoPageOverflow(h + (label ? 60 : 30))
@@ -2214,33 +2230,41 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             fillStyle: 'solid',
             strokeWidth: 2,
             roundness: { type: 3 },
-            customData: { isRough: false },
+            customData: { isRough: false, isShapeFigure: true },
           })
 
-          skeletons.push({
-            type: 'text',
-            x: startX + Math.max(Math.floor(w / 2) - 35, 10),
-            y: startY - 18,
-            text: `w: ${w}px`,
-            fontSize: 12,
-            fontFamily: 1,
-            strokeColor: INK_MUTED,
-            customData: { isRough: false },
-          })
+          const lengthVal = values?.length || values?.width || values?.w || (label ? '' : 'Length (l)')
+          const breadthVal = values?.height || values?.breadth || values?.h || (label ? '' : 'Breadth (b)')
 
-          skeletons.push({
-            type: 'text',
-            x: startX + w + 8,
-            y: startY + Math.floor(h / 2) - 8,
-            text: `h: ${h}px`,
-            fontSize: 12,
-            fontFamily: 1,
-            strokeColor: INK_MUTED,
-            customData: { isRough: false },
-          })
+          if (lengthVal) {
+            skeletons.push({
+              type: 'text',
+              x: startX + Math.max(Math.floor(w / 2) - 45, 10),
+              y: startY - 20,
+              text: String(lengthVal),
+              fontSize: 13,
+              fontFamily: 1,
+              strokeColor: INK_CORAL,
+              customData: { isRough: false, isShapeFigure: true },
+            })
+          }
+
+          if (breadthVal) {
+            skeletons.push({
+              type: 'text',
+              x: startX + w + 8,
+              y: startY + Math.floor(h / 2) - 8,
+              text: String(breadthVal),
+              fontSize: 13,
+              fontFamily: 1,
+              strokeColor: INK_CORAL,
+              customData: { isRough: false, isShapeFigure: true },
+            })
+          }
         } else if (shape === 'circle') {
           const r = radius ? radius : Math.floor(Math.min(w, h) / 2)
           const diam = r * 2
+          const radVal = values?.radius || values?.r || (radius ? `r = ${radius}` : 'Radius (r)')
           skeletons.push(
             {
               type: 'ellipse',
@@ -2252,7 +2276,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               backgroundColor: bg,
               fillStyle: 'solid',
               strokeWidth: 2,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'ellipse',
@@ -2263,7 +2287,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               strokeColor: stroke,
               backgroundColor: stroke,
               fillStyle: 'solid',
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'line',
@@ -2272,17 +2296,17 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               points: [[0, 0], [r, 0]],
               strokeColor: INK_CORAL,
               strokeWidth: 2,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'text',
-              x: startX + r + Math.floor(r / 2) - 8,
-              y: startY + r - 16,
-              text: `r: ${r}`,
-              fontSize: 12,
+              x: startX + r + Math.floor(r / 2) - 10,
+              y: startY + r - 18,
+              text: String(radVal),
+              fontSize: 13,
               fontFamily: 1,
               strokeColor: INK_CORAL,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             }
           )
           w = diam
@@ -2298,7 +2322,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             backgroundColor: bg,
             fillStyle: 'solid',
             strokeWidth: 2,
-            customData: { isRough: false },
+            customData: { isRough: false, isShapeFigure: true },
           })
         } else if (shape === 'triangle' || shape === 'right_triangle') {
           const isRight = shape === 'right_triangle'
@@ -2316,39 +2340,80 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               strokeWidth: 2,
               backgroundColor: bg,
               fillStyle: 'solid',
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'text',
               x: startX - 14,
               y: startY + h + 2,
-              text: 'A',
+              text: values?.vertexA || 'A',
               fontSize: 13,
               fontFamily: 1,
               strokeColor: INK_CORAL,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'text',
               x: startX + w + 4,
               y: startY + h + 2,
-              text: 'B',
+              text: values?.vertexB || 'B',
               fontSize: 13,
               fontFamily: 1,
               strokeColor: INK_CORAL,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'text',
               x: isRight ? startX - 14 : startX + Math.floor(w / 2) - 6,
               y: startY - 14,
-              text: 'C',
+              text: values?.vertexC || 'C',
               fontSize: 13,
               fontFamily: 1,
               strokeColor: INK_CORAL,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             }
           )
+
+          const baseVal = values?.base || values?.b || values?.length
+          const perpVal = values?.height || values?.h || values?.perpendicular
+          const hypVal = values?.hypotenuse || values?.hyp || values?.c
+
+          if (baseVal) {
+            skeletons.push({
+              type: 'text',
+              x: startX + Math.floor(w / 2) - 20,
+              y: startY + h + 14,
+              text: String(baseVal),
+              fontSize: 12,
+              fontFamily: 1,
+              strokeColor: INK_PRIMARY,
+              customData: { isRough: false, isShapeFigure: true },
+            })
+          }
+          if (perpVal && isRight) {
+            skeletons.push({
+              type: 'text',
+              x: startX - 45,
+              y: startY + Math.floor(h / 2),
+              text: String(perpVal),
+              fontSize: 12,
+              fontFamily: 1,
+              strokeColor: INK_PRIMARY,
+              customData: { isRough: false, isShapeFigure: true },
+            })
+          }
+          if (hypVal && isRight) {
+            skeletons.push({
+              type: 'text',
+              x: startX + Math.floor(w / 2) + 8,
+              y: startY + Math.floor(h / 2) - 10,
+              text: String(hypVal),
+              fontSize: 12,
+              fontFamily: 1,
+              strokeColor: INK_CORAL,
+              customData: { isRough: false, isShapeFigure: true },
+            })
+          }
         } else if (shape === 'cylinder') {
           const r = radius ? radius : Math.floor(w / 4)
           const cylW = r * 2
@@ -5425,33 +5490,47 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             >
               {/* Video Modal Header */}
               <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#141414]">
-                <div>
+                <div className="min-w-0 pr-4">
                   <span className="text-xs uppercase tracking-widest text-emerald-400 font-mono font-semibold">[DEMONSTRATION VIDEO]</span>
-                  <h3 className="text-base font-serif font-bold text-white mt-0.5">{videoModal.title}</h3>
+                  <h3 className="text-base font-serif font-bold text-white mt-0.5 truncate">{videoModal.title}</h3>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => setVideoModal(null)}
-                  className="p-2 rounded-lg bg-white/10 hover:bg-red-500/80 text-white transition-colors cursor-pointer"
-                  title="Close (Esc)"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+                <div className="flex items-center gap-2 shrink-0">
+                  {videoModal.url && (
+                    <a
+                      href={videoModal.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-medium transition-colors"
+                      title="Open video in external player"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      <span>Open Externally</span>
+                    </a>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => setVideoModal(null)}
+                    className="p-2 rounded-lg bg-white/10 hover:bg-red-500/80 text-white transition-colors cursor-pointer"
+                    title="Close (Esc)"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
 
               {/* Video Player */}
               <div className="w-full bg-black flex items-center justify-center aspect-video max-h-[65vh]">
                 {(() => {
-                  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/
-                  const match = videoModal.url.match(regExp)
-                  const ytId = match && match[2].length === 11 ? match[2] : null
+                  const ytMatch = videoModal.url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/i)
+                  const ytId = ytMatch && ytMatch[1] ? ytMatch[1] : null
                   if (ytId) {
                     return (
                       <iframe
-                        src={`https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0`}
+                        src={`https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`}
                         title={videoModal.title}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
+                        referrerPolicy="strict-origin-when-cross-origin"
                         className="w-full h-full border-0"
                       />
                     )
@@ -5476,13 +5555,21 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               </div>
 
               {/* Video Modal Footer */}
-              {videoModal.description && (
-                <div className="px-6 py-3 bg-[#141414] border-t border-white/10 text-center">
-                  <p className="text-sm font-sans text-white/80 max-w-3xl mx-auto">
-                    {videoModal.description}
-                  </p>
-                </div>
-              )}
+              <div className="px-6 py-3 bg-[#141414] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
+                <p className="text-xs font-sans text-white/70 max-w-2xl truncate">
+                  {videoModal.description || 'Authentic scientific demonstration & laboratory animation.'}
+                </p>
+                {videoModal.url && (
+                  <a
+                    href={videoModal.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-emerald-400 hover:text-emerald-300 underline font-medium shrink-0"
+                  >
+                    Having trouble playing? Watch directly ↗
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         )}

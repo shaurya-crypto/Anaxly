@@ -160,16 +160,16 @@ export class AudioStreamer {
 
     // 1. TEACHER SPEAKING (SPEAKER SUPPRESSION & HIGH-FIDELITY DELIBERATE BARGE-IN):
     if (this.isTeacherSpeaking) {
-      // Grace period (500ms) after teacher starts speaking to ignore initial speaker transients / reflections
-      if (now - this.teacherSpeechStartTime < 500) {
+      // Grace period (600ms) after teacher starts speaking to ignore initial speaker transients / reflections
+      if (now - this.teacherSpeechStartTime < 600) {
         this.consecutiveBargeInFrames = 0;
         return;
       }
 
       // Robust conversational voice detection threshold for barge-in (intentional voice directly into mic)
-      // Normal speaking voice produces RMS 0.07-0.35. Ambient noise/bleed stays below 0.05.
-      const BARGE_IN_THRESHOLD = Math.max(0.075, this.noiseFloor * 3.0);
-      const requiredFrames = 5; // ~250-350ms of sustained intentional voice required to trigger barge-in
+      // Normal speaking voice produces RMS 0.08-0.35. Ambient noise/bleed stays below 0.06.
+      const BARGE_IN_THRESHOLD = Math.max(0.095, this.noiseFloor * 3.5);
+      const requiredFrames = 6; // ~300ms of sustained intentional voice required to trigger barge-in
 
       if (rms >= BARGE_IN_THRESHOLD) {
         this.consecutiveBargeInFrames++;
@@ -194,21 +194,21 @@ export class AudioStreamer {
 
     // 2. DYNAMIC NOISE TRACKING & VAD EVENTS:
     if (!this.wasSpeechActive) {
-      this.noiseFloor = Math.min(0.035, Math.max(0.005, this.noiseFloor * 0.96 + rms * 0.04));
+      this.noiseFloor = Math.min(0.045, Math.max(0.005, this.noiseFloor * 0.95 + rms * 0.05));
     } else if (now - this.lastSpeechTime > 3000 && rms < this.noiseFloor * 1.5) {
       // If speech was supposedly active but current energy is low, gently adapt noise floor
-      this.noiseFloor = Math.min(0.035, Math.max(0.005, this.noiseFloor * 0.98 + rms * 0.02));
+      this.noiseFloor = Math.min(0.045, Math.max(0.005, this.noiseFloor * 0.98 + rms * 0.02));
     }
 
     // Calibrated voice threshold for normal conversational speaking voice into any mic
-    // Ambient noise in typical rooms is 0.015 - 0.045 RMS; intentional speaking voice is 0.06 - 0.35 RMS.
-    const voiceThreshold = Math.max(0.052, this.noiseFloor * 2.2);
+    // Background room noise / fan drone is filtered out below 0.065 RMS; intentional speaking voice is 0.08 - 0.35 RMS.
+    const voiceThreshold = Math.max(0.065, this.noiseFloor * 2.5);
 
     if (rms >= voiceThreshold) {
       this.lastSpeechTime = now;
       this.consecutiveSpeechFrames++;
-      // Debounce: require 4 consecutive frames (~180-220ms) of vocal energy before marking speech active
-      if (!this.wasSpeechActive && this.consecutiveSpeechFrames >= 4) {
+      // Debounce: require 5 consecutive frames (~230-260ms) of vocal energy before marking speech active
+      if (!this.wasSpeechActive && this.consecutiveSpeechFrames >= 5) {
         this.wasSpeechActive = true;
         this.speechStartTime = now;
         this.onSpeechStart?.();
@@ -219,8 +219,8 @@ export class AudioStreamer {
       const SPEECH_HANGOVER_MS = 650;
       if (this.wasSpeechActive && now - this.lastSpeechTime > SPEECH_HANGOVER_MS) {
         this.wasSpeechActive = false;
-        // Trigger speech end for any genuine speech utterance (>= 120ms), including short affirmations ("yes", "ok", "got it")
-        if (this.lastSpeechTime - this.speechStartTime >= 120) {
+        // Trigger speech end for any genuine speech utterance (>= 150ms), including short affirmations ("yes", "ok", "got it")
+        if (this.lastSpeechTime - this.speechStartTime >= 150) {
           this.onSpeechEnd?.();
         }
       }
