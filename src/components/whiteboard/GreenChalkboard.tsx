@@ -5615,8 +5615,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                   if (ytId) {
                     return (
                       <div className="relative w-full h-full flex flex-col items-center justify-center bg-black">
+                        {/* Privacy-enhanced ad-free YouTube embed: youtube-nocookie, no external recommendations, zero annotations/cards, inline playback */}
                         <iframe
-                          src={`https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`}
+                          src={`https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1&enablejsapi=1`}
                           title={videoModal.title}
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           allowFullScreen
