@@ -7,7 +7,7 @@ import { ChalkDerivation, OrbitSketch, PrismSketch, SpeechDialogue } from './ill
 import { getArtwork } from '@/lib/landing-artwork'
 
 export function ProductExperience() {
-  const handsArtwork = getArtwork('handsArtwork')
+  const scholarArtwork = getArtwork('featureArtwork')
   const libraryArtwork = getArtwork('featureLibraryArtwork')
 
   const principles = [
@@ -34,17 +34,6 @@ export function ProductExperience() {
           live on the green chalkboard. There is no separate post-session notes generation — the live chalkboard
           drawings and handwritten steps themselves are preserved directly as your permanent Master Notes.
         </>
-      ),
-      // Guiding Hand Derivations Artwork Frame
-      extra: (
-        <div className="mt-5 max-w-md">
-          <ArtworkFrame
-            artwork={handsArtwork}
-            aspectRatioClass="aspect-[16/10] sm:aspect-[16/9]"
-            showCaption={true}
-            className="w-full"
-          />
-        </div>
       ),
     },
     {
@@ -93,7 +82,7 @@ export function ProductExperience() {
         {/* Master Product Editorial Layout */}
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Big Editorial Image */}
-          <div className="lg:col-span-6 flex flex-col space-y-6">
+          <div className="lg:col-span-6 flex flex-col space-y-8">
             <div className="relative">
               {/* Decorative Archival Corner accents */}
               <div className="absolute -top-2.5 -left-2.5 h-4 w-4 border-t border-l border-border-strong pointer-events-none" />
@@ -116,11 +105,35 @@ export function ProductExperience() {
                 The Socratic Principle of Education
               </p>
             </Reveal>
+
+            {/* Second artwork + session cues fill the column alongside the principles */}
+            <Reveal className="grid grid-cols-1 sm:grid-cols-5 gap-6 items-start">
+              <div className="sm:col-span-3">
+                <ArtworkFrame
+                  artwork={scholarArtwork}
+                  aspectRatioClass="aspect-[16/10]"
+                  priority={false}
+                  showCaption={false}
+                />
+              </div>
+              <ul className="sm:col-span-2 divide-y divide-border-subtle border-y border-border-subtle">
+                {[
+                  ['2–3', 'sentences per turn, then a question back to you'],
+                  ['Live', 'chalkboard steps become your Master Notes'],
+                  ['Units', 'checked on every final answer'],
+                ].map(([k, v]) => (
+                  <li key={k} className="py-3">
+                    <p className="font-serif text-xl text-ink-primary">{k}</p>
+                    <p className="mt-0.5 text-xs leading-snug text-ink-muted">{v}</p>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
           </div>
 
           {/* Right Column: Clear, Deep Description of What It Is & Why It Is Best */}
           <div className="lg:col-span-6 flex flex-col space-y-12">
-            {principles.map(({ num, title, Illustration, body, extra }) => (
+            {principles.map(({ num, title, Illustration, body }) => (
               <Reveal key={num}>
                 <div className="flex items-start gap-5">
                   <div className="min-w-0 flex-1">
@@ -133,7 +146,6 @@ export function ProductExperience() {
                   <Illustration className="h-16 w-16 sm:h-20 sm:w-20 shrink-0 text-ink-primary/70" />
                 </div>
                 <p className="mt-2.5 text-sm sm:text-base leading-relaxed text-ink-secondary">{body}</p>
-                {extra}
               </Reveal>
             ))}
           </div>
