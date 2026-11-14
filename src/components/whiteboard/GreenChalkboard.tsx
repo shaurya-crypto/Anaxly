@@ -179,7 +179,7 @@ import {
 } from './chalkboardFilter'
 export { normalizeTitle, isRedundantConceptOrMasteredText }
 
-import { wrapText, wrapTextToWidth, cleanChalkboardTypography } from './textWrapper'
+import { wrapText, wrapTextToWidth, measureBoardText, cleanChalkboardTypography } from './textWrapper'
 export { wrapText, cleanChalkboardTypography }
 
 import {
@@ -588,8 +588,34 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       return Math.max(maxY + margin, nextYRef.current)
     }
 
+    /**
+     * Excalidraw measures a text element's box when it is created; if the hand-drawn font
+     * was not loaded yet, the box is too narrow and the glyphs get clipped (e.g. "LAWS OF MOTI").
+     * Widen any free-standing text box that is narrower than its rendered text.
+     */
+    const fitClippedTextWidths = (elements: any[]): { elements: any[]; changed: boolean } => {
+      let changed = false
+      const next = elements.map((el: any) => {
+        if (!el || el.type !== 'text' || el.containerId || el.isDeleted || !el.text) return el
+        const needed = Math.ceil(
+          Math.max(...String(el.text).split('\n').map((line: string) => measureBoardText(line, el.fontSize || 16)))
+        )
+        if (needed <= (el.width || 0) + 1) return el
+        changed = true
+        return {
+          ...el,
+          width: needed,
+          version: (el.version || 1) + 1,
+          versionNonce: Math.floor(Math.random() * 2 ** 31),
+          updated: Date.now(),
+        }
+      })
+      return { elements: next, changed }
+    }
+
     // Centralized helper: synchronously updates page buffer, state, Excalidraw scene, and storage
-    const updateCurrentPageElements = (elements: any[], nextY?: number) => {
+    const updateCurrentPageElements = (rawElements: any[], nextY?: number) => {
+      const elements = fitClippedTextWidths(rawElements).elements
       boardElementsRef.current = elements
       if (typeof nextY === 'number') {
         nextYRef.current = nextY
@@ -609,6 +635,32 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         window.requestAnimationFrame(() => setActiveTyping(null))
       }
     }
+
+    useEffect(() => {
+      if (!excalidrawAPI || typeof document === 'undefined') return
+      let cancelled = false
+      const refit = () => {
+        if (cancelled) return
+        const sceneEls = excalidrawAPI.getSceneElements?.() || []
+        const { elements, changed } = fitClippedTextWidths(sceneEls as any[])
+        if (!changed) return
+        boardElementsRef.current = elements
+        const idx = currentPageIndexRef.current
+        if (pagesRef.current[idx]) pagesRef.current[idx].elements = elements
+        excalidrawAPI.updateScene({ elements })
+        persistScene(elements)
+      }
+      const timer = setTimeout(refit, 120)
+      const fonts = (document as any).fonts
+      fonts?.load?.('20px Virgil').then(refit).catch(() => {})
+      fonts?.addEventListener?.('loadingdone', refit)
+      return () => {
+        cancelled = true
+        clearTimeout(timer)
+        fonts?.removeEventListener?.('loadingdone', refit)
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [excalidrawAPI, currentPageIndex])
 
     const checkIsRedundant = (text: string): boolean =>
       isRedundantConceptOrMasteredText(text, moduleTitle, keyConcepts)
@@ -708,7 +760,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               type: 'line',
               x: startX,
               y: startY + 28,
-              points: [[0, 0], [Math.min(titleText.length * 12, 380), 0]],
+              points: [[0, 0], [Math.ceil(measureBoardText(titleText, 19)), 0]],
               strokeColor: INK_BOTANICAL,
               strokeWidth: 2,
               customData: { isRough: false, isTitle: true },
@@ -1656,7 +1708,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             type: 'line',
             x: startX,
             y: startY + 28,
-            points: [[0, 0], [Math.min(titleText.length * 12, 380), 0]],
+            points: [[0, 0], [Math.ceil(measureBoardText(titleText, 19)), 0]],
             strokeColor: underlineColor,
             strokeWidth: 2,
             customData: { isRough: false, isTitle: true },
