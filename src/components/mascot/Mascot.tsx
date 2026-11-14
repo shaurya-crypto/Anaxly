@@ -374,7 +374,7 @@ export function Mascot() {
     if (step.expression) safeExpression(step.expression)
 
     // Anchor after the smooth scroll settles
-    const timer = setTimeout(() => {
+    const place = () => {
       const rect = target.getBoundingClientRect()
       const vw = window.innerWidth
       const vh = window.innerHeight
@@ -383,18 +383,49 @@ export function Mascot() {
       const m = 8
       const clampX = (x: number) => Math.min(vw - boxW - m, Math.max(m, x))
       const clampY = (y: number) => Math.min(vh - boxH - m, Math.max(m, y))
-      const overlaps = (x: number, y: number) =>
-        !(x >= rect.right || x + boxW <= rect.left || y >= rect.bottom || y + boxH <= rect.top)
+      const hits = (r: { left: number; right: number; top: number; bottom: number }, x: number, y: number) =>
+        !(x >= r.right || x + boxW <= r.left || y >= r.bottom || y + boxH <= r.top)
+      // Other controls the bubble must not cover (e.g. "Open syllabus" next to "Resume capsule")
+      const controls = Array.from(
+        document.querySelectorAll<HTMLElement>('a[href], button, input, select, textarea, [role="button"]')
+      )
+        .filter((el) => !containerRef.current?.contains(el) && !target.contains(el))
+        .map((el) => el.getBoundingClientRect())
+        .filter((r) => r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < vh)
       const cands: Array<{ x: number; y: number; side: 'right' | 'left' | 'top' }> = [
         { x: rect.right + 16, y: rect.top - 20, side: 'right' as const },
         { x: rect.left - boxW - 16, y: rect.top - 20, side: 'left' as const },
         { x: rect.left, y: rect.bottom + m, side: 'top' as const },
         { x: rect.left, y: rect.top - boxH - m, side: 'top' as const },
-      ].map((c) => ({ ...c, x: clampX(c.x), y: clampY(c.y) }))
-      // Phones rarely have room beside the target: stay docked bottom-right
-      setAnchorCoords(vw < 640 ? null : cands.find((c) => !overlaps(c.x, c.y)) ?? null)
-    }, prefersReducedMotion ? 0 : 450)
-    return () => clearTimeout(timer)
+        { x: rect.right - boxW, y: rect.bottom + m, side: 'top' as const },
+        { x: rect.right - boxW, y: rect.top - boxH - m, side: 'top' as const },
+        // Last resorts: screen corners (bottom-right dock first)
+        { x: vw - boxW - 20, y: vh - boxH - 20, side: 'top' as const },
+        { x: vw - boxW - 20, y: 80, side: 'top' as const },
+        { x: 20, y: vh - boxH - 20, side: 'top' as const },
+      ]
+        .map((c) => ({ ...c, x: clampX(c.x), y: clampY(c.y) }))
+        // Small targets must stay visible; a large section may sit under the bubble
+        .filter((c) => rect.height > vh * 0.4 || !hits(rect, c.x, c.y))
+      // Prefer a spot clear of every control; otherwise dock bottom-right rather than cover one.
+      // Phones rarely have room beside the target: stay docked.
+      const clear = cands.find((c) => controls.every((r) => !hits(r, c.x, c.y)))
+      setAnchorCoords(vw < 640 ? null : clear ?? null)
+    }
+    // Place once scrolling has settled (smooth scroll can outlast a fixed delay)
+    let settleTimer: NodeJS.Timeout | null = null
+    const onScroll = () => {
+      if (settleTimer) clearTimeout(settleTimer)
+      settleTimer = setTimeout(place, 150)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true, capture: true })
+    onScroll()
+    const hardStop = setTimeout(place, 1500)
+    return () => {
+      window.removeEventListener('scroll', onScroll, { capture: true } as any)
+      if (settleTimer) clearTimeout(settleTimer)
+      clearTimeout(hardStop)
+    }
   }, [tour, clearHighlight, endTour, safePlay, safeExpression, prefersReducedMotion])
 
   // Auto-start the tour on first visit to a page that has one; also listen for manual start
