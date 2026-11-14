@@ -159,7 +159,7 @@ export function useGeminiLive() {
       await streamer.start(audioCtx);
       audioStreamerRef.current = streamer;
 
-      const activeVoice = (lockedVoiceRef.current || voiceOverride || selectedVoice || config.voiceName || "Leda") as GeminiVoice;
+      const activeVoice = (voiceOverride || selectedVoice || lockedVoiceRef.current || config.voiceName || "Leda") as GeminiVoice;
       lockedVoiceRef.current = activeVoice;
       if (voiceOverride && voiceOverride !== selectedVoice) {
         setSelectedVoice(voiceOverride);

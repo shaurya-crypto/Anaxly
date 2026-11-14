@@ -5614,13 +5614,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                   const ytId = ytMatch && ytMatch[1] ? ytMatch[1] : null
                   if (ytId) {
                     return (
-                      <div className="relative w-full h-full">
+                      <div className="relative w-full h-full flex flex-col items-center justify-center bg-black">
                         <iframe
                           src={`https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`}
                           title={videoModal.title}
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           allowFullScreen
-                          referrerPolicy="strict-origin-when-cross-origin"
                           className="w-full h-full border-0"
                         />
                       </div>
@@ -5651,14 +5650,17 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                   {videoModal.description || 'Authentic scientific demonstration & laboratory animation.'}
                 </p>
                 {videoModal.url && (
-                  <a
-                    href={videoModal.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs text-emerald-400 hover:text-emerald-300 underline font-medium shrink-0"
-                  >
-                    Having trouble playing? Watch directly ↗
-                  </a>
+                  <div className="flex items-center gap-3">
+                    <a
+                      href={videoModal.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1 bg-emerald-600/90 hover:bg-emerald-500 text-white rounded-lg text-xs font-medium flex items-center gap-1.5 transition-colors"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      <span>Watch Directly ↗</span>
+                    </a>
+                  </div>
                 )}
               </div>
             </div>

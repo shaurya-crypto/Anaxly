@@ -648,15 +648,11 @@ export class GeminiLiveClient {
                         "draw_exam_question",
                         "draw_flowchart",
                         "draw_table",
-                        "draw_image",
-                        "draw_video",
-                        "highlight_text",
-                        "concept_done",
                         "concept_focus",
                         "set_color",
                         "new_page",
                       ],
-                      description: "The chalkboard action to perform (e.g. draw_note, draw_step, draw_highlight_box, draw_question, draw_student_answer, draw_answer_verdict, draw_exam_question, draw_flowchart, draw_table, highlight_text, concept_done, concept_focus, set_color, new_page)",
+                      description: "The chalkboard action to perform (e.g. draw_note, draw_step, draw_highlight_box, draw_question, draw_student_answer, draw_answer_verdict, draw_exam_question, draw_flowchart, draw_table, set_color, new_page)",
                     },
                     content: {
                       type: Type.STRING,
@@ -1165,18 +1161,7 @@ export class GeminiLiveClient {
            if (isTurnDone && currentStatus !== "IN_PROGRESS") {
              this.isModelGenerating = false;
              this.callbacks.onTurnComplete();
-
-             // Safely flush queued board context update when model finishes speaking
-             if (this.pendingBoardContext) {
-               const queued = this.pendingBoardContext;
-               this.pendingBoardContext = null;
-               if (this.lastSentBoardContextHash !== queued) {
-                 this.lastSentBoardContextHash = queued;
-                 this.sendTextMessage(
-                   `[CURRENT_BOARD_STATE]\n${queued}\n[MANDATE: The notes and diagrams above are ALREADY VISIBLE on the student's chalkboard. Continue teaching directly from where you left off. DO NOT re-write or re-draw items already listed above.]`
-                 );
-               }
-             }
+             this.pendingBoardContext = null;
            }
         },
         onerror: (err: any) => {
@@ -1290,15 +1275,28 @@ export class GeminiLiveClient {
     }
   }
 
+  private lastSentBoardContextHash: string = '';
+  private latestBoardState: string = '';
+
   public sendTextMessage(text: string): void {
     if (!this.session || !text?.trim()) return;
     try {
-      console.log("[GeminiLive] Dispatching text turn to model:", text.slice(0, 100));
+      let messageToSend = text.trim();
+      if (
+        this.latestBoardState &&
+        !messageToSend.includes('[CURRENT_BOARD_STATE]') &&
+        this.lastSentBoardContextHash !== this.latestBoardState
+      ) {
+        this.lastSentBoardContextHash = this.latestBoardState;
+        messageToSend = `[CURRENT_BOARD_STATE]\n${this.latestBoardState}\n[CONTINUATION MANDATE: The notes and diagrams above are ALREADY VISIBLE on the student's chalkboard. Continue teaching directly without duplicating.]\n\n${messageToSend}`;
+      }
+
+      console.log("[GeminiLive] Dispatching text turn to model:", messageToSend.slice(0, 100));
       this.session.sendClientContent({
         turns: [
           {
             role: "user",
-            parts: [{ text: text.trim() }],
+            parts: [{ text: messageToSend }],
           },
         ],
         turnComplete: true,
@@ -1345,27 +1343,14 @@ export class GeminiLiveClient {
     }
   }
 
-  private lastSentBoardContextHash: string = '';
-
   public sendBoardContext(summaryText: string): void {
     if (!summaryText?.trim()) return;
-    // CRITICAL: Block disruptive system notices from being injected as user turns that abort teacher voice generation mid-speech!
+    // Block disruptive system notices from being injected as user turns
     if (summaryText.includes('[SYSTEM NOTICE:') || summaryText.includes('SYSTEM NOTICE')) {
       return;
     }
     const trimmed = summaryText.trim();
-    if (this.lastSentBoardContextHash === trimmed) return;
-
-    // If teacher is currently speaking, buffer the chalkboard update until turn completion so voice playback is not aborted!
-    if (this.isModelGenerating) {
-      this.pendingBoardContext = trimmed;
-      return;
-    }
-
-    this.lastSentBoardContextHash = trimmed;
-    this.sendTextMessage(
-      `[CURRENT_BOARD_STATE]\n${trimmed}\n[MANDATE: The notes and diagrams above are ALREADY VISIBLE on the student's chalkboard. Continue teaching directly from where you left off. DO NOT re-write or re-draw items already listed above.]`
-    );
+    this.latestBoardState = trimmed;
   }
 
   private base64ToInt16(base64: string): Int16Array {

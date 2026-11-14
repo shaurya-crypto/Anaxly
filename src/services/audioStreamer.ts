@@ -216,7 +216,7 @@ export class AudioStreamer {
     } else {
       this.consecutiveSpeechFrames = 0;
       // Human conversational silence hangover: 650ms after speech ends to signal turn transition instantly
-      const SPEECH_HANGOVER_MS = 650;
+      const SPEECH_HANGOVER_MS = 900;
       if (this.wasSpeechActive && now - this.lastSpeechTime > SPEECH_HANGOVER_MS) {
         this.wasSpeechActive = false;
         // Trigger speech end for any genuine speech utterance (>= 150ms), including short affirmations ("yes", "ok", "got it")
@@ -273,6 +273,15 @@ export class AudioStreamer {
 
   public setMuted(muted: boolean): void {
     this.isMuted = muted;
+    if (!muted) {
+      this.wasSpeechActive = false;
+      this.consecutiveSpeechFrames = 0;
+      this.consecutiveBargeInFrames = 0;
+      this.lastSpeechTime = Date.now();
+      if (this.audioCtx && this.audioCtx.state === 'suspended') {
+        this.audioCtx.resume().catch(() => {});
+      }
+    }
   }
 
   public getIsMuted(): boolean {

@@ -3,6 +3,11 @@
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
+import {
+  getCachedSyllabusModule,
+  getCachedSiblingModules,
+  getCachedCurriculumModuleCounts,
+} from '@/lib/cache/dataCache'
 
 export async function signOutAction() {
   const supabase = await createClient()
@@ -108,24 +113,14 @@ export async function completeCapsuleAction(payload: {
     return { error: progressError.message }
   }
 
-  // 2. Unlock & set the NEXT module in this curriculum to 'in_progress'
-  const { data: currentMod } = await supabase
-    .from('syllabus_modules')
-    .select('curriculum_id, order_index')
-    .eq('id', moduleId)
-    .single()
+  // 2. Unlock & set the NEXT module in this curriculum to 'in_progress' (using high-speed cache)
+  const currentMod = await getCachedSyllabusModule(supabase, moduleId)
 
   let nextModuleId: string | null = null
 
   if (currentMod) {
-    const { data: nextMod } = await supabase
-      .from('syllabus_modules')
-      .select('id')
-      .eq('curriculum_id', currentMod.curriculum_id)
-      .gt('order_index', currentMod.order_index)
-      .order('order_index', { ascending: true })
-      .limit(1)
-      .maybeSingle()
+    const siblingMods = await getCachedSiblingModules(supabase, currentMod.curriculum_id)
+    const nextMod = siblingMods.find((m: any) => m.order_index > (currentMod.order_index ?? 0))
 
     if (nextMod) {
       nextModuleId = nextMod.id
@@ -157,11 +152,7 @@ export async function completeCapsuleAction(payload: {
   let totalDoneChapters = profile?.completed_chapters_count || 0
   let completedChapterIds: string[] = []
   if (currentMod?.curriculum_id) {
-    const { data: siblingMods } = await supabase
-      .from('syllabus_modules')
-      .select('id')
-      .eq('curriculum_id', currentMod.curriculum_id)
-
+    const siblingMods = await getCachedSiblingModules(supabase, currentMod.curriculum_id)
     const siblingIds = (siblingMods || []).map((m: any) => m.id)
     if (siblingIds.length > 0) {
       const { data: completedSiblings } = await supabase
@@ -175,7 +166,7 @@ export async function completeCapsuleAction(payload: {
       completedIds.add(moduleId)
 
       if (completedIds.size >= siblingIds.length) {
-        // Recalculate total completed chapters
+        // Recalculate total completed chapters with cached curriculum module counts
         const { data: allUserProgress } = await supabase
           .from('user_progress')
           .select('syllabus_module_id')
@@ -185,18 +176,22 @@ export async function completeCapsuleAction(payload: {
         const allDone = new Set((allUserProgress || []).map((p: any) => p.syllabus_module_id))
         allDone.add(moduleId)
 
-        const { data: allMods } = await supabase
-          .from('syllabus_modules')
-          .select('id, curriculum_id')
-
-        const cCounts = new Map<string, number>()
+        const cCounts = await getCachedCurriculumModuleCounts(supabase)
+        const doneModuleIds = Array.from(allDone)
         const cDoneCounts = new Map<string, number>()
-        ;(allMods || []).forEach((m: any) => {
-          cCounts.set(m.curriculum_id, (cCounts.get(m.curriculum_id) || 0) + 1)
-          if (allDone.has(m.id)) {
-            cDoneCounts.set(m.curriculum_id, (cDoneCounts.get(m.curriculum_id) || 0) + 1)
-          }
-        })
+
+        if (doneModuleIds.length > 0) {
+          const { data: userDoneMods } = await supabase
+            .from('syllabus_modules')
+            .select('id, curriculum_id')
+            .in('id', doneModuleIds)
+
+          ;(userDoneMods || []).forEach((m: any) => {
+            if (m.curriculum_id) {
+              cDoneCounts.set(m.curriculum_id, (cDoneCounts.get(m.curriculum_id) || 0) + 1)
+            }
+          })
+        }
 
         let calculatedDone = 0
         const doneChapterIds: string[] = []

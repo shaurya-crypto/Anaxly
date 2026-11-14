@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/utils/supabase/server'
 import { calculateStudentProgress } from '@/lib/studentProgressService'
+import { getCachedCurriculumModuleCounts } from '@/lib/cache/dataCache'
 
 export const dynamic = 'force-dynamic'
 
@@ -268,26 +269,27 @@ export async function POST(req: NextRequest) {
             )
             allCompletedModuleIds.add(moduleId)
 
-            // Fetch all modules grouped by curriculum to calculate total completed chapters
-            const { data: allModules } = await clientToUse
-              .from('syllabus_modules')
-              .select('id, curriculum_id')
-
-            const chaptersModuleCount = new Map<string, number>()
+            // Fetch all module counts grouped by curriculum to calculate total completed chapters (cached in memory)
+            const chaptersModuleCount = await getCachedCurriculumModuleCounts(clientToUse)
             const chaptersCompletedCount = new Map<string, number>()
 
-            ;(allModules || []).forEach((m: any) => {
-              chaptersModuleCount.set(
-                m.curriculum_id,
-                (chaptersModuleCount.get(m.curriculum_id) || 0) + 1
-              )
-              if (allCompletedModuleIds.has(m.id)) {
-                chaptersCompletedCount.set(
-                  m.curriculum_id,
-                  (chaptersCompletedCount.get(m.curriculum_id) || 0) + 1
-                )
-              }
-            })
+            // Targeted query: only query curriculums of completed modules rather than scanning entire table
+            const completedList = Array.from(allCompletedModuleIds)
+            if (completedList.length > 0) {
+              const { data: completedModuleRows } = await clientToUse
+                .from('syllabus_modules')
+                .select('id, curriculum_id')
+                .in('id', completedList)
+
+              ;(completedModuleRows || []).forEach((m: any) => {
+                if (m.curriculum_id) {
+                  chaptersCompletedCount.set(
+                    m.curriculum_id,
+                    (chaptersCompletedCount.get(m.curriculum_id) || 0) + 1
+                  )
+                }
+              })
+            }
 
             let totalDone = 0
             const completedChapterIdsList: string[] = []

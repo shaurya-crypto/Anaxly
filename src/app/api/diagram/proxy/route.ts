@@ -10,14 +10,25 @@ function isAllowedUrl(urlString: string): boolean {
       host === 'localhost' ||
       host === '127.0.0.1' ||
       host === '::1' ||
+      host === '0.0.0.0' ||
       host.endsWith('.local') ||
       host.endsWith('.internal') ||
-      host.startsWith('10.') ||
-      host.startsWith('192.168.') ||
-      host.startsWith('172.16.') ||
-      host.startsWith('169.254.')
+      host.endsWith('.localhost')
     ) {
       return false
+    }
+
+    // Comprehensive RFC 1918 CIDR and loopback check
+    const ipv4Match = host.match(/^(\d+)\.(\d+)\.(\d+)\.(\d+)$/)
+    if (ipv4Match) {
+      const o1 = parseInt(ipv4Match[1], 10)
+      const o2 = parseInt(ipv4Match[2], 10)
+      if (o1 === 10) return false // 10.0.0.0/8
+      if (o1 === 127) return false // 127.0.0.0/8 loopback
+      if (o1 === 169 && o2 === 254) return false // 169.254.0.0/16 link-local
+      if (o1 === 172 && o2 >= 16 && o2 <= 31) return false // 172.16.0.0/12 private
+      if (o1 === 192 && o2 === 168) return false // 192.168.0.0/16 private
+      if (o1 === 0) return false
     }
     return true
   } catch {
@@ -32,6 +43,7 @@ const proxyCache = new Map<
 >()
 const PROXY_CACHE_TTL_MS = 12 * 60 * 60 * 1000 // 12 hours
 const MAX_PROXY_CACHE = 400
+const MAX_MEDIA_BYTES = 10 * 1024 * 1024 // 10MB payload cap
 
 // In-memory cache for upstream 404 / 410 / 504 negative responses (5-minute TTL)
 const negativeProxyCache = new Map<
@@ -40,7 +52,8 @@ const negativeProxyCache = new Map<
 >()
 const NEGATIVE_CACHE_TTL_MS = 5 * 60 * 1000 // 5 minutes
 
-const PROXY_TIMEOUT_MS = 2500 // Fail fast under 2.5s
+const PROXY_TIMEOUT_MS = 3500 // Fast timeout for images
+const PROXY_MEDIA_TIMEOUT_MS = 10000 // Relaxed timeout for audio/video media
 const USER_AGENT =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
 
@@ -77,14 +90,16 @@ export async function GET(req: NextRequest) {
       }
     }
 
+    const isMedia = !returnDataUrl || /\.(mp4|webm|ogv|mp3|ogg|wav)$/i.test(targetUrl)
+    const timeout = isMedia ? PROXY_MEDIA_TIMEOUT_MS : PROXY_TIMEOUT_MS
     const controller = new AbortController()
-    const timer = setTimeout(() => controller.abort(), PROXY_TIMEOUT_MS)
+    const timer = setTimeout(() => controller.abort(), timeout)
 
     const response = await fetch(targetUrl, {
       signal: controller.signal,
       headers: {
         'User-Agent': USER_AGENT,
-        Accept: 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+        Accept: 'image/avif,image/webp,image/apng,image/svg+xml,image/*,video/*,audio/*,*/*;q=0.8',
       },
     })
     clearTimeout(timer)
@@ -92,17 +107,26 @@ export async function GET(req: NextRequest) {
     if (!response.ok) {
       const errStatus = response.status
       const errMsg = `Upstream HTTP ${errStatus}: ${response.statusText}`
-      // Cache dead links (404, 410, 403, 502, 504) to avoid repeated upstream latency stalls
+      // Cache dead links (400, 403, 404, 410, 502, 503, 504) to avoid repeated upstream latency stalls
       if ([400, 403, 404, 410, 502, 503, 504].includes(errStatus)) {
         negativeProxyCache.set(targetUrl, { status: errStatus, error: errMsg, timestamp: Date.now() })
       }
       return NextResponse.json({ success: false, error: errMsg }, { status: errStatus })
     }
 
+    // Check upstream content-length against 10MB cap
+    const contentLength = parseInt(response.headers.get('content-length') || '0', 10)
+    if (contentLength > MAX_MEDIA_BYTES) {
+      return NextResponse.json({ success: false, error: 'Payload too large (exceeds 10MB cap)' }, { status: 413 })
+    }
+
     const contentType = response.headers.get('content-type') || 'application/octet-stream'
 
     if (returnDataUrl) {
       const arrayBuffer = await response.arrayBuffer()
+      if (arrayBuffer.byteLength > MAX_MEDIA_BYTES) {
+        return NextResponse.json({ success: false, error: 'Payload too large (exceeds 10MB cap)' }, { status: 413 })
+      }
       const base64 = Buffer.from(arrayBuffer).toString('base64')
       const dataURL = `data:${contentType};base64,${base64}`
 
@@ -127,6 +151,9 @@ export async function GET(req: NextRequest) {
 
     // Direct media proxy stream
     const mediaBuffer = await response.arrayBuffer()
+    if (mediaBuffer.byteLength > MAX_MEDIA_BYTES) {
+      return NextResponse.json({ success: false, error: 'Payload too large (exceeds 10MB cap)' }, { status: 413 })
+    }
     return new NextResponse(mediaBuffer, {
       status: 200,
       headers: {
@@ -139,7 +166,7 @@ export async function GET(req: NextRequest) {
   } catch (err: any) {
     const isTimeout = err.name === 'AbortError'
     const status = isTimeout ? 504 : 500
-    const errorMsg = isTimeout ? `Upstream fetch timed out (>${PROXY_TIMEOUT_MS}ms)` : err.message || 'Proxy error'
+    const errorMsg = isTimeout ? `Upstream fetch timed out` : err.message || 'Proxy error'
     if (isTimeout) {
       const { searchParams } = new URL(req.url)
       const targetUrl = searchParams.get('url')
@@ -187,14 +214,16 @@ export async function POST(req: NextRequest) {
       }
     }
 
+    const isMedia = !returnDataUrl || /\.(mp4|webm|ogv|mp3|ogg|wav)$/i.test(targetUrl)
+    const timeout = isMedia ? PROXY_MEDIA_TIMEOUT_MS : PROXY_TIMEOUT_MS
     const controller = new AbortController()
-    const timer = setTimeout(() => controller.abort(), PROXY_TIMEOUT_MS)
+    const timer = setTimeout(() => controller.abort(), timeout)
 
     const response = await fetch(targetUrl, {
       signal: controller.signal,
       headers: {
         'User-Agent': USER_AGENT,
-        Accept: 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+        Accept: 'image/avif,image/webp,image/apng,image/svg+xml,image/*,video/*,audio/*,*/*;q=0.8',
       },
     })
     clearTimeout(timer)
@@ -208,10 +237,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false, error: errMsg }, { status: errStatus })
     }
 
+    const contentLength = parseInt(response.headers.get('content-length') || '0', 10)
+    if (contentLength > MAX_MEDIA_BYTES) {
+      return NextResponse.json({ success: false, error: 'Payload too large (exceeds 10MB cap)' }, { status: 413 })
+    }
+
     const contentType = response.headers.get('content-type') || 'application/octet-stream'
 
     if (returnDataUrl) {
       const arrayBuffer = await response.arrayBuffer()
+      if (arrayBuffer.byteLength > MAX_MEDIA_BYTES) {
+        return NextResponse.json({ success: false, error: 'Payload too large (exceeds 10MB cap)' }, { status: 413 })
+      }
       const base64 = Buffer.from(arrayBuffer).toString('base64')
       const dataURL = `data:${contentType};base64,${base64}`
 
@@ -235,6 +272,9 @@ export async function POST(req: NextRequest) {
     }
 
     const mediaBuffer = await response.arrayBuffer()
+    if (mediaBuffer.byteLength > MAX_MEDIA_BYTES) {
+      return NextResponse.json({ success: false, error: 'Payload too large (exceeds 10MB cap)' }, { status: 413 })
+    }
     return new NextResponse(mediaBuffer, {
       status: 200,
       headers: {
@@ -247,7 +287,7 @@ export async function POST(req: NextRequest) {
   } catch (err: any) {
     const isTimeout = err.name === 'AbortError'
     const status = isTimeout ? 504 : 500
-    const errorMsg = isTimeout ? `Upstream fetch timed out (>${PROXY_TIMEOUT_MS}ms)` : err.message || 'Proxy error'
+    const errorMsg = isTimeout ? `Upstream fetch timed out` : err.message || 'Proxy error'
     return NextResponse.json(
       { success: false, error: errorMsg },
       { status }

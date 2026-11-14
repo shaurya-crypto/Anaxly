@@ -59,6 +59,12 @@ import {
   getCachedBoardNotes,
   invalidateStudentProgressCache,
 } from '@/lib/studentProgressService'
+import {
+  getCachedSyllabusModule,
+  getCachedSiblingModules,
+  getCachedNextChapterInfo,
+  getCachedCurriculumModuleCounts,
+} from '@/lib/cache/dataCache'
 
 export const dynamic = 'force-dynamic'
 
@@ -1546,15 +1552,11 @@ CRITICAL DIRECTIVE:
           setSelectedVoice(profile.preferred_teacher_voice as any)
         }
 
-        // Fetch exact syllabus module from database
-        const { data: mod, error: modErr } = await supabase
-          .from('syllabus_modules')
-          .select('*, curriculums(*)')
-          .eq('id', moduleId)
-          .single()
+        // Fetch exact syllabus module from high-speed dataCache or Supabase
+        const mod = await getCachedSyllabusModule(supabase, moduleId)
 
-        if (modErr || !mod) {
-          console.error('Failed to load module:', modErr)
+        if (!mod) {
+          console.error('Failed to load module:', moduleId)
         } else {
           setActiveModule(mod)
           setActiveCurriculum(
@@ -1591,54 +1593,23 @@ CRITICAL DIRECTIVE:
             setLessonManifest(mergedPlan)
           }
 
-          // Fetch all sibling modules in this curriculum for flexible progression
+          // Fetch all sibling modules in this curriculum for flexible progression (from cache)
           if (mod.curriculum_id) {
-            const { data: sibs } = await supabase
-              .from('syllabus_modules')
-              .select('id, title, order_index, estimated_minutes, description')
-              .eq('curriculum_id', mod.curriculum_id)
-              .order('order_index', { ascending: true })
-
+            const sibs = await getCachedSiblingModules(supabase, mod.curriculum_id)
             setSiblingModules(sibs || [])
           }
 
-          // Fetch next chapter in the same class and category (ordered sequentially)
+          // Fetch next chapter in the same class and category (ordered sequentially from cache)
           const curr = Array.isArray(mod.curriculums) ? mod.curriculums[0] : mod.curriculums
           if (curr && curr.class_level && curr.category) {
-            const currOrder = typeof curr.order_index === 'number' ? curr.order_index : 1
-            let nextQuery = supabase
-              .from('curriculums')
-              .select('id, title, order_index, category, class_level, board')
-              .eq('class_level', curr.class_level)
-              .eq('category', curr.category)
-              .gt('order_index', currOrder)
-
-            if (curr.board) {
-              nextQuery = nextQuery.eq('board', curr.board)
-            }
-
-            const { data: nextChapters } = await nextQuery
-              .order('order_index', { ascending: true })
-              .limit(1)
-
-            if (nextChapters && nextChapters.length > 0) {
-              const nextChapter = nextChapters[0]
-              const { data: nextModules } = await supabase
-                .from('syllabus_modules')
-                .select('id, title, order_index, description')
-                .eq('curriculum_id', nextChapter.id)
-                .order('order_index', { ascending: true })
-                .limit(1)
-
-              if (nextModules && nextModules.length > 0) {
-                setNextChapterInfo({
-                  chapterId: nextChapter.id,
-                  chapterTitle: nextChapter.title,
-                  firstModuleId: nextModules[0].id,
-                  firstModuleTitle: nextModules[0].title,
-                  orderIndex: nextChapter.order_index,
-                })
-              }
+            const nextInfo = await getCachedNextChapterInfo(supabase, {
+              classLevel: curr.class_level,
+              category: curr.category,
+              currentOrderIndex: typeof curr.order_index === 'number' ? curr.order_index : 1,
+              board: curr.board,
+            })
+            if (nextInfo) {
+              setNextChapterInfo(nextInfo)
             }
           }
         }
@@ -2598,7 +2569,7 @@ CRITICAL DIRECTIVE:
         }
 
         if (chapterWasCompleted) {
-          // Recalculate true completed chapters across all curriculums for accuracy
+          // Recalculate true completed chapters across all curriculums (using high-speed dataCache)
           const { data: allUserProgress } = await supabase
             .from('user_progress')
             .select('syllabus_module_id, status, completed_at')
@@ -2608,18 +2579,22 @@ CRITICAL DIRECTIVE:
           const allDone = new Set((allUserProgress || []).map((p: any) => p.syllabus_module_id))
           allDone.add(moduleId)
 
-          const { data: allMods } = await supabase
-            .from('syllabus_modules')
-            .select('id, curriculum_id')
-
-          const cCounts = new Map<string, number>()
+          const cCounts = await getCachedCurriculumModuleCounts(supabase)
+          const doneModuleIds = Array.from(allDone)
           const cDoneCounts = new Map<string, number>()
-          ;(allMods || []).forEach((m: any) => {
-            cCounts.set(m.curriculum_id, (cCounts.get(m.curriculum_id) || 0) + 1)
-            if (allDone.has(m.id)) {
-              cDoneCounts.set(m.curriculum_id, (cDoneCounts.get(m.curriculum_id) || 0) + 1)
-            }
-          })
+
+          if (doneModuleIds.length > 0) {
+            const { data: userDoneMods } = await supabase
+              .from('syllabus_modules')
+              .select('id, curriculum_id')
+              .in('id', doneModuleIds)
+
+            ;(userDoneMods || []).forEach((m: any) => {
+              if (m.curriculum_id) {
+                cDoneCounts.set(m.curriculum_id, (cDoneCounts.get(m.curriculum_id) || 0) + 1)
+              }
+            })
+          }
 
           let calculatedDone = 0
           const doneChapterIds: string[] = []
@@ -3040,7 +3015,37 @@ CRITICAL INSTRUCTIONS:
     // Sequential progression: complete the current active concept
     const currentIdx = currentConceptIndexRef.current
     let matchedIdx = currentIdx
-    if (conceptName?.trim() && !isConfirmationOrNextIntent(conceptName)) {
+
+    const isExplicitUserCommand =
+      conceptName === 'EXPLICIT_USER_ADVANCE' ||
+      isExplicitNextConceptIntent(conceptName || '')
+
+    if (!isExplicitUserCommand) {
+      // Programmatic Socratic Stage 1-4 Gating:
+      // Verify that the chalkboard has actually posed a checkpoint question or evaluated student answer on this page
+      const currentBoard = chalkboardRef.current?.getCompactBoardContext?.(currentIdx) || ''
+      const hasCheckpointQuestion =
+        currentBoard.includes('Active Question on Board') ||
+        currentBoard.includes('Stage 5') ||
+        currentBoard.includes('Stage 6') ||
+        currentBoard.includes('Verdict:') ||
+        currentBoard.includes('Student:') ||
+        lastVerdictStatusRef.current === 'correct'
+
+      if (!hasCheckpointQuestion) {
+        console.warn(`[Classroom Socratic Guard] Blocked premature concept completion for Concept ${currentIdx + 1} ("${keyConcepts[currentIdx]}"). Has not reached Stage 5/6 checkpoint question.`)
+        sendTextMessage(
+          `[PEDAGOGICAL CADENCE GUARD]: You called concept_completed before completing Concept ${currentIdx + 1}: "${keyConcepts[currentIdx]}".
+CRITICAL DIRECTIVE:
+1. You CANNOT advance or skip concepts during Stages 1 to 4!
+2. Complete the required cadence: explain the concept thoroughly in 5 to 6 articulate sentences, write the formal definition and worked numerical on the board, and pose ONE focused Stage 5 Checkpoint Question to test my understanding.
+3. Only after evaluating my answer can you call concept_completed.`
+        )
+        return
+      }
+    }
+
+    if (conceptName?.trim() && !isConfirmationOrNextIntent(conceptName) && conceptName !== 'EXPLICIT_USER_ADVANCE') {
       // STRICT: Must explicitly state "concept <num>", e.g. "Concept 2"
       // NEVER match arbitrary standalone numbers like "4", "40", "Question 4"!
       const numMatch = String(conceptName).match(/\bconcept\s*#?\s*(\d+)\b/i)
@@ -4211,14 +4216,16 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
           else if (action === 'new_page') chalkboardRef.current?.addNewPage?.()
           else if (action === 'clear_board' || action === 'erase_board') chalkboardRef.current?.clearBoard()
           else if (action === 'start_quiz' || action === 'open_quiz') {
-            markModuleAsCompleted()
             handleOpenQuiz()
           }
           else if (action === 'chapter_summary') {
             chalkboardRef.current.drawTitle('Chapter Synthesis Summary', color)
             chalkboardRef.current.drawNote(content, color)
             handleNoteRecorded(`#### Chapter Summary:\n${content}`)
-            markModuleAsCompleted(content)
+            const keyConcepts: string[] = parseKeyConcepts(activeModule?.key_concepts)
+            if (completedConceptsRef.current.length >= keyConcepts.length && keyConcepts.length > 0) {
+              markModuleAsCompleted(content)
+            }
           }
           else if (action === 'concept_focus') {
             isReviewingVerdictRef.current = false
@@ -4477,7 +4484,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                   type="button"
                   onClick={() => {
                     lastVerdictStatusRef.current = 'correct'
-                    handleConceptDone()
+                    handleConceptDone('EXPLICIT_USER_ADVANCE')
                   }}
                   className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-[var(--accent-sage)] text-white text-xs font-semibold shadow-xs hover:brightness-105 active:scale-[0.99] transition-all cursor-pointer"
                   title="Mark current concept as understood and advance to next concept"

@@ -7,6 +7,7 @@ import { isRequestAuthorizedAdmin } from '@/lib/adminAuth'
 import { checkRateLimit, getClientIp } from '@/lib/rateLimit'
 import { resilientGenerateContent, resilientJsonParse } from '@/lib/geminiResilientGenerate'
 import { generateVisualLessonPlanForCapsule } from '@/services/visualLessonPlanGenerator'
+import { invalidateCurriculumCache } from '@/lib/cache/dataCache'
 
 interface WorkedExample {
   problem: string
@@ -1209,6 +1210,8 @@ Respond with ONLY a valid JSON object matching this schema (do NOT include conve
         existingCurriculum,
       })
 
+      invalidateCurriculumCache()
+
       return NextResponse.json({
         success: true,
         mode: 'commit',
@@ -1235,6 +1238,7 @@ Respond with ONLY a valid JSON object matching this schema (do NOT include conve
         category,
         replaceExisting,
       })
+      invalidateCurriculumCache()
       return NextResponse.json(commitResult)
     }
 

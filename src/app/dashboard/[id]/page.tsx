@@ -3,6 +3,7 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { StitchDashboardView } from "@/components/dashboard/StitchDashboardView";
 import { getStudentSubscription } from "@/lib/subscription/subscriptionService";
+import { getCachedCurriculums, getCachedCurriculumModules } from "@/lib/cache/dataCache";
 
 export default async function DashboardPage({
   params,
@@ -113,39 +114,32 @@ export default async function DashboardPage({
     .map((e) => (Array.isArray(e.curriculums) ? e.curriculums[0] : e.curriculums))
     .filter(Boolean);
 
-  // 3. Fetch published curriculums (filtered by student's class_level if set, or all published)
-  let curriculumsQuery = supabase
-    .from("curriculums")
-    .select("*")
-    .eq("is_published", true);
+  // 3. Fetch published curriculums (using high-speed dataCache)
+  const allCurriculums = await getCachedCurriculums(supabase, {
+    classLevel: profile?.class_level,
+    board: profile?.board,
+    isPublished: true,
+  });
 
-  if (profile?.class_level) {
-    curriculumsQuery = curriculumsQuery.or(`class_level.eq.${profile.class_level},class_level.is.null`);
-  }
-
-  const { data: allCurriculumsData } = await curriculumsQuery
-    .order("order_index", { ascending: true })
-    .order("created_at", { ascending: true });
-  const allCurriculums = allCurriculumsData || [];
-
-  // 4. Fetch syllabus modules (guaranteeing all modules of enrolled & available curriculums are included)
+  // 4. Fetch syllabus modules (using high-speed dataCache)
   const enrolledCurriculumIds = enrolledCurriculums.map((c: any) => c.id).filter(Boolean);
   const allCurriculumIds = allCurriculums.map((c: any) => c.id).filter(Boolean);
   const targetCurriculumIds = Array.from(new Set([...enrolledCurriculumIds, ...allCurriculumIds]));
 
-  let modulesQuery = supabase
-    .from("syllabus_modules")
-    .select("id, curriculum_id, order_index, title, description, estimated_minutes, key_concepts, success_criteria, class_level, board, subtopics, chapter_notes, curriculums(*)")
-    .order("order_index", { ascending: true });
-
+  let allModules: any[] = [];
   if (targetCurriculumIds.length > 0) {
-    modulesQuery = modulesQuery.in("curriculum_id", targetCurriculumIds);
-  } else if (profile?.class_level) {
-    modulesQuery = modulesQuery.or(`class_level.eq.${profile.class_level},class_level.is.null`);
+    allModules = await getCachedCurriculumModules(supabase, targetCurriculumIds);
+  } else {
+    let fallbackModulesQuery = supabase
+      .from("syllabus_modules")
+      .select("id, curriculum_id, order_index, title, description, estimated_minutes, key_concepts, success_criteria, class_level, board, subtopics, chapter_notes, curriculums(*)")
+      .order("order_index", { ascending: true });
+    if (profile?.class_level) {
+      fallbackModulesQuery = fallbackModulesQuery.or(`class_level.eq.${profile.class_level},class_level.is.null`);
+    }
+    const { data: modulesData } = await fallbackModulesQuery;
+    allModules = modulesData || [];
   }
-
-  const { data: modulesData } = await modulesQuery;
-  const allModules = modulesData || [];
 
   // 5. Parallelized Read Execution: progress, memories, and active study plan
   const [
