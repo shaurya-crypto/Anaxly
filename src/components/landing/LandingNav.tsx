@@ -3,11 +3,11 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowRight, X } from 'lucide-react'
-import { createClient } from '@/utils/supabase/client'
+import { useAuthUserId } from '@/hooks/useAuthUserId'
 
 export function LandingNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [authenticatedUserId, setAuthenticatedUserId] = useState<string | null>(null)
+  const authenticatedUserId = useAuthUserId()
   const [isScrolled, setIsScrolled] = useState(false)
   const [hidden, setHidden] = useState(false)
 
@@ -41,20 +41,6 @@ export function LandingNav() {
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [mobileMenuOpen])
-
-  // Check auth session for returning user experience
-  useEffect(() => {
-    try {
-      const supabase = createClient()
-      supabase.auth.getUser().then(({ data }) => {
-        if (data?.user?.id) {
-          setAuthenticatedUserId(data.user.id)
-        }
-      })
-    } catch {
-      // In offline/mock mode, ignore error
-    }
-  }, [])
 
   // Close mobile menu on Escape key and prevent background scroll when open
   useEffect(() => {
