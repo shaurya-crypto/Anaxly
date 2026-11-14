@@ -263,7 +263,7 @@ function safeSaveWhiteboardStorage(key: string, data: any, isFilesStore = false)
         if (!isFilesStore) {
           localStorage.setItem(key, JSON.stringify(data))
         }
-      } catch {}
+      } catch { }
     }
   }
 }
@@ -1095,7 +1095,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!excalidrawAPI) return
       try {
         excalidrawAPI.updateScene({ appState: { zoom: { value: boardZoom }, gridModeEnabled: true } })
-      } catch {}
+      } catch { }
     }, [boardZoom, excalidrawAPI])
 
     // Helper to lock zoom to exactly 70% (0.7) and prevent zooming out/in
@@ -1112,10 +1112,10 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                   gridModeEnabled: true,
                 },
               })
-            } catch (err) {}
+            } catch (err) { }
           }, 50)
         }
-      } catch (err) {}
+      } catch (err) { }
     }, [])
 
     // Add new page when board fills or AI requests
@@ -1209,8 +1209,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                 keyConcepts && keyConcepts[newPageNum - 1]
                   ? keyConcepts[newPageNum - 1]
                   : newPageNum - 1 === targetIdx
-                  ? conceptTitle
-                  : undefined
+                    ? conceptTitle
+                    : undefined
               const initialSkeleton = createHeaderSkeleton(newPageNum, pageConcept)
               const initialElements = convertFn(initialSkeleton)
               const hasConceptTitle = Boolean(pageConcept)
@@ -1354,7 +1354,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                     if (currentFile.dataURL.startsWith('data:image/svg+xml;utf8,')) {
                       try {
                         rawSvg = decodeURIComponent(currentFile.dataURL.slice('data:image/svg+xml;utf8,'.length))
-                      } catch {}
+                      } catch { }
                     } else if (currentFile.dataURL.startsWith('data:image/svg+xml;base64,')) {
                       try {
                         const b64 = currentFile.dataURL.slice('data:image/svg+xml;base64,'.length)
@@ -1364,7 +1364,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                           bytes[i] = binary.charCodeAt(i)
                         }
                         rawSvg = new TextDecoder().decode(bytes)
-                      } catch {}
+                      } catch { }
                     }
 
                     if (rawSvg) {
@@ -1428,12 +1428,13 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                     } catch (fileErr) {
                       console.warn(`File ${currentFile.id} failed addFiles:`, fileErr)
                     }
-                  }                }
+                  }
+                }
 
                 // Resave cleaned files to localStorage so invalid SVGs are pruned
                 try {
                   safeSaveWhiteboardStorage(`${storageKey}_files`, updatedFilesStore, true)
-                } catch {}
+                } catch { }
               }
             }
           } catch (e) {
@@ -2207,7 +2208,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         try {
           const parsed = JSON.parse(str)
           return parseShapeInput(parsed)
-        } catch {}
+        } catch { }
       }
 
       let shape = 'rectangle'
@@ -3165,7 +3166,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                 const current = getCurrentElements()
                 const filtered = current.filter((el: any) => !el.id?.startsWith('hl_'))
                 updateCurrentPageElements(filtered, nextYRef.current)
-              } catch (_) {}
+              } catch (_) { }
             }, 6000)
             return true
           }
@@ -4065,8 +4066,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const captionLines = caption?.trim()
           ? wrapText(caption.trim(), cols(55))
           : resolvedCaption?.trim()
-          ? wrapText(resolvedCaption.trim(), cols(55))
-          : []
+            ? wrapText(resolvedCaption.trim(), cols(55))
+            : []
         const captionHeight = captionLines.length * 18
         const cardHeight = svgHeight + 56 + (captionLines.length > 0 ? captionHeight + 12 : 0) + 16
 
@@ -4231,7 +4232,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           let rawPayload = commaIdx !== -1 ? cleanUrl.slice(commaIdx + 1) : cleanUrl
           try {
             rawPayload = decodeURIComponent(rawPayload)
-          } catch {}
+          } catch { }
           const sanitized = sanitizeSvg(rawPayload) || rawPayload
           finalDataURL = svgToBase64DataUrl(sanitized)
           fileMimeType = 'image/svg+xml'
@@ -4318,7 +4319,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                 finalDataURL = sanitized
                 fileMimeType = 'image/png'
               }
-            } catch {}
+            } catch { }
           }
         }
         // Step 5: Relative / local URL
@@ -4391,7 +4392,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               imgWidth = Math.min(500, Math.max(300, probeImg.naturalWidth))
               imgHeight = Math.round(imgWidth * aspect)
             }
-          } catch {}
+          } catch { }
         }
 
         if (imgHeight > 340) {
@@ -4735,7 +4736,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                   vidUrl = parsed.url || parsed.video_url || '';
                   vidTitle = parsed.title || 'Demonstration';
                   vidDesc = parsed.description || parsed.caption || '';
-                } catch {}
+                } catch { }
               } else {
                 const parts = trimmed.split('|').map((s) => s.trim());
                 if (parts[0]?.startsWith('http')) {
@@ -4847,7 +4848,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             title = parsed.title || title;
             svg = parsed.svg || '';
             caption = parsed.caption || '';
-          } catch {}
+          } catch { }
         } else {
           const explicitTitle = body.match(/\btitle\s*=\s*["']([^"']*)["']/i);
           const explicitSvg = body.match(/\bsvg\s*=\s*["']([\s\S]*?)["'](?:\s*,\s*[a-zA-Z_]+\s*=|\s*$)/i);
@@ -5069,7 +5070,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                         break
                       }
                     }
-                  } catch {}
+                  } catch { }
                 }
                 if (!loaded) {
                   await drawSvgDiagram(parts[0] || 'Scientific Diagram', '', parts[1] || '')
@@ -5206,7 +5207,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       clearBoard,
       resetBoard,
       setChalkColor: (colorNameOrHex: string) => setChalkColor(colorNameOrHex),
-      setBoardColor: () => {},
+      setBoardColor: () => { },
       drawSvgDiagram: (title: string, svgMarkup: string, caption?: string, forceUpdate?: boolean) => enqueueOperation(async () => drawSvgDiagram(title, svgMarkup, caption, forceUpdate)),
       drawImage: (urlOrDataUrl: string, title?: string, caption?: string) => enqueueOperation(async () => drawImage(urlOrDataUrl, title, caption)),
       drawDiagramSkeleton,
@@ -5364,11 +5365,10 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                 <button
                   key={p.id}
                   onClick={() => switchPage(idx)}
-                  className={`px-2 py-0.5 text-[10px] font-mono rounded-md transition-all cursor-pointer ${
-                    currentPageIndex === idx
-                      ? 'bg-[#52715D] text-white font-bold shadow-xs'
-                      : 'text-[#555852] hover:bg-[#F8F6F0]'
-                  }`}
+                  className={`px-2 py-0.5 text-[10px] font-mono rounded-md transition-all cursor-pointer ${currentPageIndex === idx
+                    ? 'bg-[#52715D] text-white font-bold shadow-xs'
+                    : 'text-[#555852] hover:bg-[#F8F6F0]'
+                    }`}
                   title={`View Page ${idx + 1}`}
                 >
                   {idx + 1}
@@ -5400,11 +5400,10 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                 key={swatch.name}
                 type="button"
                 onClick={() => setChalkColor(swatch.value)}
-                className={`w-3 h-3 rounded-full transition-all cursor-pointer border ${
-                  activeChalkColor === swatch.value
-                    ? 'scale-125 ring-2 ring-[#52715D] ring-offset-1 border-white shadow-xs'
-                    : 'border-black/10 hover:scale-115'
-                }`}
+                className={`w-3 h-3 rounded-full transition-all cursor-pointer border ${activeChalkColor === swatch.value
+                  ? 'scale-125 ring-2 ring-[#52715D] ring-offset-1 border-white shadow-xs'
+                  : 'border-black/10 hover:scale-115'
+                  }`}
                 style={{ backgroundColor: swatch.value }}
                 title={swatch.title}
                 aria-label={swatch.title}
@@ -5414,7 +5413,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
           {/* Page Counter, Clear Button & Status */}
           <div className="flex items-center gap-2 sm:gap-3">
-                        <span className="text-[#52715D] font-bold text-[11px]">{currentPageIndex + 1}/{pages.length}</span>
+            <span className="text-[#52715D] font-bold text-[11px]">{currentPageIndex + 1}/{pages.length}</span>
           </div>
         </div>
 

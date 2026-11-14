@@ -33,6 +33,7 @@ import {
 } from '@/services/visualLessonPlanGenerator'
 import { VisualEventQueue, parseVisualEventFromDirective } from '@/services/visualEventProtocol'
 import { ChapterNotesModal } from '@/components/classroom/ChapterNotesModal'
+import { ClassroomFloatingChatInput } from '@/components/classroom/ClassroomFloatingChatInput'
 import { CallControls } from '@/components/CallControls'
 import { ErrorModal } from '@/components/ErrorModal'
 import { MasteryQuizModal } from '@/components/quiz/MasteryQuizModal'
@@ -4744,6 +4745,12 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
             generatingDiagramTitle={generatingDiagramTitle}
             activeHighlight={activeHighlight}
           />
+          {isCallActive && (
+            <ClassroomFloatingChatInput
+              onSendMessage={handleStudentSubmitAnswer}
+              isTeacherSpeaking={connectionState === 'TEACHER_SPEAKING'}
+            />
+          )}
         </div>
       </div>
 

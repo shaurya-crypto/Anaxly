@@ -75,7 +75,7 @@ class InMemoryTTLStore {
     if (typeof window !== 'undefined' && window.sessionStorage) {
       try {
         window.sessionStorage.removeItem(this.prefix + key)
-      } catch {}
+      } catch { }
     }
   }
 
@@ -91,7 +91,7 @@ class InMemoryTTLStore {
           }
         }
         keysToRemove.forEach((k) => window.sessionStorage.removeItem(k))
-      } catch {}
+      } catch { }
     }
   }
 
@@ -170,9 +170,7 @@ export async function getCachedSiblingModules(
   })
 }
 
-/**
- * Retrieve cached modules for multiple curriculums (for dashboard capsule roadmap)
- */
+
 export async function getCachedCurriculumModules(
   supabase: SupabaseClient<any, any, any>,
   curriculumIds: string[]
@@ -254,11 +252,11 @@ export async function getCachedCurriculumModuleCounts(
     }
 
     const counts: Record<string, number> = {}
-    ;(data || []).forEach((row: any) => {
-      if (row.curriculum_id) {
-        counts[row.curriculum_id] = (counts[row.curriculum_id] || 0) + 1
-      }
-    })
+      ; (data || []).forEach((row: any) => {
+        if (row.curriculum_id) {
+          counts[row.curriculum_id] = (counts[row.curriculum_id] || 0) + 1
+        }
+      })
     return counts
   })
 

@@ -349,6 +349,9 @@ export function useGeminiLive() {
 
   const sendTextMessage = useCallback((text: string) => {
     if (geminiClientRef.current && text?.trim()) {
+      if (audioPlayerRef.current) {
+        audioPlayerRef.current.stopAndClear();
+      }
       geminiClientRef.current.sendTextMessage(text.trim());
       addTranscript(text.trim(), "user");
     }
