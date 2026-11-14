@@ -17,7 +17,7 @@ import {
   ZoomIn,
   ZoomOut,
   Maximize2,
-  ExternalLink,
+  Loader2,
 } from 'lucide-react'
 import { evaluateMathExpression } from '@/lib/mathEvaluator'
 import { isLegitimateGraphTopic } from '@/lib/graphGating'
@@ -1027,9 +1027,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             })
             setLightboxZoom(1)
             setLightboxPan({ x: 0, y: 0 })
-          } else if (selectedEl?.customData?.isPlayableVideo && selectedEl.customData?.videoUrl) {
+          } else if (selectedEl?.customData?.isPlayableVideo) {
             setVideoModal({
-              url: selectedEl.customData.videoUrl,
+              url: selectedEl.customData.videoUrl || '',
               title: selectedEl.customData.title || 'Educational Demonstration',
               description: selectedEl.customData.description || '',
             })
@@ -1059,9 +1059,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             canvasY >= el.y &&
             canvasY <= el.y + el.height
           ) {
-            if (el.customData?.isPlayableVideo && el.customData?.videoUrl) {
+            if (el.customData?.isPlayableVideo) {
               setVideoModal({
-                url: el.customData.videoUrl,
+                url: el.customData.videoUrl || '',
                 title: el.customData.title || 'Educational Demonstration',
                 description: el.customData.description || '',
               })
@@ -4598,10 +4598,10 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             type: 'text',
             x: startX + 14,
             y: startY + 74,
-            text: url ? '[TAP/CLICK TO WATCH VIDEO DEMONSTRATION]' : '[LIVE EXPERIMENTAL DEMONSTRATION]',
+            text: '[TAP/CLICK TO WATCH VIDEO DEMONSTRATION]',
             fontSize: 11,
             fontFamily: 1,
-            strokeColor: url ? INK_CORAL : INK_MUTED,
+            strokeColor: INK_CORAL,
             customData: customPayload,
           },
         ])
@@ -5550,122 +5550,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           </div>
         )}
 
-        {/* Educational Demonstration Video Modal */}
+        {/* Educational Demonstration Video Modal (Distraction-Free, No-Ad Embed) */}
         {videoModal && (
-          <div
-            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex flex-col items-center justify-center p-4 animate-in fade-in duration-200"
-            onClick={() => setVideoModal(null)}
-          >
-            <div
-              className="relative max-w-4xl w-full bg-[#1A1A1A] rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex flex-col"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Video Modal Header */}
-              <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#141414]">
-                <div className="min-w-0 pr-4">
-                  <span className="text-xs uppercase tracking-widest text-emerald-400 font-mono font-semibold">[DEMONSTRATION VIDEO]</span>
-                  <h3 className="text-base font-serif font-bold text-white mt-0.5 truncate">{videoModal.title}</h3>
-                </div>
-                <div className="flex items-center gap-2 shrink-0">
-                  {videoModal.url && (
-                    <a
-                      href={videoModal.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-medium transition-colors"
-                      title="Open video in external player"
-                    >
-                      <ExternalLink className="w-3.5 h-3.5" />
-                      <span>Open Externally</span>
-                    </a>
-                  )}
-                  <button
-                    type="button"
-                    onClick={() => setVideoModal(null)}
-                    className="p-2 rounded-lg bg-white/10 hover:bg-red-500/80 text-white transition-colors cursor-pointer"
-                    title="Close (Esc)"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Video Player */}
-              <div className="w-full bg-black flex items-center justify-center aspect-video max-h-[65vh]">
-                {(() => {
-                  if (!videoModal.url) {
-                    const fallbackSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(videoModal.title + ' demonstration')}`
-                    return (
-                      <div className="flex flex-col items-center justify-center p-8 text-center gap-3">
-                        <p className="text-white/80 text-sm">Direct video stream not available for embedding.</p>
-                        <a
-                          href={fallbackSearchUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold rounded-lg flex items-center gap-2"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                          <span>Search YouTube for &quot;{videoModal.title}&quot;</span>
-                        </a>
-                      </div>
-                    )
-                  }
-                  const ytMatch = videoModal.url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/i)
-                  const ytId = ytMatch && ytMatch[1] ? ytMatch[1] : null
-                  if (ytId) {
-                    return (
-                      <div className="relative w-full h-full flex flex-col items-center justify-center bg-black">
-                        {/* Privacy-enhanced ad-free YouTube embed: youtube-nocookie, no external recommendations, zero annotations/cards, inline playback */}
-                        <iframe
-                          src={`https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1&enablejsapi=1`}
-                          title={videoModal.title}
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowFullScreen
-                          className="w-full h-full border-0"
-                        />
-                      </div>
-                    )
-                  }
-                  return (
-                    <video
-                      src={videoModal.url}
-                      controls
-                      autoPlay
-                      playsInline
-                      {...({ referrerPolicy: 'no-referrer' } as any)}
-                      className="w-full h-full object-contain"
-                      onError={(e) => {
-                        const target = e.currentTarget
-                        if (!target.src.includes('/api/diagram/proxy')) {
-                          target.src = `/api/diagram/proxy?url=${encodeURIComponent(videoModal.url)}`
-                        }
-                      }}
-                    />
-                  )
-                })()}
-              </div>
-
-              {/* Video Modal Footer */}
-              <div className="px-6 py-3 bg-[#141414] border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left">
-                <p className="text-xs font-sans text-white/70 max-w-2xl truncate">
-                  {videoModal.description || 'Authentic scientific demonstration & laboratory animation.'}
-                </p>
-                {videoModal.url && (
-                  <div className="flex items-center gap-3">
-                    <a
-                      href={videoModal.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3 py-1 bg-emerald-600/90 hover:bg-emerald-500 text-white rounded-lg text-xs font-medium flex items-center gap-1.5 transition-colors"
-                    >
-                      <ExternalLink className="w-3.5 h-3.5" />
-                      <span>Watch Directly ↗</span>
-                    </a>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
+          <ChalkboardVideoPlayerModal
+            modal={videoModal}
+            onClose={() => setVideoModal(null)}
+          />
         )}
       </div>
     )
@@ -5673,3 +5563,137 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 )
 
 GreenChalkboard.displayName = 'GreenChalkboard'
+
+interface ChalkboardVideoModalState {
+  url: string
+  title: string
+  description?: string
+}
+
+function extractYoutubeId(rawUrl: string): string | null {
+  if (!rawUrl) return null
+  const trimmed = rawUrl.trim()
+  if (/^[a-zA-Z0-9_-]{11}$/.test(trimmed)) return trimmed
+  const match = trimmed.match(
+    /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/)|youtube-nocookie\.com\/embed\/)([a-zA-Z0-9_-]{11})/i
+  )
+  return match && match[1] ? match[1] : null
+}
+
+function ChalkboardVideoPlayerModal({
+  modal,
+  onClose,
+}: {
+  modal: ChalkboardVideoModalState
+  onClose: () => void
+}) {
+  const [activeUrl, setActiveUrl] = useState<string>(modal.url || '')
+  const [loading, setLoading] = useState<boolean>(!modal.url)
+  const [hasError, setHasError] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (modal.url) {
+      setActiveUrl(modal.url)
+      setLoading(false)
+      return
+    }
+
+    let cancelled = false
+    setLoading(true)
+    setHasError(false)
+
+    fetch('/api/diagram/search-video', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: modal.title }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (cancelled) return
+        const foundUrl = data.videos?.[0]?.url
+        if (foundUrl) {
+          setActiveUrl(foundUrl)
+        } else {
+          setHasError(true)
+        }
+      })
+      .catch(() => {
+        if (!cancelled) setHasError(true)
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false)
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [modal.url, modal.title])
+
+  const ytId = extractYoutubeId(activeUrl)
+
+  return (
+    <div
+      className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex flex-col items-center justify-center p-4 animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      <div
+        className="relative max-w-4xl w-full bg-[#1A1A1A] rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Minimal Header */}
+        <div className="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-[#141414]">
+          <h3 className="text-sm font-sans font-semibold text-white/90 truncate pr-4">{modal.title}</h3>
+          <button
+            type="button"
+            onClick={onClose}
+            className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+            title="Close"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+
+        {/* Video Player */}
+        <div className="w-full bg-black flex items-center justify-center aspect-video max-h-[70vh]">
+          {loading ? (
+            <div className="flex items-center justify-center p-8">
+              <Loader2 className="w-8 h-8 text-emerald-400 animate-spin" />
+            </div>
+          ) : ytId ? (
+            <div className="relative w-full h-full flex flex-col items-center justify-center bg-black">
+              {/* Privacy-enhanced ad-free YouTube embed */}
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1&enablejsapi=1`}
+                title={modal.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="w-full h-full border-0"
+              />
+            </div>
+          ) : activeUrl && !hasError ? (
+            <video
+              src={activeUrl}
+              controls
+              autoPlay
+              playsInline
+              {...({ referrerPolicy: 'no-referrer' } as any)}
+              className="w-full h-full object-contain"
+              onError={(e) => {
+                const target = e.currentTarget
+                if (!target.src.includes('/api/diagram/proxy')) {
+                  target.src = `/api/diagram/proxy?url=${encodeURIComponent(activeUrl)}`
+                } else {
+                  setHasError(true)
+                }
+              }}
+            />
+          ) : (
+            <div className="flex items-center justify-center p-8 text-center text-white/50 text-xs">
+              Video demonstration unavailable.
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
