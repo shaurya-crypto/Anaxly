@@ -31,6 +31,51 @@ export function triggerCompanionGuidance(detail: CompanionGuideDetail) {
   }
 }
 
+// ---------- Step-by-step guided tours (sign-up + first app walkthrough) ----------
+export interface TourStep {
+  selector: string
+  message: string
+  animation?: string
+  expression?: string
+}
+
+interface TourDef {
+  key: string
+  match: (path: string) => boolean
+  steps: TourStep[]
+}
+
+const TOURS: TourDef[] = [
+  {
+    key: 'signup',
+    match: (p) => p.startsWith('/login'),
+    steps: [
+      { selector: '#google-signin-btn', message: "Hi, I'm Sobi! Fastest way in: tap Continue with Google and you're signed up in one click.", animation: 'excited', expression: 'joyful-wide' },
+      { selector: '#email', message: 'Prefer email? Type your email address here. No password needed.', animation: 'listening', expression: 'attentive-left' },
+      { selector: '#email-continue-btn', message: "Then tap Continue. I'll send a 6-digit code to your inbox.", animation: 'listening' },
+      { selector: '#password-signin-toggle', message: 'Already have a password? Use this link to sign in with it instead.', animation: 'curious', expression: 'curious-left' },
+    ],
+  },
+  {
+    key: 'dashboard',
+    match: (p) => /^\/dashboard\/[^/]+\/?$/.test(p),
+    steps: [
+      { selector: '#primary-resume-btn, #browse-curriculums-btn', message: 'Welcome aboard! This is where you start or resume your live class with your AI tutor.', animation: 'excited', expression: 'joyful-wide' },
+      { selector: '#top-open-syllabus-btn, #hero-open-syllabus-btn', message: 'Open your syllabus to pick any chapter from your class.', animation: 'listening' },
+      { selector: '#consistency-section', message: 'Your study rhythm lives here. Study a little each day to keep your streak going.', animation: 'happy' },
+      { selector: '#open-quiz-btn', message: 'Test yourself with a quick mastery quiz after each lesson.', animation: 'curious', expression: 'curious-left' },
+      { selector: '#enrolled-subjects-section', message: 'All your subjects are listed here. Tap one to jump in.', animation: 'listening' },
+      { selector: '#deliberate-practice-section', message: "Practice your weak spots here. That's it, you're ready to learn!", animation: 'celebrate', expression: 'joyful-wide' },
+    ],
+  },
+]
+
+const tourDoneKey = (key: string) => `anaxly_tour_done_${key}`
+
+export function startCompanionTour() {
+  if (typeof window !== 'undefined') window.dispatchEvent(new CustomEvent('companion-tour-start'))
+}
+
 const DEFAULT_TIPS = [
   "Hi! I'm your AI learning companion. Click me anytime for study tips!",
   "Tip: You can launch a live voice session anytime with Gemini 3.8 Live!",
@@ -48,6 +93,12 @@ export function Mascot() {
   const [currentMood, setCurrentMood] = useState<'normal' | 'suspicious' | 'warning' | 'celebrate' | 'thinking'>('normal')
   const [tipIndex, setTipIndex] = useState(0)
   const [isSleeping, setIsSleeping] = useState(false)
+
+  // Guided tour state
+  const [tour, setTour] = useState<{ def: TourDef; steps: TourStep[]; index: number } | null>(null)
+  const tourRef = useRef(tour)
+  tourRef.current = tour
+  const highlightedRef = useRef<HTMLElement | null>(null)
 
   // Floating coordinates when anchored next to a field or button
   const [anchorCoords, setAnchorCoords] = useState<{ x: number; y: number; side: 'right' | 'left' | 'top' } | null>(null)
@@ -142,6 +193,7 @@ export function Mascot() {
   useEffect(() => {
     if (pathname?.includes('/class/') || pathname === '/') return
     const handleCompanionGuide = (e: Event) => {
+      if (tourRef.current) return // a guided tour owns the mascot right now
       const customEvent = e as CustomEvent<CompanionGuideDetail>
       const { targetSelector, targetElementId, message, animation, expression, mood = 'normal', autoDismissMs } = customEvent.detail
 
@@ -265,8 +317,138 @@ export function Mascot() {
     return () => window.removeEventListener('mascot-react', handleGlobalReaction)
   }, [safePlay, safeExpression, resetToIdle, pathname])
 
+  // 7. Guided tour engine
+  const clearHighlight = useCallback(() => {
+    const el = highlightedRef.current
+    if (el) {
+      el.style.outline = el.dataset.tourPrevOutline || ''
+      el.style.outlineOffset = el.dataset.tourPrevOffset || ''
+      delete el.dataset.tourPrevOutline
+      delete el.dataset.tourPrevOffset
+    }
+    highlightedRef.current = null
+  }, [])
+
+  const endTour = useCallback((markDone = true) => {
+    const t = tourRef.current
+    if (t && markDone) {
+      try { localStorage.setItem(tourDoneKey(t.def.key), '1') } catch { }
+    }
+    clearHighlight()
+    setTour(null)
+    setSpeechBubbleOpen(false)
+    returnToDock()
+  }, [clearHighlight, returnToDock])
+
+  const startTour = useCallback((def: TourDef) => {
+    // Keep only steps whose target is actually on the page
+    const steps = def.steps.filter((st) => document.querySelector(st.selector))
+    if (steps.length === 0) return
+    if (autoDismissTimerRef.current) clearTimeout(autoDismissTimerRef.current)
+    setTour({ def, steps, index: 0 })
+  }, [])
+
+  // Show the current step: scroll, highlight, anchor the mascot next to the target
+  useEffect(() => {
+    if (!tour) return
+    const step = tour.steps[tour.index]
+    const target = document.querySelector<HTMLElement>(step.selector)
+    clearHighlight()
+    if (!target) {
+      // Target vanished (e.g. user moved on to the code screen) -> end quietly
+      endTour(false)
+      return
+    }
+    target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'center' })
+    target.dataset.tourPrevOutline = target.style.outline
+    target.dataset.tourPrevOffset = target.style.outlineOffset
+    target.style.outline = '3px solid var(--accent-warm, #E07A5F)'
+    target.style.outlineOffset = '4px'
+    highlightedRef.current = target
+
+    setIsSleeping(false)
+    setCurrentMood(step.animation === 'celebrate' ? 'celebrate' : 'normal')
+    setCurrentMessage(step.message)
+    setSpeechBubbleOpen(true)
+    safePlay(step.animation === 'celebrate' ? 'excited' : step.animation || 'listening')
+    if (step.expression) safeExpression(step.expression)
+
+    // Anchor after the smooth scroll settles
+    const timer = setTimeout(() => {
+      const rect = target.getBoundingClientRect()
+      const vw = window.innerWidth
+      const vh = window.innerHeight
+      const boxW = vw >= 640 ? 300 : 250
+      const boxH = vw >= 768 ? 270 : 235
+      const m = 8
+      const clampX = (x: number) => Math.min(vw - boxW - m, Math.max(m, x))
+      const clampY = (y: number) => Math.min(vh - boxH - m, Math.max(m, y))
+      const overlaps = (x: number, y: number) =>
+        !(x >= rect.right || x + boxW <= rect.left || y >= rect.bottom || y + boxH <= rect.top)
+      const cands: Array<{ x: number; y: number; side: 'right' | 'left' | 'top' }> = [
+        { x: rect.right + 16, y: rect.top - 20, side: 'right' as const },
+        { x: rect.left - boxW - 16, y: rect.top - 20, side: 'left' as const },
+        { x: rect.left, y: rect.bottom + m, side: 'top' as const },
+        { x: rect.left, y: rect.top - boxH - m, side: 'top' as const },
+      ].map((c) => ({ ...c, x: clampX(c.x), y: clampY(c.y) }))
+      // Phones rarely have room beside the target: stay docked bottom-right
+      setAnchorCoords(vw < 640 ? null : cands.find((c) => !overlaps(c.x, c.y)) ?? null)
+    }, prefersReducedMotion ? 0 : 450)
+    return () => clearTimeout(timer)
+  }, [tour, clearHighlight, endTour, safePlay, safeExpression, prefersReducedMotion])
+
+  // Auto-start the tour on first visit to a page that has one; also listen for manual start
+  useEffect(() => {
+    if (!pathname) return
+    // Navigating mid-tour: drop the old tour without marking it done
+    if (tourRef.current) {
+      clearHighlight()
+      setTour(null)
+      setAnchorCoords(null)
+    }
+    const def = TOURS.find((d) => d.match(pathname))
+    let timer: NodeJS.Timeout | null = null
+    if (def) {
+      let done = false
+      try { done = localStorage.getItem(tourDoneKey(def.key)) === '1' } catch { }
+      if (!done) timer = setTimeout(() => startTour(def), 1600)
+    }
+    const onStart = () => {
+      const d = TOURS.find((x) => x.match(window.location.pathname))
+      if (d) startTour(d)
+    }
+    window.addEventListener('companion-tour-start', onStart)
+    return () => {
+      if (timer) clearTimeout(timer)
+      window.removeEventListener('companion-tour-start', onStart)
+    }
+  }, [pathname, startTour, clearHighlight])
+
+  useEffect(() => () => clearHighlight(), [clearHighlight])
+
+  // Esc skips the tour
+  useEffect(() => {
+    if (!tour) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') endTour(true) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [tour, endTour])
+
+  const tourNext = () => {
+    if (!tour) return
+    if (tour.index >= tour.steps.length - 1) {
+      endTour(true)
+      safePlay('excited')
+    } else setTour({ ...tour, index: tour.index + 1 })
+  }
+  const tourBack = () => {
+    if (tour && tour.index > 0) setTour({ ...tour, index: tour.index - 1 })
+  }
+  const pageTour = pathname ? TOURS.find((d) => d.match(pathname)) : undefined
+
   // Click on mascot -> laughing + cycle speech tip
   const handleMascotClick = () => {
+    if (tour) return
     safePlay('laughing')
     setTipIndex((prev) => (prev + 1) % DEFAULT_TIPS.length)
     setCurrentMessage(DEFAULT_TIPS[(tipIndex + 1) % DEFAULT_TIPS.length])
@@ -312,7 +494,6 @@ export function Mascot() {
   if (
     pathname?.includes('/class/') ||
     pathname === '/' ||
-    pathname?.startsWith('/login') ||
     pathname?.startsWith('/onboarding')
   ) {
     return null
@@ -339,6 +520,7 @@ export function Mascot() {
           {/* Dismiss button to dock mascot */}
           <button
             onClick={() => {
+              if (tour) return endTour(true)
               setSpeechBubbleOpen(false)
               returnToDock()
             }}
@@ -369,6 +551,47 @@ export function Mascot() {
               </span>
             </div>
           )}
+
+          {/* Guided tour controls */}
+          {tour ? (
+            <div className="mt-3 pt-2.5 border-t border-[var(--border-subtle)] flex items-center justify-between gap-2">
+              <span className="text-[10px] font-semibold text-[#7A7C75] tabular-nums">
+                Step {tour.index + 1} of {tour.steps.length}
+              </span>
+              <div className="flex items-center gap-1.5">
+                <button
+                  onClick={() => endTour(true)}
+                  className="text-[10px] font-medium text-[#7A7C75] hover:text-[#171817] px-2 py-1 rounded-full cursor-pointer"
+                >
+                  Skip
+                </button>
+                {tour.index > 0 && (
+                  <button
+                    onClick={tourBack}
+                    className="text-[10px] font-semibold text-[#171817] border border-[var(--border-subtle)] px-2.5 py-1 rounded-full hover:bg-black/5 cursor-pointer"
+                  >
+                    Back
+                  </button>
+                )}
+                <button
+                  onClick={tourNext}
+                  className="text-[10px] font-semibold text-white bg-[#171817] px-3 py-1 rounded-full hover:opacity-90 flex items-center gap-1 cursor-pointer"
+                >
+                  {tour.index >= tour.steps.length - 1 ? 'Got it' : 'Next'}
+                  <ArrowRight className="w-3 h-3" />
+                </button>
+              </div>
+            </div>
+          ) : pageTour && currentMood === 'normal' ? (
+            <div className="mt-2.5 pt-2 border-t border-[var(--border-subtle)] flex justify-end">
+              <button
+                onClick={() => startTour(pageTour)}
+                className="text-[10px] font-semibold text-[#171817] flex items-center gap-1 hover:underline cursor-pointer"
+              >
+                <HelpCircle className="w-3 h-3" /> Show me around
+              </button>
+            </div>
+          ) : null}
 
           {/* Pointer tail */}
           <div

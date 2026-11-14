@@ -10,6 +10,7 @@ import { sendEmailCode, verifyEmailCode, loginWithPassword } from './actions'
 import { completeOnboardingAction } from '@/app/onboarding/actions'
 import { Loader2, ArrowLeft, CheckCircle2, AlertCircle, ShieldCheck } from 'lucide-react'
 import { MailSentCard } from '@/components/auth/MailSentCard'
+import { triggerCompanionGuidance } from '@/components/mascot/Mascot'
 
 interface SixDigitOtpInputProps {
   value: string
@@ -169,6 +170,28 @@ function LoginForm() {
   const [code, setCode] = useState('')
   const [password, setPassword] = useState('')
   const [step, setStep] = useState<'email' | 'otp' | 'password'>('email')
+
+  // Sobi walks the student through the next sign-up step
+  useEffect(() => {
+    if (step === 'email') return
+    const t = setTimeout(() => {
+      triggerCompanionGuidance(
+        step === 'otp'
+          ? {
+              targetElementId: 'otp-form',
+              animation: 'excited',
+              expression: 'joyful-wide',
+              message: 'Check your inbox! Type the 6-digit code here. It submits by itself once all digits are in.',
+            }
+          : {
+              targetElementId: 'password',
+              animation: 'listening',
+              message: 'Enter your email and password, then tap Sign in.',
+            }
+      )
+    }, 500)
+    return () => clearTimeout(t)
+  }, [step])
   const [isLoading, setIsLoading] = useState(false)
   const isSubmitting = isLoading // Alias for submission guard assertions
   const [errorMsg, setErrorMsg] = useState<string | null>(null)
@@ -363,6 +386,7 @@ function LoginForm() {
 
                 {/* Google Sign-in Pill Button */}
                 <button
+                  id="google-signin-btn"
                   type="button"
                   onClick={handleGoogleSignIn}
                   disabled={isLoading}
@@ -419,6 +443,7 @@ function LoginForm() {
                   </div>
 
                   <button
+                    id="email-continue-btn"
                     type="submit"
                     disabled={isSubmitting}
                     className="mt-4 flex w-full items-center justify-center rounded-2xl bg-[var(--accent-primary)] py-3.5 px-4 text-sm font-medium text-white shadow-sm transition-all hover:bg-[var(--accent-primary-hover)] active:scale-[0.99] disabled:opacity-50"
@@ -438,6 +463,7 @@ function LoginForm() {
                 {/* Optional toggle for password users */}
                 <div className="mt-6 text-center">
                   <button
+                    id="password-signin-toggle"
                     type="button"
                     onClick={() => {
                       setErrorMsg(null)
@@ -479,7 +505,7 @@ function LoginForm() {
                   <span className="font-medium text-neutral-800">{email}</span>.
                 </p>
 
-                <form onSubmit={handleVerifyCodeSubmit} className="mt-6">
+                <form id="otp-form" onSubmit={handleVerifyCodeSubmit} className="mt-6">
                   <div>
                     <div className="flex items-center justify-between mb-1.5">
                       <label
