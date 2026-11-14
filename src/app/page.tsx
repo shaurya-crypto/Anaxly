@@ -9,11 +9,14 @@ import { LearningFlow } from '@/components/landing/LearningFlow'
 import { ClosingSection } from '@/components/landing/ClosingSection'
 import { LandingFooter } from '@/components/landing/LandingFooter'
 import { SectionDivider } from '@/components/landing/SectionDivider'
+import { ScrollProgress } from '@/components/landing/ScrollProgress'
 
 export default function LandingPage() {
   return (
     <SmoothScroll>
       <div className="landing-paper-bg min-h-screen flex flex-col font-sans selection:bg-coral-soft selection:text-ink-primary">
+        <ScrollProgress />
+
         {/* SECTION A — Minimal Floating Pill Navigation */}
         <LandingNav />
 
@@ -36,7 +39,7 @@ export default function LandingPage() {
           <ClosingSection />
         </main>
 
-        {/* FOOTER — Cloud-Blended Archival Footer */}
+        {/* FOOTER — Our Monumental Anaxly Master Footer */}
         <LandingFooter />
       </div>
     </SmoothScroll>

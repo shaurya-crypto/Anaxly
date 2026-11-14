@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { BookOpen, ArrowLeft, ShieldCheck, Mail } from 'lucide-react'
+import { LandingFooter } from '@/components/landing/LandingFooter'
 
 export const metadata: Metadata = {
   title: 'Terms of Service | Anaxly',
@@ -210,19 +211,8 @@ export default function TermsOfServicePage() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="w-full border-t border-[#E8E4DC] bg-[#FAF8F4] py-8 text-center text-xs text-[#78716C]">
-        <p>&copy; {new Date().getFullYear()} Anaxly. All rights reserved.</p>
-        <div className="mt-2 flex justify-center gap-4 font-mono text-[11px]">
-          <Link href="/privacy" className="hover:text-[#1B3B2B] underline">
-            Privacy Policy
-          </Link>
-          <span>&bull;</span>
-          <Link href="/terms" className="hover:text-[#1B3B2B] underline font-bold">
-            Terms of Service
-          </Link>
-        </div>
-      </footer>
+      {/* Master Canonical Footer */}
+      <LandingFooter />
     </div>
   )
 }

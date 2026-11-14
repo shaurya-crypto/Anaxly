@@ -5,26 +5,28 @@ import Lenis from 'lenis'
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    // Only initialize smooth scroll on non-reduced-motion environments
+    // Respect system preference for reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (prefersReducedMotion) return
 
     const lenis = new Lenis({
-      duration: 1.15,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      // lerp gives a consistent glide regardless of wheel delta size
+      lerp: 0.09,
+      // let in-page nav links (#experience, #flow) glide instead of jumping
+      anchors: { offset: -80 },
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 0.95,
+      wheelMultiplier: 1.0,
       touchMultiplier: 1.5,
     })
 
-    let rafId: number
     function raf(time: number) {
       lenis.raf(time)
-      rafId = requestAnimationFrame(raf)
+      requestAnimationFrame(raf)
     }
-    rafId = requestAnimationFrame(raf)
+
+    const rafId = requestAnimationFrame(raf)
 
     return () => {
       cancelAnimationFrame(rafId)
