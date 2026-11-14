@@ -45,7 +45,7 @@ export function LandingFooter() {
               className="hover:text-stone-950 transition-colors inline-flex items-center gap-1"
             >
               <span>Twitter</span>
-              <span className="text-stone-400 font-normal text-sm" aria-hidden="true">&nearr;</span>
+              <span className="text-stone-400 font-normal text-sm" aria-hidden="true">↗</span>
             </a>
             <a
               href="https://linkedin.com"
@@ -54,7 +54,7 @@ export function LandingFooter() {
               className="hover:text-stone-950 transition-colors inline-flex items-center gap-1"
             >
               <span>LinkedIn</span>
-              <span className="text-stone-400 font-normal text-sm" aria-hidden="true">&nearr;</span>
+              <span className="text-stone-400 font-normal text-sm" aria-hidden="true">↗</span>
             </a>
           </nav>
 

@@ -8,8 +8,10 @@ import { ArrowRight } from 'lucide-react'
 import { RevealStagger, RevealItem } from './motion/Reveal'
 import { Ornament } from './illustrations'
 import { Handwriting } from './motion/Handwriting'
+import { useAuthUserId } from '@/hooks/useAuthUserId'
 
 export function ClosingSection() {
+  const authUserId = useAuthUserId()
   const boxRef = useRef<HTMLDivElement>(null)
   const reduceMotion = useReducedMotion()
   const { scrollYProgress } = useScroll({
@@ -40,7 +42,7 @@ export function ClosingSection() {
             {/* Atmospheric Cloud Texture Blending Inside Box */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
               <Image
-                src="/landing_images/hero-clouds.jpg"
+                src="/landing_images/hero-clouds-clean.jpg"
                 alt="Atmospheric clouds texture"
                 fill
                 sizes="100vw"
@@ -90,19 +92,31 @@ export function ClosingSection() {
 
               <RevealItem className="w-full sm:w-auto">
                 <div className="mt-11 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-                  <Link
-                    href="/onboarding"
-                    className="inline-flex items-center justify-center gap-2.5 rounded-full bg-ink-primary px-8 py-4 font-mono text-sm uppercase tracking-wider text-surface-white shadow-md transition-all duration-300 hover:bg-ink-secondary hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
-                  >
-                    <span>Begin Free Session</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  <Link
-                    href="/login"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-border-strong bg-surface-white/80 backdrop-blur-xs px-7 py-4 font-mono text-sm tracking-wider text-ink-primary transition-all duration-300 hover:bg-surface-white hover:border-ink-primary hover:shadow-sm"
-                  >
-                    <span>Existing student sign in</span>
-                  </Link>
+                  {authUserId ? (
+                    <Link
+                      href={`/dashboard/${authUserId}`}
+                      className="btn-aristotle-primary group inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-4 font-mono text-sm uppercase tracking-wider text-white"
+                    >
+                      <span>Continue to Dashboard</span>
+                      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+                    </Link>
+                  ) : (
+                    <>
+                      <Link
+                        href="/onboarding"
+                        className="btn-aristotle-primary group inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-4 font-mono text-sm uppercase tracking-wider text-white"
+                      >
+                        <span>Begin Free Session</span>
+                        <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+                      </Link>
+                      <Link
+                        href="/login"
+                        className="inline-flex items-center justify-center gap-2 rounded-full border border-coral-border bg-surface-white/80 backdrop-blur-xs px-7 py-4 font-mono text-sm tracking-wider text-coral-primary transition-all duration-300 hover:bg-coral-soft hover:border-coral-primary"
+                      >
+                        <span>Existing student sign in</span>
+                      </Link>
+                    </>
+                  )}
                 </div>
               </RevealItem>
             </RevealStagger>

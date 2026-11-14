@@ -654,7 +654,7 @@ function LoginForm() {
 
       {/* Right Column: Classical Arch Artwork (Desktop Only, 50% - 54%) */}
       <div className="relative hidden md:block md:w-1/2 lg:w-[54%] overflow-hidden border-l border-neutral-200/60 bg-[var(--canvas-soft)]">
-        {/* Editorial side artwork: /landing_images/hero-clouds.jpg or /landing_images/classical-arch.jpg */}
+        {/* Editorial side artwork: /landing_images/hero-clouds-clean.jpg or /landing_images/classical-arch.jpg */}
         <Image
           src="/landing_images/classical-arch.jpg"
           alt="Classical Italian arch overlooking golden sunlit hills"
