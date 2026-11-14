@@ -132,20 +132,31 @@ export function ProductExperience() {
           </div>
 
           {/* Right Column: Clear, Deep Description of What It Is & Why It Is Best */}
-          <div className="lg:col-span-6 flex flex-col space-y-12">
+          <div className="lg:col-span-6 flex flex-col divide-y divide-border-subtle border-t border-border-subtle">
             {principles.map(({ num, title, Illustration, body }) => (
-              <Reveal key={num}>
-                <div className="flex items-start gap-5">
-                  <div className="min-w-0 flex-1">
-                    <span className="font-mono text-xs uppercase tracking-wider text-ink-muted">
-                      Principle {num}
-                    </span>
-                    <h3 className="mt-1 font-serif text-2xl text-ink-primary">{title}</h3>
+              <Reveal key={num} className="group py-8 first:pt-7">
+                <div className="grid grid-cols-[auto_1fr] gap-x-5 sm:gap-x-7">
+                  {/* Editorial numeral */}
+                  <span
+                    aria-hidden="true"
+                    className="font-serif italic text-4xl sm:text-5xl leading-none text-coral-primary opacity-70 tabular-nums transition-opacity duration-300 group-hover:opacity-100"
+                  >
+                    {num}
+                  </span>
+                  <div className="min-w-0">
+                    <div className="flex items-start justify-between gap-5">
+                      <div className="min-w-0">
+                        <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted">
+                          Principle {num}
+                        </span>
+                        <h3 className="mt-1 font-serif text-xl sm:text-2xl leading-snug text-ink-primary">{title}</h3>
+                      </div>
+                      {/* Hand-drawn ink illustration that sketches itself on scroll */}
+                      <Illustration className="h-14 w-14 sm:h-16 sm:w-16 shrink-0 text-ink-primary/60 transition-colors duration-300 group-hover:text-ink-primary/85" />
+                    </div>
+                    <p className="mt-3 text-sm sm:text-[15px] leading-relaxed text-ink-secondary">{body}</p>
                   </div>
-                  {/* Hand-drawn ink illustration that sketches itself on scroll */}
-                  <Illustration className="h-16 w-16 sm:h-20 sm:w-20 shrink-0 text-ink-primary/70" />
                 </div>
-                <p className="mt-2.5 text-sm sm:text-base leading-relaxed text-ink-secondary">{body}</p>
               </Reveal>
             ))}
           </div>
