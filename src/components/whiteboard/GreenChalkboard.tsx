@@ -96,15 +96,18 @@ interface WhiteboardPage {
 export interface ActiveTypingItem {
   id: string
   actionLabel: string
-  words: string[]
-  visibleWordCount: number
+  /** Exact lines that will be committed to the board, so the overlay never re-flows on hand-off */
+  lines: string[]
+  visibleChars: number
+  totalChars: number
   canvasX: number
   canvasY: number
+  /** Horizontal offset of the text relative to canvasX (e.g. after a bullet dot) */
+  textOffsetX: number
   fontSize: number
   color: string
   bulletType?: 'dot' | 'step' | 'title' | 'box' | 'question' | 'none'
   bulletColor?: string
-  isFadingOut: boolean
 }
 
 export interface WritingPositionInfo {
@@ -176,7 +179,7 @@ import {
 } from './chalkboardFilter'
 export { normalizeTitle, isRedundantConceptOrMasteredText }
 
-import { wrapText, cleanChalkboardTypography } from './textWrapper'
+import { wrapText, wrapTextToWidth, cleanChalkboardTypography } from './textWrapper'
 export { wrapText, cleanChalkboardTypography }
 
 import {
@@ -323,6 +326,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     const containerRef = useRef<HTMLDivElement>(null)
     // Narrow screens: smaller board zoom and fewer text columns so lines fit the board width
     const [boardZoom, setBoardZoom] = useState(0.7)
+    // Usable text width inside the standard 740px callout boxes (16px padding each side), scaled for narrow screens
+    const boxInnerW = () => Math.round(708 * Math.min(1, wrapFactorRef.current + 0.08))
     const boardZoomRef = useRef(0.7)
     const wrapFactorRef = useRef(1)
     const cols = (n: number) => Math.max(24, Math.floor(n * wrapFactorRef.current))
@@ -392,53 +397,62 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
     const [activeTyping, setActiveTyping] = useState<ActiveTypingItem | null>(null)
 
+    const typingClearTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+    /**
+     * Hand-writes the exact final lines character by character at the exact board position.
+     * The overlay stays visible until the real elements are committed (see updateCurrentPageElements),
+     * so there is no blink between the animation and the permanent ink.
+     */
     const playTypingEffect = async (
       actionLabel: string,
-      text: string,
+      lines: string[],
       color: string,
       canvasX: number,
       canvasY: number,
       fontSize = 16,
       bulletType: 'dot' | 'step' | 'title' | 'box' | 'question' | 'none' = 'none',
-      bulletColor?: string
+      bulletColor?: string,
+      textOffsetX = 0
     ): Promise<void> => {
       if (typeof window === 'undefined') return
       if (window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches) return
 
-      const cleanText = text.trim()
-      const words = cleanText.split(/\s+/).filter(Boolean)
-      if (words.length === 0) return
+      const cleanLines = lines.map((l) => l.replace(/\s+$/, ''))
+      const totalChars = cleanLines.reduce((n, l) => n + l.length, 0)
+      if (totalChars === 0) return
 
+      if (typingClearTimerRef.current) clearTimeout(typingClearTimerRef.current)
       const id = Math.random().toString(36).substring(7)
       setActiveTyping({
         id,
         actionLabel,
-        words,
-        visibleWordCount: 1,
+        lines: cleanLines,
+        visibleChars: 0,
+        totalChars,
         canvasX,
         canvasY,
+        textOffsetX,
         fontSize,
         color,
         bulletType,
         bulletColor,
-        isFadingOut: false,
       })
 
-      // Smooth, natural word-by-word pacing (60-80ms per word)
-      const wordDelay = Math.max(45, Math.min(80, 850 / words.length))
-      for (let i = 2; i <= words.length; i++) {
-        await new Promise((r) => setTimeout(r, wordDelay))
-        setActiveTyping((prev) => (prev && prev.id === id ? { ...prev, visibleWordCount: i } : prev))
+      // Natural handwriting pace: ~28ms/char, whole phrase between 0.5s and 2.2s
+      const totalMs = Math.max(500, Math.min(2200, totalChars * 28))
+      const frameMs = 32
+      const steps = Math.max(1, Math.round(totalMs / frameMs))
+      for (let step = 1; step <= steps; step++) {
+        await new Promise((r) => setTimeout(r, frameMs))
+        const visible = Math.round((step / steps) * totalChars)
+        setActiveTyping((prev) => (prev && prev.id === id ? { ...prev, visibleChars: visible } : prev))
       }
 
-      // Brief hold to absorb the complete written phrase
-      await new Promise((r) => setTimeout(r, 180))
-
-      // Smooth fade-out into the permanent chalkboard canvas
-      setActiveTyping((prev) => (prev && prev.id === id ? { ...prev, isFadingOut: true } : prev))
-      await new Promise((r) => setTimeout(r, 280))
-
-      setActiveTyping((prev) => (prev && prev.id === id ? null : prev))
+      // Safety net: if the caller fails before committing, never leave the overlay stuck
+      typingClearTimerRef.current = setTimeout(() => {
+        setActiveTyping((prev) => (prev && prev.id === id ? null : prev))
+      }, 1500)
     }
 
 
@@ -590,6 +604,10 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       excalidrawAPI?.updateScene({ elements })
       persistScene(elements)
       notifyPositionChange()
+      // Remove the handwriting overlay on the next frame, once the canvas has painted the real text
+      if (typeof window !== 'undefined') {
+        window.requestAnimationFrame(() => setActiveTyping(null))
+      }
     }
 
     const checkIsRedundant = (text: string): boolean =>
@@ -1621,7 +1639,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const titleColor = resolveChalkColor(color, INK_PRIMARY)
         const underlineColor = color ? titleColor : INK_BOTANICAL
 
-        await playTypingEffect('Topic', titleText, titleColor, startX, startY, 19, 'none')
+        await playTypingEffect('Topic', [titleText], titleColor, startX, startY, 19, 'none')
 
         const elements = convertFn([
           {
@@ -1676,7 +1694,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const noteColor = resolveChalkColor(color, activeChalkColorRef.current)
         const bulletColor = color ? noteColor : INK_BOTANICAL
 
-        await playTypingEffect('Note', clean, noteColor, startX, startY, 16, 'dot', bulletColor)
+        await playTypingEffect('Note', lines, noteColor, startX, startY, 16, 'dot', bulletColor, 16)
 
         const elements = convertToExcalidrawElements([
           {
@@ -1732,14 +1750,15 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         nextYRef.current = Math.max(nextYRef.current, startY + totalH + 16)
         const stepColor = resolveChalkColor(color, INK_SECONDARY)
 
-        await playTypingEffect('Step', clean, stepColor, startX, startY, 15, 'step')
+        const stepLines = lines.map((l, i) => (i === 0 ? `->  ${l}` : `    ${l}`))
+        await playTypingEffect('Step', stepLines, stepColor, startX, startY, 15, 'none')
 
         const elements = convertToExcalidrawElements([
           {
             type: 'text',
             x: startX,
             y: startY,
-            text: lines.map((l, i) => (i === 0 ? `->  ${l}` : `    ${l}`)).join('\n'),
+            text: stepLines.join('\n'),
             fontSize: 15,
             fontFamily: 1,
             strokeColor: stepColor,
@@ -1766,7 +1785,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       const clean = cleanChalkboardTypography(raw.trim())
       if (checkIsRedundant(clean)) return
       if (shouldSkipDuplicate('draw_highlight_box', clean)) return
-      const lines = wrapText(clean, cols(60))
+      const lines = wrapTextToWidth(clean, 16, boxInnerW())
       const boxWidth = 740
       const lineHeight = 22
       const textHeight = Math.max(1, lines.length) * lineHeight
@@ -1825,7 +1844,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!raw?.trim()) return
       const clean = cleanChalkboardTypography(raw.trim())
       if (shouldSkipDuplicate('draw_question', clean)) return
-      const lines = wrapText(clean, cols(64))
+      const lines = wrapTextToWidth(clean, 15, boxInnerW())
       const lineHeight = 22
       const paddingTop = 28
       const textHeight = Math.max(1, lines.length) * lineHeight
@@ -1911,7 +1930,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       }
       lastDrawnStudentAnswerRef.current = { text: clean, time: Date.now() }
 
-      const lines = wrapText(`"${clean}"`, cols(64))
+      const lines = wrapTextToWidth(`"${clean}"`, 14, boxInnerW())
       const lineHeight = 20
       const paddingTop = 26
       const textHeight = Math.max(1, lines.length) * lineHeight
@@ -1980,7 +1999,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         isCorrect === true ||
         /^(correct|spot on|perfect|exactly|well done|excellent|right|yes)\b/i.test(clean) ||
         /\b(correct|spot on|perfect|well done)\b/i.test(clean)
-      const lines = wrapText(clean, cols(64))
+      const lines = wrapTextToWidth(clean, 14, boxInnerW())
       const lineHeight = 20
       const paddingTop = 26
       const textHeight = Math.max(1, lines.length) * lineHeight
@@ -2067,13 +2086,13 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         aText = cleanChalkboardTypography(parts.slice(1).join(' | ').replace(/^answer:\s*/i, ''))
       }
 
-      const qLines = wrapText(qText, cols(60))
+      const qLines = wrapTextToWidth(qText, 15, boxInnerW())
       const qLineHeight = 22
       const qTextHeight = qLines.length * qLineHeight
       let aLines: string[] = []
       let aTextHeight = 0
       if (aText) {
-        aLines = wrapText(aText, cols(58))
+        aLines = wrapTextToWidth(aText, 14, boxInnerW())
         aTextHeight = aLines.length * 20
       }
 
@@ -4201,7 +4220,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
       if (shouldSkipDuplicate('draw_image', `${resolvedTitle}:${cleanUrl}`)) return
 
-      await checkAutoPageOverflow(320)
+      await checkAutoPageOverflow(440)
       try {
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 60
@@ -4378,6 +4397,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           }
         }
 
+        // Contain-fit inside the card's image matte, preserving the true aspect ratio (never stretched)
+        const MEDIA_INNER_W = 528
+        const IMG_MAX_W = MEDIA_INNER_W - 24
+        const IMG_MAX_H = 300
+        let naturalW = imgWidth
+        let naturalH = imgHeight
         if (typeof window !== 'undefined') {
           try {
             const probeImg = new window.Image()
@@ -4388,19 +4413,14 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               setTimeout(resolve, 600)
             })
             if (probeImg.naturalWidth && probeImg.naturalHeight) {
-              const aspect = probeImg.naturalHeight / probeImg.naturalWidth
-              imgWidth = Math.min(500, Math.max(300, probeImg.naturalWidth))
-              imgHeight = Math.round(imgWidth * aspect)
+              naturalW = probeImg.naturalWidth
+              naturalH = probeImg.naturalHeight
             }
           } catch { }
         }
-
-        if (imgHeight > 340) {
-          const ratio = 340 / imgHeight
-          imgHeight = 340
-          imgWidth = Math.round(imgWidth * ratio)
-        }
-        if (imgHeight < 160) imgHeight = 160
+        const fitScale = Math.min(IMG_MAX_W / naturalW, IMG_MAX_H / naturalH)
+        imgWidth = Math.max(40, Math.round(naturalW * fitScale))
+        imgHeight = Math.max(40, Math.round(naturalH * fitScale))
 
         const fileId = `img_${Date.now()}_${Math.random().toString(36).substring(2, 8)}` as any
         const safeDataURL = sanitizeBase64DataUrl(finalDataURL) || svgToBase64DataUrl(createFallbackImageSvg(resolvedTitle, cleanUrl))
@@ -4434,13 +4454,17 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           }
         }
 
-        const cardWidth = Math.max(imgWidth + 32, 440)
-        const captionLines = resolvedCaption
-          ? wrapText(resolvedCaption, cols(55))
-          : []
-        const captionHeight = captionLines.length * 18
-        const zoomHintHeight = 22
-        const cardHeight = imgHeight + 56 + (captionLines.length > 0 ? captionHeight + 10 : 0) + zoomHintHeight + 16
+        const CARD_W = MEDIA_INNER_W + 32
+        const titleLines = wrapTextToWidth(resolvedTitle, 15, MEDIA_INNER_W, 2)
+        const captionLines = resolvedCaption ? wrapTextToWidth(resolvedCaption, 12, MEDIA_INNER_W, 3) : []
+        const titleTop = startY + 30
+        const titleH = Math.max(1, titleLines.length) * 19
+        const matteY = titleTop + titleH + 10
+        const matteH = imgHeight + 24
+        const captionY = matteY + matteH + 10
+        const captionH = captionLines.length * 16
+        const footerY = captionY + (captionLines.length ? captionH + 8 : 0)
+        const cardHeight = footerY - startY + 30
 
         const current = getCurrentElements()
         const customPayload = {
@@ -4458,12 +4482,13 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             type: 'rectangle',
             x: startX,
             y: startY,
-            width: cardWidth,
+            width: CARD_W,
             height: cardHeight,
-            strokeColor: '#CBD5E1',
+            strokeColor: '#E2DED3',
             backgroundColor: '#FFFFFF',
             fillStyle: 'solid',
-            strokeWidth: 1.5,
+            strokeWidth: 1,
+            roughness: 0,
             roundness: { type: 3 },
             customData: customPayload,
           },
@@ -4471,16 +4496,40 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             type: 'text',
             x: startX + 16,
             y: startY + 12,
-            text: `[IMAGE]: ${resolvedTitle.toUpperCase()}`,
-            fontSize: 14,
+            text: 'FIGURE',
+            fontSize: 11,
             fontFamily: 1,
-            strokeColor: '#0F172A',
+            strokeColor: INK_BOTANICAL,
+            customData: customPayload,
+          },
+          {
+            type: 'text',
+            x: startX + 16,
+            y: titleTop,
+            text: titleLines.join('\n') || 'Educational Image',
+            fontSize: 15,
+            fontFamily: 1,
+            strokeColor: INK_PRIMARY,
+            customData: customPayload,
+          },
+          {
+            type: 'rectangle',
+            x: startX + 16,
+            y: matteY,
+            width: MEDIA_INNER_W,
+            height: matteH,
+            strokeColor: 'transparent',
+            backgroundColor: '#F6F4EE',
+            fillStyle: 'solid',
+            strokeWidth: 1,
+            roughness: 0,
+            roundness: { type: 3 },
             customData: customPayload,
           },
           {
             type: 'image',
-            x: startX + 16,
-            y: startY + 44,
+            x: startX + 16 + Math.round((MEDIA_INNER_W - imgWidth) / 2),
+            y: matteY + 12,
             width: imgWidth,
             height: imgHeight,
             fileId,
@@ -4489,29 +4538,27 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           },
         ]
 
-        let nextOffsetY = startY + 44 + imgHeight + 10
         if (captionLines.length > 0) {
           elementsToInsert.push({
             type: 'text',
             x: startX + 16,
-            y: nextOffsetY,
+            y: captionY,
             text: captionLines.join('\n'),
             fontSize: 12,
             fontFamily: 1,
             strokeColor: INK_SECONDARY,
             customData: customPayload,
           })
-          nextOffsetY += captionHeight + 6
         }
 
         elementsToInsert.push({
           type: 'text',
           x: startX + 16,
-          y: nextOffsetY,
-          text: '[TAP/CLICK TO EXPAND HIGH-RES VIEW]',
+          y: footerY,
+          text: 'Tap to view full size',
           fontSize: 11,
           fontFamily: 1,
-          strokeColor: '#52715D',
+          strokeColor: '#8A8577',
           customData: customPayload,
         })
 
@@ -4547,69 +4594,139 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         }
       }
 
-      await checkAutoPageOverflow(140)
+      await checkAutoPageOverflow(160)
       try {
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
-        const startX = 70
+        const startX = 60
         const startY = getDynamicNextY(16)
         const customPayload = {
           isRough: false,
           isPlayableVideo: true,
+          isVideoCard: true,
           videoUrl: resolvedUrl,
+          videoTitle: title.trim(),
           title: title.trim(),
           description: description?.trim() || '',
           mimeType: resolvedMime,
         }
+
+        const CARD_W = 560
+        const THUMB_W = 168
+        const THUMB_H = 96
+        const textX = startX + 16 + THUMB_W + 18
+        const textW = CARD_W - (textX - startX) - 16
+        const titleLines = wrapTextToWidth(title.trim(), 15, textW, 2)
+        const descText = description?.trim() || `A short visual demonstration of ${title.trim()}.`
+        const descLines = wrapTextToWidth(descText, 12, textW, 2)
+        const titleY = startY + 32
+        const descY = titleY + titleLines.length * 19 + 6
+        const footerY = descY + descLines.length * 16 + 8
+        const cardHeight = Math.max(16 + THUMB_H + 16, footerY - startY + 28)
+        const thumbX = startX + 16
+        const thumbY = startY + Math.round((cardHeight - THUMB_H) / 2)
+        const playR = 18
+        const playCx = thumbX + THUMB_W / 2
+        const playCy = thumbY + THUMB_H / 2
 
         const elements = convertToExcalidrawElements([
           {
             type: 'rectangle',
             x: startX,
             y: startY,
-            width: 420,
-            height: 105,
-            strokeColor: INK_CORAL,
-            backgroundColor: '#FFF8F6',
+            width: CARD_W,
+            height: cardHeight,
+            strokeColor: '#E2DED3',
+            backgroundColor: '#FFFFFF',
             fillStyle: 'solid',
-            strokeWidth: 1.5,
+            strokeWidth: 1,
+            roughness: 0,
             roundness: { type: 3 },
             customData: customPayload,
           },
           {
+            type: 'rectangle',
+            x: thumbX,
+            y: thumbY,
+            width: THUMB_W,
+            height: THUMB_H,
+            strokeColor: '#1E2228',
+            backgroundColor: '#1E2228',
+            fillStyle: 'solid',
+            strokeWidth: 1,
+            roughness: 0,
+            roundness: { type: 3 },
+            customData: customPayload,
+          },
+          {
+            type: 'ellipse',
+            x: playCx - playR,
+            y: playCy - playR,
+            width: playR * 2,
+            height: playR * 2,
+            strokeColor: '#FFFFFF',
+            backgroundColor: '#FFFFFF',
+            fillStyle: 'solid',
+            strokeWidth: 1,
+            roughness: 0,
+            customData: customPayload,
+          },
+          {
+            type: 'line',
+            x: playCx - 5,
+            y: playCy - 8,
+            points: [[0, 0], [0, 16], [13, 8], [0, 0]],
+            strokeColor: INK_CORAL,
+            backgroundColor: INK_CORAL,
+            fillStyle: 'solid',
+            strokeWidth: 1,
+            roughness: 0,
+            customData: customPayload,
+          },
+          {
             type: 'text',
-            x: startX + 14,
-            y: startY + 12,
-            text: `[DEMONSTRATION VIDEO]: ${title.toUpperCase()}`,
-            fontSize: 13,
+            x: textX,
+            y: startY + 14,
+            text: 'VIDEO DEMONSTRATION',
+            fontSize: 11,
             fontFamily: 1,
             strokeColor: INK_CORAL,
             customData: customPayload,
           },
           {
             type: 'text',
-            x: startX + 14,
-            y: startY + 38,
-            text: description || `Visual experimental proof demonstration on ${title}.`,
-            fontSize: 13,
+            x: textX,
+            y: titleY,
+            text: titleLines.join('\n'),
+            fontSize: 15,
             fontFamily: 1,
             strokeColor: INK_PRIMARY,
             customData: customPayload,
           },
           {
             type: 'text',
-            x: startX + 14,
-            y: startY + 74,
-            text: '[TAP/CLICK TO WATCH VIDEO DEMONSTRATION]',
+            x: textX,
+            y: descY,
+            text: descLines.join('\n'),
+            fontSize: 12,
+            fontFamily: 1,
+            strokeColor: INK_SECONDARY,
+            customData: customPayload,
+          },
+          {
+            type: 'text',
+            x: textX,
+            y: footerY,
+            text: 'Tap to play',
             fontSize: 11,
             fontFamily: 1,
-            strokeColor: INK_CORAL,
+            strokeColor: '#8A8577',
             customData: customPayload,
           },
         ])
 
         const current = getCurrentElements()
         const merged = [...current, ...elements]
-        updateCurrentPageElements(merged, startY + 125)
+        updateCurrentPageElements(merged, startY + cardHeight + 20)
         onNoteRecorded?.(`[Video Demo]: ${title}`)
       } catch (err) {
         console.error('drawVideoCard error:', err)
@@ -5251,90 +5368,67 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             UIOptions={EXCALIDRAW_UI_OPTIONS}
           />
 
-          {/* Exact Board-Font Word-by-Word Typing & Smooth Fade-Out Chalk Overlay */}
-          {activeTyping && (
-            <div
-              key={activeTyping.id}
-              style={{
-                position: 'absolute',
-                left: `${((activeTyping.canvasX || 60) + (excalidrawAPIRef.current?.getAppState?.()?.scrollX || 0)) * boardZoom}px`,
-                top: `${((activeTyping.canvasY || 100) + (excalidrawAPIRef.current?.getAppState?.()?.scrollY || 0)) * boardZoom}px`,
-                transform: `scale(${boardZoom})`,
-                transformOrigin: 'top left',
-                zIndex: 25,
-                maxWidth: `min(840px, ${Math.max(160, ((containerRef.current?.clientWidth || 840) - ((activeTyping.canvasX || 60) + (excalidrawAPIRef.current?.getAppState?.()?.scrollX || 0)) * boardZoom - 12) / boardZoom)}px)`,
-                pointerEvents: 'none',
-                fontFamily: 'Excalifont, Virgil, Xiaolai, "Segoe UI Emoji", sans-serif',
-                fontSize: `${activeTyping.fontSize}px`,
-                lineHeight: 1.38,
-                color: activeTyping.color,
-                opacity: activeTyping.isFadingOut ? 0 : 1,
-                transition: 'opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1)',
-              }}
-              className="select-none flex items-start"
-            >
-              {/* Optional Dot Bullet matching board ellipse */}
-              {activeTyping.bulletType === 'dot' && (
-                <span
-                  style={{
-                    display: 'inline-block',
-                    width: '8px',
-                    height: '8px',
-                    borderRadius: '50%',
-                    backgroundColor: activeTyping.bulletColor || activeTyping.color,
-                    marginTop: '8px',
-                    marginRight: '12px',
-                    flexShrink: 0,
-                  }}
-                />
-              )}
-
-              {/* Optional Step Arrow matching board derivation */}
-              {activeTyping.bulletType === 'step' && (
-                <span
-                  style={{
-                    display: 'inline-block',
-                    marginRight: '8px',
-                    color: activeTyping.color,
-                    fontWeight: 'bold',
-                  }}
-                >
-                  -&gt;
-                </span>
-              )}
-
-              {/* Words typed word-by-word with exact board font & size */}
-              <div className="flex-1 whitespace-pre-wrap leading-relaxed">
-                {activeTyping.words.slice(0, activeTyping.visibleWordCount).map((word, wIdx) => (
-                  <span
-                    key={`${activeTyping.id}-${wIdx}`}
-                    style={{
-                      display: 'inline-block',
-                      marginRight: '0.28em',
-                      animation: 'chalkWordFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                    }}
-                  >
-                    {word}
-                  </span>
-                ))}
-
-                {/* Chalk typing cursor / blinking caret */}
-                {!activeTyping.isFadingOut && (
+          {/* Handwriting overlay: same font, size, line-height and line breaks as the committed board text */}
+          {activeTyping && (() => {
+            const appState = excalidrawAPIRef.current?.getAppState?.()
+            const zoom = appState?.zoom?.value || boardZoom
+            const scrollX = appState?.scrollX || 0
+            const scrollY = appState?.scrollY || 0
+            let remaining = activeTyping.visibleChars
+            let caretPlaced = false
+            return (
+              <div
+                key={activeTyping.id}
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  left: `${(activeTyping.canvasX + scrollX) * zoom}px`,
+                  top: `${(activeTyping.canvasY + scrollY) * zoom}px`,
+                  transform: `scale(${zoom})`,
+                  transformOrigin: 'top left',
+                  zIndex: 25,
+                  pointerEvents: 'none',
+                  fontFamily: 'Virgil, Excalifont, Xiaolai, "Segoe UI Emoji", sans-serif',
+                  fontSize: `${activeTyping.fontSize}px`,
+                  lineHeight: 1.25,
+                  color: activeTyping.color,
+                  whiteSpace: 'pre',
+                }}
+                className="select-none"
+              >
+                {activeTyping.bulletType === 'dot' && (
                   <span
                     style={{
-                      display: 'inline-block',
-                      width: '2px',
-                      height: `${activeTyping.fontSize * 0.9}px`,
-                      marginLeft: '2px',
-                      backgroundColor: activeTyping.color,
-                      verticalAlign: 'middle',
+                      position: 'absolute',
+                      left: 0,
+                      top: 6,
+                      width: 8,
+                      height: 8,
+                      borderRadius: '50%',
+                      backgroundColor: activeTyping.bulletColor || activeTyping.color,
+                      animation: 'chalkWordFadeIn 0.2s ease-out both',
                     }}
-                    className="animate-pulse"
                   />
                 )}
+                <div style={{ marginLeft: activeTyping.textOffsetX }}>
+                  {activeTyping.lines.map((line, idx) => {
+                    const shown = line.slice(0, Math.max(0, remaining))
+                    remaining -= line.length
+                    const showCaret = !caretPlaced && (remaining < 0 || idx === activeTyping.lines.length - 1)
+                    if (showCaret) caretPlaced = true
+                    return (
+                      <div key={idx} style={{ minHeight: '1.25em' }}>
+                        {shown}
+                        {showCaret && activeTyping.visibleChars < activeTyping.totalChars && (
+                          <span className="chalk-caret" style={{ backgroundColor: activeTyping.color }} />
+                        )}
+                      </div>
+                    )
+                  })}
+                </div>
               </div>
-            </div>
-          )}
+            )
+          })()}
         </div>
 
         {/* Floating Top-Right Whiteboard Controls: Clear Board Action */}
@@ -5420,7 +5514,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         {/* Full-Screen Scientific Visual Lightbox Modal */}
         {lightboxImage && (
           <div
-            className="fixed inset-0 z-[100] flex flex-col bg-black/85 backdrop-blur-md animate-fadeIn"
+            className="fixed inset-0 z-[100] flex flex-col bg-[#0D0E10]/92 backdrop-blur-md animate-fadeIn"
             onClick={(e) => {
               if (e.target === e.currentTarget) {
                 setLightboxImage(null)
@@ -5430,12 +5524,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             }}
           >
             {/* Lightbox Header Bar */}
-            <div className="flex items-center justify-between px-6 py-4 bg-black/40 border-b border-white/10 text-white">
-              <div className="flex items-center gap-3">
-                <span className="px-2.5 py-1 rounded bg-[#52715D] text-xs font-semibold uppercase tracking-wider text-white">
-                  High-Res Visual
+            <div className="flex items-center justify-between gap-4 px-4 sm:px-6 py-3.5 border-b border-white/[0.08] text-white">
+              <div className="min-w-0 flex flex-col">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#9DB8A5]">
+                  Figure
                 </span>
-                <h3 className="text-base font-serif font-medium text-white/95">
+                <h3 className="text-[15px] font-serif font-medium text-white/95 truncate">
                   {lightboxImage.title}
                 </h3>
               </div>
@@ -5533,15 +5627,15 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                       target.src = `/api/diagram/proxy?url=${encodeURIComponent(lightboxImage.url)}`
                     }
                   }}
-                  className="max-w-[85vw] max-h-[75vh] object-contain rounded-lg shadow-2xl border border-white/10 pointer-events-none"
+                  className="max-w-[85vw] max-h-[75vh] object-contain rounded-xl bg-white p-3 shadow-[0_24px_80px_rgba(0,0,0,0.55)] pointer-events-none"
                 />
               </div>
             </div>
 
             {/* Lightbox Footer Note */}
             {lightboxImage.caption && (
-              <div className="px-6 py-3 bg-black/60 border-t border-white/10 text-center">
-                <p className="text-sm font-sans text-white/80 max-w-3xl mx-auto">
+              <div className="px-6 py-4 border-t border-white/[0.08] text-center">
+                <p className="text-[13px] leading-relaxed font-serif italic text-white/70 max-w-3xl mx-auto">
                   {lightboxImage.caption}
                 </p>
               </div>
@@ -5636,12 +5730,15 @@ function ChalkboardVideoPlayerModal({
       onClick={onClose}
     >
       <div
-        className="relative max-w-4xl w-full bg-[#1A1A1A] rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex flex-col"
+        className="relative max-w-4xl w-full bg-[#121316] rounded-2xl overflow-hidden ring-1 ring-white/[0.08] shadow-[0_24px_80px_rgba(0,0,0,0.6)] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Minimal Header */}
-        <div className="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-[#141414]">
-          <h3 className="text-sm font-sans font-semibold text-white/90 truncate pr-4">{modal.title}</h3>
+        <div className="flex items-center justify-between gap-4 px-5 py-3.5 border-b border-white/[0.08]">
+          <div className="min-w-0 flex flex-col">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#E8A48C]">Video demonstration</span>
+            <h3 className="text-[15px] font-serif font-medium text-white/95 truncate">{modal.title}</h3>
+          </div>
           <button
             type="button"
             onClick={onClose}
@@ -5692,6 +5789,12 @@ function ChalkboardVideoPlayerModal({
             </div>
           )}
         </div>
+
+        {modal.description && (
+          <p className="px-5 py-3.5 text-[13px] leading-relaxed text-white/60 border-t border-white/[0.08]">
+            {modal.description}
+          </p>
+        )}
       </div>
     </div>
   )

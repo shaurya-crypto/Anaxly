@@ -551,3 +551,17 @@ html.lenis, html.lenis body {
 .animate-scholastic-shimmer {
   animation: scholasticShimmer 1.8s infinite ease-in-out;
 }
+
+/* Handwriting caret for the chalkboard write-on overlay */
+.chalk-caret {
+  display: inline-block;
+  width: 2px;
+  height: 0.95em;
+  margin-left: 2px;
+  vertical-align: -0.12em;
+  border-radius: 1px;
+  animation: chalkCaretBlink 0.9s steps(2, start) infinite;
+}
+@keyframes chalkCaretBlink {
+  to { visibility: hidden; }
+}
