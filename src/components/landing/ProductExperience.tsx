@@ -3,7 +3,7 @@
 import React from 'react'
 import { ArtworkFrame } from './ArtworkFrame'
 import { Reveal } from './motion/Reveal'
-import { ChalkDerivation, OrbitSketch, PrismSketch, SpeechDialogue } from './illustrations'
+import { ChalkDerivation, OrbitSketch, PrismSketch, QuillNotes, SpeechDialogue } from './illustrations'
 import { getArtwork } from '@/lib/landing-artwork'
 
 export function ProductExperience() {
@@ -128,6 +128,20 @@ export function ProductExperience() {
                   </li>
                 ))}
               </ul>
+            </Reveal>
+
+            {/* Ink sketch card: what the student keeps after every lesson */}
+            <Reveal className="relative flex items-center gap-6 rounded-2xl border border-border-subtle bg-white/40 px-6 py-5">
+              <QuillNotes className="h-24 w-24 sm:h-28 sm:w-28 shrink-0 text-ink-primary/70" />
+              <div className="min-w-0">
+                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted">Your Master Notes</p>
+                <p className="mt-1.5 font-serif text-lg leading-snug text-ink-primary">
+                  Every derivation written on the board is kept, page by page.
+                </p>
+                <p className="mt-1 text-xs leading-relaxed text-ink-muted">
+                  Revisit any lesson exactly as it was taught.
+                </p>
+              </div>
             </Reveal>
           </div>
 
