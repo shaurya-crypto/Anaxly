@@ -48,6 +48,8 @@ export class GeminiLiveClient {
   private avatarConfig?: LiveAvatarConfig;
   private executedToolCallIds = new Set<string>();
   private lastExecutedToolCalls = new Map<string, number>();
+  private pendingBoardContext: string | null = null;
+  private isModelGenerating: boolean = false;
 
   constructor(
     authTokenOrApiKey: string,
@@ -1072,6 +1074,8 @@ export class GeminiLiveClient {
            if (!content) return;
 
            if (content.interrupted) {
+             this.isModelGenerating = false;
+             this.pendingBoardContext = null;
              this.callbacks.onInterrupted();
              return;
            }
@@ -1107,6 +1111,7 @@ export class GeminiLiveClient {
 
            // Incoming audio, video frames, or text model turns
            if (content.modelTurn && content.modelTurn.parts) {
+             this.isModelGenerating = true;
              for (const part of content.modelTurn.parts) {
                if (part.inlineData && part.inlineData.data) {
                  const mime = part.inlineData.mimeType || "audio/pcm;rate=24000";
@@ -1156,12 +1161,22 @@ export class GeminiLiveClient {
            }
 
            const currentStatus = content.interactionStatus || msg.interactionStatus;
-           if (content.turnComplete) {
-             if (currentStatus !== "IN_PROGRESS") {
-               this.callbacks.onTurnComplete();
-             }
-           } else if (currentStatus === "IDLE") {
+           const isTurnDone = Boolean(content.turnComplete || currentStatus === "IDLE");
+           if (isTurnDone && currentStatus !== "IN_PROGRESS") {
+             this.isModelGenerating = false;
              this.callbacks.onTurnComplete();
+
+             // Safely flush queued board context update when model finishes speaking
+             if (this.pendingBoardContext) {
+               const queued = this.pendingBoardContext;
+               this.pendingBoardContext = null;
+               if (this.lastSentBoardContextHash !== queued) {
+                 this.lastSentBoardContextHash = queued;
+                 this.sendTextMessage(
+                   `[CURRENT_BOARD_STATE]\n${queued}\n[MANDATE: The notes and diagrams above are ALREADY VISIBLE on the student's chalkboard. Continue teaching directly from where you left off. DO NOT re-write or re-draw items already listed above.]`
+                 );
+               }
+             }
            }
         },
         onerror: (err: any) => {
@@ -1340,6 +1355,13 @@ export class GeminiLiveClient {
     }
     const trimmed = summaryText.trim();
     if (this.lastSentBoardContextHash === trimmed) return;
+
+    // If teacher is currently speaking, buffer the chalkboard update until turn completion so voice playback is not aborted!
+    if (this.isModelGenerating) {
+      this.pendingBoardContext = trimmed;
+      return;
+    }
+
     this.lastSentBoardContextHash = trimmed;
     this.sendTextMessage(
       `[CURRENT_BOARD_STATE]\n${trimmed}\n[MANDATE: The notes and diagrams above are ALREADY VISIBLE on the student's chalkboard. Continue teaching directly from where you left off. DO NOT re-write or re-draw items already listed above.]`

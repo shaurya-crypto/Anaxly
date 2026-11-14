@@ -77,7 +77,7 @@ export interface GreenChalkboardRef {
   clearNotes: () => void
   rewriteNotes: (newNotes: string) => Promise<void>
   getBoardSummary: () => { notesText: string; roughText: string; fullSummary: string }
-  getCompactBoardContext?: () => string
+  getCompactBoardContext?: (pageIndex?: number) => string
   handleAiDirective: (directive: string, transcriptId?: string) => void
   getActiveQuestion?: () => { text: string; y: number; height: number; pageIndex: number } | null
   getNextY?: () => number
@@ -740,19 +740,27 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       return { notesText, roughText, fullSummary }
     }
 
-    // Token-efficient snapshot of current chalkboard page for live AI context
-    const getCompactBoardContext = (): string => {
+    // Token-efficient snapshot of current chalkboard page for live AI context (Grounded RAG)
+    const getCompactBoardContext = (pageIndex?: number): string => {
+      const curIdx = typeof pageIndex === 'number'
+        ? Math.max(0, Math.min(pageIndex, pagesRef.current.length - 1))
+        : currentPageIndexRef.current
+
       if (excalidrawAPI && pagesRef.current[currentPageIndexRef.current]) {
         pagesRef.current[currentPageIndexRef.current].elements = getCurrentElements()
       }
 
       const totalPages = pagesRef.current.length
-      const curIdx = currentPageIndexRef.current
       const curPage = pagesRef.current[curIdx]
       if (!curPage) return 'CURRENT BOARD: Empty / Initialized'
 
       const lines: string[] = []
       lines.push(`CHALKBOARD SNAPSHOT (Page ${curIdx + 1} of ${totalPages}):`)
+
+      const curElements = curPage.elements || []
+      const pHeaderEl = curElements.find((el: any) => el.type === 'text' && (el.id?.startsWith('header_') || el.customData?.isTitle))
+      const currentConceptName = pHeaderEl?.text?.replace(/\n/g, ' ') || (keyConcepts && keyConcepts[curIdx]) || `Concept ${curIdx + 1}`
+      lines.push(`  - Active Concept: "${currentConceptName}"`)
 
       if (curIdx > 0) {
         lines.push('PREVIOUS COMPLETED PAGES (DO NOT RE-TEACH):')
@@ -761,14 +769,13 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           const pEls = p?.elements || []
           const pTitleEl = pEls.find((el: any) => el.type === 'text' && (el.id?.startsWith('header_') || el.customData?.isTitle))
           const pDiag = pEls.find((el: any) => el.customData?.isSvgCard || el.customData?.diagramTitle)
-          const pTitle = pTitleEl?.text?.replace(/\n/g, ' ') || `Concept ${i + 1}`
+          const pTitle = pTitleEl?.text?.replace(/\n/g, ' ') || (keyConcepts && keyConcepts[i]) || `Concept ${i + 1}`
           const pDiagInfo = pDiag?.customData?.diagramTitle ? ` | Diagram: "${pDiag.customData.diagramTitle}"` : ''
           lines.push(`  * Page ${i + 1}: ${pTitle}${pDiagInfo} (Mastered)`)
         }
       }
 
       lines.push(`ACTIVE PAGE ${curIdx + 1} ON BOARD RIGHT NOW:`)
-      const curElements = curPage.elements || []
 
       // 1. Visual Diagrams
       const diagrams = curElements.filter((el: any) => el.customData?.isSvgCard && el.customData?.diagramTitle)
@@ -777,13 +784,33 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         lines.push(`  - Drawn Diagram(s): ${uniqueDiags.map(d => `"${d}"`).join(', ')} (Already drawn - do not redraw!)`)
       }
 
-      // 2. Cartesian Graphs
-      const graphEls = curElements.filter((el: any) => el.text && (el.text.includes('Cartesian Graph') || el.text.startsWith('f(x) =') || el.text.startsWith('y =')))
+      // 2. Demonstration Videos
+      const videoEls = curElements.filter((el: any) => el.customData?.isVideoCard || el.customData?.videoUrl)
+      if (videoEls.length > 0) {
+        const uniqueVideos = Array.from(new Set(videoEls.map((v: any) => v.customData?.videoTitle || 'Video Demonstration')))
+        lines.push(`  - Video Demonstration: ${uniqueVideos.join(', ')} (Already loaded)`)
+      }
+
+      // 3. Cartesian Graphs
+      const graphEls = curElements.filter((el: any) => el.text && (el.text.includes('Cartesian Graph') || el.text.startsWith('f(x) =') || el.text.startsWith('y =') || el.text.includes('Slope:')))
       if (graphEls.length > 0) {
         lines.push(`  - Plotted Graph: "${graphEls[0].text.replace(/\n/g, ' ')}" (Already plotted)`)
       }
 
-      // 3. Notes / Formulas
+      // 4. Geometric Shapes
+      const shapeEls = curElements.filter((el: any) => el.customData?.isShapeFigure && el.customData?.shapeType)
+      if (shapeEls.length > 0) {
+        const shapeSummaries = shapeEls.map((el: any) => {
+          const type = el.customData.shapeType
+          const lbl = el.customData.shapeLabel ? ` (${el.customData.shapeLabel})` : ''
+          const vals = el.customData.shapeValues ? ` values=${JSON.stringify(el.customData.shapeValues)}` : ''
+          return `${type}${lbl}${vals}`
+        })
+        const uniqueShapes = Array.from(new Set(shapeSummaries))
+        lines.push(`  - Geometric Figure(s): ${uniqueShapes.join('; ')} (Already on board)`)
+      }
+
+      // 5. Notes / Formulas
       const textEls = curElements.filter(
         (el: any) =>
           el.type === 'text' &&
@@ -812,8 +839,52 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         lines.push('  - Notes Already on Board: [Clean page - Ready for new notes]')
       }
 
-      if (activeQuestionRef.current) {
+      // 6. Rough Work Scratchpad
+      const roughEls = curElements.filter((el: any) => el.type === 'text' && el.customData?.isRough === true)
+      if (roughEls.length > 0) {
+        const roughItems = roughEls.map((el: any) => el.text.trim().replace(/\n+/g, ' ')).filter(Boolean).slice(-4)
+        if (roughItems.length > 0) {
+          lines.push(`  - [ROUGH_WORK] Scratchpad: ${roughItems.join(' | ')}`)
+        }
+      }
+
+      // 7. Active Question on Board
+      if (activeQuestionRef.current && (activeQuestionRef.current.pageIndex === curIdx || activeQuestionRef.current.pageIndex === undefined)) {
         lines.push(`  - Active Question on Board: "${activeQuestionRef.current.text}"`)
+      }
+
+      // 8. Grounded Pedagogical Stage Progression Tracking
+      const stagesCompleted: string[] = []
+      if (diagrams.length > 0 || extractedNotes.some(n => /intuition|hook|everyday/i.test(n))) {
+        stagesCompleted.push('Stage 1 (Intuition & Visual)')
+      }
+      if (extractedNotes.some(n => /definition|law|formula|equation|statement|si\s*unit/i.test(n))) {
+        stagesCompleted.push('Stage 2 (Scientific Law / Definition)')
+      }
+      if (extractedNotes.some(n => /example|application|case|pitfall/i.test(n))) {
+        stagesCompleted.push('Stage 3 (Worked Application)')
+      }
+      if (extractedNotes.some(n => /problem|given|derivation|step|to\s*prove|numerical/i.test(n))) {
+        stagesCompleted.push('Stage 4 (Board Numerical / Derivation)')
+      }
+      if (activeQuestionRef.current || extractedNotes.some(n => /checkpoint|verdict|answer/i.test(n))) {
+        stagesCompleted.push('Stage 5 (Checkpoint Question)')
+      }
+      if (extractedNotes.some(n => /board\s*pyq|final\s*answer|hence\s*proved/i.test(n))) {
+        stagesCompleted.push('Stage 6 (Board-Exam Numerical / Boxed Answer)')
+      }
+
+      if (stagesCompleted.length > 0) {
+        lines.push(`  - Current Pedagogical Progress on Concept ${curIdx + 1}: ${stagesCompleted.join(' -> ')}`)
+        const lastStage = stagesCompleted[stagesCompleted.length - 1]
+        let nextStage = 'Stage 2 (Definition & Law)'
+        if (lastStage.includes('Stage 1')) nextStage = 'Stage 2 (Formal Definition & Scientific Law)'
+        else if (lastStage.includes('Stage 2')) nextStage = 'Stage 3 (Concrete Worked Application)'
+        else if (lastStage.includes('Stage 3')) nextStage = 'Stage 4 (Step-by-Step Board Numerical)'
+        else if (lastStage.includes('Stage 4')) nextStage = 'Stage 5 (Check for Understanding)'
+        else if (lastStage.includes('Stage 5')) nextStage = 'Stage 6 (Board-Exam Numerical)'
+        else if (lastStage.includes('Stage 6')) nextStage = 'Concept Mastered (Call concept_completed)'
+        lines.push(`  - Recommended Next Action: Advance directly to ${nextStage}. DO NOT re-write or re-teach completed stages!`)
       }
 
       return lines.join('\n')
@@ -2230,7 +2301,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             fillStyle: 'solid',
             strokeWidth: 2,
             roundness: { type: 3 },
-            customData: { isRough: false, isShapeFigure: true },
+            customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
           })
 
           const lengthVal = values?.length || values?.width || values?.w || (label ? '' : 'Length (l)')
@@ -2276,7 +2347,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               backgroundColor: bg,
               fillStyle: 'solid',
               strokeWidth: 2,
-              customData: { isRough: false, isShapeFigure: true },
+              customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
             },
             {
               type: 'ellipse',
@@ -2322,7 +2393,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             backgroundColor: bg,
             fillStyle: 'solid',
             strokeWidth: 2,
-            customData: { isRough: false, isShapeFigure: true },
+            customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
           })
         } else if (shape === 'triangle' || shape === 'right_triangle') {
           const isRight = shape === 'right_triangle'
@@ -2340,7 +2411,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               strokeWidth: 2,
               backgroundColor: bg,
               fillStyle: 'solid',
-              customData: { isRough: false, isShapeFigure: true },
+              customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
             },
             {
               type: 'text',
@@ -2418,6 +2489,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           const r = radius ? radius : Math.floor(w / 4)
           const cylW = r * 2
           const topH = Math.max(Math.floor(r * 0.6), 18)
+          const cylHeightVal = values?.height || values?.h ? `Height (h) = ${values.height || values.h}` : 'Height (h)'
           skeletons.push(
             {
               type: 'ellipse',
@@ -2429,7 +2501,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               backgroundColor: bg,
               fillStyle: 'solid',
               strokeWidth: 2,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
             },
             {
               type: 'line',
@@ -2438,7 +2510,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               points: [[0, 0], [0, h - topH]],
               strokeColor: stroke,
               strokeWidth: 2,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'line',
@@ -2447,7 +2519,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               points: [[0, 0], [0, h - topH]],
               strokeColor: stroke,
               strokeWidth: 2,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'ellipse',
@@ -2459,17 +2531,17 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               backgroundColor: bg,
               fillStyle: 'solid',
               strokeWidth: 2,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'text',
               x: startX + cylW + 12,
               y: startY + Math.floor(h / 2),
-              text: `Height = ${h}px`,
+              text: cylHeightVal,
               fontSize: 12,
               fontFamily: 1,
               strokeColor: INK_MUTED,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             }
           )
           w = cylW
@@ -2485,7 +2557,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               strokeColor: BORDER_SUBTLE,
               strokeWidth: 1.5,
               strokeStyle: 'dashed',
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
             },
             {
               type: 'rectangle',
@@ -2498,7 +2570,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               fillStyle: 'solid',
               strokeWidth: 2,
               roundness: { type: 3 },
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'line',
@@ -2507,7 +2579,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               points: [[0, 0], [offset, -offset]],
               strokeColor: stroke,
               strokeWidth: 1.5,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'line',
@@ -2516,7 +2588,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               points: [[0, 0], [offset, -offset]],
               strokeColor: stroke,
               strokeWidth: 1.5,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'line',
@@ -2525,7 +2597,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               points: [[0, 0], [offset, -offset]],
               strokeColor: stroke,
               strokeWidth: 1.5,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             }
           )
         } else if (shape === 'arrow' || shape === 'line') {
@@ -2536,7 +2608,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             points: [[0, 0], [w, 0]],
             strokeColor: stroke,
             strokeWidth: 3,
-            customData: { isRough: false },
+            customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
           })
           h = 30
         }
@@ -5521,18 +5593,37 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               {/* Video Player */}
               <div className="w-full bg-black flex items-center justify-center aspect-video max-h-[65vh]">
                 {(() => {
+                  if (!videoModal.url) {
+                    const fallbackSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(videoModal.title + ' demonstration')}`
+                    return (
+                      <div className="flex flex-col items-center justify-center p-8 text-center gap-3">
+                        <p className="text-white/80 text-sm">Direct video stream not available for embedding.</p>
+                        <a
+                          href={fallbackSearchUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold rounded-lg flex items-center gap-2"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          <span>Search YouTube for &quot;{videoModal.title}&quot;</span>
+                        </a>
+                      </div>
+                    )
+                  }
                   const ytMatch = videoModal.url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/i)
                   const ytId = ytMatch && ytMatch[1] ? ytMatch[1] : null
                   if (ytId) {
                     return (
-                      <iframe
-                        src={`https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`}
-                        title={videoModal.title}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                        referrerPolicy="strict-origin-when-cross-origin"
-                        className="w-full h-full border-0"
-                      />
+                      <div className="relative w-full h-full">
+                        <iframe
+                          src={`https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1`}
+                          title={videoModal.title}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          className="w-full h-full border-0"
+                        />
+                      </div>
                     )
                   }
                   return (

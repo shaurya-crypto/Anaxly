@@ -894,6 +894,12 @@ export default function ModuleClassroomPage() {
       const fullNotesContent = (summary.fullSummary || summary.notesText || '').trim()
       setLatestBoardSummary((prev) => (prev === summary.fullSummary ? prev : summary.fullSummary))
 
+      // Sync compact board context to live AI tutor (safely buffered if tutor is currently speaking)
+      const compactContext = chalkboardRef.current?.getCompactBoardContext?.()
+      if (compactContext) {
+        sendBoardContext(compactContext)
+      }
+
       if (!fullNotesContent || fullNotesContent === lastSentBoardNotesRef.current) return
       lastSentBoardNotesRef.current = fullNotesContent
       setChapterNotes(fullNotesContent)
@@ -3147,7 +3153,7 @@ CRITICAL INSTRUCTIONS:
     connectionState === 'CONNECTING'
 
   // Start Spoken Lesson: continuous teaching flow, explanation-first, worked-demonstrations second, strict chalkboard directives
-  const handleStartClass = () => {
+  const handleStartClass = async () => {
     if (!activeModule) return
 
     const keyConcepts: string[] = parseKeyConcepts(activeModule?.key_concepts)
@@ -3411,7 +3417,19 @@ STUDENT PERSONALIZATION & PEDAGOGICAL DOSSIER:
 - ${styleDirective}
 ${careerHook ? `- ${careerHook}\n` : ''}${favoriteHook ? `- ${favoriteHook}\n` : ''}${weakAreaHook ? `- ${weakAreaHook}\n` : ''}`
 
-    const boardCompactContext = chalkboardRef.current?.getCompactBoardContext?.() || chalkboardRef.current?.getBoardSummary()?.notesText || chapterNotes || ''
+    // Grounded RAG: Ensure the chalkboard has navigated to the active concept's page and synchronized
+    await chalkboardRef.current?.goToPage?.(currentConceptIndex, currentConcept)
+
+    const boardCompactContext = chalkboardRef.current?.getCompactBoardContext?.(currentConceptIndex) || chalkboardRef.current?.getBoardSummary()?.notesText || chapterNotes || ''
+    const hasExistingContent = Boolean(
+      boardCompactContext.trim() &&
+      !boardCompactContext.includes('[Clean page - Ready for new notes]') &&
+      (boardCompactContext.includes('Notes Already on Board') ||
+       boardCompactContext.includes('Drawn Diagram') ||
+       boardCompactContext.includes('Plotted Graph') ||
+       boardCompactContext.includes('Geometric Figure') ||
+       boardCompactContext.includes('Completed Pedagogical Stages'))
+    )
     const boardContinuationNote = boardCompactContext.trim()
       ? `\n========================================================================================\nCURRENT DIGITAL CHALKBOARD STATE (DO NOT RE-WRITE OR DUPLICATE):\n========================================================================================\n${boardCompactContext.trim()}\nCONTINUATION MANDATE: The items above are ALREADY VISIBLE on the student's chalkboard right now. Continue directly from where you left off. DO NOT re-write, duplicate, or re-draw any note or diagram already present on the board. Live diagram tools (render_svg_diagram, plot_mathematical_graph, draw_shape) remain fully active for all new concepts!\n`
       : ''
@@ -3437,6 +3455,8 @@ ${careerHook ? `- ${careerHook}\n` : ''}${favoriteHook ? `- ${favoriteHook}\n` :
       ? `[SESSION START - BOARD EXAM PYQ PRACTICE]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). State that today we are tackling an authentic Board Exam Past Year Question on ${resolvedTitle}: "${selectedPyqQuestion}". Speak properly in 5 to 6 well-formed sentences laying out the problem context and physical setup without stopping halfway. YOU MUST CALL write_chalkboard(action="draw_question", content="Board PYQ: ${selectedPyqQuestion}", color="amber") RIGHT NOW IN THIS TURN! Then ask me what our given values or strategy should be in ${studentPreferredLanguage}. HARD STOP: Wait for my answer! (Stop speaking immediately if I speak or ask something).`
       : isCompletedModule
       ? `[SESSION START]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). State that I have completed this capsule in 5 to 6 complete, encouraging sentences reviewing what we mastered without stopping halfway, and ask if I would like a quick review of any concept or if I am ready for the quiz in ${studentPreferredLanguage}. HARD STOP: Wait for my answer. (Stop speaking immediately if I speak or ask something).`
+      : isResumed && hasExistingContent
+      ? `[SESSION START - RESUMING CONCEPT ${currentConceptIndex + 1}: "${currentConcept}"]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). State that we are resuming Concept ${currentConceptIndex + 1}: "${currentConcept}". Existing chalkboard notes and visuals are ALREADY visible on the board: [see CURRENT DIGITAL CHALKBOARD STATE above]. Warmly acknowledge what is already on the board in 5 to 6 articulate sentences without stopping halfway. DO NOT re-write or duplicate existing notes or diagrams. Continue directly with the NEXT pedagogical step for this concept (e.g. formal definition, worked example, or board numerical). Complete your explanation first, then ask a checkpoint question. HARD STOP: Wait for my response! (Stop speaking immediately if I speak or ask something).`
       : isResumed
       ? `[SESSION START]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). State that we are resuming Concept ${currentConceptIndex + 1}: "${currentConcept}". Speak properly in 5 to 6 complete, articulate sentences: explain the intuition and physical setup thoroughly without stopping halfway. YOU MUST CALL write_chalkboard(action="draw_note", content="Intuition: <everyday hook>", color="botanical") AND ${resumedVisualTool} RIGHT NOW IN THIS TURN! Do NOT wait for the student to ask for a diagram. Complete your 5-6 sentence explanation first, then ask: "Did you catch this intuition?" or a relatable check question. HARD STOP: Wait for my response! (Stop speaking immediately if I speak or ask something).`
       : `[SESSION START]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). Introduce Concept 1: "${firstConcept}" with a simple, tangible everyday real-life hook and clear physical intuition. Speak properly in 5 to 6 complete, articulate sentences—do NOT stop after speaking something half! Deliver the full intuitive picture. YOU MUST CALL write_chalkboard(action="draw_note", content="Intuition: <everyday hook>", color="botanical") AND render_svg_diagram(title="${firstConcept}", caption="Visual illustration") or appropriate visual tool RIGHT NOW IN THIS TURN! Do NOT wait for the student to ask for a diagram. Complete your 5-6 sentence explanation first, and then ask: "Did you catch this intuition?" or "Have you noticed this in daily life?" HARD STOP: Stop speaking and wait for my answer! (Stop speaking immediately if I speak or ask something).`
@@ -4676,6 +4696,12 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
               setIsReviewingVerdict(false)
               currentConceptIndexRef.current = pageIdx
               setCurrentConceptIndex(pageIdx)
+              const targetConceptTitle = keyConceptsList[pageIdx] || `Concept ${pageIdx + 1}`
+              setLastCoveredConcept(targetConceptTitle)
+              const updatedContext = chalkboardRef.current?.getCompactBoardContext?.(pageIdx)
+              if (updatedContext && connectionState !== 'DISCONNECTED' && connectionState !== 'ERROR') {
+                sendBoardContext(updatedContext)
+              }
             }}
             activeSceneType={activeSceneType}
             activeSceneParams={activeSceneParams}
