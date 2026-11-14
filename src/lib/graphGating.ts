@@ -37,13 +37,18 @@ export function isLegitimateGraphTopic(topic: string, subject: string): boolean 
   }
 
   // 3. Subject must be Mathematics or Physics / Mechanics
-  const isMathSubject = s.includes('math') || s.includes('algebra') || s.includes('calculus') || s.includes('geometry')
+  const isMathSubject = s.includes('math') || s.includes('algebra') || s.includes('calculus') || s.includes('geometry') || s.includes('stat') || s.includes('arithmetic')
   const isPhysicsSubject = s.includes('physic') || s.includes('science') || s.includes('mechanic')
   if (!isMathSubject && !isPhysicsSubject) {
     return false
   }
 
-  // 4. Positive verification: Must be genuine mathematical curve or kinematics
+  // If the subject is Mathematics (and passed non-math keyword check), all genuine mathematical concepts/curves are legitimate
+  if (isMathSubject) {
+    return true
+  }
+
+  // 4. Positive verification for Physics / Science: Must be genuine mathematical curve or kinematics
   const validMathGraphPatterns = [
     /quadrat/i,
     /parabola/i,

@@ -1,0 +1,439 @@
+[
+  {
+    "figure_id": "Fig. 3.1",
+    "page_number": 2,
+    "caption": "Fig. 3.1: Experimental 1. Take two glass jars or couplin jars and fill them with water. set-up to observe the growth of",
+    "filename": "fig_3_1.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_1.webp",
+    "dimensions": {
+      "width": 553,
+      "height": 820,
+      "aspect_ratio": 0.67
+    },
+    "file_size_kb": 44.6,
+    "crop_bbox": [
+      429.9,
+      456.2,
+      593.3,
+      692.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.2",
+    "page_number": 3,
+    "caption": "Fig. 3.2: Growth of onion roots actively dividing cells that help the shoots to grow in length. Thus, we conclude that plants",
+    "filename": "fig_3_2.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_2.webp",
+    "dimensions": {
+      "width": 1673,
+      "height": 1354,
+      "aspect_ratio": 1.24
+    },
+    "file_size_kb": 292.5,
+    "crop_bbox": [
+      69.2,
+      135.2,
+      554.9,
+      529.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.3",
+    "page_number": 3,
+    "caption": "Fig. 3.3: Location of Fig. 3.4: T.S. of a tree counting these annual rings, scientists can estimate apical meristem in a trunk",
+    "filename": "fig_3_3.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_3.webp",
+    "dimensions": {
+      "width": 889,
+      "height": 707,
+      "aspect_ratio": 1.26
+    },
+    "file_size_kb": 111.9,
+    "crop_bbox": [
+      32.6,
+      532.9,
+      293.2,
+      736.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.5",
+    "page_number": 4,
+    "caption": "Fig. 3.5: New branches on plant stem where branches or leaves arise. The part of stem between arising from the node",
+    "filename": "fig_3_5.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_5.webp",
+    "dimensions": {
+      "width": 489,
+      "height": 818,
+      "aspect_ratio": 0.6
+    },
+    "file_size_kb": 52.4,
+    "crop_bbox": [
+      457.5,
+      36.0,
+      598.4,
+      271.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.6",
+    "page_number": 4,
+    "caption": "Fig. 3.6: Lawn mowing The cells of the meristematic tissues are small, have thin cell walls, a",
+    "filename": "fig_3_6.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_6.webp",
+    "dimensions": {
+      "width": 381,
+      "height": 554,
+      "aspect_ratio": 0.69
+    },
+    "file_size_kb": 91.8,
+    "crop_bbox": [
+      475.8,
+      278.4,
+      589.0,
+      460.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.7",
+    "page_number": 5,
+    "caption": "Fig. 3.7: Internal structure of a sunflower stem water loss in the process of transpiration by",
+    "filename": "fig_3_7.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_7.webp",
+    "dimensions": {
+      "width": 904,
+      "height": 1281,
+      "aspect_ratio": 0.71
+    },
+    "file_size_kb": 230.0,
+    "crop_bbox": [
+      34.5,
+      36.0,
+      305.1,
+      424.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.8",
+    "page_number": 5,
+    "caption": "Fig. 3.8: Various types of to pectin (a chemical that gives flexibility like rubber) deposition (Fig. 3.8b). simple permanent tissues",
+    "filename": "fig_3_8.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_8.webp",
+    "dimensions": {
+      "width": 288,
+      "height": 1133,
+      "aspect_ratio": 0.25
+    },
+    "file_size_kb": 76.2,
+    "crop_bbox": [
+      40.0,
+      424.1,
+      127.3,
+      752.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.10",
+    "page_number": 6,
+    "caption": "Fig. 3.10: Tissue systems in plants",
+    "filename": "fig_3_10.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_10.webp",
+    "dimensions": {
+      "width": 988,
+      "height": 1323,
+      "aspect_ratio": 0.75
+    },
+    "file_size_kb": 181.7,
+    "crop_bbox": [
+      305.3,
+      382.7,
+      592.7,
+      768.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.11",
+    "page_number": 8,
+    "caption": "Fig. 3.11: Types of epithelial tissues in different parts of the body",
+    "filename": "fig_3_11.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_11.webp",
+    "dimensions": {
+      "width": 969,
+      "height": 1392,
+      "aspect_ratio": 0.7
+    },
+    "file_size_kb": 166.3,
+    "crop_bbox": [
+      305.3,
+      338.0,
+      591.1,
+      743.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.12",
+    "page_number": 9,
+    "caption": "Fig. 3.12: Types of connective tissues",
+    "filename": "fig_3_12.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_12.webp",
+    "dimensions": {
+      "width": 1454,
+      "height": 810,
+      "aspect_ratio": 1.8
+    },
+    "file_size_kb": 116.9,
+    "crop_bbox": [
+      110.9,
+      487.3,
+      529.6,
+      725.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.13",
+    "page_number": 11,
+    "caption": "Fig. 3.13: Different types of muscles by nervous tissue, which forms the body’s control and coordination network. The brain acts as the",
+    "filename": "fig_3_13.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_13.webp",
+    "dimensions": {
+      "width": 589,
+      "height": 784,
+      "aspect_ratio": 0.75
+    },
+    "file_size_kb": 71.9,
+    "crop_bbox": [
+      48.8,
+      73.5,
+      232.1,
+      322.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.14",
+    "page_number": 11,
+    "caption": "Fig. 3.14: Structure of a neuron activities; dendrites, which receive signals from other neurons; and an axon, a long fibre that carries",
+    "filename": "fig_3_14.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_14.webp",
+    "dimensions": {
+      "width": 520,
+      "height": 537,
+      "aspect_ratio": 0.97
+    },
+    "file_size_kb": 40.9,
+    "crop_bbox": [
+      69.6,
+      328.9,
+      219.5,
+      485.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.15",
+    "page_number": 11,
+    "caption": "Fig. 3.15: Musculoskeletal system in human body",
+    "filename": "fig_3_15.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_15.webp",
+    "dimensions": {
+      "width": 549,
+      "height": 882,
+      "aspect_ratio": 0.62
+    },
+    "file_size_kb": 72.7,
+    "crop_bbox": [
+      60.0,
+      483.8,
+      218.2,
+      742.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.16",
+    "page_number": 13,
+    "caption": "Fig. 3.16: Types of joints kneecap protects the joint.",
+    "filename": "fig_3_16.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_16.webp",
+    "dimensions": {
+      "width": 672,
+      "height": 836,
+      "aspect_ratio": 0.8
+    },
+    "file_size_kb": 64.1,
+    "crop_bbox": [
+      42.0,
+      74.7,
+      244.6,
+      336.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.17",
+    "page_number": 13,
+    "caption": "Fig. 3.17: Poses of classical and folk dances of India",
+    "filename": "fig_3_17.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_17.webp",
+    "dimensions": {
+      "width": 1788,
+      "height": 1351,
+      "aspect_ratio": 1.32
+    },
+    "file_size_kb": 327.8,
+    "crop_bbox": [
+      30.8,
+      336.5,
+      553.0,
+      725.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.18",
+    "page_number": 14,
+    "caption": "Fig. 3.18: Poses of Surya Namaskar",
+    "filename": "fig_3_18.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_18.webp",
+    "dimensions": {
+      "width": 1415,
+      "height": 1401,
+      "aspect_ratio": 1.01
+    },
+    "file_size_kb": 182.8,
+    "crop_bbox": [
+      70.4,
+      338.6,
+      484.9,
+      745.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.19",
+    "page_number": 15,
+    "caption": "Fig. 3.19: Regeneration of a carrot plant entire organism.",
+    "filename": "fig_3_19.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_19.webp",
+    "dimensions": {
+      "width": 1690,
+      "height": 1428,
+      "aspect_ratio": 1.18
+    },
+    "file_size_kb": 329.4,
+    "crop_bbox": [
+      61.9,
+      87.3,
+      552.9,
+      498.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.20",
+    "page_number": 16,
+    "caption": "Fig. 3.20: Crown for the production of valuable phytochemicals, improved crops and gall disease",
+    "filename": "fig_3_20.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_20.webp",
+    "dimensions": {
+      "width": 1810,
+      "height": 759,
+      "aspect_ratio": 2.38
+    },
+    "file_size_kb": 185.3,
+    "crop_bbox": [
+      70.1,
+      36.0,
+      591.3,
+      254.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.21",
+    "page_number": 17,
+    "caption": "Fig. 3.21 5. Which type of joint is involved when you bend your knees and ankles?",
+    "filename": "fig_3_21.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_21.webp",
+    "dimensions": {
+      "width": 396,
+      "height": 515,
+      "aspect_ratio": 0.77
+    },
+    "file_size_kb": 22.1,
+    "crop_bbox": [
+      37.0,
+      348.5,
+      163.0,
+      521.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.22",
+    "page_number": 18,
+    "caption": "Fig. 3.22 further damage to the tree trunk even",
+    "filename": "fig_3_22.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_22.webp",
+    "dimensions": {
+      "width": 1433,
+      "height": 1370,
+      "aspect_ratio": 1.05
+    },
+    "file_size_kb": 217.0,
+    "crop_bbox": [
+      90.1,
+      245.3,
+      507.3,
+      643.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.23",
+    "page_number": 19,
+    "caption": "Fig. 3.23 change had an effect?",
+    "filename": "fig_3_23.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_23.webp",
+    "dimensions": {
+      "width": 490,
+      "height": 744,
+      "aspect_ratio": 0.66
+    },
+    "file_size_kb": 54.7,
+    "crop_bbox": [
+      408.1,
+      146.3,
+      553.8,
+      365.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.24",
+    "page_number": 20,
+    "caption": "Fig. 3.24",
+    "filename": "fig_3_24.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_24.webp",
+    "dimensions": {
+      "width": 890,
+      "height": 1004,
+      "aspect_ratio": 0.89
+    },
+    "file_size_kb": 103.3,
+    "crop_bbox": [
+      334.9,
+      36.0,
+      591.3,
+      325.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.25",
+    "page_number": 20,
+    "caption": "Fig. 3.25 The Quest Continues…",
+    "filename": "fig_3_25.webp",
+    "file_path": "public/extracted_diagrams/ch3\\fig_3_25.webp",
+    "dimensions": {
+      "width": 811,
+      "height": 454,
+      "aspect_ratio": 1.79
+    },
+    "file_size_kb": 63.7,
+    "crop_bbox": [
+      80.5,
+      594.3,
+      318.0,
+      725.1
+    ]
+  }
+]

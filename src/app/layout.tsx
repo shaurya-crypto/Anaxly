@@ -4,8 +4,8 @@ import { Mascot } from "@/components/mascot/Mascot";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
-  title: "AI Tutor - Personalized Learning",
-  description: "Real-time, low-latency live AI tutor",
+  title: "Anaxly - 1-on-1 Socratic Learning",
+  description: "Real-time, low-latency live Socratic AI tutor",
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },

@@ -1,0 +1,743 @@
+[
+  {
+    "figure_id": "Fig. 7.1",
+    "page_number": 1,
+    "caption": "Fig. 7.1: Energy required to carry out tasks comes from various sources magnitude of",
+    "filename": "fig_7_1.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_1.webp",
+    "dimensions": {
+      "width": 1714,
+      "height": 891,
+      "aspect_ratio": 1.92
+    },
+    "file_size_kb": 220.9,
+    "crop_bbox": [
+      33.8,
+      445.7,
+      531.2,
+      702.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.2",
+    "page_number": 2,
+    "caption": "Fig. 7.2: Lifting bags to a height If you lift 3 such bags one after the other to the same height (Fig.",
+    "filename": "fig_7_2.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_2.webp",
+    "dimensions": {
+      "width": 1991,
+      "height": 961,
+      "aspect_ratio": 2.07
+    },
+    "file_size_kb": 172.5,
+    "crop_bbox": [
+      25.4,
+      36.0,
+      598.8,
+      312.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.3",
+    "page_number": 2,
+    "caption": "Fig. 7.3: Work done by a force while displacing W = F × s (7.2) an object in (a) horizontal direction, and",
+    "filename": "fig_7_3.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_3.webp",
+    "dimensions": {
+      "width": 1206,
+      "height": 1289,
+      "aspect_ratio": 0.94
+    },
+    "file_size_kb": 174.6,
+    "crop_bbox": [
+      241.5,
+      367.3,
+      605.3,
+      738.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.4",
+    "page_number": 3,
+    "caption": "Fig. 7.4: Force-displacement graph",
+    "filename": "fig_7_4.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_4.webp",
+    "dimensions": {
+      "width": 528,
+      "height": 584,
+      "aspect_ratio": 0.9
+    },
+    "file_size_kb": 34.4,
+    "crop_bbox": [
+      407.7,
+      177.9,
+      563.5,
+      349.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.5",
+    "page_number": 3,
+    "caption": "Fig. 7.5: Pushing a wall",
+    "filename": "fig_7_5.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_5.webp",
+    "dimensions": {
+      "width": 388,
+      "height": 1328,
+      "aspect_ratio": 0.29
+    },
+    "file_size_kb": 54.0,
+    "crop_bbox": [
+      38.7,
+      111.9,
+      153.5,
+      501.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.6",
+    "page_number": 3,
+    "caption": "Fig. 7.6: Carrying a box and displacement are at an angle to each other. Up",
+    "filename": "fig_7_6.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_6.webp",
+    "dimensions": {
+      "width": 1762,
+      "height": 599,
+      "aspect_ratio": 2.94
+    },
+    "file_size_kb": 144.3,
+    "crop_bbox": [
+      38.5,
+      499.7,
+      552.9,
+      675.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.7",
+    "page_number": 4,
+    "caption": "Fig. 7.7: Examples of (a) positive, and (b) negative work done on object Example 7.1: While exercising,",
+    "filename": "fig_7_7.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_7.webp",
+    "dimensions": {
+      "width": 1773,
+      "height": 1244,
+      "aspect_ratio": 1.43
+    },
+    "file_size_kb": 253.5,
+    "crop_bbox": [
+      83.0,
+      36.0,
+      593.5,
+      394.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.8",
+    "page_number": 5,
+    "caption": "Fig. 7.8: (a) Throwing applied on an object are not constant. This theorem can help us solve a cricket ball, (b) ball",
+    "filename": "fig_7_8.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_8.webp",
+    "dimensions": {
+      "width": 352,
+      "height": 1151,
+      "aspect_ratio": 0.31
+    },
+    "file_size_kb": 78.5,
+    "crop_bbox": [
+      42.3,
+      74.3,
+      151.6,
+      413.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.9",
+    "page_number": 5,
+    "caption": "Fig. 7.9: A carrom shot",
+    "filename": "fig_7_9.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_9.webp",
+    "dimensions": {
+      "width": 859,
+      "height": 1068,
+      "aspect_ratio": 0.8
+    },
+    "file_size_kb": 131.6,
+    "crop_bbox": [
+      305.3,
+      440.1,
+      557.4,
+      752.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.10",
+    "page_number": 6,
+    "caption": "Fig. 7.10: Different forms of energy which is the kinetic energy of the object in this case.",
+    "filename": "fig_7_10.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_10.webp",
+    "dimensions": {
+      "width": 1755,
+      "height": 1282,
+      "aspect_ratio": 1.37
+    },
+    "file_size_kb": 299.0,
+    "crop_bbox": [
+      80.6,
+      226.6,
+      590.0,
+      596.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.11",
+    "page_number": 6,
+    "caption": "Fig. 7.11: Calculating change in kinetic energy using the work-energy theorem Let us find a mathematical expression for the kinetic energy. For",
+    "filename": "fig_7_11.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_11.webp",
+    "dimensions": {
+      "width": 1392,
+      "height": 443,
+      "aspect_ratio": 3.14
+    },
+    "file_size_kb": 70.4,
+    "crop_bbox": [
+      81.9,
+      600.9,
+      492.1,
+      728.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.12",
+    "page_number": 8,
+    "caption": "Fig. 7.12: A jet aircraft landing on an applies are in opposite directions. Therefore, the work done aircraft carrier",
+    "filename": "fig_7_12.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_12.webp",
+    "dimensions": {
+      "width": 1182,
+      "height": 968,
+      "aspect_ratio": 1.22
+    },
+    "file_size_kb": 121.0,
+    "crop_bbox": [
+      252.6,
+      36.0,
+      593.2,
+      314.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.13",
+    "page_number": 8,
+    "caption": "Fig. 7.13: (a) A slingshot back along with the string to its original position, and the arrow flies off the",
+    "filename": "fig_7_13.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_13.webp",
+    "dimensions": {
+      "width": 1758,
+      "height": 1032,
+      "aspect_ratio": 1.7
+    },
+    "file_size_kb": 203.0,
+    "crop_bbox": [
+      83.0,
+      354.7,
+      596.3,
+      652.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.15",
+    "page_number": 9,
+    "caption": "Fig. 7.15: A system of two (a) magnets, and (b) electric charges In the same way, a system",
+    "filename": "fig_7_15.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_15.webp",
+    "dimensions": {
+      "width": 1780,
+      "height": 1444,
+      "aspect_ratio": 1.23
+    },
+    "file_size_kb": 318.4,
+    "crop_bbox": [
+      36.3,
+      114.1,
+      559.7,
+      529.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.16",
+    "page_number": 9,
+    "caption": "Fig. 7.16: Earth ball such as gravitational, electric or magnetic forces, the system can store system energy due to the relative positions",
+    "filename": "fig_7_16.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_16.webp",
+    "dimensions": {
+      "width": 1684,
+      "height": 623,
+      "aspect_ratio": 2.7
+    },
+    "file_size_kb": 139.6,
+    "crop_bbox": [
+      64.6,
+      527.9,
+      553.1,
+      707.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.17",
+    "page_number": 10,
+    "caption": "Fig. 7.17: Depressions created by a ball 2. Raise the ball over the sand bed to a height of about 1 m",
+    "filename": "fig_7_17.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_17.webp",
+    "dimensions": {
+      "width": 745,
+      "height": 977,
+      "aspect_ratio": 0.76
+    },
+    "file_size_kb": 79.4,
+    "crop_bbox": [
+      377.8,
+      36.0,
+      592.5,
+      317.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.18",
+    "page_number": 10,
+    "caption": "Fig. 7.18: Raising an unit of work done or that of kinetic energy. object to a height",
+    "filename": "fig_7_18.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_18.webp",
+    "dimensions": {
+      "width": 327,
+      "height": 731,
+      "aspect_ratio": 0.45
+    },
+    "file_size_kb": 10.2,
+    "crop_bbox": [
+      483.4,
+      507.5,
+      588.0,
+      731.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.19",
+    "page_number": 11,
+    "caption": "Fig. 7.19 An object s = ut + gt2→h−h' = 0 + gt2 →h'=h− gt2 falling freely due to 2 2 2",
+    "filename": "fig_7_19.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_19.webp",
+    "dimensions": {
+      "width": 1789,
+      "height": 1414,
+      "aspect_ratio": 1.27
+    },
+    "file_size_kb": 281.9,
+    "crop_bbox": [
+      38.2,
+      240.1,
+      560.4,
+      647.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.20",
+    "page_number": 12,
+    "caption": "Fig. 7.20: A pendulum reach the level of the horizontal line?",
+    "filename": "fig_7_20.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_20.webp",
+    "dimensions": {
+      "width": 1103,
+      "height": 1313,
+      "aspect_ratio": 0.84
+    },
+    "file_size_kb": 136.3,
+    "crop_bbox": [
+      216.2,
+      118.4,
+      533.9,
+      496.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.21",
+    "page_number": 13,
+    "caption": "Fig. 7.21: Escape ramp = 2000000 J + 0 J = 2000000 J",
+    "filename": "fig_7_21.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_21.webp",
+    "dimensions": {
+      "width": 1655,
+      "height": 1417,
+      "aspect_ratio": 1.17
+    },
+    "file_size_kb": 290.0,
+    "crop_bbox": [
+      31.1,
+      150.5,
+      511.6,
+      558.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.22",
+    "page_number": 14,
+    "caption": "Fig. 7.22 in a science park, where a ball is C D released from the highest point. Describe E",
+    "filename": "fig_7_22.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_22.webp",
+    "dimensions": {
+      "width": 1782,
+      "height": 911,
+      "aspect_ratio": 1.96
+    },
+    "file_size_kb": 130.5,
+    "crop_bbox": [
+      78.1,
+      36.0,
+      591.3,
+      298.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.23",
+    "page_number": 15,
+    "caption": "Fig. 7.23: Pulley effort",
+    "filename": "fig_7_23.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_23.webp",
+    "dimensions": {
+      "width": 1707,
+      "height": 1148,
+      "aspect_ratio": 1.49
+    },
+    "file_size_kb": 208.9,
+    "crop_bbox": [
+      67.6,
+      82.3,
+      566.3,
+      414.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.24",
+    "page_number": 15,
+    "caption": "Fig. 7.24: Pulling up a load (a) directly, and is 1 (Eq. 7.12). (b) using a pulley Ready",
+    "filename": "fig_7_24.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_24.webp",
+    "dimensions": {
+      "width": 915,
+      "height": 727,
+      "aspect_ratio": 1.26
+    },
+    "file_size_kb": 69.7,
+    "crop_bbox": [
+      50.9,
+      422.9,
+      318.0,
+      632.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.25",
+    "page_number": 15,
+    "caption": "Fig. 7.25: A system of pulleys",
+    "filename": "fig_7_25.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_25.webp",
+    "dimensions": {
+      "width": 828,
+      "height": 384,
+      "aspect_ratio": 2.16
+    },
+    "file_size_kb": 36.3,
+    "crop_bbox": [
+      305.3,
+      630.9,
+      543.9,
+      745.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.26",
+    "page_number": 16,
+    "caption": "Fig. 7.26: A box being (a) lifted vertically up, and (b) pushed up the ramp You can place the",
+    "filename": "fig_7_26.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_26.webp",
+    "dimensions": {
+      "width": 1769,
+      "height": 1066,
+      "aspect_ratio": 1.66
+    },
+    "file_size_kb": 177.4,
+    "crop_bbox": [
+      81.9,
+      36.0,
+      591.3,
+      343.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.27",
+    "page_number": 16,
+    "caption": "Fig. 7.27: Measuring the force required to pull (the force required) smaller than that of up a cart along an inclined plank",
+    "filename": "fig_7_27.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_27.webp",
+    "dimensions": {
+      "width": 768,
+      "height": 879,
+      "aspect_ratio": 0.87
+    },
+    "file_size_kb": 81.1,
+    "crop_bbox": [
+      339.7,
+      384.1,
+      565.2,
+      637.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.28",
+    "page_number": 17,
+    "caption": "Fig. 7.28: A load being lifted up (a) vertically, (b) along an inclined plane, and (c) along an inclined plane of larger",
+    "filename": "fig_7_28.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_28.webp",
+    "dimensions": {
+      "width": 1502,
+      "height": 434,
+      "aspect_ratio": 3.46
+    },
+    "file_size_kb": 50.3,
+    "crop_bbox": [
+      116.9,
+      87.1,
+      553.0,
+      214.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.29",
+    "page_number": 17,
+    "caption": "Fig. 7.29 Using Eq. (7.13), mechanical advantage = = = 1.67 h 30 cm",
+    "filename": "fig_7_29.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_29.webp",
+    "dimensions": {
+      "width": 1600,
+      "height": 1214,
+      "aspect_ratio": 1.32
+    },
+    "file_size_kb": 208.4,
+    "crop_bbox": [
+      40.2,
+      292.7,
+      504.5,
+      642.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.30",
+    "page_number": 17,
+    "caption": "Fig. 7.30: (Fig. 7.30). Explain why. Climbing ladders",
+    "filename": "fig_7_30.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_30.webp",
+    "dimensions": {
+      "width": 1408,
+      "height": 373,
+      "aspect_ratio": 3.77
+    },
+    "file_size_kb": 66.5,
+    "crop_bbox": [
+      151.0,
+      640.4,
+      559.8,
+      751.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.31",
+    "page_number": 18,
+    "caption": "Fig. 7.31: Lifting a heavier object with a stapler) could be lifted by a much lighter eraser. This was lighter object",
+    "filename": "fig_7_31.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_31.webp",
+    "dimensions": {
+      "width": 641,
+      "height": 738,
+      "aspect_ratio": 0.87
+    },
+    "file_size_kb": 48.0,
+    "crop_bbox": [
+      409.2,
+      36.0,
+      594.0,
+      257.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.32",
+    "page_number": 18,
+    "caption": "Fig. 7.32: A lever used to lift a force can be applied on the object on the other end of the heavy",
+    "filename": "fig_7_32.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_32.webp",
+    "dimensions": {
+      "width": 637,
+      "height": 501,
+      "aspect_ratio": 1.27
+    },
+    "file_size_kb": 36.2,
+    "crop_bbox": [
+      408.5,
+      276.8,
+      595.3,
+      426.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.33",
+    "page_number": 18,
+    "caption": "Fig. 7.33: Balancing cups hung on points of the pans until both sides balance equally. a scale",
+    "filename": "fig_7_33.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_33.webp",
+    "dimensions": {
+      "width": 823,
+      "height": 967,
+      "aspect_ratio": 0.85
+    },
+    "file_size_kb": 72.6,
+    "crop_bbox": [
+      354.7,
+      471.7,
+      596.3,
+      754.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.34",
+    "page_number": 19,
+    "caption": "Fig. 7.34: A seesaw Thus, the other child should sit at seat D.",
+    "filename": "fig_7_34.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_34.webp",
+    "dimensions": {
+      "width": 1682,
+      "height": 1363,
+      "aspect_ratio": 1.23
+    },
+    "file_size_kb": 220.7,
+    "crop_bbox": [
+      59.6,
+      346.9,
+      553.5,
+      744.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.35",
+    "page_number": 20,
+    "caption": "Fig. 7.35: Opening the machines (using wheels, weights or magnets) doing useful lid by using a spoon have been proposed but none",
+    "filename": "fig_7_35.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_35.webp",
+    "dimensions": {
+      "width": 1774,
+      "height": 1431,
+      "aspect_ratio": 1.24
+    },
+    "file_size_kb": 240.5,
+    "crop_bbox": [
+      78.0,
+      270.4,
+      596.3,
+      682.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.36",
+    "page_number": 21,
+    "caption": "Fig. 7.36: A watermill in dams is similarly converted into kinetic energy to generate (gharat or panchakki)",
+    "filename": "fig_7_36.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_36.webp",
+    "dimensions": {
+      "width": 1751,
+      "height": 714,
+      "aspect_ratio": 2.45
+    },
+    "file_size_kb": 182.2,
+    "crop_bbox": [
+      41.5,
+      73.0,
+      552.9,
+      282.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.37",
+    "page_number": 23,
+    "caption": "Fig. 7.37",
+    "filename": "fig_7_37.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_37.webp",
+    "dimensions": {
+      "width": 537,
+      "height": 460,
+      "aspect_ratio": 1.17
+    },
+    "file_size_kb": 20.8,
+    "crop_bbox": [
+      53.1,
+      221.2,
+      207.9,
+      358.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.38",
+    "page_number": 23,
+    "caption": "Fig. 7.38",
+    "filename": "fig_7_38.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_38.webp",
+    "dimensions": {
+      "width": 470,
+      "height": 447,
+      "aspect_ratio": 1.05
+    },
+    "file_size_kb": 17.9,
+    "crop_bbox": [
+      52.9,
+      365.1,
+      191.8,
+      502.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.39",
+    "page_number": 23,
+    "caption": "Fig.7.39 CChhaapptteerr--0077..iinndddd",
+    "filename": "fig_7_39.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_39.webp",
+    "dimensions": {
+      "width": 560,
+      "height": 994,
+      "aspect_ratio": 0.56
+    },
+    "file_size_kb": 47.7,
+    "crop_bbox": [
+      44.2,
+      513.1,
+      205.7,
+      802.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 7.40",
+    "page_number": 24,
+    "caption": "Fig. 7.40 load, and calculate the mechanical advantage.",
+    "filename": "fig_7_40.webp",
+    "file_path": "public/extracted_diagrams/ch7\\fig_7_40.webp",
+    "dimensions": {
+      "width": 1841,
+      "height": 1361,
+      "aspect_ratio": 1.35
+    },
+    "file_size_kb": 309.0,
+    "crop_bbox": [
+      61.1,
+      36.0,
+      591.3,
+      428.0
+    ]
+  }
+]

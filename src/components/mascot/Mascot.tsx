@@ -322,7 +322,7 @@ export function Mascot() {
     <aside
       ref={containerRef}
       style={containerStyle}
-      aria-label="AI Tutor Intelligent Companion"
+      aria-label="Anaxly Intelligent Companion"
       className="flex flex-col items-center md:items-start select-none pointer-events-none group"
     >
       {/* Interactive Floating Speech Bubble with Apple-tier springs */}

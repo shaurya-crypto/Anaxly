@@ -1,0 +1,409 @@
+[
+  {
+    "curriculum_id": "dd776dc7-c0b1-46e5-ae46-3cb865f03cea",
+    "order_index": 1,
+    "title": "Cuboids and Cubes: Spatial Nets, Total Surface Area & Three-Dimensional Volume",
+    "estimated_minutes": 25,
+    "class_level": "Class 9",
+    "board": "CBSE",
+    "description": "Deconstruct three-dimensional rectangular prisms (cuboids and cubes, Fig. 14.1). Unfold 3D polyhedra into 2D planar nets, derive the total surface area formula 2(lw + wh + hl) and lateral surface area 2(l + w)h, and formulate space capacity (volume = l · w · h).",
+    "key_concepts": [
+      "Cuboid Anatomy: A 3D solid bounded by six rectangular faces, twelve edges, and eight vertices with dimensions length l, width w, and height h",
+      "Cube: A special symmetric cuboid where all edges are equal: l = w = h = a",
+      "Total Surface Area (TSA): Sum of areas of all 6 faces: TSA_cuboid = 2(lw + wh + hl); TSA_cube = 6a²",
+      "Lateral Surface Area (LSA / Area of 4 Walls): Surface area excluding top and bottom bases: LSA = 2(l + w)h = 2h(l + w); LSA_cube = 4a²",
+      "Volume (Space Capacity): The measure of three-dimensional space occupied: Volume_cuboid = l · w · h; Volume_cube = a³",
+      "Diagonal of a Cuboid: The longest straight segment fitting inside: d = √(l² + w² + h²); for cube: d = a√3"
+    ],
+    "subtopics": [
+      "Net unfoldings of cuboids and cubes",
+      "Derivation of TSA, LSA, and Volume formulas",
+      "Worked Example 1: Comparing solid objects of identical mass/material",
+      "Solving Exercises 1 to 6 (Cutting cubes, godown capacity, joined cubes)"
+    ],
+    "success_criteria": [
+      "Compute TSA, LSA, and Volume for any cuboid or cube given dimensions",
+      "Calculate the maximum number of identical small objects that can pack into a rectangular container",
+      "Solve joined-cube and sliced-cube surface area change problems"
+    ],
+    "chapter_notes": "# Chapter 14: Math of Space: Surface Area and Volume\n## Module 1: Cuboids and Cubes\n\n### 1. Cuboid Formulas\nFor a cuboid of length $l$, width $w$, and height $h$:\n- **Total Surface Area (TSA):**\n  $$\\text{TSA} = 2(lw + wh + hl)$$\n- **Lateral Surface Area (LSA / Four Walls):**\n  $$\\text{LSA} = 2(l + w)h$$\n- **Volume:**\n  $$V = l \\cdot w \\cdot h$$\n- **Space Diagonal:**\n  $$d = \\sqrt{l^2 + w^2 + h^2}$$\n\n---\n\n### 2. Cube Formulas\nFor a cube of side $a$:\n- **Total Surface Area:** $\\text{TSA} = 6a^2$\n- **Lateral Surface Area:** $\\text{LSA} = 4a^2$\n- **Volume:** $V = a^3$\n- **Diagonal:** $d = a\\sqrt{3}$\n",
+    "worked_examples": [
+      {
+        "problem": "Chapter 14, Exercise 4: Two cubes, each of volume 125 cm³, are joined end to end. Find the total surface area and volume of the resulting cuboid.",
+        "solution": "GIVEN:\nTwo identical cubes, each with volume V_cube = 125 cm³.\nThe cubes are joined face-to-face end to end to form a single cuboid.\n\nTO FIND:\n(i) Dimensions of the resulting cuboid.\n(ii) Total surface area of the resulting cuboid.\n(iii) Volume of the resulting cuboid.\n\nSTEP-BY-STEP CALCULATION:\nStep 1: Find edge length a of each cube:\nVolume of a cube V = a³.\na³ = 125 cm³\na = ∛125 = 5 cm.\n\nStep 2: Determine dimensions of the resulting cuboid:\nWhen two cubes of side 5 cm are joined end to end along their length:\n- Length l = 5 cm + 5 cm = 10 cm\n- Width w = 5 cm\n- Height h = 5 cm.\n\nStep 3: Compute Total Surface Area (TSA):\nTSA = 2(lw + wh + hl)\nTSA = 2[(10 × 5) + (5 × 5) + (10 × 5)]\nTSA = 2[50 + 25 + 50]\nTSA = 2[125] = 250 cm².\n\nAlternative Area Verification:\nTwo isolated cubes have total surface area 2 × (6a²) = 2 × 6(25) = 300 cm².\nWhen joined, two faces of area a² = 25 cm² are glued together and hidden from the exterior.\nExterior Area = 300 - 2(25) = 250 cm².\n\nStep 4: Compute Volume:\nVolume = l × w × h = 10 × 5 × 5 = 250 cm³\n(Or Volume = 125 + 125 = 250 cm³).\n\n[ROUGH_WORK]\na = 5 cm. Joined: l = 10, w = 5, h = 5. TSA = 2(50 + 25 + 50) = 250 cm². V = 250 cm³.\nBoxed Answer: [ Dimensions: 10 cm × 5 cm × 5 cm, TSA = 250 cm², Volume = 250 cm³ ].",
+        "concept_questions": [
+          "Why is the surface area of the combined cuboid less than the sum of the two cubes?",
+          "What would the TSA be if three such cubes were joined in a line?"
+        ]
+      }
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Final-Term",
+      "image_search_query": "cuboid net surface area volume 3d geometry diagram",
+      "video_search_query": "surface area and volume of cuboids and cubes class 9",
+      "concept_questions": [
+        "How many faces does a cuboid have, and how many distinct rectangular pairs?",
+        "What happens to the volume of a cube if its edge length is doubled?",
+        "What happens to the total surface area if its edge length is doubled?"
+      ]
+    },
+    "common_misconceptions": [
+      {
+        "misconception": "Adding the surface areas of two joined shapes directly without subtracting the touching hidden faces.",
+        "correction": "When two solids are joined, their contacting faces become interior and no longer contribute to the exterior surface area."
+      }
+    ],
+    "quiz_questions": [
+      {
+        "question": "If the volume of a cube is 64 cm³, what is its total surface area?",
+        "options": [
+          "(Recommended) 96 cm²",
+          "64 cm²",
+          "384 cm²",
+          "16 cm²"
+        ],
+        "correct_index": 0,
+        "explanation": "Edge a = ∛64 = 4 cm. TSA = 6a² = 6 × 4² = 6 × 16 = 96 cm²."
+      }
+    ]
+  },
+  {
+    "curriculum_id": "dd776dc7-c0b1-46e5-ae46-3cb865f03cea",
+    "order_index": 2,
+    "title": "Right Circular Cylinders: Unrolling Rectangular Sheets, Curved Surface Area & Volume",
+    "estimated_minutes": 25,
+    "class_level": "Class 9",
+    "board": "CBSE",
+    "description": "Analyze right circular cylinders by unrolling their curved surface into a 2D rectangular sheet (Section 14.2, Fig. 14.6). Derive Curved Surface Area (CSA = 2πrh), Total Surface Area (TSA = 2πr(r + h)), and Volume (V = πr²h) as stacked cross-sectional circles.",
+    "key_concepts": [
+      "Right Circular Cylinder Definition: A solid generated by rotating a rectangle about one of its sides, with circular bases perpendicular to its central axis",
+      "Curved Surface Unrolling Principle: Unrolling the curved mantle yields a flat rectangle of length equal to base circumference 2πr and width equal to height h",
+      "Curved Surface Area (CSA): CSA = 2πrh",
+      "Total Surface Area (TSA): Sum of curved mantle and two circular lids: TSA = 2πrh + 2πr² = 2πr(r + h)",
+      "Cavalieri's Stacking Volume: Volume equals base area multiplied by perpendicular height: V = πr²h"
+    ],
+    "subtopics": [
+      "Unrolling cylinders into 2D nets",
+      "Derivation of CSA, TSA, and Volume formulas",
+      "Worked Example 2: Savitri's cylindrical kaleidoscope model (Fig. 14.6)",
+      "Exercises 1 to 5: Melting cubes into cylinders, ratio of cylinder volumes"
+    ],
+    "success_criteria": [
+      "Prove that the CSA of a cylinder is 2πrh by net unrolling",
+      "Calculate CSA, TSA, and Volume using π = 22/7 or 3.14",
+      "Solve solid conversion problems where material volume is conserved during melting/recasting"
+    ],
+    "chapter_notes": "# Chapter 14: Math of Space: Surface Area and Volume\n## Module 2: Right Circular Cylinders\n\n### 1. Cylindrical Formulas\nFor a right circular cylinder of base radius $r$ and height $h$:\n- **Circumference of Base:** $C = 2\\pi r$\n- **Area of Base (Circle):** $A = \\pi r^2$\n- **Curved Surface Area (CSA):**\n  $$\\text{CSA} = 2\\pi rh$$\n- **Total Surface Area (TSA):**\n  $$\\text{TSA} = 2\\pi rh + 2\\pi r^2 = 2\\pi r(r + h)$$\n- **Volume:**\n  $$V = \\pi r^2 h$$\n",
+    "worked_examples": [
+      {
+        "problem": "Example 2 (NCERT, Refer to Fig. 14.6): Savitri had to make a model of a cylindrical kaleidoscope for her science project. She wanted to use chart paper to prepare the curved surface of the kaleidoscope. What would be the area of chart paper required by her, if she wanted to make a kaleidoscope of length 25 cm with a 3.5 cm radius? (Take π = 22/7).",
+        "figure_path": "/extracted_diagrams/math9_ch14/fig_14_6.webp",
+        "solution": "GIVEN (Refer to Fig. 14.6):\nRadius of the base of the cylindrical kaleidoscope r = 3.5 cm = 7/2 cm.\nHeight (length) of the kaleidoscope h = 25 cm.\nπ = 22/7.\n\nTO FIND:\nArea of chart paper required to cover the curved surface of the kaleidoscope (CSA).\n\nFORMULA USED:\nCurved Surface Area (CSA) = 2πrh\n\nSTEP-BY-STEP CALCULATION:\nStep 1: Substitute the given dimensions:\nCSA = 2 × (22 / 7) × (3.5) × 25\n\nStep 2: Simplify arithmetic:\nNotice that 3.5 = 7 / 2:\nCSA = 2 × (22 / 7) × (7 / 2) × 25\nCancel 2 with 2, and 7 with 7:\nCSA = 22 × 25\n\nStep 3: Perform final multiplication:\nCSA = 22 × 25 = 550 cm².\n\n[ROUGH_WORK]\n2 × (22/7) × (7/2) × 25 = 22 × 25 = 550 cm².\nBoxed Answer: [ Area of chart paper required = 550 cm² ].",
+        "concept_questions": [
+          "Why does the kaleidoscope not include circular end caps?",
+          "What would the total surface area be if both ends were sealed?"
+        ]
+      }
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Final-Term",
+      "image_search_query": "right circular cylinder net unrolling rectangle circumference 2pi r diagram",
+      "video_search_query": "curved surface area of cylinder proof class 9",
+      "concept_questions": [
+        "Why is the length of the unrolled rectangle equal to 2πr?",
+        "If the radius of a cylinder is doubled while height is halved, what happens to its volume?",
+        "What happens to its curved surface area under the same transformation?"
+      ]
+    },
+    "common_misconceptions": [
+      {
+        "misconception": "Using TSA when only the curved surface is needed (e.g. pipes, open cylinders, kaleidoscopes).",
+        "correction": "Always determine whether ends are open, closed on one end (like a drinking glass: πr² + 2πrh), or closed on both ends (2πr(r+h))."
+      }
+    ],
+    "quiz_questions": [
+      {
+        "question": "If the radius of a cylinder is doubled and its height is halved, its volume will:",
+        "options": [
+          "(Recommended) Double",
+          "Remain unchanged",
+          "Halve",
+          "Quadruple"
+        ],
+        "correct_index": 0,
+        "explanation": "V = πr²h. If r → 2r and h → h/2: V_new = π(2r)²(h/2) = π(4r²)(h/2) = 2πr²h = 2V. The volume doubles!"
+      }
+    ]
+  },
+  {
+    "curriculum_id": "dd776dc7-c0b1-46e5-ae46-3cb865f03cea",
+    "order_index": 3,
+    "title": "Right Circular Cones: Sector Folding, Slant Height Derivation & Cone Metrics",
+    "estimated_minutes": 25,
+    "class_level": "Class 9",
+    "board": "CBSE",
+    "description": "Investigate right circular cones generated by revolving a right-angled triangle around its vertical leg (Section 14.3, Fig. 14.7). Prove the Pythagorean slant height relation l = √(r² + h²), derive Curved Surface Area (CSA = πrl) via circular sector folding, and establish Volume as exactly one-third of the enclosing cylinder (V = (1/3)πr²h).",
+    "key_concepts": [
+      "Right Circular Cone Anatomy: Base of radius r, vertical height h, and slant height l connecting apex to base circumference",
+      "Slant Height Pythagorean Invariant: The axis, base radius, and slant generator form a right triangle: l² = r² + h² ⇒ l = √(r² + h²)",
+      "Curved Surface Area via Sector Folding: A circular sector of radius l and arc length 2πr folds into a cone; CSA = (1/2) · (Arc Length) · (Radius) = (1/2)(2πr)(l) = πrl",
+      "Total Surface Area: Sum of curved mantle and circular base: TSA = πrl + πr² = πr(l + r)",
+      "One-Third Volume Invariant: A cone occupies exactly 1/3 the volume of a cylinder with identical base radius and height: V = (1/3)πr²h"
+    ],
+    "subtopics": [
+      "Generating a cone by rotating a right triangle (Example 3, Fig. 14.7)",
+      "Derivation of CSA = πrl from sector geometry",
+      "Slant height calculation using Pythagorean theorem",
+      "Solving Exercises 1 to 8 (Joker's cap, conical tents, rotating triangles)"
+    ],
+    "success_criteria": [
+      "Calculate slant height l given base radius r and perpendicular height h",
+      "Compute CSA and TSA of cones in real-world contexts",
+      "Apply V = (1/3)πr²h to determine capacity and material requirements"
+    ],
+    "chapter_notes": "# Chapter 14: Math of Space: Surface Area and Volume\n## Module 3: Right Circular Cones\n\n### 1. Cone Formulas\nFor a right circular cone of base radius $r$, vertical height $h$, and slant height $l$:\n- **Slant Height:**\n  $$l = \\sqrt{r^2 + h^2}$$\n- **Curved Surface Area (CSA):**\n  $$\\text{CSA} = \\pi r l$$\n- **Total Surface Area (TSA):**\n  $$\\text{TSA} = \\pi r l + \\pi r^2 = \\pi r(l + r)$$\n- **Volume:**\n  $$V = \\frac{1}{3}\\pi r^2 h$$\n",
+    "worked_examples": [
+      {
+        "problem": "Example 3 (NCERT, Refer to Fig. 14.7): A right triangle ABC with sides 5 cm, 12 cm, and 13 cm is rotated through the side of 12 cm. Find the volume and total surface area of the solid cone so obtained.",
+        "figure_path": "/extracted_diagrams/math9_ch14/fig_14_7A.webp",
+        "solution": "GIVEN (Refer to Fig. 14.7):\nRight triangle ABC with legs 5 cm, 12 cm and hypotenuse 13 cm.\nThe triangle is revolved about the leg of length 12 cm.\n\nSTEP-BY-STEP CALCULATION:\nStep 1: Identify dimensions of the generated cone:\n- The leg about which it is revolved forms the axis and vertical height: h = 12 cm.\n- The other leg revolves to trace the circular base: radius r = 5 cm.\n- The hypotenuse traces the slant surface: slant height l = 13 cm.\nCheck: l² = r² + h² ⇒ 5² + 12² = 25 + 144 = 169 = 13². (Perfect match!)\n\nStep 2: Compute Volume:\nV = (1/3)πr²h\nV = (1/3) × π × (5)² × 12\nV = (1/3) × π × 25 × 12\nV = 25 × 4 × π = 100π cm³.\nTaking π ≈ 3.1416:\nV ≈ 314.16 cm³ (or 100π cm³).\n\nStep 3: Compute Total Surface Area (TSA):\nTSA = πr(l + r)\nTSA = π × 5 × (13 + 5)\nTSA = π × 5 × 18 = 90π cm².\nTaking π ≈ 3.1416:\nTSA ≈ 282.74 cm² (or 90π cm²).\n\n[ROUGH_WORK]\nh = 12, r = 5, l = 13. V = (1/3)π(25)(12) = 100π cm³. TSA = π(5)(18) = 90π cm².\nBoxed Answer: [ Volume = 100π cm³ (≈ 314.16 cm³), TSA = 90π cm² (≈ 282.74 cm²) ].",
+        "concept_questions": [
+          "What would the volume be if the triangle were revolved about the side of 5 cm instead?",
+          "Why does revolving about the shorter leg produce a larger volume?"
+        ]
+      }
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Final-Term",
+      "image_search_query": "cone slant height radius vertical height right triangle rotation diagram",
+      "video_search_query": "surface area and volume of cone class 9",
+      "concept_questions": [
+        "Why is the slant height l always strictly greater than the vertical height h?",
+        "How does sector folding prove the formula CSA = πrl?",
+        "Why is the volume of a cone exactly 1/3 of a cylinder?"
+      ]
+    },
+    "common_misconceptions": [
+      {
+        "misconception": "Confusing vertical height h with slant height l in the CSA formula.",
+        "correction": "CSA = πrl uses the SLANT height l. Volume = (1/3)πr²h uses the VERTICAL height h."
+      }
+    ],
+    "quiz_questions": [
+      {
+        "question": "If a cone has base radius 3 cm and vertical height 4 cm, what is its curved surface area?",
+        "options": [
+          "(Recommended) 15π cm²",
+          "12π cm²",
+          "20π cm²",
+          "24π cm²"
+        ],
+        "correct_index": 0,
+        "explanation": "Slant height l = √(3² + 4²) = 5 cm. CSA = πrl = π(3)(5) = 15π cm²."
+      }
+    ]
+  },
+  {
+    "curriculum_id": "dd776dc7-c0b1-46e5-ae46-3cb865f03cea",
+    "order_index": 4,
+    "title": "Pyramidal Geometry: Triangular & Square Pyramids, Net Structures & Apex Space",
+    "estimated_minutes": 25,
+    "class_level": "Class 9",
+    "board": "CBSE",
+    "description": "Explore pyramidal polyhedra (Section 14.4, Fig. 14.11): regular triangular pyramids (tetrahedra) and square pyramids. Analyze 2D nets, calculate total surface area by summing polygonal base and triangular lateral faces, and connect pyramid volume V = (1/3) · (Base Area) · h to conical limits.",
+    "key_concepts": [
+      "Pyramid Definition: A polyhedron whose base is a polygon and whose lateral faces are triangles meeting at a single common apex",
+      "Regular Square Pyramid: Base is a square of side a, with four congruent isosceles triangular faces of slant height l_s",
+      "Regular Tetrahedron (Triangular Pyramid): A pyramid whose four faces are all congruent equilateral triangles",
+      "Total Surface Area of Pyramid: TSA = (Area of Base Polygon) + ∑(Areas of Lateral Triangular Faces)",
+      "General Pyramid Volume Theorem: Volume = (1/3) × (Base Area) × h, holding true for ANY polygon base"
+    ],
+    "subtopics": [
+      "Nets of triangular and square pyramids (Fig. 14.11)",
+      "Computing slant height and lateral face areas of a square pyramid",
+      "Connecting pyramids to cones as the number of base edges n → ∞",
+      "Hands-on net assembly activities"
+    ],
+    "success_criteria": [
+      "Draw and identify the nets of square and triangular pyramids",
+      "Calculate the surface area of a square pyramid given base side and slant height",
+      "Apply the 1/3 base-area height volume rule to pyramids"
+    ],
+    "chapter_notes": "# Chapter 14: Math of Space: Surface Area and Volume\n## Module 4: Pyramidal Geometry\n\n### 1. Square Pyramid Formulas\nFor a regular square pyramid of base side $a$, vertical height $h$, and face slant height $l_s$:\n- **Relation:** $l_s = \\sqrt{h^2 + (a/2)^2}$\n- **Base Area:** $A_{\\text{base}} = a^2$\n- **Lateral Surface Area (4 triangles):**\n  $$\\text{LSA} = 4 \\times \\left(\\frac{1}{2} a l_s\\right) = 2 a l_s$$\n- **Total Surface Area:**\n  $$\\text{TSA} = a^2 + 2 a l_s$$\n- **Volume:**\n  $$V = \\frac{1}{3} a^2 h$$\n",
+    "worked_examples": [
+      {
+        "problem": "Section 14.4: A regular square pyramid has a base of side 10 cm and a vertical height of 12 cm. Find its slant height, total surface area, and volume.",
+        "solution": "GIVEN:\nBase is a square with side a = 10 cm.\nVertical height h = 12 cm.\n\nTO FIND:\n(i) Slant height l_s.\n(ii) Total surface area (TSA).\n(iii) Volume.\n\nSTEP-BY-STEP CALCULATION:\nStep 1: Compute slant height l_s:\nThe distance from the center of the square base to the midpoint of a side is a/2 = 10/2 = 5 cm.\nBy the Pythagorean theorem:\nl_s = √(h² + (a/2)²)\nl_s = √(12² + 5²) = √(144 + 25) = √169 = 13 cm.\n\nStep 2: Compute Base Area:\nBase Area = a² = 10² = 100 cm².\n\nStep 3: Compute Lateral Surface Area (LSA):\nThere are 4 triangular faces, each with base 10 cm and altitude 13 cm:\nArea of 1 triangle = (1/2) × 10 × 13 = 65 cm².\nLSA = 4 × 65 = 260 cm².\n\nStep 4: Compute Total Surface Area (TSA):\nTSA = Base Area + LSA = 100 + 260 = 360 cm².\n\nStep 5: Compute Volume:\nV = (1/3) × (Base Area) × h\nV = (1/3) × 100 × 12 = 100 × 4 = 400 cm³.\n\n[ROUGH_WORK]\nh = 12, a/2 = 5 ⇒ l_s = 13 cm. Base = 100. 4 triangles = 4(65) = 260. TSA = 360 cm². V = (1/3)(100)(12) = 400 cm³.\nBoxed Answer: [ Slant height = 13 cm, TSA = 360 cm², Volume = 400 cm³ ].",
+        "concept_questions": [
+          "Why is the distance from base center to edge equal to a/2?",
+          "What is the difference between face slant height and lateral edge length?"
+        ]
+      }
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Final-Term",
+      "image_search_query": "square pyramid net geometry slant height 3d diagram",
+      "video_search_query": "surface area and volume of square pyramid class 9",
+      "concept_questions": [
+        "How does a cone represent the limiting case of a regular pyramid with infinite sides?",
+        "What are the faces of a regular tetrahedron?",
+        "Why is pyramid volume always 1/3 of the corresponding prism?"
+      ]
+    },
+    "common_misconceptions": [
+      {
+        "misconception": "Confusing the slant height of a triangular face with the edge length joining vertex to base corner.",
+        "correction": "Slant height is the perpendicular altitude of the triangular face, whereas lateral edge is the segment from apex to a base corner."
+      }
+    ],
+    "quiz_questions": [
+      {
+        "question": "What is the volume of a square pyramid with base side 6 cm and height 10 cm?",
+        "options": [
+          "(Recommended) 120 cm³",
+          "360 cm³",
+          "60 cm³",
+          "180 cm³"
+        ],
+        "correct_index": 0,
+        "explanation": "Base area = 6² = 36 cm². Volume = (1/3) × 36 × 10 = 120 cm³."
+      }
+    ]
+  },
+  {
+    "curriculum_id": "dd776dc7-c0b1-46e5-ae46-3cb865f03cea",
+    "order_index": 5,
+    "title": "Spheres & Hemispheres: Archimedes' Theorem, Surface Areas & Capacities",
+    "estimated_minutes": 25,
+    "class_level": "Class 9",
+    "board": "CBSE",
+    "description": "Explore the perfect symmetry of spheres and hemispheres (Section 14.5, Fig. 14.15). Verify the surface area of a sphere A = 4πr² via string-wrapping experiments and Archimedes' circumscribed cylinder theorem, derive hemisphere metrics (CSA = 2πr², TSA = 3πr²), and apply the volume formula V = (4/3)πr³.",
+    "key_concepts": [
+      "Sphere Definition: The locus of all points in 3D space equidistant from a fixed center O by distance r",
+      "Surface Area Theorem: The surface area of a sphere of radius r equals exactly four times the area of its great circle: A = 4πr²",
+      "Archimedes' Hat-Box Theorem: The surface area of a sphere equals the curved surface area of a cylinder circumscribing it: 2πr(2r) = 4πr²",
+      "Volume of a Sphere: V = (4/3)πr³",
+      "Hemisphere Surface Areas: Curved Surface Area (CSA) = 2πr²; Total Surface Area (TSA with flat circular base) = 2πr² + πr² = 3πr²",
+      "Hemisphere Volume: V_hemi = (2/3)πr³"
+    ],
+    "subtopics": [
+      "String-wrapping activity verifying A = 4πr² (Section 14.5.1)",
+      "Archimedes' cylinder-sphere ratio theorem",
+      "Worked Example 4: Hemispherical bowl capacity and tin-plating (Fig. 14.15)",
+      "Exercises 1 to 8: Ball bearings, moon-earth diameter ratio, dome whitewashing"
+    ],
+    "success_criteria": [
+      "State and apply formulas for surface area and volume of spheres and hemispheres",
+      "Distinguish between CSA (2πr²) and TSA (3πr²) of a hemisphere",
+      "Solve volume and surface scaling problems when radius is changed"
+    ],
+    "chapter_notes": "# Chapter 14: Math of Space: Surface Area and Volume\n## Module 5: Spheres & Hemispheres\n\n### 1. Sphere Formulas\nFor a sphere of radius $r$:\n- **Surface Area:**\n  $$A = 4\\pi r^2$$\n- **Volume:**\n  $$V = \\frac{4}{3}\\pi r^3$$\n\n---\n\n### 2. Hemisphere Formulas\nWhen a sphere is bisected by a plane through its center:\n- **Curved Surface Area (CSA):**\n  $$\\text{CSA} = 2\\pi r^2$$\n- **Total Surface Area (TSA):**\n  $$\\text{TSA} = 2\\pi r^2 + \\pi r^2 = 3\\pi r^2$$\n- **Volume:**\n  $$V = \\frac{2}{3}\\pi r^3$$\n",
+    "worked_examples": [
+      {
+        "problem": "Example 4 (NCERT, Refer to Fig. 14.15): A hemispherical bowl has a radius of 3.5 cm. (i) What would be the volume of water it would contain? (ii) What would be the cost of tin-plating it on the inside at the rate of ₹16 per 100 cm²? (Take π = 22/7).",
+        "figure_path": "/extracted_diagrams/math9_ch14/fig_14_15.webp",
+        "solution": "GIVEN (Refer to Fig. 14.15):\nRadius of the hemispherical bowl r = 3.5 cm = 7/2 cm.\nRate of tin-plating = ₹16 per 100 cm².\nπ = 22/7.\n\nTO FIND:\n(i) Volume (capacity) of water the bowl can hold.\n(ii) Cost of tin-plating the inner curved surface.\n\nSTEP-BY-STEP CALCULATION:\n\nPart (i): Volume of Hemisphere:\nV = (2/3)πr³\nV = (2/3) × (22 / 7) × (7/2)³\nV = (2/3) × (22 / 7) × (343 / 8)\nV = (2/3) × 22 × (49 / 8) = (22 × 49) / 12 = 1078 / 12\nV = 89.833... ≈ 89.83 cm³.\n\nPart (ii): Inner Curved Surface Area:\nInner CSA = 2πr²\nCSA = 2 × (22 / 7) × (7/2)²\nCSA = 2 × (22 / 7) × (49 / 4)\nCSA = 2 × 22 × (7 / 4) = 44 × 7 / 4 = 11 × 7 = 77 cm².\n\nCost of Tin-Plating:\nCost = (Rate / 100) × Area\nCost = (16 / 100) × 77\nCost = 0.16 × 77 = ₹12.32.\n\n[ROUGH_WORK]\nCSA = 2 × (22/7) × (7/2) × (7/2) = 77 cm². Cost = (77 × 16) / 100 = 1232 / 100 = ₹12.32. Capacity = 1078/12 = 89.83 cm³.\nBoxed Answer: [ (i) Volume = 89.83 cm³, (ii) Cost of tin-plating = ₹12.32 ].",
+        "concept_questions": [
+          "Why do we use CSA instead of TSA for the bowl?",
+          "What is 89.83 cm³ in millilitres (mL)?"
+        ]
+      }
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Final-Term",
+      "image_search_query": "sphere hemisphere surface area volume geometry archimedes cylinder diagram",
+      "video_search_query": "surface area and volume of spheres and hemispheres class 9",
+      "concept_questions": [
+        "Why is the surface area of a sphere exactly four times the area of its great circle?",
+        "What is the total surface area of a solid hemisphere of radius r?",
+        "If the radius of a sphere is increased by 10%, by what percentage does its volume increase?"
+      ]
+    },
+    "common_misconceptions": [
+      {
+        "misconception": "Forgetting the flat circular base when calculating the total surface area of a solid hemisphere.",
+        "correction": "Curved surface is 2πr². If the hemisphere is solid, you MUST add the base area πr² to get TSA = 3πr²."
+      }
+    ],
+    "quiz_questions": [
+      {
+        "question": "What is the total surface area of a solid hemisphere of radius 7 cm? (Take π = 22/7)",
+        "options": [
+          "(Recommended) 462 cm²",
+          "308 cm²",
+          "616 cm²",
+          "154 cm²"
+        ],
+        "correct_index": 0,
+        "explanation": "TSA = 3πr² = 3 × (22/7) × 7² = 3 × 22 × 7 = 462 cm²."
+      }
+    ]
+  },
+  {
+    "curriculum_id": "dd776dc7-c0b1-46e5-ae46-3cb865f03cea",
+    "order_index": 6,
+    "title": "Real-World Solids & Fermi Guesstimates: Composite Structures & Practical Measurements",
+    "estimated_minutes": 30,
+    "class_level": "Class 9",
+    "board": "CBSE",
+    "description": "Master practical 3D spatial estimations and composite solid calculations (Section 14.6, Fig. 14.16 & 14.17). Solve Fermi guesstimate problems (ice cream scoops, Lallan's golgappa capacity, tennis ball cylinder packing efficiency), and solve comprehensive exercises 1 to 22.",
+    "key_concepts": [
+      "Composite Solids: Objects formed by combining fundamental shapes (cylinder with hemispherical caps, cone on a hemisphere)",
+      "Surface Area of Composites Invariant: Sum only the exposed exterior surfaces; contacting interior boundaries are excluded",
+      "Fermi Estimation (Guesstimates): Making educated order-of-magnitude estimations of real-world quantities using geometric approximations and reasonable assumptions",
+      "Sphere Packing Efficiency (Fig. 14.17): When packing spherical tennis balls into a cylinder of matching diameter 2r and height 2r, the sphere occupies exactly 2/3 of the cylinder's volume"
+    ],
+    "subtopics": [
+      "Composite solid surface areas and volumes",
+      "Worked Example 5: Lallan's golgappa capacity estimation",
+      "Worked Example 6: Tennis ball cylinder packing and empty space (Fig. 14.17)",
+      "Full solutions to Exercises 1 to 22 (Ice cream scoops, Earth atmosphere volume, pen ink capacity)"
+    ],
+    "success_criteria": [
+      "Calculate the total surface area and volume of composite solids",
+      "Perform Fermi estimations for real-life spatial questions",
+      "Prove Archimedes' sphere-to-cylinder volume ratio 2/3"
+    ],
+    "chapter_notes": "# Chapter 14: Math of Space: Surface Area and Volume\n## Module 6: Real-World Solids & Fermi Guesstimates\n\n### 1. Archimedes' Sphere-Cylinder Ratio\nA sphere of radius $r$ is placed inside the smallest possible cylinder that contains it:\n- Cylinder radius: $R = r$\n- Cylinder height: $H = 2r$\n- Cylinder Volume: $V_{\\text{cylinder}} = \\pi R^2 H = \\pi r^2 (2r) = 2\\pi r^3$\n- Sphere Volume: $V_{\\text{sphere}} = \\frac{4}{3}\\pi r^3$\n\n$$\\frac{V_{\\text{sphere}}}{V_{\\text{cylinder}}} = \\frac{\\frac{4}{3}\\pi r^3}{2\\pi r^3} = \\frac{4}{6} = \\frac{2}{3}$$\n\nThe sphere occupies **exactly two-thirds (66.7%)** of the cylinder, leaving one-third (33.3%) as empty void space!\n",
+    "worked_examples": [
+      {
+        "problem": "Example 6 (NCERT, Refer to Fig. 14.17): Three tennis balls, each of diameter 6.5 cm, are packed tightly in a cylindrical can so that they touch the sides, top, and bottom of the can. (i) What are the dimensions of the cylindrical can? (ii) What is the total volume of the three tennis balls? (iii) What is the volume of the cylindrical can? (iv) What percentage of the can's volume is unoccupied empty space?",
+        "figure_path": "/extracted_diagrams/math9_ch14/fig_14_17.webp",
+        "solution": "GIVEN (Refer to Fig. 14.17):\n3 spherical tennis balls packed tightly in a cylinder.\nDiameter of each ball d = 6.5 cm ⇒ Radius r = 3.25 cm = 13/4 cm.\n\nSTEP-BY-STEP CALCULATION:\nStep 1: Determine dimensions of the can:\n- Can radius R = ball radius r = 3.25 cm.\n- Can height H = 3 × ball diameter = 3 × 6.5 cm = 19.5 cm.\n\nStep 2: Total volume of the 3 tennis balls:\nVolume of 1 ball = (4/3)πr³\nTotal volume of 3 balls = 3 × [(4/3)πr³] = 4πr³\nV_balls = 4 × π × (3.25)³ = 4 × π × 34.328125 = 137.3125π cm³ ≈ 431.38 cm³.\n\nStep 3: Volume of the cylindrical can:\nV_can = π R² H = π × (3.25)² × 19.5\nV_can = π × 10.5625 × 19.5 = 205.96875π cm³ ≈ 647.07 cm³.\n\nStep 4: Percentage of unoccupied empty space:\nV_empty = V_can - V_balls = 205.96875π - 137.3125π = 68.65625π cm³.\nEmpty Fraction = (V_empty / V_can) = (68.65625π / 205.96875π) = 1 / 3 = 33.33%.\n\nNotice: This 33.33% empty space is an invariant that holds for ANY radius! Because V_balls / V_can = (4πr³) / [πr²(6r)] = 4 / 6 = 2/3. Empty space is always 1 - 2/3 = 1/3!\n\n[ROUGH_WORK]\nRatio of volume of spheres to cylinder is 2/3. Empty space is 1/3 = 33.33%!\nBoxed Answer: [ (i) Radius = 3.25 cm, Height = 19.5 cm; (ii) 137.31π cm³ (≈ 431.38 cm³); (iii) 205.97π cm³ (≈ 647.07 cm³); (iv) Exactly 33.33% (1/3 of the can) ].",
+        "concept_questions": [
+          "Does the percentage of empty space depend on the diameter of the balls?",
+          "What would the empty percentage be for a can with 4 balls?"
+        ]
+      }
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Final-Term",
+      "image_search_query": "tennis balls cylinder packing volume ratio archimedes diagram",
+      "video_search_query": "sphere in cylinder volume ratio archimedes class 9",
+      "concept_questions": [
+        "Why does the ratio of sphere volume to circumscribing cylinder always equal 2/3?",
+        "What assumptions are made in Fermi guesstimations?",
+        "How do you determine the surface area of a capsule (cylinder with two hemispherical ends)?"
+      ]
+    },
+    "common_misconceptions": [
+      {
+        "misconception": "Adding the flat circular bases when computing the surface area of a capsule.",
+        "correction": "The circular ends of the cylinder are sealed inside the hemispheres; the surface area is purely CSA_cylinder + 2(CSA_hemisphere) = 2πrh + 4πr²."
+      }
+    ],
+    "quiz_questions": [
+      {
+        "question": "What fraction of the volume of a cylinder enclosing a sphere of equal diameter is occupied by the sphere?",
+        "options": [
+          "(Recommended) 2/3",
+          "1/2",
+          "3/4",
+          "1/3"
+        ],
+        "correct_index": 0,
+        "explanation": "By Archimedes' Theorem, V_sphere / V_cylinder = ((4/3)πr³) / (2πr³) = 4/6 = 2/3."
+      }
+    ]
+  }
+]

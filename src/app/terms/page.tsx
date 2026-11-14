@@ -2,10 +2,11 @@ import React from 'react'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { BookOpen, ArrowLeft, ShieldCheck, Mail } from 'lucide-react'
+import { LandingFooter } from '@/components/landing/LandingFooter'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | AI Tutor',
-  description: 'Terms of Service and user agreement governing the AI Tutor Socratic learning platform.',
+  title: 'Terms of Service | Anaxly',
+  description: 'Terms of Service and user agreement governing the Anaxly Socratic learning platform.',
 }
 
 export default function TermsOfServicePage() {
@@ -19,7 +20,7 @@ export default function TermsOfServicePage() {
               <BookOpen className="w-4 h-4" />
             </div>
             <span className="font-serif text-xl font-bold tracking-tight text-[#1B3B2B]">
-              AI Tutor
+              Anaxly
             </span>
           </Link>
 
@@ -63,7 +64,7 @@ export default function TermsOfServicePage() {
               1. Acceptance of Terms &amp; Scope of Service
             </h2>
             <p>
-              Welcome to <strong>AI Tutor</strong> (&quot;the Platform&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;).
+              Welcome to <strong>Anaxly</strong> (&quot;the Platform&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;).
               By registering an account, logging in via Google OAuth or email, or accessing any part of the service,
               you (&quot;User&quot; or &quot;Student&quot;) agree to be bound by these Terms of Service (&quot;Terms&quot;) and our Privacy Policy.
             </p>
@@ -80,7 +81,7 @@ export default function TermsOfServicePage() {
               2. Socratic Educational Cadence &amp; Digital Chalkboard
             </h2>
             <p>
-              AI Tutor delivers real-time Socratic oral instruction paired with an interactive digital chalkboard. The tutor operates
+              Anaxly delivers real-time Socratic oral instruction paired with an interactive digital chalkboard. The tutor operates
               on a 6-stage pedagogical cadence: intuitive hook, scientific formulation, worked examples, step-by-step numerical derivations,
               understanding checks, and authentic board-exam practice questions.
             </p>
@@ -136,7 +137,7 @@ export default function TermsOfServicePage() {
               5. AI Voice &amp; Video Avatar Technology
             </h2>
             <p>
-              AI Tutor leverages Google Gemini bidirectional streaming audio and Simli WebRTC facial rendering.
+              Anaxly leverages Google Gemini bidirectional streaming audio and Simli WebRTC facial rendering.
               When entering the digital classroom, you may interact using your microphone or text chat.
             </p>
             <p>
@@ -170,7 +171,7 @@ export default function TermsOfServicePage() {
             </p>
             <p>
               <strong>Platform IP:</strong> All software architecture, proprietary Socratic prompt systems, vector graphics engines, UI/UX designs,
-              and mascot artwork remain the exclusive intellectual property of AI Tutor.
+              and mascot artwork remain the exclusive intellectual property of Anaxly.
             </p>
           </section>
 
@@ -181,7 +182,7 @@ export default function TermsOfServicePage() {
             </h2>
             <p>
               The platform is provided on an &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; basis. While our curriculum ingestion pipelines adhere
-              strictly to official NCERT, CBSE, ICSE, and IB syllabi, AI Tutor is a supplemental pedagogical tool and does not guarantee specific
+              strictly to official NCERT, CBSE, ICSE, and IB syllabi, Anaxly is a supplemental pedagogical tool and does not guarantee specific
               school examination marks or academic rankings.
             </p>
           </section>
@@ -210,19 +211,8 @@ export default function TermsOfServicePage() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="w-full border-t border-[#E8E4DC] bg-[#FAF8F4] py-8 text-center text-xs text-[#78716C]">
-        <p>&copy; {new Date().getFullYear()} AI Tutor. All rights reserved.</p>
-        <div className="mt-2 flex justify-center gap-4 font-mono text-[11px]">
-          <Link href="/privacy" className="hover:text-[#1B3B2B] underline">
-            Privacy Policy
-          </Link>
-          <span>&bull;</span>
-          <Link href="/terms" className="hover:text-[#1B3B2B] underline font-bold">
-            Terms of Service
-          </Link>
-        </div>
-      </footer>
+      {/* Master Canonical Footer */}
+      <LandingFooter />
     </div>
   )
 }

@@ -1,0 +1,800 @@
+[
+  {
+    "figure_id": "Fig. 6.1",
+    "page_number": 2,
+    "caption": "Fig. 6.1 (i)]. Are they congruent? Since all of them do not have the same radius, they are",
+    "filename": "fig_6_1.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_1.webp",
+    "dimensions": {
+      "width": 524,
+      "height": 591,
+      "aspect_ratio": 0.89
+    },
+    "file_size_kb": 49.3,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      252.0,
+      309.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.2",
+    "page_number": 2,
+    "caption": "Fig. 6.2",
+    "filename": "fig_6_2.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_2.webp",
+    "dimensions": {
+      "width": 552,
+      "height": 1095,
+      "aspect_ratio": 0.5
+    },
+    "file_size_kb": 32.9,
+    "crop_bbox": [
+      241.9,
+      247.9,
+      443.2,
+      644.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.3",
+    "page_number": 3,
+    "caption": "Fig. 6.3",
+    "filename": "fig_6_3.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_3.webp",
+    "dimensions": {
+      "width": 553,
+      "height": 558,
+      "aspect_ratio": 0.99
+    },
+    "file_size_kb": 35.5,
+    "crop_bbox": [
+      241.9,
+      97.0,
+      444.1,
+      298.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.4",
+    "page_number": 4,
+    "caption": "Fig.6.4). Note that the quadrilateral ABCD",
+    "filename": "fig_6_4.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_4.webp",
+    "dimensions": {
+      "width": 529,
+      "height": 717,
+      "aspect_ratio": 0.74
+    },
+    "file_size_kb": 65.4,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      252.0,
+      355.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.5",
+    "page_number": 5,
+    "caption": "Fig. 6.5",
+    "filename": "fig_6_5.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_5.webp",
+    "dimensions": {
+      "width": 555,
+      "height": 668,
+      "aspect_ratio": 0.83
+    },
+    "file_size_kb": 21.6,
+    "crop_bbox": [
+      241.9,
+      97.0,
+      444.0,
+      337.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.6",
+    "page_number": 5,
+    "caption": "Fig. 6.6",
+    "filename": "fig_6_6.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_6.webp",
+    "dimensions": {
+      "width": 440,
+      "height": 389,
+      "aspect_ratio": 1.13
+    },
+    "file_size_kb": 5.6,
+    "crop_bbox": [
+      241.9,
+      428.2,
+      403.7,
+      571.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.7",
+    "page_number": 6,
+    "caption": "Fig. 6.7",
+    "filename": "fig_6_7.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_7.webp",
+    "dimensions": {
+      "width": 553,
+      "height": 467,
+      "aspect_ratio": 1.18
+    },
+    "file_size_kb": 13.6,
+    "crop_bbox": [
+      241.9,
+      97.0,
+      444.0,
+      265.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.8",
+    "page_number": 6,
+    "caption": "Fig. 6.8",
+    "filename": "fig_6_8.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_8.webp",
+    "dimensions": {
+      "width": 469,
+      "height": 593,
+      "aspect_ratio": 0.79
+    },
+    "file_size_kb": 14.8,
+    "crop_bbox": [
+      241.9,
+      403.8,
+      410.9,
+      620.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.10",
+    "page_number": 8,
+    "caption": "Fig. 6.10",
+    "filename": "fig_6_10.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_10.webp",
+    "dimensions": {
+      "width": 553,
+      "height": 524,
+      "aspect_ratio": 1.06
+    },
+    "file_size_kb": 28.4,
+    "crop_bbox": [
+      241.9,
+      97.0,
+      444.0,
+      285.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.11",
+    "page_number": 9,
+    "caption": "Fig. 6.11 AB AC 1",
+    "filename": "fig_6_11.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_11.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 711,
+      "aspect_ratio": 1.48
+    },
+    "file_size_kb": 66.0,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.1,
+      353.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.12",
+    "page_number": 10,
+    "caption": "Fig. 6.12",
+    "filename": "fig_6_12.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_12.webp",
+    "dimensions": {
+      "width": 553,
+      "height": 427,
+      "aspect_ratio": 1.3
+    },
+    "file_size_kb": 17.4,
+    "crop_bbox": [
+      241.9,
+      97.0,
+      444.0,
+      250.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.13",
+    "page_number": 10,
+    "caption": "Fig. 6.13",
+    "filename": "fig_6_13.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_13.webp",
+    "dimensions": {
+      "width": 552,
+      "height": 666,
+      "aspect_ratio": 0.83
+    },
+    "file_size_kb": 15.9,
+    "crop_bbox": [
+      241.9,
+      395.0,
+      443.6,
+      637.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.14",
+    "page_number": 11,
+    "caption": "Fig. 6.14 (see Fig. 6.15).",
+    "filename": "fig_6_14.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_14.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 361,
+      "aspect_ratio": 2.91
+    },
+    "file_size_kb": 32.5,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.0,
+      229.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.15",
+    "page_number": 11,
+    "caption": "Fig. 6.15 CG CF =",
+    "filename": "fig_6_15.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_15.webp",
+    "dimensions": {
+      "width": 1007,
+      "height": 401,
+      "aspect_ratio": 2.51
+    },
+    "file_size_kb": 27.4,
+    "crop_bbox": [
+      78.0,
+      254.4,
+      443.5,
+      399.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.16",
+    "page_number": 11,
+    "caption": "Fig. 6.16 Solution : It is given that   SQ TR",
+    "filename": "fig_6_16.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_16.webp",
+    "dimensions": {
+      "width": 788,
+      "height": 521,
+      "aspect_ratio": 1.51
+    },
+    "file_size_kb": 22.6,
+    "crop_bbox": [
+      156.0,
+      404.4,
+      443.3,
+      595.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.17",
+    "page_number": 12,
+    "caption": "Fig. 6.17",
+    "filename": "fig_6_17.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_17.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 851,
+      "aspect_ratio": 1.23
+    },
+    "file_size_kb": 51.3,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.0,
+      403.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.18",
+    "page_number": 12,
+    "caption": "Fig. 6.18 (iii) PQ = 1.28 cm, PR = 2.56 cm, PE = 0.18 cm and PF = 0.36 cm",
+    "filename": "fig_6_18.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_18.webp",
+    "dimensions": {
+      "width": 459,
+      "height": 294,
+      "aspect_ratio": 1.56
+    },
+    "file_size_kb": 12.7,
+    "crop_bbox": [
+      275.3,
+      400.5,
+      443.4,
+      511.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.19",
+    "page_number": 12,
+    "caption": "Fig. 6.19",
+    "filename": "fig_6_19.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_19.webp",
+    "dimensions": {
+      "width": 381,
+      "height": 289,
+      "aspect_ratio": 1.32
+    },
+    "file_size_kb": 9.2,
+    "crop_bbox": [
+      299.9,
+      519.5,
+      443.4,
+      629.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.20",
+    "page_number": 13,
+    "caption": "Fig. 6.20 have proved it in Class IX).",
+    "filename": "fig_6_20.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_20.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 404,
+      "aspect_ratio": 2.6
+    },
+    "file_size_kb": 48.7,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.0,
+      242.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.21",
+    "page_number": 13,
+    "caption": "Fig. 6.21 BO DO",
+    "filename": "fig_6_21.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_21.webp",
+    "dimensions": {
+      "width": 993,
+      "height": 315,
+      "aspect_ratio": 3.15
+    },
+    "file_size_kb": 40.7,
+    "crop_bbox": [
+      72.7,
+      232.3,
+      433.8,
+      345.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.22",
+    "page_number": 13,
+    "caption": "Fig. 6.22",
+    "filename": "fig_6_22.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_22.webp",
+    "dimensions": {
+      "width": 904,
+      "height": 769,
+      "aspect_ratio": 1.18
+    },
+    "file_size_kb": 55.0,
+    "crop_bbox": [
+      60.0,
+      356.4,
+      389.2,
+      635.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.23",
+    "page_number": 14,
+    "caption": "Fig. 6.23",
+    "filename": "fig_6_23.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_23.webp",
+    "dimensions": {
+      "width": 1011,
+      "height": 898,
+      "aspect_ratio": 1.13
+    },
+    "file_size_kb": 104.7,
+    "crop_bbox": [
+      60.0,
+      314.6,
+      427.4,
+      640.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.24",
+    "page_number": 15,
+    "caption": "Fig. 6.24 Cut DP = AB and DQ = AC and join PQ.",
+    "filename": "fig_6_24.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_24.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 972,
+      "aspect_ratio": 1.08
+    },
+    "file_size_kb": 143.9,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.1,
+      447.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.25",
+    "page_number": 16,
+    "caption": "Fig. 6.25 AB BC CA",
+    "filename": "fig_6_25.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_25.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 912,
+      "aspect_ratio": 1.15
+    },
+    "file_size_kb": 107.1,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.1,
+      425.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.26",
+    "page_number": 16,
+    "caption": "Fig. 6.26): DE EF FD",
+    "filename": "fig_6_26.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_26.webp",
+    "dimensions": {
+      "width": 230,
+      "height": 100,
+      "aspect_ratio": 2.3
+    },
+    "file_size_kb": 3.3,
+    "crop_bbox": [
+      60.0,
+      609.6,
+      147.8,
+      650.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.26",
+    "page_number": 17,
+    "caption": "Fig. 6.26",
+    "filename": "fig_6_26.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_26.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 448,
+      "aspect_ratio": 2.34
+    },
+    "file_size_kb": 13.5,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.0,
+      258.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.27",
+    "page_number": 17,
+    "caption": "Fig.6.27). Reprint",
+    "filename": "fig_6_27.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_27.webp",
+    "dimensions": {
+      "width": 803,
+      "height": 1147,
+      "aspect_ratio": 0.7
+    },
+    "file_size_kb": 92.3,
+    "crop_bbox": [
+      132.8,
+      279.4,
+      422.2,
+      695.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.27",
+    "page_number": 18,
+    "caption": "Fig. 6.27 AB AC",
+    "filename": "fig_6_27.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_27.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 479,
+      "aspect_ratio": 2.19
+    },
+    "file_size_kb": 22.0,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.0,
+      269.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.28",
+    "page_number": 18,
+    "caption": "Fig. 6.28 = AC and join PQ.",
+    "filename": "fig_6_28.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_28.webp",
+    "dimensions": {
+      "width": 1049,
+      "height": 422,
+      "aspect_ratio": 2.49
+    },
+    "file_size_kb": 36.4,
+    "crop_bbox": [
+      60.0,
+      476.4,
+      443.8,
+      631.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.29",
+    "page_number": 19,
+    "caption": "Fig. 6.29",
+    "filename": "fig_6_29.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_29.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 657,
+      "aspect_ratio": 1.6
+    },
+    "file_size_kb": 37.3,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.0,
+      333.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.30",
+    "page_number": 19,
+    "caption": "Fig. 6.30 and then find  P.",
+    "filename": "fig_6_30.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_30.webp",
+    "dimensions": {
+      "width": 1047,
+      "height": 318,
+      "aspect_ratio": 3.29
+    },
+    "file_size_kb": 28.1,
+    "crop_bbox": [
+      24.0,
+      331.6,
+      480.0,
+      446.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.31",
+    "page_number": 20,
+    "caption": "Fig. 6.31 So, = (1) OC OB",
+    "filename": "fig_6_31.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_31.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 860,
+      "aspect_ratio": 1.22
+    },
+    "file_size_kb": 55.9,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.0,
+      406.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.32",
+    "page_number": 20,
+    "caption": "Fig. 6.32 shadow of the girl. Let DE be x metres.",
+    "filename": "fig_6_32.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_32.webp",
+    "dimensions": {
+      "width": 583,
+      "height": 422,
+      "aspect_ratio": 1.38
+    },
+    "file_size_kb": 16.6,
+    "crop_bbox": [
+      231.3,
+      475.4,
+      444.0,
+      634.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.33",
+    "page_number": 21,
+    "caption": "Fig. 6.33 Solution : (i)  ABC ~  PQR (Given)",
+    "filename": "fig_6_33.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_33.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 825,
+      "aspect_ratio": 1.27
+    },
+    "file_size_kb": 60.7,
+    "crop_bbox": [
+      60.0,
+      223.4,
+      444.0,
+      523.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.34",
+    "page_number": 23,
+    "caption": "Fig. 6.34",
+    "filename": "fig_6_34.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_34.webp",
+    "dimensions": {
+      "width": 1051,
+      "height": 997,
+      "aspect_ratio": 1.05
+    },
+    "file_size_kb": 55.3,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.7,
+      456.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.35",
+    "page_number": 23,
+    "caption": "Fig. 6.35 point O. Using a similarity criterion for two",
+    "filename": "fig_6_35.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_35.webp",
+    "dimensions": {
+      "width": 772,
+      "height": 324,
+      "aspect_ratio": 2.38
+    },
+    "file_size_kb": 19.4,
+    "crop_bbox": [
+      147.2,
+      485.8,
+      427.2,
+      602.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.36",
+    "page_number": 24,
+    "caption": "Fig. 6.36",
+    "filename": "fig_6_36.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_36.webp",
+    "dimensions": {
+      "width": 553,
+      "height": 317,
+      "aspect_ratio": 1.74
+    },
+    "file_size_kb": 12.7,
+    "crop_bbox": [
+      241.9,
+      97.0,
+      444.0,
+      214.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.37",
+    "page_number": 24,
+    "caption": "Fig. 6.37 (iv)  PDC ~  BEC",
+    "filename": "fig_6_37.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_37.webp",
+    "dimensions": {
+      "width": 342,
+      "height": 420,
+      "aspect_ratio": 0.81
+    },
+    "file_size_kb": 12.5,
+    "crop_bbox": [
+      294.2,
+      216.5,
+      417.6,
+      371.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.38",
+    "page_number": 24,
+    "caption": "Fig. 6.38 CA BC (ii) ",
+    "filename": "fig_6_38.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_38.webp",
+    "dimensions": {
+      "width": 1008,
+      "height": 412,
+      "aspect_ratio": 2.45
+    },
+    "file_size_kb": 36.8,
+    "crop_bbox": [
+      72.7,
+      369.1,
+      439.2,
+      517.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.39",
+    "page_number": 24,
+    "caption": "Fig. 6.39 (iii)  DCA ~  HGF",
+    "filename": "fig_6_39.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_39.webp",
+    "dimensions": {
+      "width": 945,
+      "height": 350,
+      "aspect_ratio": 2.7
+    },
+    "file_size_kb": 27.9,
+    "crop_bbox": [
+      87.1,
+      508.1,
+      433.8,
+      638.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.40",
+    "page_number": 25,
+    "caption": "Fig. 6.40  ABC ~  PQR.",
+    "filename": "fig_6_40.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_40.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 416,
+      "aspect_ratio": 2.52
+    },
+    "file_size_kb": 40.2,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.0,
+      247.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.41",
+    "page_number": 25,
+    "caption": "Fig. 6.41 Show that  ABC ~  PQR.",
+    "filename": "fig_6_41.webp",
+    "file_path": "public/extracted_diagrams/math10_ch6\\fig_6_41.webp",
+    "dimensions": {
+      "width": 618,
+      "height": 294,
+      "aspect_ratio": 2.1
+    },
+    "file_size_kb": 15.7,
+    "crop_bbox": [
+      222.2,
+      237.6,
+      447.9,
+      343.7
+    ]
+  }
+]

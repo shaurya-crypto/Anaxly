@@ -1,0 +1,40 @@
+[
+  {
+    "figure_id": "Fig. 9.1",
+    "page_number": 5,
+    "caption": "Fig. 9.1",
+    "filename": "fig_9_1.webp",
+    "file_path": "public/extracted_diagrams/math9_ch9\\fig_9_1.webp",
+    "dimensions": {
+      "width": 560,
+      "height": 1088,
+      "aspect_ratio": 0.51
+    },
+    "file_size_kb": 60.3,
+    "crop_bbox": [
+      253.4,
+      234.8,
+      456.0,
+      630.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 9.2",
+    "page_number": 7,
+    "caption": "Fig. 9.2",
+    "filename": "fig_9_2.webp",
+    "file_path": "public/extracted_diagrams/math9_ch9\\fig_9_2.webp",
+    "dimensions": {
+      "width": 305,
+      "height": 293,
+      "aspect_ratio": 1.04
+    },
+    "file_size_kb": 9.3,
+    "crop_bbox": [
+      206.5,
+      213.0,
+      321.5,
+      321.6
+    ]
+  }
+]

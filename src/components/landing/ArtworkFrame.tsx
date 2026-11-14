@@ -8,20 +8,24 @@ import { EASE_EDITORIAL } from './motion/Reveal'
 
 interface ArtworkFrameProps {
   artwork: ArtworkSlot
-  className?: string
-  priority?: boolean
-  showCaption?: boolean
   aspectRatioClass?: string
+  priority?: boolean
+  className?: string
+  showCaption?: boolean
   overlayGradient?: 'none' | 'bottom-fade' | 'subtle-vignette' | 'translucent-overlay'
-  maskBottom?: boolean
 }
 
+/**
+ * Editorial museum-grade framed artwork component.
+ * Integrates archival paper textures, inner border lines, diffused peripheral shadows,
+ * and clean academic metadata captions.
+ */
 export function ArtworkFrame({
   artwork,
-  className = '',
+  aspectRatioClass = 'aspect-[4/3]',
   priority = false,
-  showCaption = false,
-  aspectRatioClass = 'aspect-[16/10]',
+  className = '',
+  showCaption = true,
   overlayGradient = 'none',
 }: ArtworkFrameProps) {
   const [hasError, setHasError] = useState(false)
@@ -49,12 +53,13 @@ export function ArtworkFrame({
       >
         {/* Ambient shadow shade behind frame to merge softly with the paper canvas */}
         <div
-          className="absolute -inset-3 sm:-inset-4 rounded-3xl sm:rounded-[32px] bg-ink-primary/[0.07] blur-xl -z-10 pointer-events-none transition-all duration-500 group-hover:bg-ink-primary/[0.12] group-hover:blur-2xl"
+          className="absolute -inset-4 sm:-inset-6 -z-10 rounded-3xl sm:rounded-[36px] bg-ink-primary/10 blur-2xl transition-opacity duration-700 group-hover:opacity-85 pointer-events-none"
           aria-hidden="true"
         />
 
+        {/* Master Frame Container */}
         <div
-          className={`relative w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-border-strong/80 bg-surface-soft shadow-[0_24px_60px_-12px_rgba(23,24,23,0.18),0_10px_25px_-5px_rgba(23,24,23,0.10),0_0_40px_rgba(248,246,240,0.8)] transition-transform duration-500 ease-out group-hover:scale-[1.012] ${aspectRatioClass}`}
+          className={`relative w-full overflow-hidden rounded-2xl sm:rounded-3xl border border-border-strong/80 bg-canvas-ivory shadow-[0_12px_36px_-6px_rgba(23,24,23,0.12),0_4px_12px_rgba(23,24,23,0.06)] transition-all duration-500 ${aspectRatioClass}`}
         >
           {!hasError ? (
             <>
@@ -62,86 +67,64 @@ export function ArtworkFrame({
                 style={reduceMotion ? undefined : { y: imageY }}
                 className="absolute -inset-y-[8%] inset-x-0"
               >
-              <Image
-                src={artwork.src}
-                alt={artwork.alt}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 1200px"
-                priority={priority}
-                style={{ objectPosition: artwork.objectPosition || 'center center' }}
-                className={`object-cover transition-[transform,opacity] duration-700 ease-out group-hover:scale-[1.028] ${
-                  isLoaded ? 'opacity-100' : 'opacity-0'
-                }`}
-                onLoad={() => setIsLoaded(true)}
-                onError={() => setHasError(true)}
-              />
+                <Image
+                  src={artwork.src}
+                  alt={artwork.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 1200px"
+                  priority={priority}
+                  style={{ objectPosition: artwork.objectPosition || 'center center' }}
+                  className={`object-cover transition-[transform,opacity] duration-700 ease-out group-hover:scale-[1.028] ${
+                    isLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  onLoad={() => setIsLoaded(true)}
+                  onError={() => setHasError(true)}
+                />
               </motion.div>
 
               {/* Edge shadow shade and subtle peripheral vignette to merge artwork softly into canvas */}
               <div
-                className="pointer-events-none absolute inset-0 rounded-2xl sm:rounded-3xl shadow-[inset_0_0_45px_rgba(23,24,23,0.22),inset_0_0_90px_rgba(23,24,23,0.12)]"
+                className="pointer-events-none absolute inset-0 shadow-[inset_0_0_24px_rgba(23,24,23,0.12)] rounded-2xl sm:rounded-3xl"
                 aria-hidden="true"
               />
 
-              {/* Inward dark gradient wash for photographic and painterly chiaroscuro */}
+              {/* Fine Inset Precision Border */}
               <div
-                className="pointer-events-none absolute inset-0 rounded-2xl sm:rounded-3xl bg-[radial-gradient(ellipse_at_center,_transparent_60%,_rgba(23,24,23,0.16)_100%)]"
+                className="pointer-events-none absolute inset-2.5 sm:inset-3.5 rounded-xl sm:rounded-2xl border border-white/25 mix-blend-overlay"
                 aria-hidden="true"
               />
 
-              {/* Bottom gradient fade for soft transition into ivory canvas */}
               {overlayGradient === 'bottom-fade' && (
                 <div
                   className="pointer-events-none absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-t from-canvas-ivory via-transparent to-transparent opacity-85"
                   aria-hidden="true"
                 />
               )}
-
-              {/* Subtle atmospheric vignette */}
-              {overlayGradient === 'subtle-vignette' && (
-                <div
-                  className="pointer-events-none absolute inset-0 rounded-2xl sm:rounded-3xl bg-radial-vignette opacity-25"
-                  aria-hidden="true"
-                />
-              )}
-
-              {/* Translucent overlay for readable text overlays */}
-              {overlayGradient === 'translucent-overlay' && (
-                <div
-                  className="pointer-events-none absolute inset-0 rounded-2xl sm:rounded-3xl bg-canvas-ivory/70 backdrop-blur-[2px]"
-                  aria-hidden="true"
-                />
-              )}
             </>
           ) : (
-            /* Graceful Ivory Fallback without broken image icon */
-            <div
-              className="flex h-full w-full flex-col items-center justify-center rounded-2xl sm:rounded-3xl bg-surface-soft p-6 text-center"
-              aria-label={artwork.alt}
-            >
-              <div className="h-8 w-8 rounded-full border border-border-strong bg-canvas-ivory" />
-              <p className="mt-3 font-serif text-lg italic text-ink-secondary">{artwork.title}</p>
-              {artwork.caption && (
-                <p className="mt-1 font-mono text-xs uppercase tracking-wider text-ink-muted">
-                  {artwork.caption}
-                </p>
-              )}
+            <div className="flex h-full w-full items-center justify-center p-6 text-center text-ink-muted">
+              <span className="font-serif italic text-sm">{artwork.title}</span>
             </div>
           )}
         </div>
       </motion.div>
 
-      {showCaption && artwork.caption && (
-        <figcaption className="mt-3 flex items-center justify-between px-1.5 text-xs text-ink-muted">
-          <span className="font-mono text-[11px] tracking-wide text-ink-secondary">
-            {artwork.title}
-          </span>
-          <span className="font-sans text-[11px] italic text-ink-muted">
-            {artwork.artistNote || artwork.caption}
-          </span>
+      {/* Academic Archival Museum Metadata Caption */}
+      {showCaption && (
+        <figcaption className="mt-3.5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 text-[11px] leading-tight text-ink-muted">
+          <div className="flex items-baseline gap-2">
+            <span className="font-serif italic text-ink-primary font-medium">{artwork.title}</span>
+            {artwork.artistNote && (
+              <span className="font-sans text-ink-secondary/70">&mdash; {artwork.artistNote}</span>
+            )}
+          </div>
+          {artwork.caption && (
+            <div className="flex items-center gap-2 font-mono text-[10px]">
+              <span className="truncate max-w-[280px]">{artwork.caption}</span>
+            </div>
+          )}
         </figcaption>
       )}
     </figure>
   )
 }
-

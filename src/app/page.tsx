@@ -39,7 +39,7 @@ export default function LandingPage() {
           <ClosingSection />
         </main>
 
-        {/* FOOTER — Cloud-Blended Archival Footer */}
+        {/* FOOTER — Our Monumental Anaxly Master Footer */}
         <LandingFooter />
       </div>
     </SmoothScroll>

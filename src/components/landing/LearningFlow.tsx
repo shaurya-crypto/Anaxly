@@ -74,7 +74,7 @@ export function LearningFlow() {
     },
     {
       num: '02',
-      title: 'Reason & derive in active voice dialogue',
+      title: 'Voice dialogue with live derivations',
       description:
         'Engage in natural conversation. The tutor writes derivations live on the chalkboard, checking your comprehension every two to three sentences.',
       tag: 'Continuous Reasoning',
@@ -82,7 +82,7 @@ export function LearningFlow() {
     },
     {
       num: '03',
-      title: 'Preserve topper-ready master notes',
+      title: 'Permanent mastery through problem-solving',
       description:
         'Tackle rigorous numerical problems formatted with clear steps: Given, Formula, Substitution, and Boxed Answers. All chalkboard work becomes your permanent Master Notes.',
       tag: 'Lifelong Rigor',
@@ -97,24 +97,23 @@ export function LearningFlow() {
           {/* Left Column: The 3 Steps with JetBrains Mono Numbers */}
           <div className="lg:col-span-6 flex flex-col">
             <Reveal>
-            <p className="font-mono text-xs uppercase tracking-widest text-ink-muted">
-              The Three Stages of Mastery
-            </p>
+              <p className="font-mono text-xs uppercase tracking-widest text-ink-muted">
+                The Three Stages of Mastery
+              </p>
+              <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl text-ink-primary">
+                How true comprehension is built.
+              </h2>
 
-            <h2 className="mt-4 font-serif font-normal text-[clamp(2.2rem,4vw,3.5rem)] leading-[1.12] tracking-tight text-ink-primary">
-              From initial intuition to genuine mastery.
-            </h2>
+              {/* Cursive Handwriting Marginalia */}
+              <Handwriting
+                text="Mastery is not memorization — it is the dialogue between intuition and rigor."
+                className="font-cursive text-coral-primary text-xl sm:text-2xl mt-2 tracking-wide"
+              />
 
-            {/* Cursive Handwriting Marginalia */}
-            <Handwriting
-              text="Mastery is not memorization — it is the dialogue between intuition and rigor."
-              className="font-cursive text-coral-primary text-xl sm:text-2xl mt-2 tracking-wide"
-            />
-
-            <p className="mt-4 text-base text-ink-secondary leading-relaxed">
-              Learning is not a sprint through pre-recorded video lectures. It is a disciplined,
-              dialogue-driven progression that builds lifelong conceptual clarity from first principles.
-            </p>
+              <p className="mt-4 text-base text-ink-secondary leading-relaxed">
+                Learning is not a sprint through pre-recorded video lectures. It is a disciplined,
+                dialogue-driven progression that builds lifelong conceptual clarity from first principles.
+              </p>
             </Reveal>
 
             {/* Disciplined Step List */}
@@ -143,22 +142,19 @@ export function LearningFlow() {
 
               <ArtworkFrame
                 artwork={learningArtwork}
-                aspectRatioClass="aspect-[16/9] sm:aspect-[16/8.5]"
+                aspectRatioClass="aspect-[4/3] sm:aspect-[16/11]"
+                priority={false}
                 showCaption={true}
-                className="w-full"
               />
 
-              {/* Editorial Quote Card */}
-              <div className="mt-6 rounded-2xl sm:rounded-3xl border border-border-strong/70 bg-surface-white/95 p-6 sm:p-7 shadow-[0_16px_40px_-10px_rgba(23,24,23,0.08)]">
-                <p className="font-serif text-base sm:text-lg italic text-ink-primary leading-relaxed">
-                  &ldquo;He who learns must suffer. And even in our sleep pain that cannot forget,
-                  falls drop by drop upon the heart, and in our own despite, against our will, comes
-                  wisdom to us by the awful grace of God.&rdquo;
+              {/* Editorial marginalia block below artwork */}
+              <div className="mt-5 border-l-2 border-border-strong/70 pl-4 py-1">
+                <p className="text-xs leading-relaxed text-ink-secondary">
+                  &ldquo;A student who understands the derivation never needs to memorize the formula.&rdquo;
                 </p>
-                <div className="mt-4 flex items-center justify-between text-xs text-ink-muted border-t border-border-subtle pt-3">
-                  <span className="font-mono uppercase tracking-wider text-ink-secondary">
-                    Aeschylus &bull; Agamemnon
-                  </span>
+                <div className="mt-1 flex items-center gap-2 font-mono text-[10px] text-ink-muted">
+                  <span>Plato&apos;s Academy Method</span>
+                  <span>&bull;</span>
                   <span className="font-sans italic text-ink-muted">Classical Foundation of Rigor</span>
                 </div>
               </div>

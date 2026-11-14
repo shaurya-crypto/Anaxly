@@ -1,0 +1,230 @@
+[
+  {
+    "figure_id": "Fig. 3.1",
+    "page_number": 2,
+    "caption": "Fig. 3.1: Representation of the prime number tally groupings found on the Ishango bone.",
+    "filename": "fig_3_1.webp",
+    "file_path": "public/extracted_diagrams/math9_ch3\\fig_3_1.webp",
+    "dimensions": {
+      "width": 691,
+      "height": 318,
+      "aspect_ratio": 2.17
+    },
+    "file_size_kb": 32.9,
+    "crop_bbox": [
+      138.0,
+      223.3,
+      390.0,
+      342.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.2",
+    "page_number": 5,
+    "caption": "Fig. 3.2",
+    "filename": "fig_3_2.webp",
+    "file_path": "public/extracted_diagrams/math9_ch3\\fig_3_2.webp",
+    "dimensions": {
+      "width": 557,
+      "height": 761,
+      "aspect_ratio": 0.73
+    },
+    "file_size_kb": 50.6,
+    "crop_bbox": [
+      253.4,
+      129.6,
+      456.0,
+      405.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.3",
+    "page_number": 10,
+    "caption": "Fig. 3.3",
+    "filename": "fig_3_3.webp",
+    "file_path": "public/extracted_diagrams/math9_ch3\\fig_3_3.webp",
+    "dimensions": {
+      "width": 557,
+      "height": 831,
+      "aspect_ratio": 0.67
+    },
+    "file_size_kb": 42.1,
+    "crop_bbox": [
+      253.4,
+      136.0,
+      456.0,
+      435.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.5",
+    "page_number": 11,
+    "caption": "Fig. 3.5",
+    "filename": "fig_3_5.webp",
+    "file_path": "public/extracted_diagrams/math9_ch3\\fig_3_5.webp",
+    "dimensions": {
+      "width": 356,
+      "height": 271,
+      "aspect_ratio": 1.31
+    },
+    "file_size_kb": 7.6,
+    "crop_bbox": [
+      253.4,
+      91.6,
+      381.8,
+      201.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.6",
+    "page_number": 11,
+    "caption": "Fig. 3.6",
+    "filename": "fig_3_6.webp",
+    "file_path": "public/extracted_diagrams/math9_ch3\\fig_3_6.webp",
+    "dimensions": {
+      "width": 501,
+      "height": 178,
+      "aspect_ratio": 2.81
+    },
+    "file_size_kb": 5.1,
+    "crop_bbox": [
+      253.4,
+      274.3,
+      436.4,
+      338.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.7",
+    "page_number": 11,
+    "caption": "Fig. 3.7: Some integers and rational numbers on a number line Absolute value of a rational",
+    "filename": "fig_3_7.webp",
+    "file_path": "public/extracted_diagrams/math9_ch3\\fig_3_7.webp",
+    "dimensions": {
+      "width": 1048,
+      "height": 506,
+      "aspect_ratio": 2.07
+    },
+    "file_size_kb": 37.0,
+    "crop_bbox": [
+      72.0,
+      341.1,
+      455.1,
+      523.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.8",
+    "page_number": 12,
+    "caption": "Fig. 3.8 represents the distance between the integers –4 and 3.",
+    "filename": "fig_3_8.webp",
+    "file_path": "public/extracted_diagrams/math9_ch3\\fig_3_8.webp",
+    "dimensions": {
+      "width": 1333,
+      "height": 279,
+      "aspect_ratio": 4.78
+    },
+    "file_size_kb": 23.7,
+    "crop_bbox": [
+      24.0,
+      36.0,
+      504.0,
+      141.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.9",
+    "page_number": 12,
+    "caption": "Fig. 3.9",
+    "filename": "fig_3_9.webp",
+    "file_path": "public/extracted_diagrams/math9_ch3\\fig_3_9.webp",
+    "dimensions": {
+      "width": 557,
+      "height": 922,
+      "aspect_ratio": 0.6
+    },
+    "file_size_kb": 43.7,
+    "crop_bbox": [
+      253.4,
+      140.3,
+      456.0,
+      478.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.10",
+    "page_number": 13,
+    "caption": "Fig. 3.10 Consider a square where each side is exactly",
+    "filename": "fig_3_10.webp",
+    "file_path": "public/extracted_diagrams/math9_ch3\\fig_3_10.webp",
+    "dimensions": {
+      "width": 1011,
+      "height": 814,
+      "aspect_ratio": 1.24
+    },
+    "file_size_kb": 103.3,
+    "crop_bbox": [
+      90.0,
+      98.4,
+      456.0,
+      391.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.11",
+    "page_number": 16,
+    "caption": "Fig. 3.11: Constructing irrational lengths and locating them on the number line",
+    "filename": "fig_3_11.webp",
+    "file_path": "public/extracted_diagrams/math9_ch3\\fig_3_11.webp",
+    "dimensions": {
+      "width": 810,
+      "height": 498,
+      "aspect_ratio": 1.63
+    },
+    "file_size_kb": 40.9,
+    "crop_bbox": [
+      126.2,
+      92.0,
+      417.8,
+      273.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.12",
+    "page_number": 17,
+    "caption": "Fig. 3.12",
+    "filename": "fig_3_12.webp",
+    "file_path": "public/extracted_diagrams/math9_ch3\\fig_3_12.webp",
+    "dimensions": {
+      "width": 514,
+      "height": 220,
+      "aspect_ratio": 2.34
+    },
+    "file_size_kb": 4.7,
+    "crop_bbox": [
+      253.4,
+      177.6,
+      438.6,
+      259.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 3.13",
+    "page_number": 23,
+    "caption": "Fig. 3.13",
+    "filename": "fig_3_13.webp",
+    "file_path": "public/extracted_diagrams/math9_ch3\\fig_3_13.webp",
+    "dimensions": {
+      "width": 522,
+      "height": 908,
+      "aspect_ratio": 0.57
+    },
+    "file_size_kb": 53.3,
+    "crop_bbox": [
+      253.4,
+      322.9,
+      441.6,
+      654.2
+    ]
+  }
+]

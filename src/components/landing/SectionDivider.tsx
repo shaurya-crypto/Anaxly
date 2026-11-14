@@ -11,22 +11,22 @@ interface SectionDividerProps {
 export function SectionDivider({ className = '' }: SectionDividerProps) {
   return (
     <div
-      className={`relative w-full h-20 sm:h-28 overflow-hidden pointer-events-none ${className}`}
+      className={`relative h-24 sm:h-28 w-full overflow-hidden pointer-events-none ${className}`}
       aria-hidden="true"
     >
-      {/* Cloud & Paper Shade Dissolve Layer */}
-      <div className="absolute inset-0 overflow-hidden opacity-30 mix-blend-multiply">
+      {/* Background Cloud Atmosphere */}
+      <div className="absolute inset-0">
         <Image
           src="/landing_images/hero-clouds.jpg"
-          alt="Atmospheric cloud transition wash"
+          alt="Clouds divider atmosphere"
           fill
           sizes="100vw"
-          className="object-cover object-center scale-110"
+          className="object-cover object-center opacity-30 mix-blend-multiply"
         />
       </div>
 
-      {/* Inward Diffused Chiaroscuro Edge Shadows */}
-      <div className="absolute inset-0 shadow-[inset_0_24px_35px_-12px_rgba(23,24,23,0.14),inset_0_-24px_35px_-12px_rgba(23,24,23,0.14)]" />
+      {/* Atmospheric Inner Shadow Shade */}
+      <div className="absolute inset-0 shadow-[inset_0_20px_30px_-10px_rgba(23,24,23,0.1),inset_0_-20px_30px_-10px_rgba(23,24,23,0.1)]" />
 
       {/* Top and Bottom Ivory Feathering Fades */}
       <div className="absolute inset-0 bg-gradient-to-b from-canvas-ivory via-transparent to-canvas-ivory opacity-95" />

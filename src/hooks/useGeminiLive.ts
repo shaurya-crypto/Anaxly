@@ -16,6 +16,9 @@ export function useGeminiLive() {
   const [selectedVoice, setSelectedVoice] = useState<GeminiVoice>("Leda");
   const [latestVideoFrame, setLatestVideoFrame] = useState<string | null>(null);
   const [videoMimeType, setVideoMimeType] = useState<string>("image/jpeg");
+  const [studentProfile, setStudentProfile] = useState<any>(null);
+  const [activeHighlight, setActiveHighlight] = useState<{ text: string; color?: string; timestamp: number } | null>(null);
+  const highlightTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const audioPlayerRef = useRef<AudioPlayer | null>(null);
   const audioStreamerRef = useRef<AudioStreamer | null>(null);
@@ -23,10 +26,16 @@ export function useGeminiLive() {
   const animationFrameRef = useRef<number | null>(null);
   const sharedAudioCtxRef = useRef<AudioContext | null>(null);
   const isMutedRef = useRef(false);
+  const connectionStateRef = useRef<ConnectionState>("IDLE");
+  const lockedVoiceRef = useRef<GeminiVoice | null>(null);
 
   useEffect(() => {
     isMutedRef.current = isMuted;
   }, [isMuted]);
+
+  useEffect(() => {
+    connectionStateRef.current = connectionState;
+  }, [connectionState]);
 
   // Volume visualizer loop for fluid UI animations
   const startVolumeLoop = useCallback(() => {
@@ -59,12 +68,12 @@ export function useGeminiLive() {
       if (last && last.sender === sender && Date.now() - last.timestamp < 3500) {
         return [
           ...prev.slice(0, -1),
-          { ...last, text: `${last.text} ${text.trim()}` },
+          { ...last, text: `${last.text} ${text.trim()}`, id: `${last.id.split('_')[0]}_${Date.now()}` },
         ];
       }
       return [
         ...prev.slice(-8),
-        { id: Math.random().toString(36).substring(7), sender, text: text.trim(), timestamp: Date.now() },
+        { id: `${Math.random().toString(36).substring(7)}_${Date.now()}`, sender, text: text.trim(), timestamp: Date.now() },
       ];
     });
   }, []);
@@ -83,7 +92,9 @@ export function useGeminiLive() {
       preferredLanguage?: string;
       supportedLanguages?: string[];
       languageCode?: string;
-    }
+    },
+    onGetBoardContent?: () => string,
+    onHighlightText?: (text: string, target?: string, color?: string) => void
   ) => {
     setErrorMessage(null);
     setConnectionState("CONNECTING");
@@ -96,6 +107,9 @@ export function useGeminiLive() {
         throw new Error(errJson.error || "Failed to initialize live session configuration");
       }
       const config = await res.json();
+      if (config.studentProfile) {
+        setStudentProfile(config.studentProfile);
+      }
 
       // 2. Initialize AudioPlayer with Web Audio API
       const player = new AudioPlayer((isPlaying) => {
@@ -136,8 +150,8 @@ export function useGeminiLive() {
           setConnectionState((prev) => (prev !== "MUTED" ? "LISTENING" : "MUTED"));
         },
         () => {
-          console.log("[useGeminiLive] Student finished speaking: dispatching audioStreamEnd");
-          if (geminiClientRef.current) {
+          if (geminiClientRef.current && connectionStateRef.current !== "TEACHER_SPEAKING") {
+            console.log("[useGeminiLive] Student finished speaking: dispatching audioStreamEnd");
             geminiClientRef.current.sendAudioStreamEnd();
           }
         }
@@ -145,7 +159,8 @@ export function useGeminiLive() {
       await streamer.start(audioCtx);
       audioStreamerRef.current = streamer;
 
-      const activeVoice = voiceOverride || selectedVoice || config.voiceName || "Leda";
+      const activeVoice = (voiceOverride || selectedVoice || lockedVoiceRef.current || config.voiceName || "Leda") as GeminiVoice;
+      lockedVoiceRef.current = activeVoice;
       if (voiceOverride && voiceOverride !== selectedVoice) {
         setSelectedVoice(voiceOverride);
       }
@@ -177,13 +192,10 @@ export function useGeminiLive() {
             }
           },
           onUserSpeechStart: () => {
-            console.log("[useGeminiLive] onUserSpeechStart: Server detected human voice activity, cutting off teacher playback");
-            if (audioPlayerRef.current) {
-              audioPlayerRef.current.stopAndClear();
-            }
-            onSpeechInterrupted?.();
-            audioStreamerRef.current?.setTeacherSpeaking(false);
-            setConnectionState((prev) => (prev !== "MUTED" ? "LISTENING" : "MUTED"));
+            console.log("[useGeminiLive] onUserSpeechStart: Server detected voice activity");
+            // Non-destructive: do NOT stop teacher audio playback on raw server VAD activity.
+            // Deliberate student barge-in is handled client-side by onBargeIn, or server-side by onInterrupted.
+            setConnectionState((prev) => (prev !== "MUTED" && prev !== "TEACHER_SPEAKING" ? "LISTENING" : prev));
           },
           onInterrupted: () => {
             console.log("[useGeminiLive] onInterrupted: Server confirmed barge-in");
@@ -209,6 +221,19 @@ export function useGeminiLive() {
           onVisualAction: (action, params) => {
             onVisualAction?.(action, params);
           },
+          onHighlightText: (text, target, color) => {
+            if (target === "subtitles" || target === "both" || !target) {
+              setActiveHighlight({ text, color, timestamp: Date.now() });
+              if (highlightTimeoutRef.current) clearTimeout(highlightTimeoutRef.current);
+              highlightTimeoutRef.current = setTimeout(() => {
+                setActiveHighlight(null);
+              }, 4500);
+            }
+            onHighlightText?.(text, target, color);
+          },
+          onGetBoardContent: () => {
+            return onGetBoardContent?.() || "";
+          },
           onError: (err) => {
             console.error("[useGeminiLive] Connection error:", err);
             setErrorMessage("Connection to Gemini Live was interrupted. Please check your network and try again.");
@@ -230,6 +255,7 @@ export function useGeminiLive() {
           preferredLanguage: languageOptions?.preferredLanguage || config.preferredLanguage,
           supportedLanguages: languageOptions?.supportedLanguages || config.supportedLanguages || ["en-IN", "hi-IN"],
           languageCode: languageOptions?.languageCode || config.languageCode || "en-IN",
+          thinkingLevel: config.thinkingLevel || "minimal",
         }
       );
 
@@ -253,9 +279,9 @@ export function useGeminiLive() {
     audioStreamerRef.current.setMuted(nextMuted);
     setIsMuted(nextMuted);
     
+    // When muting, cleanly close open student audio stream without sending phantom turn completions
     if (nextMuted && geminiClientRef.current) {
-        geminiClientRef.current.sendAudioStreamEnd();
-        geminiClientRef.current.sendTurnComplete();
+      geminiClientRef.current.sendAudioStreamEnd();
     }
 
     setConnectionState((prev) => {
@@ -295,6 +321,8 @@ export function useGeminiLive() {
 
     setLatestVideoFrame(null);
     setIsMuted(false);
+    setActiveHighlight(null);
+    if (highlightTimeoutRef.current) clearTimeout(highlightTimeoutRef.current);
     setConnectionState((prev) => (prev === "ERROR" ? "ERROR" : "DISCONNECTED"));
   }, [stopVolumeLoop]);
 
@@ -321,6 +349,9 @@ export function useGeminiLive() {
 
   const sendTextMessage = useCallback((text: string) => {
     if (geminiClientRef.current && text?.trim()) {
+      if (audioPlayerRef.current) {
+        audioPlayerRef.current.stopAndClear();
+      }
       geminiClientRef.current.sendTextMessage(text.trim());
       addTranscript(text.trim(), "user");
     }
@@ -343,6 +374,9 @@ export function useGeminiLive() {
     setSelectedVoice,
     latestVideoFrame,
     videoMimeType,
+    studentProfile,
+    activeHighlight,
+    setActiveHighlight,
     startClass,
     toggleMute,
     setTeacherAudioMuted,

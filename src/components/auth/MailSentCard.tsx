@@ -175,7 +175,7 @@ export const MailSentCard: React.FC<MailSentCardProps> = ({
                   1
                 </span>
                 <span className="leading-snug">
-                  Inspect your email inbox for a message from <strong>AI Tutor</strong> via Brevo.
+                  Inspect your email inbox for a message from <strong>Anaxly</strong> via Brevo.
                 </span>
               </div>
               <div className="flex items-start gap-2.5">

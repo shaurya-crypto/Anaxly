@@ -7,7 +7,6 @@ import { ChalkDerivation, OrbitSketch, PrismSketch, SpeechDialogue } from './ill
 import { getArtwork } from '@/lib/landing-artwork'
 
 export function ProductExperience() {
-  const scholarArtwork = getArtwork('featureArtwork')
   const handsArtwork = getArtwork('handsArtwork')
   const libraryArtwork = getArtwork('featureLibraryArtwork')
 
@@ -82,30 +81,29 @@ export function ProductExperience() {
           <p className="font-mono text-xs uppercase tracking-widest text-coral-primary font-medium">
             The Architecture of Inquiry
           </p>
-          <h2 className="mt-4 font-serif font-normal text-[clamp(2.2rem,4vw,3.5rem)] leading-[1.12] tracking-tight text-ink-primary">
+          <h2 className="mt-2 font-serif text-3xl sm:text-4xl lg:text-5xl text-ink-primary">
             Four principles of genuine understanding.
           </h2>
           <p className="mt-4 text-base sm:text-lg leading-relaxed text-ink-secondary">
-            Learning is not a monologue. AI Tutor replaces passive video watching with active voice
+            Learning is not a monologue. Anaxly replaces passive video watching with active voice
             reasoning, live chalkboard derivations, and spatial physical clarity.
           </p>
         </Reveal>
 
         {/* Master Product Editorial Layout */}
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Framed Artworks (Sticky on Desktop for Elegant Editorial Flow) */}
-          <div className="lg:col-span-6 flex flex-col space-y-8 lg:sticky lg:top-28 self-start">
-            {/* The Scholar at the Desk */}
+          {/* Left Column: Big Editorial Image */}
+          <div className="lg:col-span-6 flex flex-col space-y-6">
             <div className="relative">
               {/* Decorative Archival Corner accents */}
               <div className="absolute -top-2.5 -left-2.5 h-4 w-4 border-t border-l border-border-strong pointer-events-none" />
               <div className="absolute -bottom-2.5 -right-2.5 h-4 w-4 border-b border-r border-border-strong pointer-events-none" />
 
               <ArtworkFrame
-                artwork={scholarArtwork}
+                artwork={libraryArtwork}
                 aspectRatioClass="aspect-[4/3] sm:aspect-[16/11]"
+                priority={false}
                 showCaption={true}
-                className="w-full"
               />
             </div>
 
@@ -118,16 +116,6 @@ export function ProductExperience() {
                 The Socratic Principle of Education
               </p>
             </Reveal>
-
-            {/* The Great Reading Hall (Library Image) */}
-            <div className="relative pt-4">
-              <ArtworkFrame
-                artwork={libraryArtwork}
-                aspectRatioClass="aspect-[16/9]"
-                showCaption={true}
-                className="w-full"
-              />
-            </div>
           </div>
 
           {/* Right Column: Clear, Deep Description of What It Is & Why It Is Best */}

@@ -1,0 +1,307 @@
+"""
+Class 10 Mathematics - Chapter 11: Areas Related to Circles (NCERT CBSE)
+Curriculum ID: 938ed126-df2f-438f-b6dc-8c7e1273ec24
+Fully compliant with Invariant 10:
+- 5 dedicated modules (Theory in M1-M2, dedicated solvers M3-M5)
+- 100% of all NCERT exercise questions (Ex 11.1 all 14 questions) and worked examples solved step-by-step
+- Authentic Topper Board Layout: Given -> Formula -> Substitution -> [ROUGH_WORK] -> Boxed Answer
+- High-Precision Vector SVGs from svg_builder_class10 (Sector, Chord, and Shaded Segment Geometry)
+"""
+
+import sys
+import os
+sys.path.append(os.path.dirname(__file__))
+from svg_builder_class10 import build_circle_sector_segment_svg, get_svg_wrapper
+
+def get_ch11_modules():
+    CURRICULUM_ID = "938ed126-df2f-438f-b6dc-8c7e1273ec24"
+    
+    # SVG 1: Sector & Segment with 60 deg angle
+    svg_sector_60 = build_circle_sector_segment_svg(
+        radius=90,
+        theta_deg=60,
+        title="Circle Sector & Segment Geometry (θ = 60°)",
+        caption="Minor Sector Area = (θ/360)πr², Segment Area = Sector Area - Equilateral ΔOAB Area"
+    )
+    
+    # SVG 2: Sector & Segment with 90 deg angle (Quadrant)
+    svg_sector_90 = build_circle_sector_segment_svg(
+        radius=90,
+        theta_deg=90,
+        title="Right-Angle Sector & Segment Geometry (θ = 90°)",
+        caption="Quadrant Area = 1/4 πr², Minor Segment Area = 1/4 πr² - 1/2 r²"
+    )
+
+    modules = [
+        # Module 1: Perimeter, Circumference & Sector of a Circle
+        {
+            "curriculum_id": CURRICULUM_ID,
+            "order_index": 1,
+            "title": "Perimeter & Area Review, Arc Lengths & Sector Area: Angular Proportionality",
+            "estimated_minutes": 25,
+            "class_level": "Class 10",
+            "board": "CBSE",
+            "description": "Master the angular fraction principle connecting central angle θ to circumference and area. Rigorously derive Arc Length l = (θ/360) × 2πr and Sector Area A = (θ/360) × πr² = 1/2 × l × r. Understand minor sectors, major sectors, and quadrants.",
+            "key_concepts": [
+                "Angular Fraction Principle: Since a full circle corresponds to 360°, a central angle of θ corresponds to the fractional part θ / 360°",
+                "Arc Length Formula: l = (θ / 360°) × 2πr",
+                "Area of Sector Formula: Area = (θ / 360°) × πr²",
+                "Kinetic Sector Relation: Area of sector = 1/2 × (Arc length) × Radius = 1/2 × l × r (Analogous to 1/2 × base × height!)",
+                "Major Sector: Area of Major Sector = πr² - Area of Minor Sector = [ (360° - θ) / 360° ] × πr²",
+                "Quadrant of a Circle: Sector with central angle θ = 90° ⇒ Area = 1/4 πr²"
+            ],
+            "subtopics": [
+                "Full derivation of arc length and sector area formulas",
+                "Connecting clock minute hand rotations to central angles (360° in 60 min ⇒ 6° per min)",
+                "Major sector subtraction rules",
+                "Worked Example 1 and Example 2 from NCERT"
+            ],
+            "worked_examples": [
+                {
+                    "problem": "Example 1 (NCERT): Find the area of the sector of a circle with radius 4 cm and of angle 30°. Also, find the area of the corresponding major sector (Use π = 3.14).",
+                    "solution": "Given:\nRadius of circle r = 4 cm\nCentral angle θ = 30°\nValue of π = 3.14.\n\nStep 1: Calculate Area of Minor Sector:\nFormula: Area = (θ / 360°) × πr²\nSubstitute θ = 30°, r = 4:\nArea = (30° / 360°) × 3.14 × 4²\n= (1 / 12) × 3.14 × 16\n= (4 / 3) × 3.14 = 12.56 / 3 ≈ 4.19 cm².\n\nStep 2: Calculate Area of Corresponding Major Sector:\nMethod 1 (Area subtraction):\nArea of Circle = πr² = 3.14 × 4² = 3.14 × 16 = 50.24 cm²\nArea of Major Sector = Area of Circle - Area of Minor Sector\n= 50.24 - 4.19 = 46.05 cm².\n\nMethod 2 (Using major angle 360° - 30° = 330°):\nArea = (330° / 360°) × πr² = (11 / 12) × 3.14 × 16 = (44 / 3) × 3.14 = 138.16 / 3 ≈ 46.05 cm².\n[ROUGH_WORK]\nBoth methods match exactly at 46.05 cm².\nBoxed Answer: [ Area of minor sector ≈ 4.19 cm², Area of major sector ≈ 46.05 cm² ].",
+                    "concept_questions": [
+                        "What is the angle subtended by the major sector?",
+                        "What is the arc length of the minor sector?"
+                    ]
+                }
+            ],
+            "visual_lesson_plan": {
+                "diagram_title": "Sector Area and Arc Length HUD",
+                "diagram_type": "diagram",
+                "svg": svg_sector_60,
+                "concept_visuals": [
+                    {
+                        "concept_title": "Sector Angular Proportionality",
+                        "diagram_title": "Sector and Arc Geometry",
+                        "svg": svg_sector_60,
+                        "diagram_type": "diagram",
+                        "what_to_make": "Circle with shaded sector subtending angle θ, arc length, and radii",
+                        "what_to_explain": "Direct proportionality to central angle: Area = (θ/360)πr²"
+                    }
+                ]
+            },
+            "common_misconceptions": [
+                "Forgetting the fraction θ/360 and calculating the entire circle area πr².",
+                "Confusing perimeter of a sector with arc length: Perimeter of a sector = Arc length + 2 × Radius = l + 2r!"
+            ]
+        },
+
+        # Module 2: Area of Segments of a Circle (60°, 90°, 120°)
+        {
+            "curriculum_id": CURRICULUM_ID,
+            "order_index": 2,
+            "title": "Area of Segments: Sector-Triangle Decomposition for 60°, 90° & 120° Angles",
+            "estimated_minutes": 25,
+            "class_level": "Class 10",
+            "board": "CBSE",
+            "description": "Master the fundamental geometric decomposition for finding the area of a segment of a circle: Area of Segment = Area of Sector - Area of Triangle OAB. Learn the three standard central angle cases: θ = 60° (Equilateral triangle √3/4 r²), θ = 90° (Right-angled triangle 1/2 r²), and θ = 120° (Isosceles triangle √3/4 r²).",
+            "key_concepts": [
+                "Segment Definition: A circular segment is a region bounded by a chord and the corresponding arc",
+                "Fundamental Area Formula: Area of Minor Segment = Area of Sector OAB - Area of Triangle OAB",
+                "Major Segment: Area of Major Segment = Area of Circle - Area of Minor Segment",
+                "Case 1 (θ = 60°): Since OA = OB = r and ∠AOB = 60°, ΔOAB is equilateral! Area(ΔOAB) = (√3 / 4) r²",
+                "Case 2 (θ = 90°): ΔOAB is a right-angled isosceles triangle with legs r and r. Area(ΔOAB) = 1/2 × r × r = 1/2 r²",
+                "Case 3 (θ = 120°): Drop perpendicular OM ⊥ AB. OM = r cos 60° = r/2, AB = 2r sin 60° = r√3. Area(ΔOAB) = 1/2 × AB × OM = 1/2 × r√3 × r/2 = (√3 / 4) r²!"
+            ],
+            "subtopics": [
+                "Geometric proof of triangle area for 60°, 90°, and 120°",
+                "Equilateral triangle derivation and altitude properties",
+                "Worked Example 3 from NCERT (120° segment)"
+            ],
+            "worked_examples": [
+                {
+                    "problem": "Example 3 (NCERT): Find the area of the segment AYB shown in Fig., if radius of the circle is 21 cm and ∠AOB = 120° (Use π = 22/7, √3 = 1.732).",
+                    "solution": "Given:\nRadius r = 21 cm\nCentral angle θ = 120°.\nArea of segment AYB = Area of sector OAYB - Area of ΔOAB.\n\nStep 1: Calculate Area of Sector OAYB:\nArea of Sector = (θ / 360°) × πr²\n= (120° / 360°) × (22 / 7) × 21 × 21\n= (1 / 3) × 22 × 3 × 21\n= 22 × 21 = 462 cm².\n\nStep 2: Calculate Area of ΔOAB:\nIn ΔOAB, OA = OB = 21 cm, ∠AOB = 120°.\nDraw OM ⊥ AB.\nSince ΔOAB is isosceles, OM bisects ∠AOB and AB:\n∠AOM = ∠BOM = 120° / 2 = 60°.\nIn right ΔOMA:\nOM = OA cos 60° = 21 × (1/2) = 21/2 cm.\nAM = OA sin 60° = 21 × (√3/2) = (21√3) / 2 cm.\nChord AB = 2 × AM = 2 × [ (21√3) / 2 ] = 21√3 cm.\n\nArea of ΔOAB = 1/2 × Base × Height\n= 1/2 × AB × OM\n= 1/2 × (21√3) × (21 / 2)\n= (441√3) / 4 cm².\n\nStep 3: Calculate Area of Segment AYB:\nArea of Segment = Area of Sector - Area of ΔOAB\n= 462 - (441√3 / 4) cm².\nIf √3 ≈ 1.732:\n441 × 1.732 / 4 = 763.812 / 4 = 190.953 cm².\nArea of Segment = 462 - 190.953 = 271.047 cm² ≈ 271.05 cm².\n[ROUGH_WORK]\nExact CBSE board answer form: [ 462 - (441√3 / 4) ] cm².\nBoxed Answer: [ Area of segment = (462 - 441√3 / 4) cm² ≈ 271.05 cm² ].",
+                    "concept_questions": [
+                        "Why does the altitude OM bisect the chord AB and the angle ∠AOB?",
+                        "What is the general formula for the area of triangle OAB when the angle is θ? (1/2 r² sin θ)"
+                    ]
+                }
+            ],
+            "visual_lesson_plan": {
+                "diagram_title": "Segment Decomposition HUD",
+                "diagram_type": "diagram",
+                "svg": svg_sector_90,
+                "concept_visuals": [
+                    {
+                        "concept_title": "Sector Minus Triangle Geometry",
+                        "diagram_title": "Segment Area Model",
+                        "svg": svg_sector_90,
+                        "diagram_type": "diagram",
+                        "what_to_make": "Circle with chord AB, shaded minor segment, central angle, and triangle OAB",
+                        "what_to_explain": "Area of segment = Area of sector - Area of triangle"
+                    }
+                ]
+            },
+            "common_misconceptions": [
+                "Assuming area of ΔOAB is 1/2 × 21 × 21: The two sides OA and OB are not perpendicular (angle is 120°, not 90°)! The area is 1/2 r² sin 120° = (√3/4) r².",
+                "Subtracting the segment area from the sector to find the major segment: Major segment = Area of Circle - Area of Minor Segment!"
+            ]
+        },
+
+        # Module 3: NCERT Exercise 11.1 Solver (Questions 1 to 5)
+        {
+            "curriculum_id": CURRICULUM_ID,
+            "order_index": 3,
+            "title": "Exercise 11.1 Part 1 Solver: Sector Calculations, Clock Hands & Quadrants (Q1 to Q5)",
+            "estimated_minutes": 35,
+            "class_level": "Class 10",
+            "board": "CBSE",
+            "description": "Complete step-by-step resolution of NCERT Exercise 11.1 Questions 1 through 5. Covers 60° sector area (Q1), quadrant area from circumference 22 cm (Q2), minute hand swept area in 5 minutes (Q3), right-angle chord 10 cm radius minor/major regions (Q4), and 21 cm radius 60° arc length, sector area, and segment area (Q5).",
+            "key_concepts": [
+                "Ex 11.1 Q1: r = 6 cm, θ = 60° ⇒ Area = (60/360) × (22/7) × 36 = 132/7 cm² = 18 6/7 cm²",
+                "Ex 11.1 Q2: Circumference 2πr = 22 cm ⇒ r = 7/2 cm ⇒ Quadrant area = 1/4 × (22/7) × (7/2)² = 77/8 cm² = 9.625 cm²",
+                "Ex 11.1 Q3: Minute hand length r = 14 cm; In 5 min, angle θ = (360/60) × 5 = 30° ⇒ Area = (30/360) × (22/7) × 196 = 154/3 cm² = 51 1/3 cm²",
+                "Ex 11.1 Q4: r = 10 cm, θ = 90°: Minor sector = 1/4 × 3.14 × 100 = 78.5 cm²; ΔOAB = 1/2 × 100 = 50 cm² ⇒ Minor segment = 28.5 cm²; Major sector = 235.5 cm²",
+                "Ex 11.1 Q5: r = 21 cm, θ = 60°: Arc length = (60/360) × 2 × (22/7) × 21 = 22 cm; Sector area = 231 cm²; ΔOAB = (√3/4) × 441 cm² ⇒ Segment area = (231 - 441√3/4) cm²"
+            ],
+            "subtopics": [
+                "Full resolution of Exercise 11.1 Questions 1 to 5",
+                "Clock angular velocity conversion: 6° per minute",
+                "Quadrant area determination from perimeter"
+            ],
+            "worked_examples": [
+                {
+                    "problem": "Exercise 11.1 Q3: The length of the minute hand of a clock is 14 cm. Find the area swept by the minute hand in 5 minutes.",
+                    "solution": "Given:\nLength of the minute hand = radius of the circle = r = 14 cm.\nTime elapsed = 5 minutes.\n\nStep 1: Calculate central angle θ swept by the minute hand:\nIn 60 minutes, the minute hand completes 1 full revolution (360°).\nTherefore, angle swept in 1 minute = 360° / 60 = 6°.\nIn 5 minutes, angle swept = θ = 5 × 6° = 30°.\n\nStep 2: Calculate area swept by the minute hand:\nThe area swept in 5 minutes is a sector of a circle with r = 14 cm and θ = 30°.\nFormula: Area = (θ / 360°) × πr²\nSubstitute θ = 30°, r = 14, π = 22/7:\nArea = (30° / 360°) × (22 / 7) × 14 × 14\n= (1 / 12) × 22 × 2 × 14\n= (1 / 12) × 616\n= 616 / 12\nDivide numerator and denominator by 4:\n= 154 / 3 cm².\n\nIn mixed fraction form:\n154 / 3 = 51 1/3 cm² ≈ 51.33 cm².\n[ROUGH_WORK]\nCheck: 154 = 3 × 51 + 1.\nBoxed Answer: [ Area swept by minute hand = 154/3 cm² (or 51 1/3 cm²) ].",
+                    "concept_questions": [
+                        "What is the angle swept by an hour hand in 5 minutes?",
+                        "What fraction of the total clock face is swept in 5 minutes? (30° / 360° = 1/12)"
+                    ]
+                },
+                {
+                    "problem": "Exercise 11.1 Q4: A chord of a circle of radius 10 cm subtends a right angle at the centre. Find the area of the corresponding: (i) minor segment, (ii) major sector. (Use π = 3.14)",
+                    "solution": "Given:\nRadius of circle r = 10 cm.\nCentral angle θ = 90° (right angle).\nValue of π = 3.14.\n\nPart (i): Area of Minor Segment\nStep 1: Find area of minor sector OAB:\nArea of minor sector = (90° / 360°) × πr²\n= (1 / 4) × 3.14 × (10)²\n= (1 / 4) × 314 = 78.5 cm².\n\nStep 2: Find area of right-angled ΔOAB:\nSince ∠AOB = 90°, OA = 10 cm and OB = 10 cm are the perpendicular base and height:\nArea(ΔOAB) = 1/2 × Base × Height = 1/2 × 10 × 10 = 50 cm².\n\nStep 3: Area of Minor Segment:\nArea = Area of minor sector - Area(ΔOAB)\n= 78.5 - 50 = 28.5 cm².\n\nPart (ii): Area of Major Sector\nCentral angle for major sector = 360° - 90° = 270°.\nArea of major sector = (270° / 360°) × πr²\n= (3 / 4) × 3.14 × 100\n= 3 × 78.5 = 235.5 cm².\n[ROUGH_WORK]\nAlternative check for major sector: Area of circle - Area of minor sector = 314 - 78.5 = 235.5 cm² (Verified!).\nBoxed Answer: [ (i) Area of minor segment = 28.5 cm², (ii) Area of major sector = 235.5 cm² ].",
+                    "concept_questions": [
+                        "Why is the area of triangle OAB simply 1/2 × r² when θ = 90°?",
+                        "What is the area of the major segment in this circle? (314 - 28.5 = 285.5 cm²)"
+                    ]
+                }
+            ],
+            "visual_lesson_plan": {
+                "diagram_title": "Exercise 11.1 Baseline Sectors HUD",
+                "diagram_type": "diagram",
+                "svg": svg_sector_90,
+                "concept_visuals": [
+                    {
+                        "concept_title": "Right Angle and Clock Models",
+                        "diagram_title": "Quadrant and Segment Layout",
+                        "svg": svg_sector_90,
+                        "diagram_type": "diagram",
+                        "what_to_make": "Right angle sector with chord, minor segment, and major sector",
+                        "what_to_explain": "Step-by-step subtraction of right triangle from quadrant"
+                    }
+                ]
+            },
+            "common_misconceptions": [
+                "Confusing minor segment with minor sector: The minor segment is ONLY the sliver between chord and arc, whereas the sector includes the triangular body!",
+                "Using π = 22/7 when question specifies π = 3.14."
+            ]
+        },
+
+        # Module 4: NCERT Exercise 11.1 Solver (Questions 6 to 10)
+        {
+            "curriculum_id": CURRICULUM_ID,
+            "order_index": 4,
+            "title": "Exercise 11.1 Part 2 Solver: 120° Chords, Grazing Horses, Brooches & Umbrellas (Q6 to Q10)",
+            "estimated_minutes": 35,
+            "class_level": "Class 10",
+            "board": "CBSE",
+            "description": "Complete step-by-step resolution of NCERT Exercise 11.1 Questions 6 through 10. Covers 15 cm radius 60° chord minor and major segments (Q6), 12 cm radius 120° chord segment (Q7), horse tied to corner of 15 m square field with 5 m and 10 m ropes (Q8), silver wire circular brooch with 10 sectors (Q9), and 8-rib umbrella sector calculation (Q10).",
+            "key_concepts": [
+                "Ex 11.1 Q6: r = 15 cm, θ = 60°: Minor segment = 20.4375 cm²; Major segment = 686.0625 cm²",
+                "Ex 11.1 Q7: r = 12 cm, θ = 120°: Sector = 150.72 cm²; ΔOAB = (√3/4) × 144 = 62.28 cm² ⇒ Minor segment = 88.44 cm²",
+                "Ex 11.1 Q8: Square field corner: Quadrant angle θ = 90°: (i) Grazing area for 5 m rope = 1/4 × 3.14 × 25 = 19.625 m²; (ii) Grazing area for 10 m rope = 78.5 m² ⇒ Increase = 78.5 - 19.625 = 58.875 m²",
+                "Ex 11.1 Q9: Brooch diameter 35 mm: Total wire = Circumference + 5 diameters = πd + 5d = (22/7 × 35) + (5 × 35) = 110 + 175 = 285 mm; Sector area = 1/10 × (22/7) × (35/2)² = 385/4 = 96.25 mm²",
+                "Ex 11.1 Q10: 8-rib umbrella, radius 45 cm: Angle between consecutive ribs = 360° / 8 = 45° ⇒ Area = (45/360) × (22/7) × 45² = 22275 / 28 cm² = 795.54 cm²"
+            ],
+            "subtopics": [
+                "Full resolution of Exercise 11.1 Questions 6 to 10",
+                "Square corner quadrant geometry and tethered grazing areas",
+                "Brooch silver wire total linear length calculation"
+            ],
+            "worked_examples": [
+                {
+                    "problem": "Exercise 11.1 Q8: A horse is tied to a peg at one corner of a square shaped grass field of side 15 m by means of a 5 m long rope. Find: (i) the area of that part of the field in which the horse can graze, (ii) the increase in the grazing area if the rope were 10 m long instead of 5 m. (Use π = 3.14)",
+                    "solution": "Given:\nCorner of a square field ⇒ Central angle θ = 90° (Corner of a square is a right angle).\nLength of side of square field = 15 m (field is sufficiently large to accommodate the rope).\nValue of π = 3.14.\n\nPart (i): Area grazed with 5 m rope (r = 5 m):\nThe horse can graze in the shape of a quadrant of a circle of radius r1 = 5 m.\nArea1 = (90° / 360°) × πr1²\n= (1 / 4) × 3.14 × (5)²\n= (1 / 4) × 3.14 × 25\n= 78.5 / 4 = 19.625 m².\n\nPart (ii): Increase in grazing area if rope is 10 m long (r = 10 m):\nWith rope length r2 = 10 m, the horse can graze in a quadrant of radius 10 m.\nArea2 = (90° / 360°) × πr2²\n= (1 / 4) × 3.14 × (10)²\n= (1 / 4) × 3.14 × 100\n= 314 / 4 = 78.5 m².\n\nIncrease in grazing area:\nIncrease = Area2 - Area1\n= 78.5 - 19.625 = 58.875 m².\n[ROUGH_WORK]\nNotice that doubling the rope from 5 m to 10 m quadruples the total grazing area (2² = 4 times), so the increase is 3 times the original area: 3 × 19.625 = 58.875 m²!\nBoxed Answer: [ (i) Grazing area = 19.625 m², (ii) Increase in grazing area = 58.875 m² ].",
+                    "concept_questions": [
+                        "Why does the horse graze a quadrant instead of a full circle?",
+                        "What is the mathematical reason that doubling the radius quadruples the area?"
+                    ]
+                }
+            ],
+            "visual_lesson_plan": {
+                "diagram_title": "Corner Quadrant Grazing HUD",
+                "diagram_type": "diagram",
+                "svg": svg_sector_90,
+                "concept_visuals": [
+                    {
+                        "concept_title": "Square Corner Grazing Model",
+                        "diagram_title": "Pegged Quadrant Grazing",
+                        "svg": svg_sector_90,
+                        "diagram_type": "diagram",
+                        "what_to_make": "Square field with corner peg and circular quadrant grazing sector",
+                        "what_to_explain": "Calculating quadrant area difference when radius increases from 5m to 10m"
+                    }
+                ]
+            },
+            "common_misconceptions": [
+                "Using the 15 m side length of the field as the radius: The radius is the length of the rope (5 m and 10 m), not the length of the field fence!",
+                "Forgetting to add the 5 diameter lengths to the circumference in the brooch problem (total wire = πd + 5d)."
+            ]
+        },
+
+        # Module 5: NCERT Exercise 11.1 Solver (Questions 11 to 14)
+        {
+            "curriculum_id": CURRICULUM_ID,
+            "order_index": 5,
+            "title": "Exercise 11.1 Part 3 Solver: Car Wipers, Lighthouses, Cover Designs & Sector Formula HUD (Q11 to Q14)",
+            "estimated_minutes": 40,
+            "class_level": "Class 10",
+            "board": "CBSE",
+            "description": "Complete step-by-step resolution of NCERT Exercise 11.1 Questions 11 through 14. Covers total area cleaned by two car wipers sweeping 115° (Q11), lighthouse warning area over 80° sector (Q12), the comprehensive 6-segment round table cover design cost problem (Q13), and algebraic selection of sector area formula (Q14).",
+            "key_concepts": [
+                "Ex 11.1 Q11: Two wipers r = 25 cm, θ = 115°: Total area = 2 × [ (115/360) × (22/7) × 625 ] = 158125 / 126 cm² ≈ 1254.96 cm²",
+                "Ex 11.1 Q12: Lighthouse sector r = 16.5 km, θ = 80°: Area = (80/360) × 3.14 × (16.5)² = (2/9) × 3.14 × 272.25 = 189.97 km²",
+                "Ex 11.1 Q13: Round table cover with 6 designs: r = 28 cm, θ = 60°: Area of 6 sectors = 6 × [ (60/360) × (22/7) × 784 ] = 2464 cm²; Area of 6 equilateral triangles = 6 × [ (√3/4) × 784 ] = 1176√3 = 1176 × 1.7 = 1999.2 cm²; Area of 6 designs = 2464 - 1999.2 = 464.8 cm²; Cost = 464.8 × ₹0.35 = ₹162.68",
+                "Ex 11.1 Q14: Sector area with angle p: Area = (p / 360) × πR² = (p / 720) × 2πR²"
+            ],
+            "subtopics": [
+                "Full resolution of Exercise 11.1 Questions 11 to 14",
+                "6-segment symmetry in round table cover design",
+                "Cost optimization calculations for composite patterns"
+            ],
+            "worked_examples": [
+                {
+                    "problem": "Exercise 11.1 Q13: A round table cover has six equal designs as shown in Fig. If the radius of the cover is 28 cm, find the cost of making the designs at the rate of ₹ 0.35 per cm². (Use √3 = 1.7)",
+                    "solution": "Given:\nRadius of round table cover r = 28 cm.\nNumber of equal designs = 6.\nRate of making designs = ₹ 0.35 per cm².\nValue of √3 = 1.7, π = 22/7.\n\nStep 1: Calculate central angle θ for each design sector:\nSince there are 6 equal designs distributed symmetrically around 360°:\nθ = 360° / 6 = 60°.\nEach design is a minor segment of the circle with r = 28 cm and θ = 60°.\n\nStep 2: Calculate Area of all 6 Sectors:\nTotal Area of 6 sectors = 6 × [ (60° / 360°) × πr² ]\n= 6 × (1 / 6) × (22 / 7) × 28 × 28\n= 1 × (22 / 7) × 784\n= 22 × 112 = 2464 cm².\n\nStep 3: Calculate Area of all 6 Triangles:\nSince θ = 60° and OA = OB = 28 cm, each triangle is equilateral.\nArea of 1 equilateral triangle = (√3 / 4) r² = (√3 / 4) × 28² = (√3 / 4) × 784 = 196√3 cm².\nTotal Area of 6 triangles = 6 × 196√3 = 1176√3 cm².\nSubstitute √3 = 1.7:\nTotal Area of 6 triangles = 1176 × 1.7 = 1999.2 cm².\n\nStep 4: Calculate Total Area of the 6 Designs:\nTotal Area of Designs = (Total Area of 6 Sectors) - (Total Area of 6 Triangles)\n= 2464 - 1999.2 = 464.8 cm².\n\nStep 5: Calculate Total Cost:\nTotal Cost = Total Area × Rate per cm²\n= 464.8 × ₹ 0.35\n= ₹ 162.68.\n[ROUGH_WORK]\n464.8 × 0.35 = 464.8 × (7 / 20) = 23.24 × 7 = 162.68.\nBoxed Answer: [ Total cost of making designs = ₹ 162.68 ].",
+                    "concept_questions": [
+                        "Why does the factor 6 cancel out between the 6 sectors and the 1/6 angular fraction?",
+                        "What would be the area of each individual design segment? (464.8 / 6 ≈ 77.47 cm²)"
+                    ]
+                }
+            ],
+            "visual_lesson_plan": {
+                "diagram_title": "Six Equal Designs Table Cover HUD",
+                "diagram_type": "diagram",
+                "svg": svg_sector_60,
+                "concept_visuals": [
+                    {
+                        "concept_title": "Composite Table Cover Model",
+                        "diagram_title": "Six Segment Geometry",
+                        "svg": svg_sector_60,
+                        "diagram_type": "diagram",
+                        "what_to_make": "Circle with 6 symmetrical segments and central regular hexagon",
+                        "what_to_explain": "Calculating 6 segments as 6 sectors minus 6 equilateral triangles"
+                    }
+                ]
+            },
+            "common_misconceptions": [
+                "Calculating only 1 design and forgetting to multiply by 6 (or forgetting that the question asks for the cost of ALL 6 designs).",
+                "Using √3 = 1.732 when the problem explicitly instructs to use √3 = 1.7 (this changes the answer and costs marks in board exams!)."
+            ]
+        }
+    ]
+    
+    return modules

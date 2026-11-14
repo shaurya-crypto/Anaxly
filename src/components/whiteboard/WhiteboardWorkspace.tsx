@@ -3,7 +3,7 @@
 import React, { forwardRef, useState, useEffect, useCallback, useRef } from 'react'
 import { GreenChalkboard, GreenChalkboardRef, WritingPositionInfo } from './GreenChalkboard'
 import { SobiCompanion } from './SobiCompanion'
-import { LiveChalkSubtitleStreamer } from './LiveChalkSubtitleStreamer'
+import { LiveChalkSubtitleStreamer, ActiveHighlight } from './LiveChalkSubtitleStreamer'
 import { VisualizationViewport } from './VisualizationViewport'
 import { MafsGraphCanvas, MafsGraphCanvasProps, GraphDisplayMode } from './MafsGraphCanvas'
 import { VisualizationSceneType } from './scenes/sceneTypes'
@@ -52,6 +52,7 @@ export interface WhiteboardWorkspaceProps {
   activeGraph?: MafsGraphCanvasProps | null
   onCloseGraph?: () => void
   generatingDiagramTitle?: string | null
+  activeHighlight?: ActiveHighlight | null
 }
 
 export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWorkspaceProps>(
@@ -88,6 +89,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
       activeGraph = null,
       onCloseGraph,
       generatingDiagramTitle = null,
+      activeHighlight = null,
     },
     ref
   ) => {
@@ -223,6 +225,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
           <LiveChalkSubtitleStreamer
             latestTranscript={latestTranscript}
             isTeacherSpeaking={isTeacherSpeaking}
+            activeHighlight={activeHighlight}
           />
 
           {/* In-Whiteboard 3D Simulation Box (Rendered directly inside whiteboard area) */}
@@ -294,6 +297,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
           <div className="relative w-full sm:w-[460px] md:w-[480px] lg:w-[520px] h-full shrink-0 border-l-2 border-[#E2E8F0] bg-[#FFFFFF] shadow-2xl flex flex-col z-20 animate-in slide-in-from-right duration-300">
             <MafsGraphCanvas
               formula={activeGraph.formula}
+              formulas={activeGraph.formulas}
               domain={activeGraph.domain}
               range={activeGraph.range}
               title={activeGraph.title}
@@ -316,6 +320,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
           >
             <MafsGraphCanvas
               formula={activeGraph.formula}
+              formulas={activeGraph.formulas}
               domain={activeGraph.domain}
               range={activeGraph.range}
               title={activeGraph.title}
@@ -333,6 +338,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
           <div className="absolute inset-2 z-40 rounded-2xl overflow-hidden shadow-[0_25px_70px_rgba(15,23,42,0.22)] animate-in fade-in zoom-in-95 duration-200">
             <MafsGraphCanvas
               formula={activeGraph.formula}
+              formulas={activeGraph.formulas}
               domain={activeGraph.domain}
               range={activeGraph.range}
               title={activeGraph.title}

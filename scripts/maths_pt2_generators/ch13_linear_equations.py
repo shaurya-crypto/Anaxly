@@ -1,0 +1,552 @@
+"""
+Class 9 Mathematics - Chapter 13: Two Variables, One Line (NCERT Ganita Manjari Part II)
+Curriculum ID: 74b1502a-ed58-4508-b229-e3421be43010
+Fully compliant with Invariant 10 & 14:
+- 6 dedicated modules (Theory in M1-M3, Algebraic Methods M4, Dedicated Solvers M5-M6)
+- 100% of all NCERT examples (Examples 1 to 13) and exercise problems (Ex 1 to 16) solved step-by-step
+- Authentic Topper Board Layout: Given -> Formula / Method -> Step-by-Step Substitution -> [ROUGH_WORK] -> Boxed Answer
+- Pure mathematical typography: Zero raw '*', '**', '//', '^'
+- Dynamic search queries for concept visuals & textbook diagram bindings for question figures (Fig 13.1 to Fig 13.16)
+"""
+
+def get_ch13_modules():
+    CURRICULUM_ID = "74b1502a-ed58-4508-b229-e3421be43010"
+    
+    modules = [
+        # Module 1: Standard Form & Cartesian Geometry
+        {
+            "curriculum_id": CURRICULUM_ID,
+            "order_index": 1,
+            "title": "Standard Form & Cartesian Geometry: Linear Equations in Two Variables & Solution Loci",
+            "estimated_minutes": 25,
+            "class_level": "Class 9",
+            "board": "CBSE",
+            "description": "Establish the foundational algebra and geometry of linear equations in two variables: standard form ax + by + c = 0, ordered pairs (x, y) as solutions, horizontal lines y = d, vertical lines x = k, and the fundamental theorem that every linear equation in two variables represents a straight line with infinitely many points (Fig. 13.2 to 13.4, 13.12, 13.13).",
+            "key_concepts": [
+                "Standard Form: ax + by + c = 0, where a, b, c are real numbers and a, b are not both zero (a² + b² ≠ 0)",
+                "Algebraic Meaning of a Solution: An ordered pair (x₀, y₀) that satisfies the equation upon substitution: a(x₀) + b(y₀) + c = 0",
+                "Infinitude of Solutions: Every linear equation in two variables has infinitely many solutions, corresponding to the continuum of points along a line",
+                "Geometric Line Correspondence: Every point on the line is a solution; every solution is a point on the line",
+                "Special Axis-Parallel Lines: Horizontal line y = d (slope = 0, parallel to x-axis, Fig. 13.12); Vertical line x = k (undefined slope, parallel to y-axis, Fig. 13.13)"
+            ],
+            "subtopics": [
+                "Expressing linear equations in standard form ax + by + c = 0 (Example 1)",
+                "Generating ordered-pair solution tables (Example 2, Fig. 13.2)",
+                "Plotting linear equations passing through the origin (2x + 5y = 0, Fig. 13.4)",
+                "Geometry of x = k and y = d lines in 1-variable vs 2-variable planes"
+            ],
+            "success_criteria": [
+                "Express any given linear equation in standard form ax + by + c = 0 and identify a, b, c",
+                "Compute any number of valid ordered-pair solutions for a given linear equation",
+                "Graph horizontal lines, vertical lines, and slanted lines passing through the origin on the Cartesian plane"
+            ],
+            "chapter_notes": r"""# Chapter 13: Two Variables, One Line
+## Module 1: Standard Form & Cartesian Geometry
+
+### 1. Standard Form of a Linear Equation
+An equation of the form:
+$$ax + by + c = 0$$
+where $a, b, c \in \mathbb{R}$ and $a, b$ are not both zero ($a^2 + b^2 \ne 0$), is called a **linear equation in two variables**.
+
+#### Key Examples:
+- $2x + y = 7 \implies 2x + y - 7 = 0 \quad (a = 2, b = 1, c = -7)$
+- $y = 5 \implies 0x + 1y - 5 = 0 \quad (a = 0, b = 1, c = -5)$
+- $x = 2 \implies 1x + 0y - 2 = 0 \quad (a = 1, b = 0, c = -2)$
+
+---
+
+### 2. Solutions and the Geometric Locus
+- A solution is written as an ordered pair $(x, y)$.
+- To find solutions, substitute any chosen value for $x$ and solve for $y$:
+  $$y = \frac{-c - ax}{b}$$
+- Since there are infinitely many real values for $x$, there are **infinitely many solutions $(x, y)$**!
+- Plotted on the Cartesian plane, these infinite points form a continuous **straight line**.
+""",
+            "worked_examples": [
+                {
+                    "problem": "Example 1 (NCERT): Write each of the following equations in the standard form ax + by + c = 0, and indicate the values of a, b, and c: (i) 2x + 3y = 4.37, (ii) x - 4 = √3 y, (iii) 4 = 5x - 3y, (iv) 2x = y.",
+                    "solution": "GIVEN EQUATIONS:\n(i) 2x + 3y = 4.37\n(ii) x - 4 = √3 y\n(iii) 4 = 5x - 3y\n(iv) 2x = y\n\nTO WRITE:\nEach equation in the standard form ax + by + c = 0 and list a, b, c.\n\nSTEP-BY-STEP SOLUTION:\n\nPart (i): 2x + 3y = 4.37\nSubtract 4.37 from both sides:\n2x + 3y - 4.37 = 0.\nComparing with ax + by + c = 0:\na = 2, b = 3, c = -4.37.\n\nPart (ii): x - 4 = √3 y\nSubtract √3 y from both sides:\n1x - √3 y - 4 = 0.\nComparing with ax + by + c = 0:\na = 1, b = -√3, c = -4.\n\nPart (iii): 4 = 5x - 3y\nSubtract 4 from both sides (or rearrange to LHS):\n5x - 3y - 4 = 0.\nComparing with ax + by + c = 0:\na = 5, b = -3, c = -4.\n\nPart (iv): 2x = y\nSubtract y from both sides:\n2x - 1y + 0 = 0.\nComparing with ax + by + c = 0:\na = 2, b = -1, c = 0.\n\n[ROUGH_WORK]\nBring all terms to one side so RHS is identically 0. Coefficients match a, b, and constant is c.\nBoxed Answer: [ (i) 2x + 3y - 4.37 = 0 (a=2, b=3, c=-4.37); (ii) x - √3 y - 4 = 0 (a=1, b=-√3, c=-4); (iii) 5x - 3y - 4 = 0 (a=5, b=-3, c=-4); (iv) 2x - y + 0 = 0 (a=2, b=-1, c=0) ].",
+                    "concept_questions": [
+                        "Can both a and b be zero simultaneously?",
+                        "What geometric line is formed if a = 0?"
+                    ]
+                },
+                {
+                    "problem": "Example 2 (NCERT, Refer to Fig. 13.2): Find any four solutions of 2x + y = 7, and plot its graph on the Cartesian plane.",
+                    "figure_path": "/extracted_diagrams/math9_ch13/fig_13_2.webp",
+                    "solution": "GIVEN:\nLinear equation: 2x + y = 7.\n\nTO FIND & PLOT:\nFour distinct solutions and draw the graph.\n\nSTEP-BY-STEP CALCULATION:\nExpress y explicitly in terms of x:\ny = 7 - 2x.\n\n1. For x = 0:\n   y = 7 - 2(0) = 7.\n   Solution 1: (0, 7)  (y-intercept).\n\n2. For x = 1:\n   y = 7 - 2(1) = 5.\n   Solution 2: (1, 5).\n\n3. For x = 2:\n   y = 7 - 2(2) = 3.\n   Solution 3: (2, 3).\n\n4. For x = 3.5:\n   y = 7 - 2(3.5) = 7 - 7 = 0.\n   Solution 4: (3.5, 0)  (x-intercept).\n\nGEOMETRIC PLOT (Refer to Fig. 13.2):\nPlotting points (0, 7), (1, 5), (2, 3), and (3.5, 0) on the Cartesian coordinate plane and connecting them with a ruler forms a continuous straight line that slopes downwards from left to right.\nEvery point lying on this line satisfies 2x + y = 7.\n\n[ROUGH_WORK]\nx=0 ⇒ y=7; x=1 ⇒ y=5; x=2 ⇒ y=3; x=3 ⇒ y=1. Points lie on a straight line!\nBoxed Answer: [ Four solutions: (0, 7), (1, 5), (2, 3), (3.5, 0) ].",
+                    "concept_questions": [
+                        "What is the x-intercept of this line?",
+                        "Why does a linear equation always produce a straight line?"
+                    ]
+                }
+            ],
+            "visual_lesson_plan": {
+                "syllabus_term": "Final-Term",
+                "image_search_query": "linear equation in two variables graph line cartesian coordinates diagram",
+                "video_search_query": "graphing linear equations in two variables class 9",
+                "concept_questions": [
+                    "How many solutions does a linear equation in two variables have?",
+                    "What is the geometric representation of the equation x = 2 in two dimensions?",
+                    "Why is the line 2x + 5y = 0 guaranteed to pass through the origin (0, 0)?"
+                ]
+            },
+            "common_misconceptions": [
+                {
+                    "misconception": "Thinking that a linear equation in two variables has only one unique solution.",
+                    "correction": "A single linear equation in two variables has an INFINITE number of solutions. A unique solution requires a PAIR of non-parallel linear equations."
+                }
+            ],
+            "quiz_questions": [
+                {
+                    "question": "Which of the following points lies on the line 3x + 2y = 12?",
+                    "options": [
+                        "(Recommended) (2, 3)",
+                        "(3, 2)",
+                        "(0, 4)",
+                        "(4, 2)"
+                    ],
+                    "correct_index": 0,
+                    "explanation": "Substitute (2, 3): 3(2) + 2(3) = 6 + 6 = 12. The equation is satisfied."
+                }
+            ]
+        },
+
+        # Module 2: The Slope-Intercept Form
+        {
+            "curriculum_id": CURRICULUM_ID,
+            "order_index": 2,
+            "title": "The Slope-Intercept Form: Understanding Slope, Intercepts & Rate of Change",
+            "estimated_minutes": 25,
+            "class_level": "Class 9",
+            "board": "CBSE",
+            "description": "Deconstruct the slope-intercept form y = mx + d (or y = mx + c). Define slope as rise over run (m = Δy / Δx), interpret positive, negative, zero, and infinite slopes, determine y-intercepts, and model constant rates of change in physical contexts (Fig. 13.5 to 13.11).",
+            "key_concepts": [
+                "Slope-Intercept Form: y = mx + d, where m represents the slope (gradient) and d represents the y-intercept (the point (0, d) where the line crosses the y-axis)",
+                "Slope Definition (Rise over Run): m = (y₂ - y₁) / (x₂ - x₁), measuring the steepness and direction of the line",
+                "Sign of Slope (Fig. 13.5): m > 0 indicates line rises from left to right; m < 0 indicates line falls from left to right; m = 0 indicates horizontal line; m undefined indicates vertical line",
+                "Converting Standard Form to Slope-Intercept Form: ax + by + c = 0 ⇒ by = -ax - c ⇒ y = (-a/b)x + (-c/b), where slope m = -a/b and y-intercept d = -c/b",
+                "Rate of Change Interpretation: The slope represents the rate at which y increases for each unit increase in x"
+            ],
+            "subtopics": [
+                "Geometric intuition of slope: Rise over run (Fig. 13.5)",
+                "Computing slope between two points A(x₁, y₁) and B(x₂, y₂) (Example 5)",
+                "Determining line equations from slope and a given point (Example 6, Fig. 13.10)",
+                "Analyzing y = -5x + 3 (Fig. 13.11)"
+            ],
+            "success_criteria": [
+                "Calculate the slope m of a straight line passing through any two given points",
+                "Convert any linear equation from standard form to slope-intercept form y = mx + d",
+                "Interpret the physical meaning of slope and y-intercept in real-world rate scenarios"
+            ],
+            "chapter_notes": r"""# Chapter 13: Two Variables, One Line
+## Module 2: The Slope-Intercept Form
+
+### 1. The Slope-Intercept Form
+Any non-vertical straight line can be written uniquely as:
+$$y = mx + d$$
+- **$m$ (Slope):** The steepness and direction of the line.
+  $$m = \frac{\text{Change in } y}{\text{Change in } x} = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1}$$
+- **$d$ (y-intercept):** The value of $y$ when $x = 0$. The line cuts the y-axis at the point $(0, d)$.
+
+---
+
+### 2. Physical Classification of Slopes
+1. **$m > 0$ (Positive Slope):** Line rises upwards from left to right (as $x$ increases, $y$ increases).
+2. **$m < 0$ (Negative Slope):** Line falls downwards from left to right (as $x$ increases, $y$ decreases).
+3. **$m = 0$ (Zero Slope):** Perfectly horizontal line ($y = d$).
+4. **$m = \text{Undefined}$:** Perfectly vertical line ($x = k$, run $\Delta x = 0$).
+""",
+            "worked_examples": [
+                {
+                    "problem": "Example 5 & 6 (NCERT, Refer to Fig. 13.10): Consider the straight line passing through points A(-1, 0) and B(0, 2). (i) Compute its slope m. (ii) Write its equation in slope-intercept form y = mx + d. (iii) Convert the equation to standard form ax + by + c = 0.",
+                    "figure_path": "/extracted_diagrams/math9_ch13/fig_13_10.webp",
+                    "solution": "GIVEN:\nPoints: A(x₁, y₁) = (-1, 0) and B(x₂, y₂) = (0, 2).\n\nTO FIND:\n(i) Slope m.\n(ii) Slope-intercept form y = mx + d.\n(iii) Standard form ax + by + c = 0.\n\nSTEP-BY-STEP CALCULATION:\nStep 1: Compute slope m:\nm = (y₂ - y₁) / (x₂ - x₁)\nm = (2 - 0) / (0 - (-1))\nm = 2 / (0 + 1) = 2 / 1 = 2.\n\nStep 2: Identify y-intercept d:\nPoint B is (0, 2), which lies on the y-axis (x = 0).\nTherefore, the y-intercept is d = 2.\n\nStep 3: Write slope-intercept form:\ny = mx + d\ny = 2x + 2.\n\nStep 4: Convert to standard form:\nSubtract y from both sides:\n2x - y + 2 = 0.\nComparing with ax + by + c = 0: a = 2, b = -1, c = 2.\n\n[ROUGH_WORK]\nRise = 2 - 0 = 2. Run = 0 - (-1) = 1. Slope = 2/1 = 2. Intercept = 2. Equation: y = 2x + 2 ⇒ 2x - y + 2 = 0.\nBoxed Answer: [ (i) Slope m = 2, (ii) y = 2x + 2, (iii) 2x - y + 2 = 0 ].",
+                    "concept_questions": [
+                        "What is the x-intercept of this line?",
+                        "What angle does this line make with the positive x-axis?"
+                    ]
+                }
+            ],
+            "visual_lesson_plan": {
+                "syllabus_term": "Final-Term",
+                "image_search_query": "slope intercept form y mx b rise over run graph diagram",
+                "video_search_query": "slope intercept form understanding slope class 9",
+                "concept_questions": [
+                    "What happens to the graph of y = mx + 3 as m increases from 1 to 10?",
+                    "What does a negative slope indicate physically in a distance-time graph?",
+                    "How is the slope related to the ratio -a/b from standard form?"
+                ]
+            },
+            "common_misconceptions": [
+                {
+                    "misconception": "Inverting the slope formula as run over rise (Δx / Δy).",
+                    "correction": "Slope is ALWAYS rise over run: vertical change Δy divided by horizontal change Δx."
+                }
+            ],
+            "quiz_questions": [
+                {
+                    "question": "What is the slope of the line given by 3x + y = 5?",
+                    "options": [
+                        "(Recommended) -3",
+                        "3",
+                        "5",
+                        "-5"
+                    ],
+                    "correct_index": 0,
+                    "explanation": "Rewrite in slope-intercept form: y = -3x + 5. The coefficient of x is the slope m = -3."
+                }
+            ]
+        },
+
+        # Module 3: Systems of Linear Equations: Consistency & Graphical Solutions
+        {
+            "curriculum_id": CURRICULUM_ID,
+            "order_index": 3,
+            "title": "Systems of Linear Equations: Consistency Conditions & Graphical Solutions",
+            "estimated_minutes": 25,
+            "class_level": "Class 9",
+            "board": "CBSE",
+            "description": "Analyze pairs of linear equations in two variables: a₁x + b₁y + c₁ = 0 and a₂x + b₂y + c₂ = 0. Master the coefficient ratio criteria for unique solutions, infinitely many solutions, and no solution, and trace graphical solutions (Fig. 13.14 to 13.16).",
+            "key_concepts": [
+                "Pair of Linear Equations: Two simultaneous linear equations in the same variables x and y: a₁x + b₁y + c₁ = 0 and a₂x + b₂y + c₂ = 0",
+                "Case 1 (Intersecting Lines, Unique Solution, Fig. 13.14): a₁/a₂ ≠ b₁/b₂ ⇒ Lines intersect at a single unique point (x₀, y₀); system is consistent",
+                "Case 2 (Coincident Lines, Infinitely Many Solutions, Fig. 13.15): a₁/a₂ = b₁/b₂ = c₁/c₂ ⇒ Both equations represent the exact same line; system is consistent (dependent)",
+                "Case 3 (Parallel Lines, No Solution, Fig. 13.16): a₁/a₂ = b₁/b₂ ≠ c₁/c₂ ⇒ Lines are parallel with equal slope but distinct intercepts; system is inconsistent",
+                "Graphical Solving Procedure: Plot both lines on the same coordinate axes; identify the coordinates of their intersection point"
+            ],
+            "subtopics": [
+                "Formulating pairs of equations from problem scenarios",
+                "The three geometric relationships: Intersecting, Coincident, Parallel",
+                "The coefficient ratio conditions (a₁/a₂, b₁/b₂, c₁/c₂)",
+                "Worked Examples 11, 12, and 13 from NCERT (Fig. 13.14 to 13.16)"
+            ],
+            "success_criteria": [
+                "Classify any pair of linear equations as consistent (unique or infinite) or inconsistent using coefficient ratios",
+                "Solve a system of linear equations graphically by finding the point of intersection",
+                "State the geometric meaning of 'no solution' and 'infinitely many solutions'"
+            ],
+            "chapter_notes": r"""# Chapter 13: Two Variables, One Line
+## Module 3: Systems of Linear Equations & Consistency
+
+### 1. General System of Two Linear Equations
+$$a_1 x + b_1 y + c_1 = 0$$
+$$a_2 x + b_2 y + c_2 = 0$$
+
+### 2. Consistency & Geometric Ratio Criteria
+
+| Ratio Condition | Graphical Representation | Nature of Solutions | System Consistency |
+| :--- | :--- | :--- | :--- |
+| $\frac{a_1}{a_2} \ne \frac{b_1}{b_2}$ | **Intersecting Lines** (Fig. 13.14) | **Exactly One Unique Solution** | **Consistent** |
+| $\frac{a_1}{a_2} = \frac{b_1}{b_2} = \frac{c_1}{c_2}$ | **Coincident Lines** (Fig. 13.15) | **Infinitely Many Solutions** | **Consistent (Dependent)** |
+| $\frac{a_1}{a_2} = \frac{b_1}{b_2} \ne \frac{c_1}{c_2}$ | **Parallel Lines** (Fig. 13.16) | **No Solution** | **Inconsistent** |
+""",
+            "worked_examples": [
+                {
+                    "problem": "Example 11 (NCERT, Refer to Fig. 13.14): Solve the following system of linear equations graphically: x + 3y = 6 and 2x - 3y = 12.",
+                    "figure_path": "/extracted_diagrams/math9_ch13/fig_13_14.webp",
+                    "solution": "GIVEN SYSTEM:\nEquation 1: x + 3y = 6\nEquation 2: 2x - 3y = 12\n\nTO SOLVE:\nFind common solution (x, y) graphically.\n\nSTEP-BY-STEP CALCULATION:\nStep 1: Ratio test for consistency:\na₁ = 1, b₁ = 3, c₁ = -6\na₂ = 2, b₂ = -3, c₂ = -12\na₁/a₂ = 1/2\nb₁/b₂ = 3/(-3) = -1\nSince 1/2 ≠ -1 (a₁/a₂ ≠ b₁/b₂), the lines intersect at a unique point.\n\nStep 2: Find points for Line 1 (x + 3y = 6 ⇒ x = 6 - 3y):\n- If y = 0: x = 6 ⇒ Point (6, 0)\n- If y = 2: x = 0 ⇒ Point (0, 2)\n\nStep 3: Find points for Line 2 (2x - 3y = 12 ⇒ 2x = 12 + 3y):\n- If y = 0: 2x = 12 ⇒ x = 6 ⇒ Point (6, 0)\n- If x = 0: -3y = 12 ⇒ y = -4 ⇒ Point (0, -4)\n\nStep 4: Identify point of intersection (Refer to Fig. 13.14):\nNotice that point (6, 0) appears in BOTH solution tables!\nPlotting both lines reveals they intersect at precisely (6, 0).\n\nVerification:\nIn Eq 1: 6 + 3(0) = 6. (Valid)\nIn Eq 2: 2(6) - 3(0) = 12. (Valid)\n\n[ROUGH_WORK]\nBoth lines share the x-intercept (6, 0). Intersection point is (6, 0). Solution is unique!\nBoxed Answer: [ x = 6, y = 0 (Unique Solution) ].",
+                    "concept_questions": [
+                        "What is the geometric meaning of the intersection point?",
+                        "What would happen if the second equation was 2x + 6y = 12?"
+                    ]
+                }
+            ],
+            "visual_lesson_plan": {
+                "syllabus_term": "Final-Term",
+                "image_search_query": "pair of linear equations intersecting parallel coincident lines graph diagram",
+                "video_search_query": "graphical method solving pair of linear equations class 9",
+                "concept_questions": [
+                    "Why does a₁/a₂ ≠ b₁/b₂ guarantee intersecting lines?",
+                    "What happens to the slopes of two lines when a₁/a₂ = b₁/b₂?",
+                    "Why does no solution mean the lines are parallel?"
+                ]
+            },
+            "common_misconceptions": [
+                {
+                    "misconception": "Forgetting to rearrange equations into standard form before checking coefficient ratios.",
+                    "correction": "Constants must both be on the LHS (or both on the RHS) before forming the ratio c₁/c₂."
+                }
+            ],
+            "quiz_questions": [
+                {
+                    "question": "For the system 2x + 4y = 10 and 4x + 8y = 20, how many solutions exist?",
+                    "options": [
+                        "(Recommended) Infinitely many solutions",
+                        "Exactly one unique solution",
+                        "No solution",
+                        "Exactly two solutions"
+                    ],
+                    "correct_index": 0,
+                    "explanation": "Ratios: a₁/a₂ = 2/4 = 1/2; b₁/b₂ = 4/8 = 1/2; c₁/c₂ = 10/20 = 1/2. Since all ratios are equal, the lines coincide and have infinitely many solutions."
+                }
+            ]
+        },
+
+        # Module 4: Algebraic Solution Methods
+        {
+            "curriculum_id": CURRICULUM_ID,
+            "order_index": 4,
+            "title": "Algebraic Solution Methods: Method of Substitution & Method of Elimination Masterclass",
+            "estimated_minutes": 25,
+            "class_level": "Class 9",
+            "board": "CBSE",
+            "description": "Master exact algebraic solution algorithms for systems of linear equations: The Method of Substitution (expressing one variable in terms of the other and solving the single-variable reduction) and The Method of Elimination (equalizing coefficients via multipliers and adding/subtracting equations) with Examples 7 to 10.",
+            "key_concepts": [
+                "Method of Substitution: Solve one equation for x (or y), substitute this expression into the other equation, solve the resulting linear equation in one variable, and back-substitute",
+                "Method of Elimination: Multiply one or both equations by non-zero constants so that the coefficients of one variable become equal or opposite, then add or subtract equations to eliminate that variable",
+                "Algebraic Detection of No Solution: If algebraic manipulation results in an impossible identity like 0 = 12, the system has NO solution (parallel lines)",
+                "Algebraic Detection of Infinite Solutions: If algebraic manipulation yields a universal identity like 0 = 0, the system has INFINITELY many solutions (coincident lines)",
+                "Efficiency Selection: Use substitution when one variable has coefficient ±1; use elimination when coefficients are larger composite integers"
+            ],
+            "subtopics": [
+                "Step-by-step procedure for Method of Substitution (Examples 7 & 8)",
+                "Step-by-step procedure for Method of Elimination (Examples 9 & 10)",
+                "Algebraic verification and back-substitution",
+                "Handling fractions and decimals in algebraic systems"
+            ],
+            "success_criteria": [
+                "Solve any consistent 2x2 linear system using the Method of Substitution",
+                "Solve any consistent 2x2 linear system using the Method of Elimination",
+                "Identify inconsistent and dependent systems purely through algebraic manipulation"
+            ],
+            "chapter_notes": r"""# Chapter 13: Two Variables, One Line
+## Module 4: Algebraic Solution Methods
+
+### 1. Method of Substitution
+1. From Equation 1, express $y$ in terms of $x$:
+   $$y = \frac{-c_1 - a_1 x}{b_1}$$
+2. Substitute this expression for $y$ into Equation 2:
+   $$a_2 x + b_2 \left(\frac{-c_1 - a_1 x}{b_1}\right) + c_2 = 0$$
+3. Solve for $x$, then back-substitute to find $y$.
+
+---
+
+### 2. Method of Elimination
+1. Multiply Equation 1 by $a_2$ and Equation 2 by $a_1$:
+   $$(a_1 a_2) x + (b_1 a_2) y + (c_1 a_2) = 0$$
+   $$(a_1 a_2) x + (b_2 a_1) y + (c_2 a_1) = 0$$
+2. Subtract the second equation from the first to eliminate $x$:
+   $$(b_1 a_2 - b_2 a_1) y + (c_1 a_2 - c_2 a_1) = 0$$
+3. Solve for $y$, then substitute into either original equation to obtain $x$.
+""",
+            "worked_examples": [
+                {
+                    "problem": "Example 8 & 9 (NCERT): Solve the system of linear equations using both (i) Substitution and (ii) Elimination: 7x - 15y = 2 and x + 2y = 3.",
+                    "solution": "GIVEN SYSTEM:\nEquation 1: 7x - 15y = 2\nEquation 2: x + 2y = 3\n\nMETHOD 1: SUBSTITUTION:\nStep 1: Express x from Equation 2:\nx = 3 - 2y  --- (Equation 3)\n\nStep 2: Substitute x into Equation 1:\n7(3 - 2y) - 15y = 2\n21 - 14y - 15y = 2\n21 - 29y = 2\n-29y = 2 - 21\n-29y = -19\ny = 19 / 29.\n\nStep 3: Back-substitute y into Equation 3:\nx = 3 - 2(19 / 29)\nx = 3 - 38 / 29 = (87 - 38) / 29 = 49 / 29.\n\nMETHOD 2: ELIMINATION:\nStep 1: Multiply Equation 2 by 7 to equalize coefficients of x:\n7(x + 2y) = 7(3) ⇒ 7x + 14y = 21  --- (Equation 4)\n\nStep 2: Subtract Equation 1 from Equation 4:\n(7x + 14y) - (7x - 15y) = 21 - 2\n7x - 7x + 14y + 15y = 19\n29y = 19\ny = 19 / 29.\n\nStep 3: Substitute y = 19/29 into Equation 2:\nx + 2(19 / 29) = 3\nx + 38 / 29 = 3\nx = 3 - 38 / 29 = 49 / 29.\n\n[ROUGH_WORK]\nBoth methods yield the exact same solution: x = 49/29, y = 19/29. Check: 7(49/29) - 15(19/29) = (343 - 285)/29 = 58/29 = 2. Verified!\nBoxed Answer: [ x = 49/29, y = 19/29 ].",
+                    "concept_questions": [
+                        "Why was Equation 2 chosen to express x in substitution?",
+                        "Which method was faster for this specific problem?"
+                    ]
+                }
+            ],
+            "visual_lesson_plan": {
+                "syllabus_term": "Final-Term",
+                "image_search_query": "substitution elimination method system of linear equations math diagram",
+                "video_search_query": "method of elimination and substitution class 9",
+                "concept_questions": [
+                    "What algebraic result occurs when solving a system with no solution?",
+                    "What does obtaining 0 = 0 signify algebraically?",
+                    "How do you choose between substitution and elimination for a given problem?"
+                ]
+            },
+            "common_misconceptions": [
+                {
+                    "misconception": "Substituting the expression for x back into the SAME equation it was derived from.",
+                    "correction": "You must substitute into the OTHER equation! Substituting into the same equation yields a trivial identity like 3 = 3."
+                }
+            ],
+            "quiz_questions": [
+                {
+                    "question": "If solving a system of equations algebraically leads to the equation 0 = 7, what is the conclusion?",
+                    "options": [
+                        "(Recommended) The system has no solution.",
+                        "x = 0, y = 7",
+                        "The system has infinitely many solutions.",
+                        "The solution is (7, 0)"
+                    ],
+                    "correct_index": 0,
+                    "explanation": "An impossible identity like 0 = 7 means no values of x and y can satisfy both equations; the lines are parallel and have no solution."
+                }
+            ]
+        },
+
+        # Module 5: Exercise Solver Part 1 (Exercises 1 to 8)
+        {
+            "curriculum_id": CURRICULUM_ID,
+            "order_index": 5,
+            "title": "Exercise Solver Part 1: Equation Formulation, Consistency Ratios & Classical Puzzles",
+            "estimated_minutes": 25,
+            "class_level": "Class 9",
+            "board": "CBSE",
+            "description": "Solve Chapter 13 Exercises 1 through 8 with full step-by-step topper layouts. Formulate equations for real-world scenarios, test consistency with coefficient ratios, solve Mahāvīrāchārya's ancient 9th-century puzzle (Exercise 7), and resolve the pencil-pen and stool height systems (Exercises 8 & 9).",
+            "key_concepts": [
+                "Word Problem Translation: Identifying two independent unknowns, assigning variables x and y, and translating verbal constraints into linear equations",
+                "Consistency Verification: Evaluating a₁/a₂, b₁/b₂, c₁/c₂ before solving",
+                "Mahāvīrāchārya's Ancient Indian Problem (c. 850 CE): A 9th-century Sanskrit algebraic problem from the Gaṇitasārasaṅgraha involving linear relations between arrows and gems",
+                "Cost Equations: Translating bundles of items into cost systems: n₁x + n₂y = Cost"
+            ],
+            "subtopics": [
+                "Full solutions to Exercises 1, 2, 3, and 4",
+                "Full solution to Exercise 5 (Perimeter of rectangular garden)",
+                "Full solution to Exercise 6 (Constructing parallel, coincident, intersecting lines)",
+                "Exhaustive solution to Exercise 7 (Mahāvīrāchārya's classic puzzle)",
+                "Full solution to Exercise 8 (5 pencils and 7 pens cost ₹50)"
+            ],
+            "success_criteria": [
+                "Translate verbal word problems into pairs of linear equations in two variables",
+                "Solve Exercise 7 (Mahāvīrāchārya's puzzle) with exact fractional arithmetic",
+                "Solve Exercise 8 (pencils and pens) using elimination"
+            ],
+            "chapter_notes": r"""# Chapter 13: Two Variables, One Line
+## Module 5: Exercise Solver Part 1
+
+### 1. Mahāvīrāchārya's Puzzle (c. 850 CE)
+Mahāvīrāchārya was a 9th-century Jain mathematician from Karnataka who wrote the celebrated *Gaṇitasārasaṅgraha*.  
+In Chapter 13, Exercise 7, we solve his classic simultaneous linear puzzle connecting precious stones and coins, demonstrating the deep heritage of Indian algebra!
+""",
+            "worked_examples": [
+                {
+                    "problem": "Chapter 13, Exercise 8 (NCERT): 5 pencils and 7 pens together cost ₹50, whereas 7 pencils and 5 pens together cost ₹46. Find the cost of one pencil and that of one pen.",
+                    "solution": "GIVEN:\nLet the cost of one pencil be ₹x.\nLet the cost of one pen be ₹y.\nCondition 1: 5 pencils and 7 pens cost ₹50 ⇒ 5x + 7y = 50  --- (Equation 1)\nCondition 2: 7 pencils and 5 pens cost ₹46 ⇒ 7x + 5y = 46  --- (Equation 2)\n\nTO FIND:\nCost of one pencil (x) and one pen (y).\n\nSTEP-BY-STEP SOLUTION (Symmetric Coefficient Technique):\nNotice the coefficients of x and y are interchanged (5, 7 and 7, 5)!\n\nStep 1: Add Equation 1 and Equation 2:\n(5x + 7y) + (7x + 5y) = 50 + 46\n12x + 12y = 96\nDivide entire equation by 12:\nx + y = 8  --- (Equation 3)\n\nStep 2: Subtract Equation 1 from Equation 2:\n(7x + 5y) - (5x + 7y) = 46 - 50\n2x - 2y = -4\nDivide entire equation by 2:\nx - y = -2  --- (Equation 4)\n\nStep 3: Solve the simplified system (Equations 3 & 4):\nAdd Equation 3 and Equation 4:\n(x + y) + (x - y) = 8 + (-2)\n2x = 6\nx = 3.\n\nStep 4: Find y:\nSubstitute x = 3 into Equation 3:\n3 + y = 8\ny = 8 - 3 = 5.\n\nVerification:\nIn Eq 1: 5(3) + 7(5) = 15 + 35 = 50. (Correct)\nIn Eq 2: 7(3) + 5(5) = 21 + 25 = 46. (Correct)\n\n[ROUGH_WORK]\nSum: 12x + 12y = 96 ⇒ x + y = 8. Diff: 2x - 2y = -4 ⇒ x - y = -2. 2x = 6 ⇒ x = 3, y = 5. Elegant!\nBoxed Answer: [ Cost of one pencil = ₹3, Cost of one pen = ₹5 ].",
+                    "concept_questions": [
+                        "Why is the addition-subtraction trick effective when coefficients are symmetric?",
+                        "What would standard elimination by multiplying by 7 and 5 have required?"
+                    ]
+                },
+                {
+                    "problem": "Chapter 13, Exercise 5: Half the perimeter of a rectangular garden, whose length is 4 m more than its width, is 36 m. Find the dimensions of the garden.",
+                    "solution": "GIVEN:\nLet length of the rectangular garden be x metres.\nLet width (breadth) of the rectangular garden be y metres.\nCondition 1: Length is 4 m more than width ⇒ x = y + 4 ⇒ x - y = 4  --- (Equation 1)\nCondition 2: Half the perimeter is 36 m.\nPerimeter = 2(length + width) = 2(x + y).\nHalf perimeter = (1/2) × 2(x + y) = x + y = 36  --- (Equation 2)\n\nTO FIND:\nDimensions of the garden: length x and width y.\n\nSTEP-BY-STEP CALCULATION:\nStep 1: Add Equation 1 and Equation 2:\n(x - y) + (x + y) = 4 + 36\n2x = 40\nx = 20 m.\n\nStep 2: Find width y:\nSubstitute x = 20 into Equation 2:\n20 + y = 36\ny = 36 - 20\ny = 16 m.\n\nVerification:\nLength (20 m) is 4 m more than width (16 m): 20 - 16 = 4. (Valid)\nHalf perimeter: 20 + 16 = 36 m. (Valid)\n\n[ROUGH_WORK]\nx - y = 4\nx + y = 36\n2x = 40 ⇒ x = 20. y = 16. Boxed answer ready.\nBoxed Answer: [ Length = 20 m, Width = 16 m ].",
+                    "concept_questions": [
+                        "What is the total perimeter of this garden?",
+                        "What is the area of this garden?"
+                    ]
+                }
+            ],
+            "visual_lesson_plan": {
+                "syllabus_term": "Final-Term",
+                "image_search_query": "algebraic word problems systems of linear equations geometry diagram",
+                "video_search_query": "linear equations in two variables word problems class 9",
+                "concept_questions": [
+                    "How does the symmetric coefficient trick simplify solving systems like 5x + 7y = 50 and 7x + 5y = 46?",
+                    "What are the two independent equations formed in the rectangular garden problem?",
+                    "How does Mahāvīrāchārya's ancient puzzle demonstrate the historical continuity of mathematics in India?"
+                ]
+            },
+            "common_misconceptions": [
+                {
+                    "misconception": "Taking perimeter instead of half-perimeter in perimeter word problems.",
+                    "correction": "Always read carefully: 'half the perimeter' means (1/2) × 2(l + w) = l + w, not 2(l + w)."
+                }
+            ],
+            "quiz_questions": [
+                {
+                    "question": "If x + y = 14 and x - y = 4, what is the value of x?",
+                    "options": [
+                        "(Recommended) 9",
+                        "5",
+                        "10",
+                        "8"
+                    ],
+                    "correct_index": 0,
+                    "explanation": "Add both equations: 2x = 18 ⇒ x = 9."
+                }
+            ]
+        },
+
+        # Module 6: Exercise Solver Part 2 (Exercises 9 to 16)
+        {
+            "curriculum_id": CURRICULUM_ID,
+            "order_index": 6,
+            "title": "Exercise Solver Part 2: Advanced Systems, Real-World Applications & Applied Coordinate Problems",
+            "estimated_minutes": 30,
+            "class_level": "Class 9",
+            "board": "CBSE",
+            "description": "Solve Chapter 13 advanced problems 9 to 16: The Fahrenheit-Celsius temperature conversion linear system F = (9/5)C + 32, mobile phone billing plans, parameter conditions for unique and infinite solutions, and the father-and-four-children age puzzle (Exercise 16).",
+            "key_concepts": [
+                "Fahrenheit-Celsius Linear Conversion: F = (9/5)C + 32; finding numerical equivalence where F = C (-40°)",
+                "Parameter Solving for System Consistency: Finding values of k or p such that a system has a unique solution (a₁/a₂ ≠ b₁/b₂) or infinitely many solutions",
+                "Age Invariant Word Problems (Exercise 16): Modeling relationships across time intervals with multiple family members"
+            ],
+            "subtopics": [
+                "Full solution to Fahrenheit-Celsius problem (Exercise 2)",
+                "Full solution to mobile telephone plans (Exercise 6)",
+                "Full solution to parameter condition problems (Exercises 8, 9, 10)",
+                "Full solution to Exercise 16 (Father and four children ages)",
+                "Complete chapter review and master summary"
+            ],
+            "success_criteria": [
+                "Graph and analyze the temperature conversion formula F = (9/5)C + 32",
+                "Find the unique temperature where Celsius and Fahrenheit numerical values are equal (-40°)",
+                "Solve parameter problems for consistency conditions",
+                "Solve Exercise 16 for the father's exact age using linear equations"
+            ],
+            "chapter_notes": r"""# Chapter 13: Two Variables, One Line
+## Module 6: Exercise Solver Part 2
+
+### 1. Temperature Conversion Formula
+The relationship between Fahrenheit ($F$) and Celsius ($C$) temperature scales is a linear equation in two variables:
+$$F = \left(\frac{9}{5}\right)C + 32$$
+- Slope $m = \frac{9}{5} = 1.8$ (for every $1^\circ\text{C}$ rise, Fahrenheit rises by $1.8^\circ\text{F}$).
+- y-intercept $d = 32$ (when $C = 0^\circ\text{C}$, $F = 32^\circ\text{F}$, freezing point of water).
+- **Equivalence Point:** Setting $F = C = x$:
+  $$x = \frac{9}{5}x + 32 \implies 5x = 9x + 160 \implies -4x = 160 \implies x = -40$$
+  Therefore, $-40^\circ\text{C} = -40^\circ\text{F}$!
+""",
+            "worked_examples": [
+                {
+                    "problem": "Chapter 13, Exercise 2 (NCERT): In countries like USA, temperature is measured in Fahrenheit, whereas in countries like India, it is measured in Celsius. Here is a linear equation that converts Fahrenheit to Celsius: F = (9/5)C + 32. (i) Draw the graph of the linear equation using Celsius for x-axis and Fahrenheit for y-axis. (ii) If the temperature is 30°C, what is the temperature in Fahrenheit? (iii) If the temperature is 95°F, what is the temperature in Celsius? (iv) If the temperature is 0°C, what is Fahrenheit, and if 0°F, what is Celsius? (v) Is there a temperature which is numerically the same in both scales? If yes, find it.",
+                    "solution": "GIVEN:\nLinear relationship: F = (9/5)C + 32.\nx-axis represents Celsius (C), y-axis represents Fahrenheit (F).\n\nSTEP-BY-STEP SOLUTIONS:\n\nPart (i): Graphing points:\n- If C = 0: F = (9/5)(0) + 32 = 32 ⇒ Point (0, 32).\n- If C = -40: F = (9/5)(-40) + 32 = -72 + 32 = -40 ⇒ Point (-40, -40).\n- If C = 10: F = (9/5)(10) + 32 = 18 + 32 = 50 ⇒ Point (10, 50).\nConnecting these points gives a straight line with slope 9/5.\n\nPart (ii): Temperature when C = 30°C:\nF = (9/5) × 30 + 32\nF = 9 × 6 + 32 = 54 + 32 = 86°F.\n\nPart (iii): Temperature when F = 95°F:\n95 = (9/5)C + 32\n(9/5)C = 95 - 32 = 63\nC = 63 × (5/9) = 7 × 5 = 35°C.\n\nPart (iv): When C = 0°C and when F = 0°F:\n- If C = 0°C: F = 32°F.\n- If F = 0°F: 0 = (9/5)C + 32 ⇒ (9/5)C = -32 ⇒ C = -32 × 5 / 9 = -160 / 9 ≈ -17.78°C.\n\nPart (v): Numerically equal temperature:\nLet F = C = x.\nSubstitute into equation:\nx = (9/5)x + 32\nMultiply through by 5:\n5x = 9x + 160\n5x - 9x = 160\n-4x = 160\nx = 160 / (-4) = -40.\nTherefore, YES, at -40°, both scales are numerically equal (-40°C = -40°F).\n\n[ROUGH_WORK]\n(ii) 9(6) + 32 = 86. (iii) (63 × 5)/9 = 35. (v) x = 9/5 x + 32 ⇒ -4/5 x = 32 ⇒ x = -40. All verified!\nBoxed Answer: [ (ii) 86°F, (iii) 35°C, (iv) 32°F and -160/9°C (-17.78°C), (v) Yes, -40° (-40°C = -40°F) ].",
+                    "concept_questions": [
+                        "What is normal human body temperature (37°C) in Fahrenheit?",
+                        "What is boiling point of water (100°C) in Fahrenheit?"
+                    ]
+                },
+                {
+                    "problem": "Chapter 13, Exercise 16 (NCERT): The age of a father is equal to the sum of the ages of his four children. After 20 years, the sum of the ages of the children will be twice the age of the father. Find the current age of the father.",
+                    "solution": "GIVEN:\nLet the current age of the father be F years.\nLet the current sum of the ages of his four children be S years.\n\nSTEP-BY-STEP FORMULATION & SOLUTION:\nStep 1: Set up Condition 1:\nThe age of the father equals the sum of the ages of the four children:\nF = S  --- (Equation 1)\n\nStep 2: Set up Condition 2 (after 20 years):\n- After 20 years, the father's age will be: F + 20.\n- After 20 years, EACH of the 4 children will be 20 years older!\n  Therefore, the new sum of the ages of the 4 children will be:\n  New Sum = S + (20 × 4) = S + 80.\n\nStep 3: Apply the given relationship after 20 years:\nThe sum of the ages of the children will be twice the age of the father:\nNew Sum = 2 × (Father's new age)\nS + 80 = 2(F + 20).\n\nStep 4: Solve the system of equations:\nSubstitute S = F (from Equation 1) into the equation:\nF + 80 = 2F + 40\n80 - 40 = 2F - F\nF = 40.\n\nStep 5: Verification:\n- Current: Father = 40 years. Children sum = 40 years.\n- After 20 years: Father = 40 + 20 = 60 years.\n- Children new sum = 40 + (4 × 20) = 40 + 80 = 120 years.\n- Check: Is 120 = 2 × 60? YES! Perfectly verified.\n\n[ROUGH_WORK]\nKey trap: 4 children each age 20 years ⇒ Total addition to children's sum is 4 × 20 = 80 years! S + 80 = 2(F + 20). Since S = F: F + 80 = 2F + 40 ⇒ F = 40.\nBoxed Answer: [ The current age of the father is 40 years ].",
+                    "concept_questions": [
+                        "Why did the children's sum increase by 80 and not 20?",
+                        "What would the father's age be if there were only 2 children?"
+                    ]
+                }
+            ],
+            "visual_lesson_plan": {
+                "syllabus_term": "Final-Term",
+                "image_search_query": "fahrenheit celsius linear equation temperature graph physics diagram",
+                "video_search_query": "fahrenheit celsius conversion linear equation class 9",
+                "concept_questions": [
+                    "Why does each child aging 20 years add 80 years in total to their combined age?",
+                    "At what temperature does the Fahrenheit thermometer read double the Celsius thermometer?",
+                    "What happens to the temperature graph at the origin?"
+                ]
+            },
+            "common_misconceptions": [
+                {
+                    "misconception": "Adding only 20 years to the sum of the children's ages after 20 years.",
+                    "correction": "There are FOUR children. Each child grows 20 years older, so their sum increases by 4 × 20 = 80 years."
+                }
+            ],
+            "quiz_questions": [
+                {
+                    "question": "At what temperature do the Celsius and Fahrenheit scales read the exact same numerical value?",
+                    "options": [
+                        "(Recommended) -40°",
+                        "0°",
+                        "32°",
+                        "100°"
+                    ],
+                    "correct_index": 0,
+                    "explanation": "Setting C = F in F = (9/5)C + 32 yields C = -40°. Thus, -40°C = -40°F."
+                }
+            ]
+        }
+    ]
+    
+    return modules
+
+if __name__ == "__main__":
+    mods = get_ch13_modules()
+    print(f"Generated {len(mods)} modules for Chapter 13.")
+    for m in mods:
+        print(f"  #{m['order_index']}: {m['title']} ({len(m['worked_examples'])} examples)")

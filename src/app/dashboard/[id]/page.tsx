@@ -2,6 +2,8 @@ import React from "react";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { StitchDashboardView } from "@/components/dashboard/StitchDashboardView";
+import { getStudentSubscription } from "@/lib/subscription/subscriptionService";
+import { getCachedCurriculums, getCachedCurriculumModules } from "@/lib/cache/dataCache";
 
 export default async function DashboardPage({
   params,
@@ -48,7 +50,10 @@ export default async function DashboardPage({
     redirect("/onboarding");
   }
 
-  // 1b. Daily Active Streak Engine: Automatically increments/maintains active streak on web visit
+  // 1b. Fetch active subscription & live class entitlements
+  const subscription = await getStudentSubscription(user.id);
+
+  // 1c. Daily Active Streak Engine: Automatically increments/maintains active streak on web visit
   const todayStr = new Date().toISOString().split("T")[0];
   let currentStreak = profile.current_streak || 0;
   let streakUpdated = false;
@@ -109,39 +114,32 @@ export default async function DashboardPage({
     .map((e) => (Array.isArray(e.curriculums) ? e.curriculums[0] : e.curriculums))
     .filter(Boolean);
 
-  // 3. Fetch published curriculums (filtered by student's class_level if set, or all published)
-  let curriculumsQuery = supabase
-    .from("curriculums")
-    .select("*")
-    .eq("is_published", true);
+  // 3. Fetch published curriculums (using high-speed dataCache)
+  const allCurriculums = await getCachedCurriculums(supabase, {
+    classLevel: profile?.class_level,
+    board: profile?.board,
+    isPublished: true,
+  });
 
-  if (profile?.class_level) {
-    curriculumsQuery = curriculumsQuery.or(`class_level.eq.${profile.class_level},class_level.is.null`);
-  }
-
-  const { data: allCurriculumsData } = await curriculumsQuery
-    .order("order_index", { ascending: true })
-    .order("created_at", { ascending: true });
-  const allCurriculums = allCurriculumsData || [];
-
-  // 4. Fetch syllabus modules (guaranteeing all modules of enrolled & available curriculums are included)
+  // 4. Fetch syllabus modules (using high-speed dataCache)
   const enrolledCurriculumIds = enrolledCurriculums.map((c: any) => c.id).filter(Boolean);
   const allCurriculumIds = allCurriculums.map((c: any) => c.id).filter(Boolean);
   const targetCurriculumIds = Array.from(new Set([...enrolledCurriculumIds, ...allCurriculumIds]));
 
-  let modulesQuery = supabase
-    .from("syllabus_modules")
-    .select("id, curriculum_id, order_index, title, description, estimated_minutes, key_concepts, success_criteria, class_level, board, subtopics, chapter_notes, curriculums(*)")
-    .order("order_index", { ascending: true });
-
+  let allModules: any[] = [];
   if (targetCurriculumIds.length > 0) {
-    modulesQuery = modulesQuery.in("curriculum_id", targetCurriculumIds);
-  } else if (profile?.class_level) {
-    modulesQuery = modulesQuery.or(`class_level.eq.${profile.class_level},class_level.is.null`);
+    allModules = await getCachedCurriculumModules(supabase, targetCurriculumIds);
+  } else {
+    let fallbackModulesQuery = supabase
+      .from("syllabus_modules")
+      .select("id, curriculum_id, order_index, title, description, estimated_minutes, key_concepts, success_criteria, class_level, board, subtopics, chapter_notes, curriculums(*)")
+      .order("order_index", { ascending: true });
+    if (profile?.class_level) {
+      fallbackModulesQuery = fallbackModulesQuery.or(`class_level.eq.${profile.class_level},class_level.is.null`);
+    }
+    const { data: modulesData } = await fallbackModulesQuery;
+    allModules = modulesData || [];
   }
-
-  const { data: modulesData } = await modulesQuery;
-  const allModules = modulesData || [];
 
   // 5. Parallelized Read Execution: progress, memories, and active study plan
   const [
@@ -161,10 +159,6 @@ export default async function DashboardPage({
   }));
 
   // 7. Dynamic Active Curriculum Resolution:
-  // Strictly database-driven:
-  // 1. Pick first enrolled curriculum that has an 'in_progress' module
-  // 2. Or pick first enrolled curriculum with uncompleted modules
-  // 3. If all enrolled are 100% completed, pick first enrolled curriculum or first available
   const progressMap = new Map<string, any>();
   userProgress.forEach((p: any) => progressMap.set(p.syllabus_module_id, p));
 
@@ -201,14 +195,13 @@ export default async function DashboardPage({
     }
   }
 
-  // 3. If all enrolled curriculums are 100% completed, pick next syllabus chapter in allCurriculums!
+  // 3. If all enrolled curriculums are 100% completed, pick next syllabus chapter in allCurriculums
   if (!primaryCurriculum) {
     for (const curr of allCurriculums) {
       const cMods = allModules.filter((m: any) => m.curriculum_id === curr.id);
       const isUnfinished = cMods.length > 0 && cMods.some((m: any) => !isModuleDone(m.id));
       if (isUnfinished) {
         primaryCurriculum = curr;
-        // Auto-enroll student into this next chapter
         await supabase
           .from('enrollments')
           .upsert({
@@ -234,6 +227,7 @@ export default async function DashboardPage({
     <StitchDashboardView
       user={{ id: user.id, email: user.email }}
       profile={profile}
+      subscription={subscription}
       primaryCurriculum={primaryCurriculum}
       enrolledCurriculums={enrolledCurriculums}
       allCurriculums={allCurriculums}

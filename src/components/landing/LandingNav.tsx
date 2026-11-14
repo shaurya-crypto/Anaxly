@@ -108,13 +108,13 @@ export function LandingNav() {
           <Link
             href="/"
             className="group flex items-center gap-2 transition-opacity hover:opacity-85 select-none"
-            aria-label="AI Tutor home"
+            aria-label="Anaxly home"
           >
             <span
               className="font-serif text-[24px] sm:text-[27px] tracking-[-0.015em] text-ink-primary font-normal leading-none"
               style={{ filter: 'url(#aristotle-wordmark-filter)' }}
             >
-              AI Tutor
+              Anaxly
             </span>
           </Link>
 
@@ -141,6 +141,12 @@ export function LandingNav() {
             >
               The Progression
             </a>
+            <Link
+              href="/pricing"
+              className="transition-colors duration-200 hover:text-ink-primary"
+            >
+              Pricing
+            </Link>
             {!authenticatedUserId && (
               <Link
                 href="/login"
@@ -201,7 +207,7 @@ export function LandingNav() {
               className="font-serif text-[24px] tracking-tight text-ink-primary font-normal"
               style={{ filter: 'url(#aristotle-wordmark-filter)' }}
             >
-              AI Tutor
+              Anaxly
             </Link>
 
             <button

@@ -35,7 +35,34 @@ export async function POST(req: Request) {
       )
     }
 
-    // 3. Check server-side SIMLI_API_KEY
+    // 3. Check subscription tier and avatar entitlement
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('is_avatar_enabled, subscription_tier, limit_type')
+      .eq('id', user.id)
+      .single()
+
+    const isPaidAvatarTier =
+      profile?.subscription_tier === 'topper' ||
+      profile?.subscription_tier === 'elite' ||
+      profile?.subscription_tier === 'mastery'
+
+    const isExplicitlyAllowed =
+      profile?.is_avatar_enabled === true && (isPaidAvatarTier || profile?.limit_type === 'unlimited')
+
+    if (!isExplicitlyAllowed) {
+      return NextResponse.json(
+        {
+          success: false,
+          error:
+            'Real-Time AI Video Avatar is exclusively available on Topper Pro and Elite Infinity plans. Please upgrade to unlock face-to-face tutoring.',
+          upgradeRequired: true,
+        },
+        { status: 403 }
+      )
+    }
+
+    // 4. Check server-side SIMLI_API_KEY
     const apiKey = process.env.SIMLI_API_KEY
     if (!apiKey) {
       return NextResponse.json(
@@ -54,7 +81,7 @@ export async function POST(req: Request) {
 
     const faceId = body.faceId || process.env.SIMLI_FACE_ID || '80459b57-2d66-4ca7-8682-59e1c649bc53'
 
-    // 4. Generate Simli session token
+    // 5. Generate Simli session token
     const tokenResult = await generateSimliSessionToken({
       apiKey,
       config: {
@@ -69,7 +96,7 @@ export async function POST(req: Request) {
       throw new Error('Simli server returned an empty session token')
     }
 
-    // 5. Generate WebRTC ICE servers for robust P2P / TURN connectivity
+    // 6. Generate WebRTC ICE servers for robust P2P / TURN connectivity
     let iceServers: RTCIceServer[] = []
     try {
       iceServers = await generateIceServers(apiKey)

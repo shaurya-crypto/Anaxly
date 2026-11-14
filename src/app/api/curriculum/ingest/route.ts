@@ -7,6 +7,7 @@ import { isRequestAuthorizedAdmin } from '@/lib/adminAuth'
 import { checkRateLimit, getClientIp } from '@/lib/rateLimit'
 import { resilientGenerateContent, resilientJsonParse } from '@/lib/geminiResilientGenerate'
 import { generateVisualLessonPlanForCapsule } from '@/services/visualLessonPlanGenerator'
+import { invalidateCurriculumCache } from '@/lib/cache/dataCache'
 
 interface WorkedExample {
   problem: string
@@ -936,11 +937,13 @@ TARGET ACADEMIC SPECIFICATION:
     - Accurately label all callouts (e.g., in plant cell: Cell Wall, Middle Lamella, Primary Wall, Plasmodesmata; in physics: Incident ray, Refracted ray, Normal, Angle i, Angle r, etc.).
     - In "what_to_make", write a detailed specification of all parts and labels drawn.
     - In "what_to_explain", give step-by-step pointers for the live tutor to walk through during class.
-- HIGHEST QUALITY PRODUCTION SVG INVARIANT (ZERO FAKE BLUEPRINTS):
+- HAIRLINE 3D AXONOMETRIC & ISOMETRIC DRAFTING ENGINE (ARISTOTLE & BRILLIANT BENCHMARK):
   * Every single capsule MUST include authentic, publication-grade vector SVG markup in "diagram_svg" and "concept_visuals".
   * STRICT PROHIBITION: NEVER output generic placeholder boxes, corporate flowchart cards ("CONCEPTUAL BLUEPRINT", "ANAXLY VECTOR ENGINE", "1. GOVERNING PRINCIPLE"), or empty SVGs!
+  * 30-DEGREE AXONOMETRIC ISOMETRIC PROJECTION: For physics apparatus, optics setups, electrical circuits, inclined planes, mechanics, and cellular/molecular anatomy, draft figures with 30-degree isometric projection for tactile spatial depth and discovery.
+  * WIREFRAME SOLIDS & MULTI-TONE LIGHTING: Use rounded 3D wireframe solids with light top faces (#EFF6FF), shaded left faces (#BFDBFE), deep right faces (#93C5FD), and crisp charcoal contours (#0F172A).
+  * DYNAMIC PHYSICAL MOTION: Include smooth CSS keyframes inside <defs> (<style>@keyframes flowDash { to { stroke-dashoffset: -20; } } @keyframes pulseRing { 0%, 100% { r: 3.5; opacity: 1; } 50% { r: 6.5; opacity: 0.3; } }</style>) for electron currents, ray oscillations, or pulsing nodes.
   * If the topic is Coordinate Geometry / Quadrants: Draw the actual 2D Cartesian plane with X and Y axes, arrows, origin O(0,0), numbered ticks (-5 to 5), and the 4 Quadrants clearly labeled: Quadrant I (+, +), Quadrant II (-, +), Quadrant III (-, -), Quadrant IV (+, -) with plotted points!
-  * If the topic is Science/Physics: Draw the exact apparatus, ray paths, circuits with resistors and battery, or anatomical and molecular setups!
   * CLEAN WHITE CHALKBOARD CANVAS: Pure white background #FFFFFF (<rect x="4" y="4" width="532" height="272" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>), with high-contrast scholastic strokes (#0F172A charcoal ink, #2563EB Aristotle blue, #16A34A emerald, #DC2626 crimson, #D97706 amber, #64748B slate). Seamlessly blends into the whiteboard canvas with ZERO dark green boxes!
 - ZERO OMISSION OF EXERCISES & PRACTICE QUESTIONS: In Part B, every question (Q1, Q2, Q3...) from each textbook exercise must have its own dedicated worked example with Given, Formula, Substitution, Scratchpad Calculation, and Boxed Answer.
 
@@ -1207,6 +1210,8 @@ Respond with ONLY a valid JSON object matching this schema (do NOT include conve
         existingCurriculum,
       })
 
+      invalidateCurriculumCache()
+
       return NextResponse.json({
         success: true,
         mode: 'commit',
@@ -1233,6 +1238,7 @@ Respond with ONLY a valid JSON object matching this schema (do NOT include conve
         category,
         replaceExisting,
       })
+      invalidateCurriculumCache()
       return NextResponse.json(commitResult)
     }
 

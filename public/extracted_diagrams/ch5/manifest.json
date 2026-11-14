@@ -1,0 +1,496 @@
+[
+  {
+    "figure_id": "Fig. 5.1",
+    "page_number": 2,
+    "caption": "Fig. 5.1: Homogeneous mixture is not uniform. The sand particles are easily visible in",
+    "filename": "fig_5_1.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_1.webp",
+    "dimensions": {
+      "width": 1969,
+      "height": 795,
+      "aspect_ratio": 2.48
+    },
+    "file_size_kb": 141.7,
+    "crop_bbox": [
+      25.4,
+      36.0,
+      592.3,
+      265.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.2",
+    "page_number": 2,
+    "caption": "Fig. 5.2: Heterogeneous mixture Label it A.",
+    "filename": "fig_5_2.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_2.webp",
+    "dimensions": {
+      "width": 1647,
+      "height": 560,
+      "aspect_ratio": 2.94
+    },
+    "file_size_kb": 135.4,
+    "crop_bbox": [
+      25.4,
+      263.0,
+      610.6,
+      424.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.3",
+    "page_number": 2,
+    "caption": "Fig. 5.3: Passing laser light through various mixtures (a) salt and water, (b) chalk powder and water, and (c) milk and water",
+    "filename": "fig_5_3.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_3.webp",
+    "dimensions": {
+      "width": 889,
+      "height": 840,
+      "aspect_ratio": 1.06
+    },
+    "file_size_kb": 44.7,
+    "crop_bbox": [
+      305.3,
+      508.5,
+      565.5,
+      755.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.4",
+    "page_number": 4,
+    "caption": "Fig. 5.4: Composition 5g = ×100=5%m/v of some commercial",
+    "filename": "fig_5_4.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_4.webp",
+    "dimensions": {
+      "width": 1212,
+      "height": 1056,
+      "aspect_ratio": 1.15
+    },
+    "file_size_kb": 115.1,
+    "crop_bbox": [
+      232.6,
+      427.4,
+      585.3,
+      731.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.5",
+    "page_number": 5,
+    "caption": "Fig. 5.5: Saline = ×100=1%v/v solution 100mL",
+    "filename": "fig_5_5.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_5.webp",
+    "dimensions": {
+      "width": 1647,
+      "height": 1041,
+      "aspect_ratio": 1.58
+    },
+    "file_size_kb": 189.3,
+    "crop_bbox": [
+      43.0,
+      80.3,
+      521.0,
+      384.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.6",
+    "page_number": 6,
+    "caption": "Fig. 5.6: Solubility curves of compounds ‘A’ and ‘B’ in water",
+    "filename": "fig_5_6.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_6.webp",
+    "dimensions": {
+      "width": 1769,
+      "height": 1263,
+      "aspect_ratio": 1.4
+    },
+    "file_size_kb": 260.4,
+    "crop_bbox": [
+      83.0,
+      36.0,
+      592.3,
+      399.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.7",
+    "page_number": 7,
+    "caption": "Fig. 5.7: Crystals of salt as an alternative. (a) rock salt, (b) candy sugar, and",
+    "filename": "fig_5_7.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_7.webp",
+    "dimensions": {
+      "width": 334,
+      "height": 997,
+      "aspect_ratio": 0.34
+    },
+    "file_size_kb": 73.7,
+    "crop_bbox": [
+      49.9,
+      73.1,
+      155.1,
+      365.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.8",
+    "page_number": 7,
+    "caption": "Fig. 5.8: Steps involved in the process of crystallization on a watch glass (Fig. 5.8d). 78",
+    "filename": "fig_5_8.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_8.webp",
+    "dimensions": {
+      "width": 1090,
+      "height": 1455,
+      "aspect_ratio": 0.75
+    },
+    "file_size_kb": 174.4,
+    "crop_bbox": [
+      35.2,
+      363.0,
+      349.2,
+      782.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.9",
+    "page_number": 8,
+    "caption": "Fig. 5.9: Steps followed in the salt manufacturing process Ready to Go Beyond",
+    "filename": "fig_5_9.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_9.webp",
+    "dimensions": {
+      "width": 1721,
+      "height": 1266,
+      "aspect_ratio": 1.36
+    },
+    "file_size_kb": 208.9,
+    "crop_bbox": [
+      75.4,
+      221.5,
+      577.9,
+      589.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.10",
+    "page_number": 8,
+    "caption": "Fig. 5.10: Naturally occurring crystals (a) in caves and (b) quartz",
+    "filename": "fig_5_10.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_10.webp",
+    "dimensions": {
+      "width": 1674,
+      "height": 548,
+      "aspect_ratio": 3.05
+    },
+    "file_size_kb": 121.1,
+    "crop_bbox": [
+      81.0,
+      577.9,
+      566.3,
+      739.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.11",
+    "page_number": 9,
+    "caption": "Fig. 5.11: Distillation process shown in Fig. 5.12.",
+    "filename": "fig_5_11.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_11.webp",
+    "dimensions": {
+      "width": 593,
+      "height": 1175,
+      "aspect_ratio": 0.5
+    },
+    "file_size_kb": 72.5,
+    "crop_bbox": [
+      55.8,
+      103.9,
+      234.0,
+      457.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.12",
+    "page_number": 9,
+    "caption": "Fig. 5.12: Distillation set-up",
+    "filename": "fig_5_12.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_12.webp",
+    "dimensions": {
+      "width": 1313,
+      "height": 984,
+      "aspect_ratio": 1.33
+    },
+    "file_size_kb": 88.4,
+    "crop_bbox": [
+      113.8,
+      455.9,
+      492.0,
+      744.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.13",
+    "page_number": 10,
+    "caption": "Fig. 5.13: Deg-Bhapka method Fragrance and Flavour Development Centre in Kannauj",
+    "filename": "fig_5_13.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_13.webp",
+    "dimensions": {
+      "width": 1798,
+      "height": 1092,
+      "aspect_ratio": 1.65
+    },
+    "file_size_kb": 312.3,
+    "crop_bbox": [
+      74.4,
+      36.0,
+      592.3,
+      350.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.14",
+    "page_number": 10,
+    "caption": "Fig. 5.14: (a) Petroleum refinery, and (b) products of fractional distillation of crude petroleum",
+    "filename": "fig_5_14.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_14.webp",
+    "dimensions": {
+      "width": 1824,
+      "height": 1343,
+      "aspect_ratio": 1.36
+    },
+    "file_size_kb": 352.1,
+    "crop_bbox": [
+      67.0,
+      352.6,
+      599.7,
+      742.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.16",
+    "page_number": 12,
+    "caption": "Fig. 5.16: Separation of immiscible liquids 6. Collect the next small portion that may",
+    "filename": "fig_5_16.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_16.webp",
+    "dimensions": {
+      "width": 990,
+      "height": 1298,
+      "aspect_ratio": 0.76
+    },
+    "file_size_kb": 116.5,
+    "crop_bbox": [
+      253.6,
+      145.7,
+      538.8,
+      519.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.17",
+    "page_number": 13,
+    "caption": "Fig. 5.17: Sublimation of camphor condense back into a solid without becoming a liquid,",
+    "filename": "fig_5_17.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_17.webp",
+    "dimensions": {
+      "width": 568,
+      "height": 926,
+      "aspect_ratio": 0.61
+    },
+    "file_size_kb": 38.1,
+    "crop_bbox": [
+      124.3,
+      167.6,
+      287.9,
+      434.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.18",
+    "page_number": 14,
+    "caption": "Fig. 5.18: A spinning game",
+    "filename": "fig_5_18.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_18.webp",
+    "dimensions": {
+      "width": 602,
+      "height": 820,
+      "aspect_ratio": 0.73
+    },
+    "file_size_kb": 71.5,
+    "crop_bbox": [
+      414.5,
+      357.3,
+      591.2,
+      597.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.19",
+    "page_number": 14,
+    "caption": "Fig. 5.19: Centrifugation machine (a) outer view and (b) inner view Centrifugation",
+    "filename": "fig_5_19.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_19.webp",
+    "dimensions": {
+      "width": 1705,
+      "height": 460,
+      "aspect_ratio": 3.71
+    },
+    "file_size_kb": 57.1,
+    "crop_bbox": [
+      25.4,
+      588.4,
+      610.6,
+      720.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.20",
+    "page_number": 15,
+    "caption": "Fig. 5.20: Paperfuge technological inventions that improve access to",
+    "filename": "fig_5_20.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_20.webp",
+    "dimensions": {
+      "width": 1668,
+      "height": 713,
+      "aspect_ratio": 2.34
+    },
+    "file_size_kb": 136.3,
+    "crop_bbox": [
+      59.8,
+      69.5,
+      544.3,
+      278.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.21",
+    "page_number": 15,
+    "caption": "Fig. 5.21: Process of coagulation Can you think of any other coagulation processes used in everyday life? The formation",
+    "filename": "fig_5_21.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_21.webp",
+    "dimensions": {
+      "width": 1702,
+      "height": 1279,
+      "aspect_ratio": 1.33
+    },
+    "file_size_kb": 260.7,
+    "crop_bbox": [
+      59.5,
+      265.7,
+      553.0,
+      634.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.22",
+    "page_number": 16,
+    "caption": "Fig. 5.22: Components of blood (a) before Do you know your blood group? Find out! centrifugation and (b) after centrifugation",
+    "filename": "fig_5_22.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_22.webp",
+    "dimensions": {
+      "width": 1768,
+      "height": 1017,
+      "aspect_ratio": 1.74
+    },
+    "file_size_kb": 200.8,
+    "crop_bbox": [
+      83.2,
+      36.0,
+      592.3,
+      328.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.23",
+    "page_number": 16,
+    "caption": "Fig. 5.23: (a) Solution, (b) suspension, and (c) colloid than 1000 nm in diameter).",
+    "filename": "fig_5_23.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_23.webp",
+    "dimensions": {
+      "width": 1699,
+      "height": 638,
+      "aspect_ratio": 2.66
+    },
+    "file_size_kb": 132.2,
+    "crop_bbox": [
+      101.0,
+      315.8,
+      594.6,
+      499.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.24",
+    "page_number": 17,
+    "caption": "Fig. 5.24: Demonstration of Tyndall effect in phase and the component in which the dispersed phase is a sports stadium suspended is",
+    "filename": "fig_5_24.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_24.webp",
+    "dimensions": {
+      "width": 656,
+      "height": 542,
+      "aspect_ratio": 1.21
+    },
+    "file_size_kb": 76.5,
+    "crop_bbox": [
+      42.5,
+      76.0,
+      240.0,
+      247.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.25b",
+    "page_number": 21,
+    "caption": "Fig. 5.25b depicts various steps used to separate the components of this mixture. Identify and write down the correct",
+    "filename": "fig_5_25b.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_25b.webp",
+    "dimensions": {
+      "width": 1367,
+      "height": 158,
+      "aspect_ratio": 8.65
+    },
+    "file_size_kb": 33.5,
+    "crop_bbox": [
+      25.4,
+      36.0,
+      610.6,
+      136.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.25",
+    "page_number": 21,
+    "caption": "Fig. 5.25: (a) 1 2 3 Fig. 5.25: (b) 12. Why",
+    "filename": "fig_5_25.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_25.webp",
+    "dimensions": {
+      "width": 1601,
+      "height": 601,
+      "aspect_ratio": 2.66
+    },
+    "file_size_kb": 66.6,
+    "crop_bbox": [
+      85.5,
+      141.5,
+      555.1,
+      314.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 5.26",
+    "page_number": 22,
+    "caption": "Fig. 5.26. (i) Identify the separation",
+    "filename": "fig_5_26.webp",
+    "file_path": "public/extracted_diagrams/ch5\\fig_5_26.webp",
+    "dimensions": {
+      "width": 1016,
+      "height": 311,
+      "aspect_ratio": 3.27
+    },
+    "file_size_kb": 13.1,
+    "crop_bbox": [
+      25.4,
+      36.0,
+      318.0,
+      125.7
+    ]
+  }
+]

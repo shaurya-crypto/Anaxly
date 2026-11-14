@@ -1,0 +1,1064 @@
+[
+  {
+    "order_index": 1,
+    "title": "Earth's Interconnected Spheres & The Solar Radiation Energy Budget",
+    "description": "Analyze the Earth as an integrated biogeochemical system comprising Lithosphere, Hydrosphere, Atmosphere, and Biosphere, evaluate the solar energy budget, examine the thermal buffer role of air, and investigate the Urban Heat Island effect.",
+    "subtopics": [
+      "The Four Earth Spheres: Lithosphere (crust/soil), Hydrosphere (water/ice), Atmosphere (air blanket), Biosphere (living zone)",
+      "The Sun as Driving Engine: Solar constant, incoming shortwave radiation, atmospheric reflection (albedo)",
+      "The Thermal Buffer Role of Atmosphere: Bad conductor of heat preventing extreme diurnal swings",
+      "Comparative Planetology: Earth's moderate temperatures vs Moon's extreme swings (-190°C to +110°C)",
+      "Urban Heat Island (UHI) Effect: Concrete, asphalt, and reduced evapotranspiration in cities",
+      "Anna Mani & Solar Meteorology: Pioneer work mapping India's solar radiation potential"
+    ],
+    "key_concepts": [
+      "Earth as a Closed Biogeochemical System: The Earth operates as an interconnected closed system for matter (nutrients and elements recycle continuously) and an open system for energy (solar radiation enters, powers biospheric processes, and radiates back to space as infrared heat).",
+      "The Four Earth Spheres: Lithosphere (outer solid mineral crust and soil), Hydrosphere (71% of surface covered by oceans, seas, rivers, ground water, and polar ice caps), Atmosphere (multi-layered blanket of gases enveloping Earth), and Biosphere (the narrow global life-supporting zone where lithosphere, hydrosphere, and atmosphere interact).",
+      "Solar Radiation Budget: The Sun is the primary source of virtually all energy on Earth; of incoming shortwave solar radiation, ~30% is reflected back to space (albedo by clouds and ice), ~20% is absorbed by the atmosphere, and ~50% is absorbed by the land and oceans, powering weather, ocean currents, and photosynthesis.",
+      "Atmospheric Thermal Blanket: Air is a very poor conductor of heat; during the day, the atmosphere prevents solar radiation from heating Earth's surface to unlivable extremes; at night, it slows down the radiant escape of heat into cold space, preventing freezing.",
+      "Earth vs Moon Temperature Contrast: The Moon is the same distance from the Sun as Earth, but has zero atmosphere; consequently, temperatures on the lunar surface swing violently from -190°C during the night to +110°C during the lunar day, proving the indispensable moderating role of Earth's atmosphere.",
+      "Urban Heat Island Effect: Urban metropolitan areas experience significantly higher ambient temperatures than surrounding rural landscapes due to dark asphalt and concrete absorbing solar radiation, tall building canyons trapping heat, waste heat from air conditioning/vehicles, and loss of cooling vegetative evapotranspiration."
+    ],
+    "success_criteria": "Student can describe the 4 Earth spheres, diagram the solar radiation budget, explain why the atmosphere moderates temperatures compared to the Moon, and detail causes of the Urban Heat Island effect.",
+    "chapter_notes": "### 13.1 The Earth as an Integrated System\nEarth is a dynamic, interconnected planetary system where matter cycles continuously and energy flows unidirectionally. It is structured into **four primary spheres**:\n1. **Lithosphere**: The solid outer rocky crust, continental plates, and soil mantle that supply mineral nutrients to plants.\n2. **Hydrosphere**: All liquid, solid, and gaseous water covering **~71% of Earth's surface** (oceans, rivers, lakes, groundwater, glaciers, and polar ice sheets/cryosphere).\n3. **Atmosphere**: The gaseous blanket held by Earth's gravity, providing oxygen for respiration, carbon dioxide for photosynthesis, and protecting against solar ultraviolet radiation.\n4. **Biosphere**: The life-supporting global zone where the lithosphere, hydrosphere, and atmosphere intersect and interact, sustaining living organisms.\n\n### 13.2 The Solar Energy Budget\nThe Sun powers the entire Earth system:\n- **Solar Constant**: Solar energy received per unit area at the outer boundary of the atmosphere is approximately **$1.36\\text{ kW/m}^2$**.\n- **Energy Budget Dynamics**:\n  - **~30% Albedo**: Reflected immediately back into space by clouds, atmospheric aerosol particles, and high-albedo polar ice/snow.\n  - **~20% Atmospheric Absorption**: Absorbed by ozone, water vapor, and aerosols in atmospheric layers.\n  - **~50% Surface Absorption**: Absorbed by land masses and oceans, driving atmospheric convection, oceanic currents, and the hydrological cycle.\n- **Anna Mani (1918–2001)**: Renowned Indian meteorologist who standardized and automated solar radiation measuring instruments across India, establishing the foundational datasets for India's modern renewable solar energy program (Fig. 13.3 & 13.4).\n\n### 13.3 The Thermal Buffer Role of the Atmosphere\nAir is a **poor conductor of heat**. The atmosphere acts as a planetary thermostat:\n- **During Daylight**: Prevents a sudden, scorching rise in temperature by scattering and absorbing incoming radiation.\n- **During Night**: Traps longwave infrared radiation re-emitted by the surface, preventing rapid heat loss to space.\n- **Earth vs Moon Benchmark**:\n  - The Moon is at the identical distance from the Sun as Earth.\n  - Lacking an atmosphere, lunar surface temperatures fluctuate brutally from **$-190^\\circ\\text{C}$** at night to **$+110^\\circ\\text{C}$** at midday.\n  - Earth maintains an average global surface temperature of **$+15^\\circ\\text{C}$**, allowing liquid water and life to flourish.\n\n### 13.4 The Urban Heat Island (UHI) Effect\nCities are measurably warmer ($2\\text{ to }6^\\circ\\text{C}$ hotter) than surrounding countryside:\n1. **Low Albedo Materials**: Dark asphalt roads and concrete buildings absorb massive amounts of solar radiation during the day and slowly re-radiate it at night.\n2. **Lack of Evapotranspiration**: Replacement of green vegetation with impervious concrete eliminates natural evaporative cooling.\n3. **Anthropogenic Waste Heat**: Continuous heat emission from vehicle engines, industrial factories, and building air-conditioning HVAC units.\n4. **Urban Canyons**: Closely spaced tall skyscrapers trap outgoing infrared radiation between vertical concrete surfaces.",
+    "worked_examples": [
+      {
+        "problem": "How does the atmosphere act like a protective blanket around the Earth? Contrast the temperature range on Earth with that on the Moon.",
+        "given": "Atmospheric physical thermal conductivity and planetary radiation balance.",
+        "formula": "Thermal Buffer Mechanism: Conductive Insulation + Greenhouse Radiative Trapping",
+        "substitution": "Earth's atmosphere vs Moon's vacuum environment.",
+        "calculation": "1. Air is a very poor thermal conductor, preventing rapid conductive heat transfer.\n2. During the day, the atmosphere reflects and absorbs a significant fraction of incoming solar radiation, shielding the surface from excessive scorching heat.\n3. At night, greenhouse gases in the atmosphere absorb outgoing longwave infrared radiation emitted by the Earth, slowing down radiant cooling to outer space.\n4. **Lunar Comparison**: The Moon is at the same distance from the Sun but has no atmosphere. In the absence of an atmospheric blanket, lunar surface temperatures swing from a freezing -190 deg C at night to a boiling +110 deg C at noon. Earth's atmosphere stabilizes our global average temperature around a hospitable +15 deg C.",
+        "finalAnswer": "The atmosphere's low thermal conductivity moderates diurnal heat extremes, maintaining Earth at ~15°C compared to the Moon's brutal -190°C to +110°C swings.",
+        "unit": "Planetary Climatology",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.5: Solar radiation budget and Earth thermal warming"
+      },
+      {
+        "problem": "Explain the Urban Heat Island (UHI) effect (Fig. 13.6). What are the three primary causes that make cities significantly hotter than adjacent rural areas?",
+        "given": "Urban micrometeorology vs rural landscape thermodynamics.",
+        "formula": "UHI Thermal Excess: Delta T_urban = Q_materials + Q_anthropogenic - E_evapotranspiration",
+        "substitution": "Dark asphalt/concrete absorption, loss of trees, HVAC waste heat.",
+        "calculation": "1. **Material Heat Absorption**: Roads, roofs, and pavements are paved with dark, high-heat-capacity materials (asphalt, concrete) that have low albedo, absorbing enormous solar heat during daylight and discharging it slowly all night.\n2. **Deforestation & Loss of Evapotranspiration**: Natural vegetation and open soil continuously cool ambient air through water transpiration; replacing trees with impervious concrete eliminates this evaporative cooling engine.\n3. **Anthropogenic Waste Heat & Urban Canyons**: Concentrated vehicular traffic, industrial plants, and building air-conditioning units discharge waste heat directly into air trapped between tall skyscrapers.",
+        "finalAnswer": "Cities are hotter due to low-albedo heat-absorbing concrete, destruction of cooling vegetative evapotranspiration, and massive anthropogenic waste heat.",
+        "unit": "Urban Climatology",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.6: Urban heat island profile across metropolitan landscape"
+      },
+      {
+        "problem": "Define the four interconnected spheres of the Earth system (Fig. 13.1). How does the Biosphere depend on the interactions of the other three?",
+        "given": "Planetary system architecture of Earth.",
+        "formula": "Biosphere = Interface(Lithosphere cap Hydrosphere cap Atmosphere)",
+        "substitution": "Solid minerals, liquid water, gaseous air converging to support cellular life.",
+        "calculation": "1. **Lithosphere**: The solid rocky outer crust and mineral soil supplying essential inorganic nutrients (phosphorus, potassium, iron).\n2. **Hydrosphere**: All terrestrial and oceanic water bodies supplying the universal solvent required for cellular biochemical reactions.\n3. **Atmosphere**: The gaseous blanket providing oxygen for respiration and carbon dioxide for photosynthesis, while shielding harmful UV rays.\n4. **Biosphere**: The narrow global biological zone where all living organisms exist. Living organisms cannot survive on rocks alone without water and air; thus, the biosphere exists strictly at the intersecting zone where all three abiotic spheres interact dynamically.",
+        "finalAnswer": "Lithosphere (land), Hydrosphere (water), Atmosphere (air); the Biosphere represents the active intersection where all three provide materials to sustain life.",
+        "unit": "Earth Systems",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.1: Interconnected spheres of the Earth system"
+      },
+      {
+        "problem": "What percentage of incoming solar radiation is absorbed directly by Earth's land and oceans, and what percentage is reflected back to space as albedo?",
+        "given": "Global solar radiation balance.",
+        "formula": "Solar Radiation Partitioning: 100% = Albedo (Reflection) + Atmospheric Absorption + Surface Absorption",
+        "substitution": "Albedo ~30%, Atmosphere ~20%, Surface ~50%.",
+        "calculation": "1. Incoming solar radiation from the Sun at top of atmosphere is taken as 100%.\n2. Approximately **30% is reflected directly back into outer space** by clouds, atmospheric dust, and bright reflective surfaces like polar snow and glaciers (Earth's planetary albedo).\n3. Approximately **20% is absorbed directly within the atmosphere** by gases like water vapor, carbon dioxide, and stratospheric ozone.\n4. The remaining **50% reaches the Earth's surface and is absorbed** by land masses, vegetation, and oceans, driving weather and biological life.",
+        "finalAnswer": "~50% is absorbed by Earth's land and oceans; ~30% is reflected back to space as planetary albedo (with ~20% absorbed by air).",
+        "unit": "Radiation Budget",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.5: Solar energy partition budget across Earth's surface"
+      },
+      {
+        "problem": "Highlight the pioneering scientific contributions of Anna Mani to meteorological science in India (Fig. 13.3).",
+        "given": "Historical meteorology in India.",
+        "formula": "Solar Radiation Mapping & Instrumentation Standardization",
+        "substitution": "Designing and fabricating indigenous pyranometers and net radiometers.",
+        "calculation": "1. Anna Mani was a pioneering Indian physicist and meteorologist who served as Deputy Director General of the Indian Meteorological Department (IMD).\n2. She standardized the design and manufacturing of nearly 100 precision weather and solar radiation measuring instruments (pyranometers, pyrheliometers, ozonesondes).\n3. She published landmark comprehensive solar radiation and wind energy atlases for India (*Solar Radiation over India*), mapping solar flux across all Indian geographic regions.\n4. Her research provided the indispensable foundational data that made India's large-scale solar and wind power revolutions possible.",
+        "finalAnswer": "Anna Mani designed indigenous solar/wind measuring instruments and mapped India's solar radiation potential, laying the foundation for modern solar power.",
+        "unit": "Scientific History",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.3: Solar radiation mapping of India by Anna Mani"
+      },
+      {
+        "problem": "Why does a solar panel in a hot desert generate massive renewable electricity while keeping greenhouse emissions at zero (Fig. 13.4)?",
+        "given": "Photovoltaic solar energy conversion in desert environments.",
+        "formula": "Photovoltaic Semiconductor Effect: Solar Photons -> DC Electricity (Zero Combustion)",
+        "substitution": "Deserts receive highest direct normal irradiance with minimal cloud cover.",
+        "calculation": "1. Deserts are located in high-pressure subtropical belts with clear skies and minimal cloud cover, receiving peak solar radiation (high irradiance).\n2. Photovoltaic solar panels directly convert incoming sunlight into electricity via the photoelectric semiconductor effect in silicon cells.\n3. Unlike fossil-fuel thermal plants (coal, oil, gas), solar panels require zero fuel combustion, generate zero carbon dioxide or greenhouse gases during operation, and consume minimal operating water, providing clean renewable energy.",
+        "finalAnswer": "Deserts have peak cloudless solar irradiance; photovoltaic panels convert sunlight directly into clean electricity without burning fuel or emitting carbon.",
+        "unit": "Renewable Energy",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.4: Desert photovoltaic solar energy installation"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "The Earth is warmer during summer because it is physically closer to the Sun in its elliptical orbit.",
+        "correction": "The seasonal temperature difference is NOT caused by orbital distance! In fact, Earth is closest to the Sun (perihelion) in early January (winter in the Northern Hemisphere). Summer occurs because Earth's 23.5-degree axial tilt causes that hemisphere to lean toward the Sun, receiving direct vertical sunlight for longer daylight hours.",
+        "why_it_matters": "A fundamental astronomical and climatic misconception."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Earth Spheres & Solar Energy Budget Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Earth as a Closed Biogeochemical System: The Earth operates as an interconnected closed system for matter (nutrients and elements recycle continuously) and an open system for energy (solar radiation enters, powers biospheric processes, and radiates back to space as infrared heat).",
+          "diagram_title": "Interconnected Earth Spheres Interface",
+          "diagram_type": "image_search",
+          "image_query": "cross-section of Earth's surface integrating mountains, oceans, atmosphere, and vegetation. scientific educational diagram with clear labels",
+          "video_query": "Interconnected Earth Spheres Interface educational demonstration video",
+          "what_to_make": "Textbook diagram showing cross-section of Earth's surface integrating mountains, oceans, atmosphere, and vegetation.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"cross-section of Earth's surface integrating mountains, oceans, atmosphere, and vegetation. scientific educational diagram with clear labels\", title=\"Interconnected Earth Spheres Interface\") | Proactive video: search_and_show_video(query=\"Interconnected Earth Spheres Interface educational demonstration video\", title=\"Interconnected Earth Spheres Interface\")",
+          "image_search_query": "cross-section of Earth's surface integrating mountains, oceans, atmosphere, and vegetation. scientific educational diagram with clear labels",
+          "video_search_query": "Interconnected Earth Spheres Interface educational demonstration video"
+        },
+        {
+          "concept_title": "The Four Earth Spheres: Lithosphere (outer solid mineral crust and soil), Hydrosphere (71% of surface covered by oceans, seas, rivers, ground water, and polar ice caps), Atmosphere (multi-layered blanket of gases enveloping Earth), and Biosphere (the narrow global life-supporting zone where lithosphere, hydrosphere, and atmosphere interact).",
+          "diagram_title": "Solar Radiation Mapping of India (Anna Mani)",
+          "diagram_type": "image_search",
+          "image_query": "Textbook solar radiation contour map of the Indian subcontinent authored by Anna Mani. scientific educational diagram with clear labels",
+          "video_query": "Solar Radiation Mapping of India Anna Mani educational demonstration video",
+          "what_to_make": "Textbook solar radiation contour map of the Indian subcontinent authored by Anna Mani.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook solar radiation contour map of the Indian subcontinent authored by Anna Mani. scientific educational diagram with clear labels\", title=\"Solar Radiation Mapping of India (Anna Mani)\") | Proactive video: search_and_show_video(query=\"Solar Radiation Mapping of India Anna Mani educational demonstration video\", title=\"Solar Radiation Mapping of India (Anna Mani)\")",
+          "image_search_query": "Textbook solar radiation contour map of the Indian subcontinent authored by Anna Mani. scientific educational diagram with clear labels",
+          "video_search_query": "Solar Radiation Mapping of India Anna Mani educational demonstration video"
+        },
+        {
+          "concept_title": "Solar Radiation Budget: The Sun is the primary source of virtually all energy on Earth; of incoming shortwave solar radiation, ~30% is reflected back to space (albedo by clouds and ice), ~20% is absorbed by the atmosphere, and ~50% is absorbed by the land and oceans, powering weather, ocean currents, and photosynthesis.",
+          "diagram_title": "Desert Solar Photovoltaic Generation",
+          "diagram_type": "image_search",
+          "image_query": "Textbook image of desert photovoltaic solar arrays capturing high solar irradiance. scientific educational diagram with clear labels",
+          "video_query": "Desert Solar Photovoltaic Generation educational demonstration video",
+          "what_to_make": "Textbook image of desert photovoltaic solar arrays capturing high solar irradiance.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook image of desert photovoltaic solar arrays capturing high solar irradiance. scientific educational diagram with clear labels\", title=\"Desert Solar Photovoltaic Generation\") | Proactive video: search_and_show_video(query=\"Desert Solar Photovoltaic Generation educational demonstration video\", title=\"Desert Solar Photovoltaic Generation\")",
+          "image_search_query": "Textbook image of desert photovoltaic solar arrays capturing high solar irradiance. scientific educational diagram with clear labels",
+          "video_search_query": "Desert Solar Photovoltaic Generation educational demonstration video"
+        },
+        {
+          "concept_title": "Atmospheric Thermal Blanket: Air is a very poor conductor of heat; during the day, the atmosphere prevents solar radiation from heating Earth's surface to unlivable extremes; at night, it slows down the radiant escape of heat into cold space, preventing freezing.",
+          "diagram_title": "Solar Radiation & Surface Thermal Warming",
+          "diagram_type": "image_search",
+          "image_query": "solar rays warming ground and longwave infrared radiative feedback. scientific educational diagram with clear labels",
+          "video_query": "Solar Radiation & Surface Thermal Warming educational demonstration video",
+          "what_to_make": "Textbook diagram showing solar rays warming ground and longwave infrared radiative feedback.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"solar rays warming ground and longwave infrared radiative feedback. scientific educational diagram with clear labels\", title=\"Solar Radiation & Surface Thermal Warming\") | Proactive video: search_and_show_video(query=\"Solar Radiation & Surface Thermal Warming educational demonstration video\", title=\"Solar Radiation & Surface Thermal Warming\")",
+          "image_search_query": "solar rays warming ground and longwave infrared radiative feedback. scientific educational diagram with clear labels",
+          "video_search_query": "Solar Radiation & Surface Thermal Warming educational demonstration video"
+        },
+        {
+          "concept_title": "Earth vs Moon Temperature Contrast: The Moon is the same distance from the Sun as Earth, but has zero atmosphere; consequently, temperatures on the lunar surface swing violently from -190°C during the night to +110°C during the lunar day, proving the indispensable moderating role of Earth's atmosphere.",
+          "diagram_title": "Thermal Moderation & Atmospheric Insulation",
+          "diagram_type": "image_search",
+          "image_query": "atmospheric insulating blanket keeping diurnal temperatures stable. scientific educational diagram with clear labels",
+          "video_query": "Thermal Moderation & Atmospheric Insulation educational demonstration video",
+          "what_to_make": "Textbook diagram illustrating atmospheric insulating blanket keeping diurnal temperatures stable.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"atmospheric insulating blanket keeping diurnal temperatures stable. scientific educational diagram with clear labels\", title=\"Thermal Moderation & Atmospheric Insulation\") | Proactive video: search_and_show_video(query=\"Thermal Moderation & Atmospheric Insulation educational demonstration video\", title=\"Thermal Moderation & Atmospheric Insulation\")",
+          "image_search_query": "atmospheric insulating blanket keeping diurnal temperatures stable. scientific educational diagram with clear labels",
+          "video_search_query": "Thermal Moderation & Atmospheric Insulation educational demonstration video"
+        },
+        {
+          "concept_title": "Urban Heat Island Effect: Urban metropolitan areas experience significantly higher ambient temperatures than surrounding rural landscapes due to dark asphalt and concrete absorbing solar radiation, tall building canyons trapping heat, waste heat from air conditioning/vehicles, and loss of cooling vegetative evapotranspiration.",
+          "diagram_title": "Urban Heat Island Thermal Profile in Cities",
+          "diagram_type": "image_search",
+          "image_query": "city skyscrapers and temperature profile demonstrating urban heat island effect. scientific educational diagram with clear labels",
+          "video_query": "Urban Heat Island Thermal Profile in Cities educational demonstration video",
+          "what_to_make": "Textbook diagram of city skyscrapers and temperature profile demonstrating urban heat island effect.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"city skyscrapers and temperature profile demonstrating urban heat island effect. scientific educational diagram with clear labels\", title=\"Urban Heat Island Thermal Profile in Cities\") | Proactive video: search_and_show_video(query=\"Urban Heat Island Thermal Profile in Cities educational demonstration video\", title=\"Urban Heat Island Thermal Profile in Cities\")",
+          "image_search_query": "city skyscrapers and temperature profile demonstrating urban heat island effect. scientific educational diagram with clear labels",
+          "video_search_query": "Urban Heat Island Thermal Profile in Cities educational demonstration video"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"The Moon is the exact same distance from the Sun as the Earth. Why does the Moon freeze at -190°C at night and boil at +110°C during the day, while Earth stays at a comfortable 15°C?\"\n   - Law: Detail the 4 spheres, solar energy budget, and the thermal buffer role of air.\n   - Socratic check: \"Why are cities like Delhi or Mumbai several degrees hotter than the green countryside right next to them?\" HARD STOP: Wait for student answer!"
+  },
+  {
+    "order_index": 2,
+    "title": "Atmospheric Layers, Convective Dynamics, Breezes & Global Wind Systems",
+    "description": "Analyze the vertical atmospheric structure (Troposphere, Stratosphere, Mesosphere, Thermosphere), explore the physics of air convection, contrast coastal sea/land breezes with mountain/valley breezes, and examine global wind belts and ocean heat conveyors (Gulf Stream).",
+    "subtopics": [
+      "Vertical Atmospheric Layering: Troposphere (weather), Stratosphere (ozone layer), Mesosphere, Thermosphere",
+      "The Physics of Wind: Uneven solar heating producing differential pressure gradients ($F \\propto -\\nabla P$)",
+      "Sea Breeze & Land Breeze: Specific heat capacity of land vs water driving diurnal coastal convection",
+      "Valley Breeze & Mountain Breeze: Slopes heating faster during daytime vs cold air drainage at night (katabatic)",
+      "Global Wind Circulation & Coriolis Effect: Hadley cells, equatorial doldrums, trade winds, westerlies",
+      "Oceanic Heat Conveyors: The Gulf Stream transporting equatorial thermal energy to high latitudes"
+    ],
+    "key_concepts": [
+      "Vertical Atmospheric Stratification: The atmosphere is divided into layers based on temperature lapse rates: Troposphere ($0-12\\text{ km}$, where all clouds and weather occur; temperature falls with height), Stratosphere ($12-50\\text{ km}$, temperature increases with height due to UV absorption by ozone), Mesosphere ($50-80\\text{ km}$, coldest layer at $-90^\\circ\\text{C}$), and Thermosphere ($>80\\text{ km}$, high temperature due to solar X-ray ionization).",
+      "Pressure Gradient & Wind Generation: Wind is simply the horizontal movement of air from a region of high atmospheric pressure to a region of low atmospheric pressure; pressure differences are created by the uneven heating of Earth's surface by solar radiation.",
+      "Coastal Sea Breeze vs Land Breeze: Land has a lower specific heat capacity than water and heats up/cools down much faster than the sea: During the day, air over land heats up, expands, and rises (low pressure), drawing cool dense air from the sea (Sea Breeze); at night, land cools rapidly (high pressure), so cool breeze blows from land toward the warm sea (Land Breeze).",
+      "Valley and Mountain Breezes: During daylight, mountain slopes heat rapidly, causing air to expand and flow uphill along the slope (Valley Breeze); after sunset, rapid radiation cools the slopes, and dense cold air drains down into the valley floor (Mountain / Katabatic Breeze).",
+      "Global Wind Circulation Belts: Intense solar heating at the equator creates an equatorial low-pressure belt (doldrums) where warm air rises, flows poleward aloft, cools, and sinks around $30^\\circ\\text{ N/S}$ latitude, producing the Trade Winds and prevailing Westerlies under Earth's rotational Coriolis deflection.",
+      "Oceanic Thermal Conveyors (The Gulf Stream): The atmosphere is closely coupled with the oceans; major ocean currents like the Gulf Stream carry enormous volumes of warm tropical seawater northward across the Atlantic, dramatically moderating the climates of Western and Northern Europe."
+    ],
+    "success_criteria": "Student can sketch and describe atmospheric layers with temperature trends, explain sea/land and valley/mountain breeze convection, and describe global wind belts and the Gulf Stream.",
+    "chapter_notes": "### 13.5 Layers of the Earth's Atmosphere\nThe atmosphere extends thousands of kilometers into space, structured into four thermal layers (Fig. 13.7):\n1. **Troposphere ($0 - 12\\text{ km}$)**:\n   - Lowest and densest layer, containing **~75% of total atmospheric mass** and almost all water vapor and aerosols.\n   - All weather phenomena (clouds, rain, storms, thunder) occur exclusively here.\n   - Temperature **decreases with altitude** at a lapse rate of $\\sim 6.5^\\circ\\text{C/km}$ (reaching $-60^\\circ\\text{C}$ at the tropopause).\n2. **Stratosphere ($12 - 50\\text{ km}$)**:\n   - Calm, dry, horizontal airflow with zero turbulence; ideal cruising altitude for commercial jet airliners.\n   - Contains the **Ozone Layer ($O_3$)** between $15-30\\text{ km}$.\n   - Temperature **increases with altitude** because stratospheric ozone absorbs high-energy solar ultraviolet (UV) radiation.\n3. **Mesosphere ($50 - 80\\text{ km}$)**:\n   - Temperature drops drastically with height, reaching the coldest temperatures in the atmosphere (down to **$-90^\\circ\\text{C}$**).\n   - Most incoming extraterrestrial meteors burn up here due to atmospheric friction.\n4. **Thermosphere ($80 - 700\\text{ km}$)**:\n   - Temperature skyrockets to over $1500^\\circ\\text{C}$ due to absorption of solar X-rays and extreme UV radiation (though air is so rarefied it feels cold to touch).\n   - Contains the **Ionosphere** (ionized gases reflecting radio waves) and displays polar **Auroras**.\n\n### 13.6 The Mechanics of Wind & Local Convection\nWinds arise because solar radiation heats different parts of the Earth unevenly:\n- **Sea Breeze (Daytime)**:\n  - Land has lower specific heat capacity than water; it heats up much faster than the ocean.\n  - Heated air over land expands, becomes less dense, and rises, creating a **localized low-pressure zone**.\n  - Cooler, denser air over the sea flows inland to replace the rising air: **Sea Breeze**.\n- **Land Breeze (Nighttime)**:\n  - After sunset, land loses heat rapidly by radiation, cooling much faster than the ocean.\n  - Air over the warm ocean rises (low pressure); cool, dense air over land blows offshore out to sea: **Land Breeze**.\n- **Valley & Mountain Breezes (Fig. 13.8)**:\n  - *Daytime (Valley Breeze)*: Mountain slopes facing the sun heat faster than the valley floor; air flows upward along the slopes.\n  - *Nighttime (Mountain Breeze)*: Slopes cool rapidly; dense cold air flows downward into the valley floor.\n\n### 13.7 Global Atmospheric Circulation & The Gulf Stream\n- **Equatorial Convection**: Solar heating is intense at the equator. Hot air rises continuously, forming the **Equatorial Low Pressure Belt**.\n- **Hadley Cells**: This air flows poleward in the upper troposphere, cools, sinks at $30^\\circ\\text{ N/S}$ (Subtropical High Pressure Belt), and returns toward the equator as the **Trade Winds** (deflected by Coriolis force).\n- **The Gulf Stream (Fig. 13.10)**: A powerful, warm Western boundary current in the Atlantic Ocean. It transports equatorial warm water northeastward toward Western Europe, keeping ports in Britain and Norway ice-free throughout the winter.",
+    "worked_examples": [
+      {
+        "problem": "Explain the physical mechanism of a Sea Breeze and a Land Breeze. Why does sea breeze blow during the day while land breeze blows at night?",
+        "given": "Specific heat capacity of water (4184 J/kg K) vs soil/rock (~800 J/kg K).",
+        "formula": "Thermal Pressure Gradient Convection: Delta T -> Delta P -> Airflow (High to Low P)",
+        "substitution": "Day: T_land > T_sea -> P_land < P_sea. Night: T_land < T_sea -> P_land > P_sea.",
+        "calculation": "1. Water has a specific heat capacity roughly 5 times higher than dry land rock/soil, meaning water heats up much slower and cools down much slower.\n2. **Daytime (Sea Breeze)**: Sunlight heats the land surface rapidly. Warm air over land expands, becomes lighter, and rises, creating a low-pressure area. The cooler, denser air over the adjacent sea moves inland toward the land, forming a **Sea Breeze**.\n3. **Nighttime (Land Breeze)**: Without solar radiation, land radiates its heat rapidly and cools quickly. The sea water remains relatively warm. Warm air rises over the sea (low pressure), and cool, dense air from the land blows out to the sea, forming a **Land Breeze**.",
+        "finalAnswer": "Daytime: Land heats faster -> low pressure over land -> cool Sea Breeze blows inland. Nighttime: Land cools faster -> high pressure over land -> cool Land Breeze blows seaward.",
+        "unit": "Coastal Meteorology",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.8: Convective breeze mechanisms and pressure gradients"
+      },
+      {
+        "problem": "How does temperature change with altitude in the Troposphere versus the Stratosphere (Fig. 13.7)? Explain why the Stratosphere gets warmer with height.",
+        "given": "Vertical thermal lapse rates in Troposphere and Stratosphere.",
+        "formula": "Lapse Rate Inversion: dT/dz < 0 in Troposphere, dT/dz > 0 in Stratosphere",
+        "substitution": "Troposphere heated from below by surface IR; Stratosphere heated by ozone UV absorption.",
+        "calculation": "1. **Troposphere**: Air is transparent to shortwave solar radiation and is heated primarily from the ground upward by longwave terrestrial radiation. As you move higher away from the warm Earth surface, temperature **decreases with altitude** (at ~6.5 deg C/km, dropping to -60 deg C).\n2. **Stratosphere**: Contains high concentrations of ozone (O3). Ozone molecules absorb incoming high-energy solar ultraviolet (UV) radiation (photolysis and reformation). This exothermic photochemical absorption releases heat directly inside the layer. As altitude increases, ozone absorbs higher-intensity unattenuated UV rays, causing temperature to **increase with altitude** (rising from -60 deg C up to ~0 deg C at the stratopause).",
+        "finalAnswer": "Troposphere cools with height (heated from below by ground); Stratosphere warms with height because ozone absorbs solar ultraviolet radiation.",
+        "unit": "Atmospheric Physics",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.7: Vertical thermal layers of Earth's atmosphere"
+      },
+      {
+        "problem": "Describe how rain is formed from the evaporation of water to the condensation in clouds.",
+        "given": "Cloud microphysics and atmospheric adiabatic expansion.",
+        "formula": "Adiabatic Expansion & Condensation Nuclei Physics",
+        "substitution": "Solar heating -> Evaporation -> Buoyant rise -> Adiabatic cooling -> Condensation.",
+        "calculation": "1. Solar radiation heats water bodies (oceans, lakes, rivers), causing water to evaporate into water vapor.\n2. Warm, humid air becomes less dense than surrounding air and rises buoyant into the troposphere.\n3. As the air parcel rises into lower pressure at higher altitudes, it expands adiabatically.\n4. Expanding gases do work on surroundings and lose thermal energy, cooling down below their dew point.\n5. Water vapor condenses into tiny liquid water droplets around microscopic airborne particles (dust, salt, smoke) called **condensation nuclei**.\n6. Billions of these suspended droplets form clouds. As droplets collide and coalesce into larger drops (>0.5 mm), they become too heavy for updrafts to support and fall as **rain**.",
+        "finalAnswer": "Evaporated vapor rises, expands, and cools adiabatically, condensing around dust nuclei into cloud droplets that coalesce and fall as precipitation.",
+        "unit": "Precipitation Dynamics",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.8: Convective atmospheric updrafts and cloud formation"
+      },
+      {
+        "problem": "Explain the difference between a valley breeze and a mountain breeze (Fig. 13.8a).",
+        "given": "Diurnal slope winds in mountainous terrain.",
+        "formula": "Katabatic and Anabatic Mountain Convection",
+        "substitution": "Day: solar insolation on mountain slopes; Night: radiational cooling and air drainage.",
+        "calculation": "1. **Valley Breeze (Anabatic Wind - Daytime)**: During the day, sunlight heats the inclined mountain slopes much more intensely than the sheltered valley floor. Air in contact with the warm slopes heats up, expands, and flows upward toward the ridge crests as an upslope valley breeze.\n2. **Mountain Breeze (Katabatic Wind - Nighttime)**: At night, high mountain slopes lose heat rapidly through radiational cooling into clear skies. The air touching the cold rock cools, becomes heavy and dense, and drains downward under gravity into the valley floor, creating a cold down-valley mountain breeze.",
+        "finalAnswer": "Daytime: Slopes heat and air moves uphill (Valley breeze); Nighttime: Slopes cool rapidly and dense air drains downward into valleys (Mountain breeze).",
+        "unit": "Topographic Meteorology",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.8a: Valley breeze and mountain breeze diurnal cycle"
+      },
+      {
+        "problem": "What is the Gulf Stream (Fig. 13.10b)? How does it affect the climate of Western and Northern Europe?",
+        "given": "Oceanic thermohaline and surface wind circulation.",
+        "formula": "Oceanic Thermal Transport Conveyor",
+        "substitution": "Transporting warm Caribbean water across the North Atlantic to European coastlines.",
+        "calculation": "1. The Gulf Stream is a swift, powerful, warm Atlantic ocean current originating in the Gulf of Mexico, flowing up the US East Coast and across the Atlantic as the North Atlantic Drift.\n2. It transports massive thermal energy (~1 petawatt of heat) from warm tropical latitudes to subpolar European latitudes.\n3. Winds blowing eastward across the warm Atlantic waters carry warm, moist air directly over Western Europe (UK, France, Norway).\n4. Consequently, Western Europe experiences significantly milder winter temperatures (average 5 to 10 deg C warmer) and remains ice-free year-round, whereas Canadian regions at the exact same latitude are frozen under deep ice and snow.",
+        "finalAnswer": "The Gulf Stream is a warm Atlantic ocean current transporting tropical heat northward, keeping Western European winters remarkably mild and ice-free.",
+        "unit": "Oceanic Climatology",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.10b: The Gulf Stream oceanic warm water conveyor"
+      },
+      {
+        "problem": "How does the Indian Institute of Tropical Meteorology (IITM), Pune contribute to weather and monsoon forecasting in India (Fig. 13.11)?",
+        "given": "Atmospheric and monsoon research infrastructure in India.",
+        "formula": "Dynamical Monsoon Ensemble Numerical Weather Modeling",
+        "substitution": "High-performance supercomputing tracking South Asian monsoon currents.",
+        "calculation": "1. IITM Pune is India's premier national research institute dedicated to tropical atmospheric sciences and climatology.\n2. It developed and operationalized high-resolution dynamical numerical weather prediction models (e.g., Monsoon Mission Climate Forecast System) powered by supercomputers like *Pratyush* and *Mihir*.\n3. IITM conducts cloud physics research, Doppler radar tracking of severe weather, and climate change projections specifically tailored for the Indian subcontinent, providing critical long-range agricultural monsoon forecasts to millions of farmers.",
+        "finalAnswer": "IITM Pune develops supercomputing-driven numerical weather and climate models that forecast the Indian monsoon, cyclone tracks, and agricultural seasons.",
+        "unit": "Meteorological Infrastructure",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.11: Indian Institute of Tropical Meteorology (IITM), Pune"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "Winds blow directly from areas of high temperature to areas of low temperature.",
+        "correction": "No! Winds blow from HIGH PRESSURE to LOW PRESSURE. High temperature causes air to heat, expand, and rise, creating a LOW-PRESSURE region. Therefore, cool air from a surrounding HIGH-PRESSURE region blows INTO the warm low-pressure zone (e.g., cool sea air blowing onto hot land during sea breeze).",
+        "why_it_matters": "Fundamental thermodynamic rule of pressure gradients driving wind."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Atmospheric Layers & Wind Convection Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Vertical Atmospheric Stratification: The atmosphere is divided into layers based on temperature lapse rates: Troposphere ($0-12\\text{ km}$, where all clouds and weather occur; temperature falls with height), Stratosphere ($12-50\\text{ km}$, temperature increases with height due to UV absorption by ozone), Mesosphere ($50-80\\text{ km}$, coldest layer at $-90^\\circ\\text{C}$), and Thermosphere ($>80\\text{ km}$, high temperature due to solar X-ray ionization).",
+          "diagram_title": "Vertical Layers of Earth's Atmosphere",
+          "diagram_type": "image_search",
+          "image_query": "altitude scale and temperature curve from Troposphere to Thermosphere. scientific educational diagram with clear labels",
+          "video_query": "Vertical Layers of Earth's Atmosphere educational demonstration video",
+          "what_to_make": "Textbook diagram showing altitude scale and temperature curve from Troposphere to Thermosphere.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"altitude scale and temperature curve from Troposphere to Thermosphere. scientific educational diagram with clear labels\", title=\"Vertical Layers of Earth's Atmosphere\") | Proactive video: search_and_show_video(query=\"Vertical Layers of Earth's Atmosphere educational demonstration video\", title=\"Vertical Layers of Earth's Atmosphere\")",
+          "image_search_query": "altitude scale and temperature curve from Troposphere to Thermosphere. scientific educational diagram with clear labels",
+          "video_search_query": "Vertical Layers of Earth's Atmosphere educational demonstration video"
+        },
+        {
+          "concept_title": "Pressure Gradient & Wind Generation: Wind is simply the horizontal movement of air from a region of high atmospheric pressure to a region of low atmospheric pressure; pressure differences are created by the uneven heating of Earth's surface by solar radiation.",
+          "diagram_title": "Valley & Mountain Breeze Convection",
+          "diagram_type": "image_search",
+          "image_query": "daytime upslope valley breeze and nighttime downslope katabatic mountain breeze. scientific educational diagram with clear labels",
+          "video_query": "Valley & Mountain Breeze Convection educational demonstration video",
+          "what_to_make": "Textbook diagram showing daytime upslope valley breeze and nighttime downslope katabatic mountain breeze.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"daytime upslope valley breeze and nighttime downslope katabatic mountain breeze. scientific educational diagram with clear labels\", title=\"Valley & Mountain Breeze Convection\") | Proactive video: search_and_show_video(query=\"Valley & Mountain Breeze Convection educational demonstration video\", title=\"Valley & Mountain Breeze Convection\")",
+          "image_search_query": "daytime upslope valley breeze and nighttime downslope katabatic mountain breeze. scientific educational diagram with clear labels",
+          "video_search_query": "Valley & Mountain Breeze Convection educational demonstration video"
+        },
+        {
+          "concept_title": "Coastal Sea Breeze vs Land Breeze: Land has a lower specific heat capacity than water and heats up/cools down much faster than the sea: During the day, air over land heats up, expands, and rises (low pressure), drawing cool dense air from the sea (Sea Breeze); at night, land cools rapidly (high pressure), so cool breeze blows from land toward the warm sea (Land Breeze).",
+          "diagram_title": "Global Wind Circulation & Hadley Cells",
+          "diagram_type": "image_search",
+          "image_query": "global atmospheric circulation belts between equatorial low and subtropical highs. scientific educational diagram with clear labels",
+          "video_query": "Global Wind Circulation & Hadley Cells educational demonstration video",
+          "what_to_make": "Textbook diagram illustrating global atmospheric circulation belts between equatorial low and subtropical highs.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"global atmospheric circulation belts between equatorial low and subtropical highs. scientific educational diagram with clear labels\", title=\"Global Wind Circulation & Hadley Cells\") | Proactive video: search_and_show_video(query=\"Global Wind Circulation & Hadley Cells educational demonstration video\", title=\"Global Wind Circulation & Hadley Cells\")",
+          "image_search_query": "global atmospheric circulation belts between equatorial low and subtropical highs. scientific educational diagram with clear labels",
+          "video_search_query": "Global Wind Circulation & Hadley Cells educational demonstration video"
+        },
+        {
+          "concept_title": "Valley and Mountain Breezes: During daylight, mountain slopes heat rapidly, causing air to expand and flow uphill along the slope (Valley Breeze); after sunset, rapid radiation cools the slopes, and dense cold air drains down into the valley floor (Mountain / Katabatic Breeze).",
+          "diagram_title": "Thermal Katabatic Airflow Scheme",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram detailing cold gravity air drainage into valley floors at night. scientific educational diagram with clear labels",
+          "video_query": "Thermal Katabatic Airflow Scheme educational demonstration video",
+          "what_to_make": "Textbook diagram detailing cold gravity air drainage into valley floors at night.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram detailing cold gravity air drainage into valley floors at night. scientific educational diagram with clear labels\", title=\"Thermal Katabatic Airflow Scheme\") | Proactive video: search_and_show_video(query=\"Thermal Katabatic Airflow Scheme educational demonstration video\", title=\"Thermal Katabatic Airflow Scheme\")",
+          "image_search_query": "Textbook diagram detailing cold gravity air drainage into valley floors at night. scientific educational diagram with clear labels",
+          "video_search_query": "Thermal Katabatic Airflow Scheme educational demonstration video"
+        },
+        {
+          "concept_title": "Global Wind Circulation Belts: Intense solar heating at the equator creates an equatorial low-pressure belt (doldrums) where warm air rises, flows poleward aloft, cools, and sinks around $30^\\circ\\text{ N/S}$ latitude, producing the Trade Winds and prevailing Westerlies under Earth's rotational Coriolis deflection.",
+          "diagram_title": "The Gulf Stream Oceanic Warm Water Conveyor",
+          "diagram_type": "image_search",
+          "image_query": "Textbook map of the Atlantic Ocean tracing the warm Gulf Stream from Caribbean to Western Europe. scientific educational diagram with clear labels",
+          "video_query": "The Gulf Stream Oceanic Warm Water Conveyor educational demonstration video",
+          "what_to_make": "Textbook map of the Atlantic Ocean tracing the warm Gulf Stream from Caribbean to Western Europe.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook map of the Atlantic Ocean tracing the warm Gulf Stream from Caribbean to Western Europe. scientific educational diagram with clear labels\", title=\"The Gulf Stream Oceanic Warm Water Conveyor\") | Proactive video: search_and_show_video(query=\"The Gulf Stream Oceanic Warm Water Conveyor educational demonstration video\", title=\"The Gulf Stream Oceanic Warm Water Conveyor\")",
+          "image_search_query": "Textbook map of the Atlantic Ocean tracing the warm Gulf Stream from Caribbean to Western Europe. scientific educational diagram with clear labels",
+          "video_search_query": "The Gulf Stream Oceanic Warm Water Conveyor educational demonstration video"
+        },
+        {
+          "concept_title": "Oceanic Thermal Conveyors (The Gulf Stream): The atmosphere is closely coupled with the oceans; major ocean currents like the Gulf Stream carry enormous volumes of warm tropical seawater northward across the Atlantic, dramatically moderating the climates of Western and Northern Europe.",
+          "diagram_title": "IITM Pune Meteorological Supercomputing Center",
+          "diagram_type": "image_search",
+          "image_query": "Textbook photograph of the Indian Institute of Tropical Meteorology IITM in Pune. scientific educational diagram with clear labels",
+          "video_query": "IITM Pune Meteorological Supercomputing Center educational demonstration video",
+          "what_to_make": "Textbook photograph of the Indian Institute of Tropical Meteorology (IITM) in Pune.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook photograph of the Indian Institute of Tropical Meteorology IITM in Pune. scientific educational diagram with clear labels\", title=\"IITM Pune Meteorological Supercomputing Center\") | Proactive video: search_and_show_video(query=\"IITM Pune Meteorological Supercomputing Center educational demonstration video\", title=\"IITM Pune Meteorological Supercomputing Center\")",
+          "image_search_query": "Textbook photograph of the Indian Institute of Tropical Meteorology IITM in Pune. scientific educational diagram with clear labels",
+          "video_search_query": "IITM Pune Meteorological Supercomputing Center educational demonstration video"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you stand on the beach at 2:00 PM, a cool refreshing breeze blows from the ocean onto the land. Why does this breeze reverse and blow out to sea at midnight?\"\n   - Law: Detail specific heat capacity of water vs land, pressure gradient flow, and atmospheric layers.\n   - Socratic check: \"Why do commercial aeroplanes fly in the lower Stratosphere rather than staying down in the Troposphere?\" HARD STOP: Wait for student answer!"
+  },
+  {
+    "order_index": 3,
+    "title": "The Hydrological Cycle, Aquatic Systems & Eutrophication Mechanics",
+    "description": "Analyze the global water distribution ($97.5\\%$ saline, $2.5\\%$ freshwater), trace the biogeochemical water cycle (evaporation, transpiration, condensation, percolation), examine water as a universal solvent, and explore fertilizer runoff and aquatic eutrophication.",
+    "subtopics": [
+      "Global Water Reservoirs: 97.5% saline oceans, 2.5% freshwater (glaciers 68.7%, groundwater 30.1%, surface 1.2%)",
+      "The Hydrological Cycle Pathways: Evaporation, transpiration, atmospheric condensation, precipitation, runoff, infiltration",
+      "Water as Universal Solvent: High dielectric constant dissolving minerals from rocks for plant nutrition",
+      "Water Pollution Typology: Thermal pollution, industrial toxic effluents, domestic sewage, agricultural runoff",
+      "Eutrophication Dynamics: Nitrogen/Phosphorus fertilizer runoff -> Algal bloom -> Light extinction -> Hypoxia",
+      "Biological Oxygen Demand (BOD): Decomposers consuming dissolved oxygen leading to fish asphyxiation"
+    ],
+    "key_concepts": [
+      "Global Water Distribution Ledger: Water covers ~71% of Earth's surface, but 97.5% is saline ocean water unusable for terrestrial consumption; only 2.5% is freshwater, of which nearly 69% is locked in glaciers/ice sheets, 30% is subterranean groundwater, and less than 1.2% is easily accessible surface freshwater in lakes and rivers.",
+      "Biogeochemical Water Cycle: The continuous circulation of water from Earth's surface to the atmosphere and back through physical phase changes: Evaporation (oceans and soil), Transpiration (plant leaves), Condensation (forming clouds), Precipitation (rain, snow), Surface runoff, and Infiltration/Percolation into underground aquifers.",
+      "Water as Universal Chemical Solvent: Due to its bent molecular geometry and strong electric dipole moment, water possesses a very high dielectric constant; as it flows over rocks and soils, it dissolves essential mineral ions (calcium, magnesium, nitrates, phosphates) and delivers them to biological roots and aquatic food webs.",
+      "Water Pollution Definition: Any physical, chemical, or biological change in water quality that adversely impacts living organisms or makes water unsuitable for use, caused by toxic industrial chemicals, untreated sewage, thermal discharge from power plants, or agrochemicals.",
+      "Eutrophication Cascade: Excess nitrogen and phosphorus fertilizers washed from agricultural fields into water bodies cause explosive growth of algae (algal bloom); the thick algal mat blocks sunlight from reaching underwater plants, halting aquatic photosynthesis.",
+      "Decomposition Hypoxia & BOD Surge: When the massive algal bloom dies, aerobic decomposing bacteria multiply exponentially and consume the water's Dissolved Oxygen (DO); Biological Oxygen Demand (BOD) skyrockets, dissolved oxygen drops to near-zero (hypoxia), resulting in mass asphyxiation and death of fish and aquatic fauna."
+    ],
+    "success_criteria": "Student can sketch the hydrological cycle, detail global freshwater reservoirs, explain water's universal solvent properties, and trace the step-by-step biochemical cascade of eutrophication.",
+    "chapter_notes": "### 13.8 Global Water Inventory\nAlthough water blankets **~71% of Earth's surface**:\n- **Saline Oceans & Seas**: **97.5%** of all water on Earth (unusable for agriculture or drinking without desalination).\n- **Freshwater**: Only **2.5%** of global water:\n  - **Glaciers & Permanent Ice Caps (Cryosphere)**: **68.7%** (locked in Antarctica, Greenland, and Himalayas).\n  - **Groundwater (Aquifers)**: **30.1%**.\n  - **Surface Freshwater (Lakes, Rivers, Swamps)**: **1.2%** (the tiny fraction that sustains all terrestrial life).\n\n### 13.9 The Hydrological (Water) Cycle\nWater cycles indefinitely between the hydrosphere, atmosphere, lithosphere, and biosphere:\n1. **Evaporation**: Solar heating drives liquid water from oceans, lakes, and rivers into gaseous water vapor.\n2. **Transpiration**: Plants absorb soil water through roots and evaporate it into the air through stomata in leaves.\n3. **Condensation**: Water vapor rises, cools adiabatically in the troposphere, and condenses on dust particles to form clouds.\n4. **Precipitation**: Water droplets coalesce and fall back under gravity as rain, snow, sleet, or hail.\n5. **Runoff & Percolation**: Surface runoff feeds streams and rivers back to the sea; a portion infiltrates deep into soil rock strata as **groundwater** (recharging water tables).\n\n### 13.10 Water as a Universal Solvent\n- Due to its high dipole moment, water dissolves minerals from soil and rock as it flows.\n- Plants cannot absorb solid rock minerals; minerals must be in dissolved ionic form ($K^+, Ca^{2+}, NO_3^-, H_2PO_4^-$) for root absorption.\n- However, this same dissolving power means water easily carries toxic pollutants into ecosystems.\n\n### 13.11 Eutrophication (Algal Bloom) & Aquatic Collapse (Fig. 13.17)\nThe word *eutrophic* means 'well-nourished':\n1. **Nutrient Enrichment**: Chemical fertilizers (rich in **Nitrogen** and **Phosphorus**) from agricultural fields and untreated domestic sewage wash into lakes and ponds.\n2. **Explosive Algal Bloom**: The sudden excess of nutrients triggers rapid, exponential multiplication of green algae and duckweed, creating a dense green scum across the water surface.\n3. **Light Starvation**: The thick algal mat completely blocks sunlight from penetrating deeper water layers; submerged photosynthetic aquatic plants die due to lack of light.\n4. **Bacterial Explosion & Hypoxia**: When the giant algal population exhausts available nutrients, the algae die en masse. Aerobic decomposer bacteria feed on the dead algal biomass, consuming virtually all **Dissolved Oxygen ($DO$)** in the water.\n5. **Surge in Biological Oxygen Demand ($BOD$)**: As dissolved oxygen plunges toward zero ($<2\\text{ mg/L}$), aquatic fauna (fish, prawns, snails) suffocate and die, transforming the clear lake into a putrid, stagnant, dead biological dead zone.",
+    "worked_examples": [
+      {
+        "problem": "Explain the step-by-step biological and chemical cascade of events that leads to Eutrophication in a freshwater lake (Fig. 13.17). Why do fish die?",
+        "given": "Nutrient enrichment of freshwater bodies from fertilizer runoff.",
+        "formula": "Eutrophication Cascade: Nutrient Runoff -> Algal Bloom -> Shading -> Mass Death -> Decomposer Oxygen Depletion -> Fish Asphyxiation",
+        "substitution": "N & P agrochemical runoff into closed lake ecosystem.",
+        "calculation": "1. Step 1 (Runoff): Agricultural runoff containing excess synthetic nitrogen and phosphorus fertilizers washes into a stagnant pond or lake.\n2. Step 2 (Algal Bloom): The high nutrient concentration triggers massive, rapid proliferation of phytoplankton and algae, forming a thick green mat across the surface.\n3. Step 3 (Sunlight Blockage): The opaque algal mat blocks sunlight from penetrating deeper into the water; submerged aquatic plants cannot photosynthesize and die.\n4. Step 4 (Aerobic Decomposition): When the algae exhaust nutrients and die, aerobic decomposing bacteria multiply explosively to decompose the vast organic biomass.\n5. Step 5 (Oxygen Depletion): The decomposing bacteria consume virtually all Dissolved Oxygen (DO) from the water, driving the Biological Oxygen Demand (BOD) sky-high.\n6. Step 6 (Asphyxiation): With dissolved oxygen depleted to near zero, fish and aquatic fauna cannot breathe through their gills and suffocate en masse.",
+        "finalAnswer": "Fertilizer runoff causes algal blooms; when algae die, decomposers consume all dissolved oxygen, suffocating fish.",
+        "unit": "Limnology & Ecology",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.17: Eutrophication and algal bloom in freshwater ecosystems"
+      },
+      {
+        "problem": "What percentage of Earth's total water is freshwater? Where is the majority of Earth's freshwater located?",
+        "given": "Global planetary water distribution inventory.",
+        "formula": "Freshwater Percentage Ledger: Total Freshwater = 2.5%",
+        "substitution": "Glaciers (68.7%), Groundwater (30.1%), Surface water (1.2%).",
+        "calculation": "1. Only **2.5%** of all water on Earth is freshwater (the remaining 97.5% is saline ocean water).\n2. Out of this 2.5% freshwater:\n   - Approximately **68.7% is locked as solid ice and glaciers** in Antarctica, Greenland, and polar mountain ice caps (the Cryosphere).\n   - Approximately **30.1% exists as underground groundwater**.\n   - Only **1.2%** is accessible as surface freshwater in rivers, lakes, and atmospheric moisture.\n3. Therefore, the vast majority of freshwater is trapped in polar ice caps and glaciers.",
+        "finalAnswer": "Only 2.5% of total water is freshwater; nearly 69% of it is locked away in polar ice sheets and mountain glaciers.",
+        "unit": "Hydrological Ledger",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.12: The global hydrological cycle and reservoir distribution"
+      },
+      {
+        "problem": "Why is water referred to as the 'universal solvent'? How does this property assist plants in acquiring nutrition from soil?",
+        "given": "Dipolar molecular architecture of water (H2O).",
+        "formula": "High Dielectric Constant (epsilon ~ 80) & Ionic Hydration",
+        "substitution": "Dissolving insoluble mineral salts into bio-available cations and anions.",
+        "calculation": "1. Water is called the universal solvent because its polar bent structure gives it a high dielectric constant (~80), allowing it to dissolve more chemical substances than almost any other liquid.\n2. In soil, essential mineral nutrients (nitrogen, phosphorus, potassium, calcium, magnesium) exist bound within rocks and soil grains.\n3. Water dissolves these solid minerals into free ionic forms ($NO_3^-, K^+, Ca^{2+}, H_2PO_4^-$).\n4. Plant root hairs can only absorb nutrients that are dissolved in solution; they cannot absorb dry, solid minerals.\n5. Water absorbs these ions and translocates them upward through xylem vessels to leaves for photosynthesis and protein synthesis.",
+        "finalAnswer": "Water's high polarity dissolves minerals into free ions; plant roots absorb these dissolved ionic nutrients through sap flow.",
+        "unit": "Plant Mineral Nutrition",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.1: Water interaction across soil and biosphere"
+      },
+      {
+        "problem": "How does thermal pollution harm aquatic life in rivers and lakes?",
+        "given": "Industrial and power plant thermal cooling discharge into natural waters.",
+        "formula": "Gas Solubility Temperature Inversion: DO proportional to 1 / Temperature",
+        "substitution": "Hot water discharge reducing dissolved oxygen and disrupting metabolic rates.",
+        "calculation": "1. Thermal electric power plants and heavy industries draw cool water from rivers to condense steam and discharge hot water back into the river.\n2. **Reduced Dissolved Oxygen**: The solubility of oxygen in water is inversely related to temperature; as water temperature rises, dissolved oxygen drops drastically.\n3. **Elevated Metabolic Demand**: Warm water accelerates the metabolic rate of aquatic organisms, forcing them to demand more oxygen precisely when oxygen levels are depleted.\n4. **Reproductive Failure**: High temperatures destroy fish eggs, prevent larval development, and alter thermal migration cues.",
+        "finalAnswer": "Hot water discharge lowers dissolved oxygen while accelerating aquatic metabolic rates, leading to asphyxiation and reproductive failure.",
+        "unit": "Thermal Pollution",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.17: Environmental degradation in aquatic systems"
+      },
+      {
+        "problem": "Trace the path of a water molecule from evaporation in the Indian Ocean to groundwater recharge in an agricultural field (Fig. 13.12).",
+        "given": "Hydrological cycle transit pathway.",
+        "formula": "Evaporation -> Vapor Transport -> Condensation -> Precipitation -> Infiltration -> Aquifer Storage",
+        "substitution": "Ocean evaporation carried by monsoon winds to terrestrial rainfall.",
+        "calculation": "1. **Evaporation**: Solar heating converts liquid seawater into water vapor in the tropical Indian Ocean.\n2. **Monsoon Transport**: South-West monsoon winds transport humid air masses thousands of kilometers inland over the Indian subcontinent.\n3. **Condensation & Clouds**: Orographic lifting over the Western Ghats forces air upward; adiabatic cooling causes vapor to condense around aerosols into dense clouds.\n4. **Precipitation**: Cloud droplets coalesce and fall as torrential monsoon rain onto agricultural fields.\n5. **Infiltration & Percolation**: Rainwater soaks into porous topsoil, percolates downward through gravel and rock layers under gravity, and recharges the subterranean water table (aquifer).",
+        "finalAnswer": "Evaporates from ocean -> transported by winds -> condenses into clouds -> precipitates as rain -> percolates through soil into groundwater aquifer.",
+        "unit": "Hydrological Dynamics",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.12: Complete biogeochemical water cycle"
+      },
+      {
+        "problem": "What is Biological Oxygen Demand (BOD)? How is it related to the degree of water pollution in a river?",
+        "given": "Biochemical measurement of organic water pollution.",
+        "formula": "BOD = Quantity of O2 consumed by microorganisms to oxidize organic matter in 1 L water",
+        "substitution": "Higher organic waste = Higher microbial respiration = Higher BOD = Lower DO.",
+        "calculation": "1. Biological Oxygen Demand (BOD) is the amount of dissolved oxygen required by aerobic microorganisms to break down and oxidize all the organic waste present in a given volume of water.\n2. **Relationship to Pollution**: High BOD indicates a high concentration of decomposing organic matter (raw sewage, livestock waste, decaying algae).\n3. When BOD is high, bacteria consume dissolved oxygen rapidly, leaving little to no oxygen for fish.\n4. Clean tap water has a BOD < 1 mg/L, polluted river water has BOD 10-50 mg/L, and raw domestic sewage has BOD > 200 mg/L.",
+        "finalAnswer": "BOD measures oxygen consumed by bacteria to decompose organic wastes; high BOD signifies severe water pollution and dangerous oxygen depletion.",
+        "unit": "Environmental Chemistry",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.17: Biochemical degradation of oxygen in eutrophic waters"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "Eutrophication is good for a lake because 'nutrient-rich' sounds healthy and algae produce oxygen during photosynthesis.",
+        "correction": "Eutrophication is CATASTROPHIC for a lake. Although living algae produce oxygen during the day, they create an impenetrable surface mat that blocks light from reaching deeper plants. When the massive algal bloom dies, billions of decomposing bacteria consume EVERY DROP of dissolved oxygen, suffocating fish and killing the entire aquatic ecosystem.",
+        "why_it_matters": "Crucial distinction between balanced ecological nutrition and runaway toxic eutrophication."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Water Cycle & Eutrophication Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Global Water Distribution Ledger: Water covers ~71% of Earth's surface, but 97.5% is saline ocean water unusable for terrestrial consumption; only 2.5% is freshwater, of which nearly 69% is locked in glaciers/ice sheets, 30% is subterranean groundwater, and less than 1.2% is easily accessible surface freshwater in lakes and rivers.",
+          "diagram_title": "The Biogeochemical Water Cycle Schema",
+          "diagram_type": "image_search",
+          "image_query": "continuous cycling of water through evaporation, transpiration, condensation, and runoff. scientific educational diagram with clear labels",
+          "video_query": "The Biogeochemical Water Cycle Schema educational demonstration video",
+          "what_to_make": "Textbook diagram showing continuous cycling of water through evaporation, transpiration, condensation, and runoff.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"continuous cycling of water through evaporation, transpiration, condensation, and runoff. scientific educational diagram with clear labels\", title=\"The Biogeochemical Water Cycle Schema\") | Proactive video: search_and_show_video(query=\"The Biogeochemical Water Cycle Schema educational demonstration video\", title=\"The Biogeochemical Water Cycle Schema\")",
+          "image_search_query": "continuous cycling of water through evaporation, transpiration, condensation, and runoff. scientific educational diagram with clear labels",
+          "video_search_query": "The Biogeochemical Water Cycle Schema educational demonstration video"
+        },
+        {
+          "concept_title": "Biogeochemical Water Cycle: The continuous circulation of water from Earth's surface to the atmosphere and back through physical phase changes: Evaporation (oceans and soil), Transpiration (plant leaves), Condensation (forming clouds), Precipitation (rain, snow), Surface runoff, and Infiltration/Percolation into underground aquifers.",
+          "diagram_title": "Hydrological Transpiration & Cloud Formation",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram detailing vegetal transpiration and atmospheric condensation pathways. scientific educational diagram with clear labels",
+          "video_query": "Hydrological Transpiration & Cloud Formation educational demonstration video",
+          "what_to_make": "Textbook diagram detailing vegetal transpiration and atmospheric condensation pathways.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram detailing vegetal transpiration and atmospheric condensation pathways. scientific educational diagram with clear labels\", title=\"Hydrological Transpiration & Cloud Formation\") | Proactive video: search_and_show_video(query=\"Hydrological Transpiration & Cloud Formation educational demonstration video\", title=\"Hydrological Transpiration & Cloud Formation\")",
+          "image_search_query": "Textbook diagram detailing vegetal transpiration and atmospheric condensation pathways. scientific educational diagram with clear labels",
+          "video_search_query": "Hydrological Transpiration & Cloud Formation educational demonstration video"
+        },
+        {
+          "concept_title": "Water as Universal Chemical Solvent: Due to its bent molecular geometry and strong electric dipole moment, water possesses a very high dielectric constant; as it flows over rocks and soils, it dissolves essential mineral ions (calcium, magnesium, nitrates, phosphates) and delivers them to biological roots and aquatic food webs.",
+          "diagram_title": "Universal Solvent Mineral Weathering",
+          "diagram_type": "image_search",
+          "image_query": "water interacting with surface rocks and soils to dissolve vital minerals. scientific educational diagram with clear labels",
+          "video_query": "Universal Solvent Mineral Weathering educational demonstration video",
+          "what_to_make": "Textbook diagram showing water interacting with surface rocks and soils to dissolve vital minerals.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"water interacting with surface rocks and soils to dissolve vital minerals. scientific educational diagram with clear labels\", title=\"Universal Solvent Mineral Weathering\") | Proactive video: search_and_show_video(query=\"Universal Solvent Mineral Weathering educational demonstration video\", title=\"Universal Solvent Mineral Weathering\")",
+          "image_search_query": "water interacting with surface rocks and soils to dissolve vital minerals. scientific educational diagram with clear labels",
+          "video_search_query": "Universal Solvent Mineral Weathering educational demonstration video"
+        },
+        {
+          "concept_title": "Water Pollution Definition: Any physical, chemical, or biological change in water quality that adversely impacts living organisms or makes water unsuitable for use, caused by toxic industrial chemicals, untreated sewage, thermal discharge from power plants, or agrochemicals.",
+          "diagram_title": "Aquatic Ecosystem Pollution Profiling",
+          "diagram_type": "image_search",
+          "image_query": "degraded aquatic waterway contaminated by pollutants. scientific educational diagram with clear labels",
+          "video_query": "Aquatic Ecosystem Pollution Profiling educational demonstration video",
+          "what_to_make": "Textbook diagram showing degraded aquatic waterway contaminated by pollutants.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"degraded aquatic waterway contaminated by pollutants. scientific educational diagram with clear labels\", title=\"Aquatic Ecosystem Pollution Profiling\") | Proactive video: search_and_show_video(query=\"Aquatic Ecosystem Pollution Profiling educational demonstration video\", title=\"Aquatic Ecosystem Pollution Profiling\")",
+          "image_search_query": "degraded aquatic waterway contaminated by pollutants. scientific educational diagram with clear labels",
+          "video_search_query": "Aquatic Ecosystem Pollution Profiling educational demonstration video"
+        },
+        {
+          "concept_title": "Eutrophication Cascade: Excess nitrogen and phosphorus fertilizers washed from agricultural fields into water bodies cause explosive growth of algae (algal bloom); the thick algal mat blocks sunlight from reaching underwater plants, halting aquatic photosynthesis.",
+          "diagram_title": "Eutrophication Algal Bloom & Sunlight Blockade",
+          "diagram_type": "image_search",
+          "image_query": "Textbook photograph of a green algal bloom covering an aquatic water surface. scientific educational diagram with clear labels",
+          "video_query": "Eutrophication Algal Bloom & Sunlight Blockade educational demonstration video",
+          "what_to_make": "Textbook photograph of a green algal bloom covering an aquatic water surface.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook photograph of a green algal bloom covering an aquatic water surface. scientific educational diagram with clear labels\", title=\"Eutrophication Algal Bloom & Sunlight Blockade\") | Proactive video: search_and_show_video(query=\"Eutrophication Algal Bloom & Sunlight Blockade educational demonstration video\", title=\"Eutrophication Algal Bloom & Sunlight Blockade\")",
+          "image_search_query": "Textbook photograph of a green algal bloom covering an aquatic water surface. scientific educational diagram with clear labels",
+          "video_search_query": "Eutrophication Algal Bloom & Sunlight Blockade educational demonstration video"
+        },
+        {
+          "concept_title": "Decomposition Hypoxia & BOD Surge: When the massive algal bloom dies, aerobic decomposing bacteria multiply exponentially and consume the water's Dissolved Oxygen (DO); Biological Oxygen Demand (BOD) skyrockets, dissolved oxygen drops to near-zero (hypoxia), resulting in mass asphyxiation and death of fish and aquatic fauna.",
+          "diagram_title": "Decomposition Hypoxia & Fish Mortality",
+          "diagram_type": "image_search",
+          "image_query": "biological oxygen depletion causing mass fish mortality. scientific educational diagram with clear labels",
+          "video_query": "Decomposition Hypoxia & Fish Mortality educational demonstration video",
+          "what_to_make": "Textbook diagram illustrating biological oxygen depletion causing mass fish mortality.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"biological oxygen depletion causing mass fish mortality. scientific educational diagram with clear labels\", title=\"Decomposition Hypoxia & Fish Mortality\") | Proactive video: search_and_show_video(query=\"Decomposition Hypoxia & Fish Mortality educational demonstration video\", title=\"Decomposition Hypoxia & Fish Mortality\")",
+          "image_search_query": "biological oxygen depletion causing mass fish mortality. scientific educational diagram with clear labels",
+          "video_search_query": "Decomposition Hypoxia & Fish Mortality educational demonstration video"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"A lake gets covered in thick, bright green algae that looks lush and vibrant. Two weeks later, thousands of dead fish float to the surface. What killed the fish?\"\n   - Law: Detail the water cycle reservoirs, water as universal solvent, and trace the 6 stages of the eutrophication cascade.\n   - Socratic check: \"Why do bacteria use up all the dissolved oxygen in a lake when algae die?\" HARD STOP: Wait for student answer!"
+  },
+  {
+    "order_index": 4,
+    "title": "The Biogeochemical Carbon Cycle, Greenhouse Effect & Climate Dynamics",
+    "description": "Analyze carbon reservoirs (atmosphere, organic biosphere, carbonate rocks, fossil fuels), trace photosynthetic fixation vs respiratory release, evaluate the greenhouse effect, and examine anthropogenic global warming.",
+    "subtopics": [
+      "Carbon Reservoirs: Atmospheric CO2, organic molecules (proteins, DNA), carbonate rocks, coal/petroleum",
+      "Photosynthetic Fixation: Chlorophyll-mediated assimilation of CO2 into glucose (6CO2 + 6H2O -> C6H12O6 + 6O2)",
+      "Biological Respiration & Combustion: Aerobic breakdown returning CO2 to atmosphere",
+      "Carbonate Lithosphere Storage: Marine shell formation (CaCO3) and limestone sedimentation",
+      "The Greenhouse Effect: Greenhouse gases (CO2, CH4, N2O, H2O vapor) trapping outgoing longwave infrared heat",
+      "Anthropogenic Climate Disruption: Post-industrial CO2 surge (280 ppm to >420 ppm) driving polar ice melting"
+    ],
+    "key_concepts": [
+      "Carbon as Element of Life: Carbon is the universal structural backbone of all biological macromolecules: proteins, carbohydrates, lipids, nucleic acids (DNA/RNA), and vitamins; it occurs in elemental form as diamond and graphite, and in combined form as atmospheric CO2 and carbonate minerals.",
+      "Photosynthetic Carbon Fixation: Green plants, algae, and cyanobacteria absorb atmospheric CO2 and convert it into energy-rich glucose via photosynthesis: $6\\text{CO}_2 + 6\\text{H}_2\\text{O} \\xrightarrow{\\text{sunlight, chlorophyll}} \\text{C}_6\\text{H}_{12}\\text{O}_6 + 6\\text{O}_2$; this is the primary entry gate of carbon into the living biosphere.",
+      "Respiratory and Combustion Release: Carbon is returned to the atmosphere as CO2 through cellular respiration ($C_6H_{12}O_6 + 6O_2 \\to 6CO_2 + 6H_2O + \\text{Energy}$), decomposition of dead organic matter by bacteria/fungi, and combustion of biomass and fossil fuels (coal, petroleum, natural gas).",
+      "Marine Carbonate Sinks: Aquatic marine organisms (molluscs, corals, foraminifera) absorb dissolved carbonates from seawater to synthesize hard calcium carbonate ($CaCO_3$) shells; when they die, their shells accumulate on the ocean floor to form limestone and chalk deposits over millions of years.",
+      "The Greenhouse Effect: Certain atmospheric gases (carbon dioxide, methane, nitrous oxide, and water vapor) are transparent to incoming shortwave solar radiation, but absorb outgoing longwave infrared (thermal) radiation re-emitted by Earth's surface, re-radiating heat back to Earth and maintaining a global average temperature of $+15^\\circ\\text{C}$.",
+      "Anthropogenic Global Warming: Massive combustion of fossil fuels and worldwide deforestation have driven atmospheric CO2 concentrations from pre-industrial levels of $280\\text{ ppm}$ to over $420\\text{ ppm}$, intensifying the greenhouse effect and causing polar ice melting, rising sea levels, ocean acidification, and extreme weather disasters."
+    ],
+    "success_criteria": "Student can sketch the carbon cycle, write equations for photosynthesis and respiration, explain the greenhouse effect mechanism, and explain anthropogenic global warming.",
+    "chapter_notes": "### 13.12 Carbon: The Universal Backbone of Life\nCarbon is found in diverse forms on Earth:\n- **Elemental State**: Diamond, Graphite, Fullerenes.\n- **Combined Atmospheric State**: Carbon dioxide gas ($\\text{CO}_2$, $\\sim 0.04\\%$ of atmosphere).\n- **Combined Lithospheric State**: Carbonate salts ($CaCO_3$ in limestone, marble, chalk), coal, petroleum, natural gas.\n- **Biological State**: The fundamental skeleton of all carbohydrates, fats, proteins, nucleic acids, and vitamins.\n\n### 13.13 The Biogeochemical Carbon Cycle (Fig. 13.13)\nCarbon circulates through interconnected biological, geological, and atmospheric reservoirs:\n1. **Carbon Fixation (Entry into Biosphere)**:\n   - Green plants and phytoplankton absorb atmospheric $\\text{CO}_2$ during **photosynthesis**:\n     $$6\\text{CO}_2 + 6\\text{H}_2\\text{O} \\xrightarrow{\\text{Light, Chlorophyll}} \\text{C}_6\\text{H}_{12}\\text{O}_6 + 6\\text{O}_2$$\n   - Glucose is transformed into starch, cellulose, proteins, and lipids, consumed by herbivores and carnivores along food chains.\n2. **Carbon Return to Atmosphere**:\n   - **Cellular Respiration**: Animals, plants, and microorganisms break down glucose, exhaling $\\text{CO}_2$:\n     $$\\text{C}_6\\text{H}_{12}\\text{O}_6 + 6\\text{O}_2 \\to 6\\text{CO}_2 + 6\\text{H}_2\\text{O} + \\text{Energy (ATP)}$$\n   - **Decomposition**: Decomposer microbes digest dead bodies, returning organic carbon as $\\text{CO}_2$.\n   - **Combustion**: Burning wood, crop residues, and **fossil fuels** (coal, petroleum, gas) rapidly releases ancient sequestered carbon back into the air as $\\text{CO}_2$.\n3. **Marine Carbonate Sinks**:\n   - Dissolved $\\text{CO}_2$ in seawater forms bicarbonate and carbonate ions.\n   - Marine animals (corals, snails, clams) build protective shells of **calcium carbonate ($\\text{CaCO}_3$)**.\n   - Shells settle on ocean floors, forming vast beds of **limestone** rock.\n\n### 13.14 The Greenhouse Effect & Global Warming\n- **Natural Greenhouse Effect**:\n  - The glass roof of a horticultural greenhouse lets incoming sunlight pass through to heat the plants and soil inside, but traps the outgoing infrared heat, keeping the interior warm even in freezing winters.\n  - Similarly, Earth's atmosphere contains **Greenhouse Gases (GHGs)**: Carbon dioxide ($\\text{CO}_2$), Methane ($\\text{CH}_4$), Nitrous oxide ($\\text{N}_2\\text{O}$), Chlorofluorocarbons (CFCs), and Water vapor.\n  - They allow incoming shortwave solar radiation to pass through to the ground, but **absorb outgoing longwave infrared radiation**, re-radiating heat back toward the surface.\n  - *Without this natural greenhouse effect, Earth's surface would freeze at $-18^\\circ\\text{C}$!*\n- **Enhanced Anthropogenic Greenhouse Effect**:\n  - Industrial fossil fuel burning and mass deforestation have increased atmospheric $\\text{CO}_2$ from **$280\\text{ ppm}$** (pre-industrial) to **$>420\\text{ ppm}$** today.\n  - Trapping excess heat causes **Global Warming**: average global temperature has risen by $>1.1^\\circ\\text{C}$, leading to accelerated melting of Himalayan and polar ice caps, sea-level rise, submerged coastal cities, and unpredictable monsoon droughts and floods.",
+    "worked_examples": [
+      {
+        "problem": "Explain the physical mechanism of the Greenhouse Effect. Name four primary greenhouse gases present in Earth's atmosphere.",
+        "given": "Planetary radiative balance and selective atmospheric absorption.",
+        "formula": "Shortwave Solar Transmission + Longwave Infrared Trapping",
+        "substitution": "Incoming shortwave UV/visible passes through; outgoing terrestrial IR is absorbed.",
+        "calculation": "1. Incoming solar radiation consists of short wavelengths (visible light and UV). Greenhouse gases are transparent to these short wavelengths, allowing sunlight to pass unimpeded and warm the Earth's surface.\n2. The warmed surface cools down by emitting **longwave infrared radiation** (heat waves) toward outer space.\n3. Greenhouse gas molecules possess vibrational modes that resonant with and absorb these outgoing infrared wavelengths.\n4. Rather than escaping to space, this thermal energy is trapped and re-radiated back in all directions, including back toward the surface, keeping the lower atmosphere warm.\n5. Primary Greenhouse Gases: (a) Carbon dioxide (CO2), (b) Methane (CH4), (c) Nitrous oxide (N2O), (d) Water vapor (H2O).",
+        "finalAnswer": "Greenhouse gases let shortwave sunlight enter but absorb and re-radiate outgoing longwave infrared heat; gases: CO2, CH4, N2O, and water vapor.",
+        "unit": "Radiative Physics",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.5: Greenhouse infrared heat trapping mechanism"
+      },
+      {
+        "problem": "Construct a complete balance equation showing how photosynthesis and cellular respiration act as opposite metabolic partners in the carbon cycle (Fig. 13.13).",
+        "given": "Biochemical equations of autotrophic synthesis vs heterotrophic catabolism.",
+        "formula": "Photosynthesis <--> Cellular Respiration Stoichiometric Inversion",
+        "substitution": "6 CO2 + 6 H2O + Light <--> C6H12O6 + 6 O2 + ATP.",
+        "calculation": "1. **Photosynthesis (Carbon Fixation / Anabolism)**:\n   $$6\\text{CO}_2 + 6\\text{H}_2\\text{O} + \\text{Solar Energy} \\xrightarrow{\\text{Chlorophyll}} \\text{C}_6\\text{H}_{12}\\text{O}_6 + 6\\text{O}_2$$\n   - Consumes atmospheric carbon dioxide and water; stores solar energy in glucose chemical bonds; releases oxygen gas.\n2. **Cellular Respiration (Carbon Release / Catabolism)**:\n   $$\\text{C}_6\\text{H}_{12}\\text{O}_6 + 6\\text{O}_2 \\to 6\\text{CO}_2 + 6\\text{H}_2\\text{O} + \\text{Chemical Energy (ATP)}$$\n   - Consumes oxygen to oxidize glucose; releases stored energy for metabolic work; returns carbon dioxide and water to the atmosphere.\n3. Together, they establish a closed biochemical dynamic equilibrium.",
+        "finalAnswer": "Photosynthesis converts CO2 and H2O into glucose and O2; cellular respiration oxidizes glucose back into CO2 and H2O, maintaining equilibrium.",
+        "unit": "Biochemical Stoichiometry",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.13: The biogeochemical carbon cycle"
+      },
+      {
+        "problem": "How is carbon stored in the oceanic lithosphere? Explain the formation of limestone from marine organisms.",
+        "given": "Geological carbon sequestration in marine sediments.",
+        "formula": "Carbonate Precipitation: Ca^2+ + CO3^2- -> CaCO3 (s)",
+        "substitution": "Marine molluscs and corals incorporating dissolved bicarbonate into calcium carbonate shells.",
+        "calculation": "1. Atmospheric carbon dioxide dissolves in ocean water to form carbonic acid (H2CO3), which dissociates into bicarbonate (HCO3-) and carbonate (CO3^2-) ions.\n2. Marine organisms such as corals, clams, snails, and microscopic foraminifera extract dissolved calcium ions (Ca2+) and carbonate ions to build hard protective shells and exoskeletons of **calcium carbonate (CaCO3)**.\n3. When these organisms die, their organic tissues decompose, but their hard calcium carbonate shells settle to the ocean floor.\n4. Over millions of years, layers of accumulated shells undergo compaction and cementation under lithostatic pressure, transforming into sedimentary **limestone** and chalk beds, sequestering gigatons of carbon for geological epochs.",
+        "finalAnswer": "Marine organisms convert dissolved oceanic carbonates into calcium carbonate shells; over millions of years, dead shells compress into limestone rock.",
+        "unit": "Biogeology",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.13: Carbonate sedimentation in oceanic carbon cycle"
+      },
+      {
+        "problem": "What are the projected catastrophic environmental consequences if global warming continues unabated?",
+        "given": "Global mean temperature rise due to elevated greenhouse gases.",
+        "formula": "Thermal Expansion + Glacial Melt Climatological Cascade",
+        "substitution": "CO2 levels exceeding 420 ppm causing global temperature anomaly >1.5 deg C.",
+        "calculation": "1. **Polar Ice & Glacial Melting**: Accelerated melting of Greenland, Antarctic ice sheets, and Himalayan glaciers.\n2. **Sea-Level Rise & Coastal Submersion**: Thermal expansion of warming ocean water combined with glacial meltwater causes sea levels to rise by 0.5 to 1 meter, submerging low-lying coastal cities (Mumbai, Kolkata, New York, Maldives) and displacing millions of climate refugees.\n3. **Extreme Weather Disasters**: Increased frequency and intensity of catastrophic droughts, heatwaves, super-cyclones, and unseasonal cloudbursts.\n4. **Ocean Acidification & Coral Bleaching**: Excess dissolved CO2 lowers ocean pH, dissolving coral reefs and threatening marine food chains.",
+        "finalAnswer": "Accelerated polar ice melting, sea level rise submerging coastal cities, catastrophic weather extremes, and coral reef die-offs.",
+        "unit": "Climate Science",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.5: Terrestrial warming and global thermal imbalance"
+      },
+      {
+        "problem": "Why is carbon dioxide called a greenhouse gas, while nitrogen and oxygen (which make up 99% of air) are not?",
+        "given": "Molecular geometry and infrared dipole vibration.",
+        "formula": "Infrared Active Dipole Moment: dmu / dq != 0 for CO2, vs dmu / dq = 0 for N2 and O2",
+        "substitution": "Hetero-atomic linear CO2 vs homo-nuclear diatomic N2 and O2.",
+        "calculation": "1. Nitrogen (N2) and oxygen (O2) are homonuclear diatomic molecules with symmetric electron charge clouds.\n2. When they vibrate, their dipole moment remains zero at all times ($d\\mu/dq = 0$). Because light cannot interact with zero dipole change, they are completely transparent to infrared heat radiation.\n3. Carbon dioxide (CO2) is a triatomic linear molecule (O=C=O). When it undergoes bending and asymmetric stretching vibrations, it generates a transient electric dipole moment.\n4. This fluctuating dipole absorbs outgoing infrared photons directly, trapping thermal heat in the atmosphere.",
+        "finalAnswer": "CO2 has flexible bonds that bend and absorb infrared heat; N2 and O2 are symmetric homonuclear molecules that cannot absorb infrared radiation.",
+        "unit": "Molecular Spectroscopy",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.5: Selective molecular infrared absorption in atmosphere"
+      },
+      {
+        "problem": "How does transitioning to solar photovoltaic energy help mitigate the enhanced greenhouse effect (Fig. 13.4)?",
+        "given": "Renewable energy substitution for fossil fuel combustion.",
+        "formula": "Carbon Emission Avoidance: E_avoided = (kWh generated) * (Grid Emission Factor)",
+        "substitution": "Replacing coal-fired thermal generation with solar PV panels.",
+        "calculation": "1. Traditional electricity generation relies heavily on burning coal or gas, which emits approximately 0.9 to 1.0 kg of CO2 into the atmosphere for every single kilowatt-hour (kWh) of power generated.\n2. Solar photovoltaic installations convert solar irradiance directly into clean DC electricity using solid-state semiconductor silicon wafers with zero chemical combustion.\n3. By substituting coal power with solar energy, gigatons of CO2 emissions are prevented from entering the atmosphere annually, arresting the atmospheric CO2 surge and decelerating global warming.",
+        "finalAnswer": "Solar photovoltaic energy generates electricity directly from sunlight with zero fuel combustion, avoiding gigatons of carbon dioxide emissions.",
+        "unit": "Decarbonization",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.4: Renewable solar energy mitigating greenhouse emissions"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "The greenhouse effect is inherently an evil, harmful phenomenon that must be eliminated completely.",
+        "correction": "The NATURAL greenhouse effect is absolutely essential for life on Earth! Without natural greenhouse gases (CO2, H2O vapor), Earth would be a frozen ice ball with an average temperature of -18°C. What is harmful is the EXCESSIVE ANTHROPOGENIC greenhouse effect caused by burning billions of tons of fossil fuels.",
+        "why_it_matters": "Distinguishes essential natural planetary thermal regulation from dangerous human-induced global warming."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Carbon Cycle & Climate Dynamics Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Carbon as Element of Life: Carbon is the universal structural backbone of all biological macromolecules: proteins, carbohydrates, lipids, nucleic acids (DNA/RNA), and vitamins; it occurs in elemental form as diamond and graphite, and in combined form as atmospheric CO2 and carbonate minerals.",
+          "diagram_title": "The Biogeochemical Carbon Cycle Schema",
+          "diagram_type": "image_search",
+          "image_query": "Textbook master diagram of the carbon cycle connecting atmosphere, photosynthesis, respiration, and fossil fuels. scientific educational diagram with clear labels",
+          "video_query": "The Biogeochemical Carbon Cycle Schema educational demonstration video",
+          "what_to_make": "Textbook master diagram of the carbon cycle connecting atmosphere, photosynthesis, respiration, and fossil fuels.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook master diagram of the carbon cycle connecting atmosphere, photosynthesis, respiration, and fossil fuels. scientific educational diagram with clear labels\", title=\"The Biogeochemical Carbon Cycle Schema\") | Proactive video: search_and_show_video(query=\"The Biogeochemical Carbon Cycle Schema educational demonstration video\", title=\"The Biogeochemical Carbon Cycle Schema\")",
+          "image_search_query": "Textbook master diagram of the carbon cycle connecting atmosphere, photosynthesis, respiration, and fossil fuels. scientific educational diagram with clear labels",
+          "video_search_query": "The Biogeochemical Carbon Cycle Schema educational demonstration video"
+        },
+        {
+          "concept_title": "Photosynthetic Carbon Fixation: Green plants, algae, and cyanobacteria absorb atmospheric CO2 and convert it into energy-rich glucose via photosynthesis: $6\\text{CO}_2 + 6\\text{H}_2\\text{O} \\xrightarrow{\\text{sunlight, chlorophyll}} \\text{C}_6\\text{H}_{12}\\text{O}_6 + 6\\text{O}_2$; this is the primary entry gate of carbon into the living biosphere.",
+          "diagram_title": "Photosynthetic Fixation & Biomass Accumulation",
+          "diagram_type": "image_search",
+          "image_query": "plant leaves fixing atmospheric CO2 into glucose organic molecules. scientific educational diagram with clear labels",
+          "video_query": "Photosynthetic Fixation & Biomass Accumulation educational demonstration video",
+          "what_to_make": "Textbook diagram showing plant leaves fixing atmospheric CO2 into glucose organic molecules.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"plant leaves fixing atmospheric CO2 into glucose organic molecules. scientific educational diagram with clear labels\", title=\"Photosynthetic Fixation & Biomass Accumulation\") | Proactive video: search_and_show_video(query=\"Photosynthetic Fixation & Biomass Accumulation educational demonstration video\", title=\"Photosynthetic Fixation & Biomass Accumulation\")",
+          "image_search_query": "plant leaves fixing atmospheric CO2 into glucose organic molecules. scientific educational diagram with clear labels",
+          "video_search_query": "Photosynthetic Fixation & Biomass Accumulation educational demonstration video"
+        },
+        {
+          "concept_title": "Respiratory and Combustion Release: Carbon is returned to the atmosphere as CO2 through cellular respiration ($C_6H_{12}O_6 + 6O_2 \\to 6CO_2 + 6H_2O + \\text{Energy}$), decomposition of dead organic matter by bacteria/fungi, and combustion of biomass and fossil fuels (coal, petroleum, natural gas).",
+          "diagram_title": "Respiration, Decomposition & Combustion Pathways",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram detailing CO2 release from respiratory exhalation and industrial chimneys. scientific educational diagram with clear labels",
+          "video_query": "Respiration, Decomposition & Combustion Pathways educational demonstration video",
+          "what_to_make": "Textbook diagram detailing CO2 release from respiratory exhalation and industrial chimneys.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram detailing CO2 release from respiratory exhalation and industrial chimneys. scientific educational diagram with clear labels\", title=\"Respiration, Decomposition & Combustion Pathways\") | Proactive video: search_and_show_video(query=\"Respiration, Decomposition & Combustion Pathways educational demonstration video\", title=\"Respiration, Decomposition & Combustion Pathways\")",
+          "image_search_query": "Textbook diagram detailing CO2 release from respiratory exhalation and industrial chimneys. scientific educational diagram with clear labels",
+          "video_search_query": "Respiration, Decomposition & Combustion Pathways educational demonstration video"
+        },
+        {
+          "concept_title": "Marine Carbonate Sinks: Aquatic marine organisms (molluscs, corals, foraminifera) absorb dissolved carbonates from seawater to synthesize hard calcium carbonate ($CaCO_3$) shells; when they die, their shells accumulate on the ocean floor to form limestone and chalk deposits over millions of years.",
+          "diagram_title": "Marine Shell Formation & Limestone Carbon Sink",
+          "diagram_type": "image_search",
+          "image_query": "marine shell deposition forming geological limestone beds. scientific educational diagram with clear labels",
+          "video_query": "Marine Shell Formation & Limestone Carbon Sink educational demonstration video",
+          "what_to_make": "Textbook diagram showing marine shell deposition forming geological limestone beds.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"marine shell deposition forming geological limestone beds. scientific educational diagram with clear labels\", title=\"Marine Shell Formation & Limestone Carbon Sink\") | Proactive video: search_and_show_video(query=\"Marine Shell Formation & Limestone Carbon Sink educational demonstration video\", title=\"Marine Shell Formation & Limestone Carbon Sink\")",
+          "image_search_query": "marine shell deposition forming geological limestone beds. scientific educational diagram with clear labels",
+          "video_search_query": "Marine Shell Formation & Limestone Carbon Sink educational demonstration video"
+        },
+        {
+          "concept_title": "The Greenhouse Effect: Certain atmospheric gases (carbon dioxide, methane, nitrous oxide, and water vapor) are transparent to incoming shortwave solar radiation, but absorb outgoing longwave infrared (thermal) radiation re-emitted by Earth's surface, re-radiating heat back to Earth and maintaining a global average temperature of $+15^\\circ\\text{C}$.",
+          "diagram_title": "The Greenhouse Effect Radiative Physics",
+          "diagram_type": "image_search",
+          "image_query": "incoming shortwave sunlight and trapped longwave infrared heat rays. scientific educational diagram with clear labels",
+          "video_query": "The Greenhouse Effect Radiative Physics educational demonstration video",
+          "what_to_make": "Textbook diagram showing incoming shortwave sunlight and trapped longwave infrared heat rays.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"incoming shortwave sunlight and trapped longwave infrared heat rays. scientific educational diagram with clear labels\", title=\"The Greenhouse Effect Radiative Physics\") | Proactive video: search_and_show_video(query=\"The Greenhouse Effect Radiative Physics educational demonstration video\", title=\"The Greenhouse Effect Radiative Physics\")",
+          "image_search_query": "incoming shortwave sunlight and trapped longwave infrared heat rays. scientific educational diagram with clear labels",
+          "video_search_query": "The Greenhouse Effect Radiative Physics educational demonstration video"
+        },
+        {
+          "concept_title": "Anthropogenic Global Warming: Massive combustion of fossil fuels and worldwide deforestation have driven atmospheric CO2 concentrations from pre-industrial levels of $280\\text{ ppm}$ to over $420\\text{ ppm}$, intensifying the greenhouse effect and causing polar ice melting, rising sea levels, ocean acidification, and extreme weather disasters.",
+          "diagram_title": "Clean Solar Energy Mitigating Global Warming",
+          "diagram_type": "image_search",
+          "image_query": "Textbook image of desert solar photovoltaic installations demonstrating zero-carbon energy generation. scientific educational diagram with clear labels",
+          "video_query": "Clean Solar Energy Mitigating Global Warming educational demonstration video",
+          "what_to_make": "Textbook image of desert solar photovoltaic installations demonstrating zero-carbon energy generation.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook image of desert solar photovoltaic installations demonstrating zero-carbon energy generation. scientific educational diagram with clear labels\", title=\"Clean Solar Energy Mitigating Global Warming\") | Proactive video: search_and_show_video(query=\"Clean Solar Energy Mitigating Global Warming educational demonstration video\", title=\"Clean Solar Energy Mitigating Global Warming\")",
+          "image_search_query": "Textbook image of desert solar photovoltaic installations demonstrating zero-carbon energy generation. scientific educational diagram with clear labels",
+          "video_search_query": "Clean Solar Energy Mitigating Global Warming educational demonstration video"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you park a car in the hot sun with all the glass windows rolled up tight, why does the inside of the car become blazing hot like an oven?\"\n   - Law: Detail carbon fixation, respiration, marine carbonate sinks, and the selective infrared absorption of greenhouse gases.\n   - Socratic check: \"Why do nitrogen and oxygen (which make up 99% of air) fail to trap heat, while carbon dioxide traps it brilliantly?\" HARD STOP: Wait for student answer!"
+  },
+  {
+    "order_index": 5,
+    "title": "The Nitrogen Cycle & Biological Nutrient Fixation Mechanisms",
+    "description": "Examine the paradox of atmospheric nitrogen ($78\\%$) locked behind a triple bond ($N \\equiv N$), analyze biological nitrogen fixation (symbiotic Rhizobium, Azotobacter, cyanobacteria) and lightning fixation, and trace the five stages: Fixation, Nitrification, Assimilation, Ammonification, and Denitrification.",
+    "subtopics": [
+      "The Nitrogen Paradox: 78% of air is N2, but inert and inaccessible to plants and animals",
+      "The Triple Covalent Bond ($N \\equiv N$): High bond dissociation energy ($945\\text{ kJ/mol}$)",
+      "Biological Nitrogen Fixation: Symbiotic Rhizobium in legume root nodules, free-living Azotobacter",
+      "Physical Fixation: Lightning high voltage converting N2 and O2 into soluble nitrates",
+      "Nitrification Pathway: Nitrosomonas converting ammonia to nitrites; Nitrobacter converting nitrites to nitrates",
+      "Ammonification & Denitrification: Decomposers recycling dead organic nitrogen; Pseudomonas returning N2 to air"
+    ],
+    "key_concepts": [
+      "The Atmospheric Nitrogen Paradox: Nitrogen gas constitutes 78% of Earth's atmosphere and is an indispensable component of amino acids, proteins, nucleic acids (DNA/RNA), chlorophyll, and ATP; however, plants and animals cannot absorb gaseous molecular N2 directly from the air.",
+      "The Invariant Chemical Barrier: Nitrogen molecules exist as two nitrogen atoms held together by an extremely strong triple covalent bond ($N \\equiv N$) with massive bond dissociation energy ($945\\text{ kJ/mol}$); breaking this inert bond requires specialized biological enzymes (nitrogenase) or high-energy physical discharges.",
+      "Biological Nitrogen Fixation (BNF): Certain prokaryotic microorganisms possess the enzyme nitrogenase capable of fixing atmospheric N2 into ammonia: 1. Symbiotic bacteria (*Rhizobium*) living inside specialized root nodules of leguminous plants (pea, gram, bean, clover); 2. Free-living soil bacteria (*Azotobacter*, *Clostridium*); 3. Cyanobacteria (*Anabaena*, *Nostoc*).",
+      "Physical Fixation by Lightning: During thunderstorms, high temperatures and electric voltages of lightning force atmospheric nitrogen and oxygen to combine into nitrogen oxides ($NO$ and $NO_2$); these dissolve in rainwater to form nitric acid ($HNO_3$), which washes into soil reacting with minerals to form soluble nitrates ($NO_3^-$).",
+      "Nitrification (Two-Step Soil Bacterial Conversion): Soil nitrifying bacteria convert toxic ammonia into forms usable by plants: Step 1: *Nitrosomonas* bacteria oxidize ammonia ($NH_3$) into nitrites ($NO_2^-$); Step 2: *Nitrobacter* bacteria oxidize nitrites ($NO_2^-$) into nitrates ($NO_3^-$), which plant roots readily absorb.",
+      "Ammonification and Denitrification: In Ammonification, putrefying bacteria and fungi decompose nitrogenous animal wastes (urea, uric acid) and dead bodies into ammonia ($NH_3$); in Denitrification, anaerobic denitrifying bacteria (such as *Pseudomonas*) reduce nitrates ($NO_3^-$) back into inert elemental nitrogen gas ($N_2$), returning it to the atmosphere and completing the biogeochemical cycle."
+    ],
+    "success_criteria": "Student can explain the triple bond inertness of N2, detail Rhizobium root nodule symbiosis, write nitrification steps with bacterial genera, and trace the complete 5-stage Nitrogen Cycle.",
+    "chapter_notes": "### 13.15 The Nitrogen Paradox\n- **Atmospheric Abundance**: Nitrogen gas ($\\text{N}_2$) makes up **$78\\%$ of the atmosphere**.\n- **Essentiality**: Nitrogen is a mandatory element in all **proteins**, **amino acids**, **nucleic acids (DNA and RNA)**, **chlorophyll**, and **ATP**.\n- **The Problem**: Despite bathing in nitrogen, plants and animals **cannot absorb molecular $\\text{N}_2$ directly**.\n  - Two nitrogen atoms are locked together by an extraordinarily strong **triple covalent bond ($N \\equiv N$)**.\n  - Breaking this bond requires **$945\\text{ kJ/mol}$** of energy.\n  - To become usable, nitrogen must first be converted into soluble inorganic compounds (**ammonia $\\text{NH}_3$, nitrites $\\text{NO}_2^-$, or nitrates $\\text{NO}_3^-$**) through **Nitrogen Fixation**.\n\n### 13.16 The Five Stages of the Nitrogen Cycle (Fig. 13.15)\n\n#### 1. Nitrogen Fixation\nConversion of inert atmospheric $\\text{N}_2$ into biologically available nitrogen compounds:\n- **Biological Nitrogen Fixation**:\n  - Carried out exclusively by prokaryotes possessing the enzyme **nitrogenase**:\n    - **Symbiotic**: ***Rhizobium*** bacteria living inside specialized **root nodules** of leguminous plants (pea, gram, lentil, clover, soybean). The legume provides carbohydrates; *Rhizobium* supplies fixed nitrogen.\n    - **Free-Living**: Soil bacteria like *Azotobacter* (aerobic) and *Clostridium* (anaerobic).\n    - **Cyanobacteria**: *Anabaena* and *Nostoc* in paddy fields.\n- **Physical / Atmospheric Fixation**:\n  - High temperature and electric energy of **lightning** discharges force $\\text{N}_2$ and $\\text{O}_2$ to combine:\n    $$\\text{N}_2 + \\text{O}_2 \\xrightarrow{\\text{Lightning}} 2\\text{NO} \\xrightarrow{\\text{O}_2} 2\\text{NO}_2$$\n    $$2\\text{NO}_2 + \\text{H}_2\\text{O} + \\frac{1}{2}\\text{O}_2 \\to 2\\text{HNO}_3\\text{ (Nitric acid in rain)}$$\n  - Nitric acid reacts with soil limestone to form soluble **nitrates ($\\text{NO}_3^-$)**.\n\n#### 2. Nitrification\nBiological oxidation of ammonia into nitrates by specialized chemoautotrophic soil bacteria:\n- **Step 1**: Ammonia is oxidized to nitrite by ***Nitrosomonas***:\n  $$2\\text{NH}_3 + 3\\text{O}_2 \\xrightarrow{\\text{Nitrosomonas}} 2\\text{NO}_2^- + 2\\text{H}^+ + 2\\text{H}_2\\text{O} + \\text{Energy}$$\n- **Step 2**: Nitrite is oxidized to nitrate by ***Nitrobacter***:\n  $$2\\text{NO}_2^- + \\text{O}_2 \\xrightarrow{\\text{Nitrobacter}} 2\\text{NO}_3^- + \\text{Energy}$$\n\n#### 3. Nitrogen Assimilation\nPlants absorb nitrates ($\\text{NO}_3^-$) and ammonium ($\\text{NH}_4^+$) through root hairs, reducing them to amino groups to synthesize plant proteins. Herbivores eat plants, assimilating nitrogen into animal proteins.\n\n#### 4. Ammonification\nWhen plants and animals excrete nitrogenous waste (urea, uric acid) or die, decomposers (ammonifying bacteria like *Bacillus ramosus* and fungi) break down organic proteins, releasing nitrogen back into the soil as **ammonia ($\\text{NH}_3$)**.\n\n#### 5. Denitrification\nThe cycle must close, or all atmospheric nitrogen would end up trapped in soil rocks!\n- Anaerobic **denitrifying bacteria** (e.g., ***Pseudomonas*** and *Thiobacillus*) break down soil nitrates in waterlogged soils, converting them back into inert elemental **nitrogen gas ($\\text{N}_2$)**:\n  $$\\text{NO}_3^- \\to \\text{NO}_2^- \\to \\text{NO} \\to \\text{N}_2\\text{O} \\to \\mathbf{\\text{N}_2 \\uparrow}$$\n- Nitrogen gas escapes back into the atmosphere, maintaining the permanent $78\\%$ atmospheric concentration.",
+    "worked_examples": [
+      {
+        "problem": "Why cannot plants and animals absorb atmospheric nitrogen directly, even though nitrogen gas makes up 78% of the air around them?",
+        "given": "Chemical structure and bond energy of molecular nitrogen (N2).",
+        "formula": "Triple Bond Dissociation Energetics: N \\equiv N -> Delta H = 945 kJ/mol",
+        "substitution": "Plants lack enzymes capable of breaking the strong triple covalent bond.",
+        "calculation": "1. Molecular nitrogen exists as a diatomic gas where two nitrogen atoms share three pairs of electrons, forming an exceptionally strong **triple covalent bond ($N \\equiv N$)**.\n2. The bond dissociation energy required to cleave this triple bond is extraordinarily high ($945\\text{ kJ/mol}$), making N2 chemically inert at standard biological temperatures.\n3. Eukaryotic plants and animals completely lack the biochemical enzyme machinery required to break this bond.\n4. Only specialized prokaryotic bacteria possessing the complex iron-molybdenum enzyme **nitrogenase** can cleave this bond at ambient temperature and pressure.",
+        "finalAnswer": "Nitrogen atoms are locked by a very strong triple covalent bond (945 kJ/mol); plants and animals lack the enzyme nitrogenase to break it.",
+        "unit": "Biochemical Thermodynamics",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.15: The biogeochemical nitrogen cycle"
+      },
+      {
+        "problem": "Explain the mutualistic relationship between leguminous plants and Rhizobium bacteria. How does this benefit agriculture?",
+        "given": "Symbiotic biological nitrogen fixation in root nodules.",
+        "formula": "Symbiotic Legume-Rhizobium Mutualism",
+        "substitution": "Legume provides carbohydrates & anaerobic niche; Rhizobium fixes N2 into NH3.",
+        "calculation": "1. **Mutualism**: *Rhizobium* bacteria infect root hairs of leguminous plants (pea, gram, soybean), stimulating root cortical cells to divide and form specialized **root nodules**.\n2. The plant feeds the bacteria with sucrose and carbohydrates synthesized in photosynthesis, and produces **leghaemoglobin** (an oxygen scavenger) to protect oxygen-sensitive nitrogenase enzymes.\n3. In return, *Rhizobium* absorbs inert atmospheric N2 gas from soil pore spaces and fixes it into water-soluble ammonia/nitrates, delivering it directly into the plant's vascular sap.\n4. **Agronomic Value**: Farmers practice **crop rotation**, planting legumes between cereal crops to naturally enrich soil nitrogen fertility without expensive, polluting chemical fertilizers.",
+        "finalAnswer": "Legume feeds Rhizobium sugars and protects it; Rhizobium fixes atmospheric N2 into nitrates, enriching soil fertility naturally during crop rotation.",
+        "unit": "Agronomic Microbiology",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.15: Root nodule symbiosis in the nitrogen cycle"
+      },
+      {
+        "problem": "Describe the two-step biological process of Nitrification in soil. Name the specific bacterial genera responsible for each step.",
+        "given": "Chemoautotrophic bacterial conversion of ammonia to nitrates.",
+        "formula": "Step 1: NH3 -> NO2- (Nitrosomonas); Step 2: NO2- -> NO3- (Nitrobacter)",
+        "substitution": "Ammonia oxidation to nitrite, followed by nitrite oxidation to nitrate.",
+        "calculation": "1. **Step 1 (Nitritation)**: Ammonia produced from ammonification is oxidized into toxic nitrite ions (NO2-) by specialized chemoautotrophic bacteria belonging to the genus ***Nitrosomonas*** (or *Nitrococcus*):\n   $$2\\text{NH}_3 + 3\\text{O}_2 \\xrightarrow{\\text{Nitrosomonas}} 2\\text{NO}_2^- + 2\\text{H}^+ + 2\\text{H}_2\\text{O}$$\n2. **Step 2 (Nitratation)**: The formed nitrites are rapidly oxidized into stable, non-toxic nitrate ions (NO3-) by bacteria belonging to the genus ***Nitrobacter***:\n   $$2\\text{NO}_2^- + \\text{O}_2 \\xrightarrow{\\text{Nitrobacter}} 2\\text{NO}_3^-$$\n3. Plants then absorb these soluble nitrate ions through their root hairs.",
+        "finalAnswer": "Step 1: Nitrosomonas converts ammonia to nitrites; Step 2: Nitrobacter converts nitrites to nitrates.",
+        "unit": "Soil Microbiology",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.15: Nitrification pathway within nitrogen cycle"
+      },
+      {
+        "problem": "How does lightning during thunderstorms contribute to nitrogen fixation in soil?",
+        "given": "High-voltage physical atmospheric nitrogen fixation.",
+        "formula": "Lightning Plasma Synthesis: N2 + O2 -> 2 NO -> 2 NO2 -> 2 HNO3",
+        "substitution": "High electric discharge temperature cleaving atmospheric triple bonds.",
+        "calculation": "1. Lightning bolts generate extreme local plasma temperatures (>30,000 K) and massive electrical discharges in the air.\n2. This enormous energy forces inert nitrogen gas (N2) to react directly with atmospheric oxygen (O2) to form nitric oxide (NO):\n   $$\\text{N}_2 + \\text{O}_2 \\xrightarrow{\\text{Lightning}} 2\\text{NO}$$\n3. Nitric oxide is rapidly oxidized by ambient air into nitrogen dioxide gas (NO2):\n   $$2\\text{NO} + \\text{O}_2 \\to 2\\text{NO}_2$$\n4. Nitrogen dioxide dissolves in falling raindrops to produce dilute nitric acid (HNO3):\n   $$4\\text{NO}_2 + 2\\text{H}_2\\text{O} + \\text{O}_2 \\to 4\\text{HNO}_3$$\n5. Rain carries the nitric acid to soil, where it reacts with alkaline soil minerals (calcium carbonate) to form soluble nitrates (Ca(NO3)2) directly absorbable by plant roots.",
+        "finalAnswer": "Lightning's intense electrical energy forces N2 and O2 to combine into nitrogen oxides, which dissolve in rain to form nitrates in the soil.",
+        "unit": "Atmospheric Chemistry",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.15: Physical nitrogen fixation by thunderstorm lightning"
+      },
+      {
+        "problem": "What is Denitrification? Why is this process ecologically essential for maintaining Earth's atmosphere?",
+        "given": "Anaerobic bacterial reduction of soil nitrates to N2 gas.",
+        "formula": "Denitrification Reduction: NO3- -> NO2- -> NO -> N2O -> N2 (g)",
+        "substitution": "Pseudomonas bacteria reducing nitrates in waterlogged anaerobic soil.",
+        "calculation": "1. **Definition**: Denitrification is the biochemical process by which anaerobic denitrifying bacteria (such as ***Pseudomonas*** and *Thiobacillus*) reduce soil nitrates ($NO_3^-$) and nitrites ($NO_2^-$) back into gaseous nitrogen ($N_2$).\n2. **Ecological Necessity**:\n   (a) Continuous biological and physical fixation is constantly removing nitrogen from the atmosphere and locking it into soil and oceanic sediments.\n   (b) If denitrification did not exist, the atmospheric reservoir of nitrogen gas ($78\\%$) would be progressively exhausted over geological time, and all nitrogen would remain permanently trapped in dead rock and ocean beds.\n   (c) Denitrification returns free $N_2$ gas to the atmosphere, completing the closed cycle.",
+        "finalAnswer": "Pseudomonas reduces soil nitrates back into N2 gas; without it, all atmospheric nitrogen would become permanently trapped in soil and oceans.",
+        "unit": "Biogeochemical Cycles",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.15: Denitrification closing the global nitrogen cycle"
+      },
+      {
+        "problem": "Distinguish between Ammonification and Nitrification.",
+        "given": "Two distinct intermediate stages of the soil nitrogen cycle.",
+        "formula": "Organic Decay (Ammonification) vs Bacterial Chemo-Oxidation (Nitrification)",
+        "substitution": "Proteins/Urea -> Ammonia vs Ammonia -> Nitrites -> Nitrates.",
+        "calculation": "1. **Ammonification**:\n   - Substrate: Dead organic matter, proteins, and nitrogenous excretions (urea, uric acid).\n   - Agents: Putrefying decomposer bacteria and fungi (e.g., *Bacillus*).\n   - End Product: Ammonia ($\\text{NH}_3$) or ammonium ions ($\\text{NH}_4^+$).\n2. **Nitrification**:\n   - Substrate: Inorganic ammonia / ammonium ions.\n   - Agents: Specialized chemoautotrophic bacteria (***Nitrosomonas*** and ***Nitrobacter***).\n   - End Product: Nitrites ($\\text{NO}_2^-$) and finally absorbable Nitrates ($\\text{NO}_3^-$).",
+        "finalAnswer": "Ammonification breaks dead organic proteins into ammonia; Nitrification oxidizes ammonia into nitrites and nitrates.",
+        "unit": "Comparative Microbiology",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.15: Ammonification and nitrification in soil profile"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "Plants inhale nitrogen gas through their stomata from the air just like they take in carbon dioxide.",
+        "correction": "Plants CANNOT absorb gaseous N2 through stomata! Even though N2 diffuses in and out of leaf air spaces, plants have zero biochemical enzymes to fix or use gaseous nitrogen. Plants absorb nitrogen EXCLUSIVELY through their roots from soil water in the form of dissolved NITRATES (NO3-) or AMMONIUM (NH4+).",
+        "why_it_matters": "A standard board examination trap regarding plant nutrient absorption pathways."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Nitrogen Cycle & Nutrient Fixation Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "The Atmospheric Nitrogen Paradox: Nitrogen gas constitutes 78% of Earth's atmosphere and is an indispensable component of amino acids, proteins, nucleic acids (DNA/RNA), chlorophyll, and ATP; however, plants and animals cannot absorb gaseous molecular N2 directly from the air.",
+          "diagram_title": "The Biogeochemical Nitrogen Cycle Master Schema",
+          "diagram_type": "image_search",
+          "image_query": "Textbook master diagram of the nitrogen cycle showing atmospheric N2, root nodules, soil nitrification, and denitrification. scientific educational diagram with clear labels",
+          "video_query": "The Biogeochemical Nitrogen Cycle Master Schema educational demonstration video",
+          "what_to_make": "Textbook master diagram of the nitrogen cycle showing atmospheric N2, root nodules, soil nitrification, and denitrification.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook master diagram of the nitrogen cycle showing atmospheric N2, root nodules, soil nitrification, and denitrification. scientific educational diagram with clear labels\", title=\"The Biogeochemical Nitrogen Cycle Master Schema\") | Proactive video: search_and_show_video(query=\"The Biogeochemical Nitrogen Cycle Master Schema educational demonstration video\", title=\"The Biogeochemical Nitrogen Cycle Master Schema\")",
+          "image_search_query": "Textbook master diagram of the nitrogen cycle showing atmospheric N2, root nodules, soil nitrification, and denitrification. scientific educational diagram with clear labels",
+          "video_search_query": "The Biogeochemical Nitrogen Cycle Master Schema educational demonstration video"
+        },
+        {
+          "concept_title": "The Invariant Chemical Barrier: Nitrogen molecules exist as two nitrogen atoms held together by an extremely strong triple covalent bond ($N \\equiv N$) with massive bond dissociation energy ($945\\text{ kJ/mol}$); breaking this inert bond requires specialized biological enzymes (nitrogenase) or high-energy physical discharges.",
+          "diagram_title": "Triple Covalent Bond & Nitrogenase Cleavage",
+          "diagram_type": "image_search",
+          "image_query": "N2 triple bond structure and high energy requirement for cleavage. scientific educational diagram with clear labels",
+          "video_query": "Triple Covalent Bond & Nitrogenase Cleavage educational demonstration video",
+          "what_to_make": "Textbook diagram showing N2 triple bond structure and high energy requirement for cleavage.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"N2 triple bond structure and high energy requirement for cleavage. scientific educational diagram with clear labels\", title=\"Triple Covalent Bond & Nitrogenase Cleavage\") | Proactive video: search_and_show_video(query=\"Triple Covalent Bond & Nitrogenase Cleavage educational demonstration video\", title=\"Triple Covalent Bond & Nitrogenase Cleavage\")",
+          "image_search_query": "N2 triple bond structure and high energy requirement for cleavage. scientific educational diagram with clear labels",
+          "video_search_query": "Triple Covalent Bond & Nitrogenase Cleavage educational demonstration video"
+        },
+        {
+          "concept_title": "Biological Nitrogen Fixation (BNF): Certain prokaryotic microorganisms possess the enzyme nitrogenase capable of fixing atmospheric N2 into ammonia: 1. Symbiotic bacteria (*Rhizobium*) living inside specialized root nodules of leguminous plants (pea, gram, bean, clover); 2. Free-living soil bacteria (*Azotobacter*, *Clostridium*); 3. Cyanobacteria (*Anabaena*, *Nostoc*).",
+          "diagram_title": "Rhizobium Root Nodule Symbiosis",
+          "diagram_type": "image_search",
+          "image_query": "legume root nodules harboring symbiotic Rhizobium bacteria. scientific educational diagram with clear labels",
+          "video_query": "Rhizobium Root Nodule Symbiosis educational demonstration video",
+          "what_to_make": "Textbook diagram showing legume root nodules harboring symbiotic Rhizobium bacteria.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"legume root nodules harboring symbiotic Rhizobium bacteria. scientific educational diagram with clear labels\", title=\"Rhizobium Root Nodule Symbiosis\") | Proactive video: search_and_show_video(query=\"Rhizobium Root Nodule Symbiosis educational demonstration video\", title=\"Rhizobium Root Nodule Symbiosis\")",
+          "image_search_query": "legume root nodules harboring symbiotic Rhizobium bacteria. scientific educational diagram with clear labels",
+          "video_search_query": "Rhizobium Root Nodule Symbiosis educational demonstration video"
+        },
+        {
+          "concept_title": "Physical Fixation by Lightning: During thunderstorms, high temperatures and electric voltages of lightning force atmospheric nitrogen and oxygen to combine into nitrogen oxides ($NO$ and $NO_2$); these dissolve in rainwater to form nitric acid ($HNO_3$), which washes into soil reacting with minerals to form soluble nitrates ($NO_3^-$).",
+          "diagram_title": "Atmospheric Lightning Nitrogen Fixation",
+          "diagram_type": "image_search",
+          "image_query": "thunderstorm lightning synthesizing nitrogen oxides washed into soil as nitrates. scientific educational diagram with clear labels",
+          "video_query": "Atmospheric Lightning Nitrogen Fixation educational demonstration video",
+          "what_to_make": "Textbook diagram showing thunderstorm lightning synthesizing nitrogen oxides washed into soil as nitrates.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"thunderstorm lightning synthesizing nitrogen oxides washed into soil as nitrates. scientific educational diagram with clear labels\", title=\"Atmospheric Lightning Nitrogen Fixation\") | Proactive video: search_and_show_video(query=\"Atmospheric Lightning Nitrogen Fixation educational demonstration video\", title=\"Atmospheric Lightning Nitrogen Fixation\")",
+          "image_search_query": "thunderstorm lightning synthesizing nitrogen oxides washed into soil as nitrates. scientific educational diagram with clear labels",
+          "video_search_query": "Atmospheric Lightning Nitrogen Fixation educational demonstration video"
+        },
+        {
+          "concept_title": "Nitrification (Two-Step Soil Bacterial Conversion): Soil nitrifying bacteria convert toxic ammonia into forms usable by plants: Step 1: *Nitrosomonas* bacteria oxidize ammonia ($NH_3$) into nitrites ($NO_2^-$); Step 2: *Nitrobacter* bacteria oxidize nitrites ($NO_2^-$) into nitrates ($NO_3^-$), which plant roots readily absorb.",
+          "diagram_title": "Nitrification: Nitrosomonas & Nitrobacter Pathways",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram detailing the sequential enzymatic oxidation from ammonia to nitrite to nitrate. scientific educational diagram with clear labels",
+          "video_query": "Nitrification: Nitrosomonas & Nitrobacter Pathways educational demonstration video",
+          "what_to_make": "Textbook diagram detailing the sequential enzymatic oxidation from ammonia to nitrite to nitrate.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram detailing the sequential enzymatic oxidation from ammonia to nitrite to nitrate. scientific educational diagram with clear labels\", title=\"Nitrification: Nitrosomonas & Nitrobacter Pathways\") | Proactive video: search_and_show_video(query=\"Nitrification: Nitrosomonas & Nitrobacter Pathways educational demonstration video\", title=\"Nitrification: Nitrosomonas & Nitrobacter Pathways\")",
+          "image_search_query": "Textbook diagram detailing the sequential enzymatic oxidation from ammonia to nitrite to nitrate. scientific educational diagram with clear labels",
+          "video_search_query": "Nitrification: Nitrosomonas & Nitrobacter Pathways educational demonstration video"
+        },
+        {
+          "concept_title": "Ammonification and Denitrification: In Ammonification, putrefying bacteria and fungi decompose nitrogenous animal wastes (urea, uric acid) and dead bodies into ammonia ($NH_3$); in Denitrification, anaerobic denitrifying bacteria (such as *Pseudomonas*) reduce nitrates ($NO_3^-$) back into inert elemental nitrogen gas ($N_2$), returning it to the atmosphere and completing the biogeochemical cycle.",
+          "diagram_title": "Denitrification by Pseudomonas Closing the Cycle",
+          "diagram_type": "image_search",
+          "image_query": "Pseudomonas reducing nitrates back into atmospheric N2 gas. scientific educational diagram with clear labels",
+          "video_query": "Denitrification by Pseudomonas Closing the Cycle educational demonstration video",
+          "what_to_make": "Textbook diagram showing Pseudomonas reducing nitrates back into atmospheric N2 gas.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Pseudomonas reducing nitrates back into atmospheric N2 gas. scientific educational diagram with clear labels\", title=\"Denitrification by Pseudomonas Closing the Cycle\") | Proactive video: search_and_show_video(query=\"Denitrification by Pseudomonas Closing the Cycle educational demonstration video\", title=\"Denitrification by Pseudomonas Closing the Cycle\")",
+          "image_search_query": "Pseudomonas reducing nitrates back into atmospheric N2 gas. scientific educational diagram with clear labels",
+          "video_search_query": "Denitrification by Pseudomonas Closing the Cycle educational demonstration video"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"You are breathing in 78% nitrogen gas with every single breath, yet your body cannot use a single molecule of it. Why is atmospheric nitrogen so chemically locked up?\"\n   - Law: Detail the N \\equiv N triple bond, biological fixation by Rhizobium, nitrification by Nitrosomonas/Nitrobacter, and denitrification by Pseudomonas.\n   - Socratic check: \"Why do farmers plant pea or gram crops in their fields between two wheat crops?\" HARD STOP: Wait for student answer!"
+  },
+  {
+    "order_index": 6,
+    "title": "The Oxygen Cycle, The Stratospheric Ozone Shield & Master NCERT Solver",
+    "description": "Examine atmospheric oxygen dynamics ($21\\%$) through photosynthesis and respiration, analyze the stratospheric ozone layer ($O_3$) UV-B/UV-C shielding, evaluate CFC depletion chemistry, examine the Montreal Protocol, and solve all NCERT Chapter 13 exercises.",
+    "subtopics": [
+      "The Oxygen Cycle: Atmospheric abundance (21%), respiration, combustion, and photosynthetic replenishment",
+      "Toxic vs Essential Oxygen: Elemental O2 essential for aerobes, but lethal to obligate anaerobic bacteria",
+      "Stratospheric Ozone Formation (O3): Photodissociation of O2 by solar UV rays (O2 -> O + O; O + O2 -> O3)",
+      "The Ultraviolet Shield: Absorption of lethal UV-B and UV-C rays preventing skin cancer, cataracts, and mutations",
+      "Ozone Layer Depletion: Chlorofluorocarbons (CFCs), catalytic chlorine radical destruction, Antarctic ozone hole",
+      "The Montreal Protocol (1987) & Comprehensive NCERT Chapter-End Problem Solver"
+    ],
+    "key_concepts": [
+      "The Biogeochemical Oxygen Cycle: Oxygen constitutes ~21% of atmospheric air, ~89% of water by mass, and ~47% of Earth's crust (as oxides of silicon and metals); it is consumed by cellular respiration, combustion of fuels, and oxidation of minerals (rusting), and replenished exclusively by oxygenic photosynthesis in plants and marine phytoplankton.",
+      "Oxygen Toxicity to Anaerobic Life: While elemental diatomic oxygen ($O_2$) is indispensable for aerobic respiration, it is intensely toxic to obligate anaerobic bacteria (such as *Clostridium tetani* and nitrogen-fixing *Rhizobium* in root nodules), requiring specialized biochemical protection (leghaemoglobin).",
+      "Photochemical Formation of Ozone ($O_3$): In the stratosphere ($15-30\\text{ km}$), high-energy solar ultraviolet radiation splits diatomic oxygen molecules into free nascent oxygen atoms: $O_2 \\xrightarrow{UV} O + O$; these nascent oxygen atoms instantly react with molecular oxygen to produce triatomic ozone: $O + O_2 \\to O_3$.",
+      "The Stratospheric Ozone Shield: Triatomic ozone forms a protective layer in the stratosphere that absorbs over 98% of high-energy, lethal solar ultraviolet radiation ($UV-B$ and $UV-C$), preventing it from reaching the Earth's surface; UV radiation causes skin cancer, cataract blindness, retinal damage, suppression of the human immune system, and destroys marine phytoplankton.",
+      "Catalytic Ozone Depletion by CFCs: Synthetic industrial Chlorofluorocarbons (CFCs) used in refrigerators, air conditioners, and aerosol propellants are exceptionally stable in the troposphere; when they drift into the stratosphere, UV rays break them down, releasing highly reactive chlorine free radicals ($Cl^\\bullet$): $Cl^\\bullet + O_3 \\to ClO^\\bullet + O_2$; a single chlorine radical can catalytically destroy more than 100,000 ozone molecules before being neutralized.",
+      "The Antarctic Ozone Hole & Montreal Protocol (1987): In 1985, scientists discovered severe seasonal thinning of the ozone layer over Antarctica ('the ozone hole'); in response, the international community signed the historic Montreal Protocol (1987) freezing and phasing out CFC production, leading to progressive stratospheric ozone recovery."
+    ],
+    "success_criteria": "Student can sketch the oxygen cycle, write photochemical equations for ozone formation and CFC catalytic depletion, explain the importance of the stratospheric UV shield, and solve all NCERT Chapter 13 exercises.",
+    "chapter_notes": "### 13.17 The Biogeochemical Oxygen Cycle (Fig. 13.16)\n- **Reservoirs of Oxygen**:\n  - **Atmosphere**: **$20.9\\% \\approx 21\\%$** as gaseous diatomic oxygen ($\\text{O}_2$).\n  - **Hydrosphere**: Dissolved oxygen and bonded water molecules ($\\text{H}_2\\text{O}$, $88.8\\%$ oxygen by mass).\n  - **Lithosphere**: The single most abundant element in Earth's crust ($46.6\\%$ by mass, as silicates, carbonates, oxides).\n- **Oxygen Depletion Processes**:\n  1. **Respiration**: Aerobic organisms consume $\\text{O}_2$ to oxidize glucose to $\\text{CO}_2$ and $\\text{H}_2\\text{O}$.\n  2. **Combustion**: Burning of organic matter and fossil fuels consumes massive volumes of oxygen.\n  3. **Oxidation / Rusting**: Corrosion of metals and oxidation of nitrogen into nitrates.\n- **Oxygen Replenishment**:\n  - There is only **one major biological source** of free oxygen on Earth: **Photosynthesis** by green plants, terrestrial forests, and ocean phytoplankton.\n\n### 13.18 The Paradox of Oxygen\nWhile elemental oxygen is mandatory for aerobes, it is **lethal to obligate anaerobes** (primitive anaerobic bacteria). In the presence of free oxygen, biological nitrogen fixation by the enzyme nitrogenase is completely poisoned and halted!\n\n### 13.19 The Stratospheric Ozone Layer ($O_3$)\nNormal oxygen is diatomic ($\\text{O}_2$). **Ozone** is a triatomic molecule ($\\text{O}_3$).\n- Near ground level (Troposphere), ozone is an intensely poisonous, corrosive pollutant and a primary component of photochemical smog.\n- In the **Stratosphere ($15 - 30\\text{ km}$)**, ozone forms an indispensable **protective atmospheric umbrella**.\n\n#### Photochemical Synthesis of Ozone (Chapman Cycle)\n1. High-energy solar ultraviolet radiation ($UV-C$) strikes diatomic oxygen, dissociating it into two free, reactive oxygen atoms:\n   $$\\text{O}_2 \\xrightarrow{\\text{High Energy UV}} \\text{O} + \\text{O}$$\n2. A nascent oxygen atom combines with an undissociated molecular oxygen:\n   $$\\text{O} + \\text{O}_2 \\to \\mathbf{\\text{O}_3 \\text{ (Ozone)}}$$\n\n#### The Protective UV Shield\nOzone absorbs harmful **$UV-B$ ($280-315\\text{ nm}$)** and **$UV-C$ ($100-280\\text{ nm}$)** radiation:\n- Without this shield, high-energy UV rays would penetrate to the ground, breaking chemical bonds in cellular DNA and proteins, causing:\n  - Melanoma and skin cancers.\n  - Corneal cataracts and blindness.\n  - Destruction of ocean phytoplankton (the base of global marine food webs).\n  - Severe crop yield reductions.\n\n### 13.20 Ozone Depletion by CFCs & The Montreal Protocol\n- **Chlorofluorocarbons (CFCs)**: Synthetic, non-toxic, non-flammable carbon compounds containing chlorine and fluorine (e.g., Freon), widely used as refrigerants in refrigerators and ACs, fire extinguishers, and aerosol spray propellants.\n- **Mechanism of Depletion**:\n  1. Being unreactive, CFCs do not degrade in the lower atmosphere; they slowly drift up into the stratosphere over decades.\n  2. In the stratosphere, intense UV radiation breaks the carbon-chlorine bond, releasing **chlorine free radicals ($Cl^\\bullet$)**:\n     $$\\text{CF}_2\\text{Cl}_2 \\xrightarrow{UV} \\text{CF}_2\\text{Cl}^\\bullet + \\text{Cl}^\\bullet$$\n  3. The free chlorine radical attacks ozone, destroying it into oxygen and chlorine monoxide:\n     $$\\text{Cl}^\\bullet + \\text{O}_3 \\to \\text{ClO}^\\bullet + \\text{O}_2$$\n     $$\\text{ClO}^\\bullet + \\text{O} \\to \\text{Cl}^\\bullet + \\text{O}_2$$\n  4. Notice that the chlorine radical ($Cl^\\bullet$) is regenerated unchanged! A single chlorine atom acts as an unyielding catalytic engine, destroying **over 100,000 ozone molecules** before being scavenged.\n- **The Ozone Hole & Global Action**:\n  - In 1985, British Antarctic Survey scientists discovered severe seasonal ozone depletion over Antarctica (dropping by $>50\\%$ during springtime).\n  - In 1987, the United Nations Environment Programme (UNEP) forged the **Montreal Protocol**, legally freezing and phasing out the production of CFCs worldwide.\n  - The Montreal Protocol is recognized as the single most successful international environmental treaty in human history, and the stratospheric ozone layer is now measurably recovering.",
+    "worked_examples": [
+      {
+        "problem": "Explain how the stratospheric ozone layer (O3) is formed by photochemical reactions in the upper atmosphere. Write the two-step chemical equations.",
+        "given": "Photochemical synthesis of ozone in the stratosphere.",
+        "formula": "Chapman Photochemical Mechanism: O2 + UV -> 2 O; O + O2 -> O3",
+        "substitution": "High-energy solar UV rays cleaving O2, followed by addition of nascent oxygen to molecular O2.",
+        "calculation": "1. In the stratosphere, intense, high-energy solar ultraviolet radiation strikes ordinary diatomic oxygen molecules (O2), breaking their double covalent bond to yield two free, highly reactive atomic oxygen radicals (nascent oxygen):\n   $$\\text{O}_2 \\xrightarrow{\\text{Solar UV}} \\text{O} + \\text{O}$$\n2. Each energetic oxygen atom immediately collides with and combines with an intact molecular oxygen molecule (O2) in the presence of a stabilizing third body (M) to form triatomic ozone (O3):\n   $$\\text{O} + \\text{O}_2 \\to \\text{O}_3$$\n3. The ozone molecule subsequently absorbs UV radiation to dissociate back to O2 and O, creating a dynamic steady-state equilibrium.",
+        "finalAnswer": "Step 1: O2 + UV -> O + O; Step 2: O + O2 -> O3; establishes a dynamic protective stratospheric ozone layer.",
+        "unit": "Photochemical Kinetics",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.7: Stratospheric ozone layer profile"
+      },
+      {
+        "problem": "What are Chlorofluorocarbons (CFCs)? Explain the chemical mechanism by which a single chlorine atom can destroy over 100,000 ozone molecules in the stratosphere.",
+        "given": "Catalytic destruction of ozone by synthetic halocarbons.",
+        "formula": "Catalytic Chlorine Radical Chain Reaction: Cl* + O3 -> ClO* + O2; ClO* + O -> Cl* + O2",
+        "substitution": "Photolytic release of chlorine free radical from non-degraded CFCs.",
+        "calculation": "1. Chlorofluorocarbons (CFCs) are synthetic organic compounds containing carbon, chlorine, and fluorine atoms used as refrigerants and aerosol propellants.\n2. In the stratosphere, high-energy UV light breaks the carbon-chlorine bond, releasing a free chlorine radical (Cl*).\n3. The chlorine radical reacts with an ozone molecule (O3), breaking it into molecular oxygen (O2) and chlorine monoxide (ClO*):\n   $$\\text{Cl}^\\bullet + \\text{O}_3 \\to \\text{ClO}^\\bullet + \\text{O}_2$$\n4. The ClO* then reacts with a free oxygen atom (O), forming O2 and regenerating the original active chlorine radical (Cl*):\n   $$\\text{ClO}^\\bullet + \\text{O} \\to \\text{Cl}^\\bullet + \\text{O}_2$$\n5. Because the chlorine radical is regenerated unchanged at the end of the cycle, it is not consumed. It repeats this destructive catalytic cycle over and over, destroying more than 100,000 ozone molecules before eventually diffusing out.",
+        "finalAnswer": "CFCs release chlorine radicals that catalytically destroy ozone and regenerate unchanged, destroying >100,000 ozone molecules per radical.",
+        "unit": "Stratospheric Chemistry",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.7: Ozone layer depletion in the stratosphere"
+      },
+      {
+        "problem": "Why is the ozone layer vital for all terrestrial and marine life on Earth? List three catastrophic consequences if it were depleted completely.",
+        "given": "Biological effects of solar ultraviolet (UV-B and UV-C) radiation.",
+        "formula": "UV Radiation Absorption & DNA Damage Action Spectrum",
+        "substitution": "Ozone absorbing wavelengths between 200 and 315 nm.",
+        "calculation": "1. The stratospheric ozone umbrella absorbs more than 98% of harmful, high-energy solar ultraviolet radiation (UV-B and UV-C).\n2. If the ozone shield were depleted, intense UV radiation would reach Earth's surface with catastrophic biological impacts:\n   (a) **Severe Human Health Damage**: Widespread incidence of malignant skin melanoma, corneal cataracts, blindness, and immunosuppression;\n   (b) **Destruction of Marine Food Webs**: UV radiation penetrates shallow ocean water, killing microscopic phytoplankton (which produce 50% of planetary oxygen and form the foundational base of all marine food chains);\n   (c) **Agricultural Collapse**: UV radiation damages plant chlorophyll and cellular DNA, stunting crop growth, mutating pollen, and slashing global agricultural yields.",
+        "finalAnswer": "Ozone absorbs 98% of lethal UV radiation; depletion causes skin cancer, cataract blindness, phytoplankton death, and global agricultural collapse.",
+        "unit": "Radiation Biology",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.7: Stratospheric UV absorption umbrella"
+      },
+      {
+        "problem": "Describe the global biogeochemical Oxygen Cycle (Fig. 13.16). Name the primary processes that consume oxygen and the primary process that returns it.",
+        "given": "Planetary oxygen balance between atmosphere, biosphere, and lithosphere.",
+        "formula": "Oxygen Cycling: Consumption (Respiration, Combustion, Oxidation) <--> Production (Photosynthesis)",
+        "substitution": "Aerobic life and fossil fuels consume O2; green plants and phytoplankton synthesize O2.",
+        "calculation": "1. Atmospheric oxygen accounts for ~21% of the atmosphere.\n2. **Oxygen-Consuming Processes**:\n   (a) Cellular Respiration by animals, plants, and microorganisms ($C_6H_{12}O_6 + 6O_2 \\to 6CO_2 + 6H_2O$);\n   (b) Combustion of fossil fuels, wood, and biomass;\n   (c) Chemical oxidation of metals and minerals (e.g., formation of iron oxides / rusting).\n3. **Oxygen-Producing Process**:\n   - Oxygen is replenished exclusively through **Photosynthesis** by green land plants and oceanic phytoplankton:\n     $$6\\text{CO}_2 + 6\\text{H}_2\\text{O} \\to \\text{C}_6\\text{H}_{12}\\text{O}_6 + 6\\text{O}_2$$\n4. This cyclic exchange maintains atmospheric oxygen at a steady 21%.",
+        "finalAnswer": "Oxygen is consumed by respiration, combustion, and oxidation; it is replenished solely by oxygenic photosynthesis.",
+        "unit": "Biogeochemical Cycles",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.16: The biogeochemical oxygen cycle"
+      },
+      {
+        "problem": "What was the landmark Montreal Protocol of 1987? Why is it considered the most successful environmental agreement in history?",
+        "given": "International environmental policy response to ozone depletion.",
+        "formula": "Multilateral Ozone-Depleting Substances Phase-Out Agreement",
+        "substitution": "Freezing and banning production of CFCs and halons globally.",
+        "calculation": "1. Following the 1985 discovery of the Antarctic ozone hole, the United Nations convened the Montreal Protocol on Substances that Deplete the Ozone Layer in 1987.\n2. It established legally binding phase-out schedules for chlorofluorocarbons (CFCs), halons, and other ozone-depleting chemicals worldwide, ratified by all 198 UN member states (universal ratification).\n3. It is considered the most successful environmental treaty in history because all nations successfully replaced CFCs with safer alternatives (HFCs and HFOs), global production of CFCs collapsed by >98%, and scientific satellite data confirms that the stratospheric ozone layer is now actively healing and on track to fully recover by ~2060.",
+        "finalAnswer": "The Montreal Protocol (1987) universally phased out CFC production; it is the most successful treaty because >98% of CFCs were eliminated and ozone is healing.",
+        "unit": "Global Environmental Policy",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.11: Meteorological monitoring of atmospheric composition"
+      },
+      {
+        "problem": "Why is ozone considered a dual-natured gas: a dangerous pollutant near ground level, yet a life-saving protector in the stratosphere?",
+        "given": "Tropospheric ozone vs stratospheric ozone.",
+        "formula": "'Good Up High, Bad Nearby' Ozone Principle",
+        "substitution": "Stratospheric O3 blocks lethal UV; Tropospheric ground-level O3 oxidizes lungs and crops.",
+        "calculation": "1. **Bad Nearby (Tropospheric Ozone)**: At ground level, ozone is an aggressive oxidizing agent and major component of urban photochemical smog (formed when vehicle exhaust reacts with sunlight). Inhaling ground ozone burns respiratory lung tissues, triggers severe asthma, and damages agricultural crops.\n2. **Good Up High (Stratospheric Ozone)**: 20 km above Earth in the stratosphere, ozone acts as a lifesaving shield by absorbing lethal solar UV-B and UV-C radiation before it reaches the surface, shielding all living organisms from lethal cellular DNA damage and cancer.",
+        "finalAnswer": "Ground-level ozone is a toxic lung-damaging pollutant and smog component; stratospheric ozone is an indispensable shield absorbing lethal solar UV radiation.",
+        "unit": "Environmental Toxicology",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 13.7: Stratospheric vs tropospheric atmospheric profile"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "The 'ozone hole' is a literal empty circular hole cut through the sky with no air inside.",
+        "correction": "The ozone hole is NOT a physical hole with empty space! It is a localized REGION OF SEVERE THINNING where the concentration of stratospheric ozone drops drastically (measured below 220 Dobson Units) over Antarctica during the polar spring, allowing lethal UV radiation to penetrate.",
+        "why_it_matters": "Clarifies atmospheric column density vs physical void."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Oxygen Cycle & Stratospheric Ozone Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "The Biogeochemical Oxygen Cycle: Oxygen constitutes ~21% of atmospheric air, ~89% of water by mass, and ~47% of Earth's crust (as oxides of silicon and metals); it is consumed by cellular respiration, combustion of fuels, and oxidation of minerals (rusting), and replenished exclusively by oxygenic photosynthesis in plants and marine phytoplankton.",
+          "diagram_title": "The Biogeochemical Oxygen Cycle Schema",
+          "diagram_type": "image_search",
+          "image_query": "Textbook master diagram of the oxygen cycle showing respiration, combustion, and photosynthetic oxygen release. scientific educational diagram with clear labels",
+          "video_query": "The Biogeochemical Oxygen Cycle Schema educational demonstration video",
+          "what_to_make": "Textbook master diagram of the oxygen cycle showing respiration, combustion, and photosynthetic oxygen release.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook master diagram of the oxygen cycle showing respiration, combustion, and photosynthetic oxygen release. scientific educational diagram with clear labels\", title=\"The Biogeochemical Oxygen Cycle Schema\") | Proactive video: search_and_show_video(query=\"The Biogeochemical Oxygen Cycle Schema educational demonstration video\", title=\"The Biogeochemical Oxygen Cycle Schema\")",
+          "image_search_query": "Textbook master diagram of the oxygen cycle showing respiration, combustion, and photosynthetic oxygen release. scientific educational diagram with clear labels",
+          "video_search_query": "The Biogeochemical Oxygen Cycle Schema educational demonstration video"
+        },
+        {
+          "concept_title": "Oxygen Toxicity to Anaerobic Life: While elemental diatomic oxygen ($O_2$) is indispensable for aerobic respiration, it is intensely toxic to obligate anaerobic bacteria (such as *Clostridium tetani* and nitrogen-fixing *Rhizobium* in root nodules), requiring specialized biochemical protection (leghaemoglobin).",
+          "diagram_title": "Aerobic vs Anaerobic Biochemical Metabolic Pathways",
+          "diagram_type": "image_search",
+          "image_query": "Textbook diagram contrasting aerobic respiration pathways with anaerobic metabolic niches. scientific educational diagram with clear labels",
+          "video_query": "Aerobic vs Anaerobic Biochemical Metabolic Pathways educational demonstration video",
+          "what_to_make": "Textbook diagram contrasting aerobic respiration pathways with anaerobic metabolic niches.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook diagram contrasting aerobic respiration pathways with anaerobic metabolic niches. scientific educational diagram with clear labels\", title=\"Aerobic vs Anaerobic Biochemical Metabolic Pathways\") | Proactive video: search_and_show_video(query=\"Aerobic vs Anaerobic Biochemical Metabolic Pathways educational demonstration video\", title=\"Aerobic vs Anaerobic Biochemical Metabolic Pathways\")",
+          "image_search_query": "Textbook diagram contrasting aerobic respiration pathways with anaerobic metabolic niches. scientific educational diagram with clear labels",
+          "video_search_query": "Aerobic vs Anaerobic Biochemical Metabolic Pathways educational demonstration video"
+        },
+        {
+          "concept_title": "Photochemical Formation of Ozone ($O_3$): In the stratosphere ($15-30\\text{ km}$), high-energy solar ultraviolet radiation splits diatomic oxygen molecules into free nascent oxygen atoms: $O_2 \\xrightarrow{UV} O + O$; these nascent oxygen atoms instantly react with molecular oxygen to produce triatomic ozone: $O + O_2 \\to O_3$.",
+          "diagram_title": "Stratospheric Ozone Photochemical Synthesis",
+          "diagram_type": "image_search",
+          "image_query": "solar UV photolysis synthesizing stratospheric ozone molecules. scientific educational diagram with clear labels",
+          "video_query": "Stratospheric Ozone Photochemical Synthesis educational demonstration video",
+          "what_to_make": "Textbook diagram showing solar UV photolysis synthesizing stratospheric ozone molecules.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"solar UV photolysis synthesizing stratospheric ozone molecules. scientific educational diagram with clear labels\", title=\"Stratospheric Ozone Photochemical Synthesis\") | Proactive video: search_and_show_video(query=\"Stratospheric Ozone Photochemical Synthesis educational demonstration video\", title=\"Stratospheric Ozone Photochemical Synthesis\")",
+          "image_search_query": "solar UV photolysis synthesizing stratospheric ozone molecules. scientific educational diagram with clear labels",
+          "video_search_query": "Stratospheric Ozone Photochemical Synthesis educational demonstration video"
+        },
+        {
+          "concept_title": "The Stratospheric Ozone Shield: Triatomic ozone forms a protective layer in the stratosphere that absorbs over 98% of high-energy, lethal solar ultraviolet radiation ($UV-B$ and $UV-C$), preventing it from reaching the Earth's surface; UV radiation causes skin cancer, cataract blindness, retinal damage, suppression of the human immune system, and destroys marine phytoplankton.",
+          "diagram_title": "Stratospheric Ultraviolet Absorption Shield",
+          "diagram_type": "image_search",
+          "image_query": "the stratospheric ozone layer absorbing lethal UV rays while transmitting visible light. scientific educational diagram with clear labels",
+          "video_query": "Stratospheric Ultraviolet Absorption Shield educational demonstration video",
+          "what_to_make": "Textbook diagram illustrating the stratospheric ozone layer absorbing lethal UV rays while transmitting visible light.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"the stratospheric ozone layer absorbing lethal UV rays while transmitting visible light. scientific educational diagram with clear labels\", title=\"Stratospheric Ultraviolet Absorption Shield\") | Proactive video: search_and_show_video(query=\"Stratospheric Ultraviolet Absorption Shield educational demonstration video\", title=\"Stratospheric Ultraviolet Absorption Shield\")",
+          "image_search_query": "the stratospheric ozone layer absorbing lethal UV rays while transmitting visible light. scientific educational diagram with clear labels",
+          "video_search_query": "Stratospheric Ultraviolet Absorption Shield educational demonstration video"
+        },
+        {
+          "concept_title": "Catalytic Ozone Depletion by CFCs: Synthetic industrial Chlorofluorocarbons (CFCs) used in refrigerators, air conditioners, and aerosol propellants are exceptionally stable in the troposphere; when they drift into the stratosphere, UV rays break them down, releasing highly reactive chlorine free radicals ($Cl^\\bullet$): $Cl^\\bullet + O_3 \\to ClO^\\bullet + O_2$; a single chlorine radical can catalytically destroy more than 100,000 ozone molecules before being neutralized.",
+          "diagram_title": "CFC Catalytic Ozone Destruction Cycle",
+          "diagram_type": "image_search",
+          "image_query": "chlorine radical catalytic destruction of ozone molecules. scientific educational diagram with clear labels",
+          "video_query": "CFC Catalytic Ozone Destruction Cycle educational demonstration video",
+          "what_to_make": "Textbook diagram showing chlorine radical catalytic destruction of ozone molecules.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"chlorine radical catalytic destruction of ozone molecules. scientific educational diagram with clear labels\", title=\"CFC Catalytic Ozone Destruction Cycle\") | Proactive video: search_and_show_video(query=\"CFC Catalytic Ozone Destruction Cycle educational demonstration video\", title=\"CFC Catalytic Ozone Destruction Cycle\")",
+          "image_search_query": "chlorine radical catalytic destruction of ozone molecules. scientific educational diagram with clear labels",
+          "video_search_query": "CFC Catalytic Ozone Destruction Cycle educational demonstration video"
+        },
+        {
+          "concept_title": "The Antarctic Ozone Hole & Montreal Protocol (1987): In 1985, scientists discovered severe seasonal thinning of the ozone layer over Antarctica ('the ozone hole'); in response, the international community signed the historic Montreal Protocol (1987) freezing and phasing out CFC production, leading to progressive stratospheric ozone recovery.",
+          "diagram_title": "IITM Atmospheric Monitoring & Montreal Protocol",
+          "diagram_type": "image_search",
+          "image_query": "Textbook photograph of meteorological research monitoring station tracking atmospheric composition and ozone recovery. scientific educational diagram with clear labels",
+          "video_query": "IITM Atmospheric Monitoring & Montreal Protocol educational demonstration video",
+          "what_to_make": "Textbook photograph of meteorological research monitoring station tracking atmospheric composition and ozone recovery.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook photograph of meteorological research monitoring station tracking atmospheric composition and ozone recovery. scientific educational diagram with clear labels\", title=\"IITM Atmospheric Monitoring & Montreal Protocol\") | Proactive video: search_and_show_video(query=\"IITM Atmospheric Monitoring & Montreal Protocol educational demonstration video\", title=\"IITM Atmospheric Monitoring & Montreal Protocol\")",
+          "image_search_query": "Textbook photograph of meteorological research monitoring station tracking atmospheric composition and ozone recovery. scientific educational diagram with clear labels",
+          "video_search_query": "IITM Atmospheric Monitoring & Montreal Protocol educational demonstration video"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Ozone gas near the ground in city traffic will burn your throat and poison your lungs, yet 25 kilometers up in the sky, it is the only thing keeping you from getting lethal skin cancer. Why?\"\n   - Law: Detail the oxygen cycle, photochemical O3 synthesis, CFC chlorine catalytic destruction, and the Montreal Protocol.\n   - Socratic check: \"How many ozone molecules can a single free chlorine radical destroy before it finally stops?\" HARD STOP: Wait for student answer!"
+  }
+]

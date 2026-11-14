@@ -1,0 +1,1066 @@
+[
+  {
+    "figure_id": "Fig. 6.1",
+    "page_number": 1,
+    "caption": "Fig. 6.1: Athletes at the start of 4 × 100 m relay race Those in the outer",
+    "filename": "fig_6_1.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_1.webp",
+    "dimensions": {
+      "width": 1333,
+      "height": 924,
+      "aspect_ratio": 1.44
+    },
+    "file_size_kb": 145.1,
+    "crop_bbox": [
+      24.0,
+      50.0,
+      504.0,
+      386.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.2",
+    "page_number": 2,
+    "caption": "Fig. 6.2 A Fig. 6.2 B",
+    "filename": "fig_6_2.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_2.webp",
+    "dimensions": {
+      "width": 473,
+      "height": 272,
+      "aspect_ratio": 1.74
+    },
+    "file_size_kb": 7.3,
+    "crop_bbox": [
+      264.8,
+      164.0,
+      439.0,
+      265.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.3",
+    "page_number": 2,
+    "caption": "Fig. 6.3 Think and Reflect",
+    "filename": "fig_6_3.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_3.webp",
+    "dimensions": {
+      "width": 525,
+      "height": 707,
+      "aspect_ratio": 0.74
+    },
+    "file_size_kb": 38.3,
+    "crop_bbox": [
+      72.0,
+      168.0,
+      264.0,
+      439.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.4",
+    "page_number": 2,
+    "caption": "Fig. 6.4: Ratio of perimeter to side is 4:1",
+    "filename": "fig_6_4.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_4.webp",
+    "dimensions": {
+      "width": 553,
+      "height": 682,
+      "aspect_ratio": 0.81
+    },
+    "file_size_kb": 75.0,
+    "crop_bbox": [
+      253.4,
+      400.3,
+      456.0,
+      650.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.5",
+    "page_number": 3,
+    "caption": "Fig. 6.5 What do you think?",
+    "filename": "fig_6_5.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_5.webp",
+    "dimensions": {
+      "width": 534,
+      "height": 287,
+      "aspect_ratio": 1.86
+    },
+    "file_size_kb": 10.6,
+    "crop_bbox": [
+      77.1,
+      138.6,
+      275.4,
+      258.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.6",
+    "page_number": 4,
+    "caption": "Fig. 6.6 The Mesopotamian Hexagon-to-Circle comparison. Can you see why this shows that π > 3?",
+    "filename": "fig_6_6.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_6.webp",
+    "dimensions": {
+      "width": 709,
+      "height": 447,
+      "aspect_ratio": 1.59
+    },
+    "file_size_kb": 21.3,
+    "crop_bbox": [
+      96.6,
+      237.5,
+      351.9,
+      398.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.7",
+    "page_number": 4,
+    "caption": "Fig. 6.7: Archimedes’ method utilising inscribed and circumscribed polygons. Can you see why this diagram of an inscribed and",
+    "filename": "fig_6_7.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_7.webp",
+    "dimensions": {
+      "width": 917,
+      "height": 534,
+      "aspect_ratio": 1.72
+    },
+    "file_size_kb": 52.9,
+    "crop_bbox": [
+      72.0,
+      437.4,
+      405.7,
+      629.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.8",
+    "page_number": 8,
+    "caption": "Fig. 6.8)? Fig. 6.8: Two semicircles making If we reflect the circle in the",
+    "filename": "fig_6_8.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_8.webp",
+    "dimensions": {
+      "width": 395,
+      "height": 362,
+      "aspect_ratio": 1.09
+    },
+    "file_size_kb": 11.4,
+    "crop_bbox": [
+      92.8,
+      150.9,
+      240.2,
+      284.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.9",
+    "page_number": 8,
+    "caption": "Fig. 6.9: Four quarter circles 2πr ÷ 4 = . 2 make a full circle Note the following:",
+    "filename": "fig_6_9.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_9.webp",
+    "dimensions": {
+      "width": 697,
+      "height": 494,
+      "aspect_ratio": 1.41
+    },
+    "file_size_kb": 34.1,
+    "crop_bbox": [
+      99.4,
+      398.6,
+      350.5,
+      576.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.10",
+    "page_number": 9,
+    "caption": "Fig. 6.10: Length of an arc of a circle",
+    "filename": "fig_6_10.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_10.webp",
+    "dimensions": {
+      "width": 358,
+      "height": 605,
+      "aspect_ratio": 0.59
+    },
+    "file_size_kb": 17.0,
+    "crop_bbox": [
+      90.0,
+      104.8,
+      218.9,
+      329.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.11",
+    "page_number": 9,
+    "caption": "Fig. 6.11: Schematic diagram of a 400 m athletics track",
+    "filename": "fig_6_11.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_11.webp",
+    "dimensions": {
+      "width": 847,
+      "height": 706,
+      "aspect_ratio": 1.2
+    },
+    "file_size_kb": 107.9,
+    "crop_bbox": [
+      110.2,
+      370.4,
+      417.8,
+      628.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.11",
+    "page_number": 10,
+    "caption": "Fig. 6.11 depicts a 400 m athletics track. You can see two straight sections of length 84.39 m each, and two curved",
+    "filename": "fig_6_11.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_11.webp",
+    "dimensions": {
+      "width": 1333,
+      "height": 256,
+      "aspect_ratio": 5.21
+    },
+    "file_size_kb": 25.4,
+    "crop_bbox": [
+      24.0,
+      36.0,
+      504.0,
+      128.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.12",
+    "page_number": 11,
+    "caption": "Fig. 6.12 equilateral, hence ∠CAB = 60° = ∠CBA.",
+    "filename": "fig_6_12.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_12.webp",
+    "dimensions": {
+      "width": 506,
+      "height": 410,
+      "aspect_ratio": 1.23
+    },
+    "file_size_kb": 11.5,
+    "crop_bbox": [
+      77.2,
+      91.1,
+      264.8,
+      260.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.13",
+    "page_number": 11,
+    "caption": "Fig. 6.13 length. (Try to answer this before reading on.)",
+    "filename": "fig_6_13.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_13.webp",
+    "dimensions": {
+      "width": 1045,
+      "height": 611,
+      "aspect_ratio": 1.71
+    },
+    "file_size_kb": 71.2,
+    "crop_bbox": [
+      72.0,
+      283.9,
+      451.5,
+      504.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.14",
+    "page_number": 12,
+    "caption": "Fig. 6.14",
+    "filename": "fig_6_14.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_14.webp",
+    "dimensions": {
+      "width": 630,
+      "height": 872,
+      "aspect_ratio": 0.72
+    },
+    "file_size_kb": 43.8,
+    "crop_bbox": [
+      253.4,
+      319.8,
+      487.1,
+      637.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.15A",
+    "page_number": 13,
+    "caption": "Fig. 6.15A: The centres of the arcs are the Fig. 6.15B: The centres of the arcs midpoints of the sides of the",
+    "filename": "fig_6_15A.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_15A.webp",
+    "dimensions": {
+      "width": 964,
+      "height": 457,
+      "aspect_ratio": 2.11
+    },
+    "file_size_kb": 55.3,
+    "crop_bbox": [
+      114.6,
+      170.5,
+      464.6,
+      338.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.15B",
+    "page_number": 13,
+    "caption": "Fig. 6.15B: The centres of the arcs midpoints of the sides of the square are the vertices of the hexagon",
+    "filename": "fig_6_15B.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_15B.webp",
+    "dimensions": {
+      "width": 964,
+      "height": 457,
+      "aspect_ratio": 2.11
+    },
+    "file_size_kb": 55.3,
+    "crop_bbox": [
+      114.6,
+      170.5,
+      464.6,
+      338.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.16",
+    "page_number": 13,
+    "caption": "Fig. 6.16: Area of square and rectangle",
+    "filename": "fig_6_16.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_16.webp",
+    "dimensions": {
+      "width": 1032,
+      "height": 251,
+      "aspect_ratio": 4.11
+    },
+    "file_size_kb": 16.1,
+    "crop_bbox": [
+      89.1,
+      490.3,
+      463.1,
+      585.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.17",
+    "page_number": 14,
+    "caption": "Fig. 6.17: Area of a parallelogram. Here, A'B'C'D' is a copy of ABCD. Fig. 6.17 shows how",
+    "filename": "fig_6_17.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_17.webp",
+    "dimensions": {
+      "width": 843,
+      "height": 385,
+      "aspect_ratio": 2.19
+    },
+    "file_size_kb": 26.5,
+    "crop_bbox": [
+      114.4,
+      91.1,
+      417.8,
+      231.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.18",
+    "page_number": 14,
+    "caption": "Fig. 6.18",
+    "filename": "fig_6_18.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_18.webp",
+    "dimensions": {
+      "width": 554,
+      "height": 373,
+      "aspect_ratio": 1.49
+    },
+    "file_size_kb": 11.5,
+    "crop_bbox": [
+      253.4,
+      280.3,
+      456.0,
+      414.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.19",
+    "page_number": 14,
+    "caption": "Fig. 6.19: The thin parallelogram this step as many times as needed.",
+    "filename": "fig_6_19.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_19.webp",
+    "dimensions": {
+      "width": 492,
+      "height": 286,
+      "aspect_ratio": 1.72
+    },
+    "file_size_kb": 11.9,
+    "crop_bbox": [
+      78.0,
+      452.2,
+      261.9,
+      555.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.20A",
+    "page_number": 15,
+    "caption": "Fig. 6.20A. Notice that FG = FJ + JG and so b = b + b .) We find as a result",
+    "filename": "fig_6_20A.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_20A.webp",
+    "dimensions": {
+      "width": 1333,
+      "height": 602,
+      "aspect_ratio": 2.21
+    },
+    "file_size_kb": 79.7,
+    "crop_bbox": [
+      24.0,
+      37.4,
+      504.0,
+      254.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.20B",
+    "page_number": 15,
+    "caption": "Fig. 6.20B Fig. 6.20A: Area of a triangle",
+    "filename": "fig_6_20B.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_20B.webp",
+    "dimensions": {
+      "width": 1009,
+      "height": 609,
+      "aspect_ratio": 1.66
+    },
+    "file_size_kb": 54.4,
+    "crop_bbox": [
+      72.0,
+      271.3,
+      438.5,
+      490.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.21A",
+    "page_number": 15,
+    "caption": "Fig. 6.21A Fig. 6.21B",
+    "filename": "fig_6_21A.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_21A.webp",
+    "dimensions": {
+      "width": 662,
+      "height": 302,
+      "aspect_ratio": 2.19
+    },
+    "file_size_kb": 11.6,
+    "crop_bbox": [
+      73.6,
+      540.9,
+      318.2,
+      653.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.21B",
+    "page_number": 15,
+    "caption": "Fig. 6.21B",
+    "filename": "fig_6_21B.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_21B.webp",
+    "dimensions": {
+      "width": 662,
+      "height": 302,
+      "aspect_ratio": 2.19
+    },
+    "file_size_kb": 11.6,
+    "crop_bbox": [
+      73.6,
+      540.9,
+      318.2,
+      652.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.22",
+    "page_number": 16,
+    "caption": "Fig. 6.22 2 We state this as a theorem. Theorem: A median of a triangle",
+    "filename": "fig_6_22.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_22.webp",
+    "dimensions": {
+      "width": 1052,
+      "height": 745,
+      "aspect_ratio": 1.41
+    },
+    "file_size_kb": 94.8,
+    "crop_bbox": [
+      72.0,
+      158.3,
+      456.0,
+      426.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.23",
+    "page_number": 18,
+    "caption": "Fig. 6.23 Note: Notice the symbol",
+    "filename": "fig_6_23.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_23.webp",
+    "dimensions": {
+      "width": 523,
+      "height": 741,
+      "aspect_ratio": 0.71
+    },
+    "file_size_kb": 25.9,
+    "crop_bbox": [
+      71.9,
+      109.1,
+      264.0,
+      375.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.24",
+    "page_number": 18,
+    "caption": "Fig. 6.24",
+    "filename": "fig_6_24.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_24.webp",
+    "dimensions": {
+      "width": 523,
+      "height": 617,
+      "aspect_ratio": 0.85
+    },
+    "file_size_kb": 25.0,
+    "crop_bbox": [
+      72.0,
+      404.4,
+      264.0,
+      630.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.25",
+    "page_number": 19,
+    "caption": "Fig. 6.25 We get the correct",
+    "filename": "fig_6_25.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_25.webp",
+    "dimensions": {
+      "width": 523,
+      "height": 622,
+      "aspect_ratio": 0.84
+    },
+    "file_size_kb": 29.7,
+    "crop_bbox": [
+      72.0,
+      118.7,
+      264.0,
+      342.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.26",
+    "page_number": 19,
+    "caption": "Fig. 6.26 Area of",
+    "filename": "fig_6_26.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_26.webp",
+    "dimensions": {
+      "width": 943,
+      "height": 427,
+      "aspect_ratio": 2.21
+    },
+    "file_size_kb": 36.9,
+    "crop_bbox": [
+      91.4,
+      474.1,
+      433.8,
+      646.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.27",
+    "page_number": 20,
+    "caption": "Fig. 6.27: The area of a 4-gon cannot be found only from the lengths of its sides",
+    "filename": "fig_6_27.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_27.webp",
+    "dimensions": {
+      "width": 1009,
+      "height": 372,
+      "aspect_ratio": 2.71
+    },
+    "file_size_kb": 22.5,
+    "crop_bbox": [
+      78.1,
+      340.5,
+      448.0,
+      474.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.28",
+    "page_number": 21,
+    "caption": "Fig. 6.28: A cyclic 4-gon We can verify that",
+    "filename": "fig_6_28.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_28.webp",
+    "dimensions": {
+      "width": 400,
+      "height": 522,
+      "aspect_ratio": 0.77
+    },
+    "file_size_kb": 15.1,
+    "crop_bbox": [
+      75.3,
+      94.7,
+      220.4,
+      285.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.29",
+    "page_number": 21,
+    "caption": "Fig. 6.29: Isosceles trapezium Since s – 2a = c + b – a, s – 2b = c + a –",
+    "filename": "fig_6_29.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_29.webp",
+    "dimensions": {
+      "width": 1022,
+      "height": 721,
+      "aspect_ratio": 1.42
+    },
+    "file_size_kb": 77.4,
+    "crop_bbox": [
+      83.3,
+      317.7,
+      451.2,
+      577.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.30",
+    "page_number": 24,
+    "caption": "Fig. 6.30: Rectangle ABCD with AD = a, AB = b • Draw square HPQS with HP",
+    "filename": "fig_6_30.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_30.webp",
+    "dimensions": {
+      "width": 533,
+      "height": 459,
+      "aspect_ratio": 1.16
+    },
+    "file_size_kb": 12.1,
+    "crop_bbox": [
+      73.9,
+      156.9,
+      269.4,
+      325.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.31",
+    "page_number": 25,
+    "caption": "Fig. 6.31",
+    "filename": "fig_6_31.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_31.webp",
+    "dimensions": {
+      "width": 557,
+      "height": 791,
+      "aspect_ratio": 0.7
+    },
+    "file_size_kb": 24.2,
+    "crop_bbox": [
+      253.4,
+      87.0,
+      455.1,
+      375.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.32",
+    "page_number": 26,
+    "caption": "Fig. 6.32 Fig. 6.33 10. Given a square ABCD, let",
+    "filename": "fig_6_32.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_32.webp",
+    "dimensions": {
+      "width": 770,
+      "height": 426,
+      "aspect_ratio": 1.81
+    },
+    "file_size_kb": 25.0,
+    "crop_bbox": [
+      99.0,
+      168.9,
+      380.2,
+      324.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.33",
+    "page_number": 26,
+    "caption": "Fig. 6.33",
+    "filename": "fig_6_33.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_33.webp",
+    "dimensions": {
+      "width": 291,
+      "height": 368,
+      "aspect_ratio": 0.79
+    },
+    "file_size_kb": 7.0,
+    "crop_bbox": [
+      269.8,
+      168.9,
+      378.2,
+      303.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.34",
+    "page_number": 26,
+    "caption": "Fig. 6.34",
+    "filename": "fig_6_34.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_34.webp",
+    "dimensions": {
+      "width": 291,
+      "height": 438,
+      "aspect_ratio": 0.66
+    },
+    "file_size_kb": 12.5,
+    "crop_bbox": [
+      253.4,
+      397.5,
+      362.1,
+      559.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.36",
+    "page_number": 28,
+    "caption": "Fig. 6.36: Area of a regular polygon = × perimeter of the polygon × radius 2",
+    "filename": "fig_6_36.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_36.webp",
+    "dimensions": {
+      "width": 1052,
+      "height": 1071,
+      "aspect_ratio": 0.98
+    },
+    "file_size_kb": 120.3,
+    "crop_bbox": [
+      72.0,
+      246.3,
+      456.0,
+      638.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.37",
+    "page_number": 29,
+    "caption": "Fig. 6.37: The slices can be rearranged to form a parallelogram-like structure As the slices become smaller",
+    "filename": "fig_6_37.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_37.webp",
+    "dimensions": {
+      "width": 827,
+      "height": 500,
+      "aspect_ratio": 1.65
+    },
+    "file_size_kb": 60.7,
+    "crop_bbox": [
+      108.1,
+      207.5,
+      405.9,
+      387.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.39",
+    "page_number": 29,
+    "caption": "Fig. 6.39 and Fig. 6.38: Sector of a circle Fig. 6.40.",
+    "filename": "fig_6_39.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_39.webp",
+    "dimensions": {
+      "width": 321,
+      "height": 258,
+      "aspect_ratio": 1.24
+    },
+    "file_size_kb": 7.2,
+    "crop_bbox": [
+      325.6,
+      519.2,
+      447.3,
+      625.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.40",
+    "page_number": 29,
+    "caption": "Fig. 6.40.",
+    "filename": "fig_6_40.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_40.webp",
+    "dimensions": {
+      "width": 523,
+      "height": 590,
+      "aspect_ratio": 0.89
+    },
+    "file_size_kb": 46.9,
+    "crop_bbox": [
+      24.0,
+      408.3,
+      264.0,
+      625.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.39",
+    "page_number": 30,
+    "caption": "Fig. 6.39: Area of a semi-circular disc",
+    "filename": "fig_6_39.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_39.webp",
+    "dimensions": {
+      "width": 332,
+      "height": 359,
+      "aspect_ratio": 0.92
+    },
+    "file_size_kb": 10.6,
+    "crop_bbox": [
+      82.4,
+      88.4,
+      208.6,
+      227.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.40",
+    "page_number": 30,
+    "caption": "Fig. 6.40: Area of a quarter circular disc",
+    "filename": "fig_6_40.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_40.webp",
+    "dimensions": {
+      "width": 349,
+      "height": 430,
+      "aspect_ratio": 0.81
+    },
+    "file_size_kb": 10.1,
+    "crop_bbox": [
+      73.2,
+      233.6,
+      202.6,
+      390.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.41",
+    "page_number": 32,
+    "caption": "Fig. 6.41: Area model of an identity",
+    "filename": "fig_6_41.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_41.webp",
+    "dimensions": {
+      "width": 524,
+      "height": 818,
+      "aspect_ratio": 0.64
+    },
+    "file_size_kb": 23.1,
+    "crop_bbox": [
+      72.0,
+      87.0,
+      264.0,
+      384.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.42",
+    "page_number": 33,
+    "caption": "Fig. 6.42: Trapezium: sides a and b, height h",
+    "filename": "fig_6_42.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_42.webp",
+    "dimensions": {
+      "width": 622,
+      "height": 486,
+      "aspect_ratio": 1.28
+    },
+    "file_size_kb": 18.8,
+    "crop_bbox": [
+      144.5,
+      232.9,
+      368.6,
+      410.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.43",
+    "page_number": 34,
+    "caption": "Fig. 6.43: What fraction of the Fig. 6.44: What fraction of the triangle is shaded? square is shaded?",
+    "filename": "fig_6_43.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_43.webp",
+    "dimensions": {
+      "width": 876,
+      "height": 377,
+      "aspect_ratio": 2.32
+    },
+    "file_size_kb": 24.5,
+    "crop_bbox": [
+      121.5,
+      190.8,
+      440.2,
+      330.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.44",
+    "page_number": 34,
+    "caption": "Fig. 6.44: What fraction of the triangle is shaded? square is shaded?",
+    "filename": "fig_6_44.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_44.webp",
+    "dimensions": {
+      "width": 876,
+      "height": 377,
+      "aspect_ratio": 2.32
+    },
+    "file_size_kb": 24.5,
+    "crop_bbox": [
+      121.5,
+      190.8,
+      440.2,
+      330.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.45",
+    "page_number": 34,
+    "caption": "Fig. 6.45: What fraction of Fig. 6.46: What fraction of the rectangle is covered by the rectangle is covered by the circles?",
+    "filename": "fig_6_45.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_45.webp",
+    "dimensions": {
+      "width": 935,
+      "height": 291,
+      "aspect_ratio": 3.21
+    },
+    "file_size_kb": 30.1,
+    "crop_bbox": [
+      106.0,
+      335.0,
+      448.9,
+      440.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.48",
+    "page_number": 35,
+    "caption": "Fig. 6.48: Lines from a vertex to of pieces and rearranging the the points of trisection of the pieces to cover the",
+    "filename": "fig_6_48.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_48.webp",
+    "dimensions": {
+      "width": 384,
+      "height": 329,
+      "aspect_ratio": 1.17
+    },
+    "file_size_kb": 13.6,
+    "crop_bbox": [
+      120.7,
+      90.4,
+      265.3,
+      212.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.49",
+    "page_number": 35,
+    "caption": "Fig. 6.49: A quarter circle and two equal area. semicircles",
+    "filename": "fig_6_49.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_49.webp",
+    "dimensions": {
+      "width": 327,
+      "height": 394,
+      "aspect_ratio": 0.83
+    },
+    "file_size_kb": 12.4,
+    "crop_bbox": [
+      134.2,
+      220.2,
+      252.1,
+      365.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.51",
+    "page_number": 35,
+    "caption": "Fig. 6.51",
+    "filename": "fig_6_51.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_51.webp",
+    "dimensions": {
+      "width": 350,
+      "height": 772,
+      "aspect_ratio": 0.45
+    },
+    "file_size_kb": 19.8,
+    "crop_bbox": [
+      118.8,
+      364.8,
+      245.0,
+      646.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.52",
+    "page_number": 36,
+    "caption": "Fig. 6.52 Fig. 6.53: Two congruent circles, radius r",
+    "filename": "fig_6_52.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_52.webp",
+    "dimensions": {
+      "width": 943,
+      "height": 451,
+      "aspect_ratio": 2.09
+    },
+    "file_size_kb": 28.1,
+    "crop_bbox": [
+      111.3,
+      121.3,
+      453.8,
+      286.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.53",
+    "page_number": 36,
+    "caption": "Fig. 6.53: Two congruent circles, radius r",
+    "filename": "fig_6_53.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_53.webp",
+    "dimensions": {
+      "width": 513,
+      "height": 451,
+      "aspect_ratio": 1.14
+    },
+    "file_size_kb": 16.9,
+    "crop_bbox": [
+      253.4,
+      121.3,
+      453.8,
+      286.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.54",
+    "page_number": 36,
+    "caption": "Fig. 6.54",
+    "filename": "fig_6_54.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_54.webp",
+    "dimensions": {
+      "width": 491,
+      "height": 312,
+      "aspect_ratio": 1.57
+    },
+    "file_size_kb": 11.3,
+    "crop_bbox": [
+      262.7,
+      330.4,
+      442.2,
+      446.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 6.55",
+    "page_number": 36,
+    "caption": "Fig. 6.55",
+    "filename": "fig_6_55.webp",
+    "file_path": "public/extracted_diagrams/math9_ch6\\fig_6_55.webp",
+    "dimensions": {
+      "width": 308,
+      "height": 383,
+      "aspect_ratio": 0.8
+    },
+    "file_size_kb": 6.1,
+    "crop_bbox": [
+      253.4,
+      491.1,
+      367.3,
+      636.4
+    ]
+  }
+]

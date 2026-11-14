@@ -2,10 +2,11 @@ import React from 'react'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { BookOpen, ArrowLeft, Lock, Mail, CheckCircle2 } from 'lucide-react'
+import { LandingFooter } from '@/components/landing/LandingFooter'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | AI Tutor',
-  description: 'Privacy Policy and data protection standards for the AI Tutor Socratic learning platform.',
+  title: 'Privacy Policy | Anaxly',
+  description: 'Privacy Policy and data protection standards for the Anaxly Socratic learning platform.',
 }
 
 export default function PrivacyPolicyPage() {
@@ -19,7 +20,7 @@ export default function PrivacyPolicyPage() {
               <BookOpen className="w-4 h-4" />
             </div>
             <span className="font-serif text-xl font-bold tracking-tight text-[#1B3B2B]">
-              AI Tutor
+              Anaxly
             </span>
           </Link>
 
@@ -63,7 +64,7 @@ export default function PrivacyPolicyPage() {
               1. Our Privacy Commitment
             </h2>
             <p>
-              At <strong>AI Tutor</strong>, we believe educational technology must protect students first.
+              At <strong>Anaxly</strong>, we believe educational technology must protect students first.
               This Privacy Policy explains how we collect, process, and safeguard information when you use our
               Socratic learning platform.
             </p>
@@ -120,7 +121,7 @@ export default function PrivacyPolicyPage() {
               3. Google API Services User Data Policy Compliance
             </h2>
             <p>
-              AI Tutor&apos;s use and transfer to any other app of information received from Google APIs will adhere to the{' '}
+              Anaxly&apos;s use and transfer to any other app of information received from Google APIs will adhere to the{' '}
               <a
                 href="https://developers.google.com/terms/api-services-user-data-policy"
                 target="_blank"
@@ -233,19 +234,8 @@ export default function PrivacyPolicyPage() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="w-full border-t border-[#E8E4DC] bg-[#FAF8F4] py-8 text-center text-xs text-[#78716C]">
-        <p>&copy; {new Date().getFullYear()} AI Tutor. All rights reserved.</p>
-        <div className="mt-2 flex justify-center gap-4 font-mono text-[11px]">
-          <Link href="/privacy" className="hover:text-[#1B3B2B] underline font-bold">
-            Privacy Policy
-          </Link>
-          <span>&bull;</span>
-          <Link href="/terms" className="hover:text-[#1B3B2B] underline">
-            Terms of Service
-          </Link>
-        </div>
-      </footer>
+      {/* Master Canonical Footer */}
+      <LandingFooter />
     </div>
   )
 }

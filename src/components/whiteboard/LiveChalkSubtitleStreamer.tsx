@@ -3,32 +3,43 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { Volume2 } from 'lucide-react'
+import { cleanChalkboardTypography } from './chalkboardTypography'
+
+export interface ActiveHighlight {
+  text: string
+  color?: string
+  timestamp: number
+}
 
 interface LiveChalkSubtitleStreamerProps {
   latestTranscript?: string
   isTeacherSpeaking?: boolean
+  activeHighlight?: ActiveHighlight | null
 }
 
 /**
  * Word-by-word floating chalk subtitle streamer for live spoken teaching.
  * Renders words as they are spoken in exact chalkboard hand-drawn font,
  * then smoothly fades out with optical physics blur.
+ * Also highlights AI-targeted words with an animated golden/amber marker glow pill.
  */
 export const LiveChalkSubtitleStreamer: React.FC<LiveChalkSubtitleStreamerProps> = ({
   latestTranscript = '',
   isTeacherSpeaking = false,
+  activeHighlight = null,
 }) => {
   const [displayedWords, setDisplayedWords] = useState<string[]>([])
   const [isVisible, setIsVisible] = useState(false)
   const fadeTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const lastTextRef = useRef<string>('')
 
-  // Clean raw transcript from directives and tool calls
-  const clean = latestTranscript
+  // Clean raw transcript from directives and tool calls, and format clean math typography
+  const rawClean = latestTranscript
     .replace(/\[[A-Z_]+(?::\s*[^\]]+)?\]/gi, '')
-    .replace(/(?:write_chalkboard|write_board|plot_mathematical_graph|draw_shape|render_svg_diagram)\s*\([^)]*\)/gi, '')
+    .replace(/(?:write_chalkboard|write_board|highlight_text|highlight_word|highlight_sentence|plot_mathematical_graph|draw_shape|render_svg_diagram)\s*\([^)]*\)/gi, '')
     .replace(/\s+/g, ' ')
     .trim()
+  const clean = cleanChalkboardTypography(rawClean)
 
   useEffect(() => {
     if (!clean) return
@@ -68,6 +79,20 @@ export const LiveChalkSubtitleStreamer: React.FC<LiveChalkSubtitleStreamerProps>
     }
   }, [])
 
+  // Check if a word matches active highlight
+  const isWordHighlighted = (word: string): boolean => {
+    if (!activeHighlight || !activeHighlight.text) return false
+    const elapsed = Date.now() - activeHighlight.timestamp
+    if (elapsed > 4500) return false
+
+    const cleanWord = word.toLowerCase().replace(/[^a-z0-9]/g, '')
+    if (!cleanWord || cleanWord.length < 2) return false
+
+    const target = activeHighlight.text.toLowerCase()
+    const targetWords = target.split(/\s+/).map((w) => w.replace(/[^a-z0-9]/g, '')).filter(Boolean)
+    return targetWords.includes(cleanWord) || (cleanWord.length > 3 && target.includes(cleanWord))
+  }
+
   return (
     <AnimatePresence>
       {isVisible && displayedWords.length > 0 && (
@@ -89,17 +114,30 @@ export const LiveChalkSubtitleStreamer: React.FC<LiveChalkSubtitleStreamerProps>
               <Volume2 className="w-3.5 h-3.5 animate-pulse" />
             </span>
             <div className="flex-1 font-chalk text-sm sm:text-base text-[#1F1C18] leading-relaxed flex flex-wrap items-center">
-              {displayedWords.map((word, idx) => (
-                <motion.span
-                  key={`${word}-${idx}`}
-                  initial={{ opacity: 0, y: 3, filter: 'blur(2px)' }}
-                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  transition={{ duration: 0.18, ease: 'easeOut' }}
-                  className="inline-block mr-1 text-[#1F1C18]"
-                >
-                  {word}
-                </motion.span>
-              ))}
+              {displayedWords.map((word, idx) => {
+                const isHighlighted = isWordHighlighted(word)
+                return isHighlighted ? (
+                  <motion.span
+                    key={`${word}-${idx}`}
+                    initial={{ scale: 0.95 }}
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 0.35, ease: 'easeOut' }}
+                    className="inline-block mr-1 px-1.5 py-0.5 rounded-md bg-[#F59E0B]/20 text-[#B45309] font-bold border border-[#F59E0B]/40 shadow-xs"
+                  >
+                    {word}
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key={`${word}-${idx}`}
+                    initial={{ opacity: 0, y: 3, filter: 'blur(2px)' }}
+                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    transition={{ duration: 0.18, ease: 'easeOut' }}
+                    className="inline-block mr-1 text-[#1F1C18]"
+                  >
+                    {word}
+                  </motion.span>
+                )
+              })}
               <span className="inline-block w-1.5 h-3.5 ml-0.5 rounded-full bg-[#255D88] animate-pulse align-middle" />
             </div>
           </div>

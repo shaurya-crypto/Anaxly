@@ -94,6 +94,12 @@ export class AudioPlayer {
 
     this.scheduledNodes.push(source);
 
+    if (this.checkDrainTimeout) {
+      clearTimeout(this.checkDrainTimeout);
+      this.checkDrainTimeout = null;
+    }
+    this.turnEndedOnServer = false;
+
     if (!this.isPlaying) {
       this.isPlaying = true;
       this.onPlaybackStateChange?.(true);
@@ -107,8 +113,10 @@ export class AudioPlayer {
 
       // If all scheduled buffers have finished playing
       if (this.scheduledNodes.length === 0) {
-        // Small grace period (40ms) to ensure another chunk isn't currently arriving
         if (this.checkDrainTimeout) clearTimeout(this.checkDrainTimeout);
+        // If server has already confirmed generation ended, short drain (120ms) is appropriate.
+        // If server generation is STILL active, allow a generous 650ms grace period so streaming audio isn't cut off between natural sentence pauses!
+        const drainGraceMs = this.turnEndedOnServer ? 120 : 650;
         this.checkDrainTimeout = setTimeout(() => {
           if (this.scheduledNodes.length === 0) {
             this.isPlaying = false;
@@ -117,7 +125,7 @@ export class AudioPlayer {
             }
             this.onPlaybackStateChange?.(false);
           }
-        }, 40);
+        }, drainGraceMs);
       }
     };
   }
@@ -128,11 +136,16 @@ export class AudioPlayer {
   public onTurnComplete(): void {
     this.turnEndedOnServer = true;
     if (this.scheduledNodes.length === 0) {
-      this.isPlaying = false;
-      if (this.audioCtx) {
-        this.nextStartTime = this.audioCtx.currentTime;
-      }
-      this.onPlaybackStateChange?.(false);
+      if (this.checkDrainTimeout) clearTimeout(this.checkDrainTimeout);
+      this.checkDrainTimeout = setTimeout(() => {
+        if (this.scheduledNodes.length === 0) {
+          this.isPlaying = false;
+          if (this.audioCtx) {
+            this.nextStartTime = this.audioCtx.currentTime;
+          }
+          this.onPlaybackStateChange?.(false);
+        }
+      }, 100);
     }
   }
 

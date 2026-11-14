@@ -1,0 +1,1097 @@
+"""
+Chapter 1: Orienting Yourself: The Use of Coordinates
+Curriculum ID: 3fdc7a01-da88-43e6-aef5-c48bf1d64ef5
+CBSE Class 9 Mathematics (NCERT Ganita Manjari Grade 9 Part 1)
+"""
+
+import json
+from .svg_builder import build_cartesian_svg, get_svg_wrapper
+
+def get_ch1_modules():
+    curriculum_id = "3fdc7a01-da88-43e6-aef5-c48bf1d64ef5"
+    
+    # -------------------------------------------------------------
+    # MODULE 1: Foundational Coordinate Geometry
+    # -------------------------------------------------------------
+    m1_svg = build_cartesian_svg(
+        domain=(-7, 7), range_y=(-7, 7),
+        points=[
+            {"x": 0, "y": 0, "label": "Origin O", "color": "#0F172A", "sub": "(0, 0)"},
+            {"x": 4, "y": 3, "label": "P (Quad I)", "color": "#2563EB", "sub": "(4, 3)"},
+            {"x": -5, "y": 3, "label": "Q (Quad II)", "color": "#7C3AED", "sub": "(-5, 3)"},
+            {"x": -4, "y": -4, "label": "R (Quad III)", "color": "#D97706", "sub": "(-4, -4)"},
+            {"x": 3, "y": -5, "label": "S (Quad IV)", "color": "#DC2626", "sub": "(3, -5)"},
+        ],
+        lines=[
+            {"p1": (4, 0), "p2": (4, 3), "color": "#2563EB", "dash": "3,3", "label": "y=3"},
+            {"p1": (0, 3), "p2": (4, 3), "color": "#2563EB", "dash": "3,3", "label": "x=4"},
+        ],
+        title="The Cartesian Coordinate Plane & Four Quadrants",
+        caption="Points plotted by perpendicular distances from X and Y axes"
+    )
+
+    m1 = {
+        "order_index": 1,
+        "title": "Foundational Theory: Coordinate Systems, Axes, Origin & Quadrant Geometry",
+        "description": "Understand the historical origins of coordinates (René Descartes), perpendicular coordinate axes, the origin, the four quadrants, and plotting points (x, y) with sign conventions.",
+        "subtopics": [
+            "Everyday need for spatial location: Grids, maps, and reference frames",
+            "The 2D Cartesian Coordinate System: Horizontal x-axis and vertical y-axis",
+            "The Origin O(0,0) as the universal reference benchmark",
+            "The Four Quadrants: Sign conventions (+,+), (-,+), (-,-), (+,-)",
+            "Coordinates as Perpendicular Distances: Abscissa (x) and Ordinate (y)",
+            "Points on the axes: (x, 0) on x-axis and (0, y) on y-axis",
+            "Ordered pair uniqueness: (x, y) != (y, x) unless x = y"
+        ],
+        "key_concepts": [
+            "Cartesian Coordinate System: A 2D system defined by two mutually perpendicular directed lines intersecting at the origin O(0,0).",
+            "Abscissa (x-coordinate): The perpendicular distance of a point from the y-axis, measured along the x-axis (positive to the right, negative to the left).",
+            "Ordinate (y-coordinate): The perpendicular distance of a point from the x-axis, measured along the y-axis (positive upward, negative downward).",
+            "Quadrant Invariants: Quad I (+, +), Quad II (-, +), Quad III (-, -), Quad IV (+, -). Points on axes do not belong to any quadrant.",
+            "Axis Equations: The equation of the x-axis is y = 0; the equation of the y-axis is x = 0."
+        ],
+        "success_criteria": "Student can identify quadrants from signs, state coordinates of points on axes, measure perpendicular distances, and plot any (x, y) point accurately.",
+        "chapter_notes": """### 1.1 The Genesis of Coordinate Geometry
+Coordinate geometry bridges algebra and geometry. French mathematician **René Descartes** (1596–1650) introduced the Cartesian coordinate plane to locate points in space using ordered pairs of real numbers.
+
+### 1.2 Coordinate Axes & The Origin
+- Two perpendicular number lines intersect at their zero points, called the **Origin $O(0, 0)$**.
+- The horizontal line $X'OX$ is called the **x-axis**.
+- The vertical line $Y'OY$ is called the **y-axis**.
+- The plane containing these axes is called the **Cartesian plane**, **coordinate plane**, or **xy-plane**.
+
+### 1.3 Coordinates of a Point $P(x, y)$
+- For any point $P$:
+  1. $x$ (**abscissa**) = Perpendicular distance from the $y$-axis.
+  2. $y$ (**ordinate**) = Perpendicular distance from the $x$-axis.
+- Ordered pair invariant: $(x, y) \ne (y, x)$ unless $x = y$.
+
+### 1.4 The Four Quadrants
+The coordinate axes divide the plane into four regions called **quadrants** (numbered counter-clockwise):
+1. **Quadrant I**: $x > 0, y > 0$ (e.g. $(4, 3)$)
+2. **Quadrant II**: $x < 0, y > 0$ (e.g. $(-5, 3)$)
+3. **Quadrant III**: $x < 0, y < 0$ (e.g. $(-4, -4)$)
+4. **Quadrant IV**: $x > 0, y < 0$ (e.g. $(3, -5)$)
+
+### 1.5 Points on the Axes
+- Any point on the $x$-axis has $y = 0$, so its coordinates are $(x, 0)$.
+- Any point on the $y$-axis has $x = 0$, so its coordinates are $(0, y)$.""",
+        "worked_examples": [
+            {
+                "problem": "State the quadrant or axis in which each of the following points lies: A(3, 5), B(-4, 2), C(-2, -6), D(5, -3), E(0, 7), F(-4, 0).",
+                "given": "Six points with specified coordinates.",
+                "formula": "Quadrant signs: Q1(+,+), Q2(-,+), Q3(-,-), Q4(+,-). Points with x=0 lie on y-axis; points with y=0 lie on x-axis.",
+                "substitution": "A: (+3, +5); B: (-4, +2); C: (-2, -6); D: (+5, -3); E: (0, +7); F: (-4, 0).",
+                "calculation": "1. Point A(3, 5): x = +3 > 0, y = +5 > 0 -> Both positive -> Quadrant I.\n2. Point B(-4, 2): x = -4 < 0, y = +2 > 0 -> x negative, y positive -> Quadrant II.\n3. Point C(-2, -6): x = -2 < 0, y = -6 < 0 -> Both negative -> Quadrant III.\n4. Point D(5, -3): x = +5 > 0, y = -3 < 0 -> x positive, y negative -> Quadrant IV.\n5. Point E(0, 7): x = 0, y = 7 -> Abscissa is zero -> Lies on Positive y-axis.\n6. Point F(-4, 0): x = -4, y = 0 -> Ordinate is zero -> Lies on Negative x-axis.",
+                "finalAnswer": "A in Quad I, B in Quad II, C in Quad III, D in Quad IV, E on positive y-axis, F on negative x-axis.",
+                "unit": "dimensionless",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m1_svg
+            },
+            {
+                "problem": "Textbook In-Text Problem (Page 7): (i) What is the x-coordinate of any point on the y-axis? (ii) What is the y-coordinate of any point on the x-axis? (iii) Does the point Q(y, x) ever coincide with P(x, y)? Justify your answer.",
+                "given": "General points on coordinate axes and ordered pair definitions P(x, y) and Q(y, x).",
+                "formula": "Points on y-axis have x = 0; points on x-axis have y = 0. Ordered pairs (x, y) = (y, x) iff x = y.",
+                "substitution": "Let P = (x, y) and Q = (y, x). Set P = Q.",
+                "calculation": "Step 1: The y-axis is the vertical reference line where horizontal distance from y-axis is zero. Therefore, x = 0 for every point on the y-axis (general form (0, y)).\nStep 2: The x-axis is the horizontal reference line where vertical distance from x-axis is zero. Therefore, y = 0 for every point on the x-axis (general form (x, 0)).\nStep 3: Two ordered pairs (x, y) and (y, x) are equal if and only if their corresponding components are equal: x = y and y = x. Hence, P and Q coincide if and only if x = y (for example, (3, 3) or (-2, -2)). If x != y, P and Q represent two distinct points (e.g., (2, 5) and (5, 2) are reflections across the line y = x).",
+                "finalAnswer": "(i) x-coordinate on y-axis is 0; (ii) y-coordinate on x-axis is 0; (iii) Q(y, x) coincides with P(x, y) if and only if x = y.",
+                "unit": "dimensionless",
+                "has_diagram": False
+            }
+        ],
+        "common_misconceptions": [
+            "Confusing the order of coordinates: writing (y, x) instead of (x, y).",
+            "Thinking that points with a 0 coordinate belong to a quadrant rather than lying on an axis."
+        ],
+        "ai_system_prompt_context": "TEACHING CADENCE: Teach Cartesian grid using the room analogy. When explaining axes, call write_chalkboard(action='draw_svg_diagram', content='The Cartesian Coordinate Plane & Four Quadrants'). Use Socratic check after signs.",
+        "visual_lesson_plan": {
+            "title": "Cartesian Coordinate Plane & Four Quadrants",
+            "diagram_type": "vector_svg_diagram",
+            "diagram_svg": m1_svg,
+            "what_to_make": "Cartesian coordinate plane with axes X'OX and Y'OY and labeled quadrants.",
+            "concept_visuals": [
+                {
+                    "concept_title": "Cartesian Coordinate System & Quadrants",
+                    "diagram_title": "Four Quadrants & Sign Invariants",
+                    "diagram_type": "vector_svg_diagram",
+                    "diagram_svg": m1_svg,
+                    "interactive_math_formula": "P = (x, y)",
+                    "mafs_graph_config": {"domain": [-7, 7], "range": [-7, 7], "points": [[4, 3], [-5, 3], [-4, -4], [3, -5]]},
+                    "image_query": "Cartesian coordinate grid with four quadrants",
+                    "video_query": "René Descartes cartesian coordinate plane animation",
+                    "image_url": "/images/curriculum/ch1_cartesian_plane.png",
+                    "what_to_make": "Cartesian coordinate plane with axes X'OX and Y'OY and labeled quadrants.",
+                    "what_to_explain": "Explain that x represents horizontal offset from y-axis and y represents vertical offset from x-axis.",
+                    "timing_and_cue": "Introduce at 02:00 when defining the coordinate frame."
+                }
+            ],
+            "concept_questions": [
+                {
+                    "concept_index": 0,
+                    "concept_title": "Cartesian Coordinate System & Quadrants",
+                    "questions": [
+                        {
+                            "q_num": "Q1",
+                            "type": "1-mark MCQ",
+                            "question": "The point (-3, -7) lies in which quadrant?",
+                            "ideal_answer": "Quadrant III, because both the x-coordinate (-3) and y-coordinate (-7) are negative.",
+                            "socratic_hint": "Recall the sign conventions: in which quadrant are both coordinates strictly negative?"
+                        },
+                        {
+                            "q_num": "Q2",
+                            "type": "2-mark Short Answer",
+                            "question": "What is the perpendicular distance of the point (4, -9) from the x-axis?",
+                            "ideal_answer": "The perpendicular distance from the x-axis is given by |y| = |-9| = 9 units.",
+                            "socratic_hint": "Does distance depend on the x-value or the vertical offset y-value? Remember distance is always positive."
+                        },
+                        {
+                            "q_num": "Q3",
+                            "type": "1-mark MCQ",
+                            "question": "On which axis does the point (0, -8) lie?",
+                            "ideal_answer": "Negative y-axis, because its abscissa is 0 and its ordinate is -8.",
+                            "socratic_hint": "If the x-coordinate is 0, which axis does the point sit on?"
+                        },
+                        {
+                            "q_num": "Q4",
+                            "type": "2-mark Short Answer",
+                            "question": "If a point has positive abscissa and negative ordinate, state its quadrant.",
+                            "ideal_answer": "Quadrant IV, where x > 0 and y < 0.",
+                            "socratic_hint": "Think about moving to the right of the origin, then moving downward."
+                        },
+                        {
+                            "q_num": "Q5",
+                            "type": "3-mark Short Answer",
+                            "question": "Explain why the ordered pairs (2, 5) and (5, 2) do not represent the same point.",
+                            "ideal_answer": "In an ordered pair (x, y), the order matters. For (2, 5), x = 2 and y = 5, which is 2 units from the y-axis and 5 units from the x-axis. For (5, 2), x = 5 and y = 2. These are distinct physical locations.",
+                            "socratic_hint": "Plot both points on a rough sketch. Are their distances from the axes identical?"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+
+    # -------------------------------------------------------------
+    # MODULE 2: The Baudhāyana-Pythagoras Distance Formula
+    # -------------------------------------------------------------
+    m2_svg = build_cartesian_svg(
+        domain=(-2, 10), range_y=(-2, 8),
+        points=[
+            {"x": 3, "y": 4, "label": "A (3, 4)", "color": "#2563EB", "sub": "(3, 4)"},
+            {"x": 9, "y": 6, "label": "M (9, 6)", "color": "#DC2626", "sub": "(9, 6)"},
+            {"x": 9, "y": 4, "label": "D (9, 4)", "color": "#16A34A", "sub": "(9, 4)"},
+        ],
+        polygons=[
+            {"points": [(3, 4), (9, 4), (9, 6)], "fill": "rgba(37,99,235,0.06)", "stroke": "#2563EB", "stroke_width": 2}
+        ],
+        lines=[
+            {"p1": (3, 4), "p2": (9, 4), "color": "#16A34A", "stroke_width": 2.5, "label": "Base AD = 6"},
+            {"p1": (9, 4), "p2": (9, 6), "color": "#D97706", "stroke_width": 2.5, "label": "Alt DM = 2"},
+            {"p1": (3, 4), "p2": (9, 6), "color": "#DC2626", "stroke_width": 3, "label": "AM = √40 ≈ 6.32"},
+        ],
+        title="Baudhāyana-Pythagoras Distance Formula Derivation",
+        caption="Textbook Fig 1.6: Right triangle ADM where AM² = AD² + DM² = 6² + 2² = 40"
+    )
+
+    m2 = {
+        "order_index": 2,
+        "title": "Metric Geometry: The Baudhāyana-Pythagoras Distance Formula on the Plane",
+        "description": "Rigorous derivation of the distance formula between two points A(x1, y1) and B(x2, y2) using the Baudhāyana-Pythagoras theorem, with collinearity tests and geometric proofs.",
+        "subtopics": [
+            "Distance along horizontal lines: d = |x2 - x1| when y1 = y2",
+            "Distance along vertical lines: d = |y2 - y1| when x1 = x2",
+            "Geometric Derivation of the Distance Formula using right triangle ADM",
+            "The Distance Formula: d = sqrt((x2 - x1)^2 + (y2 - y1)^2)",
+            "Distance from Origin: d = sqrt(x^2 + y^2)",
+            "Collinearity test: A, B, C are collinear if and only if AB + BC = AC",
+            "Classification of geometric figures: Equilateral, isosceles, right triangles, and quadrilaterals"
+        ],
+        "key_concepts": [
+            "Horizontal Distance: The distance between two points on the same horizontal line is |x2 - x1|.",
+            "Vertical Distance: The distance between two points on the same vertical line is |y2 - y1|.",
+            "General Distance Formula: For any two points A(x1, y1) and B(x2, y2), AB = sqrt((x2 - x1)^2 + (y2 - y1)^2).",
+            "Origin Distance: The distance of point P(x, y) from origin O(0,0) is OP = sqrt(x^2 + y^2).",
+            "Collinearity Condition: Three distinct points A, B, C are collinear if the sum of lengths of any two segments equals the length of the third segment."
+        ],
+        "success_criteria": "Student can prove the distance formula geometrically, calculate exact distances involving surds, verify collinearity, and prove triangle/quadrilateral types.",
+        "chapter_notes": """### 2.1 Derivation of the Distance Formula
+Let $A(x_1, y_1)$ and $M(x_2, y_2)$ be any two points in the Cartesian plane.
+1. Draw line parallel to x-axis through $A$ and line parallel to y-axis through $M$.
+2. They intersect at $D(x_2, y_1)$, forming a right-angled triangle $\\Delta ADM$ with $\\angle D = 90^\\circ$.
+3. Length of base $AD = |x_2 - x_1|$.
+4. Length of perpendicular $DM = |y_2 - y_1|$.
+5. By the **Baudhāyana-Pythagoras Theorem**:
+   $$AM^2 = AD^2 + DM^2$$
+   $$AM^2 = (x_2 - x_1)^2 + (y_2 - y_1)^2$$
+   $$AM = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$
+
+### 2.2 Collinearity of Three Points
+Three points $A, B, C$ lie on the same straight line if and only if the sum of the distances between two pairs equals the third distance:
+$$AB + BC = AC$$
+Alternatively, the slopes between consecutive pairs must be identical: $\\frac{y_2 - y_1}{x_2 - x_1} = \\frac{y_3 - y_2}{x_3 - x_2}$.""",
+        "worked_examples": [
+            {
+                "problem": "Textbook Worked Example (Page 9, Fig 1.6): Find the distance between the points A(3, 4) and M(9, 6).",
+                "given": "A(x1, y1) = (3, 4) and M(x2, y2) = (9, 6).",
+                "formula": "d = sqrt((x2 - x1)^2 + (y2 - y1)^2)",
+                "substitution": "d = sqrt((9 - 3)^2 + (6 - 4)^2)",
+                "calculation": "Step 1: Find horizontal base AD = x2 - x1 = 9 - 3 = 6 units.\nStep 2: Find vertical altitude DM = y2 - y1 = 6 - 4 = 2 units.\nStep 3: Apply Baudhāyana-Pythagoras Theorem:\nAM^2 = AD^2 + DM^2 = 6^2 + 2^2\nAM^2 = 36 + 4 = 40\nStep 4: Take square root:\nAM = sqrt(40) = sqrt(4 * 10) = 2*sqrt(10) ≈ 6.32 units.",
+                "finalAnswer": "Distance AM = 2*sqrt(10) units (approx 6.32 units).",
+                "unit": "units",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m2_svg
+            },
+            {
+                "problem": "Calculate the distance of the point P(-5, 12) from the origin O(0, 0).",
+                "given": "P(x, y) = (-5, 12) and Origin O(0, 0).",
+                "formula": "d = sqrt(x^2 + y^2)",
+                "substitution": "d = sqrt((-5)^2 + 12^2)",
+                "calculation": "Step 1: Square the x-coordinate: (-5)^2 = 25.\nStep 2: Square the y-coordinate: 12^2 = 144.\nStep 3: Sum the squares: 25 + 144 = 169.\nStep 4: Take the square root: sqrt(169) = 13 units.",
+                "finalAnswer": "Distance OP = 13 units.",
+                "unit": "units",
+                "has_diagram": False
+            }
+        ],
+        "common_misconceptions": [
+            "Squaring negative coordinates incorrectly: writing (-5)^2 = -25 instead of +25.",
+            "Forgetting to take the square root at the very end of the distance formula."
+        ],
+        "ai_system_prompt_context": "DIRECTIVE: Guide student through Baudhāyana-Pythagoras theorem on the chalkboard. Call draw_svg_diagram to illustrate right triangle ADM.",
+        "visual_lesson_plan": {
+            "title": "Baudhāyana-Pythagoras Distance Formula",
+            "diagram_type": "vector_svg_diagram",
+            "diagram_svg": m2_svg,
+            "what_to_make": "Right triangle formed by horizontal leg (x2-x1), vertical leg (y2-y1), and hypotenuse d.",
+            "concept_visuals": [
+                {
+                    "concept_title": "Distance Metric on Cartesian Plane",
+                    "diagram_title": "Geometric Distance Triangle ADM",
+                    "diagram_type": "vector_svg_diagram",
+                    "diagram_svg": m2_svg,
+                    "interactive_math_formula": "d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}",
+                    "mafs_graph_config": {"domain": [-2, 10], "range": [-2, 8], "points": [[3, 4], [9, 6], [9, 4]]},
+                    "image_query": "Distance formula pythagorean theorem coordinate plane",
+                    "video_query": "Distance formula derivation animated pythagoras",
+                    "image_url": "/images/curriculum/ch1_distance_formula.png",
+                    "what_to_make": "Right triangle on Cartesian plane with legs labeled delta x and delta y.",
+                    "what_to_explain": "Show that the hypotenuse is the Euclidean distance between the points.",
+                    "timing_and_cue": "Introduce at 05:00 during algebraic derivation."
+                }
+            ],
+            "concept_questions": [
+                {
+                    "concept_index": 0,
+                    "concept_title": "Distance Metric on Cartesian Plane",
+                    "questions": [
+                        {
+                            "q_num": "Q1",
+                            "type": "1-mark MCQ",
+                            "question": "What is the distance of the point (-6, 8) from the origin?",
+                            "ideal_answer": "OP = sqrt((-6)^2 + 8^2) = sqrt(36 + 64) = sqrt(100) = 10 units.",
+                            "socratic_hint": "Use the formula d = sqrt(x^2 + y^2) for the distance from origin (0,0)."
+                        },
+                        {
+                            "q_num": "Q2",
+                            "type": "2-mark Short Answer",
+                            "question": "Find the distance between the points P(2, -3) and Q(2, 5).",
+                            "ideal_answer": "Since x1 = x2 = 2, the line is vertical. Distance = |y2 - y1| = |5 - (-3)| = 8 units.",
+                            "socratic_hint": "Notice that the x-coordinates are identical. What simplifies the formula?"
+                        },
+                        {
+                            "q_num": "Q3",
+                            "type": "2-mark Short Answer",
+                            "question": "What condition must be satisfied for three points A, B, and C to be collinear?",
+                            "ideal_answer": "The sum of the lengths of any two segments must equal the length of the third segment (e.g. AB + BC = AC).",
+                            "socratic_hint": "Think about the triangle inequality: when does a triangle flatten into a single straight line segment?"
+                        },
+                        {
+                            "q_num": "Q4",
+                            "type": "3-mark Short Answer",
+                            "question": "If the distance between (4, k) and (1, 0) is 5 units, find all possible values of k.",
+                            "ideal_answer": "d^2 = (4 - 1)^2 + (k - 0)^2 => 25 = 3^2 + k^2 => 25 = 9 + k^2 => k^2 = 16 => k = +4 or -4.",
+                            "socratic_hint": "Apply the squared distance formula and solve the quadratic equation in k."
+                        },
+                        {
+                            "q_num": "Q5",
+                            "type": "3-mark Short Answer",
+                            "question": "Explain why the distance between two points is never negative.",
+                            "ideal_answer": "Distance represents a geometric length, which is defined as the non-negative principal square root of the sum of squares ((x2-x1)^2 + (y2-y1)^2). Squares of real numbers are non-negative, and principal square roots are non-negative by definition.",
+                            "socratic_hint": "Can the square of any real number be negative?"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+
+    # -------------------------------------------------------------
+    # MODULE 3: Textbook Exercise Solver 1: Exercise 1.1 & 1.2
+    # -------------------------------------------------------------
+    m3_svg = build_cartesian_svg(
+        domain=(-2, 14), range_y=(-2, 12),
+        points=[
+            {"x": 0, "y": 0, "label": "O (Origin)", "color": "#0F172A", "sub": "(0, 0)"},
+            {"x": 11.5, "y": 0, "label": "R₁ (Door End)", "color": "#2563EB", "sub": "(11.5, 0)"},
+            {"x": 8.5, "y": 0, "label": "D₁ (Door Start)", "color": "#2563EB", "sub": "(8.5, 0)"},
+            {"x": 0, "y": 1.5, "label": "B₁ (Bath Door)", "color": "#16A34A", "sub": "(0, 1.5)"},
+            {"x": 0, "y": 4, "label": "B₂ (Bath Door)", "color": "#16A34A", "sub": "(0, 4)"},
+            {"x": 8, "y": 9, "label": "T₁", "color": "#7C3AED", "sub": "(8, 9)"},
+            {"x": 11, "y": 9, "label": "T₂", "color": "#7C3AED", "sub": "(11, 9)"},
+            {"x": 11, "y": 7, "label": "T₃", "color": "#7C3AED", "sub": "(11, 7)"},
+            {"x": 8, "y": 7, "label": "T₄ (Table 4th Foot)", "color": "#DC2626", "sub": "(8, 7)"},
+        ],
+        polygons=[
+            {"points": [(8, 7), (11, 7), (11, 9), (8, 9)], "fill": "rgba(124, 58, 237, 0.1)", "stroke": "#7C3AED", "stroke_width": 2}
+        ],
+        title="Exercise 1.1 & 1.2: Reiaan's Room & Study Table Layout",
+        caption="Study table rectangular corners T₁(8,9), T₂(11,9), T₃(11,7), T₄(8,7)"
+    )
+
+    m3 = {
+        "order_index": 3,
+        "title": "Textbook Exercise Solver 1: Exercise 1.1 & Exercise 1.2 (Room Layout & Grid Math)",
+        "description": "Complete step-by-step solutions for all questions in Exercise 1.1 and Exercise 1.2 from NCERT Ganita Manjari Grade 9 Part 1 with zero skipped calculations.",
+        "subtopics": [
+            "Exercise 1.1 Q(i): Door distance from left wall (y-axis) and bottom wall (x-axis)",
+            "Exercise 1.1 Q(ii): Coordinates of door start point D1",
+            "Exercise 1.1 Q(iii): Door width calculation and wheelchair accessibility compliance",
+            "Exercise 1.1 Q(iv): Bathroom door width comparison with bedroom door",
+            "Exercise 1.1 Think & Reflect: Standard door widths and wheelchair accessibility",
+            "Exercise 1.2 Q1: Reiaan's study table feet coordinates, finding 4th foot T4, dimensions (length, width, height)",
+            "Exercise 1.2 Q2: Bathroom door swing clearance analysis relative to wardrobe",
+            "Exercise 1.2 Q3: Bathroom corners O, F, R, P, shower area shape, washbasin & toilet allocations",
+            "Exercise 1.2 Q4: Other house rooms: Dining room bounds and centered dining table placement"
+        ],
+        "key_concepts": [
+            "Ordered Rectangular Footprint: For a rectangle aligned with axes, opposite corners have matching x and y projections.",
+            "Clearance Geometry: Door width is the difference between endpoint coordinates: Width = x2 - x1 on horizontal lines.",
+            "Dimensionality Limits: A 2D coordinate plan provides (x, y) length and width, but height (z) cannot be determined without a 3D coordinate system."
+        ],
+        "success_criteria": "Student can resolve all questions from Exercises 1.1 and 1.2 with rigorous arithmetic justification.",
+        "chapter_notes": """### Step-by-Step Exercise Solutions: Exercise 1.1 & 1.2
+Full calculations following the Topper Layout:
+Given -> Formula / Theorem -> Substitution -> Step-by-Step Simplification -> Boxed Answer.""",
+        "worked_examples": [
+            {
+                "problem": "Exercise 1.1 Q(i): If D1 R1 represents the door to Reiaan's room, how far is the door from the left wall (the y-axis) of the room? How far is the door from the x-axis?",
+                "given": "Door is represented by segment D1 R1 on the bottom wall (x-axis), where D1 is at x = 8.5 m and R1 is at x = 11.5 m. The left wall is the y-axis (x = 0).",
+                "formula": "Distance from y-axis = |x - 0|; Distance from x-axis = |y - 0|.",
+                "substitution": "Distance from left wall = |8.5 - 0| = 8.5 units. Distance from x-axis = |0 - 0| = 0 units.",
+                "calculation": "1. The door begins at point D1 with coordinates (8.5, 0).\n2. Distance from left wall (y-axis, x = 0) is the x-coordinate: |8.5 - 0| = 8.5 units.\n3. Since D1 and R1 lie directly on the bottom wall (x-axis, y = 0), the perpendicular distance from the x-axis is 0 units.",
+                "finalAnswer": "Distance from left wall = 8.5 units; Distance from x-axis = 0 units.",
+                "unit": "units",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m3_svg
+            },
+            {
+                "problem": "Exercise 1.1 Q(ii): What are the coordinates of D1?",
+                "given": "Point D1 lies on the bottom wall (x-axis) at a distance of 8.5 units from the left wall (y-axis).",
+                "formula": "Any point on the x-axis has ordinate y = 0. Point = (x, 0).",
+                "substitution": "x = 8.5, y = 0.",
+                "calculation": "Step 1: Point D1 is situated at x = 8.5 along the horizontal axis.\nStep 2: Since it is on the x-axis, its vertical coordinate y is 0.\nStep 3: Writing as an ordered pair: D1 = (8.5, 0).",
+                "finalAnswer": "Coordinates of D1 = (8.5, 0).",
+                "unit": "dimensionless",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m3_svg
+            },
+            {
+                "problem": "Exercise 1.1 Q(iii): If R1 is the point (11.5, 0) and D1 is (8.5, 0), how wide is the door? Is this a comfortable width for a person in a wheelchair?",
+                "given": "D1 = (8.5, 0), R1 = (11.5, 0). 1 unit = 1 foot (ft). Standard wheelchair minimum clearance = 32 inches.",
+                "formula": "Door Width = x(R1) - x(D1)",
+                "substitution": "Width = 11.5 - 8.5",
+                "calculation": "Step 1: Subtract abscissas: 11.5 - 8.5 = 3.0 units.\nStep 2: 3.0 ft corresponds to 3 * 12 = 36 inches (approx 91.4 cm).\nStep 3: Standard wheelchair accessibility guidelines require a minimum clear door opening width of 32 inches (81.3 cm).\nStep 4: Since 36 inches > 32 inches, the door comfortably accommodates a wheelchair.",
+                "finalAnswer": "Door width = 3.0 units (3 feet / 36 inches); YES, it easily accommodates a wheelchair.",
+                "unit": "units",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m3_svg
+            },
+            {
+                "problem": "Exercise 1.1 Q(iv): If B1(0, 1.5) and B2(0, 4) represent the ends of the bathroom door, is the bathroom door narrower or wider than the room door?",
+                "given": "Bathroom door endpoints B1(0, 1.5) and B2(0, 4) on y-axis. Room door width = 3.0 units.",
+                "formula": "Width = |y2 - y1|",
+                "substitution": "Bathroom door width = |4 - 1.5|",
+                "calculation": "Step 1: Both points lie on the y-axis (x = 0).\nStep 2: Distance between B1 and B2 = 4 - 1.5 = 2.5 units (2.5 feet = 30 inches).\nStep 3: Compare with room door: Bathroom door is 2.5 units, room door is 3.0 units.\nStep 4: Since 2.5 < 3.0, the bathroom door is narrower by 0.5 units (6 inches).",
+                "finalAnswer": "Bathroom door width = 2.5 units; it is NARROWER than the room door (which is 3.0 units).",
+                "unit": "units",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m3_svg
+            },
+            {
+                "problem": "Exercise 1.2 Q1: Reiaan's rectangular study table has three of its feet at points T1(8, 9), T2(11, 9), and T3(11, 7). (i) Where will the fourth foot T4 be? (ii) Is this a good spot for the table? (iii) What is the width and length of the table? Can you make out the height?",
+                "given": "Three vertices of rectangle: T1(8, 9), T2(11, 9), T3(11, 7).",
+                "formula": "For an axis-aligned rectangle: x4 = x1 = 8, y4 = y3 = 7. Length = |x2 - x1|, Width = |y2 - y3|.",
+                "substitution": "T4 = (8, 7). Length = |11 - 8| = 3; Width = |9 - 7| = 2.",
+                "calculation": "Step 1: In a rectangle ABCD, opposite sides are parallel and equal.\nStep 2: Side T1-T2 is horizontal: y = 9, length = 11 - 8 = 3 units.\nStep 3: Side T2-T3 is vertical: x = 11, width = 9 - 7 = 2 units.\nStep 4: Side T1-T4 must be vertical passing through x = 8, and T4-T3 must be horizontal passing through y = 7.\nStep 5: Thus, coordinates of T4 = (8, 7).\nStep 6: Spot evaluation: It is placed in the upper-right corner near the window, leaving the main floor open. Yes, it is a good spot.\nStep 7: Length = 3 units, Width = 2 units.\nStep 8: Height cannot be determined because a 2D Cartesian plane represents only length and width (x and y), omitting the third vertical dimension z.",
+                "finalAnswer": "(i) Fourth foot T4 = (8, 7); (ii) Yes, good spot against wall; (iii) Length = 3 units, Width = 2 units; Height cannot be determined from a 2D floor plan.",
+                "unit": "units",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m3_svg
+            },
+            {
+                "problem": "Exercise 1.2 Q2: If the bathroom door has a hinge at B1(0, 1.5) and opens into the bedroom, will it hit the wardrobe located nearby? Suggest changes if the door is made wider.",
+                "given": "Hinge at B1(0, 1.5), door width = 2.5 ft. Door swings into the bedroom. Wardrobe corner position.",
+                "formula": "Door swing path forms a quarter-circle arc of radius R = 2.5 ft centered at B1(0, 1.5).",
+                "substitution": "Arc equation: x^2 + (y - 1.5)^2 <= (2.5)^2 for x >= 0, y >= 1.5.",
+                "calculation": "Step 1: When fully opened 90 degrees into the bedroom, the door edge reaches point (2.5, 1.5).\nStep 2: If the wardrobe starts at x = 3.0 ft or more, the swing clears the wardrobe by 0.5 ft.\nStep 3: If the door is widened to 3.0 ft, its swing arc radius becomes 3.0 ft, reaching (3.0, 1.5), which would hit or obstruct access to the wardrobe.\nStep 4: Suggested modifications: Change hinge to B2, make the door open inwards into the bathroom, or install a sliding pocket door.",
+                "finalAnswer": "With 2.5 ft width it clears; if widened, it would hit the wardrobe. Suggested change: Use a sliding pocket door or open inward into the bathroom.",
+                "unit": "units",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m3_svg
+            },
+            {
+                "problem": "Exercise 1.2 Q3: Look at Reiaan's bathroom. (i) What are the coordinates of the four corners O, F, R, and P? (ii) What is the shape of the showering area SHWR? (iii) Mark off a 3 ft x 2 ft space for the washbasin and a 2 ft x 3 ft space for the toilet.",
+                "given": "Bathroom is situated adjacent to the origin extending into negative x-axis (left) and positive y-axis (upward). Dimensions: width 5.5 ft left, length 6.5 ft up.",
+                "formula": "Corner coordinates: O(0, 0), F(0, 6.5), R(-5.5, 6.5), P(-5.5, 0).",
+                "substitution": "O(0, 0), F(0, 6.5), R(-5.5, 6.5), P(-5.5, 0).",
+                "calculation": "Step 1: The bathroom shares the wall along the y-axis from y = 0 to y = 6.5. Corner O is (0, 0) and F is (0, 6.5).\nStep 2: Extending 5.5 ft to the left (x = -5.5): R is (-5.5, 6.5) and P is (-5.5, 0).\nStep 3: The showering area SHWR occupies a square or rectangular enclosure of 3.5 ft x 3.5 ft in the top-left corner: S(-5.5, 6.5), H(-2, 6.5), W(-2, 3), R_sh(-5.5, 3). Shape = Square/Rectangle.\nStep 4: Washbasin space (3 ft x 2 ft) against wall: corners (-3, 0), (0, 0), (0, 2), (-3, 2).\nStep 5: Toilet space (2 ft x 3 ft) against wall: corners (-5.5, 0), (-3.5, 0), (-3.5, 3), (-5.5, 3).",
+                "finalAnswer": "(i) O(0, 0), F(0, 6.5), R(-5.5, 6.5), P(-5.5, 0); (ii) SHWR is a rectangle/square; (iii) Valid non-overlapping allocations mapped to coordinate bounds.",
+                "unit": "dimensionless",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m3_svg
+            },
+            {
+                "problem": "Exercise 1.2 Q4: Other rooms in the house: (i) Reiaan's room door leads from the dining room which has length 18 ft and width 15 ft extending from point P to A. Sketch the dining room and mark corners. (ii) Place a 5 ft x 3 ft dining table precisely in the centre of the dining room. Write down coordinates of table feet.",
+                "given": "Dining room length = 18 ft (horizontal), width = 15 ft (vertical downward into negative y). Room bounds: x from 0 to 18, y from -15 to 0. Table 5 ft x 3 ft centered.",
+                "formula": "Center of room = ((x1+x2)/2, (y1+y2)/2). Table extents: [x_c - L/2, x_c + L/2] x [y_c - W/2, y_c + W/2].",
+                "substitution": "Room center = ((0 + 18)/2, (0 + (-15))/2) = (9, -7.5). Table length L = 5, width W = 3.",
+                "calculation": "Step 1: Dining room corners: (0, 0), (18, 0), (18, -15), (0, -15).\nStep 2: Center of room: x_c = (0 + 18)/2 = 9 ft; y_c = (0 - 15)/2 = -7.5 ft.\nStep 3: Table dimensions: Length L = 5 ft (horizontal), Width W = 3 ft (vertical).\nStep 4: Half-spans: Delta x = 5/2 = 2.5 ft; Delta y = 3/2 = 1.5 ft.\nStep 5: Feet coordinates:\nFoot 1 (top-left) = (9 - 2.5, -7.5 + 1.5) = (6.5, -6.0).\nFoot 2 (top-right) = (9 + 2.5, -7.5 + 1.5) = (11.5, -6.0).\nFoot 3 (bottom-right) = (9 + 2.5, -7.5 - 1.5) = (11.5, -9.0).\nFoot 4 (bottom-left) = (9 - 2.5, -7.5 - 1.5) = (6.5, -9.0).",
+                "finalAnswer": "(i) Dining room corners: (0,0), (18,0), (18,-15), (0,-15); (ii) Table feet: (6.5, -6.0), (11.5, -6.0), (11.5, -9.0), (6.5, -9.0).",
+                "unit": "ft",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m3_svg
+            }
+        ],
+        "common_misconceptions": [
+            "Attempting to calculate height from a 2D (x, y) plane without a z-coordinate.",
+            "Misordering vertex cycling when finding the 4th rectangular coordinate."
+        ],
+        "ai_system_prompt_context": "CHALKBOARD DIRECTIVE: Call write_chalkboard(action='draw_svg_diagram', content='Exercise 1.1 & 1.2: Reiaan\'s Room & Study Table Layout'). Emphasize why T4 is (8, 7).",
+        "visual_lesson_plan": {
+            "title": "Exercise 1.1 & 1.2 Solver Visuals",
+            "diagram_type": "vector_svg_diagram",
+            "diagram_svg": m3_svg,
+            "what_to_make": "Room floor plan on coordinate grid showing table feet and door clearance.",
+            "concept_visuals": [
+                {
+                    "concept_title": "Spatial Coordinate Modeling",
+                    "diagram_title": "Rectangular Table Footprint",
+                    "diagram_type": "vector_svg_diagram",
+                    "diagram_svg": m3_svg,
+                    "interactive_math_formula": "T_4 = (x_1, y_3) = (8, 7)",
+                    "mafs_graph_config": {"domain": [-2, 14], "range": [-2, 12], "points": [[8, 9], [11, 9], [11, 7], [8, 7]]},
+                    "image_query": "Architectural floor plan on cartesian grid",
+                    "video_query": "Architectural layout 2D coordinate mapping",
+                    "image_url": "/images/curriculum/ch1_room_layout.png",
+                    "what_to_make": "Cartesian grid showing points T1, T2, T3, and missing vertex T4.",
+                    "what_to_explain": "Explain that opposite vertices of an axis-aligned rectangle share matching coordinates.",
+                    "timing_and_cue": "Introduce at 03:00 during Question 1 explanation."
+                }
+            ],
+            "concept_questions": [
+                {
+                    "concept_index": 0,
+                    "concept_title": "Spatial Coordinate Modeling",
+                    "questions": [
+                        {
+                            "q_num": "Q1",
+                            "type": "1-mark MCQ",
+                            "question": "If three vertices of a rectangle are (1, 1), (5, 1), and (5, 4), what are the coordinates of the fourth vertex?",
+                            "ideal_answer": "The fourth vertex is (1, 4), because it must share the x-coordinate of the first vertex (1) and the y-coordinate of the third vertex (4).",
+                            "socratic_hint": "Look at which x and y coordinates have appeared only once so far."
+                        },
+                        {
+                            "q_num": "Q2",
+                            "type": "2-mark Short Answer",
+                            "question": "How do you find the width of a horizontal door lying on the x-axis between points (a, 0) and (b, 0)?",
+                            "ideal_answer": "The width is the absolute difference between their x-coordinates: |b - a| units.",
+                            "socratic_hint": "Since the y-coordinates are equal, what metric determines the distance?"
+                        },
+                        {
+                            "q_num": "Q3",
+                            "type": "2-mark Short Answer",
+                            "question": "Why can 2D floor plans not provide the height of furniture?",
+                            "ideal_answer": "A 2D Cartesian coordinate plane only defines length and width (x and y dimensions). Height requires a third perpendicular axis (z-axis) in 3D Euclidean space.",
+                            "socratic_hint": "How many coordinate axes are present in a 2D floor plan?"
+                        },
+                        {
+                            "q_num": "Q4",
+                            "type": "3-mark Short Answer",
+                            "question": "A table of size 4 x 2 is placed with its center at (6, 8). If its sides are parallel to the axes, find the coordinates of its 4 corners.",
+                            "ideal_answer": "Half-spans are delta x = 2, delta y = 1. Corners: (6-2, 8+1)=(4,9), (6+2, 8+1)=(8,9), (8,7), and (4,7).",
+                            "socratic_hint": "Add and subtract the half-length and half-width from the center coordinates."
+                        },
+                        {
+                            "q_num": "Q5",
+                            "type": "3-mark Short Answer",
+                            "question": "If a door swing forms a quarter-circle of radius R, what region of the room is swept out?",
+                            "ideal_answer": "A circular sector of radius R spanning 90 degrees (area = (1/4)*pi*R^2) must remain completely clear of furniture.",
+                            "socratic_hint": "What geometric path does the edge of a swinging hinged door trace?"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+
+    # -------------------------------------------------------------
+    # MODULE 4: Textbook Exercise Solver 2: End-of-Chapter Q1 to Q5
+    # -------------------------------------------------------------
+    m4_svg = build_cartesian_svg(
+        domain=(-8, 8), range_y=(-8, 6),
+        points=[
+            {"x": 0, "y": 0, "label": "Origin O", "color": "#0F172A", "sub": "(0, 0)"},
+            {"x": -5, "y": 0, "label": "W", "color": "#2563EB", "sub": "(-5, 0)"},
+            {"x": -5, "y": 4, "label": "H₁ (Q II)", "color": "#16A34A", "sub": "(-5, 4)"},
+            {"x": -5, "y": -4, "label": "H₂ (Q III)", "color": "#D97706", "sub": "(-5, -4)"},
+            {"x": 3, "y": 0, "label": "R", "color": "#7C3AED", "sub": "(3, 0)"},
+            {"x": 0, "y": -2, "label": "A", "color": "#7C3AED", "sub": "(0, -2)"},
+            {"x": -5, "y": -2, "label": "M", "color": "#7C3AED", "sub": "(-5, -2)"},
+            {"x": -5, "y": 2, "label": "P", "color": "#7C3AED", "sub": "(-5, 2)"},
+            {"x": 5, "y": -6, "label": "Z", "color": "#DC2626", "sub": "(5, -6)"},
+        ],
+        lines=[
+            {"p1": (-5, -7), "p2": (-5, 5), "color": "#2563EB", "dash": "3,3", "label": "Line x = -5"},
+            {"p1": (3, 0), "p2": (0, -2), "color": "#7C3AED", "stroke_width": 2},
+            {"p1": (0, -2), "p2": (-5, -2), "color": "#7C3AED", "stroke_width": 2, "label": "AM (Horiz)"},
+            {"p1": (-5, -2), "p2": (-5, 2), "color": "#7C3AED", "stroke_width": 2, "label": "MP (Vert)"},
+            {"p1": (-5, 2), "p2": (3, 0), "color": "#7C3AED", "stroke_width": 2},
+        ],
+        title="End of Chapter Solver: Questions 1 to 5",
+        caption="Line x = -5, Quadrilateral RAMP, and Point Z(5, -6)"
+    )
+
+    m4 = {
+        "order_index": 4,
+        "title": "Textbook Exercise Solver 2: End-of-Chapter Exercises Part 1 (Q1 to Q5)",
+        "description": "Exhaustive step-by-step solutions for End of Chapter Problems 1 to 5: point of intersection of axes, parallel lines and quadrants, quadrilateral RAMP properties, right triangle construction with vertex Z(5, -6), and coordinate systems without negative numbers.",
+        "subtopics": [
+            "Problem 1: Coordinates of the point of intersection of the two axes",
+            "Problem 2: Point W with x = -5, line parallel to y-axis, and quadrants containing H",
+            "Problem 3: Quadrilateral RAMP with vertices R(3,0), A(0,-2), M(-5,-2), P(-5,2): perpendicular sides, parallel sides, mirror image points",
+            "Problem 4: Plotting Z(5, -6) and constructing right-angled triangle IZN with exact side lengths",
+            "Problem 5: Analytical discussion: Coordinate system without negative numbers and spatial limits"
+        ],
+        "key_concepts": [
+            "Intersection Invariant: The x-axis (y = 0) and y-axis (x = 0) intersect uniquely at Origin (0, 0).",
+            "Parallel Line Invariant: Any line parallel to the y-axis has equation x = c; all points on it share abscissa c.",
+            "Axis Reflection Invariant: Reflection of point (x, y) across the x-axis is (x, -y); M(-5, -2) and P(-5, 2) are mutual reflections across the x-axis."
+        ],
+        "success_criteria": "Student can resolve all questions 1 to 5 with full algebraic and geometric reasoning.",
+        "chapter_notes": """### Step-by-Step Solver: End-of-Chapter Questions 1 to 5
+Rigorous derivations with all intermediate arithmetic written out completely.""",
+        "worked_examples": [
+            {
+                "problem": "Problem 1: What are the x-coordinate and y-coordinate of the point of intersection of the two axes?",
+                "given": "The horizontal line is the x-axis and the vertical line is the y-axis.",
+                "formula": "Equation of x-axis: y = 0. Equation of y-axis: x = 0.",
+                "substitution": "Substitute x = 0 into y-axis and y = 0 into x-axis.",
+                "calculation": "1. The two axes are perpendicular number lines intersecting at their zero points.\n2. On the x-axis, every point has y = 0.\n3. On the y-axis, every point has x = 0.\n4. The intersection point satisfies both equations simultaneously: x = 0 and y = 0.\n5. Therefore, the point of intersection is the Origin O(0, 0).",
+                "finalAnswer": "x-coordinate = 0, y-coordinate = 0; the point is Origin (0, 0).",
+                "unit": "dimensionless",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m4_svg
+            },
+            {
+                "problem": "Problem 2: Point W has x-coordinate equal to -5. Can you predict the coordinates of point H which is on the line through W parallel to the y-axis? Which quadrants can H lie in?",
+                "given": "Point W has x = -5. Point H lies on the line passing through W parallel to the y-axis.",
+                "formula": "Any line parallel to the y-axis is a vertical line having the equation x = k. Here k = -5.",
+                "substitution": "Coordinates of H have general form (-5, y) for any real number y.",
+                "calculation": "Step 1: A line parallel to the y-axis through x = -5 has the constant equation x = -5.\nStep 2: Therefore, every point H on this line has x-coordinate equal to -5. Its y-coordinate can be any real value y. General form: H(-5, y).\nStep 3: Quadrant analysis for H(-5, y):\n- If y > 0: x < 0 and y > 0 -> H lies in Quadrant II.\n- If y < 0: x < 0 and y < 0 -> H lies in Quadrant III.\n- If y = 0: H lies on the negative x-axis at (-5, 0) (not in any quadrant).\nStep 4: Since x = -5 is strictly negative, H can NEVER lie in Quadrant I (where x > 0) or Quadrant IV (where x > 0).",
+                "finalAnswer": "Coordinates of H: (-5, y) where y is any real number. H can lie in Quadrant II (if y > 0) or Quadrant III (if y < 0), or on the negative x-axis (if y = 0).",
+                "unit": "dimensionless",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m4_svg
+            },
+            {
+                "problem": "Problem 3: Consider the points R(3, 0), A(0, -2), M(-5, -2) and P(-5, 2). If they are joined in the same order, predict: (i) Two sides of RAMP that are perpendicular to each other. (ii) One side of RAMP that is parallel to one of the axes. (iii) Two points that are mirror images of each other in one axis. Which axis will this be? Now plot the points and verify your predictions.",
+                "given": "Vertices of quadrilateral RAMP: R(3, 0), A(0, -2), M(-5, -2), P(-5, 2).",
+                "formula": "Horizontal side: y1 = y2. Vertical side: x1 = x2. Perpendicularity: A horizontal line is perpendicular to a vertical line. Mirror image across x-axis: (x, y) <-> (x, -y).",
+                "substitution": "Side AM: A(0, -2) to M(-5, -2); Side MP: M(-5, -2) to P(-5, 2).",
+                "calculation": "Step 1: Check Side AM:\ny_A = -2 and y_M = -2. The y-coordinates are equal -> Side AM is a horizontal segment on line y = -2, parallel to the x-axis.\nLength AM = |0 - (-5)| = 5 units.\n\nStep 2: Check Side MP:\nx_M = -5 and x_P = -5. The x-coordinates are equal -> Side MP is a vertical segment on line x = -5, parallel to the y-axis.\nLength MP = |2 - (-2)| = 4 units.\n\nStep 3: Perpendicularity:\nSince Side AM is horizontal and Side MP is vertical, they meet at M(-5, -2) at an angle of 90 degrees.\nThus, Side AM is perpendicular to Side MP.\n\nStep 4: Mirror image points:\nCompare M(-5, -2) and P(-5, 2):\nBoth have x = -5. The y-coordinates are -2 and +2, which are negatives of each other.\nTherefore, M and P are mirror images of each other across the x-axis.",
+                "finalAnswer": "(i) Two perpendicular sides: Side AM and Side MP; (ii) Side AM is parallel to x-axis, and Side MP is parallel to y-axis; (iii) Points M(-5, -2) and P(-5, 2) are mutual mirror images across the x-axis.",
+                "unit": "units",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m4_svg
+            },
+            {
+                "problem": "Problem 4: Plot point Z(5, -6) on the Cartesian plane. Construct a right-angled triangle IZN and find the lengths of the three sides.",
+                "given": "Point Z(5, -6). Construct right triangle IZN.",
+                "formula": "Right triangle condition: One angle is 90 degrees. Distance formula d = sqrt((x2-x1)^2 + (y2-y1)^2). Hypotenuse^2 = Leg1^2 + Leg2^2.",
+                "substitution": "Choose I(5, 0) on x-axis and N(0, 0) at Origin.",
+                "calculation": "Step 1: Plot Z(5, -6) in Quadrant IV (x = 5, y = -6).\nStep 2: Choose vertex I as the perpendicular projection of Z onto the x-axis: I = (5, 0).\nStep 3: Choose vertex N as the Origin: N = (0, 0).\nStep 4: Analyze triangle IZN:\n- Segment ZI is vertical along x = 5: Length ZI = |0 - (-6)| = 6 units.\n- Segment IN is horizontal along y = 0: Length IN = |5 - 0| = 5 units.\n- Since ZI is vertical and IN is horizontal, angle ZIN = 90 degrees. Thus Delta IZN is a right-angled triangle at I.\nStep 5: Calculate hypotenuse ZN using Baudhāyana-Pythagoras theorem:\nZN^2 = ZI^2 + IN^2 = 6^2 + 5^2 = 36 + 25 = 61.\nZN = sqrt(61) ≈ 7.81 units.",
+                "finalAnswer": "Vertices: Z(5, -6), I(5, 0), N(0, 0) with right angle at I. Side lengths: ZI = 6 units, IN = 5 units, Hypotenuse ZN = sqrt(61) units (approx 7.81 units).",
+                "unit": "units",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m4_svg
+            },
+            {
+                "problem": "Problem 5: What would a system of coordinates be like if we did not have negative numbers? Would this system allow us to locate all the points on a 2-D plane?",
+                "given": "Theoretical coordinate frame restricted strictly to non-negative real numbers [0, infinity) x [0, infinity).",
+                "formula": "Cartesian plane R^2 = R x R requires both positive and negative real numbers to map all 4 directions.",
+                "substitution": "Non-negative coordinates: x >= 0, y >= 0.",
+                "calculation": "Step 1: If coordinates are restricted to non-negative numbers, only Quadrant I (the upper-right quarter of the plane) can be addressed from a fixed origin O(0,0).\nStep 2: Any point to the left of the origin (requiring x < 0) or below the origin (requiring y < 0) would have no coordinate representation.\nStep 3: Therefore, from a single fixed origin, it would NOT be possible to locate all points on an infinite 2D plane.\nStep 4: Historical resolution: Before negative numbers were accepted, ancient mathematicians had to shift the origin to the extreme bottom-left corner of the region being measured (as in floor plans or ancient surveying maps).",
+                "finalAnswer": "The system would be restricted solely to Quadrant I [0, infinity) x [0, infinity). NO, it would not allow locating all points on a 2D plane without shifting the origin.",
+                "unit": "dimensionless",
+                "has_diagram": False
+            }
+        ],
+        "common_misconceptions": [
+            "Failing to recognize that mirror image across x-axis negates the y-coordinate while keeping x invariant.",
+            "Assuming that a line parallel to the y-axis has variable x-coordinates."
+        ],
+        "ai_system_prompt_context": "TEACHING CADENCE: Socratic challenge: ask student how to test reflections and parallel lines. Call write_chalkboard(action='draw_svg_diagram', content='End of Chapter Solver: Questions 1 to 5').",
+        "visual_lesson_plan": {
+            "title": "End-of-Chapter Solver Visuals Part 1",
+            "diagram_type": "vector_svg_diagram",
+            "diagram_svg": m4_svg,
+            "what_to_make": "Cartesian plane showing line x = -5, quadrilateral RAMP, and right triangle IZN.",
+            "concept_visuals": [
+                {
+                    "concept_title": "Geometric Symmetries & Parallel Families",
+                    "diagram_title": "Quadrilateral RAMP & Axis Reflection",
+                    "diagram_type": "vector_svg_diagram",
+                    "diagram_svg": m4_svg,
+                    "interactive_math_formula": "M(-5, -2) \\leftrightarrow P(-5, 2) \\quad \\text{(Reflection in x-axis)}",
+                    "mafs_graph_config": {"domain": [-8, 8], "range": [-8, 6], "polygons": [[[3, 0], [0, -2], [-5, -2], [-5, 2]]]},
+                    "image_query": "Quadrilateral plotted on cartesian grid coordinate geometry",
+                    "video_query": "Coordinate reflections and parallel lines animation",
+                    "image_url": "/images/curriculum/ch1_ramp_quadrilateral.png",
+                    "what_to_make": "Quadrilateral RAMP with perpendicular sides AM and MP highlighted.",
+                    "what_to_explain": "Show that AM is horizontal and MP is vertical, creating a 90 degree angle at M.",
+                    "timing_and_cue": "Introduce at 03:00 during Problem 3 explanation."
+                }
+            ],
+            "concept_questions": [
+                {
+                    "concept_index": 0,
+                    "concept_title": "Geometric Symmetries & Parallel Families",
+                    "questions": [
+                        {
+                            "q_num": "Q1",
+                            "type": "1-mark MCQ",
+                            "question": "What is the reflection of the point (4, -7) in the x-axis?",
+                            "ideal_answer": "(4, 7), because reflection in the x-axis negates the y-coordinate while keeping the x-coordinate unchanged.",
+                            "socratic_hint": "When folding along the x-axis, which coordinate changes sign?"
+                        },
+                        {
+                            "q_num": "Q2",
+                            "type": "2-mark Short Answer",
+                            "question": "What is the equation of a straight line passing through (-3, 8) parallel to the x-axis?",
+                            "ideal_answer": "y = 8, because every point on a line parallel to the x-axis shares the same constant y-coordinate.",
+                            "socratic_hint": "Does a horizontal line change its y-value as x varies?"
+                        },
+                        {
+                            "q_num": "Q3",
+                            "type": "2-mark Short Answer",
+                            "question": "In which quadrants can a point with equation x = 4 lie?",
+                            "ideal_answer": "Quadrant I (if y > 0) and Quadrant IV (if y < 0), or on the positive x-axis at (4, 0).",
+                            "socratic_hint": "Since x = 4 is positive, which two quadrants have positive x-values?"
+                        },
+                        {
+                            "q_num": "Q4",
+                            "type": "3-mark Short Answer",
+                            "question": "Prove that the line segment joining (2, 3) and (2, -5) is perpendicular to the segment joining (2, 3) and (7, 3).",
+                            "ideal_answer": "The first segment has x = 2 (vertical line). The second segment has y = 3 (horizontal line). Since vertical and horizontal lines are perpendicular, the angle between them is 90 degrees.",
+                            "socratic_hint": "Check the orientation of each segment: is one vertical and the other horizontal?"
+                        },
+                        {
+                            "q_num": "Q5",
+                            "type": "2-mark Short Answer",
+                            "question": "What are the coordinates of the origin after a translation 3 units right and 4 units down?",
+                            "ideal_answer": "(0 + 3, 0 - 4) = (3, -4).",
+                            "socratic_hint": "Add 3 to the x-coordinate and subtract 4 from the y-coordinate."
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+
+    # -------------------------------------------------------------
+    # MODULE 5: Textbook Exercise Solver 3: End-of-Chapter Q6 to Q10
+    # -------------------------------------------------------------
+    m5_svg = build_cartesian_svg(
+        domain=(-8, 10), range_y=(-8, 10),
+        points=[
+            {"x": -3, "y": -4, "label": "M", "color": "#2563EB", "sub": "(-3, -4)"},
+            {"x": 0, "y": 0, "label": "A (Origin)", "color": "#0F172A", "sub": "(0, 0)"},
+            {"x": 6, "y": 8, "label": "G", "color": "#16A34A", "sub": "(6, 8)"},
+            {"x": -7, "y": 1, "label": "M_mid", "color": "#DC2626", "sub": "(-7, 1)"},
+            {"x": 3, "y": -4, "label": "A_mid", "color": "#2563EB", "sub": "(3, -4)"},
+            {"x": -17, "y": 6, "label": "B_end", "color": "#7C3AED", "sub": "(-17, 6)"},
+        ],
+        lines=[
+            {"p1": (-3, -4), "p2": (6, 8), "color": "#2563EB", "stroke_width": 2.5, "label": "Line MAG (m = 4/3)"},
+        ],
+        title="Collinearity & Midpoint Formula Discovery",
+        caption="Collinear points M, A, G and Endpoint B(-17, 6) from Midpoint M(-7, 1)"
+    )
+
+    m5 = {
+        "order_index": 5,
+        "title": "Textbook Exercise Solver 3: End-of-Chapter Exercises Part 2 (Q6 to Q10 - Collinearity & Midpoints)",
+        "description": "Exhaustive step-by-step solutions for Problems 6 through 10: collinearity testing without graphing (slope and distance methods), non-collinear point verification, plotting origin isosceles triangles, discovery of the Midpoint Formula from coordinate tables, and finding unknown endpoints.",
+        "subtopics": [
+            "Problem 6: Collinearity check of M(-3, -4), A(0, 0), G(6, 8) via distance and slope methods",
+            "Problem 7: Collinearity test for R(-5, -1), B(-2, -5), C(4, -12)",
+            "Problem 8: Plotting isosceles triangles with origin vertex (right-angled and cross-quadrant)",
+            "Problem 9: Discovery of the Midpoint Formula M = ((x1+x2)/2, (y1+y2)/2) from the 4-case table",
+            "Problem 10: Finding endpoint B(x, y) given midpoint M(-7, 1) and endpoint A(3, -4)"
+        ],
+        "key_concepts": [
+            "Collinearity Slope Test: Three points A, B, C are collinear if and only if slope(AB) = slope(BC) with shared point B.",
+            "Collinearity Distance Test: Three points are collinear if and only if the sum of two segment lengths equals the third length: AB + BC = AC.",
+            "Midpoint Invariant: The coordinates of the midpoint M of segment joining (x1, y1) and (x2, y2) are the arithmetic averages: ((x1+x2)/2, (y1+y2)/2).",
+            "Endpoint Inversion: If M is the midpoint of AB, then B = 2M - A, giving x_B = 2*x_M - x_A and y_B = 2*y_M - y_A."
+        ],
+        "success_criteria": "Student can prove collinearity analytically, discover and derive the midpoint formula, and calculate missing endpoints with zero calculation errors.",
+        "chapter_notes": """### Step-by-Step Solver: Problems 6 to 10
+Full analytical derivations with zero skipped calculations.""",
+        "worked_examples": [
+            {
+                "problem": "Problem 6: Are the points M(-3, -4), A(0, 0), and G(6, 8) on the same straight line? Suggest a method to check this without plotting and joining the points.",
+                "given": "Three points: M(-3, -4), A(0, 0), G(6, 8).",
+                "formula": "Method 1 (Distance Formula): AB + BC = AC. Method 2 (Slope Formula): m = (y2 - y1) / (x2 - x1).",
+                "substitution": "m(MA) = (0 - (-4)) / (0 - (-3)) = 4 / 3. m(AG) = (8 - 0) / (6 - 0) = 8 / 6 = 4 / 3.",
+                "calculation": "Step 1: Compute slope of segment MA:\nm_MA = (0 - (-4)) / (0 - (-3)) = 4 / 3.\n\nStep 2: Compute slope of segment AG:\nm_AG = (8 - 0) / (6 - 0) = 8 / 6 = 4 / 3.\n\nStep 3: Distance Method verification:\nMA = sqrt((0 - (-3))^2 + (0 - (-4))^2) = sqrt(3^2 + 4^2) = sqrt(9 + 16) = sqrt(25) = 5 units.\nAG = sqrt((6 - 0)^2 + (8 - 0)^2) = sqrt(36 + 64) = sqrt(100) = 10 units.\nMG = sqrt((6 - (-3))^2 + (8 - (-4))^2) = sqrt(9^2 + 12^2) = sqrt(81 + 144) = sqrt(225) = 15 units.\n\nStep 4: Check summation condition:\nMA + AG = 5 + 10 = 15 units = MG.\nSince MA + AG = MG and slope(MA) = slope(AG) with common point A, the points are collinear.",
+                "finalAnswer": "YES, M, A, and G are collinear. Verified via both Slope (m = 4/3) and Distance (5 + 10 = 15).",
+                "unit": "units",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m5_svg
+            },
+            {
+                "problem": "Problem 7: Use your method (from Problem 6) to check if the points R(-5, -1), B(-2, -5), and C(4, -12) are on the same straight line. Now plot both sets of points and check your answers.",
+                "given": "Three points: R(-5, -1), B(-2, -5), C(4, -12).",
+                "formula": "Slope formula: m = (y2 - y1) / (x2 - x1). Collinear iff m(RB) = m(BC).",
+                "substitution": "m(RB) = (-5 - (-1)) / (-2 - (-5)); m(BC) = (-12 - (-5)) / (4 - (-2)).",
+                "calculation": "Step 1: Calculate slope of segment RB:\nm_RB = (-5 - (-1)) / (-2 - (-5)) = (-5 + 1) / (-2 + 5) = -4 / 3 ≈ -1.333.\n\nStep 2: Calculate slope of segment BC:\nm_BC = (-12 - (-5)) / (4 - (-2)) = (-12 + 5) / (4 + 2) = -7 / 6 ≈ -1.167.\n\nStep 3: Compare slopes:\n-4 / 3 = -8 / 6 != -7 / 6.\nSince m_RB != m_BC, the direction of the line changes at point B.\n\nStep 4: Distance check verification:\nRB = sqrt((-2 - (-5))^2 + (-5 - (-1))^2) = sqrt(3^2 + (-4)^2) = sqrt(9 + 16) = 5 units.\nBC = sqrt((4 - (-2))^2 + (-12 - (-5))^2) = sqrt(6^2 + (-7)^2) = sqrt(36 + 49) = sqrt(85) ≈ 9.22 units.\nRC = sqrt((4 - (-5))^2 + (-12 - (-1))^2) = sqrt(9^2 + (-11)^2) = sqrt(81 + 121) = sqrt(202) ≈ 14.21 units.\nCheck sum: RB + BC = 5 + 9.22 = 14.22 != 14.21 (fails strict equality).\nConclusion: Points R, B, and C are NOT on the same straight line.",
+                "finalAnswer": "NO, points R, B, and C are NOT collinear because slope(RB) = -4/3 != slope(BC) = -7/6.",
+                "unit": "dimensionless",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m5_svg
+            },
+            {
+                "problem": "Problem 8: Using the origin as one vertex, plot the vertices of: (i) A right-angled isosceles triangle. (ii) An isosceles triangle with one vertex in Quadrant III and the other in Quadrant IV.",
+                "given": "Origin O(0, 0) is one vertex.",
+                "formula": "Isosceles triangle: Two sides of equal length. Right-angled: Legs along axes or satisfying Pythagoras theorem.",
+                "substitution": "Part (i): O(0, 0), A(a, 0), B(0, a). Part (ii): O(0, 0), P(-a, -b) in Q3, Q(a, -b) in Q4.",
+                "calculation": "Part (i):\n1. Let O(0, 0) be the vertex with the 90 degree angle.\n2. Choose vertex A on the positive x-axis: A(4, 0). Length OA = 4 units.\n3. Choose vertex B on the positive y-axis: B(0, 4). Length OB = 4 units.\n4. Since the axes are perpendicular, angle AOB = 90 degrees.\n5. Since OA = OB = 4 units, Delta OAB is a right-angled isosceles triangle.\n6. Hypotenuse AB = sqrt(4^2 + 4^2) = sqrt(32) = 4*sqrt(2) units.\n\nPart (ii):\n1. Choose vertex P in Quadrant III: P(-3, -4). Both coordinates negative.\nLength OP = sqrt((-3)^2 + (-4)^2) = sqrt(9 + 16) = 5 units.\n2. Choose vertex Q in Quadrant IV: Q(3, -4). x positive, y negative.\nLength OQ = sqrt(3^2 + (-4)^2) = sqrt(9 + 16) = 5 units.\n3. Since OP = OQ = 5 units, Delta OPQ is an isosceles triangle with vertex O at origin, P in Quad III, and Q in Quad IV.",
+                "finalAnswer": "(i) O(0, 0), A(4, 0), B(0, 4); (ii) O(0, 0), P(-3, -4) in Quad III, Q(3, -4) in Quad IV.",
+                "unit": "units",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m5_svg
+            },
+            {
+                "problem": "Problem 9: The textbook table shows coordinates of points S, M, and T. In each case, state whether M is the midpoint of segment ST, give justification, and find the general algebraic connection between coordinates of S, M, and T:\nRow 1: S(-3, 0), M(0, 0), T(3, 0)\nRow 2: S(2, 3), M(3, 4), T(4, 5)\nRow 3: S(0, 0), M(0, 5), T(0, -10)\nRow 4: S(-8, 7), M(0, -2), T(6, -3)",
+                "given": "Four sets of points (S, M, T).",
+                "formula": "Midpoint Definition: M is midpoint iff SM = MT and S, M, T are collinear. Algebraic average: x_avg = (x_S + x_T)/2, y_avg = (y_S + y_T)/2.",
+                "substitution": "Evaluate x_avg and y_avg for each row and compare with M.",
+                "calculation": "Row 1: S(-3, 0), M(0, 0), T(3, 0)\nx_avg = (-3 + 3)/2 = 0/2 = 0 = x_M; y_avg = (0 + 0)/2 = 0 = y_M.\nDistance SM = 3, MT = 3. YES, M is the midpoint.\n\nRow 2: S(2, 3), M(3, 4), T(4, 5)\nx_avg = (2 + 4)/2 = 6/2 = 3 = x_M; y_avg = (3 + 5)/2 = 8/2 = 4 = y_M.\nDistance SM = sqrt((3-2)^2 + (4-3)^2) = sqrt(2); MT = sqrt((4-3)^2 + (5-4)^2) = sqrt(2).\nYES, M is the midpoint.\n\nRow 3: S(0, 0), M(0, 5), T(0, -10)\nx_avg = (0 + 0)/2 = 0 = x_M; y_avg = (0 + (-10))/2 = -10/2 = -5 != +5.\nHere y_M = +5 while midpoint is at (0, -5). NO, M is not the midpoint.\n\nRow 4: S(-8, 7), M(0, -2), T(6, -3)\nx_avg = (-8 + 6)/2 = -2/2 = -1 != 0; y_avg = (7 + (-3))/2 = 4/2 = +2 != -2.\nNO, M is not the midpoint (the true midpoint is (-1, 2)).\n\nGeneral Connection (The Midpoint Formula):\nWhen M is the midpoint of ST, each coordinate of M is the exact arithmetic mean of the coordinates of S and T:\nx_M = (x_S + x_T) / 2  and  y_M = (y_S + y_T) / 2.",
+                "finalAnswer": "Row 1: YES; Row 2: YES; Row 3: NO (true midpoint is (0, -5)); Row 4: NO (true midpoint is (-1, 2)). Connection: x_M = (x_S + x_T)/2 and y_M = (y_S + y_T)/2.",
+                "unit": "dimensionless",
+                "has_diagram": False
+            },
+            {
+                "problem": "Problem 10: Use the connection found in Problem 9 to find the coordinates of B given that M(-7, 1) is the midpoint of segment AB, where A is (3, -4) and B is (x, y).",
+                "given": "Midpoint M = (-7, 1), Endpoint A = (3, -4). Let B = (x, y).",
+                "formula": "x_M = (x_A + x_B) / 2 and y_M = (y_A + y_B) / 2. Inverting: x_B = 2*x_M - x_A and y_B = 2*y_M - y_A.",
+                "substitution": "-7 = (3 + x) / 2 and 1 = (-4 + y) / 2.",
+                "calculation": "Step 1: Solve for x-coordinate of B:\n-7 = (3 + x) / 2\nMultiply both sides by 2:\n-14 = 3 + x\nSubtract 3 from both sides:\nx = -14 - 3 = -17.\n\nStep 2: Solve for y-coordinate of B:\n1 = (-4 + y) / 2\nMultiply both sides by 2:\n2 = -4 + y\nAdd 4 to both sides:\ny = 2 + 4 = 6.\n\nStep 3: Verification:\nMidpoint of (3, -4) and (-17, 6):\nx_mid = (3 + (-17)) / 2 = -14 / 2 = -7 (matches M_x).\ny_mid = (-4 + 6) / 2 = 2 / 2 = 1 (matches M_y).\nVerified completely!",
+                "finalAnswer": "Coordinates of B = (-17, 6).",
+                "unit": "dimensionless",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m5_svg
+            }
+        ],
+        "common_misconceptions": [
+            "Adding coordinates without dividing by 2 when computing midpoints.",
+            "Dividing by 2 instead of multiplying by 2 when solving for an unknown endpoint from a midpoint."
+        ],
+        "ai_system_prompt_context": "SOCRATIC DIRECTIVE: Pose Problem 9 to student. Ask: 'What is the arithmetic relationship between the coordinates of S, M, and T when M bisects the segment?'",
+        "visual_lesson_plan": {
+            "title": "Collinearity & Midpoint Formula Discovery Visuals",
+            "diagram_type": "vector_svg_diagram",
+            "diagram_svg": m5_svg,
+            "what_to_make": "Cartesian plane showing collinear points M-A-G and midpoint bisection AB with M(-7, 1).",
+            "concept_visuals": [
+                {
+                    "concept_title": "Collinearity & Midpoint Bisection",
+                    "diagram_title": "Collinear Points and Midpoint",
+                    "diagram_type": "vector_svg_diagram",
+                    "diagram_svg": m5_svg,
+                    "interactive_math_formula": "M = \\left(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}\\right)",
+                    "mafs_graph_config": {"domain": [-8, 10], "range": [-8, 10], "points": [[-3, -4], [0, 0], [6, 8], [-7, 1], [3, -4]]},
+                    "image_query": "Midpoint formula line segment Cartesian plane",
+                    "video_query": "Derivation of the midpoint formula animation",
+                    "image_url": "/images/curriculum/ch1_midpoint_formula.png",
+                    "what_to_make": "Segment AB with midpoint M bisecting the segment into two equal parts.",
+                    "what_to_explain": "Show that the midpoint coordinates are the arithmetic averages of the endpoint coordinates.",
+                    "timing_and_cue": "Introduce at 03:00 during Problem 9 explanation."
+                }
+            ],
+            "concept_questions": [
+                {
+                    "concept_index": 0,
+                    "concept_title": "Collinearity & Midpoint Bisection",
+                    "questions": [
+                        {
+                            "q_num": "Q1",
+                            "type": "1-mark MCQ",
+                            "question": "What is the midpoint of the segment joining (-4, 6) and (8, -2)?",
+                            "ideal_answer": "((-4 + 8)/2, (6 + (-2))/2) = (4/2, 4/2) = (2, 2).",
+                            "socratic_hint": "Take the average of the x-coordinates and the average of the y-coordinates."
+                        },
+                        {
+                            "q_num": "Q2",
+                            "type": "2-mark Short Answer",
+                            "question": "If M(2, 3) is the midpoint of segment AB with A(6, 1), find the coordinates of B.",
+                            "ideal_answer": "x_B = 2*(2) - 6 = 4 - 6 = -2; y_B = 2*(3) - 1 = 6 - 1 = 5. So B is (-2, 5).",
+                            "socratic_hint": "Use x_B = 2*x_M - x_A and y_B = 2*y_M - y_A."
+                        },
+                        {
+                            "q_num": "Q3",
+                            "type": "2-mark Short Answer",
+                            "question": "Can three points with different slopes between pairs ever be collinear?",
+                            "ideal_answer": "No. Collinear points lie on the exact same straight line, which has a unique, constant slope throughout its entire length.",
+                            "socratic_hint": "What is the defining geometric characteristic of a single straight line?"
+                        },
+                        {
+                            "q_num": "Q4",
+                            "type": "3-mark Short Answer",
+                            "question": "Find the value of k such that the points (1, 2), (3, k), and (5, 8) are collinear.",
+                            "ideal_answer": "Slope between (1, 2) and (5, 8) is (8-2)/(5-1) = 6/4 = 1.5. Since (3, k) is the midpoint of (1, 2) and (5, 8), k = (2 + 8)/2 = 5.",
+                            "socratic_hint": "Notice that x = 3 is the exact midpoint between x = 1 and x = 5."
+                        },
+                        {
+                            "q_num": "Q5",
+                            "type": "2-mark Short Answer",
+                            "question": "If the midpoint of a line segment lies on the y-axis, what can you say about the x-coordinates of its endpoints?",
+                            "ideal_answer": "The x-coordinates of the endpoints must sum to 0 (i.e. x1 + x2 = 0, or x2 = -x1). They are additive inverses.",
+                            "socratic_hint": "What is the x-coordinate of any point on the y-axis?"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+
+    # -------------------------------------------------------------
+    # MODULE 6: Textbook Exercise Solver 4: End-of-Chapter Q11 to Q16
+    # -------------------------------------------------------------
+    m6_svg = build_cartesian_svg(
+        domain=(-8, 18), range_y=(-8, 10),
+        points=[
+            {"x": 4, "y": 7, "label": "A (Trisect)", "color": "#16A34A", "sub": "(4, 7)"},
+            {"x": 8, "y": 4, "label": "P (1/3)", "color": "#D97706", "sub": "(8, 4)"},
+            {"x": 12, "y": 1, "label": "Q (2/3)", "color": "#D97706", "sub": "(12, 1)"},
+            {"x": 16, "y": -2, "label": "B (Trisect)", "color": "#16A34A", "sub": "(16, -2)"},
+            {"x": 2, "y": 1, "label": "A_sq", "color": "#2563EB", "sub": "(2, 1)"},
+            {"x": -1, "y": 2, "label": "B_sq", "color": "#2563EB", "sub": "(-1, 2)"},
+            {"x": -2, "y": -1, "label": "C_sq", "color": "#2563EB", "sub": "(-2, -1)"},
+            {"x": 1, "y": -2, "label": "D_sq", "color": "#2563EB", "sub": "(1, -2)"},
+        ],
+        polygons=[
+            {"points": [(2, 1), (-1, 2), (-2, -1), (1, -2)], "fill": "rgba(37, 99, 235, 0.12)", "stroke": "#2563EB", "stroke_width": 2.5}
+        ],
+        lines=[
+            {"p1": (4, 7), "p2": (16, -2), "color": "#16A34A", "stroke_width": 2, "label": "Trisection AB"},
+            {"p1": (2, 1), "p2": (-2, -1), "color": "#DC2626", "dash": "3,3", "label": "Diag = √20"},
+            {"p1": (-1, 2), "p2": (1, -2), "color": "#DC2626", "dash": "3,3", "label": "Diag = √20"},
+        ],
+        title="Trisection, Circle K, and Square ABCD Verification",
+        caption="Trisection points P(8,4), Q(12,1) and Square ABCD (Area = 10 sq units)"
+    )
+
+    m6 = {
+        "order_index": 6,
+        "title": "Textbook Exercise Solver 4: End-of-Chapter Exercises Part 3 (Q11 to Q16 - Real-World & Geometry Proofs)",
+        "description": "Exhaustive step-by-step solutions for Problems 11 through 16: segment trisection via midpoints, circle K radial invariance, inverted triangle vertex recovery from midpoints, city street grid coordinate uniqueness, computer screen buffer bounding box collision, and rigorous square verification.",
+        "subtopics": [
+            "Problem 11: Segment trisection between A(4, 7) and B(16, -2) using midpoint recursion",
+            "Problem 12: Circle K centered at origin: proving A(1, -8), B(-4, 7), C(-7, -4) lie on K; checking points D(-5, 6) and E(0, 9)",
+            "Problem 13: Midpoints D(5, 1), E(6, 5), F(0, 3): Solving the linear system to find original vertices A, B, C",
+            "Problem 14: City street grid Cartesian model (10 N-S streets, 10 E-W streets, cross streets (4, 3) and (3, 4))",
+            "Problem 15: Computer graphics 800x600 screen buffer: circle bounding boxes, screen boundary containment, and circle collision detection",
+            "Problem 16: Geometric proof that points A(2, 1), B(-1, 2), C(-2, -1), D(1, -2) form a square and exact area calculation"
+        ],
+        "key_concepts": [
+            "Trisection Invariant: Trisection divides a segment into three equal lengths (1:1:1). P is at 1/3 offset and Q is at 2/3 offset.",
+            "Concyclic Invariant: Points lie on a circle centered at (0, 0) if and only if their distance from origin equals radius R: x^2 + y^2 = R^2.",
+            "Midpoint Triangle Invariant: The original vertices of a triangle whose side midpoints are D, E, F are given by vector combinations: A = D + F - E, B = D + E - F, C = E + F - D.",
+            "Ordered Pair Uniqueness: In a Cartesian grid, (4, 3) and (3, 4) represent two completely distinct intersections.",
+            "Display Boundary Containment: A circle of radius r with center (h, k) lies entirely within a [0, W] x [0, H] screen if and only if h - r >= 0, h + r <= W, k - r >= 0, and k + r <= H.",
+            "Rigorous Square Test: To prove a quadrilateral is a square, it is NOT enough to show four sides equal (that could be a rhombus); one must also prove both diagonals are equal."
+        ],
+        "success_criteria": "Student can execute segment trisection, test concyclicity, solve midpoint systems for triangle vertices, and prove square geometry with Topper rigor.",
+        "chapter_notes": """### Step-by-Step Solver: Problems 11 to 16
+Comprehensive proofs following CBSE Exam Topper standards.""",
+        "worked_examples": [
+            {
+                "problem": "Problem 11: Let P, Q be points of trisection of segment AB, with P closer to A, and Q closer to B. Using your knowledge of how to find the coordinates of the midpoint of a segment, how would you find the coordinates of P and Q? Do this for the case when the points are A(4, 7) and B(16, -2).",
+                "given": "A(4, 7) and B(16, -2). P and Q divide AB into three equal parts: AP = PQ = QB.",
+                "formula": "Midpoint property: P is midpoint of AQ, and Q is midpoint of PB. Uniform displacement: Delta x = (x_B - x_A)/3, Delta y = (y_B - y_A)/3.",
+                "substitution": "Delta x = (16 - 4)/3 = 12/3 = 4. Delta y = (-2 - 7)/3 = -9/3 = -3.",
+                "calculation": "Step 1: Compute total displacement from A to B:\nTotal delta x = 16 - 4 = 12.\nTotal delta y = -2 - 7 = -9.\n\nStep 2: Since P and Q trisect AB into 3 equal steps:\nDisplacement per step delta x = 12 / 3 = 4 units.\nDisplacement per step delta y = -9 / 3 = -3 units.\n\nStep 3: Coordinates of point P (1 step from A):\nx_P = x_A + delta x = 4 + 4 = 8.\ny_P = y_A + delta y = 7 + (-3) = 4.\nThus P = (8, 4).\n\nStep 4: Coordinates of point Q (2 steps from A, or 1 step from P):\nx_Q = x_P + delta x = 8 + 4 = 12.\ny_Q = y_P + delta y = 4 + (-3) = 1.\nThus Q = (12, 1).\n\nStep 5: Verification via midpoints:\n- Is P the midpoint of segment AQ (A(4,7) and Q(12,1))?\n((4 + 12)/2, (7 + 1)/2) = (16/2, 8/2) = (8, 4) = P. Verified!\n- Is Q the midpoint of segment PB (P(8,4) and B(16,-2))?\n((8 + 16)/2, (4 + (-2))/2) = (24/2, 2/2) = (12, 1) = Q. Verified!",
+                "finalAnswer": "Trisection points are P(8, 4) and Q(12, 1).",
+                "unit": "dimensionless",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m6_svg
+            },
+            {
+                "problem": "Problem 12: (i) Given the points A(1, -8), B(-4, 7), and C(-7, -4), show that they lie on a circle K whose center is the origin O(0, 0). What is the radius of circle K? (ii) Given the points D(-5, 6) and E(0, 9), check whether D and E lie within the circle, on the circle, or outside the circle K.",
+                "given": "A(1, -8), B(-4, 7), C(-7, -4), D(-5, 6), E(0, 9). Center O(0, 0).",
+                "formula": "Distance from origin: d = sqrt(x^2 + y^2). A point lies on the circle if d = R, inside if d < R, outside if d > R.",
+                "substitution": "OA^2 = 1^2 + (-8)^2; OB^2 = (-4)^2 + 7^2; OC^2 = (-7)^2 + (-4)^2.",
+                "calculation": "Step 1: Compute squared distance from O for A, B, C:\nOA^2 = 1^2 + (-8)^2 = 1 + 64 = 65 -> OA = sqrt(65).\nOB^2 = (-4)^2 + 7^2 = 16 + 49 = 65 -> OB = sqrt(65).\nOC^2 = (-7)^2 + (-4)^2 = 49 + 16 = 65 -> OC = sqrt(65).\nSince OA = OB = OC = sqrt(65), all three points lie on circle K with radius R = sqrt(65) units (approx 8.062 units).\n\nStep 2: Check point D(-5, 6):\nOD^2 = (-5)^2 + 6^2 = 25 + 36 = 61.\nSince OD^2 = 61 < 65, OD < R -> Point D lies strictly INSIDE circle K.\n\nStep 3: Check point E(0, 9):\nOE^2 = 0^2 + 9^2 = 81.\nSince OE^2 = 81 > 65, OE > R -> Point E lies strictly OUTSIDE circle K.",
+                "finalAnswer": "(i) Radius R = sqrt(65) units; points A, B, C lie on circle K. (ii) Point D lies INSIDE circle K, and Point E lies OUTSIDE circle K.",
+                "unit": "units",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m6_svg
+            },
+            {
+                "problem": "Problem 13: The midpoints of the sides of triangle ABC are the points D, E, and F. Given that the coordinates of D, E, and F are (5, 1), (6, 5), and (0, 3) respectively, find the coordinates of A, B, and C.",
+                "given": "Midpoints: D(5, 1) is midpoint of AB; E(6, 5) is midpoint of BC; F(0, 3) is midpoint of CA.",
+                "formula": "Midpoint relations:\n(x_A + x_B)/2 = 5 => x_A + x_B = 10\n(x_B + x_C)/2 = 6 => x_B + x_C = 12\n(x_C + x_A)/2 = 0 => x_C + x_A = 0\nSumming equations: 2(x_A + x_B + x_C) = 22 => x_A + x_B + x_C = 11.\nThen x_A = 11 - (x_B + x_C) = 11 - 12 = -1.",
+                "substitution": "Linear systems for x and y coordinates.",
+                "calculation": "Step 1: Solve for x-coordinates:\nEquation 1: x_A + x_B = 2 * 5 = 10\nEquation 2: x_B + x_C = 2 * 6 = 12\nEquation 3: x_C + x_A = 2 * 0 = 0\nAdd all three equations:\n2(x_A + x_B + x_C) = 10 + 12 + 0 = 22\nx_A + x_B + x_C = 11\n\nNow solve for each vertex:\nx_A = (x_A + x_B + x_C) - (x_B + x_C) = 11 - 12 = -1.\nx_B = (x_A + x_B + x_C) - (x_C + x_A) = 11 - 0 = 11.\nx_C = (x_A + x_B + x_C) - (x_A + x_B) = 11 - 10 = 1.\n\nStep 2: Solve for y-coordinates:\nEquation 4: y_A + y_B = 2 * 1 = 2\nEquation 5: y_B + y_C = 2 * 5 = 10\nEquation 6: y_C + y_A = 2 * 3 = 6\nAdd all three equations:\n2(y_A + y_B + y_C) = 2 + 10 + 6 = 18\ny_A + y_B + y_C = 9\n\nNow solve for each vertex:\ny_A = (y_A + y_B + y_C) - (y_B + y_C) = 9 - 10 = -1.\ny_B = (y_A + y_B + y_C) - (y_C + y_A) = 9 - 6 = 3.\ny_C = (y_A + y_B + y_C) - (y_A + y_B) = 9 - 2 = 7.\n\nStep 3: Verification:\nMidpoint of AB: ((-1+11)/2, (-1+3)/2) = (10/2, 2/2) = (5, 1) = D. Correct!\nMidpoint of BC: ((11+1)/2, (3+7)/2) = (12/2, 10/2) = (6, 5) = E. Correct!\nMidpoint of CA: ((1+(-1))/2, (7+(-1))/2) = (0/2, 6/2) = (0, 3) = F. Correct!",
+                "finalAnswer": "Vertices are A(-1, -1), B(11, 3), and C(1, 7).",
+                "unit": "dimensionless",
+                "has_diagram": False
+            },
+            {
+                "problem": "Problem 14: A city has two main roads along N-S and E-W directions intersecting at the center. Other streets run parallel, 200 m apart (1 cm = 200 m). There are 10 streets in each direction. (a) How many cross-streets can be referred to as (4, 3)? (b) How many cross-streets can be referred to as (3, 4)?",
+                "given": "Grid with N-S streets numbered along x-axis and E-W streets numbered along y-axis.",
+                "formula": "A point in the Cartesian plane is uniquely specified by an ordered pair (x, y).",
+                "substitution": "Cross-street (4, 3) means 4th N-S street and 3rd E-W street.",
+                "calculation": "1. Two straight lines in a plane that are not parallel intersect at EXACTLY one point.\n2. The 4th street in the N-S direction is a unique vertical line (x = 4).\n3. The 3rd street in the E-W direction is a unique horizontal line (y = 3).\n4. Their intersection is a single, unique cross-street. Thus, only ONE cross-street can be referred to as (4, 3).\n5. Similarly, the 3rd N-S street (x = 3) and 4th E-W street (y = 4) intersect at exactly ONE unique point (3, 4).\n6. Since ordered pairs are distinct when coordinates are swapped ((4, 3) != (3, 4)), these represent two completely separate street crossings.",
+                "finalAnswer": "(a) Only ONE cross-street can be referred to as (4, 3); (b) Only ONE cross-street can be referred to as (3, 4).",
+                "unit": "intersection",
+                "has_diagram": False
+            },
+            {
+                "problem": "Problem 15: A computer screen is 800 pixels wide and 600 pixels high with origin at bottom-left (0, 0). Circle A has center (100, 150) and radius 80 px. Circle B has center (250, 230) and radius 100 px. Determine: (i) whether any part of either circle lies outside the screen; (ii) whether the two circles intersect.",
+                "given": "Screen bounds: [0, 800] in x, [0, 600] in y. Circle A: center C1(100, 150), r1 = 80. Circle B: center C2(250, 230), r2 = 100.",
+                "formula": "Containment: x_min = h - r >= 0, x_max = h + r <= 800, y_min = k - r >= 0, y_max = k + r <= 600. Intersection: |r1 - r2| <= d(C1, C2) <= r1 + r2.",
+                "substitution": "Circle A extents: x in [100-80, 100+80], y in [150-80, 150+80]. Circle B extents: x in [250-100, 250+100], y in [230-100, 230+100]. Distance C1C2 = sqrt((250-100)^2 + (230-150)^2).",
+                "calculation": "Step 1: Check boundaries for Circle A:\nx_min = 100 - 80 = 20 >= 0 (OK)\nx_max = 100 + 80 = 180 <= 800 (OK)\ny_min = 150 - 80 = 70 >= 0 (OK)\ny_max = 150 + 80 = 230 <= 600 (OK)\nCircle A is entirely INSIDE the screen.\n\nStep 2: Check boundaries for Circle B:\nx_min = 250 - 100 = 150 >= 0 (OK)\nx_max = 250 + 100 = 350 <= 800 (OK)\ny_min = 230 - 100 = 130 >= 0 (OK)\ny_max = 230 + 100 = 330 <= 600 (OK)\nCircle B is entirely INSIDE the screen.\nConclusion (i): NO part of either circle lies outside the screen.\n\nStep 3: Check intersection between Circle A and Circle B:\nCompute center distance d = C1C2:\nd = sqrt((250 - 100)^2 + (230 - 150)^2) = sqrt(150^2 + 80^2)\nd = sqrt(22500 + 6400) = sqrt(28900) = 170 pixels.\n\nStep 4: Sum of radii:\nr1 + r2 = 80 + 100 = 180 pixels.\nDifference of radii:\n|r1 - r2| = |80 - 100| = 20 pixels.\n\nStep 5: Compare distance with radii sum and difference:\nSince |r1 - r2| < d < r1 + r2 (20 < 170 < 180), the circles intersect at EXACTLY TWO distinct points.",
+                "finalAnswer": "(i) NO, neither circle lies outside the screen; (ii) YES, the two circles intersect at two points (since d = 170 < r1 + r2 = 180).",
+                "unit": "pixels",
+                "has_diagram": False
+            },
+            {
+                "problem": "Problem 16: Plot the points A(2, 1), B(-1, 2), C(-2, -1), and D(1, -2) in the coordinate plane. Is ABCD a square? Explain why and calculate its area.",
+                "given": "A(2, 1), B(-1, 2), C(-2, -1), D(1, -2).",
+                "formula": "Distance formula: d = sqrt((x2 - x1)^2 + (y2 - y1)^2). A quadrilateral is a square if all 4 sides are equal AND both diagonals are equal.",
+                "substitution": "AB^2 = (-1-2)^2 + (2-1)^2; BC^2 = (-2-(-1))^2 + (-1-2)^2; CD^2 = (1-(-2))^2 + (-2-(-1))^2; DA^2 = (2-1)^2 + (1-(-2))^2.",
+                "calculation": "Step 1: Calculate the lengths of all 4 sides:\nAB^2 = (-3)^2 + 1^2 = 9 + 1 = 10 -> AB = sqrt(10).\nBC^2 = (-1)^2 + (-3)^2 = 1 + 9 = 10 -> BC = sqrt(10).\nCD^2 = 3^2 + (-1)^2 = 9 + 1 = 10 -> CD = sqrt(10).\nDA^2 = 1^2 + 3^2 = 1 + 9 = 10 -> DA = sqrt(10).\nAll four sides are equal: AB = BC = CD = DA = sqrt(10) units.\n\nStep 2: Calculate the lengths of both diagonals AC and BD:\nAC^2 = (-2 - 2)^2 + (-1 - 1)^2 = (-4)^2 + (-2)^2 = 16 + 4 = 20 -> AC = sqrt(20) = 2*sqrt(5).\nBD^2 = (1 - (-1))^2 + (-2 - 2)^2 = 2^2 + (-4)^2 = 4 + 16 = 20 -> BD = sqrt(20) = 2*sqrt(5).\nDiagonals are equal: AC = BD = sqrt(20) units.\n\nStep 3: Verification of right angle via Baudhāyana-Pythagoras:\nIn triangle ABC: AB^2 + BC^2 = 10 + 10 = 20 = AC^2. Hence angle B = 90 deg.\nSince all four sides are equal and diagonals are equal, ABCD is rigorously proven to be a SQUARE.\n\nStep 4: Compute Area:\nArea of square = side^2 = (sqrt(10))^2 = 10 sq units.\nAlternatively, Area = (diagonal^2) / 2 = 20 / 2 = 10 sq units.",
+                "finalAnswer": "YES, ABCD is a square because all four sides equal sqrt(10) and both diagonals equal sqrt(20). Area = 10 sq units.",
+                "unit": "sq units",
+                "has_diagram": True,
+                "diagram_type": "vector_svg_diagram",
+                "diagram_svg": m6_svg
+            }
+        ],
+        "common_misconceptions": [
+            "Checking only that all 4 sides are equal and concluding it is a square (it could be a rhombus!). Diagonals MUST also be proven equal.",
+            "Confusing street coordinates (4, 3) and (3, 4) as the same crossing."
+        ],
+        "ai_system_prompt_context": "TEACHING CADENCE: Show the square ABCD diagram using write_chalkboard(action='draw_svg_diagram'). Demonstrate why checking diagonals is mandatory for full marks in board exams.",
+        "visual_lesson_plan": {
+            "title": "Square Verification & Bounding Box Visuals",
+            "diagram_type": "vector_svg_diagram",
+            "diagram_svg": m6_svg,
+            "what_to_make": "Cartesian grid showing square ABCD with vertices (2,1), (-1,2), (-2,-1), (1,-2) and diagonals AC and BD.",
+            "concept_visuals": [
+                {
+                    "concept_title": "Square Invariant & Diagonal Equality",
+                    "diagram_title": "Square ABCD on Coordinate Plane",
+                    "diagram_type": "vector_svg_diagram",
+                    "diagram_svg": m6_svg,
+                    "interactive_math_formula": "AB = BC = CD = DA = \\sqrt{10}, \\quad AC = BD = \\sqrt{20}",
+                    "mafs_graph_config": {"domain": [-4, 6], "range": [-4, 6], "polygons": [[[2, 1], [-1, 2], [-2, -1], [1, -2]]]},
+                    "image_query": "Square plotted on cartesian grid coordinate geometry",
+                    "video_query": "Proving quadrilateral is a square coordinate geometry",
+                    "image_url": "/images/curriculum/ch1_square_proof.png",
+                    "what_to_make": "Plotted square ABCD with dashed diagonal lines proving right angles.",
+                    "what_to_explain": "Explain that four equal sides make a rhombus, but equal diagonals guarantee a square.",
+                    "timing_and_cue": "Introduce at 04:30 during Problem 16 explanation."
+                }
+            ],
+            "concept_questions": [
+                {
+                    "concept_index": 0,
+                    "concept_title": "Square Invariant & Diagonal Equality",
+                    "questions": [
+                        {
+                            "q_num": "Q1",
+                            "type": "2-mark Short Answer",
+                            "question": "Why is proving all four sides of a quadrilateral equal not sufficient to prove that it is a square?",
+                            "ideal_answer": "A rhombus also has all four sides equal. To be a square, the angles must also be 90 degrees, which is equivalent to proving that the two diagonals are equal in length.",
+                            "socratic_hint": "What other four-sided shape has all four sides of equal length?"
+                        },
+                        {
+                            "q_num": "Q2",
+                            "type": "2-mark Short Answer",
+                            "question": "If two circles have radii 6 cm and 8 cm, and their centers are 10 cm apart, how many points do they intersect at?",
+                            "ideal_answer": "Since |8 - 6| = 2 < 10 < 8 + 6 = 14, the circles intersect at exactly TWO distinct points.",
+                            "socratic_hint": "Compare the distance between centers with the sum and difference of the radii."
+                        },
+                        {
+                            "q_num": "Q3",
+                            "type": "3-mark Short Answer",
+                            "question": "Given triangle midpoints D(2, 3), E(4, 5), F(1, 4), state the formula to find vertex A directly.",
+                            "ideal_answer": "Vertex A = D + F - E = (2 + 1 - 4, 3 + 4 - 5) = (-1, 2).",
+                            "socratic_hint": "Recall the midpoint vector formula: the vertex opposite to E is D + F - E."
+                        },
+                        {
+                            "q_num": "Q4",
+                            "type": "2-mark Short Answer",
+                            "question": "A circle of radius 50 has center (30, 40). Does any part of it cross the y-axis?",
+                            "ideal_answer": "Yes, because the distance of the center from the y-axis is x = 30, which is less than the radius 50 (30 - 50 = -20 < 0). It crosses by 20 units into the negative region.",
+                            "socratic_hint": "Compare the center's x-coordinate with the radius."
+                        },
+                        {
+                            "q_num": "Q5",
+                            "type": "2-mark Short Answer",
+                            "question": "Find the area of a square whose diagonal has length 8 units.",
+                            "ideal_answer": "Area = (diagonal^2) / 2 = 8^2 / 2 = 64 / 2 = 32 sq units.",
+                            "socratic_hint": "Remember the relation between side s and diagonal d: d = s*sqrt(2), so Area = s^2 = d^2 / 2."
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+
+    from .ch1_visuals import (
+        get_m1_visuals, get_m2_visuals, get_m3_visuals,
+        get_m4_visuals, get_m5_visuals, get_m6_visuals
+    )
+    m1["visual_lesson_plan"]["concept_visuals"] = get_m1_visuals()
+    m2["visual_lesson_plan"]["concept_visuals"] = get_m2_visuals()
+    m3["visual_lesson_plan"]["concept_visuals"] = get_m3_visuals()
+    m4["visual_lesson_plan"]["concept_visuals"] = get_m4_visuals()
+    m5["visual_lesson_plan"]["concept_visuals"] = get_m5_visuals()
+    m6["visual_lesson_plan"]["concept_visuals"] = get_m6_visuals()
+
+    return [m1, m2, m3, m4, m5, m6]

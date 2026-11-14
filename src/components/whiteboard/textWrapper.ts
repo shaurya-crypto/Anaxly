@@ -3,9 +3,14 @@
  * Guarantees zero text spillage outside card boundaries (CBSE/ICSE/IB layouts)
  */
 
+import { cleanChalkboardTypography } from './chalkboardTypography'
+
+export { cleanChalkboardTypography }
+
 export function wrapText(text: string, maxCharsPerLine = 70): string[] {
   if (!text || !text.trim()) return []
-  const normalized = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n')
+  const cleaned = cleanChalkboardTypography(text)
+  const normalized = cleaned.replace(/\r\n/g, '\n').replace(/\r/g, '\n')
   const paragraphs = normalized.split('\n')
   const result: string[] = []
 

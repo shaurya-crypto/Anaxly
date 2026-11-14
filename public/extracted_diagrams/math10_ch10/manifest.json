@@ -1,0 +1,287 @@
+[
+  {
+    "figure_id": "Fig. 10.1",
+    "page_number": 1,
+    "caption": "Fig. 10.1",
+    "filename": "fig_10_1.webp",
+    "file_path": "public/extracted_diagrams/math10_ch10\\fig_10_1.webp",
+    "dimensions": {
+      "width": 1053,
+      "height": 1031,
+      "aspect_ratio": 1.02
+    },
+    "file_size_kb": 84.0,
+    "crop_bbox": [
+      59.3,
+      185.8,
+      444.0,
+      561.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.2",
+    "page_number": 2,
+    "caption": "Fig. 10.2 In this chapter, we will study about the existence of the tangents",
+    "filename": "fig_10_2.webp",
+    "file_path": "public/extracted_diagrams/math10_ch10\\fig_10_2.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 356,
+      "aspect_ratio": 2.95
+    },
+    "file_size_kb": 55.8,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      445.3,
+      225.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.3",
+    "page_number": 2,
+    "caption": "Fig. 10.3(i)]. In various positions, the",
+    "filename": "fig_10_3.webp",
+    "file_path": "public/extracted_diagrams/math10_ch10\\fig_10_3.webp",
+    "dimensions": {
+      "width": 524,
+      "height": 474,
+      "aspect_ratio": 1.11
+    },
+    "file_size_kb": 43.6,
+    "crop_bbox": [
+      24.0,
+      223.3,
+      252.0,
+      394.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.3",
+    "page_number": 3,
+    "caption": "Fig. 10.3(ii)]. In one case, it becomes zero on one side of the secant and in another case, it becomes zero on",
+    "filename": "fig_10_3.webp",
+    "file_path": "public/extracted_diagrams/math10_ch10\\fig_10_3.webp",
+    "dimensions": {
+      "width": 1051,
+      "height": 473,
+      "aspect_ratio": 2.22
+    },
+    "file_size_kb": 81.3,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.6,
+      267.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.4",
+    "page_number": 3,
+    "caption": "Fig. 10.4 now prove this property of the tangent.",
+    "filename": "fig_10_4.webp",
+    "file_path": "public/extracted_diagrams/math10_ch10\\fig_10_4.webp",
+    "dimensions": {
+      "width": 484,
+      "height": 830,
+      "aspect_ratio": 0.58
+    },
+    "file_size_kb": 46.1,
+    "crop_bbox": [
+      267.1,
+      253.8,
+      444.1,
+      571.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.5",
+    "page_number": 4,
+    "caption": "Fig. 10.5",
+    "filename": "fig_10_5.webp",
+    "file_path": "public/extracted_diagrams/math10_ch10\\fig_10_5.webp",
+    "dimensions": {
+      "width": 553,
+      "height": 512,
+      "aspect_ratio": 1.08
+    },
+    "file_size_kb": 18.5,
+    "crop_bbox": [
+      241.9,
+      97.0,
+      444.0,
+      281.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.6",
+    "page_number": 5,
+    "caption": "Fig. 10.6 (i)]. Next take a point",
+    "filename": "fig_10_6.webp",
+    "file_path": "public/extracted_diagrams/math10_ch10\\fig_10_6.webp",
+    "dimensions": {
+      "width": 524,
+      "height": 382,
+      "aspect_ratio": 1.37
+    },
+    "file_size_kb": 31.3,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      252.0,
+      234.7
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.7",
+    "page_number": 6,
+    "caption": "Fig. 10.7 angles. Now in right triangles OQP and ORP,",
+    "filename": "fig_10_7.webp",
+    "file_path": "public/extracted_diagrams/math10_ch10\\fig_10_7.webp",
+    "dimensions": {
+      "width": 1054,
+      "height": 483,
+      "aspect_ratio": 2.18
+    },
+    "file_size_kb": 63.1,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.0,
+      271.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.8",
+    "page_number": 6,
+    "caption": "Fig. 10.8 2 and OP is its radius. Therefore, by Theorem 10.1,",
+    "filename": "fig_10_8.webp",
+    "file_path": "public/extracted_diagrams/math10_ch10\\fig_10_8.webp",
+    "dimensions": {
+      "width": 325,
+      "height": 353,
+      "aspect_ratio": 0.92
+    },
+    "file_size_kb": 12.5,
+    "crop_bbox": [
+      301.1,
+      473.8,
+      424.6,
+      616.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.9",
+    "page_number": 7,
+    "caption": "Fig. 10.9",
+    "filename": "fig_10_9.webp",
+    "file_path": "public/extracted_diagrams/math10_ch10\\fig_10_9.webp",
+    "dimensions": {
+      "width": 553,
+      "height": 531,
+      "aspect_ratio": 1.04
+    },
+    "file_size_kb": 24.0,
+    "crop_bbox": [
+      241.9,
+      97.0,
+      444.0,
+      288.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.10",
+    "page_number": 7,
+    "caption": "Fig. 10.10 Also, OR = OP2  PR2  52 42 cm 3cm.",
+    "filename": "fig_10_10.webp",
+    "file_path": "public/extracted_diagrams/math10_ch10\\fig_10_10.webp",
+    "dimensions": {
+      "width": 1013,
+      "height": 851,
+      "aspect_ratio": 1.19
+    },
+    "file_size_kb": 71.0,
+    "crop_bbox": [
+      76.8,
+      331.2,
+      443.9,
+      640.1
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.11",
+    "page_number": 8,
+    "caption": "Fig. 10.11 3. If tangents PA and PB from a point P to a circle with centre O are inclined to each",
+    "filename": "fig_10_11.webp",
+    "file_path": "public/extracted_diagrams/math10_ch10\\fig_10_11.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 1139,
+      "aspect_ratio": 0.92
+    },
+    "file_size_kb": 94.9,
+    "crop_bbox": [
+      42.8,
+      187.4,
+      447.9,
+      597.6
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.12",
+    "page_number": 9,
+    "caption": "Fig. 10.12 Fig. 10.13 9. In Fig. 10.13, XY and XY are two",
+    "filename": "fig_10_12.webp",
+    "file_path": "public/extracted_diagrams/math10_ch10\\fig_10_12.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 868,
+      "aspect_ratio": 1.21
+    },
+    "file_size_kb": 90.5,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.1,
+      409.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.13",
+    "page_number": 9,
+    "caption": "Fig. 10.13",
+    "filename": "fig_10_13.webp",
+    "file_path": "public/extracted_diagrams/math10_ch10\\fig_10_13.webp",
+    "dimensions": {
+      "width": 553,
+      "height": 811,
+      "aspect_ratio": 0.68
+    },
+    "file_size_kb": 38.0,
+    "crop_bbox": [
+      241.9,
+      97.0,
+      444.1,
+      389.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 10.14",
+    "page_number": 9,
+    "caption": "Fig. 10.14",
+    "filename": "fig_10_14.webp",
+    "file_path": "public/extracted_diagrams/math10_ch10\\fig_10_14.webp",
+    "dimensions": {
+      "width": 425,
+      "height": 439,
+      "aspect_ratio": 0.97
+    },
+    "file_size_kb": 13.0,
+    "crop_bbox": [
+      284.6,
+      472.1,
+      443.9,
+      636.2
+    ]
+  }
+]

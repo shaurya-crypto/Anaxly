@@ -327,6 +327,7 @@ export function StudyPlannerCard({
               <Input
                 id="exam-date"
                 type="date"
+                autoComplete="off"
                 value={targetDateInput}
                 onChange={(e) => setTargetDateInput(e.target.value)}
                 min={new Date().toISOString().split('T')[0]}

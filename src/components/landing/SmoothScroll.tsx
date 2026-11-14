@@ -5,7 +5,7 @@ import Lenis from 'lenis'
 
 export function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    // Only initialize smooth scroll on non-reduced-motion environments
+    // Respect system preference for reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (prefersReducedMotion) return
 
@@ -17,16 +17,16 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 0.95,
+      wheelMultiplier: 1.0,
       touchMultiplier: 1.5,
     })
 
-    let rafId: number
     function raf(time: number) {
       lenis.raf(time)
-      rafId = requestAnimationFrame(raf)
+      requestAnimationFrame(raf)
     }
-    rafId = requestAnimationFrame(raf)
+
+    const rafId = requestAnimationFrame(raf)
 
     return () => {
       cancelAnimationFrame(rafId)

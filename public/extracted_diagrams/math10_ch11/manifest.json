@@ -1,0 +1,211 @@
+[
+  {
+    "figure_id": "Fig. 11.1",
+    "page_number": 1,
+    "caption": "Fig. 11.1 of the circle with centre O. ∠ AOB is called the",
+    "filename": "fig_11_1.webp",
+    "file_path": "public/extracted_diagrams/math10_ch11\\fig_11_1.webp",
+    "dimensions": {
+      "width": 1052,
+      "height": 919,
+      "aspect_ratio": 1.14
+    },
+    "file_size_kb": 89.2,
+    "crop_bbox": [
+      32.8,
+      62.8,
+      449.8,
+      431.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 11.2",
+    "page_number": 1,
+    "caption": "Fig. 11.2",
+    "filename": "fig_11_2.webp",
+    "file_path": "public/extracted_diagrams/math10_ch11\\fig_11_2.webp",
+    "dimensions": {
+      "width": 317,
+      "height": 382,
+      "aspect_ratio": 0.83
+    },
+    "file_size_kb": 11.6,
+    "crop_bbox": [
+      306.5,
+      477.4,
+      426.4,
+      621.2
+    ]
+  },
+  {
+    "figure_id": "Fig. 11.3",
+    "page_number": 2,
+    "caption": "Fig. 11.3 Unitary Method, we can arrive at the area of the",
+    "filename": "fig_11_3.webp",
+    "file_path": "public/extracted_diagrams/math10_ch11\\fig_11_3.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 519,
+      "aspect_ratio": 2.02
+    },
+    "file_size_kb": 60.0,
+    "crop_bbox": [
+      60.0,
+      84.2,
+      444.0,
+      275.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 11.4",
+    "page_number": 2,
+    "caption": "Fig. 11.4",
+    "filename": "fig_11_4.webp",
+    "file_path": "public/extracted_diagrams/math10_ch11\\fig_11_4.webp",
+    "dimensions": {
+      "width": 549,
+      "height": 521,
+      "aspect_ratio": 1.05
+    },
+    "file_size_kb": 19.7,
+    "crop_bbox": [
+      241.9,
+      433.4,
+      442.3,
+      623.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 11.5",
+    "page_number": 3,
+    "caption": "Fig. 11.5 12.56",
+    "filename": "fig_11_5.webp",
+    "file_path": "public/extracted_diagrams/math10_ch11\\fig_11_5.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 913,
+      "aspect_ratio": 1.15
+    },
+    "file_size_kb": 92.4,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.0,
+      426.0
+    ]
+  },
+  {
+    "figure_id": "Fig. 11.6",
+    "page_number": 4,
+    "caption": "Fig. 11.6",
+    "filename": "fig_11_6.webp",
+    "file_path": "public/extracted_diagrams/math10_ch11\\fig_11_6.webp",
+    "dimensions": {
+      "width": 553,
+      "height": 434,
+      "aspect_ratio": 1.27
+    },
+    "file_size_kb": 12.3,
+    "crop_bbox": [
+      241.9,
+      84.1,
+      444.0,
+      244.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 11.7",
+    "page_number": 4,
+    "caption": "Fig. 11.7 21 2  2",
+    "filename": "fig_11_7.webp",
+    "file_path": "public/extracted_diagrams/math10_ch11\\fig_11_7.webp",
+    "dimensions": {
+      "width": 797,
+      "height": 580,
+      "aspect_ratio": 1.37
+    },
+    "file_size_kb": 40.6,
+    "crop_bbox": [
+      153.8,
+      277.4,
+      443.8,
+      486.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 11.8",
+    "page_number": 5,
+    "caption": "Fig. 11.8",
+    "filename": "fig_11_8.webp",
+    "file_path": "public/extracted_diagrams/math10_ch11\\fig_11_8.webp",
+    "dimensions": {
+      "width": 556,
+      "height": 1086,
+      "aspect_ratio": 0.51
+    },
+    "file_size_kb": 83.1,
+    "crop_bbox": [
+      241.9,
+      217.0,
+      444.4,
+      613.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 11.9",
+    "page_number": 6,
+    "caption": "Fig. 11.9 (i) the total length of the silver wire required.",
+    "filename": "fig_11_9.webp",
+    "file_path": "public/extracted_diagrams/math10_ch11\\fig_11_9.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 487,
+      "aspect_ratio": 2.16
+    },
+    "file_size_kb": 70.3,
+    "crop_bbox": [
+      60.0,
+      84.1,
+      444.0,
+      263.8
+    ]
+  },
+  {
+    "figure_id": "Fig. 11.10",
+    "page_number": 6,
+    "caption": "Fig. 11.10 cleaned at each sweep of the blades.",
+    "filename": "fig_11_10.webp",
+    "file_path": "public/extracted_diagrams/math10_ch11\\fig_11_10.webp",
+    "dimensions": {
+      "width": 354,
+      "height": 397,
+      "aspect_ratio": 0.89
+    },
+    "file_size_kb": 15.9,
+    "crop_bbox": [
+      305.4,
+      264.5,
+      435.4,
+      407.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 11.11",
+    "page_number": 6,
+    "caption": "Fig. 11.11 14. Tick the correct answer in the following :",
+    "filename": "fig_11_11.webp",
+    "file_path": "public/extracted_diagrams/math10_ch11\\fig_11_11.webp",
+    "dimensions": {
+      "width": 739,
+      "height": 403,
+      "aspect_ratio": 1.83
+    },
+    "file_size_kb": 37.6,
+    "crop_bbox": [
+      152.0,
+      394.0,
+      420.5,
+      541.9
+    ]
+  }
+]

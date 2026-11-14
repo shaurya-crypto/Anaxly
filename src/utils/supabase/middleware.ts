@@ -156,7 +156,7 @@ export async function updateSession(request: NextRequest) {
   if (isOnboarded) {
     // If sign in is done & already completed onboarding:
     // Block /onboarding and /login -> redirect to student dashboard
-    if (isOnboardingPage || isLoginPage) {
+    if (isOnboardingPage || isLoginPage || pathname === '/dashboard' || pathname === '/dashboard/') {
       const url = request.nextUrl.clone()
       url.pathname = `/dashboard/${user.id}`
       return NextResponse.redirect(url)

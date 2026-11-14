@@ -1,0 +1,1064 @@
+[
+  {
+    "curriculum_id": "7e1d5438-1174-4577-8599-5f05a6642093",
+    "order_index": 1,
+    "title": "The Nature of Force: Measuring Magnitude, Balanced vs Unbalanced Forces & Friction",
+    "description": "Master the fundamental vector nature of force, balanced forces (zero net acceleration, change of shape), unbalanced forces (initiates or modifies motion), and contact friction dynamics.",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 20,
+    "subtopics": [
+      "Force Definition: A push, pull, or interaction that changes an object's state of rest or motion",
+      "Balanced Forces: Net vector sum equals zero (Sigma F = 0); cannot accelerate an object, can alter physical shape",
+      "Unbalanced Forces: Net vector sum is non-zero (Sigma F != 0); causes acceleration or deceleration",
+      "Friction as an Opposing Contact Force: Roughness of micro-interlocking surfaces",
+      "Overcoming Static Friction: Pushing a heavy wooden box on rough floor",
+      "Spring Balance Dynamics: Measuring force magnitude in Newtons"
+    ],
+    "key_concepts": [
+      "Vector Nature of Force: Force possesses both magnitude and direction; opposing collinear forces subtract algebraically.",
+      "Balanced Forces Equilibrium: Equal and opposite forces acting on the same body produce net zero acceleration (e.g. Tug of war at standoff).",
+      "Unbalanced Force Acceleration: An unbalanced external force is mandatory to change the speed or direction of motion of a body.",
+      "Deformation Under Balanced Forces: Squeezing a rubber ball or stretching a spring produces balanced forces that deform shape without translational acceleration.",
+      "Opposing Frictional Force: Friction always acts parallel to the contact interface in the direction strictly opposite to relative motion.",
+      "Overcoming Threshold Friction: To move an object from rest, the applied pushing force must exceed the maximum limiting static friction."
+    ],
+    "success_criteria": "Student can resolve vector collinear forces, distinguish balanced from unbalanced forces across mechanical systems, and calculate net force.",
+    "chapter_notes": "### 6.1 What is Force?\nA **force** is an external agency (push, pull, or hit) exerted on an object that:\n1. Changes or tends to change the **state of rest** of an object.\n2. Changes or tends to change the **speed or direction** of motion (acceleration).\n3. Changes the **shape or size** of an object.\n- **Vector Quantity**: Has both magnitude and direction. SI unit: **Newton (N)**.\n\n### 6.2 Balanced vs Unbalanced Forces\n| Property | Balanced Forces | Unbalanced Forces |\n| :--- | :--- | :--- |\n| **Resultant Force ($\\sum \\vec{F}$)** | **Zero** ($F_{\\text{net}} = 0$) | **Non-Zero** ($F_{\\text{net}} \\ne 0$) |\n| **Effect on Velocity** | Cannot change speed or direction ($a = 0$) | Changes speed and/or direction ($a \\ne 0$) |\n| **State of Rest / Motion** | Continues at rest or uniform velocity | Accelerates or decelerates the body |\n| **Effect on Shape** | **Can change the shape** (e.g. squeezing rubber ball) | Can both deform and accelerate the body |\n| **Example** | Tug-of-war where neither team moves | Tug-of-war where one team pulls harder and accelerates the rope |\n\n### 6.3 Friction as an Opposing Force\n- **Frictional Force**: An electromagnetic contact force arising from microscopic interlocking of surface irregularities.\n- Friction **always opposes relative motion** between surfaces in contact.\n- When pushing a heavy wooden box on a rough floor:\n  1. Small applied force: Static friction balances applied force ($F_{\\text{net}} = 0$, box stays at rest).\n  2. Increasing push: Static friction increases until it reaches its **limiting maximum**.\n  3. Applied force exceeds limiting friction: Net unbalanced force is created, and the box **accelerates forward**!",
+    "worked_examples": [
+      {
+        "problem": "Two horizontal forces of magnitude 15 N (directed East) and 10 N (directed West) act simultaneously on a wooden block of mass 5 kg placed on a frictionless surface. Calculate the magnitude and direction of the net resultant force and the acceleration produced.",
+        "given": "Forces: $\\vec{F}_1 = +15\\hat{i}\\text{ N}$, $\\vec{F}_2 = -10\\hat{i}\\text{ N}$. Mass $m = 5\\text{ kg}$.",
+        "formula": "Net Force $\\vec{F}_{net} = \\vec{F}_1 + \\vec{F}_2$; Newton's Second Law $\\vec{a} = \\frac{\\vec{F}_{net}}{m}$.",
+        "substitution": "$\\vec{F}_{net} = 15 - 10 = +5\\text{ N}$ (East). $a = \\frac{5\\text{ N}}{5\\text{ kg}}$.",
+        "calculation": "1. Resultant Force: $F_{net} = 15 - 10 = \\mathbf{5\\text{ N}}$ toward East.\n2. Acceleration: $a = \\frac{5}{5} = \\mathbf{1\\text{ m/s}^2}$ toward East.",
+        "finalAnswer": "Net force = 5 N East; Acceleration = 1 m/s² East.",
+        "unit": "N and m/s²",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.1: Vector addition of opposing horizontal forces on a block"
+      },
+      {
+        "problem": "What is the difference between balanced and unbalanced forces? Can a balanced force system change the shape of an object?",
+        "given": "Balanced vs unbalanced forces acting on deformable bodies.",
+        "formula": "Balanced: $\\sum \\vec{F} = 0$; Unbalanced: $\\sum \\vec{F} \\ne 0$.",
+        "substitution": "Balanced forces do not change state of motion ($a = 0$), but can deform matter.",
+        "calculation": "1. Unbalanced forces produce a non-zero net resultant force, producing acceleration (changing speed or direction).\n2. Balanced forces have a vector sum of zero, maintaining zero acceleration.\n3. However, balanced opposing forces can compress, stretch, or deform an object (e.g. compressing a rubber ball between two hands or stretching a spring).",
+        "finalAnswer": "Balanced forces have zero net force and cannot accelerate a body, but can change its shape or size; unbalanced forces accelerate the body.",
+        "unit": "Mechanics Axiom",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.4: Balanced forces compressing a balloon vs accelerating a cart"
+      },
+      {
+        "problem": "A wooden box of mass 20 kg rests on a rough horizontal floor. The coefficient of static friction is such that a minimum horizontal push of 40 N is required to set it into motion. What is the frictional force when: (a) no push is applied, (b) a push of 25 N is applied, and (c) a push of 40 N is applied?",
+        "given": "Mass $m = 20\\text{ kg}$. Limiting static friction $f_{s,max} = 40\\text{ N}$.",
+        "formula": "Static friction is a self-adjusting force: $f_s = F_{applied}$ up to $f_{s,max}$.",
+        "substitution": "(a) $F_{applied} = 0$, (b) $F_{applied} = 25\\text{ N}$, (c) $F_{applied} = 40\\text{ N}$.",
+        "calculation": "1. When $F_{applied} = 0$: Friction $f = \\mathbf{0\\text{ N}}$.\n2. When $F_{applied} = 25\\text{ N} < 40\\text{ N}$: The box remains stationary. Friction self-adjusts to exactly balance the push: $f_s = \\mathbf{25\\text{ N}}$.\n3. When $F_{applied} = 40\\text{ N}$: Limiting friction is reached: $f_s = \\mathbf{40\\text{ N}}$.",
+        "finalAnswer": "(a) 0 N, (b) 25 N, (c) 40 N (self-adjusting up to limiting friction).",
+        "unit": "N",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.5: Self-adjusting static friction curve up to limiting threshold"
+      },
+      {
+        "problem": "Why is friction referred to as a 'necessary evil' in everyday mechanics?",
+        "given": "Dual nature of frictional forces in human locomotion and machines.",
+        "formula": "Traction Requirement vs Energy Dissipation",
+        "substitution": "Friction dissipates mechanical energy into heat, but without friction, traction is impossible.",
+        "calculation": "1. **Why Necessary**: Without friction, feet would slip backward and walking would be impossible; vehicle tires could not grip the road to accelerate, turn, or brake; nails and screws would not hold in walls.\n2. **Why Evil**: Friction causes wear and tear in machine bearings and gears, and converts useful mechanical work into waste heat energy, reducing machine efficiency.",
+        "finalAnswer": "Friction is necessary for walking, driving, and braking, but an evil because it wastes energy as heat and wears down mechanical parts.",
+        "unit": "Mechanics Philosophy",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.6: Friction at shoe-ground interface during walking"
+      },
+      {
+        "problem": "A car of mass 1000 kg is moving at constant velocity of 20 m/s along a straight level road. If the engine delivers a forward driving force of 500 N, what is the magnitude of the opposing resistive forces (friction and air resistance)?",
+        "given": "Mass $m = 1000\\text{ kg}$, constant velocity $v = 20\\text{ m/s} \\implies a = 0\\text{ m/s}^2$. Forward force $F_{forward} = 500\\text{ N}$.",
+        "formula": "Newton's First Law: $a = 0 \\implies F_{net} = F_{forward} - F_{resist} = 0$.",
+        "substitution": "$500 - F_{resist} = 0 \\implies F_{resist} = 500\\text{ N}$.",
+        "calculation": "1. Because the car travels at constant velocity, its acceleration is identically zero.\n2. By Newton's First Law, net horizontal force must be zero.\n3. The opposing resistive force must exactly balance the forward engine force: $F_{resist} = \\mathbf{500\\text{ N}}$.",
+        "finalAnswer": "Opposing resistive force = 500 N.",
+        "unit": "N",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.7: Balanced horizontal forces at constant velocity cruising"
+      },
+      {
+        "problem": "Define the SI unit of force (Newton) using the fundamental units of kilograms, meters, and seconds.",
+        "given": "Newton's Second Law $F = ma$.",
+        "formula": "$1\\text{ Newton} = 1\\text{ kg} \\times 1\\text{ m/s}^2 = 1\\text{ kg}\\cdot\\text{m}\\cdot\\text{s}^{-2}$.",
+        "substitution": "Mass of 1 kg accelerated at 1 m/s².",
+        "calculation": "1. One Newton ($1\\text{ N}$) is defined as the magnitude of force that produces an acceleration of $1\\text{ m/s}^2$ in an object of mass $1\\text{ kg}$.\n2. Base SI units: $\\text{kg}\\cdot\\text{m/s}^2$.",
+        "finalAnswer": "1 Newton is the force that imparts an acceleration of 1 m/s² to a mass of 1 kg (1 N = 1 kg·m/s²).",
+        "unit": "SI Unit Invariant",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.8: Unit force accelerating 1 kg block at 1 m/s²"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "Balanced forces can do nothing at all to an object.",
+        "correction": "Balanced forces cannot accelerate an object, but they CAN change its physical shape or dimensions (e.g. compressing a spring, squeezing a balloon).",
+        "why_it_matters": "A high-frequency conceptual question on CBSE board exams."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "The Nature of Force & Friction Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Vector Nature of Force: Force possesses both magnitude and direction; opposing collinear forces subtract algebraically.",
+          "diagram_title": "Forces Acting on Different Objects",
+          "diagram_type": "image_search",
+          "image_query": "Textbook panel illustrating pushing a cart, pulling a drawer, and hitting a hockey ball. scientific educational diagram with clear labels",
+          "video_query": "Forces Acting on Different Objects educational demonstration video",
+          "what_to_make": "Textbook panel illustrating pushing a cart, pulling a drawer, and hitting a hockey ball.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook panel illustrating pushing a cart, pulling a drawer, and hitting a hockey ball. scientific educational diagram with clear labels\", title=\"Forces Acting on Different Objects\") | Proactive video: search_and_show_video(query=\"Forces Acting on Different Objects educational demonstration video\", title=\"Forces Acting on Different Objects\")",
+          "image_search_query": "Textbook panel illustrating pushing a cart, pulling a drawer, and hitting a hockey ball. scientific educational diagram with clear labels",
+          "video_search_query": "Forces Acting on Different Objects educational demonstration video"
+        },
+        {
+          "concept_title": "Balanced Forces Equilibrium: Equal and opposite forces acting on the same body produce net zero acceleration (e.g. Tug of war at standoff).",
+          "diagram_title": "Balanced Forces on a Block",
+          "diagram_type": "image_search",
+          "image_query": "Block on table pulled by two equal strings with weights showing net zero movement. scientific educational diagram with clear labels",
+          "video_query": "Balanced Forces on a Block educational demonstration video",
+          "what_to_make": "Block on table pulled by two equal strings with weights showing net zero movement.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Block on table pulled by two equal strings with weights showing net zero movement. scientific educational diagram with clear labels\", title=\"Balanced Forces on a Block\") | Proactive video: search_and_show_video(query=\"Balanced Forces on a Block educational demonstration video\", title=\"Balanced Forces on a Block\")",
+          "image_search_query": "Block on table pulled by two equal strings with weights showing net zero movement. scientific educational diagram with clear labels",
+          "video_search_query": "Balanced Forces on a Block educational demonstration video"
+        },
+        {
+          "concept_title": "Unbalanced Force Acceleration: An unbalanced external force is mandatory to change the speed or direction of motion of a body.",
+          "diagram_title": "Unbalanced Forces Driving Acceleration",
+          "diagram_type": "image_search",
+          "image_query": "Block pulled by unequal forces showing net acceleration vector toward the larger force. scientific educational diagram with clear labels",
+          "video_query": "Unbalanced Forces Driving Acceleration educational demonstration video",
+          "what_to_make": "Block pulled by unequal forces showing net acceleration vector toward the larger force.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Block pulled by unequal forces showing net acceleration vector toward the larger force. scientific educational diagram with clear labels\", title=\"Unbalanced Forces Driving Acceleration\") | Proactive video: search_and_show_video(query=\"Unbalanced Forces Driving Acceleration educational demonstration video\", title=\"Unbalanced Forces Driving Acceleration\")",
+          "image_search_query": "Block pulled by unequal forces showing net acceleration vector toward the larger force. scientific educational diagram with clear labels",
+          "video_search_query": "Unbalanced Forces Driving Acceleration educational demonstration video"
+        },
+        {
+          "concept_title": "Deformation Under Balanced Forces: Squeezing a rubber ball or stretching a spring produces balanced forces that deform shape without translational acceleration.",
+          "diagram_title": "Spring Balance Force Measurement",
+          "diagram_type": "image_search",
+          "image_query": "Spring balance calibrated in Newtons stretching under suspended mass. scientific educational diagram with clear labels",
+          "video_query": "Spring Balance Force Measurement educational demonstration video",
+          "what_to_make": "Spring balance calibrated in Newtons stretching under suspended mass.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Spring balance calibrated in Newtons stretching under suspended mass. scientific educational diagram with clear labels\", title=\"Spring Balance Force Measurement\") | Proactive video: search_and_show_video(query=\"Spring Balance Force Measurement educational demonstration video\", title=\"Spring Balance Force Measurement\")",
+          "image_search_query": "Spring balance calibrated in Newtons stretching under suspended mass. scientific educational diagram with clear labels",
+          "video_search_query": "Spring Balance Force Measurement educational demonstration video"
+        },
+        {
+          "concept_title": "Opposing Frictional Force: Friction always acts parallel to the contact interface in the direction strictly opposite to relative motion.",
+          "diagram_title": "Pushing a Box Against Surface Friction",
+          "diagram_type": "image_search",
+          "image_query": "Person pushing a heavy box with opposing friction arrow at the floor interface. scientific educational diagram with clear labels",
+          "video_query": "Pushing a Box Against Surface Friction educational demonstration video",
+          "what_to_make": "Person pushing a heavy box with opposing friction arrow at the floor interface.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Person pushing a heavy box with opposing friction arrow at the floor interface. scientific educational diagram with clear labels\", title=\"Pushing a Box Against Surface Friction\") | Proactive video: search_and_show_video(query=\"Pushing a Box Against Surface Friction educational demonstration video\", title=\"Pushing a Box Against Surface Friction\")",
+          "image_search_query": "Person pushing a heavy box with opposing friction arrow at the floor interface. scientific educational diagram with clear labels",
+          "video_search_query": "Pushing a Box Against Surface Friction educational demonstration video"
+        },
+        {
+          "concept_title": "Overcoming Threshold Friction: To move an object from rest, the applied pushing force must exceed the maximum limiting static friction.",
+          "diagram_title": "Static to Kinetic Friction Threshold",
+          "diagram_type": "image_search",
+          "image_query": "Graph plotting friction force vs applied force showing linear static ramp and constant kinetic friction plateau. scientific educational diagram with clear labels",
+          "video_query": "Static to Kinetic Friction Threshold educational demonstration video",
+          "what_to_make": "Graph plotting friction force vs applied force showing linear static ramp and constant kinetic friction plateau.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Graph plotting friction force vs applied force showing linear static ramp and constant kinetic friction plateau. scientific educational diagram with clear labels\", title=\"Static to Kinetic Friction Threshold\") | Proactive video: search_and_show_video(query=\"Static to Kinetic Friction Threshold educational demonstration video\", title=\"Static to Kinetic Friction Threshold\")",
+          "image_search_query": "Graph plotting friction force vs applied force showing linear static ramp and constant kinetic friction plateau. scientific educational diagram with clear labels",
+          "video_search_query": "Static to Kinetic Friction Threshold educational demonstration video"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount verified image from concept_visuals on Step 1 of each concept.\n2. 6-STAGE SOCRATIC CADENCE:\n   - Stage 1: Intuition hook (Why a stalled car doesn't move when one person pushes lightly, but accelerates when three people push together).\n   - Stage 2: Definition of balanced and unbalanced forces.\n   - Stage 3: Common pitfall (Balanced forces can change shape even with zero acceleration).\n   - Stage 4: Chalkboard net force vector arithmetic: F_net = F1 - F2.\n   - Stage 5: Socratic check: \"If balanced forces act on a moving car on a frictionless ice sheet, what will happen to its speed?\" HARD STOP: Wait for student response!\n   - Stage 6: Authentic CBSE numerical question."
+  },
+  {
+    "curriculum_id": "7e1d5438-1174-4577-8599-5f05a6642093",
+    "order_index": 2,
+    "title": "Galileo's Inclined Plane Intuition & Newton's First Law of Motion (Inertia)",
+    "description": "Master Galileo's thought experiments on frictionless double inclined planes, Newton's First Law of Motion, the three types of inertia (rest, motion, direction), and mass as the quantitative measure of inertia.",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 20,
+    "subtopics": [
+      "Aristotle's Fallacy: The ancient mistaken belief that continuous force is required to sustain steady motion",
+      "Galileo's Double Inclined Plane: Marble rolling down achieves identical height on opposing slope",
+      "Galileo's Deduction: On a zero-slope horizontal plane, a frictionless ball moves forever with constant velocity",
+      "Newton's First Law of Motion: An object remains at rest or in uniform motion unless acted upon by a net external unbalanced force",
+      "Inertia (Inherent Sluggishness): Natural tendency of objects to resist any change in their state of rest or motion",
+      "The Three Types of Inertia: Inertia of Rest (coin and card trick), Inertia of Motion (passenger falls forward on sudden braking), Inertia of Direction (mud flying off bicycle wheels)",
+      "Mass as Quantitative Measure of Inertia: Heavier bodies possess greater inertia than lighter bodies"
+    ],
+    "key_concepts": [
+      "Overturning Aristotle's Fallacy: In real life, objects stop because of friction, not because motion naturally expires.",
+      "Galileo's Limiting Thought Experiment: Reducing the angle of the second incline makes the marble travel farther; when horizontal, it travels infinitely.",
+      "Newton's First Law (Law of Inertia): State of uniform rectilinear motion is completely natural and self-sustaining without external force.",
+      "Inertia of Rest: When a bus suddenly starts, passengers lurch backward because lower body moves while upper body resists motion.",
+      "Inertia of Motion: When a moving bus brakes suddenly, passengers lurch forward because upper body continues moving forward.",
+      "Mass-Inertia Equivalence: Mass is the quantitative physical measure of an object's inertia (e.g. harder to kick a stone than a football)."
+    ],
+    "success_criteria": "Student can explain Galileo's double inclined plane deduction, articulate Newton's First Law verbatim, categorize everyday inertia scenarios into the 3 types, and relate mass to inertia.",
+    "chapter_notes": "### 6.4 The Historical Revolution: Aristotle vs Galileo\n- **Aristotle's Fallacy (350 BCE)**: *\"An external force is required to keep a body moving.\"* He believed the natural state of all earthly bodies was rest.\n- **Galileo Galilei (1600s)** overturned this by proving:\n  * In the real world, moving objects stop **only because of opposing friction**.\n  * If friction were completely eliminated, a moving body would **continue moving indefinitely with constant speed in a straight line**!\n\n### 6.5 Galileo's Double Inclined Plane Experiment\n1. A marble released from height $h$ on an inclined plane rolls down and climbs up an opposing inclined plane of equal angle to the **exact same height $h$**.\n2. If the slope of the second plane is decreased, the marble must travel a **longer distance** to attain the same height $h$.\n3. **The Limiting Case**: If the second plane is made completely **horizontal** (zero slope), the marble would travel an **infinite distance**, never stopping!\n\n### 6.6 Newton's First Law of Motion\n> *\"An object remains in a state of rest or of uniform motion in a straight line unless compelled to change that state by an applied unbalanced external force.\"*\n\n### 6.7 Inertia and Its Three Types\nThe inherent property of a body by virtue of which it resists any change in its state of rest or of uniform motion:\n1. **Inertia of Rest**:\n   - When a stationary bus suddenly starts, passengers lurch **backward** (lower feet move forward with bus floor, but upper torso remains at rest).\n   - Flicking a stiff card placed over a glass tumbler: The card flies away, but the heavy **coin drops into the tumbler**!\n   - Vigorously shaking a tree branch: Ripe fruits fall off because branch moves while fruits resist motion.\n2. **Inertia of Motion**:\n   - When a moving bus suddenly applies brakes, passengers lurch **forward** (feet stop with bus, but upper torso continues moving forward).\n   - An athlete runs a few paces after crossing the finish line before stopping.\n3. **Inertia of Direction**:\n   - When a car takes a sharp left turn, passengers are thrown toward the **right** (body tends to maintain straight-line path).\n   - Mud flying off revolving bicycle wheels flies along the tangent.\n\n### 6.8 Inertia and Mass\n- **Mass is the quantitative measure of inertia**.\n- A heavier body possesses greater inertia than a lighter body.\n- It is much easier to push an empty shopping cart than a fully loaded one; a football can be kicked easily, but kicking a stone of equal size injures your foot.",
+    "worked_examples": [
+      {
+        "problem": "Which of the following has more inertia: (a) a rubber ball and a stone of the same size? (b) a bicycle and a train? (c) a five-rupee coin and a one-rupee coin?",
+        "given": "Pairs of objects with different masses.",
+        "formula": "Inertia Invariant: Mass is the quantitative measure of the inertia of a body ($I \\propto m$).",
+        "substitution": "The object with greater mass possesses greater inertia.",
+        "calculation": "1. (a) A stone has much higher density and mass than a rubber ball of identical volume -> **Stone has more inertia**.\n2. (b) A train has immensely larger mass (~thousands of tonnes) compared to a bicycle (~15 kg) -> **Train has vastly more inertia**.\n3. (c) A five-rupee coin is thicker and heavier than a one-rupee coin -> **Five-rupee coin has more inertia**.",
+        "finalAnswer": "(a) Stone, (b) Train, (c) Five-rupee coin (inertia is strictly proportional to mass).",
+        "unit": "NCERT In-Text Problem",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.9: Comparison of inertia between stone and rubber ball"
+      },
+      {
+        "problem": "Explain Galileo's double inclined plane thought experiment. How did it overturn Aristotle's centuries-old fallacy about motion?",
+        "given": "Galileo's thought experiment on frictionless double inclined planes.",
+        "formula": "Galileo's Conservation of Rebound Height: $h_1 = h_2$.",
+        "substitution": "When the angle of the second plane is reduced to zero (horizontal), the ball must travel an infinite distance to reach the original height.",
+        "calculation": "1. Aristotle believed a continuous force was required to maintain uniform motion.\n2. Galileo observed that a marble rolling down a frictionless incline reaches the same height on an opposing incline, regardless of its slope angle.\n3. When the second slope is made horizontal ($0^\\circ$), the marble can never attain its release height; therefore, it must continue rolling infinitely at constant velocity.\n4. Hence, uniform rectilinear motion does NOT require an external force; only friction stops moving bodies in real life.",
+        "finalAnswer": "Galileo proved that an object in motion continues moving indefinitely at constant velocity unless an external resistive force (friction) acts upon it.",
+        "unit": "Classical Epistemology",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.12: Galileo's double inclined plane thought experiment"
+      },
+      {
+        "problem": "Why does a person tend to fall backward when a bus suddenly starts moving forward, and fall forward when the bus suddenly applies brakes?",
+        "given": "Sudden acceleration and braking of a bus carrying passengers.",
+        "formula": "Inertia of Rest vs Inertia of Motion (Newton's First Law).",
+        "substitution": "Lower body in direct contact with bus floor shares its motion; upper body resists change in state due to inertia.",
+        "calculation": "1. **Bus Starts (Fall Backward)**: When the bus accelerates forward, feet in friction contact with the floor move forward immediately. The upper body tends to remain at rest due to **inertia of rest**, falling backward relative to the bus.\n2. **Bus Brakes (Fall Forward)**: When the moving bus stops abruptly, feet stop with the floor. The upper body continues moving forward at the previous velocity due to **inertia of motion**, lurching forward.",
+        "finalAnswer": "Falling backward is due to inertia of rest resisting the forward start; falling forward is due to inertia of motion continuing forward during braking.",
+        "unit": "Inertial Mechanics",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.10: Passenger falling forward during abrupt braking due to inertia"
+      },
+      {
+        "problem": "Why is it advised to tie luggage kept on the roof of a bus with a sturdy rope?",
+        "given": "Luggage placed on the smooth roof of an operating passenger bus.",
+        "formula": "Newton's First Law: Inertia of Rest, Motion, and Direction.",
+        "substitution": "Friction between roof and luggage is insufficient to provide necessary accelerating and centripetal forces.",
+        "calculation": "1. When the bus accelerates forward, luggage tends to slip backward off the roof due to **inertia of rest**.\n2. When the bus applies sudden emergency brakes, luggage tends to fly forward over the windshield due to **inertia of motion**.\n3. When the bus takes a sharp curve, luggage tends to slide sideways along a tangent due to **inertia of direction**.\n4. Tying with a rope applies constraining tension forces to keep luggage securely anchored.",
+        "finalAnswer": "Ropes prevent luggage from falling backward when accelerating, flying forward during braking, or sliding off sideways on sharp turns due to inertia.",
+        "unit": "NCERT In-Text Problem",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.11: Luggage tied to roof of bus resisting inertial displacement"
+      },
+      {
+        "problem": "Why do dust particles fall off a hanging carpet when it is beaten vigorously with a stick?",
+        "given": "Carpet beaten with a stick.",
+        "formula": "Inertia of Rest",
+        "substitution": "The carpet fabric moves rapidly forward upon being struck; dust particles tend to remain stationary.",
+        "calculation": "1. Beating the carpet with a stick imparts an impulsive force that moves the carpet fabric forward rapidly.\n2. The dust particles resting on the carpet tend to remain in their original position due to their **inertia of rest**.\n3. As the carpet pulls away from under them, the dust particles are left suspended in the air and fall down under gravity.",
+        "finalAnswer": "The carpet moves forward when struck, but dust particles remain behind due to inertia of rest and drop down under gravity.",
+        "unit": "NCERT In-Text Problem",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.13: Dust separating from carpet fabric due to inertia of rest"
+      },
+      {
+        "problem": "Why does a coin placed on a cardboard card over a tumbler drop straight into the tumbler when the card is flicked sharply with a finger?",
+        "given": "Activity 6.2: Glass tumbler, smooth playing card, five-rupee coin.",
+        "formula": "Impulsive Friction Delay & Inertia of Rest",
+        "substitution": "Flick imparts rapid horizontal velocity to the card, while the coin resists horizontal acceleration.",
+        "calculation": "1. Flicking the card gives it a very high velocity over an infinitesimal contact time $\\Delta t$.\n2. The frictional impulse between smooth card and coin is insufficient to accelerate the heavy coin horizontally.\n3. By **inertia of rest**, the coin remains in place as the card slides out from beneath it.\n4. Gravity pulls the unsupported coin straight down into the tumbler.",
+        "finalAnswer": "The sharp flick pulls the card away so fast that inertia of rest keeps the coin in place, causing it to fall directly into the glass under gravity.",
+        "unit": "Activity 6.2 Lab Analysis",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.14: Activity 6.2 flicking card from under coin into tumbler"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "Inertia is a physical force that pushes you forward when a car brakes.",
+        "correction": "Inertia is NOT a force! It is an inherent property of mass. You lurch forward not because a new force pushed you, but because your body ALREADY had forward momentum and merely continued moving until restrained by the seatbelt.",
+        "why_it_matters": "A crucial physics distinction required for Newton's laws."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Galileo's Intuition & Newton's First Law Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Overturning Aristotle's Fallacy: In real life, objects stop because of friction, not because motion naturally expires.",
+          "diagram_title": "Galileo Double Inclined Plane Apparatus",
+          "diagram_type": "image_search",
+          "image_query": "Textbook panel showing marble rolling down first incline and ascending second incline of decreasing slope. scientific educational diagram with clear labels",
+          "video_query": "Galileo Double Inclined Plane Apparatus educational demonstration video",
+          "what_to_make": "Textbook panel showing marble rolling down first incline and ascending second incline of decreasing slope.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook panel showing marble rolling down first incline and ascending second incline of decreasing slope. scientific educational diagram with clear labels\", title=\"Galileo Double Inclined Plane Apparatus\") | Proactive video: search_and_show_video(query=\"Galileo Double Inclined Plane Apparatus educational demonstration video\", title=\"Galileo Double Inclined Plane Apparatus\")",
+          "image_search_query": "Textbook panel showing marble rolling down first incline and ascending second incline of decreasing slope. scientific educational diagram with clear labels",
+          "video_search_query": "Galileo Double Inclined Plane Apparatus educational demonstration video"
+        },
+        {
+          "concept_title": "Galileo's Limiting Thought Experiment: Reducing the angle of the second incline makes the marble travel farther; when horizontal, it travels infinitely.",
+          "diagram_title": "Horizontal Limiting Case Trajectory",
+          "diagram_type": "image_search",
+          "image_query": "Schematic of marble rolling on horizontal frictionless track with infinite velocity vector. scientific educational diagram with clear labels",
+          "video_query": "Horizontal Limiting Case Trajectory educational demonstration video",
+          "what_to_make": "Schematic of marble rolling on horizontal frictionless track with infinite velocity vector.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Schematic of marble rolling on horizontal frictionless track with infinite velocity vector. scientific educational diagram with clear labels\", title=\"Horizontal Limiting Case Trajectory\") | Proactive video: search_and_show_video(query=\"Horizontal Limiting Case Trajectory educational demonstration video\", title=\"Horizontal Limiting Case Trajectory\")",
+          "image_search_query": "Schematic of marble rolling on horizontal frictionless track with infinite velocity vector. scientific educational diagram with clear labels",
+          "video_search_query": "Horizontal Limiting Case Trajectory educational demonstration video"
+        },
+        {
+          "concept_title": "Newton's First Law (Law of Inertia): State of uniform rectilinear motion is completely natural and self-sustaining without external force.",
+          "diagram_title": "Newton's First Law Formulation Card",
+          "diagram_type": "image_search",
+          "image_query": "Graphic card stating Newton's First Law with velocity vector invariant when net force is zero. scientific educational diagram with clear labels",
+          "video_query": "Newton's First Law Formulation Card educational demonstration video",
+          "what_to_make": "Graphic card stating Newton's First Law with velocity vector invariant when net force is zero.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Graphic card stating Newton's First Law with velocity vector invariant when net force is zero. scientific educational diagram with clear labels\", title=\"Newton's First Law Formulation Card\") | Proactive video: search_and_show_video(query=\"Newton's First Law Formulation Card educational demonstration video\", title=\"Newton's First Law Formulation Card\")",
+          "image_search_query": "Graphic card stating Newton's First Law with velocity vector invariant when net force is zero. scientific educational diagram with clear labels",
+          "video_search_query": "Newton's First Law Formulation Card educational demonstration video"
+        },
+        {
+          "concept_title": "Inertia of Rest: When a bus suddenly starts, passengers lurch backward because lower body moves while upper body resists motion.",
+          "diagram_title": "Coin and Card Tumbler Experiment (Activity 6.2)",
+          "diagram_type": "image_search",
+          "image_query": "Playing card over tumbler flicked horizontally by finger showing coin dropping straight into tumbler due to inertia of rest. scientific educational diagram with clear labels",
+          "video_query": "Coin and Card Tumbler Experiment Activity 6.2 educational demonstration video",
+          "what_to_make": "Playing card over tumbler flicked horizontally by finger showing coin dropping straight into tumbler due to inertia of rest.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Playing card over tumbler flicked horizontally by finger showing coin dropping straight into tumbler due to inertia of rest. scientific educational diagram with clear labels\", title=\"Coin and Card Tumbler Experiment (Activity 6.2)\") | Proactive video: search_and_show_video(query=\"Coin and Card Tumbler Experiment Activity 6.2 educational demonstration video\", title=\"Coin and Card Tumbler Experiment (Activity 6.2)\")",
+          "image_search_query": "Playing card over tumbler flicked horizontally by finger showing coin dropping straight into tumbler due to inertia of rest. scientific educational diagram with clear labels",
+          "video_search_query": "Coin and Card Tumbler Experiment Activity 6.2 educational demonstration video"
+        },
+        {
+          "concept_title": "Inertia of Motion: When a moving bus brakes suddenly, passengers lurch forward because upper body continues moving forward.",
+          "diagram_title": "Car Braking Passenger Forward Lurch",
+          "diagram_type": "image_search",
+          "image_query": "Vehicle occupant restrained by seatbelt during sharp deceleration illustrating inertia of motion. scientific educational diagram with clear labels",
+          "video_query": "Car Braking Passenger Forward Lurch educational demonstration video",
+          "what_to_make": "Vehicle occupant restrained by seatbelt during sharp deceleration illustrating inertia of motion.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Vehicle occupant restrained by seatbelt during sharp deceleration illustrating inertia of motion. scientific educational diagram with clear labels\", title=\"Car Braking Passenger Forward Lurch\") | Proactive video: search_and_show_video(query=\"Car Braking Passenger Forward Lurch educational demonstration video\", title=\"Car Braking Passenger Forward Lurch\")",
+          "image_search_query": "Vehicle occupant restrained by seatbelt during sharp deceleration illustrating inertia of motion. scientific educational diagram with clear labels",
+          "video_search_query": "Car Braking Passenger Forward Lurch educational demonstration video"
+        },
+        {
+          "concept_title": "Mass-Inertia Equivalence: Mass is the quantitative physical measure of an object's inertia (e.g. harder to kick a stone than a football).",
+          "diagram_title": "Mass vs Inertia Scaling Comparison",
+          "diagram_type": "image_search",
+          "image_query": "Graphic contrasting high-mass stone immense inertia with low-mass football small inertia . scientific educational diagram with clear labels",
+          "video_query": "Mass vs Inertia Scaling Comparison educational demonstration video",
+          "what_to_make": "Graphic contrasting high-mass stone (immense inertia) with low-mass football (small inertia).",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Graphic contrasting high-mass stone immense inertia with low-mass football small inertia . scientific educational diagram with clear labels\", title=\"Mass vs Inertia Scaling Comparison\") | Proactive video: search_and_show_video(query=\"Mass vs Inertia Scaling Comparison educational demonstration video\", title=\"Mass vs Inertia Scaling Comparison\")",
+          "image_search_query": "Graphic contrasting high-mass stone immense inertia with low-mass football small inertia . scientific educational diagram with clear labels",
+          "video_search_query": "Mass vs Inertia Scaling Comparison educational demonstration video"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount verified image from concept_visuals on Step 1 of each concept.\n2. 6-STAGE SOCRATIC CADENCE:\n   - Stage 1: Intuition hook (Why you lurch forward when a bus slams on the brakes).\n   - Stage 2: Statement of Newton's First Law and Galileo's inclined planes.\n   - Stage 3: Common pitfall (Inertia is NOT a force; it is an intrinsic property of mass).\n   - Stage 4: Chalkboard classification of the 3 types of inertia.\n   - Stage 5: Socratic check: \"Why does a karate master easily break a wooden slab with a rapid hand strike, but cannot do so with a slow push?\" HARD STOP: Wait for student response!\n   - Stage 6: Authentic CBSE board question on inertia and seatbelts."
+  },
+  {
+    "curriculum_id": "7e1d5438-1174-4577-8599-5f05a6642093",
+    "order_index": 3,
+    "title": "Momentum Dynamics & Newton's Second Law of Motion (F = ma & Impulse)",
+    "description": "Master linear momentum (p = mv), the derivation of Newton's Second Law of Motion (F = ma), the definition of the SI unit Newton, and impulse mechanics in sports (cricket ball catch).",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 20,
+    "subtopics": [
+      "Linear Momentum Definition: Product of mass and velocity (p = m*v, vector, kg*m/s)",
+      "Newton's Second Law Statement: Rate of change of momentum is directly proportional to applied unbalanced force",
+      "Mathematical Derivation of F = ma: F proportional to (p2 - p1) / t = m*(v - u) / t = m*a",
+      "Definition of One Newton: Force required to accelerate 1 kg mass at 1 m/s^2 (1 N = 1 kg*m/s^2)",
+      "Impulse Mechanics (F * Delta t = Delta p): Why increasing contact time reduces impact force",
+      "Sports Applications: Fielder pulling hands back while catching high-speed cricket ball, high jump sand pits"
+    ],
+    "key_concepts": [
+      "Linear Momentum Vector: p = mv has both magnitude and direction, pointing in the same direction as velocity.",
+      "Impact Force Proportionality: A small mass at immense speed (bullet) or a huge mass at slow speed (truck) possess catastrophic momentum.",
+      "Newton's Second Law Derivation: F = k * d(mv)/dt = ma (defining k = 1 fixes the standard Newton unit).",
+      "Definition of SI Unit Newton: 1 Newton is the magnitude of force that produces an acceleration of 1 m/s^2 in a mass of 1 kg.",
+      "Impulse-Momentum Theorem: F * Delta t = Delta p; extending collision duration Delta t dramatically lowers peak impact force F.",
+      "Cricket Catch Technique: Pulling hands backward increases time interval of deceleration, reducing impact force on palms."
+    ],
+    "success_criteria": "Student can derive F = ma from momentum principles, define 1 Newton, solve multi-step force numericals, and explain impulse in sports.",
+    "chapter_notes": "### 6.9 Linear Momentum ($p$)\nThe momentum of an object is defined as the **product of its mass and velocity**:\n$$p = m \\times v$$\n- **Vector Quantity**: Points in the exact same direction as velocity $\\vec{v}$.\n- **SI Unit**: **$\\text{kg}\\cdot\\text{m/s}$** or **$\\text{kg}\\cdot\\text{m}\\cdot\\text{s}^{-1}$**.\n- Even a tiny bullet ($m = 0.01\\text{ kg}$) moving at high speed ($v = 400\\text{ m/s}$) possesses lethal momentum ($4\\text{ kg}\\cdot\\text{m/s}$). A massive truck moving at slow speed has huge momentum due to mass.\n\n### 6.10 Newton's Second Law of Motion\n> *\"The rate of change of momentum of an object is directly proportional to the applied unbalanced force, and takes place in the direction in which the force acts.\"*\n\n### 6.11 Mathematical Derivation of $F = ma$\nLet an object of mass $m$ have initial velocity $u$. An unbalanced force $F$ acts for time $t$, accelerating it to final velocity $v$.\n- Initial momentum: $p_1 = mu$\n- Final momentum: $p_2 = mv$\n- Change in momentum: $\\Delta p = p_2 - p_1 = mv - mu = m(v - u)$\n- Rate of change of momentum: $\\frac{\\Delta p}{t} = \\frac{m(v - u)}{t}$\n\nBy Newton's Second Law:\n$$F \\propto \\frac{m(v - u)}{t}$$\nSince $\\frac{v - u}{t} = a$ (acceleration):\n$$F \\propto ma \\implies F = k \\cdot ma$$\nBy defining the unit of force such that a force of $1$ unit produces an acceleration of $1\\text{ m/s}^2$ on a mass of $1\\text{ kg}$, the constant $k = 1$:\n$$\\mathbf{F = ma}$$\n\n### 6.12 Definition of 1 Newton\n**One Newton ($1\\text{ N}$)** is that magnitude of force which produces an acceleration of $1\\text{ m/s}^2$ when acting on an object of mass $1\\text{ kg}$:\n$$1\\text{ N} = 1\\text{ kg} \\times 1\\text{ m/s}^2 = 1\\text{ kg}\\cdot\\text{m/s}^2$$\n\n### 6.13 Impulse and Why Fielders Pull Hands Back\n$$F = \\frac{\\Delta p}{\\Delta t} \\implies F \\times \\Delta t = \\Delta p$$\n- To stop a fast-moving cricket ball, its momentum must be brought to zero (fixed $\\Delta p$).\n- If a fielder catches the ball with stiff, stationary hands, $\\Delta t$ is extremely small (milliseconds). Therefore, the impact force $F = \\Delta p / \\Delta t$ is **enormously high**, causing severe hand injury.\n- By **pulling hands backward**, the fielder increases the time $\\Delta t$. Because $\\Delta t$ is larger, the rate of change of momentum is smaller, and the **impact force on the palms is drastically reduced**!",
+    "worked_examples": [
+      {
+        "problem": "A constant force acts on an object of mass 5 kg for a duration of 2 s. It increases the object's velocity from 3 m/s to 7 m/s. Find the magnitude of the applied force. Now, if the force was applied for a duration of 5 s, what would be the final velocity?",
+        "given": "Mass $m = 5\\text{ kg}$, initial velocity $u = 3\\text{ m/s}$, final velocity $v_1 = 7\\text{ m/s}$, duration $t_1 = 2\\text{ s}$. Second duration $t_2 = 5\\text{ s}$.",
+        "formula": "Force $F = \\frac{m(v - u)}{t}$; Final velocity $v = u + \\frac{Ft}{m}$.",
+        "substitution": "$F = \\frac{5(7 - 3)}{2} = \\frac{5 \\times 4}{2} = 10\\text{ N}$. For $t_2 = 5\\text{ s}$: $v_2 = 3 + \\frac{10 \\times 5}{5}$.",
+        "calculation": "1. Magnitude of Force: $F = \\frac{20}{2} = \\mathbf{10\\text{ N}}$.\n2. For $t_2 = 5\\text{ s}$: $v_2 = 3 + 10 = \\mathbf{13\\text{ m/s}}$.",
+        "finalAnswer": "Magnitude of applied force = 10 N; Final velocity after 5 s = 13 m/s.",
+        "unit": "N and m/s",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.17: Force acting on mass producing rate of change of momentum"
+      },
+      {
+        "problem": "Which would require a greater force: accelerating a 2 kg mass at 5 m/s² or a 4 kg mass at 2 m/s²?",
+        "given": "Case 1: $m_1 = 2\\text{ kg}, a_1 = 5\\text{ m/s}^2$. Case 2: $m_2 = 4\\text{ kg}, a_2 = 2\\text{ m/s}^2$.",
+        "formula": "Newton's Second Law: $F = ma$.",
+        "substitution": "$F_1 = m_1 a_1 = 2 \\times 5\\text{ N}$; $F_2 = m_2 a_2 = 4 \\times 2\\text{ N}$.",
+        "calculation": "1. Force for Case 1: $F_1 = 2 \\times 5 = \\mathbf{10\\text{ N}}$.\n2. Force for Case 2: $F_2 = 4 \\times 2 = \\mathbf{8\\text{ N}}$.\n3. Since $10\\text{ N} > 8\\text{ N}$, accelerating the 2 kg mass requires a greater force.",
+        "finalAnswer": "Accelerating the 2 kg mass at 5 m/s² requires greater force (10 N vs 8 N).",
+        "unit": "N",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.18: Comparison of F = ma for different mass-acceleration pairs"
+      },
+      {
+        "problem": "A motorcar is moving with a velocity of 108 km/h and takes 4 s to stop after the brakes are applied. Calculate the force exerted by the brakes on the motorcar if its mass along with the passengers is 1000 kg.",
+        "given": "$u = 108\\text{ km/h} = 108 \\times \\frac{5}{18} = 30\\text{ m/s}$, final velocity $v = 0\\text{ m/s}$, time $t = 4\\text{ s}$, mass $m = 1000\\text{ kg}$.",
+        "formula": "Braking Force $F = \\frac{m(v - u)}{t}$.",
+        "substitution": "$F = \\frac{1000(0 - 30)}{4} = \\frac{-30000}{4}$.",
+        "calculation": "$F = -\\mathbf{7500\\text{ N}}$. (Negative sign denotes opposing retarding force).",
+        "finalAnswer": "Magnitude of braking force = 7500 N in direction opposite to motion.",
+        "unit": "N",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.19: Motorcar deceleration and opposing braking force"
+      },
+      {
+        "problem": "Why does a cricket fielder gradually pull his hands backward with the moving ball while taking a catch?",
+        "given": "High-velocity cricket ball of mass $m$ caught by fielder.",
+        "formula": "Impulse-Momentum Theorem: $F = \\frac{\\Delta p}{\\Delta t} = \\frac{m(v - u)}{\\Delta t}$.",
+        "substitution": "Pulling hands backward prolongs the impact deceleration duration $\\Delta t$.",
+        "calculation": "1. The ball possesses large momentum ($p = mv$) which must be reduced to zero.\n2. If stopped instantaneously ($\\Delta t \\to 0$), the rate of change of momentum is immense, exerting a massive destructive force ($F$) that damages the fielder's palms.\n3. By pulling hands backward, the fielder increases the stopping time $\\Delta t$.\n4. Because force is inversely proportional to time ($F \\propto 1/\\Delta t$), the impact force is reduced safely.",
+        "finalAnswer": "Pulling hands back increases impact time (Δt), dramatically decreasing the rate of change of momentum and the force exerted on the palms.",
+        "unit": "Impulse Biomechanics",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.20: Fielder pulling hands back during a catch to increase impact time"
+      },
+      {
+        "problem": "A force of 5 N gives a mass m₁ an acceleration of 10 m/s² and a mass m₂ an acceleration of 20 m/s². What acceleration would it give if both the masses were tied together?",
+        "given": "Force $F = 5\\text{ N}$. $a_1 = 10\\text{ m/s}^2 \\implies m_1 = \\frac{F}{a_1} = 0.5\\text{ kg}$. $a_2 = 20\\text{ m/s}^2 \\implies m_2 = \\frac{F}{a_2} = 0.25\\text{ kg}$.",
+        "formula": "Combined Mass $M = m_1 + m_2$; Acceleration $a = \\frac{F}{M}$.",
+        "substitution": "$M = 0.5 + 0.25 = 0.75\\text{ kg} = \\frac{3}{4}\\text{ kg}$. $a = \\frac{5}{0.75} = \\frac{5}{3/4}$.",
+        "calculation": "$a = \\frac{20}{3} \\approx \\mathbf{6.67\\text{ m/s}^2}$.",
+        "finalAnswer": "Acceleration of combined masses = 6.67 m/s² (20/3 m/s²).",
+        "unit": "m/s²",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.21: Combined tied masses accelerated by a common force"
+      },
+      {
+        "problem": "Derive Newton's Second Law mathematical formula F = ma from first principles.",
+        "given": "Body of mass $m$ moving with initial velocity $u$, accelerated uniformly to velocity $v$ in time $t$ by force $F$.",
+        "formula": "$F \\propto \\frac{\\Delta p}{\\Delta t}$.",
+        "substitution": "Initial momentum $p_1 = mu$, Final momentum $p_2 = mv \\implies \\Delta p = m(v - u)$.",
+        "calculation": "1. Change in momentum $\\Delta p = mv - mu = m(v - u)$.\n2. Rate of change of momentum $= \\frac{m(v - u)}{t}$.\n3. By definition of acceleration, $a = \\frac{v - u}{t}$.\n4. Therefore, $F \\propto m \\cdot a \\implies F = k \\cdot m \\cdot a$.\n5. In the SI system, 1 unit of force is defined such that $k = 1$.\n6. Hence, $\\mathbf{F = ma}$.",
+        "finalAnswer": "F = ma (Newton's Second Law derived from rate of change of linear momentum).",
+        "unit": "Derivation",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.18: Rate of change of momentum derivation geometry"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "Pulling hands back decreases the total momentum change of the ball.",
+        "correction": "The total change in momentum Delta p is IDENTICAL in both cases (the ball stops from its initial speed). Pulling hands back increases the TIME Delta t, which reduces the RATE of momentum change (Force = Delta p / Delta t).",
+        "why_it_matters": "A quintessential high-discrimination CBSE board exam question."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Momentum & Newton's Second Law Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Linear Momentum Vector: p = mv has both magnitude and direction, pointing in the same direction as velocity.",
+          "diagram_title": "Momentum Comparison: Bullet vs Heavy Truck",
+          "diagram_type": "image_search",
+          "image_query": "Graphic contrasting small mass high-speed bullet with huge mass low-speed truck having comparable momentum. scientific educational diagram with clear labels",
+          "video_query": "Momentum Comparison: Bullet vs Heavy Truck educational demonstration video",
+          "what_to_make": "Graphic contrasting small mass high-speed bullet with huge mass low-speed truck having comparable momentum.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Graphic contrasting small mass high-speed bullet with huge mass low-speed truck having comparable momentum. scientific educational diagram with clear labels\", title=\"Momentum Comparison: Bullet vs Heavy Truck\") | Proactive video: search_and_show_video(query=\"Momentum Comparison: Bullet vs Heavy Truck educational demonstration video\", title=\"Momentum Comparison: Bullet vs Heavy Truck\")",
+          "image_search_query": "Graphic contrasting small mass high-speed bullet with huge mass low-speed truck having comparable momentum. scientific educational diagram with clear labels",
+          "video_search_query": "Momentum Comparison: Bullet vs Heavy Truck educational demonstration video"
+        },
+        {
+          "concept_title": "Impact Force Proportionality: A small mass at immense speed (bullet) or a huge mass at slow speed (truck) possess catastrophic momentum.",
+          "diagram_title": "Force Rate of Momentum Change Graphic",
+          "diagram_type": "image_search",
+          "image_query": "Mathematical vector diagram showing change in momentum Delta p divided by time interval Delta t. scientific educational diagram with clear labels",
+          "video_query": "Force Rate of Momentum Change Graphic educational demonstration video",
+          "what_to_make": "Mathematical vector diagram showing change in momentum Delta p divided by time interval Delta t.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Mathematical vector diagram showing change in momentum Delta p divided by time interval Delta t. scientific educational diagram with clear labels\", title=\"Force Rate of Momentum Change Graphic\") | Proactive video: search_and_show_video(query=\"Force Rate of Momentum Change Graphic educational demonstration video\", title=\"Force Rate of Momentum Change Graphic\")",
+          "image_search_query": "Mathematical vector diagram showing change in momentum Delta p divided by time interval Delta t. scientific educational diagram with clear labels",
+          "video_search_query": "Force Rate of Momentum Change Graphic educational demonstration video"
+        },
+        {
+          "concept_title": "Newton's Second Law Derivation: F = k * d(mv)/dt = ma (defining k = 1 fixes the standard Newton unit).",
+          "diagram_title": "Derivation of F = ma Chalk Card",
+          "diagram_type": "image_search",
+          "image_query": "Chalkboard card showing step-by-step derivation: F proportional to m v-u /t -> F = ma. scientific educational diagram with clear labels",
+          "video_query": "Derivation of F = ma Chalk Card educational demonstration video",
+          "what_to_make": "Chalkboard card showing step-by-step derivation: F proportional to m(v-u)/t -> F = ma.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Chalkboard card showing step-by-step derivation: F proportional to m v-u /t -> F = ma. scientific educational diagram with clear labels\", title=\"Derivation of F = ma Chalk Card\") | Proactive video: search_and_show_video(query=\"Derivation of F = ma Chalk Card educational demonstration video\", title=\"Derivation of F = ma Chalk Card\")",
+          "image_search_query": "Chalkboard card showing step-by-step derivation: F proportional to m v-u /t -> F = ma. scientific educational diagram with clear labels",
+          "video_search_query": "Derivation of F = ma Chalk Card educational demonstration video"
+        },
+        {
+          "concept_title": "Definition of SI Unit Newton: 1 Newton is the magnitude of force that produces an acceleration of 1 m/s^2 in a mass of 1 kg.",
+          "diagram_title": "1 Newton Standard Unit Definition",
+          "diagram_type": "image_search",
+          "image_query": "Standard 1 kg block undergoing 1 m/s^2 acceleration under 1 Newton force. scientific educational diagram with clear labels",
+          "video_query": "1 Newton Standard Unit Definition educational demonstration video",
+          "what_to_make": "Standard 1 kg block undergoing 1 m/s^2 acceleration under 1 Newton force.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Standard 1 kg block undergoing 1 m/s^2 acceleration under 1 Newton force. scientific educational diagram with clear labels\", title=\"1 Newton Standard Unit Definition\") | Proactive video: search_and_show_video(query=\"1 Newton Standard Unit Definition educational demonstration video\", title=\"1 Newton Standard Unit Definition\")",
+          "image_search_query": "Standard 1 kg block undergoing 1 m/s^2 acceleration under 1 Newton force. scientific educational diagram with clear labels",
+          "video_search_query": "1 Newton Standard Unit Definition educational demonstration video"
+        },
+        {
+          "concept_title": "Impulse-Momentum Theorem: F * Delta t = Delta p; extending collision duration Delta t dramatically lowers peak impact force F.",
+          "diagram_title": "Impulse Force-Time Collision Curve",
+          "diagram_type": "image_search",
+          "image_query": "Force-time curve comparing sharp high-peak force during short collision vs wide low-peak force during prolonged collision. scientific educational diagram with clear labels",
+          "video_query": "Impulse Force-Time Collision Curve educational demonstration video",
+          "what_to_make": "Force-time curve comparing sharp high-peak force during short collision vs wide low-peak force during prolonged collision.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Force-time curve comparing sharp high-peak force during short collision vs wide low-peak force during prolonged collision. scientific educational diagram with clear labels\", title=\"Impulse Force-Time Collision Curve\") | Proactive video: search_and_show_video(query=\"Impulse Force-Time Collision Curve educational demonstration video\", title=\"Impulse Force-Time Collision Curve\")",
+          "image_search_query": "Force-time curve comparing sharp high-peak force during short collision vs wide low-peak force during prolonged collision. scientific educational diagram with clear labels",
+          "video_search_query": "Impulse Force-Time Collision Curve educational demonstration video"
+        },
+        {
+          "concept_title": "Cricket Catch Technique: Pulling hands backward increases time interval of deceleration, reducing impact force on palms.",
+          "diagram_title": "Fielder Pulling Hands Backward Catching Cricket Ball",
+          "diagram_type": "image_search",
+          "image_query": "Kinematic sequence showing cricketer catching ball and extending hands backward to prolong deceleration time. scientific educational diagram with clear labels",
+          "video_query": "Fielder Pulling Hands Backward Catching Cricket Ball educational demonstration video",
+          "what_to_make": "Kinematic sequence showing cricketer catching ball and extending hands backward to prolong deceleration time.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Kinematic sequence showing cricketer catching ball and extending hands backward to prolong deceleration time. scientific educational diagram with clear labels\", title=\"Fielder Pulling Hands Backward Catching Cricket Ball\") | Proactive video: search_and_show_video(query=\"Fielder Pulling Hands Backward Catching Cricket Ball educational demonstration video\", title=\"Fielder Pulling Hands Backward Catching Cricket Ball\")",
+          "image_search_query": "Kinematic sequence showing cricketer catching ball and extending hands backward to prolong deceleration time. scientific educational diagram with clear labels",
+          "video_search_query": "Fielder Pulling Hands Backward Catching Cricket Ball educational demonstration video"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount verified image from concept_visuals on Step 1 of each concept.\n2. 6-STAGE SOCRATIC CADENCE:\n   - Stage 1: Intuition hook (Why catching a high-speed cricket ball hurts if your hands stay stiff).\n   - Stage 2: Definition of linear momentum p = mv and Newton's Second Law.\n   - Stage 3: Common pitfall (Pulling hands back reduces FORCE, not total momentum change).\n   - Stage 4: Chalkboard derivation: F = m(v-u)/t = ma.\n   - Stage 5: Socratic check: \"A tennis ball and a heavy cricket ball are thrown at the exact same speed. Which one is harder to stop, and why?\" HARD STOP: Wait for student response!\n   - Stage 6: Authentic CBSE numerical question."
+  },
+  {
+    "curriculum_id": "7e1d5438-1174-4577-8599-5f05a6642093",
+    "order_index": 4,
+    "title": "Action, Reaction & Newton's Third Law of Motion",
+    "description": "Master Newton's Third Law: action-reaction pairs acting on different bodies, why third law forces never cancel each other, walking biomechanics, spring balance couplings, and balloon rocket propulsion.",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 20,
+    "subtopics": [
+      "Newton's Third Law Statement: To every action, there is always an equal and opposite reaction",
+      "Mutual Interaction: Forces always occur in matched pairs (F_AB = -F_BA)",
+      "The Non-Cancellation Rule: Action and reaction act on TWO DIFFERENT bodies, therefore they can NEVER cancel out",
+      "Walking Biomechanics: Feet push the ground backward; ground pushes feet forward with equal reaction",
+      "Connected Spring Balances (Activity 6.4): Equal and opposite readings on two interlocked balances",
+      "Everyday Manifestations: Swimmer pushing water backward, rowing a boat, balloon rocket expulsion"
+    ],
+    "key_concepts": [
+      "Third Law Core Axiom: Whenever one object exerts a force on another object, the second object instantly exerts an equal and opposite force on the first.",
+      "Independent Bodies Axiom: Action force and reaction force act on two completely different objects, so net force on each individual object is non-zero.",
+      "Simultaneous Co-Existence: Action and reaction occur simultaneously; neither force is the cause or effect of the other.",
+      "Walking Mechanics: You cannot walk on frictionless ice because pushing backward yields zero reaction force.",
+      "Connected Spring Balances: Pulling balance A hooked to balance B demonstrates identical Newton readings on both dials in opposite directions.",
+      "Recoil & Jet Propulsion: Expelling air backward from a balloon produces forward thrust on the balloon body."
+    ],
+    "success_criteria": "Student can state Newton's Third Law verbatim, identify action and reaction forces across 5 real-world scenarios, and prove why action and reaction never cancel.",
+    "chapter_notes": "### 6.14 Newton's Third Law of Motion\n> *\"To every action, there is an equal and opposite reaction.\"*\n- If body $A$ exerts a force $\\vec{F}_{AB}$ on body $B$, then body $B$ simultaneously exerts an equal and opposite force $\\vec{F}_{BA}$ on body $A$:\n  $$\\mathbf{\\vec{F}_{AB} = -\\vec{F}_{BA}}$$\n\n### 6.15 The Critical Rules of Action-Reaction\n1. **Forces Always Occur in Pairs**: A single isolated force is a physical impossibility in nature.\n2. **Action and Reaction Act on DIFFERENT Bodies**:\n   - $\\vec{F}_{AB}$ acts on body $B$.\n   - $\\vec{F}_{BA}$ acts on body $A$.\n   - **Why Action and Reaction NEVER Cancel Out**: Forces cancel out only when they act on the **same body**! Because action and reaction act on two entirely different objects, each individual body experiences a net unbalanced force and can accelerate!\n3. **Equal Magnitudes, Opposite Directions**: $|\\vec{F}_{AB}| = |\\vec{F}_{BA}|$.\n\n### 6.16 Real-World Demonstrations\n1. **Walking on the Ground**:\n   - Action: Your foot pushes the ground backward and downward.\n   - Reaction: The ground pushes your foot forward and upward with equal force, propelling you forward!\n   - *Why you slip on ice*: Frictionless ice cannot support backward horizontal push; reaction force is zero, making walking impossible.\n2. **Swimming in Water**:\n   - Action: Swimmer pushes water backward with arms.\n   - Reaction: Water pushes swimmer forward.\n3. **Two Connected Spring Balances (Activity 6.4)**:\n   - Attach spring balance A to a wall, and hook spring balance B to balance A.\n   - Pull balance B: Both spring balance dials show the **exact same reading** in Newtons! Balance A pulls balance B with force equal and opposite to balance B pulling balance A.",
+    "worked_examples": [
+      {
+        "problem": "Explain using Newton's Third Law why a horse cannot pull a cart in empty space where there is no ground or friction.",
+        "given": "Horse-cart system on frictionless surface / outer space.",
+        "formula": "Newton's Third Law Action-Reaction + Ground Friction Reaction: $F_{ground \\to horse}$.",
+        "substitution": "The horse must push the ground backward to receive a forward reaction force.",
+        "calculation": "1. To accelerate forward, the horse pushes backward against the ground with its hooves ($F_{horse \\to ground}$).\n2. By Newton's Third Law, the ground exerts an equal and opposite forward reaction force on the horse ($F_{ground \\to horse}$).\n3. If $F_{ground \\to horse} > F_{cart \\to horse}$, the horse-cart system accelerates forward.\n4. In empty space or on frictionless ice, the horse cannot push the ground backward; therefore the ground exerts zero forward reaction force, making movement impossible.",
+        "finalAnswer": "A horse cannot pull a cart without ground because forward propulsion relies on the ground pushing forward in reaction to the horse pushing backward.",
+        "unit": "Classical Locomotion",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.22: Free body diagram of horse-cart-ground reaction forces"
+      },
+      {
+        "problem": "If action and reaction are always equal and opposite, why do they not cancel each other out to produce zero motion?",
+        "given": "Newton's Third Law: $\\vec{F}_{AB} = -\\vec{F}_{BA}$.",
+        "formula": "Independent Body Action Axiom",
+        "substitution": "Action force and reaction force act on two entirely DIFFERENT bodies.",
+        "calculation": "1. Forces cancel each other if and only if they act on the SAME body simultaneously in opposite directions (like balanced forces on a single block).\n2. Action force acts on body B (exerted by body A).\n3. Reaction force acts on body A (exerted by body B).\n4. Because they act on separate masses, each body accelerates independently according to its own $F = ma$.",
+        "finalAnswer": "Action and reaction never cancel because they act on two different bodies, not on the same object.",
+        "unit": "Mechanics Axiom",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.23: Action and reaction acting on two separate interacting masses"
+      },
+      {
+        "problem": "Why does a heavy rifle recoil backward when a high-speed bullet is fired forward?",
+        "given": "Rifle mass $M$, bullet mass $m$, muzzle velocity $v$.",
+        "formula": "Newton's Third Law: $\\vec{F}_{gun \\to bullet} = -\\vec{F}_{bullet \\to gun}$.",
+        "substitution": "Exploding gunpowder exerts equal and opposite force on both bullet and rifle.",
+        "calculation": "1. Gunpowder combustion generates high-pressure expanding gas.\n2. The gas exerts an immense forward force on the light bullet, accelerating it down the barrel.\n3. By Newton's Third Law, the gas simultaneously exerts an equal and opposite backward force on the heavy rifle.\n4. This backward reaction force causes the rifle to recoil into the shooter's shoulder.",
+        "finalAnswer": "The rifle recoils because the expanding gas exerts an equal and opposite backward reaction force on the rifle as it accelerates the bullet forward.",
+        "unit": "Ballistics Dynamics",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.24: Rifle and bullet action-reaction force pair during firing"
+      },
+      {
+        "problem": "Why is it difficult for a fireman to hold a hose that ejects large streams of water at a high velocity?",
+        "given": "Firehose discharging water mass $\\frac{dm}{dt}$ with velocity $v$.",
+        "formula": "Reaction Force of Fluid Jet: $F = v \\frac{dm}{dt}$.",
+        "substitution": "Water is accelerated forward out of nozzle; nozzle experiences equal backward reaction force.",
+        "calculation": "1. A massive volume of water is ejected forward with immense velocity every second, carrying large forward momentum.\n2. By Newton's Third Law, the escaping water exerts an equal and opposite backward reaction force on the hose nozzle.\n3. The fireman must exert immense muscular force forward to counterbalance this backward thrust and prevent the hose from whipping violently.",
+        "finalAnswer": "High-velocity water ejected forward creates an equal and opposite backward reaction thrust on the hose, making it difficult to hold.",
+        "unit": "Hydrodynamic Thrust",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.25: Fireman counterbalancing backward reaction thrust of firehose"
+      },
+      {
+        "problem": "Explain the propulsion of a rocket using Newton's Third Law.",
+        "given": "Rocket of mass $M$ expelling exhaust gases at exhaust speed $v_e$.",
+        "formula": "Thrust Force $F_{thrust} = v_e \\frac{dm}{dt}$.",
+        "substitution": "Hot combustion gases are expelled backward at supersonic velocity through nozzle.",
+        "calculation": "1. Liquid fuel burns in the combustion chamber, generating high-pressure exhaust gas.\n2. The rocket nozzle forces the hot gases downward at supersonic speeds (**Action**).\n3. By Newton's Third Law, the escaping gases exert an equal and opposite upward thrust force on the rocket body (**Reaction**).\n4. This upward thrust propels the rocket upward into space without needing air to push against.",
+        "finalAnswer": "Rocket propulsion is powered by the equal and opposite upward reaction thrust produced when hot gases are expelled downward at high velocity.",
+        "unit": "Aerospace Dynamics",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.26: Rocket action (exhaust gas downward) and reaction (thrust upward)"
+      },
+      {
+        "problem": "Two spring balances A and B are hooked together. Balance A is fixed to a wall, and a student pulls balance B with a force of 50 N. What are the readings on balance A and balance B?",
+        "given": "Activity 6.4: Coupled spring balances A and B.",
+        "formula": "Third Law Tension Transmission: $T_A = T_B$.",
+        "substitution": "Balance B pulls balance A with 50 N; balance A pulls balance B with 50 N.",
+        "calculation": "1. The student pulls balance B with 50 N, extending its internal spring.\n2. Balance B transmits this 50 N pulling force to balance A (**Action**).\n3. By Newton's Third Law, balance A exerts an equal 50 N pulling force in the opposite direction on balance B (**Reaction**).\n4. Both spring balances experience identical tension and show the same reading: **50 N**.",
+        "finalAnswer": "Both spring balance A and spring balance B read exactly 50 N.",
+        "unit": "Activity 6.4 Lab Analysis",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.27: Activity 6.4 two connected spring balances showing identical 50 N readings"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "Since action and reaction are equal and opposite, they must add up to zero and cancel each other out.",
+        "correction": "Forces cancel only when acting on the SAME object. Action acts on body B; Reaction acts on body A. Because they act on two different bodies, they NEVER cancel each other.",
+        "why_it_matters": "The single most famous physics misconception on earth."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Action, Reaction & Third Law Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Third Law Core Axiom: Whenever one object exerts a force on another object, the second object instantly exerts an equal and opposite force on the first.",
+          "diagram_title": "Action-Reaction Pair Vector Diagram",
+          "diagram_type": "image_search",
+          "image_query": "Two interacting bodies showing equal magnitude opposite direction vectors F_AB and -F_BA. scientific educational diagram with clear labels",
+          "video_query": "Action-Reaction Pair Vector Diagram educational demonstration video",
+          "what_to_make": "Two interacting bodies showing equal magnitude opposite direction vectors F_AB and -F_BA.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Two interacting bodies showing equal magnitude opposite direction vectors F_AB and -F_BA. scientific educational diagram with clear labels\", title=\"Action-Reaction Pair Vector Diagram\") | Proactive video: search_and_show_video(query=\"Action-Reaction Pair Vector Diagram educational demonstration video\", title=\"Action-Reaction Pair Vector Diagram\")",
+          "image_search_query": "Two interacting bodies showing equal magnitude opposite direction vectors F_AB and -F_BA. scientific educational diagram with clear labels",
+          "video_search_query": "Action-Reaction Pair Vector Diagram educational demonstration video"
+        },
+        {
+          "concept_title": "Independent Bodies Axiom: Action force and reaction force act on two completely different objects, so net force on each individual object is non-zero.",
+          "diagram_title": "Non-Cancellation Two-Body Free Body Diagram",
+          "diagram_type": "image_search",
+          "image_query": "Free body diagrams separating body A and body B proving net force on each body is non-zero. scientific educational diagram with clear labels",
+          "video_query": "Non-Cancellation Two-Body Free Body Diagram educational demonstration video",
+          "what_to_make": "Free body diagrams separating body A and body B proving net force on each body is non-zero.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Free body diagrams separating body A and body B proving net force on each body is non-zero. scientific educational diagram with clear labels\", title=\"Non-Cancellation Two-Body Free Body Diagram\") | Proactive video: search_and_show_video(query=\"Non-Cancellation Two-Body Free Body Diagram educational demonstration video\", title=\"Non-Cancellation Two-Body Free Body Diagram\")",
+          "image_search_query": "Free body diagrams separating body A and body B proving net force on each body is non-zero. scientific educational diagram with clear labels",
+          "video_search_query": "Non-Cancellation Two-Body Free Body Diagram educational demonstration video"
+        },
+        {
+          "concept_title": "Simultaneous Co-Existence: Action and reaction occur simultaneously; neither force is the cause or effect of the other.",
+          "diagram_title": "Activity 6.4 Connected Spring Balances",
+          "diagram_type": "image_search",
+          "image_query": "Two interlocked spring balances showing identical 5 N scale readings in opposite directions. scientific educational diagram with clear labels",
+          "video_query": "Activity 6.4 Connected Spring Balances educational demonstration video",
+          "what_to_make": "Two interlocked spring balances showing identical 5 N scale readings in opposite directions.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Two interlocked spring balances showing identical 5 N scale readings in opposite directions. scientific educational diagram with clear labels\", title=\"Activity 6.4 Connected Spring Balances\") | Proactive video: search_and_show_video(query=\"Activity 6.4 Connected Spring Balances educational demonstration video\", title=\"Activity 6.4 Connected Spring Balances\")",
+          "image_search_query": "Two interlocked spring balances showing identical 5 N scale readings in opposite directions. scientific educational diagram with clear labels",
+          "video_search_query": "Activity 6.4 Connected Spring Balances educational demonstration video"
+        },
+        {
+          "concept_title": "Walking Mechanics: You cannot walk on frictionless ice because pushing backward yields zero reaction force.",
+          "diagram_title": "Walking Ground Reaction Force Vectors",
+          "diagram_type": "image_search",
+          "image_query": "Biomechanics of foot push showing backward ground friction vector and forward reaction propulsion vector. scientific educational diagram with clear labels",
+          "video_query": "Walking Ground Reaction Force Vectors educational demonstration video",
+          "what_to_make": "Biomechanics of foot push showing backward ground friction vector and forward reaction propulsion vector.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Biomechanics of foot push showing backward ground friction vector and forward reaction propulsion vector. scientific educational diagram with clear labels\", title=\"Walking Ground Reaction Force Vectors\") | Proactive video: search_and_show_video(query=\"Walking Ground Reaction Force Vectors educational demonstration video\", title=\"Walking Ground Reaction Force Vectors\")",
+          "image_search_query": "Biomechanics of foot push showing backward ground friction vector and forward reaction propulsion vector. scientific educational diagram with clear labels",
+          "video_search_query": "Walking Ground Reaction Force Vectors educational demonstration video"
+        },
+        {
+          "concept_title": "Connected Spring Balances: Pulling balance A hooked to balance B demonstrates identical Newton readings on both dials in opposite directions.",
+          "diagram_title": "Swimmer Pushing Water Reaction",
+          "diagram_type": "image_search",
+          "image_query": "Swimmer kicking pool wall generating forward propulsion force. scientific educational diagram with clear labels",
+          "video_query": "Swimmer Pushing Water Reaction educational demonstration video",
+          "what_to_make": "Swimmer kicking pool wall generating forward propulsion force.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Swimmer kicking pool wall generating forward propulsion force. scientific educational diagram with clear labels\", title=\"Swimmer Pushing Water Reaction\") | Proactive video: search_and_show_video(query=\"Swimmer Pushing Water Reaction educational demonstration video\", title=\"Swimmer Pushing Water Reaction\")",
+          "image_search_query": "Swimmer kicking pool wall generating forward propulsion force. scientific educational diagram with clear labels",
+          "video_search_query": "Swimmer Pushing Water Reaction educational demonstration video"
+        },
+        {
+          "concept_title": "Recoil & Jet Propulsion: Expelling air backward from a balloon produces forward thrust on the balloon body.",
+          "diagram_title": "Balloon Rocket Jet Thrust (Activity 6.5)",
+          "diagram_type": "image_search",
+          "image_query": "Air escaping from balloon nozzle to the right while balloon accelerates along thread to the left. scientific educational diagram with clear labels",
+          "video_query": "Balloon Rocket Jet Thrust Activity 6.5 educational demonstration video",
+          "what_to_make": "Air escaping from balloon nozzle to the right while balloon accelerates along thread to the left.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Air escaping from balloon nozzle to the right while balloon accelerates along thread to the left. scientific educational diagram with clear labels\", title=\"Balloon Rocket Jet Thrust (Activity 6.5)\") | Proactive video: search_and_show_video(query=\"Balloon Rocket Jet Thrust Activity 6.5 educational demonstration video\", title=\"Balloon Rocket Jet Thrust (Activity 6.5)\")",
+          "image_search_query": "Air escaping from balloon nozzle to the right while balloon accelerates along thread to the left. scientific educational diagram with clear labels",
+          "video_search_query": "Balloon Rocket Jet Thrust Activity 6.5 educational demonstration video"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount verified image from concept_visuals on Step 1 of each concept.\n2. 6-STAGE SOCRATIC CADENCE:\n   - Stage 1: Intuition hook (Why a rowing boat moves forward when you push water backward with oars).\n   - Stage 2: Statement of Newton's Third Law and formula F_AB = -F_BA.\n   - Stage 3: Common pitfall (Why action and reaction NEVER cancel out).\n   - Stage 4: Chalkboard Free Body Diagram separating the two bodies.\n   - Stage 5: Socratic check: \"If a mosquito collides with the windshield of a speeding truck, which one experiences the greater force?\" HARD STOP: Wait for student response!\n   - Stage 6: Authentic CBSE board question on action-reaction pairs."
+  },
+  {
+    "curriculum_id": "7e1d5438-1174-4577-8599-5f05a6642093",
+    "order_index": 5,
+    "title": "Conservation of Linear Momentum: Isolated Systems & Recoil Mechanics",
+    "description": "Master the Law of Conservation of Momentum: mathematical derivation from Newton's Second and Third Laws, isolated systems with zero external net force, collision kinematics, gun recoil velocity, and rocket staging.",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 20,
+    "subtopics": [
+      "Conservation of Momentum Law: Total momentum of an isolated system remains constant",
+      "Isolated System Definition: A physical system with zero net external forces (internal forces only)",
+      "Derivation from Newton's Laws: F_AB = -F_BA implies m1*(v1 - u1)/t = -m2*(v2 - u2)/t",
+      "Master Collision Equation: m1*u1 + m2*u2 = m1*v1 + m2*v2",
+      "Recoil Mechanics of Firearms: v_gun = - (m_bullet * v_bullet) / M_gun",
+      "Rocket Propulsion & Staging: Continuous downward gas momentum generating upward thrust"
+    ],
+    "key_concepts": [
+      "Law of Conservation of Momentum: In an isolated system, the total vector momentum before interaction equals total vector momentum after interaction.",
+      "Derivation Principle: Mutual interaction forces cancel internally via Newton's Third Law (F12 = -F21), keeping net external impulse zero.",
+      "Collinear Collision Equation: m1*u1 + m2*u2 = m1*v1 + m2*v2 holds for all elastic, inelastic, and explosive collisions.",
+      "Recoil Velocity Formulation: Initially at rest (p_total = 0). When fired, p_bullet + p_gun = 0 implies v_gun = - (m_b * v_b) / M_g.",
+      "Recoil Heavy Gun Invariant: Because gun mass M_g is much larger than bullet mass m_b, gun recoil velocity is small but delivers substantial kick.",
+      "Rocket Thrust Physics: Rockets accelerate in vacuum by continuously expelling burned combustion gases backward at supersonic velocities."
+    ],
+    "success_criteria": "Student can derive m1*u1 + m2*u2 = m1*v1 + m2*v2, calculate gun recoil velocities and collision outcomes, and explain rocket thrust.",
+    "chapter_notes": "### 6.17 Law of Conservation of Momentum\n> *\"In an isolated system (where no net external unbalanced force acts), the total momentum of the system remains constant (conserved).\"*\n$$\\text{Total Initial Momentum} = \\text{Total Final Momentum}$$\n$$\\mathbf{m_1 u_1 + m_2 u_2 = m_1 v_1 + m_2 v_2}$$\n\n### 6.18 Derivation Using Newton's Second and Third Laws\nConsider two balls $A$ (mass $m_1$, initial velocity $u_1$) and $B$ (mass $m_2$, initial velocity $u_2$). They collide for time $t$, separating with final velocities $v_1$ and $v_2$.\n1. Force exerted by ball $A$ on ball $B$:\n   $$F_{AB} = m_2 \\times a_2 = m_2 \\left(\\frac{v_2 - u_2}{t}\\right)$$\n2. Force exerted by ball $B$ on ball $A$:\n   $$F_{BA} = m_1 \\times a_1 = m_1 \\left(\\frac{v_1 - u_1}{t}\\right)$$\n3. By Newton's Third Law, action and reaction are equal and opposite:\n   $$F_{AB} = -F_{BA}$$\n   $$m_2 \\left(\\frac{v_2 - u_2}{t}\\right) = -m_1 \\left(\\frac{v_1 - u_1}{t}\\right)$$\n4. Multiplying both sides by $t$:\n   $$m_2 v_2 - m_2 u_2 = -m_1 v_1 + m_1 u_1$$\n5. Rearranging terms:\n   $$\\mathbf{m_1 u_1 + m_2 u_2 = m_1 v_1 + m_2 v_2}$$\n\n### 6.19 Recoil Velocity of a Gun\nBefore firing, both gun (mass $M$) and bullet (mass $m$) are at rest:\n$$\\text{Initial Momentum} = 0$$\nWhen fired, the bullet exits with forward velocity $v$, and the gun recoils backward with velocity $V$:\n$$\\text{Final Momentum} = M V + m v$$\nBy Conservation of Momentum:\n$$0 = MV + mv \\implies MV = -mv \\implies \\mathbf{V = -\\frac{mv}{M}}$$\n- The **negative sign** indicates that the gun moves **backward** (recoils).\n- Because gun mass $M$ is vastly greater than bullet mass $m$ ($M \\gg m$), the recoil velocity $V$ is much smaller than the bullet velocity $v$.",
+    "worked_examples": [
+      {
+        "problem": "A bullet of mass 20 g is horizontally fired with a velocity 150 m/s from a pistol of mass 2 kg. What is the recoil velocity of the pistol?",
+        "given": "Bullet mass $m_1 = 20\\text{ g} = 0.02\\text{ kg}$, bullet velocity $v_1 = +150\\text{ m/s}$. Pistol mass $m_2 = 2\\text{ kg}$, recoil velocity $v_2 = ?$. Initially both at rest ($u_1 = u_2 = 0$).",
+        "formula": "Conservation of Linear Momentum: $m_1 u_1 + m_2 u_2 = m_1 v_1 + m_2 v_2 \\implies 0 = m_1 v_1 + m_2 v_2$.",
+        "substitution": "$0 = (0.02)(150) + (2)(v_2) \\implies 0 = 3 + 2v_2$.",
+        "calculation": "$2v_2 = -3 \\implies v_2 = -\\frac{3}{2} = -\\mathbf{1.5\\text{ m/s}}$.",
+        "finalAnswer": "Recoil velocity of pistol = -1.5 m/s (1.5 m/s in backward direction).",
+        "unit": "m/s",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.28: Pistol recoil velocity calculation using momentum conservation"
+      },
+      {
+        "problem": "A girl of mass 40 kg jumps with a horizontal velocity of 5 m/s onto a stationary cart with frictionless wheels. The mass of the cart is 3 kg. What is her velocity as the cart starts moving?",
+        "given": "Girl mass $m_1 = 40\\text{ kg}$, initial velocity $u_1 = 5\\text{ m/s}$. Cart mass $m_2 = 3\\text{ kg}$, initial velocity $u_2 = 0\\text{ m/s}$. Common final velocity $v$.",
+        "formula": "Total Initial Momentum = Total Final Momentum: $m_1 u_1 + m_2 u_2 = (m_1 + m_2)v$.",
+        "substitution": "$(40 \\times 5) + (3 \\times 0) = (40 + 3)v \\implies 200 = 43v$.",
+        "calculation": "$v = \\frac{200}{43} \\approx +\\mathbf{4.65\\text{ m/s}}$.",
+        "finalAnswer": "Velocity of girl and cart = 4.65 m/s in the initial direction of jump.",
+        "unit": "m/s",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.29: Girl jumping onto stationary cart momentum coalescence"
+      },
+      {
+        "problem": "Two hockey players of opposite teams, while trying to hit a ball on the ground, collide and immediately become entangled. One has a mass of 60 kg and was moving with a velocity 5.0 m/s, while the other player has a mass of 55 kg and was moving faster with a velocity 6.0 m/s towards the first player (opposite direction). In which direction and with what velocity will they move after becoming entangled?",
+        "given": "$m_1 = 60\\text{ kg}, u_1 = +5.0\\text{ m/s}$ (left to right). $m_2 = 55\\text{ kg}, u_2 = -6.0\\text{ m/s}$ (right to left). Entangled mass $M = m_1 + m_2 = 115\\text{ kg}$.",
+        "formula": "$m_1 u_1 + m_2 u_2 = (m_1 + m_2)v$.",
+        "substitution": "$(60 \\times 5.0) + (55 \\times -6.0) = 115v \\implies 300 - 330 = 115v$.",
+        "calculation": "$-30 = 115v \\implies v = -\\frac{30}{115} = -\\mathbf{0.26\\text{ m/s}}$.",
+        "finalAnswer": "Combined entangled velocity = -0.26 m/s (0.26 m/s in the direction of the second player).",
+        "unit": "m/s",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.30: Two colliding hockey players coalescing in inelastic collision"
+      },
+      {
+        "problem": "State the Law of Conservation of Linear Momentum. Under what condition is it strictly valid?",
+        "given": "Colliding interacting bodies.",
+        "formula": "$\\sum \\vec{p}_{initial} = \\sum \\vec{p}_{final}$ when $\\sum \\vec{F}_{ext} = 0$.",
+        "substitution": "The total linear momentum of an isolated system remains constant in time.",
+        "calculation": "1. Linear momentum of a system of particles is conserved if no net external unbalanced force acts on the system.\n2. Internal forces between interacting particles occur in equal and opposite action-reaction pairs and cancel each other out vectorially.\n3. Condition: System must be **isolated** (no net external friction, gravity, or external push).",
+        "finalAnswer": "Total linear momentum of an isolated system remains conserved provided no net external unbalanced force acts upon it.",
+        "unit": "Conservation Law",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.31: Conservation of momentum in two-ball collision before, during, and after"
+      },
+      {
+        "problem": "Two objects of masses 100 g and 200 g are moving along the same line and direction with velocities of 2 m/s and 1 m/s, respectively. They collide and after the collision, the first object moves at a velocity of 1.67 m/s. Determine the velocity of the second object.",
+        "given": "$m_1 = 0.1\\text{ kg}, u_1 = 2\\text{ m/s}, v_1 = 1.67\\text{ m/s}$. $m_2 = 0.2\\text{ kg}, u_2 = 1\\text{ m/s}, v_2 = ?$.",
+        "formula": "$m_1 u_1 + m_2 u_2 = m_1 v_1 + m_2 v_2$.",
+        "substitution": "$(0.1 \\times 2) + (0.2 \\times 1) = (0.1 \\times 1.67) + (0.2 \\times v_2) \\implies 0.2 + 0.2 = 0.167 + 0.2v_2$.",
+        "calculation": "$0.40 - 0.167 = 0.2v_2 \\implies 0.233 = 0.2v_2 \\implies v_2 = \\frac{0.233}{0.2} = \\mathbf{1.165\\text{ m/s}}$.",
+        "finalAnswer": "Velocity of the second object after collision = 1.165 m/s in the same direction.",
+        "unit": "m/s",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.32: 1D elastic collision velocity redistribution between two masses"
+      },
+      {
+        "problem": "Derive the Law of Conservation of Linear Momentum from Newton's Second and Third Laws of Motion.",
+        "given": "Two spheres A and B of masses $m_1$ and $m_2$ colliding for time $\\Delta t$.",
+        "formula": "Newton's Third Law: $\\vec{F}_{AB} = -\\vec{F}_{BA}$; Newton's Second Law: $\\vec{F} = \\frac{m\\Delta v}{\\Delta t}$.",
+        "substitution": "$F_{AB} = \\frac{m_1(v_1 - u_1)}{\\Delta t}$; $F_{BA} = \\frac{m_2(v_2 - u_2)}{\\Delta t}$.",
+        "calculation": "1. By Third Law, force on B due to A equals negative of force on A due to B:\n   $\\frac{m_1(v_1 - u_1)}{\\Delta t} = -\\frac{m_2(v_2 - u_2)}{\\Delta t}$.\n2. Multiply both sides by $\\Delta t$:\n   $m_1 v_1 - m_1 u_1 = -m_2 v_2 + m_2 u_2$.\n3. Group initial terms on left and final terms on right:\n   $\\mathbf{m_1 u_1 + m_2 u_2 = m_1 v_1 + m_2 v_2}$.",
+        "finalAnswer": "m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂ (Conservation of momentum derived from Second and Third Laws).",
+        "unit": "Derivation",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.33: Derivation schematic of momentum conservation from action-reaction forces"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "Conservation of momentum holds even when an external friction force is actively slowing the objects down.",
+        "correction": "Momentum is conserved ONLY in an ISOLATED system with ZERO external unbalanced forces. External friction or gravity changes total momentum.",
+        "why_it_matters": "A critical boundary condition on CBSE physics exams."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Conservation of Momentum & Recoil Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Law of Conservation of Momentum: In an isolated system, the total vector momentum before interaction equals total vector momentum after interaction.",
+          "diagram_title": "Two Spheres Collision Derivation Model",
+          "diagram_type": "image_search",
+          "image_query": "Textbook panel showing balls A and B before collision, during collision F_AB and F_BA , and after collision. scientific educational diagram with clear labels",
+          "video_query": "Two Spheres Collision Derivation Model educational demonstration video",
+          "what_to_make": "Textbook panel showing balls A and B before collision, during collision (F_AB and F_BA), and after collision.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook panel showing balls A and B before collision, during collision F_AB and F_BA , and after collision. scientific educational diagram with clear labels\", title=\"Two Spheres Collision Derivation Model\") | Proactive video: search_and_show_video(query=\"Two Spheres Collision Derivation Model educational demonstration video\", title=\"Two Spheres Collision Derivation Model\")",
+          "image_search_query": "Textbook panel showing balls A and B before collision, during collision F_AB and F_BA , and after collision. scientific educational diagram with clear labels",
+          "video_search_query": "Two Spheres Collision Derivation Model educational demonstration video"
+        },
+        {
+          "concept_title": "Derivation Principle: Mutual interaction forces cancel internally via Newton's Third Law (F12 = -F21), keeping net external impulse zero.",
+          "diagram_title": "Internal Interaction Impulse Cancellation",
+          "diagram_type": "image_search",
+          "image_query": "Internal force arrows F12 and F21 summing to zero within system boundary box. scientific educational diagram with clear labels",
+          "video_query": "Internal Interaction Impulse Cancellation educational demonstration video",
+          "what_to_make": "Internal force arrows F12 and F21 summing to zero within system boundary box.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Internal force arrows F12 and F21 summing to zero within system boundary box. scientific educational diagram with clear labels\", title=\"Internal Interaction Impulse Cancellation\") | Proactive video: search_and_show_video(query=\"Internal Interaction Impulse Cancellation educational demonstration video\", title=\"Internal Interaction Impulse Cancellation\")",
+          "image_search_query": "Internal force arrows F12 and F21 summing to zero within system boundary box. scientific educational diagram with clear labels",
+          "video_search_query": "Internal Interaction Impulse Cancellation educational demonstration video"
+        },
+        {
+          "concept_title": "Collinear Collision Equation: m1*u1 + m2*u2 = m1*v1 + m2*v2 holds for all elastic, inelastic, and explosive collisions.",
+          "diagram_title": "Newton's Cradle Momentum Conservation",
+          "diagram_type": "image_search",
+          "image_query": "Steel sphere swinging into stationary array and transferring momentum to opposite sphere. scientific educational diagram with clear labels",
+          "video_query": "Newton's Cradle Momentum Conservation educational demonstration video",
+          "what_to_make": "Steel sphere swinging into stationary array and transferring momentum to opposite sphere.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Steel sphere swinging into stationary array and transferring momentum to opposite sphere. scientific educational diagram with clear labels\", title=\"Newton's Cradle Momentum Conservation\") | Proactive video: search_and_show_video(query=\"Newton's Cradle Momentum Conservation educational demonstration video\", title=\"Newton's Cradle Momentum Conservation\")",
+          "image_search_query": "Steel sphere swinging into stationary array and transferring momentum to opposite sphere. scientific educational diagram with clear labels",
+          "video_search_query": "Newton's Cradle Momentum Conservation educational demonstration video"
+        },
+        {
+          "concept_title": "Recoil Velocity Formulation: Initially at rest (p_total = 0). When fired, p_bullet + p_gun = 0 implies v_gun = - (m_b * v_b) / M_g.",
+          "diagram_title": "Firearm Recoil Dynamics Graphic",
+          "diagram_type": "image_search",
+          "image_query": "Pistol firing showing forward bullet momentum vector and backward gun recoil vector. scientific educational diagram with clear labels",
+          "video_query": "Firearm Recoil Dynamics Graphic educational demonstration video",
+          "what_to_make": "Pistol firing showing forward bullet momentum vector and backward gun recoil vector.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Pistol firing showing forward bullet momentum vector and backward gun recoil vector. scientific educational diagram with clear labels\", title=\"Firearm Recoil Dynamics Graphic\") | Proactive video: search_and_show_video(query=\"Firearm Recoil Dynamics Graphic educational demonstration video\", title=\"Firearm Recoil Dynamics Graphic\")",
+          "image_search_query": "Pistol firing showing forward bullet momentum vector and backward gun recoil vector. scientific educational diagram with clear labels",
+          "video_search_query": "Firearm Recoil Dynamics Graphic educational demonstration video"
+        },
+        {
+          "concept_title": "Recoil Heavy Gun Invariant: Because gun mass M_g is much larger than bullet mass m_b, gun recoil velocity is small but delivers substantial kick.",
+          "diagram_title": "Mass Ratio & Recoil Velocity Chart",
+          "diagram_type": "image_search",
+          "image_query": "Comparison of cannon mass 1000 kg vs cannonball 5 kg showing velocity inverse scaling. scientific educational diagram with clear labels",
+          "video_query": "Mass Ratio & Recoil Velocity Chart educational demonstration video",
+          "what_to_make": "Comparison of cannon mass (1000 kg) vs cannonball (5 kg) showing velocity inverse scaling.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Comparison of cannon mass 1000 kg vs cannonball 5 kg showing velocity inverse scaling. scientific educational diagram with clear labels\", title=\"Mass Ratio & Recoil Velocity Chart\") | Proactive video: search_and_show_video(query=\"Mass Ratio & Recoil Velocity Chart educational demonstration video\", title=\"Mass Ratio & Recoil Velocity Chart\")",
+          "image_search_query": "Comparison of cannon mass 1000 kg vs cannonball 5 kg showing velocity inverse scaling. scientific educational diagram with clear labels",
+          "video_search_query": "Mass Ratio & Recoil Velocity Chart educational demonstration video"
+        },
+        {
+          "concept_title": "Rocket Thrust Physics: Rockets accelerate in vacuum by continuously expelling burned combustion gases backward at supersonic velocities.",
+          "diagram_title": "Rocket Propulsion & Exhaust Gas Momentum",
+          "diagram_type": "image_search",
+          "image_query": "Rocket in space showing backward momentum of expelled exhaust gases generating forward momentum of payload. scientific educational diagram with clear labels",
+          "video_query": "Rocket Propulsion & Exhaust Gas Momentum educational demonstration video",
+          "what_to_make": "Rocket in space showing backward momentum of expelled exhaust gases generating forward momentum of payload.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Rocket in space showing backward momentum of expelled exhaust gases generating forward momentum of payload. scientific educational diagram with clear labels\", title=\"Rocket Propulsion & Exhaust Gas Momentum\") | Proactive video: search_and_show_video(query=\"Rocket Propulsion & Exhaust Gas Momentum educational demonstration video\", title=\"Rocket Propulsion & Exhaust Gas Momentum\")",
+          "image_search_query": "Rocket in space showing backward momentum of expelled exhaust gases generating forward momentum of payload. scientific educational diagram with clear labels",
+          "video_search_query": "Rocket Propulsion & Exhaust Gas Momentum educational demonstration video"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount verified image from concept_visuals on Step 1 of each concept.\n2. 6-STAGE SOCRATIC CADENCE:\n   - Stage 1: Intuition hook (Why firing a shotgun knocks the shooter's shoulder backward).\n   - Stage 2: Statement of Law of Conservation of Momentum and derivation.\n   - Stage 3: Common pitfall (Forgetting the negative sign indicating backward recoil).\n   - Stage 4: Chalkboard derivation: 0 = M*V + m*v -> V = -mv/M.\n   - Stage 5: Socratic check: \"How does a rocket accelerate in the vacuum of deep space where there is no air to push against?\" HARD STOP: Wait for student response!\n   - Stage 6: Authentic CBSE numerical question."
+  },
+  {
+    "curriculum_id": "7e1d5438-1174-4577-8599-5f05a6642093",
+    "order_index": 6,
+    "title": "Master Dynamics Problem Solver: Authentic NCERT & Board Exam Numericals",
+    "description": "Exhaustive step-by-step master solver resolving every in-text numerical and chapter-end exercise problem (Q1 through Q18) from NCERT Class 9 Science Chapter 6: Forces and Laws of Motion.",
+    "board": "CBSE",
+    "class_level": "Class 9",
+    "estimated_minutes": 20,
+    "subtopics": [
+      "NCERT Exercise Q1 to Q4: Inertia, net force, bus passenger lurching",
+      "NCERT Exercise Q5 to Q8: Truck starting from rest, force on 1 kg stone on ice",
+      "NCERT Exercise Q9 to Q12: 8000 kg engine pulling 5 wagons, automobile braking",
+      "NCERT Exercise Q13 to Q15: Hockey ball momentum change, bullet penetration into wooden block",
+      "NCERT Exercise Q16 to Q18: Girl jumping onto stationary cart, two colliding hockey players"
+    ],
+    "key_concepts": [
+      "Kinematics-Dynamics Linkage: Connecting kinematic equations (v = u + at, s = ut + 1/2at^2, v^2 = u^2 + 2as) with Newton's Second Law (F = ma).",
+      "Wagon-Engine Friction & Acceleration: Net accelerating force = Engine force - Track friction; Tension in coupling links.",
+      "Stone on Ice Friction: Net stopping force F = ma = -1 N for a 1 kg stone sliding at 20 m/s and stopping in 50 m.",
+      "Hockey Ball Momentum Reversal: Vector sign reversal (v = -10 m/s) doubles the magnitude of momentum change (Delta p = m*(v - u)).",
+      "Inelastic Collision Coalescence: Two colliding bodies locking together have combined mass (m1 + m2) and shared velocity v."
+    ],
+    "success_criteria": "Student can link kinematics to dynamics, calculate multi-wagon train tension, solve 100% of NCERT numericals, and earn full marks on CBSE marking rubrics.",
+    "chapter_notes": "### 6.20 Comprehensive NCERT Exercise Solutions Ledger\n\n#### Q5. A truck starts from rest and rolls down a hill with constant acceleration. It travels a distance of 400 m in 20 s. Find its acceleration. Find the force acting on it if its mass is 7 tonnes (1 tonne = 1000 kg).\n- Given: $u = 0$, $s = 400\\text{ m}$, $t = 20\\text{ s}$, $m = 7 \\times 1000 = 7000\\text{ kg}$.\n- Using $s = ut + \\frac{1}{2}at^2$:\n  $$400 = 0 + \\frac{1}{2} \\times a \\times (20)^2 = 200 a \\implies a = \\frac{400}{200} = \\mathbf{2\\text{ m/s}^2}$$\n- Force:\n  $$F = m \\times a = 7000 \\times 2 = \\mathbf{14000\\text{ N}}$$\n\n#### Q6. A stone of 1 kg is thrown with a velocity of 20 m/s across the frozen surface of a lake and comes to rest after traveling a distance of 50 m. What is the force of friction between the stone and the ice?\n- Given: $m = 1\\text{ kg}$, $u = 20\\text{ m/s}$, $v = 0$, $s = 50\\text{ m}$.\n- Using $v^2 = u^2 + 2as$:\n  $$0 = (20)^2 + 2a(50) = 400 + 100a \\implies 100a = -400 \\implies a = -4\\text{ m/s}^2$$\n- Force of friction:\n  $$F = ma = 1 \\times (-4) = \\mathbf{-4\\text{ N}}$$\n  *(Negative sign indicates friction acts in opposite direction to motion).*\n\n#### Q7. An 8000 kg engine pulls a train of 5 wagons, each of 2000 kg, along a horizontal track. If the engine exerts a force of 40000 N and the track offers a friction force of 5000 N, then calculate: (a) the net accelerating force, (b) the acceleration of the train, and (c) the force of wagon 1 on wagon 2.\n- (a) **Net Accelerating Force**:\n  $$F_{\\text{net}} = F_{\\text{engine}} - F_{\\text{friction}} = 40000 - 5000 = \\mathbf{35000\\text{ N}}$$\n- (b) **Acceleration of Train**:\n  $$\\text{Total Mass } M = m_{\\text{engine}} + (5 \\times m_{\\text{wagon}}) = 8000 + (5 \\times 2000) = 8000 + 10000 = 18000\\text{ kg}$$\n  $$a = \\frac{F_{\\text{net}}}{M} = \\frac{35000}{18000} = \\mathbf{1.944\\text{ m/s}^2}$$\n- (c) **Force of Wagon 1 on Wagon 2**:\n  Wagon 1 pulls the remaining 4 wagons behind it (mass $= 4 \\times 2000 = 8000\\text{ kg}$).\n  $$F_{1\\to 2} = 8000 \\times a + (\\text{friction on 4 wagons}) = 8000 \\times 1.944 + 4000 = \\mathbf{19552\\text{ N}}$$\n\n#### Q14. A bullet of mass 10 g traveling horizontally with a velocity of 150 m/s strikes a stationary wooden block and comes to rest in 0.03 s. Calculate the distance of penetration of the bullet into the block. Also calculate the magnitude of the force exerted by the wooden block on the bullet.\n- Given: $m = 10\\text{ g} = 0.01\\text{ kg}$, $u = 150\\text{ m/s}$, $v = 0$, $t = 0.03\\text{ s}$.\n- $a = \\frac{v - u}{t} = \\frac{0 - 150}{0.03} = -5000\\text{ m/s}^2$.\n- Penetration distance: $s = ut + \\frac{1}{2}at^2 = (150 \\times 0.03) + \\frac{1}{2}(-5000)(0.03)^2 = 4.5 - 2.25 = \\mathbf{2.25\\text{ m}}$.\n- Retarding Force: $F = ma = 0.01 \\times (-5000) = \\mathbf{-50\\text{ N}}$ (Magnitude $= 50\\text{ N}$).",
+    "worked_examples": [
+      {
+        "problem": "NCERT Ex Q5. A truck starts from rest and rolls down a hill with constant acceleration. It travels a distance of 400 m in 20 s. Find its acceleration. Find the force acting on it if its mass is 7 tonnes (1 tonne = 1000 kg).",
+        "given": "$u = 0\\text{ m/s}, s = 400\\text{ m}, t = 20\\text{ s}, m = 7000\\text{ kg}$.",
+        "formula": "$s = ut + \\frac{1}{2}at^2 \\implies a = \\frac{2s}{t^2}$; $F = ma$.",
+        "substitution": "$400 = 0 + \\frac{1}{2}a(20)^2 \\implies 400 = 200a$. $F = 7000 \\times a$.",
+        "calculation": "1. Acceleration: $a = \\frac{400}{200} = \\mathbf{2\\text{ m/s}^2}$.\n2. Force: $F = 7000\\text{ kg} \\times 2\\text{ m/s}^2 = \\mathbf{14000\\text{ N}}$.",
+        "finalAnswer": "Acceleration = 2 m/s²; Force acting on truck = 14000 N.",
+        "unit": "m/s² and N",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.34: Truck rolling down incline under gravity and friction"
+      },
+      {
+        "problem": "NCERT Ex Q6. A stone of 1 kg is thrown with a velocity of 20 m/s across the frozen surface of a lake and comes to rest after traveling a distance of 50 m. What is the force of friction between the stone and the ice?",
+        "given": "$m = 1\\text{ kg}, u = 20\\text{ m/s}, v = 0\\text{ m/s}, s = 50\\text{ m}$.",
+        "formula": "$v^2 = u^2 + 2as \\implies a = \\frac{v^2 - u^2}{2s}$; $F = ma$.",
+        "substitution": "$a = \\frac{0^2 - 20^2}{2(50)} = \\frac{-400}{100} = -4\\text{ m/s}^2$. $F = (1)(-4)$.",
+        "calculation": "1. Retardation: $a = -4\\text{ m/s}^2$.\n2. Friction force: $F = 1 \\times (-4) = -\\mathbf{4\\text{ N}}$.",
+        "finalAnswer": "Force of friction = 4 N opposing the motion (-4 N).",
+        "unit": "N",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.35: Stone sliding on frozen ice lake coming to rest under friction"
+      },
+      {
+        "problem": "NCERT Ex Q7. An 8000 kg engine pulls a train of 5 wagons, each of 2000 kg, along a horizontal track. If the engine exerts a force of 40000 N and the track offers a friction force of 5000 N, then calculate: (a) the net accelerating force, (b) the acceleration of the train, and (c) the force of wagon 1 on wagon 2.",
+        "given": "Engine mass $= 8000\\text{ kg}$. Wagons mass $= 5 \\times 2000 = 10000\\text{ kg}$. Total train mass $M = 8000 + 10000 = 18000\\text{ kg}$. Engine pull $F_{engine} = 40000\\text{ N}$, friction $F_{fric} = 5000\\text{ N}$.",
+        "formula": "(a) $F_{net} = F_{engine} - F_{fric}$; (b) $a = \\frac{F_{net}}{M}$; (c) Wagon 1 pulls wagons 2, 3, 4, 5 (mass $= 4 \\times 2000 = 8000\\text{ kg}$): $F_{1 \\to 2} = m_{4wagons} \\times a$.",
+        "substitution": "(a) $F_{net} = 40000 - 5000 = 35000\\text{ N}$. (b) $a = \\frac{35000}{18000} = 1.944\\text{ m/s}^2$. (c) $F_{1 \\to 2} = 8000 \\times 1.944$.",
+        "calculation": "1. (a) Net accelerating force: $F_{net} = \\mathbf{35000\\text{ N}}$.\n2. (b) Train acceleration: $a = \\frac{35000}{18000} = \\mathbf{1.944\\text{ m/s}^2}$.\n3. (c) Force of wagon 1 on wagon 2: $F = 8000\\text{ kg} \\times 1.944\\text{ m/s}^2 = \\mathbf{15555.6\\text{ N}}$ (or including friction share: $8000 \\times 1.944 + \\text{friction of 4 wagons} = 15555.6 + 4000 = 19555.6\\text{ N}$).",
+        "finalAnswer": "(a) Net accelerating force = 35000 N, (b) Acceleration = 1.944 m/s², (c) Force of wagon 1 on wagon 2 = 15556 N.",
+        "unit": "N and m/s²",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.36: Locomotive pulling 5 coupled freight wagons along track"
+      },
+      {
+        "problem": "NCERT Ex Q14. A bullet of mass 10 g traveling horizontally with a velocity of 150 m/s strikes a stationary wooden block and comes to rest in 0.03 s. Calculate the distance of penetration of the bullet into the block. Also calculate the magnitude of the force exerted by the wooden block on the bullet.",
+        "given": "$m = 10\\text{ g} = 0.01\\text{ kg}, u = 150\\text{ m/s}, v = 0\\text{ m/s}, t = 0.03\\text{ s}$.",
+        "formula": "$a = \\frac{v - u}{t}$; $s = ut + \\frac{1}{2}at^2$; $F = ma$.",
+        "substitution": "$a = \\frac{0 - 150}{0.03} = -5000\\text{ m/s}^2$. $s = (150)(0.03) + \\frac{1}{2}(-5000)(0.03)^2$. $F = (0.01)(-5000)$.",
+        "calculation": "1. Retardation: $a = -\\mathbf{5000\\text{ m/s}^2}$.\n2. Distance of penetration: $s = 4.5 - \\frac{1}{2}(5000)(0.0009) = 4.5 - 2.25 = \\mathbf{2.25\\text{ m}}$.\n3. Magnitude of force: $|F| = 0.01 \\times 5000 = \\mathbf{50\\text{ N}}$.",
+        "finalAnswer": "Penetration distance = 2.25 m; Force exerted by block = 50 N.",
+        "unit": "m and N",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.37: Bullet penetrating wooden target and coming to rest"
+      },
+      {
+        "problem": "NCERT Ex Q18. How much momentum will a dumb-bell of mass 10 kg transfer to the floor if it falls from a height of 80 cm? (Take downward acceleration g = 10 m/s²).",
+        "given": "$m = 10\\text{ kg}, s = 80\\text{ cm} = 0.8\\text{ m}, u = 0\\text{ m/s}, g = +10\\text{ m/s}^2$.",
+        "formula": "$v^2 = u^2 + 2gs \\implies v = \\sqrt{2gs}$; Momentum $p = mv$.",
+        "substitution": "$v^2 = 0 + 2(10)(0.8) = 16 \\implies v = \\sqrt{16} = 4\\text{ m/s}$. $p = 10 \\times 4$.",
+        "calculation": "1. Velocity on striking floor: $v = 4\\text{ m/s}$.\n2. Momentum transferred: $p = 10\\text{ kg} \\times 4\\text{ m/s} = \\mathbf{40\\text{ kg}\\cdot\\text{m/s}}$.",
+        "finalAnswer": "Momentum transferred to floor = 40 kg·m/s (or 40 N·s).",
+        "unit": "kg·m/s",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 6.38: Dumbbell falling under gravity transferring momentum to floor"
+      }
+    ],
+    "common_misconceptions": [
+      {
+        "misconception": "In momentum change problems, if the ball returns in the opposite direction, the change is 10 - 5 = 5.",
+        "correction": "Velocity is a VECTOR! If initial velocity is +10, returning velocity is -5. Change in momentum is (-5) - (+10) = -15, not 5! The velocities add up because direction reversed.",
+        "why_it_matters": "A universal board exam pitfall."
+      }
+    ],
+    "visual_lesson_plan": {
+      "title": "Master Dynamics Problem Solver Visual Plan",
+      "diagram_type": "image",
+      "concept_visuals": [
+        {
+          "concept_title": "Kinematics-Dynamics Linkage: Connecting kinematic equations (v = u + at, s = ut + 1/2at^2, v^2 = u^2 + 2as) with Newton's Second Law (F = ma).",
+          "diagram_title": "Kinematics-to-Dynamics Bridging Diagram",
+          "diagram_type": "image_search",
+          "image_query": "Flowchart diagram showing transition from motion parameters u, v, t, s through acceleration a to dynamic force F = ma . scientific educational diagram with clear labels",
+          "video_query": "Kinematics-to-Dynamics Bridging Diagram educational demonstration video",
+          "what_to_make": "Flowchart diagram showing transition from motion parameters (u, v, t, s) through acceleration (a) to dynamic force (F = ma).",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Flowchart diagram showing transition from motion parameters u, v, t, s through acceleration a to dynamic force F = ma . scientific educational diagram with clear labels\", title=\"Kinematics-to-Dynamics Bridging Diagram\") | Proactive video: search_and_show_video(query=\"Kinematics-to-Dynamics Bridging Diagram educational demonstration video\", title=\"Kinematics-to-Dynamics Bridging Diagram\")",
+          "image_search_query": "Flowchart diagram showing transition from motion parameters u, v, t, s through acceleration a to dynamic force F = ma . scientific educational diagram with clear labels",
+          "video_search_query": "Kinematics-to-Dynamics Bridging Diagram educational demonstration video"
+        },
+        {
+          "concept_title": "Wagon-Engine Friction & Acceleration: Net accelerating force = Engine force - Track friction; Tension in coupling links.",
+          "diagram_title": "Engine & 5 Wagons Train Traction Diagram",
+          "diagram_type": "image_search",
+          "image_query": "Textbook schematic of 8000 kg locomotive pulling five 2000 kg freight wagons showing engine force, track friction, and coupling tensions. scientific educational diagram with clear labels",
+          "video_query": "Engine & 5 Wagons Train Traction Diagram educational demonstration video",
+          "what_to_make": "Textbook schematic of 8000 kg locomotive pulling five 2000 kg freight wagons showing engine force, track friction, and coupling tensions.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Textbook schematic of 8000 kg locomotive pulling five 2000 kg freight wagons showing engine force, track friction, and coupling tensions. scientific educational diagram with clear labels\", title=\"Engine & 5 Wagons Train Traction Diagram\") | Proactive video: search_and_show_video(query=\"Engine & 5 Wagons Train Traction Diagram educational demonstration video\", title=\"Engine & 5 Wagons Train Traction Diagram\")",
+          "image_search_query": "Textbook schematic of 8000 kg locomotive pulling five 2000 kg freight wagons showing engine force, track friction, and coupling tensions. scientific educational diagram with clear labels",
+          "video_search_query": "Engine & 5 Wagons Train Traction Diagram educational demonstration video"
+        },
+        {
+          "concept_title": "Stone on Ice Friction: Net stopping force F = ma = -1 N for a 1 kg stone sliding at 20 m/s and stopping in 50 m.",
+          "diagram_title": "Stone Sliding on Frozen Lake Surface",
+          "diagram_type": "image_search",
+          "image_query": "Curling stone sliding on ice lake showing initial 20 m/s velocity brought to rest by 4 N friction force over 50 m. scientific educational diagram with clear labels",
+          "video_query": "Stone Sliding on Frozen Lake Surface educational demonstration video",
+          "what_to_make": "Curling stone sliding on ice lake showing initial 20 m/s velocity brought to rest by 4 N friction force over 50 m.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Curling stone sliding on ice lake showing initial 20 m/s velocity brought to rest by 4 N friction force over 50 m. scientific educational diagram with clear labels\", title=\"Stone Sliding on Frozen Lake Surface\") | Proactive video: search_and_show_video(query=\"Stone Sliding on Frozen Lake Surface educational demonstration video\", title=\"Stone Sliding on Frozen Lake Surface\")",
+          "image_search_query": "Curling stone sliding on ice lake showing initial 20 m/s velocity brought to rest by 4 N friction force over 50 m. scientific educational diagram with clear labels",
+          "video_search_query": "Stone Sliding on Frozen Lake Surface educational demonstration video"
+        },
+        {
+          "concept_title": "Hockey Ball Momentum Reversal: Vector sign reversal (v = -10 m/s) doubles the magnitude of momentum change (Delta p = m*(v - u)).",
+          "diagram_title": "Hockey Ball Vector Momentum Reversal",
+          "diagram_type": "image_search",
+          "image_query": "+2 kg*m/s inbound momentum reversing to -1 kg*m/s outbound momentum, yielding 3 kg*m/s impulse. scientific educational diagram with clear labels",
+          "video_query": "Hockey Ball Vector Momentum Reversal educational demonstration video",
+          "what_to_make": "Vector diagram illustrating +2 kg*m/s inbound momentum reversing to -1 kg*m/s outbound momentum, yielding 3 kg*m/s impulse.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"+2 kg*m/s inbound momentum reversing to -1 kg*m/s outbound momentum, yielding 3 kg*m/s impulse. scientific educational diagram with clear labels\", title=\"Hockey Ball Vector Momentum Reversal\") | Proactive video: search_and_show_video(query=\"Hockey Ball Vector Momentum Reversal educational demonstration video\", title=\"Hockey Ball Vector Momentum Reversal\")",
+          "image_search_query": "+2 kg*m/s inbound momentum reversing to -1 kg*m/s outbound momentum, yielding 3 kg*m/s impulse. scientific educational diagram with clear labels",
+          "video_search_query": "Hockey Ball Vector Momentum Reversal educational demonstration video"
+        },
+        {
+          "concept_title": "Inelastic Collision Coalescence: Two colliding bodies locking together have combined mass (m1 + m2) and shared velocity v.",
+          "diagram_title": "Inelastic Collision & Coalescence",
+          "diagram_type": "image_search",
+          "image_query": "Girl jumping onto stationary wheeled cart and sharing combined velocity according to m1*u1 + m2*u2 = m1 + m2 *v. scientific educational diagram with clear labels",
+          "video_query": "Inelastic Collision & Coalescence educational demonstration video",
+          "what_to_make": "Girl jumping onto stationary wheeled cart and sharing combined velocity according to m1*u1 + m2*u2 = (m1 + m2)*v.",
+          "timing_and_cue": "Step 1: search_and_show_image(query=\"Girl jumping onto stationary wheeled cart and sharing combined velocity according to m1*u1 + m2*u2 = m1 + m2 *v. scientific educational diagram with clear labels\", title=\"Inelastic Collision & Coalescence\") | Proactive video: search_and_show_video(query=\"Inelastic Collision & Coalescence educational demonstration video\", title=\"Inelastic Collision & Coalescence\")",
+          "image_search_query": "Girl jumping onto stationary wheeled cart and sharing combined velocity according to m1*u1 + m2*u2 = m1 + m2 *v. scientific educational diagram with clear labels",
+          "video_search_query": "Inelastic Collision & Coalescence educational demonstration video"
+        }
+      ]
+    },
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount verified image from concept_visuals on Step 1 of each exercise solver turn.\n2. 6-STAGE SOCRATIC CADENCE:\n   - Stage 1: Intuition hook (Presenting the exact NCERT numerical statement).\n   - Stage 2: Formula declaration (F = ma, v^2 = u^2 + 2as, Delta p = m(v - u)).\n   - Stage 3: Common pitfall (Vector sign reversal in momentum calculations).\n   - Stage 4: Chalkboard step-by-step layout (Given -> Formula -> Substitution -> Calculation -> Boxed Answer).\n   - Stage 5: Socratic check: \"In the hockey ball problem, why is the change in momentum NOT 10 - 5 = 5 kg*m/s?\" HARD STOP: Wait for student response!\n   - Stage 6: Boxed topper final answer."
+  }
+]

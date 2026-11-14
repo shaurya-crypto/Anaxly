@@ -66,7 +66,7 @@ export const LiveTranscript: React.FC<LiveTranscriptProps> = ({ transcripts }) =
                   isTeacher ? "text-accent-warm" : "text-botanical text-right"
                 }`}
               >
-                {isTeacher ? "AI Tutor" : "You"}
+                {isTeacher ? "Anaxly" : "You"}
               </span>
               <div 
                 className={`px-5 py-3 rounded-2xl text-sm md:text-base leading-relaxed ${

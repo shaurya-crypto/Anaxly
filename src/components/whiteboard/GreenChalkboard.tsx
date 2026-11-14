@@ -13,9 +13,13 @@ import {
   BookOpen,
   Trash2,
   Eraser,
+  X,
+  ZoomIn,
+  ZoomOut,
+  Maximize2,
+  Loader2,
 } from 'lucide-react'
 import { evaluateMathExpression } from '@/lib/mathEvaluator'
-import { createUniversalScientificSvg } from '@/services/universalScientificSvg'
 import { isLegitimateGraphTopic } from '@/lib/graphGating'
 
 // Dynamically import Excalidraw with SSR disabled
@@ -33,6 +37,7 @@ const Excalidraw = dynamic(
 )
 
 export interface GreenChalkboardRef {
+  highlightText: (text: string, color?: string) => Promise<boolean>
   drawText: (text: string, x?: number, y?: number, color?: string) => void
   drawTitle: (title: string, color?: string) => void
   drawStep: (stepText: string, color?: string) => void
@@ -47,6 +52,7 @@ export interface GreenChalkboardRef {
   setChalkColor: (colorNameOrHex: string) => void
   setBoardColor: (theme: 'green' | 'blackboard' | 'slate' | 'white') => void
   drawSvgDiagram: (title: string, svgMarkup: string, caption?: string, forceUpdate?: boolean) => void
+  drawImage?: (urlOrDataUrl: string, title?: string, caption?: string) => void
   drawDiagramSkeleton?: (title: string) => void
   clearDiagramSkeleton?: (title?: string) => void
   drawGraph: (type?: string) => void
@@ -59,7 +65,7 @@ export interface GreenChalkboardRef {
     answer: string
     unit?: string
   }) => void
-  drawVideoCard?: (title: string, description?: string) => void
+  drawVideoCard?: (title: string, description?: string, url?: string, mimeType?: string) => void
   drawTable?: (tableStr: string) => void
   drawGeometry?: (geomStr: string) => void
   drawShape?: (shapeDef: any) => void
@@ -71,6 +77,7 @@ export interface GreenChalkboardRef {
   clearNotes: () => void
   rewriteNotes: (newNotes: string) => Promise<void>
   getBoardSummary: () => { notesText: string; roughText: string; fullSummary: string }
+  getCompactBoardContext?: (pageIndex?: number) => string
   handleAiDirective: (directive: string, transcriptId?: string) => void
   getActiveQuestion?: () => { text: string; y: number; height: number; pageIndex: number } | null
   getNextY?: () => number
@@ -169,17 +176,34 @@ import {
 } from './chalkboardFilter'
 export { normalizeTitle, isRedundantConceptOrMasteredText }
 
-import { wrapText } from './textWrapper'
-export { wrapText }
+import { wrapText, cleanChalkboardTypography } from './textWrapper'
+export { wrapText, cleanChalkboardTypography }
+
+import {
+  sanitizeBase64DataUrl,
+  isValidBase64DataUrl,
+  svgToBase64DataUrl,
+  validateSvgForExcalidraw,
+  createFallbackImageSvg,
+} from './chalkboardMediaUtils'
+export {
+  sanitizeBase64DataUrl,
+  isValidBase64DataUrl,
+  svgToBase64DataUrl,
+  validateSvgForExcalidraw,
+  createFallbackImageSvg,
+}
 
 const EXCALIDRAW_INITIAL_DATA = {
   appState: {
-    viewBackgroundColor: CANVAS_BG,
+    viewBackgroundColor: 'transparent',
     currentItemStrokeColor: INK_PRIMARY,
     currentItemFontFamily: 1,
     currentItemRoughness: 0,
     zenModeEnabled: false,
     viewModeEnabled: true,
+    gridModeEnabled: true,
+    gridSize: 20,
     zoom: { value: 0.7 as any },
   },
 }
@@ -197,6 +221,51 @@ const EXCALIDRAW_UI_OPTIONS = {
     image: false,
   },
   welcomeScreen: false,
+}
+
+/**
+ * Safely saves whiteboard data to localStorage with automatic LRU pruning of stale module data
+ * to completely eliminate QuotaExceededError in the browser.
+ */
+function safeSaveWhiteboardStorage(key: string, data: any, isFilesStore = false): void {
+  if (typeof window === 'undefined' || !key) return
+  try {
+    const jsonStr = JSON.stringify(data)
+    // If files store is large (>250KB), do not store raw base64 files to localStorage to protect browser quota
+    if (isFilesStore && jsonStr.length > 250 * 1024) {
+      return
+    }
+    // Persist whiteboard state or files: localStorage.setItem(`${storageKey}_files`, jsonStr)
+    localStorage.setItem(key, jsonStr)
+  } catch (err: any) {
+    if (err?.name === 'QuotaExceededError' || err?.code === 22) {
+      try {
+        const toRemove: string[] = []
+        for (let i = 0; i < localStorage.length; i++) {
+          const k = localStorage.key(i)
+          if (!k) continue
+          // Prune heavy file payloads from other modules
+          if (k.includes('_files') && !k.startsWith(key)) {
+            toRemove.push(k)
+          }
+          // Prune pages from other modules
+          else if (k.startsWith('whiteboard_pages_') && !k.startsWith(key)) {
+            toRemove.push(k)
+          }
+          // Prune notes from other modules
+          else if (k.startsWith('ai_tutor_board_notes_')) {
+            toRemove.push(k)
+          }
+        }
+        for (const k of toRemove) localStorage.removeItem(k)
+
+        // Retry saving current module state
+        if (!isFilesStore) {
+          localStorage.setItem(key, JSON.stringify(data))
+        }
+      } catch { }
+    }
+  }
 }
 
 export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardProps>(
@@ -280,6 +349,46 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     const activeChalkColorRef = useRef<string>(INK_PRIMARY)
     const lastDrawnStudentAnswerRef = useRef<{ text: string; time: number } | null>(null)
     const lastExecutedActionTimeRef = useRef<Map<string, number>>(new Map())
+
+    // High-Resolution Interactive Image Lightbox
+    const [lightboxImage, setLightboxImage] = useState<{
+      url: string
+      title: string
+      caption?: string
+    } | null>(null)
+    const [lightboxZoom, setLightboxZoom] = useState<number>(1)
+    const [lightboxPan, setLightboxPan] = useState<{ x: number; y: number }>({ x: 0, y: 0 })
+    const [isDraggingLightbox, setIsDraggingLightbox] = useState<boolean>(false)
+    const dragStartRef = useRef<{ startX: number; startY: number; initialPanX: number; initialPanY: number }>({
+      startX: 0,
+      startY: 0,
+      initialPanX: 0,
+      initialPanY: 0,
+    })
+
+    // Educational Video Demonstration Lightbox / Modal
+    const [videoModal, setVideoModal] = useState<{
+      url: string
+      title: string
+      description?: string
+    } | null>(null)
+
+    useEffect(() => {
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          if (videoModal) {
+            setVideoModal(null)
+          }
+          if (lightboxImage) {
+            setLightboxImage(null)
+            setLightboxZoom(1)
+            setLightboxPan({ x: 0, y: 0 })
+          }
+        }
+      }
+      window.addEventListener('keydown', handleKeyDown)
+      return () => window.removeEventListener('keydown', handleKeyDown)
+    }, [lightboxImage, videoModal])
 
     const [activeTyping, setActiveTyping] = useState<ActiveTypingItem | null>(null)
 
@@ -438,20 +547,31 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         (el: any) =>
           !el.id?.startsWith('header_') &&
           el.customData?.isRough !== true &&
-          (el.x || 0) < 500 &&
-          typeof el.y === 'number'
+          typeof el.y === 'number' &&
+          (el.x === undefined || el.x < 620)
       )
       if (noteEls.length === 0) {
         return Math.max(nextYRef.current, 140)
       }
       const maxY = Math.max(
         ...noteEls.map((el: any) => {
-          const h = el.height || (el.type === 'text' ? (el.fontSize || 16) * 1.5 : 30)
+          let h = el.height
+          if (!h || h <= 0) {
+            if (el.type === 'text' && el.text) {
+              const lineCount = (el.text.split('\n') || []).length
+              const fontSize = el.fontSize || 16
+              h = lineCount * Math.round(fontSize * 1.35) + 8
+            } else if (el.type === 'rectangle') {
+              h = 60
+            } else {
+              h = 30
+            }
+          }
           return el.y + h
         }),
         nextYRef.current
       )
-      return maxY + margin
+      return Math.max(maxY + margin, nextYRef.current)
     }
 
     // Centralized helper: synchronously updates page buffer, state, Excalidraw scene, and storage
@@ -620,6 +740,156 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       return { notesText, roughText, fullSummary }
     }
 
+    // Token-efficient snapshot of current chalkboard page for live AI context (Grounded RAG)
+    const getCompactBoardContext = (pageIndex?: number): string => {
+      const curIdx = typeof pageIndex === 'number'
+        ? Math.max(0, Math.min(pageIndex, pagesRef.current.length - 1))
+        : currentPageIndexRef.current
+
+      if (excalidrawAPI && pagesRef.current[currentPageIndexRef.current]) {
+        pagesRef.current[currentPageIndexRef.current].elements = getCurrentElements()
+      }
+
+      const totalPages = pagesRef.current.length
+      const curPage = pagesRef.current[curIdx]
+      if (!curPage) return 'CURRENT BOARD: Empty / Initialized'
+
+      const lines: string[] = []
+      lines.push(`CHALKBOARD SNAPSHOT (Page ${curIdx + 1} of ${totalPages}):`)
+
+      const curElements = curPage.elements || []
+      const pHeaderEl = curElements.find((el: any) => el.type === 'text' && (el.id?.startsWith('header_') || el.customData?.isTitle))
+      const currentConceptName = pHeaderEl?.text?.replace(/\n/g, ' ') || (keyConcepts && keyConcepts[curIdx]) || `Concept ${curIdx + 1}`
+      lines.push(`  - Active Concept: "${currentConceptName}"`)
+
+      if (curIdx > 0) {
+        lines.push('PREVIOUS COMPLETED PAGES (DO NOT RE-TEACH):')
+        for (let i = 0; i < curIdx; i++) {
+          const p = pagesRef.current[i]
+          const pEls = p?.elements || []
+          const pTitleEl = pEls.find((el: any) => el.type === 'text' && (el.id?.startsWith('header_') || el.customData?.isTitle))
+          const pDiag = pEls.find((el: any) => el.customData?.isSvgCard || el.customData?.diagramTitle)
+          const pTitle = pTitleEl?.text?.replace(/\n/g, ' ') || (keyConcepts && keyConcepts[i]) || `Concept ${i + 1}`
+          const pDiagInfo = pDiag?.customData?.diagramTitle ? ` | Diagram: "${pDiag.customData.diagramTitle}"` : ''
+          lines.push(`  * Page ${i + 1}: ${pTitle}${pDiagInfo} (Mastered)`)
+        }
+      }
+
+      lines.push(`ACTIVE PAGE ${curIdx + 1} ON BOARD RIGHT NOW:`)
+
+      // 1. Visual Diagrams
+      const diagrams = curElements.filter((el: any) => el.customData?.isSvgCard && el.customData?.diagramTitle)
+      if (diagrams.length > 0) {
+        const uniqueDiags = Array.from(new Set(diagrams.map((d: any) => d.customData.diagramTitle)))
+        lines.push(`  - Drawn Diagram(s): ${uniqueDiags.map(d => `"${d}"`).join(', ')} (Already drawn - do not redraw!)`)
+      }
+
+      // 2. Demonstration Videos
+      const videoEls = curElements.filter((el: any) => el.customData?.isVideoCard || el.customData?.videoUrl)
+      if (videoEls.length > 0) {
+        const uniqueVideos = Array.from(new Set(videoEls.map((v: any) => v.customData?.videoTitle || 'Video Demonstration')))
+        lines.push(`  - Video Demonstration: ${uniqueVideos.join(', ')} (Already loaded)`)
+      }
+
+      // 3. Cartesian Graphs
+      const graphEls = curElements.filter((el: any) => el.text && (el.text.includes('Cartesian Graph') || el.text.startsWith('f(x) =') || el.text.startsWith('y =') || el.text.includes('Slope:')))
+      if (graphEls.length > 0) {
+        lines.push(`  - Plotted Graph: "${graphEls[0].text.replace(/\n/g, ' ')}" (Already plotted)`)
+      }
+
+      // 4. Geometric Shapes
+      const shapeEls = curElements.filter((el: any) => el.customData?.isShapeFigure && el.customData?.shapeType)
+      if (shapeEls.length > 0) {
+        const shapeSummaries = shapeEls.map((el: any) => {
+          const type = el.customData.shapeType
+          const lbl = el.customData.shapeLabel ? ` (${el.customData.shapeLabel})` : ''
+          const vals = el.customData.shapeValues ? ` values=${JSON.stringify(el.customData.shapeValues)}` : ''
+          return `${type}${lbl}${vals}`
+        })
+        const uniqueShapes = Array.from(new Set(shapeSummaries))
+        lines.push(`  - Geometric Figure(s): ${uniqueShapes.join('; ')} (Already on board)`)
+      }
+
+      // 5. Notes / Formulas
+      const textEls = curElements.filter(
+        (el: any) =>
+          el.type === 'text' &&
+          !el.id?.startsWith('header_') &&
+          el.customData?.isRough !== true &&
+          el.text &&
+          !el.text.startsWith('0') && !el.text.match(/^[-+]?\d+$/)
+      )
+
+      const extractedNotes: string[] = []
+      for (const el of textEls) {
+        const raw = (el.text || '').trim()
+        if (!raw || raw.startsWith('[DIAGRAM]:')) continue
+        const clean = raw.replace(/\n+/g, ' | ')
+        if (clean.length > 180) {
+          extractedNotes.push(clean.slice(0, 180) + '...')
+        } else {
+          extractedNotes.push(clean)
+        }
+      }
+
+      if (extractedNotes.length > 0) {
+        lines.push('  - Notes Already on Board (Do not duplicate):')
+        extractedNotes.slice(-10).forEach(n => lines.push(`    • ${n}`))
+      } else {
+        lines.push('  - Notes Already on Board: [Clean page - Ready for new notes]')
+      }
+
+      // 6. Rough Work Scratchpad
+      const roughEls = curElements.filter((el: any) => el.type === 'text' && el.customData?.isRough === true)
+      if (roughEls.length > 0) {
+        const roughItems = roughEls.map((el: any) => el.text.trim().replace(/\n+/g, ' ')).filter(Boolean).slice(-4)
+        if (roughItems.length > 0) {
+          lines.push(`  - [ROUGH_WORK] Scratchpad: ${roughItems.join(' | ')}`)
+        }
+      }
+
+      // 7. Active Question on Board
+      if (activeQuestionRef.current && (activeQuestionRef.current.pageIndex === curIdx || activeQuestionRef.current.pageIndex === undefined)) {
+        lines.push(`  - Active Question on Board: "${activeQuestionRef.current.text}"`)
+      }
+
+      // 8. Grounded Pedagogical Stage Progression Tracking
+      const stagesCompleted: string[] = []
+      if (diagrams.length > 0 || extractedNotes.some(n => /intuition|hook|everyday/i.test(n))) {
+        stagesCompleted.push('Stage 1 (Intuition & Visual)')
+      }
+      if (extractedNotes.some(n => /definition|law|formula|equation|statement|si\s*unit/i.test(n))) {
+        stagesCompleted.push('Stage 2 (Scientific Law / Definition)')
+      }
+      if (extractedNotes.some(n => /example|application|case|pitfall/i.test(n))) {
+        stagesCompleted.push('Stage 3 (Worked Application)')
+      }
+      if (extractedNotes.some(n => /problem|given|derivation|step|to\s*prove|numerical/i.test(n))) {
+        stagesCompleted.push('Stage 4 (Board Numerical / Derivation)')
+      }
+      if (activeQuestionRef.current || extractedNotes.some(n => /checkpoint|verdict|answer/i.test(n))) {
+        stagesCompleted.push('Stage 5 (Checkpoint Question)')
+      }
+      if (extractedNotes.some(n => /board\s*pyq|final\s*answer|hence\s*proved/i.test(n))) {
+        stagesCompleted.push('Stage 6 (Board-Exam Numerical / Boxed Answer)')
+      }
+
+      if (stagesCompleted.length > 0) {
+        lines.push(`  - Current Pedagogical Progress on Concept ${curIdx + 1}: ${stagesCompleted.join(' -> ')}`)
+        const lastStage = stagesCompleted[stagesCompleted.length - 1]
+        let nextStage = 'Stage 2 (Definition & Law)'
+        if (lastStage.includes('Stage 1')) nextStage = 'Stage 2 (Formal Definition & Scientific Law)'
+        else if (lastStage.includes('Stage 2')) nextStage = 'Stage 3 (Concrete Worked Application)'
+        else if (lastStage.includes('Stage 3')) nextStage = 'Stage 4 (Step-by-Step Board Numerical)'
+        else if (lastStage.includes('Stage 4')) nextStage = 'Stage 5 (Check for Understanding)'
+        else if (lastStage.includes('Stage 5')) nextStage = 'Stage 6 (Board-Exam Numerical)'
+        else if (lastStage.includes('Stage 6')) nextStage = 'Concept Mastered (Call concept_completed)'
+        lines.push(`  - Recommended Next Action: Advance directly to ${nextStage}. DO NOT re-write or re-teach completed stages!`)
+      }
+
+      return lines.join('\n')
+    }
+
     // Sanitize raw SVG markup: parse via DOMParser, fix common Gemini output issues, return clean SVG or null
     const sanitizeSvg = (rawSvg: string): string | null => {
       if (typeof window === 'undefined' || typeof DOMParser === 'undefined') return rawSvg
@@ -673,11 +943,17 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' })
         const url = URL.createObjectURL(blob)
         const img = new Image()
+        const timer = setTimeout(() => {
+          URL.revokeObjectURL(url)
+          reject(new Error('SVG rasterization timeout'))
+        }, 2500)
+
         img.onload = () => {
+          clearTimeout(timer)
           try {
             const canvas = document.createElement('canvas')
-            canvas.width = width * 2  // 2x for sharpness
-            canvas.height = height * 2
+            canvas.width = Math.max(100, width * 2)  // 2x for sharpness
+            canvas.height = Math.max(100, height * 2)
             const ctx = canvas.getContext('2d')
             if (!ctx) { reject(new Error('No canvas context')); URL.revokeObjectURL(url); return }
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
@@ -689,35 +965,13 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             reject(err)
           }
         }
-        img.onerror = (err) => { URL.revokeObjectURL(url); reject(err) }
+        img.onerror = (err) => {
+          clearTimeout(timer)
+          URL.revokeObjectURL(url)
+          reject(err)
+        }
         img.src = url
       })
-    }
-
-    // Helper to safely encode arbitrary UTF-8 SVG markup to base64 Data URL for Excalidraw
-    const svgToBase64DataUrl = (svgString: string): string => {
-      try {
-        if (typeof window !== 'undefined' && typeof window.btoa === 'function') {
-          const bytes = new TextEncoder().encode(svgString)
-          let binary = ''
-          const len = bytes.byteLength
-          for (let i = 0; i < len; i++) {
-            binary += String.fromCharCode(bytes[i])
-          }
-          return `data:image/svg+xml;base64,${window.btoa(binary)}`
-        }
-        if (typeof Buffer !== 'undefined') {
-          return `data:image/svg+xml;base64,${Buffer.from(svgString, 'utf-8').toString('base64')}`
-        }
-        return `data:image/svg+xml;base64,${window.btoa(unescape(encodeURIComponent(svgString)))}`
-      } catch (err) {
-        console.warn('svgToBase64DataUrl conversion error:', err)
-        try {
-          return `data:image/svg+xml;base64,${window.btoa(unescape(encodeURIComponent(svgString)))}`
-        } catch {
-          return 'data:image/svg+xml;base64,'
-        }
-      }
     }
 
     // Debounced persistence to localStorage
@@ -733,11 +987,11 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (persistTimeoutRef.current) clearTimeout(persistTimeoutRef.current)
       persistTimeoutRef.current = setTimeout(() => {
         try {
-          localStorage.setItem(storageKey, JSON.stringify(pagesRef.current))
+          safeSaveWhiteboardStorage(storageKey, pagesRef.current)
           if (excalidrawAPI?.getFiles) {
             const files = excalidrawAPI.getFiles()
             if (files && Object.keys(files).length > 0) {
-              localStorage.setItem(`${storageKey}_files`, JSON.stringify(files))
+              safeSaveWhiteboardStorage(`${storageKey}_files`, files, true)
             }
           }
           if (onBoardContentChange) {
@@ -753,7 +1007,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     persistSceneRef.current = persistScene
 
     const lastElementCountRef = useRef<number>(0)
-    const handleExcalidrawChange = useCallback((elements: readonly any[]) => {
+    const handleExcalidrawChange = useCallback((elements: readonly any[], appState?: any) => {
       if (elements && elements.length > 0) {
         boardElementsRef.current = elements as any[]
         if (elements.length !== lastElementCountRef.current) {
@@ -761,14 +1015,87 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           persistSceneRef.current(elements)
         }
       }
+      if (appState?.selectedElementIds) {
+        const selectedId = Object.keys(appState.selectedElementIds).find((id) => appState.selectedElementIds[id])
+        if (selectedId) {
+          const selectedEl = (elements || []).find((el: any) => el.id === selectedId)
+          if (selectedEl?.customData?.isExpandableImage && (selectedEl.customData?.fullUrl || selectedEl.customData?.imageUrl)) {
+            setLightboxImage({
+              url: selectedEl.customData.fullUrl || selectedEl.customData.imageUrl,
+              title: selectedEl.customData.title || selectedEl.customData.diagramTitle || 'Scientific Diagram',
+              caption: selectedEl.customData.caption || '',
+            })
+            setLightboxZoom(1)
+            setLightboxPan({ x: 0, y: 0 })
+          } else if (selectedEl?.customData?.isPlayableVideo) {
+            setVideoModal({
+              url: selectedEl.customData.videoUrl || '',
+              title: selectedEl.customData.title || 'Educational Demonstration',
+              description: selectedEl.customData.description || '',
+            })
+          }
+        }
+      }
+    }, [])
+
+    const handleContainerClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+      if (!excalidrawAPIRef.current || !containerRef.current) return
+      try {
+        const appState = excalidrawAPIRef.current.getAppState?.()
+        if (!appState) return
+        const zoom = appState.zoom?.value || boardZoomRef.current || 0.7
+        const scrollX = appState.scrollX || 0
+        const scrollY = appState.scrollY || 0
+        const rect = containerRef.current.getBoundingClientRect()
+        const canvasX = (e.clientX - rect.left) / zoom - scrollX
+        const canvasY = (e.clientY - rect.top) / zoom - scrollY
+
+        const currentEls = boardElementsRef.current || []
+        for (let i = currentEls.length - 1; i >= 0; i--) {
+          const el = currentEls[i]
+          if (
+            canvasX >= el.x &&
+            canvasX <= el.x + el.width &&
+            canvasY >= el.y &&
+            canvasY <= el.y + el.height
+          ) {
+            if (el.customData?.isPlayableVideo) {
+              setVideoModal({
+                url: el.customData.videoUrl || '',
+                title: el.customData.title || 'Educational Demonstration',
+                description: el.customData.description || '',
+              })
+              return
+            }
+            if (el.customData?.isExpandableImage || el.customData?.fullUrl || el.customData?.isImageCard) {
+              const fullUrl =
+                el.customData?.fullUrl ||
+                el.customData?.imageUrl ||
+                (el.type === 'image' && excalidrawAPIRef.current.getFiles?.()?.[el.fileId]?.dataURL)
+              if (fullUrl) {
+                setLightboxImage({
+                  url: fullUrl,
+                  title: el.customData?.title || el.customData?.diagramTitle || 'Scientific Diagram',
+                  caption: el.customData?.caption || '',
+                })
+                setLightboxZoom(1)
+                setLightboxPan({ x: 0, y: 0 })
+                return
+              }
+            }
+          }
+        }
+      } catch (err) {
+        console.warn('[handleContainerClick lightbox error]:', err)
+      }
     }, [])
 
     // Push the responsive zoom into the canvas when the board width crosses the phone breakpoint
     useEffect(() => {
       if (!excalidrawAPI) return
       try {
-        excalidrawAPI.updateScene({ appState: { zoom: { value: boardZoom } } })
-      } catch {}
+        excalidrawAPI.updateScene({ appState: { zoom: { value: boardZoom }, gridModeEnabled: true } })
+      } catch { }
     }, [boardZoom, excalidrawAPI])
 
     // Helper to lock zoom to exactly 70% (0.7) and prevent zooming out/in
@@ -782,12 +1109,13 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               api.updateScene({
                 appState: {
                   zoom: { value: boardZoomRef.current },
+                  gridModeEnabled: true,
                 },
               })
-            } catch (err) {}
+            } catch (err) { }
           }, 50)
         }
-      } catch (err) {}
+      } catch (err) { }
     }, [])
 
     // Add new page when board fills or AI requests
@@ -835,10 +1163,11 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         excalidrawAPI.updateScene({
           elements: initialElements,
           appState: {
-            viewBackgroundColor: CANVAS_BG,
+            viewBackgroundColor: 'transparent',
             currentItemStrokeColor: INK_PRIMARY,
             currentItemFontFamily: 1,
             currentItemRoughness: 0,
+            gridModeEnabled: true,
             zoom: { value: boardZoomRef.current },
             scrollX: 0,
             scrollY: 0,
@@ -880,8 +1209,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                 keyConcepts && keyConcepts[newPageNum - 1]
                   ? keyConcepts[newPageNum - 1]
                   : newPageNum - 1 === targetIdx
-                  ? conceptTitle
-                  : undefined
+                    ? conceptTitle
+                    : undefined
               const initialSkeleton = createHeaderSkeleton(newPageNum, pageConcept)
               const initialElements = convertFn(initialSkeleton)
               const hasConceptTitle = Boolean(pageConcept)
@@ -931,10 +1260,11 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         excalidrawAPI.updateScene({
           elements: targetPage.elements || [],
           appState: {
-            viewBackgroundColor: CANVAS_BG,
+            viewBackgroundColor: 'transparent',
             currentItemStrokeColor: INK_PRIMARY,
             currentItemFontFamily: 1,
             currentItemRoughness: 0,
+            gridModeEnabled: true,
             zoom: { value: boardZoomRef.current },
             scrollX: 0,
             scrollY: 0,
@@ -1024,7 +1354,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                     if (currentFile.dataURL.startsWith('data:image/svg+xml;utf8,')) {
                       try {
                         rawSvg = decodeURIComponent(currentFile.dataURL.slice('data:image/svg+xml;utf8,'.length))
-                      } catch {}
+                      } catch { }
                     } else if (currentFile.dataURL.startsWith('data:image/svg+xml;base64,')) {
                       try {
                         const b64 = currentFile.dataURL.slice('data:image/svg+xml;base64,'.length)
@@ -1034,7 +1364,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                           bytes[i] = binary.charCodeAt(i)
                         }
                         rawSvg = new TextDecoder().decode(bytes)
-                      } catch {}
+                      } catch { }
                     }
 
                     if (rawSvg) {
@@ -1049,45 +1379,62 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                     }
                   }
 
-                  // Add each file individually with try-catch and PNG rasterization fallback
-                  try {
-                    excalidrawAPI.addFiles([currentFile])
-                    updatedFilesStore[currentFile.id] = currentFile
-                  } catch (fileErr) {
-                    console.warn(`File ${currentFile.id} failed addFiles as SVG, attempting PNG fallback:`, fileErr)
-                    if (isSvg) {
+                  // Sanitize dataURL to ensure valid base64
+                  const cleanDataUrl = sanitizeBase64DataUrl(currentFile.dataURL)
+                  if (!cleanDataUrl) {
+                    const fallbackSvg = createFallbackImageSvg('Whiteboard Asset', typeof currentFile.dataURL === 'string' ? currentFile.dataURL : '')
+                    currentFile.dataURL = svgToBase64DataUrl(fallbackSvg)
+                    currentFile.mimeType = 'image/svg+xml'
+                  } else {
+                    currentFile.dataURL = cleanDataUrl
+                  }
+
+                  // Pre-validate SVG files before addFiles so Excalidraw never logs "Invalid SVG"
+                  if (currentFile.mimeType === 'image/svg+xml') {
+                    const { isValid, cleanSvg } = validateSvgForExcalidraw(currentFile.dataURL)
+                    if (!isValid) {
                       try {
-                        let rawSvg: string | null = null
-                        if (typeof currentFile.dataURL === 'string' && currentFile.dataURL.startsWith('data:image/svg+xml;base64,')) {
-                          const b64 = currentFile.dataURL.slice('data:image/svg+xml;base64,'.length)
-                          const binary = atob(b64)
-                          const bytes = new Uint8Array(binary.length)
-                          for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i)
-                          rawSvg = new TextDecoder().decode(bytes)
+                        const pngUrl = await rasterizeSvgToPng(cleanSvg || createFallbackImageSvg('Whiteboard Asset'), 500, 260)
+                        const cleanPng = sanitizeBase64DataUrl(pngUrl)
+                        if (cleanPng) {
+                          currentFile = {
+                            ...currentFile,
+                            dataURL: cleanPng,
+                            mimeType: 'image/png',
+                          }
+                        } else {
+                          const fallbackSvg = createFallbackImageSvg('Whiteboard Asset')
+                          currentFile = {
+                            ...currentFile,
+                            dataURL: svgToBase64DataUrl(fallbackSvg),
+                            mimeType: 'image/svg+xml',
+                          }
                         }
-                        if (!rawSvg) {
-                          const universal = createUniversalScientificSvg('Scientific Diagram')
-                          rawSvg = universal.svg
-                        }
-                        const pngUrl = await rasterizeSvgToPng(rawSvg, 500, 260)
-                        const pngFile = {
+                      } catch {
+                        const fallbackSvg = createFallbackImageSvg('Whiteboard Asset')
+                        currentFile = {
                           ...currentFile,
-                          dataURL: pngUrl,
-                          mimeType: 'image/png',
+                          dataURL: svgToBase64DataUrl(fallbackSvg),
+                          mimeType: 'image/svg+xml',
                         }
-                        excalidrawAPI.addFiles([pngFile])
-                        updatedFilesStore[currentFile.id] = pngFile
-                      } catch (pngErr) {
-                        console.warn(`File ${currentFile.id} could not be rasterized:`, pngErr)
                       }
+                    }
+                  }
+
+                  if (isValidBase64DataUrl(currentFile.dataURL)) {
+                    try {
+                      excalidrawAPI.addFiles([currentFile])
+                      updatedFilesStore[currentFile.id] = currentFile
+                    } catch (fileErr) {
+                      console.warn(`File ${currentFile.id} failed addFiles:`, fileErr)
                     }
                   }
                 }
 
                 // Resave cleaned files to localStorage so invalid SVGs are pruned
                 try {
-                  localStorage.setItem(`${storageKey}_files`, JSON.stringify(updatedFilesStore))
-                } catch {}
+                  safeSaveWhiteboardStorage(`${storageKey}_files`, updatedFilesStore, true)
+                } catch { }
               }
             }
           } catch (e) {
@@ -1124,10 +1471,11 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             excalidrawAPI.updateScene({
               elements: targetPage.elements || [],
               appState: {
-                viewBackgroundColor: CANVAS_BG,
+                viewBackgroundColor: 'transparent',
                 currentItemStrokeColor: INK_PRIMARY,
                 currentItemFontFamily: 1,
                 currentItemRoughness: 0,
+                gridModeEnabled: true,
                 zoom: { value: boardZoomRef.current },
                 scrollX: 0,
                 scrollY: 0,
@@ -1163,10 +1511,11 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           excalidrawAPI.updateScene({
             elements: chosenPage.elements,
             appState: {
-              viewBackgroundColor: CANVAS_BG,
+              viewBackgroundColor: 'transparent',
               currentItemStrokeColor: INK_PRIMARY,
               currentItemFontFamily: 1,
               currentItemRoughness: 0,
+              gridModeEnabled: true,
               zoom: { value: boardZoomRef.current },
               scrollX: 0,
               scrollY: 0,
@@ -1184,7 +1533,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     // Draw text in permanent notes column (left side)
     const drawText = async (text: string, x = 60, customY?: number, color?: string) => {
       if (!excalidrawAPI || !text?.trim()) return
-      const clean = text.trim()
+      const clean = cleanChalkboardTypography(text.trim())
       if (checkIsRedundant(clean)) return
       if (executedTextHistoryRef.current.has(clean.toLowerCase())) return
       executedTextHistoryRef.current.add(clean.toLowerCase())
@@ -1227,13 +1576,14 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!excalidrawAPI) return
       const raw = typeof title === 'string' ? title : (title?.content || title?.text || title?.title || (title ? JSON.stringify(title) : ''))
       if (!raw?.trim()) return
-      const clean = raw
+      const rawClean = raw
         .replace(/^focus:\s*/i, '')
         .replace(/^concept\s*\d*:\s*/i, '')
         .replace(/[\(\)\[\]\{\}\"]/g, '')
         .replace(/^'+|'+$/g, '')
         .replace(/\s+/g, ' ')
         .trim()
+      const clean = cleanChalkboardTypography(rawClean)
       if (!clean) return
 
       // Invariant: Never write Mastered or Concept Done as a title
@@ -1266,6 +1616,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         const startX = 60
         const startY = getDynamicNextY(16)
+        nextYRef.current = Math.max(nextYRef.current, startY + 54)
         const titleText = `CONCEPT ${currentPageIndexRef.current + 1}: ${clean.toUpperCase()}`
         const titleColor = resolveChalkColor(color, INK_PRIMARY)
         const underlineColor = color ? titleColor : INK_BOTANICAL
@@ -1308,7 +1659,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!excalidrawAPI) return
       const raw = typeof noteText === 'string' ? noteText : (noteText?.content || noteText?.text || noteText?.note || (noteText ? JSON.stringify(noteText) : ''))
       if (!raw?.trim()) return
-      const clean = raw.trim()
+      const clean = cleanChalkboardTypography(raw.trim())
       if (checkIsRedundant(clean)) return
       if (shouldSkipDuplicate('draw_note', clean)) return
 
@@ -1321,6 +1672,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 60
         const startY = getDynamicNextY(12)
+        nextYRef.current = Math.max(nextYRef.current, startY + totalH + 16)
         const noteColor = resolveChalkColor(color, activeChalkColorRef.current)
         const bulletColor = color ? noteColor : INK_BOTANICAL
 
@@ -1365,7 +1717,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!excalidrawAPI) return
       const raw = typeof stepText === 'string' ? stepText : (stepText?.content || stepText?.text || stepText?.step || (stepText ? JSON.stringify(stepText) : ''))
       if (!raw?.trim()) return
-      const clean = raw.trim()
+      const clean = cleanChalkboardTypography(raw.trim())
       if (checkIsRedundant(clean)) return
       if (shouldSkipDuplicate('draw_step', clean)) return
       const lines = wrapText(clean, cols(60))
@@ -1377,6 +1729,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 60
         const startY = getDynamicNextY(12)
+        nextYRef.current = Math.max(nextYRef.current, startY + totalH + 16)
         const stepColor = resolveChalkColor(color, INK_SECONDARY)
 
         await playTypingEffect('Step', clean, stepColor, startX, startY, 15, 'step')
@@ -1410,7 +1763,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!excalidrawAPI) return
       const raw = typeof text === 'string' ? text : (text?.content || text?.text || text?.box || (text ? JSON.stringify(text) : ''))
       if (!raw?.trim()) return
-      const clean = raw.trim()
+      const clean = cleanChalkboardTypography(raw.trim())
       if (checkIsRedundant(clean)) return
       if (shouldSkipDuplicate('draw_highlight_box', clean)) return
       const lines = wrapText(clean, cols(60))
@@ -1424,6 +1777,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 60
         const startY = getDynamicNextY(16)
+        nextYRef.current = Math.max(nextYRef.current, startY + boxHeight + 20)
         const boxStroke = resolveChalkColor(color, INK_CORAL)
         const boxBg = boxStroke === INK_CORAL ? INK_CORAL_SOFT : '#F8F6F0'
 
@@ -1469,7 +1823,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!excalidrawAPI) return
       const raw = typeof questionText === 'string' ? questionText : (questionText?.content || questionText?.text || questionText?.question || (questionText ? JSON.stringify(questionText) : ''))
       if (!raw?.trim()) return
-      const clean = raw.trim()
+      const clean = cleanChalkboardTypography(raw.trim())
       if (shouldSkipDuplicate('draw_question', clean)) return
       const lines = wrapText(clean, cols(64))
       const lineHeight = 22
@@ -1483,6 +1837,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 60
         const startY = getDynamicNextY(16)
+        nextYRef.current = Math.max(nextYRef.current, startY + qHeight + 20)
         const qStroke = resolveChalkColor(color, INK_CORAL)
 
         const elements = convertToExcalidrawElements([
@@ -1542,7 +1897,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     // Draw Student's Spoken Answer on Whiteboard
     const drawStudentAnswer = async (answerText: string, isCorrect?: boolean, color?: string) => {
       if (!excalidrawAPI || !answerText?.trim()) return
-      const clean = answerText.trim()
+      const clean = cleanChalkboardTypography(answerText.trim())
 
       // Deduplicate recent identical or redundant student responses within 30 seconds
       const cleanLower = clean.toLowerCase().replace(/^(?:student(?:'s)?\s*answer:?\s*)+/i, '').trim()
@@ -1568,6 +1923,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 60
         const startY = getDynamicNextY(14)
+        nextYRef.current = Math.max(nextYRef.current, startY + boxHeight + 18)
         const ansStroke = resolveChalkColor(color, INK_BLUE)
 
         const elements = convertToExcalidrawElements([
@@ -1619,7 +1975,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     // Draw Answer Verdict / Correction on Whiteboard
     const drawAnswerVerdict = async (verdictText: string, isCorrect?: boolean, color?: string) => {
       if (!excalidrawAPI || !verdictText?.trim()) return
-      const clean = verdictText.trim()
+      const clean = cleanChalkboardTypography(verdictText.trim())
       const looksCorrect =
         isCorrect === true ||
         /^(correct|spot on|perfect|exactly|well done|excellent|right|yes)\b/i.test(clean) ||
@@ -1636,6 +1992,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 60
         const startY = getDynamicNextY(14)
+        nextYRef.current = Math.max(nextYRef.current, startY + boxHeight + 18)
         const vStroke = resolveChalkColor(
           color,
           looksCorrect ? INK_BOTANICAL : INK_CORAL
@@ -1702,12 +2059,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (shouldSkipDuplicate('draw_exam_question', question)) return
 
       // Support "question | model answer" in single string if modelAnswer omitted
-      let qText = question.trim()
-      let aText = (modelAnswer || '').trim()
+      let qText = cleanChalkboardTypography(question.trim())
+      let aText = cleanChalkboardTypography((modelAnswer || '').trim())
       if (!aText && qText.includes('|')) {
         const parts = qText.split('|').map((s) => s.trim())
-        qText = parts[0]
-        aText = parts.slice(1).join(' | ').replace(/^answer:\s*/i, '')
+        qText = cleanChalkboardTypography(parts[0])
+        aText = cleanChalkboardTypography(parts.slice(1).join(' | ').replace(/^answer:\s*/i, ''))
       }
 
       const qLines = wrapText(qText, cols(60))
@@ -1821,6 +2178,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       height: number
       radius?: number
       label?: string
+      values?: Record<string, any>
+      overwrite?: boolean
       color?: string
       fillColor?: string
     } => {
@@ -1829,12 +2188,16 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const width = Number(input.width || input.w || input.dimension1 || input.length || 260)
         const height = Number(input.height || input.h || input.dimension2 || 140)
         const radius = input.radius !== undefined ? Number(input.radius) : undefined
+        const values = input.values || (input.params ? input.params : undefined)
+        const overwrite = Boolean(input.overwrite || input.replace || input.update)
         return {
           shape,
           width,
           height,
           radius,
           label: input.label || input.title || input.text || '',
+          values: typeof values === 'object' ? values : undefined,
+          overwrite,
           color: input.color,
           fillColor: input.fillColor || input.fill || input.bg,
         }
@@ -1845,7 +2208,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         try {
           const parsed = JSON.parse(str)
           return parseShapeInput(parsed)
-        } catch {}
+        } catch { }
       }
 
       let shape = 'rectangle'
@@ -1853,6 +2216,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       let height = 140
       let radius: number | undefined
       let label = ''
+      let values: Record<string, any> | undefined
+      let overwrite = false
       let color: string | undefined
       let fillColor: string | undefined
 
@@ -1867,6 +2232,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       else if (lower.includes('polygon')) shape = 'polygon'
       else if (lower.includes('arrow') || lower.includes('line')) shape = 'arrow'
       else if (lower.includes('rectangle')) shape = 'rectangle'
+
+      if (lower.includes('overwrite=true') || lower.includes('replace=true')) overwrite = true
 
       const wMatch = str.match(/\b(?:width|w|length|len)[:=]\s*(\d+(?:\.\d+)?)/i)
       if (wMatch) width = parseFloat(wMatch[1])
@@ -1893,13 +2260,13 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         }
       }
 
-      return { shape, width, height, radius, label, color, fillColor }
+      return { shape, width, height, radius, label, values, overwrite, color, fillColor }
     }
 
     // Draw Geometric Shape with Complete Size, Dimension & Label Control
     const drawShape = async (shapeInput: any) => {
       if (!excalidrawAPI) return
-      const { shape, width, height, radius, label, color, fillColor } = parseShapeInput(shapeInput)
+      const { shape, width, height, radius, label, values, overwrite, color, fillColor } = parseShapeInput(shapeInput)
       const stroke = resolveChalkColor(color, INK_BOTANICAL)
       const bg = fillColor || (stroke === INK_CORAL ? INK_CORAL_SOFT : '#F0F6F2')
 
@@ -1909,6 +2276,11 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (shape === 'square') {
         w = Math.min(w, h)
         h = w
+      }
+
+      // Overwrite: remove previously drawn shape elements on current page if requested
+      if (overwrite && boardElementsRef.current && boardElementsRef.current.length > 0) {
+        boardElementsRef.current = boardElementsRef.current.filter((el: any) => el.customData?.isShapeFigure !== true)
       }
 
       await checkAutoPageOverflow(h + (label ? 60 : 30))
@@ -1930,33 +2302,41 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             fillStyle: 'solid',
             strokeWidth: 2,
             roundness: { type: 3 },
-            customData: { isRough: false },
+            customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
           })
 
-          skeletons.push({
-            type: 'text',
-            x: startX + Math.max(Math.floor(w / 2) - 35, 10),
-            y: startY - 18,
-            text: `w: ${w}px`,
-            fontSize: 12,
-            fontFamily: 1,
-            strokeColor: INK_MUTED,
-            customData: { isRough: false },
-          })
+          const lengthVal = values?.length || values?.width || values?.w || (label ? '' : 'Length (l)')
+          const breadthVal = values?.height || values?.breadth || values?.h || (label ? '' : 'Breadth (b)')
 
-          skeletons.push({
-            type: 'text',
-            x: startX + w + 8,
-            y: startY + Math.floor(h / 2) - 8,
-            text: `h: ${h}px`,
-            fontSize: 12,
-            fontFamily: 1,
-            strokeColor: INK_MUTED,
-            customData: { isRough: false },
-          })
+          if (lengthVal) {
+            skeletons.push({
+              type: 'text',
+              x: startX + Math.max(Math.floor(w / 2) - 45, 10),
+              y: startY - 20,
+              text: String(lengthVal),
+              fontSize: 13,
+              fontFamily: 1,
+              strokeColor: INK_CORAL,
+              customData: { isRough: false, isShapeFigure: true },
+            })
+          }
+
+          if (breadthVal) {
+            skeletons.push({
+              type: 'text',
+              x: startX + w + 8,
+              y: startY + Math.floor(h / 2) - 8,
+              text: String(breadthVal),
+              fontSize: 13,
+              fontFamily: 1,
+              strokeColor: INK_CORAL,
+              customData: { isRough: false, isShapeFigure: true },
+            })
+          }
         } else if (shape === 'circle') {
           const r = radius ? radius : Math.floor(Math.min(w, h) / 2)
           const diam = r * 2
+          const radVal = values?.radius || values?.r || (radius ? `r = ${radius}` : 'Radius (r)')
           skeletons.push(
             {
               type: 'ellipse',
@@ -1968,7 +2348,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               backgroundColor: bg,
               fillStyle: 'solid',
               strokeWidth: 2,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
             },
             {
               type: 'ellipse',
@@ -1979,7 +2359,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               strokeColor: stroke,
               backgroundColor: stroke,
               fillStyle: 'solid',
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'line',
@@ -1988,17 +2368,17 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               points: [[0, 0], [r, 0]],
               strokeColor: INK_CORAL,
               strokeWidth: 2,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'text',
-              x: startX + r + Math.floor(r / 2) - 8,
-              y: startY + r - 16,
-              text: `r: ${r}`,
-              fontSize: 12,
+              x: startX + r + Math.floor(r / 2) - 10,
+              y: startY + r - 18,
+              text: String(radVal),
+              fontSize: 13,
               fontFamily: 1,
               strokeColor: INK_CORAL,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             }
           )
           w = diam
@@ -2014,7 +2394,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             backgroundColor: bg,
             fillStyle: 'solid',
             strokeWidth: 2,
-            customData: { isRough: false },
+            customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
           })
         } else if (shape === 'triangle' || shape === 'right_triangle') {
           const isRight = shape === 'right_triangle'
@@ -2032,43 +2412,85 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               strokeWidth: 2,
               backgroundColor: bg,
               fillStyle: 'solid',
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
             },
             {
               type: 'text',
               x: startX - 14,
               y: startY + h + 2,
-              text: 'A',
+              text: values?.vertexA || 'A',
               fontSize: 13,
               fontFamily: 1,
               strokeColor: INK_CORAL,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'text',
               x: startX + w + 4,
               y: startY + h + 2,
-              text: 'B',
+              text: values?.vertexB || 'B',
               fontSize: 13,
               fontFamily: 1,
               strokeColor: INK_CORAL,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'text',
               x: isRight ? startX - 14 : startX + Math.floor(w / 2) - 6,
               y: startY - 14,
-              text: 'C',
+              text: values?.vertexC || 'C',
               fontSize: 13,
               fontFamily: 1,
               strokeColor: INK_CORAL,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             }
           )
+
+          const baseVal = values?.base || values?.b || values?.length
+          const perpVal = values?.height || values?.h || values?.perpendicular
+          const hypVal = values?.hypotenuse || values?.hyp || values?.c
+
+          if (baseVal) {
+            skeletons.push({
+              type: 'text',
+              x: startX + Math.floor(w / 2) - 20,
+              y: startY + h + 14,
+              text: String(baseVal),
+              fontSize: 12,
+              fontFamily: 1,
+              strokeColor: INK_PRIMARY,
+              customData: { isRough: false, isShapeFigure: true },
+            })
+          }
+          if (perpVal && isRight) {
+            skeletons.push({
+              type: 'text',
+              x: startX - 45,
+              y: startY + Math.floor(h / 2),
+              text: String(perpVal),
+              fontSize: 12,
+              fontFamily: 1,
+              strokeColor: INK_PRIMARY,
+              customData: { isRough: false, isShapeFigure: true },
+            })
+          }
+          if (hypVal && isRight) {
+            skeletons.push({
+              type: 'text',
+              x: startX + Math.floor(w / 2) + 8,
+              y: startY + Math.floor(h / 2) - 10,
+              text: String(hypVal),
+              fontSize: 12,
+              fontFamily: 1,
+              strokeColor: INK_CORAL,
+              customData: { isRough: false, isShapeFigure: true },
+            })
+          }
         } else if (shape === 'cylinder') {
           const r = radius ? radius : Math.floor(w / 4)
           const cylW = r * 2
           const topH = Math.max(Math.floor(r * 0.6), 18)
+          const cylHeightVal = values?.height || values?.h ? `Height (h) = ${values.height || values.h}` : 'Height (h)'
           skeletons.push(
             {
               type: 'ellipse',
@@ -2080,7 +2502,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               backgroundColor: bg,
               fillStyle: 'solid',
               strokeWidth: 2,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
             },
             {
               type: 'line',
@@ -2089,7 +2511,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               points: [[0, 0], [0, h - topH]],
               strokeColor: stroke,
               strokeWidth: 2,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'line',
@@ -2098,7 +2520,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               points: [[0, 0], [0, h - topH]],
               strokeColor: stroke,
               strokeWidth: 2,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'ellipse',
@@ -2110,17 +2532,17 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               backgroundColor: bg,
               fillStyle: 'solid',
               strokeWidth: 2,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'text',
               x: startX + cylW + 12,
               y: startY + Math.floor(h / 2),
-              text: `Height = ${h}px`,
+              text: cylHeightVal,
               fontSize: 12,
               fontFamily: 1,
               strokeColor: INK_MUTED,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             }
           )
           w = cylW
@@ -2136,7 +2558,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               strokeColor: BORDER_SUBTLE,
               strokeWidth: 1.5,
               strokeStyle: 'dashed',
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
             },
             {
               type: 'rectangle',
@@ -2149,7 +2571,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               fillStyle: 'solid',
               strokeWidth: 2,
               roundness: { type: 3 },
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'line',
@@ -2158,7 +2580,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               points: [[0, 0], [offset, -offset]],
               strokeColor: stroke,
               strokeWidth: 1.5,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'line',
@@ -2167,7 +2589,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               points: [[0, 0], [offset, -offset]],
               strokeColor: stroke,
               strokeWidth: 1.5,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             },
             {
               type: 'line',
@@ -2176,7 +2598,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               points: [[0, 0], [offset, -offset]],
               strokeColor: stroke,
               strokeWidth: 1.5,
-              customData: { isRough: false },
+              customData: { isRough: false, isShapeFigure: true },
             }
           )
         } else if (shape === 'arrow' || shape === 'line') {
@@ -2187,7 +2609,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             points: [[0, 0], [w, 0]],
             strokeColor: stroke,
             strokeWidth: 3,
-            customData: { isRough: false },
+            customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
           })
           h = 30
         }
@@ -2410,6 +2832,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           await checkAutoPageOverflow(estimatedHeight)
 
           const startY = getDynamicNextY(16)
+          nextYRef.current = Math.max(nextYRef.current, startY + 180)
           const rowPositions: { x: number; y: number; w: number; h: number }[] = []
 
           steps.forEach((st, i) => {
@@ -2577,6 +3000,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const totalTableHeight = rowHeights.reduce((a, b) => a + b, 0)
         await checkAutoPageOverflow(totalTableHeight + 24)
         const startY = getDynamicNextY(16)
+        nextYRef.current = Math.max(nextYRef.current, startY + totalTableHeight + 24)
 
         const skeletons: any[] = []
         let currentY = startY
@@ -2639,7 +3063,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!excalidrawAPI) return
       const raw = typeof workText === 'string' ? workText : (workText?.content || workText?.text || workText?.work || (workText ? JSON.stringify(workText) : ''))
       if (!raw?.trim()) return
-      const clean = raw.trim()
+      const clean = cleanChalkboardTypography(raw.trim())
       await checkAutoPageOverflow(46)
       try {
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
@@ -2682,6 +3106,112 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       } catch (err) {
         console.error('clearRough error:', err)
       }
+    }
+
+    // Live AI Chalk Highlighter: Highlight Word / Sentence on Whiteboard
+    const highlightText = async (text: string, color?: string): Promise<boolean> => {
+      if (!excalidrawAPI) return false
+      const raw = typeof text === 'string' ? text : (text as any)?.text || ''
+      if (!raw?.trim()) return false
+      const clean = raw.trim()
+      const searchTarget = clean.toLowerCase()
+
+      try {
+        const elements = getCurrentElements()
+        const matchingTextElements = elements.filter((el: any) => {
+          if (el.isDeleted || el.type !== 'text') return false
+          const elText = (el.text || '').toLowerCase()
+          return elText.includes(searchTarget)
+        })
+
+        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const markerColor = resolveChalkColor(color, INK_AMBER)
+
+        if (matchingTextElements.length > 0) {
+          const newHighlighters: any[] = []
+          for (const match of matchingTextElements.slice(0, 3)) {
+            const hId = `hl_${Date.now()}_${Math.random().toString(36).substr(2, 4)}`
+            const padX = 6
+            const padY = 4
+            const width = Math.min((match.width || 200) + padX * 2, 780)
+            const height = (match.height || 24) + padY * 2
+
+            newHighlighters.push({
+              id: hId,
+              type: 'rectangle',
+              x: match.x - padX,
+              y: match.y - padY,
+              width: width,
+              height: height,
+              strokeColor: 'transparent',
+              backgroundColor: markerColor === INK_AMBER ? '#FEF3C7' : `${markerColor}33`,
+              fillStyle: 'solid',
+              strokeWidth: 1,
+              strokeStyle: 'solid',
+              roughness: 0,
+              opacity: 45,
+              roundness: { type: 3 },
+              customData: { isHighlight: true, targetText: clean },
+            })
+          }
+
+          if (newHighlighters.length > 0) {
+            const excalElements = convertToExcalidrawElements(newHighlighters)
+            const updated = [...elements, ...excalElements]
+            updateCurrentPageElements(updated, nextYRef.current)
+
+            // Auto-clear highlight after 6 seconds so it behaves as an active optical pointer
+            setTimeout(() => {
+              try {
+                const current = getCurrentElements()
+                const filtered = current.filter((el: any) => !el.id?.startsWith('hl_'))
+                updateCurrentPageElements(filtered, nextYRef.current)
+              } catch (_) { }
+            }, 6000)
+            return true
+          }
+        } else {
+          // If the term is not yet on the board, draw an elegant key term badge so the student sees the focused term
+          await checkAutoPageOverflow(46)
+          const startX = 60
+          const startY = getDynamicNextY(12)
+          const badgeElements = convertToExcalidrawElements([
+            {
+              id: `hl_badge_${Date.now()}`,
+              type: 'rectangle',
+              x: startX,
+              y: startY,
+              width: Math.min(Math.max(clean.length * 10 + 40, 180), 720),
+              height: 32,
+              strokeColor: markerColor,
+              backgroundColor: '#FEF3C7',
+              fillStyle: 'solid',
+              strokeWidth: 1.5,
+              roughness: 1,
+              opacity: 90,
+              roundness: { type: 3 },
+              customData: { isHighlight: true },
+            },
+            {
+              id: `hl_badgetxt_${Date.now()}`,
+              type: 'text',
+              x: startX + 14,
+              y: startY + 7,
+              text: `* Focus: ${clean}`,
+              fontSize: 14,
+              fontFamily: 1,
+              strokeColor: markerColor === INK_AMBER ? '#92400E' : markerColor,
+              customData: { isHighlight: true },
+            },
+          ])
+          const updated = [...elements, ...badgeElements]
+          updateCurrentPageElements(updated, startY + 40)
+          return true
+        }
+      } catch (err) {
+        console.warn('[GreenChalkboard] Error highlighting text:', err)
+      }
+      return false
     }
 
     // Clear Notes on current page
@@ -2732,10 +3262,11 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         excalidrawAPI.updateScene({
           elements: initialElements,
           appState: {
-            viewBackgroundColor: CANVAS_BG,
+            viewBackgroundColor: 'transparent',
             currentItemStrokeColor: INK_PRIMARY,
             currentItemFontFamily: 1,
             currentItemRoughness: 0,
+            gridModeEnabled: true,
             zoom: { value: boardZoomRef.current },
             scrollX: 0,
             scrollY: 0,
@@ -2790,6 +3321,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 75
         const startY = getDynamicNextY(18)
+        nextYRef.current = Math.max(nextYRef.current, startY + 240 + 20)
         const q = (query || '').trim()
         const lowerQ = q.toLowerCase()
 
@@ -3176,11 +3708,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         // 1. Problem / Numerical Statement
         if (solution.problem) {
+          const problemText = cleanChalkboardTypography(solution.problem)
           elements.push({
             type: 'text',
             x: startX,
             y: curY,
-            text: `Problem: ${solution.problem}`,
+            text: `Problem: ${problemText}`,
             fontSize: 15,
             fontFamily: 1,
             strokeColor: INK_PRIMARY,
@@ -3191,11 +3724,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         // 2. Given Parameters
         if (solution.given) {
+          const givenText = cleanChalkboardTypography(solution.given)
           elements.push({
             type: 'text',
             x: startX + 10,
             y: curY,
-            text: `• Given: ${solution.given}`,
+            text: `• Given: ${givenText}`,
             fontSize: 14,
             fontFamily: 1,
             strokeColor: INK_SECONDARY,
@@ -3206,11 +3740,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         // 3. Formula / Governing Law
         if (solution.formula) {
+          const formulaText = cleanChalkboardTypography(solution.formula)
           elements.push({
             type: 'text',
             x: startX + 10,
             y: curY,
-            text: `Formula: ${solution.formula}`,
+            text: `Formula: ${formulaText}`,
             fontSize: 15,
             fontFamily: 1,
             strokeColor: INK_BOTANICAL,
@@ -3221,11 +3756,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         // 4. Substitution Step
         if (solution.substitution) {
+          const subText = cleanChalkboardTypography(solution.substitution)
           elements.push({
             type: 'text',
             x: startX + 10,
             y: curY,
-            text: `-> Substitution: ${solution.substitution}`,
+            text: `-> Substitution: ${subText}`,
             fontSize: 14,
             fontFamily: 1,
             strokeColor: INK_SECONDARY,
@@ -3235,7 +3771,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         }
 
         // 5. Boxed Final Answer with SI Units
-        const ansText = `Answer: ${solution.answer}${solution.unit ? ' ' + solution.unit : ''}`
+        const cleanAns = cleanChalkboardTypography(solution.answer)
+        const cleanUnit = solution.unit ? cleanChalkboardTypography(solution.unit) : ''
+        const ansText = `Answer: ${cleanAns}${cleanUnit ? ' ' + cleanUnit : ''}`
         const boxWidth = Math.min(Math.max(ansText.length * 11 + 32, 240), 400)
         elements.push(
           {
@@ -3271,7 +3809,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         // 6. Scratchpad / Calculation in Right Rough Margin
         if (solution.calculation) {
-          await drawRoughWork(`Calculation:\n${solution.calculation}`)
+          await drawRoughWork(`Calculation:\n${cleanChalkboardTypography(solution.calculation)}`)
         }
 
         onNoteRecorded?.(`**Solved Numerical**: ${solution.problem || solution.formula || ansText}`)
@@ -3415,6 +3953,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 60
         const startY = getDynamicNextY(20)
+        nextYRef.current = Math.max(nextYRef.current, startY + 280 + 24)
 
         // Clean markdown code blocks, script tags, and whitespace
         let cleanSvg = (svgMarkup || '').trim().replace(/^```(?:xml|svg|html)?\s*/i, '').replace(/\s*```$/i, '').trim()
@@ -3423,12 +3962,10 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         let resolvedTitle = (title || '').trim() || 'Scientific Diagram'
         let resolvedCaption = caption
 
-        // If SVG markup is missing or does not contain an <svg tag, dynamically generate an authentic scientific SVG
+        // If SVG markup is missing or does not contain an <svg tag, skip rendering fake/irrelevant diagrams
         if (!cleanSvg.toLowerCase().includes('<svg')) {
-          const generated = createUniversalScientificSvg(resolvedTitle || cleanSvg, caption)
-          cleanSvg = generated.svg
-          resolvedTitle = generated.title
-          if (!resolvedCaption) resolvedCaption = generated.caption
+          console.warn(`[GreenChalkboard] drawSvgDiagram called without valid SVG for "${resolvedTitle}". Skipping diagram render.`)
+          return
         }
 
         // Sanitize SVG via DOMParser to catch malformed XML from Gemini Live output
@@ -3436,11 +3973,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         if (sanitized) {
           cleanSvg = sanitized
         } else {
-          // SVG is irreparably malformed, fall back to universal generator
-          const generated = createUniversalScientificSvg(resolvedTitle, caption)
-          cleanSvg = generated.svg
-          resolvedTitle = generated.title
-          if (!resolvedCaption) resolvedCaption = generated.caption
+          console.warn(`[GreenChalkboard] SVG for "${resolvedTitle}" is malformed. Skipping diagram render.`)
+          return
         }
 
         // Determine dimensions from viewBox or width/height
@@ -3479,11 +4013,25 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         if (svgHeight < 140) svgHeight = 160
 
         const fileId = `svg_${Date.now()}_${Math.random().toString(36).substring(2, 8)}` as any
-        const dataURL = svgToBase64DataUrl(cleanSvg) as any
-        let resolvedDataURL = dataURL
+        const dataURL = svgToBase64DataUrl(cleanSvg)
+        let resolvedDataURL = sanitizeBase64DataUrl(dataURL) || dataURL
         let fileMimeType = 'image/svg+xml'
 
-        // Try adding as SVG first; if Excalidraw rejects it, rasterize to PNG as bulletproof fallback
+        // Pre-validate SVG to prevent Excalidraw internal console.error("Invalid SVG")
+        const svgValidation = validateSvgForExcalidraw(resolvedDataURL)
+        if (!svgValidation.isValid) {
+          try {
+            const pngDataUrl = await rasterizeSvgToPng(cleanSvg, svgWidth, svgHeight)
+            const cleanPng = sanitizeBase64DataUrl(pngDataUrl)
+            if (cleanPng) {
+              resolvedDataURL = cleanPng
+              fileMimeType = 'image/png'
+            }
+          } catch (rasterErr) {
+            console.warn('[drawSvgDiagram] SVG rasterization fallback error:', rasterErr)
+          }
+        }
+
         let fileObj: any = {
           id: fileId,
           dataURL: resolvedDataURL,
@@ -3491,20 +4039,13 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           created: Date.now(),
         }
 
-        if (excalidrawAPI.addFiles) {
+        if (excalidrawAPI?.addFiles) {
           try {
-            excalidrawAPI.addFiles([fileObj])
-          } catch (svgErr) {
-            // SVG rejected by Excalidraw's internal parser - rasterize to PNG
-            try {
-              const pngDataUrl = await rasterizeSvgToPng(cleanSvg, svgWidth, svgHeight)
-              fileMimeType = 'image/png'
-              resolvedDataURL = pngDataUrl
-              fileObj = { id: fileId, dataURL: pngDataUrl, mimeType: 'image/png', created: Date.now() }
+            if (isValidBase64DataUrl(fileObj.dataURL)) {
               excalidrawAPI.addFiles([fileObj])
-            } catch (pngErr) {
-              console.warn('Both SVG and PNG fallback failed:', pngErr)
             }
+          } catch (svgErr) {
+            console.warn('[drawSvgDiagram] excalidrawAPI.addFiles warning:', svgErr)
           }
         }
 
@@ -3514,7 +4055,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             const rawFiles = localStorage.getItem(`${storageKey}_files`)
             const existingFiles = rawFiles ? JSON.parse(rawFiles) : {}
             existingFiles[fileId] = fileObj
-            localStorage.setItem(`${storageKey}_files`, JSON.stringify(existingFiles))
+            safeSaveWhiteboardStorage(`${storageKey}_files`, existingFiles, true)
           } catch (e) {
             console.warn('Error saving whiteboard file to localStorage:', e)
           }
@@ -3525,8 +4066,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const captionLines = caption?.trim()
           ? wrapText(caption.trim(), cols(55))
           : resolvedCaption?.trim()
-          ? wrapText(resolvedCaption.trim(), cols(55))
-          : []
+            ? wrapText(resolvedCaption.trim(), cols(55))
+            : []
         const captionHeight = captionLines.length * 18
         const cardHeight = svgHeight + 56 + (captionLines.length > 0 ? captionHeight + 12 : 0) + 16
 
@@ -3651,64 +4192,424 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       }
     }
 
+    // Draw Educational Image Card directly on Whiteboard
+    const drawImage = async (urlOrDataUrl: string, title = 'Educational Image', caption = '') => {
+      if (!excalidrawAPI || !urlOrDataUrl?.trim()) return
+      const cleanUrl = urlOrDataUrl.trim()
+      const resolvedTitle = (title || '').trim() || 'Educational Image'
+      const resolvedCaption = (caption || '').trim()
+
+      if (shouldSkipDuplicate('draw_image', `${resolvedTitle}:${cleanUrl}`)) return
+
+      await checkAutoPageOverflow(320)
+      try {
+        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const startX = 60
+        const startY = getDynamicNextY(20)
+
+        let finalDataURL = ''
+        let fileMimeType = 'image/jpeg'
+        const lowerUrl = cleanUrl.toLowerCase()
+        if (lowerUrl.endsWith('.png')) fileMimeType = 'image/png'
+        else if (lowerUrl.endsWith('.webp')) fileMimeType = 'image/webp'
+        else if (lowerUrl.endsWith('.svg')) fileMimeType = 'image/svg+xml'
+
+        let imgWidth = 480
+        let imgHeight = 280
+
+        // Step 1: Detect raw SVG markup (including comments, doctypes, or xml declarations)
+        const isRawSvg = (lowerUrl.includes('<svg') && lowerUrl.includes('</svg>')) ||
+          /^\s*(?:<\?xml|<!DOCTYPE|<!--|<svg)/i.test(cleanUrl)
+
+        if (isRawSvg) {
+          const sanitized = sanitizeSvg(cleanUrl) || cleanUrl
+          finalDataURL = svgToBase64DataUrl(sanitized)
+          fileMimeType = 'image/svg+xml'
+        }
+        // Step 2: Detect unencoded / utf-8 SVG data URI (data:image/svg+xml,... without base64)
+        else if (lowerUrl.startsWith('data:image/svg+xml') && !lowerUrl.includes(';base64,')) {
+          const commaIdx = cleanUrl.indexOf(',')
+          let rawPayload = commaIdx !== -1 ? cleanUrl.slice(commaIdx + 1) : cleanUrl
+          try {
+            rawPayload = decodeURIComponent(rawPayload)
+          } catch { }
+          const sanitized = sanitizeSvg(rawPayload) || rawPayload
+          finalDataURL = svgToBase64DataUrl(sanitized)
+          fileMimeType = 'image/svg+xml'
+        }
+        // Step 3: Base64 data URL
+        else if (cleanUrl.startsWith('data:')) {
+          const sanitized = sanitizeBase64DataUrl(cleanUrl)
+          if (sanitized) {
+            finalDataURL = sanitized
+            const mimeMatch = sanitized.match(/^data:([^;,]+)/i)
+            if (mimeMatch?.[1]) fileMimeType = mimeMatch[1].toLowerCase().trim()
+          }
+        }
+        // Step 4: Remote HTTP / HTTPS URL
+        else if (cleanUrl.startsWith('http://') || cleanUrl.startsWith('https://')) {
+          let isExplicit404 = false
+          // Attempt A: Server proxy with base64 dataUrl=true
+          try {
+            const proxyRes = await fetch(`/api/diagram/proxy?dataUrl=true&url=${encodeURIComponent(cleanUrl)}`)
+            if (proxyRes.ok) {
+              const proxyData = await proxyRes.json()
+              if (proxyData.success && proxyData.dataURL) {
+                const sanitized = sanitizeBase64DataUrl(proxyData.dataURL)
+                if (sanitized) {
+                  finalDataURL = sanitized
+                  if (proxyData.contentType) fileMimeType = proxyData.contentType.split(';')[0].trim().toLowerCase()
+                }
+              }
+            } else if (proxyRes.status === 404) {
+              isExplicit404 = true
+            }
+          } catch (proxyErr) {
+            console.warn('[drawImage] Server proxy fallback:', proxyErr)
+          }
+
+          // Attempt B: Direct CORS fetch if proxy didn't produce valid base64 data URL
+          if (!isExplicit404 && !finalDataURL) {
+            try {
+              const resp = await fetch(cleanUrl, { mode: 'cors' })
+              if (resp.ok) {
+                const blob = await resp.blob()
+                if (blob.type) fileMimeType = blob.type.split(';')[0].trim().toLowerCase()
+                const b64 = await new Promise<string>((res, rej) => {
+                  const reader = new FileReader()
+                  reader.onloadend = () => res(reader.result as string)
+                  reader.onerror = rej
+                  reader.readAsDataURL(blob)
+                })
+                const sanitized = sanitizeBase64DataUrl(b64)
+                if (sanitized) {
+                  finalDataURL = sanitized
+                }
+              }
+            } catch (fetchErr) {
+              console.warn('[drawImage] Direct fetch fallback:', fetchErr)
+            }
+          }
+
+          // Attempt C: Canvas capture via Image element with crossOrigin='anonymous'
+          if (!finalDataURL && typeof window !== 'undefined') {
+            try {
+              const canvasB64 = await new Promise<string>((resolve, reject) => {
+                const img = new window.Image()
+                img.crossOrigin = 'anonymous'
+                img.onload = () => {
+                  try {
+                    const canvas = document.createElement('canvas')
+                    canvas.width = img.naturalWidth || 480
+                    canvas.height = img.naturalHeight || 280
+                    const ctx = canvas.getContext('2d')
+                    if (!ctx) return reject(new Error('No canvas context'))
+                    ctx.drawImage(img, 0, 0)
+                    resolve(canvas.toDataURL('image/png'))
+                  } catch (err) {
+                    reject(err)
+                  }
+                }
+                img.onerror = reject
+                setTimeout(() => reject(new Error('Canvas image load timeout')), 1500)
+                img.src = cleanUrl
+              })
+              const sanitized = sanitizeBase64DataUrl(canvasB64)
+              if (sanitized) {
+                finalDataURL = sanitized
+                fileMimeType = 'image/png'
+              }
+            } catch { }
+          }
+        }
+        // Step 5: Relative / local URL
+        else if (cleanUrl.startsWith('/') || !cleanUrl.includes('://')) {
+          try {
+            const resp = await fetch(cleanUrl)
+            if (resp.ok) {
+              const blob = await resp.blob()
+              if (blob.type) fileMimeType = blob.type.split(';')[0].trim().toLowerCase()
+              const b64 = await new Promise<string>((res, rej) => {
+                const reader = new FileReader()
+                reader.onloadend = () => res(reader.result as string)
+                reader.onerror = rej
+                reader.readAsDataURL(blob)
+              })
+              const sanitized = sanitizeBase64DataUrl(b64)
+              if (sanitized) {
+                finalDataURL = sanitized
+              }
+            }
+          } catch (relErr) {
+            console.warn('[drawImage] Relative fetch error:', relErr)
+          }
+        }
+
+        // Step 6: Fallback guard for non-base64 or failed sources
+        const sanitizedFinal = sanitizeBase64DataUrl(finalDataURL)
+        if (!sanitizedFinal) {
+          console.warn('[drawImage] Using vector card fallback for non-base64 source:', cleanUrl.slice(0, 60))
+          const fallbackSvg = createFallbackImageSvg(resolvedTitle, cleanUrl)
+          finalDataURL = svgToBase64DataUrl(fallbackSvg)
+          fileMimeType = 'image/svg+xml'
+        } else {
+          finalDataURL = sanitizedFinal
+        }
+
+        // Step 7: SVG Validation & PNG Rasterization guard for Excalidraw
+        if (fileMimeType === 'image/svg+xml') {
+          const { isValid, cleanSvg } = validateSvgForExcalidraw(finalDataURL)
+          if (!isValid) {
+            try {
+              const pngDataUrl = await rasterizeSvgToPng(cleanSvg || cleanUrl, imgWidth, imgHeight)
+              const cleanPng = sanitizeBase64DataUrl(pngDataUrl)
+              if (cleanPng) {
+                finalDataURL = cleanPng
+                fileMimeType = 'image/png'
+              } else {
+                const fallbackSvg = createFallbackImageSvg(resolvedTitle, cleanUrl)
+                finalDataURL = svgToBase64DataUrl(fallbackSvg)
+              }
+            } catch (rasterErr) {
+              console.warn('[drawImage] SVG rasterization fallback error:', rasterErr)
+              const fallbackSvg = createFallbackImageSvg(resolvedTitle, cleanUrl)
+              finalDataURL = svgToBase64DataUrl(fallbackSvg)
+            }
+          }
+        }
+
+        if (typeof window !== 'undefined') {
+          try {
+            const probeImg = new window.Image()
+            probeImg.src = finalDataURL
+            await new Promise((resolve) => {
+              probeImg.onload = resolve
+              probeImg.onerror = resolve
+              setTimeout(resolve, 600)
+            })
+            if (probeImg.naturalWidth && probeImg.naturalHeight) {
+              const aspect = probeImg.naturalHeight / probeImg.naturalWidth
+              imgWidth = Math.min(500, Math.max(300, probeImg.naturalWidth))
+              imgHeight = Math.round(imgWidth * aspect)
+            }
+          } catch { }
+        }
+
+        if (imgHeight > 340) {
+          const ratio = 340 / imgHeight
+          imgHeight = 340
+          imgWidth = Math.round(imgWidth * ratio)
+        }
+        if (imgHeight < 160) imgHeight = 160
+
+        const fileId = `img_${Date.now()}_${Math.random().toString(36).substring(2, 8)}` as any
+        const safeDataURL = sanitizeBase64DataUrl(finalDataURL) || svgToBase64DataUrl(createFallbackImageSvg(resolvedTitle, cleanUrl))
+        const fileObj: any = {
+          id: fileId,
+          dataURL: safeDataURL,
+          mimeType: fileMimeType,
+          created: Date.now(),
+        }
+
+        if (excalidrawAPI?.addFiles) {
+          try {
+            if (isValidBase64DataUrl(fileObj.dataURL)) {
+              excalidrawAPI.addFiles([fileObj])
+            } else {
+              console.warn('[drawImage] Skipping addFiles: invalid base64 dataURL avoided')
+            }
+          } catch (fileErr) {
+            console.warn('[drawImage] excalidrawAPI.addFiles warning:', fileErr)
+          }
+        }
+
+        if (typeof window !== 'undefined' && storageKey) {
+          try {
+            const rawFiles = localStorage.getItem(`${storageKey}_files`)
+            const existingFiles = rawFiles ? JSON.parse(rawFiles) : {}
+            existingFiles[fileId] = fileObj
+            safeSaveWhiteboardStorage(`${storageKey}_files`, existingFiles, true)
+          } catch (e) {
+            console.warn('Error saving whiteboard file to localStorage:', e)
+          }
+        }
+
+        const cardWidth = Math.max(imgWidth + 32, 440)
+        const captionLines = resolvedCaption
+          ? wrapText(resolvedCaption, cols(55))
+          : []
+        const captionHeight = captionLines.length * 18
+        const zoomHintHeight = 22
+        const cardHeight = imgHeight + 56 + (captionLines.length > 0 ? captionHeight + 10 : 0) + zoomHintHeight + 16
+
+        const current = getCurrentElements()
+        const customPayload = {
+          isRough: false,
+          isImageCard: true,
+          isExpandableImage: true,
+          fullUrl: cleanUrl,
+          imageUrl: finalDataURL,
+          title: resolvedTitle,
+          caption: resolvedCaption,
+        }
+
+        const elementsToInsert: any[] = [
+          {
+            type: 'rectangle',
+            x: startX,
+            y: startY,
+            width: cardWidth,
+            height: cardHeight,
+            strokeColor: '#CBD5E1',
+            backgroundColor: '#FFFFFF',
+            fillStyle: 'solid',
+            strokeWidth: 1.5,
+            roundness: { type: 3 },
+            customData: customPayload,
+          },
+          {
+            type: 'text',
+            x: startX + 16,
+            y: startY + 12,
+            text: `[IMAGE]: ${resolvedTitle.toUpperCase()}`,
+            fontSize: 14,
+            fontFamily: 1,
+            strokeColor: '#0F172A',
+            customData: customPayload,
+          },
+          {
+            type: 'image',
+            x: startX + 16,
+            y: startY + 44,
+            width: imgWidth,
+            height: imgHeight,
+            fileId,
+            status: 'saved',
+            customData: customPayload,
+          },
+        ]
+
+        let nextOffsetY = startY + 44 + imgHeight + 10
+        if (captionLines.length > 0) {
+          elementsToInsert.push({
+            type: 'text',
+            x: startX + 16,
+            y: nextOffsetY,
+            text: captionLines.join('\n'),
+            fontSize: 12,
+            fontFamily: 1,
+            strokeColor: INK_SECONDARY,
+            customData: customPayload,
+          })
+          nextOffsetY += captionHeight + 6
+        }
+
+        elementsToInsert.push({
+          type: 'text',
+          x: startX + 16,
+          y: nextOffsetY,
+          text: '[TAP/CLICK TO EXPAND HIGH-RES VIEW]',
+          fontSize: 11,
+          fontFamily: 1,
+          strokeColor: '#52715D',
+          customData: customPayload,
+        })
+
+        const elements = convertToExcalidrawElements(elementsToInsert)
+        const merged = [...current, ...elements]
+        const nextYTarget = Math.max(nextYRef.current, startY + cardHeight + 20)
+        updateCurrentPageElements(merged, nextYTarget)
+        onNoteRecorded?.(`[Image]: ${resolvedTitle}${resolvedCaption ? ` - ${resolvedCaption}` : ''}`)
+      } catch (err) {
+        console.error('drawImage error:', err)
+      }
+    }
+
     // Draw Video Demonstration Card directly on Whiteboard
-    const drawVideoCard = async (title: string, description = '') => {
+    const drawVideoCard = async (title: string, description = '', url = '', mimeType = 'video/mp4') => {
       if (!excalidrawAPI || !title?.trim()) return
+
+      // Dynamic video lookup if no URL provided
+      let resolvedUrl = (url || '').trim()
+      let resolvedMime = mimeType
+      if (!resolvedUrl) {
+        try {
+          const res = await fetch(`/api/diagram/search-video?query=${encodeURIComponent(title)}&limit=1`)
+          if (res.ok) {
+            const data = await res.json()
+            if (data.videos?.[0]?.url) {
+              resolvedUrl = data.videos[0].url
+              if (data.videos[0].mimeType) resolvedMime = data.videos[0].mimeType
+            }
+          }
+        } catch (vidLookupErr) {
+          console.warn('[drawVideoCard] Dynamic video discovery fallback warning:', vidLookupErr)
+        }
+      }
+
       await checkAutoPageOverflow(140)
       try {
         const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
         const startX = 70
         const startY = getDynamicNextY(16)
+        const customPayload = {
+          isRough: false,
+          isPlayableVideo: true,
+          videoUrl: resolvedUrl,
+          title: title.trim(),
+          description: description?.trim() || '',
+          mimeType: resolvedMime,
+        }
 
         const elements = convertToExcalidrawElements([
           {
             type: 'rectangle',
             x: startX,
             y: startY,
-            width: 390,
-            height: 95,
+            width: 420,
+            height: 105,
             strokeColor: INK_CORAL,
             backgroundColor: '#FFF8F6',
             fillStyle: 'solid',
             strokeWidth: 1.5,
             roundness: { type: 3 },
-            customData: { isRough: false },
+            customData: customPayload,
           },
           {
             type: 'text',
             x: startX + 14,
-            y: startY + 10,
+            y: startY + 12,
             text: `[DEMONSTRATION VIDEO]: ${title.toUpperCase()}`,
             fontSize: 13,
             fontFamily: 1,
             strokeColor: INK_CORAL,
-            customData: { isRough: false },
+            customData: customPayload,
           },
           {
             type: 'text',
             x: startX + 14,
-            y: startY + 36,
+            y: startY + 38,
             text: description || `Visual experimental proof demonstration on ${title}.`,
             fontSize: 13,
             fontFamily: 1,
             strokeColor: INK_PRIMARY,
-            customData: { isRough: false },
+            customData: customPayload,
           },
           {
             type: 'text',
             x: startX + 14,
-            y: startY + 70,
-            text: 'Live Laboratory & Practical Verification',
+            y: startY + 74,
+            text: '[TAP/CLICK TO WATCH VIDEO DEMONSTRATION]',
             fontSize: 11,
             fontFamily: 1,
-            strokeColor: INK_MUTED,
-            customData: { isRough: false },
+            strokeColor: INK_CORAL,
+            customData: customPayload,
           },
         ])
 
         const current = getCurrentElements()
         const merged = [...current, ...elements]
-        updateCurrentPageElements(merged, startY + 115)
+        updateCurrentPageElements(merged, startY + 125)
         onNoteRecorded?.(`[Video Demo]: ${title}`)
       } catch (err) {
         console.error('drawVideoCard error:', err)
@@ -3759,11 +4660,119 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           } else if (action === 'draw_geometry' || action === 'geometry') {
             if (content) await drawGeometry(content);
           } else if (action === 'draw_image' || action === 'image') {
-            const parts = (content || '').split('|').map((s) => s.trim());
-            await drawFlowchart(`${parts[0] || 'Key Concept'} -> Fundamental Principle -> Board Application`);
+            const anyContent = content as any;
+            if (typeof anyContent === 'object' && anyContent !== null) {
+              const url = anyContent.url || anyContent.image_url || anyContent.fullUrl;
+              if (url) {
+                await drawImage(url, anyContent.title, anyContent.caption);
+              } else if (anyContent.query || anyContent.title) {
+                try {
+                  const res = await fetch(`/api/diagram/search-image?q=${encodeURIComponent(anyContent.query || anyContent.title)}`);
+                  const data = await res.json();
+                  const first = data.images?.[0];
+                  if (first?.url) {
+                    await drawImage(first.url, anyContent.title || first.title, anyContent.caption || first.description);
+                  } else {
+                    await drawSvgDiagram(anyContent.title || 'Scientific Diagram', '', anyContent.caption || '');
+                  }
+                } catch {
+                  await drawSvgDiagram(anyContent.title || 'Scientific Diagram', '', anyContent.caption || '');
+                }
+              }
+            } else if (typeof content === 'string') {
+              const trimmed = content.trim();
+              if (trimmed.startsWith('{') && trimmed.endsWith('}')) {
+                try {
+                  const parsed = JSON.parse(trimmed);
+                  const url = parsed.url || parsed.image_url || parsed.fullUrl;
+                  if (url) {
+                    await drawImage(url, parsed.title, parsed.caption);
+                  } else {
+                    const res = await fetch(`/api/diagram/search-image?q=${encodeURIComponent(parsed.query || parsed.title || trimmed)}`);
+                    const data = await res.json();
+                    const first = data.images?.[0];
+                    if (first?.url) await drawImage(first.url, parsed.title || first.title, parsed.caption || first.description);
+                    else await drawSvgDiagram(parsed.title || 'Scientific Diagram', '', parsed.caption || '');
+                  }
+                } catch {
+                  await drawSvgDiagram('Scientific Diagram', '', trimmed);
+                }
+              } else {
+                const parts = trimmed.split('|').map((s) => s.trim());
+                if (parts[0]?.startsWith('http') || parts[0]?.startsWith('data:')) {
+                  await drawImage(parts[0], parts[1], parts[2]);
+                } else if (parts[1]?.startsWith('http') || parts[1]?.startsWith('data:')) {
+                  await drawImage(parts[1], parts[0], parts[2]);
+                } else {
+                  try {
+                    const res = await fetch(`/api/diagram/search-image?q=${encodeURIComponent(parts[0] || trimmed)}`);
+                    const data = await res.json();
+                    const first = data.images?.[0];
+                    if (first?.url) {
+                      await drawImage(first.url, parts[0] || first.title, parts[1] || first.description);
+                    } else {
+                      await drawSvgDiagram(parts[0] || 'Scientific Diagram', '', parts[1] || '');
+                    }
+                  } catch {
+                    await drawSvgDiagram(parts[0] || 'Scientific Diagram', '', parts[1] || '');
+                  }
+                }
+              }
+            }
           } else if (action === 'draw_video' || action === 'video') {
-            const parts = (content || '').split('|').map((s) => s.trim());
-            await drawVideoCard(parts[0] || 'Demonstration', parts[1] || '');
+            let vidUrl = '';
+            let vidTitle = 'Demonstration';
+            let vidDesc = '';
+            const rawContent: any = content;
+            if (typeof rawContent === 'object' && rawContent !== null) {
+              vidUrl = rawContent.url || rawContent.video_url || '';
+              vidTitle = rawContent.title || 'Demonstration';
+              vidDesc = rawContent.description || rawContent.caption || '';
+            } else if (typeof rawContent === 'string') {
+              const trimmed = rawContent.trim();
+              if (trimmed.startsWith('{') && trimmed.endsWith('}')) {
+                try {
+                  const parsed = JSON.parse(trimmed);
+                  vidUrl = parsed.url || parsed.video_url || '';
+                  vidTitle = parsed.title || 'Demonstration';
+                  vidDesc = parsed.description || parsed.caption || '';
+                } catch { }
+              } else {
+                const parts = trimmed.split('|').map((s) => s.trim());
+                if (parts[0]?.startsWith('http')) {
+                  vidUrl = parts[0];
+                  vidTitle = parts[1] || 'Demonstration';
+                  vidDesc = parts[2] || '';
+                } else if (parts[1]?.startsWith('http')) {
+                  vidTitle = parts[0];
+                  vidUrl = parts[1];
+                  vidDesc = parts[2] || '';
+                } else {
+                  vidTitle = parts[0];
+                  vidDesc = parts[1] || '';
+                }
+              }
+            }
+            if (vidUrl) {
+              await drawVideoCard(vidTitle, vidDesc, vidUrl);
+            } else {
+              try {
+                const r = await fetch('/api/diagram/search-video', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ query: vidTitle }),
+                });
+                const data = await r.json();
+                const first = data.videos?.[0];
+                if (first?.url) {
+                  await drawVideoCard(first.title || vidTitle, vidDesc || first.description, first.url, first.mimeType);
+                } else {
+                  await drawVideoCard(vidTitle, vidDesc);
+                }
+              } catch {
+                await drawVideoCard(vidTitle, vidDesc);
+              }
+            }
           } else if (action === 'draw_numerical' || action === 'numerical' || action === 'worked_example' || action === 'solve') {
             if (typeof content === 'object') await drawNumericalSolution(content);
             else {
@@ -3795,10 +4804,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                 await drawSvgDiagram(trimmed, '');
               }
             }
+          } else if (action === 'highlight_text' || action === 'highlight_word' || action === 'highlight_sentence' || action === 'highlight') {
+            if (content) await highlightText(content, color);
           } else if (action === 'draw_flowchart' || action === 'flowchart') {
             if (content) await drawFlowchart(content, color);
           } else if (action === 'draw_rough_work' || action === 'rough_work' || action === 'rough') {
-            if (content) await drawRoughWork(content, color);
+            if (content) await drawStep(content, color);
           } else if (action === 'new_page') {
             await addNewPage();
           } else if (action === 'clear_rough') {
@@ -3837,7 +4848,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             title = parsed.title || title;
             svg = parsed.svg || '';
             caption = parsed.caption || '';
-          } catch {}
+          } catch { }
         } else {
           const explicitTitle = body.match(/\btitle\s*=\s*["']([^"']*)["']/i);
           const explicitSvg = body.match(/\bsvg\s*=\s*["']([\s\S]*?)["'](?:\s*,\s*[a-zA-Z_]+\s*=|\s*$)/i);
@@ -3932,10 +4943,15 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               const [flowText, color] = payload.includes('|') && !payload.includes('->') ? payload.split('|').map((s) => s.trim()) : [payload, undefined]
               await drawFlowchart(flowText, color)
             }
+          } else if (tagType === 'HIGHLIGHT' || tagType === 'HIGHLIGHT_WORD' || tagType === 'HIGHLIGHT_SENTENCE' || tagType === 'FOCUS_WORD') {
+            if (payload) {
+              const [hlText, color] = payload.includes('|') ? payload.split('|').map((s) => s.trim()) : [payload, undefined]
+              await highlightText(hlText, color)
+            }
           } else if (tagType === 'ROUGH_WORK' || tagType === 'ROUGH') {
             if (payload) {
               const [roughText, color] = payload.includes('|') ? payload.split('|').map((s) => s.trim()) : [payload, undefined]
-              await drawRoughWork(roughText, color)
+              await drawStep(roughText, color)
             }
           } else if (tagType === 'SET_COLOR' || tagType === 'CHALK_COLOR' || tagType === 'COLOR') {
             if (payload) setChalkColor(payload)
@@ -4031,8 +5047,38 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           }
           // 4. Board Videos & Dynamic Vector Diagrams
           else if (tagType === 'IMAGE' || tagType === 'DRAW_IMAGE') {
-            const [imgTitle, imgDesc] = payload.split('|').map((s) => s.trim())
-            await drawSvgDiagram(imgTitle || 'Scientific Diagram', '', imgDesc || '')
+            const parts = payload.split('|').map((s) => s.trim())
+            if (parts[0]?.startsWith('http') || parts[0]?.startsWith('data:')) {
+              await drawImage(parts[0], parts[1], parts[2])
+            } else if (parts[1]?.startsWith('http') || parts[1]?.startsWith('data:')) {
+              await drawImage(parts[1], parts[0], parts[2])
+            } else {
+              try {
+                const res = await fetch(`/api/diagram/search-image?q=${encodeURIComponent(parts[0] || payload)}&limit=3`)
+                const data = await res.json()
+                const candidateImages: any[] = data.images || []
+                let loaded = false
+                for (const img of candidateImages) {
+                  if (!img?.url) continue
+                  try {
+                    const check = await fetch(`/api/diagram/proxy?dataUrl=true&url=${encodeURIComponent(img.url)}`)
+                    if (check.ok) {
+                      const pData = await check.json()
+                      if (pData.success && pData.dataURL) {
+                        await drawImage(pData.dataURL, parts[0] || img.title, parts[1] || img.description)
+                        loaded = true
+                        break
+                      }
+                    }
+                  } catch { }
+                }
+                if (!loaded) {
+                  await drawSvgDiagram(parts[0] || 'Scientific Diagram', '', parts[1] || '')
+                }
+              } catch {
+                await drawSvgDiagram(parts[0] || 'Scientific Diagram', '', parts[1] || '')
+              }
+            }
           } else if (tagType === 'VIDEO' || tagType === 'DRAW_VIDEO') {
             const [vidTitle, vidDesc] = payload.split('|').map((s) => s.trim())
             await drawVideoCard(vidTitle || 'Visual Demonstration', vidDesc || '')
@@ -4087,9 +5133,27 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!savedPages || !Array.isArray(savedPages) || savedPages.length === 0) return
       try {
         if (files && excalidrawAPI?.addFiles) {
-          const filesArr = Object.values(files) as any[]
+          const filesArr: any[] = []
+          for (const f of Object.values(files) as any[]) {
+            if (!f || !f.id) continue
+            const cleanDataUrl = sanitizeBase64DataUrl(f.dataURL)
+            if (!cleanDataUrl) continue
+            f.dataURL = cleanDataUrl
+            if (f.mimeType === 'image/svg+xml') {
+              const { isValid } = validateSvgForExcalidraw(cleanDataUrl)
+              if (!isValid) {
+                const fallbackSvg = createFallbackImageSvg('Whiteboard Asset')
+                f.dataURL = svgToBase64DataUrl(fallbackSvg)
+              }
+            }
+            filesArr.push(f)
+          }
           if (filesArr.length > 0) {
-            excalidrawAPI.addFiles(filesArr)
+            try {
+              excalidrawAPI.addFiles(filesArr)
+            } catch (fileErr) {
+              console.warn('[restoreBoardState] excalidrawAPI.addFiles warning:', fileErr)
+            }
           }
         }
         pagesRef.current = savedPages
@@ -4103,10 +5167,11 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           excalidrawAPI.updateScene({
             elements: targetPage.elements || [],
             appState: {
-              viewBackgroundColor: CANVAS_BG,
+              viewBackgroundColor: 'transparent',
               currentItemStrokeColor: INK_PRIMARY,
               currentItemFontFamily: 1,
               currentItemRoughness: 0,
+              gridModeEnabled: true,
               zoom: { value: boardZoomRef.current },
               scrollX: 0,
               scrollY: 0,
@@ -4115,9 +5180,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         }
 
         if (storageKey && typeof window !== 'undefined') {
-          localStorage.setItem(storageKey, JSON.stringify(savedPages))
+          safeSaveWhiteboardStorage(storageKey, savedPages)
           if (files) {
-            localStorage.setItem(`${storageKey}_files`, JSON.stringify(files))
+            safeSaveWhiteboardStorage(`${storageKey}_files`, files, true)
           }
         }
       } catch (err) {
@@ -4127,36 +5192,39 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
     // Expose imperative API
     useImperativeHandle(ref, () => ({
-      drawText,
-      drawTitle,
-      drawStep,
-      drawNote,
-      drawQuestion,
-      drawHighlightBox,
-      drawFlowchart,
-      drawRoughWork,
+      highlightText: (text: string, color?: string) => enqueueOperation(async () => highlightText(text, color)),
+      drawText: (text: string, x?: number, y?: number, color?: string) => enqueueOperation(async () => drawText(text, x, y, color)),
+      drawTitle: (title: string, color?: string) => enqueueOperation(async () => drawTitle(title, color)),
+      drawStep: (stepText: any, color?: string) => enqueueOperation(async () => drawStep(stepText, color)),
+      drawNote: (noteText: any, color?: string) => enqueueOperation(async () => drawNote(noteText, color)),
+      drawQuestion: (questionText: string, color?: string) => enqueueOperation(async () => drawQuestion(questionText, color)),
+      drawHighlightBox: (text: string, color?: string) => enqueueOperation(async () => drawHighlightBox(text, color)),
+      drawFlowchart: (flowText: string, color?: string) => enqueueOperation(async () => drawFlowchart(flowText, color)),
+      drawRoughWork: (workText: string, color?: string) => enqueueOperation(async () => drawRoughWork(workText, color)),
       clearRough,
       clearNotes,
       rewriteNotes,
       clearBoard,
       resetBoard,
       setChalkColor: (colorNameOrHex: string) => setChalkColor(colorNameOrHex),
-      setBoardColor: () => {},
-      drawSvgDiagram,
+      setBoardColor: () => { },
+      drawSvgDiagram: (title: string, svgMarkup: string, caption?: string, forceUpdate?: boolean) => enqueueOperation(async () => drawSvgDiagram(title, svgMarkup, caption, forceUpdate)),
+      drawImage: (urlOrDataUrl: string, title?: string, caption?: string) => enqueueOperation(async () => drawImage(urlOrDataUrl, title, caption)),
       drawDiagramSkeleton,
       clearDiagramSkeleton,
-      drawGraph,
-      drawNumericalSolution,
-      drawVideoCard,
-      drawTable,
-      drawGeometry,
-      drawShape,
-      drawStudentAnswer,
-      drawAnswerVerdict,
-      drawExamQuestion,
+      drawGraph: (type?: string) => enqueueOperation(async () => drawGraph(type)),
+      drawNumericalSolution: (solution: any) => enqueueOperation(async () => drawNumericalSolution(solution)),
+      drawVideoCard: (title: string, description?: string, url?: string, mimeType?: string) => enqueueOperation(async () => drawVideoCard(title, description, url, mimeType)),
+      drawTable: (tableStr: string) => enqueueOperation(async () => drawTable(tableStr)),
+      drawGeometry: (geomStr: string) => enqueueOperation(async () => drawGeometry(geomStr)),
+      drawShape: (shapeDef: any) => enqueueOperation(async () => drawShape(shapeDef)),
+      drawStudentAnswer: (answerText: string, isCorrect?: boolean, color?: string) => enqueueOperation(async () => drawStudentAnswer(answerText, isCorrect, color)),
+      drawAnswerVerdict: (verdictText: string, isCorrect?: boolean, color?: string) => enqueueOperation(async () => drawAnswerVerdict(verdictText, isCorrect, color)),
+      drawExamQuestion: (questionText: string, modelAnswer?: string, marks?: string, color?: string) => enqueueOperation(async () => drawExamQuestion(questionText, modelAnswer, marks, color)),
       addNewPage,
       goToPage,
       getBoardSummary,
+      getCompactBoardContext,
       handleAiDirective,
       getActiveQuestion: () => activeQuestionRef.current,
       getNextY: () => nextYRef.current,
@@ -4165,17 +5233,20 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     }))
 
     return (
-      <div className="whiteboard-container relative w-full h-full flex flex-col rounded-2xl overflow-hidden bg-white border border-[#E5E3DB] shadow-[0_10px_30px_-10px_rgba(23,24,23,0.06)]">
+      <div className="whiteboard-container relative w-full h-full flex flex-col rounded-2xl overflow-hidden border border-[#E5E3DB] shadow-[0_10px_30px_-10px_rgba(23,24,23,0.06)]" style={{ backgroundColor: "#F8F6F0", backgroundImage: "url('/landing_images/bg.jpg')", backgroundRepeat: "repeat", backgroundSize: "1000px auto" }}>
         {/* Excalidraw Light Engine - 100% Uninterrupted Vertical Height */}
         <div
           ref={containerRef}
-          className="relative flex-1 w-full h-full bg-[#FFFFFF]"
+          onClick={handleContainerClick}
+          onClickCapture={handleContainerClick}
+          className="relative flex-1 w-full h-full bg-transparent" style={{ backgroundColor: "transparent" }}
         >
           <Excalidraw
             excalidrawAPI={handleExcalidrawAPI}
             onChange={handleExcalidrawChange}
             theme="light"
             viewModeEnabled={true}
+            gridModeEnabled={true}
             initialData={EXCALIDRAW_INITIAL_DATA}
             UIOptions={EXCALIDRAW_UI_OPTIONS}
           />
@@ -4294,11 +5365,10 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                 <button
                   key={p.id}
                   onClick={() => switchPage(idx)}
-                  className={`px-2 py-0.5 text-[10px] font-mono rounded-md transition-all cursor-pointer ${
-                    currentPageIndex === idx
-                      ? 'bg-[#52715D] text-white font-bold shadow-xs'
-                      : 'text-[#555852] hover:bg-[#F8F6F0]'
-                  }`}
+                  className={`px-2 py-0.5 text-[10px] font-mono rounded-md transition-all cursor-pointer ${currentPageIndex === idx
+                    ? 'bg-[#52715D] text-white font-bold shadow-xs'
+                    : 'text-[#555852] hover:bg-[#F8F6F0]'
+                    }`}
                   title={`View Page ${idx + 1}`}
                 >
                   {idx + 1}
@@ -4330,11 +5400,10 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                 key={swatch.name}
                 type="button"
                 onClick={() => setChalkColor(swatch.value)}
-                className={`w-3 h-3 rounded-full transition-all cursor-pointer border ${
-                  activeChalkColor === swatch.value
-                    ? 'scale-125 ring-2 ring-[#52715D] ring-offset-1 border-white shadow-xs'
-                    : 'border-black/10 hover:scale-115'
-                }`}
+                className={`w-3 h-3 rounded-full transition-all cursor-pointer border ${activeChalkColor === swatch.value
+                  ? 'scale-125 ring-2 ring-[#52715D] ring-offset-1 border-white shadow-xs'
+                  : 'border-black/10 hover:scale-115'
+                  }`}
                 style={{ backgroundColor: swatch.value }}
                 title={swatch.title}
                 aria-label={swatch.title}
@@ -4344,12 +5413,286 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
           {/* Page Counter, Clear Button & Status */}
           <div className="flex items-center gap-2 sm:gap-3">
-                        <span className="text-[#52715D] font-bold text-[11px]">{currentPageIndex + 1}/{pages.length}</span>
+            <span className="text-[#52715D] font-bold text-[11px]">{currentPageIndex + 1}/{pages.length}</span>
           </div>
         </div>
+
+        {/* Full-Screen Scientific Visual Lightbox Modal */}
+        {lightboxImage && (
+          <div
+            className="fixed inset-0 z-[100] flex flex-col bg-black/85 backdrop-blur-md animate-fadeIn"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) {
+                setLightboxImage(null)
+                setLightboxZoom(1)
+                setLightboxPan({ x: 0, y: 0 })
+              }
+            }}
+          >
+            {/* Lightbox Header Bar */}
+            <div className="flex items-center justify-between px-6 py-4 bg-black/40 border-b border-white/10 text-white">
+              <div className="flex items-center gap-3">
+                <span className="px-2.5 py-1 rounded bg-[#52715D] text-xs font-semibold uppercase tracking-wider text-white">
+                  High-Res Visual
+                </span>
+                <h3 className="text-base font-serif font-medium text-white/95">
+                  {lightboxImage.title}
+                </h3>
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setLightboxZoom((prev) => Math.max(0.5, prev - 0.25))}
+                  className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+                  title="Zoom Out"
+                >
+                  <ZoomOut className="w-4 h-4" />
+                </button>
+                <span className="text-xs font-mono text-white/70 px-1 min-w-[3rem] text-center">
+                  {Math.round(lightboxZoom * 100)}%
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setLightboxZoom((prev) => Math.min(4, prev + 0.25))}
+                  className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+                  title="Zoom In"
+                >
+                  <ZoomIn className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setLightboxZoom(1)
+                    setLightboxPan({ x: 0, y: 0 })
+                  }}
+                  className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+                  title="Reset Zoom"
+                >
+                  <Maximize2 className="w-4 h-4" />
+                </button>
+                <div className="h-4 w-px bg-white/20 mx-1" />
+                <button
+                  type="button"
+                  onClick={() => {
+                    setLightboxImage(null)
+                    setLightboxZoom(1)
+                    setLightboxPan({ x: 0, y: 0 })
+                  }}
+                  className="p-2 rounded-lg bg-white/10 hover:bg-red-500/80 text-white transition-colors cursor-pointer"
+                  title="Close (Esc)"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Lightbox Interactive Image Stage */}
+            <div
+              className="flex-1 w-full h-full overflow-hidden flex items-center justify-center p-4 cursor-grab active:cursor-grabbing select-none"
+              onMouseDown={(e) => {
+                setIsDraggingLightbox(true)
+                dragStartRef.current = {
+                  startX: e.clientX,
+                  startY: e.clientY,
+                  initialPanX: lightboxPan.x,
+                  initialPanY: lightboxPan.y,
+                }
+              }}
+              onMouseMove={(e) => {
+                if (!isDraggingLightbox) return
+                const dx = e.clientX - dragStartRef.current.startX
+                const dy = e.clientY - dragStartRef.current.startY
+                setLightboxPan({
+                  x: dragStartRef.current.initialPanX + dx,
+                  y: dragStartRef.current.initialPanY + dy,
+                })
+              }}
+              onMouseUp={() => setIsDraggingLightbox(false)}
+              onMouseLeave={() => setIsDraggingLightbox(false)}
+              onWheel={(e) => {
+                if (e.cancelable) e.preventDefault()
+                const delta = e.deltaY < 0 ? 0.15 : -0.15
+                setLightboxZoom((prev) => Math.min(4, Math.max(0.5, prev + delta)))
+              }}
+            >
+              <div
+                style={{
+                  transform: `translate(${lightboxPan.x}px, ${lightboxPan.y}px) scale(${lightboxZoom})`,
+                  transition: isDraggingLightbox ? 'none' : 'transform 0.15s cubic-bezier(0.16, 1, 0.3, 1)',
+                }}
+                className="max-w-[90vw] max-h-[80vh] flex items-center justify-center"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={lightboxImage.url}
+                  alt={lightboxImage.title}
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.currentTarget
+                    if (!target.src.includes('/api/diagram/proxy')) {
+                      target.src = `/api/diagram/proxy?url=${encodeURIComponent(lightboxImage.url)}`
+                    }
+                  }}
+                  className="max-w-[85vw] max-h-[75vh] object-contain rounded-lg shadow-2xl border border-white/10 pointer-events-none"
+                />
+              </div>
+            </div>
+
+            {/* Lightbox Footer Note */}
+            {lightboxImage.caption && (
+              <div className="px-6 py-3 bg-black/60 border-t border-white/10 text-center">
+                <p className="text-sm font-sans text-white/80 max-w-3xl mx-auto">
+                  {lightboxImage.caption}
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Educational Demonstration Video Modal (Distraction-Free, No-Ad Embed) */}
+        {videoModal && (
+          <ChalkboardVideoPlayerModal
+            modal={videoModal}
+            onClose={() => setVideoModal(null)}
+          />
+        )}
       </div>
     )
   }
 )
 
 GreenChalkboard.displayName = 'GreenChalkboard'
+
+interface ChalkboardVideoModalState {
+  url: string
+  title: string
+  description?: string
+}
+
+function extractYoutubeId(rawUrl: string): string | null {
+  if (!rawUrl) return null
+  const trimmed = rawUrl.trim()
+  if (/^[a-zA-Z0-9_-]{11}$/.test(trimmed)) return trimmed
+  const match = trimmed.match(
+    /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/)|youtube-nocookie\.com\/embed\/)([a-zA-Z0-9_-]{11})/i
+  )
+  return match && match[1] ? match[1] : null
+}
+
+function ChalkboardVideoPlayerModal({
+  modal,
+  onClose,
+}: {
+  modal: ChalkboardVideoModalState
+  onClose: () => void
+}) {
+  const [activeUrl, setActiveUrl] = useState<string>(modal.url || '')
+  const [loading, setLoading] = useState<boolean>(!modal.url)
+  const [hasError, setHasError] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (modal.url) {
+      setActiveUrl(modal.url)
+      setLoading(false)
+      return
+    }
+
+    let cancelled = false
+    setLoading(true)
+    setHasError(false)
+
+    fetch('/api/diagram/search-video', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: modal.title }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (cancelled) return
+        const foundUrl = data.videos?.[0]?.url
+        if (foundUrl) {
+          setActiveUrl(foundUrl)
+        } else {
+          setHasError(true)
+        }
+      })
+      .catch(() => {
+        if (!cancelled) setHasError(true)
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false)
+      })
+
+    return () => {
+      cancelled = true
+    }
+  }, [modal.url, modal.title])
+
+  const ytId = extractYoutubeId(activeUrl)
+
+  return (
+    <div
+      className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex flex-col items-center justify-center p-4 animate-in fade-in duration-200"
+      onClick={onClose}
+    >
+      <div
+        className="relative max-w-4xl w-full bg-[#1A1A1A] rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Minimal Header */}
+        <div className="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-[#141414]">
+          <h3 className="text-sm font-sans font-semibold text-white/90 truncate pr-4">{modal.title}</h3>
+          <button
+            type="button"
+            onClick={onClose}
+            className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+            title="Close"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+
+        {/* Video Player */}
+        <div className="w-full bg-black flex items-center justify-center aspect-video max-h-[70vh]">
+          {loading ? (
+            <div className="flex items-center justify-center p-8">
+              <Loader2 className="w-8 h-8 text-emerald-400 animate-spin" />
+            </div>
+          ) : ytId ? (
+            <div className="relative w-full h-full flex flex-col items-center justify-center bg-black">
+              {/* Privacy-enhanced ad-free YouTube embed */}
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1&enablejsapi=1`}
+                title={modal.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="w-full h-full border-0"
+              />
+            </div>
+          ) : activeUrl && !hasError ? (
+            <video
+              src={activeUrl}
+              controls
+              autoPlay
+              playsInline
+              {...({ referrerPolicy: 'no-referrer' } as any)}
+              className="w-full h-full object-contain"
+              onError={(e) => {
+                const target = e.currentTarget
+                if (!target.src.includes('/api/diagram/proxy')) {
+                  target.src = `/api/diagram/proxy?url=${encodeURIComponent(activeUrl)}`
+                } else {
+                  setHasError(true)
+                }
+              }}
+            />
+          ) : (
+            <div className="flex items-center justify-center p-8 text-center text-white/50 text-xs">
+              Video demonstration unavailable.
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
