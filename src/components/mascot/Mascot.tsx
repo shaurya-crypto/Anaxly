@@ -535,7 +535,9 @@ export function Mascot() {
       ref={containerRef}
       style={containerStyle}
       aria-label="Anaxly Intelligent Companion"
-      className="flex flex-col items-center md:items-start select-none pointer-events-none group"
+      className={`${
+        pathname?.startsWith('/login') ? 'hidden md:flex' : 'flex'
+      } flex-col items-center md:items-start select-none pointer-events-none group`}
     >
       {/* Interactive Floating Speech Bubble with Apple-tier springs */}
       {speechBubbleOpen && (
