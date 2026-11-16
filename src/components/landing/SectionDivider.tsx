@@ -17,7 +17,7 @@ export function SectionDivider({ className = '' }: SectionDividerProps) {
       {/* Background Cloud Atmosphere */}
       <div className="absolute inset-0">
         <Image
-          src="/landing_images/hero-clouds.jpg"
+          src="/landing_images/hero-clouds-clean.jpg"
           alt="Clouds divider atmosphere"
           fill
           sizes="100vw"

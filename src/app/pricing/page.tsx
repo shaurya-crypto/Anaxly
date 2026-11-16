@@ -452,21 +452,21 @@ export default function PricingPage() {
   const renderCellContent = (val: string | boolean) => {
     if (typeof val === 'boolean') {
       return val ? (
-        <Check className="w-5 h-5 text-emerald-600 stroke-[2.75] mx-auto" />
+        <Check className="w-5 h-5 text-coral-primary stroke-[2.75] mx-auto" />
       ) : (
         <span className="text-stone-300 font-bold text-lg select-none">—</span>
       )
     }
     if (val === '100% Free') {
       return (
-        <span className="font-extrabold text-emerald-700 text-sm sm:text-base">
+        <span className="font-extrabold text-coral-primary text-sm sm:text-base">
           100% Free
         </span>
       )
     }
     if (val.includes('100% of All Classes')) {
       return (
-        <span className="font-extrabold text-emerald-800 text-sm sm:text-base">
+        <span className="font-extrabold text-coral-hover text-sm sm:text-base">
           100% of All Classes
         </span>
       )
@@ -648,17 +648,17 @@ export default function PricingPage() {
         {/* Header Hero Section */}
         <section className="text-center max-w-4xl mx-auto space-y-4">
           <h1 className="font-sans text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-stone-950 leading-[1.14]">
-            World-Class <span className="text-emerald-700">1-on-1 Socratic Tutoring</span>, starting at{' '}
-            <span className="underline decoration-emerald-500 decoration-4 underline-offset-8 text-stone-950 font-black">₹399/mo</span> — at{' '}
-            <span className="text-emerald-700 underline decoration-emerald-500/50 decoration-4 underline-offset-6">1/4th the Cost</span> of Private Tuitions.
+            World-Class <span className="text-coral-primary">1-on-1 Socratic Tutoring</span>, starting at{' '}
+            <span className="underline decoration-coral-border decoration-4 underline-offset-8 text-stone-950 font-black">₹399/mo</span> — at{' '}
+            <span className="text-coral-primary underline decoration-coral-border decoration-4 underline-offset-6">1/4th the Cost</span> of Private Tuitions.
           </h1>
 
           <p className="text-base sm:text-lg font-medium text-stone-600 leading-relaxed max-w-3xl mx-auto">
             Interactive digital chalkboard, science diagrams, and coordinate graphs are{' '}
-            <span className="text-emerald-800 font-bold underline decoration-emerald-500 decoration-2">
+            <span className="text-coral-hover font-bold underline decoration-coral-border decoration-2">
               100% Free Forever
             </span>
-            . Unlock live Socratic classes starting at <span className="text-stone-950 font-bold underline decoration-stone-400 decoration-2">₹399/mo</span> and face-to-face AI video teachers at <span className="text-stone-950 font-bold underline decoration-emerald-500 decoration-2">₹899/mo</span>.
+            . Unlock live Socratic classes starting at <span className="text-stone-950 font-bold underline decoration-stone-400 decoration-2">₹399/mo</span> and face-to-face AI video teachers at <span className="text-stone-950 font-bold underline decoration-coral-border decoration-2">₹899/mo</span>.
           </p>
 
           {/* Clean Hairline Scholastic Illustration (No text metadata) */}
@@ -672,7 +672,7 @@ export default function PricingPage() {
                 onClick={() => setBillingCycle('monthly')}
                 className={`rounded-full px-5 py-2 text-xs sm:text-sm font-bold transition-all ${
                   billingCycle === 'monthly'
-                    ? 'bg-stone-900 text-white shadow-xs'
+                    ? 'bg-coral-primary text-white shadow-xs'
                     : 'text-stone-600 hover:text-stone-950'
                 }`}
               >
@@ -683,12 +683,12 @@ export default function PricingPage() {
                 onClick={() => setBillingCycle('annual')}
                 className={`rounded-full px-5 py-2 text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
                   billingCycle === 'annual'
-                    ? 'bg-stone-900 text-white shadow-xs'
+                    ? 'bg-coral-primary text-white shadow-xs'
                     : 'text-stone-600 hover:text-stone-950'
                 }`}
               >
                 <span>Annual Billing</span>
-                <span className="rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black px-2 py-0.5 uppercase tracking-wide">
+                <span className="rounded-full bg-coral-soft text-coral-hover text-[10px] font-black px-2 py-0.5 uppercase tracking-wide">
                   Save 20-25%
                 </span>
               </button>
@@ -705,7 +705,7 @@ export default function PricingPage() {
                 key={plan.id}
                 className={`relative flex flex-col rounded-3xl p-7 sm:p-8 transition-all duration-300 ${
                   plan.popular
-                    ? 'border-2 border-emerald-600 bg-white shadow-xl ring-4 ring-emerald-500/10'
+                    ? 'border-2 border-coral-primary bg-white shadow-xl ring-4 ring-coral-border'
                     : 'border border-stone-200 bg-white hover:border-stone-300 shadow-xs hover:shadow-md'
                 }`}
               >
@@ -715,7 +715,7 @@ export default function PricingPage() {
                     <span
                       className={`inline-flex items-center gap-1 rounded-full px-3 py-0.5 text-xs font-black uppercase tracking-wider shadow-xs ${
                         plan.popular
-                          ? 'bg-emerald-600 text-white'
+                          ? 'bg-coral-primary text-white'
                           : 'bg-stone-100 border border-stone-200 text-stone-700'
                       }`}
                     >
@@ -744,7 +744,7 @@ export default function PricingPage() {
                   </div>
 
                   {billingCycle === 'annual' && plan.annualSavings && (
-                    <p className="text-xs font-bold text-emerald-700">{plan.annualSavings}</p>
+                    <p className="text-xs font-bold text-coral-primary">{plan.annualSavings}</p>
                   )}
                 </div>
 
@@ -760,7 +760,7 @@ export default function PricingPage() {
                         <Check
                           className={`w-4 h-4 mt-0.5 shrink-0 ${
                             feature.freeHighlight
-                              ? 'text-emerald-600 stroke-[3]'
+                              ? 'text-coral-primary stroke-[3]'
                               : feature.highlight
                               ? 'text-blue-600 stroke-[2.5]'
                               : 'text-stone-400 stroke-[2]'
@@ -769,7 +769,7 @@ export default function PricingPage() {
                         <span
                           className={`${
                             feature.freeHighlight
-                              ? 'font-bold text-emerald-900 bg-emerald-50 px-1 py-0.5 rounded'
+                              ? 'font-bold text-coral-hover bg-coral-soft px-1 py-0.5 rounded'
                               : feature.highlight
                               ? 'font-bold text-stone-950'
                               : 'font-medium'
@@ -786,7 +786,7 @@ export default function PricingPage() {
                     <a
                       href="#compare"
                       onClick={handleScrollToCompare}
-                      className="text-xs sm:text-sm font-bold text-stone-700 hover:text-emerald-700 underline underline-offset-4 decoration-stone-300 hover:decoration-emerald-500 transition-colors inline-block"
+                      className="text-xs sm:text-sm font-bold text-stone-700 hover:text-coral-hover underline underline-offset-4 decoration-stone-300 hover:decoration-coral-primary transition-colors inline-block"
                     >
                       See all features &amp; full comparison &rarr;
                     </a>
@@ -799,12 +799,12 @@ export default function PricingPage() {
                     type="button"
                     disabled={processingPlanId === plan.id}
                     onClick={(e) => handlePlanCheckout(e, plan.id, plan.ctaHref)}
-                    className={`w-full inline-flex items-center justify-center gap-2 rounded-2xl py-3.5 px-4 text-xs sm:text-sm font-bold transition-all shadow-xs cursor-pointer ${
+                    className={`w-full inline-flex items-center justify-center gap-2 rounded-full py-3.5 px-4 text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                       plan.ctaVariant === 'primary'
-                        ? 'bg-emerald-600 hover:bg-emerald-700 text-white hover:shadow-md'
+                        ? 'btn-aristotle-primary text-white'
                         : plan.ctaVariant === 'secondary'
-                        ? 'bg-stone-900 hover:bg-black text-white'
-                        : 'border border-stone-300 bg-white hover:bg-stone-50 text-stone-900'
+                        ? 'border border-coral-primary bg-white text-coral-primary hover:bg-coral-soft'
+                        : 'border border-border-strong bg-white text-ink-primary hover:border-ink-primary hover:bg-surface-soft'
                     }`}
                   >
                     <span>{processingPlanId === plan.id ? 'Connecting...' : plan.ctaText}</span>
@@ -840,7 +840,7 @@ export default function PricingPage() {
                   <th className="py-4 px-4 text-center font-sans text-base sm:text-lg font-bold text-stone-950 w-[15%]">
                     Scholar
                   </th>
-                  <th className="py-4 px-4 text-center font-sans text-base sm:text-lg font-extrabold text-emerald-800 bg-emerald-50/70 w-[15%]">
+                  <th className="py-4 px-4 text-center font-sans text-base sm:text-lg font-extrabold text-coral-hover bg-coral-soft w-[15%]">
                     Topper Pro
                   </th>
                   <th className="py-4 px-4 text-center font-sans text-base sm:text-lg font-bold text-stone-950 w-[15%]">
@@ -856,7 +856,7 @@ export default function PricingPage() {
                     </td>
                     <td className="py-4 px-4 text-center">{renderCellContent(feat.free)}</td>
                     <td className="py-4 px-4 text-center">{renderCellContent(feat.scholar)}</td>
-                    <td className="py-4 px-4 text-center bg-emerald-50/30">
+                    <td className="py-4 px-4 text-center bg-coral-soft">
                       {renderCellContent(feat.topper)}
                     </td>
                     <td className="py-4 px-4 text-center">{renderCellContent(feat.mastery)}</td>
@@ -871,7 +871,7 @@ export default function PricingPage() {
         <section className="mt-28">
           <div className="text-center max-w-4xl mx-auto space-y-3 mb-10">
             <h2 className="font-sans text-3xl sm:text-5xl font-extrabold text-stone-950 tracking-tight">
-              <span className="text-emerald-700 underline decoration-emerald-500/40 decoration-4 underline-offset-6">Anaxly 1-on-1</span> vs. YouTube vs. Mass Coaching vs. Home Tutors
+              <span className="text-coral-primary underline decoration-coral-border decoration-4 underline-offset-6">Anaxly 1-on-1</span> vs. YouTube vs. Mass Coaching vs. Home Tutors
             </h2>
             <p className="text-sm sm:text-base font-medium text-stone-600">
               Why passive 50,000-student chat streams fail school students, and how 1-on-1 Socratic chalkboard discipline delivers authentic 95%+ board scores.
@@ -903,9 +903,9 @@ export default function PricingPage() {
                       <span>Private Home Tutors</span>
                     </div>
                   </th>
-                  <th className="py-4 px-4 text-center font-sans text-xs sm:text-sm font-extrabold text-emerald-950 bg-emerald-50/70 w-1/5">
+                  <th className="py-4 px-4 text-center font-sans text-xs sm:text-sm font-extrabold text-coral-hover bg-coral-soft w-1/5">
                     <div className="flex items-center justify-center gap-1.5">
-                      <Star className="w-4 h-4 text-emerald-600 fill-current" />
+                      <Star className="w-4 h-4 text-coral-primary fill-current" />
                       <span>Anaxly 1-on-1</span>
                     </div>
                   </th>
@@ -918,7 +918,7 @@ export default function PricingPage() {
                     <td className="py-4 px-4 text-center text-stone-500 font-medium">{row.youtube}</td>
                     <td className="py-4 px-4 text-center text-stone-500 font-medium">{row.pw}</td>
                     <td className="py-4 px-4 text-center text-stone-600 font-medium">{row.tutor}</td>
-                    <td className="py-4 px-4 text-center font-bold text-emerald-950 bg-emerald-50/40">
+                    <td className="py-4 px-4 text-center font-bold text-coral-hover bg-coral-soft">
                       {row.anaxly}
                     </td>
                   </tr>
@@ -955,7 +955,7 @@ export default function PricingPage() {
                     <span className="font-bold text-sm sm:text-base text-stone-900">{faq.q}</span>
                     <HelpCircle
                       className={`w-4 h-4 text-stone-400 transition-transform duration-200 ${
-                        isOpen ? 'rotate-180 text-emerald-600' : ''
+                        isOpen ? 'rotate-180 text-coral-primary' : ''
                       }`}
                     />
                   </button>
@@ -977,7 +977,7 @@ export default function PricingPage() {
           <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-stone-200 space-y-6">
             <div className="flex items-center justify-between border-b border-stone-100 pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700">
+                <div className="w-10 h-10 rounded-2xl bg-coral-soft border border-coral-border flex items-center justify-center text-coral-primary">
                   <CreditCard className="w-5 h-5" />
                 </div>
                 <div>
@@ -1026,7 +1026,7 @@ export default function PricingPage() {
                     `test_simulated_sig_${testModalOrder.orderId}_${Date.now()}`
                   )
                 }
-                className="w-full inline-flex items-center justify-center gap-2 rounded-2xl py-3.5 px-4 text-sm font-bold bg-emerald-600 hover:bg-emerald-700 text-white transition-all shadow-md cursor-pointer disabled:opacity-60"
+                className="btn-aristotle-primary w-full inline-flex items-center justify-center gap-2 rounded-full py-3.5 px-4 text-sm font-semibold text-white cursor-pointer disabled:opacity-60"
               >
                 <span>{isVerifying ? 'Activating Plan in Database...' : 'Simulate Successful Payment'}</span>
                 <ArrowRight className="w-4 h-4" />
