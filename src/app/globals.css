@@ -302,22 +302,6 @@ html.lenis, html.lenis body {
   animation: kenburns 35s ease-in-out infinite;
 }
 
-.animate-cloud-drift {
-  animation: cloudDrift 28s ease-in-out infinite;
-}
-
-.animate-cloud-drift-reverse {
-  animation: cloudDriftReverse 32s ease-in-out infinite;
-}
-
-.animate-name-glow {
-  animation: nameGlow 4s ease-in-out infinite;
-}
-
-.animate-gold-glow {
-  animation: goldGlow 4.5s ease-in-out infinite;
-}
-
 @keyframes scrollCue {
   0% { transform: translateY(-100%); }
   100% { transform: translateY(200%); }
@@ -366,6 +350,22 @@ html.lenis, html.lenis body {
   .handwriting.is-writing .handwriting-char { opacity: 1; transform: none; animation: none; }
   .handwriting-underline,
   .handwriting.is-writing .handwriting-underline { transform: scaleX(1); animation: none; }
+}
+
+.animate-cloud-drift {
+  animation: cloudDrift 28s ease-in-out infinite;
+}
+
+.animate-cloud-drift-reverse {
+  animation: cloudDriftReverse 32s ease-in-out infinite;
+}
+
+.animate-name-glow {
+  animation: nameGlow 4s ease-in-out infinite;
+}
+
+.animate-gold-glow {
+  animation: goldGlow 4.5s ease-in-out infinite;
 }
 
 .font-cursive {
