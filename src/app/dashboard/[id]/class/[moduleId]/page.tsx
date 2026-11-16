@@ -1110,6 +1110,7 @@ export default function ModuleClassroomPage() {
 
     // 0. Question / Doubt fast-path: Address student doubt without evaluating as a test answer or advancing
     if (isStudentQuestionOrDoubt(cleanAnswer)) {
+      hasConfirmedUnderstandingRef.current = false
       isAwaitingStudentAnswerRef.current = false
       setIsAwaitingStudentAnswer(false)
       isReviewingVerdictRef.current = false
@@ -1176,6 +1177,7 @@ CRITICAL DIRECTIVE:
 
     // 0. Question / Doubt fast-path: Address student doubt without evaluating as a test answer or advancing
     if (isStudentQuestionOrDoubt(cleanAnswer)) {
+      hasConfirmedUnderstandingRef.current = false
       isAwaitingStudentAnswerRef.current = false
       setIsAwaitingStudentAnswer(false)
       isReviewingVerdictRef.current = false
@@ -1397,6 +1399,8 @@ CRITICAL DIRECTIVE:
   const lastTargetIdxRef = useRef<number>(-1)
   const lastConceptDoneTimeRef = useRef<number>(0)
   const hasSessionStartedRef = useRef<boolean>(false)
+  const isUserTerminatedRef = useRef<boolean>(false)
+  const reconnectAttemptsRef = useRef<number>(0)
   const hasConfirmedUnderstandingRef = useRef<boolean>(false)
   const [isReconnecting, setIsReconnecting] = useState<boolean>(false)
   const reconnectAttemptTimerRef = useRef<NodeJS.Timeout | null>(null)
@@ -1922,7 +1926,9 @@ CRITICAL DIRECTIVE:
         return // Never parse internal system transition prompts as student commands!
       }
 
-      if (isConfirmationOrNextIntent(userText)) {
+      if (isStudentQuestionOrDoubt(userText)) {
+        hasConfirmedUnderstandingRef.current = false
+      } else if (isConfirmationOrNextIntent(userText)) {
         hasConfirmedUnderstandingRef.current = true
       }
 
@@ -3212,6 +3218,8 @@ MANDATORY INVARIANT:
   const handleStartClass = async () => {
     if (!activeModule) return
 
+    isUserTerminatedRef.current = false
+    reconnectAttemptsRef.current = 0
     hasSessionStartedRef.current = true
     setIsReconnecting(false)
 
@@ -3998,8 +4006,23 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
             setActiveGraph({ formula, domain, range, title, callout, points })
           }
           else if (action === 'draw_numerical' || action === 'numerical' || action === 'worked_example' || action === 'solve') {
-            if (typeof content === 'object') chalkboardRef.current.drawNumericalSolution?.(content)
-            else chalkboardRef.current.handleAiDirective(`[NUMERICAL: ${content}]`)
+            let numericalData: any = content
+            if (typeof numericalData === 'object' && numericalData !== null) {
+              if (numericalData.content && !numericalData.answer && !numericalData.problem) {
+                numericalData = numericalData.content
+              }
+            }
+            if (typeof numericalData === 'string') {
+              try {
+                const parsed = JSON.parse(numericalData)
+                if (parsed && typeof parsed === 'object') numericalData = parsed
+              } catch {}
+            }
+            if (typeof numericalData === 'object' && numericalData !== null) {
+              chalkboardRef.current.drawNumericalSolution?.(numericalData)
+            } else {
+              chalkboardRef.current.handleAiDirective(`[NUMERICAL: ${numericalData}]`)
+            }
           }
           else if (action === 'draw_video' || action === 'video') {
             let vidUrl = ''
@@ -4352,19 +4375,34 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
     )
   }
 
-  // Auto-reconnect session when dropped during an active class, preserving chalkboard and concept index
+  // Auto-reconnect session when unexpectedly dropped during an active class, preserving chalkboard and concept index
   useEffect(() => {
-    if (hasSessionStartedRef.current && (connectionState === 'DISCONNECTED' || connectionState === 'ERROR')) {
+    if (
+      !isUserTerminatedRef.current &&
+      hasSessionStartedRef.current &&
+      (connectionState === 'DISCONNECTED' || connectionState === 'ERROR')
+    ) {
+      if (reconnectAttemptsRef.current >= 3) {
+        console.warn('[Classroom Auto-Reconnect] Maximum reconnect attempts (3) reached. Pausing auto-reconnect.')
+        setIsReconnecting(false)
+        return
+      }
       setIsReconnecting(true)
       if (reconnectAttemptTimerRef.current) clearTimeout(reconnectAttemptTimerRef.current)
       reconnectAttemptTimerRef.current = setTimeout(() => {
-        if (hasSessionStartedRef.current && (connectionState === 'DISCONNECTED' || connectionState === 'ERROR')) {
-          console.log('[Classroom Auto-Reconnect] Attempting to reconnect session preserving board context and concept index...')
+        if (
+          !isUserTerminatedRef.current &&
+          hasSessionStartedRef.current &&
+          (connectionState === 'DISCONNECTED' || connectionState === 'ERROR')
+        ) {
+          reconnectAttemptsRef.current += 1
+          console.log(`[Classroom Auto-Reconnect] Attempting to reconnect session preserving board context and concept index... (Attempt ${reconnectAttemptsRef.current}/3)`)
           handleStartClass()
         }
       }, 1500)
     } else if (connectionState === 'CONNECTED' || connectionState === 'LISTENING' || connectionState === 'TEACHER_SPEAKING') {
       setIsReconnecting(false)
+      reconnectAttemptsRef.current = 0
     }
     return () => {
       if (reconnectAttemptTimerRef.current) clearTimeout(reconnectAttemptTimerRef.current)
@@ -4372,6 +4410,13 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
   }, [connectionState])
 
   const handleEndClass = () => {
+    isUserTerminatedRef.current = true
+    hasSessionStartedRef.current = false
+    setIsReconnecting(false)
+    if (reconnectAttemptTimerRef.current) {
+      clearTimeout(reconnectAttemptTimerRef.current)
+      reconnectAttemptTimerRef.current = null
+    }
     endCall()
     if (isCompletedBefore || moduleCompletedSuccess) {
       setQuizOpen(true)
@@ -4380,17 +4425,38 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
 
   const handleOpenQuiz = () => {
     if (!isCompletedBefore && !moduleCompletedSuccess) return
+    isUserTerminatedRef.current = true
+    hasSessionStartedRef.current = false
+    setIsReconnecting(false)
+    if (reconnectAttemptTimerRef.current) {
+      clearTimeout(reconnectAttemptTimerRef.current)
+      reconnectAttemptTimerRef.current = null
+    }
     endCall()
     setQuizOpen(true)
   }
 
   const handleBackToDashboard = () => {
+    isUserTerminatedRef.current = true
+    hasSessionStartedRef.current = false
+    setIsReconnecting(false)
+    if (reconnectAttemptTimerRef.current) {
+      clearTimeout(reconnectAttemptTimerRef.current)
+      reconnectAttemptTimerRef.current = null
+    }
     endCall()
     router.refresh()
     router.push(`/dashboard/${userId}`)
   }
 
   const handleGoToSettings = () => {
+    isUserTerminatedRef.current = true
+    hasSessionStartedRef.current = false
+    setIsReconnecting(false)
+    if (reconnectAttemptTimerRef.current) {
+      clearTimeout(reconnectAttemptTimerRef.current)
+      reconnectAttemptTimerRef.current = null
+    }
     endCall()
     router.push(`/dashboard/${userId}/settings?tab=avatars`)
   }
@@ -4560,6 +4626,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                   <CallControls
                     isMuted={isMuted}
                     userVolume={userVolume}
+                    userVolumeRef={userVolumeRef}
                     onToggleMute={toggleMute}
                     onEndCall={handleEndClass}
                   />
@@ -4742,7 +4809,11 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
               </span>
               <button
                 type="button"
-                onClick={() => handleStartClass()}
+                onClick={() => {
+                  reconnectAttemptsRef.current = 0
+                  isUserTerminatedRef.current = false
+                  handleStartClass()
+                }}
                 className="px-3 py-1 bg-white text-[#1F3852] font-semibold rounded-full hover:bg-white/90 transition-colors cursor-pointer text-xs"
               >
                 Reconnect Voice

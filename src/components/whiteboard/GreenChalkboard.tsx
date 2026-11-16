@@ -4958,11 +4958,24 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               }
             }
           } else if (action === 'draw_numerical' || action === 'numerical' || action === 'worked_example' || action === 'solve') {
-            if (typeof content === 'object') await drawNumericalSolution(content);
-            else {
-              const parts = (content || '').split('|').map((s) => s.trim());
+            let numericalData: any = content;
+            if (typeof numericalData === 'object' && numericalData !== null) {
+              if (numericalData.content && !numericalData.answer && !numericalData.problem) {
+                numericalData = numericalData.content;
+              }
+            }
+            if (typeof numericalData === 'string') {
+              try {
+                const parsed = JSON.parse(numericalData);
+                if (parsed && typeof parsed === 'object') numericalData = parsed;
+              } catch {}
+            }
+            if (typeof numericalData === 'object' && numericalData !== null) {
+              await drawNumericalSolution(numericalData);
+            } else {
+              const parts = (numericalData || '').split('|').map((s: string) => s.trim());
               const solutionData: any = { answer: '' };
-              parts.forEach((p) => {
+              parts.forEach((p: string) => {
                 const lower = p.toLowerCase();
                 if (lower.startsWith('problem:')) solutionData.problem = p.substring(8).trim();
                 else if (lower.startsWith('given:')) solutionData.given = p.substring(6).trim();

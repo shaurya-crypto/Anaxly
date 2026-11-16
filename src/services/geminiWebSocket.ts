@@ -409,7 +409,18 @@ export class GeminiLiveClient {
       }
 
       if (action === "draw_numerical" || action === "numerical") {
-        this.callbacks.onChalkboardToolCall?.("draw_numerical", args.content ? (typeof args.content === 'object' ? args.content : args) : args);
+        let numericalPayload: any = args.content !== undefined ? args.content : args;
+        if (typeof numericalPayload === 'string') {
+          try {
+            const parsed = JSON.parse(numericalPayload);
+            if (parsed && typeof parsed === 'object') {
+              numericalPayload = parsed;
+            }
+          } catch {
+            // Keep as raw string (pipe-separated)
+          }
+        }
+        this.callbacks.onChalkboardToolCall?.("draw_numerical", numericalPayload);
       } else if (action === "highlight_text" || action === "highlight_word" || action === "highlight_sentence") {
         this.callbacks.onHighlightText?.(textContent, "both", color || "amber");
       } else {

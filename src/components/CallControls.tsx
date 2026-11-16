@@ -1,22 +1,45 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Mic, MicOff, PhoneOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface CallControlsProps {
   isMuted: boolean;
-  userVolume: number;
+  userVolume?: number;
+  userVolumeRef?: React.RefObject<number>;
   onToggleMute: () => void;
   onEndCall: () => void;
 }
 
 export const CallControls: React.FC<CallControlsProps> = ({
   isMuted,
-  userVolume,
+  userVolume = 0,
+  userVolumeRef,
   onToggleMute,
   onEndCall,
 }) => {
+  const rippleRef = useRef<HTMLSpanElement | null>(null);
+
+  useEffect(() => {
+    let animId: number;
+    const animate = () => {
+      const vol = userVolumeRef?.current ?? userVolume ?? 0;
+      if (rippleRef.current) {
+        if (!isMuted && vol > 0.04) {
+          rippleRef.current.style.display = "block";
+          rippleRef.current.style.transform = `scale(${1 + Math.min(vol, 1) * 0.45})`;
+          rippleRef.current.style.opacity = `${Math.min(1, vol * 2.5)}`;
+        } else {
+          rippleRef.current.style.display = "none";
+        }
+      }
+      animId = requestAnimationFrame(animate);
+    };
+    animId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animId);
+  }, [isMuted, userVolume, userVolumeRef]);
+
   return (
     <div className="flex items-center gap-2 sm:gap-3 p-1.5 rounded-full bg-white border border-border">
       {/* Microphone Toggle Button */}
@@ -30,15 +53,11 @@ export const CallControls: React.FC<CallControlsProps> = ({
         }`}
       >
         {/* Subtle Mic Volume Ripple Ring */}
-        {!isMuted && userVolume > 0.05 && (
-          <span
-            className="absolute inset-0 rounded-full border border-botanical pointer-events-none transition-transform duration-75"
-            style={{
-              transform: `scale(${1 + userVolume * 0.4})`,
-              opacity: Math.min(1, userVolume * 2),
-            }}
-          />
-        )}
+        <span
+          ref={rippleRef}
+          className="absolute inset-0 rounded-full border border-botanical pointer-events-none transition-transform duration-75"
+          style={{ display: "none" }}
+        />
 
         {isMuted ? <MicOff className="w-5 h-5" strokeWidth={1.5} /> : <Mic className="w-5 h-5" strokeWidth={1.5} />}
 

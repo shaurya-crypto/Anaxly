@@ -19,6 +19,7 @@ export class AudioStreamer {
   private lastSpeechTime: number = 0;
   private consecutiveBargeInFrames: number = 0;
   private wasSpeechActive: boolean = false;
+  private pendingOnsetFrame: Float32Array | null = null;
   private noiseFloor: number = 0.015;
   private consecutiveSpeechFrames: number = 0;
   private speechStartTime: number = 0;
@@ -208,13 +209,19 @@ export class AudioStreamer {
       this.lastSpeechTime = now;
       this.consecutiveSpeechFrames++;
       // Debounce: require 2 consecutive frames (~85ms) of vocal energy before marking speech active
-      if (!this.wasSpeechActive && this.consecutiveSpeechFrames >= 2) {
-        this.wasSpeechActive = true;
-        this.speechStartTime = now;
-        this.onSpeechStart?.();
+      if (!this.wasSpeechActive) {
+        if (this.consecutiveSpeechFrames === 1) {
+          // Pre-roll onset buffer: retain the first frame so speech onset attack is never clipped
+          this.pendingOnsetFrame = new Float32Array(inputData);
+        } else if (this.consecutiveSpeechFrames >= 2) {
+          this.wasSpeechActive = true;
+          this.speechStartTime = now;
+          this.onSpeechStart?.();
+        }
       }
     } else {
       this.consecutiveSpeechFrames = 0;
+      this.pendingOnsetFrame = null;
       // Human conversational silence hangover: 450ms after speech ends to signal turn transition instantly (optimized from SPEECH_HANGOVER_MS = 900)
       const SPEECH_HANGOVER_MS = 450;
       if (this.wasSpeechActive && now - this.lastSpeechTime > SPEECH_HANGOVER_MS) {
@@ -230,6 +237,16 @@ export class AudioStreamer {
     // Stop streaming zero-PCM silence chunks when speech is not active
     if (!this.wasSpeechActive) {
       return;
+    }
+
+    // Flush pre-roll onset frame first if speech transition just occurred
+    if (this.pendingOnsetFrame) {
+      const onsetData = this.pendingOnsetFrame;
+      this.pendingOnsetFrame = null;
+      const resampledOnset = this.resampleAudio(onsetData, inputRate, targetRate);
+      const pcm16Onset = this.floatTo16BitPCM(resampledOnset);
+      const base64Onset = this.arrayBufferToBase64(pcm16Onset.buffer);
+      this.onAudioChunk?.(base64Onset);
     }
 
     // When speech is active, attenuate ambient background hiss during slight pauses
@@ -277,6 +294,7 @@ export class AudioStreamer {
 
   public setMuted(muted: boolean): void {
     this.isMuted = muted;
+    this.pendingOnsetFrame = null;
     if (!muted) {
       this.wasSpeechActive = false;
       this.consecutiveSpeechFrames = 0;
@@ -306,6 +324,7 @@ export class AudioStreamer {
   }
 
   public stop(): void {
+    this.pendingOnsetFrame = null;
     if (this.workletNode) {
       this.workletNode.disconnect();
       this.workletNode.port.onmessage = null;

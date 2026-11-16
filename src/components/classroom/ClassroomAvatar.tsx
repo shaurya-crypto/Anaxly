@@ -164,6 +164,16 @@ export const ClassroomAvatar: React.FC<ClassroomAvatarProps> = ({
 
       if (ringContainerRef.current) {
         ringContainerRef.current.style.transform = `scale(${scale})`
+        if (isSpeakingNow) {
+          ringContainerRef.current.classList.add('ring-amber-500/60')
+          ringContainerRef.current.classList.remove('ring-emerald-500/60', 'ring-stone-200')
+        } else if (isUserTalkingNow) {
+          ringContainerRef.current.classList.add('ring-emerald-500/60')
+          ringContainerRef.current.classList.remove('ring-amber-500/60', 'ring-stone-200')
+        } else {
+          ringContainerRef.current.classList.add('ring-stone-200')
+          ringContainerRef.current.classList.remove('ring-amber-500/60', 'ring-emerald-500/60')
+        }
       }
       animId = requestAnimationFrame(animate)
     }
@@ -171,7 +181,7 @@ export const ClassroomAvatar: React.FC<ClassroomAvatarProps> = ({
     return () => cancelAnimationFrame(animId)
   }, [state, isMuted, teacherVolumeRef, userVolumeRef, teacherVolume, userVolume])
 
-  const ringColor = isSpeaking ? 'ring-amber-500/60' : isUserTalking ? 'ring-emerald-500/60' : 'ring-stone-200'
+  const ringColor = isSpeaking ? 'ring-amber-500/60' : 'ring-stone-200'
 
   const avatarImageUrl = `/avatars/${selectedFaceId}.jpg`
 
