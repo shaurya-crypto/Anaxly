@@ -15,7 +15,7 @@ const WhiteboardWorkspace = dynamicImport(
     ssr: false,
     loading: () => (
       <div className="w-full h-full flex flex-col items-center justify-center bg-[#FFFFFF] text-[var(--ink-primary)] space-y-3 font-serif">
-        <div className="w-8 h-8 border-2 border-[var(--accent-sage)] border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-2 border-[var(--accent-primary)] border-t-transparent rounded-full animate-spin" />
         <p className="text-sm tracking-wide text-[var(--ink-secondary)]">Preparing AI Classroom Stage...</p>
       </div>
     ),
@@ -1136,7 +1136,7 @@ CRITICAL DIRECTIVE:
    - Write the verdict and model answer on this current whiteboard page using write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>").
    - If incorrect or hesitant, break down the step and co-solve with me in [ROUGH_WORK].
 4. HARD STOP: Deliver complete, well-formed teacherly explanations. Ask if I followed or have any doubts before proceeding.
-5. ADVANCEMENT GATING: Call concept_completed(conceptName="...") or write_chalkboard(action="concept_done") ONLY after the Stage 5/6 checkpoint question has been solved and verified, or if the student explicitly commands moving to the next concept. NEVER skip concepts.`
+5. ADVANCEMENT GATING: Call concept_completed(conceptName="...") or write_chalkboard(action="concept_done") ONLY after the Stage 5/6 checkpoint question has been solved and verified, or if the student explicitly commands moving to the next concept. DO NOT advance to the next concept or page yet! Remain on this current concept page so I can review the chalkboard notes. NEVER skip concepts.`
     )
   }
 
@@ -1196,7 +1196,7 @@ CRITICAL DIRECTIVE:
    - Write the verdict and model answer on this current whiteboard page using write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>").
    - If incorrect or hesitant, break down the step and co-solve with me in [ROUGH_WORK].
 4. HARD STOP: Deliver complete, well-formed teacherly explanations. Ask if I followed or have any doubts before proceeding.
-5. ADVANCEMENT GATING: Call concept_completed(conceptName="...") or write_chalkboard(action="concept_done") ONLY after the Stage 5/6 checkpoint question has been solved and verified, or if the student explicitly commands moving to the next concept. NEVER skip concepts.`
+5. ADVANCEMENT GATING: Call concept_completed(conceptName="...") or write_chalkboard(action="concept_done") ONLY after the Stage 5/6 checkpoint question has been solved and verified, or if the student explicitly commands moving to the next concept. DO NOT advance to the next concept or page yet! Remain on this current concept page so I can review the chalkboard notes. NEVER skip concepts.`
     )
   }
 
@@ -4370,7 +4370,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
       : connectionState === 'LISTENING'
       ? isMuted
         ? 'bg-stone-400'
-        : 'bg-emerald-500'
+        : 'bg-[var(--accent-primary)]'
       : connectionState === 'CONNECTING'
       ? 'bg-amber-400 animate-pulse'
       : 'bg-stone-300'
@@ -4395,15 +4395,15 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
             className={`w-full min-h-10 flex items-center gap-2.5 px-3 py-2 rounded-xl text-left text-[13px] leading-snug transition-colors cursor-pointer ${
               isCurrent
                 ? 'bg-[var(--accent-warm-soft)] text-[var(--ink-primary)] font-medium'
-                : 'text-[var(--ink-secondary)] hover:bg-stone-100'
+                : 'text-[var(--ink-secondary)] hover:bg-[var(--canvas-soft)]'
             }`}
           >
             {isDone ? (
-              <CheckCircle2 className="w-4 h-4 text-[var(--accent-sage)] shrink-0" />
+              <CheckCircle2 className="w-4 h-4 text-[var(--accent-primary)] shrink-0" />
             ) : (
               <span
                 className={`w-2 h-2 mx-1 rounded-full shrink-0 ${
-                  isCurrent ? 'bg-[var(--accent-warm)]' : 'bg-stone-300'
+                  isCurrent ? 'bg-[var(--accent-warm)]' : 'bg-[var(--border-strong)]'
                 }`}
               />
             )}
@@ -4554,7 +4554,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                 <Button
                   id="go-to-next-capsule-btn"
                   onClick={() => leaveTo(`/dashboard/${userId}/class/${nextSiblingModule.id}`)}
-                  className="w-full h-10 bg-[var(--accent-sage)] hover:bg-[var(--accent-sage-hover)] text-white rounded-xl text-sm cursor-pointer"
+                  className="w-full h-10 bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-hover)] text-white rounded-xl text-sm cursor-pointer"
                 >
                   <span className="truncate">Next: {nextSiblingModule.title}</span>
                   <ArrowLeft className="w-4 h-4 rotate-180 ml-1.5 shrink-0" />
@@ -4563,7 +4563,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                 <Button
                   id="go-to-next-chapter-btn"
                   onClick={() => leaveTo(`/dashboard/${userId}/class/${nextChapterInfo.firstModuleId}`)}
-                  className="w-full h-10 bg-[var(--accent-sage)] hover:bg-[var(--accent-sage-hover)] text-white rounded-xl text-sm cursor-pointer"
+                  className="w-full h-10 bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-hover)] text-white rounded-xl text-sm cursor-pointer"
                 >
                   <span className="truncate">Next chapter: {nextChapterInfo.chapterTitle}</span>
                   <ArrowLeft className="w-4 h-4 rotate-180 ml-1.5 shrink-0" />
@@ -4583,7 +4583,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
 
           {/* End-of-chapter confirmation */}
           {isCompleted && endChapterConfirmPrompt && (
-            <div className="fixed inset-x-2 bottom-2 z-50 md:static md:z-auto p-3 rounded-2xl bg-white border border-[var(--accent-sage)]/50 shadow-lg md:shadow-none space-y-2.5">
+            <div className="fixed inset-x-2 bottom-2 z-50 md:static md:z-auto p-3 rounded-2xl bg-white border border-[var(--accent-primary)]/50 shadow-lg md:shadow-none space-y-2.5">
               <p className="text-sm text-[var(--ink-primary)] leading-snug">{endChapterConfirmPrompt}</p>
               <div className="flex gap-2">
                 <Button
@@ -4593,7 +4593,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                     markModuleAsCompleted()
                     handleOpenQuiz()
                   }}
-                  className="flex-1 h-10 bg-[var(--accent-sage)] hover:bg-[var(--accent-sage-hover)] text-white rounded-xl text-xs cursor-pointer"
+                  className="flex-1 h-10 bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-hover)] text-white rounded-xl text-xs cursor-pointer"
                 >
                   Take quiz
                 </Button>
@@ -4628,7 +4628,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                 <button
                   type="button"
                   onClick={() => handleConceptGoto(1)}
-                  className="text-xs text-[var(--accent-sage)] hover:underline cursor-pointer"
+                  className="text-xs text-[var(--accent-primary)] hover:underline cursor-pointer"
                 >
                   Restart
                 </button>

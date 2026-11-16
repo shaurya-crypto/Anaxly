@@ -919,7 +919,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       }
 
       // 7. Active Question on Board
-      if (activeQuestionRef.current && (activeQuestionRef.current.pageIndex === curIdx || activeQuestionRef.current.pageIndex === undefined)) {
+      if (activeQuestionRef.current && (activeQuestionRef.current.pageIndex === curIdx || (activeQuestionRef.current.pageIndex === undefined && curIdx === 0))) {
         lines.push(`  - Active Question on Board: "${activeQuestionRef.current.text}"`)
       }
 
@@ -1227,6 +1227,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         pagesRef.current = updatedPages
         currentPageIndexRef.current = newIdx
+        activeQuestionRef.current = null
         setPages(updatedPages)
         setCurrentPageIndex(newIdx)
 
@@ -5525,7 +5526,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         </div>
 
         {/* Floating Top-Right Whiteboard Controls: Clear Board Action */}
-        <div className="absolute top-3 right-3 z-30 flex items-center gap-2 pointer-events-auto">
+        <div className="absolute top-3 right-32 sm:right-36 z-30 flex items-center gap-2 pointer-events-auto">
           <button
             type="button"
             onClick={() => {
