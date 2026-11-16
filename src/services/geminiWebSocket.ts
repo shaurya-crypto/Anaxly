@@ -125,7 +125,7 @@ export class GeminiLiveClient {
     }
 
     // 1b. Match bracket directives: [NOTE: ...], [STEP: ...], [DEFINITION: ...], [HIGHLIGHT: ...], etc.
-    const bracketRegex = /\[(NOTE|INTUITION|INSIGHT|DEFINITION|LAW|FORMULA|HIGHLIGHT|HIGHLIGHT_WORD|HIGHLIGHT_SENTENCE|FOCUS_WORD|FOCUS_PHRASE|EXAMPLE|ILLUSTRATION|STEP|DERIVATION|CALCULATION|QUESTION|CHECKPOINT_QUESTION|BOARD_QUESTION|STUDENT_ANSWER|STUDENT|VERDICT|ANSWER_VERDICT|CORRECTION|CONCEPT_DONE|CONCEPT_COMPLETED|CONCEPT_MASTERED|MASTERED|NEXT_CONCEPT|ADVANCE_CONCEPT|CONCEPT_FOCUS):\s*([^\]]+)\]/gi;
+    const bracketRegex = /\[(NOTE|INTUITION|INSIGHT|DEFINITION|LAW|FORMULA|HIGHLIGHT|HIGHLIGHT_WORD|HIGHLIGHT_SENTENCE|FOCUS_WORD|FOCUS_PHRASE|EXAMPLE|ILLUSTRATION|STEP|DERIVATION|CALCULATION|QUESTION|CHECKPOINT_QUESTION|BOARD_QUESTION|STUDENT_ANSWER|STUDENT|VERDICT|ANSWER_VERDICT|CORRECTION|CONCEPT_FOCUS):\s*([^\]]+)\]/gi;
     let bm;
     while ((bm = bracketRegex.exec(rawText)) !== null) {
       const type = bm[1]?.toUpperCase() || "";
@@ -153,18 +153,9 @@ export class GeminiLiveClient {
         this.handleSingleToolCall("write_chalkboard", { action: "draw_student_answer", content: content, color: "blue" });
       } else if (type === "VERDICT" || type === "ANSWER_VERDICT" || type === "CORRECTION") {
         this.handleSingleToolCall("write_chalkboard", { action: "draw_answer_verdict", content: content, color: "botanical" });
-      } else if (type === "CONCEPT_DONE" || type === "CONCEPT_COMPLETED" || type === "CONCEPT_MASTERED" || type === "MASTERED" || type === "NEXT_CONCEPT" || type === "ADVANCE_CONCEPT") {
-        this.handleSingleToolCall("concept_completed", { conceptName: content });
       } else if (type === "CONCEPT_FOCUS") {
         this.handleSingleToolCall("concept_focus", { conceptName: content });
       }
-    }
-
-    // 1c. Match standalone bracket directives: [CONCEPT_DONE], [CONCEPT_COMPLETED], [CONCEPT_MASTERED]
-    const standaloneDoneRegex = /\[(CONCEPT_DONE|CONCEPT_COMPLETED|CONCEPT_MASTERED|MASTERED|NEXT_CONCEPT)\]/gi;
-    let sdm;
-    while ((sdm = standaloneDoneRegex.exec(rawText)) !== null) {
-      this.handleSingleToolCall("concept_completed", { conceptName: "" });
     }
 
     // 2. Match execute_visual_action(action="...", parameters={...})
@@ -320,13 +311,6 @@ export class GeminiLiveClient {
       }
     }
 
-    // 4b. Match concept_completed(...) or concept_done(...)
-    const conceptDoneRegex = /(?:concept_completed|concept_done|next_concept|advance_concept)\s*\(\s*(?:(?:conceptName|concept)\s*=\s*)?["']?([^"'\)]*)["']?\s*\)/gi;
-    let cdm;
-    while ((cdm = conceptDoneRegex.exec(rawText)) !== null) {
-      const cName = cdm[1]?.trim() || "";
-      this.handleSingleToolCall("concept_completed", { conceptName: cName });
-    }
 
     // 4c. Match concept_focus(...)
     const conceptFocusRegex = /(?:concept_focus|focus_concept)\s*\(\s*(?:(?:conceptName|concept)\s*=\s*)?["']?([^"'\)]*)["']?\s*\)/gi;

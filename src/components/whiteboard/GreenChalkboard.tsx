@@ -937,10 +937,14 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (extractedNotes.some(n => /problem|given|derivation|step|to\s*prove|numerical/i.test(n))) {
         stagesCompleted.push('Stage 4 (Board Numerical / Derivation)')
       }
-      if (activeQuestionRef.current || extractedNotes.some(n => /checkpoint|verdict|answer/i.test(n))) {
+      const hasActiveQuestionOnThisPage =
+        activeQuestionRef.current &&
+        (activeQuestionRef.current.pageIndex === curIdx ||
+          (activeQuestionRef.current.pageIndex === undefined && curIdx === 0))
+      if (hasActiveQuestionOnThisPage || extractedNotes.some(n => /checkpoint\s*question|verdict\s*:/i.test(n))) {
         stagesCompleted.push('Stage 5 (Checkpoint Question)')
       }
-      if (extractedNotes.some(n => /board\s*pyq|final\s*answer|hence\s*proved/i.test(n))) {
+      if (extractedNotes.some(n => /board\s*exam\s*question|pyq\s*solution|board\s*pyq/i.test(n))) {
         stagesCompleted.push('Stage 6 (Board-Exam Numerical / Boxed Answer)')
       }
 
@@ -1320,6 +1324,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           }
         }
 
+        if (currentPageIndexRef.current !== targetIdx) {
+          activeQuestionRef.current = null
+        }
         currentPageIndexRef.current = targetIdx
         setCurrentPageIndex(targetIdx)
 
@@ -1850,7 +1857,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const startY = getDynamicNextY(16)
         nextYRef.current = Math.max(nextYRef.current, startY + boxHeight + 20)
         const boxStroke = resolveChalkColor(color, INK_CORAL)
-        const boxBg = boxStroke === INK_CORAL ? INK_CORAL_SOFT : '#F8F6F0'
+        const boxBg = boxStroke === INK_CORAL ? INK_CORAL_SOFT : '#FAF8F4'
 
         const elements = convertToExcalidrawElements([
           {
@@ -5436,7 +5443,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     }))
 
     return (
-      <div className="whiteboard-container relative w-full h-full flex flex-col rounded-2xl overflow-hidden border border-[#E5E3DB] shadow-[0_10px_30px_-10px_rgba(23,24,23,0.06)]" style={{ backgroundColor: "#F8F6F0", backgroundImage: "url('/landing_images/bg.jpg')", backgroundRepeat: "repeat", backgroundSize: "1000px auto" }}>
+      <div className="whiteboard-container relative w-full h-full flex flex-col rounded-2xl overflow-hidden border border-[#E5E3DB] shadow-[0_10px_30px_-10px_rgba(23,24,23,0.06)]" style={{ backgroundColor: "#FAF8F4", backgroundImage: "url('/landing_images/bg.jpg')", backgroundRepeat: "repeat", backgroundSize: "1000px auto" }}>
         {/* Excalidraw Light Engine - 100% Uninterrupted Vertical Height */}
         <div
           ref={containerRef}
@@ -5536,7 +5543,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         </div>
 
         {/* Minimalist Bottom Bar: Multi-Page Navigation, Chalk Swatches, and Page Counter */}
-        <div className="relative z-20 py-1.5 px-3 bg-[#F8F6F0] border-t border-[#E5E3DB] flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-[#7A7C75] select-none">
+        <div className="relative z-20 py-1.5 px-3 bg-[#FAF8F4] border-t border-[#E5E3DB] flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-[#7A7C75] select-none">
           {/* Multi-Page Navigation Bar */}
           <div className="flex items-center gap-1.5 bg-white px-2 py-0.5 rounded-lg border border-[#E5E3DB] shadow-xs">
             <span className="hidden sm:inline text-[10px] text-[#7A7C75] font-mono mr-0.5">Pages:</span>
@@ -5546,8 +5553,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                   key={p.id}
                   onClick={() => switchPage(idx)}
                   className={`px-2 py-0.5 text-[10px] font-mono rounded-md transition-all cursor-pointer ${currentPageIndex === idx
-                    ? 'bg-[#52715D] text-white font-bold shadow-xs'
-                    : 'text-[#555852] hover:bg-[#F8F6F0]'
+                    ? 'bg-[var(--accent-primary)] text-white font-bold shadow-xs'
+                    : 'text-[#555852] hover:bg-[#FAF8F4]'
                     }`}
                   title={`View Page ${idx + 1}`}
                 >

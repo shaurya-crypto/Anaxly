@@ -14,6 +14,7 @@ export class AudioPlayer {
   private onPlaybackStateChange?: (isPlaying: boolean) => void;
   private turnEndedOnServer: boolean = false;
   private checkDrainTimeout: ReturnType<typeof setTimeout> | null = null;
+  private playbackSpeed: number = 1.0;
 
   constructor(onPlaybackStateChange?: (isPlaying: boolean) => void) {
     this.onPlaybackStateChange = onPlaybackStateChange;
@@ -60,6 +61,24 @@ export class AudioPlayer {
   }
 
   /**
+   * Set real-time voice playback speed (0.75x to 1.3x).
+   * Updates currently queued AudioBufferSourceNodes and future scheduled chunks with zero latency.
+   */
+  public setPlaybackSpeed(speed: number): void {
+    const clamped = Math.max(0.75, Math.min(1.3, speed));
+    this.playbackSpeed = clamped;
+    for (const node of this.scheduledNodes) {
+      try {
+        node.playbackRate.value = clamped;
+      } catch {}
+    }
+  }
+
+  public getPlaybackSpeed(): number {
+    return this.playbackSpeed;
+  }
+
+  /**
    * Enqueue a 16-bit PCM chunk for immediate gapless playback.
    */
   public playChunk(pcmData: Int16Array, sampleRate = 24000): void {
@@ -84,13 +103,16 @@ export class AudioPlayer {
 
     const source = this.audioCtx.createBufferSource();
     source.buffer = audioBuffer;
+    source.playbackRate.value = this.playbackSpeed;
     source.connect(this.analyser);
 
     const currentTime = this.audioCtx.currentTime;
-    // Schedule seamlessly right after previous chunk, or right now if clock has drifted
+    // Schedule seamlessly right after previous chunk, or right now if clock has drifted.
+    // Adjust duration by playback speed so chunks tile perfectly without gaps or overlap.
+    const adjustedDuration = audioBuffer.duration / Math.max(0.25, this.playbackSpeed);
     const startTime = Math.max(currentTime + 0.005, this.nextStartTime);
     source.start(startTime);
-    this.nextStartTime = startTime + audioBuffer.duration;
+    this.nextStartTime = startTime + adjustedDuration;
 
     this.scheduledNodes.push(source);
 

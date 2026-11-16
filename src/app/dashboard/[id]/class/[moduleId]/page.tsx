@@ -34,6 +34,8 @@ import {
 import { VisualEventQueue, parseVisualEventFromDirective } from '@/services/visualEventProtocol'
 import { ChapterNotesModal } from '@/components/classroom/ChapterNotesModal'
 import { ClassroomFloatingChatInput } from '@/components/classroom/ClassroomFloatingChatInput'
+import { ClassroomConnectingAnimation } from '@/components/classroom/ClassroomConnectingAnimation'
+import { ClassroomSpeedControl } from '@/components/classroom/ClassroomSpeedControl'
 import { CallControls } from '@/components/CallControls'
 import { ErrorModal } from '@/components/ErrorModal'
 import { MasteryQuizModal } from '@/components/quiz/MasteryQuizModal'
@@ -815,6 +817,7 @@ export default function ModuleClassroomPage() {
     startClass,
     toggleMute,
     setTeacherAudioMuted,
+    setPlaybackSpeed,
     endCall,
     resetToIdle,
     sendBoardContext,
@@ -968,7 +971,7 @@ export default function ModuleClassroomPage() {
     const explicitCommands = new Set([
       'next concept', 'next page', 'move to next concept', 'move to the next concept',
       'advance to next concept', 'go to next concept', 'skip to next concept',
-      'next topic', 'move to next page', 'turn the page', 'next question',
+      'next topic', 'move to next page', 'turn the page',
       'agle concept pe chalo', 'agle concept pe aao', 'aage badho agle concept pe',
     ])
     if (explicitCommands.has(clean)) return true
@@ -2717,10 +2720,11 @@ CRITICAL DIRECTIVE:
 
     const nextConceptTitle = keyConcepts[nextIdx] || activeModule?.title || 'Concept'
 
-    isAwaitingStudentAnswerRef.current = false
-    setIsAwaitingStudentAnswer(false)
+    lastVerdictStatusRef.current = 'neutral'
     isReviewingVerdictRef.current = false
     setIsReviewingVerdict(false)
+    isAwaitingStudentAnswerRef.current = false
+    setIsAwaitingStudentAnswer(false)
 
     currentConceptIndexRef.current = nextIdx
     setCurrentConceptIndex(nextIdx)
@@ -2835,8 +2839,8 @@ CRITICAL INSTRUCTIONS:
 2. FIRST TURN REQUIREMENT: Speak FIRST to introduce "${nextConceptTitle}" with an engaging real-life physical intuition hook (2-3 sentences max) exactly like real teacher. YOU MUST write the intuition on the whiteboard: write_chalkboard(action="draw_note", content="Intuition: <hook>", color="botanical") AND proactively render the visual: ${nextVisualCue} must.
 3. PATIENCE REQUIREMENT: After asking if the student understood the intuition, STOP speaking immediately and wait for the student's answer.
 4. When student confirms, teach definition, worked example, and board checkpoint question.
-5. Once this concept is finished, call concept_completed(conceptName="${nextConceptTitle}") only then.
-6. Never move or jump to directly next 2-3 concepts if current concept done only move to just next one of current concept and according to concept add page.
+5. Signal concept completion only after the Stage 5/6 checkpoint question has been attempted and resolved.
+6. Advance sequentially step-by-step; never jump multiple concepts ahead.
 
 ${nextDossier}`
     )
@@ -2875,10 +2879,11 @@ ${nextDossier}`
 
     const targetConceptName = keyConcepts[targetIdx] || activeModule?.title || 'Concept'
 
-    isAwaitingStudentAnswerRef.current = false
-    setIsAwaitingStudentAnswer(false)
+    lastVerdictStatusRef.current = 'neutral'
     isReviewingVerdictRef.current = false
     setIsReviewingVerdict(false)
+    isAwaitingStudentAnswerRef.current = false
+    setIsAwaitingStudentAnswer(false)
 
     currentConceptIndexRef.current = targetIdx
     setCurrentConceptIndex(targetIdx)
@@ -3161,6 +3166,12 @@ CRITICAL DIRECTIVE:
   // Start Spoken Lesson: continuous teaching flow, explanation-first, worked-demonstrations second, strict chalkboard directives
   const handleStartClass = async () => {
     if (!activeModule) return
+
+    lastVerdictStatusRef.current = 'neutral'
+    isReviewingVerdictRef.current = false
+    setIsReviewingVerdict(false)
+    isAwaitingStudentAnswerRef.current = false
+    setIsAwaitingStudentAnswer(false)
 
     const keyConcepts: string[] = parseKeyConcepts(activeModule?.key_concepts)
     const rawCurrent = keyConcepts[currentConceptIndex] || activeModule.title || ''
@@ -4404,7 +4415,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
   )
 
   return (
-    <main className="relative w-full h-[100dvh] flex flex-col overflow-hidden bg-[#F8F6F0]">
+    <main className="relative w-full h-[100dvh] flex flex-col overflow-hidden bg-[#FAF8F4]">
       <div className="flex-1 min-h-0 flex flex-col md:flex-row gap-2 p-2 sm:p-3 md:gap-3">
         {/* Teacher panel: compact top bar on mobile, left column on desktop */}
         <aside className="shrink-0 md:w-[280px] lg:w-[300px] flex flex-col gap-2 md:gap-3 md:overflow-y-auto">
@@ -4487,7 +4498,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                     lastVerdictStatusRef.current = 'correct'
                     handleConceptDone('EXPLICIT_USER_ADVANCE')
                   }}
-                  className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-[var(--accent-sage)] text-white text-xs font-semibold shadow-xs hover:brightness-105 active:scale-[0.99] transition-all cursor-pointer"
+                  className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-hover)] text-white text-xs font-semibold shadow-xs active:scale-[0.99] transition-all cursor-pointer"
                   title="Mark current concept as understood and advance to next concept"
                 >
                   <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
@@ -4502,7 +4513,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                 id="manual-mark-completed-btn"
                 type="button"
                 onClick={() => markModuleAsCompleted()}
-                className="hidden md:flex items-center justify-center gap-1.5 text-xs text-[var(--ink-secondary)] hover:text-[var(--accent-sage)] cursor-pointer"
+                className="hidden md:flex items-center justify-center gap-1.5 text-xs text-[var(--ink-secondary)] hover:text-[var(--accent-primary)] cursor-pointer"
               >
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 Mark complete
@@ -4512,8 +4523,8 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
 
           {/* Completed state: next steps (bottom sheet on mobile) */}
           {isCompleted && (
-            <div className="fixed inset-x-2 bottom-2 z-40 max-h-[60dvh] overflow-y-auto md:static md:z-auto md:max-h-none p-3 rounded-2xl bg-white md:bg-[var(--accent-sage-soft)] border border-[var(--accent-sage-border)] shadow-lg md:shadow-none space-y-2">
-              <div className="flex items-center gap-1.5 text-[var(--accent-sage)] font-semibold text-sm">
+            <div className="fixed inset-x-2 bottom-2 z-40 max-h-[60dvh] overflow-y-auto md:static md:z-auto md:max-h-none p-3 rounded-2xl bg-white md:bg-[var(--accent-primary-soft)] border border-[var(--accent-primary-border)] shadow-lg md:shadow-none space-y-2">
+              <div className="flex items-center gap-1.5 text-[var(--accent-primary)] font-semibold text-sm">
                 <CheckCircle2 className="w-4 h-4 shrink-0" />
                 Completed
               </div>
@@ -4624,7 +4635,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
               </div>
               <div className="h-1 mb-2 bg-stone-200 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-[var(--accent-sage)] transition-all duration-500"
+                  className="h-full bg-[var(--accent-primary)] transition-all duration-500"
                   style={{ width: `${progressPercent}%` }}
                 />
               </div>
@@ -4635,8 +4646,23 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
 
         {/* Board */}
         <div className="relative flex-1 min-h-0 min-w-0 flex flex-col overflow-hidden">
+          {/* Top-Right Speed Slider Control (Zero Emojis, Pure Hardware PlaybackRate) */}
+          <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-40">
+            <ClassroomSpeedControl onSpeedChange={setPlaybackSpeed} />
+          </div>
+
+          {/* Hairline 30° Axonometric Connecting Stage */}
+          {(isLoadingLesson || connectionState === 'CONNECTING') && (
+            <div className="absolute inset-0 z-50 flex items-center justify-center bg-[#FAF8F4] transition-opacity duration-300">
+              <ClassroomConnectingAnimation
+                connectionState={connectionState}
+                stageText={isLoadingLesson ? 'Loading Authentic Board Curriculum...' : undefined}
+              />
+            </div>
+          )}
+
           {!isCallActive && (
-            <div className="absolute inset-0 z-30 flex items-center justify-center overflow-y-auto bg-[#F8F6F0] p-3 sm:p-6">
+            <div className="absolute inset-0 z-30 flex items-center justify-center overflow-y-auto bg-[#FAF8F4] p-3 sm:p-6">
               <DashCard tone="primary" size="lg" className="w-full max-w-2xl space-y-5 p-5 sm:p-8">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="text-sm font-medium text-white/80">

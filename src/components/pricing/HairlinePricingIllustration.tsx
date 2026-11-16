@@ -66,8 +66,8 @@ export function HairlineHeroIllustration() {
               <stop offset="100%" stopColor="#F5F1E6" stopOpacity="0.4" />
             </linearGradient>
             <radialGradient id="hl-focus-glow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#10B981" stopOpacity="0.18" />
-              <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
+              <stop offset="0%" stopColor="#255D88" stopOpacity="0.2" />
+              <stop offset="100%" stopColor="#1F3852" stopOpacity="0" />
             </radialGradient>
           </defs>
 
@@ -300,27 +300,27 @@ export function HairlineScholarCrest() {
 
 export function HairlineTopperCrest() {
   return (
-    <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10 text-emerald-950" stroke="currentColor">
-      {/* Photorealistic Iris & Radiating Wavefront */}
-      <circle cx="22" cy="24" r="16" strokeWidth="1.75" fill="#FAF8F3" />
-      <circle cx="22" cy="24" r="9" strokeWidth="1.5" stroke="#047857" fill="#ECFDF5" />
-      <circle cx="20" cy="22" r="3.5" fill="#047857" />
+    <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10 text-[#1F3852]" stroke="currentColor">
+      {/* Photorealistic Iris & Radiating Wavefront in Scholastic Cobalt */}
+      <circle cx="22" cy="24" r="16" strokeWidth="1.75" fill="#FAF8F4" />
+      <circle cx="22" cy="24" r="9" strokeWidth="1.5" stroke="#1F3852" fill="#EEF5FA" />
+      <circle cx="20" cy="22" r="3.5" fill="#255D88" />
       {/* Socratic Signal Arcs */}
-      <path d="M 39 16 A 14 14 0 0 1 39 32" strokeWidth="1.75" stroke="#059669" strokeLinecap="round" />
-      <path d="M 44 11 A 20 20 0 0 1 44 37" strokeWidth="1.5" stroke="#059669" strokeLinecap="round" opacity="0.6" />
+      <path d="M 39 16 A 14 14 0 0 1 39 32" strokeWidth="1.75" stroke="#255D88" strokeLinecap="round" />
+      <path d="M 44 11 A 20 20 0 0 1 44 37" strokeWidth="1.5" stroke="#3B7CAE" strokeLinecap="round" opacity="0.6" />
     </svg>
   )
 }
 
 export function HairlineMasteryCrest() {
   return (
-    <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10 text-stone-950" stroke="currentColor">
+    <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10 text-[#0F172A]" stroke="currentColor">
       {/* Astrolabe Armillary Sphere & Vision Aperture */}
-      <circle cx="24" cy="24" r="18" strokeWidth="1.75" fill="#FAF8F3" />
-      <ellipse cx="24" cy="24" rx="18" ry="7" strokeWidth="1.5" stroke="#4F46E5" />
-      <ellipse cx="24" cy="24" rx="7" ry="18" strokeWidth="1.5" stroke="#4F46E5" />
-      <circle cx="24" cy="24" r="4.5" fill="#312E81" />
-      <line x1="24" y1="3" x2="24" y2="45" strokeWidth="1.25" strokeDasharray="2 2" />
+      <circle cx="24" cy="24" r="18" strokeWidth="1.75" fill="#FAF8F4" />
+      <ellipse cx="24" cy="24" rx="18" ry="7" strokeWidth="1.5" stroke="#255D88" />
+      <ellipse cx="24" cy="24" rx="7" ry="18" strokeWidth="1.5" stroke="#255D88" />
+      <circle cx="24" cy="24" r="4.5" fill="#1F3852" />
+      <line x1="24" y1="3" x2="24" y2="45" strokeWidth="1.25" strokeDasharray="2 2" stroke="#CBD5E1" />
     </svg>
   )
 }

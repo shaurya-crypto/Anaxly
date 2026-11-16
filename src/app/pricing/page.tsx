@@ -452,26 +452,26 @@ export default function PricingPage() {
   const renderCellContent = (val: string | boolean) => {
     if (typeof val === 'boolean') {
       return val ? (
-        <Check className="w-5 h-5 text-coral-primary stroke-[2.75] mx-auto" />
+        <Check className="w-5 h-5 text-[var(--accent-warm)] stroke-[2.75] mx-auto" />
       ) : (
-        <span className="text-stone-300 font-bold text-lg select-none">—</span>
+        <span className="text-[var(--border-strong)] font-bold text-lg select-none">—</span>
       )
     }
     if (val === '100% Free') {
       return (
-        <span className="font-extrabold text-coral-primary text-sm sm:text-base">
+        <span className="font-extrabold text-[var(--accent-warm)] text-sm sm:text-base">
           100% Free
         </span>
       )
     }
     if (val.includes('100% of All Classes')) {
       return (
-        <span className="font-extrabold text-coral-hover text-sm sm:text-base">
+        <span className="font-extrabold text-[var(--accent-warm-hover)] text-sm sm:text-base">
           100% of All Classes
         </span>
       )
     }
-    return <span className="font-bold text-stone-900 text-sm sm:text-base">{val}</span>
+    return <span className="font-bold text-[var(--ink-primary)] text-sm sm:text-base">{val}</span>
   }
 
   const handleScrollToCompare = (e: React.MouseEvent) => {
@@ -591,7 +591,7 @@ export default function PricingPage() {
             },
           },
           theme: {
-            color: '#059669',
+            color: '#1F3852',
           },
         }
 
@@ -638,7 +638,7 @@ export default function PricingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFCF7] text-stone-950 antialiased selection:bg-[#E5E2D9] selection:text-stone-950 font-sans">
+    <div className="min-h-screen bg-[var(--canvas-base)] text-[var(--ink-primary)] antialiased selection:bg-[var(--accent-warm-soft)] selection:text-[var(--ink-primary)] font-sans">
       <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="afterInteractive" />
       <LandingNav />
 
@@ -647,18 +647,18 @@ export default function PricingPage() {
         
         {/* Header Hero Section */}
         <section className="text-center max-w-4xl mx-auto space-y-4">
-          <h1 className="font-sans text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-stone-950 leading-[1.14]">
-            World-Class <span className="text-coral-primary">1-on-1 Socratic Tutoring</span>, starting at{' '}
-            <span className="underline decoration-coral-border decoration-4 underline-offset-8 text-stone-950 font-black">₹399/mo</span> — at{' '}
-            <span className="text-coral-primary underline decoration-coral-border decoration-4 underline-offset-6">1/4th the Cost</span> of Private Tuitions.
+          <h1 className="font-sans text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[var(--ink-primary)] leading-[1.14]">
+            World-Class <span className="text-[var(--accent-warm)]">1-on-1 Socratic Tutoring</span>, starting at{' '}
+            <span className="underline decoration-[var(--accent-warm-border)] decoration-4 underline-offset-8 text-[var(--ink-primary)] font-black">₹399/mo</span> — at{' '}
+            <span className="text-[var(--accent-warm)] underline decoration-[var(--accent-warm-border)] decoration-4 underline-offset-6">1/4th the Cost</span> of Private Tuitions.
           </h1>
 
-          <p className="text-base sm:text-lg font-medium text-stone-600 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg font-medium text-[var(--ink-secondary)] leading-relaxed max-w-3xl mx-auto">
             Interactive digital chalkboard, science diagrams, and coordinate graphs are{' '}
-            <span className="text-coral-hover font-bold underline decoration-coral-border decoration-2">
+            <span className="text-[var(--accent-warm-hover)] font-bold underline decoration-[var(--accent-warm-border)] decoration-2">
               100% Free Forever
             </span>
-            . Unlock live Socratic classes starting at <span className="text-stone-950 font-bold underline decoration-stone-400 decoration-2">₹399/mo</span> and face-to-face AI video teachers at <span className="text-stone-950 font-bold underline decoration-coral-border decoration-2">₹899/mo</span>.
+            . Unlock live Socratic classes starting at <span className="text-[var(--ink-primary)] font-bold underline decoration-[var(--border-strong)] decoration-2">₹399/mo</span> and face-to-face AI video teachers at <span className="text-[var(--ink-primary)] font-bold underline decoration-[var(--accent-warm-border)] decoration-2">₹899/mo</span>.
           </p>
 
           {/* Clean Hairline Scholastic Illustration (No text metadata) */}
@@ -666,14 +666,14 @@ export default function PricingPage() {
 
           {/* Billing Cycle Toggle */}
           <div className="pt-1 flex items-center justify-center gap-3">
-            <div className="inline-flex items-center rounded-full border border-stone-300 bg-white p-1.5 shadow-xs">
+            <div className="inline-flex items-center rounded-full border border-[var(--border-subtle)] bg-white p-1.5 shadow-xs">
               <button
                 type="button"
                 onClick={() => setBillingCycle('monthly')}
-                className={`rounded-full px-5 py-2 text-xs sm:text-sm font-bold transition-all ${
+                className={`rounded-full px-5 py-2 text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   billingCycle === 'monthly'
-                    ? 'bg-coral-primary text-white shadow-xs'
-                    : 'text-stone-600 hover:text-stone-950'
+                    ? 'bg-[var(--accent-primary)] text-white shadow-xs'
+                    : 'text-[var(--ink-secondary)] hover:text-[var(--ink-primary)]'
                 }`}
               >
                 Monthly Billing
@@ -681,14 +681,14 @@ export default function PricingPage() {
               <button
                 type="button"
                 onClick={() => setBillingCycle('annual')}
-                className={`rounded-full px-5 py-2 text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
+                className={`rounded-full px-5 py-2 text-xs sm:text-sm font-bold transition-all flex items-center gap-2 cursor-pointer ${
                   billingCycle === 'annual'
-                    ? 'bg-coral-primary text-white shadow-xs'
-                    : 'text-stone-600 hover:text-stone-950'
+                    ? 'bg-[var(--accent-primary)] text-white shadow-xs'
+                    : 'text-[var(--ink-secondary)] hover:text-[var(--ink-primary)]'
                 }`}
               >
                 <span>Annual Billing</span>
-                <span className="rounded-full bg-coral-soft text-coral-hover text-[10px] font-black px-2 py-0.5 uppercase tracking-wide">
+                <span className="rounded-full bg-[var(--accent-warm-soft)] text-[var(--accent-warm-hover)] text-[10px] font-black px-2 py-0.5 uppercase tracking-wide">
                   Save 20-25%
                 </span>
               </button>
@@ -705,8 +705,8 @@ export default function PricingPage() {
                 key={plan.id}
                 className={`relative flex flex-col rounded-3xl p-7 sm:p-8 transition-all duration-300 ${
                   plan.popular
-                    ? 'border-2 border-coral-primary bg-white shadow-xl ring-4 ring-coral-border'
-                    : 'border border-stone-200 bg-white hover:border-stone-300 shadow-xs hover:shadow-md'
+                    ? 'border-2 border-[var(--accent-primary)] bg-white shadow-xl ring-4 ring-[var(--accent-primary-border)]'
+                    : 'border border-[var(--border-subtle)] bg-white hover:border-[var(--border-strong)] shadow-xs hover:shadow-md'
                 }`}
               >
                 {/* Popular Badge */}
@@ -715,8 +715,8 @@ export default function PricingPage() {
                     <span
                       className={`inline-flex items-center gap-1 rounded-full px-3 py-0.5 text-xs font-black uppercase tracking-wider shadow-xs ${
                         plan.popular
-                          ? 'bg-coral-primary text-white'
-                          : 'bg-stone-100 border border-stone-200 text-stone-700'
+                          ? 'bg-[var(--accent-primary)] text-white'
+                          : 'bg-[var(--canvas-soft)] border border-[var(--border-subtle)] text-[var(--ink-secondary)]'
                       }`}
                     >
                       {plan.popular && <Star className="w-3 h-3 fill-current" />}
@@ -726,52 +726,52 @@ export default function PricingPage() {
                 )}
 
                 {/* Card Crest & Header */}
-                <div className="space-y-3 pt-1 pb-4 border-b border-stone-100">
+                <div className="space-y-3 pt-1 pb-4 border-b border-[var(--border-subtle)]">
                   <div className="flex items-center justify-between">
-                    <h3 className="font-sans text-2xl font-bold text-stone-950 tracking-tight">{plan.name}</h3>
-                    <div className="p-2 rounded-2xl bg-stone-50 border border-stone-100">
+                    <h3 className="font-sans text-2xl font-bold text-[var(--ink-primary)] tracking-tight">{plan.name}</h3>
+                    <div className="p-2 rounded-2xl bg-[var(--canvas-soft)] border border-[var(--border-subtle)]">
                       {plan.crest}
                     </div>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-stone-600 leading-relaxed min-h-[38px]">{plan.description}</p>
+                  <p className="text-xs sm:text-sm text-[var(--ink-secondary)] leading-relaxed min-h-[38px]">{plan.description}</p>
 
                   <div className="pt-2 flex items-baseline gap-1.5">
-                    <span className="text-4xl sm:text-5xl font-black tracking-tight text-stone-950">
+                    <span className="text-4xl sm:text-5xl font-black tracking-tight text-[var(--ink-primary)]">
                       {price === 0 ? '₹0' : `₹${price}`}
                     </span>
-                    <span className="text-xs sm:text-sm text-stone-500 font-semibold">{plan.priceSuffix}</span>
+                    <span className="text-xs sm:text-sm text-[var(--ink-muted)] font-semibold">{plan.priceSuffix}</span>
                   </div>
 
                   {billingCycle === 'annual' && plan.annualSavings && (
-                    <p className="text-xs font-bold text-coral-primary">{plan.annualSavings}</p>
+                    <p className="text-xs font-bold text-[var(--accent-warm)]">{plan.annualSavings}</p>
                   )}
                 </div>
 
                 {/* 5 Highlights List */}
                 <div className="flex-1 py-5 space-y-3">
-                  <div className="text-[11px] font-black uppercase tracking-wider text-stone-400">
+                  <div className="text-[11px] font-black uppercase tracking-wider text-[var(--ink-muted)]">
                     {plan.featuresHeader}
                   </div>
 
                   <ul className="space-y-3">
                     {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm leading-snug text-stone-700">
+                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm leading-snug text-[var(--ink-secondary)]">
                         <Check
                           className={`w-4 h-4 mt-0.5 shrink-0 ${
                             feature.freeHighlight
-                              ? 'text-coral-primary stroke-[3]'
+                              ? 'text-[var(--accent-warm)] stroke-[3]'
                               : feature.highlight
-                              ? 'text-blue-600 stroke-[2.5]'
-                              : 'text-stone-400 stroke-[2]'
+                              ? 'text-[var(--accent-primary)] stroke-[2.5]'
+                              : 'text-[var(--ink-muted)] stroke-[2]'
                           }`}
                         />
                         <span
                           className={`${
                             feature.freeHighlight
-                              ? 'font-bold text-coral-hover bg-coral-soft px-1 py-0.5 rounded'
+                              ? 'font-bold text-[var(--accent-warm-hover)] bg-[var(--accent-warm-soft)] px-1 py-0.5 rounded'
                               : feature.highlight
-                              ? 'font-bold text-stone-950'
+                              ? 'font-bold text-[var(--ink-primary)]'
                               : 'font-medium'
                           }`}
                         >
@@ -786,7 +786,7 @@ export default function PricingPage() {
                     <a
                       href="#compare"
                       onClick={handleScrollToCompare}
-                      className="text-xs sm:text-sm font-bold text-stone-700 hover:text-coral-hover underline underline-offset-4 decoration-stone-300 hover:decoration-coral-primary transition-colors inline-block"
+                      className="text-xs sm:text-sm font-bold text-[var(--ink-secondary)] hover:text-[var(--accent-warm)] underline underline-offset-4 decoration-[var(--border-subtle)] hover:decoration-[var(--accent-warm)] transition-colors inline-block"
                     >
                       See all features &amp; full comparison &rarr;
                     </a>
@@ -794,17 +794,17 @@ export default function PricingPage() {
                 </div>
 
                 {/* Card CTA */}
-                <div className="pt-4 border-t border-stone-100">
+                <div className="pt-4 border-t border-[var(--border-subtle)]">
                   <button
                     type="button"
                     disabled={processingPlanId === plan.id}
                     onClick={(e) => handlePlanCheckout(e, plan.id, plan.ctaHref)}
                     className={`w-full inline-flex items-center justify-center gap-2 rounded-full py-3.5 px-4 text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                       plan.ctaVariant === 'primary'
-                        ? 'btn-aristotle-primary text-white'
+                        ? 'bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-hover)] text-white shadow-xs'
                         : plan.ctaVariant === 'secondary'
-                        ? 'border border-coral-primary bg-white text-coral-primary hover:bg-coral-soft'
-                        : 'border border-border-strong bg-white text-ink-primary hover:border-ink-primary hover:bg-surface-soft'
+                        ? 'border border-[var(--accent-primary)] bg-white text-[var(--accent-primary)] hover:bg-[var(--accent-primary-soft)]'
+                        : 'border border-[var(--border-strong)] bg-white text-[var(--ink-primary)] hover:border-[var(--ink-primary)] hover:bg-[var(--canvas-soft)]'
                     }`}
                   >
                     <span>{processingPlanId === plan.id ? 'Connecting...' : plan.ctaText}</span>
@@ -819,44 +819,44 @@ export default function PricingPage() {
         {/* Granular Capability Breakdown Table - Clear Column Separation Lines, No Category Rows */}
         <section id="compare" className="mt-28 scroll-mt-24">
           <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
-            <h2 className="font-sans text-3xl sm:text-5xl font-extrabold text-stone-950 tracking-tight">
+            <h2 className="font-sans text-3xl sm:text-5xl font-extrabold text-[var(--ink-primary)] tracking-tight">
               Granular Capability Breakdown
             </h2>
-            <p className="text-sm sm:text-base font-medium text-stone-600">
+            <p className="text-sm sm:text-base font-medium text-[var(--ink-secondary)]">
               Clear, transparent feature comparison. Digital chalkboard derivations and dynamic coordinate graphs remain 100% free across every plan.
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-3xl border border-stone-200 bg-white shadow-xs">
+          <div className="overflow-x-auto rounded-3xl border border-[var(--border-subtle)] bg-white shadow-xs">
             <table className="w-full text-left border-collapse min-w-[760px]">
               <thead>
-                <tr className="border-b-2 border-stone-300 bg-stone-50/90 divide-x divide-stone-200">
-                  <th className="py-4 px-6 font-sans text-base sm:text-lg font-bold text-stone-950 w-2/5">
+                <tr className="border-b-2 border-[var(--border-strong)] bg-[var(--canvas-soft)]/90 divide-x divide-[var(--border-subtle)]">
+                  <th className="py-4 px-6 font-sans text-base sm:text-lg font-bold text-[var(--ink-primary)] w-2/5">
                     Capability
                   </th>
-                  <th className="py-4 px-4 text-center font-sans text-base sm:text-lg font-bold text-stone-950 w-[15%]">
+                  <th className="py-4 px-4 text-center font-sans text-base sm:text-lg font-bold text-[var(--ink-primary)] w-[15%]">
                     Free
                   </th>
-                  <th className="py-4 px-4 text-center font-sans text-base sm:text-lg font-bold text-stone-950 w-[15%]">
+                  <th className="py-4 px-4 text-center font-sans text-base sm:text-lg font-bold text-[var(--ink-primary)] w-[15%]">
                     Scholar
                   </th>
-                  <th className="py-4 px-4 text-center font-sans text-base sm:text-lg font-extrabold text-coral-hover bg-coral-soft w-[15%]">
+                  <th className="py-4 px-4 text-center font-sans text-base sm:text-lg font-extrabold text-[var(--accent-warm-hover)] bg-[var(--accent-warm-soft)] w-[15%]">
                     Topper Pro
                   </th>
-                  <th className="py-4 px-4 text-center font-sans text-base sm:text-lg font-bold text-stone-950 w-[15%]">
+                  <th className="py-4 px-4 text-center font-sans text-base sm:text-lg font-bold text-[var(--ink-primary)] w-[15%]">
                     Mastery
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-stone-100 text-stone-900">
+              <tbody className="divide-y divide-[var(--border-subtle)] text-[var(--ink-primary)]">
                 {allGranularFeatures.map((feat, fIdx) => (
-                  <tr key={fIdx} className="hover:bg-stone-50/80 transition-colors divide-x divide-stone-200">
-                    <td className="py-4 px-6 text-sm sm:text-base text-stone-950 font-semibold">
+                  <tr key={fIdx} className="hover:bg-[var(--canvas-soft)]/80 transition-colors divide-x divide-[var(--border-subtle)]">
+                    <td className="py-4 px-6 text-sm sm:text-base text-[var(--ink-primary)] font-semibold">
                       {feat.title}
                     </td>
                     <td className="py-4 px-4 text-center">{renderCellContent(feat.free)}</td>
                     <td className="py-4 px-4 text-center">{renderCellContent(feat.scholar)}</td>
-                    <td className="py-4 px-4 text-center bg-coral-soft">
+                    <td className="py-4 px-4 text-center bg-[var(--accent-warm-soft)]">
                       {renderCellContent(feat.topper)}
                     </td>
                     <td className="py-4 px-4 text-center">{renderCellContent(feat.mastery)}</td>
@@ -870,55 +870,55 @@ export default function PricingPage() {
         {/* Anaxly vs. YouTube vs. Mass Coaching vs. Home Tutors (Badge Removed, Highlight Word, Vertical Lines) */}
         <section className="mt-28">
           <div className="text-center max-w-4xl mx-auto space-y-3 mb-10">
-            <h2 className="font-sans text-3xl sm:text-5xl font-extrabold text-stone-950 tracking-tight">
-              <span className="text-coral-primary underline decoration-coral-border decoration-4 underline-offset-6">Anaxly 1-on-1</span> vs. YouTube vs. Mass Coaching vs. Home Tutors
+            <h2 className="font-sans text-3xl sm:text-5xl font-extrabold text-[var(--ink-primary)] tracking-tight">
+              <span className="text-[var(--accent-warm)] underline decoration-[var(--accent-warm-border)] decoration-4 underline-offset-6">Anaxly 1-on-1</span> vs. YouTube vs. Mass Coaching vs. Home Tutors
             </h2>
-            <p className="text-sm sm:text-base font-medium text-stone-600">
+            <p className="text-sm sm:text-base font-medium text-[var(--ink-secondary)]">
               Why passive 50,000-student chat streams fail school students, and how 1-on-1 Socratic chalkboard discipline delivers authentic 95%+ board scores.
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-3xl border border-stone-200 bg-white shadow-xs">
+          <div className="overflow-x-auto rounded-3xl border border-[var(--border-subtle)] bg-white shadow-xs">
             <table className="w-full text-left border-collapse min-w-[760px]">
               <thead>
-                <tr className="border-b-2 border-stone-300 bg-stone-50/90 divide-x divide-stone-200">
-                  <th className="py-4 px-6 font-sans text-sm sm:text-base font-bold text-stone-950 w-1/5">
+                <tr className="border-b-2 border-[var(--border-strong)] bg-[var(--canvas-soft)]/90 divide-x divide-[var(--border-subtle)]">
+                  <th className="py-4 px-6 font-sans text-sm sm:text-base font-bold text-[var(--ink-primary)] w-1/5">
                     Academic Dimension
                   </th>
-                  <th className="py-4 px-4 text-center font-sans text-xs sm:text-sm font-bold text-stone-700 w-1/5">
+                  <th className="py-4 px-4 text-center font-sans text-xs sm:text-sm font-bold text-[var(--ink-secondary)] w-1/5">
                     <div className="flex items-center justify-center gap-1.5">
-                      <Tv className="w-4 h-4 text-stone-500" />
+                      <Tv className="w-4 h-4 text-[var(--ink-muted)]" />
                       <span>YouTube Videos</span>
                     </div>
                   </th>
-                  <th className="py-4 px-4 text-center font-sans text-xs sm:text-sm font-bold text-stone-700 w-1/5">
+                  <th className="py-4 px-4 text-center font-sans text-xs sm:text-sm font-bold text-[var(--ink-secondary)] w-1/5">
                     <div className="flex items-center justify-center gap-1.5">
-                      <Users className="w-4 h-4 text-stone-500" />
+                      <Users className="w-4 h-4 text-[var(--ink-muted)]" />
                       <span>Mass Coaching (PW)</span>
                     </div>
                   </th>
-                  <th className="py-4 px-4 text-center font-sans text-xs sm:text-sm font-bold text-stone-700 w-1/5">
+                  <th className="py-4 px-4 text-center font-sans text-xs sm:text-sm font-bold text-[var(--ink-secondary)] w-1/5">
                     <div className="flex items-center justify-center gap-1.5">
-                      <Clock className="w-4 h-4 text-stone-500" />
+                      <Clock className="w-4 h-4 text-[var(--ink-muted)]" />
                       <span>Private Home Tutors</span>
                     </div>
                   </th>
-                  <th className="py-4 px-4 text-center font-sans text-xs sm:text-sm font-extrabold text-coral-hover bg-coral-soft w-1/5">
+                  <th className="py-4 px-4 text-center font-sans text-xs sm:text-sm font-extrabold text-[var(--accent-warm-hover)] bg-[var(--accent-warm-soft)] w-1/5">
                     <div className="flex items-center justify-center gap-1.5">
-                      <Star className="w-4 h-4 text-coral-primary fill-current" />
+                      <Star className="w-4 h-4 text-[var(--accent-warm)] fill-current" />
                       <span>Anaxly 1-on-1</span>
                     </div>
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-stone-100 text-xs sm:text-sm leading-relaxed text-stone-700">
+              <tbody className="divide-y divide-[var(--border-subtle)] text-xs sm:text-sm leading-relaxed text-[var(--ink-secondary)]">
                 {alternativesComparison.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-stone-50/60 transition-colors divide-x divide-stone-200">
-                    <td className="py-4 px-6 font-bold text-stone-950">{row.dimension}</td>
-                    <td className="py-4 px-4 text-center text-stone-500 font-medium">{row.youtube}</td>
-                    <td className="py-4 px-4 text-center text-stone-500 font-medium">{row.pw}</td>
-                    <td className="py-4 px-4 text-center text-stone-600 font-medium">{row.tutor}</td>
-                    <td className="py-4 px-4 text-center font-bold text-coral-hover bg-coral-soft">
+                  <tr key={idx} className="hover:bg-[var(--canvas-soft)]/60 transition-colors divide-x divide-[var(--border-subtle)]">
+                    <td className="py-4 px-6 font-bold text-[var(--ink-primary)]">{row.dimension}</td>
+                    <td className="py-4 px-4 text-center text-[var(--ink-muted)] font-medium">{row.youtube}</td>
+                    <td className="py-4 px-4 text-center text-[var(--ink-muted)] font-medium">{row.pw}</td>
+                    <td className="py-4 px-4 text-center text-[var(--ink-secondary)] font-medium">{row.tutor}</td>
+                    <td className="py-4 px-4 text-center font-bold text-[var(--accent-warm-hover)] bg-[var(--accent-warm-soft)]">
                       {row.anaxly}
                     </td>
                   </tr>
@@ -931,10 +931,10 @@ export default function PricingPage() {
         {/* Frequently Asked Questions */}
         <section className="mt-28 max-w-3xl mx-auto">
           <div className="text-center space-y-2 mb-10">
-            <h2 className="font-sans text-3xl sm:text-4xl font-extrabold text-stone-950 tracking-tight">
+            <h2 className="font-sans text-3xl sm:text-4xl font-extrabold text-[var(--ink-primary)] tracking-tight">
               Frequently Asked Questions
             </h2>
-            <p className="text-sm font-medium text-stone-600">
+            <p className="text-sm font-medium text-[var(--ink-secondary)]">
               Everything you need to know about our visual pedagogy, avatar technology, and pricing plans.
             </p>
           </div>
@@ -945,23 +945,23 @@ export default function PricingPage() {
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-stone-200 bg-white transition-all overflow-hidden shadow-2xs"
+                  className="rounded-2xl border border-[var(--border-subtle)] bg-white transition-all overflow-hidden shadow-2xs"
                 >
                   <button
                     type="button"
                     onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                    className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 cursor-pointer hover:bg-stone-50/60 transition-colors"
+                    className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 cursor-pointer hover:bg-[var(--canvas-soft)]/60 transition-colors"
                   >
-                    <span className="font-bold text-sm sm:text-base text-stone-900">{faq.q}</span>
+                    <span className="font-bold text-sm sm:text-base text-[var(--ink-primary)]">{faq.q}</span>
                     <HelpCircle
-                      className={`w-4 h-4 text-stone-400 transition-transform duration-200 ${
-                        isOpen ? 'rotate-180 text-coral-primary' : ''
+                      className={`w-4 h-4 text-[var(--ink-muted)] transition-transform duration-200 ${
+                        isOpen ? 'rotate-180 text-[var(--accent-warm)]' : ''
                       }`}
                     />
                   </button>
 
                   {isOpen && (
-                    <div className="px-5 pb-5 pt-1 border-t border-stone-100 text-xs sm:text-sm text-stone-600 leading-relaxed">
+                    <div className="px-5 pb-5 pt-1 border-t border-[var(--border-subtle)] text-xs sm:text-sm text-[var(--ink-secondary)] leading-relaxed">
                       {faq.a}
                     </div>
                   )}
@@ -974,42 +974,42 @@ export default function PricingPage() {
       {/* Test Mode Payment Simulator Modal */}
       {testModalOrder && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-in fade-in duration-200">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-stone-200 space-y-6">
-            <div className="flex items-center justify-between border-b border-stone-100 pb-4">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-[var(--border-subtle)] space-y-6">
+            <div className="flex items-center justify-between border-b border-[var(--border-subtle)] pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-coral-soft border border-coral-border flex items-center justify-center text-coral-primary">
+                <div className="w-10 h-10 rounded-2xl bg-[var(--accent-warm-soft)] border border-[var(--accent-warm-border)] flex items-center justify-center text-[var(--accent-warm)]">
                   <CreditCard className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-stone-900">Razorpay Test Simulator</h3>
-                  <p className="text-xs text-stone-500 font-medium">Sandbox Payment Verification</p>
+                  <h3 className="text-lg font-bold text-[var(--ink-primary)]">Razorpay Test Simulator</h3>
+                  <p className="text-xs text-[var(--ink-muted)] font-medium">Sandbox Payment Verification</p>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setTestModalOrder(null)}
-                className="p-1.5 rounded-xl hover:bg-stone-100 text-stone-400 hover:text-stone-700 transition-colors"
+                className="p-1.5 rounded-xl hover:bg-[var(--canvas-soft)] text-[var(--ink-muted)] hover:text-[var(--ink-primary)] transition-colors cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div className="bg-stone-50 rounded-2xl p-4 border border-stone-200 space-y-2.5 text-xs sm:text-sm">
+            <div className="bg-[var(--canvas-soft)] rounded-2xl p-4 border border-[var(--border-subtle)] space-y-2.5 text-xs sm:text-sm">
               <div className="flex justify-between items-center">
-                <span className="text-stone-500">Plan:</span>
-                <span className="font-bold text-stone-900 uppercase">{testModalOrder.planId} Pro</span>
+                <span className="text-[var(--ink-muted)]">Plan:</span>
+                <span className="font-bold text-[var(--ink-primary)] uppercase">{testModalOrder.planId} Pro</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-stone-500">Billing Cadence:</span>
-                <span className="font-semibold text-stone-700 capitalize">{testModalOrder.billingCycle}</span>
+                <span className="text-[var(--ink-muted)]">Billing Cadence:</span>
+                <span className="font-semibold text-[var(--ink-secondary)] capitalize">{testModalOrder.billingCycle}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-stone-500">Amount Due:</span>
-                <span className="font-black text-stone-950 text-base">₹{(testModalOrder.amount / 100).toLocaleString('en-IN')}</span>
+                <span className="text-[var(--ink-muted)]">Amount Due:</span>
+                <span className="font-black text-[var(--ink-primary)] text-base">₹{(testModalOrder.amount / 100).toLocaleString('en-IN')}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-stone-500">Razorpay Order ID:</span>
-                <span className="font-mono text-[11px] text-stone-700 bg-white px-2 py-0.5 rounded border border-stone-200">
+                <span className="text-[var(--ink-muted)]">Razorpay Order ID:</span>
+                <span className="font-mono text-[11px] text-[var(--ink-secondary)] bg-white px-2 py-0.5 rounded border border-[var(--border-subtle)]">
                   {testModalOrder.orderId}
                 </span>
               </div>
@@ -1026,7 +1026,7 @@ export default function PricingPage() {
                     `test_simulated_sig_${testModalOrder.orderId}_${Date.now()}`
                   )
                 }
-                className="btn-aristotle-primary w-full inline-flex items-center justify-center gap-2 rounded-full py-3.5 px-4 text-sm font-semibold text-white cursor-pointer disabled:opacity-60"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-full py-3.5 px-4 text-sm font-semibold text-white bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-hover)] cursor-pointer disabled:opacity-60 shadow-xs"
               >
                 <span>{isVerifying ? 'Activating Plan in Database...' : 'Simulate Successful Payment'}</span>
                 <ArrowRight className="w-4 h-4" />
@@ -1051,7 +1051,7 @@ export default function PricingPage() {
                           response.razorpay_signature
                         )
                       },
-                      theme: { color: '#059669' },
+                      theme: { color: '#1F3852' },
                     }
                     const rzp = new (window as any).Razorpay(options)
                     rzp.open()
@@ -1059,7 +1059,7 @@ export default function PricingPage() {
                     alert('Razorpay checkout script not available in browser. Use Simulate button above.')
                   }
                 }}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-2xl py-2.5 px-4 text-xs font-semibold border border-stone-200 hover:bg-stone-50 text-stone-700 transition-colors"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-2xl py-2.5 px-4 text-xs font-semibold border border-[var(--border-subtle)] hover:bg-[var(--canvas-soft)] text-[var(--ink-secondary)] transition-colors cursor-pointer"
               >
                 Retry Launching Official Razorpay Modal
               </button>

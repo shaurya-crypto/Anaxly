@@ -126,6 +126,15 @@ export function useGeminiLive() {
       });
 
       const audioCtx = await player.init(undefined, 24000);
+      if (typeof window !== "undefined") {
+        const savedSpeed = localStorage.getItem("anaxly_tutor_speed");
+        if (savedSpeed) {
+          const parsed = parseFloat(savedSpeed);
+          if (!isNaN(parsed) && parsed >= 0.75 && parsed <= 1.3) {
+            player.setPlaybackSpeed(parsed);
+          }
+        }
+      }
       audioPlayerRef.current = player;
       sharedAudioCtxRef.current = audioCtx;
 
@@ -341,6 +350,12 @@ export function useGeminiLive() {
     }
   }, []);
 
+  const setPlaybackSpeed = useCallback((speed: number) => {
+    if (audioPlayerRef.current) {
+      audioPlayerRef.current.setPlaybackSpeed(speed);
+    }
+  }, []);
+
   const sendBoardContext = useCallback((summary: string) => {
     if (geminiClientRef.current) {
       geminiClientRef.current.sendBoardContext(summary);
@@ -380,6 +395,7 @@ export function useGeminiLive() {
     startClass,
     toggleMute,
     setTeacherAudioMuted,
+    setPlaybackSpeed,
     endCall,
     resetToIdle,
     sendBoardContext,

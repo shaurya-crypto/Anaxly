@@ -20,15 +20,16 @@ export interface Phase4OnboardingData {
   fullName: string
   preferredLanguage?: string
   studyMedium?: string
-  age: number | null
+  age?: number | null
   classLevel: string
   targetBoard: string
-  careerAspiration: string
+  careerAspiration?: string
   learningPace: string
-  favoriteSubject: string
-  weakArea: string
-  learningStyle: string
-  preferredVoice: string
+  favoriteSubject?: string
+  weakArea?: string
+  learningStyle?: string
+  preferredVoice?: string
+  customVoiceKey?: string
 }
 
 export async function completeOnboardingAction(data: Phase4OnboardingData) {
@@ -77,8 +78,8 @@ export async function completeOnboardingAction(data: Phase4OnboardingData) {
     ? data.weakArea.trim().slice(0, 60)
     : 'Derivations'
 
-  const learningStyle = VALID_STYLES.includes(data.learningStyle) ? data.learningStyle : 'socratic'
-  const preferredVoice = VALID_VOICES.includes(data.preferredVoice) ? data.preferredVoice : 'Leda'
+  const learningStyle = VALID_STYLES.includes(data.learningStyle || '') ? data.learningStyle! : 'socratic'
+  const preferredVoice = VALID_VOICES.includes(data.preferredVoice || '') ? data.preferredVoice! : 'Charon'
 
   // 3. Persist to Supabase Profiles
   const profilePayload: Record<string, any> = {
@@ -95,6 +96,7 @@ export async function completeOnboardingAction(data: Phase4OnboardingData) {
     weak_subjects: [weakArea],
     learning_style: learningStyle,
     preferred_teacher_voice: preferredVoice,
+    ...(data.customVoiceKey ? { custom_voice_key: data.customVoiceKey } : {}),
     onboarding_completed: true,
     updated_at: new Date().toISOString(),
   }
