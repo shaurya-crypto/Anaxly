@@ -22,6 +22,15 @@ import {
 import { evaluateMathExpression } from '@/lib/mathEvaluator'
 import { isLegitimateGraphTopic } from '@/lib/graphGating'
 
+// Module-level cached Excalidraw import to eliminate dynamic import overhead
+let cachedExcalidrawModule: typeof import('@excalidraw/excalidraw') | null = null
+async function getExcalidrawModule(): Promise<typeof import('@excalidraw/excalidraw')> {
+  if (!cachedExcalidrawModule) {
+    cachedExcalidrawModule = await import('@excalidraw/excalidraw')
+  }
+  return cachedExcalidrawModule
+}
+
 // Dynamically import Excalidraw with SSR disabled
 const Excalidraw = dynamic(
   async () => (await import('@excalidraw/excalidraw')).Excalidraw,
@@ -401,58 +410,22 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
     /**
      * Hand-writes the exact final lines character by character at the exact board position.
-     * The overlay stays visible until the real elements are committed (see updateCurrentPageElements),
-     * so there is no blink between the animation and the permanent ink.
+     * Non-blocking: resolves immediately so permanent elements commit without delay and the
+     * board never lags behind spoken audio.
      */
     const playTypingEffect = async (
-      actionLabel: string,
-      lines: string[],
-      color: string,
-      canvasX: number,
-      canvasY: number,
-      fontSize = 16,
-      bulletType: 'dot' | 'step' | 'title' | 'box' | 'question' | 'none' = 'none',
-      bulletColor?: string,
-      textOffsetX = 0
+      _actionLabel: string,
+      _lines: string[],
+      _color: string,
+      _canvasX: number,
+      _canvasY: number,
+      _fontSize = 16,
+      _bulletType: 'dot' | 'step' | 'title' | 'box' | 'question' | 'none' = 'none',
+      _bulletColor?: string,
+      _textOffsetX = 0
     ): Promise<void> => {
-      if (typeof window === 'undefined') return
-      if (window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches) return
-
-      const cleanLines = lines.map((l) => l.replace(/\s+$/, ''))
-      const totalChars = cleanLines.reduce((n, l) => n + l.length, 0)
-      if (totalChars === 0) return
-
-      if (typingClearTimerRef.current) clearTimeout(typingClearTimerRef.current)
-      const id = Math.random().toString(36).substring(7)
-      setActiveTyping({
-        id,
-        actionLabel,
-        lines: cleanLines,
-        visibleChars: 0,
-        totalChars,
-        canvasX,
-        canvasY,
-        textOffsetX,
-        fontSize,
-        color,
-        bulletType,
-        bulletColor,
-      })
-
-      // Natural handwriting pace: ~28ms/char, whole phrase between 0.5s and 2.2s
-      const totalMs = Math.max(500, Math.min(2200, totalChars * 28))
-      const frameMs = 32
-      const steps = Math.max(1, Math.round(totalMs / frameMs))
-      for (let step = 1; step <= steps; step++) {
-        await new Promise((r) => setTimeout(r, frameMs))
-        const visible = Math.round((step / steps) * totalChars)
-        setActiveTyping((prev) => (prev && prev.id === id ? { ...prev, visibleChars: visible } : prev))
-      }
-
-      // Safety net: if the caller fails before committing, never leave the overlay stuck
-      typingClearTimerRef.current = setTimeout(() => {
-        setActiveTyping((prev) => (prev && prev.id === id ? null : prev))
-      }, 1500)
+      // Non-blocking: commit immediately to Excalidraw so board never lags behind speech
+      return Promise.resolve()
     }
 
 
@@ -1198,7 +1171,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       try {
         const convertFn =
           convertElementsRef.current ||
-          (await import('@excalidraw/excalidraw')).convertToExcalidrawElements
+          (await getExcalidrawModule()).convertToExcalidrawElements
         convertElementsRef.current = convertFn
 
         // 1. Save current page state
@@ -1274,7 +1247,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           try {
             const convertFn =
               convertElementsRef.current ||
-              (await import('@excalidraw/excalidraw')).convertToExcalidrawElements
+              (await getExcalidrawModule()).convertToExcalidrawElements
             convertElementsRef.current = convertFn
 
             const updatedPages = [...pagesRef.current]
@@ -1311,7 +1284,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           try {
             const convertFn =
               convertElementsRef.current ||
-              (await import('@excalidraw/excalidraw')).convertToExcalidrawElements
+              (await getExcalidrawModule()).convertToExcalidrawElements
             convertElementsRef.current = convertFn
             const pageConcept =
               conceptTitle ||
@@ -1392,7 +1365,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
       const initializeBoard = async () => {
         try {
-          const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+          const { convertToExcalidrawElements } = await getExcalidrawModule()
           convertElementsRef.current = convertToExcalidrawElements
 
           // 1. Check if pages were previously saved
@@ -1622,7 +1595,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
       await checkAutoPageOverflow(totalH + 16)
       try {
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const y = customY !== undefined ? customY : getDynamicNextY(15)
         const chosenColor = resolveChalkColor(color, activeChalkColorRef.current)
 
@@ -1689,7 +1662,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       try {
         const convertFn =
           convertElementsRef.current ||
-          (await import('@excalidraw/excalidraw')).convertToExcalidrawElements
+          (await getExcalidrawModule()).convertToExcalidrawElements
         convertElementsRef.current = convertFn
 
         const startX = 60
@@ -1747,7 +1720,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
       await checkAutoPageOverflow(totalH + 16)
       try {
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
         const startY = getDynamicNextY(12)
         nextYRef.current = Math.max(nextYRef.current, startY + totalH + 16)
@@ -1804,7 +1777,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
       await checkAutoPageOverflow(totalH + 16)
       try {
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
         const startY = getDynamicNextY(12)
         nextYRef.current = Math.max(nextYRef.current, startY + totalH + 16)
@@ -1853,7 +1826,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
       await checkAutoPageOverflow(boxHeight + 20)
       try {
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
         const startY = getDynamicNextY(16)
         nextYRef.current = Math.max(nextYRef.current, startY + boxHeight + 20)
@@ -1913,7 +1886,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
       await checkAutoPageOverflow(qHeight + 20)
       try {
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
         const startY = getDynamicNextY(16)
         nextYRef.current = Math.max(nextYRef.current, startY + qHeight + 20)
@@ -1999,7 +1972,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
       await checkAutoPageOverflow(boxHeight + 18)
       try {
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
         const startY = getDynamicNextY(14)
         nextYRef.current = Math.max(nextYRef.current, startY + boxHeight + 18)
@@ -2068,7 +2041,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
       await checkAutoPageOverflow(boxHeight + 18)
       try {
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
         const startY = getDynamicNextY(14)
         nextYRef.current = Math.max(nextYRef.current, startY + boxHeight + 18)
@@ -2160,7 +2133,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       await checkAutoPageOverflow(cardHeight + 20)
 
       try {
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
         const startY = getDynamicNextY(16)
         const exStroke = resolveChalkColor(color, INK_AMBER)
@@ -2365,7 +2338,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       await checkAutoPageOverflow(h + (label ? 60 : 30))
 
       try {
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startY = getDynamicNextY(16)
         const skeletons: any[] = []
 
@@ -2729,7 +2702,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       const hasBranches = cleanText.includes('|') && (cleanText.includes('->') || cleanText.includes('=>'))
 
       try {
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const flowColor = resolveChalkColor(color, INK_BOTANICAL)
         const skeletons: any[] = []
 
@@ -3021,7 +2994,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!excalidrawAPI || !tableStr?.trim()) return
       if (shouldSkipDuplicate('draw_table', tableStr)) return
       try {
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
         const totalTableWidth = 720
 
@@ -3145,7 +3118,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       const clean = cleanChalkboardTypography(raw.trim())
       await checkAutoPageOverflow(46)
       try {
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
         const startY = getDynamicNextY(12)
         const roughColor = resolveChalkColor(color, INK_AMBER)
@@ -3203,7 +3176,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           return elText.includes(searchTarget)
         })
 
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const markerColor = resolveChalkColor(color, INK_AMBER)
 
         if (matchingTextElements.length > 0) {
@@ -3315,7 +3288,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           localStorage.removeItem(storageKey)
           localStorage.removeItem(`${storageKey}_files`)
         }
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const firstConcept = keyConcepts && keyConcepts[0] ? keyConcepts[0] : undefined
         const initialSkeleton = createHeaderSkeleton(1, firstConcept)
         const initialElements = convertToExcalidrawElements(initialSkeleton)
@@ -3397,7 +3370,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       }
       await checkAutoPageOverflow(230)
       try {
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 75
         const startY = getDynamicNextY(18)
         nextYRef.current = Math.max(nextYRef.current, startY + 240 + 20)
@@ -3778,7 +3751,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!excalidrawAPI) return
       await checkAutoPageOverflow(170)
       try {
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
         const startY = getDynamicNextY(16)
         const elements: any[] = []
@@ -3914,7 +3887,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
       await checkAutoPageOverflow(270)
       try {
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
         const startY = getDynamicNextY(20)
         const cardWidth = 532
@@ -4029,7 +4002,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
       await checkAutoPageOverflow(260)
       try {
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
         const startY = getDynamicNextY(20)
         nextYRef.current = Math.max(nextYRef.current, startY + 280 + 24)
@@ -4282,7 +4255,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
       await checkAutoPageOverflow(440)
       try {
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
         const startY = getDynamicNextY(20)
 
@@ -4678,7 +4651,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
       await checkAutoPageOverflow(160)
       try {
-        const { convertToExcalidrawElements } = await import('@excalidraw/excalidraw')
+        const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
         const startY = getDynamicNextY(16)
         const customPayload = {

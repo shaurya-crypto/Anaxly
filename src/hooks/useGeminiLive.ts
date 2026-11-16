@@ -11,8 +11,8 @@ export function useGeminiLive() {
   const [isMuted, setIsMuted] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [transcripts, setTranscripts] = useState<TranscriptItem[]>([]);
-  const [teacherVolume, setTeacherVolume] = useState(0);
-  const [userVolume, setUserVolume] = useState(0);
+  const teacherVolumeRef = useRef(0);
+  const userVolumeRef = useRef(0);
   const [selectedVoice, setSelectedVoice] = useState<GeminiVoice>("Leda");
   const [latestVideoFrame, setLatestVideoFrame] = useState<string | null>(null);
   const [videoMimeType, setVideoMimeType] = useState<string>("image/jpeg");
@@ -37,16 +37,18 @@ export function useGeminiLive() {
     connectionStateRef.current = connectionState;
   }, [connectionState]);
 
-  // Volume visualizer loop for fluid UI animations
+  // Volume visualizer loop writing directly to refs to eliminate 60-120fps component re-render thrashing
   const startVolumeLoop = useCallback(() => {
     const loop = () => {
       if (audioPlayerRef.current) {
-        setTeacherVolume(audioPlayerRef.current.getVolumeLevel());
+        teacherVolumeRef.current = audioPlayerRef.current.getVolumeLevel();
+      } else {
+        teacherVolumeRef.current = 0;
       }
       if (audioStreamerRef.current && !isMutedRef.current) {
-        setUserVolume(audioStreamerRef.current.getMicVolume());
+        userVolumeRef.current = audioStreamerRef.current.getMicVolume();
       } else {
-        setUserVolume(0);
+        userVolumeRef.current = 0;
       }
       animationFrameRef.current = requestAnimationFrame(loop);
     };
@@ -58,8 +60,8 @@ export function useGeminiLive() {
       cancelAnimationFrame(animationFrameRef.current);
       animationFrameRef.current = null;
     }
-    setTeacherVolume(0);
-    setUserVolume(0);
+    teacherVolumeRef.current = 0;
+    userVolumeRef.current = 0;
   }, []);
 
   const addTranscript = useCallback((text: string, sender: "user" | "teacher") => {
@@ -383,8 +385,14 @@ export function useGeminiLive() {
     isMuted,
     errorMessage,
     transcripts,
-    teacherVolume,
-    userVolume,
+    teacherVolume: 0,
+    userVolume: 0,
+    teacherVolumeRef,
+    userVolumeRef,
+    getTeacherVolume: () => teacherVolumeRef.current,
+    getUserVolume: () => userVolumeRef.current,
+    audioPlayerRef,
+    audioStreamerRef,
     selectedVoice,
     setSelectedVoice,
     latestVideoFrame,

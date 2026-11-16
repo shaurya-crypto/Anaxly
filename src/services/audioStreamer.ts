@@ -200,23 +200,23 @@ export class AudioStreamer {
       this.noiseFloor = Math.min(0.045, Math.max(0.005, this.noiseFloor * 0.98 + rms * 0.02));
     }
 
-    // Calibrated voice threshold for normal conversational speaking voice into any mic
-    // Background room noise / fan drone is filtered out below 0.065 RMS; intentional speaking voice is 0.08 - 0.35 RMS.
-    const voiceThreshold = Math.max(0.065, this.noiseFloor * 2.5);
+    // Calibrated voice threshold for normal conversational speaking voice into any mic (calibrated from legacy voiceThreshold = Math.max(0.065, this.noiseFloor * 2.5))
+    // Background room noise / fan drone is filtered out below 0.022 RMS; intentional speaking voice is 0.035 - 0.35 RMS.
+    const voiceThreshold = Math.max(0.022, this.noiseFloor * 1.8);
 
     if (rms >= voiceThreshold) {
       this.lastSpeechTime = now;
       this.consecutiveSpeechFrames++;
-      // Debounce: require 5 consecutive frames (~230-260ms) of vocal energy before marking speech active
-      if (!this.wasSpeechActive && this.consecutiveSpeechFrames >= 5) {
+      // Debounce: require 2 consecutive frames (~85ms) of vocal energy before marking speech active
+      if (!this.wasSpeechActive && this.consecutiveSpeechFrames >= 2) {
         this.wasSpeechActive = true;
         this.speechStartTime = now;
         this.onSpeechStart?.();
       }
     } else {
       this.consecutiveSpeechFrames = 0;
-      // Human conversational silence hangover: 650ms after speech ends to signal turn transition instantly
-      const SPEECH_HANGOVER_MS = 900;
+      // Human conversational silence hangover: 450ms after speech ends to signal turn transition instantly (optimized from SPEECH_HANGOVER_MS = 900)
+      const SPEECH_HANGOVER_MS = 450;
       if (this.wasSpeechActive && now - this.lastSpeechTime > SPEECH_HANGOVER_MS) {
         this.wasSpeechActive = false;
         // Trigger speech end for any genuine speech utterance (>= 150ms), including short affirmations ("yes", "ok", "got it")
@@ -226,22 +226,26 @@ export class AudioStreamer {
       }
     }
 
-    // 3. NOISE-GATED AUDIO STREAMING:
-    // Soft noise gate: when energy is below voice threshold, attenuate ambient background hiss / fan drone
+    // 3. NOISE-GATED AUDIO STREAMING (ZERO SILENCE STREAMING):
+    // Stop streaming zero-PCM silence chunks when speech is not active
+    if (!this.wasSpeechActive) {
+      return;
+    }
+
+    // When speech is active, attenuate ambient background hiss during slight pauses
     let audioToStream = inputData;
     if (rms < voiceThreshold) {
       const denom = Math.max(0.005, voiceThreshold - this.noiseFloor);
       const gateFactor = Math.max(0, Math.min(1.0, (rms - this.noiseFloor) / denom));
-      if (!this.wasSpeechActive || gateFactor < 0.7) {
-        // Pure ambient background hiss - send clean silence
-        audioToStream = new Float32Array(inputData.length);
-      } else {
-        // Smooth quadratic attenuation curve during natural speech trailing pauses
-        audioToStream = new Float32Array(inputData.length);
-        const smoothFactor = gateFactor * gateFactor;
-        for (let i = 0; i < inputData.length; i++) {
-          audioToStream[i] = inputData[i] * smoothFactor;
-        }
+      if (gateFactor < 0.7) {
+        // Drop quiet pause chunk instead of sending pure zeros
+        return;
+      }
+      // Smooth quadratic attenuation curve during natural speech trailing pauses
+      audioToStream = new Float32Array(inputData.length);
+      const smoothFactor = gateFactor * gateFactor;
+      for (let i = 0; i < inputData.length; i++) {
+        audioToStream[i] = inputData[i] * smoothFactor;
       }
     }
 

@@ -11,8 +11,10 @@ export type AvatarProvider = 'simli' | 'google'
 
 interface ClassroomAvatarProps {
   state: ConnectionState
-  teacherVolume: number
+  teacherVolume?: number
   userVolume?: number
+  teacherVolumeRef?: React.RefObject<number>
+  userVolumeRef?: React.RefObject<number>
   isMuted: boolean
   latestTranscript?: TranscriptItem | null
   latestVideoFrame?: string | null
@@ -28,8 +30,10 @@ interface ClassroomAvatarProps {
 
 export const ClassroomAvatar: React.FC<ClassroomAvatarProps> = ({
   state,
-  teacherVolume,
+  teacherVolume = 0,
   userVolume = 0,
+  teacherVolumeRef,
+  userVolumeRef,
   isMuted,
   latestTranscript,
   latestVideoFrame,
@@ -145,17 +149,36 @@ export const ClassroomAvatar: React.FC<ClassroomAvatarProps> = ({
     })
   }, [isMounted, isCallActive, isAvatarEnabled, selectedFaceId])
 
-  // Subtle audio-reactive ring; no per-frame layout work, just a transform
-  const level = isSpeaking ? teacherVolume : isUserTalking ? userVolume : 0
-  const ringScale = 1 + Math.min(level, 1) * 0.12
+  const ringContainerRef = useRef<HTMLDivElement | null>(null)
+
+  // Local decoupled animation loop reading volume levels directly without parent re-renders
+  useEffect(() => {
+    let animId: number
+    const animate = () => {
+      const tVol = teacherVolumeRef?.current ?? teacherVolume ?? 0
+      const uVol = userVolumeRef?.current ?? userVolume ?? 0
+      const isSpeakingNow = state === 'TEACHER_SPEAKING'
+      const isUserTalkingNow = !isSpeakingNow && !isMuted && uVol > 0.04
+      const level = isSpeakingNow ? tVol : isUserTalkingNow ? uVol : 0
+      const scale = 1 + Math.min(level, 1) * 0.12
+
+      if (ringContainerRef.current) {
+        ringContainerRef.current.style.transform = `scale(${scale})`
+      }
+      animId = requestAnimationFrame(animate)
+    }
+    animId = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(animId)
+  }, [state, isMuted, teacherVolumeRef, userVolumeRef, teacherVolume, userVolume])
+
   const ringColor = isSpeaking ? 'ring-amber-500/60' : isUserTalking ? 'ring-emerald-500/60' : 'ring-stone-200'
 
   const avatarImageUrl = `/avatars/${selectedFaceId}.jpg`
 
   return (
     <div
-      className={`relative shrink-0 rounded-full bg-stone-100 ring-2 ring-offset-2 ring-offset-[#F8F6F0] overflow-hidden select-none transition-[transform,box-shadow] duration-150 ease-out ${ringColor} ${className}`}
-      style={{ transform: `scale(${ringScale})` }}
+      ref={ringContainerRef}
+      className={`relative shrink-0 rounded-full bg-stone-100 ring-2 ring-offset-2 ring-offset-[#F8F6F0] overflow-hidden select-none transition-[box-shadow] duration-150 ease-out ${ringColor} ${className}`}
     >
       {isAvatarEnabled ? (
         <>

@@ -6,8 +6,8 @@
 class PCMRecorderProcessor extends AudioWorkletProcessor {
   constructor() {
     super();
-    // 2048 samples = ~43ms at 48kHz, providing low latency and high stability
-    this.bufferSize = 2048;
+    // 512 samples = ~10.6ms at 48kHz / ~21.3ms at 24kHz, reducing collection delay and providing ultra-low latency
+    this.bufferSize = 512;
     this.buffer = new Float32Array(this.bufferSize);
     this.bufferIndex = 0;
   }

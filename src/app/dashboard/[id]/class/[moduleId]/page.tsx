@@ -809,6 +809,8 @@ export default function ModuleClassroomPage() {
     transcripts,
     teacherVolume,
     userVolume,
+    teacherVolumeRef,
+    userVolumeRef,
     selectedVoice,
     setSelectedVoice,
     latestVideoFrame,
@@ -1086,8 +1088,13 @@ export default function ModuleClassroomPage() {
 
     const cleanAnswer = answer.trim()
 
+    if (isConfirmationOrNextIntent(cleanAnswer)) {
+      hasConfirmedUnderstandingRef.current = true
+    }
+
     // Explicit next concept fast-path (only when user explicitly requests advancement)
     if (isExplicitNextConceptIntent(cleanAnswer)) {
+      hasConfirmedUnderstandingRef.current = true
       lastVerdictStatusRef.current = 'correct'
       isReviewingVerdictRef.current = false
       setIsReviewingVerdict(false)
@@ -1147,8 +1154,13 @@ CRITICAL DIRECTIVE:
 
     const cleanAnswer = answer.trim()
 
+    if (isConfirmationOrNextIntent(cleanAnswer)) {
+      hasConfirmedUnderstandingRef.current = true
+    }
+
     // Explicit next concept fast-path (only when user explicitly requests advancement)
     if (isExplicitNextConceptIntent(cleanAnswer)) {
+      hasConfirmedUnderstandingRef.current = true
       lastVerdictStatusRef.current = 'correct'
       isReviewingVerdictRef.current = false
       setIsReviewingVerdict(false)
@@ -1384,6 +1396,10 @@ CRITICAL DIRECTIVE:
   const lastPageJumpTimeRef = useRef<number>(0)
   const lastTargetIdxRef = useRef<number>(-1)
   const lastConceptDoneTimeRef = useRef<number>(0)
+  const hasSessionStartedRef = useRef<boolean>(false)
+  const hasConfirmedUnderstandingRef = useRef<boolean>(false)
+  const [isReconnecting, setIsReconnecting] = useState<boolean>(false)
+  const reconnectAttemptTimerRef = useRef<NodeJS.Timeout | null>(null)
 
   // Exact database values (no hardcoded mocks)
   const resolvedClassLevel =
@@ -1897,12 +1913,26 @@ CRITICAL DIRECTIVE:
       // Transcript matching for [CONCEPT_DONE] is intentionally omitted to avoid premature advancement from verbal mentions.
     } else if (latest && latest.sender === 'user') {
       const userText = (latest.text || '').trim().toLowerCase()
+      if (
+        userText.startsWith('[transition') ||
+        userText.startsWith('[session') ||
+        userText.startsWith('[student question') ||
+        userText.startsWith('[student requested')
+      ) {
+        return // Never parse internal system transition prompts as student commands!
+      }
+
+      if (isConfirmationOrNextIntent(userText)) {
+        hasConfirmedUnderstandingRef.current = true
+      }
+
       const transcriptId = latest.id || `user_${latest.timestamp || Date.now()}`
       const userKey = `${transcriptId}:user_ack`
 
       if (!executedSceneDirectivesRef.current.has(userKey)) {
         if (isExplicitNextConceptIntent(userText)) {
           executedSceneDirectivesRef.current.add(userKey)
+          hasConfirmedUnderstandingRef.current = true
           lastVerdictStatusRef.current = 'correct'
           isReviewingVerdictRef.current = false
           setIsReviewingVerdict(false)
@@ -2725,6 +2755,7 @@ CRITICAL DIRECTIVE:
     setIsReviewingVerdict(false)
     isAwaitingStudentAnswerRef.current = false
     setIsAwaitingStudentAnswer(false)
+    hasConfirmedUnderstandingRef.current = false
 
     currentConceptIndexRef.current = nextIdx
     setCurrentConceptIndex(nextIdx)
@@ -2884,6 +2915,7 @@ ${nextDossier}`
     setIsReviewingVerdict(false)
     isAwaitingStudentAnswerRef.current = false
     setIsAwaitingStudentAnswer(false)
+    hasConfirmedUnderstandingRef.current = false
 
     currentConceptIndexRef.current = targetIdx
     setCurrentConceptIndex(targetIdx)
@@ -3011,9 +3043,9 @@ CRITICAL INSTRUCTIONS:
     const keyConcepts: string[] = parseKeyConcepts(activeModule?.key_concepts)
     if (keyConcepts.length === 0) return
 
-    // Debounce guard: prevent rapid multiple triggers within 2500ms
+    // Debounce guard: prevent rapid multiple triggers within 4000ms
     const now = Date.now()
-    if (now - lastConceptDoneTimeRef.current < 2500) {
+    if (now - lastConceptDoneTimeRef.current < 4000) {
       return
     }
     lastConceptDoneTimeRef.current = now
@@ -3046,6 +3078,19 @@ CRITICAL DIRECTIVE:
 1. You CANNOT advance or skip concepts during Stages 1 to 4!
 2. Complete the required cadence: explain the concept thoroughly in 5 to 6 articulate sentences, write the formal definition and worked numerical on the board, and pose ONE focused Stage 5 Checkpoint Question to test my understanding.
 3. Only after evaluating my answer can you call concept_completed.`
+        )
+        return
+      }
+
+      // Mandatory Pedagogical Understanding Checkpoint Guard:
+      if (!hasConfirmedUnderstandingRef.current) {
+        console.warn(`[Classroom Socratic Guard] Blocked concept_completed for Concept ${currentIdx + 1} ("${keyConcepts[currentIdx]}"). Student has not confirmed understanding yet.`)
+        sendTextMessage(
+          `[PEDAGOGICAL CHECKPOINT GUARD]: You called concept_completed before verifying student understanding for Concept ${currentIdx + 1}: "${keyConcepts[currentIdx]}".
+MANDATORY INVARIANT:
+1. After explaining or solving a problem, you MUST explicitly ask: "Did you understand this concept, or should we solve another problem together?" (or in Hindi/Hinglish: "Kya yeh concept samajh aaya, ya koi doubt hai?").
+2. HARD STOP: You MUST stop speaking completely and wait for the student's confirmation.
+3. You are strictly forbidden from calling concept_completed until the student explicitly answers and confirms they understood!`
         )
         return
       }
@@ -3167,11 +3212,15 @@ CRITICAL DIRECTIVE:
   const handleStartClass = async () => {
     if (!activeModule) return
 
+    hasSessionStartedRef.current = true
+    setIsReconnecting(false)
+
     lastVerdictStatusRef.current = 'neutral'
     isReviewingVerdictRef.current = false
     setIsReviewingVerdict(false)
     isAwaitingStudentAnswerRef.current = false
     setIsAwaitingStudentAnswer(false)
+    hasConfirmedUnderstandingRef.current = false
 
     const keyConcepts: string[] = parseKeyConcepts(activeModule?.key_concepts)
     const rawCurrent = keyConcepts[currentConceptIndex] || activeModule.title || ''
@@ -3569,6 +3618,11 @@ STRICT 6-STAGE CADENCE PER CONCEPT:
   * write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>", color="botanical")
   * If wrong or hesitant: Break down with visual analogy, co-solve line-by-line in rough work, and re-test.
   * MANDATORY ADVANCEMENT ONLY AFTER STAGE 6: Do NOT advance or call concept_completed during Stages 1 to 4! When the student affirms understanding during introductory or derivation stages ('yes', 'samajh gaya', 'ok'), smoothly proceed to the next stage of the current concept. Call concept_completed(conceptName="${currentConcept}") or write_chalkboard(action="concept_done") ONLY after the Stage 5/6 checkpoint question has been attempted and resolved, or if the student explicitly asks to go to the next concept.
+- MANDATORY UNDERSTANDING CHECKPOINT INVARIANT (THE HARD STOP):
+  After explaining a concept, solving a problem, or evaluating a student's answer, you MUST ask:
+  "Did you understand this concept, or should we solve another problem together?" (or in Hindi/Hinglish: "Kya yeh concept samajh aaya, ya koi doubt hai?").
+  THE HARD STOP: You MUST stop speaking completely and wait for the student's confirmation.
+  LOCK: You are strictly forbidden from calling concept_completed or write_chalkboard(action="concept_done") until the student explicitly answers and confirms they understood!
   * STRICT ZERO REPETITION MANDATE: NEVER ask "is it clear?", "did you understand?", or ask for confirmation again once the student has already said yes or confirmed. Once the concept is genuinely complete, proceed to teach the next concept without delay! Transition immediately with an everyday physical hook.
 
 ========================================================================================
@@ -4298,6 +4352,25 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
     )
   }
 
+  // Auto-reconnect session when dropped during an active class, preserving chalkboard and concept index
+  useEffect(() => {
+    if (hasSessionStartedRef.current && (connectionState === 'DISCONNECTED' || connectionState === 'ERROR')) {
+      setIsReconnecting(true)
+      if (reconnectAttemptTimerRef.current) clearTimeout(reconnectAttemptTimerRef.current)
+      reconnectAttemptTimerRef.current = setTimeout(() => {
+        if (hasSessionStartedRef.current && (connectionState === 'DISCONNECTED' || connectionState === 'ERROR')) {
+          console.log('[Classroom Auto-Reconnect] Attempting to reconnect session preserving board context and concept index...')
+          handleStartClass()
+        }
+      }, 1500)
+    } else if (connectionState === 'CONNECTED' || connectionState === 'LISTENING' || connectionState === 'TEACHER_SPEAKING') {
+      setIsReconnecting(false)
+    }
+    return () => {
+      if (reconnectAttemptTimerRef.current) clearTimeout(reconnectAttemptTimerRef.current)
+    }
+  }, [connectionState])
+
   const handleEndClass = () => {
     endCall()
     if (isCompletedBefore || moduleCompletedSuccess) {
@@ -4444,8 +4517,8 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
 
               <ClassroomAvatar
                 state={connectionState}
-                teacherVolume={teacherVolume}
-                userVolume={userVolume}
+                teacherVolumeRef={teacherVolumeRef}
+                userVolumeRef={userVolumeRef}
                 isMuted={isMuted}
                 latestTranscript={latestTranscript}
                 latestVideoFrame={latestVideoFrame}
@@ -4661,7 +4734,23 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
             </div>
           )}
 
-          {!isCallActive && (
+          {!isCallActive && hasSessionStartedRef.current && (
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 z-40 flex items-center gap-3 px-4 py-2 rounded-full bg-[#1F3852] text-white shadow-lg border border-white/20 text-xs sm:text-sm">
+              <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+              <span className="font-medium">
+                {isReconnecting ? 'Reconnecting to Faculty...' : 'Voice Connection Paused'}
+              </span>
+              <button
+                type="button"
+                onClick={() => handleStartClass()}
+                className="px-3 py-1 bg-white text-[#1F3852] font-semibold rounded-full hover:bg-white/90 transition-colors cursor-pointer text-xs"
+              >
+                Reconnect Voice
+              </button>
+            </div>
+          )}
+
+          {!isCallActive && !hasSessionStartedRef.current && (
             <div className="absolute inset-0 z-30 flex items-center justify-center overflow-y-auto bg-[#FAF8F4] p-3 sm:p-6">
               <DashCard tone="primary" size="lg" className="w-full max-w-2xl space-y-5 p-5 sm:p-8">
                 <div className="flex flex-wrap items-center gap-2">
