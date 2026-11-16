@@ -6,7 +6,7 @@ import { ArtworkFrame } from './ArtworkFrame'
 import { Reveal } from './motion/Reveal'
 import { Parallax } from './motion/Parallax'
 import { Handwriting } from './motion/Handwriting'
-import { ChalkDerivation, OrbitSketch, QuillNotes } from './illustrations'
+import { ChalkDerivation, OrbitSketch, QuillNotes, SpeechDialogue } from './illustrations'
 import { getArtwork } from '@/lib/landing-artwork'
 
 type Step = {
@@ -157,6 +157,22 @@ export function LearningFlow() {
                   <span>&bull;</span>
                   <span className="font-sans italic text-ink-muted">Classical Foundation of Rigor</span>
                 </div>
+              </div>
+
+              {/* Ink trio: the ascent in three drawings */}
+              <div className="mt-8 grid grid-cols-3 items-start gap-4 border-t border-border-subtle pt-6">
+                {[
+                  { Icon: SpeechDialogue, label: 'Intuition' },
+                  { Icon: ChalkDerivation, label: 'Derivation' },
+                  { Icon: QuillNotes, label: 'Mastery' },
+                ].map(({ Icon, label }, i) => (
+                  <div key={label} className="flex flex-col items-center text-center">
+                    <Icon className="h-16 w-16 sm:h-20 sm:w-20 text-ink-primary/65" />
+                    <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted">
+                      <span className="text-coral-primary">0{i + 1}</span> {label}
+                    </p>
+                  </div>
+                ))}
               </div>
             </Parallax>
           </div>
