@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
-import { Mic, MicOff, PhoneOff } from "lucide-react";
+import { Mic, MicOff, PhoneOff, Pause, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface CallControlsProps {
@@ -10,6 +10,8 @@ interface CallControlsProps {
   userVolumeRef?: React.RefObject<number>;
   onToggleMute: () => void;
   onEndCall: () => void;
+  onPause?: () => void;
+  isPaused?: boolean;
 }
 
 export const CallControls: React.FC<CallControlsProps> = ({
@@ -18,6 +20,8 @@ export const CallControls: React.FC<CallControlsProps> = ({
   userVolumeRef,
   onToggleMute,
   onEndCall,
+  onPause,
+  isPaused = false,
 }) => {
   const rippleRef = useRef<HTMLSpanElement | null>(null);
 
@@ -66,6 +70,24 @@ export const CallControls: React.FC<CallControlsProps> = ({
           {isMuted ? "Unmute" : "Mute"}
         </span>
       </button>
+
+      {/* Pause / Resume Button */}
+      {onPause && (
+        <button
+          onClick={onPause}
+          title={isPaused ? "Resume Lesson" : "Pause Lesson"}
+          className={`relative group flex items-center justify-center w-11 h-11 rounded-full transition-all duration-200 active:scale-95 ${
+            isPaused
+              ? "bg-[var(--accent-primary)] text-white hover:bg-[var(--accent-primary-hover)]"
+              : "bg-canvas text-ink-primary border border-border hover:bg-canvas/80"
+          }`}
+        >
+          {isPaused ? <Play className="w-5 h-5 fill-current" strokeWidth={1.5} /> : <Pause className="w-5 h-5" strokeWidth={1.5} />}
+          <span className="absolute -top-10 px-2.5 py-1 text-xs text-ink-secondary bg-white border border-border rounded-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-sm">
+            {isPaused ? "Resume Capsule" : "Pause Capsule"}
+          </span>
+        </button>
+      )}
 
       {/* Divider */}
       <div className="w-px h-6 bg-border" />

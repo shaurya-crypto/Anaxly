@@ -170,12 +170,12 @@ export function useGeminiLive() {
       await streamer.start(audioCtx);
       audioStreamerRef.current = streamer;
 
-      const activeVoice = (voiceOverride || selectedVoice || lockedVoiceRef.current || config.voiceName || "Leda") as GeminiVoice;
+      const activeVoice = (lockedVoiceRef.current || voiceOverride || selectedVoice || config.voiceName || "Charon") as GeminiVoice;
       lockedVoiceRef.current = activeVoice;
-      if (voiceOverride && voiceOverride !== selectedVoice) {
-        setSelectedVoice(voiceOverride);
+      if (activeVoice !== selectedVoice) {
+        setSelectedVoice(activeVoice);
       }
-      console.log("[useGeminiLive] Starting session with active voice:", activeVoice);
+      console.log("[useGeminiLive] Locked active voice for live session:", activeVoice);
 
       const client = new GeminiLiveClient(
         config.token || config.apiKey,
@@ -184,11 +184,20 @@ export function useGeminiLive() {
             setConnectionState("CONNECTED");
             // Kick off spoken turn immediately so teacher starts teaching Concept 1
             if (kickoffPrompt) {
+              audioStreamerRef.current?.setTeacherSpeaking(true);
               client.sendKickoff(kickoffPrompt);
+              setTimeout(() => {
+                setConnectionState((current) => {
+                  if (current === "CONNECTED") {
+                    audioStreamerRef.current?.setTeacherSpeaking(false);
+                    return isMutedRef.current ? "MUTED" : "LISTENING";
+                  }
+                  return current;
+                });
+              }, 3500);
+            } else {
+              setConnectionState((current) => (current === "CONNECTED" ? (isMutedRef.current ? "MUTED" : "LISTENING") : current));
             }
-            setTimeout(() => {
-              setConnectionState((current) => (current === "CONNECTED" ? "LISTENING" : current));
-            }, 400);
           },
           onAudioData: (pcm16, sampleRate) => {
             if (audioPlayerRef.current) {

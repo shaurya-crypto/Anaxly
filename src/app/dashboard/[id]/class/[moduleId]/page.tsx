@@ -1053,6 +1053,99 @@ export default function ModuleClassroomPage() {
     return questionPatterns.some((p) => p.test(clean))
   }
 
+  // Conversational Intent Classifiers (Student-Controlled Teaching & Pedagogy)
+  const isSolveItIntent = (text: string): boolean => {
+    if (!text) return false
+    const clean = text.toLowerCase().trim().replace(/[.,!?:;()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
+    const patterns = [
+      /\b(?:solve\s*it|solve\s*this|please\s*solve|can\s*you\s*solve|solve\s*karo|solve\s*kar\s*do|aap\s*solve\s*karo)\b/i,
+      /\b(?:solution\s*please|show\s*(?:the\s*)?solution|give\s*(?:me\s*)?(?:the\s*)?solution|iska\s*solution\s*batao)\b/i,
+      /\b(?:answer\s*bata\s*do|answer\s*batao|tell\s*(?:me\s*)?(?:the\s*)?answer|show\s*answer)\b/i,
+      /^(?:solve|solution)$/i,
+    ]
+    return patterns.some((p) => p.test(clean))
+  }
+
+  const isGiveHintIntent = (text: string): boolean => {
+    if (!text) return false
+    const clean = text.toLowerCase().trim().replace(/[.,!?:;()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
+    const patterns = [
+      /\b(?:give\s*(?:me\s*)?(?:a\s*)?hint|hint\s*please|can\s*i\s*get\s*a\s*hint|need\s*a\s*hint)\b/i,
+      /\b(?:kuch\s*hint\s*do|hint\s*do|thoda\s*hint\s*do|clue\s*please|give\s*a\s*clue)\b/i,
+      /\b(?:help\s*me\s*start|how\s*to\s*start|where\s*to\s*start)\b/i,
+      /^hint$/i,
+    ]
+    return patterns.some((p) => p.test(clean))
+  }
+
+  const isExplainStepByStepIntent = (text: string): boolean => {
+    if (!text) return false
+    const clean = text.toLowerCase().trim().replace(/[.,!?:;()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
+    const patterns = [
+      /\b(?:explain\s*step\s*by\s*step|step\s*by\s*step\s*explain|explain\s*(?:this|it|in\s*detail))\b/i,
+      /\b(?:detail\s*me\s*samjha\s*do|step\s*by\s*step\s*batao|pura\s*explain\s*karo)\b/i,
+      /\b(?:can\s*you\s*explain|please\s*explain|samjha\s*do|kaise\s*aaya|how\s*did\s*this\s*come)\b/i,
+      /\b(?:why\s*does\s*this\s*happen|reason\s*behind\s*this|underlying\s*reason)\b/i,
+      /^explain$/i,
+    ]
+    return patterns.some((p) => p.test(clean))
+  }
+
+  const isNeedTimeIntent = (text: string): boolean => {
+    if (!text) return false
+    const clean = text.toLowerCase().trim().replace(/[.,!?:;()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
+    const patterns = [
+      /\b(?:give\s*me\s*(?:some\s*)?time|need\s*(?:some\s*)?time|wait|wait\s*a\s*minute|hold\s*on)\b/i,
+      /\b(?:thoda\s*time\s*do|ek\s*minute|ruko|ruk\s*jao|thoda\s*wait\s*karo)\b/i,
+      /\b(?:let\s*me\s*(?:think|calculate|try|solve)|i\s*am\s*(?:thinking|calculating|solving|trying))\b/i,
+      /\b(?:soch\s*raha\s*hoon|calculate\s*kar\s*raha\s*hoon|solve\s*kar\s*raha\s*hoon)\b/i,
+    ]
+    return patterns.some((p) => p.test(clean))
+  }
+
+  const isRepeatIntent = (text: string): boolean => {
+    if (!text) return false
+    const clean = text.toLowerCase().trim().replace(/[.,!?:;()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
+    const patterns = [
+      /\b(?:repeat\s*that|can\s*you\s*repeat|please\s*repeat|say\s*that\s*again)\b/i,
+      /\b(?:phir\s*se\s*bolo|dobara\s*bolo|ek\s*baar\s*phir|pardon)\b/i,
+      /^repeat$/i,
+    ]
+    return patterns.some((p) => p.test(clean))
+  }
+
+  const isDontUnderstandIntent = (text: string): boolean => {
+    if (!text) return false
+    const clean = text.toLowerCase().trim().replace(/[.,!?:;()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
+    const patterns = [
+      /\b(?:i\s*don'?t\s*understand|i\s*do\s*not\s*understand|didn'?t\s*get\s*it|not\s*getting\s*it)\b/i,
+      /\b(?:samajh\s*nahi\s*aaya|samajh\s*na\s*aaya|kuch\s*samajh\s*nahi\s*aaya|nahi\s*samjha)\b/i,
+      /\b(?:totally\s*confused|i\s*am\s*confused|it\s*is\s*confusing|not\s*clear)\b/i,
+      /\b(?:i\s*am\s*stuck|stuck\s*here|fasi\s*gaya|atke\s*hue\s*hai)\b/i,
+    ]
+    return patterns.some((p) => p.test(clean))
+  }
+
+  const isPauseIntent = (text: string): boolean => {
+    if (!text) return false
+    const clean = text.toLowerCase().trim().replace(/[.,!?:;()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
+    const patterns = [
+      /^(?:pause|pause\s*lesson|pause\s*capsule|pause\s*class|stop\s*for\s*now)$/i,
+      /\b(?:pause\s*karo|roko|thoda\s*pause\s*karo|class\s*pause\s*karo)\b/i,
+    ]
+    return patterns.some((p) => p.test(clean))
+  }
+
+  const isResumeIntent = (text: string): boolean => {
+    if (!text) return false
+    const clean = text.toLowerCase().trim().replace(/[.,!?:;()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
+    const patterns = [
+      /^(?:resume|resume\s*lesson|resume\s*capsule|resume\s*class|continue\s*lesson)$/i,
+      /\b(?:resume\s*karo|shuru\s*karo|aage\s*shuru\s*karo|chalu\s*karo)\b/i,
+    ]
+    return patterns.some((p) => p.test(clean))
+  }
+
   // Check and increment request quota
   const checkAndRecordRequestQuota = useCallback(async (): Promise<boolean> => {
     if (userQuota.limit_type !== 'requests') return true
@@ -1081,12 +1174,30 @@ export default function ModuleClassroomPage() {
     }
   }, [userQuota, router])
 
+  const handlePauseClassRef = useRef<(() => void) | null>(null)
+  const handleStartClassRef = useRef<(() => void) | null>(null)
+
   const handleStudentSubmitAnswer = async (answer: string) => {
     if (!answer?.trim()) return
     const allowed = await checkAndRecordRequestQuota()
     if (!allowed) return
 
     const cleanAnswer = answer.trim()
+
+    // 1. Pause intent
+    if (isPauseIntent(cleanAnswer)) {
+      handlePauseClassRef.current?.()
+      return
+    }
+
+    // 2. Resume intent
+    if (isResumeIntent(cleanAnswer)) {
+      if (isPaused) {
+        setIsPaused(false)
+        handleStartClassRef.current?.()
+      }
+      return
+    }
 
     if (isConfirmationOrNextIntent(cleanAnswer)) {
       hasConfirmedUnderstandingRef.current = true
@@ -1108,7 +1219,113 @@ export default function ModuleClassroomPage() {
       return
     }
 
-    // 0. Question / Doubt fast-path: Address student doubt without evaluating as a test answer or advancing
+    // 3. Solve It fast-path: Student requests full solution
+    if (isSolveItIntent(cleanAnswer)) {
+      hasConfirmedUnderstandingRef.current = false
+      isAwaitingStudentAnswerRef.current = false
+      setIsAwaitingStudentAnswer(false)
+      isReviewingVerdictRef.current = false
+      setIsReviewingVerdict(false)
+
+      chalkboardRef.current?.drawNote?.(`Student: Please solve this step-by-step`, 'coral')
+      sendTextMessage(
+        `[STUDENT REQUEST - SOLVE COMPLETELY]: The student requested: "${cleanAnswer}".
+CRITICAL DIRECTIVE:
+1. Do NOT evaluate this as a test answer or penalize them.
+2. Provide the COMPLETE, rigorous, step-by-step solution on the chalkboard right now following the authentic board-exam layout:
+   - State Given quantities with explicit units: write_chalkboard(action="draw_step", content="Given: <values with SI units>", color="amber").
+   - State Formula / Theorem used: write_chalkboard(action="draw_step", content="Formula: <equation>", color="blue").
+   - Detailed substitution & scratchpad calculations in rough work: write_chalkboard(action="draw_rough_work", content="Rough: <arithmetic & steps>", color="white").
+   - Boxed Final Answer with SI units: write_chalkboard(action="draw_step", content="Boxed Answer: [ <numerical result> <SI unit> ]", color="botanical").
+3. Speak out loud in rich pedagogical depth (5 to 6 articulate sentences) explaining WHY each step was taken. Do NOT skip any calculations or reasoning steps!
+4. Check understanding: "Did you follow each step of this solution, or do you have any questions on this step?" HARD STOP: Wait for student response!`
+      )
+      return
+    }
+
+    // 4. Hint fast-path: Student requests a hint
+    if (isGiveHintIntent(cleanAnswer)) {
+      hasConfirmedUnderstandingRef.current = false
+      isAwaitingStudentAnswerRef.current = true
+      setIsAwaitingStudentAnswer(true)
+      isReviewingVerdictRef.current = false
+      setIsReviewingVerdict(false)
+
+      chalkboardRef.current?.drawNote?.(`Hint requested`, 'amber')
+      sendTextMessage(
+        `[STUDENT REQUEST - HINT ONLY (ZERO ANSWER REVEAL)]: The student requested a hint: "${cleanAnswer}".
+CRITICAL DIRECTIVE:
+1. Provide ONE targeted, gentle Socratic hint or guiding clue.
+2. STRICT LOCK: DO NOT reveal the final answer, formula substitution, or complete solution!
+3. Point out a key given value on the board, a relatable physical analogy, or ask a leading question that helps them take the next step.
+4. HARD STOP: Wait silently for the student to attempt the question.`
+      )
+      return
+    }
+
+    // 5. Need more time / Wait fast-path
+    if (isNeedTimeIntent(cleanAnswer)) {
+      sendTextMessage(
+        `[STUDENT REQUEST - MORE TIME TO THINK]: The student said: "${cleanAnswer}".
+CRITICAL DIRECTIVE:
+1. Warmly acknowledge: e.g., "Take your time! Work through it on your notebook and let me know whenever you are ready."
+2. HARD STOP: IMMEDIATELY STOP SPEAKING and remain completely silent. Do NOT reveal the answer, do NOT rush them, and do NOT speak until the student responds.`
+      )
+      return
+    }
+
+    // 6. Step-by-step explanation fast-path
+    if (isExplainStepByStepIntent(cleanAnswer)) {
+      hasConfirmedUnderstandingRef.current = false
+      isAwaitingStudentAnswerRef.current = false
+      setIsAwaitingStudentAnswer(false)
+      isReviewingVerdictRef.current = false
+      setIsReviewingVerdict(false)
+
+      chalkboardRef.current?.drawNote?.(`Explanation requested: ${cleanAnswer}`, 'blue')
+      sendTextMessage(
+        `[STUDENT REQUEST - STEP-BY-STEP EXPLANATION]: The student requested: "${cleanAnswer}".
+CRITICAL DIRECTIVE:
+1. Explain the underlying physical intuition, governing mechanism, and step-by-step reasoning behind this concept or problem.
+2. Speak conversationally in 5 to 6 rich, articulate sentences with deep clarity. Break complex steps down. Explain WHY something happens, not just what happens.
+3. Write key transitions on the chalkboard as you explain.
+4. Then ask if the explanation makes sense. HARD STOP: Wait for student response!`
+      )
+      return
+    }
+
+    // 7. Struggle / Don't understand fast-path
+    if (isDontUnderstandIntent(cleanAnswer)) {
+      hasConfirmedUnderstandingRef.current = false
+      isAwaitingStudentAnswerRef.current = false
+      setIsAwaitingStudentAnswer(false)
+      isReviewingVerdictRef.current = false
+      setIsReviewingVerdict(false)
+
+      chalkboardRef.current?.drawNote?.(`Student Query: Need clarification`, 'coral')
+      sendTextMessage(
+        `[STUDENT STRUGGLE - CONCEPT NOT CLEAR]: The student stated: "${cleanAnswer}".
+CRITICAL DIRECTIVE:
+1. Be encouraging, patient, and warm ("No worries at all! Let us look at it from a completely different angle").
+2. DO NOT simply repeat the same words or definition. Use a fresh, tangible everyday analogy or mental experiment to build intuitive clarity.
+3. If it is a problem or calculation, co-solve the very first step together in [ROUGH_WORK].
+4. HARD STOP: Ask if this new angle makes sense and wait for student response!`
+      )
+      return
+    }
+
+    // 8. Repeat fast-path
+    if (isRepeatIntent(cleanAnswer)) {
+      sendTextMessage(
+        `[STUDENT REQUEST - REPEAT]: The student requested: "${cleanAnswer}".
+CRITICAL DIRECTIVE:
+1. Patiently re-explain the last concept or sentence with clarity and warmth in 5 to 6 well-formed sentences.
+2. HARD STOP: Check if it is clear now and wait for student response!`
+      )
+      return
+    }
+
+    // 9. Question / Doubt fast-path: Address student doubt without evaluating as a test answer or advancing
     if (isStudentQuestionOrDoubt(cleanAnswer)) {
       hasConfirmedUnderstandingRef.current = false
       isAwaitingStudentAnswerRef.current = false
@@ -1155,6 +1372,21 @@ CRITICAL DIRECTIVE:
 
     const cleanAnswer = answer.trim()
 
+    // 1. Pause intent
+    if (isPauseIntent(cleanAnswer)) {
+      handlePauseClassRef.current?.()
+      return
+    }
+
+    // 2. Resume intent
+    if (isResumeIntent(cleanAnswer)) {
+      if (isPaused) {
+        setIsPaused(false)
+        handleStartClassRef.current?.()
+      }
+      return
+    }
+
     if (isConfirmationOrNextIntent(cleanAnswer)) {
       hasConfirmedUnderstandingRef.current = true
     }
@@ -1175,7 +1407,113 @@ CRITICAL DIRECTIVE:
       return
     }
 
-    // 0. Question / Doubt fast-path: Address student doubt without evaluating as a test answer or advancing
+    // 3. Solve It fast-path
+    if (isSolveItIntent(cleanAnswer)) {
+      hasConfirmedUnderstandingRef.current = false
+      isAwaitingStudentAnswerRef.current = false
+      setIsAwaitingStudentAnswer(false)
+      isReviewingVerdictRef.current = false
+      setIsReviewingVerdict(false)
+
+      chalkboardRef.current?.drawNote?.(`Student: Please solve this step-by-step`, 'coral')
+      sendTextMessage(
+        `[STUDENT REQUEST - SOLVE COMPLETELY]: The student requested: "${cleanAnswer}".
+CRITICAL DIRECTIVE:
+1. Do NOT evaluate this as a test answer or penalize them.
+2. Provide the COMPLETE, rigorous, step-by-step solution on the chalkboard right now following the authentic board-exam layout:
+   - State Given quantities with explicit units: write_chalkboard(action="draw_step", content="Given: <values with SI units>", color="amber").
+   - State Formula / Theorem used: write_chalkboard(action="draw_step", content="Formula: <equation>", color="blue").
+   - Detailed substitution & scratchpad calculations in rough work: write_chalkboard(action="draw_rough_work", content="Rough: <arithmetic & steps>", color="white").
+   - Boxed Final Answer with SI units: write_chalkboard(action="draw_step", content="Boxed Answer: [ <numerical result> <SI unit> ]", color="botanical").
+3. Speak out loud in rich pedagogical depth (5 to 6 articulate sentences) explaining WHY each step was taken. Do NOT skip any calculations or reasoning steps!
+4. Check understanding: "Did you follow each step of this solution, or do you have any questions on this step?" HARD STOP: Wait for student response!`
+      )
+      return
+    }
+
+    // 4. Hint fast-path
+    if (isGiveHintIntent(cleanAnswer)) {
+      hasConfirmedUnderstandingRef.current = false
+      isAwaitingStudentAnswerRef.current = true
+      setIsAwaitingStudentAnswer(true)
+      isReviewingVerdictRef.current = false
+      setIsReviewingVerdict(false)
+
+      chalkboardRef.current?.drawNote?.(`Hint requested`, 'amber')
+      sendTextMessage(
+        `[STUDENT REQUEST - HINT ONLY (ZERO ANSWER REVEAL)]: The student requested a hint: "${cleanAnswer}".
+CRITICAL DIRECTIVE:
+1. Provide ONE targeted, gentle Socratic hint or guiding clue.
+2. STRICT LOCK: DO NOT reveal the final answer, formula substitution, or complete solution!
+3. Point out a key given value on the board, a relatable physical analogy, or ask a leading question that helps them take the next step.
+4. HARD STOP: Wait silently for the student to attempt the question.`
+      )
+      return
+    }
+
+    // 5. Need more time / Wait fast-path
+    if (isNeedTimeIntent(cleanAnswer)) {
+      sendTextMessage(
+        `[STUDENT REQUEST - MORE TIME TO THINK]: The student said: "${cleanAnswer}".
+CRITICAL DIRECTIVE:
+1. Warmly acknowledge: e.g., "Take your time! Work through it on your notebook and let me know whenever you are ready."
+2. HARD STOP: IMMEDIATELY STOP SPEAKING and remain completely silent. Do NOT reveal the answer, do NOT rush them, and do NOT speak until the student responds.`
+      )
+      return
+    }
+
+    // 6. Step-by-step explanation fast-path
+    if (isExplainStepByStepIntent(cleanAnswer)) {
+      hasConfirmedUnderstandingRef.current = false
+      isAwaitingStudentAnswerRef.current = false
+      setIsAwaitingStudentAnswer(false)
+      isReviewingVerdictRef.current = false
+      setIsReviewingVerdict(false)
+
+      chalkboardRef.current?.drawNote?.(`Explanation requested: ${cleanAnswer}`, 'blue')
+      sendTextMessage(
+        `[STUDENT REQUEST - STEP-BY-STEP EXPLANATION]: The student requested: "${cleanAnswer}".
+CRITICAL DIRECTIVE:
+1. Explain the underlying physical intuition, governing mechanism, and step-by-step reasoning behind this concept or problem.
+2. Speak conversationally in 5 to 6 rich, articulate sentences with deep clarity. Break complex steps down. Explain WHY something happens, not just what happens.
+3. Write key transitions on the chalkboard as you explain.
+4. Then ask if the explanation makes sense. HARD STOP: Wait for student response!`
+      )
+      return
+    }
+
+    // 7. Struggle / Don't understand fast-path
+    if (isDontUnderstandIntent(cleanAnswer)) {
+      hasConfirmedUnderstandingRef.current = false
+      isAwaitingStudentAnswerRef.current = false
+      setIsAwaitingStudentAnswer(false)
+      isReviewingVerdictRef.current = false
+      setIsReviewingVerdict(false)
+
+      chalkboardRef.current?.drawNote?.(`Student Query: Need clarification`, 'coral')
+      sendTextMessage(
+        `[STUDENT STRUGGLE - CONCEPT NOT CLEAR]: The student stated: "${cleanAnswer}".
+CRITICAL DIRECTIVE:
+1. Be encouraging, patient, and warm ("No worries at all! Let us look at it from a completely different angle").
+2. DO NOT simply repeat the same words or definition. Use a fresh, tangible everyday analogy or mental experiment to build intuitive clarity.
+3. If it is a problem or calculation, co-solve the very first step together in [ROUGH_WORK].
+4. HARD STOP: Ask if this new angle makes sense and wait for student response!`
+      )
+      return
+    }
+
+    // 8. Repeat fast-path
+    if (isRepeatIntent(cleanAnswer)) {
+      sendTextMessage(
+        `[STUDENT REQUEST - REPEAT]: The student requested: "${cleanAnswer}".
+CRITICAL DIRECTIVE:
+1. Patiently re-explain the last concept or sentence with clarity and warmth in 5 to 6 well-formed sentences.
+2. HARD STOP: Check if it is clear now and wait for student response!`
+      )
+      return
+    }
+
+    // 9. Question / Doubt fast-path: Address student doubt without evaluating as a test answer or advancing
     if (isStudentQuestionOrDoubt(cleanAnswer)) {
       hasConfirmedUnderstandingRef.current = false
       isAwaitingStudentAnswerRef.current = false
@@ -1345,7 +1683,24 @@ CRITICAL DIRECTIVE:
   const [isLoadingLesson, setIsLoadingLesson] = useState(true)
   const [quizOpen, setQuizOpen] = useState(false)
   const [conceptsOpen, setConceptsOpen] = useState(false)
-  const [preferredVoice, setPreferredVoice] = useState('Leda')
+  const [preferredVoice, setPreferredVoice] = useState<string>('Charon')
+  const sessionActiveVoiceRef = useRef<string | null>(null)
+  const [isPaused, setIsPaused] = useState<boolean>(false)
+
+  // Persist student's voice preference to Supabase profiles table
+  const persistVoicePreferenceToDb = useCallback(async (voice: string) => {
+    if (!userId || !voice) return
+    try {
+      const supabase = createClient()
+      await supabase
+        .from('profiles')
+        .update({ preferred_teacher_voice: voice, updated_at: new Date().toISOString() })
+        .eq('id', userId)
+    } catch (err) {
+      console.warn('[Classroom] Notice saving voice preference to DB:', err)
+    }
+  }, [userId])
+
   const [isCompletedBefore, setIsCompletedBefore] = useState(false)
   const [studentProfileClassLevel, setStudentProfileClassLevel] = useState<string>('')
   const [studentName, setStudentName] = useState<string>('')
@@ -1447,20 +1802,6 @@ CRITICAL DIRECTIVE:
     async function loadModuleContext() {
       setIsLoadingLesson(true)
       try {
-        // Instant restore of completed concepts from localStorage cache
-        if (typeof window !== 'undefined' && moduleId) {
-          try {
-            const cached = localStorage.getItem(`completed_concepts_${moduleId}`)
-            if (cached) {
-              const parsed = JSON.parse(cached)
-              if (Array.isArray(parsed) && parsed.length > 0) {
-                completedConceptsRef.current = parsed
-                setCompletedConcepts(parsed)
-              }
-            }
-          } catch {}
-        }
-
         // Security Invariant: Validate active authenticated user matches route userId
         const { data: authData } = await supabase.auth.getUser()
         if (!authData?.user || authData.user.id !== userId) {
@@ -1662,14 +2003,14 @@ CRITICAL DIRECTIVE:
         const progressRes = await supabase
           .from('user_progress')
           .select(
-            'status, chapter_notes, current_concept_index, completed_concepts, last_covered_concept, visual_progress, completed_at'
+            'status, chapter_notes, current_concept_index, completed_concepts, last_covered_concept, visual_progress, is_paused, completed_at'
           )
           .eq('user_id', userId)
           .eq('syllabus_module_id', moduleId)
           .maybeSingle()
 
         if (progressRes.error && progressRes.error.code === '42703') {
-          // Fallback if visual_progress column is not yet migrated
+          // Fallback if visual_progress or is_paused column is not yet migrated
           const fallbackRes = await supabase
             .from('user_progress')
             .select(
@@ -1686,23 +2027,16 @@ CRITICAL DIRECTIVE:
 
         if (progress) {
           if (typeof progress.current_concept_index === 'number') {
-            if (currentConceptIndexRef.current !== progress.current_concept_index) {
-              currentConceptIndexRef.current = progress.current_concept_index
-              setCurrentConceptIndex(progress.current_concept_index)
-            }
+            currentConceptIndexRef.current = progress.current_concept_index
+            setCurrentConceptIndex(progress.current_concept_index)
+          }
+          if (progress.is_paused || progress.visual_progress?.isPaused) {
+            setIsPaused(true)
           }
           if (Array.isArray(progress.completed_concepts)) {
             const loaded = parseKeyConcepts(progress.completed_concepts)
-            const merged = Array.from(new Set([...completedConceptsRef.current, ...loaded]))
-            if (merged.length !== completedConceptsRef.current.length || !merged.every((v, i) => v === completedConceptsRef.current[i])) {
-              completedConceptsRef.current = merged
-              setCompletedConcepts(merged)
-            }
-            if (typeof window !== 'undefined' && moduleId) {
-              try {
-                localStorage.setItem(`completed_concepts_${moduleId}`, JSON.stringify(merged))
-              } catch {}
-            }
+            completedConceptsRef.current = loaded
+            setCompletedConcepts(loaded)
           }
           if (progress.last_covered_concept) {
             setLastCoveredConcept((prev) => (prev === progress.last_covered_concept ? prev : progress.last_covered_concept))
@@ -1926,13 +2260,33 @@ CRITICAL DIRECTIVE:
         return // Never parse internal system transition prompts as student commands!
       }
 
+      const transcriptId = latest.id || `user_${latest.timestamp || Date.now()}`
+
+      if (isPauseIntent(userText)) {
+        const pauseKey = `${transcriptId}:pause`
+        if (!executedSceneDirectivesRef.current.has(pauseKey)) {
+          executedSceneDirectivesRef.current.add(pauseKey)
+          handlePauseClassRef.current?.()
+          return
+        }
+      }
+
+      if (isResumeIntent(userText) && isPaused) {
+        const resumeKey = `${transcriptId}:resume`
+        if (!executedSceneDirectivesRef.current.has(resumeKey)) {
+          executedSceneDirectivesRef.current.add(resumeKey)
+          setIsPaused(false)
+          handleStartClassRef.current?.()
+          return
+        }
+      }
+
       if (isStudentQuestionOrDoubt(userText)) {
         hasConfirmedUnderstandingRef.current = false
       } else if (isConfirmationOrNextIntent(userText)) {
         hasConfirmedUnderstandingRef.current = true
       }
 
-      const transcriptId = latest.id || `user_${latest.timestamp || Date.now()}`
       const userKey = `${transcriptId}:user_ack`
 
       if (!executedSceneDirectivesRef.current.has(userKey)) {
@@ -2349,8 +2703,12 @@ CRITICAL DIRECTIVE:
   }
 
   // 3. Auto-save notes to Supabase user_progress.chapter_notes and visual_progress.whiteboard_pages
-  const saveNotesToSupabase = async (notesToSave: string, forcedStatus?: 'in_progress' | 'completed') => {
-    saveNotesToSupabaseRef.current = saveNotesToSupabase
+  const saveNotesToSupabase = async (
+    notesToSave: string,
+    forcedStatus?: 'in_progress' | 'completed',
+    pausedOverride?: boolean
+  ) => {
+    saveNotesToSupabaseRef.current = (notes, status) => saveNotesToSupabase(notes, status)
     if (!userId || !moduleId || !notesToSave.trim()) return
     setNotesSaveStatus('saving')
     try {
@@ -2368,15 +2726,19 @@ CRITICAL DIRECTIVE:
       }
 
       const statusToSet = forcedStatus || (isCompletedBefore || moduleCompletedSuccess ? 'completed' : 'in_progress')
+      const currentIdxToSave = currentConceptIndexRef.current
+      const completedToSave = completedConceptsRef.current
+      const isPausedVal = typeof pausedOverride === 'boolean' ? pausedOverride : isPaused
 
       const payload: any = {
         user_id: userId,
         syllabus_module_id: moduleId,
         chapter_notes: notesToSave,
-        current_concept_index: currentConceptIndex,
-        completed_concepts: completedConcepts,
+        current_concept_index: currentIdxToSave,
+        completed_concepts: completedToSave,
         last_covered_concept: lastCoveredConcept,
         status: statusToSet,
+        is_paused: isPausedVal,
       }
 
       if (statusToSet === 'completed') {
@@ -2390,6 +2752,7 @@ CRITICAL DIRECTIVE:
           whiteboard_pages: whiteboardData,
           whiteboard_files: whiteboardFiles,
           lastActiveAt: new Date().toISOString(),
+          isPaused: isPausedVal,
         }
       }
 
@@ -2399,8 +2762,11 @@ CRITICAL DIRECTIVE:
 
       if (error) {
         if (error.code === '42703') {
-          delete payload.visual_progress
-          await supabase.from('user_progress').upsert(payload, { onConflict: 'user_id,syllabus_module_id' })
+          // Graceful fallback if is_paused or visual_progress column is not yet applied on remote table
+          const fallback = { ...payload }
+          delete fallback.is_paused
+          delete fallback.visual_progress
+          await supabase.from('user_progress').upsert(fallback, { onConflict: 'user_id,syllabus_module_id' })
         } else {
           console.warn('Notice saving notes to Supabase:', error.message)
         }
@@ -3141,12 +3507,6 @@ MANDATORY INVARIANT:
       completedConceptsRef.current = updated
       setCompletedConcepts(updated)
 
-      if (typeof window !== 'undefined' && moduleId) {
-        try {
-          localStorage.setItem(`completed_concepts_${moduleId}`, JSON.stringify(updated))
-        } catch {}
-      }
-
       if (userId && moduleId) {
         const latestBoardNotes = (chalkboardRef.current?.getBoardSummary()?.fullSummary || latestBoardSummary || chapterNotes || '').trim()
         const isModuleCompleted = updated.length >= keyConcepts.length
@@ -3214,14 +3574,40 @@ MANDATORY INVARIANT:
     connectionState === 'MUTED' ||
     connectionState === 'CONNECTING'
 
+  const handlePauseClass = () => {
+    console.log('[Classroom] Student paused lesson. Preserving exact position in DB and halting audio.')
+    setIsPaused(true)
+    hasSessionStartedRef.current = false
+    setIsReconnecting(false)
+    if (reconnectAttemptTimerRef.current) {
+      clearTimeout(reconnectAttemptTimerRef.current)
+      reconnectAttemptTimerRef.current = null
+    }
+    // Persist paused state and progress strictly in Supabase DB
+    saveNotesToSupabase(chapterNotes, 'in_progress', true)
+    endCall()
+  }
+
   // Start Spoken Lesson: continuous teaching flow, explanation-first, worked-demonstrations second, strict chalkboard directives
   const handleStartClass = async () => {
     if (!activeModule) return
+
+    handleStartClassRef.current = handleStartClass
+    handlePauseClassRef.current = handlePauseClass
+
+    setIsPaused(false)
+    // Clear pause flag in DB
+    saveNotesToSupabase(chapterNotes, 'in_progress', false)
 
     isUserTerminatedRef.current = false
     reconnectAttemptsRef.current = 0
     hasSessionStartedRef.current = true
     setIsReconnecting(false)
+
+    // Voice locking: lock chosen voice for this session and persist to profiles in DB
+    const lockedVoice = sessionActiveVoiceRef.current || preferredVoice || 'Charon'
+    sessionActiveVoiceRef.current = lockedVoice
+    persistVoicePreferenceToDb(lockedVoice)
 
     lastVerdictStatusRef.current = 'neutral'
     isReviewingVerdictRef.current = false
@@ -3255,7 +3641,6 @@ MANDATORY INVARIANT:
       isCompletedBefore ||
       moduleCompletedSuccess ||
       (keyConcepts.length > 0 && currentCompletedCount >= keyConcepts.length)
-    const isResumed = !isCompletedModule && (currentConceptIndex > 0 || currentCompletedCount > 0)
     const nextConcept = keyConcepts[currentConceptIndex + 1] || 'Chapter Synthesis Summary'
 
     const boardSummaryObj = chalkboardRef.current?.getBoardSummary()
@@ -3504,6 +3889,16 @@ ${careerHook ? `- ${careerHook}\n` : ''}${favoriteHook ? `- ${favoriteHook}\n` :
        boardCompactContext.includes('Geometric Figure') ||
        boardCompactContext.includes('Completed Pedagogical Stages'))
     )
+    const hasPendingQuestion = Boolean(
+      boardCompactContext.includes('Active Question on Board') ||
+      boardCompactContext.includes('Stage 5 (Checkpoint Question)')
+    )
+    const isResumed = !isCompletedModule && (
+      currentConceptIndex > 0 ||
+      currentCompletedCount > 0 ||
+      isPaused ||
+      hasExistingContent
+    )
     const boardContinuationNote = boardCompactContext.trim()
       ? `\n========================================================================================\nCURRENT DIGITAL CHALKBOARD STATE (DO NOT RE-WRITE OR DUPLICATE):\n========================================================================================\n${boardCompactContext.trim()}\nCONTINUATION MANDATE: The items above are ALREADY VISIBLE on the student's chalkboard right now. Continue directly from where you left off. DO NOT re-write, duplicate, or re-draw any note or diagram already present on the board. Live diagram tools (render_svg_diagram, plot_mathematical_graph, draw_shape) remain fully active for all new concepts!\n`
       : ''
@@ -3529,6 +3924,8 @@ ${careerHook ? `- ${careerHook}\n` : ''}${favoriteHook ? `- ${favoriteHook}\n` :
       ? `[SESSION START - BOARD EXAM PYQ PRACTICE]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). State that today we are tackling an authentic Board Exam Past Year Question on ${resolvedTitle}: "${selectedPyqQuestion}". Speak properly in 5 to 6 well-formed sentences laying out the problem context and physical setup without stopping halfway. YOU MUST CALL write_chalkboard(action="draw_question", content="Board PYQ: ${selectedPyqQuestion}", color="amber") RIGHT NOW IN THIS TURN! Then ask me what our given values or strategy should be in ${studentPreferredLanguage}. HARD STOP: Wait for my answer! (Stop speaking immediately if I speak or ask something).`
       : isCompletedModule
       ? `[SESSION START]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). State that I have completed this capsule in 5 to 6 complete, encouraging sentences reviewing what we mastered without stopping halfway, and ask if I would like a quick review of any concept or if I am ready for the quiz in ${studentPreferredLanguage}. HARD STOP: Wait for my answer. (Stop speaking immediately if I speak or ask something).`
+      : isResumed && hasPendingQuestion
+      ? `[SESSION START - RESUMING ACTIVE QUESTION ON CONCEPT ${currentConceptIndex + 1}: "${currentConcept}"]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). State that we are resuming right at our checkpoint question on the board: [see CURRENT DIGITAL CHALKBOARD STATE above]. DO NOT re-write notes, DO NOT repeat past explanations, and NEVER reveal or solve the question automatically! Remind me of the question briefly in 2 to 3 encouraging sentences, and ask if I would like a hint or need more time to work it out. HARD STOP: Wait silently for my response! (Stop speaking immediately if I speak or ask something).`
       : isResumed && hasExistingContent
       ? `[SESSION START - RESUMING CONCEPT ${currentConceptIndex + 1}: "${currentConcept}"]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). State that we are resuming Concept ${currentConceptIndex + 1}: "${currentConcept}". Existing chalkboard notes and visuals are ALREADY visible on the board: [see CURRENT DIGITAL CHALKBOARD STATE above]. Warmly acknowledge what is already on the board in 5 to 6 articulate sentences without stopping halfway. DO NOT re-write or duplicate existing notes or diagrams. Continue directly with the NEXT pedagogical step for this concept (e.g. formal definition, worked example, or board numerical). Complete your explanation first, then ask a checkpoint question. HARD STOP: Wait for my response! (Stop speaking immediately if I speak or ask something).`
       : isResumed
@@ -3677,6 +4074,25 @@ EXPERIENCED MASTER TEACHER PEDAGOGY (TEACH LIKE AN ICONIC FACULTY MENTOR):
    - Definitions & Scientific Laws: Quote verbatim from standard textbooks. State all limiting conditions, assumptions, and exact SI units.
    - Laboratory Activities: Document every textbook activity with Apparatus, Method, Observation, and Inference.
 
+6. STUDENT-CONTROLLED TEACHING & NATURAL CONVERSATIONAL COMMANDS:
+   The student remains in complete control of their learning pace. Always listen diagnostically and adapt instantly:
+   - "Solve it" / "Hal kijiye" / "Aap solve karo": If the student requests a solution, immediately solve the question completely and rigorously on the chalkboard step-by-step: Given -> Formula -> Substitution -> Scratchpad in [ROUGH_WORK] -> Boxed Answer with SI units. Explain each step clearly as you write.
+   - "Explain this" / "Explain step by step" / "Samjhao": Break down the concept or numerical step-by-step. Explain WHY each step happens, not just what happens.
+   - "Give me a hint" / "Hint do": Provide ONE gentle directional clue or point to a chalkboard formula without revealing the final answer or solving the problem.
+   - "I don't understand" / "Samajh nahi aaya" / "Confused": Simplify the explanation using a fresh, everyday real-life analogy or concrete physical intuition. NEVER simply repeat the same words!
+   - "Give me some time" / "Wait" / "Ek minute" / "Sochne do": Acknowledge warmly ("Take your time! I am right here.") and remain completely silent. Give them space to think and solve.
+   - "Repeat that" / "Dobara bolo": Repeat the key principle concisely with extra clarity.
+   - "Pause" / "Ruko": Stop teaching and preserve progress.
+   - "Resume" / "Continue" / "Aage badho": Pick up immediately from the exact current step without repeating past explanations.
+
+7. QUESTION TIMING & ZERO AUTO-SOLVING INVARIANT (EXPLAIN -> DEMONSTRATE -> ASK -> WAIT -> EVALUATE -> GUIDE -> CONTINUE):
+   - Teach following the master sequence: Explain -> Demonstrate -> Ask -> Wait -> Evaluate -> Guide -> Continue.
+   - CRITICAL RULE: Asking a question means WAITING for the student! It does NOT mean solving the question automatically.
+   - NEVER ask a question and then immediately start answering or solving it yourself.
+   - When you ask a question (Stage 5 checkpoint or in-class check): pose ONE question, then HARD STOP. Wait for the student to speak or reply.
+   - Give the student ample time to think. Never rush or jump in prematurely.
+   - Only solve the problem if the student explicitly asks ("Solve it") or after the student attempts it and needs guidance.
+
 ========================================================================================
 MULTIMEDIA & SCIENTIFIC VISUAL ENGINE TOOLS:
 ========================================================================================
@@ -3712,7 +4128,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
     }, 500)
 
     startClass(
-      preferredVoice as any,
+      lockedVoice as any,
       lessonPrompt,
       kickoffPrompt,
       (action, content, color) => {
@@ -4417,6 +4833,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
       clearTimeout(reconnectAttemptTimerRef.current)
       reconnectAttemptTimerRef.current = null
     }
+    saveNotesToSupabase(chapterNotes, undefined)
     endCall()
     if (isCompletedBefore || moduleCompletedSuccess) {
       setQuizOpen(true)
@@ -4629,6 +5046,8 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                     userVolumeRef={userVolumeRef}
                     onToggleMute={toggleMute}
                     onEndCall={handleEndClass}
+                    onPause={handlePauseClass}
+                    isPaused={isPaused}
                   />
                 </div>
                 <button
@@ -4826,7 +5245,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
               <DashCard tone="primary" size="lg" className="w-full max-w-2xl space-y-5 p-5 sm:p-8">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="text-sm font-medium text-white/80">
-                    {isCompleted ? 'Review' : currentConceptIndex > 0 || completedConcepts.length > 0 ? 'Continue learning' : 'Start learning'}
+                    {isCompleted ? 'Review' : isPaused || currentConceptIndex > 0 || completedConcepts.length > 0 ? 'Continue learning' : 'Start learning'}
                   </span>
                   {resolvedSubject && (
                     <span className="rounded-full bg-white/10 px-3 py-0.5 text-xs font-medium text-white ring-1 ring-white/25">
@@ -4852,14 +5271,17 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                   <button
                     id="start-module-spoken-class-btn"
                     type="button"
-                    onClick={handleStartClass}
+                    onClick={() => {
+                      setIsPaused(false)
+                      handleStartClass()
+                    }}
                     disabled={isLoadingLesson}
                     className="inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2.5 rounded-lg bg-white px-6 py-3 text-base font-semibold text-accent-primary shadow-xs transition-colors hover:bg-accent-primary-soft disabled:opacity-60 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-accent-primary"
                   >
                     <Play className="w-5 h-5 fill-current" />
                     {isCompleted
                       ? 'Review chapter'
-                      : currentConceptIndex > 0 || completedConcepts.length > 0
+                      : isPaused || currentConceptIndex > 0 || completedConcepts.length > 0
                       ? 'Resume capsule'
                       : 'Start capsule'}
                   </button>

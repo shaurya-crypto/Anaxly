@@ -110,7 +110,7 @@ export class AudioPlayer {
     // Schedule seamlessly right after previous chunk, or right now if clock has drifted.
     // Adjust duration by playback speed so chunks tile perfectly without gaps or overlap.
     const adjustedDuration = audioBuffer.duration / Math.max(0.25, this.playbackSpeed);
-    const startTime = Math.max(currentTime + 0.005, this.nextStartTime);
+    const startTime = this.nextStartTime > currentTime ? this.nextStartTime : currentTime + 0.003;
     source.start(startTime);
     this.nextStartTime = startTime + adjustedDuration;
 
@@ -136,9 +136,9 @@ export class AudioPlayer {
       // If all scheduled buffers have finished playing
       if (this.scheduledNodes.length === 0) {
         if (this.checkDrainTimeout) clearTimeout(this.checkDrainTimeout);
-        // If server has already confirmed generation ended, short drain (120ms) is appropriate.
-        // If server generation is STILL active, allow a generous 650ms grace period so streaming audio isn't cut off between natural sentence pauses!
-        const drainGraceMs = this.turnEndedOnServer ? 120 : 650;
+        // If server has already confirmed generation ended, short drain (150ms) is appropriate.
+        // If server generation is STILL active, allow a generous 1200ms grace period so streaming audio isn't cut off between natural sentence pauses or network packet jitter!
+        const drainGraceMs = this.turnEndedOnServer ? 150 : 1200;
         this.checkDrainTimeout = setTimeout(() => {
           if (this.scheduledNodes.length === 0) {
             this.isPlaying = false;
@@ -215,6 +215,10 @@ export class AudioPlayer {
 
   public getIsPlaying(): boolean {
     return this.isPlaying;
+  }
+
+  public isServerTurnActive(): boolean {
+    return !this.turnEndedOnServer;
   }
 
   public async close(): Promise<void> {

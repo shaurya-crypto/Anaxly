@@ -195,17 +195,20 @@ export class AudioStreamer {
 
     // 2. DYNAMIC NOISE TRACKING & VAD EVENTS:
     if (!this.wasSpeechActive) {
-      this.noiseFloor = Math.min(0.045, Math.max(0.005, this.noiseFloor * 0.95 + rms * 0.05));
+      this.noiseFloor = Math.min(0.045, Math.max(0.010, this.noiseFloor * 0.95 + rms * 0.05));
     } else if (now - this.lastSpeechTime > 3000 && rms < this.noiseFloor * 1.5) {
       // If speech was supposedly active but current energy is low, gently adapt noise floor
-      this.noiseFloor = Math.min(0.045, Math.max(0.005, this.noiseFloor * 0.98 + rms * 0.02));
+      this.noiseFloor = Math.min(0.045, Math.max(0.010, this.noiseFloor * 0.98 + rms * 0.02));
     }
 
     // Calibrated voice threshold for normal conversational speaking voice into any mic (calibrated from legacy voiceThreshold = Math.max(0.065, this.noiseFloor * 2.5))
     // Background room noise / fan drone is filtered out below 0.022 RMS; intentional speaking voice is 0.035 - 0.35 RMS.
     const voiceThreshold = Math.max(0.022, this.noiseFloor * 1.8);
 
-    if (rms >= voiceThreshold) {
+    // Verify signal-to-noise ratio: intentional human speech stands out clearly above baseline noise floor
+    const isVocalSignal = rms >= voiceThreshold && (rms - this.noiseFloor >= 0.008 || rms >= 0.035);
+
+    if (isVocalSignal) {
       this.lastSpeechTime = now;
       this.consecutiveSpeechFrames++;
       // Debounce: require 2 consecutive frames (~85ms) of vocal energy before marking speech active

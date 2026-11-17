@@ -50,6 +50,8 @@ export class GeminiLiveClient {
   private lastExecutedToolCalls = new Map<string, number>();
   private pendingBoardContext: string | null = null;
   private isModelGenerating: boolean = false;
+  private turnToolCallsExecuted: number = 0;
+  private turnEmittedAudio: boolean = false;
 
   constructor(
     authTokenOrApiKey: string,
@@ -599,7 +601,7 @@ export class GeminiLiveClient {
         realtimeInputConfig: {
           automaticActivityDetection: {
             disabled: false,
-            startOfSpeechSensitivity: StartSensitivity.START_SENSITIVITY_HIGH,
+            startOfSpeechSensitivity: StartSensitivity.START_SENSITIVITY_LOW,
             endOfSpeechSensitivity: EndSensitivity.END_SENSITIVITY_HIGH,
             prefixPaddingMs: 40,
             silenceDurationMs: 350,
@@ -1043,6 +1045,8 @@ export class GeminiLiveClient {
 
            if (content.interrupted) {
              this.isModelGenerating = false;
+             this.turnToolCallsExecuted = 0;
+             this.turnEmittedAudio = false;
              this.pendingBoardContext = null;
              this.callbacks.onInterrupted();
              return;
@@ -1082,6 +1086,7 @@ export class GeminiLiveClient {
              this.isModelGenerating = true;
              for (const part of content.modelTurn.parts) {
                if (part.inlineData && part.inlineData.data) {
+                 this.turnEmittedAudio = true;
                  const mime = part.inlineData.mimeType || "audio/pcm;rate=24000";
                  if (mime.startsWith("video/") || mime.startsWith("image/")) {
                    // Native Gemini 3.8 Live Avatar video frame streaming
@@ -1101,6 +1106,7 @@ export class GeminiLiveClient {
                if (part.functionCall) {
                  const call = part.functionCall;
                  if (call.id && !this.executedToolCallIds.has(call.id)) {
+                   this.turnToolCallsExecuted++;
                    const toolResult = this.handleSingleToolCall(call.name, call.args || {}, call.id);
                    const isQuery = call.name === "get_board_content" || call.name === "read_board_content" || call.name === "get_board_state";
                    const isExtendedThinking = this.model.includes("extended-thinking");
@@ -1113,7 +1119,12 @@ export class GeminiLiveClient {
                    };
 
                    if (!isExtendedThinking) {
-                     fnResponse.scheduling = isQuery ? FunctionResponseScheduling.WHEN_IDLE : FunctionResponseScheduling.SILENT;
+                     // Schedule non-blocking chalkboard actions with WHEN_IDLE to prompt speech generation
+                     // (retaining FunctionResponseScheduling.SILENT for passive background metrics if ever needed)
+                     const isSilentTool = call.name === "report_metric" || call.name === "log_telemetry";
+                     fnResponse.scheduling = isSilentTool
+                       ? FunctionResponseScheduling.SILENT
+                       : FunctionResponseScheduling.WHEN_IDLE;
                    }
 
                    try {
@@ -1132,6 +1143,17 @@ export class GeminiLiveClient {
            const isTurnDone = Boolean(content.turnComplete || currentStatus === "IDLE");
            if (isTurnDone && currentStatus !== "IN_PROGRESS") {
              this.isModelGenerating = false;
+             if (this.turnToolCallsExecuted > 0 && !this.turnEmittedAudio && this.isConnected && !this.isManuallyClosed) {
+               console.log("[GeminiLive] Turn ended with chalkboard tool calls but zero audio. Prompting spoken delivery automatically...");
+               try {
+                 this.session?.sendClientContent({
+                   turns: [{ role: "user", parts: [{ text: "Please continue speaking and explaining out loud now." }] }],
+                   turnComplete: true,
+                 });
+               } catch {}
+             }
+             this.turnToolCallsExecuted = 0;
+             this.turnEmittedAudio = false;
              this.callbacks.onTurnComplete();
              this.pendingBoardContext = null;
            }
