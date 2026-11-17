@@ -1236,10 +1236,10 @@ export default function ModuleClassroomPage() {
         `[STUDENT REQUEST - SOLVE COMPLETELY]: The student requested: "${cleanAnswer}".
 CRITICAL DIRECTIVE:
 1. Do NOT evaluate this as a test answer or penalize them.
-2. Provide the COMPLETE, rigorous, step-by-step solution on the chalkboard right now following the authentic board-exam layout:
+2. Provide the COMPLETE, rigorous, step-by-step solution on the chalkboard right now following the authentic board-exam layout (write ONE OR MAX 2 STEPS PER LINE):
    - State Given quantities with explicit units: write_chalkboard(action="draw_step", content="Given: <values with SI units>", color="amber").
    - State Formula / Theorem used: write_chalkboard(action="draw_step", content="Formula: <equation>", color="blue").
-   - Detailed substitution & scratchpad calculations in rough work: write_chalkboard(action="draw_rough_work", content="Rough: <arithmetic & steps>", color="white").
+   - Detailed substitution & calculations (1 or max 2 steps per line): write_chalkboard(action="draw_step", content="Step 1: <substitution>\nStep 2: <calculation>", color="white").
    - Boxed Final Answer with SI units: write_chalkboard(action="draw_step", content="Boxed Answer: [ <numerical result> <SI unit> ]", color="botanical").
 3. Speak out loud in rich pedagogical depth (5 to 6 articulate sentences) explaining WHY each step was taken. Do NOT skip any calculations or reasoning steps!
 4. Check understanding: "Did you follow each step of this solution, or do you have any questions on this step?" HARD STOP: Wait for student response!`,
@@ -1432,10 +1432,10 @@ CRITICAL DIRECTIVE:
         `[STUDENT REQUEST - SOLVE COMPLETELY]: The student requested: "${cleanAnswer}".
 CRITICAL DIRECTIVE:
 1. Do NOT evaluate this as a test answer or penalize them.
-2. Provide the COMPLETE, rigorous, step-by-step solution on the chalkboard right now following the authentic board-exam layout:
+2. Provide the COMPLETE, rigorous, step-by-step solution on the chalkboard right now following the authentic board-exam layout (write ONE OR MAX 2 STEPS PER LINE):
    - State Given quantities with explicit units: write_chalkboard(action="draw_step", content="Given: <values with SI units>", color="amber").
    - State Formula / Theorem used: write_chalkboard(action="draw_step", content="Formula: <equation>", color="blue").
-   - Detailed substitution & scratchpad calculations in rough work: write_chalkboard(action="draw_rough_work", content="Rough: <arithmetic & steps>", color="white").
+   - Detailed substitution & calculations (1 or max 2 steps per line): write_chalkboard(action="draw_step", content="Step 1: <substitution>\nStep 2: <calculation>", color="white").
    - Boxed Final Answer with SI units: write_chalkboard(action="draw_step", content="Boxed Answer: [ <numerical result> <SI unit> ]", color="botanical").
 3. Speak out loud in rich pedagogical depth (5 to 6 articulate sentences) explaining WHY each step was taken. Do NOT skip any calculations or reasoning steps!
 4. Check understanding: "Did you follow each step of this solution, or do you have any questions on this step?" HARD STOP: Wait for student response!`
@@ -3729,7 +3729,7 @@ MANDATORY INVARIANT:
     const mathProgressionText = isMath
       ? isFoundationalHalf
         ? `Math Pedagogy (#${moduleOrderIndex}/${totalSiblingCount} "${chapterName}"): Ground conceptual foundations, axioms, coordinate properties, definitions, and proofs on the chalkboard with geometrical intuition.`
-        : `Math Pedagogy (#${moduleOrderIndex}/${totalSiblingCount} "${chapterName}"): Solve authentic board exam questions & textbook numericals step-by-step on whiteboard (Given -> Formula -> Substitution -> Scratch in [ROUGH_WORK] -> Boxed Answer).`
+        : `Math Pedagogy (#${moduleOrderIndex}/${totalSiblingCount} "${chapterName}"): Solve authentic board exam questions & textbook numericals step-by-step on whiteboard with 1 or max 2 steps per line (Given -> Formula -> Substitution -> Calculation -> Boxed Answer).`
       : ''
 
     const firstVisual = inferConceptVisualDirective(firstConcept, resolvedSubject, chapterName)
@@ -4032,11 +4032,13 @@ STRICT 6-STAGE CADENCE PER CONCEPT:
   Provide an everyday or industrial application addressing common student pitfalls in 5 to 6 well-formed sentences. Read aloud verbatim and write step-by-step:
   Call write_chalkboard(action="draw_note", content="Example: <concrete application>", color="blue").
 - STAGE 4 [BOARD NUMERICAL / STEP-BY-STEP DERIVATION / TUTOR-SOLVED MODEL QUESTION (READ ALOUD & EXPLAIN STEP-BY-STEP)]:
-  Problem Context: Explain the physical setup first, read the question aloud verbatim, then write step-by-step:
+  Problem Context: Explain the physical setup first, read the question aloud verbatim, then write step-by-step with ONE OR MAX 2 STEPS PER LINE (never cram multiple steps together):
   * write_chalkboard(action="draw_note", content="Problem: <Question>", color="coral")
-  * write_chalkboard(action="draw_step", content="Given: <data with units> | Formula: <equation>", color="amber")
+  * write_chalkboard(action="draw_step", content="Given: <values with SI units>", color="amber")
+  * write_chalkboard(action="draw_step", content="Formula: <governing equation>", color="blue")
+  * write_chalkboard(action="draw_step", content="Step 1: <substitution>\nStep 2: <calculation>", color="white")
   * write_chalkboard(action="draw_rough_work", content="Rough: <scratchpad arithmetic & unit conversions>", color="white")
-  * write_chalkboard(action="draw_step", content="Boxed Answer: <answer with SI units>", color="botanical")
+  * write_chalkboard(action="draw_step", content="Boxed Answer: [ <numerical result> <SI unit> ]", color="botanical")
   * For functions/kinematics: call plot_mathematical_graph(formula="...", title="...", callout="...")
 - STAGE 5 [CHECKPOINT QUESTION & PATIENCE INVARIANT]:
   Pose an authentic Board Exam checkpoint question from your prepared micro-dossier:
@@ -4075,12 +4077,13 @@ EXPERIENCED MASTER TEACHER PEDAGOGY (TEACH LIKE AN ICONIC FACULTY MENTOR):
 
 3. MASTERFUL CHALKBOARD ECONOMY & BOARD-EXAM FORMAT:
    - Synchronize writing with speech: write notes, formulas, and diagrams as you explain them.
-   - Problem-Solving Layout (Exact Authentic Board Exam Format):
-     * Given: <extract all known variables with explicit SI units>
-     * To Find: <target unknown quantity>
-     * Formula / Governing Law: <state the exact equation or physical theorem>
-     * [ROUGH_WORK] Scratchpad: Perform all arithmetic, algebra, fraction reductions, and unit conversions on the right-hand margin using write_chalkboard(action="draw_rough_work", content="Rough: <arithmetic & calculations>"). Keep the main board clean and organized!
-     * Boxed Final Answer: Highlight the final numerical result with units clearly boxed using write_chalkboard(action="draw_step", content="Boxed Answer: [ <numerical value> <SI unit> ]").
+   - Problem-Solving Layout (Exact Authentic Board Exam Format - 1 or Max 2 Steps Per Line):
+     * Given line: Given: <extract all known variables with explicit SI units>
+     * Formula line: Formula: <state the exact equation or physical theorem>
+     * Substitution line: Step 1: <substitute numerical values with units>
+     * Calculation line: Step 2: <intermediate algebraic or arithmetic step> (one or max 2 steps per line)
+     * [ROUGH_WORK] Scratchpad: Secondary arithmetic, fraction reductions, and unit conversions on the right-hand margin.
+     * Boxed Final Answer: Highlight the final numerical result with units clearly boxed using write_chalkboard(action="draw_step", content="Boxed Answer: [ <numerical value> <SI unit> ]", color="botanical").
 
 4. THE SOCRATIC BREATH & UNSHAKABLE PATIENCE (THE HARD STOP):
    - Complete your 5-6 sentence explanation thoroughly first, THEN ask ONE clear, focused question at a time.

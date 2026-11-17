@@ -188,8 +188,8 @@ import {
 } from './chalkboardFilter'
 export { normalizeTitle, isRedundantConceptOrMasteredText }
 
-import { wrapText, wrapTextToWidth, measureBoardText, cleanChalkboardTypography } from './textWrapper'
-export { wrapText, cleanChalkboardTypography }
+import { wrapText, wrapTextToWidth, measureBoardText, cleanChalkboardTypography, formatChalkboardSteps } from './textWrapper'
+export { wrapText, cleanChalkboardTypography, formatChalkboardSteps }
 
 import {
   sanitizeBase64DataUrl,
@@ -1771,19 +1771,35 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       const clean = cleanChalkboardTypography(raw.trim())
       if (checkIsRedundant(clean)) return
       if (shouldSkipDuplicate('draw_step', clean)) return
-      const lines = wrapText(clean, cols(60))
-      const lineHeight = 21
-      const totalH = Math.max(26, lines.length * lineHeight)
 
-      await checkAutoPageOverflow(totalH + 16)
+      // Split multi-step strings at semicolons, pipes, or step delimiters so each step renders on its own line (max 2 steps per line)
+      const lines = formatChalkboardSteps(clean, cols(60))
+      if (!lines || lines.length === 0) return
+
+      const lineHeight = 24
+      const totalH = Math.max(28, lines.length * lineHeight)
+
+      await checkAutoPageOverflow(totalH + 20)
       try {
         const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
-        const startY = getDynamicNextY(12)
+        const startY = getDynamicNextY(14)
         nextYRef.current = Math.max(nextYRef.current, startY + totalH + 16)
         const stepColor = resolveChalkColor(color, INK_SECONDARY)
 
-        const stepLines = lines.map((l, i) => (i === 0 ? `->  ${l}` : `    ${l}`))
+        const stepLines = lines.map((l, i) => {
+          const trimmed = l.trim()
+          if (i === 0) {
+            if (trimmed.startsWith('->') || trimmed.startsWith('•')) {
+              return trimmed
+            }
+            return `->  ${trimmed}`
+          }
+          if (trimmed.startsWith('->') || trimmed.startsWith('•')) {
+            return `    ${trimmed}`
+          }
+          return `    ${trimmed}`
+        })
         await playTypingEffect('Step', stepLines, stepColor, startX, startY, 15, 'none')
 
         const elements = convertToExcalidrawElements([
@@ -1801,7 +1817,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         const current = getCurrentElements()
         const merged = [...current, ...elements]
-        updateCurrentPageElements(merged, startY + totalH + 12)
+        updateCurrentPageElements(merged, startY + totalH + 16)
         executedTextHistoryRef.current.add(clean.toLowerCase().replace(/[^a-z0-9]/g, ''))
         notifyPositionChange('draw_step', clean)
         onNoteRecorded?.(`  -> ${clean}`)
@@ -3738,7 +3754,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       }
     }
 
-    // Step-by-Step Problem Solving on Whiteboard (Given -> Formula -> Substitution -> Calculation in Rough -> Boxed Answer)
+    // Step-by-Step Problem Solving on Whiteboard (Standard Topper Layout: Given -> Formula -> Substitution -> Calculation -> Boxed Answer)
     const drawNumericalSolution = async (solution: {
       problem?: string
       given?: string
@@ -3749,91 +3765,184 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       unit?: string
     }) => {
       if (!excalidrawAPI) return
-      await checkAutoPageOverflow(170)
+
       try {
         const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
-        const startY = getDynamicNextY(16)
         const elements: any[] = []
 
+        // 1. Problem / Numerical Statement
+        let probLines: string[] = []
+        if (solution.problem) {
+          const problemText = cleanChalkboardTypography(solution.problem.trim())
+          const cleanProbBody = problemText.replace(/^Problem:\s*/i, '')
+          probLines = wrapText(`Problem: ${cleanProbBody}`, cols(60))
+        }
+
+        // 2. Given Parameters
+        let givenLines: string[] = []
+        if (solution.given) {
+          const rawGiven = cleanChalkboardTypography(solution.given.trim())
+          const cleanGivenBody = rawGiven.replace(/^•?\s*Given:\s*/i, '')
+          const rawSplit = formatChalkboardSteps(cleanGivenBody, cols(56))
+          givenLines = rawSplit.map((l, i) => (i === 0 ? `• Given: ${l}` : `        ${l}`))
+        }
+
+        // 3. Formula / Governing Law
+        let formulaLines: string[] = []
+        if (solution.formula) {
+          const rawFormula = cleanChalkboardTypography(solution.formula.trim())
+          const cleanFormulaBody = rawFormula.replace(/^Formula:\s*/i, '')
+          const rawSplit = formatChalkboardSteps(cleanFormulaBody, cols(56))
+          formulaLines = rawSplit.map((l, i) => (i === 0 ? `Formula: ${l}` : `         ${l}`))
+        }
+
+        // 4. Substitution Step (1 or max 2 steps per line)
+        let subLines: string[] = []
+        if (solution.substitution) {
+          const rawSub = cleanChalkboardTypography(solution.substitution.trim())
+          const cleanSubBody = rawSub.replace(/^->\s*/, '')
+          const rawSplit = formatChalkboardSteps(cleanSubBody, cols(56))
+          subLines = rawSplit.map((l, i) => {
+            const trimmed = l.trim()
+            if (i === 0) {
+              if (/^(?:Step\s*\d+|Substitution)\s*[:\.\-]/i.test(trimmed)) {
+                return `-> ${trimmed}`
+              }
+              return `-> Step 1 (Substitution): ${trimmed}`
+            }
+            if (/^(?:Step\s*\d+|Substitution)\s*[:\.\-]/i.test(trimmed)) {
+              return `   ${trimmed}`
+            }
+            return `   ${trimmed}`
+          })
+        }
+
+        // 5. Calculation Step (1 or max 2 steps per line)
+        let calcLines: string[] = []
+        if (solution.calculation) {
+          const rawCalc = cleanChalkboardTypography(solution.calculation.trim())
+          const cleanCalcBody = rawCalc.replace(/^->\s*/, '')
+          const rawSplit = formatChalkboardSteps(cleanCalcBody, cols(56))
+          calcLines = rawSplit.map((l, i) => {
+            const trimmed = l.trim()
+            if (i === 0) {
+              if (/^(?:Step\s*\d+|Calculation)\s*[:\.\-]/i.test(trimmed)) {
+                return `-> ${trimmed}`
+              }
+              return `-> Step 2 (Calculation): ${trimmed}`
+            }
+            if (/^(?:Step\s*\d+|Calculation)\s*[:\.\-]/i.test(trimmed)) {
+              return `   ${trimmed}`
+            }
+            return `   ${trimmed}`
+          })
+        }
+
+        // 6. Boxed Final Answer with SI Units
+        const rawAns = solution.answer ? cleanChalkboardTypography(solution.answer.trim()) : ''
+        const cleanUnit = solution.unit ? cleanChalkboardTypography(solution.unit.trim()) : ''
+        const ansBody = rawAns.replace(/^(?:Answer|Final Answer|Ans)\s*[:\.\-]\s*/i, '').trim()
+        const hasUnit = cleanUnit && (ansBody.endsWith(cleanUnit) || ansBody.includes(cleanUnit))
+        const ansText = `Answer: ${ansBody || 'Solved'}${cleanUnit && !hasUnit ? ' ' + cleanUnit : ''}`
+        const boxWidth = Math.max(260, Math.min(ansText.length * 11 + 36, 720))
+
+        // Dynamic height calculation
+        const problemH = probLines.length > 0 ? probLines.length * 24 + 10 : 0
+        const givenH = givenLines.length > 0 ? givenLines.length * 22 + 8 : 0
+        const formulaH = formulaLines.length > 0 ? formulaLines.length * 24 + 10 : 0
+        const subH = subLines.length > 0 ? subLines.length * 24 + 10 : 0
+        const calcH = calcLines.length > 0 ? calcLines.length * 24 + 10 : 0
+        const ansH = 56
+        const totalEstimatedH = problemH + givenH + formulaH + subH + calcH + ansH + 20
+
+        await checkAutoPageOverflow(totalEstimatedH)
+        const startY = getDynamicNextY(16)
         let curY = startY
 
-        // 1. Problem / Numerical Statement
-        if (solution.problem) {
-          const problemText = cleanChalkboardTypography(solution.problem)
+        // 1. Render Problem
+        if (probLines.length > 0) {
           elements.push({
             type: 'text',
             x: startX,
             y: curY,
-            text: `Problem: ${problemText}`,
+            text: probLines.join('\n'),
             fontSize: 15,
             fontFamily: 1,
             strokeColor: INK_PRIMARY,
             customData: { isRough: false },
           })
-          curY += 28
+          curY += probLines.length * 24 + 10
         }
 
-        // 2. Given Parameters
-        if (solution.given) {
-          const givenText = cleanChalkboardTypography(solution.given)
+        // 2. Render Given
+        if (givenLines.length > 0) {
           elements.push({
             type: 'text',
             x: startX + 10,
             y: curY,
-            text: `• Given: ${givenText}`,
+            text: givenLines.join('\n'),
             fontSize: 14,
             fontFamily: 1,
             strokeColor: INK_SECONDARY,
             customData: { isRough: false },
           })
-          curY += 24
+          curY += givenLines.length * 22 + 8
         }
 
-        // 3. Formula / Governing Law
-        if (solution.formula) {
-          const formulaText = cleanChalkboardTypography(solution.formula)
+        // 3. Render Formula
+        if (formulaLines.length > 0) {
           elements.push({
             type: 'text',
             x: startX + 10,
             y: curY,
-            text: `Formula: ${formulaText}`,
+            text: formulaLines.join('\n'),
             fontSize: 15,
             fontFamily: 1,
             strokeColor: INK_BOTANICAL,
             customData: { isRough: false },
           })
-          curY += 26
+          curY += formulaLines.length * 24 + 10
         }
 
-        // 4. Substitution Step
-        if (solution.substitution) {
-          const subText = cleanChalkboardTypography(solution.substitution)
+        // 4. Render Substitution
+        if (subLines.length > 0) {
           elements.push({
             type: 'text',
             x: startX + 10,
             y: curY,
-            text: `-> Substitution: ${subText}`,
+            text: subLines.join('\n'),
             fontSize: 14,
             fontFamily: 1,
             strokeColor: INK_SECONDARY,
             customData: { isRough: false },
           })
-          curY += 30
+          curY += subLines.length * 24 + 10
         }
 
-        // 5. Boxed Final Answer with SI Units
-        const cleanAns = cleanChalkboardTypography(solution.answer)
-        const cleanUnit = solution.unit ? cleanChalkboardTypography(solution.unit) : ''
-        const ansText = `Answer: ${cleanAns}${cleanUnit ? ' ' + cleanUnit : ''}`
-        const boxWidth = Math.min(Math.max(ansText.length * 11 + 32, 240), 400)
+        // 5. Render Calculation
+        if (calcLines.length > 0) {
+          elements.push({
+            type: 'text',
+            x: startX + 10,
+            y: curY,
+            text: calcLines.join('\n'),
+            fontSize: 14,
+            fontFamily: 1,
+            strokeColor: INK_SECONDARY,
+            customData: { isRough: false },
+          })
+          curY += calcLines.length * 24 + 10
+        }
+
+        // 6. Render Boxed Answer
         elements.push(
           {
             type: 'rectangle',
             x: startX + 10,
             y: curY,
             width: boxWidth,
-            height: 40,
+            height: 44,
             strokeColor: INK_CORAL,
             backgroundColor: INK_CORAL_SOFT,
             fillStyle: 'solid',
@@ -3844,7 +3953,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           {
             type: 'text',
             x: startX + 22,
-            y: curY + 10,
+            y: curY + 11,
             text: ansText,
             fontSize: 15,
             fontFamily: 1,
@@ -3852,14 +3961,14 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             customData: { isRough: false },
           }
         )
-        curY += 50
+        curY += 56
 
         const current = getCurrentElements()
         const converted = convertToExcalidrawElements(elements)
         const merged = [...current, ...converted]
-        updateCurrentPageElements(merged, curY + 15)
+        updateCurrentPageElements(merged, curY + 16)
 
-        // 6. Scratchpad / Calculation in Right Rough Margin
+        // 7. Scratchpad / Calculation in Right Rough Margin
         if (solution.calculation) {
           await drawRoughWork(`Calculation:\n${cleanChalkboardTypography(solution.calculation)}`)
         }
@@ -4977,13 +5086,15 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               const solutionData: any = { answer: '' };
               parts.forEach((p: string) => {
                 const lower = p.toLowerCase();
-                if (lower.startsWith('problem:')) solutionData.problem = p.substring(8).trim();
-                else if (lower.startsWith('given:')) solutionData.given = p.substring(6).trim();
-                else if (lower.startsWith('formula:')) solutionData.formula = p.substring(8).trim();
-                else if (lower.startsWith('substitution:') || lower.startsWith('sub:')) solutionData.substitution = p.split(':')[1]?.trim();
-                else if (lower.startsWith('calculation:') || lower.startsWith('rough:')) solutionData.calculation = p.split(':')[1]?.trim();
-                else if (lower.startsWith('answer:') || lower.startsWith('final:')) solutionData.answer = p.split(':')[1]?.trim();
-                else if (lower.startsWith('unit:') || lower.startsWith('units:')) solutionData.unit = p.split(':')[1]?.trim();
+                const colonIdx = p.indexOf(':');
+                const valAfterColon = colonIdx >= 0 ? p.substring(colonIdx + 1).trim() : '';
+                if (lower.startsWith('problem:')) solutionData.problem = valAfterColon;
+                else if (lower.startsWith('given:')) solutionData.given = valAfterColon;
+                else if (lower.startsWith('formula:')) solutionData.formula = valAfterColon;
+                else if (lower.startsWith('substitution:') || lower.startsWith('sub:') || lower.startsWith('step 1:') || lower.startsWith('step1:')) solutionData.substitution = valAfterColon;
+                else if (lower.startsWith('calculation:') || lower.startsWith('rough:') || lower.startsWith('step 2:') || lower.startsWith('step2:')) solutionData.calculation = valAfterColon;
+                else if (lower.startsWith('answer:') || lower.startsWith('final:')) solutionData.answer = valAfterColon;
+                else if (lower.startsWith('unit:') || lower.startsWith('units:')) solutionData.unit = valAfterColon;
                 else if (!solutionData.problem) solutionData.problem = p;
                 else if (!solutionData.answer) solutionData.answer = p;
               });
@@ -5166,13 +5277,15 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               const solutionData: any = { answer: '' }
               parts.forEach((p) => {
                 const lower = p.toLowerCase()
-                if (lower.startsWith('problem:')) solutionData.problem = p.substring(8).trim()
-                else if (lower.startsWith('given:')) solutionData.given = p.substring(6).trim()
-                else if (lower.startsWith('formula:')) solutionData.formula = p.substring(8).trim()
-                else if (lower.startsWith('substitution:') || lower.startsWith('sub:')) solutionData.substitution = p.split(':')[1]?.trim()
-                else if (lower.startsWith('calculation:') || lower.startsWith('rough:')) solutionData.calculation = p.split(':')[1]?.trim()
-                else if (lower.startsWith('answer:') || lower.startsWith('final:')) solutionData.answer = p.split(':')[1]?.trim()
-                else if (lower.startsWith('unit:') || lower.startsWith('units:')) solutionData.unit = p.split(':')[1]?.trim()
+                const colonIdx = p.indexOf(':')
+                const valAfterColon = colonIdx >= 0 ? p.substring(colonIdx + 1).trim() : ''
+                if (lower.startsWith('problem:')) solutionData.problem = valAfterColon
+                else if (lower.startsWith('given:')) solutionData.given = valAfterColon
+                else if (lower.startsWith('formula:')) solutionData.formula = valAfterColon
+                else if (lower.startsWith('substitution:') || lower.startsWith('sub:') || lower.startsWith('step 1:') || lower.startsWith('step1:')) solutionData.substitution = valAfterColon
+                else if (lower.startsWith('calculation:') || lower.startsWith('rough:') || lower.startsWith('step 2:') || lower.startsWith('step2:')) solutionData.calculation = valAfterColon
+                else if (lower.startsWith('answer:') || lower.startsWith('final:')) solutionData.answer = valAfterColon
+                else if (lower.startsWith('unit:') || lower.startsWith('units:')) solutionData.unit = valAfterColon
                 else if (!solutionData.problem) solutionData.problem = p
                 else if (!solutionData.answer) solutionData.answer = p
               })

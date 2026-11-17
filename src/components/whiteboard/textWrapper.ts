@@ -59,6 +59,87 @@ export function wrapText(text: string, maxCharsPerLine = 70): string[] {
   return result
 }
 
+/**
+ * Formats mathematical derivations, physics calculations, and numerical steps
+ * ensuring ONE or AT MOST TWO concise steps per line, followed by a clean newline.
+ * Prevents crowded single-line equations and dense walls of text on the digital chalkboard.
+ */
+export function formatChalkboardSteps(text: string, maxCharsPerLine = 60): string[] {
+  if (!text || !text.trim()) return []
+  const cleaned = cleanChalkboardTypography(text.trim())
+  const rawLines = cleaned.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n')
+  const atomicChunks: string[] = []
+
+  for (const line of rawLines) {
+    const trimmed = line.trim()
+    if (!trimmed) continue
+
+    // 1. Split on explicit delimiters (semicolons, pipes)
+    const delimiterParts = trimmed.split(/\s*[\;\|]\s*/).filter(Boolean)
+
+    for (const part of delimiterParts) {
+      // 2. Split on inline step markers if multiple steps were concatenated without semicolons
+      // e.g. "Given: m = 2 kg Step 1: F = m × a Step 2: F = 10 N Answer: F = 10 N"
+      const inlineParts = part
+        .split(/(?<=[^\s])\s+(?=(?:Step\s*\d+|Given|To Find|Formula|Substitution|Calculation|Answer|Final Answer|Case\s*\d+|\([ivxlcdm\d]+\))\s*[:\.\-])/i)
+        .filter(Boolean)
+
+      for (const ip of inlineParts) {
+        // 3. Chained implications (e.g. A => B => C => D)
+        const arrowParts = ip.split(/\s*(?:=>|⇒|→)\s*/).filter(Boolean)
+        if (arrowParts.length >= 3) {
+          arrowParts.forEach((ap, idx) => {
+            atomicChunks.push(idx === 0 ? ap.trim() : `⇒ ${ap.trim()}`)
+          })
+        } else {
+          atomicChunks.push(ip.trim())
+        }
+      }
+    }
+  }
+
+  // 4. Group atomic chunks into lines with ONE or AT MOST TWO concise steps per line
+  const formattedLines: string[] = []
+  let i = 0
+
+  while (i < atomicChunks.length) {
+    const current = atomicChunks[i]
+    const next = i + 1 < atomicChunks.length ? atomicChunks[i + 1] : null
+
+    // Check if current or next is an explicit labeled step or major section header
+    const isCurrentMajor = /^(?:Given|Formula|To Find|Problem|Answer|Final Answer|Step\s*\d+|Case\s*\d+|\([ivxlcdm\d]+\))\s*[:\.\-]/i.test(current)
+    const isNextMajor = next ? /^(?:Given|Formula|To Find|Problem|Answer|Final Answer|Step\s*\d+|Case\s*\d+|\([ivxlcdm\d]+\))\s*[:\.\-]/i.test(next) : false
+
+    // Can current and next be paired on one line? (Max 2 steps per line)
+    // Both must be concise, neither can be a major labeled step that demands its own line,
+    // and combined length must fit comfortably within maxCharsPerLine.
+    const canPair =
+      next !== null &&
+      !isCurrentMajor &&
+      !isNextMajor &&
+      current.length <= 26 &&
+      next.length <= 26 &&
+      current.length + next.length + 5 <= maxCharsPerLine
+
+    if (canPair && next) {
+      const separator = next.startsWith('⇒') || next.startsWith('→') || next.startsWith('=') ? ' ' : '  ⇒  '
+      const pairedLine = `${current}${separator}${next}`
+      formattedLines.push(pairedLine)
+      i += 2 // Consumed 2 steps on this line
+    } else {
+      if (current.length > maxCharsPerLine) {
+        const wrapped = wrapText(current, maxCharsPerLine)
+        formattedLines.push(...wrapped)
+      } else {
+        formattedLines.push(current)
+      }
+      i += 1 // Consumed 1 step on this line
+    }
+  }
+
+  return formattedLines
+}
+
 let measureCtx: CanvasRenderingContext2D | null | undefined
 
 /**
