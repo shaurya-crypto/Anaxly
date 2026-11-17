@@ -1058,7 +1058,8 @@ export default function ModuleClassroomPage() {
     if (!text) return false
     const clean = text.toLowerCase().trim().replace(/[.,!?:;()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
     const patterns = [
-      /\b(?:solve\s*it|solve\s*this|please\s*solve|can\s*you\s*solve|solve\s*karo|solve\s*kar\s*do|aap\s*solve\s*karo)\b/i,
+      /\b(?:solve\s*it|solve\s*this|please\s*solve|can\s*you\s*solve|solve\s*karo|solve\s*kar\s*do|aap\s*solve\s*karo|solve\s*karein)\b/i,
+      /\b(?:hal\s*kijiye|hal\s*karo|hal\s*kar\s*do|hal\s*karein)\b/i,
       /\b(?:solution\s*please|show\s*(?:the\s*)?solution|give\s*(?:me\s*)?(?:the\s*)?solution|iska\s*solution\s*batao)\b/i,
       /\b(?:answer\s*bata\s*do|answer\s*batao|tell\s*(?:me\s*)?(?:the\s*)?answer|show\s*answer)\b/i,
       /^(?:solve|solution)$/i,
@@ -1070,8 +1071,8 @@ export default function ModuleClassroomPage() {
     if (!text) return false
     const clean = text.toLowerCase().trim().replace(/[.,!?:;()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
     const patterns = [
-      /\b(?:give\s*(?:me\s*)?(?:a\s*)?hint|hint\s*please|can\s*i\s*get\s*a\s*hint|need\s*a\s*hint)\b/i,
-      /\b(?:kuch\s*hint\s*do|hint\s*do|thoda\s*hint\s*do|clue\s*please|give\s*a\s*clue)\b/i,
+      /\b(?:give\s*(?:me\s*)?(?:a\s*)?hint|hint\s*please|can\s*i\s*get\s*a\s*hint|need\s*a\s*hint|any\s*hint)\b/i,
+      /\b(?:kuch\s*hint\s*do|hint\s*do|thoda\s*hint\s*do|hint\s*chahiye|clue\s*please|give\s*a\s*clue)\b/i,
       /\b(?:help\s*me\s*start|how\s*to\s*start|where\s*to\s*start)\b/i,
       /^hint$/i,
     ]
@@ -1083,9 +1084,9 @@ export default function ModuleClassroomPage() {
     const clean = text.toLowerCase().trim().replace(/[.,!?:;()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
     const patterns = [
       /\b(?:explain\s*step\s*by\s*step|step\s*by\s*step\s*explain|explain\s*(?:this|it|in\s*detail))\b/i,
-      /\b(?:detail\s*me\s*samjha\s*do|step\s*by\s*step\s*batao|pura\s*explain\s*karo)\b/i,
+      /\b(?:detail\s*me\s*samjha\s*do|step\s*by\s*step\s*batao|pura\s*explain\s*karo|samjhao)\b/i,
       /\b(?:can\s*you\s*explain|please\s*explain|samjha\s*do|kaise\s*aaya|how\s*did\s*this\s*come)\b/i,
-      /\b(?:why\s*does\s*this\s*happen|reason\s*behind\s*this|underlying\s*reason)\b/i,
+      /\b(?:why\s*does\s*this\s*happen|reason\s*behind\s*this|underlying\s*reason|explain\s*clearly)\b/i,
       /^explain$/i,
     ]
     return patterns.some((p) => p.test(clean))
@@ -1095,8 +1096,9 @@ export default function ModuleClassroomPage() {
     if (!text) return false
     const clean = text.toLowerCase().trim().replace(/[.,!?:;()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
     const patterns = [
-      /\b(?:give\s*me\s*(?:some\s*)?time|need\s*(?:some\s*)?time|wait|wait\s*a\s*minute|hold\s*on)\b/i,
-      /\b(?:thoda\s*time\s*do|ek\s*minute|ruko|ruk\s*jao|thoda\s*wait\s*karo)\b/i,
+      /\b(?:give\s*me\s*(?:some\s*)?time|give\s*me\s*(?:a\s*)?(?:minute|sec|second|moment)|need\s*(?:some\s*)?time)\b/i,
+      /\b(?:wait|wait\s*a\s*minute|wait\s*a\s*sec|wait\s*a\s*second|hold\s*on|just\s*a\s*(?:minute|sec|second))\b/i,
+      /\b(?:thoda\s*time\s*do|ek\s*minute|ruko|ruk\s*jao|thoda\s*wait\s*karo|sochne\s*do)\b/i,
       /\b(?:let\s*me\s*(?:think|calculate|try|solve)|i\s*am\s*(?:thinking|calculating|solving|trying))\b/i,
       /\b(?:soch\s*raha\s*hoon|calculate\s*kar\s*raha\s*hoon|solve\s*kar\s*raha\s*hoon)\b/i,
     ]
@@ -1118,7 +1120,7 @@ export default function ModuleClassroomPage() {
     if (!text) return false
     const clean = text.toLowerCase().trim().replace(/[.,!?:;()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
     const patterns = [
-      /\b(?:i\s*don'?t\s*understand|i\s*do\s*not\s*understand|didn'?t\s*get\s*it|not\s*getting\s*it)\b/i,
+      /\b(?:i\s*don'?t\s*understand|i\s*do\s*not\s*understand|didn'?t\s*get\s*it|not\s*getting\s*it|don'?t\s*understand)\b/i,
       /\b(?:samajh\s*nahi\s*aaya|samajh\s*na\s*aaya|kuch\s*samajh\s*nahi\s*aaya|nahi\s*samjha)\b/i,
       /\b(?:totally\s*confused|i\s*am\s*confused|it\s*is\s*confusing|not\s*clear)\b/i,
       /\b(?:i\s*am\s*stuck|stuck\s*here|fasi\s*gaya|atke\s*hue\s*hai)\b/i,
@@ -1131,7 +1133,8 @@ export default function ModuleClassroomPage() {
     const clean = text.toLowerCase().trim().replace(/[.,!?:;()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
     const patterns = [
       /^(?:pause|pause\s*lesson|pause\s*capsule|pause\s*class|stop\s*for\s*now)$/i,
-      /\b(?:pause\s*karo|roko|thoda\s*pause\s*karo|class\s*pause\s*karo)\b/i,
+      /\b(?:pause\s*(?:the\s*)?(?:class|lesson|capsule|here|please)|please\s*pause|can\s*we\s*pause)\b/i,
+      /\b(?:pause\s*karo|roko|thoda\s*pause\s*karo|class\s*pause\s*karo|ruk\s*jao)\b/i,
     ]
     return patterns.some((p) => p.test(clean))
   }
@@ -1140,8 +1143,9 @@ export default function ModuleClassroomPage() {
     if (!text) return false
     const clean = text.toLowerCase().trim().replace(/[.,!?:;()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
     const patterns = [
-      /^(?:resume|resume\s*lesson|resume\s*capsule|resume\s*class|continue\s*lesson)$/i,
-      /\b(?:resume\s*karo|shuru\s*karo|aage\s*shuru\s*karo|chalu\s*karo)\b/i,
+      /^(?:resume|resume\s*lesson|resume\s*capsule|resume\s*class|continue\s*lesson|continue)$/i,
+      /\b(?:resume\s*karo|shuru\s*karo|aage\s*shuru\s*karo|chalu\s*karo|aage\s*badho)\b/i,
+      /\b(?:let'?s\s*continue|continue\s*(?:the\s*)?(?:class|lesson|capsule)|please\s*resume)\b/i,
     ]
     return patterns.some((p) => p.test(clean))
   }
@@ -1238,7 +1242,8 @@ CRITICAL DIRECTIVE:
    - Detailed substitution & scratchpad calculations in rough work: write_chalkboard(action="draw_rough_work", content="Rough: <arithmetic & steps>", color="white").
    - Boxed Final Answer with SI units: write_chalkboard(action="draw_step", content="Boxed Answer: [ <numerical result> <SI unit> ]", color="botanical").
 3. Speak out loud in rich pedagogical depth (5 to 6 articulate sentences) explaining WHY each step was taken. Do NOT skip any calculations or reasoning steps!
-4. Check understanding: "Did you follow each step of this solution, or do you have any questions on this step?" HARD STOP: Wait for student response!`
+4. Check understanding: "Did you follow each step of this solution, or do you have any questions on this step?" HARD STOP: Wait for student response!`,
+        cleanAnswer
       )
       return
     }
@@ -1258,7 +1263,8 @@ CRITICAL DIRECTIVE:
 1. Provide ONE targeted, gentle Socratic hint or guiding clue.
 2. STRICT LOCK: DO NOT reveal the final answer, formula substitution, or complete solution!
 3. Point out a key given value on the board, a relatable physical analogy, or ask a leading question that helps them take the next step.
-4. HARD STOP: Wait silently for the student to attempt the question.`
+4. HARD STOP: Wait silently for the student to attempt the question.`,
+        cleanAnswer
       )
       return
     }
@@ -1269,7 +1275,8 @@ CRITICAL DIRECTIVE:
         `[STUDENT REQUEST - MORE TIME TO THINK]: The student said: "${cleanAnswer}".
 CRITICAL DIRECTIVE:
 1. Warmly acknowledge: e.g., "Take your time! Work through it on your notebook and let me know whenever you are ready."
-2. HARD STOP: IMMEDIATELY STOP SPEAKING and remain completely silent. Do NOT reveal the answer, do NOT rush them, and do NOT speak until the student responds.`
+2. HARD STOP: IMMEDIATELY STOP SPEAKING and remain completely silent. Do NOT reveal the answer, do NOT rush them, and do NOT speak until the student responds.`,
+        cleanAnswer
       )
       return
     }
@@ -1289,7 +1296,8 @@ CRITICAL DIRECTIVE:
 1. Explain the underlying physical intuition, governing mechanism, and step-by-step reasoning behind this concept or problem.
 2. Speak conversationally in 5 to 6 rich, articulate sentences with deep clarity. Break complex steps down. Explain WHY something happens, not just what happens.
 3. Write key transitions on the chalkboard as you explain.
-4. Then ask if the explanation makes sense. HARD STOP: Wait for student response!`
+4. Then ask if the explanation makes sense. HARD STOP: Wait for student response!`,
+        cleanAnswer
       )
       return
     }
@@ -1309,7 +1317,8 @@ CRITICAL DIRECTIVE:
 1. Be encouraging, patient, and warm ("No worries at all! Let us look at it from a completely different angle").
 2. DO NOT simply repeat the same words or definition. Use a fresh, tangible everyday analogy or mental experiment to build intuitive clarity.
 3. If it is a problem or calculation, co-solve the very first step together in [ROUGH_WORK].
-4. HARD STOP: Ask if this new angle makes sense and wait for student response!`
+4. HARD STOP: Ask if this new angle makes sense and wait for student response!`,
+        cleanAnswer
       )
       return
     }
@@ -1320,7 +1329,8 @@ CRITICAL DIRECTIVE:
         `[STUDENT REQUEST - REPEAT]: The student requested: "${cleanAnswer}".
 CRITICAL DIRECTIVE:
 1. Patiently re-explain the last concept or sentence with clarity and warmth in 5 to 6 well-formed sentences.
-2. HARD STOP: Check if it is clear now and wait for student response!`
+2. HARD STOP: Check if it is clear now and wait for student response!`,
+        cleanAnswer
       )
       return
     }
@@ -1339,7 +1349,8 @@ CRITICAL DIRECTIVE:
 CRITICAL DIRECTIVE:
 1. Address the student's question/doubt immediately with complete, crystal-clear explanation and step-by-step guidance on the current chalkboard. Speak in complete, articulate sentences with proper teaching depth (do NOT stop abruptly after just one short sentence).
 2. STRICT LOCK: DO NOT evaluate this as a test answer, and DO NOT call concept_completed or advance to the next concept.
-3. Keep answering on the CURRENT concept until the student's doubt is completely cleared.`
+3. Keep answering on the CURRENT concept until the student's doubt is completely cleared.`,
+        cleanAnswer
       )
       return
     }
@@ -1361,7 +1372,8 @@ CRITICAL DIRECTIVE:
    - Write the verdict and model answer on this current whiteboard page using write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>").
    - If incorrect or hesitant, break down the step and co-solve with me in [ROUGH_WORK].
 4. HARD STOP: Deliver complete, well-formed teacherly explanations. Ask if I followed or have any doubts before proceeding.
-5. ADVANCEMENT GATING: Call concept_completed(conceptName="...") or write_chalkboard(action="concept_done") ONLY after the Stage 5/6 checkpoint question has been solved and verified, or if the student explicitly commands moving to the next concept. DO NOT advance to the next concept or page yet! Remain on this current concept page so I can review the chalkboard notes. NEVER skip concepts.`
+5. ADVANCEMENT GATING: Call concept_completed(conceptName="...") or write_chalkboard(action="concept_done") ONLY after the Stage 5/6 checkpoint question has been solved and verified, or if the student explicitly commands moving to the next concept. DO NOT advance to the next concept or page yet! Remain on this current concept page so I can review the chalkboard notes. NEVER skip concepts.`,
+      cleanAnswer
     )
   }
 
@@ -1686,6 +1698,10 @@ CRITICAL DIRECTIVE:
   const [preferredVoice, setPreferredVoice] = useState<string>('Charon')
   const sessionActiveVoiceRef = useRef<string | null>(null)
   const [isPaused, setIsPaused] = useState<boolean>(false)
+  const isPausedRef = useRef<boolean>(false)
+  useEffect(() => {
+    isPausedRef.current = isPaused
+  }, [isPaused])
 
   // Persist student's voice preference to Supabase profiles table
   const persistVoicePreferenceToDb = useCallback(async (voice: string) => {
@@ -2252,6 +2268,7 @@ CRITICAL DIRECTIVE:
     } else if (latest && latest.sender === 'user') {
       const userText = (latest.text || '').trim().toLowerCase()
       if (
+        userText.startsWith('[') ||
         userText.startsWith('[transition') ||
         userText.startsWith('[session') ||
         userText.startsWith('[student question') ||
@@ -2704,12 +2721,12 @@ CRITICAL DIRECTIVE:
 
   // 3. Auto-save notes to Supabase user_progress.chapter_notes and visual_progress.whiteboard_pages
   const saveNotesToSupabase = async (
-    notesToSave: string,
+    notesToSave?: string,
     forcedStatus?: 'in_progress' | 'completed',
     pausedOverride?: boolean
   ) => {
     saveNotesToSupabaseRef.current = (notes, status) => saveNotesToSupabase(notes, status)
-    if (!userId || !moduleId || !notesToSave.trim()) return
+    if (!userId || !moduleId) return
     setNotesSaveStatus('saving')
     try {
       const supabase = createClient()
@@ -2728,12 +2745,16 @@ CRITICAL DIRECTIVE:
       const statusToSet = forcedStatus || (isCompletedBefore || moduleCompletedSuccess ? 'completed' : 'in_progress')
       const currentIdxToSave = currentConceptIndexRef.current
       const completedToSave = completedConceptsRef.current
-      const isPausedVal = typeof pausedOverride === 'boolean' ? pausedOverride : isPaused
+      const isPausedVal = typeof pausedOverride === 'boolean' ? pausedOverride : (isPausedRef.current || isPaused)
+
+      const effectiveNotes = (typeof notesToSave === 'string' && notesToSave.trim())
+        ? notesToSave
+        : (chalkboardRef.current?.getBoardSummary()?.fullSummary || latestBoardSummary || chapterNotes || '').trim()
 
       const payload: any = {
         user_id: userId,
         syllabus_module_id: moduleId,
-        chapter_notes: notesToSave,
+        chapter_notes: effectiveNotes,
         current_concept_index: currentIdxToSave,
         completed_concepts: completedToSave,
         last_covered_concept: lastCoveredConcept,
@@ -2745,15 +2766,13 @@ CRITICAL DIRECTIVE:
         payload.completed_at = new Date().toISOString()
       }
 
-      if (whiteboardData) {
-        payload.visual_progress = {
-          currentStepIndex: activeVisualStepIndex,
-          completedStepIds: [],
-          whiteboard_pages: whiteboardData,
-          whiteboard_files: whiteboardFiles,
-          lastActiveAt: new Date().toISOString(),
-          isPaused: isPausedVal,
-        }
+      payload.visual_progress = {
+        currentStepIndex: activeVisualStepIndex,
+        completedStepIds: [],
+        whiteboard_pages: whiteboardData || [],
+        whiteboard_files: whiteboardFiles || {},
+        lastActiveAt: new Date().toISOString(),
+        isPaused: isPausedVal,
       }
 
       const { error } = await supabase
@@ -2773,14 +2792,16 @@ CRITICAL DIRECTIVE:
       }
 
       // Mark clean in client-side cache
-      setCachedBoardNotes({
-        userId,
-        moduleId,
-        notesText: notesToSave,
-        fullSummary: notesToSave,
-        updatedAt: new Date().toISOString(),
-        isDirty: false,
-      })
+      if (effectiveNotes) {
+        setCachedBoardNotes({
+          userId,
+          moduleId,
+          notesText: effectiveNotes,
+          fullSummary: effectiveNotes,
+          updatedAt: new Date().toISOString(),
+          isDirty: false,
+        })
+      }
 
       setNotesSaveStatus('saved')
     } catch (err) {
@@ -3577,14 +3598,15 @@ MANDATORY INVARIANT:
   const handlePauseClass = () => {
     console.log('[Classroom] Student paused lesson. Preserving exact position in DB and halting audio.')
     setIsPaused(true)
-    hasSessionStartedRef.current = false
+    isPausedRef.current = true
     setIsReconnecting(false)
     if (reconnectAttemptTimerRef.current) {
       clearTimeout(reconnectAttemptTimerRef.current)
       reconnectAttemptTimerRef.current = null
     }
+    const currentNotes = (chalkboardRef.current?.getBoardSummary()?.fullSummary || latestBoardSummary || chapterNotes || '').trim()
     // Persist paused state and progress strictly in Supabase DB
-    saveNotesToSupabase(chapterNotes, 'in_progress', true)
+    saveNotesToSupabase(currentNotes, 'in_progress', true)
     endCall()
   }
 
@@ -3595,9 +3617,12 @@ MANDATORY INVARIANT:
     handleStartClassRef.current = handleStartClass
     handlePauseClassRef.current = handlePauseClass
 
+    const wasPausedSession = isPaused || isPausedRef.current
     setIsPaused(false)
+    isPausedRef.current = false
+    const currentNotes = (chalkboardRef.current?.getBoardSummary()?.fullSummary || latestBoardSummary || chapterNotes || '').trim()
     // Clear pause flag in DB
-    saveNotesToSupabase(chapterNotes, 'in_progress', false)
+    saveNotesToSupabase(currentNotes, 'in_progress', false)
 
     isUserTerminatedRef.current = false
     reconnectAttemptsRef.current = 0
@@ -3896,7 +3921,7 @@ ${careerHook ? `- ${careerHook}\n` : ''}${favoriteHook ? `- ${favoriteHook}\n` :
     const isResumed = !isCompletedModule && (
       currentConceptIndex > 0 ||
       currentCompletedCount > 0 ||
-      isPaused ||
+      wasPausedSession ||
       hasExistingContent
     )
     const boardContinuationNote = boardCompactContext.trim()
@@ -5037,7 +5062,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
               )}
             </div>
 
-            {isCallActive && (
+            {(isCallActive || isPaused) && (
               <div className="flex flex-col gap-2.5">
                 <div className="flex justify-center">
                   <CallControls
@@ -5046,7 +5071,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                     userVolumeRef={userVolumeRef}
                     onToggleMute={toggleMute}
                     onEndCall={handleEndClass}
-                    onPause={handlePauseClass}
+                    onPause={isPaused ? handleStartClass : handlePauseClass}
                     isPaused={isPaused}
                   />
                 </div>
@@ -5222,9 +5247,13 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
 
           {!isCallActive && hasSessionStartedRef.current && (
             <div className="absolute top-4 left-1/2 -translate-x-1/2 z-40 flex items-center gap-3 px-4 py-2 rounded-full bg-[#1F3852] text-white shadow-lg border border-white/20 text-xs sm:text-sm">
-              <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+              <span className={`w-2 h-2 rounded-full ${isPaused ? 'bg-amber-400' : 'bg-amber-400 animate-ping'}`} />
               <span className="font-medium">
-                {isReconnecting ? 'Reconnecting to Faculty...' : 'Voice Connection Paused'}
+                {isPaused
+                  ? 'Lesson Paused · Progress Saved'
+                  : isReconnecting
+                  ? 'Reconnecting to Faculty...'
+                  : 'Voice Connection Paused'}
               </span>
               <button
                 type="button"
@@ -5235,7 +5264,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                 }}
                 className="px-3 py-1 bg-white text-[#1F3852] font-semibold rounded-full hover:bg-white/90 transition-colors cursor-pointer text-xs"
               >
-                Reconnect Voice
+                {isPaused ? 'Resume Capsule' : 'Reconnect Voice'}
               </button>
             </div>
           )}

@@ -373,13 +373,16 @@ export function useGeminiLive() {
     }
   }, []);
 
-  const sendTextMessage = useCallback((text: string) => {
+  const sendTextMessage = useCallback((text: string, displayText?: string) => {
     if (geminiClientRef.current && text?.trim()) {
       if (audioPlayerRef.current) {
         audioPlayerRef.current.stopAndClear();
       }
       geminiClientRef.current.sendTextMessage(text.trim());
-      addTranscript(text.trim(), "user");
+      const visibleText = displayText !== undefined ? displayText.trim() : (text.trim().startsWith('[') ? '' : text.trim());
+      if (visibleText) {
+        addTranscript(visibleText, "user");
+      }
     }
   }, [addTranscript]);
 

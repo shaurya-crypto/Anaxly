@@ -52,6 +52,8 @@ export class GeminiLiveClient {
   private isModelGenerating: boolean = false;
   private turnToolCallsExecuted: number = 0;
   private turnEmittedAudio: boolean = false;
+  private lastExecutedToolAction: string | null = null;
+  private silentTurnNudgeCount: number = 0;
 
   constructor(
     authTokenOrApiKey: string,
@@ -381,6 +383,7 @@ export class GeminiLiveClient {
         if (now - t > 60000) this.lastExecutedToolCalls.delete(k);
       }
     }
+    this.lastExecutedToolAction = name;
     if (
       name === "write_chalkboard" ||
       name === "write_board" ||
@@ -405,6 +408,7 @@ export class GeminiLiveClient {
           if (typeof args === "string") textContent = args;
         }
       }
+      this.lastExecutedToolAction = action;
 
       if (typeof textContent === "string") {
         textContent = cleanChalkboardTypography(textContent);
@@ -1047,6 +1051,7 @@ export class GeminiLiveClient {
              this.isModelGenerating = false;
              this.turnToolCallsExecuted = 0;
              this.turnEmittedAudio = false;
+             this.silentTurnNudgeCount = 0;
              this.pendingBoardContext = null;
              this.callbacks.onInterrupted();
              return;
@@ -1087,6 +1092,7 @@ export class GeminiLiveClient {
              for (const part of content.modelTurn.parts) {
                if (part.inlineData && part.inlineData.data) {
                  this.turnEmittedAudio = true;
+                 this.silentTurnNudgeCount = 0;
                  const mime = part.inlineData.mimeType || "audio/pcm;rate=24000";
                  if (mime.startsWith("video/") || mime.startsWith("image/")) {
                    // Native Gemini 3.8 Live Avatar video frame streaming
@@ -1143,11 +1149,16 @@ export class GeminiLiveClient {
            const isTurnDone = Boolean(content.turnComplete || currentStatus === "IDLE");
            if (isTurnDone && currentStatus !== "IN_PROGRESS") {
              this.isModelGenerating = false;
-             if (this.turnToolCallsExecuted > 0 && !this.turnEmittedAudio && this.isConnected && !this.isManuallyClosed) {
-               console.log("[GeminiLive] Turn ended with chalkboard tool calls but zero audio. Prompting spoken delivery automatically...");
+             if (this.turnToolCallsExecuted > 0 && !this.turnEmittedAudio && this.isConnected && !this.isManuallyClosed && this.silentTurnNudgeCount < 2) {
+               this.silentTurnNudgeCount++;
+               const isQuestionTool = this.lastExecutedToolAction === "draw_question" || this.lastExecutedToolAction === "draw_exam_question";
+               const nudgePrompt = isQuestionTool
+                 ? "Please read the question out loud to the student, then stop speaking and wait silently for their answer. Do NOT reveal or solve the question!"
+                 : "Please continue speaking and explaining out loud now.";
+               console.log(`[GeminiLive] Turn ended with chalkboard tool calls (${this.lastExecutedToolAction}) but zero audio. Prompting spoken delivery automatically...`);
                try {
                  this.session?.sendClientContent({
-                   turns: [{ role: "user", parts: [{ text: "Please continue speaking and explaining out loud now." }] }],
+                   turns: [{ role: "user", parts: [{ text: nudgePrompt }] }],
                    turnComplete: true,
                  });
                } catch {}
