@@ -155,11 +155,12 @@ export function cleanChalkboardTypography(text: string): string {
   out = out.replace(/\*/g, '·')
 
   // 11. Common math symbols & comparisons:
+  out = out.replace(/(?<=[a-zA-Z0-9\s])\|\|(?=[a-zA-Z0-9\s])/g, ' ∥ ')
   out = out.replace(/<=\s*/g, '≤ ')
   out = out.replace(/>=\s*/g, '≥ ')
   out = out.replace(/!=\s*/g, '≠ ')
   out = out.replace(/~=\s*/g, '≈ ')
-  out = out.replace(/\+\/\-/g, '±')
+  out = out.replace(/\+\s*-\s*|\+\/-/g, '±')
   out = out.replace(/->\s*/g, '→ ')
   out = out.replace(/=>\s*/g, '⇒ ')
   out = out.replace(/<->\s*/g, '↔ ')

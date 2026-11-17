@@ -68,31 +68,39 @@ export function formatChalkboardSteps(text: string, maxCharsPerLine = 60): strin
   if (!text || !text.trim()) return []
   const cleaned = cleanChalkboardTypography(text.trim())
   const rawLines = cleaned.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n')
-  const atomicChunks: string[] = []
+  const atomicChunks: { text: string; isArrowTransition: boolean }[] = []
+
+  // Comprehensive list of academic, textbook, and exam section headers that demand their own line
+  const MAJOR_HEADER_REGEX = /^(?:Given(?:\s+that)?|Formula|Theorem|Law|To\s+(?:Find|Prove|Evaluate|Calculate|Determine)|Construction|Proof|Substitution|Calculation|Working|Rough|Problem|Question|Answer|Final\s+Answer|Boxed\s+Answer|Ans|Case\s*\d+|Hence\s+Proved|Result|Therefore|Step\s*\d+|Step\s*[A-Za-z]|\([ivxlcdm\d]+\)|\([a-z]\)|\d+[\.\)])\s*[:\.\-]/i
+
+  // Delimiter for splitting concatenated inline step headers
+  const INLINE_STEP_REGEX = /(?<=[^\s])\s+(?=(?:Step\s*\d+|Step\s*[A-Za-z]|Given(?:\s+that)?|To\s+(?:Find|Prove|Evaluate|Calculate|Determine)|Formula|Theorem|Law|Construction|Proof|Substitution|Calculation|Working|Rough|Answer|Final\s+Answer|Boxed\s+Answer|Ans|Problem|Question|Case\s*\d+|Hence\s+Proved|Therefore|Result|\([ivxlcdm\d]+\)|\([a-z]\)|\d+[\.\)])\s*[:\.\-])/i
+
+  // Delimiter for splitting explicit step delimiters: semicolons and pipe separators (surrounded by whitespace)
+  // Preserves mathematical modulus (|x|) and parallel geometry (|| or ∥)
+  const DELIMITER_REGEX = /\s*;\s*|\s+(?<!\|)\|(?!\|)\s+/
 
   for (const line of rawLines) {
     const trimmed = line.trim()
     if (!trimmed) continue
 
-    // 1. Split on explicit delimiters (semicolons, pipes)
-    const delimiterParts = trimmed.split(/\s*[\;\|]\s*/).filter(Boolean)
+    // 1. Split on explicit delimiters (semicolons, standalone pipes)
+    const delimiterParts = trimmed.split(DELIMITER_REGEX).filter(Boolean)
 
     for (const part of delimiterParts) {
       // 2. Split on inline step markers if multiple steps were concatenated without semicolons
       // e.g. "Given: m = 2 kg Step 1: F = m × a Step 2: F = 10 N Answer: F = 10 N"
-      const inlineParts = part
-        .split(/(?<=[^\s])\s+(?=(?:Step\s*\d+|Given|To Find|Formula|Substitution|Calculation|Answer|Final Answer|Case\s*\d+|\([ivxlcdm\d]+\))\s*[:\.\-])/i)
-        .filter(Boolean)
+      const inlineParts = part.split(INLINE_STEP_REGEX).filter(Boolean)
 
       for (const ip of inlineParts) {
         // 3. Chained implications (e.g. A => B => C => D)
         const arrowParts = ip.split(/\s*(?:=>|⇒|→)\s*/).filter(Boolean)
-        if (arrowParts.length >= 3) {
+        if (arrowParts.length >= 2) {
           arrowParts.forEach((ap, idx) => {
-            atomicChunks.push(idx === 0 ? ap.trim() : `⇒ ${ap.trim()}`)
+            atomicChunks.push({ text: ap.trim(), isArrowTransition: idx > 0 })
           })
         } else {
-          atomicChunks.push(ip.trim())
+          atomicChunks.push({ text: ip.trim(), isArrowTransition: false })
         }
       }
     }
@@ -107,8 +115,8 @@ export function formatChalkboardSteps(text: string, maxCharsPerLine = 60): strin
     const next = i + 1 < atomicChunks.length ? atomicChunks[i + 1] : null
 
     // Check if current or next is an explicit labeled step or major section header
-    const isCurrentMajor = /^(?:Given|Formula|To Find|Problem|Answer|Final Answer|Step\s*\d+|Case\s*\d+|\([ivxlcdm\d]+\))\s*[:\.\-]/i.test(current)
-    const isNextMajor = next ? /^(?:Given|Formula|To Find|Problem|Answer|Final Answer|Step\s*\d+|Case\s*\d+|\([ivxlcdm\d]+\))\s*[:\.\-]/i.test(next) : false
+    const isCurrentMajor = MAJOR_HEADER_REGEX.test(current.text)
+    const isNextMajor = next ? MAJOR_HEADER_REGEX.test(next.text) : false
 
     // Can current and next be paired on one line? (Max 2 steps per line)
     // Both must be concise, neither can be a major labeled step that demands its own line,
@@ -117,21 +125,33 @@ export function formatChalkboardSteps(text: string, maxCharsPerLine = 60): strin
       next !== null &&
       !isCurrentMajor &&
       !isNextMajor &&
-      current.length <= 26 &&
-      next.length <= 26 &&
-      current.length + next.length + 5 <= maxCharsPerLine
+      current.text.length <= 26 &&
+      next.text.length <= 26 &&
+      current.text.length + next.text.length + 5 <= maxCharsPerLine
 
     if (canPair && next) {
-      const separator = next.startsWith('⇒') || next.startsWith('→') || next.startsWith('=') ? ' ' : '  ⇒  '
-      const pairedLine = `${current}${separator}${next}`
+      let separator: string
+      if (next.isArrowTransition) {
+        separator = next.text.startsWith('⇒') || next.text.startsWith('→') || next.text.startsWith('=') ? ' ' : '  ⇒  '
+      } else if (next.text.startsWith('⇒') || next.text.startsWith('→') || next.text.startsWith('=')) {
+        separator = ' '
+      } else {
+        separator = ', '
+      }
+      const curText = current.isArrowTransition && !current.text.startsWith('⇒') ? `⇒ ${current.text}` : current.text
+      const pairedLine = `${curText}${separator}${next.text}`
       formattedLines.push(pairedLine)
       i += 2 // Consumed 2 steps on this line
     } else {
-      if (current.length > maxCharsPerLine) {
-        const wrapped = wrapText(current, maxCharsPerLine)
+      let lineText = current.text
+      if (current.isArrowTransition && !lineText.startsWith('⇒') && !lineText.startsWith('→') && !lineText.startsWith('=')) {
+        lineText = `⇒ ${lineText}`
+      }
+      if (lineText.length > maxCharsPerLine) {
+        const wrapped = wrapText(lineText, maxCharsPerLine)
         formattedLines.push(...wrapped)
       } else {
-        formattedLines.push(current)
+        formattedLines.push(lineText)
       }
       i += 1 // Consumed 1 step on this line
     }

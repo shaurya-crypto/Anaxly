@@ -129,7 +129,7 @@ export class GeminiLiveClient {
     }
 
     // 1b. Match bracket directives: [NOTE: ...], [STEP: ...], [DEFINITION: ...], [HIGHLIGHT: ...], etc.
-    const bracketRegex = /\[(NOTE|INTUITION|INSIGHT|DEFINITION|LAW|FORMULA|HIGHLIGHT|HIGHLIGHT_WORD|HIGHLIGHT_SENTENCE|FOCUS_WORD|FOCUS_PHRASE|EXAMPLE|ILLUSTRATION|STEP|DERIVATION|CALCULATION|QUESTION|CHECKPOINT_QUESTION|BOARD_QUESTION|STUDENT_ANSWER|STUDENT|VERDICT|ANSWER_VERDICT|CORRECTION|CONCEPT_FOCUS):\s*([^\]]+)\]/gi;
+    const bracketRegex = /\[(NOTE|INTUITION|INSIGHT|DEFINITION|LAW|FORMULA|HIGHLIGHT|HIGHLIGHT_WORD|HIGHLIGHT_SENTENCE|FOCUS_WORD|FOCUS_PHRASE|EXAMPLE|ILLUSTRATION|STEP|DERIVATION|CALCULATION|QUESTION|CHECKPOINT_QUESTION|BOARD_QUESTION|STUDENT_ANSWER|STUDENT|VERDICT|ANSWER_VERDICT|CORRECTION|CONCEPT_FOCUS|NUMERICAL|BOARD_NUMERICAL|WORKED_EXAMPLE|SOLVE|MATH_SOLVE):\s*([^\]]+)\]/gi;
     let bm;
     while ((bm = bracketRegex.exec(rawText)) !== null) {
       const type = bm[1]?.toUpperCase() || "";
@@ -157,6 +157,8 @@ export class GeminiLiveClient {
         this.handleSingleToolCall("write_chalkboard", { action: "draw_student_answer", content: content, color: "blue" });
       } else if (type === "VERDICT" || type === "ANSWER_VERDICT" || type === "CORRECTION") {
         this.handleSingleToolCall("write_chalkboard", { action: "draw_answer_verdict", content: content, color: "botanical" });
+      } else if (type === "NUMERICAL" || type === "BOARD_NUMERICAL" || type === "WORKED_EXAMPLE" || type === "SOLVE" || type === "MATH_SOLVE") {
+        this.handleSingleToolCall("write_chalkboard", { action: "draw_numerical", content: content });
       } else if (type === "CONCEPT_FOCUS") {
         this.handleSingleToolCall("concept_focus", { conceptName: content });
       }

@@ -50,7 +50,33 @@ console.log('  [PASS] Chained implications split so at most 2 steps appear per l
 const pairable = formatChalkboardSteps('2x = 6; x = 3')
 assert.strictEqual(pairable.length, 1, 'Two concise steps may be paired on 1 line')
 assert(pairable[0].includes('2x = 6') && pairable[0].includes('x = 3'), 'Both steps present on line')
-console.log('  [PASS] Two concise steps paired cleanly with implication arrow.')
+console.log('  [PASS] Two concise steps paired cleanly on 1 line.')
+
+// 5b. Pairing given variables with comma (never false implication arrow)
+const givenPair = formatChalkboardSteps('m = 2 kg; a = 5 m/s^2')
+assert.strictEqual(givenPair.length, 1, 'Two concise given quantities may be paired on 1 line')
+assert.strictEqual(givenPair[0], 'm = 2 kg, a = 5 m/s²', 'Given quantities must be separated by comma, NEVER false implication arrow ⇒')
+console.log('  [PASS] Given quantities paired with comma without false implication arrow.')
+
+// 5c. Mathematical absolute value and parallel lines preserved
+const absVal = formatChalkboardSteps('|x - 3| = 5')
+assert.strictEqual(absVal.length, 1, 'Absolute value expression must not be split by pipe delimiter')
+assert.strictEqual(absVal[0], '|x - 3| = 5', 'Modulus bars must be preserved intact')
+
+const geomParallel = formatChalkboardSteps('AB || CD; To Prove: AB ∥ CD')
+assert.strictEqual(geomParallel.length, 2, 'Parallel lines must not be split on pipe, and To Prove must be on its own line')
+assert(geomParallel[0].includes('AB') && geomParallel[0].includes('CD'), 'Parallel segment preserved')
+assert(geomParallel[1].startsWith('To Prove:'), 'To Prove starts on its own line')
+console.log('  [PASS] Absolute value and geometry parallel symbols preserved intact.')
+
+// 5d. Geometry and math proof headers (Given, To Prove, Proof, Hence Proved)
+const proofSteps = formatChalkboardSteps('Given: AB = AC; To Prove: ∠B = ∠C; Proof: In ΔABC, AB = AC; Hence Proved!')
+assert.strictEqual(proofSteps.length, 4, 'Math proof headers must each be on their own line')
+assert(proofSteps[0].startsWith('Given:'), 'Given starts line 1')
+assert(proofSteps[1].startsWith('To Prove:'), 'To Prove starts line 2')
+assert(proofSteps[2].startsWith('Proof:'), 'Proof starts line 3')
+assert(proofSteps[3].includes('Hence Proved!'), 'Hence Proved is on line 4')
+console.log('  [PASS] Math proof sections (Given, To Prove, Proof, Hence Proved) formatted 1 step per line.')
 
 // 6. Inline step markers without semicolons
 const inlineMarkers = formatChalkboardSteps('Given: m = 2 kg, a = 5 m/s^2 Step 1: F = m * a Step 2: F = 10 N Answer: 10 N')
@@ -140,19 +166,39 @@ assert(
 )
 console.log('  [PASS] drawNumericalSolution enforces full standard topper layout with dynamic overflow.')
 
-// D. Directive parser colon preservation
+// D. Directive parser colon preservation & multiline/step expansion
 assert(
   chalkboardSource.includes("const colonIdx = p.indexOf(':')") &&
   chalkboardSource.includes('p.substring(colonIdx + 1).trim()'),
   'GreenChalkboard.tsx directive parser must use indexOf and substring to avoid truncating inner colons'
 )
-console.log('  [PASS] Directive parser preserves inner colons in steps.')
+assert(
+  chalkboardSource.includes('(?<!\\|)\\|(?!\\|)|\\n|;\\s*(?=(?:problem|given|formula|substitution|sub|calculation|rough|step\\s*\\d+|answer|final|unit)\\s*[:\\.\\-])'),
+  'GreenChalkboard.tsx directive parser must split on pipes, newlines, and keyword-delimited semicolons while preserving parallel ||'
+)
+assert(
+  chalkboardSource.includes('/^step\\s*\\d+\\s*:/i.test(lower)'),
+  'GreenChalkboard.tsx directive parser must preserve additional calculation steps (Step 3, Step 4) without overwriting answer'
+)
+console.log('  [PASS] Directive parser preserves inner colons, additional steps, and multiline inputs.')
+
+// E. Step arrow alignment in drawStep
+assert(
+  chalkboardSource.includes('const isStepHeader = /^(?:->|→|•|\\*|Step\\s*\\d+|Step\\s*[A-Za-z]|Case\\s*\\d+|Given|Formula|Theorem|Law|To\\s+(?:Find|Prove|Evaluate|Calculate)|Proof|Substitution|Calculation|Answer|Result|Hence|Therefore|\\([ivxlcdm\\d]+\\)|\\([a-z]\\))\\s*[:\\.\\-]?/i.test(trimmed)'),
+  'drawStep must recognize step headers and continuation lines to maintain aligned indentation'
+)
+console.log('  [PASS] drawStep step header alignment verified.')
 
 // -------------------------------------------------------------
 // SUITE 4: Gemini Live WebSocket Prompt & Tool Verification
 // -------------------------------------------------------------
 console.log('\n--- SUITE 4: geminiWebSocket.ts Prompt & Tool Verification ---')
 const wsSource = fs.readFileSync(path.resolve('src/services/geminiWebSocket.ts'), 'utf8')
+
+assert(
+  wsSource.includes('NUMERICAL|BOARD_NUMERICAL|WORKED_EXAMPLE|SOLVE|MATH_SOLVE'),
+  'geminiWebSocket.ts bracketRegex must include NUMERICAL and BOARD_NUMERICAL directives'
+)
 
 assert(
   wsSource.includes('STEP-BY-STEP PROBLEM SOLVING & HUMAN-UNDERSTANDABLE NUMERICAL LAYOUT'),
