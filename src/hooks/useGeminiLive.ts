@@ -361,6 +361,18 @@ export function useGeminiLive() {
     }
   }, []);
 
+  const pauseClass = useCallback(async () => {
+    if (audioPlayerRef.current) {
+      await audioPlayerRef.current.pause();
+    }
+  }, []);
+
+  const resumeClass = useCallback(async () => {
+    if (audioPlayerRef.current) {
+      await audioPlayerRef.current.resume();
+    }
+  }, []);
+
   const setPlaybackSpeed = useCallback((speed: number) => {
     if (audioPlayerRef.current) {
       audioPlayerRef.current.setPlaybackSpeed(speed);
@@ -415,6 +427,8 @@ export function useGeminiLive() {
     startClass,
     toggleMute,
     setTeacherAudioMuted,
+    pauseClass,
+    resumeClass,
     setPlaybackSpeed,
     endCall,
     resetToIdle,

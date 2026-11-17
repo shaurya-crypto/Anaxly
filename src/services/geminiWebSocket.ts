@@ -94,7 +94,25 @@ export class GeminiLiveClient {
     this.avatarConfig = options?.avatarConfig;
     this.systemInstruction =
       options?.systemInstruction ||
-      "You are an inspiring, experienced Master Academic Topper Tutor conducting an authentic 1-on-1 spoken tutoring session with a live chalkboard. TEACH LIKE AN EXPERIENCED FACULTY MENTOR: Radiate calm confidence, intellectual clarity, and genuine warmth. HUMAN CONVERSATIONAL RESPONSIVENESS (ZERO DEAD-AIR): Speak immediately and naturally with the brisk, engaging responsiveness of a live 1-on-1 human tutor. Do not hesitate or stall before replying. COMPLETE EXPLANATION FIRST (5-6 SENTENCES PER TURN): NEVER stop after speaking something half or leave an explanation incomplete! In each spoken explanation turn, speak properly with rich pedagogical depth for 5 to 6 well-formed, articulate sentences. Explain the intuitive 'why' and physical mechanism thoroughly. CADENCE SEQUENCE: Complete your 5-6 sentence explanation thoroughly first -> THEN ask ONE clear, focused question to check understanding -> THEN continue smoothly with the lesson. STOP IMMEDIATELY WHEN STUDENT ASKS SOMETHING: The moment the student speaks, asks a question, interrupts, or raises a doubt at any time, STOP speaking immediately, yield the floor, listen with complete diagnostic attentiveness, address their question or doubt directly with clarity and kindness, and only then proceed. MANDATORY UNDERSTANDING CHECKPOINT INVARIANT: After explaining a concept, solving a problem, or evaluating a student's answer, you MUST ask: 'Did you understand this concept, or should we solve another problem together?' (or in Hindi/Hinglish: 'Kya yeh concept samajh aaya, ya koi doubt hai?'), STOP speaking immediately, and wait for confirmation before calling concept_completed. TANGIBLE INTUITION FIRST: Never start a concept by throwing formal definitions or abstract variables on the board; always ignite curiosity with a tangible everyday phenomenon or mental experiment first. MANDATORY INVARIANT: On EVERY turn, you MUST call write_chalkboard to write on the board, and speak aloud what you write. MANDATORY PROACTIVE DIAGRAMS: Call render_svg_diagram proactively on Step 1 of each concept without waiting for the student to ask. MANDATORY HAIRLINE 3D AXONOMETRIC SPECIFICATION: Whenever calling render_svg_diagram or drawing physical apparatus, optical instruments, circuits, inclined planes, or 3D geometry, strictly output clean 30° axonometric isometric projections with rounded wireframe solids, top/front bevels, laser-sharp leader callouts, and clean white (#FFFFFF) background matching the whiteboard. Never draw flat 2D clipart. PROACTIVE LIVE HIGHLIGHTING: Proactively invoke highlight_text(text=\"...\", color=\"amber\") on critical keywords, formulas, and laws as you speak so the student's chalkboard and subtitles illuminate with laser focus. ANTI-TELEPROMPTER RULE: Never merely recite what is written on the board! Explain the living mechanism, the physical reality, and the intuitive 'why' in conversational speech. CHALKBOARD TYPOGRAPHY INVARIANT: NEVER write raw programming operators (*, **, //, ^) on the board! Never use * for multiplication (use × or ·), never use ** for bolding, never use // (use ÷ or /), never use ^ for powers (write standard Unicode superscripts: x², v², u², t², 10⁸, 10⁻¹¹, m/s², s⁻¹). Use authentic textbook notation: F = m × a, v² = u² + 2as, W = F · d · cos θ, Δx = v₀t + ½at². STEP-BY-STEP PROBLEM SOLVING & HUMAN-UNDERSTANDABLE NUMERICAL LAYOUT: When solving questions, numericals, derivations, and proofs (especially in Mathematics and Physics), NEVER cram a dense wall of text or 3-5 equations/substitutions onto a single crowded line! Format cleanly with ONE OR AT MOST TWO CONCISE STEPS PER LINE, followed by a newline so it is effortlessly human-understandable. Structure every numerical in standard board topper layout: Given line (e.g. Given: m = 2 kg, a = 5 m/s²) -> Formula line (e.g. Formula: F = m × a) -> Substitution line (e.g. Step 1: F = 2 kg × 5 m/s²) -> Calculation line (e.g. Step 2: F = 10 N) -> Boxed Answer line (e.g. Answer: Force F = 10 N). When invoking write_chalkboard(action=\"draw_step\", content=\"...\") or write_chalkboard(action=\"draw_numerical\", ...), write 1 or max 2 steps per line separated by newlines or semicolons. ZERO-RUSH PATIENCE INVARIANT & THE HARD STOP: When you ask a question or check understanding, you MUST stop speaking completely and remain silent. NEVER answer your own question. Wait patiently for the student's response. STRICT SOCRATIC MASTERY GATING: NEVER call concept_completed, concept_done, or new_page if the student answers incorrectly, asks a question, or has unresolved doubts! If the student answers wrong or hesitates, explain the mistake with diagnostic kindness, co-solve step-by-step, and re-test. STRICT 6-STAGE CADENCE & ADVANCEMENT GATING: In Stages 1 to 4 (Intuition, Formulation, Application, Board Numerical), when the student affirms understanding ('yes', 'samajh gaya', 'ok'), DO NOT call concept_completed! It simply means they followed the initial explanation—smoothly proceed to the next stage of this SAME concept (formulate the scientific law, work through the board numerical, or pose the Stage 5 Checkpoint Question). Call concept_completed(conceptName=...) or write_chalkboard(action=\"concept_done\") ONLY after the Stage 5/6 checkpoint question has been attempted and resolved, or if the student explicitly commands 'next concept' or 'next page'. NEVER call concept_completed when the student asks a question or has a doubt! Transition sequentially to the next concept with an everyday intuition hook! BOARD STATE CONTINUITY: Respect [CURRENT_BOARD_STATE] — never rewrite or redraw notes or diagrams already present on the active page; continue directly from the next step.";
+       `You are a kind, helpful tutor for students in Classes 6-12. Use simple, everyday words, like a friend explaining something.
+       ALWAYS use relatable, real-life examples from home or school life to explain concepts (e.g., comparing electricity to water flow, or gravity to a magnet).
+       GREET PROACTIVELY: Start by saying "Hi! I'm here to help you learn something new today. What shall we explore?"
+       WRITE TOPIC: Write the topic name clearly on the board immediately.
+       CHALKBOARD PRIORITY: You MUST call the 'write_chalkboar' tool at the start of EVERY single turn, before or while speaking. This is not optional. If you say something, it must be written on the board simultaneously.
+       Explain things in 5-6 simple sentences.
+       ${[
+         "Inspiring Master Academic Tutor.",
+         "Proactive Greeting: Start every session with a warm welcome.",
+         "Simple Language: Use very basic, student-friendly English/hindi/hinglish/other languages.",
+         "Board Topic: Write the topic name on the board immediately.",
+         "Board Content: ALWAYS write notes, definitions, and steps on the board for EVERYTHING you teach.",
+         "Simple explanation: 5-6 simple sentences.",
+         "Proactive Diagrams: Render once and check for duplicates first.",
+         "Strict 6-Stage Cadence & Socratic Gating.",
+         "Typography: Textbook notation, no code operators.",
+         "Numerical Layout: 1-2 steps per line."
+       ].join("\n")}
+       BOARD STATE CONTINUITY: ALWAYS check for existing diagram elements before adding new ones to prevent duplicates.`,
     this.ai = new GoogleGenAI({
       apiKey: this.apiKey,
       httpOptions: { apiVersion: "v1alpha" },
@@ -386,204 +404,207 @@ export class GeminiLiveClient {
       }
     }
     this.lastExecutedToolAction = name;
-    if (
-      name === "write_chalkboard" ||
-      name === "write_board" ||
-      name === "chalkboard" ||
-      name === "whiteboard" ||
-      name === "draw_chalkboard" ||
-      name === "draw_board"
-    ) {
-      let action = args.action || "";
-      let textContent = args.content ?? args.text ?? args.note ?? args.step ?? args.title ?? args.question ?? "";
-      let color = args.color || "";
-
-      if (!action) {
-        if (args.note) action = "draw_note";
-        else if (args.step) action = "draw_step";
-        else if (args.title) action = "draw_title";
-        else if (args.question) { action = "draw_question"; textContent = args.question; }
-        else if (args.highlight) { action = "draw_highlight_box"; textContent = args.highlight; }
-        else if (args.formula) { action = "draw_step"; textContent = args.formula; }
-        else {
-          action = "draw_note";
-          if (typeof args === "string") textContent = args;
-        }
-      }
-      this.lastExecutedToolAction = action;
-
-      if (typeof textContent === "string") {
-        textContent = cleanChalkboardTypography(textContent);
-      }
-
-      if (action === "draw_numerical" || action === "numerical") {
-        let numericalPayload: any = args.content !== undefined ? args.content : args;
-        if (typeof numericalPayload === 'string') {
-          try {
-            const parsed = JSON.parse(numericalPayload);
-            if (parsed && typeof parsed === 'object') {
-              numericalPayload = parsed;
+    // Wrap callback execution in a microtask or setTimeout to ensure it's non-blocking
+    setTimeout(() => {
+        if (
+          name === "write_chalkboard" ||
+          name === "write_board" ||
+          name === "chalkboard" ||
+          name === "whiteboard" ||
+          name === "draw_chalkboard" ||
+          name === "draw_board"
+        ) {
+          let action = args.action || "";
+          let textContent = args.content ?? args.text ?? args.note ?? args.step ?? args.title ?? args.question ?? "";
+          let color = args.color || "";
+    
+          if (!action) {
+            if (args.note) action = "draw_note";
+            else if (args.step) action = "draw_step";
+            else if (args.title) action = "draw_title";
+            else if (args.question) { action = "draw_question"; textContent = args.question; }
+            else if (args.highlight) { action = "draw_highlight_box"; textContent = args.highlight; }
+            else if (args.formula) { action = "draw_step"; textContent = args.formula; }
+            else {
+              action = "draw_note";
+              if (typeof args === "string") textContent = args;
             }
-          } catch {
-            // Keep as raw string (pipe-separated)
           }
-        }
-        this.callbacks.onChalkboardToolCall?.("draw_numerical", numericalPayload);
-      } else if (action === "highlight_text" || action === "highlight_word" || action === "highlight_sentence") {
-        this.callbacks.onHighlightText?.(textContent, "both", color || "amber");
-      } else {
-        this.callbacks.onChalkboardToolCall?.(action, textContent, color);
-      }
-    } else if (name === "highlight_text" || name === "highlight_word" || name === "highlight_sentence") {
-      const textToHighlight = args.text || args.content || args.word || args.sentence || (typeof args === "string" ? args : "");
-      const target = args.target || "both";
-      const color = args.color || "amber";
-      this.callbacks.onHighlightText?.(textToHighlight, target, color);
-    } else if (name === "execute_visual_action") {
-      const action = args.action || "";
-      const parameters = args.parameters || {};
-      this.callbacks.onVisualAction?.(action, parameters);
-    } else if (name === "plot_mathematical_graph") {
-      const formulasList = Array.isArray(args.formulas) ? args.formulas.join('; ') : '';
-      const formulaStr = args.formula || formulasList || 'linear';
-      const formatted = [
-        formulaStr ? `formula=${formulaStr}` : '',
-        formulasList ? `formulas=${formulasList}` : '',
-        args.domain ? `domain=${typeof args.domain === 'string' ? args.domain : JSON.stringify(args.domain)}` : '',
-        args.range ? `range=${typeof args.range === 'string' ? args.range : JSON.stringify(args.range)}` : '',
-        args.title ? `title=${args.title}` : '',
-        args.callout ? `callout=${args.callout}` : '',
-        args.points ? `points=${typeof args.points === 'string' ? args.points : JSON.stringify(args.points)}` : '',
-        args.slope ? `slope=true` : '',
-        args.overwrite ? `overwrite=true` : '',
-      ].filter(Boolean).join(' | ');
-      this.callbacks.onChalkboardToolCall?.("draw_graph", formatted);
-    } else if (name === "open_interactive_simulation") {
-      const sceneType = args.sceneType || "geometry";
-      const parameters = args.parameters || {};
-      const title = args.title || parameters.title;
-      this.callbacks.onVisualAction?.("SHOW_SCENE", { sceneType, title, ...parameters });
-    } else if (name === "update_interactive_simulation") {
-      const parameters = args.parameters || args;
-      const title = args.title || parameters.title;
-      this.callbacks.onVisualAction?.("UPDATE_SCENE", { title, ...parameters });
-    } else if (name === "draw_shape") {
-      this.callbacks.onChalkboardToolCall?.("draw_shape", args, args.color);
-    } else if (name === "solve_step_by_step_numerical") {
-      this.callbacks.onChalkboardToolCall?.("draw_numerical", args);
-    } else if (name === "render_svg_diagram") {
-      const title = args.title || "Educational Diagram";
-      const svg = args.svg || "";
-      const caption = args.caption || "";
-      const what = args.what || "";
-      this.callbacks.onChalkboardToolCall?.("render_svg_diagram", { title, svg, caption, what });
-    } else if (name === "search_and_show_image") {
-      const query = args.query || args.searchQuery || args.q || "";
-      const title = args.title || query || "Scientific Diagram";
-      const caption = args.caption || "";
-      if (query && typeof window !== "undefined") {
-        fetch("/api/diagram/search-image", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ query }),
-        })
-          .then((res) => res.json())
-          .then(async (data) => {
-            const candidateImages = data.images || [];
-            let displayed = false;
-            for (const img of candidateImages) {
-              if (!img?.url) continue;
+          this.lastExecutedToolAction = action;
+    
+          if (typeof textContent === "string") {
+            textContent = cleanChalkboardTypography(textContent);
+          }
+    
+          if (action === "draw_numerical" || action === "numerical") {
+            let numericalPayload: any = args.content !== undefined ? args.content : args;
+            if (typeof numericalPayload === 'string') {
               try {
-                const check = await fetch(`/api/diagram/proxy?dataUrl=true&url=${encodeURIComponent(img.url)}`);
-                if (check.ok) {
-                  const pData = await check.json();
-                  if (pData.success && pData.dataURL) {
-                    this.callbacks.onChalkboardToolCall?.("draw_image", {
-                      url: pData.dataURL,
-                      title: title || img.title,
-                      caption: caption || img.description || "",
-                    });
-                    displayed = true;
-                    break;
-                  }
+                const parsed = JSON.parse(numericalPayload);
+                if (parsed && typeof parsed === 'object') {
+                  numericalPayload = parsed;
                 }
               } catch {
-                // Failover to next candidate image
+                // Keep as raw string (pipe-separated)
               }
             }
-            if (!displayed) {
-              // Only fall back to SVG diagram if all online image search candidates fail
-              this.callbacks.onChalkboardToolCall?.("render_svg_diagram", {
-                title,
-                caption,
+            this.callbacks.onChalkboardToolCall?.("draw_numerical", numericalPayload);
+          } else if (action === "highlight_text" || action === "highlight_word" || action === "highlight_sentence") {
+            this.callbacks.onHighlightText?.(textContent, "both", color || "amber");
+          } else {
+            this.callbacks.onChalkboardToolCall?.(action, textContent, color);
+          }
+        } else if (name === "highlight_text" || name === "highlight_word" || name === "highlight_sentence") {
+          const textToHighlight = args.text || args.content || args.word || args.sentence || (typeof args === "string" ? args : "");
+          const target = args.target || "both";
+          const color = args.color || "amber";
+          this.callbacks.onHighlightText?.(textToHighlight, target, color);
+        } else if (name === "execute_visual_action") {
+          const action = args.action || "";
+          const parameters = args.parameters || {};
+          this.callbacks.onVisualAction?.(action, parameters);
+        } else if (name === "plot_mathematical_graph") {
+          const formulasList = Array.isArray(args.formulas) ? args.formulas.join('; ') : '';
+          const formulaStr = args.formula || formulasList || 'linear';
+          const formatted = [
+            formulaStr ? `formula=${formulaStr}` : '',
+            formulasList ? `formulas=${formulasList}` : '',
+            args.domain ? `domain=${typeof args.domain === 'string' ? args.domain : JSON.stringify(args.domain)}` : '',
+            args.range ? `range=${typeof args.range === 'string' ? args.range : JSON.stringify(args.range)}` : '',
+            args.title ? `title=${args.title}` : '',
+            args.callout ? `callout=${args.callout}` : '',
+            args.points ? `points=${typeof args.points === 'string' ? args.points : JSON.stringify(args.points)}` : '',
+            args.slope ? `slope=true` : '',
+            args.overwrite ? `overwrite=true` : '',
+          ].filter(Boolean).join(' | ');
+          this.callbacks.onChalkboardToolCall?.("draw_graph", formatted);
+        } else if (name === "open_interactive_simulation") {
+          const sceneType = args.sceneType || "geometry";
+          const parameters = args.parameters || {};
+          const title = args.title || parameters.title;
+          this.callbacks.onVisualAction?.("SHOW_SCENE", { sceneType, title, ...parameters });
+        } else if (name === "update_interactive_simulation") {
+          const parameters = args.parameters || args;
+          const title = args.title || parameters.title;
+          this.callbacks.onVisualAction?.("UPDATE_SCENE", { title, ...parameters });
+        } else if (name === "draw_shape") {
+          this.callbacks.onChalkboardToolCall?.("draw_shape", args, args.color);
+        } else if (name === "solve_step_by_step_numerical") {
+          this.callbacks.onChalkboardToolCall?.("draw_numerical", args);
+        } else if (name === "render_svg_diagram") {
+          const title = args.title || "Educational Diagram";
+          const svg = args.svg || "";
+          const caption = args.caption || "";
+          const what = args.what || "";
+          this.callbacks.onChalkboardToolCall?.("render_svg_diagram", { title, svg, caption, what });
+        } else if (name === "search_and_show_image") {
+          const query = args.query || args.searchQuery || args.q || "";
+          const title = args.title || query || "Scientific Diagram";
+          const caption = args.caption || "";
+          if (query && typeof window !== "undefined") {
+            fetch("/api/diagram/search-image", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ query }),
+            })
+              .then((res) => res.json())
+              .then(async (data) => {
+                const candidateImages = data.images || [];
+                let displayed = false;
+                for (const img of candidateImages) {
+                  if (!img?.url) continue;
+                  try {
+                    const check = await fetch(`/api/diagram/proxy?dataUrl=true&url=${encodeURIComponent(img.url)}`);
+                    if (check.ok) {
+                      const pData = await check.json();
+                      if (pData.success && pData.dataURL) {
+                        this.callbacks.onChalkboardToolCall?.("draw_image", {
+                          url: pData.dataURL,
+                          title: title || img.title,
+                          caption: caption || img.description || "",
+                        });
+                        displayed = true;
+                        break;
+                      }
+                    }
+                  } catch {
+                    // Failover to next candidate image
+                  }
+                }
+                if (!displayed) {
+                  // Only fall back to SVG diagram if all online image search candidates fail
+                  this.callbacks.onChalkboardToolCall?.("render_svg_diagram", {
+                    title,
+                    caption,
+                  });
+                }
+              })
+              .catch((err) => {
+                console.warn("[GeminiLive] search_and_show_image error:", err);
+                this.callbacks.onChalkboardToolCall?.("render_svg_diagram", {
+                  title,
+                  caption,
+                });
               });
-            }
-          })
-          .catch((err) => {
-            console.warn("[GeminiLive] search_and_show_image error:", err);
-            this.callbacks.onChalkboardToolCall?.("render_svg_diagram", {
-              title,
-              caption,
-            });
-          });
-      }
-    } else if (name === "search_and_show_video") {
-      const query = args.query || args.searchQuery || args.q || "";
-      const title = args.title || query || "Demonstration Video";
-      const description = args.description || args.caption || "";
-      if (query && typeof window !== "undefined") {
-        fetch("/api/diagram/search-video", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ query }),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            const firstVid = data.videos?.[0];
-            if (firstVid?.url) {
-              this.callbacks.onChalkboardToolCall?.("draw_video", {
-                url: firstVid.url,
-                title: title || firstVid.title,
-                description: description || firstVid.description || "",
-                mimeType: firstVid.mimeType || "video/mp4",
+          }
+        } else if (name === "search_and_show_video") {
+          const query = args.query || args.searchQuery || args.q || "";
+          const title = args.title || query || "Demonstration Video";
+          const description = args.description || args.caption || "";
+          if (query && typeof window !== "undefined") {
+            fetch("/api/diagram/search-video", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ query }),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                const firstVid = data.videos?.[0];
+                if (firstVid?.url) {
+                  this.callbacks.onChalkboardToolCall?.("draw_video", {
+                    url: firstVid.url,
+                    title: title || firstVid.title,
+                    description: description || firstVid.description || "",
+                    mimeType: firstVid.mimeType || "video/mp4",
+                  });
+                } else {
+                  this.callbacks.onChalkboardToolCall?.("draw_video", {
+                    url: "",
+                    title,
+                    description,
+                  });
+                }
+              })
+              .catch((err) => {
+                console.warn("[GeminiLive] search_and_show_video error:", err);
+                this.callbacks.onChalkboardToolCall?.("draw_video", {
+                  url: "",
+                  title,
+                  description,
+                });
               });
-            } else {
-              this.callbacks.onChalkboardToolCall?.("draw_video", {
-                url: "",
-                title,
-                description,
-              });
-            }
-          })
-          .catch((err) => {
-            console.warn("[GeminiLive] search_and_show_video error:", err);
-            this.callbacks.onChalkboardToolCall?.("draw_video", {
-              url: "",
-              title,
-              description,
-            });
-          });
-      }
-    } else if (name === "conclude_and_open_quiz") {
-      if (args.summary) {
-        this.callbacks.onChalkboardToolCall?.("chapter_summary", args.summary);
-      }
-      this.callbacks.onChalkboardToolCall?.("open_quiz", args.summary || "10-MCQ Diagnostic Evaluation");
-    } else if (name === "get_board_content" || name === "read_board_content" || name === "get_board_state") {
-      const boardState = this.callbacks.onGetBoardContent?.() || "";
-      return {
-        result: "ok",
-        chalkboard_content: boardState || "Digital chalkboard is active. No notes written yet.",
-      };
-    } else if (name === "concept_completed" || name === "next_concept" || name === "advance_concept") {
-      const cName = args.conceptName || args.concept || (typeof args === "string" ? args : "");
-      this.callbacks.onChalkboardToolCall?.("concept_done", cName);
-    } else if (name === "concept_focus" || name === "focus_concept") {
-      const cName = args.conceptName || args.concept || (typeof args === "string" ? args : "");
-      this.callbacks.onChalkboardToolCall?.("concept_focus", cName);
-    } else {
-      this.callbacks.onChalkboardToolCall?.(name, typeof args === 'string' ? args : JSON.stringify(args));
-    }
+          }
+        } else if (name === "conclude_and_open_quiz") {
+          if (args.summary) {
+            this.callbacks.onChalkboardToolCall?.("chapter_summary", args.summary);
+          }
+          this.callbacks.onChalkboardToolCall?.("open_quiz", args.summary || "10-MCQ Diagnostic Evaluation");
+        } else if (name === "get_board_content" || name === "read_board_content" || name === "get_board_state") {
+          const boardState = this.callbacks.onGetBoardContent?.() || "";
+          return {
+            result: "ok",
+            chalkboard_content: boardState || "Digital chalkboard is active. No notes written yet.",
+          };
+        } else if (name === "concept_completed" || name === "next_concept" || name === "advance_concept") {
+          const cName = args.conceptName || args.concept || (typeof args === "string" ? args : "");
+          this.callbacks.onChalkboardToolCall?.("concept_done", cName);
+        } else if (name === "concept_focus" || name === "focus_concept") {
+          const cName = args.conceptName || args.concept || (typeof args === "string" ? args : "");
+          this.callbacks.onChalkboardToolCall?.("concept_focus", cName);
+        } else {
+          this.callbacks.onChalkboardToolCall?.(name, typeof args === 'string' ? args : JSON.stringify(args));
+        }
+    }, 0);
   }
 
   public async connect(kickoffPrompt?: string): Promise<void> {
@@ -727,7 +748,7 @@ export class GeminiLiveClient {
               },
               {
                 name: "plot_mathematical_graph",
-                description: "CRITICAL GRAPH GATING: Plot an interactive mathematical or kinematic function graph directly on the whiteboard canvas (e.g. quadratic parabola, calculus derivative, trigonometric curve, kinematics velocity-time or distance-time curve) ONLY when the student's lesson explicitly requires plotting a mathematical function with actual mathematical coordinates AND WORKED CALCULATIONS (roots, intercepts, vertex, slope, or table of values). You MUST write the mathematical work on the chalkboard using action='draw_step' whenever presenting a graph. NEVER call this tool for non-mathematical topics (Biology, Anatomy, Histology, Chemical Bonding, Tissue Structures, Literature, History) — use render_svg_diagram or draw_flowchart instead.",
+                description: "CRITICAL GRAPH GATING: Plot an interactive mathematical or kinematic function graph directly on the whiteboard canvas (e.g. quadratic parabola, calculus derivative, trigonometric curve, kinematics velocity-time or distance-time curve) ONLY when the student's lesson explicitly requires plotting a mathematical function with actual mathematical coordinates AND WORKED CALCULATIONS (roots, intercepts, vertex, slope, or table of values). You MUST write the mathematical work on the chalkboard using action='draw_step' whenever presenting a graph. NEVER call this tool for non-mathematical topics (Biology, Anatomy, Histology, Chemical Bonding, Tissue Structures, Literature, History) â€” use render_svg_diagram or draw_flowchart instead.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,
@@ -775,7 +796,7 @@ export class GeminiLiveClient {
               },
               {
                 name: "render_svg_diagram",
-                description: "MANDATORY PROACTIVE CHALKBOARD DIAGRAM TOOL: Call this tool proactively on Step 1 of EACH concept to render a clean, high-precision 3D axonometric Hairline vector SVG educational diagram directly on the chalkboard. For all physical apparatus, optics, circuits, and 3D geometry, render 30° isometric projection with rounded wireframe solids, leader callouts, and clean white background. The student will NOT ask you for a diagram — you MUST draw it automatically on cue. Provide concise title (e.g. 'Plant Cell Wall', 'Reflection of Light', 'Simple Circuit'). You may optionally supply svg markup; if omitted, the high-precision vector diagram is rendered automatically.",
+                description: "MANDATORY PROACTIVE CHALKBOARD DIAGRAM TOOL: Call this tool proactively on Step 1 of EACH concept to render a clean, high-precision 3D axonometric Hairline vector SVG educational diagram directly on the chalkboard. For all physical apparatus, optics, circuits, and 3D geometry, render 30Â° isometric projection with rounded wireframe solids, leader callouts, and clean white background. The student will NOT ask you for a diagram â€” you MUST draw it automatically on cue. Provide concise title (e.g. 'Plant Cell Wall', 'Reflection of Light', 'Simple Circuit'). You may optionally supply svg markup; if omitted, the high-precision vector diagram is rendered automatically.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,
@@ -839,11 +860,11 @@ export class GeminiLiveClient {
                     },
                     label: {
                       type: Type.STRING,
-                      description: "Educational formula, dimension callout, or label (e.g. 'Length = 30cm, Breadth = 15cm | Area = 450cm²')",
+                      description: "Educational formula, dimension callout, or label (e.g. 'Length = 30cm, Breadth = 15cm | Area = 450cmÂ²')",
                     },
                     values: {
                       type: Type.OBJECT,
-                      description: "Custom dimension and angle values to display on the figure (e.g. { length: '12 cm', breadth: '5 cm', hypotenuse: '13 cm', angleA: '60°' }). Use standard school units (cm, m, °), NEVER pixels.",
+                      description: "Custom dimension and angle values to display on the figure (e.g. { length: '12 cm', breadth: '5 cm', hypotenuse: '13 cm', angleA: '60Â°' }). Use standard school units (cm, m, Â°), NEVER pixels.",
                     },
                     overwrite: {
                       type: Type.BOOLEAN,
@@ -1029,13 +1050,13 @@ export class GeminiLiveClient {
                const isQuery = call.name === "get_board_content" || call.name === "read_board_content" || call.name === "get_board_state";
                const responsePayload = (toolResult && typeof toolResult === 'object') ? toolResult : { result: "ok" };
                const fnResponse: any = {
-                 id: call.id,
-                 name: call.name,
-                 response: responsePayload,
-               };
-               if (!isExtendedThinking) {
-                 fnResponse.scheduling = isQuery ? FunctionResponseScheduling.WHEN_IDLE : FunctionResponseScheduling.SILENT;
-               }
+                  id: call.id,
+                  name: call.name,
+                  response: {
+                    ...responsePayload,
+                    scheduling: !isExtendedThinking ? FunctionResponseScheduling.WHEN_IDLE : undefined
+                  },
+                }
                responses.push(fnResponse);
              }
              if (responses.length > 0 && this.session) {
@@ -1121,19 +1142,13 @@ export class GeminiLiveClient {
                    const responsePayload = (toolResult && typeof toolResult === 'object') ? toolResult : { result: "ok" };
 
                    const fnResponse: any = {
-                     id: call.id,
-                     name: call.name,
-                     response: responsePayload,
-                   };
-
-                   if (!isExtendedThinking) {
-                     // Schedule non-blocking chalkboard actions with WHEN_IDLE to prompt speech generation
-                     // (retaining FunctionResponseScheduling.SILENT for passive background metrics if ever needed)
-                     const isSilentTool = call.name === "report_metric" || call.name === "log_telemetry";
-                     fnResponse.scheduling = isSilentTool
-                       ? FunctionResponseScheduling.SILENT
-                       : FunctionResponseScheduling.WHEN_IDLE;
-                   }
+                  id: call.id,
+                  name: call.name,
+                  response: {
+                    ...responsePayload,
+                    scheduling: !isExtendedThinking ? FunctionResponseScheduling.WHEN_IDLE : undefined
+                  },
+                }
 
                    try {
                      this.session?.sendToolResponse({
@@ -1194,6 +1209,10 @@ export class GeminiLiveClient {
           config: liveConfig,
           callbacks: sessionCallbacks,
         });
+        // Generic kickoff removed. The session will now await the user-provided dynamic kickoff.
+        if (!this.hasSentKickoff) {
+          // No hardcoded greeting.
+        }
       } catch (connectError: any) {
         if (this.model.includes("extended-thinking")) {
           console.warn("[GeminiLive] Extended thinking live model unavailable or rejected. Self-healing fallback to standard gemini-3.8-live:", connectError);
@@ -1240,7 +1259,7 @@ export class GeminiLiveClient {
       this.callbacks.onSetupComplete();
 
       if (this.pendingKickoffText && !this.hasSentKickoff) {
-        this.sendKickoff(this.pendingKickoffText);
+        setTimeout(() => this.sendKickoff(this.pendingKickoffText!), 500);
       }
     } catch (err: any) {
       console.error("[GeminiLive] Connection error during setup:", err);
@@ -1258,28 +1277,30 @@ export class GeminiLiveClient {
       this.pendingKickoffText = text;
       return;
     }
+    // Proactive Greeting and Topic Writing
+    this.handleSingleToolCall("write_chalkboard", { action: "draw_title", content: `Topic: ${text.split(':')[0] || 'Learning Session'}` });
+
+    // Use sendClientContent with a user-role turn to trigger the model to respond with audio speech.
+    // The prompt instructs the model to greet and start teaching immediately.
+    const kickoffInstruction = `The student has just joined the class. The topic is: ${text}. Begin the class NOW by warmly greeting the student and immediately starting to teach Concept 1. You MUST speak your greeting and explanation aloud (produce audio) AND write key points on the chalkboard simultaneously. Start speaking immediately.`;
+
     try {
-      console.log("[GeminiLive] Dispatching initial kickoff prompt to model:", text.slice(0, 100));
-      this.hasSentKickoff = true;
-      this.pendingKickoffText = null;
-      // Send clientContent turn with turnComplete: true so model immediately begins spoken response
       this.session.sendClientContent({
-        turns: [
-          {
-            role: "user",
-            parts: [{ text }],
-          },
-        ],
+        turns: [{ role: "user", parts: [{ text: kickoffInstruction }] }],
         turnComplete: true,
       });
+      console.log("[GeminiLive] Kickoff instruction dispatched via sendClientContent.");
     } catch (err) {
-      console.warn("[GeminiLive] Failed to send kickoff via sendClientContent, trying sendRealtimeInput fallback:", err);
+      console.error("[GeminiLive] Failed to send kickoff via sendClientContent:", err);
+      // Fallback: try sendRealtimeInput with text
       try {
-        this.session.sendRealtimeInput({ text });
+        this.session.sendRealtimeInput({ text: kickoffInstruction });
+        console.log("[GeminiLive] Kickoff fallback dispatched via sendRealtimeInput.");
       } catch (fallbackErr) {
-        console.warn("[GeminiLive] Failed to send kickoff fallback:", fallbackErr);
+        console.error("[GeminiLive] Failed to send kickoff via sendRealtimeInput:", fallbackErr);
       }
     }
+    this.hasSentKickoff = true;
   }
 
   private lastSentBoardContextHash: string = '';

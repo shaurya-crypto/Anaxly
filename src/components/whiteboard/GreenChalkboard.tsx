@@ -3987,14 +3987,14 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       const cleanTitle = (title || '').trim() || 'Visualizing Illustration'
       const normTitle = cleanTitle.toLowerCase().replace(/[^a-z0-9]/g, '')
 
+      // Robust check for both skeleton and final diagram elements
       const current = getCurrentElements()
-      // Avoid duplicate skeletons for the same concept/diagram
-      const alreadyHasSkeleton = current.some(
+      const alreadyHasDiagram = current.some(
         (el: any) =>
-          el.customData?.isDiagramSkeleton &&
-          (el.customData?.normTitle === normTitle || !normTitle)
+          (el.customData?.isDiagramSkeleton || el.customData?.isSvgDiagram) &&
+          (el.customData?.normTitle === normTitle)
       )
-      if (alreadyHasSkeleton) return
+      if (alreadyHasDiagram) return
 
       await checkAutoPageOverflow(270)
       try {
@@ -5112,27 +5112,30 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           } else if (action === 'render_svg_diagram' || action === 'draw_svg' || action === 'draw_svg_diagram') {
             if (content) {
               const trimmed = content.trim();
-              if (trimmed.includes('|') && trimmed.includes('<svg')) {
-                const parts = trimmed.split('|').map((s) => s.trim());
-                await drawSvgDiagram(parts[0] || 'Educational Diagram', parts[1] || '', parts[2]);
-              } else if (trimmed.includes('<svg')) {
-                await drawSvgDiagram('Educational Diagram', trimmed);
-              } else {
-                await drawSvgDiagram(trimmed, '');
-              }
+              // Launch without awaiting to prevent blocking the main thread
+              (async () => {
+                if (trimmed.includes('|') && trimmed.includes('<svg')) {
+                  const parts = trimmed.split('|').map((s) => s.trim());
+                  await drawSvgDiagram(parts[0] || 'Educational Diagram', parts[1] || '', parts[2]);
+                } else if (trimmed.includes('<svg')) {
+                  await drawSvgDiagram('Educational Diagram', trimmed);
+                } else {
+                  await drawSvgDiagram(trimmed, '');
+                }
+              })();
             }
           } else if (action === 'highlight_text' || action === 'highlight_word' || action === 'highlight_sentence' || action === 'highlight') {
-            if (content) await highlightText(content, color);
+            if (content) highlightText(content, color); // Do not await
           } else if (action === 'draw_flowchart' || action === 'flowchart') {
-            if (content) await drawFlowchart(content, color);
+            if (content) drawFlowchart(content, color); // Do not await
           } else if (action === 'draw_rough_work' || action === 'rough_work' || action === 'rough') {
-            if (content) await drawStep(content, color);
+            if (content) drawStep(content, color); // Do not await
           } else if (action === 'new_page') {
-            await addNewPage();
+            addNewPage(); // Do not await
           } else if (action === 'clear_rough') {
             clearRough();
           } else if (action === 'clear_notes') {
-            await clearNotes();
+            clearNotes(); // Do not await
           } else if (action === 'concept_done') {
             onConceptDone?.(content);
           } else if (action === 'concept_focus') {

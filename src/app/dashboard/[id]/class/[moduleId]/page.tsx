@@ -25,6 +25,7 @@ import { VisualizationSceneType } from '@/components/whiteboard/scenes/sceneType
 import { resolveSceneType, parseSceneParams } from '@/components/whiteboard/scenes/sceneRegistry'
 import { getLanguageVoiceConfig } from '@/lib/voiceAndLanguageConfig'
 import { isLegitimateGraphTopic } from '@/lib/graphGating'
+import { isSchemaError } from '@/lib/utils'
 import type { MafsGraphCanvasProps } from '@/components/whiteboard/MafsGraphCanvas'
 import { VisualLessonManifest, LessonStep } from '@/types/lessonManifest'
 import {
@@ -819,6 +820,8 @@ export default function ModuleClassroomPage() {
     startClass,
     toggleMute,
     setTeacherAudioMuted,
+    pauseClass,
+    resumeClass,
     setPlaybackSpeed,
     endCall,
     resetToIdle,
@@ -2780,7 +2783,7 @@ CRITICAL DIRECTIVE:
         .upsert(payload, { onConflict: 'user_id,syllabus_module_id' })
 
       if (error) {
-        if (error.code === '42703') {
+        if (isSchemaError(error)) {
           // Graceful fallback if is_paused or visual_progress column is not yet applied on remote table
           const fallback = { ...payload }
           delete fallback.is_paused
@@ -3607,7 +3610,7 @@ MANDATORY INVARIANT:
     const currentNotes = (chalkboardRef.current?.getBoardSummary()?.fullSummary || latestBoardSummary || chapterNotes || '').trim()
     // Persist paused state and progress strictly in Supabase DB
     saveNotesToSupabase(currentNotes, 'in_progress', true)
-    endCall()
+    pauseClass()
   }
 
   // Start Spoken Lesson: continuous teaching flow, explanation-first, worked-demonstrations second, strict chalkboard directives

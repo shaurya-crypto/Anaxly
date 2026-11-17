@@ -8,6 +8,7 @@ import {
   getCachedSiblingModules,
   getCachedCurriculumModuleCounts,
 } from '@/lib/cache/dataCache'
+import { isSchemaError } from '@/lib/utils'
 
 export async function signOutAction() {
   const supabase = await createClient()
@@ -224,10 +225,10 @@ export async function completeCapsuleAction(payload: {
     .update(profileUpdate)
     .eq('id', user.id)
 
-  if (profErr && profErr.code === '42703') {
+  if (profErr && isSchemaError(profErr)) {
     delete profileUpdate.completed_chapter_ids
     const { error: secondErr } = await supabase.from('profiles').update(profileUpdate).eq('id', user.id)
-    if (secondErr && secondErr.code === '42703') {
+    if (secondErr && isSchemaError(secondErr)) {
       delete profileUpdate.completed_chapters_count
       await supabase.from('profiles').update(profileUpdate).eq('id', user.id)
     }
@@ -281,7 +282,7 @@ export async function saveBoardNotesAction(payload: {
     .upsert(updateData, { onConflict: 'user_id,syllabus_module_id' })
 
   if (error) {
-    if (error.code === '42703' && updateData.visual_progress) {
+    if (isSchemaError(error) && updateData.visual_progress) {
       delete updateData.visual_progress
       await supabase.from('user_progress').upsert(updateData, { onConflict: 'user_id,syllabus_module_id' })
     } else {

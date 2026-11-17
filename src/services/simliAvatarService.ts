@@ -130,7 +130,13 @@ export class SimliAvatarController {
 
         if (!res.ok) {
           const errJson = await res.json().catch(() => ({}))
-          throw new Error(errJson.error || `HTTP ${res.status}: Failed to broker Simli session`)
+          const errorMsg = errJson.error || `HTTP ${res.status}: Failed to broker Simli session`
+          if (errorMsg.includes('INVALID_API_KEY')) {
+            console.error('[SimliAvatar] Server configuration error (Invalid API Key). Falling back immediately.');
+            this.setStatus('fallback', 'Invalid API Key');
+            return false;
+          }
+          throw new Error(errorMsg)
         }
 
         const data = await res.json()

@@ -61,6 +61,24 @@ export class AudioPlayer {
   }
 
   /**
+   * Pause output by suspending the AudioContext.
+   */
+  public async pause(): Promise<void> {
+    if (this.audioCtx && this.audioCtx.state === "running") {
+      await this.audioCtx.suspend();
+    }
+  }
+
+  /**
+   * Resume output by resuming the AudioContext.
+   */
+  public async resume(): Promise<void> {
+    if (this.audioCtx && this.audioCtx.state === "suspended") {
+      await this.audioCtx.resume();
+    }
+  }
+
+  /**
    * Set real-time voice playback speed (0.75x to 1.3x).
    * Updates currently queued AudioBufferSourceNodes and future scheduled chunks with zero latency.
    */

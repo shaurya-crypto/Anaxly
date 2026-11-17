@@ -170,7 +170,7 @@ export class AudioStreamer {
       // Robust conversational voice detection threshold for barge-in (intentional voice directly into mic)
       // Normal speaking voice produces RMS 0.08-0.35. Ambient noise/bleed stays below 0.06.
       const BARGE_IN_THRESHOLD = Math.max(0.095, this.noiseFloor * 3.5);
-      const requiredFrames = 6; // ~300ms of sustained intentional voice required to trigger barge-in
+      const requiredFrames = 1; // ~50ms of sustained intentional voice required to trigger barge-in
 
       if (rms >= BARGE_IN_THRESHOLD) {
         this.consecutiveBargeInFrames++;
@@ -216,7 +216,7 @@ export class AudioStreamer {
         if (this.consecutiveSpeechFrames === 1) {
           // Pre-roll onset buffer: retain the first frame so speech onset attack is never clipped
           this.pendingOnsetFrame = new Float32Array(inputData);
-        } else if (this.consecutiveSpeechFrames >= 2) {
+                } else if (this.consecutiveSpeechFrames >= 2) {
           this.wasSpeechActive = true;
           this.speechStartTime = now;
           this.onSpeechStart?.();

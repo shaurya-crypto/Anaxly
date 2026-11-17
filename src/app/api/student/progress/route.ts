@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/utils/supabase/server'
 import { calculateStudentProgress } from '@/lib/studentProgressService'
 import { getCachedCurriculumModuleCounts } from '@/lib/cache/dataCache'
+import { isSchemaError } from '@/lib/utils'
 
 export const dynamic = 'force-dynamic'
 
@@ -204,7 +205,7 @@ export async function POST(req: NextRequest) {
 
     if (upsertErr) {
       // If visual_progress column or syntax issue, fallback without visual_progress
-      if (upsertErr.code === '42703' && progressPayload.visual_progress) {
+      if (isSchemaError(upsertErr) && progressPayload.visual_progress) {
         delete progressPayload.visual_progress
         await clientToUse
           .from('user_progress')
