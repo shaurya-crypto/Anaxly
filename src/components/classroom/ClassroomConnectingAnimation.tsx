@@ -9,7 +9,7 @@ export interface ClassroomConnectingAnimationProps {
 }
 
 const STAGES = [
-  'Calibrating Socratic Faculty...',
+  'Getting your tutor ready…',
   'Loading Authentic Board Curriculum...',
   'Preparing Vector Chalkboard & Geometric Engine...',
   'Faculty Connected — Entering Classroom Stage',
@@ -232,7 +232,7 @@ export function ClassroomConnectingAnimation({
             {activeMessage}
           </p>
           <span className="text-[11px] font-mono text-[#64748B]">
-            Anaxly Socratic Classroom Stage · Classes 6–12
+            Anaxly · Classes 6–12
           </span>
         </div>
       </div>

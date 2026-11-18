@@ -228,7 +228,7 @@ export function StudentProfileView({
 
   const handleDownloadNote = (note: SavedBoardNote) => {
     const filename = `${note.chapterTitle}_${note.moduleTitle}_Master_Notes.md`.replace(/[\s/\\?%*:|"<>]/g, '_')
-    const header = `# ${note.chapterTitle}\n## ${note.moduleTitle}\n**Subject**: ${note.category} | **Class**: ${note.classLevel || 'Standard'}\n**Board Notes Single Source of Truth** | **Generated**: ${new Date(note.savedAt).toLocaleDateString()}\n\n---\n\n`
+    const header = `# ${note.chapterTitle}\n## ${note.moduleTitle}\n**Subject**: ${note.category} | **Class**: ${note.classLevel || 'Standard'}\n**Class notes** | **Generated**: ${new Date(note.savedAt).toLocaleDateString()}\n\n---\n\n`
     const blob = new Blob([header + note.fullSummary], { type: 'text/markdown;charset=utf-8' })
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
@@ -278,7 +278,7 @@ export function StudentProfileView({
                 Profile &amp; notes
               </h1>
               <p className="text-xs text-[#6B7066]">
-                Academic dossier &amp; Chalkboard Notes Single Source of Truth
+                Your details and saved class notes
               </p>
             </div>
           </div>
@@ -329,7 +329,7 @@ export function StudentProfileView({
                   </span>
                 </div>
                 <p className="text-sm text-[#6B7066]">
-                  {user.email} &bull; Socratic Cadence Learner &bull; Mentor: {profile.preferred_teacher_voice || 'Prof. Vikram Raman'}
+                  {user.email} &bull; Mentor: {profile.preferred_teacher_voice || 'Prof. Vikram Raman'}
                 </p>
               </div>
             </div>
@@ -682,7 +682,7 @@ export function StudentProfileView({
                             {note.moduleTitle}
                           </h4>
                           <p className="text-xs text-[#6B7066]">
-                            Live Chalkboard Notes Single Source of Truth &bull; Saved on {new Date(note.savedAt).toLocaleDateString()}
+                            Saved on {new Date(note.savedAt).toLocaleDateString()}
                           </p>
                         </div>
 
@@ -760,7 +760,7 @@ export function StudentProfileView({
                 <p className="mt-1 max-w-sm mx-auto text-xs">
                   {searchQuery
                     ? `No notes match "${searchQuery}". Try a different keyword or subject.`
-                    : 'Notes written on the green chalkboard by the AI tutor will automatically save here as your single source of truth.'}
+                    : 'Notes written on the green chalkboard by the AI tutor will save them here.'}
                 </p>
                 <Link
                   href={`/dashboard/${user.id}/class`}

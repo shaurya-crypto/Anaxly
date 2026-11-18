@@ -78,9 +78,9 @@ export function startCompanionTour() {
 
 const DEFAULT_TIPS = [
   "Hi! I'm your AI learning companion. Click me anytime for study tips!",
-  "Tip: You can launch a live voice session anytime with Gemini 3.8 Live!",
+  "Tip: You can start a live voice class any time.",
   "Keep your streak alive by reviewing one syllabus topic capsule today!",
-  "Stuck on a problem? Your tutor adapts to Socratic, direct, or visual explanations.",
+  "Stuck on a problem? Your tutor can explain with questions, directly, or with visuals.",
 ]
 
 export function Mascot() {
