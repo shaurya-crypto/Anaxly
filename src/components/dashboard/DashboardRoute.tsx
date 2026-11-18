@@ -24,6 +24,9 @@ export async function DashboardRoute({
     redirect("/login");
   }
 
+  // Subscription lookup is independent of the profile, so start it in parallel.
+  const subscriptionPromise = getStudentSubscription(user.id).catch(() => null);
+
   // 1. Fetch user profile
   let { data: profile } = await supabase
     .from("profiles")
@@ -54,7 +57,7 @@ export async function DashboardRoute({
   }
 
   // 1b. Fetch active subscription & live class entitlements
-  const subscription = await getStudentSubscription(user.id);
+  const subscription = await subscriptionPromise;
 
   // 1c. Daily Active Streak Engine: Automatically increments/maintains active streak on web visit
   const todayStr = new Date().toISOString().split("T")[0];
