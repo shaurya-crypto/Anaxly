@@ -184,7 +184,7 @@ export function StitchDashboardView({
   const studentAvatar = profile.avatar_url || null
   const studentTrack = profile.class_level || (profile.learning_level 
     ? `${profile.learning_level.charAt(0).toUpperCase() + profile.learning_level.slice(1)} Track`
-    : 'Scholar')
+    : 'Student')
 
   // Dynamic Date
   const todayFormatted = new Intl.DateTimeFormat('en-US', {
@@ -861,7 +861,7 @@ export function StitchDashboardView({
                   value={`${completedChaptersCount} of ${totalChaptersCount}`}
                   unit="done"
                   icon={<span aria-hidden="true" className="material-symbols-outlined text-lg text-ink-muted">school</span>}
-                  hint={completedChaptersCount > 0 ? `${completedChaptersCount} chapters fully mastered • View notes` : 'Master all capsules to complete a chapter'}
+                  hint={completedChaptersCount > 0 ? `${completedChaptersCount} chapters done • View notes` : 'Finish every lesson in a chapter to complete it'}
                 />
                 <StatTile
                   label="Lessons mastered"
@@ -928,10 +928,10 @@ export function StitchDashboardView({
               <div className="flex items-baseline justify-between">
                 <div>
                   <h3 className="font-editorial text-2xl text-ink-primary leading-tight">
-                    Today's Learning Plan
+                    Today's plan
                   </h3>
                   <p className="text-sm text-ink-secondary mt-0.5">
-                    Prioritized tasks to maintain academic cadence.
+                    What to do today.
                   </p>
                 </div>
                 <span className="text-xs font-mono text-ink-muted font-medium">
@@ -960,7 +960,7 @@ export function StitchDashboardView({
                           Complete {activeModule.title}
                         </h4>
                         <p className="text-sm text-ink-secondary mt-0.5 leading-relaxed">
-                          {activeModule.description || 'Core instructional module review with Anaxly.'}
+                          {activeModule.description || 'Continue this lesson.'}
                         </p>
                       </div>
                     </div>
@@ -982,15 +982,15 @@ export function StitchDashboardView({
                       <div>
                         <div className="flex items-center gap-2">
                           <span className="text-xs font-medium text-secondary uppercase tracking-wide">
-                            Mastery Evaluation
+                            Chapter quiz
                           </span>
-                          <span className="text-ink-muted text-xs">• 10 Gemini MCQs • Advances Syllabus Progress</span>
+                          <span className="text-ink-muted text-xs">• 10 questions</span>
                         </div>
                         <h4 className="text-base font-semibold text-ink-primary mt-0.5 group-hover:text-secondary transition-colors">
                           10 Mastery Questions: {activeModule.title}
                         </h4>
                         <p className="text-sm text-ink-secondary mt-0.5 leading-relaxed">
-                          Direct test on core textbook formulas and principles. Scoring 70%+ completes this capsule and unlocks the next section.
+                          10 questions on this lesson. Score 70% or more to unlock the next one.
                         </p>
                       </div>
                     </div>
@@ -1043,7 +1043,7 @@ export function StitchDashboardView({
                   <span className="material-symbols-outlined text-3xl text-ink-muted">playlist_add_check</span>
                   <p className="font-editorial text-xl text-ink-primary">No Pending Tasks</p>
                   <p className="text-sm text-ink-secondary max-w-sm mx-auto">
-                    Enroll in a curriculum to generate a personalized daily deliberate practice plan.
+                    Pick a subject to get a daily plan.
                   </p>
                   <button
                     onClick={() => setCoursesDialogOpen(true)}
@@ -1073,10 +1073,10 @@ export function StitchDashboardView({
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="font-editorial text-2xl text-ink-primary leading-tight">
-                  Enrolled Subjects
+                  Your subjects
                 </h3>
                 <p className="text-sm text-ink-secondary mt-0.5">
-                  Curriculum status across your active academic courses.
+                  Progress in each subject.
                 </p>
               </div>
               <div className="flex items-center gap-3">
@@ -1163,16 +1163,16 @@ export function StitchDashboardView({
             ) : (
               <div className="p-8 text-center bg-surface rounded-2xl border border-border-subtle space-y-3">
                 <span className="material-symbols-outlined text-3xl text-ink-muted">menu_book</span>
-                <p className="font-headline-sm text-ink-primary">No Enrolled Subjects</p>
+                <p className="font-headline-sm text-ink-primary">No Your subjects</p>
                 <p className="font-body-md text-ink-secondary text-sm max-w-sm mx-auto">
-                  You are not currently enrolled in any subjects. Enroll now to track syllabus mastery and deliberate practice blocks.
+                  You haven't picked any subjects yet.
                 </p>
                 <button
                   onClick={() => setCoursesDialogOpen(true)}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-white font-semibold font-label-md text-sm hover:bg-accent-hover cursor-pointer"
                 >
                   <span className="material-symbols-outlined text-sm">add</span>
-                  <span>Browse Available Subjects</span>
+                  <span>Browse subjects</span>
                 </button>
               </div>
             )}
@@ -1186,23 +1186,23 @@ export function StitchDashboardView({
               <div className="space-y-5">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-ink-muted font-medium">
-                    Practice Diagnostic
+                    Practice
                   </span>
                   <span className="material-symbols-outlined text-ink-muted text-xl">tune</span>
                 </div>
                 <div>
                   <h4 className="font-editorial text-2xl text-ink-primary leading-tight">
-                    Deliberate Question Bank
+                    Question bank
                   </h4>
                   <p className="text-sm text-ink-secondary mt-1.5 leading-relaxed">
-                    Target high-yield exam question types calibrated dynamically to your weaker diagnostic areas.
+                    Questions focused on the topics you find hardest.
                   </p>
                 </div>
 
                 {/* Subject Toggle Chips */}
                 <div className="space-y-2 pt-1">
                   <span className="text-xs text-ink-muted font-medium">
-                    Select Discipline
+                    Subject
                   </span>
                   <div className="flex flex-wrap gap-2">
                     {availableDisciplines.map((discipline) => {
@@ -1232,7 +1232,7 @@ export function StitchDashboardView({
                   className="w-full flex items-center justify-center gap-2 border border-border-subtle bg-surface hover:bg-canvas-soft text-ink-primary py-2.5 rounded-xl text-sm font-medium transition-colors text-center shadow-xs"
                 >
                   <span className="material-symbols-outlined text-lg">edit_document</span>
-                  <span>Launch Custom 15-Question Set</span>
+                  <span>Start 15 questions</span>
                 </Link>
               </div>
             </div>
@@ -1243,7 +1243,7 @@ export function StitchDashboardView({
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-medium text-secondary flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-secondary" />
-                    <span>Board Exam PYQ Practice Hub</span>
+                    <span>Past year questions</span>
                   </span>
                   {chapterPyqsData && (
                     <span className="text-xs font-mono text-ink-muted bg-surface-container-low px-2.5 py-1 rounded-full border border-border-subtle">
@@ -1255,10 +1255,10 @@ export function StitchDashboardView({
                 <div className="mt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
                     <h4 className="font-editorial text-2xl text-ink-primary leading-tight">
-                      Chapter Previous Year Questions
+                      Previous year questions
                     </h4>
                     <p className="text-xs text-ink-secondary mt-1 leading-relaxed">
-                      Authentic board examination problems with step-by-step chalkboard derivations.
+                      Real board exam questions with worked solutions.
                     </p>
                   </div>
 
@@ -1301,7 +1301,7 @@ export function StitchDashboardView({
               <div className="space-y-3 min-h-[220px] max-h-[340px] overflow-y-auto pr-1">
                 {isLoadingPyqs ? (
                   <div className="py-12 text-center text-xs font-mono text-ink-muted">
-                    Loading authentic board exam questions...
+                    Loading questions…
                   </div>
                 ) : chapterPyqsData && chapterPyqsData.practice_set?.length > 0 ? (
                   (() => {
@@ -1357,7 +1357,7 @@ export function StitchDashboardView({
                   })()
                 ) : (
                   <div className="py-12 text-center rounded-2xl bg-canvas border border-border-subtle text-xs text-ink-muted font-mono">
-                    No past year questions uploaded for this chapter yet. Upload question papers in Admin Studio!
+                    No past year questions for this chapter yet.
                   </div>
                 )}
               </div>
@@ -1381,7 +1381,7 @@ export function StitchDashboardView({
             </div>
 
             <h2 className="font-headline-md text-2xl md:text-3xl text-ink-primary tracking-tight">
-              Official Syllabus &amp; Divided Capsules
+              Syllabus
             </h2>
             <p className="font-body-md text-ink-secondary text-sm mt-1">
               Hierarchical curriculum mapped from class &amp; subject to sequential chapters and divided 15-minute concept capsules.
@@ -1427,7 +1427,7 @@ export function StitchDashboardView({
                     Syllabus Chapters ({currentSubjectChapters.length})
                   </span>
                   <span className="font-label-micro text-xs text-ink-muted">
-                    Select chapter to view divided capsules
+                    Chapters
                   </span>
                 </div>
 
@@ -1508,10 +1508,10 @@ export function StitchDashboardView({
 
                 <div className="pt-2 border-t border-border-subtle/60">
                   <span className="font-label-micro text-xs text-ink-muted uppercase block mb-1">
-                    Written Syllabus Scope
+                    About this chapter
                   </span>
                   <p className="font-body-md text-sm text-ink-primary leading-relaxed">
-                    {activeSyllabusChapter.description || 'Comprehensive conceptual and practical study module calibrated to curriculum specifications.'}
+                    {activeSyllabusChapter.description || ''}
                   </p>
                 </div>
               </div>
@@ -1522,10 +1522,10 @@ export function StitchDashboardView({
               <div className="flex items-center justify-between">
                 <div>
                   <h4 className="font-headline-sm text-lg text-ink-primary">
-                    Divided Capsules ({activeChapterCapsules.length})
+                    Lessons ({activeChapterCapsules.length})
                   </h4>
                   <p className="font-body-md text-xs text-ink-secondary">
-                    Sequential 15-minute deliberate learning units with subtopics and key formulas.
+                    15-minute lessons with subtopics and key formulas.
                   </p>
                 </div>
               </div>
@@ -1711,7 +1711,7 @@ export function StitchDashboardView({
               ) : (
                 <div className="p-6 text-center rounded-2xl bg-canvas border border-border-subtle">
                   <p className="font-body-md text-sm text-ink-secondary">
-                    No divided capsules found for this chapter.
+                    No lessons in this chapter yet.
                   </p>
                 </div>
               )}
@@ -1750,7 +1750,7 @@ export function StitchDashboardView({
             <div className="space-y-3">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-mono font-medium">
                 <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-                <span>Connecting to Neural Tutor Core</span>
+                <span>Connecting to your tutor</span>
               </div>
               <h3 className="font-editorial text-2xl text-ink-primary leading-tight">
                 {activeCourse ? `Ready to explore ${activeModule?.title || activeCourse.title}?` : 'Ready to begin your study session?'}
@@ -1762,9 +1762,9 @@ export function StitchDashboardView({
                     return `Anaxly has synthesized your recent sessions: "${memorySnippet.slice(0, 110)}..."`
                   }
                   if (activeModule?.description) {
-                    return `Beginning with ${activeModule.title}. Reviewing foundational concepts and interactive socratic problems.`
+                    return `Beginning with ${activeModule.title}. Let's go over the key ideas together.`
                   }
-                  return 'Anaxly is ready for interactive dialogue, concept clarification, and deliberate practice.'
+                  return 'Your tutor is ready.'
                 })()}
               </p>
             </div>
@@ -1837,7 +1837,7 @@ export function StitchDashboardView({
                         onClick={() => setNotesDialogOpen(false)}
                         className="text-xs text-primary underline hover:text-accent-hover font-medium"
                       >
-                        Open Profile Vault
+                        Open notes
                       </Link>
                     </div>
                     <div className="p-4 rounded-2xl bg-[#0E2016] border border-[#1A3324] text-[#D8EADB] space-y-2 max-h-64 overflow-y-auto font-mono text-xs whitespace-pre-wrap leading-relaxed shadow-inner">
@@ -1847,7 +1847,7 @@ export function StitchDashboardView({
                 ) : (
                   <div className="p-4 rounded-2xl bg-canvas border border-border-subtle space-y-2 max-h-60 overflow-y-auto">
                     <span className="font-label-micro text-xs uppercase tracking-wider text-ink-muted">
-                      Core Topic Overview & Master Notes
+                      Overview & notes
                     </span>
                     <p className="font-body-md text-ink-primary text-sm whitespace-pre-line">
                       {activeModule?.chapter_notes || activeModule?.description || 'Foundational concepts and principles for this chapter.'}
@@ -1939,10 +1939,10 @@ export function StitchDashboardView({
         <DialogContent className="max-w-md bg-surface border-border-subtle rounded-3xl p-7 text-ink-primary shadow-2xl">
           <DialogHeader>
             <DialogTitle className="font-headline-md text-2xl text-ink-primary">
-              Student Preferences
+              Quick preferences
             </DialogTitle>
             <DialogDescription className="font-body-md text-ink-secondary text-sm">
-              Tune your Anaxly voice, pedagogical model, and pacing.
+              Voice, teaching style and pacing.
             </DialogDescription>
           </DialogHeader>
 
@@ -1968,14 +1968,14 @@ export function StitchDashboardView({
             {/* Learning Style */}
             <div className="space-y-1.5">
               <Label className="font-label-micro text-xs uppercase text-ink-muted">
-                Pedagogical Style
+                Teaching style
               </Label>
               <select
                 value={selectedStyle}
                 onChange={(e) => setSelectedStyle(e.target.value)}
                 className="w-full p-2.5 rounded-xl border border-border-subtle bg-surface text-ink-primary text-sm focus:outline-hidden focus:ring-2 focus:ring-primary/20"
               >
-                <option value="socratic">Socratic (Questions &amp; Guided Discovery)</option>
+                <option value="socratic">Guided questions</option>
                 <option value="direct">Direct (Concise &amp; Factual)</option>
                 <option value="visual">Visual (Diagrams &amp; Analogies)</option>
                 <option value="storytelling">Storytelling (Contextual Narrative)</option>
@@ -1985,7 +1985,7 @@ export function StitchDashboardView({
             {/* Pacing */}
             <div className="space-y-1.5">
               <Label className="font-label-micro text-xs uppercase text-ink-muted">
-                Instruction Pacing
+                Pacing
               </Label>
               <select
                 value={selectedPacing}
@@ -2001,7 +2001,7 @@ export function StitchDashboardView({
             {/* Class / Grade Level */}
             <div className="space-y-1.5">
               <Label className="font-label-micro text-xs uppercase text-ink-muted">
-                Class / Academic Grade
+                Class
               </Label>
               <select
                 value={selectedClass}
@@ -2055,10 +2055,10 @@ export function StitchDashboardView({
         <DialogContent className="max-w-lg bg-surface border-border-subtle rounded-3xl p-7 text-ink-primary shadow-2xl">
           <DialogHeader>
             <DialogTitle className="font-headline-md text-2xl text-ink-primary">
-              All Available Curriculums
+              All subjects
             </DialogTitle>
             <DialogDescription className="font-body-md text-ink-secondary text-sm">
-              Enroll in syllabus courses and rigorous academic tracks.
+              Add subjects to your dashboard.
             </DialogDescription>
           </DialogHeader>
 
@@ -2165,7 +2165,7 @@ export function StitchDashboardView({
         </div>
       </aside>
 
-      {/* 10-Question Mastery Evaluation Modal */}
+      {/* 10-Question Chapter quiz Modal */}
       {activeModule && (
         <MasteryQuizModal
           isOpen={quizModalOpen}

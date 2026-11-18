@@ -139,7 +139,7 @@ export const MailSentCard: React.FC<MailSentCardProps> = ({
             </CardTitle>
 
             <CardDescription className="text-xs md:text-sm text-[#555852] mt-1.5 leading-relaxed">
-              We have dispatched a secure authentication email to your scholar address:
+              We have sent a sign-in link to:
             </CardDescription>
 
             {/* Interactive Email Address Pill */}

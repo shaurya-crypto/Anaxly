@@ -40,22 +40,22 @@ export const PREBUILT_AVATARS: PrebuiltAvatar[] = [
   {
     id: '80459b57-2d66-4ca7-8682-59e1c649bc53',
     name: 'Prof. Vikram Raman',
-    title: 'Senior Academician & Physics Specialist',
+    title: 'Physics teacher',
     subject: 'Physics, Mechanics & Advanced Numericals',
     description:
-      'Rigorous 6-stage Socratic problem solving, comprehensive board numerical breakdowns (Given -> Formula -> Substitution -> Boxed Answer), and clear physical intuition.',
+      'Builds intuition first, then works through board-style numericals step by step.',
     image: '/avatars/80459b57-2d66-4ca7-8682-59e1c649bc53.jpg',
-    badge: 'Primary Default',
+    badge: 'Default',
     recommendedBoard: 'CBSE & ICSE Classes 9-12',
     engine: 'Simli Ultra-Fast WebRTC',
   },
   {
     id: 'a6d08e06-038a-4b32-84ae-b02e0f0f1140',
     name: 'Prof. Marcus Chen',
-    title: 'Senior Mathematics & Applied Science Fellow',
+    title: 'Maths teacher',
     subject: 'Mathematics, Coordinate Geometry & Calculus',
     description:
-      'First-principles proofs, geometric interpretation of limits and derivatives, trigonometric identities, and algebraic symmetry.',
+      'Explains proofs, geometry, trigonometry and algebra clearly, one step at a time.',
     image: '/avatars/a6d08e06-038a-4b32-84ae-b02e0f0f1140.jpg',
     badge: 'Available Free',
     recommendedBoard: 'CBSE & IB Mathematics',
@@ -64,10 +64,10 @@ export const PREBUILT_AVATARS: PrebuiltAvatar[] = [
   {
     id: '20cfe7d7-cfd7-43ee-9301-72a7c7056eaf',
     name: 'Dr. Elena Rostova',
-    title: 'Atomic Chemistry & Thermodynamics Fellow',
+    title: 'Chemistry teacher',
     subject: 'Chemistry, Stoichiometry & Chemical Bonding',
     description:
-      'Deep experimental intuition, precise definitions of chemical phenomena, stoichiometry, reaction mechanisms, and foundational atomic theory.',
+      'Uses experiments and clear definitions to explain reactions, atoms and stoichiometry.',
     image: '/avatars/20cfe7d7-cfd7-43ee-9301-72a7c7056eaf.jpg',
     badge: 'Available Free',
     recommendedBoard: 'ICSE & IB Chemistry',
@@ -76,10 +76,10 @@ export const PREBUILT_AVATARS: PrebuiltAvatar[] = [
   {
     id: 'd9c96b08-b2ca-48ef-b458-5c4471d9fe09',
     name: 'Prof. Sarah Jenkins',
-    title: 'Life Sciences & Cellular Biology Mentor',
+    title: 'Biology teacher',
     subject: 'Biology, Physiological Cycles & Biochemistry',
     description:
-      'Dynamic physical visualization of biological cycles, genetics, cellular respiration, and organ system interaction with clinical precision.',
+      'Makes cells, genetics and body systems easy to picture and remember.',
     image: '/avatars/d9c96b08-b2ca-48ef-b458-5c4471d9fe09.jpg',
     badge: 'Available Free',
     recommendedBoard: 'CBSE & ICSE Classes 9-12',
@@ -957,7 +957,7 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
                   }
                 >
                   <div className="grid gap-3 px-5 py-5 sm:px-6">
-                    <ChoiceCard active={learningStyle === 'socratic'} onClick={() => setLearningStyle('socratic')} title="Socratic" badge="Recommended" desc="Intuition → formula → example → worked numerical → check understanding → board question. The tutor keeps asking you questions." />
+                    <ChoiceCard active={learningStyle === 'socratic'} onClick={() => setLearningStyle('socratic')} title="Guided questions" badge="Recommended" desc="Intuition → formula → example → worked numerical → check understanding → board question. The tutor keeps asking you questions." />
                     <ChoiceCard active={learningStyle === 'direct'} onClick={() => setLearningStyle('direct')} title="Direct" desc="Concise statements and quick worked numericals. Best for fast revision." />
                     <ChoiceCard active={learningStyle === 'visual'} onClick={() => setLearningStyle('visual')} title="Visual" desc="Graphs, diagrams and analogies first, then the numericals." />
                   </div>
