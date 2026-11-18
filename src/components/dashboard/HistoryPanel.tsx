@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 
 interface HistoryModule {
@@ -46,6 +46,10 @@ function dayLabel(d: Date) {
 /** Timeline of past lessons built from the student's progress records. */
 export function HistoryPanel({ userId, modules, progressRecords, curriculums, memories }: HistoryPanelProps) {
   const [filter, setFilter] = useState<Filter>('all')
+  // Day names and times depend on the browser's locale and timezone, so the
+  // timeline is drawn after mount to keep server and client HTML identical.
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
 
   const entries = useMemo(() => {
     const modById = new Map(modules.map((m) => [m.id, m]))
@@ -123,7 +127,9 @@ export function HistoryPanel({ userId, modules, progressRecords, curriculums, me
         </Link>
       </div>
 
-      {shown.length === 0 ? (
+      {!mounted ? (
+        <div className="h-64 animate-pulse rounded-2xl bg-canvas-soft" aria-hidden="true" />
+      ) : shown.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-border-subtle bg-surface py-16 text-center">
           <span className="material-symbols-outlined text-4xl text-ink-hairline">history</span>
           <p className="mt-2 text-sm text-ink-secondary">No lessons here yet.</p>
@@ -187,7 +193,7 @@ export function HistoryPanel({ userId, modules, progressRecords, curriculums, me
             {memories.slice(0, 8).map((m) => (
               <div key={m.id} className="rounded-xl border border-border-subtle bg-surface p-3.5 text-sm text-ink-secondary">
                 {m.content || m.memory_text}
-                <p className="mt-1.5 text-[11px] text-ink-muted">{new Date(m.created_at).toLocaleDateString()}</p>
+                <p className="mt-1.5 text-[11px] text-ink-muted">{mounted ? new Date(m.created_at).toLocaleDateString() : ''}</p>
               </div>
             ))}
           </div>
