@@ -139,7 +139,7 @@ export function UserMenu({
           align="end"
           sideOffset={10}
           collisionPadding={12}
-          className="z-50 w-[19rem] origin-[var(--radix-dropdown-menu-content-transform-origin)] rounded-2xl border border-border-subtle bg-surface/95 p-1.5 shadow-xl shadow-black/5 backdrop-blur-xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2"
+          className="z-50 w-[19rem] origin-[var(--radix-dropdown-menu-content-transform-origin)] rounded-2xl border border-border-subtle bg-surface p-1.5 shadow-xl shadow-black/5 backdrop-blur-xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2"
         >
           {/* Identity card */}
           <div className="rounded-xl bg-gradient-to-br from-accent-warm-soft via-surface to-canvas-soft p-3">
@@ -196,7 +196,7 @@ export function UserMenu({
               <Menu.SubContent
                 sideOffset={8}
                 collisionPadding={12}
-                className="z-50 w-56 rounded-2xl border border-border-subtle bg-surface/95 p-1.5 shadow-xl shadow-black/5 backdrop-blur-xl data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
+                className="z-50 w-56 rounded-2xl border border-border-subtle bg-surface p-1.5 shadow-xl shadow-black/5 backdrop-blur-xl data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95"
               >
                 <Item href={settings('account')} icon={User} label="Account" />
                 <Item href={settings('avatars')} icon={Sparkles} label="Tutor avatar" />
