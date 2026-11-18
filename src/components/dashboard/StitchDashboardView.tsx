@@ -20,6 +20,7 @@ import { WeakConceptsReviewCard } from './WeakConceptsReviewCard'
 import { VOICE_OPTIONS } from '@/lib/voiceAndLanguageConfig'
 import { DashboardNav, NavItem } from './DashboardNav'
 import { UserMenu } from './UserMenu'
+import { HistoryPanel } from './HistoryPanel'
 import { DailyActivityChart } from './DailyActivityChart'
 import { DashCard, StatTile, SectionHeader } from './primitives'
 import { Subscription, SUBSCRIPTION_PLANS, getClassesRemaining } from '@/lib/types/subscription'
@@ -119,6 +120,19 @@ interface StitchDashboardViewProps {
   memories: MemoryItem[]
   studyPlan?: StudyPlanData | null
   subscription?: Subscription | null
+  view?: DashboardViewId
+}
+
+export type DashboardViewId = 'home' | 'syllabus' | 'learn' | 'practice' | 'progress' | 'schedule' | 'history'
+
+const VIEW_META: Record<DashboardViewId, { title: string; subtitle: string }> = {
+  home: { title: '', subtitle: '' },
+  syllabus: { title: 'Syllabus', subtitle: 'Chapters and lessons for your class.' },
+  learn: { title: 'Learn', subtitle: 'Your subjects and where you left off.' },
+  practice: { title: 'Practice', subtitle: 'Past year questions and concepts to revise.' },
+  progress: { title: 'Progress', subtitle: 'Your streak, study time and activity.' },
+  schedule: { title: 'Schedule', subtitle: "Your exam plan and today's tasks." },
+  history: { title: 'History', subtitle: 'Every lesson you have taken.' },
 }
 
 
@@ -134,9 +148,10 @@ export function StitchDashboardView({
   progressRecords = [],
   memories = [],
   studyPlan = null,
+  view = 'home',
 }: StitchDashboardViewProps) {
   const router = useRouter()
-  const [activeNav, setActiveNav] = useState('home')
+  const activeNav = view
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [liveModalOpen, setLiveModalOpen] = useState(false)
   const [preferencesOpen, setPreferencesOpen] = useState(false)
@@ -490,50 +505,30 @@ export function StitchDashboardView({
   }
 
   // Navigation config shared by the desktop sidebar and the mobile drawer
+  const openSyllabus = (curriculumId?: string | null) => {
+    router.push(`/dashboard/${user.id}/syllabus${curriculumId ? `?curriculum=${curriculumId}` : ''}`)
+  }
+  useEffect(() => {
+    if (view !== 'syllabus') return
+    const cid = new URLSearchParams(window.location.search).get('curriculum')
+    const c = cid ? allCurriculums.find((x) => x.id === cid) : null
+    if (c) {
+      setSelectedSyllabusCategory(c.category || 'General')
+      setSelectedSyllabusCurriculumId(c.id)
+    }
+  }, [view, allCurriculums])
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id)
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
   const navItems: NavItem[] = [
-    { id: 'home', label: 'Home', icon: 'home', onSelect: () => setActiveNav('home') },
-    {
-      id: 'syllabus',
-      label: 'Syllabus',
-      icon: 'menu_book',
-      onSelect: () => {
-        setActiveNav('syllabus')
-        setSyllabusModalOpen(true)
-      },
-    },
-    {
-      id: 'learn',
-      label: 'Learn',
-      icon: 'auto_stories',
-      onSelect: () => {
-        setActiveNav('learn')
-        scrollToSection('enrolled-subjects-section')
-      },
-    },
-    {
-      id: 'practice',
-      label: 'Practice',
-      icon: 'edit_note',
-      onSelect: () => {
-        setActiveNav('practice')
-        scrollToSection('deliberate-practice-section')
-      },
-    },
-    { id: 'live', label: 'Live Tutor', icon: 'psychology', badge: 'Tutor available', onSelect: () => setLiveModalOpen(true) },
-    {
-      id: 'progress',
-      label: 'Progress',
-      icon: 'insights',
-      onSelect: () => {
-        setActiveNav('progress')
-        scrollToSection('consistency-section')
-      },
-    },
-    { id: 'history', label: 'History', icon: 'schedule', onSelect: () => setLiveModalOpen(true) },
+    { id: 'home', label: 'Home', icon: 'home', onSelect: () => router.push(`/dashboard/${user.id}`) },
+    { id: 'syllabus', label: 'Syllabus', icon: 'menu_book', onSelect: () => router.push(`/dashboard/${user.id}/syllabus`) },
+    { id: 'learn', label: 'Learn', icon: 'auto_stories', onSelect: () => router.push(`/dashboard/${user.id}/learn`) },
+    { id: 'practice', label: 'Practice', icon: 'edit_note', onSelect: () => router.push(`/dashboard/${user.id}/practice`) },
+    { id: 'schedule', label: 'Schedule', icon: 'event', onSelect: () => router.push(`/dashboard/${user.id}/schedule`) },
+    { id: 'progress', label: 'Progress', icon: 'insights', onSelect: () => router.push(`/dashboard/${user.id}/progress`) },
+    { id: 'history', label: 'History', icon: 'history', onSelect: () => router.push(`/dashboard/${user.id}/history`) },
   ]
 
   const hour = new Date().getHours()
@@ -565,87 +560,22 @@ export function StitchDashboardView({
             </div>
             <div>
               <p className="font-editorial text-2xl leading-none text-ink-primary">Anaxly</p>
-              <p className="mt-1 text-xs text-ink-muted">Scholar's Edition</p>
             </div>
           </Link>
 
           <DashboardNav items={navItems} activeId={activeNav} ariaLabel="Main navigation" />
 
-          <button
-            type="button"
-            onClick={() => setLiveModalOpen(true)}
-            className="flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
-          >
-            <span aria-hidden="true" className="material-symbols-outlined text-lg">mic</span>
-            <span>Start session</span>
-          </button>
         </div>
 
-{/* Bottom Dock: Student Profile Card & Settings */}
-        <div className="space-y-3 pt-6 border-t border-border-subtle">
-          <div className="p-2.5 bg-surface rounded-xl border border-border-subtle flex items-center gap-3">
-            <div className="relative w-9 h-9 rounded-full bg-surface-container-high border border-border-subtle overflow-hidden flex-shrink-0 flex items-center justify-center">
-              {studentAvatar ? (
-                <img
-                  className="w-full h-full object-cover"
-                  alt={studentName}
-                  src={studentAvatar}
-                />
-              ) : (
-                <span className="font-semibold text-ink-primary text-sm font-label-md">
-                  {studentName.charAt(0).toUpperCase()}
-                </span>
-              )}
-            </div>
-            <div className="min-w-0 flex-1">
-              <p className="font-label-md text-label-md text-ink-primary truncate font-semibold">
-                {studentName}
-              </p>
-              <p className="font-label-micro text-label-micro text-ink-muted truncate">
-                {studentTrack}
-              </p>
-              <div className="mt-1 flex items-center gap-1.5 flex-wrap">
-                <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${
-                  activePlanTier === 'mastery'
-                    ? 'bg-purple-100 text-purple-900 border border-purple-200'
-                    : activePlanTier === 'topper'
-                    ? 'bg-emerald-100 text-emerald-900 border border-emerald-200'
-                    : activePlanTier === 'scholar'
-                    ? 'bg-blue-100 text-blue-900 border border-blue-200'
-                    : 'bg-stone-100 text-stone-700 border border-stone-200'
-                }`}>
-                  {currentPlan.name}
-                </span>
-                <span className="text-[10px] font-mono text-ink-muted">
-                  {classesRemaining}/{classesLimit} left
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <nav className="space-y-0.5">
-            <Link
-              href={`/dashboard/${user.id}/profile`}
-              className="w-full flex items-center gap-3 text-ink-secondary font-label-md text-label-md pl-3 py-2 rounded-lg hover:text-ink-primary hover:bg-surface-container-low/40 transition-colors text-left cursor-pointer"
-            >
-              <span className="material-symbols-outlined text-lg">school</span>
-              <span>Profile &amp; Notes</span>
-            </Link>
-            <Link
-              href={`/dashboard/${user.id}/settings?tab=avatars`}
-              className="w-full flex items-center gap-3 text-ink-secondary font-label-md text-label-md pl-3 py-2 rounded-lg hover:text-ink-primary hover:bg-surface-container-low/40 transition-colors text-left cursor-pointer"
-            >
-              <span className="material-symbols-outlined text-lg">settings</span>
-              <span>Settings</span>
-            </Link>
-            <Link
-              href="/pricing"
-              className="w-full flex items-center gap-3 text-emerald-800 font-label-md text-label-md pl-3 py-2 rounded-lg hover:text-emerald-950 hover:bg-emerald-50 transition-colors text-left cursor-pointer"
-            >
-              <span className="material-symbols-outlined text-lg text-emerald-700">credit_card</span>
-              <span>Plans &amp; Pricing</span>
-            </Link>
-          </nav>
+{/* Bottom: settings */}
+        <div className="border-t border-border-subtle pt-4">
+          <Link
+            href={`/dashboard/${user.id}/settings`}
+            className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-ink-secondary transition-colors hover:bg-canvas-soft hover:text-ink-primary"
+          >
+            <span aria-hidden="true" className="material-symbols-outlined text-xl">settings</span>
+            <span>Settings</span>
+          </Link>
         </div>
       </aside>
 
@@ -666,9 +596,11 @@ export function StitchDashboardView({
               <span aria-hidden="true" className="material-symbols-outlined">menu</span>
             </button>
             <div className="min-w-0">
-              <p className="truncate text-sm text-ink-muted" suppressHydrationWarning>{todayFormatted}</p>
+              <p className="truncate text-sm text-ink-muted" suppressHydrationWarning>
+                {view === 'home' ? todayFormatted : VIEW_META[view].subtitle}
+              </p>
               <h1 className="truncate font-editorial text-2xl leading-tight text-ink-primary" suppressHydrationWarning>
-                {greeting}, {firstName}
+                {view === 'home' ? `${greeting}, ${firstName}` : VIEW_META[view].title}
               </h1>
             </div>
           </div>
@@ -677,7 +609,7 @@ export function StitchDashboardView({
             <button
               id="top-open-syllabus-btn"
               type="button"
-              onClick={() => setSyllabusModalOpen(true)}
+              onClick={() => openSyllabus()}
               className={`${headerTextButtonClass} hidden sm:inline-flex`}
             >
               <span aria-hidden="true" className="material-symbols-outlined text-lg text-secondary">menu_book</span>
@@ -696,9 +628,9 @@ export function StitchDashboardView({
 
             <button
               type="button"
-              onClick={() => scrollToSection('consistency-section')}
+              onClick={() => router.push(`/dashboard/${user.id}/schedule`)}
               className={`${iconButtonClass} hidden sm:inline-flex`}
-              aria-label="Jump to study calendar"
+              aria-label="Open schedule"
             >
               <span aria-hidden="true" className="material-symbols-outlined text-xl">calendar_today</span>
             </button>
@@ -739,6 +671,7 @@ export function StitchDashboardView({
         {/* ======================================================================= */}
         <main className="flex-1 px-6 sm:px-10 lg:px-12 py-8 max-w-[1536px] w-full mx-auto space-y-10">
           
+          {(view === 'home') && (<>
           {/* SECTION 1: CONTINUE LEARNING (primary focus of the page) */}
           <section aria-labelledby="continue-heading">
             {activeCourse ? (
@@ -797,11 +730,7 @@ export function StitchDashboardView({
                         id="hero-open-syllabus-btn"
                         type="button"
                         onClick={() => {
-                          if (activeCourse) {
-                            setSelectedSyllabusCategory(activeCourse.category || 'General')
-                            setSelectedSyllabusCurriculumId(activeCourse.id)
-                          }
-                          setSyllabusModalOpen(true)
+                          openSyllabus(activeCourse?.id)
                         }}
                         className="inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-lg px-4 py-3 text-sm font-medium text-white ring-1 ring-white/30 transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                       >
@@ -878,7 +807,7 @@ export function StitchDashboardView({
                   </button>
                   <button
                     type="button"
-                    onClick={() => setSyllabusModalOpen(true)}
+                    onClick={() => openSyllabus()}
                     className={`${textButtonClass} min-h-12`}
                   >
                     <span aria-hidden="true" className="material-symbols-outlined text-lg text-secondary">menu_book</span>
@@ -889,6 +818,8 @@ export function StitchDashboardView({
             )}
           </section>
 
+          </>)}
+          {(view === 'progress') && (<>
           {/* SECTION 2: STUDY RHYTHM (stats, activity chart, weekly streak) */}
           <section id="consistency-section" aria-labelledby="rhythm-heading" className="space-y-5">
             <SectionHeader
@@ -977,6 +908,8 @@ export function StitchDashboardView({
             </DashCard>
           </section>
 
+          </>)}
+          {(view === 'schedule') && (<>
 {/* SECTION 2B: DYNAMIC ADAPTIVE EXAM STUDY PLANNER */}
           <StudyPlannerCard
             userId={user.id}
@@ -987,6 +920,8 @@ export function StitchDashboardView({
             onModuleClick={handleModuleClick}
           />
 
+          </>)}
+          {(view === 'home' || view === 'schedule') && (<>
           {/* SECTION 3: TODAY'S STRUCTURED LEARNING PLAN */}
           <section className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div className="lg:col-span-12 space-y-4">
@@ -1121,6 +1056,8 @@ export function StitchDashboardView({
             </div>
           </section>
 
+          </>)}
+          {(view === 'home' || view === 'practice') && (<>
           {/* SECTION 3B: WEAK-CONCEPT REVISION SPOTLIGHT */}
           <WeakConceptsReviewCard
             userId={user.id}
@@ -1129,6 +1066,8 @@ export function StitchDashboardView({
             onModuleClick={handleModuleClick}
           />
 
+          </>)}
+          {(view === 'learn') && (<>
           {/* SECTION 4: ENROLLED SUBJECTS & SCHOLAR TRACKS */}
           <section id="enrolled-subjects-section" className="space-y-5">
             <div className="flex items-center justify-between">
@@ -1142,7 +1081,7 @@ export function StitchDashboardView({
               </div>
               <div className="flex items-center gap-3">
                 <button
-                  onClick={() => setSyllabusModalOpen(true)}
+                  onClick={() => openSyllabus()}
                   className="text-xs text-ink-secondary hover:text-ink-primary font-medium inline-flex items-center gap-1.5 cursor-pointer transition-colors"
                 >
                   <span className="material-symbols-outlined text-base text-secondary">menu_book</span>
@@ -1202,9 +1141,7 @@ export function StitchDashboardView({
                     <div className="pt-6 mt-4 border-t border-border-subtle flex items-center justify-between">
                       <button
                         onClick={() => {
-                          setSelectedSyllabusCategory(card.curriculum.category || 'General')
-                          setSelectedSyllabusCurriculumId(card.curriculum.id)
-                          setSyllabusModalOpen(true)
+                          openSyllabus(card.curriculum.id)
                         }}
                         className="text-xs text-ink-secondary hover:text-ink-primary font-medium inline-flex items-center gap-1.5 cursor-pointer transition-colors"
                       >
@@ -1241,6 +1178,8 @@ export function StitchDashboardView({
             )}
           </section>
 
+          </>)}
+          {(view === 'practice') && (<>
           {/* SECTION 5: DELIBERATE PRACTICE & PAST YEAR QUESTIONS (PYQ) HUB */}
           <section id="deliberate-practice-section" className="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-12">
             <div className="lg:col-span-5 bg-surface rounded-3xl border border-border-subtle p-7 md:p-8 shadow-soft flex flex-col justify-between">
@@ -1424,18 +1363,373 @@ export function StitchDashboardView({
               </div>
             </div>
           </section>
+          </>)}
+          {view === 'syllabus' && (
+      <div className="w-full bg-surface border border-border-subtle rounded-3xl overflow-hidden shadow-xs flex flex-col text-ink-primary">
+          {/* Modal Header */}
+          <div className="p-6 md:p-7 border-b border-border-subtle bg-surface/95 backdrop-blur-md">
+            <div className="flex flex-wrap items-center gap-2 mb-2.5">
+              <span className="px-2.5 py-0.5 rounded-md bg-secondary/10 border border-secondary/20 text-secondary font-label-micro text-xs font-bold uppercase tracking-wider">
+                {activeSyllabusChapter?.board || 'CBSE'} Board
+              </span>
+              <span className="px-2.5 py-0.5 rounded-md bg-surface-container-low border border-border-subtle text-ink-primary font-label-micro text-xs font-semibold">
+                {activeSyllabusChapter?.class_level || profile.class_level || 'Class 9'}
+              </span>
+              <span className="px-2.5 py-0.5 rounded-md bg-primary/10 border border-primary/20 text-primary font-label-micro text-xs font-semibold">
+                {activeSyllabusCategory}
+              </span>
+            </div>
+
+            <h2 className="font-headline-md text-2xl md:text-3xl text-ink-primary tracking-tight">
+              Official Syllabus &amp; Divided Capsules
+            </h2>
+            <p className="font-body-md text-ink-secondary text-sm mt-1">
+              Hierarchical curriculum mapped from class &amp; subject to sequential chapters and divided 15-minute concept capsules.
+            </p>
+
+            {/* Subject Selector Tabs */}
+            {syllabusSubjects.length > 1 && (
+              <div className="flex items-center gap-2 mt-4 pt-3 border-t border-border-subtle/60 overflow-x-auto no-scrollbar">
+                <span className="font-label-micro text-xs uppercase text-ink-muted shrink-0 mr-1">
+                  Subject:
+                </span>
+                {syllabusSubjects.map((sub) => {
+                  const isSelected = activeSyllabusCategory === sub
+                  return (
+                    <button
+                      key={sub}
+                      onClick={() => {
+                        setSelectedSyllabusCategory(sub)
+                        const firstCh = allAvailableCurriculums.find((c) => (c.category || 'General') === sub)
+                        if (firstCh) setSelectedSyllabusCurriculumId(firstCh.id)
+                      }}
+                      className={`px-3.5 py-1.5 rounded-xl font-label-micro text-xs font-medium transition-all shrink-0 cursor-pointer ${
+                        isSelected
+                          ? 'bg-ink-primary text-white shadow-xs'
+                          : 'border border-border-subtle bg-canvas hover:bg-surface-container-low text-ink-secondary'
+                      }`}
+                    >
+                      {sub}
+                    </button>
+                  )
+                })}
+              </div>
+            )}
+          </div>
+
+          {/* Modal Body: Scrollable */}
+          <div className="flex-1 overflow-y-auto p-6 md:p-7 space-y-6">
+            {/* Chapters Navigator */}
+            {currentSubjectChapters.length > 0 ? (
+              <div className="space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <span className="font-label-micro text-xs uppercase tracking-wider text-ink-muted">
+                    Syllabus Chapters ({currentSubjectChapters.length})
+                  </span>
+                  <span className="font-label-micro text-xs text-ink-muted">
+                    Select chapter to view divided capsules
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {currentSubjectChapters.map((ch, idx) => {
+                    const isSelected = activeSyllabusChapter?.id === ch.id
+                    const chModules = modules.filter((m) => m.curriculum_id === ch.id)
+                    const chDone = chModules.filter((m) => isModuleComplete(m.id)).length
+                    const chPercent = chModules.length > 0 ? Math.round((chDone / chModules.length) * 100) : 0
+
+                    return (
+                      <button
+                        key={ch.id}
+                        onClick={() => setSelectedSyllabusCurriculumId(ch.id)}
+                        className={`p-3.5 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
+                          isSelected
+                            ? 'border-primary bg-primary/5 ring-1 ring-primary shadow-xs'
+                            : 'border-border-subtle bg-canvas hover:bg-surface-container-low'
+                        }`}
+                      >
+                        <div className="space-y-1">
+                          <div className="flex items-center justify-between">
+                            <span className="font-label-micro text-xs text-primary font-bold">
+                              Chapter {ch.order_index ?? idx + 1}
+                            </span>
+                            <span className="font-label-micro text-[11px] text-ink-muted">
+                              {chModules.length} Capsules
+                            </span>
+                          </div>
+                          <p className="font-label-md text-sm font-semibold text-ink-primary line-clamp-1">
+                            {ch.title.replace(/^Class\s+\d+\s+[^:]+:\s*/i, '')}
+                          </p>
+                        </div>
+
+                        <div className="mt-2.5 pt-2 border-t border-border-subtle/50 flex items-center justify-between">
+                          <span className="font-label-micro text-[11px] text-ink-muted">
+                            {chPercent}% Complete
+                          </span>
+                          <span className={`w-2 h-2 rounded-full ${chPercent === 100 ? 'bg-secondary' : chPercent > 0 ? 'bg-primary' : 'bg-surface-container-high'}`} />
+                        </div>
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+            ) : (
+              <div className="p-6 text-center rounded-2xl bg-canvas border border-border-subtle">
+                <p className="font-body-md text-sm text-ink-secondary">
+                  No chapters available for this subject yet.
+                </p>
+              </div>
+            )}
+
+            {/* Active Chapter Written Syllabus Summary Card */}
+            {activeSyllabusChapter && (
+              <div className="p-5 md:p-6 rounded-2xl bg-canvas border border-border-subtle space-y-3">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <span className="font-label-micro text-xs text-primary uppercase tracking-wider font-semibold">
+                      Chapter {activeSyllabusChapter.order_index ?? 1} Syllabus
+                    </span>
+                    <h3 className="font-headline-md text-xl font-bold text-ink-primary mt-0.5">
+                      {activeSyllabusChapter.title}
+                    </h3>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="px-3 py-1 rounded-lg bg-surface border border-border-subtle text-ink-primary font-label-micro text-xs">
+                      {activeChapterCapsules.length} Capsules
+                    </span>
+                    <span className="px-3 py-1 rounded-lg bg-surface border border-border-subtle text-ink-primary font-label-micro text-xs">
+                      {activeSyllabusChapter.estimated_duration_minutes || activeChapterCapsules.length * 15} mins
+                    </span>
+                    <span className="px-3 py-1 rounded-lg bg-surface border border-border-subtle text-secondary font-label-micro text-xs font-semibold capitalize">
+                      {activeSyllabusChapter.difficulty_level || 'Intermediate'}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-border-subtle/60">
+                  <span className="font-label-micro text-xs text-ink-muted uppercase block mb-1">
+                    Written Syllabus Scope
+                  </span>
+                  <p className="font-body-md text-sm text-ink-primary leading-relaxed">
+                    {activeSyllabusChapter.description || 'Comprehensive conceptual and practical study module calibrated to curriculum specifications.'}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Divided Capsules List */}
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h4 className="font-headline-sm text-lg text-ink-primary">
+                    Divided Capsules ({activeChapterCapsules.length})
+                  </h4>
+                  <p className="font-body-md text-xs text-ink-secondary">
+                    Sequential 15-minute deliberate learning units with subtopics and key formulas.
+                  </p>
+                </div>
+              </div>
+
+              {activeChapterCapsules.length > 0 ? (
+                <div className="space-y-3.5">
+                  {activeChapterCapsules.map((mod, modIdx) => {
+                    const prog = progressMap.get(mod.id)
+                    const isDone = isModuleComplete(mod.id)
+                    const isInProg = isModuleInProgress(mod.id)
+                    const status = isDone ? 'completed' : isInProg ? 'in_progress' : (prog?.status || 'not_started')
+
+                    // Safely extract subtopics array
+                    const rawSubtopics = mod.subtopics
+                    let subtopicsList: Array<{ title: string; formula?: string }> = []
+                    if (Array.isArray(rawSubtopics)) {
+                      subtopicsList = rawSubtopics.map((item: any) => {
+                        if (typeof item === 'string') {
+                          return { title: item }
+                        } else if (item && typeof item === 'object') {
+                          return {
+                            title: item.title || item.name || String(item),
+                            formula: item.key_formula || item.formula || undefined,
+                          }
+                        }
+                        return { title: String(item) }
+                      })
+                    } else if (typeof rawSubtopics === 'string') {
+                      try {
+                        const parsed = JSON.parse(rawSubtopics)
+                        if (Array.isArray(parsed)) {
+                          subtopicsList = parsed.map((item: any) =>
+                            typeof item === 'string' ? { title: item } : { title: item.title || String(item), formula: item.key_formula }
+                          )
+                        }
+                      } catch {
+                        subtopicsList = [{ title: rawSubtopics }]
+                      }
+                    }
+
+                    return (
+                      <div
+                        key={mod.id}
+                        className={`p-5 rounded-2xl border transition-all ${
+                          isInProg
+                            ? 'bg-surface border-primary/40 ring-1 ring-primary/20 shadow-xs'
+                            : isDone
+                            ? 'bg-surface/90 border-border-subtle'
+                            : 'bg-surface border-border-subtle hover:border-ink-muted'
+                        }`}
+                      >
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-3 border-b border-border-subtle/50">
+                          <div className="flex items-center gap-2.5">
+                            <span className="px-2.5 py-1 rounded-lg bg-surface-container-low border border-border-subtle font-label-micro text-xs font-bold text-ink-primary">
+                              Capsule {mod.order_index ?? modIdx + 1}
+                            </span>
+                            <span className="flex items-center gap-1 font-label-micro text-xs text-ink-muted">
+                              <span className="material-symbols-outlined text-sm">timer</span>
+                              <span>{mod.estimated_minutes || 15} mins</span>
+                            </span>
+                          </div>
+
+                          <div className="flex items-center gap-2">
+                            {isDone ? (
+                              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary text-xs font-semibold">
+                                <span className="material-symbols-outlined text-xs">check_circle</span>
+                                <span>Completed</span>
+                              </span>
+                            ) : isInProg ? (
+                              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-semibold">
+                                <span className="material-symbols-outlined text-xs">play_circle</span>
+                                <span>In Progress</span>
+                              </span>
+                            ) : (
+                              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-low text-ink-muted text-xs font-medium">
+                                <span className="material-symbols-outlined text-xs">radio_button_unchecked</span>
+                                <span>Ready to Start</span>
+                              </span>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Title & Description */}
+                        <div className="mt-3 space-y-1.5">
+                          <h5 className="font-headline-sm text-base md:text-lg font-semibold text-ink-primary">
+                            {mod.title}
+                          </h5>
+                          {mod.description && (
+                            <p className="font-body-md text-xs md:text-sm text-ink-secondary">
+                              {mod.description}
+                            </p>
+                          )}
+                        </div>
+
+                        {/* Subtopics breakdown */}
+                        {subtopicsList.length > 0 && (
+                          <div className="mt-3.5 pt-3 border-t border-border-subtle/40 space-y-2">
+                            <span className="font-label-micro text-[11px] uppercase tracking-wider text-ink-muted block">
+                              Capsule Subtopics &amp; Problem Areas:
+                            </span>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                              {subtopicsList.map((sub, sIdx) => (
+                                <div
+                                  key={sIdx}
+                                  className="flex items-start gap-2 p-2 rounded-xl bg-canvas border border-border-subtle/60 text-xs"
+                                >
+                                  <span className="material-symbols-outlined text-sm text-secondary shrink-0 mt-0.5">
+                                    arrow_right
+                                  </span>
+                                  <div className="min-w-0 flex-1">
+                                    <span className="font-body-md text-ink-primary font-medium">
+                                      {sub.title}
+                                    </span>
+                                    {sub.formula && (
+                                      <span className="block font-mono text-[11px] text-primary font-semibold mt-0.5">
+                                        Formula: {sub.formula}
+                                      </span>
+                                    )}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Key Concepts */}
+                        {mod.key_concepts && mod.key_concepts.length > 0 && (
+                          <div className="mt-3 flex flex-wrap items-center gap-1.5">
+                            <span className="font-label-micro text-[11px] text-ink-muted mr-1">
+                              Key Concepts:
+                            </span>
+                            {mod.key_concepts.map((concept, cIdx) => (
+                              <span
+                                key={cIdx}
+                                className="px-2 py-0.5 rounded-md bg-surface-container-low border border-border-subtle text-[11px] font-label-micro text-ink-primary"
+                              >
+                                {concept}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+
+                        {/* Launch Action */}
+                        <div className="mt-4 pt-3 border-t border-border-subtle/50 flex items-center justify-between">
+                          {isDone ? (
+                            <Link
+                              href={`/dashboard/${user.id}/profile`}
+                              onClick={() => setSyllabusModalOpen(false)}
+                              className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-medium cursor-pointer"
+                            >
+                              <span className="material-symbols-outlined text-sm">edit_note</span>
+                              <span>View Saved Notes</span>
+                            </Link>
+                          ) : (
+                            <span />
+                          )}
+                          <Link
+                            href={`/dashboard/${user.id}/class/${mod.id}`}
+                            onClick={(e) => {
+                              handleModuleClick(e, mod.id)
+                              setSyllabusModalOpen(false)
+                            }}
+                            className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl font-label-md text-xs font-semibold transition-all ${
+                              isInProg
+                                ? 'bg-primary hover:bg-accent-hover text-white font-semibold shadow-xs'
+                                : isDone
+                                ? 'border border-border-subtle hover:bg-canvas text-ink-primary'
+                                : 'bg-primary hover:bg-accent-hover text-white font-semibold shadow-xs'
+                            }`}
+                          >
+                            <span className="material-symbols-outlined text-sm">
+                              {isDone ? 'replay' : 'play_arrow'}
+                            </span>
+                            <span>
+                              {isInProg ? 'Resume Capsule' : isDone ? 'Review in Spoken Class' : 'Start Capsule (15m)'}
+                            </span>
+                          </Link>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              ) : (
+                <div className="p-6 text-center rounded-2xl bg-canvas border border-border-subtle">
+                  <p className="font-body-md text-sm text-ink-secondary">
+                    No divided capsules found for this chapter.
+                  </p>
+                </div>
+              )}
+            </div>
+          </div>
+      </div>
+          )}
+          {view === 'history' && (
+            <HistoryPanel
+              userId={user.id}
+              modules={modules}
+              progressRecords={progressRecords}
+              curriculums={allCurriculums.length ? allCurriculums : enrolledCurriculums}
+              memories={memories}
+            />
+          )}
         </main>
 
-        {/* Quiet Editorial Footer */}
-        <footer className="border-t border-border-subtle bg-canvas px-6 md:px-10 py-8 text-center text-ink-muted font-label-micro text-label-micro max-w-7xl mx-auto w-full flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-secondary text-lg">eco</span>
-            <span>Anaxly Scholar's Edition · Classical Intelligence</span>
-          </div>
-          <div>
-            <span>Curriculum aligned with CBSE, ICSE, and IB standards</span>
-          </div>
-        </footer>
       </div>
 
       {/* ========================================================================= */}
@@ -1818,374 +2112,6 @@ export function StitchDashboardView({
       {/* ========================================================================= */}
       {/* 6B. MODAL: SYLLABUS & DIVIDED CAPSULES DIALOG                             */}
       {/* ========================================================================= */}
-      <Dialog open={syllabusModalOpen} onOpenChange={setSyllabusModalOpen}>
-        <DialogContent className="max-w-4xl w-[95vw] md:w-full bg-surface border border-border-subtle rounded-3xl p-0 overflow-hidden shadow-2xl flex flex-col max-h-[90vh] text-ink-primary">
-          {/* Modal Header */}
-          <div className="p-6 md:p-7 border-b border-border-subtle bg-surface/95 backdrop-blur-md">
-            <div className="flex flex-wrap items-center gap-2 mb-2.5">
-              <span className="px-2.5 py-0.5 rounded-md bg-secondary/10 border border-secondary/20 text-secondary font-label-micro text-xs font-bold uppercase tracking-wider">
-                {activeSyllabusChapter?.board || 'CBSE'} Board
-              </span>
-              <span className="px-2.5 py-0.5 rounded-md bg-surface-container-low border border-border-subtle text-ink-primary font-label-micro text-xs font-semibold">
-                {activeSyllabusChapter?.class_level || profile.class_level || 'Class 9'}
-              </span>
-              <span className="px-2.5 py-0.5 rounded-md bg-primary/10 border border-primary/20 text-primary font-label-micro text-xs font-semibold">
-                {activeSyllabusCategory}
-              </span>
-            </div>
-
-            <DialogTitle className="font-headline-md text-2xl md:text-3xl text-ink-primary tracking-tight">
-              Official Syllabus &amp; Divided Capsules
-            </DialogTitle>
-            <DialogDescription className="font-body-md text-ink-secondary text-sm mt-1">
-              Hierarchical curriculum mapped from class &amp; subject to sequential chapters and divided 15-minute concept capsules.
-            </DialogDescription>
-
-            {/* Subject Selector Tabs */}
-            {syllabusSubjects.length > 1 && (
-              <div className="flex items-center gap-2 mt-4 pt-3 border-t border-border-subtle/60 overflow-x-auto no-scrollbar">
-                <span className="font-label-micro text-xs uppercase text-ink-muted shrink-0 mr-1">
-                  Subject:
-                </span>
-                {syllabusSubjects.map((sub) => {
-                  const isSelected = activeSyllabusCategory === sub
-                  return (
-                    <button
-                      key={sub}
-                      onClick={() => {
-                        setSelectedSyllabusCategory(sub)
-                        const firstCh = allAvailableCurriculums.find((c) => (c.category || 'General') === sub)
-                        if (firstCh) setSelectedSyllabusCurriculumId(firstCh.id)
-                      }}
-                      className={`px-3.5 py-1.5 rounded-xl font-label-micro text-xs font-medium transition-all shrink-0 cursor-pointer ${
-                        isSelected
-                          ? 'bg-ink-primary text-white shadow-xs'
-                          : 'border border-border-subtle bg-canvas hover:bg-surface-container-low text-ink-secondary'
-                      }`}
-                    >
-                      {sub}
-                    </button>
-                  )
-                })}
-              </div>
-            )}
-          </div>
-
-          {/* Modal Body: Scrollable */}
-          <div className="flex-1 overflow-y-auto p-6 md:p-7 space-y-6">
-            {/* Chapters Navigator */}
-            {currentSubjectChapters.length > 0 ? (
-              <div className="space-y-2.5">
-                <div className="flex items-center justify-between">
-                  <span className="font-label-micro text-xs uppercase tracking-wider text-ink-muted">
-                    Syllabus Chapters ({currentSubjectChapters.length})
-                  </span>
-                  <span className="font-label-micro text-xs text-ink-muted">
-                    Select chapter to view divided capsules
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {currentSubjectChapters.map((ch, idx) => {
-                    const isSelected = activeSyllabusChapter?.id === ch.id
-                    const chModules = modules.filter((m) => m.curriculum_id === ch.id)
-                    const chDone = chModules.filter((m) => isModuleComplete(m.id)).length
-                    const chPercent = chModules.length > 0 ? Math.round((chDone / chModules.length) * 100) : 0
-
-                    return (
-                      <button
-                        key={ch.id}
-                        onClick={() => setSelectedSyllabusCurriculumId(ch.id)}
-                        className={`p-3.5 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between ${
-                          isSelected
-                            ? 'border-primary bg-primary/5 ring-1 ring-primary shadow-xs'
-                            : 'border-border-subtle bg-canvas hover:bg-surface-container-low'
-                        }`}
-                      >
-                        <div className="space-y-1">
-                          <div className="flex items-center justify-between">
-                            <span className="font-label-micro text-xs text-primary font-bold">
-                              Chapter {ch.order_index ?? idx + 1}
-                            </span>
-                            <span className="font-label-micro text-[11px] text-ink-muted">
-                              {chModules.length} Capsules
-                            </span>
-                          </div>
-                          <p className="font-label-md text-sm font-semibold text-ink-primary line-clamp-1">
-                            {ch.title.replace(/^Class\s+\d+\s+[^:]+:\s*/i, '')}
-                          </p>
-                        </div>
-
-                        <div className="mt-2.5 pt-2 border-t border-border-subtle/50 flex items-center justify-between">
-                          <span className="font-label-micro text-[11px] text-ink-muted">
-                            {chPercent}% Complete
-                          </span>
-                          <span className={`w-2 h-2 rounded-full ${chPercent === 100 ? 'bg-secondary' : chPercent > 0 ? 'bg-primary' : 'bg-surface-container-high'}`} />
-                        </div>
-                      </button>
-                    )
-                  })}
-                </div>
-              </div>
-            ) : (
-              <div className="p-6 text-center rounded-2xl bg-canvas border border-border-subtle">
-                <p className="font-body-md text-sm text-ink-secondary">
-                  No chapters available for this subject yet.
-                </p>
-              </div>
-            )}
-
-            {/* Active Chapter Written Syllabus Summary Card */}
-            {activeSyllabusChapter && (
-              <div className="p-5 md:p-6 rounded-2xl bg-canvas border border-border-subtle space-y-3">
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <div>
-                    <span className="font-label-micro text-xs text-primary uppercase tracking-wider font-semibold">
-                      Chapter {activeSyllabusChapter.order_index ?? 1} Syllabus
-                    </span>
-                    <h3 className="font-headline-md text-xl font-bold text-ink-primary mt-0.5">
-                      {activeSyllabusChapter.title}
-                    </h3>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="px-3 py-1 rounded-lg bg-surface border border-border-subtle text-ink-primary font-label-micro text-xs">
-                      {activeChapterCapsules.length} Capsules
-                    </span>
-                    <span className="px-3 py-1 rounded-lg bg-surface border border-border-subtle text-ink-primary font-label-micro text-xs">
-                      {activeSyllabusChapter.estimated_duration_minutes || activeChapterCapsules.length * 15} mins
-                    </span>
-                    <span className="px-3 py-1 rounded-lg bg-surface border border-border-subtle text-secondary font-label-micro text-xs font-semibold capitalize">
-                      {activeSyllabusChapter.difficulty_level || 'Intermediate'}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="pt-2 border-t border-border-subtle/60">
-                  <span className="font-label-micro text-xs text-ink-muted uppercase block mb-1">
-                    Written Syllabus Scope
-                  </span>
-                  <p className="font-body-md text-sm text-ink-primary leading-relaxed">
-                    {activeSyllabusChapter.description || 'Comprehensive conceptual and practical study module calibrated to curriculum specifications.'}
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {/* Divided Capsules List */}
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h4 className="font-headline-sm text-lg text-ink-primary">
-                    Divided Capsules ({activeChapterCapsules.length})
-                  </h4>
-                  <p className="font-body-md text-xs text-ink-secondary">
-                    Sequential 15-minute deliberate learning units with subtopics and key formulas.
-                  </p>
-                </div>
-              </div>
-
-              {activeChapterCapsules.length > 0 ? (
-                <div className="space-y-3.5">
-                  {activeChapterCapsules.map((mod, modIdx) => {
-                    const prog = progressMap.get(mod.id)
-                    const isDone = isModuleComplete(mod.id)
-                    const isInProg = isModuleInProgress(mod.id)
-                    const status = isDone ? 'completed' : isInProg ? 'in_progress' : (prog?.status || 'not_started')
-
-                    // Safely extract subtopics array
-                    const rawSubtopics = mod.subtopics
-                    let subtopicsList: Array<{ title: string; formula?: string }> = []
-                    if (Array.isArray(rawSubtopics)) {
-                      subtopicsList = rawSubtopics.map((item: any) => {
-                        if (typeof item === 'string') {
-                          return { title: item }
-                        } else if (item && typeof item === 'object') {
-                          return {
-                            title: item.title || item.name || String(item),
-                            formula: item.key_formula || item.formula || undefined,
-                          }
-                        }
-                        return { title: String(item) }
-                      })
-                    } else if (typeof rawSubtopics === 'string') {
-                      try {
-                        const parsed = JSON.parse(rawSubtopics)
-                        if (Array.isArray(parsed)) {
-                          subtopicsList = parsed.map((item: any) =>
-                            typeof item === 'string' ? { title: item } : { title: item.title || String(item), formula: item.key_formula }
-                          )
-                        }
-                      } catch {
-                        subtopicsList = [{ title: rawSubtopics }]
-                      }
-                    }
-
-                    return (
-                      <div
-                        key={mod.id}
-                        className={`p-5 rounded-2xl border transition-all ${
-                          isInProg
-                            ? 'bg-surface border-primary/40 ring-1 ring-primary/20 shadow-xs'
-                            : isDone
-                            ? 'bg-surface/90 border-border-subtle'
-                            : 'bg-surface border-border-subtle hover:border-ink-muted'
-                        }`}
-                      >
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-3 border-b border-border-subtle/50">
-                          <div className="flex items-center gap-2.5">
-                            <span className="px-2.5 py-1 rounded-lg bg-surface-container-low border border-border-subtle font-label-micro text-xs font-bold text-ink-primary">
-                              Capsule {mod.order_index ?? modIdx + 1}
-                            </span>
-                            <span className="flex items-center gap-1 font-label-micro text-xs text-ink-muted">
-                              <span className="material-symbols-outlined text-sm">timer</span>
-                              <span>{mod.estimated_minutes || 15} mins</span>
-                            </span>
-                          </div>
-
-                          <div className="flex items-center gap-2">
-                            {isDone ? (
-                              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary text-xs font-semibold">
-                                <span className="material-symbols-outlined text-xs">check_circle</span>
-                                <span>Completed</span>
-                              </span>
-                            ) : isInProg ? (
-                              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-semibold">
-                                <span className="material-symbols-outlined text-xs">play_circle</span>
-                                <span>In Progress</span>
-                              </span>
-                            ) : (
-                              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-low text-ink-muted text-xs font-medium">
-                                <span className="material-symbols-outlined text-xs">radio_button_unchecked</span>
-                                <span>Ready to Start</span>
-                              </span>
-                            )}
-                          </div>
-                        </div>
-
-                        {/* Title & Description */}
-                        <div className="mt-3 space-y-1.5">
-                          <h5 className="font-headline-sm text-base md:text-lg font-semibold text-ink-primary">
-                            {mod.title}
-                          </h5>
-                          {mod.description && (
-                            <p className="font-body-md text-xs md:text-sm text-ink-secondary">
-                              {mod.description}
-                            </p>
-                          )}
-                        </div>
-
-                        {/* Subtopics breakdown */}
-                        {subtopicsList.length > 0 && (
-                          <div className="mt-3.5 pt-3 border-t border-border-subtle/40 space-y-2">
-                            <span className="font-label-micro text-[11px] uppercase tracking-wider text-ink-muted block">
-                              Capsule Subtopics &amp; Problem Areas:
-                            </span>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                              {subtopicsList.map((sub, sIdx) => (
-                                <div
-                                  key={sIdx}
-                                  className="flex items-start gap-2 p-2 rounded-xl bg-canvas border border-border-subtle/60 text-xs"
-                                >
-                                  <span className="material-symbols-outlined text-sm text-secondary shrink-0 mt-0.5">
-                                    arrow_right
-                                  </span>
-                                  <div className="min-w-0 flex-1">
-                                    <span className="font-body-md text-ink-primary font-medium">
-                                      {sub.title}
-                                    </span>
-                                    {sub.formula && (
-                                      <span className="block font-mono text-[11px] text-primary font-semibold mt-0.5">
-                                        Formula: {sub.formula}
-                                      </span>
-                                    )}
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Key Concepts */}
-                        {mod.key_concepts && mod.key_concepts.length > 0 && (
-                          <div className="mt-3 flex flex-wrap items-center gap-1.5">
-                            <span className="font-label-micro text-[11px] text-ink-muted mr-1">
-                              Key Concepts:
-                            </span>
-                            {mod.key_concepts.map((concept, cIdx) => (
-                              <span
-                                key={cIdx}
-                                className="px-2 py-0.5 rounded-md bg-surface-container-low border border-border-subtle text-[11px] font-label-micro text-ink-primary"
-                              >
-                                {concept}
-                              </span>
-                            ))}
-                          </div>
-                        )}
-
-                        {/* Launch Action */}
-                        <div className="mt-4 pt-3 border-t border-border-subtle/50 flex items-center justify-between">
-                          {isDone ? (
-                            <Link
-                              href={`/dashboard/${user.id}/profile`}
-                              onClick={() => setSyllabusModalOpen(false)}
-                              className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-medium cursor-pointer"
-                            >
-                              <span className="material-symbols-outlined text-sm">edit_note</span>
-                              <span>View Saved Notes</span>
-                            </Link>
-                          ) : (
-                            <span />
-                          )}
-                          <Link
-                            href={`/dashboard/${user.id}/class/${mod.id}`}
-                            onClick={(e) => {
-                              handleModuleClick(e, mod.id)
-                              setSyllabusModalOpen(false)
-                            }}
-                            className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl font-label-md text-xs font-semibold transition-all ${
-                              isInProg
-                                ? 'bg-primary hover:bg-accent-hover text-white font-semibold shadow-xs'
-                                : isDone
-                                ? 'border border-border-subtle hover:bg-canvas text-ink-primary'
-                                : 'bg-primary hover:bg-accent-hover text-white font-semibold shadow-xs'
-                            }`}
-                          >
-                            <span className="material-symbols-outlined text-sm">
-                              {isDone ? 'replay' : 'play_arrow'}
-                            </span>
-                            <span>
-                              {isInProg ? 'Resume Capsule' : isDone ? 'Review in Spoken Class' : 'Start Capsule (15m)'}
-                            </span>
-                          </Link>
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-              ) : (
-                <div className="p-6 text-center rounded-2xl bg-canvas border border-border-subtle">
-                  <p className="font-body-md text-sm text-ink-secondary">
-                    No divided capsules found for this chapter.
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Modal Footer */}
-          <div className="p-4 md:p-5 border-t border-border-subtle bg-surface flex items-center justify-between">
-            <span className="font-label-micro text-xs text-ink-muted hidden sm:inline-block">
-              {activeSyllabusChapter?.board || 'CBSE'} • {activeSyllabusChapter?.class_level || profile.class_level || 'Class 9'} • {activeSyllabusCategory}
-            </span>
-            <button
-              onClick={() => setSyllabusModalOpen(false)}
-              className="px-5 py-2 rounded-xl border border-border-subtle text-ink-primary font-label-md text-sm hover:bg-canvas cursor-pointer ml-auto"
-            >
-              Close Syllabus
-            </button>
-          </div>
-        </DialogContent>
-      </Dialog>
 
       {/* ========================================================================= */}
       {/* 7. MOBILE DRAWER                                                          */}
@@ -2229,55 +2155,13 @@ export function StitchDashboardView({
             }))}
           />
           <Link
-            href={`/dashboard/${user.id}/profile`}
+            href={`/dashboard/${user.id}/settings`}
             onClick={() => setMobileMenuOpen(false)}
-            className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-ink-secondary transition-colors hover:bg-canvas-soft hover:text-ink-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm"
-          >
-            <span aria-hidden="true" className="material-symbols-outlined text-xl">school</span>
-            <span>Profile &amp; Master Notes</span>
-          </Link>
-          <Link
-            href={`/dashboard/${user.id}/settings?tab=avatars`}
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-ink-secondary transition-colors hover:bg-canvas-soft hover:text-ink-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm"
+            className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-ink-secondary transition-colors hover:bg-canvas-soft hover:text-ink-primary"
           >
             <span aria-hidden="true" className="material-symbols-outlined text-xl">settings</span>
-            <span>Settings &amp; avatars</span>
+            <span>Settings</span>
           </Link>
-          <Link
-            href="/pricing"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-emerald-800 transition-colors hover:bg-emerald-50 hover:text-emerald-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm"
-          >
-            <span aria-hidden="true" className="material-symbols-outlined text-xl text-emerald-700">credit_card</span>
-            <span>Plans &amp; Pricing</span>
-          </Link>
-        </div>
-
-        <div className="border-t border-border-subtle pt-4">
-          <div className="flex items-center gap-3 p-2 bg-surface rounded-xl border border-border-subtle">
-            <div className="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden flex items-center justify-center">
-              {studentAvatar ? (
-                <img
-                  className="w-full h-full object-cover"
-                  alt={studentName}
-                  src={studentAvatar}
-                />
-              ) : (
-                <span className="font-semibold text-ink-primary text-xs font-label-md">
-                  {studentName.charAt(0).toUpperCase()}
-                </span>
-              )}
-            </div>
-            <div>
-              <p className="font-label-md text-label-md text-ink-primary font-medium">
-                {studentName}
-              </p>
-              <p className="font-label-micro text-label-micro text-ink-muted">
-                {studentTrack}
-              </p>
-            </div>
-          </div>
         </div>
       </aside>
 

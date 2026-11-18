@@ -267,15 +267,15 @@ export function StudentProfileView({
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <Link
-              href={`/dashboard/${user.id}`}
+              href={`/dashboard/${user.id}/settings`}
               className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[#E7E9E3] bg-white text-[#555852] transition hover:bg-[#F2F4F0] hover:text-[#1E231B]"
-              aria-label="Back to Dashboard"
+              aria-label="Back to settings"
             >
               <ArrowLeft className="h-4 w-4" />
             </Link>
             <div>
               <h1 className="font-serif text-lg font-semibold tracking-tight text-[#1E231B]">
-                Student Profile &amp; Master Notes
+                Profile &amp; notes
               </h1>
               <p className="text-xs text-[#6B7066]">
                 Academic dossier &amp; Chalkboard Notes Single Source of Truth

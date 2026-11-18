@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import {
   User, Sparkles, Check, RotateCcw, LogOut, ArrowLeft, Shield, Video, VideoOff, CheckCircle2, AlertCircle,
   Target, CreditCard, Volume2, GraduationCap, Bell, Palette, Keyboard, Search, Mail, Loader2, KeyRound,
-  Eye, EyeOff, Users, MonitorSmartphone, CalendarClock, ExternalLink, Lock, Download, Trash2, AlertTriangle,
+  Eye, EyeOff, NotebookPen, Users, MonitorSmartphone, CalendarClock, ExternalLink, Lock, Download, Trash2, AlertTriangle,
 } from 'lucide-react'
 import {
   updateAccountAction,
@@ -549,6 +549,16 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
                       </button>
                     )
                   })}
+                {g === 'You' && (
+                  <Link
+                    href={`/dashboard/${user.id}/profile`}
+                    className="flex w-full shrink-0 items-center gap-3 whitespace-nowrap rounded-xl px-3 py-2 text-left text-sm font-medium text-ink-secondary transition-all hover:bg-canvas-soft hover:text-ink-primary"
+                  >
+                    <NotebookPen className="h-4 w-4 text-ink-muted" />
+                    <span className="flex-1">Profile &amp; notes</span>
+                    <ExternalLink className="hidden h-3.5 w-3.5 text-ink-hairline md:block" />
+                  </Link>
+                )}
               </div>
             ))}
             {filteredTabs.length === 0 && <p className="px-3 py-2 text-xs text-ink-muted">No settings match “{query}”.</p>}
