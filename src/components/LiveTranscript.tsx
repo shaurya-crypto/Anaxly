@@ -45,7 +45,7 @@ export const LiveTranscript: React.FC<LiveTranscriptProps> = ({ transcripts }) =
   return (
     <div className="w-full h-full flex flex-col bg-white rounded-3xl shadow-sm border border-border overflow-hidden">
       <div className="p-4 border-b border-border bg-canvas/50">
-        <h3 className="text-sm font-semibold text-ink-primary uppercase tracking-wider">Live Transcript</h3>
+        <h3 className="text-sm font-semibold text-ink-primary">Live Transcript</h3>
       </div>
       
       <div 
@@ -62,7 +62,7 @@ export const LiveTranscript: React.FC<LiveTranscriptProps> = ({ transcripts }) =
               }`}
             >
               <span
-                className={`text-[10px] font-semibold uppercase tracking-wider mb-1 ${
+                className={`text-xs font-semibold mb-1 ${
                   isTeacher ? "text-accent-warm" : "text-botanical text-right"
                 }`}
               >

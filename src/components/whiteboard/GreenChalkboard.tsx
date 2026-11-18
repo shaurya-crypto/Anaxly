@@ -5432,7 +5432,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               onModuleComplete?.(payload)
             }
           } else if (tagType === 'MODULE_DONE' || tagType === 'LESSON_COMPLETE') {
-            // Invariant: Do NOT write "Capsule Completed Successfully" on the board
+            // Invariant: Do NOT write "Lesson complete" on the board
             onModuleComplete?.(payload || 'Lesson finished')
           } else if (tagType === 'CONCEPT_FOCUS' || tagType === 'FOCUS') {
             const cleanPayload = (payload || '')

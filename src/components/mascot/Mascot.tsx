@@ -63,7 +63,7 @@ const TOURS: TourDef[] = [
       { selector: '#primary-resume-btn, #browse-curriculums-btn', message: 'Welcome aboard! This is where you start or resume your live class with your AI tutor.', animation: 'excited', expression: 'joyful-wide' },
       { selector: '#top-open-syllabus-btn, #hero-open-syllabus-btn', message: 'Open your syllabus to pick any chapter from your class.', animation: 'listening' },
       { selector: '#consistency-section', message: 'Your study rhythm lives here. Study a little each day to keep your streak going.', animation: 'happy' },
-      { selector: '#open-quiz-btn', message: 'Test yourself with a quick mastery quiz after each lesson.', animation: 'curious', expression: 'curious-left' },
+      { selector: '#open-quiz-btn', message: 'Test yourself with a short quiz after each lesson.', animation: 'curious', expression: 'curious-left' },
       { selector: '#enrolled-subjects-section', message: 'All your subjects are listed here. Tap one to jump in.', animation: 'listening' },
       { selector: '#deliberate-practice-section', message: "Practice your weak spots here. That's it, you're ready to learn!", animation: 'celebrate', expression: 'joyful-wide' },
     ],
@@ -79,7 +79,7 @@ export function startCompanionTour() {
 const DEFAULT_TIPS = [
   "Hi! I'm your AI learning companion. Click me anytime for study tips!",
   "Tip: You can start a live voice class any time.",
-  "Keep your streak alive by reviewing one syllabus topic capsule today!",
+  "Keep your streak going: finish one lesson today!",
   "Stuck on a problem? Your tutor can explain with questions, directly, or with visuals.",
 ]
 
@@ -391,7 +391,7 @@ export function Mascot() {
       const clampY = (y: number) => Math.min(vh - boxH - m, Math.max(m, y))
       const hits = (r: { left: number; right: number; top: number; bottom: number }, x: number, y: number) =>
         !(x >= r.right || x + boxW <= r.left || y >= r.bottom || y + boxH <= r.top)
-      // Other controls the bubble must not cover (e.g. "Open syllabus" next to "Resume capsule")
+      // Other controls the bubble must not cover (e.g. "Open syllabus" next to "Resume lesson")
       const controls = Array.from(
         document.querySelectorAll<HTMLElement>('a[href], button, input, select, textarea, [role="button"]')
       )
@@ -577,7 +577,7 @@ export function Mascot() {
             ) : (
               <Sparkles className="w-4 h-4 text-[var(--accent-warm)] shrink-0 mt-0.5" />
             )}
-            <p className="leading-relaxed font-medium text-[11px] sm:text-xs text-[#171817]">
+            <p className="leading-relaxed font-medium text-xs sm:text-xs text-[#171817]">
               {currentMessage}
             </p>
           </div>
@@ -585,7 +585,7 @@ export function Mascot() {
           {/* Action pills for forgot password / assistance */}
           {currentMood === 'warning' && (
             <div className="mt-2.5 pt-2 border-t border-sky-200 flex justify-end">
-              <span className="text-[10px] text-sky-800 font-bold flex items-center gap-1">
+              <span className="text-xs text-sky-800 font-bold flex items-center gap-1">
                 <Key className="w-3 h-3" /> Tap 'Forgot Password' above
               </span>
             </div>
@@ -594,27 +594,27 @@ export function Mascot() {
           {/* Guided tour controls */}
           {tour ? (
             <div className="mt-3 pt-2.5 border-t border-[var(--border-subtle)] flex items-center justify-between gap-2">
-              <span className="text-[10px] font-semibold text-[#7A7C75] tabular-nums">
+              <span className="text-xs font-semibold text-[#7A7C75] tabular-nums">
                 Step {tour.index + 1} of {tour.steps.length}
               </span>
               <div className="flex items-center gap-1.5">
                 <button
                   onClick={() => endTour(true)}
-                  className="text-[10px] font-medium text-[#7A7C75] hover:text-[#171817] px-2 py-1 rounded-full cursor-pointer"
+                  className="text-xs font-medium text-[#7A7C75] hover:text-[#171817] px-2 py-1 rounded-full cursor-pointer"
                 >
                   Skip
                 </button>
                 {tour.index > 0 && (
                   <button
                     onClick={tourBack}
-                    className="text-[10px] font-semibold text-[#171817] border border-[var(--border-subtle)] px-2.5 py-1 rounded-full hover:bg-black/5 cursor-pointer"
+                    className="text-xs font-semibold text-[#171817] border border-[var(--border-subtle)] px-2.5 py-1 rounded-full hover:bg-black/5 cursor-pointer"
                   >
                     Back
                   </button>
                 )}
                 <button
                   onClick={tourNext}
-                  className="text-[10px] font-semibold text-white bg-[#171817] px-3 py-1 rounded-full hover:opacity-90 flex items-center gap-1 cursor-pointer"
+                  className="text-xs font-semibold text-white bg-[#171817] px-3 py-1 rounded-full hover:opacity-90 flex items-center gap-1 cursor-pointer"
                 >
                   {tour.index >= tour.steps.length - 1 ? 'Got it' : 'Next'}
                   <ArrowRight className="w-3 h-3" />
@@ -625,7 +625,7 @@ export function Mascot() {
             <div className="mt-2.5 pt-2 border-t border-[var(--border-subtle)] flex justify-end">
               <button
                 onClick={() => startTour(pageTour)}
-                className="text-[10px] font-semibold text-[#171817] flex items-center gap-1 hover:underline cursor-pointer"
+                className="text-xs font-semibold text-[#171817] flex items-center gap-1 hover:underline cursor-pointer"
               >
                 <HelpCircle className="w-3 h-3" /> Show me around
               </button>
@@ -683,7 +683,7 @@ export function Mascot() {
 
         {/* Sleeping Status Badge */}
         {isSleeping && (
-          <span className="absolute top-1 right-2 bg-white/90 border border-[var(--border-subtle)] text-[10px] font-bold px-1.5 py-0.5 rounded-full text-[#7A7C75] shadow-xs animate-bounce">
+          <span className="absolute top-1 right-2 bg-white/90 border border-[var(--border-subtle)] text-xs font-bold px-1.5 py-0.5 rounded-full text-[#7A7C75] shadow-xs animate-bounce">
             zZz
           </span>
         )}

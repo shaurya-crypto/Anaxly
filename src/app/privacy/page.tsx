@@ -192,7 +192,7 @@ export default function PrivacyPolicyPage() {
                   shauryaprabhakar097@gmail.com
                 </a>
               </p>
-              <p className="text-[11px] text-[#78716C]">
+              <p className="text-xs text-[#78716C]">
                 All data deletion requests are verified and executed within 7 business days.
               </p>
             </div>
@@ -221,7 +221,7 @@ export default function PrivacyPolicyPage() {
               <Mail className="w-5 h-5 text-[#1B3B2B]" />
               <div>
                 <p className="font-semibold text-xs text-[#1B3B2B]">Shaurya Prabhakar</p>
-                <p className="text-[11px] text-[#78716C]">Data Protection &amp; Grievance Lead</p>
+                <p className="text-xs text-[#78716C]">Data Protection &amp; Grievance Lead</p>
                 <a
                   href="mailto:shauryaprabhakar097@gmail.com"
                   className="font-mono text-xs text-[#255D88] hover:underline"

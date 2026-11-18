@@ -420,7 +420,7 @@ export function StudentProfileView({
             {/* Progress Hero Banner */}
             <div className="flex flex-col gap-6 rounded-3xl border border-[#E7E9E3] bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:p-8">
               <div className="space-y-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#EAF0E8] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#183B28]">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#EAF0E8] px-3 py-1 text-xs font-semibold text-[#183B28]">
                   <Sparkles className="h-3 w-3" />
                   Syllabus Mastery Cadence
                 </span>
@@ -440,7 +440,7 @@ export function StudentProfileView({
                   <div className="font-serif text-3xl font-bold text-[#183B28]">
                     {totalChaptersCount > 0 ? Math.round((completedChaptersCount / totalChaptersCount) * 100) : 0}%
                   </div>
-                  <div className="text-xs uppercase tracking-wider text-[#6B7066]">Curriculum Complete</div>
+                  <div className="text-xs text-[#6B7066]">Curriculum Complete</div>
                 </div>
                 <div className="h-2 w-32 overflow-hidden rounded-full bg-[#E7E9E3]">
                   <div
@@ -569,7 +569,7 @@ export function StudentProfileView({
                             {chap.title}
                           </h5>
                           <p className="mt-1 text-xs text-[#6B7066]">
-                            Current: {chap.activeModuleTitle || 'Active capsule'}
+                            Current: {chap.activeModuleTitle || 'Current lesson'}
                           </p>
                         </div>
                         {/* Progress bar */}
@@ -663,17 +663,17 @@ export function StudentProfileView({
                               {note.chapterTitle} &bull; Capsule {note.moduleOrder}
                             </span>
                             {note.hasDiagrams && (
-                              <span className="rounded-md bg-[#F4F8F3] px-2 py-0.5 text-[11px] font-medium text-[#2E5E43]">
+                              <span className="rounded-md bg-[#F4F8F3] px-2 py-0.5 text-xs font-medium text-[#2E5E43]">
                                 📐 Diagrams Included
                               </span>
                             )}
                             {note.hasFormulas && (
-                              <span className="rounded-md bg-[#FFF8EE] px-2 py-0.5 text-[11px] font-medium text-[#B8771A]">
+                              <span className="rounded-md bg-[#FFF8EE] px-2 py-0.5 text-xs font-medium text-[#B8771A]">
                                 ∑ Formulas Included
                               </span>
                             )}
                             {note.hasRoughWork && (
-                              <span className="rounded-md bg-[#F2F4F0] px-2 py-0.5 text-[11px] font-medium text-[#555852]">
+                              <span className="rounded-md bg-[#F2F4F0] px-2 py-0.5 text-xs font-medium text-[#555852]">
                                 📝 Rough Work Margin
                               </span>
                             )}
@@ -729,15 +729,15 @@ export function StudentProfileView({
 
                       {/* Chalkboard Slate Notes Preview */}
                       <div className="mt-4 overflow-hidden rounded-2xl border border-[#1A3324] bg-[#0E2016] p-4 text-[#D8EADB] shadow-inner font-mono text-xs sm:p-5">
-                        <div className="mb-2 flex items-center justify-between border-b border-[#1E3B2A] pb-2 text-[11px] text-[#86A88E]">
-                          <span className="flex items-center gap-1.5 font-sans uppercase tracking-wider">
+                        <div className="mb-2 flex items-center justify-between border-b border-[#1E3B2A] pb-2 text-xs text-[#86A88E]">
+                          <span className="flex items-center gap-1.5 font-sans">
                             <span className="h-2 w-2 rounded-full bg-[#48B36E]" />
                             Live Chalkboard Inscription
                           </span>
                           <button
                             type="button"
                             onClick={() => setExpandedNoteId(isExpanded ? null : note.moduleId)}
-                            className="text-[11px] text-[#A7C8AF] underline hover:text-white"
+                            className="text-xs text-[#A7C8AF] underline hover:text-white"
                           >
                             {isExpanded ? 'Collapse' : 'Expand full board notes'}
                           </button>

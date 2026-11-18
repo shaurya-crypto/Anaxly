@@ -97,7 +97,7 @@ export function DailyActivityChart({ records, days = 14 }: DailyActivityChartPro
       </div>
 
       {total === 0 && (
-        <p className="text-sm text-ink-secondary">No lessons completed yet. Finish a capsule to start your chart.</p>
+        <p className="text-sm text-ink-secondary">No lessons finished yet. Finish one to start your chart.</p>
       )}
     </div>
   )

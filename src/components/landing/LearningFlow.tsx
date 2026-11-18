@@ -41,7 +41,7 @@ function StepRow({ step, isLast }: { step: Step; isLast: boolean }) {
 
       {/* Content */}
       <div className="flex-1 pb-4">
-        <span className="font-mono text-[11px] uppercase tracking-wider text-botanical-primary">
+        <span className="font-mono text-xs uppercase tracking-wider text-botanical-primary">
           {step.tag}
         </span>
         <h3 className="mt-1 font-serif text-xl sm:text-2xl text-ink-primary">{step.title}</h3>
@@ -152,7 +152,7 @@ export function LearningFlow() {
                 <p className="text-xs leading-relaxed text-ink-secondary">
                   &ldquo;A student who understands the derivation never needs to memorize the formula.&rdquo;
                 </p>
-                <div className="mt-1 flex items-center gap-2 font-mono text-[10px] text-ink-muted">
+                <div className="mt-1 flex items-center gap-2 font-mono text-xs text-ink-muted">
                   <span>Plato&apos;s Academy Method</span>
                   <span>&bull;</span>
                   <span className="font-sans italic text-ink-muted">Classical Foundation of Rigor</span>
@@ -168,7 +168,7 @@ export function LearningFlow() {
                 ].map(({ Icon, label }, i) => (
                   <div key={label} className="flex flex-col items-center text-center">
                     <Icon className="h-16 w-16 sm:h-20 sm:w-20 text-ink-primary/65" />
-                    <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-muted">
+                    <p className="mt-2 font-mono text-xs uppercase tracking-[0.18em] text-ink-muted">
                       <span className="text-coral-primary">0{i + 1}</span> {label}
                     </p>
                   </div>

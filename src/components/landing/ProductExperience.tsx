@@ -101,7 +101,7 @@ export function ProductExperience() {
               <p className="font-serif italic text-base text-ink-primary">
                 &ldquo;True learning begins when a student is prompted to articulate why, not merely recite what.&rdquo;
               </p>
-              <p className="mt-1.5 font-mono text-[11px] text-ink-muted uppercase tracking-wider">
+              <p className="mt-1.5 font-mono text-xs text-ink-muted uppercase tracking-wider">
                 The Socratic Principle of Education
               </p>
             </Reveal>
@@ -134,7 +134,7 @@ export function ProductExperience() {
             <Reveal className="relative flex items-center gap-6 rounded-2xl border border-border-subtle bg-white/40 px-6 py-5">
               <QuillNotes className="h-24 w-24 sm:h-28 sm:w-28 shrink-0 text-ink-primary/70" />
               <div className="min-w-0">
-                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted">Your Master Notes</p>
+                <p className="font-mono text-xs uppercase tracking-[0.18em] text-ink-muted">Your Master Notes</p>
                 <p className="mt-1.5 font-serif text-lg leading-snug text-ink-primary">
                   Every derivation written on the board is kept, page by page.
                 </p>
@@ -160,7 +160,7 @@ export function ProductExperience() {
                   <div className="min-w-0">
                     <div className="flex items-start justify-between gap-5">
                       <div className="min-w-0">
-                        <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted">
+                        <span className="font-mono text-xs uppercase tracking-[0.18em] text-ink-muted">
                           Principle {num}
                         </span>
                         <h3 className="mt-1 font-serif text-xl sm:text-2xl leading-snug text-ink-primary">{title}</h3>

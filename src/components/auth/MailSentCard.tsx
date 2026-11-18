@@ -127,7 +127,7 @@ export const MailSentCard: React.FC<MailSentCardProps> = ({
             <div className="flex justify-center mb-3">
               <Badge
                 variant="outline"
-                className="bg-[#F4F7F5] text-[var(--accent-sage-hover)] border-[var(--accent-sage-border)] font-mono text-[10px] tracking-wide uppercase px-2.5 py-0.5 rounded-full flex items-center gap-1.5"
+                className="bg-[#F4F7F5] text-[var(--accent-sage-hover)] border-[var(--accent-sage-border)] font-mono text-xs tracking-wide px-2.5 py-0.5 rounded-full flex items-center gap-1.5"
               >
                 <ShieldCheck className="w-3 h-3 text-[var(--accent-sage)]" />
                 <span>Brevo Certified Dispatch</span>
@@ -171,7 +171,7 @@ export const MailSentCard: React.FC<MailSentCardProps> = ({
             {/* Step-by-Step Educational Verification Guidelines */}
             <div className="bg-[#FAF9F5] border border-stone-200/80 rounded-2xl p-4 text-xs text-[#555852] space-y-2.5">
               <div className="flex items-start gap-2.5">
-                <span className="w-5 h-5 rounded-full bg-stone-200/80 text-[#171817] font-mono text-[10px] flex items-center justify-center shrink-0 mt-0.5">
+                <span className="w-5 h-5 rounded-full bg-stone-200/80 text-[#171817] font-mono text-xs flex items-center justify-center shrink-0 mt-0.5">
                   1
                 </span>
                 <span className="leading-snug">
@@ -179,7 +179,7 @@ export const MailSentCard: React.FC<MailSentCardProps> = ({
                 </span>
               </div>
               <div className="flex items-start gap-2.5">
-                <span className="w-5 h-5 rounded-full bg-stone-200/80 text-[#171817] font-mono text-[10px] flex items-center justify-center shrink-0 mt-0.5">
+                <span className="w-5 h-5 rounded-full bg-stone-200/80 text-[#171817] font-mono text-xs flex items-center justify-center shrink-0 mt-0.5">
                   2
                 </span>
                 <span className="leading-snug">
@@ -187,7 +187,7 @@ export const MailSentCard: React.FC<MailSentCardProps> = ({
                 </span>
               </div>
               <div className="flex items-start gap-2.5">
-                <span className="w-5 h-5 rounded-full bg-stone-200/80 text-[#171817] font-mono text-[10px] flex items-center justify-center shrink-0 mt-0.5">
+                <span className="w-5 h-5 rounded-full bg-stone-200/80 text-[#171817] font-mono text-xs flex items-center justify-center shrink-0 mt-0.5">
                   3
                 </span>
                 <span className="leading-snug text-stone-500">
