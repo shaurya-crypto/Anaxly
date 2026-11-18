@@ -647,7 +647,7 @@ export default function PricingPage() {
         
         {/* Header Hero Section */}
         <section className="text-center max-w-4xl mx-auto space-y-4">
-          <h1 className="font-sans text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[var(--ink-primary)] leading-[1.14]">
+          <h1 className="font-sans text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[var(--ink-primary)] leading-[1.14] sm:leading-[1.12] lg:leading-[1.1]">
             World-Class <span className="text-[var(--accent-warm)]">1-on-1 Socratic Tutoring</span>, starting at{' '}
             <span className="underline decoration-[var(--accent-warm-border)] decoration-4 underline-offset-8 text-[var(--ink-primary)] font-black">₹399/mo</span> — at{' '}
             <span className="text-[var(--accent-warm)] underline decoration-[var(--accent-warm-border)] decoration-4 underline-offset-6">1/4th the Cost</span> of Private Tuitions.
@@ -688,7 +688,7 @@ export default function PricingPage() {
                 }`}
               >
                 <span>Annual Billing</span>
-                <span className="rounded-full bg-[var(--accent-warm-soft)] text-[var(--accent-warm-hover)] text-[10px] font-black px-2 py-0.5 uppercase tracking-wide">
+                <span className="rounded-full bg-[var(--accent-warm-soft)] text-[var(--accent-warm-hover)] text-xs font-black px-2 py-0.5 uppercase tracking-wide">
                   Save 20-25%
                 </span>
               </button>
@@ -750,7 +750,7 @@ export default function PricingPage() {
 
                 {/* 5 Highlights List */}
                 <div className="flex-1 py-5 space-y-3">
-                  <div className="text-[11px] font-black uppercase tracking-wider text-[var(--ink-muted)]">
+                  <div className="text-xs font-black uppercase tracking-wider text-[var(--ink-muted)]">
                     {plan.featuresHeader}
                   </div>
 
@@ -1009,7 +1009,7 @@ export default function PricingPage() {
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-[var(--ink-muted)]">Razorpay Order ID:</span>
-                <span className="font-mono text-[11px] text-[var(--ink-secondary)] bg-white px-2 py-0.5 rounded border border-[var(--border-subtle)]">
+                <span className="font-mono text-xs text-[var(--ink-secondary)] bg-white px-2 py-0.5 rounded border border-[var(--border-subtle)]">
                   {testModalOrder.orderId}
                 </span>
               </div>
