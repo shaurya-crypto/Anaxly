@@ -506,3 +506,50 @@ export async function updateAvatarPreferenceAction(payload: {
   revalidatePath(`/dashboard/${user.id}/settings`)
   return { success: true }
 }
+
+/** Signs the user out of every device/browser by revoking all refresh tokens. */
+export async function signOutEverywhereAction() {
+  const supabase = await createClient()
+  await supabase.auth.signOut({ scope: 'global' })
+  revalidatePath('/', 'layout')
+  redirect('/login')
+}
+
+/** Ends the current session and sends the user to login to pick another account. */
+export async function switchAccountAction() {
+  const supabase = await createClient()
+  await supabase.auth.signOut({ scope: 'local' })
+  revalidatePath('/', 'layout')
+  redirect('/login?switch=1')
+}
+
+/** Returns a JSON-serialisable snapshot of the signed-in student's own data. */
+export async function exportMyDataAction() {
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (!user) {
+    return { error: 'Unauthorized' }
+  }
+
+  const [profile, progress, plans, enrollments] = await Promise.all([
+    supabase.from('profiles').select('*').eq('id', user.id).maybeSingle(),
+    supabase.from('user_progress').select('*').eq('user_id', user.id),
+    supabase.from('student_study_plans').select('*').eq('user_id', user.id),
+    supabase.from('enrollments').select('*').eq('user_id', user.id),
+  ])
+
+  return {
+    success: true,
+    data: {
+      exported_at: new Date().toISOString(),
+      account: { id: user.id, email: user.email, created_at: user.created_at },
+      profile: profile.data ?? null,
+      progress: progress.data ?? [],
+      study_plans: plans.data ?? [],
+      enrollments: enrollments.data ?? [],
+    },
+  }
+}

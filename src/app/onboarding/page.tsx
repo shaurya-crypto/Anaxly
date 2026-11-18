@@ -775,7 +775,7 @@ export default function OnboardingPage() {
                   </>
                 ) : (
                   <>
-                    <span>Enter Socratic Classroom</span>
+                    <span>Go to my classroom</span>
                     <ArrowRight className="w-4 h-4" />
                   </>
                 )}

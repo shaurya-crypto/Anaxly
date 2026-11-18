@@ -177,7 +177,7 @@ export function MasteryQuizModal({
                 onClick={() => fetchQuiz(true)}
                 disabled={refreshing || loading || submitting}
                 className="h-8 px-3 rounded-xl border-[var(--border-subtle)] hover:bg-[#F0F6F2] hover:border-[var(--accent-sage-border)] text-xs font-medium text-[var(--accent-sage)] transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
-                title="Ask Gemini Examiner to craft 10 completely fresh questions based on the textbook syllabus"
+                title="Get 10 new questions based on the textbook syllabus"
               >
                 {refreshing ? (
                   <>
@@ -212,8 +212,8 @@ export function MasteryQuizModal({
             <Loader2 className="w-10 h-10 text-[var(--accent-sage)] animate-spin" />
             <p className="font-serif text-base text-[var(--ink-primary)]">
               {refreshing
-                ? 'Gemini Examiner is crafting 10 fresh syllabus questions...'
-                : 'Gemini is loading tailored mastery questions...'}
+                ? 'Writing 10 new questions...'
+                : 'Loading questions…'}
             </p>
             <p className="text-xs text-[var(--ink-muted)] max-w-sm text-center">
               Calibrating questions against official textbook principles, formulas, and syllabus depth.

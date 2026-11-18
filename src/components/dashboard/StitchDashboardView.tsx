@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import {
   Dialog,
   DialogContent,
@@ -19,6 +19,8 @@ import { StudyPlannerCard, StudyPlanData } from './StudyPlannerCard'
 import { WeakConceptsReviewCard } from './WeakConceptsReviewCard'
 import { VOICE_OPTIONS } from '@/lib/voiceAndLanguageConfig'
 import { DashboardNav, NavItem } from './DashboardNav'
+import { UserMenu } from './UserMenu'
+import { HistoryPanel } from './HistoryPanel'
 import { DailyActivityChart } from './DailyActivityChart'
 import { DashCard, StatTile, SectionHeader } from './primitives'
 import { Subscription, SUBSCRIPTION_PLANS, getClassesRemaining } from '@/lib/types/subscription'
@@ -118,6 +120,19 @@ interface StitchDashboardViewProps {
   memories: MemoryItem[]
   studyPlan?: StudyPlanData | null
   subscription?: Subscription | null
+  view?: DashboardViewId
+}
+
+export type DashboardViewId = 'home' | 'syllabus' | 'learn' | 'practice' | 'progress' | 'schedule' | 'history'
+
+const VIEW_META: Record<DashboardViewId, { title: string; subtitle: string }> = {
+  home: { title: '', subtitle: '' },
+  syllabus: { title: 'Syllabus', subtitle: 'Chapters and lessons for your class.' },
+  learn: { title: 'Learn', subtitle: 'Your subjects and where you left off.' },
+  practice: { title: 'Practice', subtitle: 'Past year questions and concepts to revise.' },
+  progress: { title: 'Progress', subtitle: 'Your streak, study time and activity.' },
+  schedule: { title: 'Schedule', subtitle: "Your exam plan and today's tasks." },
+  history: { title: 'History', subtitle: 'Every lesson you have taken.' },
 }
 
 
@@ -133,9 +148,24 @@ export function StitchDashboardView({
   progressRecords = [],
   memories = [],
   studyPlan = null,
+  view: initialView = 'home',
 }: StitchDashboardViewProps) {
   const router = useRouter()
-  const [activeNav, setActiveNav] = useState('home')
+  const pathname = usePathname()
+  // Views switch on the client (history.pushState) so changing tabs needs no server round-trip.
+  const pathView = pathname?.split('/')[3] as DashboardViewId | undefined
+  const view: DashboardViewId = pathname
+    ? pathView && pathView in VIEW_META
+      ? pathView
+      : pathname.split('/').length <= 3
+      ? 'home'
+      : initialView
+    : initialView
+  const activeNav = view
+  const goToView = (v: DashboardViewId, query = '') => {
+    window.history.pushState(null, '', `/dashboard/${user.id}${v === 'home' ? '' : `/${v}`}${query}`)
+    window.scrollTo({ top: 0 })
+  }
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [liveModalOpen, setLiveModalOpen] = useState(false)
   const [preferencesOpen, setPreferencesOpen] = useState(false)
@@ -168,7 +198,7 @@ export function StitchDashboardView({
   const studentAvatar = profile.avatar_url || null
   const studentTrack = profile.class_level || (profile.learning_level 
     ? `${profile.learning_level.charAt(0).toUpperCase() + profile.learning_level.slice(1)} Track`
-    : 'Scholar')
+    : 'Student')
 
   // Dynamic Date
   const todayFormatted = new Intl.DateTimeFormat('en-US', {
@@ -489,50 +519,35 @@ export function StitchDashboardView({
   }
 
   // Navigation config shared by the desktop sidebar and the mobile drawer
+  const openSyllabus = (curriculumId?: string | null) => {
+    const c = curriculumId ? allCurriculums.find((x) => x.id === curriculumId) || enrolledCurriculums.find((x) => x.id === curriculumId) : null
+    if (c) {
+      setSelectedSyllabusCategory(c.category || 'General')
+      setSelectedSyllabusCurriculumId(c.id)
+    }
+    goToView('syllabus', curriculumId ? `?curriculum=${curriculumId}` : '')
+  }
+  useEffect(() => {
+    if (view !== 'syllabus') return
+    const cid = new URLSearchParams(window.location.search).get('curriculum')
+    const c = cid ? allCurriculums.find((x) => x.id === cid) : null
+    if (c) {
+      setSelectedSyllabusCategory(c.category || 'General')
+      setSelectedSyllabusCurriculumId(c.id)
+    }
+  }, [view, allCurriculums])
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id)
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
   const navItems: NavItem[] = [
-    { id: 'home', label: 'Home', icon: 'home', onSelect: () => setActiveNav('home') },
-    {
-      id: 'syllabus',
-      label: 'Syllabus',
-      icon: 'menu_book',
-      onSelect: () => {
-        setActiveNav('syllabus')
-        setSyllabusModalOpen(true)
-      },
-    },
-    {
-      id: 'learn',
-      label: 'Learn',
-      icon: 'auto_stories',
-      onSelect: () => {
-        setActiveNav('learn')
-        scrollToSection('enrolled-subjects-section')
-      },
-    },
-    {
-      id: 'practice',
-      label: 'Practice',
-      icon: 'edit_note',
-      onSelect: () => {
-        setActiveNav('practice')
-        scrollToSection('deliberate-practice-section')
-      },
-    },
-    { id: 'live', label: 'Live Tutor', icon: 'psychology', badge: 'Tutor available', onSelect: () => setLiveModalOpen(true) },
-    {
-      id: 'progress',
-      label: 'Progress',
-      icon: 'insights',
-      onSelect: () => {
-        setActiveNav('progress')
-        scrollToSection('consistency-section')
-      },
-    },
-    { id: 'history', label: 'History', icon: 'schedule', onSelect: () => setLiveModalOpen(true) },
+    { id: 'home', label: 'Home', icon: 'home', onSelect: () => goToView('home') },
+    { id: 'syllabus', label: 'Syllabus', icon: 'menu_book', onSelect: () => goToView('syllabus') },
+    { id: 'learn', label: 'Learn', icon: 'auto_stories', onSelect: () => goToView('learn') },
+    { id: 'practice', label: 'Practice', icon: 'edit_note', onSelect: () => goToView('practice') },
+    { id: 'schedule', label: 'Schedule', icon: 'event', onSelect: () => goToView('schedule') },
+    { id: 'progress', label: 'Progress', icon: 'insights', onSelect: () => goToView('progress') },
+    { id: 'history', label: 'History', icon: 'history', onSelect: () => goToView('history') },
   ]
 
   const hour = new Date().getHours()
@@ -564,87 +579,22 @@ export function StitchDashboardView({
             </div>
             <div>
               <p className="font-editorial text-2xl leading-none text-ink-primary">Anaxly</p>
-              <p className="mt-1 text-xs text-ink-muted">Scholar's Edition</p>
             </div>
           </Link>
 
           <DashboardNav items={navItems} activeId={activeNav} ariaLabel="Main navigation" />
 
-          <button
-            type="button"
-            onClick={() => setLiveModalOpen(true)}
-            className="flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white shadow-xs transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
-          >
-            <span aria-hidden="true" className="material-symbols-outlined text-lg">mic</span>
-            <span>Start session</span>
-          </button>
         </div>
 
-{/* Bottom Dock: Student Profile Card & Settings */}
-        <div className="space-y-3 pt-6 border-t border-border-subtle">
-          <div className="p-2.5 bg-surface rounded-xl border border-border-subtle flex items-center gap-3">
-            <div className="relative w-9 h-9 rounded-full bg-surface-container-high border border-border-subtle overflow-hidden flex-shrink-0 flex items-center justify-center">
-              {studentAvatar ? (
-                <img
-                  className="w-full h-full object-cover"
-                  alt={studentName}
-                  src={studentAvatar}
-                />
-              ) : (
-                <span className="font-semibold text-ink-primary text-sm font-label-md">
-                  {studentName.charAt(0).toUpperCase()}
-                </span>
-              )}
-            </div>
-            <div className="min-w-0 flex-1">
-              <p className="font-label-md text-label-md text-ink-primary truncate font-semibold">
-                {studentName}
-              </p>
-              <p className="font-label-micro text-label-micro text-ink-muted truncate">
-                {studentTrack}
-              </p>
-              <div className="mt-1 flex items-center gap-1.5 flex-wrap">
-                <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider ${
-                  activePlanTier === 'mastery'
-                    ? 'bg-purple-100 text-purple-900 border border-purple-200'
-                    : activePlanTier === 'topper'
-                    ? 'bg-emerald-100 text-emerald-900 border border-emerald-200'
-                    : activePlanTier === 'scholar'
-                    ? 'bg-blue-100 text-blue-900 border border-blue-200'
-                    : 'bg-stone-100 text-stone-700 border border-stone-200'
-                }`}>
-                  {currentPlan.name}
-                </span>
-                <span className="text-[10px] font-mono text-ink-muted">
-                  {classesRemaining}/{classesLimit} left
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <nav className="space-y-0.5">
-            <Link
-              href={`/dashboard/${user.id}/profile`}
-              className="w-full flex items-center gap-3 text-ink-secondary font-label-md text-label-md pl-3 py-2 rounded-lg hover:text-ink-primary hover:bg-surface-container-low/40 transition-colors text-left cursor-pointer"
-            >
-              <span className="material-symbols-outlined text-lg">school</span>
-              <span>Profile &amp; Notes</span>
-            </Link>
-            <Link
-              href={`/dashboard/${user.id}/settings?tab=avatars`}
-              className="w-full flex items-center gap-3 text-ink-secondary font-label-md text-label-md pl-3 py-2 rounded-lg hover:text-ink-primary hover:bg-surface-container-low/40 transition-colors text-left cursor-pointer"
-            >
-              <span className="material-symbols-outlined text-lg">settings</span>
-              <span>Settings</span>
-            </Link>
-            <Link
-              href="/pricing"
-              className="w-full flex items-center gap-3 text-emerald-800 font-label-md text-label-md pl-3 py-2 rounded-lg hover:text-emerald-950 hover:bg-emerald-50 transition-colors text-left cursor-pointer"
-            >
-              <span className="material-symbols-outlined text-lg text-emerald-700">credit_card</span>
-              <span>Plans &amp; Pricing</span>
-            </Link>
-          </nav>
+{/* Bottom: settings */}
+        <div className="border-t border-border-subtle pt-4">
+          <Link
+            href={`/dashboard/${user.id}/settings`}
+            className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-ink-secondary transition-colors hover:bg-canvas-soft hover:text-ink-primary"
+          >
+            <span aria-hidden="true" className="material-symbols-outlined text-xl">settings</span>
+            <span>Settings</span>
+          </Link>
         </div>
       </aside>
 
@@ -665,9 +615,11 @@ export function StitchDashboardView({
               <span aria-hidden="true" className="material-symbols-outlined">menu</span>
             </button>
             <div className="min-w-0">
-              <p className="truncate text-sm text-ink-muted" suppressHydrationWarning>{todayFormatted}</p>
+              <p className="truncate text-sm text-ink-muted" suppressHydrationWarning>
+                {view === 'home' ? todayFormatted : VIEW_META[view].subtitle}
+              </p>
               <h1 className="truncate font-editorial text-2xl leading-tight text-ink-primary" suppressHydrationWarning>
-                {greeting}, {firstName}
+                {view === 'home' ? `${greeting}, ${firstName}` : VIEW_META[view].title}
               </h1>
             </div>
           </div>
@@ -676,7 +628,7 @@ export function StitchDashboardView({
             <button
               id="top-open-syllabus-btn"
               type="button"
-              onClick={() => setSyllabusModalOpen(true)}
+              onClick={() => openSyllabus()}
               className={`${headerTextButtonClass} hidden sm:inline-flex`}
             >
               <span aria-hidden="true" className="material-symbols-outlined text-lg text-secondary">menu_book</span>
@@ -695,9 +647,9 @@ export function StitchDashboardView({
 
             <button
               type="button"
-              onClick={() => scrollToSection('consistency-section')}
+              onClick={() => goToView('schedule')}
               className={`${iconButtonClass} hidden sm:inline-flex`}
-              aria-label="Jump to study calendar"
+              aria-label="Open schedule"
             >
               <span aria-hidden="true" className="material-symbols-outlined text-xl">calendar_today</span>
             </button>
@@ -718,21 +670,18 @@ export function StitchDashboardView({
 
             <div className="mx-1 hidden h-6 w-px bg-border-subtle sm:block" />
 
-            <button
-              type="button"
-              onClick={() => setPreferencesOpen(true)}
-              className="flex cursor-pointer items-center gap-2.5 rounded-lg p-1 text-left transition-colors hover:bg-canvas-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm"
-              aria-label={`Open preferences for ${studentName}`}
-            >
-              <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-border-subtle bg-surface">
-                {studentAvatar ? (
-                  <img className="h-full w-full object-cover" alt="" src={studentAvatar} />
-                ) : (
-                  <span className="text-sm font-semibold text-ink-primary">{studentName.charAt(0).toUpperCase()}</span>
-                )}
-              </div>
-              <span className="hidden whitespace-nowrap text-sm font-medium text-ink-primary xl:inline-block">{studentName}</span>
-            </button>
+            <UserMenu
+              userId={user.id}
+              name={studentName}
+              email={user.email}
+              avatarUrl={studentAvatar}
+              track={studentTrack}
+              planName={currentPlan.name}
+              planTier={activePlanTier}
+              classesRemaining={classesRemaining}
+              classesLimit={classesLimit}
+              onOpenQuickPreferences={() => setPreferencesOpen(true)}
+            />
           </div>
         </header>
 
@@ -741,6 +690,7 @@ export function StitchDashboardView({
         {/* ======================================================================= */}
         <main className="flex-1 px-6 sm:px-10 lg:px-12 py-8 max-w-[1536px] w-full mx-auto space-y-10">
           
+          {(view === 'home') && (<>
           {/* SECTION 1: CONTINUE LEARNING (primary focus of the page) */}
           <section aria-labelledby="continue-heading">
             {activeCourse ? (
@@ -799,11 +749,7 @@ export function StitchDashboardView({
                         id="hero-open-syllabus-btn"
                         type="button"
                         onClick={() => {
-                          if (activeCourse) {
-                            setSelectedSyllabusCategory(activeCourse.category || 'General')
-                            setSelectedSyllabusCurriculumId(activeCourse.id)
-                          }
-                          setSyllabusModalOpen(true)
+                          openSyllabus(activeCourse?.id)
                         }}
                         className="inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-lg px-4 py-3 text-sm font-medium text-white ring-1 ring-white/30 transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                       >
@@ -880,7 +826,7 @@ export function StitchDashboardView({
                   </button>
                   <button
                     type="button"
-                    onClick={() => setSyllabusModalOpen(true)}
+                    onClick={() => openSyllabus()}
                     className={`${textButtonClass} min-h-12`}
                   >
                     <span aria-hidden="true" className="material-symbols-outlined text-lg text-secondary">menu_book</span>
@@ -891,6 +837,8 @@ export function StitchDashboardView({
             )}
           </section>
 
+          </>)}
+          {(view === 'progress') && (<>
           {/* SECTION 2: STUDY RHYTHM (stats, activity chart, weekly streak) */}
           <section id="consistency-section" aria-labelledby="rhythm-heading" className="space-y-5">
             <SectionHeader
@@ -932,7 +880,7 @@ export function StitchDashboardView({
                   value={`${completedChaptersCount} of ${totalChaptersCount}`}
                   unit="done"
                   icon={<span aria-hidden="true" className="material-symbols-outlined text-lg text-ink-muted">school</span>}
-                  hint={completedChaptersCount > 0 ? `${completedChaptersCount} chapters fully mastered • View notes` : 'Master all capsules to complete a chapter'}
+                  hint={completedChaptersCount > 0 ? `${completedChaptersCount} chapters done • View notes` : 'Finish every lesson in a chapter to complete it'}
                 />
                 <StatTile
                   label="Lessons mastered"
@@ -979,6 +927,8 @@ export function StitchDashboardView({
             </DashCard>
           </section>
 
+          </>)}
+          {(view === 'schedule') && (<>
 {/* SECTION 2B: DYNAMIC ADAPTIVE EXAM STUDY PLANNER */}
           <StudyPlannerCard
             userId={user.id}
@@ -989,16 +939,18 @@ export function StitchDashboardView({
             onModuleClick={handleModuleClick}
           />
 
+          </>)}
+          {(view === 'home' || view === 'schedule') && (<>
           {/* SECTION 3: TODAY'S STRUCTURED LEARNING PLAN */}
           <section className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div className="lg:col-span-12 space-y-4">
               <div className="flex items-baseline justify-between">
                 <div>
                   <h3 className="font-editorial text-2xl text-ink-primary leading-tight">
-                    Today's Learning Plan
+                    Today's plan
                   </h3>
                   <p className="text-sm text-ink-secondary mt-0.5">
-                    Prioritized tasks to maintain academic cadence.
+                    What to do today.
                   </p>
                 </div>
                 <span className="text-xs font-mono text-ink-muted font-medium">
@@ -1027,7 +979,7 @@ export function StitchDashboardView({
                           Complete {activeModule.title}
                         </h4>
                         <p className="text-sm text-ink-secondary mt-0.5 leading-relaxed">
-                          {activeModule.description || 'Core instructional module review with Anaxly.'}
+                          {activeModule.description || 'Continue this lesson.'}
                         </p>
                       </div>
                     </div>
@@ -1049,15 +1001,15 @@ export function StitchDashboardView({
                       <div>
                         <div className="flex items-center gap-2">
                           <span className="text-xs font-medium text-secondary uppercase tracking-wide">
-                            Mastery Evaluation
+                            Chapter quiz
                           </span>
-                          <span className="text-ink-muted text-xs">• 10 Gemini MCQs • Advances Syllabus Progress</span>
+                          <span className="text-ink-muted text-xs">• 10 questions</span>
                         </div>
                         <h4 className="text-base font-semibold text-ink-primary mt-0.5 group-hover:text-secondary transition-colors">
                           10 Mastery Questions: {activeModule.title}
                         </h4>
                         <p className="text-sm text-ink-secondary mt-0.5 leading-relaxed">
-                          Direct test on core textbook formulas and principles. Scoring 70%+ completes this capsule and unlocks the next section.
+                          10 questions on this lesson. Score 70% or more to unlock the next one.
                         </p>
                       </div>
                     </div>
@@ -1110,7 +1062,7 @@ export function StitchDashboardView({
                   <span className="material-symbols-outlined text-3xl text-ink-muted">playlist_add_check</span>
                   <p className="font-editorial text-xl text-ink-primary">No Pending Tasks</p>
                   <p className="text-sm text-ink-secondary max-w-sm mx-auto">
-                    Enroll in a curriculum to generate a personalized daily deliberate practice plan.
+                    Pick a subject to get a daily plan.
                   </p>
                   <button
                     onClick={() => setCoursesDialogOpen(true)}
@@ -1123,6 +1075,8 @@ export function StitchDashboardView({
             </div>
           </section>
 
+          </>)}
+          {(view === 'home' || view === 'practice') && (<>
           {/* SECTION 3B: WEAK-CONCEPT REVISION SPOTLIGHT */}
           <WeakConceptsReviewCard
             userId={user.id}
@@ -1131,20 +1085,22 @@ export function StitchDashboardView({
             onModuleClick={handleModuleClick}
           />
 
+          </>)}
+          {(view === 'learn') && (<>
           {/* SECTION 4: ENROLLED SUBJECTS & SCHOLAR TRACKS */}
           <section id="enrolled-subjects-section" className="space-y-5">
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="font-editorial text-2xl text-ink-primary leading-tight">
-                  Enrolled Subjects
+                  Your subjects
                 </h3>
                 <p className="text-sm text-ink-secondary mt-0.5">
-                  Curriculum status across your active academic courses.
+                  Progress in each subject.
                 </p>
               </div>
               <div className="flex items-center gap-3">
                 <button
-                  onClick={() => setSyllabusModalOpen(true)}
+                  onClick={() => openSyllabus()}
                   className="text-xs text-ink-secondary hover:text-ink-primary font-medium inline-flex items-center gap-1.5 cursor-pointer transition-colors"
                 >
                   <span className="material-symbols-outlined text-base text-secondary">menu_book</span>
@@ -1204,9 +1160,7 @@ export function StitchDashboardView({
                     <div className="pt-6 mt-4 border-t border-border-subtle flex items-center justify-between">
                       <button
                         onClick={() => {
-                          setSelectedSyllabusCategory(card.curriculum.category || 'General')
-                          setSelectedSyllabusCurriculumId(card.curriculum.id)
-                          setSyllabusModalOpen(true)
+                          openSyllabus(card.curriculum.id)
                         }}
                         className="text-xs text-ink-secondary hover:text-ink-primary font-medium inline-flex items-center gap-1.5 cursor-pointer transition-colors"
                       >
@@ -1228,44 +1182,46 @@ export function StitchDashboardView({
             ) : (
               <div className="p-8 text-center bg-surface rounded-2xl border border-border-subtle space-y-3">
                 <span className="material-symbols-outlined text-3xl text-ink-muted">menu_book</span>
-                <p className="font-headline-sm text-ink-primary">No Enrolled Subjects</p>
+                <p className="font-headline-sm text-ink-primary">No Your subjects</p>
                 <p className="font-body-md text-ink-secondary text-sm max-w-sm mx-auto">
-                  You are not currently enrolled in any subjects. Enroll now to track syllabus mastery and deliberate practice blocks.
+                  You haven't picked any subjects yet.
                 </p>
                 <button
                   onClick={() => setCoursesDialogOpen(true)}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-white font-semibold font-label-md text-sm hover:bg-accent-hover cursor-pointer"
                 >
                   <span className="material-symbols-outlined text-sm">add</span>
-                  <span>Browse Available Subjects</span>
+                  <span>Browse subjects</span>
                 </button>
               </div>
             )}
           </section>
 
+          </>)}
+          {(view === 'practice') && (<>
           {/* SECTION 5: DELIBERATE PRACTICE & PAST YEAR QUESTIONS (PYQ) HUB */}
           <section id="deliberate-practice-section" className="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-12">
             <div className="lg:col-span-5 bg-surface rounded-3xl border border-border-subtle p-7 md:p-8 shadow-soft flex flex-col justify-between">
               <div className="space-y-5">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-ink-muted font-medium">
-                    Practice Diagnostic
+                    Practice
                   </span>
                   <span className="material-symbols-outlined text-ink-muted text-xl">tune</span>
                 </div>
                 <div>
                   <h4 className="font-editorial text-2xl text-ink-primary leading-tight">
-                    Deliberate Question Bank
+                    Question bank
                   </h4>
                   <p className="text-sm text-ink-secondary mt-1.5 leading-relaxed">
-                    Target high-yield exam question types calibrated dynamically to your weaker diagnostic areas.
+                    Questions focused on the topics you find hardest.
                   </p>
                 </div>
 
                 {/* Subject Toggle Chips */}
                 <div className="space-y-2 pt-1">
                   <span className="text-xs text-ink-muted font-medium">
-                    Select Discipline
+                    Subject
                   </span>
                   <div className="flex flex-wrap gap-2">
                     {availableDisciplines.map((discipline) => {
@@ -1295,7 +1251,7 @@ export function StitchDashboardView({
                   className="w-full flex items-center justify-center gap-2 border border-border-subtle bg-surface hover:bg-canvas-soft text-ink-primary py-2.5 rounded-xl text-sm font-medium transition-colors text-center shadow-xs"
                 >
                   <span className="material-symbols-outlined text-lg">edit_document</span>
-                  <span>Launch Custom 15-Question Set</span>
+                  <span>Start 15 questions</span>
                 </Link>
               </div>
             </div>
@@ -1306,7 +1262,7 @@ export function StitchDashboardView({
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-medium text-secondary flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-secondary" />
-                    <span>Board Exam PYQ Practice Hub</span>
+                    <span>Past year questions</span>
                   </span>
                   {chapterPyqsData && (
                     <span className="text-xs font-mono text-ink-muted bg-surface-container-low px-2.5 py-1 rounded-full border border-border-subtle">
@@ -1318,10 +1274,10 @@ export function StitchDashboardView({
                 <div className="mt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
                     <h4 className="font-editorial text-2xl text-ink-primary leading-tight">
-                      Chapter Previous Year Questions
+                      Previous year questions
                     </h4>
                     <p className="text-xs text-ink-secondary mt-1 leading-relaxed">
-                      Authentic board examination problems with step-by-step chalkboard derivations.
+                      Real board exam questions with worked solutions.
                     </p>
                   </div>
 
@@ -1364,7 +1320,7 @@ export function StitchDashboardView({
               <div className="space-y-3 min-h-[220px] max-h-[340px] overflow-y-auto pr-1">
                 {isLoadingPyqs ? (
                   <div className="py-12 text-center text-xs font-mono text-ink-muted">
-                    Loading authentic board exam questions...
+                    Loading questions…
                   </div>
                 ) : chapterPyqsData && chapterPyqsData.practice_set?.length > 0 ? (
                   (() => {
@@ -1420,408 +1376,15 @@ export function StitchDashboardView({
                   })()
                 ) : (
                   <div className="py-12 text-center rounded-2xl bg-canvas border border-border-subtle text-xs text-ink-muted font-mono">
-                    No past year questions uploaded for this chapter yet. Upload question papers in Admin Studio!
+                    No past year questions for this chapter yet.
                   </div>
                 )}
               </div>
             </div>
           </section>
-        </main>
-
-        {/* Quiet Editorial Footer */}
-        <footer className="border-t border-border-subtle bg-canvas px-6 md:px-10 py-8 text-center text-ink-muted font-label-micro text-label-micro max-w-7xl mx-auto w-full flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-secondary text-lg">eco</span>
-            <span>Anaxly Scholar's Edition · Classical Intelligence</span>
-          </div>
-          <div>
-            <span>Curriculum aligned with CBSE, ICSE, and IB standards</span>
-          </div>
-        </footer>
-      </div>
-
-      {/* ========================================================================= */}
-      {/* 3. MODAL: LIVE AI TUTOR SOCRATIC DIALOGUE PREVIEW                         */}
-      {/* ========================================================================= */}
-      {liveModalOpen && (
-        <div className="fixed inset-0 z-50 bg-ink-primary/30 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-200">
-          <div className="bg-surface rounded-3xl border border-border-subtle max-w-lg w-full p-8 shadow-card relative">
-            {/* Close button */}
-            <button
-              className="absolute top-6 right-6 p-2 rounded-full text-ink-muted hover:text-ink-primary hover:bg-canvas transition-colors cursor-pointer"
-              onClick={() => setLiveModalOpen(false)}
-            >
-              <span className="material-symbols-outlined text-xl">close</span>
-            </button>
-
-            {/* Modal Header */}
-            <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-mono font-medium">
-                <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-                <span>Connecting to Neural Tutor Core</span>
-              </div>
-              <h3 className="font-editorial text-2xl text-ink-primary leading-tight">
-                {activeCourse ? `Ready to explore ${activeModule?.title || activeCourse.title}?` : 'Ready to begin your study session?'}
-              </h3>
-              <p className="text-sm text-ink-secondary leading-relaxed">
-                {(() => {
-                  const memorySnippet = (memories[0]?.memory_text || memories[0]?.content || '').trim()
-                  if (memorySnippet) {
-                    return `Anaxly has synthesized your recent sessions: "${memorySnippet.slice(0, 110)}..."`
-                  }
-                  if (activeModule?.description) {
-                    return `Beginning with ${activeModule.title}. Reviewing foundational concepts and interactive socratic problems.`
-                  }
-                  return 'Anaxly is ready for interactive dialogue, concept clarification, and deliberate practice.'
-                })()}
-              </p>
-            </div>
-
-            {/* Audio wave animation placeholder simulation */}
-            <div className="my-6 p-6 rounded-2xl bg-canvas border border-border-subtle flex flex-col items-center justify-center space-y-3 text-center">
-              <div className="flex items-center justify-center gap-1.5 h-10">
-                <span className="w-1.5 h-4 bg-secondary rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
-                <span className="w-1.5 h-8 bg-secondary rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
-                <span className="w-1.5 h-10 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.3s' }} />
-                <span className="w-1.5 h-6 bg-secondary rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
-                <span className="w-1.5 h-3 bg-secondary rounded-full animate-bounce" style={{ animationDelay: '0.5s' }} />
-              </div>
-              <span className="text-xs font-mono text-ink-muted uppercase tracking-wider">
-                Microphone calibrated &amp; clear
-              </span>
-            </div>
-
-            {/* Action buttons */}
-            <div className="flex items-center gap-3 pt-2">
-              <button
-                className="flex-1 py-2.5 px-4 rounded-xl border border-border-subtle text-ink-primary text-sm font-medium hover:bg-canvas-soft transition-colors cursor-pointer shadow-xs"
-                onClick={() => setLiveModalOpen(false)}
-              >
-                Cancel
-              </button>
-              <button
-                disabled={isStartingSession}
-                onClick={handleStartSession}
-                className="flex-1 py-2.5 px-4 rounded-xl bg-primary hover:bg-accent-hover text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer"
-              >
-                <span className="material-symbols-outlined text-lg">mic</span>
-                <span>{isStartingSession ? 'Connecting...' : 'Begin Conversation'}</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ========================================================================= */}
-      {/* 4. MODAL: CHAPTER NOTES DIALOG                                            */}
-      {/* ========================================================================= */}
-      <Dialog open={notesDialogOpen} onOpenChange={setNotesDialogOpen}>
-        <DialogContent className="max-w-xl bg-surface border-border-subtle rounded-3xl p-7 text-ink-primary shadow-2xl">
-          <DialogHeader>
-            <DialogTitle className="font-headline-md text-2xl text-ink-primary">
-              {activeModule?.title || 'Chapter Notes'}
-            </DialogTitle>
-            <DialogDescription className="font-body-md text-ink-secondary">
-              Summary and foundational concepts for the current module.
-            </DialogDescription>
-          </DialogHeader>
-
-          {(() => {
-            const activeProgress = activeModule?.id ? progressMap.get(activeModule.id) : null
-            const cachedNotes = activeModule?.id ? getCachedBoardNotes(user.id, activeModule.id) : null
-            const liveNotesContent = (cachedNotes?.fullSummary || activeProgress?.chapter_notes || '').trim()
-
-            return (
-              <div className="space-y-4 my-2">
-                {liveNotesContent && liveNotesContent.length > 10 ? (
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="font-label-micro text-xs uppercase tracking-wider text-emerald-800 font-semibold flex items-center gap-1.5">
-                        <span className="h-2 w-2 rounded-full bg-emerald-600 animate-pulse" />
-                        Chalkboard Master Notes (Saved Live from Class)
-                      </span>
-                      <Link
-                        href={`/dashboard/${user.id}/profile`}
-                        onClick={() => setNotesDialogOpen(false)}
-                        className="text-xs text-primary underline hover:text-accent-hover font-medium"
-                      >
-                        Open Profile Vault
-                      </Link>
-                    </div>
-                    <div className="p-4 rounded-2xl bg-[#0E2016] border border-[#1A3324] text-[#D8EADB] space-y-2 max-h-64 overflow-y-auto font-mono text-xs whitespace-pre-wrap leading-relaxed shadow-inner">
-                      {liveNotesContent}
-                    </div>
-                  </div>
-                ) : (
-                  <div className="p-4 rounded-2xl bg-canvas border border-border-subtle space-y-2 max-h-60 overflow-y-auto">
-                    <span className="font-label-micro text-xs uppercase tracking-wider text-ink-muted">
-                      Core Topic Overview & Master Notes
-                    </span>
-                    <p className="font-body-md text-ink-primary text-sm whitespace-pre-line">
-                      {activeModule?.chapter_notes || activeModule?.description || 'Foundational concepts and principles for this chapter.'}
-                    </p>
-                  </div>
-                )}
-
-                {activeCourse && (() => {
-                  const courseModuleIds = modules.filter((m) => m.curriculum_id === activeCourse.id).map((m) => m.id)
-                  const otherNotes = studentProgress.savedNotes.filter((n) => courseModuleIds.includes(n.moduleId) && n.moduleId !== activeModule?.id)
-                  if (otherNotes.length === 0) return null
-                  return (
-                    <div className="pt-2 border-t border-border-subtle space-y-1.5">
-                      <span className="font-label-micro text-xs uppercase tracking-wider text-ink-muted">
-                        Other Master Notes in {activeCourse.title}:
-                      </span>
-                      <div className="flex flex-wrap gap-1.5">
-                        {otherNotes.map((on) => (
-                          <Link
-                            key={on.moduleId}
-                            href={`/dashboard/${user.id}/profile`}
-                            onClick={() => setNotesDialogOpen(false)}
-                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface border border-border-subtle hover:bg-canvas text-xs text-ink-primary"
-                          >
-                            <span className="material-symbols-outlined text-xs text-secondary">check_circle</span>
-                            <span>{on.moduleTitle}</span>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )
-                })()}
-
-                {activeModule?.key_concepts && activeModule.key_concepts.length > 0 && (
-                  <div className="space-y-2">
-                    <span className="font-label-micro text-xs uppercase tracking-wider text-ink-muted">
-                      Key Concepts
-                    </span>
-                    <div className="flex flex-wrap gap-2">
-                      {activeModule.key_concepts.map((concept, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1 rounded-lg bg-surface-container-low border border-border-subtle text-xs font-label-md text-ink-primary"
-                        >
-                          {concept}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            )
-          })()}
-
-          <DialogFooter className="flex gap-2">
-            <Link
-              href={`/dashboard/${user.id}/profile`}
-              onClick={() => setNotesDialogOpen(false)}
-              className="px-4 py-2 rounded-xl border border-border-subtle text-ink-primary font-label-md hover:bg-canvas cursor-pointer inline-flex items-center justify-center gap-1.5"
-            >
-              <span>Master Notes Vault</span>
-            </Link>
-            <button
-              onClick={() => setNotesDialogOpen(false)}
-              className="px-4 py-2 rounded-xl border border-border-subtle text-ink-primary font-label-md hover:bg-canvas cursor-pointer"
-            >
-              Close
-            </button>
-            <Link
-              href={activeModule?.id ? `/dashboard/${user.id}/class/${activeModule.id}` : `/dashboard/${user.id}/class`}
-              onClick={(e) => {
-                handleModuleClick(e, activeModule?.id)
-                if (isFreeQuotaExhausted && (!activeModule?.id || !isModuleComplete(activeModule.id))) {
-                  setNotesDialogOpen(false)
-                }
-              }}
-              className="px-5 py-2 rounded-xl bg-primary text-white font-semibold font-label-md hover:bg-accent-hover text-center"
-            >
-              Open Live Session
-            </Link>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-
-      {/* ========================================================================= */}
-      {/* 5. MODAL: SETTINGS & PREFERENCES DIALOG                                  */}
-      {/* ========================================================================= */}
-      <Dialog open={preferencesOpen} onOpenChange={setPreferencesOpen}>
-        <DialogContent className="max-w-md bg-surface border-border-subtle rounded-3xl p-7 text-ink-primary shadow-2xl">
-          <DialogHeader>
-            <DialogTitle className="font-headline-md text-2xl text-ink-primary">
-              Student Preferences
-            </DialogTitle>
-            <DialogDescription className="font-body-md text-ink-secondary text-sm">
-              Tune your Anaxly voice, pedagogical model, and pacing.
-            </DialogDescription>
-          </DialogHeader>
-
-          <form onSubmit={handleSavePreferences} className="space-y-4 my-2">
-            {/* Preferred Voice */}
-            <div className="space-y-1.5">
-              <Label className="font-label-micro text-xs uppercase text-ink-muted">
-                Tutor Voice
-              </Label>
-              <select
-                value={selectedVoice}
-                onChange={(e) => setSelectedVoice(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-border-subtle bg-surface text-ink-primary text-sm focus:outline-hidden focus:ring-2 focus:ring-primary/20"
-              >
-                {VOICE_OPTIONS.map((v) => (
-                  <option key={v.id} value={v.id}>
-                    {v.name} — {v.desc}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Learning Style */}
-            <div className="space-y-1.5">
-              <Label className="font-label-micro text-xs uppercase text-ink-muted">
-                Pedagogical Style
-              </Label>
-              <select
-                value={selectedStyle}
-                onChange={(e) => setSelectedStyle(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-border-subtle bg-surface text-ink-primary text-sm focus:outline-hidden focus:ring-2 focus:ring-primary/20"
-              >
-                <option value="socratic">Socratic (Questions &amp; Guided Discovery)</option>
-                <option value="direct">Direct (Concise &amp; Factual)</option>
-                <option value="visual">Visual (Diagrams &amp; Analogies)</option>
-                <option value="storytelling">Storytelling (Contextual Narrative)</option>
-              </select>
-            </div>
-
-            {/* Pacing */}
-            <div className="space-y-1.5">
-              <Label className="font-label-micro text-xs uppercase text-ink-muted">
-                Instruction Pacing
-              </Label>
-              <select
-                value={selectedPacing}
-                onChange={(e) => setSelectedPacing(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-border-subtle bg-surface text-ink-primary text-sm focus:outline-hidden focus:ring-2 focus:ring-primary/20"
-              >
-                <option value="slow_and_thorough">Slow &amp; Thorough</option>
-                <option value="standard">Standard</option>
-                <option value="fast_and_high_level">Fast &amp; High-Level</option>
-              </select>
-            </div>
-
-            {/* Class / Grade Level */}
-            <div className="space-y-1.5">
-              <Label className="font-label-micro text-xs uppercase text-ink-muted">
-                Class / Academic Grade
-              </Label>
-              <select
-                value={selectedClass}
-                onChange={(e) => setSelectedClass(e.target.value)}
-                className="w-full p-2.5 rounded-xl border border-border-subtle bg-surface text-ink-primary text-sm focus:outline-hidden focus:ring-2 focus:ring-primary/20"
-              >
-                <option value="Class 6">Class 6</option>
-                <option value="Class 7">Class 7</option>
-                <option value="Class 8">Class 8</option>
-                <option value="Class 9">Class 9</option>
-                <option value="Class 10">Class 10</option>
-                <option value="Class 11">Class 11</option>
-                <option value="Class 12">Class 12</option>
-              </select>
-            </div>
-
-            <div className="pt-3 border-t border-border-subtle flex items-center justify-between">
-              <button
-                type="button"
-                onClick={() => signOutAction()}
-                className="text-xs font-label-micro text-primary hover:underline cursor-pointer"
-              >
-                Sign Out
-              </button>
-
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => setPreferencesOpen(false)}
-                  className="px-4 py-2 rounded-xl border border-border-subtle text-ink-primary font-label-md text-sm hover:bg-canvas cursor-pointer"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  disabled={savingPrefs}
-                  className="px-5 py-2 rounded-xl bg-primary text-white font-semibold font-label-md text-sm hover:bg-accent-hover cursor-pointer"
-                >
-                  {savingPrefs ? 'Saving...' : 'Save Settings'}
-                </button>
-              </div>
-            </div>
-          </form>
-        </DialogContent>
-      </Dialog>
-
-      {/* ========================================================================= */}
-      {/* 6. MODAL: MANAGE COURSES DIALOG                                           */}
-      {/* ========================================================================= */}
-      <Dialog open={coursesDialogOpen} onOpenChange={setCoursesDialogOpen}>
-        <DialogContent className="max-w-lg bg-surface border-border-subtle rounded-3xl p-7 text-ink-primary shadow-2xl">
-          <DialogHeader>
-            <DialogTitle className="font-headline-md text-2xl text-ink-primary">
-              All Available Curriculums
-            </DialogTitle>
-            <DialogDescription className="font-body-md text-ink-secondary text-sm">
-              Enroll in syllabus courses and rigorous academic tracks.
-            </DialogDescription>
-          </DialogHeader>
-
-          <div className="space-y-3 my-3 max-h-80 overflow-y-auto pr-1">
-            {allCurriculums.map((curr) => {
-              const isEnrolled = enrolledCurriculums.some((e) => e.id === curr.id)
-              return (
-                <div
-                  key={curr.id}
-                  className="p-4 rounded-2xl bg-canvas border border-border-subtle flex items-center justify-between gap-3"
-                >
-                  <div>
-                    <h5 className="font-label-md font-semibold text-ink-primary">
-                      {curr.title}
-                    </h5>
-                    <p className="font-label-micro text-ink-muted text-xs mt-0.5">
-                      {curr.category} • {curr.difficulty_level || 'advanced'}
-                    </p>
-                  </div>
-                  {isEnrolled ? (
-                    <span className="px-3 py-1 rounded-lg bg-secondary/10 text-secondary text-xs font-semibold">
-                      Enrolled
-                    </span>
-                  ) : (
-                    <button
-                      onClick={async () => {
-                        await enrollCurriculumAction(curr.id)
-                        setCoursesDialogOpen(false)
-                      }}
-                      className="px-3.5 py-1.5 rounded-lg bg-primary text-white font-semibold text-xs font-medium hover:bg-accent-hover cursor-pointer"
-                    >
-                      Enroll
-                    </button>
-                  )}
-                </div>
-              )
-            })}
-          </div>
-
-          <DialogFooter>
-            <button
-              onClick={() => setCoursesDialogOpen(false)}
-              className="px-4 py-2 rounded-xl border border-border-subtle text-ink-primary font-label-md text-sm hover:bg-canvas cursor-pointer"
-            >
-              Done
-            </button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-
-      {/* ========================================================================= */}
-      {/* 6B. MODAL: SYLLABUS & DIVIDED CAPSULES DIALOG                             */}
-      {/* ========================================================================= */}
-      <Dialog open={syllabusModalOpen} onOpenChange={setSyllabusModalOpen}>
-        <DialogContent className="max-w-4xl w-[95vw] md:w-full bg-surface border border-border-subtle rounded-3xl p-0 overflow-hidden shadow-2xl flex flex-col max-h-[90vh] text-ink-primary">
+          </>)}
+          {view === 'syllabus' && (
+      <div className="w-full bg-surface border border-border-subtle rounded-3xl overflow-hidden shadow-xs flex flex-col text-ink-primary">
           {/* Modal Header */}
           <div className="p-6 md:p-7 border-b border-border-subtle bg-surface/95 backdrop-blur-md">
             <div className="flex flex-wrap items-center gap-2 mb-2.5">
@@ -1836,12 +1399,12 @@ export function StitchDashboardView({
               </span>
             </div>
 
-            <DialogTitle className="font-headline-md text-2xl md:text-3xl text-ink-primary tracking-tight">
-              Official Syllabus &amp; Divided Capsules
-            </DialogTitle>
-            <DialogDescription className="font-body-md text-ink-secondary text-sm mt-1">
+            <h2 className="font-headline-md text-2xl md:text-3xl text-ink-primary tracking-tight">
+              Syllabus
+            </h2>
+            <p className="font-body-md text-ink-secondary text-sm mt-1">
               Hierarchical curriculum mapped from class &amp; subject to sequential chapters and divided 15-minute concept capsules.
-            </DialogDescription>
+            </p>
 
             {/* Subject Selector Tabs */}
             {syllabusSubjects.length > 1 && (
@@ -1883,7 +1446,7 @@ export function StitchDashboardView({
                     Syllabus Chapters ({currentSubjectChapters.length})
                   </span>
                   <span className="font-label-micro text-xs text-ink-muted">
-                    Select chapter to view divided capsules
+                    Chapters
                   </span>
                 </div>
 
@@ -1964,10 +1527,10 @@ export function StitchDashboardView({
 
                 <div className="pt-2 border-t border-border-subtle/60">
                   <span className="font-label-micro text-xs text-ink-muted uppercase block mb-1">
-                    Written Syllabus Scope
+                    About this chapter
                   </span>
                   <p className="font-body-md text-sm text-ink-primary leading-relaxed">
-                    {activeSyllabusChapter.description || 'Comprehensive conceptual and practical study module calibrated to curriculum specifications.'}
+                    {activeSyllabusChapter.description || ''}
                   </p>
                 </div>
               </div>
@@ -1978,10 +1541,10 @@ export function StitchDashboardView({
               <div className="flex items-center justify-between">
                 <div>
                   <h4 className="font-headline-sm text-lg text-ink-primary">
-                    Divided Capsules ({activeChapterCapsules.length})
+                    Lessons ({activeChapterCapsules.length})
                   </h4>
                   <p className="font-body-md text-xs text-ink-secondary">
-                    Sequential 15-minute deliberate learning units with subtopics and key formulas.
+                    15-minute lessons with subtopics and key formulas.
                   </p>
                 </div>
               </div>
@@ -2167,27 +1730,407 @@ export function StitchDashboardView({
               ) : (
                 <div className="p-6 text-center rounded-2xl bg-canvas border border-border-subtle">
                   <p className="font-body-md text-sm text-ink-secondary">
-                    No divided capsules found for this chapter.
+                    No lessons in this chapter yet.
                   </p>
                 </div>
               )}
             </div>
           </div>
+      </div>
+          )}
+          {view === 'history' && (
+            <HistoryPanel
+              userId={user.id}
+              modules={modules}
+              progressRecords={progressRecords}
+              curriculums={allCurriculums.length ? allCurriculums : enrolledCurriculums}
+              memories={memories}
+            />
+          )}
+        </main>
 
-          {/* Modal Footer */}
-          <div className="p-4 md:p-5 border-t border-border-subtle bg-surface flex items-center justify-between">
-            <span className="font-label-micro text-xs text-ink-muted hidden sm:inline-block">
-              {activeSyllabusChapter?.board || 'CBSE'} • {activeSyllabusChapter?.class_level || profile.class_level || 'Class 9'} • {activeSyllabusCategory}
-            </span>
+      </div>
+
+      {/* ========================================================================= */}
+      {/* 3. MODAL: LIVE AI TUTOR SOCRATIC DIALOGUE PREVIEW                         */}
+      {/* ========================================================================= */}
+      {liveModalOpen && (
+        <div className="fixed inset-0 z-50 bg-ink-primary/30 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-200">
+          <div className="bg-surface rounded-3xl border border-border-subtle max-w-lg w-full p-8 shadow-card relative">
+            {/* Close button */}
             <button
-              onClick={() => setSyllabusModalOpen(false)}
-              className="px-5 py-2 rounded-xl border border-border-subtle text-ink-primary font-label-md text-sm hover:bg-canvas cursor-pointer ml-auto"
+              className="absolute top-6 right-6 p-2 rounded-full text-ink-muted hover:text-ink-primary hover:bg-canvas transition-colors cursor-pointer"
+              onClick={() => setLiveModalOpen(false)}
             >
-              Close Syllabus
+              <span className="material-symbols-outlined text-xl">close</span>
             </button>
+
+            {/* Modal Header */}
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs font-mono font-medium">
+                <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+                <span>Connecting to your tutor</span>
+              </div>
+              <h3 className="font-editorial text-2xl text-ink-primary leading-tight">
+                {activeCourse ? `Ready to explore ${activeModule?.title || activeCourse.title}?` : 'Ready to begin your study session?'}
+              </h3>
+              <p className="text-sm text-ink-secondary leading-relaxed">
+                {(() => {
+                  const memorySnippet = (memories[0]?.memory_text || memories[0]?.content || '').trim()
+                  if (memorySnippet) {
+                    return `Anaxly has synthesized your recent sessions: "${memorySnippet.slice(0, 110)}..."`
+                  }
+                  if (activeModule?.description) {
+                    return `Beginning with ${activeModule.title}. Let's go over the key ideas together.`
+                  }
+                  return 'Your tutor is ready.'
+                })()}
+              </p>
+            </div>
+
+            {/* Audio wave animation placeholder simulation */}
+            <div className="my-6 p-6 rounded-2xl bg-canvas border border-border-subtle flex flex-col items-center justify-center space-y-3 text-center">
+              <div className="flex items-center justify-center gap-1.5 h-10">
+                <span className="w-1.5 h-4 bg-secondary rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
+                <span className="w-1.5 h-8 bg-secondary rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                <span className="w-1.5 h-10 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.3s' }} />
+                <span className="w-1.5 h-6 bg-secondary rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
+                <span className="w-1.5 h-3 bg-secondary rounded-full animate-bounce" style={{ animationDelay: '0.5s' }} />
+              </div>
+              <span className="text-xs font-mono text-ink-muted uppercase tracking-wider">
+                Microphone calibrated &amp; clear
+              </span>
+            </div>
+
+            {/* Action buttons */}
+            <div className="flex items-center gap-3 pt-2">
+              <button
+                className="flex-1 py-2.5 px-4 rounded-xl border border-border-subtle text-ink-primary text-sm font-medium hover:bg-canvas-soft transition-colors cursor-pointer shadow-xs"
+                onClick={() => setLiveModalOpen(false)}
+              >
+                Cancel
+              </button>
+              <button
+                disabled={isStartingSession}
+                onClick={handleStartSession}
+                className="flex-1 py-2.5 px-4 rounded-xl bg-primary hover:bg-accent-hover text-white text-sm font-semibold transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-lg">mic</span>
+                <span>{isStartingSession ? 'Connecting...' : 'Begin Conversation'}</span>
+              </button>
+            </div>
           </div>
+        </div>
+      )}
+
+      {/* ========================================================================= */}
+      {/* 4. MODAL: CHAPTER NOTES DIALOG                                            */}
+      {/* ========================================================================= */}
+      <Dialog open={notesDialogOpen} onOpenChange={setNotesDialogOpen}>
+        <DialogContent className="max-w-xl bg-surface border-border-subtle rounded-3xl p-7 text-ink-primary shadow-2xl">
+          <DialogHeader>
+            <DialogTitle className="font-headline-md text-2xl text-ink-primary">
+              {activeModule?.title || 'Chapter Notes'}
+            </DialogTitle>
+            <DialogDescription className="font-body-md text-ink-secondary">
+              Summary and foundational concepts for the current module.
+            </DialogDescription>
+          </DialogHeader>
+
+          {(() => {
+            const activeProgress = activeModule?.id ? progressMap.get(activeModule.id) : null
+            const cachedNotes = activeModule?.id ? getCachedBoardNotes(user.id, activeModule.id) : null
+            const liveNotesContent = (cachedNotes?.fullSummary || activeProgress?.chapter_notes || '').trim()
+
+            return (
+              <div className="space-y-4 my-2">
+                {liveNotesContent && liveNotesContent.length > 10 ? (
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="font-label-micro text-xs uppercase tracking-wider text-emerald-800 font-semibold flex items-center gap-1.5">
+                        <span className="h-2 w-2 rounded-full bg-emerald-600 animate-pulse" />
+                        Chalkboard Master Notes (Saved Live from Class)
+                      </span>
+                      <Link
+                        href={`/dashboard/${user.id}/profile`}
+                        onClick={() => setNotesDialogOpen(false)}
+                        className="text-xs text-primary underline hover:text-accent-hover font-medium"
+                      >
+                        Open notes
+                      </Link>
+                    </div>
+                    <div className="p-4 rounded-2xl bg-[#0E2016] border border-[#1A3324] text-[#D8EADB] space-y-2 max-h-64 overflow-y-auto font-mono text-xs whitespace-pre-wrap leading-relaxed shadow-inner">
+                      {liveNotesContent}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="p-4 rounded-2xl bg-canvas border border-border-subtle space-y-2 max-h-60 overflow-y-auto">
+                    <span className="font-label-micro text-xs uppercase tracking-wider text-ink-muted">
+                      Overview & notes
+                    </span>
+                    <p className="font-body-md text-ink-primary text-sm whitespace-pre-line">
+                      {activeModule?.chapter_notes || activeModule?.description || 'Foundational concepts and principles for this chapter.'}
+                    </p>
+                  </div>
+                )}
+
+                {activeCourse && (() => {
+                  const courseModuleIds = modules.filter((m) => m.curriculum_id === activeCourse.id).map((m) => m.id)
+                  const otherNotes = studentProgress.savedNotes.filter((n) => courseModuleIds.includes(n.moduleId) && n.moduleId !== activeModule?.id)
+                  if (otherNotes.length === 0) return null
+                  return (
+                    <div className="pt-2 border-t border-border-subtle space-y-1.5">
+                      <span className="font-label-micro text-xs uppercase tracking-wider text-ink-muted">
+                        Other Master Notes in {activeCourse.title}:
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {otherNotes.map((on) => (
+                          <Link
+                            key={on.moduleId}
+                            href={`/dashboard/${user.id}/profile`}
+                            onClick={() => setNotesDialogOpen(false)}
+                            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface border border-border-subtle hover:bg-canvas text-xs text-ink-primary"
+                          >
+                            <span className="material-symbols-outlined text-xs text-secondary">check_circle</span>
+                            <span>{on.moduleTitle}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )
+                })()}
+
+                {activeModule?.key_concepts && activeModule.key_concepts.length > 0 && (
+                  <div className="space-y-2">
+                    <span className="font-label-micro text-xs uppercase tracking-wider text-ink-muted">
+                      Key Concepts
+                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      {activeModule.key_concepts.map((concept, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 rounded-lg bg-surface-container-low border border-border-subtle text-xs font-label-md text-ink-primary"
+                        >
+                          {concept}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )
+          })()}
+
+          <DialogFooter className="flex gap-2">
+            <Link
+              href={`/dashboard/${user.id}/profile`}
+              onClick={() => setNotesDialogOpen(false)}
+              className="px-4 py-2 rounded-xl border border-border-subtle text-ink-primary font-label-md hover:bg-canvas cursor-pointer inline-flex items-center justify-center gap-1.5"
+            >
+              <span>Master Notes Vault</span>
+            </Link>
+            <button
+              onClick={() => setNotesDialogOpen(false)}
+              className="px-4 py-2 rounded-xl border border-border-subtle text-ink-primary font-label-md hover:bg-canvas cursor-pointer"
+            >
+              Close
+            </button>
+            <Link
+              href={activeModule?.id ? `/dashboard/${user.id}/class/${activeModule.id}` : `/dashboard/${user.id}/class`}
+              onClick={(e) => {
+                handleModuleClick(e, activeModule?.id)
+                if (isFreeQuotaExhausted && (!activeModule?.id || !isModuleComplete(activeModule.id))) {
+                  setNotesDialogOpen(false)
+                }
+              }}
+              className="px-5 py-2 rounded-xl bg-primary text-white font-semibold font-label-md hover:bg-accent-hover text-center"
+            >
+              Open Live Session
+            </Link>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
+
+      {/* ========================================================================= */}
+      {/* 5. MODAL: SETTINGS & PREFERENCES DIALOG                                  */}
+      {/* ========================================================================= */}
+      <Dialog open={preferencesOpen} onOpenChange={setPreferencesOpen}>
+        <DialogContent className="max-w-md bg-surface border-border-subtle rounded-3xl p-7 text-ink-primary shadow-2xl">
+          <DialogHeader>
+            <DialogTitle className="font-headline-md text-2xl text-ink-primary">
+              Quick preferences
+            </DialogTitle>
+            <DialogDescription className="font-body-md text-ink-secondary text-sm">
+              Voice, teaching style and pacing.
+            </DialogDescription>
+          </DialogHeader>
+
+          <form onSubmit={handleSavePreferences} className="space-y-4 my-2">
+            {/* Preferred Voice */}
+            <div className="space-y-1.5">
+              <Label className="font-label-micro text-xs uppercase text-ink-muted">
+                Tutor Voice
+              </Label>
+              <select
+                value={selectedVoice}
+                onChange={(e) => setSelectedVoice(e.target.value)}
+                className="w-full p-2.5 rounded-xl border border-border-subtle bg-surface text-ink-primary text-sm focus:outline-hidden focus:ring-2 focus:ring-primary/20"
+              >
+                {VOICE_OPTIONS.map((v) => (
+                  <option key={v.id} value={v.id}>
+                    {v.name} — {v.desc}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Learning Style */}
+            <div className="space-y-1.5">
+              <Label className="font-label-micro text-xs uppercase text-ink-muted">
+                Teaching style
+              </Label>
+              <select
+                value={selectedStyle}
+                onChange={(e) => setSelectedStyle(e.target.value)}
+                className="w-full p-2.5 rounded-xl border border-border-subtle bg-surface text-ink-primary text-sm focus:outline-hidden focus:ring-2 focus:ring-primary/20"
+              >
+                <option value="socratic">Guided questions</option>
+                <option value="direct">Direct (Concise &amp; Factual)</option>
+                <option value="visual">Visual (Diagrams &amp; Analogies)</option>
+                <option value="storytelling">Storytelling (Contextual Narrative)</option>
+              </select>
+            </div>
+
+            {/* Pacing */}
+            <div className="space-y-1.5">
+              <Label className="font-label-micro text-xs uppercase text-ink-muted">
+                Pacing
+              </Label>
+              <select
+                value={selectedPacing}
+                onChange={(e) => setSelectedPacing(e.target.value)}
+                className="w-full p-2.5 rounded-xl border border-border-subtle bg-surface text-ink-primary text-sm focus:outline-hidden focus:ring-2 focus:ring-primary/20"
+              >
+                <option value="slow_and_thorough">Slow &amp; Thorough</option>
+                <option value="standard">Standard</option>
+                <option value="fast_and_high_level">Fast &amp; High-Level</option>
+              </select>
+            </div>
+
+            {/* Class / Grade Level */}
+            <div className="space-y-1.5">
+              <Label className="font-label-micro text-xs uppercase text-ink-muted">
+                Class
+              </Label>
+              <select
+                value={selectedClass}
+                onChange={(e) => setSelectedClass(e.target.value)}
+                className="w-full p-2.5 rounded-xl border border-border-subtle bg-surface text-ink-primary text-sm focus:outline-hidden focus:ring-2 focus:ring-primary/20"
+              >
+                <option value="Class 6">Class 6</option>
+                <option value="Class 7">Class 7</option>
+                <option value="Class 8">Class 8</option>
+                <option value="Class 9">Class 9</option>
+                <option value="Class 10">Class 10</option>
+                <option value="Class 11">Class 11</option>
+                <option value="Class 12">Class 12</option>
+              </select>
+            </div>
+
+            <div className="pt-3 border-t border-border-subtle flex items-center justify-between">
+              <button
+                type="button"
+                onClick={() => signOutAction()}
+                className="text-xs font-label-micro text-primary hover:underline cursor-pointer"
+              >
+                Sign Out
+              </button>
+
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => setPreferencesOpen(false)}
+                  className="px-4 py-2 rounded-xl border border-border-subtle text-ink-primary font-label-md text-sm hover:bg-canvas cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={savingPrefs}
+                  className="px-5 py-2 rounded-xl bg-primary text-white font-semibold font-label-md text-sm hover:bg-accent-hover cursor-pointer"
+                >
+                  {savingPrefs ? 'Saving...' : 'Save Settings'}
+                </button>
+              </div>
+            </div>
+          </form>
+        </DialogContent>
+      </Dialog>
+
+      {/* ========================================================================= */}
+      {/* 6. MODAL: MANAGE COURSES DIALOG                                           */}
+      {/* ========================================================================= */}
+      <Dialog open={coursesDialogOpen} onOpenChange={setCoursesDialogOpen}>
+        <DialogContent className="max-w-lg bg-surface border-border-subtle rounded-3xl p-7 text-ink-primary shadow-2xl">
+          <DialogHeader>
+            <DialogTitle className="font-headline-md text-2xl text-ink-primary">
+              All subjects
+            </DialogTitle>
+            <DialogDescription className="font-body-md text-ink-secondary text-sm">
+              Add subjects to your dashboard.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-3 my-3 max-h-80 overflow-y-auto pr-1">
+            {allCurriculums.map((curr) => {
+              const isEnrolled = enrolledCurriculums.some((e) => e.id === curr.id)
+              return (
+                <div
+                  key={curr.id}
+                  className="p-4 rounded-2xl bg-canvas border border-border-subtle flex items-center justify-between gap-3"
+                >
+                  <div>
+                    <h5 className="font-label-md font-semibold text-ink-primary">
+                      {curr.title}
+                    </h5>
+                    <p className="font-label-micro text-ink-muted text-xs mt-0.5">
+                      {curr.category} • {curr.difficulty_level || 'advanced'}
+                    </p>
+                  </div>
+                  {isEnrolled ? (
+                    <span className="px-3 py-1 rounded-lg bg-secondary/10 text-secondary text-xs font-semibold">
+                      Enrolled
+                    </span>
+                  ) : (
+                    <button
+                      onClick={async () => {
+                        await enrollCurriculumAction(curr.id)
+                        setCoursesDialogOpen(false)
+                      }}
+                      className="px-3.5 py-1.5 rounded-lg bg-primary text-white font-semibold text-xs font-medium hover:bg-accent-hover cursor-pointer"
+                    >
+                      Enroll
+                    </button>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+
+          <DialogFooter>
+            <button
+              onClick={() => setCoursesDialogOpen(false)}
+              className="px-4 py-2 rounded-xl border border-border-subtle text-ink-primary font-label-md text-sm hover:bg-canvas cursor-pointer"
+            >
+              Done
+            </button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* ========================================================================= */}
+      {/* 6B. MODAL: SYLLABUS & DIVIDED CAPSULES DIALOG                             */}
+      {/* ========================================================================= */}
 
       {/* ========================================================================= */}
       {/* 7. MOBILE DRAWER                                                          */}
@@ -2231,59 +2174,17 @@ export function StitchDashboardView({
             }))}
           />
           <Link
-            href={`/dashboard/${user.id}/profile`}
+            href={`/dashboard/${user.id}/settings`}
             onClick={() => setMobileMenuOpen(false)}
-            className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-ink-secondary transition-colors hover:bg-canvas-soft hover:text-ink-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm"
-          >
-            <span aria-hidden="true" className="material-symbols-outlined text-xl">school</span>
-            <span>Profile &amp; Master Notes</span>
-          </Link>
-          <Link
-            href={`/dashboard/${user.id}/settings?tab=avatars`}
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-ink-secondary transition-colors hover:bg-canvas-soft hover:text-ink-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm"
+            className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-ink-secondary transition-colors hover:bg-canvas-soft hover:text-ink-primary"
           >
             <span aria-hidden="true" className="material-symbols-outlined text-xl">settings</span>
-            <span>Settings &amp; avatars</span>
+            <span>Settings</span>
           </Link>
-          <Link
-            href="/pricing"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex min-h-11 w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-emerald-800 transition-colors hover:bg-emerald-50 hover:text-emerald-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm"
-          >
-            <span aria-hidden="true" className="material-symbols-outlined text-xl text-emerald-700">credit_card</span>
-            <span>Plans &amp; Pricing</span>
-          </Link>
-        </div>
-
-        <div className="border-t border-border-subtle pt-4">
-          <div className="flex items-center gap-3 p-2 bg-surface rounded-xl border border-border-subtle">
-            <div className="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden flex items-center justify-center">
-              {studentAvatar ? (
-                <img
-                  className="w-full h-full object-cover"
-                  alt={studentName}
-                  src={studentAvatar}
-                />
-              ) : (
-                <span className="font-semibold text-ink-primary text-xs font-label-md">
-                  {studentName.charAt(0).toUpperCase()}
-                </span>
-              )}
-            </div>
-            <div>
-              <p className="font-label-md text-label-md text-ink-primary font-medium">
-                {studentName}
-              </p>
-              <p className="font-label-micro text-label-micro text-ink-muted">
-                {studentTrack}
-              </p>
-            </div>
-          </div>
         </div>
       </aside>
 
-      {/* 10-Question Mastery Evaluation Modal */}
+      {/* 10-Question Chapter quiz Modal */}
       {activeModule && (
         <MasteryQuizModal
           isOpen={quizModalOpen}

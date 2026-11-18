@@ -78,9 +78,9 @@ export function startCompanionTour() {
 
 const DEFAULT_TIPS = [
   "Hi! I'm your AI learning companion. Click me anytime for study tips!",
-  "Tip: You can launch a live voice session anytime with Gemini 3.8 Live!",
+  "Tip: You can start a live voice class any time.",
   "Keep your streak alive by reviewing one syllabus topic capsule today!",
-  "Stuck on a problem? Your tutor adapts to Socratic, direct, or visual explanations.",
+  "Stuck on a problem? Your tutor can explain with questions, directly, or with visuals.",
 ]
 
 export function Mascot() {
@@ -290,6 +290,12 @@ export function Mascot() {
     }
 
     window.addEventListener('companion-guide', handleCompanionGuide)
+    // Replay guidance fired before the lazily-mounted mascot was ready.
+    const queued = (window as any).__mascotQueue as CustomEvent[] | undefined
+    if (queued?.length) {
+      ;(window as any).__mascotQueue = queued.filter((e) => e.type !== 'companion-guide')
+      queued.filter((e) => e.type === 'companion-guide').forEach((e) => handleCompanionGuide(e))
+    }
     return () => window.removeEventListener('companion-guide', handleCompanionGuide)
   }, [safePlay, safeExpression, returnToDock, pathname])
 

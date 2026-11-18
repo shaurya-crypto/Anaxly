@@ -2,6 +2,7 @@ import React, { Suspense } from 'react'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import { SettingsView } from '@/components/settings/SettingsView'
+import { getStudentSubscription } from '@/lib/subscription/subscriptionService'
 
 export const dynamic = 'force-dynamic'
 
@@ -22,17 +23,25 @@ export default async function SettingsPage({
   }
 
   // Fetch student profile
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user.id)
-    .maybeSingle()
+  const [{ data: profile }, { data: studyPlan }, subscription] = await Promise.all([
+    supabase.from('profiles').select('*').eq('id', user.id).maybeSingle(),
+    supabase.from('student_study_plans').select('*').eq('user_id', user.id).eq('is_active', true).maybeSingle(),
+    getStudentSubscription(user.id).catch(() => null),
+  ])
 
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#FBFBF9] flex items-center justify-center font-serif text-[#555852]">Loading settings...</div>}>
+    <Suspense fallback={<div className="min-h-screen bg-canvas flex items-center justify-center font-serif text-[#555852]">Loading settings...</div>}>
       <SettingsView
-        user={{ id: user.id, email: user.email }}
+        user={{
+          id: user.id,
+          email: user.email,
+          createdAt: user.created_at,
+          lastSignIn: user.last_sign_in_at,
+          provider: user.app_metadata?.provider,
+        }}
         profile={profile || {}}
+        studyPlan={studyPlan}
+        subscription={subscription}
       />
     </Suspense>
   )
