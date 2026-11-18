@@ -289,13 +289,13 @@ function ChoiceCard({ active, onClick, title, desc, badge }: { active: boolean; 
       onClick={onClick}
       className={`group relative w-full cursor-pointer rounded-xl border p-4 text-left transition-all ${
         active
-          ? 'border-accent-warm bg-accent-warm-soft ring-1 ring-accent-warm/30'
+          ? 'border-accent-warm bg-accent-warm-soft ring-1 ring-accent-warm-border'
           : 'border-border-subtle bg-surface hover:-translate-y-0.5 hover:border-accent-warm-border hover:shadow-sm'
       }`}
     >
       <div className="flex items-center justify-between gap-2">
         <span className="text-sm font-semibold text-ink-primary">{title}</span>
-        {badge && <span className="rounded-full bg-accent-warm/10 px-2 py-0.5 text-[10px] font-semibold text-accent-warm">{badge}</span>}
+        {badge && <span className="rounded-full bg-accent-warm-soft px-2 py-0.5 text-[10px] font-semibold text-accent-warm">{badge}</span>}
         <span
           className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border transition-colors ${
             active ? 'border-accent-warm bg-accent-warm text-white' : 'border-border-subtle'
@@ -310,7 +310,7 @@ function ChoiceCard({ active, onClick, title, desc, badge }: { active: boolean; 
 }
 
 const inputClass =
-  'w-full rounded-xl border border-border-subtle bg-surface px-3.5 py-2.5 text-sm text-ink-primary transition-shadow placeholder:text-ink-hairline focus:border-accent-warm focus:outline-none focus:ring-4 focus:ring-accent-warm/10 disabled:cursor-not-allowed disabled:bg-canvas-soft disabled:text-ink-muted'
+  'w-full rounded-xl border border-border-subtle bg-surface px-3.5 py-2.5 text-sm text-ink-primary transition-shadow placeholder:text-ink-hairline focus:border-accent-warm focus:outline-none focus:ring-4 focus:ring-accent-warm-soft disabled:cursor-not-allowed disabled:bg-canvas-soft disabled:text-ink-muted'
 const primaryBtn =
   'inline-flex cursor-pointer items-center gap-2 rounded-xl bg-accent-warm px-4 py-2 text-sm font-medium text-white shadow-xs transition-all hover:bg-accent-warm-hover active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50'
 const ghostBtn =
@@ -338,6 +338,9 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
   const [query, setQuery] = useState('')
   const [toast, setToast] = useState<{ type: 'success' | 'error'; message: string } | null>(null)
   const [busy, setBusy] = useState<string | null>(null)
+  // Locale/time-dependent text is rendered only after mount so server and client HTML match.
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
 
   // Server-backed
   const [selectedAvatarId, setSelectedAvatarId] = useState<string>(profile?.selected_avatar_id || PREBUILT_AVATARS[0].id)
@@ -416,7 +419,7 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
 
   const activeAvatar = PREBUILT_AVATARS.find((a) => a.id === selectedAvatarId) || PREBUILT_AVATARS[0]
   const strength = passwordStrength(newPassword)
-  const daysToExam = examDate ? Math.ceil((new Date(examDate).getTime() - Date.now()) / 86400000) : null
+  const daysToExam = examDate && mounted ? Math.ceil((new Date(examDate).getTime() - Date.now()) / 86400000) : null
 
   const filteredTabs = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -468,12 +471,12 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
     else flash('error', 'Notifications are blocked in your browser settings')
   }
 
-  const memberSince = user.createdAt ? new Date(user.createdAt).toLocaleDateString(undefined, { month: 'long', year: 'numeric' }) : null
+  const memberSince = mounted && user.createdAt ? new Date(user.createdAt).toLocaleDateString(undefined, { month: 'long', year: 'numeric' }) : null
 
   return (
     <div className="min-h-screen bg-canvas text-ink-primary">
       {/* Header */}
-      <header className="sticky top-0 z-30 border-b border-border-subtle bg-canvas/85 backdrop-blur-xl">
+      <header className="sticky top-0 z-30 border-b border-border-subtle bg-canvas backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-8">
           <div className="flex min-w-0 items-center gap-3">
             <Link
@@ -501,7 +504,7 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
           {/* Identity */}
           <div className="mb-4 overflow-hidden rounded-2xl border border-border-subtle bg-surface shadow-xs">
             <div className="h-14 bg-gradient-to-r from-accent-warm via-accent-primary to-accent-sage opacity-90" />
-            <div className="-mt-7 px-4 pb-4">
+            <div className="relative -mt-7 px-4 pb-4">
               <div className="flex h-14 w-14 items-center justify-center rounded-full border-4 border-surface bg-accent-warm-soft font-editorial text-xl text-accent-warm">
                 {(fullName || 'S').charAt(0).toUpperCase()}
               </div>
@@ -603,7 +606,7 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
                             disabled={b.disabled}
                             onClick={() => setTargetBoard(b.id)}
                             className={`cursor-pointer rounded-xl border px-3 py-2.5 text-left transition-all disabled:cursor-not-allowed disabled:opacity-50 ${
-                              targetBoard === b.id ? 'border-accent-warm bg-accent-warm-soft ring-1 ring-accent-warm/30' : 'border-border-subtle hover:bg-canvas-soft'
+                              targetBoard === b.id ? 'border-accent-warm bg-accent-warm-soft ring-1 ring-accent-warm-border' : 'border-border-subtle hover:bg-canvas-soft'
                             }`}
                           >
                             <p className="text-sm font-semibold">{b.id}</p>
@@ -683,7 +686,7 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
                 </Section>
 
                 <Section title="Sessions & sign-in">
-                  <Row label="This device" desc={`Signed in${user.provider ? ` with ${user.provider}` : ''}${user.lastSignIn ? ` · last sign-in ${new Date(user.lastSignIn).toLocaleString()}` : ''}`}>
+                  <Row label="This device" desc={`Signed in${user.provider ? ` with ${user.provider}` : ''}${mounted && user.lastSignIn ? ` · last sign-in ${new Date(user.lastSignIn).toLocaleString()}` : ''}`}>
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">
                       <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" /> Active now
                     </span>
@@ -768,7 +771,7 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
                       <h3 className="font-editorial text-4xl">{plan.name}</h3>
                       <p className="mt-1 text-sm text-white/80">
                         {subscription?.status ? `${subscription.status} · ` : ''}
-                        {subscription?.current_period_end ? `renews ${new Date(subscription.current_period_end).toLocaleDateString()}` : 'No active billing cycle'}
+                        {subscription?.current_period_end ? (mounted ? `renews ${new Date(subscription.current_period_end).toLocaleDateString()}` : '') : 'No active billing cycle'}
                       </p>
                     </div>
                     <Link href="/pricing" className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-accent-primary transition-transform hover:scale-[1.02]">
@@ -819,7 +822,7 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
               <>
                 <div className="flex flex-col items-center gap-6 rounded-2xl border border-border-subtle bg-surface p-6 shadow-xs sm:flex-row">
                   <div className="relative h-32 w-32 shrink-0">
-                    <div className="absolute inset-0 animate-pulse rounded-full bg-accent-warm/20 blur-xl" />
+                    <div className="absolute inset-0 animate-pulse rounded-full bg-accent-warm-soft blur-xl" />
                     <img
                       src={activeAvatar.image}
                       alt={activeAvatar.name}
@@ -848,7 +851,7 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
                         disabled={sel || busy === 'avatar'}
                         onClick={() => handleSelectAvatar(a)}
                         className={`group flex cursor-pointer gap-4 rounded-2xl border p-4 text-left transition-all disabled:cursor-default ${
-                          sel ? 'border-accent-warm bg-accent-warm-soft ring-1 ring-accent-warm/30' : 'border-border-subtle bg-surface hover:-translate-y-0.5 hover:shadow-md'
+                          sel ? 'border-accent-warm bg-accent-warm-soft ring-1 ring-accent-warm-border' : 'border-border-subtle bg-surface hover:-translate-y-0.5 hover:shadow-md'
                         }`}
                       >
                         <img src={a.image} alt="" className="h-16 w-16 shrink-0 rounded-full object-cover transition-transform group-hover:scale-105" />
