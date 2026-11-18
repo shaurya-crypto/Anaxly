@@ -169,8 +169,8 @@ export class AudioStreamer {
 
       // Robust conversational voice detection threshold for barge-in (intentional voice directly into mic)
       // Normal speaking voice produces RMS 0.08-0.35. Ambient noise/bleed stays below 0.06.
-      const BARGE_IN_THRESHOLD = Math.max(0.095, this.noiseFloor * 3.5);
-      const requiredFrames = 1; // ~50ms of sustained intentional voice required to trigger barge-in
+      const BARGE_IN_THRESHOLD = Math.max(0.105, this.noiseFloor * 4.0);
+      const requiredFrames = 2; // ~100ms of sustained intentional voice required to trigger barge-in
 
       if (rms >= BARGE_IN_THRESHOLD) {
         this.consecutiveBargeInFrames++;
@@ -203,7 +203,7 @@ export class AudioStreamer {
 
     // Calibrated voice threshold for normal conversational speaking voice into any mic (calibrated from legacy voiceThreshold = Math.max(0.065, this.noiseFloor * 2.5))
     // Background room noise / fan drone is filtered out below 0.022 RMS; intentional speaking voice is 0.035 - 0.35 RMS.
-    const voiceThreshold = Math.max(0.022, this.noiseFloor * 1.8);
+    const voiceThreshold = Math.max(0.028, this.noiseFloor * 2.0);
 
     // Verify signal-to-noise ratio: intentional human speech stands out clearly above baseline noise floor
     const isVocalSignal = rms >= voiceThreshold && (rms - this.noiseFloor >= 0.008 || rms >= 0.035);

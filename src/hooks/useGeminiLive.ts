@@ -5,9 +5,13 @@ import { ConnectionState, TranscriptItem, GeminiVoice } from "@/types/liveSessio
 import { AudioPlayer } from "@/services/audioPlayer";
 import { AudioStreamer } from "@/services/audioStreamer";
 import { GeminiLiveClient, LiveAvatarConfig } from "@/services/geminiWebSocket";
+import { PedagogicalStateManager } from "@/services/pedagogicalStateManager";
+import { SessionController } from "@/services/sessionController";
 
 export function useGeminiLive() {
   const [connectionState, setConnectionState] = useState<ConnectionState>("IDLE");
+  const pedagogicalStateManager = useRef(new PedagogicalStateManager());
+  const sessionController = useRef(SessionController.getInstance());
   const [isMuted, setIsMuted] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [transcripts, setTranscripts] = useState<TranscriptItem[]>([]);
@@ -233,10 +237,18 @@ export function useGeminiLive() {
             }
           },
           onTranscript: (text, sender) => {
+            if (sender === "user") {
+              pedagogicalStateManager.current.handleUserCommand(text);
+            }
             addTranscript(text, sender);
           },
           onChalkboardToolCall: (action, content, color) => {
-            onChalkboardToolCall?.(action, content, color);
+            const allowed = pedagogicalStateManager.current.handleToolCall(action);
+            if (allowed) {
+              onChalkboardToolCall?.(action, content, color);
+            } else {
+              console.log(`[useGeminiLive] Tool call blocked by PedagogicalStateManager: ${action}`);
+            }
           },
           onVisualAction: (action, params) => {
             onVisualAction?.(action, params);
@@ -280,6 +292,7 @@ export function useGeminiLive() {
       );
 
       geminiClientRef.current = client;
+      sessionController.current.initSession(client);
       client.connect(kickoffPrompt);
 
       // 5. Start Volume Visualizer loop
@@ -335,7 +348,7 @@ export function useGeminiLive() {
     }
 
     if (geminiClientRef.current) {
-      geminiClientRef.current.disconnect();
+      sessionController.current.terminateSession();
       geminiClientRef.current = null;
     }
 

@@ -55,7 +55,10 @@ export const ChapterNotesModal: React.FC<ChapterNotesModalProps> = ({
   }
 
   const handleDownload = () => {
-    if (!chapterNotes) return
+    if (!chapterNotes || !chapterNotes.trim()) {
+      alert("No notes available to download yet. Wait for the tutor to write them on the chalkboard!");
+      return;
+    }
     const sanitizedTitle = moduleTitle.replace(/[\s/\\?%*:|"<>]/g, '_')
     const fileName = `${sanitizedTitle}_Chalkboard_Notes.md`
     const fileHeader = `# ${moduleTitle}\n**Subject**: ${subject} | **Level**: ${classLevel}\n**Generated**: ${new Date().toLocaleDateString()}\n\n---\n\n`
@@ -64,6 +67,8 @@ export const ChapterNotesModal: React.FC<ChapterNotesModalProps> = ({
     const a = document.createElement('a')
     a.href = url
     a.download = fileName
+    a.setAttribute('download', fileName) // Ensure download attribute is set
+    a.style.display = 'none' // Hide it
     document.body.appendChild(a)
     a.click()
     document.body.removeChild(a)
@@ -343,17 +348,6 @@ export const ChapterNotesModal: React.FC<ChapterNotesModalProps> = ({
                   <span>Copy Notes</span>
                 </>
               )}
-            </Button>
-
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleDownload}
-              disabled={!chapterNotes || !chapterNotes.trim()}
-              className="bg-emerald-700 hover:bg-emerald-600 text-white border-transparent rounded-xl px-4 py-1.5 text-xs font-semibold flex items-center gap-1.5 cursor-pointer shadow-md transition-transform active:scale-95 disabled:opacity-50"
-            >
-              <Download className="w-3.5 h-3.5" />
-              <span>Download .md</span>
             </Button>
 
             <Button

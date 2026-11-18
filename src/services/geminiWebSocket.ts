@@ -1,5 +1,6 @@
 import { GoogleGenAI, Type, Behavior, FunctionResponseScheduling, StartSensitivity, EndSensitivity } from '@google/genai';
 import { cleanChalkboardTypography } from '../components/whiteboard/chalkboardTypography';
+import { PedagogicalStateManager } from './pedagogicalStateManager';
 
 export interface CustomizedAvatarConfig {
   imageData?: string;
@@ -32,6 +33,7 @@ export interface GeminiLiveCallbacks {
 export class GeminiLiveClient {
   private ai: GoogleGenAI;
   private session: any | null = null;
+  private pedagogicalStateManager = new PedagogicalStateManager();
   private apiKey: string;
   private model: string;
   private voiceName: string;
@@ -81,7 +83,7 @@ export class GeminiLiveClient {
       model = "gemini-3.8-live";
     }
     this.model = model;
-    this.voiceName = options?.voiceName || "Leda";
+    
     this.supportedLanguages =
       options?.supportedLanguages && options.supportedLanguages.length > 0
         ? options.supportedLanguages
@@ -89,30 +91,18 @@ export class GeminiLiveClient {
     this.languageCode =
       options?.languageCode ||
       (options?.preferredLanguage?.toLowerCase().includes("hindi") ? "hi-IN" : "en-IN");
+    
+    // Dynamic voice adaptation
+    this.voiceName = options?.voiceName || (this.languageCode === "hi-IN" ? "Fenrir" : "Leda");
+    
     this.thinkingLevel = options?.thinkingLevel || "minimal";
     this.enableFunctionCalling = options?.enableFunctionCalling ?? false;
     this.avatarConfig = options?.avatarConfig;
-    this.systemInstruction =
-      options?.systemInstruction ||
-       `You are a kind, helpful tutor for students in Classes 6-12. Use simple, everyday words, like a friend explaining something.
-       ALWAYS use relatable, real-life examples from home or school life to explain concepts (e.g., comparing electricity to water flow, or gravity to a magnet).
-       GREET PROACTIVELY: Start by saying "Hi! I'm here to help you learn something new today. What shall we explore?"
-       WRITE TOPIC: Write the topic name clearly on the board immediately.
-       CHALKBOARD PRIORITY: You MUST call the 'write_chalkboar' tool at the start of EVERY single turn, before or while speaking. This is not optional. If you say something, it must be written on the board simultaneously.
-       Explain things in 5-6 simple sentences.
-       ${[
-         "Inspiring Master Academic Tutor.",
-         "Proactive Greeting: Start every session with a warm welcome.",
-         "Simple Language: Use very basic, student-friendly English/hindi/hinglish/other languages.",
-         "Board Topic: Write the topic name on the board immediately.",
-         "Board Content: ALWAYS write notes, definitions, and steps on the board for EVERYTHING you teach.",
-         "Simple explanation: 5-6 simple sentences.",
-         "Proactive Diagrams: Render once and check for duplicates first.",
-         "Strict 6-Stage Cadence & Socratic Gating.",
-         "Typography: Textbook notation, no code operators.",
-         "Numerical Layout: 1-2 steps per line."
-       ].join("\n")}
-       BOARD STATE CONTINUITY: ALWAYS check for existing diagram elements before adding new ones to prevent duplicates.`,
+    this.systemInstruction = options?.systemInstruction || `You are a friendly, expert tutor for Classes 6-12. 
+    1. Language Style: ALWAYS use simple, colloquial Hinglish, Hindi, or English. NO heavy, complex, or academic words. Talk like a friendly local teacher; use conversational phrases like "samjhe," "dekho," "bilkul," "chalo" to make concepts clear.
+    2. Socratic Cadence: Strictly enforce the 6-stage Socratic cycle: (1)Intuition, (2)Formulation, (3)Example, (4)Numerical, (5)Checkpoint, (6)Board-Exam Numerical.
+    3. Progression: NEVER advance stages, concepts, or pages until the student confirms understanding or explicitly commands "next concept." Wait for student input at every stage.
+    4. Chalkboard: Write step-by-step in "Topper Layout" (Given -> Formula -> Substitution -> Calculation -> Answer). Write 1 or at most 2 steps per line using textbook notation, NO code operators.`;
     this.ai = new GoogleGenAI({
       apiKey: this.apiKey,
       httpOptions: { apiVersion: "v1alpha" },
@@ -122,15 +112,15 @@ export class GeminiLiveClient {
   private extractAndExecuteEmbeddedToolCalls(rawText: string): string {
     if (!rawText) return rawText;
 
-    // 1. Match pseudo-code: write_chalkboard(...) or write_board(action="...", content="...", color="...")
-    const chalkboardRegex = /(?:write_chalkboard|write_board|draw_board|chalkboard)\s*\(\s*(?:action\s*=\s*)?["']?([a-zA-Z0-9_\-]+)["']?\s*(?:,\s*(?:content\s*=\s*)?(?:["']([^"']*)["']|([^"',\)]*)))?(?:\s*,\s*(?:color\s*=\s*)?["']?([a-zA-Z0-9_#]+)["']?)?\s*\)/gi;
+    // 1. Match pseudo-code: write_chalkboardd(...) or write_board(action="...", content="...", color="...")
+    const chalkboardRegex = /(?:write_chalkboardd|write_board|draw_board|chalkboard)\s*\(\s*(?:action\s*=\s*)?["']?([a-zA-Z0-9_\-]+)["']?\s*(?:,\s*(?:content\s*=\s*)?(?:["']([^"']*)["']|([^"',\)]*)))?(?:\s*,\s*(?:color\s*=\s*)?["']?([a-zA-Z0-9_#]+)["']?)?\s*\)/gi;
     let m;
     while ((m = chalkboardRegex.exec(rawText)) !== null) {
       const action = m[1]?.trim() || "";
       const content = (m[2] ?? m[3] ?? "").trim();
       const color = m[4]?.trim() || undefined;
       if (action) {
-        this.handleSingleToolCall("write_chalkboard", { action, content, color });
+        this.handleSingleToolCall("write_chalkboardd", { action, content, color });
       }
     }
 
@@ -154,29 +144,29 @@ export class GeminiLiveClient {
       const content = bm[2]?.trim() || "";
       if (!content) continue;
       if (type === "NOTE" || type === "INTUITION" || type === "INSIGHT") {
-        this.handleSingleToolCall("write_chalkboard", { action: "draw_note", content: type === "INTUITION" ? `Intuition: ${content}` : content, color: "botanical" });
+        this.handleSingleToolCall("write_chalkboardd", { action: "draw_note", content: type === "INTUITION" ? `Intuition: ${content}` : content, color: "botanical" });
       } else if (type === "HIGHLIGHT_WORD" || type === "HIGHLIGHT_SENTENCE" || type === "FOCUS_WORD" || type === "FOCUS_PHRASE") {
         this.handleSingleToolCall("highlight_text", { text: content, target: "both", color: "amber" });
       } else if (type === "HIGHLIGHT") {
         if (content.length <= 45) {
           this.handleSingleToolCall("highlight_text", { text: content, target: "both", color: "amber" });
         } else {
-          this.handleSingleToolCall("write_chalkboard", { action: "draw_highlight_box", content: content, color: "coral" });
+          this.handleSingleToolCall("write_chalkboardd", { action: "draw_highlight_box", content: content, color: "coral" });
         }
       } else if (type === "DEFINITION" || type === "LAW" || type === "FORMULA") {
-        this.handleSingleToolCall("write_chalkboard", { action: "draw_highlight_box", content: content, color: "coral" });
+        this.handleSingleToolCall("write_chalkboardd", { action: "draw_highlight_box", content: content, color: "coral" });
       } else if (type === "EXAMPLE" || type === "ILLUSTRATION") {
-        this.handleSingleToolCall("write_chalkboard", { action: "draw_note", content: `Example: ${content}`, color: "blue" });
+        this.handleSingleToolCall("write_chalkboardd", { action: "draw_note", content: `Example: ${content}`, color: "blue" });
       } else if (type === "STEP" || type === "DERIVATION" || type === "CALCULATION") {
-        this.handleSingleToolCall("write_chalkboard", { action: "draw_step", content: content, color: "amber" });
+        this.handleSingleToolCall("write_chalkboardd", { action: "draw_step", content: content, color: "amber" });
       } else if (type === "QUESTION" || type === "CHECKPOINT_QUESTION" || type === "BOARD_QUESTION") {
-        this.handleSingleToolCall("write_chalkboard", { action: "draw_question", content: content, color: "amber" });
+        this.handleSingleToolCall("write_chalkboardd", { action: "draw_question", content: content, color: "amber" });
       } else if (type === "STUDENT_ANSWER" || type === "STUDENT") {
-        this.handleSingleToolCall("write_chalkboard", { action: "draw_student_answer", content: content, color: "blue" });
+        this.handleSingleToolCall("write_chalkboardd", { action: "draw_student_answer", content: content, color: "blue" });
       } else if (type === "VERDICT" || type === "ANSWER_VERDICT" || type === "CORRECTION") {
-        this.handleSingleToolCall("write_chalkboard", { action: "draw_answer_verdict", content: content, color: "botanical" });
+        this.handleSingleToolCall("write_chalkboardd", { action: "draw_answer_verdict", content: content, color: "botanical" });
       } else if (type === "NUMERICAL" || type === "BOARD_NUMERICAL" || type === "WORKED_EXAMPLE" || type === "SOLVE" || type === "MATH_SOLVE") {
-        this.handleSingleToolCall("write_chalkboard", { action: "draw_numerical", content: content });
+        this.handleSingleToolCall("write_chalkboardd", { action: "draw_numerical", content: content });
       } else if (type === "CONCEPT_FOCUS") {
         this.handleSingleToolCall("concept_focus", { conceptName: content });
       }
@@ -347,7 +337,7 @@ export class GeminiLiveClient {
     // 5. Strip any leaked tool calls and bracket directives from spoken transcript text
     const stripCall = (name: string) => new RegExp(`${name}\\s*\\((?:'[^']*'|"[^"]*"|[^()]*|\\([^()]*\\))*\\)`, "gi");
     return rawText
-      .replace(stripCall("write_chalkboard"), "")
+      .replace(stripCall("write_chalkboardd"), "")
       .replace(stripCall("write_board"), "")
       .replace(stripCall("draw_board"), "")
       .replace(stripCall("chalkboard"), "")
@@ -379,6 +369,9 @@ export class GeminiLiveClient {
   }
 
   private handleSingleToolCall(name: string, args: any, callId?: string): any {
+    if (!this.pedagogicalStateManager.handleToolCall(name)) {
+      return { result: "Progression blocked: finish current stage first" };
+    }
     if (callId) {
       if (this.executedToolCallIds.has(callId)) {
         return;
@@ -407,7 +400,7 @@ export class GeminiLiveClient {
     // Wrap callback execution in a microtask or setTimeout to ensure it's non-blocking
     setTimeout(() => {
         if (
-          name === "write_chalkboard" ||
+          name === "write_chalkboardd" ||
           name === "write_board" ||
           name === "chalkboard" ||
           name === "whiteboard" ||
@@ -628,10 +621,10 @@ export class GeminiLiveClient {
         realtimeInputConfig: {
           automaticActivityDetection: {
             disabled: false,
-            startOfSpeechSensitivity: StartSensitivity.START_SENSITIVITY_LOW,
+            startOfSpeechSensitivity: StartSensitivity.START_SENSITIVITY_HIGH,
             endOfSpeechSensitivity: EndSensitivity.END_SENSITIVITY_HIGH,
             prefixPaddingMs: 40,
-            silenceDurationMs: 350,
+            silenceDurationMs: 2500,
           },
         },
         contextWindowCompression: {
@@ -667,7 +660,7 @@ export class GeminiLiveClient {
           {
             functionDeclarations: [
               {
-                name: "write_chalkboard",
+                name: "write_chalkboardd",
                 description: "MANDATORY CHALKBOARD TOOL: You MUST invoke this tool in EVERY spoken turn to write notes, definitions, steps, formulas, worked examples, and questions on the student's live chalkboard. Speaking without calling this tool is strictly prohibited. For mathematics and physics problem solving, write cleanly with 1 or at most 2 steps per line in standard topper layout (Given -> Formula -> Substitution -> Calculation -> Boxed Answer).",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
@@ -1043,7 +1036,7 @@ export class GeminiLiveClient {
              const responses: any[] = [];
              const isExtendedThinking = this.model.includes("extended-thinking");
              for (const call of msg.toolCall.functionCalls) {
-               if (!call.id || this.executedToolCallIds.has(call.id)) {
+               if (!call.id || this.executedToolCallIds.has(call.id) || !this.pedagogicalStateManager.handleToolCall(call.name)) {
                  continue;
                }
                const toolResult = this.handleSingleToolCall(call.name, call.args || {}, call.id);
@@ -1128,15 +1121,21 @@ export class GeminiLiveClient {
                // Deliver model turn text if it contains chalkboard bracket tags or if no audio transcript was emitted
                if (part.text) {
                  const cleaned = this.extractAndExecuteEmbeddedToolCalls(part.text);
-                 if (cleaned && (part.text.includes("[") || part.text.includes("write_chalkboard") || !hasTeacherTranscript)) {
+                 if (cleaned && (part.text.includes("[") || part.text.includes("write_chalkboardd") || !hasTeacherTranscript)) {
                    this.callbacks.onTranscript(cleaned, "teacher");
                  }
                }
                if (part.functionCall) {
                  const call = part.functionCall;
-                 if (call.id && !this.executedToolCallIds.has(call.id)) {
+                 if (call.id && !this.executedToolCallIds.has(call.id) && this.pedagogicalStateManager.handleToolCall(call.name)) {
                    this.turnToolCallsExecuted++;
                    const toolResult = this.handleSingleToolCall(call.name, call.args || {}, call.id);
+                if (toolResult && toolResult.result && toolResult.result.includes("Progression blocked")) {
+                  continue;
+                }
+                if (toolResult && toolResult.result && toolResult.result.includes("Progression blocked")) {
+                  continue;
+                }
                    const isQuery = call.name === "get_board_content" || call.name === "read_board_content" || call.name === "get_board_state";
                    const isExtendedThinking = this.model.includes("extended-thinking");
                    const responsePayload = (toolResult && typeof toolResult === 'object') ? toolResult : { result: "ok" };
@@ -1278,7 +1277,7 @@ export class GeminiLiveClient {
       return;
     }
     // Proactive Greeting and Topic Writing
-    this.handleSingleToolCall("write_chalkboard", { action: "draw_title", content: `Topic: ${text.split(':')[0] || 'Learning Session'}` });
+    this.handleSingleToolCall("write_chalkboardd", { action: "draw_title", content: `Topic: ${text.split(':')[0] || 'Learning Session'}` });
 
     // Use sendClientContent with a user-role turn to trigger the model to respond with audio speech.
     // The prompt instructs the model to greet and start teaching immediately.

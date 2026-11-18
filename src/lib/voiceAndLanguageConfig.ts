@@ -94,7 +94,7 @@ export const LANGUAGE_VOICE_CONFIGS: Record<string, LanguageVoiceMapping> = {
     recommendedVoices: ['Charon', 'Puck', 'Leda'],
     defaultVoice: 'Charon',
     accentPromptInstruction:
-      'Speak in English with a natural, fluid Indian accent (en-IN). Use standard Indian educational terminology (sums, steps, marks, derivations) with warm, articulate clarity.',
+      'Speak in English with a natural, fluid, and authentic Indian accent (en-IN). Use standard Indian educational terminology (sums, steps, marks, derivations) with warm, articulate clarity, and absolutely no complex, academic, or high-vocabulary words. Be friendly and conversational.',
   },
   'English (Indian)': {
     language: 'English (Indian)',
@@ -103,7 +103,7 @@ export const LANGUAGE_VOICE_CONFIGS: Record<string, LanguageVoiceMapping> = {
     recommendedVoices: ['Charon', 'Puck', 'Leda'],
     defaultVoice: 'Charon',
     accentPromptInstruction:
-      'Speak in English with a natural, fluid Indian accent (en-IN). Use standard Indian educational terminology (sums, steps, marks, derivations) with warm, articulate clarity.',
+      'Speak in English with a natural, fluid, and authentic Indian accent (en-IN). Use standard Indian educational terminology (sums, steps, marks, derivations) with warm, articulate clarity, and absolutely no complex, academic, or high-vocabulary words. Be friendly and conversational.',
   },
   'English (British)': {
     language: 'English (British)',
@@ -130,7 +130,7 @@ export const LANGUAGE_VOICE_CONFIGS: Record<string, LanguageVoiceMapping> = {
     recommendedVoices: ['Charon', 'Puck', 'Leda'],
     defaultVoice: 'Charon',
     accentPromptInstruction:
-      'Speak in natural, conversational Hinglish (hi-IN). Use standard English for scientific laws, formulas, and units while connecting ideas smoothly with warm conversational Hindi (samjhe, dekho, bilkul, chalo).',
+      'Speak in natural, conversational Hinglish (hi-IN) with a truly authentic Indian accent. Use standard English for scientific laws, formulas, and units while connecting ideas smoothly with warm conversational Hindi (samjhe, dekho, bilkul, chalo) and absolutely no complex vocabulary.',
   },
   Hindi: {
     language: 'Hindi',
