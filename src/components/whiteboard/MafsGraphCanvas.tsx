@@ -436,7 +436,7 @@ export function MafsGraphCanvas({
           }
           .mafs-white-viewport .MafsView text {
             fill: #0F172A !important;
-            font-family: 'JetBrains Mono', 'Segoe UI', system-ui, sans-serif !important;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif !important;
             font-weight: 600 !important;
           }
           .mafs-white-viewport .MafsView line {

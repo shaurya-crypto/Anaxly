@@ -148,19 +148,21 @@ const config = {
         smooth: "cubic-bezier(0.32, 0.72, 0, 1)",
       },
       fontFamily: {
-        sans: ["Inter", "Geist", "var(--font-geist-sans)", "sans-serif"],
-        serif: ["Instrument Serif", "Newsreader", "var(--font-instrument-serif)", "Georgia", "serif"],
-        mono: ["JetBrains Mono", "monospace"],
+        // Inter everywhere. No var() entries: an undefined CSS variable makes the
+        // whole font-family declaration invalid and the browser falls back to Times.
+        sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        serif: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        mono: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        editorial: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        "headline-lg": ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        "headline-md": ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        "headline-sm": ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        "body-lg": ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        "body-md": ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        "label-md": ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        "label-micro": ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+        "display-hero": ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
         cursive: ["Caveat", "cursive", "handwriting"],
-        editorial: ["Instrument Serif", "Newsreader", "Georgia", "serif"],
-        "headline-lg": ["Instrument Serif", "Newsreader", "serif"],
-        "headline-md": ["Instrument Serif", "Newsreader", "serif"],
-        "headline-sm": ["Inter", "Geist", "sans-serif"],
-        "body-lg": ["Inter", "Geist", "sans-serif"],
-        "body-md": ["Inter", "Geist", "sans-serif"],
-        "label-md": ["Inter", "Geist", "sans-serif"],
-        "label-micro": ["JetBrains Mono", "monospace"],
-        "display-hero": ["Instrument Serif", "Newsreader", "serif"],
       },
       keyframes: {
         "accordion-down": {

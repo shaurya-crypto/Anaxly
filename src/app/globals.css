@@ -115,8 +115,13 @@
 }
 
 /* Editorial Typography */
-.font-editorial {
-  font-family: 'Instrument Serif', 'Newsreader', Georgia, serif;
+/* Headings: Inter, tighter and heavier than body text. In @layer components so
+   utilities such as font-bold or tracking-* still win. */
+@layer components {
+  .font-editorial, .font-serif, .font-headline-lg, .font-headline-md, .font-display-hero {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
 }
 
 /* Accessible Reduced Motion */
