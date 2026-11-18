@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Mascot } from "@/components/mascot/Mascot";
+import { MascotLazy } from "@/components/mascot/MascotLazy";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
@@ -37,7 +37,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0&display=block"
           rel="stylesheet"
         />
         <script
@@ -79,7 +79,7 @@ export default function RootLayout({
         className="font-sans bg-canvas min-h-[100dvh] flex flex-col antialiased selection:bg-primary-fixed selection:text-ink-primary"
       >
         {children}
-        <Mascot />
+        <MascotLazy />
         <Analytics />
       </body>
     </html>

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import {
   Dialog,
   DialogContent,
@@ -148,10 +148,24 @@ export function StitchDashboardView({
   progressRecords = [],
   memories = [],
   studyPlan = null,
-  view = 'home',
+  view: initialView = 'home',
 }: StitchDashboardViewProps) {
   const router = useRouter()
+  const pathname = usePathname()
+  // Views switch on the client (history.pushState) so changing tabs needs no server round-trip.
+  const pathView = pathname?.split('/')[3] as DashboardViewId | undefined
+  const view: DashboardViewId = pathname
+    ? pathView && pathView in VIEW_META
+      ? pathView
+      : pathname.split('/').length <= 3
+      ? 'home'
+      : initialView
+    : initialView
   const activeNav = view
+  const goToView = (v: DashboardViewId, query = '') => {
+    window.history.pushState(null, '', `/dashboard/${user.id}${v === 'home' ? '' : `/${v}`}${query}`)
+    window.scrollTo({ top: 0 })
+  }
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [liveModalOpen, setLiveModalOpen] = useState(false)
   const [preferencesOpen, setPreferencesOpen] = useState(false)
@@ -506,7 +520,12 @@ export function StitchDashboardView({
 
   // Navigation config shared by the desktop sidebar and the mobile drawer
   const openSyllabus = (curriculumId?: string | null) => {
-    router.push(`/dashboard/${user.id}/syllabus${curriculumId ? `?curriculum=${curriculumId}` : ''}`)
+    const c = curriculumId ? allCurriculums.find((x) => x.id === curriculumId) || enrolledCurriculums.find((x) => x.id === curriculumId) : null
+    if (c) {
+      setSelectedSyllabusCategory(c.category || 'General')
+      setSelectedSyllabusCurriculumId(c.id)
+    }
+    goToView('syllabus', curriculumId ? `?curriculum=${curriculumId}` : '')
   }
   useEffect(() => {
     if (view !== 'syllabus') return
@@ -522,13 +541,13 @@ export function StitchDashboardView({
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
   const navItems: NavItem[] = [
-    { id: 'home', label: 'Home', icon: 'home', onSelect: () => router.push(`/dashboard/${user.id}`) },
-    { id: 'syllabus', label: 'Syllabus', icon: 'menu_book', onSelect: () => router.push(`/dashboard/${user.id}/syllabus`) },
-    { id: 'learn', label: 'Learn', icon: 'auto_stories', onSelect: () => router.push(`/dashboard/${user.id}/learn`) },
-    { id: 'practice', label: 'Practice', icon: 'edit_note', onSelect: () => router.push(`/dashboard/${user.id}/practice`) },
-    { id: 'schedule', label: 'Schedule', icon: 'event', onSelect: () => router.push(`/dashboard/${user.id}/schedule`) },
-    { id: 'progress', label: 'Progress', icon: 'insights', onSelect: () => router.push(`/dashboard/${user.id}/progress`) },
-    { id: 'history', label: 'History', icon: 'history', onSelect: () => router.push(`/dashboard/${user.id}/history`) },
+    { id: 'home', label: 'Home', icon: 'home', onSelect: () => goToView('home') },
+    { id: 'syllabus', label: 'Syllabus', icon: 'menu_book', onSelect: () => goToView('syllabus') },
+    { id: 'learn', label: 'Learn', icon: 'auto_stories', onSelect: () => goToView('learn') },
+    { id: 'practice', label: 'Practice', icon: 'edit_note', onSelect: () => goToView('practice') },
+    { id: 'schedule', label: 'Schedule', icon: 'event', onSelect: () => goToView('schedule') },
+    { id: 'progress', label: 'Progress', icon: 'insights', onSelect: () => goToView('progress') },
+    { id: 'history', label: 'History', icon: 'history', onSelect: () => goToView('history') },
   ]
 
   const hour = new Date().getHours()
@@ -628,7 +647,7 @@ export function StitchDashboardView({
 
             <button
               type="button"
-              onClick={() => router.push(`/dashboard/${user.id}/schedule`)}
+              onClick={() => goToView('schedule')}
               className={`${iconButtonClass} hidden sm:inline-flex`}
               aria-label="Open schedule"
             >

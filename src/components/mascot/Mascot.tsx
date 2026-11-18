@@ -290,6 +290,12 @@ export function Mascot() {
     }
 
     window.addEventListener('companion-guide', handleCompanionGuide)
+    // Replay guidance fired before the lazily-mounted mascot was ready.
+    const queued = (window as any).__mascotQueue as CustomEvent[] | undefined
+    if (queued?.length) {
+      ;(window as any).__mascotQueue = queued.filter((e) => e.type !== 'companion-guide')
+      queued.filter((e) => e.type === 'companion-guide').forEach((e) => handleCompanionGuide(e))
+    }
     return () => window.removeEventListener('companion-guide', handleCompanionGuide)
   }, [safePlay, safeExpression, returnToDock, pathname])
 
