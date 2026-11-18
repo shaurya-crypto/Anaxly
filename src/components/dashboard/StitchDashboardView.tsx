@@ -19,6 +19,7 @@ import { StudyPlannerCard, StudyPlanData } from './StudyPlannerCard'
 import { WeakConceptsReviewCard } from './WeakConceptsReviewCard'
 import { VOICE_OPTIONS } from '@/lib/voiceAndLanguageConfig'
 import { DashboardNav, NavItem } from './DashboardNav'
+import { UserMenu } from './UserMenu'
 import { DailyActivityChart } from './DailyActivityChart'
 import { DashCard, StatTile, SectionHeader } from './primitives'
 import { Subscription, SUBSCRIPTION_PLANS, getClassesRemaining } from '@/lib/types/subscription'
@@ -718,21 +719,18 @@ export function StitchDashboardView({
 
             <div className="mx-1 hidden h-6 w-px bg-border-subtle sm:block" />
 
-            <button
-              type="button"
-              onClick={() => setPreferencesOpen(true)}
-              className="flex cursor-pointer items-center gap-2.5 rounded-lg p-1 text-left transition-colors hover:bg-canvas-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-warm"
-              aria-label={`Open preferences for ${studentName}`}
-            >
-              <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-border-subtle bg-surface">
-                {studentAvatar ? (
-                  <img className="h-full w-full object-cover" alt="" src={studentAvatar} />
-                ) : (
-                  <span className="text-sm font-semibold text-ink-primary">{studentName.charAt(0).toUpperCase()}</span>
-                )}
-              </div>
-              <span className="hidden whitespace-nowrap text-sm font-medium text-ink-primary xl:inline-block">{studentName}</span>
-            </button>
+            <UserMenu
+              userId={user.id}
+              name={studentName}
+              email={user.email}
+              avatarUrl={studentAvatar}
+              track={studentTrack}
+              planName={currentPlan.name}
+              planTier={activePlanTier}
+              classesRemaining={classesRemaining}
+              classesLimit={classesLimit}
+              onOpenQuickPreferences={() => setPreferencesOpen(true)}
+            />
           </div>
         </header>
 

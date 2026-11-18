@@ -569,3 +569,12 @@ html.lenis, html.lenis body {
 @keyframes chalkCaretBlink {
   to { visibility: hidden; }
 }
+
+/* Device-level accessibility preferences (Settings → Appearance) */
+html.reduce-motion *, html.reduce-motion *::before, html.reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+html.high-contrast { --ink-muted: #3f4540; --ink-secondary: #1f2421; --border-subtle: #b9b5aa; }
+html.dyslexia-font body { letter-spacing: 0.04em; word-spacing: 0.12em; line-height: 1.7; }
