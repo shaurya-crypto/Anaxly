@@ -295,7 +295,7 @@ function ChoiceCard({ active, onClick, title, desc, badge }: { active: boolean; 
     >
       <div className="flex items-center justify-between gap-2">
         <span className="text-sm font-semibold text-ink-primary">{title}</span>
-        {badge && <span className="rounded-full bg-accent-warm-soft px-2 py-0.5 text-[10px] font-semibold text-accent-warm">{badge}</span>}
+        {badge && <span className="ml-auto mr-2 text-[11px] text-ink-muted">{badge}</span>}
         <span
           className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border transition-colors ${
             active ? 'border-accent-warm bg-accent-warm text-white' : 'border-border-subtle'
@@ -491,10 +491,6 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
               <h1 className="truncate font-editorial text-2xl leading-tight">Settings</h1>
             </div>
           </div>
-          <Link href={`/dashboard/${user.id}`} className={primaryBtn}>
-            <Sparkles className="h-4 w-4" />
-            <span className="hidden sm:inline">Open classroom</span>
-          </Link>
         </div>
       </header>
 
@@ -510,11 +506,7 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
               </div>
               <p className="mt-2 truncate text-sm font-semibold">{fullName || 'Student'}</p>
               <p className="truncate text-xs text-ink-muted">{user.email}</p>
-              <div className="mt-2 flex flex-wrap gap-1.5 text-[10px] font-semibold uppercase tracking-wider">
-                <span className="rounded-full bg-accent-warm-soft px-2 py-0.5 text-accent-warm">{plan.name}</span>
-                <span className="rounded-full bg-canvas-soft px-2 py-0.5 text-ink-secondary">{targetBoard}</span>
-                <span className="rounded-full bg-canvas-soft px-2 py-0.5 text-ink-secondary">{classLevel.replace('_', ' ')}</span>
-              </div>
+              <p className="mt-1 text-xs text-ink-muted">{classLevel.replace('_', ' ')} · {targetBoard}</p>
             </div>
           </div>
 
@@ -697,9 +689,7 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
 
                 <Section title="Sessions & sign-in">
                   <Row label="This device" desc={`Signed in${user.provider ? ` with ${user.provider}` : ''}${mounted && user.lastSignIn ? ` · last sign-in ${new Date(user.lastSignIn).toLocaleString()}` : ''}`}>
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700">
-                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" /> Active now
-                    </span>
+                    <span className="text-sm text-ink-muted">Active now</span>
                   </Row>
                   {memberSince && (
                     <Row label="Member since" desc="Thanks for learning with Anaxly.">
@@ -843,9 +833,7 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
                     />
                   </div>
                   <div className="text-center sm:text-left">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-medium text-emerald-700">
-                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" /> Your live tutor
-                    </span>
+                    <p className="text-xs text-ink-muted">Your tutor</p>
                     <h3 className="mt-2 font-editorial text-2xl">{activeAvatar.name}</h3>
                     <p className="text-xs text-ink-muted">{activeAvatar.title}</p>
                     <p className="mt-2 text-sm leading-relaxed text-ink-secondary">{activeAvatar.description}</p>
@@ -868,9 +856,7 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center justify-between gap-2">
                             <p className="truncate text-sm font-semibold">{a.name}</p>
-                            <span className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold ${sel ? 'bg-accent-warm text-white' : 'bg-canvas-soft text-ink-muted'}`}>
-                              {sel ? 'Active' : a.badge}
-                            </span>
+                            {sel && <Check className="h-4 w-4 shrink-0 text-accent-warm" aria-label="Selected" />}
                           </div>
                           <p className="truncate text-xs text-ink-muted">{a.subject}</p>
                           <p className="mt-1 line-clamp-2 text-xs text-ink-secondary">{a.description}</p>
