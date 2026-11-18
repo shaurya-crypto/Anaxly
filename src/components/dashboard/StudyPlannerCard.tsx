@@ -140,14 +140,11 @@ export function StudyPlannerCard({
           <div>
             <div className="flex items-center gap-2.5">
               <h3 className="font-editorial text-2xl text-ink-primary leading-tight tracking-tight">
-                Adaptive Exam Study Planner
+                Exam plan
               </h3>
-              <span className="hidden sm:inline-flex px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-primary/10 text-primary border border-primary/20">
-                15-Min Dynamic Balancing
-              </span>
             </div>
             <p className="text-sm text-ink-secondary mt-1 leading-relaxed">
-              Dynamic syllabus distribution balancing remaining capsules against target exam countdown.
+              Lessons left, spread over the days until your exam.
             </p>
           </div>
         </div>
@@ -159,7 +156,7 @@ export function StudyPlannerCard({
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-border-subtle bg-surface hover:bg-canvas-soft text-ink-primary text-xs font-medium transition-colors cursor-pointer shadow-xs"
           >
             <Settings className="w-3.5 h-3.5 text-ink-muted" />
-            <span>Customize Schedule</span>
+            <span>Edit plan</span>
           </button>
         </div>
       </div>
@@ -278,7 +275,7 @@ export function StudyPlannerCard({
             )}
             <div>
               <h4 className="text-sm font-semibold text-ink-primary">
-                {isOnTrack ? 'Cadence Health: Optimal' : 'Adaptive Rebalance Alert: Time Deficit Detected'}
+                {isOnTrack ? "You're on track" : 'You need more study time'}
               </h4>
               <p className="text-xs text-ink-secondary mt-0.5 leading-relaxed">
                 {isOnTrack
@@ -299,7 +296,7 @@ export function StudyPlannerCard({
                 onClick={(e) => onModuleClick?.(e, nextModuleId)}
                 className="inline-flex items-center gap-1.5 bg-primary hover:bg-accent-primary-hover text-white text-xs font-medium px-4 py-2 rounded-xl transition-colors shadow-xs"
               >
-                <span>Start Today's Capsule</span>
+                <span>Start today's lesson</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             )}
@@ -378,7 +375,7 @@ export function StudyPlannerCard({
                 disabled={isSubmitting}
                 className="bg-primary hover:bg-accent-hover text-white text-xs rounded-xl px-5"
               >
-                {isSubmitting ? 'Saving...' : 'Save & Rebalance'}
+                {isSubmitting ? 'Saving...' : 'Save plan'}
               </Button>
             </DialogFooter>
           </form>

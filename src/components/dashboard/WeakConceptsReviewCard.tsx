@@ -78,25 +78,16 @@ export function WeakConceptsReviewCard({
           </div>
           <div>
             <h3 className="font-editorial text-2xl text-ink-primary leading-tight">
-              {isExplicitWeakness ? 'Weak-Concept Revision Spotlight' : 'Spaced Retention Reinforcement'}
+              {isExplicitWeakness ? 'Topics to revise' : 'Quick revision'}
             </h3>
             <p className="text-xs text-ink-secondary mt-0.5 leading-relaxed">
               {isExplicitWeakness
-                ? 'Targeted drills derived from diagnostic quiz performance to reinforce high-yield concepts.'
-                : 'Cyclic revision to ensure long-term retention of completed syllabus capsules.'}
+                ? 'Based on your quiz scores.'
+                : 'Go over lessons you finished a while ago.'}
             </p>
           </div>
         </div>
 
-        <span
-          className={`self-start sm:self-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium border ${
-            isExplicitWeakness
-              ? 'bg-amber-50 text-amber-800 border-amber-200'
-              : 'bg-secondary/10 text-secondary border-secondary/20'
-          }`}
-        >
-          {candidateModules.length} Capsule{candidateModules.length > 1 ? 's' : ''} Recommended
-        </span>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -113,21 +104,17 @@ export function WeakConceptsReviewCard({
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-ink-muted font-medium">
-                    Capsule #{mod.order_index}
+                    Lesson {mod.order_index}
                   </span>
                   {typeof score === 'number' ? (
                     <span
-                      className={`text-xs font-semibold px-2 py-0.5 rounded-md ${
-                        score < 70
-                          ? 'bg-amber-50 text-amber-800 border border-amber-200'
-                          : 'bg-emerald-50 text-emerald-800 border border-emerald-200'
-                      }`}
+                      className={`text-xs tabular-nums ${score < 70 ? 'text-amber-700' : 'text-ink-muted'}`}
                     >
-                      {score}% Quiz
+                      Quiz {score}%
                     </span>
                   ) : (
                     <span className="text-xs font-semibold text-ink-muted">
-                      Review Drill
+                      Revise
                     </span>
                   )}
                 </div>
@@ -137,16 +124,7 @@ export function WeakConceptsReviewCard({
                 </h4>
 
                 {keyConcepts.length > 0 && (
-                  <div className="flex flex-wrap gap-1 pt-1">
-                    {keyConcepts.slice(0, 2).map((kc, i) => (
-                      <span
-                        key={i}
-                        className="px-2 py-0.5 rounded-md bg-surface border border-border-subtle text-[11px] text-ink-secondary truncate max-w-[180px]"
-                      >
-                        {kc}
-                      </span>
-                    ))}
-                  </div>
+                  <p className="truncate pt-1 text-xs text-ink-secondary">{keyConcepts.slice(0, 2).join(', ')}</p>
                 )}
               </div>
 
@@ -155,7 +133,7 @@ export function WeakConceptsReviewCard({
                 onClick={(e) => onModuleClick?.(e, mod.id)}
                 className="w-full inline-flex items-center justify-center gap-1.5 bg-surface hover:bg-canvas-soft text-ink-primary border border-border-subtle text-xs font-medium py-2 rounded-xl transition-all shadow-xs hover:border-ink-muted cursor-pointer"
               >
-                <span>Start Targeted Drill</span>
+                <span>Revise</span>
                 <ArrowRight className="w-3.5 h-3.5 text-primary" />
               </Link>
             </div>

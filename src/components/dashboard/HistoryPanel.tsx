@@ -161,14 +161,10 @@ export function HistoryPanel({ userId, modules, progressRecords, curriculums, me
                       </div>
                       <div className="flex items-center gap-2">
                         {e.score !== null && (
-                          <span className="rounded-full bg-canvas-soft px-2.5 py-1 font-mono text-xs text-ink-secondary">{e.score}%</span>
+                          <span className="text-xs tabular-nums text-ink-secondary">{e.score}%</span>
                         )}
-                        <span
-                          className={`rounded-full px-2.5 py-1 text-xs font-medium ${
-                            e.status === 'completed' ? 'bg-emerald-50 text-emerald-700' : 'bg-accent-warm-soft text-accent-warm'
-                          }`}
-                        >
-                          {e.status === 'completed' ? 'Completed' : 'In progress'}
+                        <span className={`text-xs ${e.status === 'completed' ? 'text-ink-muted' : 'text-accent-warm'}`}>
+                          {e.status === 'completed' ? 'Done' : 'In progress'}
                         </span>
                         <Link
                           href={`/dashboard/${userId}/class/${e.id}`}

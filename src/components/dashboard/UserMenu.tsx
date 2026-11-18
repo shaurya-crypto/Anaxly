@@ -127,7 +127,6 @@ export function UserMenu({
         >
           <div className="relative">
             <Initial name={name} avatarUrl={avatarUrl} size="h-9 w-9 text-sm" />
-            <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-accent-sage ring-2 ring-canvas" aria-hidden="true" />
           </div>
           <span className="hidden max-w-[10rem] truncate text-sm font-medium text-ink-primary xl:inline-block">{name}</span>
           <ChevronDown className="hidden h-4 w-4 text-ink-muted transition-transform duration-200 group-data-[state=open]:rotate-180 sm:block" />
@@ -152,14 +151,9 @@ export function UserMenu({
               </div>
             </div>
             <div className="mt-3 space-y-1.5">
-              <div className="flex items-center justify-between text-[11px]">
-                <span className="rounded-full border border-accent-warm-border bg-surface px-2 py-0.5 font-semibold uppercase tracking-wider text-accent-warm">
-                  {planName}
-                </span>
-                <span className="font-mono text-ink-muted">
-                  {classesRemaining}/{classesLimit} classes left
-                </span>
-              </div>
+              <p className="text-xs text-ink-muted">
+                {classesRemaining} of {classesLimit} classes left this month
+              </p>
               <div className="h-1.5 overflow-hidden rounded-full bg-border-subtle">
                 <div className="h-full rounded-full bg-accent-warm transition-all duration-500" style={{ width: `${usedPct}%` }} />
               </div>
