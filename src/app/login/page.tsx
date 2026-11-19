@@ -514,7 +514,7 @@ function LoginForm() {
                       >
                         6-digit verification code
                       </label>
-                      <span className="text-[11px] text-neutral-400">
+                      <span className="text-xs text-neutral-400">
                         Auto-submits on entry
                       </span>
                     </div>

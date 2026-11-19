@@ -80,7 +80,7 @@ export function ClassroomFloatingChatInput({
                 type="button"
                 onClick={() => handleSend(chip.prompt)}
                 disabled={disabled}
-                className="px-2.5 py-1 rounded-full bg-white/95 border border-[var(--border-subtle)] hover:border-[var(--accent-warm)] text-[11px] font-medium text-[var(--ink-secondary)] hover:text-[var(--ink-primary)] transition-all shadow-2xs whitespace-nowrap cursor-pointer hover:bg-[var(--canvas-soft)] disabled:opacity-50"
+                className="px-2.5 py-1 rounded-full bg-white/95 border border-[var(--border-subtle)] hover:border-[var(--accent-warm)] text-xs font-medium text-[var(--ink-secondary)] hover:text-[var(--ink-primary)] transition-all shadow-2xs whitespace-nowrap cursor-pointer hover:bg-[var(--canvas-soft)] disabled:opacity-50"
               >
                 {chip.label}
               </button>

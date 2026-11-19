@@ -215,7 +215,7 @@ export const ClassroomAvatar: React.FC<ClassroomAvatarProps> = ({
           />
         </>
       ) : (
-        <div className="absolute inset-0 flex items-center justify-center text-[10px] text-stone-500">Tutor</div>
+        <div className="absolute inset-0 flex items-center justify-center text-xs text-stone-500">Tutor</div>
       )}
       {studentId ? (
         <Link

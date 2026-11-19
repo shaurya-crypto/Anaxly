@@ -122,11 +122,11 @@ export function StudyPlannerCard({
 
   // Pre-calculated options for daily minutes
   const studyTimeOptions = [
-    { minutes: 15, label: '15 min/day (1 capsule)', desc: 'Light pace' },
-    { minutes: 30, label: '30 min/day (2 capsules)', desc: 'Steady cadence' },
-    { minutes: 45, label: '45 min/day (3 capsules)', desc: 'Standard exam prep' },
-    { minutes: 60, label: '60 min/day (4 capsules)', desc: 'Accelerated study' },
-    { minutes: 90, label: '90 min/day (6 capsules)', desc: 'Intensive revision' },
+    { minutes: 15, label: '15 min a day (1 lesson)', desc: 'Light pace' },
+    { minutes: 30, label: '30 min a day (2 lessons)', desc: 'Steady cadence' },
+    { minutes: 45, label: '45 min a day (3 lessons)', desc: 'Standard exam prep' },
+    { minutes: 60, label: '60 min a day (4 lessons)', desc: 'Accelerated study' },
+    { minutes: 90, label: '90 min a day (6 lessons)', desc: 'Intensive revision' },
   ]
 
   return (
@@ -166,7 +166,7 @@ export function StudyPlannerCard({
         {/* Metric 1: Exam Countdown */}
         <div className="p-4 bg-canvas rounded-2xl border border-border-subtle flex flex-col justify-between">
           <span className="text-xs text-ink-muted font-medium block">
-            Exam Countdown
+            Exam in
           </span>
           <div className="mt-3">
             <div className="flex items-baseline gap-1.5">
@@ -174,19 +174,19 @@ export function StudyPlannerCard({
                 {daysRemaining}
               </span>
               <span className="text-xs font-mono text-primary font-medium">
-                Days Left
+                days
               </span>
             </div>
             <p className="text-xs font-mono text-ink-secondary mt-1.5 leading-tight truncate">
-              Target: {new Date(targetDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+              {new Date(targetDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
             </p>
           </div>
         </div>
 
-        {/* Metric 2: Remaining Capsules */}
+        {/* Metric 2: Lessons left */}
         <div className="p-4 bg-canvas rounded-2xl border border-border-subtle flex flex-col justify-between">
           <span className="text-xs text-ink-muted font-medium block">
-            Remaining Capsules
+            Lessons left
           </span>
           <div className="mt-3">
             <div className="flex items-baseline gap-1.5">
@@ -209,7 +209,7 @@ export function StudyPlannerCard({
         {/* Metric 3: Daily Target Pace */}
         <div className="p-4 bg-canvas rounded-2xl border border-border-subtle flex flex-col justify-between">
           <span className="text-xs text-ink-muted font-medium block">
-            Daily Study Budget
+            Daily study time
           </span>
           <div className="mt-3">
             <div className="flex items-baseline gap-1.5">
@@ -217,11 +217,11 @@ export function StudyPlannerCard({
                 {dailyStudyMinutes}
               </span>
               <span className="text-xs font-mono text-ink-muted font-medium">
-                min/day
+                min a day
               </span>
             </div>
             <p className="text-xs text-secondary mt-1.5 leading-tight font-medium">
-              {dailyCapsuleCapacity} capsule{dailyCapsuleCapacity > 1 ? 's' : ''} per session
+              about {dailyCapsuleCapacity} lesson{dailyCapsuleCapacity > 1 ? 's' : ''} a day
             </p>
           </div>
         </div>
@@ -229,7 +229,7 @@ export function StudyPlannerCard({
         {/* Metric 4: Feasibility Status */}
         <div className="p-4 bg-canvas rounded-2xl border border-border-subtle flex flex-col justify-between">
           <span className="text-xs text-ink-muted font-medium block">
-            Pacing Health
+            Pace
           </span>
           <div className="mt-3">
             <div className="flex items-center gap-1.5">
@@ -237,22 +237,22 @@ export function StudyPlannerCard({
                 <>
                   <CheckCircle2 className="w-5 h-5 text-accent-sage shrink-0" />
                   <span className="text-sm font-semibold text-accent-sage">
-                    On Schedule
+                    On track
                   </span>
                 </>
               ) : (
                 <>
                   <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />
                   <span className="text-sm font-semibold text-amber-700">
-                    Pacing Warning
+                    Behind
                   </span>
                 </>
               )}
             </div>
             <p className="text-xs text-ink-secondary mt-1.5 leading-tight">
               {isOnTrack
-                ? `${bufferDays} buffer days before exam`
-                : `Need ${requiredMinutesPerDay} min/day to finish`}
+                ? `${bufferDays} spare days before the exam`
+                : `Study ${requiredMinutesPerDay} min a day to finish`}
             </p>
           </div>
         </div>
@@ -279,12 +279,10 @@ export function StudyPlannerCard({
               </h4>
               <p className="text-xs text-ink-secondary mt-0.5 leading-relaxed">
                 {isOnTrack
-                  ? `At your current pace of ${dailyStudyMinutes} min/day (${dailyCapsuleCapacity} capsule${
-                      dailyCapsuleCapacity > 1 ? 's' : ''
-                    }), you will finish the ${remainingCapsules} remaining capsules comfortably ${bufferDays} days prior to exam day.`
-                  : `You have ${remainingCapsules} capsules remaining (${totalMinutesNeeded} min) across ${daysRemaining} days. At ${dailyStudyMinutes} min/day, you will complete only ${Math.floor(
+                  ? `At ${dailyStudyMinutes} min a day you'll finish the ${remainingCapsules} lessons left about ${bufferDays} days before your exam.`
+                  : `You have ${remainingCapsules} lessons left and ${daysRemaining} days. At ${dailyStudyMinutes} min a day you'll finish ${Math.floor(
                       totalMinutesAvailable / estimatedMinutesPerCapsule
-                    )} capsules. Recommended target: Increase to ${requiredMinutesPerDay} min/day (${requiredCapsulesPerDay} capsules/day) or prioritize weak concepts.`}
+                    )}. Try ${requiredMinutesPerDay} min a day (${requiredCapsulesPerDay} lessons) to finish on time.`}
               </p>
             </div>
           </div>
@@ -309,17 +307,17 @@ export function StudyPlannerCard({
         <DialogContent className="sm:max-w-[480px] bg-surface border border-border-subtle rounded-2xl p-6 text-ink-primary shadow-xl">
           <DialogHeader>
             <DialogTitle className="font-editorial text-2xl text-ink-primary">
-              Customize Study Schedule
+              Edit your plan
             </DialogTitle>
             <DialogDescription className="text-xs text-ink-secondary">
-              Set your target exam date and daily study budget. The adaptive engine will recalculate daily capsule goals.
+              Set your exam date and how long you can study each day. Your daily lessons update to match.
             </DialogDescription>
           </DialogHeader>
 
           <form onSubmit={handleSavePlan} className="space-y-4 pt-2">
             <div className="space-y-1.5">
               <Label htmlFor="exam-date" className="text-xs font-semibold text-ink-primary">
-                Target Examination Date
+                Exam date
               </Label>
               <Input
                 id="exam-date"
@@ -335,7 +333,7 @@ export function StudyPlannerCard({
 
             <div className="space-y-1.5">
               <Label className="text-xs font-semibold text-ink-primary">
-                Daily Study Budget (Minutes)
+                Daily study time (minutes)
               </Label>
               <div className="grid grid-cols-1 gap-2">
                 {studyTimeOptions.map((opt) => (
@@ -351,7 +349,7 @@ export function StudyPlannerCard({
                   >
                     <div>
                       <p className="font-medium text-ink-primary">{opt.label}</p>
-                      <p className="text-[11px] text-ink-muted">{opt.desc}</p>
+                      <p className="text-xs text-ink-muted">{opt.desc}</p>
                     </div>
                     {dailyMinutesInput === opt.minutes && (
                       <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />

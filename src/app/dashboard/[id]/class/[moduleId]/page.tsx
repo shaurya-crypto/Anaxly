@@ -3093,8 +3093,8 @@ CRITICAL DIRECTIVE:
         expression: 'joyful-wide',
         mood: 'celebrate',
         message: nextMod
-          ? `Outstanding work! You completed "${activeModule?.title || 'this capsule'}". Ready for "${nextMod.title}"?`
-          : `Magnificent achievement! You have completed all capsules in this chapter.`,
+          ? `Outstanding work! You completed "${activeModule?.title || 'this lesson'}". Ready for "${nextMod.title}"?`
+          : `Great work! You have finished every lesson in this chapter.`,
         autoDismissMs: 12000,
       })
     } catch (err) {
@@ -3126,7 +3126,7 @@ CRITICAL DIRECTIVE:
         animation: 'excited',
         expression: 'joyful-wide',
         mood: 'celebrate',
-        message: `Outstanding work! You completed "${activeModule?.title || 'this capsule'}". Advancing to "${nextMod.title}" in 3 seconds...`,
+        message: `Outstanding work! You completed "${activeModule?.title || 'this lesson'}". Advancing to "${nextMod.title}" in 3 seconds...`,
         autoDismissMs: 6000,
       })
       setTimeout(() => {
@@ -3148,7 +3148,7 @@ CRITICAL DIRECTIVE:
         animation: 'excited',
         expression: 'joyful-wide',
         mood: 'celebrate',
-        message: `Magnificent achievement! You have completed all capsules. Launching your mastery quiz now.`,
+        message: `Great work! You have finished every lesson. Starting your quiz now.`,
         autoDismissMs: 5000,
       })
       setTimeout(() => {
@@ -5288,7 +5288,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                 }}
                 className="px-3 py-1 bg-white text-[#1F3852] font-semibold rounded-full hover:bg-white/90 transition-colors cursor-pointer text-xs"
               >
-                {isPaused ? 'Resume Capsule' : 'Reconnect Voice'}
+                {isPaused ? 'Resume lesson' : 'Reconnect Voice'}
               </button>
             </div>
           )}
@@ -5335,8 +5335,8 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                     {isCompleted
                       ? 'Review chapter'
                       : isPaused || currentConceptIndex > 0 || completedConcepts.length > 0
-                      ? 'Resume capsule'
-                      : 'Start capsule'}
+                      ? 'Resume lesson'
+                      : 'Start lesson'}
                   </button>
                   {keyConceptsList.length > 0 && (
                     <button

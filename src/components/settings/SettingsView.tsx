@@ -295,7 +295,7 @@ function ChoiceCard({ active, onClick, title, desc, badge }: { active: boolean; 
     >
       <div className="flex items-center justify-between gap-2">
         <span className="text-sm font-semibold text-ink-primary">{title}</span>
-        {badge && <span className="ml-auto mr-2 text-[11px] text-ink-muted">{badge}</span>}
+        {badge && <span className="ml-auto mr-2 text-xs text-ink-muted">{badge}</span>}
         <span
           className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border transition-colors ${
             active ? 'border-accent-warm bg-accent-warm text-white' : 'border-border-subtle'
@@ -523,7 +523,7 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
           <nav className="flex gap-1 overflow-x-auto pb-1 md:flex-col md:overflow-visible">
             {groups.map((g) => (
               <div key={g} className="contents md:block md:pb-3">
-                <p className="hidden px-3 pb-1 pt-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-hairline md:block">{g}</p>
+                <p className="hidden px-3 pb-1 pt-2 text-xs font-semibold text-ink-hairline md:block">{g}</p>
                 {filteredTabs
                   .filter((t) => t.group === g)
                   .map((t) => {
@@ -612,7 +612,7 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
                             }`}
                           >
                             <p className="text-sm font-semibold">{b.id}</p>
-                            <p className="text-[11px] text-ink-muted">{b.disabled ? 'Coming soon' : b.name.split('(')[1]?.replace(')', '') || ''}</p>
+                            <p className="text-xs text-ink-muted">{b.disabled ? 'Coming soon' : b.name.split('(')[1]?.replace(')', '') || ''}</p>
                           </button>
                         ))}
                       </div>
@@ -744,7 +744,7 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
                       <span className="font-mono text-sm font-semibold text-accent-warm">{dailyMinutes} min</span>
                     </div>
                     <input type="range" min={15} max={180} step={15} value={dailyMinutes} onChange={(e) => setDailyMinutes(Number(e.target.value))} className="w-full cursor-pointer accent-[var(--accent-warm)]" />
-                    <div className="flex justify-between text-[10px] text-ink-muted">
+                    <div className="flex justify-between text-xs text-ink-muted">
                       <span>15 min</span>
                       <span>1.5 h</span>
                       <span>3 h</span>
@@ -765,7 +765,7 @@ export function SettingsView({ user, profile, studyPlan = null, subscription = n
               <>
                 <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-accent-primary via-accent-warm to-accent-sage p-6 text-white shadow-md">
                   <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
-                  <p className="text-xs uppercase tracking-[0.18em] text-white/70">Current plan</p>
+                  <p className="text-xs text-white/70">Current plan</p>
                   <div className="mt-1 flex flex-wrap items-end justify-between gap-4">
                     <div>
                       <h3 className="font-editorial text-4xl">{plan.name}</h3>

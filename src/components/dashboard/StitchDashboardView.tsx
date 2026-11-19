@@ -783,7 +783,7 @@ export function StitchDashboardView({
                       </div>
                     </div>
                     <p className="text-sm leading-snug text-white/80 lg:hidden xl:block">
-                      {activeModuleIndex > 0 ? `Capsule ${activeModuleIndex} of ${activeModuleTotal}` : activeCourse.title}
+                      {activeModuleIndex > 0 ? `Lesson ${activeModuleIndex} of ${activeModuleTotal}` : activeCourse.title}
                     </p>
                   </div>
                 </div>
@@ -941,7 +941,7 @@ export function StitchDashboardView({
                   </p>
                 </div>
                 <span className="text-xs font-mono text-ink-muted font-medium">
-                  {activeModule ? '3 of 3 Pending' : '0 Pending'}
+                  {activeModule ? '3 to do' : 'All done'}
                 </span>
               </div>
 
@@ -993,7 +993,7 @@ export function StitchDashboardView({
                           <span className="text-ink-muted text-xs">• 10 questions</span>
                         </div>
                         <h4 className="text-base font-semibold text-ink-primary mt-0.5 group-hover:text-secondary transition-colors">
-                          10 Mastery Questions: {activeModule.title}
+                          Quiz: {activeModule.title}
                         </h4>
                         <p className="text-sm text-ink-secondary mt-0.5 leading-relaxed">
                           10 questions on this lesson. Score 70% or more to unlock the next one.
@@ -1005,7 +1005,7 @@ export function StitchDashboardView({
                       onClick={() => setQuizModalOpen(true)}
                       className="sm:self-center flex-shrink-0 px-6 py-2.5 rounded-xl bg-secondary/10 hover:bg-secondary/20 text-secondary text-sm font-semibold transition-colors text-center cursor-pointer border border-secondary/20 shadow-xs active:scale-95"
                     >
-                      Take 10 MCQs
+                      Start quiz
                     </button>
                   </div>
 
@@ -1040,14 +1040,14 @@ export function StitchDashboardView({
                       onClick={(e) => handleModuleClick(e)}
                       className="sm:self-center flex-shrink-0 px-5 py-2.5 rounded-xl border border-border-subtle bg-surface hover:bg-canvas-soft text-ink-primary text-sm font-medium transition-colors text-center shadow-xs"
                     >
-                      Quick Review
+                      Quick review
                     </Link>
                   </div>
                 </div>
               ) : (
                 <div className="p-8 text-center bg-surface rounded-2xl border border-border-subtle shadow-soft space-y-3">
                   <span className="material-symbols-outlined text-3xl text-ink-muted">playlist_add_check</span>
-                  <p className="font-editorial text-xl text-ink-primary">No Pending Tasks</p>
+                  <p className="font-editorial text-xl text-ink-primary">Nothing to do today</p>
                   <p className="text-sm text-ink-secondary max-w-sm mx-auto">
                     Pick a subject to get a daily plan.
                   </p>
@@ -1321,10 +1321,10 @@ export function StitchDashboardView({
                         className="p-4 rounded-2xl bg-canvas border border-border-subtle space-y-2 hover:border-secondary/40 transition-colors"
                       >
                         <div className="flex items-center justify-between gap-2">
-                          <span className="px-2 py-0.5 rounded bg-surface text-secondary text-[11px] font-mono border border-secondary/20 font-bold">
+                          <span className="px-2 py-0.5 rounded bg-surface text-secondary text-xs font-mono border border-secondary/20 font-bold">
                             {q.year || 'Board Exam'}
                           </span>
-                          <span className="px-2 py-0.5 rounded bg-surface text-ink-primary text-[11px] font-mono border border-border-subtle">
+                          <span className="px-2 py-0.5 rounded bg-surface text-ink-primary text-xs font-mono border border-border-subtle">
                             {q.marks || 1} Mark{(q.marks || 1) > 1 ? 's' : ''}
                           </span>
                         </div>
@@ -1334,7 +1334,7 @@ export function StitchDashboardView({
                         </p>
 
                         <div className="pt-2 flex items-center justify-between border-t border-border-subtle/60 text-xs">
-                          <span className="text-[11px] font-mono text-ink-muted">
+                          <span className="text-xs font-mono text-ink-muted">
                             {q.topic || 'Core Concept'}
                           </span>
                           {matchingModule && (
@@ -1438,7 +1438,7 @@ export function StitchDashboardView({
                             <span className="font-label-micro text-xs text-primary font-bold">
                               Chapter {ch.order_index ?? idx + 1}
                             </span>
-                            <span className="font-label-micro text-[11px] text-ink-muted">
+                            <span className="font-label-micro text-xs text-ink-muted">
                               {chModules.length} lessons
                             </span>
                           </div>
@@ -1448,7 +1448,7 @@ export function StitchDashboardView({
                         </div>
 
                         <div className="mt-2.5 pt-2 border-t border-border-subtle/50 flex items-center justify-between">
-                          <span className="font-label-micro text-[11px] text-ink-muted">
+                          <span className="font-label-micro text-xs text-ink-muted">
                             {chPercent}% Complete
                           </span>
                           <span className={`w-2 h-2 rounded-full ${chPercent === 100 ? 'bg-secondary' : chPercent > 0 ? 'bg-primary' : 'bg-surface-container-high'}`} />
@@ -1595,8 +1595,8 @@ export function StitchDashboardView({
                         {/* Subtopics breakdown */}
                         {subtopicsList.length > 0 && (
                           <div className="mt-3.5 pt-3 border-t border-border-subtle/40 space-y-2">
-                            <span className="font-label-micro text-[11px] text-ink-muted block">
-                              Capsule Subtopics &amp; Problem Areas:
+                            <span className="font-label-micro text-xs text-ink-muted block">
+                              Subtopics and problem areas
                             </span>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                               {subtopicsList.map((sub, sIdx) => (
@@ -1612,7 +1612,7 @@ export function StitchDashboardView({
                                       {sub.title}
                                     </span>
                                     {sub.formula && (
-                                      <span className="block font-mono text-[11px] text-primary font-semibold mt-0.5">
+                                      <span className="block font-mono text-xs text-primary font-semibold mt-0.5">
                                         Formula: {sub.formula}
                                       </span>
                                     )}
@@ -1626,7 +1626,7 @@ export function StitchDashboardView({
                         {/* Key Concepts */}
                         {mod.key_concepts && mod.key_concepts.length > 0 && (
                           <div className="mt-3 flex flex-wrap items-center gap-1.5">
-                            <span className="font-label-micro text-[11px] text-ink-muted mr-1">
+                            <span className="font-label-micro text-xs text-ink-muted mr-1">
                               Key Concepts:
                             </span>
                             <span className="text-xs text-ink-secondary">{mod.key_concepts.join(', ')}</span>
@@ -1741,7 +1741,7 @@ export function StitchDashboardView({
                 <span className="w-1.5 h-3 bg-secondary rounded-full animate-bounce" style={{ animationDelay: '0.5s' }} />
               </div>
               <span className="text-xs font-mono text-ink-muted">
-                Microphone calibrated &amp; clear
+                Microphone ready
               </span>
             </div>
 
@@ -1792,7 +1792,7 @@ export function StitchDashboardView({
                     <div className="flex items-center justify-between">
                       <span className="font-label-micro text-xs text-emerald-800 font-semibold flex items-center gap-1.5">
                         <span className="h-2 w-2 rounded-full bg-emerald-600 animate-pulse" />
-                        Chalkboard Master Notes (Saved Live from Class)
+                        Notes from class
                       </span>
                       <Link
                         href={`/dashboard/${user.id}/profile`}
@@ -1846,7 +1846,7 @@ export function StitchDashboardView({
                 {activeModule?.key_concepts && activeModule.key_concepts.length > 0 && (
                   <div className="space-y-2">
                     <span className="font-label-micro text-xs text-ink-muted">
-                      Key Concepts
+                      Key concepts
                     </span>
                     <div className="flex flex-wrap gap-2">
                       {activeModule.key_concepts.map((concept, idx) => (
@@ -1888,7 +1888,7 @@ export function StitchDashboardView({
               }}
               className="px-5 py-2 rounded-xl bg-primary text-white font-semibold font-label-md hover:bg-accent-hover text-center"
             >
-              Open Live Session
+              Start live class
             </Link>
           </DialogFooter>
         </DialogContent>
@@ -1912,7 +1912,7 @@ export function StitchDashboardView({
             {/* Preferred Voice */}
             <div className="space-y-1.5">
               <Label className="font-label-micro text-xs text-ink-muted">
-                Tutor Voice
+                Tutor voice
               </Label>
               <select
                 value={selectedVoice}
@@ -1986,7 +1986,7 @@ export function StitchDashboardView({
                 onClick={() => signOutAction()}
                 className="text-xs font-label-micro text-primary hover:underline cursor-pointer"
               >
-                Sign Out
+                Sign out
               </button>
 
               <div className="flex gap-2">

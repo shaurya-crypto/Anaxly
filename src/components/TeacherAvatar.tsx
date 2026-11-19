@@ -110,7 +110,7 @@ export const TeacherAvatar: React.FC<TeacherAvatarProps> = ({
                   : "bg-ink-muted"
               }`}
             />
-            <span className="text-[10px] font-medium tracking-wider text-ink-secondary uppercase">
+            <span className="text-xs font-medium tracking-wider text-ink-secondary uppercase">
               {isSpeaking
                 ? "Speaking"
                 : isUserTalking

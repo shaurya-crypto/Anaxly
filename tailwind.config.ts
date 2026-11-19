@@ -147,6 +147,11 @@ const config = {
       transitionTimingFunction: {
         smooth: "cubic-bezier(0.32, 0.72, 0, 1)",
       },
+      // Inter is loaded at 400-700 only; 800/900 would be faked by the browser.
+      fontWeight: {
+        extrabold: "700",
+        black: "700",
+      },
       fontFamily: {
         // Inter everywhere. No var() entries: an undefined CSS variable makes the
         // whole font-family declaration invalid and the browser falls back to Times.
@@ -162,7 +167,7 @@ const config = {
         "label-md": ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
         "label-micro": ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
         "display-hero": ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
-        cursive: ["Caveat", "cursive", "handwriting"],
+        cursive: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {

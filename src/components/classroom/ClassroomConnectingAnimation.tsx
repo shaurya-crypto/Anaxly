@@ -231,7 +231,7 @@ export function ClassroomConnectingAnimation({
           <p className="text-xs sm:text-sm font-medium text-[#1F3852] animate-pulse">
             {activeMessage}
           </p>
-          <span className="text-[11px] font-mono text-[#64748B]">
+          <span className="text-xs font-mono text-[#64748B]">
             Anaxly · Classes 6–12
           </span>
         </div>

@@ -297,7 +297,7 @@ export function EditorialHero() {
           className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
           aria-hidden="true"
         >
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-white/80">Scroll</span>
+          <span className="font-mono text-xs uppercase tracking-[0.3em] text-white/80">Scroll</span>
           <span className="relative block h-10 w-px overflow-hidden bg-white/25">
             <span className="absolute inset-x-0 top-0 h-1/2 bg-white animate-scroll-cue" />
           </span>

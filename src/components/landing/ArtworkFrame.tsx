@@ -111,7 +111,7 @@ export function ArtworkFrame({
 
       {/* Academic Archival Museum Metadata Caption */}
       {showCaption && (
-        <figcaption className="mt-3.5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 text-[11px] leading-tight text-ink-muted">
+        <figcaption className="mt-3.5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 text-xs leading-tight text-ink-muted">
           <div className="flex items-baseline gap-2">
             <span className="font-serif italic text-ink-primary font-medium">{artwork.title}</span>
             {artwork.artistNote && (
@@ -119,7 +119,7 @@ export function ArtworkFrame({
             )}
           </div>
           {artwork.caption && (
-            <div className="flex items-center gap-2 font-mono text-[10px]">
+            <div className="flex items-center gap-2 font-mono text-xs">
               <span className="truncate max-w-[280px]">{artwork.caption}</span>
             </div>
           )}

@@ -209,7 +209,7 @@ export function LandingNav() {
 
           {/* Mobile Nav Links with Aristotle Staggered Fade */}
           <nav className="flex-1 flex flex-col justify-start px-8 pt-8 pb-10 gap-4 overflow-y-auto">
-            <span className="font-mono text-[10px] uppercase tracking-wider text-ink-muted font-semibold mb-1">
+            <span className="font-mono text-xs uppercase tracking-wider text-ink-muted font-semibold mb-1">
               Classroom Navigation
             </span>
 

@@ -75,7 +75,7 @@ export function ClassroomSpeedControl({
                   key={preset}
                   type="button"
                   onClick={() => handleSpeedUpdate(preset)}
-                  className={`px-1.5 py-0.5 rounded text-[10px] font-mono transition-colors cursor-pointer ${
+                  className={`px-1.5 py-0.5 rounded text-xs font-mono transition-colors cursor-pointer ${
                     Math.abs(speed - preset) < 0.03
                       ? 'bg-[var(--accent-primary)] text-white font-bold'
                       : 'text-[var(--ink-muted)] hover:text-[var(--ink-primary)] hover:bg-black/5'

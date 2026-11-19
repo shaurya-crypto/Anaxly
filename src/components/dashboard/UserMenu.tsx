@@ -60,7 +60,7 @@ function Item({
       <Icon className="h-4 w-4 shrink-0 text-ink-muted transition-colors group-data-[highlighted]:text-accent-warm" />
       <span className="flex-1">{label}</span>
       {hint && (
-        <kbd className="rounded border border-border-subtle bg-surface px-1.5 font-mono text-[10px] text-ink-muted">
+        <kbd className="rounded border border-border-subtle bg-surface px-1.5 font-mono text-xs text-ink-muted">
           {hint}
         </kbd>
       )}
@@ -147,7 +147,7 @@ export function UserMenu({
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm font-semibold text-ink-primary">{name}</p>
                 {email && <p className="truncate text-xs text-ink-muted">{email}</p>}
-                {track && <p className="truncate text-[11px] text-ink-muted">{track}</p>}
+                {track && <p className="truncate text-xs text-ink-muted">{track}</p>}
               </div>
             </div>
             <div className="mt-3 space-y-1.5">

@@ -591,7 +591,7 @@ export default function OnboardingPage() {
                           </span>
                         </div>
                         {displayBadge && (
-                          <span className="shrink-0 rounded-full border border-[var(--accent-warm-border)] bg-[var(--accent-warm-soft)] px-2.5 py-0.5 text-[11px] font-semibold text-[var(--accent-warm)] uppercase tracking-wider">
+                          <span className="shrink-0 rounded-full border border-[var(--accent-warm-border)] bg-[var(--accent-warm-soft)] px-2.5 py-0.5 text-xs font-semibold text-[var(--accent-warm)]">
                             {displayBadge}
                           </span>
                         )}
@@ -723,9 +723,9 @@ export default function OnboardingPage() {
                     </button>
 
                     {clonedVoiceKey && (
-                      <p className="text-[11px] font-medium text-[var(--accent-warm)] flex items-center gap-1.5">
+                      <p className="text-xs font-medium text-[var(--accent-warm)] flex items-center gap-1.5">
                         <Check className="w-3.5 h-3.5" />
-                        Parent voice key minted: <span className="font-mono text-[10px]">{clonedVoiceKey.slice(0, 18)}...</span>
+                        Parent voice key minted: <span className="font-mono text-xs">{clonedVoiceKey.slice(0, 18)}...</span>
                       </p>
                     )}
                   </div>
@@ -734,7 +734,7 @@ export default function OnboardingPage() {
 
               {/* Or Select Prebuilt Studio Voice */}
               <div className="w-full rounded-2xl border border-[var(--border-subtle)] bg-white/95 p-3.5 shadow-xs space-y-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-[var(--ink-muted)]">
+                <span className="text-xs font-bold text-[var(--ink-muted)]">
                   Or select a studio persona:
                 </span>
                 <div className="flex flex-col gap-2">

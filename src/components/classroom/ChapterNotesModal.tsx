@@ -110,7 +110,7 @@ export const ChapterNotesModal: React.FC<ChapterNotesModalProps> = ({
                 key={idx}
                 className="mt-4 p-4 rounded-xl bg-blue-950/40 border border-blue-600/40 text-sky-200"
               >
-                <div className="flex items-center gap-2 mb-1.5 text-xs font-bold uppercase tracking-wider text-sky-300 font-mono">
+                <div className="flex items-center gap-2 mb-1.5 text-xs font-bold text-sky-300 font-mono">
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Chapter Synthesis &amp; Key Takeaways</span>
                 </div>
@@ -142,7 +142,7 @@ export const ChapterNotesModal: React.FC<ChapterNotesModalProps> = ({
                 key={idx}
                 className="p-3.5 rounded-xl bg-[#142d20] border-l-4 border-sky-400 border border-emerald-800/60 shadow-xs"
               >
-                <span className="text-[11px] font-mono uppercase tracking-wider text-sky-300 font-bold block mb-1">
+                <span className="text-xs font-mono text-sky-300 font-bold block mb-1">
                   Scientific Law / Core Formula
                 </span>
                 <p className="text-sm font-semibold text-emerald-100 font-mono tracking-tight">
@@ -161,7 +161,7 @@ export const ChapterNotesModal: React.FC<ChapterNotesModalProps> = ({
                 key={idx}
                 className="p-3.5 rounded-xl bg-[#112318] border border-emerald-800/50"
               >
-                <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-bold block mb-2">
+                <span className="text-xs font-mono text-emerald-400 font-bold block mb-2">
                   Conceptual Flowchart
                 </span>
                 <div className="flex flex-wrap items-center gap-2">
@@ -228,7 +228,7 @@ export const ChapterNotesModal: React.FC<ChapterNotesModalProps> = ({
                   Chapter Notes
                 </h2>
                 {classLevel && (
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                  <span className="px-2 py-0.5 rounded-full text-xs font-mono font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
                     {classLevel}
                   </span>
                 )}
@@ -241,7 +241,7 @@ export const ChapterNotesModal: React.FC<ChapterNotesModalProps> = ({
 
           <div className="flex items-center gap-3">
             {/* Save Status Badge */}
-            <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono border bg-emerald-950/60 border-emerald-800/60 text-emerald-300">
+            <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono border bg-emerald-950/60 border-emerald-800/60 text-emerald-300">
               {notesSaveStatus === 'saving' ? (
                 <>
                   <RefreshCw className="w-3 h-3 text-sky-400 animate-spin" />
@@ -291,7 +291,7 @@ export const ChapterNotesModal: React.FC<ChapterNotesModalProps> = ({
             </button>
           </div>
 
-          <span className="text-[11px] text-emerald-300/60 font-mono">
+          <span className="text-xs text-emerald-300/60 font-mono">
             Recorded from Live Chalkboard
           </span>
         </div>
@@ -311,7 +311,7 @@ export const ChapterNotesModal: React.FC<ChapterNotesModalProps> = ({
 
         {/* Footer Actions */}
         <div className="px-6 py-4 bg-[#14281c] border-t border-emerald-900/70 flex flex-wrap items-center justify-between gap-3">
-          <span className="text-[11px] text-emerald-300/60 font-mono">
+          <span className="text-xs text-emerald-300/60 font-mono">
             Auto-saved to your personal syllabus ledger
           </span>
 

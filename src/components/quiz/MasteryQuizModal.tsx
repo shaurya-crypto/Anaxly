@@ -154,17 +154,17 @@ export function MasteryQuizModal({
         <DialogHeader className="border-b border-[var(--border-subtle)] pb-4">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div className="flex items-center gap-2">
-              <Badge className="bg-[var(--accent-sage)]/15 text-[var(--accent-sage)] border-0 text-xs px-3 py-1 font-semibold uppercase tracking-wider">
+              <Badge className="bg-[var(--accent-sage)]/15 text-[var(--accent-sage)] border-0 text-xs px-3 py-1 font-semibold">
                 <Award className="w-3.5 h-3.5 mr-1.5 inline" />
                 10-Question Mastery Evaluation
               </Badge>
               {isCached && !refreshing && (
-                <span className="text-[11px] font-mono text-[var(--accent-sage)] bg-[var(--accent-sage-soft)] px-2 py-0.5 rounded-md border border-[var(--accent-sage-border)]">
+                <span className="text-xs font-mono text-[var(--accent-sage)] bg-[var(--accent-sage-soft)] px-2 py-0.5 rounded-md border border-[var(--accent-sage-border)]">
                   Instant Load
                 </span>
               )}
               {freshSetCount > 1 && (
-                <span className="text-[11px] font-mono text-[var(--accent-warm)] bg-accent-warm-soft px-2 py-0.5 rounded-md border border-accent-warm/20 text-accent-warm">
+                <span className="text-xs font-mono text-[var(--accent-warm)] bg-accent-warm-soft px-2 py-0.5 rounded-md border border-accent-warm/20 text-accent-warm">
                   Set #{freshSetCount}
                 </span>
               )}
@@ -200,7 +200,7 @@ export function MasteryQuizModal({
             </div>
           </div>
           <DialogTitle className="font-serif text-2xl text-[var(--ink-primary)] mt-2">
-            {moduleTitle || 'Topic Capsule Evaluation'}
+            {moduleTitle || 'Lesson quiz'}
           </DialogTitle>
           <DialogDescription className="text-xs text-[var(--ink-muted)]">
             Answer all 10 questions to test deep intuition, formulas, and verify syllabus completion.
@@ -253,7 +253,7 @@ export function MasteryQuizModal({
               <p className="text-sm text-[var(--ink-muted)]">
                 You answered {scoreResult.correct} of {scoreResult.total} questions correctly.
                 {scoreResult.percent >= 70
-                  ? ' Topic Capsule Mastered! Syllabus progress updated.'
+                  ? ' Lesson complete! Your progress is updated.'
                   : ' Review the explanations below to solidify key principles.'}
               </p>
             </div>
@@ -365,7 +365,7 @@ export function MasteryQuizModal({
               {/* Current Question Card */}
               <div className="p-5 sm:p-6 rounded-2xl bg-white border border-[var(--border-subtle)] space-y-4 shadow-xs">
                 <div className="flex items-center justify-between text-xs text-[var(--ink-muted)]">
-                  <span className="font-semibold uppercase tracking-wider text-[var(--accent-warm)]">
+                  <span className="font-semibold text-[var(--accent-warm)]">
                     Question {currentIndex + 1} of {questions.length}
                   </span>
                   <span className="italic">{currentQ.conceptTested}</span>
@@ -441,7 +441,7 @@ export function MasteryQuizModal({
                         </>
                       ) : (
                         <>
-                          Submit 10 MCQs
+                          Submit answers
                           <Sparkles className="w-4 h-4 ml-2" />
                         </>
                       )}

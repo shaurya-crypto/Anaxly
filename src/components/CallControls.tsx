@@ -84,7 +84,7 @@ export const CallControls: React.FC<CallControlsProps> = ({
         >
           {isPaused ? <Play className="w-5 h-5 fill-current" strokeWidth={1.5} /> : <Pause className="w-5 h-5" strokeWidth={1.5} />}
           <span className="absolute -top-10 px-2.5 py-1 text-xs text-ink-secondary bg-white border border-border rounded-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap shadow-sm">
-            {isPaused ? "Resume Capsule" : "Pause Capsule"}
+            {isPaused ? "Resume lesson" : "Pause lesson"}
           </span>
         </button>
       )}

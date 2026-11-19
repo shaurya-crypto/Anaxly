@@ -141,7 +141,7 @@ export function HistoryPanel({ userId, modules, progressRecords, curriculums, me
         <div className="space-y-8">
           {Object.entries(groups).map(([day, items]) => (
             <div key={day}>
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-ink-muted">{day}</p>
+              <p className="mb-3 text-xs font-semibold text-ink-muted">{day}</p>
               <ol className="relative space-y-3 border-l border-border-subtle pl-6">
                 {items.map((e) => (
                   <li key={e.id} className="relative">
@@ -189,7 +189,7 @@ export function HistoryPanel({ userId, modules, progressRecords, curriculums, me
             {memories.slice(0, 8).map((m) => (
               <div key={m.id} className="rounded-xl border border-border-subtle bg-surface p-3.5 text-sm text-ink-secondary">
                 {m.content || m.memory_text}
-                <p className="mt-1.5 text-[11px] text-ink-muted">{mounted ? new Date(m.created_at).toLocaleDateString() : ''}</p>
+                <p className="mt-1.5 text-xs text-ink-muted">{mounted ? new Date(m.created_at).toLocaleDateString() : ''}</p>
               </div>
             ))}
           </div>
