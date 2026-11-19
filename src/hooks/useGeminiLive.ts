@@ -68,21 +68,45 @@ export function useGeminiLive() {
     userVolumeRef.current = 0;
   }, []);
 
-  const addTranscript = useCallback((text: string, sender: "user" | "teacher") => {
+  const pendingTranscriptsRef = useRef<{ text: string; sender: "user" | "teacher" }[]>([]);
+  const transcriptFlushTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const flushTranscripts = useCallback(() => {
+    if (transcriptFlushTimerRef.current) {
+      clearTimeout(transcriptFlushTimerRef.current);
+      transcriptFlushTimerRef.current = null;
+    }
+    const queue = pendingTranscriptsRef.current;
+    if (queue.length === 0) return;
+    pendingTranscriptsRef.current = [];
+
     setTranscripts((prev) => {
-      const last = prev[prev.length - 1];
-      if (last && last.sender === sender && Date.now() - last.timestamp < 3500) {
-        return [
-          ...prev.slice(0, -1),
-          { ...last, text: `${last.text} ${text.trim()}`, id: `${last.id.split('_')[0]}_${Date.now()}` },
-        ];
+      let updated = [...prev];
+      for (const item of queue) {
+        const last = updated[updated.length - 1];
+        if (last && last.sender === item.sender && Date.now() - last.timestamp < 3500) {
+          updated[updated.length - 1] = {
+            ...last,
+            text: `${last.text} ${item.text.trim()}`,
+            id: `${last.id.split('_')[0]}_${Date.now()}`,
+          };
+        } else {
+          updated = [
+            ...updated.slice(-8),
+            { id: `${Math.random().toString(36).substring(7)}_${Date.now()}`, sender: item.sender, text: item.text.trim(), timestamp: Date.now() },
+          ];
+        }
       }
-      return [
-        ...prev.slice(-8),
-        { id: `${Math.random().toString(36).substring(7)}_${Date.now()}`, sender, text: text.trim(), timestamp: Date.now() },
-      ];
+      return updated;
     });
   }, []);
+
+  const addTranscript = useCallback((text: string, sender: "user" | "teacher") => {
+    pendingTranscriptsRef.current.push({ text, sender });
+    if (!transcriptFlushTimerRef.current) {
+      transcriptFlushTimerRef.current = setTimeout(flushTranscripts, 150);
+    }
+  }, [flushTranscripts]);
 
   // Start Live Tutoring Session
   const startClass = useCallback(async (
@@ -165,10 +189,8 @@ export function useGeminiLive() {
           setConnectionState((prev) => (prev !== "MUTED" ? "LISTENING" : "MUTED"));
         },
         () => {
-          if (geminiClientRef.current && connectionStateRef.current !== "TEACHER_SPEAKING") {
-            console.log("[useGeminiLive] Student finished speaking: dispatching audioStreamEnd");
-            geminiClientRef.current.sendAudioStreamEnd();
-          }
+          // Server VAD continuously monitors incoming audio stream and detects turn completion.
+          // Premature audioStreamEnd dispatch is disabled to allow natural pause tolerance.
         }
       );
       await streamer.start(audioCtx);
@@ -284,6 +306,7 @@ export function useGeminiLive() {
           systemInstruction: systemInstructionOverride,
           enableFunctionCalling: true,
           avatarConfig,
+          pedagogicalStateManager: pedagogicalStateManager.current,
           preferredLanguage: languageOptions?.preferredLanguage || config.preferredLanguage,
           supportedLanguages: languageOptions?.supportedLanguages || config.supportedLanguages || ["en-IN", "hi-IN"],
           languageCode: languageOptions?.languageCode || config.languageCode || "en-IN",
@@ -447,5 +470,6 @@ export function useGeminiLive() {
     resetToIdle,
     sendBoardContext,
     sendTextMessage,
+    pedagogicalStateManager: pedagogicalStateManager.current,
   };
 }

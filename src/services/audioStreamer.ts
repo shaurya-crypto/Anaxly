@@ -143,8 +143,9 @@ export class AudioStreamer {
   }
 
   /**
-   * Processes a chunk of audio, applies noise gating & speaker-bleed suppression,
-   * downsamples to 16kHz, and streams base64 PCM.
+   * Processes a chunk of audio, performs barge-in detection,
+   * downsamples to 16kHz, and streams base64 PCM continuously to Gemini Live.
+   * Continuous streaming lets Gemini Live's built-in server-side VAD manage turn boundaries accurately.
    */
   private processAudioFrame(inputData: Float32Array, inputRate: number, targetRate: number): void {
     if (this.isMuted) {
@@ -159,117 +160,48 @@ export class AudioStreamer {
     const rms = Math.sqrt(sum / inputData.length);
     const now = Date.now();
 
-    // 1. TEACHER SPEAKING (SPEAKER SUPPRESSION & HIGH-FIDELITY DELIBERATE BARGE-IN):
+    // 1. TEACHER SPEAKING & CLIENT-SIDE IMMEDIATE BARGE-IN:
+    // If student speaks while teacher is talking, immediately trigger local barge-in
+    // to stop local audio playback, while continuing to stream audio to Gemini server.
     if (this.isTeacherSpeaking) {
-      // Grace period (600ms) after teacher starts speaking to ignore initial speaker transients / reflections
-      if (now - this.teacherSpeechStartTime < 600) {
-        this.consecutiveBargeInFrames = 0;
-        return;
-      }
-
-      // Robust conversational voice detection threshold for barge-in (intentional voice directly into mic)
-      // Normal speaking voice produces RMS 0.08-0.35. Ambient noise/bleed stays below 0.06.
-      const BARGE_IN_THRESHOLD = Math.max(0.105, this.noiseFloor * 4.0);
-      const requiredFrames = 2; // ~100ms of sustained intentional voice required to trigger barge-in
-
+      // Normal conversational speaking voice produces RMS 0.030-0.30
+      const BARGE_IN_THRESHOLD = 0.035;
       if (rms >= BARGE_IN_THRESHOLD) {
         this.consecutiveBargeInFrames++;
-        if (this.consecutiveBargeInFrames >= requiredFrames) {
-          console.log(`[AudioStreamer] Student voice confirmed during teacher speech (RMS: ${rms.toFixed(4)}, frames: ${this.consecutiveBargeInFrames}). Triggering barge-in.`);
+        if (this.consecutiveBargeInFrames >= 2) {
+          console.log(`[AudioStreamer] Student voice detected during teacher speech (RMS: ${rms.toFixed(4)}). Triggering barge-in.`);
           this.isTeacherSpeaking = false;
           this.consecutiveBargeInFrames = 0;
           this.lastSpeechTime = now;
           this.wasSpeechActive = true;
           this.onBargeIn?.();
           this.onSpeechStart?.();
-        } else {
-          return;
         }
       } else {
         this.consecutiveBargeInFrames = 0;
-        return;
       }
     } else {
       this.consecutiveBargeInFrames = 0;
     }
 
-    // 2. DYNAMIC NOISE TRACKING & VAD EVENTS:
-    if (!this.wasSpeechActive) {
-      this.noiseFloor = Math.min(0.045, Math.max(0.010, this.noiseFloor * 0.95 + rms * 0.05));
-    } else if (now - this.lastSpeechTime > 3000 && rms < this.noiseFloor * 1.5) {
-      // If speech was supposedly active but current energy is low, gently adapt noise floor
-      this.noiseFloor = Math.min(0.045, Math.max(0.010, this.noiseFloor * 0.98 + rms * 0.02));
-    }
-
-    // Calibrated voice threshold for normal conversational speaking voice into any mic (calibrated from legacy voiceThreshold = Math.max(0.065, this.noiseFloor * 2.5))
-    // Background room noise / fan drone is filtered out below 0.022 RMS; intentional speaking voice is 0.035 - 0.35 RMS.
-    const voiceThreshold = Math.max(0.028, this.noiseFloor * 2.0);
-
-    // Verify signal-to-noise ratio: intentional human speech stands out clearly above baseline noise floor
-    const isVocalSignal = rms >= voiceThreshold && (rms - this.noiseFloor >= 0.008 || rms >= 0.035);
-
+    // 2. VAD NOTIFICATION FOR UI / VISUALIZERS:
+    const isVocalSignal = rms >= 0.018;
     if (isVocalSignal) {
       this.lastSpeechTime = now;
-      this.consecutiveSpeechFrames++;
-      // Debounce: require 2 consecutive frames (~85ms) of vocal energy before marking speech active
       if (!this.wasSpeechActive) {
-        if (this.consecutiveSpeechFrames === 1) {
-          // Pre-roll onset buffer: retain the first frame so speech onset attack is never clipped
-          this.pendingOnsetFrame = new Float32Array(inputData);
-                } else if (this.consecutiveSpeechFrames >= 2) {
-          this.wasSpeechActive = true;
-          this.speechStartTime = now;
-          this.onSpeechStart?.();
-        }
+        this.wasSpeechActive = true;
+        this.speechStartTime = now;
+        this.onSpeechStart?.();
       }
-    } else {
-      this.consecutiveSpeechFrames = 0;
-      this.pendingOnsetFrame = null;
-      // Human conversational silence hangover: 450ms after speech ends to signal turn transition instantly (optimized from SPEECH_HANGOVER_MS = 900)
-      const SPEECH_HANGOVER_MS = 450;
-      if (this.wasSpeechActive && now - this.lastSpeechTime > SPEECH_HANGOVER_MS) {
-        this.wasSpeechActive = false;
-        // Trigger speech end for any genuine speech utterance (>= 150ms), including short affirmations ("yes", "ok", "got it")
-        if (this.lastSpeechTime - this.speechStartTime >= 150) {
-          this.onSpeechEnd?.();
-        }
-      }
+    } else if (this.wasSpeechActive && now - this.lastSpeechTime > 800) {
+      this.wasSpeechActive = false;
+      this.onSpeechEnd?.();
     }
 
-    // 3. NOISE-GATED AUDIO STREAMING (ZERO SILENCE STREAMING):
-    // Stop streaming zero-PCM silence chunks when speech is not active
-    if (!this.wasSpeechActive) {
-      return;
-    }
-
-    // Flush pre-roll onset frame first if speech transition just occurred
-    if (this.pendingOnsetFrame) {
-      const onsetData = this.pendingOnsetFrame;
-      this.pendingOnsetFrame = null;
-      const resampledOnset = this.resampleAudio(onsetData, inputRate, targetRate);
-      const pcm16Onset = this.floatTo16BitPCM(resampledOnset);
-      const base64Onset = this.arrayBufferToBase64(pcm16Onset.buffer);
-      this.onAudioChunk?.(base64Onset);
-    }
-
-    // When speech is active, attenuate ambient background hiss during slight pauses
-    let audioToStream = inputData;
-    if (rms < voiceThreshold) {
-      const denom = Math.max(0.005, voiceThreshold - this.noiseFloor);
-      const gateFactor = Math.max(0, Math.min(1.0, (rms - this.noiseFloor) / denom));
-      if (gateFactor < 0.7) {
-        // Drop quiet pause chunk instead of sending pure zeros
-        return;
-      }
-      // Smooth quadratic attenuation curve during natural speech trailing pauses
-      audioToStream = new Float32Array(inputData.length);
-      const smoothFactor = gateFactor * gateFactor;
-      for (let i = 0; i < inputData.length; i++) {
-        audioToStream[i] = inputData[i] * smoothFactor;
-      }
-    }
-
-    const resampledData = this.resampleAudio(audioToStream, inputRate, targetRate);
+    // 3. CONTINUOUS AUDIO STREAMING (SERVER-SIDE VAD):
+    // Stream audio continuously to the Gemini Live session.
+    // Built-in server VAD uses the continuous audio feed to detect turn boundaries.
+    const resampledData = this.resampleAudio(inputData, inputRate, targetRate);
     const pcm16 = this.floatTo16BitPCM(resampledData);
     const base64 = this.arrayBufferToBase64(pcm16.buffer);
 

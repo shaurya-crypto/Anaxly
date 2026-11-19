@@ -25,6 +25,7 @@ import { VisualizationSceneType } from '@/components/whiteboard/scenes/sceneType
 import { resolveSceneType, parseSceneParams } from '@/components/whiteboard/scenes/sceneRegistry'
 import { getLanguageVoiceConfig } from '@/lib/voiceAndLanguageConfig'
 import { isLegitimateGraphTopic } from '@/lib/graphGating'
+import { saveSessionState, loadSessionState, clearSessionState, pruneExpiredSessions } from '@/lib/sessionStateManager'
 import { isSchemaError } from '@/lib/utils'
 import type { MafsGraphCanvasProps } from '@/components/whiteboard/MafsGraphCanvas'
 import { VisualLessonManifest, LessonStep } from '@/types/lessonManifest'
@@ -355,7 +356,7 @@ function buildConceptMicroDossiers(
             (q: any, qIdx: number) => {
               const ans = q.ideal_answer || (q.options && q.correct_option_index !== undefined ? q.options[q.correct_option_index] : '') || q.explanation || ''
               const hint = q.socratic_hint || q.explanation || ''
-              return `     - [Q${qIdx + 1} (${q.type || 'Checkpoint'})]: "${q.question}" -> Model Answer: "${ans}"${hint ? ` (Hint/Explanation: "${hint}")` : ''}`
+              return `     - [Q${qIdx + 1} (${q.type || 'Checkpoint'})]: "${q.question}" [WAIT FOR STUDENT TO ANSWER — DO NOT ANSWER FOR THEM]`
             }
           )
           .join('\n')
@@ -632,7 +633,7 @@ function buildSingleConceptMicroDossier(
             const figCue = q.image_url
               ? ` [BOOK FIGURE ATTACHED: CALL write_chalkboard(action="draw_image", content="${q.image_url} | ${q.figure_id || 'Question Figure'} | ${q.caption || 'Textbook Question Diagram'}")]`
               : ''
-            return `     - [Q${qIdx + 1} (${q.type || 'Checkpoint'})]: "${q.question}"${figCue} -> Model Answer: "${ans}"${hint ? ` (Hint/Explanation: "${hint}")` : ''}`
+            return `     - [Q${qIdx + 1} (${q.type || 'Checkpoint'})]: "${q.question}"${figCue} [WAIT FOR STUDENT TO ANSWER — DO NOT ANSWER FOR THEM]`
           }
         )
         .join('\n')
@@ -827,6 +828,7 @@ export default function ModuleClassroomPage() {
     resetToIdle,
     sendBoardContext,
     sendTextMessage,
+    pedagogicalStateManager,
   } = useGeminiLive()
 
   const leaveTo = (path: string) => {
@@ -1370,7 +1372,7 @@ CRITICAL DIRECTIVE:
       `Student response: "${cleanAnswer}". (Student's input is displayed on the whiteboard).
 [MANDATORY SOCRATIC INSTRUCTION]:
 1. Evaluate my response warmly out loud. Explain whether it is correct, partially correct, or an affirmation. Speak in complete, articulate, well-formed sentences with proper teacherly depth (do NOT stop abruptly after just one short sentence!).
-2. If this was a check-for-understanding confirmation (e.g. "yes", "understood", "samajh gaya", "ok"), acknowledge warmly and proceed directly to the NEXT STAGE of this SAME concept (e.g. formulate the formal law with SI units, solve the step-by-step board numerical, or pose the Stage 5/6 checkpoint question). DO NOT call concept_completed yet!
+2. If this was a check-for-understanding confirmation (e.g. "yes", "understood", "samajh gaya", "ok"), acknowledge warmly and proceed directly to the NEXT STAGE of this concept (e.g. formulate the formal law with SI units, solve the step-by-step board numerical, or pose the Stage 5/6 checkpoint question). When the Stage 5/6 checkpoint question has been evaluated, proceed smoothly to concept completion.
 3. If this was an answer to a question or numerical:
    - Write the verdict and model answer on this current whiteboard page using write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>").
    - If incorrect or hesitant, break down the step and co-solve with me in [ROUGH_WORK].
@@ -1558,7 +1560,7 @@ CRITICAL DIRECTIVE:
       `Student response: "${cleanAnswer}". (Student's input is displayed on the whiteboard).
 [MANDATORY SOCRATIC INSTRUCTION]:
 1. Evaluate my response warmly out loud. Explain whether it is correct, partially correct, or an affirmation. Speak in complete, articulate, well-formed sentences with proper teacherly depth (do NOT stop abruptly after just one short sentence!).
-2. If this was a check-for-understanding confirmation (e.g. "yes", "understood", "samajh gaya", "ok"), acknowledge warmly and proceed directly to the NEXT STAGE of this SAME concept (e.g. formulate the formal law with SI units, solve the step-by-step board numerical, or pose the Stage 5/6 checkpoint question). DO NOT call concept_completed yet only when module's concept done!
+2. If this was a check-for-understanding confirmation (e.g. "yes", "understood", "samajh gaya", "ok"), acknowledge warmly and proceed directly to the NEXT STAGE of this concept (e.g. formulate the formal law with SI units, solve the step-by-step board numerical, or pose the Stage 5/6 checkpoint question). When the Stage 5/6 checkpoint question has been evaluated, proceed smoothly to concept completion.
 3. If this was an answer to a question or numerical:
    - Write the verdict and model answer on this current whiteboard page using write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>").
    - If incorrect or hesitant, break down the step and co-solve with me in [ROUGH_WORK].
@@ -1568,6 +1570,7 @@ CRITICAL DIRECTIVE:
   }
 
   const [activeModule, setActiveModule] = useState<any>(null)
+  const [userMemories, setUserMemories] = useState<any[]>([])
 
   // Background pre-fetching of high-resolution educational images for all module concepts & pre-flight asset verification
   useEffect(() => {
@@ -2017,6 +2020,51 @@ CRITICAL DIRECTIVE:
           }
         }
 
+        // 1. Instant local session restoration
+        let hasRestoredCachedSession = false
+        if (moduleId) {
+          pruneExpiredSessions()
+          const cachedSession = loadSessionState(moduleId)
+          if (cachedSession) {
+            hasRestoredCachedSession = true
+            if (typeof cachedSession.currentConceptIndex === 'number') {
+              currentConceptIndexRef.current = cachedSession.currentConceptIndex
+              setCurrentConceptIndex(cachedSession.currentConceptIndex)
+            }
+            if (Array.isArray(cachedSession.completedConcepts) && cachedSession.completedConcepts.length > 0) {
+              completedConceptsRef.current = cachedSession.completedConcepts
+              setCompletedConcepts(cachedSession.completedConcepts)
+            }
+            if (cachedSession.lastCoveredConcept) {
+              setLastCoveredConcept(cachedSession.lastCoveredConcept)
+            }
+            if (cachedSession.currentStage) {
+              pedagogicalStateManager?.setStage?.(cachedSession.currentStage as any)
+            }
+            if (typeof cachedSession.chalkboardPageIndex === 'number') {
+              setTimeout(() => {
+                chalkboardRef.current?.goToPage?.(cachedSession.chalkboardPageIndex)
+              }, 400)
+            }
+            setIsPaused(true)
+          }
+        }
+
+        // Fetch top AI student memories for persistent context
+        if (userId) {
+          try {
+            const { data: mems } = await supabase
+              .from('ai_user_memories')
+              .select('memory_text, content, category, importance_score')
+              .eq('user_id', userId)
+              .order('importance_score', { ascending: false })
+              .limit(5)
+            if (mems && mems.length > 0) {
+              setUserMemories(mems)
+            }
+          } catch {}
+        }
+
         // Check if student has existing progress: concept index, completed concepts, notes
         let progressData: any = null
         const progressRes = await supabase
@@ -2046,8 +2094,11 @@ CRITICAL DIRECTIVE:
 
         if (progress) {
           if (typeof progress.current_concept_index === 'number') {
-            currentConceptIndexRef.current = progress.current_concept_index
-            setCurrentConceptIndex(progress.current_concept_index)
+            const currentCached = currentConceptIndexRef.current
+            if (!hasRestoredCachedSession || progress.current_concept_index > currentCached) {
+              currentConceptIndexRef.current = progress.current_concept_index
+              setCurrentConceptIndex(progress.current_concept_index)
+            }
           }
           if (progress.is_paused || progress.visual_progress?.isPaused) {
             setIsPaused(true)
@@ -2482,14 +2533,9 @@ CRITICAL DIRECTIVE:
       )
       const isFlowchart = Boolean(matchedConceptVisual && matchedConceptVisual.diagram_type === 'draw_flowchart')
 
-      if (isGraph && matchedConceptVisual?.interactive_math_formula) {
-        setActiveGraph({
-          formula: matchedConceptVisual.interactive_math_formula,
-          domain: [-10, 10],
-          range: [-10, 50],
-          title: conceptTitle,
-        })
-        chalkboardRef.current.drawGraph?.(matchedConceptVisual.interactive_math_formula)
+      if (isGraph) {
+        // Do NOT auto-popup graph on entrance or concept change.
+        // Graphs open dynamically when the AI tutor explicitly calls plot_mathematical_graph.
         triggerBackgroundSvgPregeneration(conceptIdx)
         return
       }
@@ -2519,17 +2565,6 @@ CRITICAL DIRECTIVE:
 
       if (conceptSvg && typeof conceptSvg === 'string' && conceptSvg.includes('<svg')) {
         chalkboardRef.current.drawSvgDiagram?.(conceptTitle, conceptSvg, conceptCaption)
-        if (
-          matchedConceptVisual?.interactive_math_formula &&
-          isLegitimateGraphTopic(targetConcept, resolvedSubject)
-        ) {
-          setActiveGraph({
-            formula: matchedConceptVisual.interactive_math_formula,
-            domain: [-10, 10],
-            range: [-10, 50],
-            title: conceptTitle,
-          })
-        }
         // Also trigger background pregeneration for next concepts
         triggerBackgroundSvgPregeneration(conceptIdx)
         return
@@ -2612,17 +2647,7 @@ CRITICAL DIRECTIVE:
               data.caption || data.what_to_explain || targetConcept,
               true
             )
-            if (
-              data.interactive_math_formula &&
-              isLegitimateGraphTopic(targetConcept, resolvedSubject)
-            ) {
-              setActiveGraph({
-                formula: data.interactive_math_formula,
-                domain: [-10, 10],
-                range: [-10, 50],
-                title: data.diagram_title || targetConcept,
-              })
-            }
+
           } else {
             chalkboardRef.current?.clearDiagramSkeleton?.(targetConcept)
           }
@@ -3171,6 +3196,23 @@ CRITICAL DIRECTIVE:
     completedConceptsRef.current = updated
     setCompletedConcepts(updated)
 
+    // Graph lifecycle cleanup: dismiss active graph when transitioning concepts
+    setActiveGraph(null)
+
+    // Reset pedagogical state for new concept
+    pedagogicalStateManager?.resetStages?.()
+
+    // Persist instant session state locally first
+    if (moduleId) {
+      saveSessionState(moduleId, {
+        currentConceptIndex: nextIdx,
+        completedConcepts: updated,
+        currentStage: 'REAL_LIFE_INTUITION',
+        chalkboardPageIndex: nextIdx,
+        lastCoveredConcept: nextConceptTitle,
+      })
+    }
+
     // Whiteboard 1-Concept-Per-Page: Switch to concept's dedicated page (creates clean new page with header if needed)
     await chalkboardRef.current?.goToPage?.(nextIdx, nextConceptTitle)
 
@@ -3257,7 +3299,8 @@ CRITICAL DIRECTIVE:
 
     // Notify Gemini Live with single concept micro-dossier and instructions
     sendTextMessage(
-      `[TRANSITION TO NEXT CONCEPT - PAGE ${nextIdx + 1}]:
+      `[TEACHING STATE: Active Concept ${nextIdx + 1} of ${keyConcepts.length} ("${nextConceptTitle}"), Stage: REAL_LIFE_INTUITION]
+[TRANSITION TO NEXT CONCEPT - PAGE ${nextIdx + 1}]:
 We have completed the previous concept. We are now teaching Concept ${nextIdx + 1} of ${keyConcepts.length}: "${nextConceptTitle}".
 A clean new whiteboard page (Page ${nextIdx + 1}) has been opened with the header: "CONCEPT ${nextIdx + 1}: ${nextConceptTitle}".
 
@@ -3573,6 +3616,7 @@ MANDATORY INVARIANT:
         })
       )
       if (allCompleted && updated.length >= keyConcepts.length) {
+        if (moduleId) clearSessionState(moduleId)
         markModuleAsCompleted()
         triggerModuleCompletionAndAdvance()
       } else {
@@ -3902,7 +3946,7 @@ STUDENT PERSONALIZATION & PEDAGOGICAL DOSSIER:
 - ${studyMediumDirective}
 - ${paceDirective}
 - ${styleDirective}
-${careerHook ? `- ${careerHook}\n` : ''}${favoriteHook ? `- ${favoriteHook}\n` : ''}${weakAreaHook ? `- ${weakAreaHook}\n` : ''}`
+${careerHook ? `- ${careerHook}\n` : ''}${favoriteHook ? `- ${favoriteHook}\n` : ''}${weakAreaHook ? `- ${weakAreaHook}\n` : ''}${userMemories && userMemories.length > 0 ? `- Long-Term Student Learning Context: ${userMemories.map((m: any) => m.memory_text || m.content).filter(Boolean).join('; ')}\n` : ''}`
 
     // Grounded RAG: Ensure the chalkboard has navigated to the active concept's page and synchronized
     await chalkboardRef.current?.goToPage?.(currentConceptIndex, currentConcept)
@@ -4043,13 +4087,12 @@ STRICT 6-STAGE CADENCE PER CONCEPT:
   * write_chalkboard(action="draw_rough_work", content="Rough: <scratchpad arithmetic & unit conversions>", color="white")
   * write_chalkboard(action="draw_step", content="Boxed Answer: [ <numerical result> <SI unit> ]", color="botanical")
   * For functions/kinematics: call plot_mathematical_graph(formula="...", title="...", callout="...")
-- STAGE 5 [CHECKPOINT QUESTION & PATIENCE INVARIANT]:
-  Pose an authentic Board Exam checkpoint question from your prepared micro-dossier:
+- STAGE 5 [CHECKPOINT QUESTION & HARD STOP INVARIANT]:
+  Pose ONE authentic Board Exam checkpoint question from your prepared micro-dossier:
   Call write_chalkboard(action="draw_question", content="Q: <Question>", color="amber").
-  PATIENCE INVARIANT: HARD STOP! Stop speaking completely. Wait silently for the student to attempt their answer. NEVER speak or auto-advance on a short pause.
+  HARD STOP: STOP SPEAKING IMMEDIATELY. Wait silently for the student's voice response. Do NOT answer your own question! Do NOT predict what the student might say! Resume ONLY after the student speaks.
 - STAGE 6 [STUDENT ANSWER EVALUATION & MASTERY GATING]:
-  Evaluate their answer out loud:
-  * write_chalkboard(action="draw_student_answer", content="Student: <their answer>", color="blue")
+  Evaluate the student's answer out loud after they speak:
   * write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>", color="botanical")
   * If wrong or hesitant: Break down with visual analogy, co-solve line-by-line in rough work, and re-test.
   * MANDATORY ADVANCEMENT ONLY AFTER STAGE 6: Do NOT advance or call concept_completed during Stages 1 to 4! When the student affirms understanding during introductory or derivation stages ('yes', 'samajh gaya', 'ok'), smoothly proceed to the next stage of the current concept. Call concept_completed(conceptName="${currentConcept}") or write_chalkboard(action="concept_done") ONLY after the Stage 5/6 checkpoint question has been attempted and resolved, or if the student explicitly asks to go to the next concept.
@@ -4163,6 +4206,10 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
       lessonPrompt,
       kickoffPrompt,
       (action, content, color) => {
+        if (action === 'close_graph') {
+          setActiveGraph(null);
+          return;
+        }
         const isVisualAction = [
           'draw_graph', 'graph',
           'draw_geometry', 'geometry', 'draw_table', 'table',
@@ -4642,18 +4689,6 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
             // If valid SVG markup was explicitly supplied, draw immediately
             if (explicitSvg && explicitSvg.toLowerCase().includes('<svg')) {
               chalkboardRef.current?.drawSvgDiagram?.(queryTitle, explicitSvg, explicitCaption)
-              const isGraphRelated =
-                isLegitimateGraphTopic(queryTitle, resolvedSubject) &&
-                (/graph|coordinate|motion|velocity|distance-time|parabola|plot|function/i.test(queryTitle) ||
-                  /graph|plot|coordinate/i.test(explicitCaption))
-              if (isGraphRelated && !activeGraph) {
-                setActiveGraph({
-                  formula: '2x + 1; x^2; 2; 2x',
-                  domain: [-10, 10],
-                  range: [-10, 50],
-                  title: queryTitle,
-                })
-              }
               return
             }
 
@@ -4676,27 +4711,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
               }
             }
 
-            // Auto-dock interactive coordinate graphing calculator ONLY if topic is legitimate math/kinematic graph
-            const isGraphRelated =
-              isLegitimateGraphTopic(queryTitle, resolvedSubject) &&
-              (/graph|coordinate|motion|velocity|distance-time|parabola|plot|function/i.test(queryTitle) ||
-                /graph|plot|coordinate/i.test(explicitCaption) ||
-                Boolean(matched?.interactive_math_formula))
-            if (isGraphRelated && !activeGraph) {
-              let formula = matched?.interactive_math_formula || '2x + 1; x^2; 2; 2x'
-              let gDomain: [number, number] = [-10, 10]
-              let gRange: [number, number] = [-10, 50]
-              if (/quadratic|parabola/i.test(queryTitle)) {
-                formula = matched?.interactive_math_formula || 'x^2 - 4'
-                gDomain = [-5, 5]
-                gRange = [-5, 20]
-              } else if (/velocity|speed/i.test(queryTitle)) {
-                formula = matched?.interactive_math_formula || '2x'
-                gDomain = [0, 10]
-                gRange = [0, 25]
-              }
-              setActiveGraph({ formula, domain: gDomain, range: gRange, title: queryTitle })
-            }
+
 
             if (matched && (matched.svg || matched.diagram_svg)) {
               // 1a. Draw immediate diagram without blocking student
@@ -4750,7 +4765,10 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
               })
           }
           else if (action === 'new_page') chalkboardRef.current?.addNewPage?.()
-          else if (action === 'clear_board' || action === 'erase_board') chalkboardRef.current?.clearBoard()
+          else if (action === 'clear_board' || action === 'erase_board') {
+            setActiveGraph(null)
+            chalkboardRef.current?.clearBoard()
+          }
           else if (action === 'start_quiz' || action === 'open_quiz') {
             handleOpenQuiz()
           }
@@ -5343,12 +5361,20 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
             keyConcepts={keyConceptsList}
             activeConceptIndex={currentConceptIndex}
             onPageChange={(pageIdx) => {
+              setActiveGraph(null)
               isReviewingVerdictRef.current = false
               setIsReviewingVerdict(false)
               currentConceptIndexRef.current = pageIdx
               setCurrentConceptIndex(pageIdx)
               const targetConceptTitle = keyConceptsList[pageIdx] || `Concept ${pageIdx + 1}`
               setLastCoveredConcept(targetConceptTitle)
+              if (moduleId) {
+                saveSessionState(moduleId, {
+                  currentConceptIndex: pageIdx,
+                  chalkboardPageIndex: pageIdx,
+                  lastCoveredConcept: targetConceptTitle,
+                })
+              }
               const updatedContext = chalkboardRef.current?.getCompactBoardContext?.(pageIdx)
               if (updatedContext && connectionState !== 'DISCONNECTED' && connectionState !== 'ERROR') {
                 sendBoardContext(updatedContext)

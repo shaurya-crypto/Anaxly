@@ -914,10 +914,13 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         activeQuestionRef.current &&
         (activeQuestionRef.current.pageIndex === curIdx ||
           (activeQuestionRef.current.pageIndex === undefined && curIdx === 0))
-      if (hasActiveQuestionOnThisPage || extractedNotes.some(n => /checkpoint\s*question|verdict\s*:/i.test(n))) {
-        stagesCompleted.push('Stage 5 (Checkpoint Question)')
-      }
-      if (extractedNotes.some(n => /board\s*exam\s*question|pyq\s*solution|board\s*pyq/i.test(n))) {
+      const hasVerdict = extractedNotes.some(n => /verdict\s*:/i.test(n))
+      if (hasVerdict) {
+        stagesCompleted.push('Stage 5 (Checkpoint Question Resolved)')
+        stagesCompleted.push('Stage 6 (Board-Exam Numerical / Boxed Answer)')
+      } else if (hasActiveQuestionOnThisPage || extractedNotes.some(n => /checkpoint\s*question|q:/i.test(n))) {
+        stagesCompleted.push('Stage 5 (Checkpoint Question Posed - Awaiting Student)')
+      } else if (extractedNotes.some(n => /board\s*exam\s*question|pyq\s*solution|board\s*pyq/i.test(n))) {
         stagesCompleted.push('Stage 6 (Board-Exam Numerical / Boxed Answer)')
       }
 
@@ -928,10 +931,10 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         if (lastStage.includes('Stage 1')) nextStage = 'Stage 2 (Formal Definition & Scientific Law)'
         else if (lastStage.includes('Stage 2')) nextStage = 'Stage 3 (Concrete Worked Application)'
         else if (lastStage.includes('Stage 3')) nextStage = 'Stage 4 (Step-by-Step Board Numerical)'
-        else if (lastStage.includes('Stage 4')) nextStage = 'Stage 5 (Check for Understanding)'
-        else if (lastStage.includes('Stage 5')) nextStage = 'Stage 6 (Board-Exam Numerical)'
+        else if (lastStage.includes('Stage 4')) nextStage = 'Stage 5 (Check for Understanding - Pose Checkpoint Question)'
+        else if (lastStage.includes('Awaiting Student')) nextStage = 'STOP SPEAKING. Wait silently for student voice response. DO NOT answer your own question!'
         else if (lastStage.includes('Stage 6')) nextStage = 'Concept Mastered (Call concept_completed)'
-        lines.push(`  - Recommended Next Action: Advance directly to ${nextStage}. DO NOT re-write or re-teach completed stages!`)
+        lines.push(`  - Recommended Next Action: ${nextStage}. DO NOT re-write or re-teach completed stages!`)
       }
 
       return lines.join('\n')
@@ -1033,21 +1036,28 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
       if (persistTimeoutRef.current) clearTimeout(persistTimeoutRef.current)
       persistTimeoutRef.current = setTimeout(() => {
-        try {
-          safeSaveWhiteboardStorage(storageKey, pagesRef.current)
-          if (excalidrawAPI?.getFiles) {
-            const files = excalidrawAPI.getFiles()
-            if (files && Object.keys(files).length > 0) {
-              safeSaveWhiteboardStorage(`${storageKey}_files`, files, true)
+        const doSave = () => {
+          try {
+            safeSaveWhiteboardStorage(storageKey, pagesRef.current)
+            if (excalidrawAPI?.getFiles) {
+              const files = excalidrawAPI.getFiles()
+              if (files && Object.keys(files).length > 0) {
+                safeSaveWhiteboardStorage(`${storageKey}_files`, files, true)
+              }
             }
+            if (onBoardContentChange) {
+              onBoardContentChange(getBoardSummary())
+            }
+          } catch (err) {
+            console.warn('Failed to save whiteboard pages to localStorage:', err)
           }
-          if (onBoardContentChange) {
-            onBoardContentChange(getBoardSummary())
-          }
-        } catch (err) {
-          console.warn('Failed to save whiteboard pages to localStorage:', err)
         }
-      }, 400)
+        if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+          (window as any).requestIdleCallback(doSave, { timeout: 1000 })
+        } else {
+          doSave()
+        }
+      }, 500)
     }
 
     const persistSceneRef = useRef(persistScene)
@@ -4551,14 +4561,19 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           try {
             const probeImg = new window.Image()
             probeImg.src = finalDataURL
-            await new Promise((resolve) => {
-              probeImg.onload = resolve
-              probeImg.onerror = resolve
-              setTimeout(resolve, 600)
-            })
-            if (probeImg.naturalWidth && probeImg.naturalHeight) {
+            if (probeImg.complete && probeImg.naturalWidth && probeImg.naturalHeight) {
               naturalW = probeImg.naturalWidth
               naturalH = probeImg.naturalHeight
+            } else {
+              await new Promise((resolve) => {
+                probeImg.onload = resolve
+                probeImg.onerror = resolve
+                setTimeout(resolve, 150)
+              })
+              if (probeImg.naturalWidth && probeImg.naturalHeight) {
+                naturalW = probeImg.naturalWidth
+                naturalH = probeImg.naturalHeight
+              }
             }
           } catch { }
         }
@@ -5784,7 +5799,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                     setLightboxZoom(1)
                     setLightboxPan({ x: 0, y: 0 })
                   }}
-                  className="p-2 rounded-lg bg-white/10 hover:bg-red-500/80 text-white transition-colors cursor-pointer"
+                  className="shrink-0 p-2 rounded-lg bg-white/10 hover:bg-red-500/80 text-white transition-colors cursor-pointer"
                   title="Close (Esc)"
                 >
                   <X className="w-5 h-5" />
@@ -6015,9 +6030,11 @@ function ChalkboardVideoPlayerModal({
 
   const ytId = extractYoutubeId(activeUrl)
 
+  const pageOrigin = typeof window !== 'undefined' ? encodeURIComponent(window.location.origin) : '';
+
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex flex-col items-center justify-center p-4 animate-in fade-in duration-200"
+      className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-md flex flex-col items-center justify-center p-4 animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
@@ -6033,7 +6050,7 @@ function ChalkboardVideoPlayerModal({
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+            className="shrink-0 p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
             title="Close"
           >
             <X className="w-4 h-4" />
@@ -6050,10 +6067,11 @@ function ChalkboardVideoPlayerModal({
             <div className="relative w-full h-full flex flex-col items-center justify-center bg-black">
               {/* Privacy-enhanced ad-free YouTube embed */}
               <iframe
-                src={`https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1&enablejsapi=1`}
+                src={`https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1&enablejsapi=1${pageOrigin ? `&origin=${pageOrigin}` : ''}`}
                 title={modal.title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
+                referrerPolicy="origin"
                 className="w-full h-full border-0"
               />
             </div>
@@ -6082,6 +6100,20 @@ function ChalkboardVideoPlayerModal({
             </div>
           )}
         </div>
+
+        {ytId && (
+          <div className="flex items-center justify-between px-5 py-2.5 bg-[#0e0f12] border-t border-white/[0.08] text-xs">
+            <span className="text-white/40">Having trouble playing?</span>
+            <a
+              href={`https://www.youtube.com/watch?v=${ytId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-emerald-400 hover:text-emerald-300 font-medium transition-colors"
+            >
+              Watch directly on YouTube ↗
+            </a>
+          </div>
+        )}
 
         {modal.description && (
           <p className="px-5 py-3.5 text-[13px] leading-relaxed text-white/60 border-t border-white/[0.08]">

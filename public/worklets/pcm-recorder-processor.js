@@ -6,8 +6,10 @@
 class PCMRecorderProcessor extends AudioWorkletProcessor {
   constructor() {
     super();
-    // 512 samples = ~10.6ms at 48kHz / ~21.3ms at 24kHz, reducing collection delay and providing ultra-low latency
-    this.bufferSize = 512;
+    // Aggregate audio chunks to ~100ms (e.g. 2400 samples at 24kHz, 4800 at 48kHz, 1600 at 16kHz)
+    // Eliminates micro-chunk flooding to the main thread and Gemini WebSocket
+    const rate = typeof sampleRate !== 'undefined' ? sampleRate : 24000;
+    this.bufferSize = Math.max(1024, Math.round(rate * 0.1));
     this.buffer = new Float32Array(this.bufferSize);
     this.bufferIndex = 0;
   }

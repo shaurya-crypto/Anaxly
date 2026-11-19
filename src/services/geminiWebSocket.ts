@@ -33,7 +33,7 @@ export interface GeminiLiveCallbacks {
 export class GeminiLiveClient {
   private ai: GoogleGenAI;
   private session: any | null = null;
-  private pedagogicalStateManager = new PedagogicalStateManager();
+  private pedagogicalStateManager: PedagogicalStateManager;
   private apiKey: string;
   private model: string;
   private voiceName: string;
@@ -70,10 +70,12 @@ export class GeminiLiveClient {
       languageCode?: string;
       preferredLanguage?: string;
       thinkingLevel?: string;
+      pedagogicalStateManager?: PedagogicalStateManager;
     }
   ) {
     this.apiKey = authTokenOrApiKey;
     this.callbacks = callbacks;
+    this.pedagogicalStateManager = options?.pedagogicalStateManager || new PedagogicalStateManager();
     let model = options?.model || "gemini-3.8-live";
     if (model.startsWith("models/")) {
       model = model.replace("models/", "");
@@ -102,7 +104,15 @@ export class GeminiLiveClient {
     1. Language Style: ALWAYS use simple, colloquial Hinglish, Hindi, or English. NO heavy, complex, or academic words. Talk like a friendly local teacher; use conversational phrases like "samjhe," "dekho," "bilkul," "chalo" to make concepts clear.
     2. Socratic Cadence: Strictly enforce the 6-stage Socratic cycle: (1)Intuition, (2)Formulation, (3)Example, (4)Numerical, (5)Checkpoint, (6)Board-Exam Numerical.
     3. Progression: NEVER advance stages, concepts, or pages until the student confirms understanding or explicitly commands "next concept." Wait for student input at every stage.
-    4. Chalkboard: Write step-by-step in "Topper Layout" (Given -> Formula -> Substitution -> Calculation -> Answer). Write 1 or at most 2 steps per line using textbook notation, NO code operators.`;
+    4. Chalkboard: Write step-by-step in "Topper Layout" (Given -> Formula -> Substitution -> Calculation -> Answer). Write 1 or at most 2 steps per line using textbook notation, NO code operators.
+    STEP-BY-STEP PROBLEM SOLVING & HUMAN-UNDERSTANDABLE NUMERICAL LAYOUT:
+    When presenting worked examples, solving numericals, or writing derivations on the chalkboard, you MUST ALWAYS follow the authentic CBSE/ICSE board-exam layout with ONE OR AT MOST TWO CONCISE STEPS PER LINE.
+    Never dump multiple steps, entire derivations, or paragraphs into a single step or line. Every line must be short, clear, and easy to read:
+    - Given line (e.g. Given: m = 2 kg, a = 5 m/s²)
+    - Formula line (e.g. Formula: F = m × a)
+    - Substitution line (e.g. Step 1: F = 2 kg × 5 m/s²)
+    - Calculation line (e.g. Step 2: F = 10 N)
+    - Boxed Answer line (e.g. Answer: Force F = 10 N)`;
     this.ai = new GoogleGenAI({
       apiKey: this.apiKey,
       httpOptions: { apiVersion: "v1alpha" },
@@ -112,15 +122,15 @@ export class GeminiLiveClient {
   private extractAndExecuteEmbeddedToolCalls(rawText: string): string {
     if (!rawText) return rawText;
 
-    // 1. Match pseudo-code: write_chalkboardd(...) or write_board(action="...", content="...", color="...")
-    const chalkboardRegex = /(?:write_chalkboardd|write_board|draw_board|chalkboard)\s*\(\s*(?:action\s*=\s*)?["']?([a-zA-Z0-9_\-]+)["']?\s*(?:,\s*(?:content\s*=\s*)?(?:["']([^"']*)["']|([^"',\)]*)))?(?:\s*,\s*(?:color\s*=\s*)?["']?([a-zA-Z0-9_#]+)["']?)?\s*\)/gi;
+    // 1. Match pseudo-code: write_chalkboard(...) or write_board(action="...", content="...", color="...")
+    const chalkboardRegex = /(?:write_chalkboard|write_chalkboardd|write_board|draw_board|chalkboard)\s*\(\s*(?:action\s*=\s*)?["']?([a-zA-Z0-9_\-]+)["']?\s*(?:,\s*(?:content\s*=\s*)?(?:["']([^"']*)["']|([^"',\)]*)))?(?:\s*,\s*(?:color\s*=\s*)?["']?([a-zA-Z0-9_#]+)["']?)?\s*\)/gi;
     let m;
     while ((m = chalkboardRegex.exec(rawText)) !== null) {
       const action = m[1]?.trim() || "";
       const content = (m[2] ?? m[3] ?? "").trim();
       const color = m[4]?.trim() || undefined;
       if (action) {
-        this.handleSingleToolCall("write_chalkboardd", { action, content, color });
+        this.handleSingleToolCall("write_chalkboard", { action, content, color });
       }
     }
 
@@ -400,6 +410,7 @@ export class GeminiLiveClient {
     // Wrap callback execution in a microtask or setTimeout to ensure it's non-blocking
     setTimeout(() => {
         if (
+          name === "write_chalkboard" ||
           name === "write_chalkboardd" ||
           name === "write_board" ||
           name === "chalkboard" ||
@@ -588,6 +599,8 @@ export class GeminiLiveClient {
             result: "ok",
             chalkboard_content: boardState || "Digital chalkboard is active. No notes written yet.",
           };
+        } else if (name === "close_graph" || ((name === "write_chalkboard" || name === "write_chalkboardd") && args?.action === "close_graph")) {
+          this.callbacks.onChalkboardToolCall?.("close_graph", "");
         } else if (name === "concept_completed" || name === "next_concept" || name === "advance_concept") {
           const cName = args.conceptName || args.concept || (typeof args === "string" ? args : "");
           this.callbacks.onChalkboardToolCall?.("concept_done", cName);
@@ -660,7 +673,7 @@ export class GeminiLiveClient {
           {
             functionDeclarations: [
               {
-                name: "write_chalkboardd",
+                name: "write_chalkboard",
                 description: "MANDATORY CHALKBOARD TOOL: You MUST invoke this tool in EVERY spoken turn to write notes, definitions, steps, formulas, worked examples, and questions on the student's live chalkboard. Speaking without calling this tool is strictly prohibited. For mathematics and physics problem solving, write cleanly with 1 or at most 2 steps per line in standard topper layout (Given -> Formula -> Substitution -> Calculation -> Boxed Answer).",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
@@ -674,7 +687,6 @@ export class GeminiLiveClient {
                         "draw_step",
                         "draw_highlight_box",
                         "draw_question",
-                        "draw_student_answer",
                         "draw_answer_verdict",
                         "draw_exam_question",
                         "draw_flowchart",
@@ -682,10 +694,11 @@ export class GeminiLiveClient {
                         "draw_numerical",
                         "concept_focus",
                         "concept_done",
+                        "close_graph",
                         "set_color",
                         "new_page",
                       ],
-                      description: "The chalkboard action to perform (e.g. draw_note, draw_step, draw_highlight_box, draw_question, draw_student_answer, draw_answer_verdict, draw_exam_question, draw_flowchart, draw_table, draw_numerical, concept_focus, concept_done, set_color, new_page)",
+                      description: "The chalkboard action to perform (e.g. draw_note, draw_step, draw_highlight_box, draw_question, draw_answer_verdict, draw_exam_question, draw_flowchart, draw_table, draw_numerical, close_graph, concept_focus, concept_done, set_color, new_page)",
                     },
                     content: {
                       type: Type.STRING,
@@ -715,6 +728,15 @@ export class GeminiLiveClient {
                 },
               },
               {
+                name: "close_graph",
+                description: "Dismiss or close the currently active interactive mathematical or physics graph on the student's whiteboard.",
+                behavior: Behavior.NON_BLOCKING,
+                parameters: {
+                  type: Type.OBJECT,
+                  properties: {},
+                },
+              },
+              {
                 name: "highlight_text",
                 description: "LIVE AI HIGHLIGHTER: Temporarily highlight key words, terms, laws, formulas, or sentences on the student's chalkboard notes and/or live spoken subtitle streamer with an animated golden/amber glow pill marker. Call this dynamically while speaking to direct the student's visual focus to critical terms, exam keywords, or specific derivations.",
                 behavior: Behavior.NON_BLOCKING,
@@ -741,7 +763,7 @@ export class GeminiLiveClient {
               },
               {
                 name: "plot_mathematical_graph",
-                description: "CRITICAL GRAPH GATING: Plot an interactive mathematical or kinematic function graph directly on the whiteboard canvas (e.g. quadratic parabola, calculus derivative, trigonometric curve, kinematics velocity-time or distance-time curve) ONLY when the student's lesson explicitly requires plotting a mathematical function with actual mathematical coordinates AND WORKED CALCULATIONS (roots, intercepts, vertex, slope, or table of values). You MUST write the mathematical work on the chalkboard using action='draw_step' whenever presenting a graph. NEVER call this tool for non-mathematical topics (Biology, Anatomy, Histology, Chemical Bonding, Tissue Structures, Literature, History) â€” use render_svg_diagram or draw_flowchart instead.",
+                description: "CRITICAL GRAPH GATING: Plot an interactive mathematical function or physics kinematic/dynamic curve directly on the whiteboard canvas (e.g. quadratic parabola, calculus derivative, trigonometric curve, kinematics velocity-time or distance-time curve) whenever a visual curve or coordinate graph aids understanding with actual mathematical coordinates AND WORKED CALCULATIONS (roots, intercepts, vertex, slope, or table of values). Seamlessly supports both Mathematics and Physics. NEVER call this tool for non-mathematical topics (Biology, Anatomy, Histology, Chemical Bonding, Tissue Structures, Literature, History) — use render_svg_diagram or draw_flowchart instead. Call close_graph or write_chalkboard(action='close_graph') when moving on.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,
@@ -1036,20 +1058,32 @@ export class GeminiLiveClient {
              const responses: any[] = [];
              const isExtendedThinking = this.model.includes("extended-thinking");
              for (const call of msg.toolCall.functionCalls) {
-               if (!call.id || this.executedToolCallIds.has(call.id) || !this.pedagogicalStateManager.handleToolCall(call.name)) {
+               if (!call.id || this.executedToolCallIds.has(call.id)) {
                  continue;
                }
-               const toolResult = this.handleSingleToolCall(call.name, call.args || {}, call.id);
-               const isQuery = call.name === "get_board_content" || call.name === "read_board_content" || call.name === "get_board_state";
+               const allowed = this.pedagogicalStateManager.handleToolCall(call.name, call.args);
+               let toolResult: any;
+               if (!allowed) {
+                 toolResult = { result: "Progression blocked: complete checkpoint first" };
+               } else {
+                 toolResult = this.handleSingleToolCall(call.name, call.args || {}, call.id);
+               }
                const responsePayload = (toolResult && typeof toolResult === 'object') ? toolResult : { result: "ok" };
+               const isQuestionTool = (
+                 (call.name === 'write_chalkboard' || call.name === 'write_chalkboardd') &&
+                 (call.args?.action === 'draw_question' || call.args?.action === 'draw_exam_question')
+               ) || call.name === 'draw_question' || call.name === 'draw_exam_question';
+
                const fnResponse: any = {
                   id: call.id,
                   name: call.name,
                   response: {
                     ...responsePayload,
-                    scheduling: !isExtendedThinking ? FunctionResponseScheduling.WHEN_IDLE : undefined
+                    scheduling: isQuestionTool
+                      ? FunctionResponseScheduling.SILENT
+                      : (!isExtendedThinking ? FunctionResponseScheduling.WHEN_IDLE : undefined)
                   },
-                }
+               };
                responses.push(fnResponse);
              }
              if (responses.length > 0 && this.session) {
@@ -1121,33 +1155,38 @@ export class GeminiLiveClient {
                // Deliver model turn text if it contains chalkboard bracket tags or if no audio transcript was emitted
                if (part.text) {
                  const cleaned = this.extractAndExecuteEmbeddedToolCalls(part.text);
-                 if (cleaned && (part.text.includes("[") || part.text.includes("write_chalkboardd") || !hasTeacherTranscript)) {
+                 if (cleaned && (part.text.includes("[") || part.text.includes("write_chalkboard") || part.text.includes("write_chalkboardd") || !hasTeacherTranscript)) {
                    this.callbacks.onTranscript(cleaned, "teacher");
                  }
                }
                if (part.functionCall) {
                  const call = part.functionCall;
-                 if (call.id && !this.executedToolCallIds.has(call.id) && this.pedagogicalStateManager.handleToolCall(call.name)) {
+                 if (call.id && !this.executedToolCallIds.has(call.id)) {
                    this.turnToolCallsExecuted++;
-                   const toolResult = this.handleSingleToolCall(call.name, call.args || {}, call.id);
-                if (toolResult && toolResult.result && toolResult.result.includes("Progression blocked")) {
-                  continue;
-                }
-                if (toolResult && toolResult.result && toolResult.result.includes("Progression blocked")) {
-                  continue;
-                }
-                   const isQuery = call.name === "get_board_content" || call.name === "read_board_content" || call.name === "get_board_state";
+                   const allowed = this.pedagogicalStateManager.handleToolCall(call.name, call.args);
+                   let toolResult: any;
+                   if (!allowed) {
+                     toolResult = { result: "Progression blocked: complete checkpoint first" };
+                   } else {
+                     toolResult = this.handleSingleToolCall(call.name, call.args || {}, call.id);
+                   }
                    const isExtendedThinking = this.model.includes("extended-thinking");
                    const responsePayload = (toolResult && typeof toolResult === 'object') ? toolResult : { result: "ok" };
+                   const isQuestionTool = (
+                     (call.name === 'write_chalkboard' || call.name === 'write_chalkboardd') &&
+                     (call.args?.action === 'draw_question' || call.args?.action === 'draw_exam_question')
+                   ) || call.name === 'draw_question' || call.name === 'draw_exam_question';
 
                    const fnResponse: any = {
-                  id: call.id,
-                  name: call.name,
-                  response: {
-                    ...responsePayload,
-                    scheduling: !isExtendedThinking ? FunctionResponseScheduling.WHEN_IDLE : undefined
-                  },
-                }
+                     id: call.id,
+                     name: call.name,
+                     response: {
+                       ...responsePayload,
+                       scheduling: isQuestionTool
+                         ? FunctionResponseScheduling.SILENT
+                         : (!isExtendedThinking ? FunctionResponseScheduling.WHEN_IDLE : undefined)
+                     },
+                   };
 
                    try {
                      this.session?.sendToolResponse({
@@ -1277,11 +1316,16 @@ export class GeminiLiveClient {
       return;
     }
     // Proactive Greeting and Topic Writing
-    this.handleSingleToolCall("write_chalkboardd", { action: "draw_title", content: `Topic: ${text.split(':')[0] || 'Learning Session'}` });
+    const topicHeading = text.includes('Topic:')
+      ? text.split('Topic:')[1]?.split('\n')[0]?.trim()
+      : text.split(':')[0]?.replace(/^\[.*?\]/, '').trim() || 'Learning Session';
+    this.handleSingleToolCall("write_chalkboard", { action: "draw_title", content: `Topic: ${topicHeading}` });
 
     // Use sendClientContent with a user-role turn to trigger the model to respond with audio speech.
-    // The prompt instructs the model to greet and start teaching immediately.
-    const kickoffInstruction = `The student has just joined the class. The topic is: ${text}. Begin the class NOW by warmly greeting the student and immediately starting to teach Concept 1. You MUST speak your greeting and explanation aloud (produce audio) AND write key points on the chalkboard simultaneously. Start speaking immediately.`;
+    // If text already contains full kickoff instructions (from page.tsx), use it directly.
+    const kickoffInstruction = (text.includes('[SESSION START') || text.includes('Speak FIRST'))
+      ? text
+      : `The student has just joined the class. The topic is: ${text}. Begin the class NOW by warmly greeting the student and immediately starting to teach. You MUST speak your greeting and explanation aloud (produce audio) AND write key points on the chalkboard simultaneously. Start speaking immediately.`;
 
     try {
       this.session.sendClientContent({
@@ -1309,6 +1353,10 @@ export class GeminiLiveClient {
     if (!this.session || !text?.trim()) return;
     try {
       let messageToSend = text.trim();
+      const currentStage = this.pedagogicalStateManager?.getStage?.() || 'REAL_LIFE_INTUITION';
+      if (!messageToSend.includes('[TEACHING STATE') && !messageToSend.includes('[SESSION START')) {
+        messageToSend = `[TEACHING STATE: Stage = ${currentStage}]\n${messageToSend}`;
+      }
       if (
         this.latestBoardState &&
         !messageToSend.includes('[CURRENT_BOARD_STATE]') &&
