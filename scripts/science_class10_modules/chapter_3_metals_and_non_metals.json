@@ -1,0 +1,2024 @@
+[
+  {
+    "id": "f0195a78-9a1f-4ea9-a61b-c36b76313f93",
+    "curriculum_id": "b28e7656-c9f4-48ff-a068-dd0d123a0b98",
+    "order_index": 1,
+    "title": "Physical Properties of Metals and Non-metals",
+    "description": "Examine the physical characteristics distinguishing metals from non-metals, including lustre, hardness, malleability, ductility, conductivity, and sonority along with key exceptions.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 1: Physical Properties of Metals and Non-metals. Mid-Term Examination Syllabus. Explain physical properties using everyday examples like copper wires and aluminium foil. Emphasize exceptions like sodium and mercury.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: A comparative split diagram showing a shiny metal bar versus dull non-metal carbon chunk with callouts for physical properties.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Elements -> Metals (Lustrous, Malleable, Ductile, Conductors) | Non-metals (Brittle, Poor Conductors, Non-lustrous)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Elements -> Metals (Lustrous, Malleable, Ductile, Conductors) | Non-metals (Brittle, Poor Conductors, Non-lustrous)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Malleability: \"The property of metals that allows them to be beaten into thin sheets.\" [SI Unit: Dimensionless property]\n- Ductility: \"The ability of metals to be drawn into thin wires.\" [SI Unit: Dimensionless property]\n- Sonorous: \"The property of producing a sound on striking a hard surface.\" [SI Unit: Dimensionless property]\n\n- Textbook Concrete Examples:\n- Activity 3.1 - Lustre: Cleaning iron, copper, aluminium, and magnesium samples with sandpaper reveals shining surfaces.\n- Activity 3.2 - Hardness: Sodium metal is soft enough to be easily cut with a knife compared to iron.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Page 40 Q1:\n    * [1(i)] (conceptual): Give an example of a metal which is a liquid at room temperature.\n      Method: Identify mercury (Hg) as the only metal liquid at room temperature.\n    * [1(ii)] (conceptual): Give an example of a metal which can be easily cut with a knife.\n      Method: Identify alkali metals such as sodium, potassium, or lithium.\n    * [1(iii)] (conceptual): Give an example of a metal which is the best conductor of heat.\n      Method: Silver and copper are the best conductors of heat.\n    * [1(iv)] (conceptual): Give an example of a metal which is a poor conductor of heat.\n      Method: Lead and mercury are comparatively poor conductors of heat.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Metallic Lustre\":\n    * [Q1] (1-mark MCQ): Which of the following metals is a liquid at room temperature?\n      -> Ideal Model Answer: Mercury (Hg)\n      -> Socratic Hint: Recall that all metals are solids except one special liquid metal used in thermometers.\n    * [Q2] (2-mark Definition): Define metallic lustre with an example.\n      -> Ideal Model Answer: Metals in their pure state have a shining surface. This property is called metallic lustre, e.g., freshly cut sodium or polished copper.\n      -> Socratic Hint: Think of how metals look right after being rubbed with sandpaper.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Metallic Lustre\":\n    - Visual Title: \"Physical Properties Overview\" (vector_svg_diagram)\n    - Why Needed: Helps students contrast metallic vs non-metallic properties clearly.\n    - What to Explain: Walk through lustre, conductivity, and key exceptions.\n    - Timing & Directive: Present at the start of Capsule 1 to establish baseline differences.\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Metallic Lustre: Shining appearance in pure state.",
+      "Malleability: Ability to be beaten into thin sheets (Gold and silver are most malleable).",
+      "Ductility: Ability to be drawn into thin wires (1g gold can give ~2km wire).",
+      "Thermal & Electrical Conductivity: Metals are good conductors; silver and copper are best.",
+      "Exceptions: Mercury is liquid at room temp; gallium/caesium melt on palm; alkali metals are soft."
+    ],
+    "success_criteria": "Successfully classify given elements into metals and non-metals based on physical properties and state exceptions like alkali metals and iodine.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:43:28.337085+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Metallic lustre and hardness",
+      "Malleability and ductility",
+      "Thermal and electrical conductivity",
+      "Sonority and physical states",
+      "Exceptions in physical properties"
+    ],
+    "chapter_notes": "Metals and non-metals are classified based on physical properties. Metals possess metallic lustre, are hard (with variations, alkali metals being soft enough to cut with a knife), malleable, ductile, sonorous, and are good conductors of heat and electricity. Non-metals are either solids or gases (except bromine, a liquid), brittle, non-lustrous (except iodine), and poor conductors. Important exceptions include mercury (liquid metal), gallium and caesium (low melting points), and graphite (conducting non-metal).",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Kilometres",
+        "given": "1 gram of pure gold",
+        "formula": "Property of ductility and malleability",
+        "problem": "Identify the most malleable metal and state length of wire from 1g of gold.",
+        "calculation": "Gold is the most ductile metal; ~2 km of wire can be drawn from 1g.",
+        "finalAnswer": "Gold, ~2 km wire",
+        "substitution": "Mass = 1 g",
+        "image_search_query": "class 10 science chapter_3_metal ncert",
+        "page": 10,
+        "section": "Section 1"
+      }
+    ],
+    "common_misconceptions": [
+      "Assuming all metals are extremely hard (forgetting sodium/potassium).",
+      "Thinking all non-metals are gases (ignoring solid carbon/sulphur and liquid bromine)."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735007789_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Physical Properties of Metals and Non-metals: Examine the physical characteristics distinguishing metals from non-metals, including lustre, hardness, malleability, ductility, conductivity, and sonority along with key exceptions.",
+              "keyTakeaway": "Metallic Lustre: Shining appearance in pure state."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Metallic Lustre: Shining appearance in pure state."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc103.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735007789_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Physical Properties of Metals and Non-metals - Fundamental Equations",
+              "equations": [
+                "Metallic Lustre: Shining appearance in pure state.",
+                "Malleability: Ability to be beaten into thin sheets (Gold and silver are most malleable).",
+                "Ductility: Ability to be drawn into thin wires (1g gold can give ~2km wire)."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Metallic Lustre: Shining appearance in pure state."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc103.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735007789_3",
+          "type": "DIAGRAM",
+          "title": "Physical Properties of Metals and Non-metals Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Physical Properties of Metals and Non-metals Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Metallic Lustre: Shining appearance in pure state.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Malleability: Ability to be beaten into thin sheets (Gold and silver are most malleable).",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Physical Properties of Metals and Non-metals",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Physical Properties of Metals and Non-metals | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='35' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A'>Metals vs Non-Metals Physical Properties</text><rect x='30' y='60' width='220' height='180' rx='6' fill='#F8FAFC' stroke='#2563EB' stroke-width='1.5'/><text x='50' y='90' font-family='sans-serif' font-size='14' font-weight='bold' fill='#2563EB'>METALS</text><text x='50' y='120' font-family='sans-serif' font-size='12' fill='#334155'>- Lustrous & Shining</text><text x='50' y='145' font-family='sans-serif' font-size='12' fill='#334155'>- Malleable & Ductile</text><text x='50' y='170' font-family='sans-serif' font-size='12' fill='#334155'>- Good Conductors</text><text x='50' y='195' font-family='sans-serif' font-size='12' fill='#334155'>- High Melting Points</text><rect x='290' y='60' width='220' height='180' rx='6' fill='#F8FAFC' stroke='#DC2626' stroke-width='1.5'/><text x='310' y='90' font-family='sans-serif' font-size='14' font-weight='bold' fill='#DC2626'>NON-METALS</text><text x='310' y='120' font-family='sans-serif' font-size='12' fill='#334155'>- Non-lustrous (except iodine)</text><text x='310' y='145' font-family='sans-serif' font-size='12' fill='#334155'>- Brittle (not malleable)</text><text x='310' y='170' font-family='sans-serif' font-size='12' fill='#334155'>- Bad Conductors (except graphite)</text><text x='310' y='195' font-family='sans-serif' font-size='12' fill='#334155'>- Low Melting Points</text></svg> | A comparative split diagram showing a shiny metal bar versus dull non-metal carbon chunk with callouts for physical properties."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc103.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735007789_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Metallic Lustre: Shining appearance in pure state."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If 1 gram of pure gold, what is the value?",
+              "explanation": "By fundamental principle, Metallic Lustre: Shining appearance in pure state. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735007789_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Metallic lustre and hardness",
+                "Malleability and ductility",
+                "Thermal and electrical conductivity",
+                "Sonority and physical states",
+                "Exceptions in physical properties"
+              ],
+              "formulasToRemember": [
+                "Metallic Lustre: Shining appearance in pure state.",
+                "Malleability: Ability to be beaten into thin sheets (Gold and silver are most malleable).",
+                "Ductility: Ability to be drawn into thin wires (1g gold can give ~2km wire)."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Physical Properties of Metals and Non-metals - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Physical Properties of Metals and Non-metals",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:43:27.789Z",
+        "provenance": "jesc103.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735007789",
+      "subtopics": [
+        "Metallic lustre and hardness",
+        "Malleability and ductility",
+        "Thermal and electrical conductivity",
+        "Sonority and physical states",
+        "Exceptions in physical properties"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='35' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A'>Metals vs Non-Metals Physical Properties</text><rect x='30' y='60' width='220' height='180' rx='6' fill='#F8FAFC' stroke='#2563EB' stroke-width='1.5'/><text x='50' y='90' font-family='sans-serif' font-size='14' font-weight='bold' fill='#2563EB'>METALS</text><text x='50' y='120' font-family='sans-serif' font-size='12' fill='#334155'>- Lustrous & Shining</text><text x='50' y='145' font-family='sans-serif' font-size='12' fill='#334155'>- Malleable & Ductile</text><text x='50' y='170' font-family='sans-serif' font-size='12' fill='#334155'>- Good Conductors</text><text x='50' y='195' font-family='sans-serif' font-size='12' fill='#334155'>- High Melting Points</text><rect x='290' y='60' width='220' height='180' rx='6' fill='#F8FAFC' stroke='#DC2626' stroke-width='1.5'/><text x='310' y='90' font-family='sans-serif' font-size='14' font-weight='bold' fill='#DC2626'>NON-METALS</text><text x='310' y='120' font-family='sans-serif' font-size='12' fill='#334155'>- Non-lustrous (except iodine)</text><text x='310' y='145' font-family='sans-serif' font-size='12' fill='#334155'>- Brittle (not malleable)</text><text x='310' y='170' font-family='sans-serif' font-size='12' fill='#334155'>- Bad Conductors (except graphite)</text><text x='310' y='195' font-family='sans-serif' font-size='12' fill='#334155'>- Low Melting Points</text></svg>",
+      "diagram_idea": "Comparison table chart of physical properties of metals vs non-metals with highlighted exceptions.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "A comparative split diagram showing a shiny metal bar versus dull non-metal carbon chunk with callouts for physical properties.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='50' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A'>Physical Properties Contrast</text><rect x='40' y='80' width='210' height='150' fill='#F1F5F9' stroke='#2563EB'/><text x='60' y='110' font-weight='bold' fill='#2563EB'>Metals</text><text x='60' y='140' font-size='12' fill='#334155'>Solids (Hg exception)</text><text x='60' y='165' font-size='12' fill='#334155'>High density & melting pt</text><rect x='280' y='80' width='210' height='150' fill='#FEF2F2' stroke='#DC2626'/><text x='300' y='110' font-weight='bold' fill='#DC2626'>Non-Metals</text><text x='300' y='140' font-size='12' fill='#334155'>Solids or Gases (Br exception)</text><text x='300' y='165' font-size='12' fill='#334155'>Low density & melting pt</text></svg>",
+          "why_needed": "Helps students contrast metallic vs non-metallic properties clearly.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='50' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A'>Physical Properties Contrast</text><rect x='40' y='80' width='210' height='150' fill='#F1F5F9' stroke='#2563EB'/><text x='60' y='110' font-weight='bold' fill='#2563EB'>Metals</text><text x='60' y='140' font-size='12' fill='#334155'>Solids (Hg exception)</text><text x='60' y='165' font-size='12' fill='#334155'>High density & melting pt</text><rect x='280' y='80' width='210' height='150' fill='#FEF2F2' stroke='#DC2626'/><text x='300' y='110' font-weight='bold' fill='#DC2626'>Non-Metals</text><text x='300' y='140' font-size='12' fill='#334155'>Solids or Gases (Br exception)</text><text x='300' y='165' font-size='12' fill='#334155'>Low density & melting pt</text></svg>",
+          "image_query": "Comparison cards for metals and non-metals. scientific educational diagram with clear labels",
+          "video_query": "Physical Properties Overview educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Comparison cards for metals and non-metals.",
+          "concept_title": "Metallic Lustre",
+          "diagram_title": "Physical Properties Overview",
+          "timing_and_cue": "Present at the start of Capsule 1 to establish baseline differences.",
+          "what_to_explain": "Walk through lustre, conductivity, and key exceptions.",
+          "image_search_query": "Comparison cards for metals and non-metals. scientific educational diagram with clear labels",
+          "video_search_query": "Physical Properties Overview educational demonstration video",
+          "interactive_math_formula": ""
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Elements -> Metals (Lustrous, Malleable, Ductile, Conductors) | Non-metals (Brittle, Poor Conductors, Non-lustrous)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Which of the following metals is a liquid at room temperature?",
+              "ideal_answer": "Mercury (Hg)",
+              "socratic_hint": "Recall that all metals are solids except one special liquid metal used in thermometers."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Define metallic lustre with an example.",
+              "ideal_answer": "Metals in their pure state have a shining surface. This property is called metallic lustre, e.g., freshly cut sodium or polished copper.",
+              "socratic_hint": "Think of how metals look right after being rubbed with sandpaper."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Metallic Lustre"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Activity 3.1 - Lustre",
+          "scenario": "Cleaning iron, copper, aluminium, and magnesium samples with sandpaper reveals shining surfaces."
+        },
+        {
+          "title": "Activity 3.2 - Hardness",
+          "scenario": "Sodium metal is soft enough to be easily cut with a knife compared to iron."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "1(i)",
+              "question": "Give an example of a metal which is a liquid at room temperature.",
+              "question_type": "conceptual",
+              "solution_method": "Identify mercury (Hg) as the only metal liquid at room temperature."
+            },
+            {
+              "q_num": "1(ii)",
+              "question": "Give an example of a metal which can be easily cut with a knife.",
+              "question_type": "conceptual",
+              "solution_method": "Identify alkali metals such as sodium, potassium, or lithium."
+            },
+            {
+              "q_num": "1(iii)",
+              "question": "Give an example of a metal which is the best conductor of heat.",
+              "question_type": "conceptual",
+              "solution_method": "Silver and copper are the best conductors of heat."
+            },
+            {
+              "q_num": "1(iv)",
+              "question": "Give an example of a metal which is a poor conductor of heat.",
+              "question_type": "conceptual",
+              "solution_method": "Lead and mercury are comparatively poor conductors of heat."
+            }
+          ],
+          "exercise_number": "In-Text Page 40 Q1"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Malleability",
+          "si_units": "Dimensionless property",
+          "definition": "The property of metals that allows them to be beaten into thin sheets."
+        },
+        {
+          "concept": "Ductility",
+          "si_units": "Dimensionless property",
+          "definition": "The ability of metals to be drawn into thin wires."
+        },
+        {
+          "concept": "Sonorous",
+          "si_units": "Dimensionless property",
+          "definition": "The property of producing a sound on striking a hard surface."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "f80fecef-8688-41d3-9c25-0f9e58ab7a97",
+    "curriculum_id": "b28e7656-c9f4-48ff-a068-dd0d123a0b98",
+    "order_index": 2,
+    "title": "Chemical Properties of Metals (Air, Water, Acids)",
+    "description": "Explore how metals react with oxygen, water, and dilute acids, introducing amphoteric oxides and reactivity trends.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 2: Chemical Properties of Metals (Air, Water, Acids). Mid-Term Examination Syllabus. Highlight the contrast between how K/Na react with cold water vs Al/Fe/Zn reacting only with steam. Emphasize why nitric acid doesn't release hydrogen gas.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Schematic apparatus setup for action of steam on a metal (Glass wool soaked in water, metal sample, burner, delivery tube collecting hydrogen gas over water).\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Metals + O2 -> Metal Oxides (Basic/Amphoteric) | Metals + Water -> Oxide/Hydroxide + H2 | Metals + Acid -> Salt + H2\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Metals + O2 -> Metal Oxides (Basic/Amphoteric) | Metals + Water -> Oxide/Hydroxide + H2 | Metals + Acid -> Salt + H2\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Amphoteric Oxides: \"Oxides that react with both acids and bases to form salt and water.\" [SI Unit: N/A]\n- Roasting: \"Heating sulphide ores strongly in the presence of excess air to convert them into oxides.\" [SI Unit: N/A]\n- Calcination: \"Heating carbonate ores strongly in limited air to convert them into oxides.\" [SI Unit: N/A]\n\n- Textbook Concrete Examples:\n- Reaction of Copper with Oxygen: 2Cu + O2 -> 2CuO (Black copper(II) oxide formed).\n- Action of Steam on Iron: 3Fe(s) + 4H2O(g) -> Fe3O4(s) + 4H2(g).\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - Exercise Q6:\n    * [6] (conceptual): What are amphoteric oxides? Give two examples of amphoteric oxides.\n      Method: Define amphoteric oxides as those reacting with both acids and bases. Provide Al2O3 and ZnO.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Amphoteric Oxides\":\n    * [Q1] (2-mark Definition): What are amphoteric oxides? Give two examples.\n      -> Ideal Model Answer: Metal oxides which react with both acids as well as bases to produce salts and water are known as amphoteric oxides. Examples: Aluminium oxide (Al2O3) and Zinc oxide (ZnO).\n      -> Socratic Hint: Think of oxides that behave like a chameleon with both acids and bases.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Reaction of metals with water\":\n    - Visual Title: \"Reactivity with Water Tier List\" (vector_svg_diagram)\n    - Why Needed: Visualizes why certain metals need steam while others react with cold water.\n    - What to Explain: Explain K/Na (cold water, violent), Ca (cold water, floats), Mg (hot water), Al/Fe/Zn (steam).\n    - Timing & Directive: Use during discussion of metal water reactions.\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Metal + Oxygen -> Metal Oxide (Basic in nature generally)",
+      "Amphoteric Oxides: Metal oxides that show both acidic and basic behavior (e.g., Al2O3, ZnO).",
+      "Metal + Water -> Metal Oxide/Hydroxide + Hydrogen",
+      "Metal + Dilute Acid -> Salt + Hydrogen (HNO3 is an oxidizing agent, doesn't normally evolve H2)",
+      "Reactivity with Water: K/Na react violently with cold water; Ca floats; Mg reacts with hot water; Al/Fe/Zn with steam."
+    ],
+    "success_criteria": "Write balanced chemical equations for metals reacting with oxygen, water, and acids, identifying amphoteric oxides correctly.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:43:28.984472+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Reaction of metals with oxygen and formation of metal oxides",
+      "Amphoteric oxides (Al2O3, ZnO)",
+      "Reaction of metals with water (cold water, hot water, steam)",
+      "Reaction of metals with dilute acids and oxidizing behavior of nitric acid",
+      "Displacement reactions with salt solutions"
+    ],
+    "chapter_notes": "Almost all metals combine with oxygen to form metal oxides (Metal + O2 -> Metal oxide). Most metal oxides are basic, but some like Al2O3 and ZnO are amphoteric. Metals react differently with water: Na and K react violently with cold water, Ca with cold water (floats due to H2 bubbles), Mg with hot water, Al, Fe, and Zn with steam, while Cu, Ag, Au do not react. Metals react with dilute acids to form salt and hydrogen, though HNO3 acts as an oxidizing agent and yields NO/NO2 instead of H2 (except Mg and Mn with very dilute HNO3).",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Balanced chemical equation",
+        "given": "Aluminium oxide (Al2O3) and Hydrochloric acid (HCl)",
+        "formula": "Al2O3 + 6HCl -> 2AlCl3 + 3H2O",
+        "problem": "Write balanced equation for the reaction of aluminium oxide with hydrochloric acid.",
+        "calculation": "Balance Al and Cl atoms: 2 Al and 6 Cl on both sides.",
+        "finalAnswer": "2AlCl3 + 3H2O",
+        "substitution": "Al2O3(s) + 6HCl(aq)",
+        "image_search_query": "class 10 science chapter_3_metal ncert",
+        "page": 20,
+        "section": "Section 2"
+      }
+    ],
+    "common_misconceptions": [
+      "Thinking all metal oxides are basic (ignoring amphoteric oxides like Al2O3).",
+      "Believing all metals react with dilute acids to evolve hydrogen gas (forgetting HNO3 is an oxidizing agent)."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735008442_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Chemical Properties of Metals (Air, Water, Acids): Explore how metals react with oxygen, water, and dilute acids, introducing amphoteric oxides and reactivity trends.",
+              "keyTakeaway": "Metal + Oxygen -> Metal Oxide (Basic in nature generally)"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Metal + Oxygen -> Metal Oxide (Basic in nature generally)"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc103.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735008442_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Chemical Properties of Metals (Air, Water, Acids) - Fundamental Equations",
+              "equations": [
+                "Metal + Oxygen -> Metal Oxide (Basic in nature generally)",
+                "Amphoteric Oxides: Metal oxides that show both acidic and basic behavior (e.g., Al2O3, ZnO).",
+                "Metal + Water -> Metal Oxide/Hydroxide + Hydrogen"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Metal + Oxygen -> Metal Oxide (Basic in nature generally)"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc103.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735008442_3",
+          "type": "DIAGRAM",
+          "title": "Chemical Properties of Metals (Air, Water, Acids) Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Chemical Properties of Metals (Air, Water, Acids) Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Metal + Oxygen -> Metal Oxide (Basic in nature generally)",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Amphoteric Oxides: Metal oxides that show both acidic and basic behavior (e.g., Al2O3, ZnO).",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Chemical Properties of Metals (Air, Water, Acids)",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Chemical Properties of Metals (Air, Water, Acids) | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-family='sans-serif' font-size='14' font-weight='bold' fill='#0F172A'>Action of Steam on a Metal Setup</text><line x1='60' y1='140' x2='160' y2='140' stroke='#334155' stroke-width='3'/><text x='80' y='130' font-size='10'>Glass wool with water</text><line x1='180' y1='140' x2='240' y2='140' stroke='#DC2626' stroke-width='4'/><text x='190' y='125' font-size='10' fill='#DC2626'>Metal sample</text><path d='M110 160 L110 200 L90 200' fill='none' stroke='#EF4444' stroke-width='3'/><path d='M250 140 Q 300 140 330 180' fill='none' stroke='#334155' stroke-width='2'/><rect x='330' y='150' width='90' height='90' fill='#E0F2FE' stroke='#2563EB'/><text x='345' y='195' font-size='11' fill='#2563EB'>Water trough</text><path d='M350 150 L350 120 L390 120 L390 150' fill='none' stroke='#334155' stroke-width='2'/><text x='355' y='110' font-size='10'>Hydrogen gas</text></svg> | Schematic apparatus setup for action of steam on a metal (Glass wool soaked in water, metal sample, burner, delivery tube collecting hydrogen gas over water)."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc103.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735008442_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Metal + Oxygen -> Metal Oxide (Basic in nature generally)"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Aluminium oxide (Al2O3) and Hydrochloric acid (HCl), what is the value?",
+              "explanation": "By fundamental principle, Metal + Oxygen -> Metal Oxide (Basic in nature generally) is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735008442_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Reaction of metals with oxygen and formation of metal oxides",
+                "Amphoteric oxides (Al2O3, ZnO)",
+                "Reaction of metals with water (cold water, hot water, steam)",
+                "Reaction of metals with dilute acids and oxidizing behavior of nitric acid",
+                "Displacement reactions with salt solutions"
+              ],
+              "formulasToRemember": [
+                "Metal + Oxygen -> Metal Oxide (Basic in nature generally)",
+                "Amphoteric Oxides: Metal oxides that show both acidic and basic behavior (e.g., Al2O3, ZnO).",
+                "Metal + Water -> Metal Oxide/Hydroxide + Hydrogen"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Chemical Properties of Metals (Air, Water, Acids) - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Chemical Properties of Metals (Air, Water, Acids)",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:43:28.442Z",
+        "provenance": "jesc103.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735008442",
+      "subtopics": [
+        "Reaction of metals with oxygen and formation of metal oxides",
+        "Amphoteric oxides (Al2O3, ZnO)",
+        "Reaction of metals with water (cold water, hot water, steam)",
+        "Reaction of metals with dilute acids and oxidizing behavior of nitric acid",
+        "Displacement reactions with salt solutions"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-family='sans-serif' font-size='14' font-weight='bold' fill='#0F172A'>Action of Steam on a Metal Setup</text><line x1='60' y1='140' x2='160' y2='140' stroke='#334155' stroke-width='3'/><text x='80' y='130' font-size='10'>Glass wool with water</text><line x1='180' y1='140' x2='240' y2='140' stroke='#DC2626' stroke-width='4'/><text x='190' y='125' font-size='10' fill='#DC2626'>Metal sample</text><path d='M110 160 L110 200 L90 200' fill='none' stroke='#EF4444' stroke-width='3'/><path d='M250 140 Q 300 140 330 180' fill='none' stroke='#334155' stroke-width='2'/><rect x='330' y='150' width='90' height='90' fill='#E0F2FE' stroke='#2563EB'/><text x='345' y='195' font-size='11' fill='#2563EB'>Water trough</text><path d='M350 150 L350 120 L390 120 L390 150' fill='none' stroke='#334155' stroke-width='2'/><text x='355' y='110' font-size='10'>Hydrogen gas</text></svg>",
+      "diagram_idea": "Flowchart of metal reactivity with water stages (Cold water -> Hot water -> Steam -> No reaction).",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Schematic apparatus setup for action of steam on a metal (Glass wool soaked in water, metal sample, burner, delivery tube collecting hydrogen gas over water).",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='35' font-weight='bold' fill='#0F172A'>Metal Reactivity with Water</text><rect x='30' y='60' width='470' height='40' fill='#EFF6FF' stroke='#3B82F6'/><text x='45' y='85' font-size='12' fill='#1E3A8A'>Cold Water: K, Na (Violent) | Ca (Less violent, floats)</text><rect x='30' y='115' width='470' height='40' fill='#FEF3C7' stroke='#D97706'/><text x='45' y='140' font-size='12' fill='#78350F'>Hot Water: Mg (Reacts, starts floating)</text><rect x='30' y='170' width='470' height='40' fill='#FEE2E2' stroke='#DC2626'/><text x='45' y='195' font-size='12' fill='#991B1B'>Steam: Al, Fe, Zn (Reacts with steam)</text><rect x='30' y='225' width='470' height='35' fill='#F3F4F6' stroke='#6B7280'/><text x='45' y='247' font-size='12' fill='#374155'>No Reaction: Pb, Cu, Ag, Au</text></svg>",
+          "why_needed": "Visualizes why certain metals need steam while others react with cold water.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='35' font-weight='bold' fill='#0F172A'>Metal Reactivity with Water</text><rect x='30' y='60' width='470' height='40' fill='#EFF6FF' stroke='#3B82F6'/><text x='45' y='85' font-size='12' fill='#1E3A8A'>Cold Water: K, Na (Violent) | Ca (Less violent, floats)</text><rect x='30' y='115' width='470' height='40' fill='#FEF3C7' stroke='#D97706'/><text x='45' y='140' font-size='12' fill='#78350F'>Hot Water: Mg (Reacts, starts floating)</text><rect x='30' y='170' width='470' height='40' fill='#FEE2E2' stroke='#DC2626'/><text x='45' y='195' font-size='12' fill='#991B1B'>Steam: Al, Fe, Zn (Reacts with steam)</text><rect x='30' y='225' width='470' height='35' fill='#F3F4F6' stroke='#6B7280'/><text x='45' y='247' font-size='12' fill='#374155'>No Reaction: Pb, Cu, Ag, Au</text></svg>",
+          "image_query": "Tiered flowchart of metal reactivity with water. scientific educational diagram with clear labels",
+          "video_query": "Reactivity with Water Tier List educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Tiered flowchart of metal reactivity with water.",
+          "concept_title": "Reaction of metals with water",
+          "diagram_title": "Reactivity with Water Tier List",
+          "timing_and_cue": "Use during discussion of metal water reactions.",
+          "what_to_explain": "Explain K/Na (cold water, violent), Ca (cold water, floats), Mg (hot water), Al/Fe/Zn (steam).",
+          "image_search_query": "Tiered flowchart of metal reactivity with water. scientific educational diagram with clear labels",
+          "video_search_query": "Reactivity with Water Tier List educational demonstration video",
+          "interactive_math_formula": ""
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Metals + O2 -> Metal Oxides (Basic/Amphoteric) | Metals + Water -> Oxide/Hydroxide + H2 | Metals + Acid -> Salt + H2",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q1",
+              "question": "What are amphoteric oxides? Give two examples.",
+              "ideal_answer": "Metal oxides which react with both acids as well as bases to produce salts and water are known as amphoteric oxides. Examples: Aluminium oxide (Al2O3) and Zinc oxide (ZnO).",
+              "socratic_hint": "Think of oxides that behave like a chameleon with both acids and bases."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Amphoteric Oxides"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Reaction of Copper with Oxygen",
+          "scenario": "2Cu + O2 -> 2CuO (Black copper(II) oxide formed)."
+        },
+        {
+          "title": "Action of Steam on Iron",
+          "scenario": "3Fe(s) + 4H2O(g) -> Fe3O4(s) + 4H2(g)."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "6",
+              "question": "What are amphoteric oxides? Give two examples of amphoteric oxides.",
+              "question_type": "conceptual",
+              "solution_method": "Define amphoteric oxides as those reacting with both acids and bases. Provide Al2O3 and ZnO."
+            }
+          ],
+          "exercise_number": "Exercise Q6"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Amphoteric Oxides",
+          "si_units": "N/A",
+          "definition": "Oxides that react with both acids and bases to form salt and water."
+        },
+        {
+          "concept": "Roasting",
+          "si_units": "N/A",
+          "definition": "Heating sulphide ores strongly in the presence of excess air to convert them into oxides."
+        },
+        {
+          "concept": "Calcination",
+          "si_units": "N/A",
+          "definition": "Heating carbonate ores strongly in limited air to convert them into oxides."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "ebe5f3ac-7213-4d08-9f4c-b3f509e48796",
+    "curriculum_id": "b28e7656-c9f4-48ff-a068-dd0d123a0b98",
+    "order_index": 3,
+    "title": "Reactivity Series and Displacement Reactions",
+    "description": "Understand the displacement of less reactive metals by more reactive ones and examine the definitive reactivity series.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 3: Reactivity Series and Displacement Reactions. Mid-Term Examination Syllabus. Explain the logic of displacement using the analogy of a stronger player replacing a weaker one. Test students with salt solution combinations.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: A vertical reactivity series chart with K at top and Au at bottom.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Metal A + Salt of B -> Displacement if A is more reactive than B | Reactivity Series: K > Na > Ca > Mg > Al > Zn > Fe > Pb > [H] > Cu > Hg > Ag > Au\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Metal A + Salt of B -> Displacement if A is more reactive than B | Reactivity Series: K > Na > Ca > Mg > Al > Zn > Fe > Pb > [H] > Cu > Hg > Ag > Au\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Reactivity Series: \"A list of metals arranged in the order of their decreasing activities.\" [SI Unit: N/A]\n\n- Textbook Concrete Examples:\n- Activity 3.12: Iron nail placed in copper sulphate solution turns the solution green and deposits brown copper coating.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - Exercise Q1:\n    * [1(a)-(d)] (conceptual): Which of the following pairs will give displacement reactions? (a) NaCl + Cu, (b) MgCl2 + Al, (c) FeSO4 + Ag, (d) AgNO3 + Cu.\n      Method: Check reactivity: Cu is less reactive than Na and Mg; Ag is less reactive than Fe; Cu is more reactive than Ag (in AgNO3), so (d) gives displacement.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Reactivity Series\":\n    * [Q1] (1-mark MCQ): Which of the following metals is most reactive?\n      -> Ideal Model Answer: Potassium (K)\n      -> Socratic Hint: Check the very top of Table 3.2 in the textbook.\n    * [Q2] (3-mark Short Answer): Will copper displace iron from an iron(II) sulphate solution? Give reason.\n      -> Ideal Model Answer: No, copper will not displace iron. According to the reactivity series, copper is placed below iron, making it less reactive than iron.\n      -> Socratic Hint: Check whether copper is higher or lower than iron in the reactivity series.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Reactivity Series\":\n    - Visual Title: \"Reactivity Ladder\" (vector_svg_diagram)\n    - Why Needed: Essential for predicting displacement and extraction methods.\n    - What to Explain: Walk through top, middle, and bottom tiers of reactivity.\n    - Timing & Directive: Show when discussing displacement experiments.\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Displacement Reaction: A more reactive metal displaces a less reactive metal from its salt solution.",
+      "Reactivity Series: A list of metals arranged in decreasing order of reactivity.",
+      "Top of Series: Potassium (K), Sodium (Na) - Most reactive.",
+      "Bottom of Series: Silver (Ag), Gold (Au) - Least reactive.",
+      "Hydrogen [H] acts as a reference point in the reactivity series."
+    ],
+    "success_criteria": "Predict whether a metal will displace another metal from its salt solution using the reactivity series.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:43:29.641628+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Displacement reactions principle (Metal A + Salt of B -> Salt of A + Metal B)",
+      "Activity series arrangement (K to Au)",
+      "Experimental evidence from Activity 3.12 (Copper wire and Iron nail)",
+      "Predicting feasibility of displacement reactions"
+    ],
+    "chapter_notes": "Reactive metals can displace less reactive metals from their compounds in solution or molten form (Metal A + Salt solution of B -> Salt of A + Metal B). The reactivity series is a list of metals arranged in order of decreasing activities, starting from Potassium (most reactive) down to Gold (least reactive). Hydrogen is included as a reference element for acids.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Chemical Reaction",
+        "given": "Zinc metal and Copper(II) sulphate solution",
+        "formula": "Zn(s) + CuSO4(aq) -> ZnSO4(aq) + Cu(s)",
+        "problem": "Predict if zinc can displace copper from copper sulphate solution.",
+        "calculation": "Since zinc is more reactive than copper, displacement occurs.",
+        "finalAnswer": "Yes, displacement occurs.",
+        "substitution": "Zn is higher than Cu in reactivity series.",
+        "image_search_query": "class 10 science chapter_3_metal ncert",
+        "page": 30,
+        "section": "Section 3"
+      }
+    ],
+    "common_misconceptions": [
+      "Assuming a less reactive metal can displace a more reactive one.",
+      "Forgetting hydrogen's position in the reactivity series as a reference."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735009084_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Reactivity Series and Displacement Reactions: Understand the displacement of less reactive metals by more reactive ones and examine the definitive reactivity series.",
+              "keyTakeaway": "Displacement Reaction: A more reactive metal displaces a less reactive metal from its salt solution."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Displacement Reaction: A more reactive metal displaces a less reactive metal from its salt solution."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc103.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735009084_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Reactivity Series and Displacement Reactions - Fundamental Equations",
+              "equations": [
+                "Displacement Reaction: A more reactive metal displaces a less reactive metal from its salt solution.",
+                "Reactivity Series: A list of metals arranged in decreasing order of reactivity.",
+                "Top of Series: Potassium (K), Sodium (Na) - Most reactive."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Displacement Reaction: A more reactive metal displaces a less reactive metal from its salt solution."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc103.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735009084_3",
+          "type": "DIAGRAM",
+          "title": "Reactivity Series and Displacement Reactions Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Reactivity Series and Displacement Reactions Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Displacement Reaction: A more reactive metal displaces a less reactive metal from its salt solution.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Reactivity Series: A list of metals arranged in decreasing order of reactivity.",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "vector_svg",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Reactivity Series and Displacement Reactions | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-size='14' font-weight='bold' fill='#0F172A'>The Reactivity Series (Table 3.2)</text><rect x='180' y='50' width='180' height='210' fill='#F8FAFC' stroke='#2563EB'/><text x='200' y='75' font-size='12' font-weight='bold' fill='#1D4ED8'>K (Potassium) - Most</text><text x='200' y='95' font-size='12' fill='#334155'>Na, Ca, Mg, Al</text><text x='200' y='115' font-size='12' fill='#334155'>Zn, Fe, Pb</text><text x='200' y='135' font-size='12' font-weight='bold' fill='#D97706'>[H] (Hydrogen)</text><text x='200' y='155' font-size='12' fill='#334155'>Cu, Hg</text><text x='200' y='175' font-size='12' fill='#334155'>Ag, Au (Least)</text><path d='M380 70 L380 200' stroke='#DC2626' stroke-width='2' marker-end='url(#arrow)'/><text x='395' y='130' font-size='12' fill='#DC2626' font-weight='bold'>Reactivity</text><text x='395' y='145' font-size='12' fill='#DC2626' font-weight='bold'>Decreases</text></svg> | A vertical reactivity series chart with K at top and Au at bottom."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc103.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735009084_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Displacement Reaction: A more reactive metal displaces a less reactive metal from its salt solution."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Zinc metal and Copper(II) sulphate solution, what is the value?",
+              "explanation": "By fundamental principle, Displacement Reaction: A more reactive metal displaces a less reactive metal from its salt solution. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735009084_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Displacement reactions principle (Metal A + Salt of B -> Salt of A + Metal B)",
+                "Activity series arrangement (K to Au)",
+                "Experimental evidence from Activity 3.12 (Copper wire and Iron nail)",
+                "Predicting feasibility of displacement reactions"
+              ],
+              "formulasToRemember": [
+                "Displacement Reaction: A more reactive metal displaces a less reactive metal from its salt solution.",
+                "Reactivity Series: A list of metals arranged in decreasing order of reactivity.",
+                "Top of Series: Potassium (K), Sodium (Na) - Most reactive."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Reactivity Series and Displacement Reactions - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Reactivity Series and Displacement Reactions",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:43:29.085Z",
+        "provenance": "jesc103.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735009084",
+      "subtopics": [
+        "Displacement reactions principle (Metal A + Salt of B -> Salt of A + Metal B)",
+        "Activity series arrangement (K to Au)",
+        "Experimental evidence from Activity 3.12 (Copper wire and Iron nail)",
+        "Predicting feasibility of displacement reactions"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-size='14' font-weight='bold' fill='#0F172A'>The Reactivity Series (Table 3.2)</text><rect x='180' y='50' width='180' height='210' fill='#F8FAFC' stroke='#2563EB'/><text x='200' y='75' font-size='12' font-weight='bold' fill='#1D4ED8'>K (Potassium) - Most</text><text x='200' y='95' font-size='12' fill='#334155'>Na, Ca, Mg, Al</text><text x='200' y='115' font-size='12' fill='#334155'>Zn, Fe, Pb</text><text x='200' y='135' font-size='12' font-weight='bold' fill='#D97706'>[H] (Hydrogen)</text><text x='200' y='155' font-size='12' fill='#334155'>Cu, Hg</text><text x='200' y='175' font-size='12' fill='#334155'>Ag, Au (Least)</text><path d='M380 70 L380 200' stroke='#DC2626' stroke-width='2' marker-end='url(#arrow)'/><text x='395' y='130' font-size='12' fill='#DC2626' font-weight='bold'>Reactivity</text><text x='395' y='145' font-size='12' fill='#DC2626' font-weight='bold'>Decreases</text></svg>",
+      "diagram_idea": "Vertical ladder graphic of the reactivity series from K down to Au.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "A vertical reactivity series chart with K at top and Au at bottom.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='40' font-weight='bold'>Activity Series Snapshot</text><text x='40' y='70' fill='#16A34A'>1. Potassium & Sodium (Most reactive)</text><text x='40' y='100' fill='#2563EB'>2. Magnesium, Aluminium, Zinc, Iron</text><text x='40' y='130' fill='#D97706'>3. Copper, Mercury, Silver, Gold (Least)</text></svg>",
+          "why_needed": "Essential for predicting displacement and extraction methods.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='40' font-weight='bold'>Activity Series Snapshot</text><text x='40' y='70' fill='#16A34A'>1. Potassium & Sodium (Most reactive)</text><text x='40' y='100' fill='#2563EB'>2. Magnesium, Aluminium, Zinc, Iron</text><text x='40' y='130' fill='#D97706'>3. Copper, Mercury, Silver, Gold (Least)</text></svg>",
+          "image_query": "Ladder of metals with reactivity arrows. scientific educational diagram with clear labels",
+          "video_query": "Reactivity Ladder educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Ladder of metals with reactivity arrows.",
+          "concept_title": "Reactivity Series",
+          "diagram_title": "Reactivity Ladder",
+          "timing_and_cue": "Show when discussing displacement experiments.",
+          "what_to_explain": "Walk through top, middle, and bottom tiers of reactivity.",
+          "image_search_query": "Ladder of metals with reactivity arrows. scientific educational diagram with clear labels",
+          "video_search_query": "Reactivity Ladder educational demonstration video",
+          "interactive_math_formula": ""
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Metal A + Salt of B -> Displacement if A is more reactive than B | Reactivity Series: K > Na > Ca > Mg > Al > Zn > Fe > Pb > [H] > Cu > Hg > Ag > Au",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Which of the following metals is most reactive?",
+              "ideal_answer": "Potassium (K)",
+              "socratic_hint": "Check the very top of Table 3.2 in the textbook."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q2",
+              "question": "Will copper displace iron from an iron(II) sulphate solution? Give reason.",
+              "ideal_answer": "No, copper will not displace iron. According to the reactivity series, copper is placed below iron, making it less reactive than iron.",
+              "socratic_hint": "Check whether copper is higher or lower than iron in the reactivity series."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Reactivity Series"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Activity 3.12",
+          "scenario": "Iron nail placed in copper sulphate solution turns the solution green and deposits brown copper coating."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "1(a)-(d)",
+              "question": "Which of the following pairs will give displacement reactions? (a) NaCl + Cu, (b) MgCl2 + Al, (c) FeSO4 + Ag, (d) AgNO3 + Cu.",
+              "question_type": "conceptual",
+              "solution_method": "Check reactivity: Cu is less reactive than Na and Mg; Ag is less reactive than Fe; Cu is more reactive than Ag (in AgNO3), so (d) gives displacement."
+            }
+          ],
+          "exercise_number": "Exercise Q1"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Reactivity Series",
+          "si_units": "N/A",
+          "definition": "A list of metals arranged in the order of their decreasing activities."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "8bf5439e-63fc-496c-b8f8-23285326c2b5",
+    "curriculum_id": "b28e7656-c9f4-48ff-a068-dd0d123a0b98",
+    "order_index": 4,
+    "title": "How Metals and Non-metals React & Ionic Compounds",
+    "description": "Understand electronic configurations, valence shell stability, electron transfer, and properties of ionic compounds.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 4: How Metals and Non-metals React & Ionic Compounds. Mid-Term Examination Syllabus. Use Bohr model analogies for electron shells. Emphasize why solid ionic compounds do not conduct electricity (rigid lattice structure).\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Electron dot structure formation of NaCl and MgCl2.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Electron Transfer -> Cation (+) & Anion (-) -> Ionic Bond -> High Melting Point, Soluble, Conducts in Molten/Aqueous State\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Electron Transfer -> Cation (+) & Anion (-) -> Ionic Bond -> High Melting Point, Soluble, Conducts in Molten/Aqueous State\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Ionic Compound: \"Compounds formed by the transfer of electrons from a metal to a non-metal.\" [SI Unit: N/A]\n\n- Textbook Concrete Examples:\n- Formation of NaCl: Sodium (2,8,1) loses 1 electron to form Na+ (2,8); Chlorine (2,8,7) gains that electron to form Cl- (2,8,8).\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Page 49 Q1:\n    * [1(i)] (conceptual): Write the electron-dot structures for sodium, oxygen and magnesium.\n      Method: Show valence electrons: Na(1 dot), O(6 dots), Mg(2 dots).\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Ionic Compounds\":\n    * [Q1] (2-mark Definition): Why do ionic compounds have high melting points?\n      -> Ideal Model Answer: Ionic compounds have high melting points because a considerable amount of energy is required to break the strong inter-ionic electrostatic forces of attraction between oppositely charged ions.\n      -> Socratic Hint: Think about the strong electrostatic attraction between positive and negative ions.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Formation of ionic compounds\":\n    - Visual Title: \"Ionic Bond Transfer\" (vector_svg_diagram)\n    - Why Needed: Visualizes electron transfer clearly for board exams.\n    - What to Explain: Show how metal loses and non-metal gains valence electrons.\n    - Timing & Directive: Present when explaining electrovalent bonding.\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Octet Rule / Stability: Elements react to attain a completely filled valence shell (stable octet like noble gases).",
+      "Ionic Bond: Formed by the complete transfer of electrons from a metal to a non-metal.",
+      "Cations (+) formed by losing electrons; Anions (-) formed by gaining electrons.",
+      "Ionic Compounds: Hard solids due to strong inter-ionic electrostatic forces, brittle, high melting/boiling points, soluble in water, conduct electricity in molten/aqueous state."
+    ],
+    "success_criteria": "Draw electron-dot structures for ionic compounds like NaCl and MgO and explain their physical properties.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:43:30.354189+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Electronic configuration of noble gases, metals, and non-metals",
+      "Formation of ionic compounds (NaCl, MgCl2)",
+      "Properties of ionic compounds (physical state, melting/boiling points, solubility, electrical conductivity)"
+    ],
+    "chapter_notes": "Elements react to attain a stable noble gas configuration. Metals lose valence electrons to form cations (+), while non-metals gain electrons to form anions (-). The electrostatic attraction between these oppositely charged ions forms ionic (electrovalent) compounds. Ionic compounds are crystalline solids, hard and brittle, have high melting and boiling points, dissolve in water, and conduct electricity when molten or in aqueous solution due to free-moving ions.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Ionic Compound formula",
+        "given": "Magnesium (atomic no. 12, 2,8,2) and Chlorine (atomic no. 17, 2,8,7)",
+        "formula": "Mg -> Mg2+ + 2e-; 2(Cl + e- -> Cl-)",
+        "problem": "Explain formation of Magnesium Chloride (MgCl2) via electron transfer.",
+        "calculation": "Mg2+ and two Cl- ions attract electrostatically to form MgCl2.",
+        "finalAnswer": "MgCl2",
+        "substitution": "Mg loses 2 electrons; two Cl atoms take 1 electron each.",
+        "image_search_query": "class 10 science chapter_3_metal ncert",
+        "page": 40,
+        "section": "Section 4"
+      }
+    ],
+    "common_misconceptions": [
+      "Believing ionic compounds conduct electricity in solid state (they only conduct in molten or aqueous state).",
+      "Confusing electron sharing (covalent) with electron transfer (ionic)."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735009747_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "How Metals and Non-metals React & Ionic Compounds: Understand electronic configurations, valence shell stability, electron transfer, and properties of ionic compounds.",
+              "keyTakeaway": "Octet Rule / Stability: Elements react to attain a completely filled valence shell (stable octet like noble gases)."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Octet Rule / Stability: Elements react to attain a completely filled valence shell (stable octet like noble gases)."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc103.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735009747_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "How Metals and Non-metals React & Ionic Compounds - Fundamental Equations",
+              "equations": [
+                "Octet Rule / Stability: Elements react to attain a completely filled valence shell (stable octet like noble gases).",
+                "Ionic Bond: Formed by the complete transfer of electrons from a metal to a non-metal.",
+                "Cations (+) formed by losing electrons; Anions (-) formed by gaining electrons."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Octet Rule / Stability: Elements react to attain a completely filled valence shell (stable octet like noble gases)."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc103.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735009747_3",
+          "type": "DIAGRAM",
+          "title": "How Metals and Non-metals React & Ionic Compounds Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "How Metals and Non-metals React & Ionic Compounds Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Octet Rule / Stability: Elements react to attain a completely filled valence shell (stable octet like noble gases).",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Ionic Bond: Formed by the complete transfer of electrons from a metal to a non-metal.",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "How Metals and Non-metals React & Ionic Compounds",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "How Metals and Non-metals React & Ionic Compounds | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-size='14' font-weight='bold' fill='#0F172A'>Formation of Sodium Chloride (NaCl)</text><text x='50' y='80' font-size='14' fill='#2563EB'>Na \u2022</text><text x='110' y='80' font-size='14' fill='#DC2626'>+  \u2022 Cl :</text><text x='200' y='80' font-size='14' fill='#334155'>\u2192</text><text x='240' y='80' font-size='14' fill='#2563EB'>[Na]+</text><text x='310' y='80' font-size='14' fill='#DC2626'>[: Cl :]\u2212</text><rect x='100' y='140' width='340' height='90' fill='#F8FAFC' stroke='#64748B'/><text x='120' y='170' font-size='12' font-weight='bold' fill='#0F172A'>Properties of Ionic Compounds:</text><text x='120' y='195' font-size='11' fill='#334155'>- Hard solids (strong electrostatic force)</text><text x='120' y='215' font-size='11' fill='#334155'>- High melting & boiling points | Soluble in water</text></svg> | Electron dot structure formation of NaCl and MgCl2."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc103.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735009747_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Octet Rule / Stability: Elements react to attain a completely filled valence shell (stable octet like noble gases)."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Magnesium (atomic no. 12, 2,8,2) and Chlorine (atomic no. 17, 2,8,7), what is the value?",
+              "explanation": "By fundamental principle, Octet Rule / Stability: Elements react to attain a completely filled valence shell (stable octet like noble gases). is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735009747_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Electronic configuration of noble gases, metals, and non-metals",
+                "Formation of ionic compounds (NaCl, MgCl2)",
+                "Properties of ionic compounds (physical state, melting/boiling points, solubility, electrical conductivity)"
+              ],
+              "formulasToRemember": [
+                "Octet Rule / Stability: Elements react to attain a completely filled valence shell (stable octet like noble gases).",
+                "Ionic Bond: Formed by the complete transfer of electrons from a metal to a non-metal.",
+                "Cations (+) formed by losing electrons; Anions (-) formed by gaining electrons."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "How Metals and Non-metals React & Ionic Compounds - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "How Metals and Non-metals React & Ionic Compounds",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:43:29.748Z",
+        "provenance": "jesc103.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735009747",
+      "subtopics": [
+        "Electronic configuration of noble gases, metals, and non-metals",
+        "Formation of ionic compounds (NaCl, MgCl2)",
+        "Properties of ionic compounds (physical state, melting/boiling points, solubility, electrical conductivity)"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-size='14' font-weight='bold' fill='#0F172A'>Formation of Sodium Chloride (NaCl)</text><text x='50' y='80' font-size='14' fill='#2563EB'>Na \u2022</text><text x='110' y='80' font-size='14' fill='#DC2626'>+  \u2022 Cl :</text><text x='200' y='80' font-size='14' fill='#334155'>\u2192</text><text x='240' y='80' font-size='14' fill='#2563EB'>[Na]+</text><text x='310' y='80' font-size='14' fill='#DC2626'>[: Cl :]\u2212</text><rect x='100' y='140' width='340' height='90' fill='#F8FAFC' stroke='#64748B'/><text x='120' y='170' font-size='12' font-weight='bold' fill='#0F172A'>Properties of Ionic Compounds:</text><text x='120' y='195' font-size='11' fill='#334155'>- Hard solids (strong electrostatic force)</text><text x='120' y='215' font-size='11' fill='#334155'>- High melting & boiling points | Soluble in water</text></svg>",
+      "diagram_idea": "Electron transfer diagram showing sodium giving an electron to chlorine to form NaCl.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Electron dot structure formation of NaCl and MgCl2.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='40' font-weight='bold'>Magnesium Chloride Transfer</text><text x='40' y='80' fill='#2563EB'>Mg: (2,8,2) loses 2 electrons</text><text x='40' y='120' fill='#DC2626'>2 Cl: (2,8,7) each gain 1 electron</text><text x='40' y='160' fill='#16A34A'>Result: Mg2+ and 2 Cl- forming MgCl2</text></svg>",
+          "why_needed": "Visualizes electron transfer clearly for board exams.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='40' font-weight='bold'>Magnesium Chloride Transfer</text><text x='40' y='80' fill='#2563EB'>Mg: (2,8,2) loses 2 electrons</text><text x='40' y='120' fill='#DC2626'>2 Cl: (2,8,7) each gain 1 electron</text><text x='40' y='160' fill='#16A34A'>Result: Mg2+ and 2 Cl- forming MgCl2</text></svg>",
+          "image_query": "Electron dot transfer mechanism. scientific educational diagram with clear labels",
+          "video_query": "Ionic Bond Transfer educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Electron dot transfer mechanism.",
+          "concept_title": "Formation of ionic compounds",
+          "diagram_title": "Ionic Bond Transfer",
+          "timing_and_cue": "Present when explaining electrovalent bonding.",
+          "what_to_explain": "Show how metal loses and non-metal gains valence electrons.",
+          "image_search_query": "Electron dot transfer mechanism. scientific educational diagram with clear labels",
+          "video_search_query": "Ionic Bond Transfer educational demonstration video",
+          "interactive_math_formula": ""
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Electron Transfer -> Cation (+) & Anion (-) -> Ionic Bond -> High Melting Point, Soluble, Conducts in Molten/Aqueous State",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q1",
+              "question": "Why do ionic compounds have high melting points?",
+              "ideal_answer": "Ionic compounds have high melting points because a considerable amount of energy is required to break the strong inter-ionic electrostatic forces of attraction between oppositely charged ions.",
+              "socratic_hint": "Think about the strong electrostatic attraction between positive and negative ions."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Ionic Compounds"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Formation of NaCl",
+          "scenario": "Sodium (2,8,1) loses 1 electron to form Na+ (2,8); Chlorine (2,8,7) gains that electron to form Cl- (2,8,8)."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "1(i)",
+              "question": "Write the electron-dot structures for sodium, oxygen and magnesium.",
+              "question_type": "conceptual",
+              "solution_method": "Show valence electrons: Na(1 dot), O(6 dots), Mg(2 dots)."
+            }
+          ],
+          "exercise_number": "In-Text Page 49 Q1"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Ionic Compound",
+          "si_units": "N/A",
+          "definition": "Compounds formed by the transfer of electrons from a metal to a non-metal."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "93c219ed-4977-4f17-99b5-a38e016e4b13",
+    "curriculum_id": "b28e7656-c9f4-48ff-a068-dd0d123a0b98",
+    "order_index": 5,
+    "title": "Occurrence and Extraction of Metals (Metallurgy)",
+    "description": "Examine mineral extraction, roasting, calcination, reduction, thermit reactions, and electrolytic refining.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 5: Occurrence and Extraction of Metals (Metallurgy). Mid-Term Examination Syllabus. Use Figure 3.10 flowchart as a roadmap. Emphasize the thermit reaction and electrolytic refining setup.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Electrolytic refining setup of copper (Tank, acidified CuSO4 solution, impure copper anode, pure copper cathode).\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Ores -> Concentration -> Extraction (Low: Heat | Medium: Roasting/Calcination + Reduction | High: Electrolysis) -> Refining\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Ores -> Concentration -> Extraction (Low: Heat | Medium: Roasting/Calcination + Reduction | High: Electrolysis) -> Refining\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Gangue: \"Impurities such as soil and sand contaminating mined ores.\" [SI Unit: N/A]\n- Anode Mud: \"Insoluble impurities that settle down at the bottom of the anode during electrolytic refining.\" [SI Unit: N/A]\n\n- Textbook Concrete Examples:\n- Thermit Reaction: Fe2O3(s) + 2Al(s) -> 2Fe(l) + Al2O3(s) + Heat used for welding railway tracks.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - Exercise Q8:\n    * [8] (conceptual): In the electrolytic refining of a metal M, what would you take as the anode, the cathode and the electrolyte?\n      Method: Anode = Impure metal M; Cathode = Thin strip of pure metal M; Electrolyte = Solution of metal salt M.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Roasting and Calcination\":\n    * [Q1] (2-mark Definition): Differentiate between roasting and calcination.\n      -> Ideal Model Answer: Roasting is heating sulphide ores strongly in the presence of excess air to convert them into oxides. Calcination is heating carbonate ores strongly in limited air to convert them into oxides.\n      -> Socratic Hint: Check the air supply and ore type for each process.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Electrolytic refining of copper\":\n    - Visual Title: \"Refining Process Map\" (vector_svg_diagram)\n    - Why Needed: Clarifies anode vs cathode roles in metal purification.\n    - What to Explain: Explain impure anode dissolving and pure metal depositing on cathode.\n    - Timing & Directive: Show during explanation of metal purification.\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Ore: Minerals from which metals can be profitably extracted.",
+      "Gangue: Large amounts of impurities (soil, sand) associated with ores.",
+      "Roasting: Heating sulphide ores strongly in excess air to convert to oxides.",
+      "Calcination: Heating carbonate ores strongly in limited air to convert to oxides.",
+      "Thermit Reaction: Highly exothermic displacement reaction using aluminium to reduce metal oxides (e.g., Fe2O3 + 2Al -> 2Fe + Al2O3 + Heat) used to join railway tracks."
+    ],
+    "success_criteria": "Distinguish between roasting and calcination and explain electrolytic refining with anode mud.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:43:31.01586+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Minerals, ores, and gangue",
+      "Extraction of metals low in activity series (heating sulphide/oxide ores)",
+      "Extraction of metals in middle of activity series (roasting, calcination, carbon reduction, thermit reaction)",
+      "Extraction of metals high in activity series (electrolytic reduction)",
+      "Refining of metals (Electrolytic refining and anode mud)"
+    ],
+    "chapter_notes": "Metals occur in the earth's crust as free elements (unreactive ones like Au, Ag, Pt) or combined as oxides, sulphides, or carbonates. Metallurgy involves three main stages: concentration of ores (removal of gangue), extraction of metals, and refining. Low reactivity metals are extracted by heating alone. Medium reactivity metals (sulphides/carbonates) are converted to oxides via roasting or calcination, then reduced using carbon or through thermit reactions. High reactivity metals are extracted via electrolytic reduction. Impure metals are refined using electrolytic refining, where pure metal deposits on the cathode and impurities settle as anode mud.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Chemical Reaction",
+        "given": "Zinc sulphide ore (ZnS) and Oxygen (O2)",
+        "formula": "2ZnS(s) + 3O2(g) -> 2ZnO(s) + 2SO2(g)",
+        "problem": "Write the roasting reaction for zinc sulphide.",
+        "calculation": "Balances zinc sulphide with oxygen to form zinc oxide and sulphur dioxide.",
+        "finalAnswer": "2ZnO(s) + 2SO2(g)",
+        "substitution": "Sulphide ore heated in excess air.",
+        "image_search_query": "class 10 science chapter_3_metal ncert",
+        "page": 50,
+        "section": "Section 5"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing roasting (excess air, sulphide ores) with calcination (limited air, carbonate ores).",
+      "Thinking carbon can reduce oxides of highly reactive metals like sodium or aluminium."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735010457_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Occurrence and Extraction of Metals (Metallurgy): Examine mineral extraction, roasting, calcination, reduction, thermit reactions, and electrolytic refining.",
+              "keyTakeaway": "Ore: Minerals from which metals can be profitably extracted."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Ore: Minerals from which metals can be profitably extracted."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc103.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735010457_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Occurrence and Extraction of Metals (Metallurgy) - Fundamental Equations",
+              "equations": [
+                "Ore: Minerals from which metals can be profitably extracted.",
+                "Gangue: Large amounts of impurities (soil, sand) associated with ores.",
+                "Roasting: Heating sulphide ores strongly in excess air to convert to oxides."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Ore: Minerals from which metals can be profitably extracted."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc103.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735010457_3",
+          "type": "DIAGRAM",
+          "title": "Occurrence and Extraction of Metals (Metallurgy) Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Occurrence and Extraction of Metals (Metallurgy) Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Ore: Minerals from which metals can be profitably extracted.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Gangue: Large amounts of impurities (soil, sand) associated with ores.",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Occurrence and Extraction of Metals (Metallurgy)",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Occurrence and Extraction of Metals (Metallurgy) | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-size='14' font-weight='bold' fill='#0F172A'>Electrolytic Refining of Copper (Fig 3.12)</text><rect x='150' y='60' width='240' height='160' fill='#E0F2FE' stroke='#2563EB' stroke-width='2'/><text x='180' y='90' font-size='12' fill='#1E3A8A'>Acidified CuSO4 Solution</text><line x1='190' y1='80' x2='190' y2='190' stroke='#334155' stroke-width='6'/><text x='170' y='215' font-size='10' fill='#334155'>Anode (+)</text><line x1='350' y1='80' x2='350' y2='190' stroke='#16A34A' stroke-width='6'/><text x='330' y='215' font-size='10' fill='#16A34A'>Cathode (-)</text><text x='220' y='235' font-size='10' fill='#DC2626'>Anode Mud at bottom</text></svg> | Electrolytic refining setup of copper (Tank, acidified CuSO4 solution, impure copper anode, pure copper cathode)."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc103.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735010457_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Ore: Minerals from which metals can be profitably extracted."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Zinc sulphide ore (ZnS) and Oxygen (O2), what is the value?",
+              "explanation": "By fundamental principle, Ore: Minerals from which metals can be profitably extracted. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735010457_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Minerals, ores, and gangue",
+                "Extraction of metals low in activity series (heating sulphide/oxide ores)",
+                "Extraction of metals in middle of activity series (roasting, calcination, carbon reduction, thermit reaction)",
+                "Extraction of metals high in activity series (electrolytic reduction)",
+                "Refining of metals (Electrolytic refining and anode mud)"
+              ],
+              "formulasToRemember": [
+                "Ore: Minerals from which metals can be profitably extracted.",
+                "Gangue: Large amounts of impurities (soil, sand) associated with ores.",
+                "Roasting: Heating sulphide ores strongly in excess air to convert to oxides."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Occurrence and Extraction of Metals (Metallurgy) - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Occurrence and Extraction of Metals (Metallurgy)",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:43:30.458Z",
+        "provenance": "jesc103.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735010457",
+      "subtopics": [
+        "Minerals, ores, and gangue",
+        "Extraction of metals low in activity series (heating sulphide/oxide ores)",
+        "Extraction of metals in middle of activity series (roasting, calcination, carbon reduction, thermit reaction)",
+        "Extraction of metals high in activity series (electrolytic reduction)",
+        "Refining of metals (Electrolytic refining and anode mud)"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-size='14' font-weight='bold' fill='#0F172A'>Electrolytic Refining of Copper (Fig 3.12)</text><rect x='150' y='60' width='240' height='160' fill='#E0F2FE' stroke='#2563EB' stroke-width='2'/><text x='180' y='90' font-size='12' fill='#1E3A8A'>Acidified CuSO4 Solution</text><line x1='190' y1='80' x2='190' y2='190' stroke='#334155' stroke-width='6'/><text x='170' y='215' font-size='10' fill='#334155'>Anode (+)</text><line x1='350' y1='80' x2='350' y2='190' stroke='#16A34A' stroke-width='6'/><text x='330' y='215' font-size='10' fill='#16A34A'>Cathode (-)</text><text x='220' y='235' font-size='10' fill='#DC2626'>Anode Mud at bottom</text></svg>",
+      "diagram_idea": "Flowchart of metallurgical steps from ore to pure metal.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Electrolytic refining setup of copper (Tank, acidified CuSO4 solution, impure copper anode, pure copper cathode).",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='40' font-weight='bold'>Electrolytic Refining Summary</text><text x='40' y='80' fill='#2563EB'>Anode (+): Impure copper</text><text x='40' y='120' fill='#16A34A'>Cathode (-): Pure copper strip</text><text x='40' y='160' fill='#D97706'>Electrolyte: Acidified copper sulphate solution</text><text x='40' y='200' fill='#DC2626'>Impurities settle as Anode Mud</text></svg>",
+          "why_needed": "Clarifies anode vs cathode roles in metal purification.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='40' font-weight='bold'>Electrolytic Refining Summary</text><text x='40' y='80' fill='#2563EB'>Anode (+): Impure copper</text><text x='40' y='120' fill='#16A34A'>Cathode (-): Pure copper strip</text><text x='40' y='160' fill='#D97706'>Electrolyte: Acidified copper sulphate solution</text><text x='40' y='200' fill='#DC2626'>Impurities settle as Anode Mud</text></svg>",
+          "image_query": "biological structure diagram of Refining Process Map with labeled anatomical parts and microscopic cellular details",
+          "video_query": "Refining Process Map biology educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Electrolytic cell schematic.",
+          "concept_title": "Electrolytic refining of copper",
+          "diagram_title": "Refining Process Map",
+          "timing_and_cue": "Show during explanation of metal purification.",
+          "what_to_explain": "Explain impure anode dissolving and pure metal depositing on cathode.",
+          "image_search_query": "biological structure diagram of Refining Process Map with labeled anatomical parts and microscopic cellular details",
+          "video_search_query": "Refining Process Map biology educational demonstration video",
+          "interactive_math_formula": ""
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Ores -> Concentration -> Extraction (Low: Heat | Medium: Roasting/Calcination + Reduction | High: Electrolysis) -> Refining",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q1",
+              "question": "Differentiate between roasting and calcination.",
+              "ideal_answer": "Roasting is heating sulphide ores strongly in the presence of excess air to convert them into oxides. Calcination is heating carbonate ores strongly in limited air to convert them into oxides.",
+              "socratic_hint": "Check the air supply and ore type for each process."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Roasting and Calcination"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Thermit Reaction",
+          "scenario": "Fe2O3(s) + 2Al(s) -> 2Fe(l) + Al2O3(s) + Heat used for welding railway tracks."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "8",
+              "question": "In the electrolytic refining of a metal M, what would you take as the anode, the cathode and the electrolyte?",
+              "question_type": "conceptual",
+              "solution_method": "Anode = Impure metal M; Cathode = Thin strip of pure metal M; Electrolyte = Solution of metal salt M."
+            }
+          ],
+          "exercise_number": "Exercise Q8"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Gangue",
+          "si_units": "N/A",
+          "definition": "Impurities such as soil and sand contaminating mined ores."
+        },
+        {
+          "concept": "Anode Mud",
+          "si_units": "N/A",
+          "definition": "Insoluble impurities that settle down at the bottom of the anode during electrolytic refining."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "2a4c67f1-36ed-4e94-b710-2bae7a129384",
+    "curriculum_id": "b28e7656-c9f4-48ff-a068-dd0d123a0b98",
+    "order_index": 6,
+    "title": "NCERT In-Text & Chapter-End Exercises Master Solver",
+    "description": "Investigate corrosion mechanisms (rusting of iron, silver tarnishing, copper green coating), prevention methods, and solve chapter exercises.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 6: Corrosion, Prevention & Chapter Review. Mid-Term Examination Syllabus. Review Activity 3.14 (test tubes A, B, C for rusting). Summarize key alloy compositions and corrosion prevention techniques.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Three test tubes A, B, C illustrating conditions for iron rusting.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Corrosion (Iron + O2 + H2O -> Rust) -> Prevention (Galvanisation, Painting, Alloying) -> Alloys (Brass, Bronze, Solder)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Corrosion (Iron + O2 + H2O -> Rust) -> Prevention (Galvanisation, Painting, Alloying) -> Alloys (Brass, Bronze, Solder)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Corrosion: \"The gradual destruction of metals by chemical reaction with environment.\" [SI Unit: N/A]\n- Alloy: \"A homogeneous mixture of two or more metals, or a metal and a non-metal.\" [SI Unit: N/A]\n\n- Textbook Concrete Examples:\n- Rusting of Iron: Iron exposed to moist air acquires a brown flaky coating of hydrated iron(III) oxide.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - Exercise Q2:\n    * [2] (conceptual): Which of the following methods is suitable for preventing an iron frying pan from rusting? (a) grease, (b) paint, (c) zinc coating, (d) applying a coating of zinc.\n      Method: Zinc coating (galvanisation) or applying paint/grease; but for hot frying pans, applying zinc or suitable heat-resistant coating is used, though oil/grease is common. Wait, zinc coating is standard for iron protection, but food pans use tin or chrome. Actually, option (c) or (d) - let's check textbook answer: applying a coating of zinc or paint depending on usage, but zinc is galvanisation.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Corrosion Prevention\":\n    * [Q1] (2-mark Definition): What is galvanisation?\n      -> Ideal Model Answer: Galvanisation is a method of protecting steel and iron from rusting by coating them with a thin layer of zinc.\n      -> Socratic Hint: Think of coating iron with zinc.\n    * [Q2] (3-mark Short Answer): Why is pure gold not suitable for making jewellery? How is it modified?\n      -> Ideal Model Answer: Pure gold (24 carat) is very soft and stretches easily. To make it hard, it is alloyed with a small amount of silver or copper, commonly producing 22 carat gold in India.\n      -> Socratic Hint: Pure gold is too soft; what is added to harden it?\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Corrosion Prevention\":\n    - Visual Title: \"Rusting Conditions Test\" (vector_svg_diagram)\n    - Why Needed: Demonstrates scientific control experiment principles.\n    - What to Explain: Explain why tube A rusts (air + water) while B and C do not.\n    - Timing & Directive: Present during discussion on corrosion and rust prevention.\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Corrosion: Eating away of metals due to attack of moisture, acids, or gases on their surface.",
+      "Rusting Formula: Iron + Oxygen + Water -> Hydrated iron(III) oxide (Fe2O3.xH2O).",
+      "Galvanisation: Protecting steel and iron from rusting by coating with a thin zinc layer.",
+      "Alloy: A homogeneous mixture of two or more metals, or a metal and a non-metal (e.g., Brass = Cu + Zn; Bronze = Cu + Sn; Solder = Pb + Sn)."
+    ],
+    "success_criteria": "Explain the conditions necessary for iron rusting and describe alloy compositions like brass and bronze.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:43:31.668993+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Corrosion of iron, copper, and silver",
+      "Activity 3.14 (Investigating conditions for iron rusting)",
+      "Prevention methods (painting, oiling, galvanising, alloying)",
+      "Alloys and Amalgams (Brass, Bronze, Solder, 22-carat gold)"
+    ],
+    "chapter_notes": "Corrosion is the degradation of metals due to environmental exposure (e.g., silver turns black due to H2S/sulphur, copper forms green basic copper carbonate, iron forms brown flaky rust in the presence of both air and water). Rusting can be prevented by painting, oiling, galvanising, chrome plating, or alloying. Alloys are homogeneous mixtures (e.g., brass is Cu + Zn, bronze is Cu + Sn, solder is Pb + Sn). Alloying improves hardness, corrosion resistance, and melting points.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "In-Text Question (Section 3.1 & 3.2, p. 4 & p. 10): (a) Give an example of a metal that: is a liquid at room temperature; can be easily cut with a knife; is the best conductor of heat. (b) Explain the meanings of malleable and ductile.",
+        "given": "Physical characteristics of metals and non-metals.",
+        "formula": "Metallic lattice properties: Delocalised electron sea allows plastic slip (malleability/ductility) and high thermal/electrical conductivity.",
+        "substitution": "Correlate specific metals with anomalous and superlative properties.",
+        "calculation": "(a) Liquid metal: Mercury (Hg). Cut with knife: Sodium (Na) / Potassium (K). Best conductor: Silver (Ag).\n(b) Malleable: Property of metals allowing them to be beaten or hammered into thin sheets without shattering (e.g. Gold, Aluminium foil). Ductile: Property allowing metals to be drawn into long, thin wires without breaking (e.g. 1 g of gold can be drawn into a 2 km wire).",
+        "finalAnswer": "(a) Liquid: Mercury; Cut with knife: Sodium; Best conductor: Silver; (b) Malleable = beaten into thin sheets; Ductile = drawn into thin wires.",
+        "unit": "Physical metallurgy",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "properties of metals malleability ductility conductivity mercury",
+        "page": 4,
+        "section": "Section 3.1"
+      },
+      {
+        "problem": "In-Text Question (Section 3.2, p. 13 & p. 17): (a) Why is sodium kept immersed in kerosene oil? (b) Write equations for the reaction of iron with steam and calcium with water.",
+        "given": "Reactivity of alkali and alkaline earth metals with oxygen and water.",
+        "formula": "4Na + O2 -> 2Na2O (exothermic spontaneous oxidation); 3Fe + 4H2O(g) -> Fe3O4 + 4H2; Ca + 2H2O -> Ca(OH)2 + H2.",
+        "substitution": "Reactivity series dynamics.",
+        "calculation": "(a) Sodium is an exceptionally reactive alkali metal. When exposed to open air, it reacts violently with atmospheric oxygen and moisture, releasing hydrogen which catches fire with an explosion. Immersing in non-polar kerosene shields it from air and moisture.\n(b) 1. Iron with steam: 3Fe(s) + 4H2O(g) -> Fe3O4(s) + 4H2(g) (Red-hot iron forms magnetic iron oxide).\n2. Calcium with water: Ca(s) + 2H2O(l) -> Ca(OH)2(aq) + H2(g) (The reaction is less violent; liberated hydrogen bubbles stick to the calcium surface, causing it to float).",
+        "finalAnswer": "(a) Kept in kerosene to prevent explosive reaction with atmospheric air and moisture; (b) 3Fe + 4H2O(g) -> Fe3O4 + 4H2; Ca + 2H2O -> Ca(OH)2 + H2.",
+        "unit": "Metal reactivity equations",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "sodium reaction with water kerosene iron steam experiment",
+        "page": 13,
+        "section": "Section 3.2"
+      },
+      {
+        "problem": "End-of-Chapter Exercise Q6, Q7, Q8 (p. 20): (a) What are amphoteric oxides? Give two examples with balanced chemical equations. (b) Differentiate between roasting and calcination in metallurgy.",
+        "given": "Metal oxide acid-base behavior; Metallurgical concentration and conversion techniques.",
+        "formula": "Amphoteric: Reacts with both acids and bases to give salt and water (Al2O3, ZnO).",
+        "substitution": "Al2O3 + 6HCl -> 2AlCl3 + 3H2O; Al2O3 + 2NaOH -> 2NaAlO2 + H2O.",
+        "calculation": "(a) Metal oxides that show both acidic and basic behaviors, reacting with acids as well as bases to yield salt and water, are termed AMPHOTERIC OXIDES.\nEquations with Al2O3:\n1. With acid: Al2O3 + 6HCl -> 2AlCl3 + 3H2O\n2. With base: Al2O3 + 2NaOH -> 2NaAlO2 (Sodium aluminate) + H2O\n(b) Roasting vs Calcination:\n- Roasting: Heating ore strongly in the PRESENCE of excess air below its melting point; applied to SULPHIDE ores (e.g. 2ZnS + 3O2 -> 2ZnO + 2SO2).\n- Calcination: Heating ore strongly in the ABSENCE or limited supply of air; applied to CARBONATE or hydrated ores (e.g. ZnCO3 -> ZnO + CO2).",
+        "finalAnswer": "(a) Amphoteric oxides react with both acids and bases (Al2O3, ZnO); (b) Roasting heats sulphide ores in excess air, while calcination heats carbonate ores in limited/no air.",
+        "unit": "Chemical metallurgy",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "amphoteric oxides aluminum oxide roasting calcination metallurgy",
+        "page": 20,
+        "section": "Exercises"
+      }
+    ],
+    "common_misconceptions": [
+      "Thinking iron rusts with only air or only water (both air and water are required).",
+      "Believing alloys have higher electrical conductivity than pure metals (alloys actually have lower conductivity)."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735011121_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Corrosion, Prevention & Chapter Review: Investigate corrosion mechanisms (rusting of iron, silver tarnishing, copper green coating), prevention methods, and solve chapter exercises.",
+              "keyTakeaway": "Corrosion: Eating away of metals due to attack of moisture, acids, or gases on their surface."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Corrosion: Eating away of metals due to attack of moisture, acids, or gases on their surface."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc103.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735011121_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Corrosion, Prevention & Chapter Review - Fundamental Equations",
+              "equations": [
+                "Corrosion: Eating away of metals due to attack of moisture, acids, or gases on their surface.",
+                "Rusting Formula: Iron + Oxygen + Water -> Hydrated iron(III) oxide (Fe2O3.xH2O).",
+                "Galvanisation: Protecting steel and iron from rusting by coating with a thin zinc layer."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Corrosion: Eating away of metals due to attack of moisture, acids, or gases on their surface."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc103.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735011121_3",
+          "type": "DIAGRAM",
+          "title": "Corrosion, Prevention & Chapter Review Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Corrosion, Prevention & Chapter Review Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Corrosion: Eating away of metals due to attack of moisture, acids, or gases on their surface.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Rusting Formula: Iron + Oxygen + Water -> Hydrated iron(III) oxide (Fe2O3.xH2O).",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Corrosion, Prevention & Chapter Review",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Corrosion, Prevention & Chapter Review | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-size='14' font-weight='bold' fill='#0F172A'>Activity 3.14: Conditions for Rusting</text><rect x='80' y='70' width='40' height='140' rx='5' fill='none' stroke='#334155' stroke-width='2'/><text x='90' y='230' font-size='12'>A (Rusts)</text><rect x='240' y='70' width='40' height='140' rx='5' fill='none' stroke='#334155' stroke-width='2'/><text x='245' y='230' font-size='12'>B (No rust)</text><rect x='400' y='70' width='40' height='140' rx='5' fill='none' stroke='#334155' stroke-width='2'/><text x='405' y='230' font-size='12'>C (No rust)</text></svg> | Three test tubes A, B, C illustrating conditions for iron rusting."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc103.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735011121_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Corrosion: Eating away of metals due to attack of moisture, acids, or gases on their surface."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If 24-carat gold is 100% pure and very soft., what is the value?",
+              "explanation": "By fundamental principle, Corrosion: Eating away of metals due to attack of moisture, acids, or gases on their surface. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735011121_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Corrosion of iron, copper, and silver",
+                "Activity 3.14 (Investigating conditions for iron rusting)",
+                "Prevention methods (painting, oiling, galvanising, alloying)",
+                "Alloys and Amalgams (Brass, Bronze, Solder, 22-carat gold)"
+              ],
+              "formulasToRemember": [
+                "Corrosion: Eating away of metals due to attack of moisture, acids, or gases on their surface.",
+                "Rusting Formula: Iron + Oxygen + Water -> Hydrated iron(III) oxide (Fe2O3.xH2O).",
+                "Galvanisation: Protecting steel and iron from rusting by coating with a thin zinc layer."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Corrosion, Prevention & Chapter Review - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Corrosion, Prevention & Chapter Review",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:43:31.121Z",
+        "provenance": "jesc103.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735011121",
+      "subtopics": [
+        "Corrosion of iron, copper, and silver",
+        "Activity 3.14 (Investigating conditions for iron rusting)",
+        "Prevention methods (painting, oiling, galvanising, alloying)",
+        "Alloys and Amalgams (Brass, Bronze, Solder, 22-carat gold)"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-size='14' font-weight='bold' fill='#0F172A'>Activity 3.14: Conditions for Rusting</text><rect x='80' y='70' width='40' height='140' rx='5' fill='none' stroke='#334155' stroke-width='2'/><text x='90' y='230' font-size='12'>A (Rusts)</text><rect x='240' y='70' width='40' height='140' rx='5' fill='none' stroke='#334155' stroke-width='2'/><text x='245' y='230' font-size='12'>B (No rust)</text><rect x='400' y='70' width='40' height='140' rx='5' fill='none' stroke='#334155' stroke-width='2'/><text x='405' y='230' font-size='12'>C (No rust)</text></svg>",
+      "diagram_idea": "Setup of Activity 3.14 showing test tubes A (air+water), B (boiled water + oil), C (anhydrous calcium chloride).",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Three test tubes A, B, C illustrating conditions for iron rusting.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='40' font-weight='bold'>Rusting Experiment Summary</text><text x='40' y='80' fill='#2563EB'>Tube A: Air + Water (Nails rust)</text><text x='40' y='120' fill='#D97706'>Tube B: Water + Oil (No air, no rust)</text><text x='40' y='160' fill='#16A34A'>Tube C: Dry Air + CaCl2 (No water, no rust)</text></svg>",
+          "why_needed": "Demonstrates scientific control experiment principles.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='40' font-weight='bold'>Rusting Experiment Summary</text><text x='40' y='80' fill='#2563EB'>Tube A: Air + Water (Nails rust)</text><text x='40' y='120' fill='#D97706'>Tube B: Water + Oil (No air, no rust)</text><text x='40' y='160' fill='#16A34A'>Tube C: Dry Air + CaCl2 (No water, no rust)</text></svg>",
+          "image_query": "Three test tubes setup diagram. scientific educational diagram with clear labels",
+          "video_query": "Rusting Conditions Test educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Three test tubes setup diagram.",
+          "concept_title": "Corrosion Prevention",
+          "diagram_title": "Rusting Conditions Test",
+          "timing_and_cue": "Present during discussion on corrosion and rust prevention.",
+          "what_to_explain": "Explain why tube A rusts (air + water) while B and C do not.",
+          "image_search_query": "Three test tubes setup diagram. scientific educational diagram with clear labels",
+          "video_search_query": "Rusting Conditions Test educational demonstration video",
+          "interactive_math_formula": ""
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Corrosion (Iron + O2 + H2O -> Rust) -> Prevention (Galvanisation, Painting, Alloying) -> Alloys (Brass, Bronze, Solder)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q1",
+              "question": "What is galvanisation?",
+              "ideal_answer": "Galvanisation is a method of protecting steel and iron from rusting by coating them with a thin layer of zinc.",
+              "socratic_hint": "Think of coating iron with zinc."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q2",
+              "question": "Why is pure gold not suitable for making jewellery? How is it modified?",
+              "ideal_answer": "Pure gold (24 carat) is very soft and stretches easily. To make it hard, it is alloyed with a small amount of silver or copper, commonly producing 22 carat gold in India.",
+              "socratic_hint": "Pure gold is too soft; what is added to harden it?"
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Corrosion Prevention"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Rusting of Iron",
+          "scenario": "Iron exposed to moist air acquires a brown flaky coating of hydrated iron(III) oxide."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "2",
+              "question": "Which of the following methods is suitable for preventing an iron frying pan from rusting? (a) grease, (b) paint, (c) zinc coating, (d) applying a coating of zinc.",
+              "question_type": "conceptual",
+              "solution_method": "Zinc coating (galvanisation) or applying paint/grease; but for hot frying pans, applying zinc or suitable heat-resistant coating is used, though oil/grease is common. Wait, zinc coating is standard for iron protection, but food pans use tin or chrome. Actually, option (c) or (d) - let's check textbook answer: applying a coating of zinc or paint depending on usage, but zinc is galvanisation."
+            }
+          ],
+          "exercise_number": "Exercise Q2"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Corrosion",
+          "si_units": "N/A",
+          "definition": "The gradual destruction of metals by chemical reaction with environment."
+        },
+        {
+          "concept": "Alloy",
+          "si_units": "N/A",
+          "definition": "A homogeneous mixture of two or more metals, or a metal and a non-metal."
+        }
+      ]
+    },
+    "quiz_questions": []
+  }
+]

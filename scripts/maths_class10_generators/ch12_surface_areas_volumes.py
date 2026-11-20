@@ -14,6 +14,12 @@ sys.path.append(os.path.dirname(__file__))
 from svg_builder_class10 import build_surface_areas_volumes_3d_svg, get_svg_wrapper
 
 def get_ch12_modules():
+    import json, os
+    json_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "maths_class10_modules", "ch12_surface_areas_and_volumes.json")
+    if os.path.exists(json_path):
+        with open(json_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
     CURRICULUM_ID = "f30fffde-90c1-402d-83c3-7d2af0e9f423"
     
     # SVG 1: Combination Solid - Cylinder surmounted by Cone

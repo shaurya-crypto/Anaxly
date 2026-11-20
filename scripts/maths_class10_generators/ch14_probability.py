@@ -14,6 +14,12 @@ sys.path.append(os.path.dirname(__file__))
 from svg_builder_class10 import build_probability_svg, get_svg_wrapper
 
 def get_ch14_modules():
+    import json, os
+    json_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "maths_class10_modules", "ch14_probability.json")
+    if os.path.exists(json_path):
+        with open(json_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
     CURRICULUM_ID = "019778b1-dc6c-4660-9538-1940ec6cad64"
     
     # SVG 1: Pair of Dice 36-Outcome Sample Space

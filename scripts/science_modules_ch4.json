@@ -36,7 +36,10 @@
         "unit": "Kinematic Relativity",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.1: Reference frame of moving train relative to platform"
+        "figure_caption": "Fig. 4.1: Reference frame of moving train relative to platform",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 41,
+        "section": "Section 4.1"
       },
       {
         "problem": "An athlete completes one round of a circular track of diameter 200 m in 40 s. What will be the distance covered and the displacement at the end of 2 minutes 20 seconds?",
@@ -48,7 +51,10 @@
         "unit": "m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.3: Circular track motion with diametrical displacement vector"
+        "figure_caption": "Fig. 4.3: Circular track motion with diametrical displacement vector",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 41,
+        "section": "Section 4.1"
       },
       {
         "problem": "A farmer moves along the boundary of a square field of side 10 m in 40 s. What will be the magnitude of displacement of the farmer at the end of 2 minutes 20 seconds from his initial position?",
@@ -60,7 +66,10 @@
         "unit": "m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.4: Square field trajectory and Pythagorean diagonal displacement"
+        "figure_caption": "Fig. 4.4: Square field trajectory and Pythagorean diagonal displacement",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 41,
+        "section": "Section 4.1"
       },
       {
         "problem": "Can the magnitude of displacement ever be greater than the distance traveled by an object? State the precise condition under which distance equals displacement.",
@@ -72,7 +81,10 @@
         "unit": "Kinematic Inequality",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.2: Distance (curved path) vs Displacement (straight line vector)"
+        "figure_caption": "Fig. 4.2: Distance (curved path) vs Displacement (straight line vector)",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 41,
+        "section": "Section 4.1"
       },
       {
         "problem": "An object moves 3 m North, then 4 m East. Calculate: (a) Total distance traveled, and (b) Net displacement vector and direction.",
@@ -80,11 +92,14 @@
         "formula": "Distance $d = s_1 + s_2$; Displacement $|\\vec{s}| = \\sqrt{s_1^2 + s_2^2}$; Direction $\\theta = \\arctan(s_1 / s_2)$.",
         "substitution": "$d = 3 + 4 = 7\\text{ m}$. $|\\vec{s}| = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5\\text{ m}$.",
         "calculation": "1. Distance is scalar sum: $3\\text{ m} + 4\\text{ m} = 7\\text{ m}$.\n2. Net vector $\\vec{s} = 4\\hat{i} + 3\\hat{j}$. Magnitude $= \\sqrt{4^2 + 3^2} = 5\\text{ m}$.\n3. Angle $\\theta = \\arctan(3/4) = 36.87^\\circ$ North of East.",
-        "finalAnswer": "(a) Distance = 7 m; (b) Displacement = 5 m at 36.9° North of East.",
+        "finalAnswer": "(a) Distance = 7 m; (b) Displacement = 5 m at 36.9\u00b0 North of East.",
         "unit": "m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.4: Orthogonal vector addition triangle (3-4-5 right triangle)"
+        "figure_caption": "Fig. 4.4: Orthogonal vector addition triangle (3-4-5 right triangle)",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 41,
+        "section": "Section 4.1"
       },
       {
         "problem": "What does the odometer of an automobile measure? If the odometer reads 24830 km at the start of a journey and 25230 km at the end, what is the distance covered?",
@@ -96,7 +111,10 @@
         "unit": "km",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.1: Automobile speedometer and digital odometer display"
+        "figure_caption": "Fig. 4.1: Automobile speedometer and digital odometer display",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 41,
+        "section": "Section 4.1"
       }
     ],
     "common_misconceptions": [
@@ -217,7 +235,10 @@
         "unit": "m/s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.5: Non-uniform motion interval timeline"
+        "figure_caption": "Fig. 4.5: Non-uniform motion interval timeline",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 42,
+        "section": "Section 4.2"
       },
       {
         "problem": "The odometer of a car reads 2000 km at the start of a trip and 2400 km at the end of the trip. If the trip took 8 h, calculate the average speed of the car in km/h and in m/s.",
@@ -229,7 +250,10 @@
         "unit": "km/h and m/s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.6: Odometer trip distance and average speed calculation"
+        "figure_caption": "Fig. 4.6: Odometer trip distance and average speed calculation",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 42,
+        "section": "Section 4.2"
       },
       {
         "problem": "Usha swims in a 90 m long pool. She covers 180 m in one minute by swimming from one end to the other and back along the same straight path. Find the average speed and average velocity of Usha.",
@@ -241,7 +265,10 @@
         "unit": "m/s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.7: Swimming pool return path showing zero net displacement"
+        "figure_caption": "Fig. 4.7: Swimming pool return path showing zero net displacement",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 42,
+        "section": "Section 4.2"
       },
       {
         "problem": "Starting from a stationary position, Rahul pedals his bicycle to attain a velocity of 6 m/s in 30 s. Then he applies brakes such that the velocity comes down to 4 m/s in the next 5 s. Calculate the acceleration of the bicycle in both cases.",
@@ -249,11 +276,14 @@
         "formula": "Acceleration $a = \\frac{v - u}{t}$.",
         "substitution": "Case 1: $a_1 = \\frac{6 - 0}{30}$. Case 2: $a_2 = \\frac{4 - 6}{5}$.",
         "calculation": "1. Case 1 (speeding up): $a_1 = \\frac{6}{30} = +\\mathbf{0.2\\text{ m/s}^2}$.\n2. Case 2 (braking/retardation): $a_2 = \\frac{-2}{5} = -\\mathbf{0.4\\text{ m/s}^2}$.",
-        "finalAnswer": "Acceleration in first case = +0.2 m/s²; in second case = -0.4 m/s² (retardation of 0.4 m/s²).",
-        "unit": "m/s²",
+        "finalAnswer": "Acceleration in first case = +0.2 m/s\u00b2; in second case = -0.4 m/s\u00b2 (retardation of 0.4 m/s\u00b2).",
+        "unit": "m/s\u00b2",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.8: Two-phase motion graph showing acceleration and deceleration"
+        "figure_caption": "Fig. 4.8: Two-phase motion graph showing acceleration and deceleration",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 42,
+        "section": "Section 4.2"
       },
       {
         "problem": "A bus decreases its speed from 80 km/h to 60 km/h in 5 s. Find the acceleration of the bus.",
@@ -261,11 +291,14 @@
         "formula": "Acceleration $a = \\frac{v - u}{t}$.",
         "substitution": "$a = \\frac{16.67 - 22.22}{5} = \\frac{-5.55}{5}$.",
         "calculation": "$a = -\\mathbf{1.11\\text{ m/s}^2}$.",
-        "finalAnswer": "Acceleration = -1.11 m/s² (or retardation of 1.11 m/s²).",
-        "unit": "m/s²",
+        "finalAnswer": "Acceleration = -1.11 m/s\u00b2 (or retardation of 1.11 m/s\u00b2).",
+        "unit": "m/s\u00b2",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.9: Negative acceleration (deceleration) velocity profile"
+        "figure_caption": "Fig. 4.9: Negative acceleration (deceleration) velocity profile",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 42,
+        "section": "Section 4.2"
       },
       {
         "problem": "A train starting from a railway station and moving with uniform acceleration attains a speed of 40 km/h in 10 minutes. Find its acceleration.",
@@ -273,11 +306,14 @@
         "formula": "Acceleration $a = \\frac{v - u}{t}$.",
         "substitution": "$a = \\frac{\\frac{100}{9} - 0}{600} = \\frac{100}{5400} = \\frac{1}{54}$.",
         "calculation": "$a = \\frac{1}{54} \\approx \\mathbf{0.0185\\text{ m/s}^2}$.",
-        "finalAnswer": "Acceleration = 0.0185 m/s² (or 1/54 m/s²).",
-        "unit": "m/s²",
+        "finalAnswer": "Acceleration = 0.0185 m/s\u00b2 (or 1/54 m/s\u00b2).",
+        "unit": "m/s\u00b2",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.10: Uniform acceleration of train from rest"
+        "figure_caption": "Fig. 4.10: Uniform acceleration of train from rest",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 42,
+        "section": "Section 4.2"
       }
     ],
     "common_misconceptions": [
@@ -398,7 +434,10 @@
         "unit": "m/s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.11: Distance-time graph showing uniform speed vs stationary state"
+        "figure_caption": "Fig. 4.11: Distance-time graph showing uniform speed vs stationary state",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 43,
+        "section": "Section 4.3"
       },
       {
         "problem": "What physical quantity is determined by: (a) the slope of a velocity-time graph, and (b) the area enclosed under a velocity-time graph?",
@@ -410,7 +449,10 @@
         "unit": "Kinematic Calculus",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.12: Velocity-time graph highlighting slope (acceleration) and area (displacement)"
+        "figure_caption": "Fig. 4.12: Velocity-time graph highlighting slope (acceleration) and area (displacement)",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 43,
+        "section": "Section 4.3"
       },
       {
         "problem": "A car accelerates uniformly from 18 km/h to 36 km/h in 5 s. Using a velocity-time graph, calculate: (a) the acceleration, and (b) the distance covered by the car.",
@@ -418,11 +460,14 @@
         "formula": "(a) $a = \\frac{v - u}{t}$; (b) Area of trapezium $= \\frac{1}{2}(u + v)t$.",
         "substitution": "$a = \\frac{10 - 5}{5} = 1\\text{ m/s}^2$. Distance $s = \\frac{1}{2}(5 + 10) \\times 5$.",
         "calculation": "1. Acceleration: $a = \\frac{5}{5} = \\mathbf{1\\text{ m/s}^2}$.\n2. Distance: Area of rectangle under $u$ + Area of triangle under acceleration slope:\n   $s = (u \\times t) + \\frac{1}{2}(v - u)t = (5 \\times 5) + \\frac{1}{2}(5)(5) = 25 + 12.5 = \\mathbf{37.5\\text{ m}}$.",
-        "finalAnswer": "(a) Acceleration = 1 m/s²; (b) Distance covered = 37.5 m.",
-        "unit": "m/s² and m",
+        "finalAnswer": "(a) Acceleration = 1 m/s\u00b2; (b) Distance covered = 37.5 m.",
+        "unit": "m/s\u00b2 and m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.13: Trapezium area decomposition on v-t graph for uniform acceleration"
+        "figure_caption": "Fig. 4.13: Trapezium area decomposition on v-t graph for uniform acceleration",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 43,
+        "section": "Section 4.3"
       },
       {
         "problem": "What can you say about the motion of an object whose distance-time graph is a curved parabolic line bending upwards?",
@@ -434,7 +479,10 @@
         "unit": "Kinematic Interpretation",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.14: Curved s-t graph indicating non-uniform accelerating motion"
+        "figure_caption": "Fig. 4.14: Curved s-t graph indicating non-uniform accelerating motion",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 43,
+        "section": "Section 4.3"
       },
       {
         "problem": "A car traveling at constant speed of 20 m/s moves for 10 s. Draw its velocity-time graph and compute the distance covered from the graph.",
@@ -446,7 +494,10 @@
         "unit": "m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.15: Rectangular area under constant velocity-time graph"
+        "figure_caption": "Fig. 4.15: Rectangular area under constant velocity-time graph",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 43,
+        "section": "Section 4.3"
       },
       {
         "problem": "Interpret a velocity-time graph that slopes linearly downwards from 25 m/s to 0 m/s in 5 s. Find the acceleration and stopping distance.",
@@ -454,11 +505,14 @@
         "formula": "Slope $a = \\frac{v - u}{t}$; Area of triangle $s = \\frac{1}{2} \\times \\text{base} \\times \\text{height}$.",
         "substitution": "$a = \\frac{0 - 25}{5} = -5\\text{ m/s}^2$. $s = \\frac{1}{2} \\times 5 \\times 25$.",
         "calculation": "1. Acceleration: $a = -\\mathbf{5\\text{ m/s}^2}$ (uniform retardation).\n2. Distance: $s = \\frac{125}{2} = \\mathbf{62.5\\text{ m}}$.",
-        "finalAnswer": "Acceleration = -5 m/s² (retardation = 5 m/s²); stopping distance = 62.5 m.",
-        "unit": "m/s² and m",
+        "finalAnswer": "Acceleration = -5 m/s\u00b2 (retardation = 5 m/s\u00b2); stopping distance = 62.5 m.",
+        "unit": "m/s\u00b2 and m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.16: Triangular area under uniform retardation velocity-time graph"
+        "figure_caption": "Fig. 4.16: Triangular area under uniform retardation velocity-time graph",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 43,
+        "section": "Section 4.3"
       }
     ],
     "common_misconceptions": [
@@ -575,11 +629,14 @@
         "formula": "(a) $v = u + at \\implies a = \\frac{v - u}{t}$; (b) $s = ut + \\frac{1}{2}at^2$.",
         "substitution": "(a) $a = \\frac{20 - 0}{300} = \\frac{1}{15}\\text{ m/s}^2$. (b) $s = 0 + \\frac{1}{2} \\times \\frac{1}{15} \\times (300)^2$.",
         "calculation": "1. Acceleration: $a = \\frac{1}{15} \\approx \\mathbf{0.067\\text{ m/s}^2}$.\n2. Distance: $s = \\frac{1}{30} \\times 90000 = \\mathbf{3000\\text{ m}} = \\mathbf{3\\text{ km}}$.",
-        "finalAnswer": "(a) Acceleration = 1/15 m/s² (0.067 m/s²); (b) Distance traveled = 3000 m (3 km).",
-        "unit": "m/s² and m",
+        "finalAnswer": "(a) Acceleration = 1/15 m/s\u00b2 (0.067 m/s\u00b2); (b) Distance traveled = 3000 m (3 km).",
+        "unit": "m/s\u00b2 and m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.17: Kinematic derivation geometry for v = u + at"
+        "figure_caption": "Fig. 4.17: Kinematic derivation geometry for v = u + at",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 44,
+        "section": "Section 4.4"
       },
       {
         "problem": "Derive graphically the first equation of motion: v = u + at.",
@@ -591,34 +648,43 @@
         "unit": "Derivation",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.18: Standard NCERT graphical derivation figure for three kinematic equations"
+        "figure_caption": "Fig. 4.18: Standard NCERT graphical derivation figure for three kinematic equations",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 44,
+        "section": "Section 4.4"
       },
       {
-        "problem": "Derive graphically the second equation of motion: s = ut + (1/2)at².",
+        "problem": "Derive graphically the second equation of motion: s = ut + (1/2)at\u00b2.",
         "given": "Displacement $s$ equals the total area of the trapezium $OABD$ beneath the $v-t$ graph.",
         "formula": "$\\text{Area}(OABD) = \\text{Area of rectangle } OADC + \\text{Area of triangle } ACB$.",
         "substitution": "$\\text{Area}(OADC) = OA \\times OD = u \\times t$; $\\text{Area}(ACB) = \\frac{1}{2} \\times AC \\times BC = \\frac{1}{2} \\times t \\times (v - u)$.",
         "calculation": "1. $s = u \\cdot t + \\frac{1}{2} t (v - u)$.\n2. From the first equation, $v - u = at$.\n3. Substitute $at$ for $(v - u)$: $s = ut + \\frac{1}{2} t (at) = \\mathbf{ut + \\frac{1}{2}at^2}$.",
-        "finalAnswer": "s = ut + 1/2 at² (Second equation of motion derived from area decomposition).",
+        "finalAnswer": "s = ut + 1/2 at\u00b2 (Second equation of motion derived from area decomposition).",
         "unit": "Derivation",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.18: Area decomposition into rectangle and triangle beneath v-t line"
+        "figure_caption": "Fig. 4.18: Area decomposition into rectangle and triangle beneath v-t line",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 44,
+        "section": "Section 4.4"
       },
       {
-        "problem": "Derive graphically the third equation of motion: v² - u² = 2as.",
+        "problem": "Derive graphically the third equation of motion: v\u00b2 - u\u00b2 = 2as.",
         "given": "Total distance $s$ is the area of trapezium $OABD$ with parallel sides $OA$ and $BD$.",
         "formula": "$s = \\frac{\\text{Sum of parallel sides} \\times \\text{Perpendicular distance}}{2} = \\frac{(OA + BD) \\times OD}{2}$.",
         "substitution": "$OA = u, BD = v, OD = t \\implies s = \\frac{(u + v)t}{2}$. From first equation, $t = \\frac{v - u}{a}$.",
         "calculation": "1. Substitute $t = \\frac{v - u}{a}$ into the area formula:\n   $s = \\frac{(v + u)(v - u)}{2a}$.\n2. Using algebraic identity $(v + u)(v - u) = v^2 - u^2$:\n   $s = \\frac{v^2 - u^2}{2a}$.\n3. Multiplying both sides by $2a$: $\\mathbf{2as = v^2 - u^2} \\implies \\mathbf{v^2 - u^2 = 2as}$.",
-        "finalAnswer": "v² - u² = 2as (Third equation of motion relating velocity, acceleration, and displacement).",
+        "finalAnswer": "v\u00b2 - u\u00b2 = 2as (Third equation of motion relating velocity, acceleration, and displacement).",
         "unit": "Derivation",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.18: Trapezium geometry for eliminating time t in kinematic derivation"
+        "figure_caption": "Fig. 4.18: Trapezium geometry for eliminating time t in kinematic derivation",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 44,
+        "section": "Section 4.4"
       },
       {
-        "problem": "The brakes applied to a car produce an acceleration of 6 m/s² in the opposite direction to the motion. If the car takes 2 s to stop after the application of brakes, calculate the distance it travels during this time.",
+        "problem": "The brakes applied to a car produce an acceleration of 6 m/s\u00b2 in the opposite direction to the motion. If the car takes 2 s to stop after the application of brakes, calculate the distance it travels during this time.",
         "given": "$a = -6\\text{ m/s}^2$ (retardation). $t = 2\\text{ s}$. Final velocity $v = 0\\text{ m/s}$.",
         "formula": "$v = u + at \\implies u = v - at$; $s = ut + \\frac{1}{2}at^2$.",
         "substitution": "$0 = u + (-6)(2) \\implies u = 12\\text{ m/s}$. $s = (12)(2) + \\frac{1}{2}(-6)(2)^2$.",
@@ -627,10 +693,13 @@
         "unit": "m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.19: Retardation braking trajectory and stopping displacement"
+        "figure_caption": "Fig. 4.19: Retardation braking trajectory and stopping displacement",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 44,
+        "section": "Section 4.4"
       },
       {
-        "problem": "A car accelerates uniformly from rest at 2 m/s² for 10 s. How far does it travel, and what is its final speed?",
+        "problem": "A car accelerates uniformly from rest at 2 m/s\u00b2 for 10 s. How far does it travel, and what is its final speed?",
         "given": "$u = 0\\text{ m/s}, a = 2\\text{ m/s}^2, t = 10\\text{ s}$.",
         "formula": "$v = u + at$; $s = ut + \\frac{1}{2}at^2$.",
         "substitution": "$v = 0 + (2)(10) = 20\\text{ m/s}$. $s = 0 + \\frac{1}{2}(2)(10)^2$.",
@@ -639,7 +708,10 @@
         "unit": "m/s and m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.20: Uniform acceleration profile from rest"
+        "figure_caption": "Fig. 4.20: Uniform acceleration profile from rest",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 44,
+        "section": "Section 4.4"
       }
     ],
     "common_misconceptions": [
@@ -751,7 +823,7 @@
     "chapter_notes": "### 4.12 Retardation & Braking Dynamics\nWhen brakes are applied, the acceleration acts in the opposite direction to velocity ($a < 0$).\nFrom $v^2 = u^2 + 2as$, setting final velocity $v = 0$ (car stops):\n$$0 = u^2 - 2as \\implies s_{\\text{braking}} = \\frac{u^2}{2a}$$\n**CRITICAL INSIGHT**: Stopping distance is proportional to the **square of velocity** ($s \\propto u^2$).\n- If speed doubles ($2\\times$), stopping distance increases **$4\\times$**!\n- If speed triples ($3\\times$), stopping distance increases **$9\\times$**!\n\n### 4.13 Reaction Time and Total Stopping Distance\n$$\\text{Total Stopping Distance} = s_{\\text{reaction}} + s_{\\text{braking}} = (u \\times t_r) + \\frac{u^2}{2a}$$\nWhere $t_r$ is the human driver's neural perception-reaction time (~$0.2 - 0.7\\text{ s}$).\n\n### 4.14 Vertical Motion Under Gravity\nWhen an object is thrown vertically upwards:\n- Acceleration $a = -g = -9.8\\text{ m/s}^2$ (downward acceleration opposes upward motion).\n- At the **highest point**, final velocity **$v = 0$**.\n- Maximum height reached: $h_{\\text{max}} = \\frac{u^2}{2g}$.\n- Time of ascent: $t_{\\text{up}} = \\frac{u}{g}$.\n- Total flight time: $T = 2 \\times t_{\\text{up}} = \\frac{2u}{g}$.",
     "worked_examples": [
       {
-        "problem": "A ball is thrown vertically upwards with a velocity of 5 m/s. If the acceleration of the ball during its motion is 10 m/s² in the downward direction, what will be the height attained by the ball and how much time will it take to reach there?",
+        "problem": "A ball is thrown vertically upwards with a velocity of 5 m/s. If the acceleration of the ball during its motion is 10 m/s\u00b2 in the downward direction, what will be the height attained by the ball and how much time will it take to reach there?",
         "given": "$u = +5\\text{ m/s}$, $a = -10\\text{ m/s}^2$ (downward), final velocity at top $v = 0\\text{ m/s}$.",
         "formula": "$v^2 = u^2 + 2as \\implies s = \\frac{v^2 - u^2}{2a}$; $v = u + at \\implies t = \\frac{v - u}{a}$.",
         "substitution": "$s = \\frac{0^2 - 5^2}{2(-10)} = \\frac{-25}{-20}$; $t = \\frac{0 - 5}{-10}$.",
@@ -760,10 +832,13 @@
         "unit": "m and s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.21: Vertical projectile trajectory under gravitational acceleration"
+        "figure_caption": "Fig. 4.21: Vertical projectile trajectory under gravitational acceleration",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 45,
+        "section": "Section 4.5"
       },
       {
-        "problem": "A stone is dropped from the top of a building 45 m high. Calculate its velocity just before it hits the ground, and the time taken to fall. (Take g = 10 m/s²).",
+        "problem": "A stone is dropped from the top of a building 45 m high. Calculate its velocity just before it hits the ground, and the time taken to fall. (Take g = 10 m/s\u00b2).",
         "given": "$u = 0\\text{ m/s}$, $s = -45\\text{ m}$, $a = -10\\text{ m/s}^2$.",
         "formula": "$v^2 = u^2 + 2as$; $v = u + at$.",
         "substitution": "$v^2 = 0 + 2(-10)(-45) = 900 \\implies v = -30\\text{ m/s}$. $-30 = 0 + (-10)t$.",
@@ -772,10 +847,13 @@
         "unit": "m/s and s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.22: Free fall downward under constant gravitational acceleration g"
+        "figure_caption": "Fig. 4.22: Free fall downward under constant gravitational acceleration g",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 45,
+        "section": "Section 4.5"
       },
       {
-        "problem": "A car driver traveling at 25 m/s sees an obstruction and hits the brakes after a reaction time of 0.2 s. The brakes produce a deceleration of 5 m/s². Calculate the total stopping distance of the car.",
+        "problem": "A car driver traveling at 25 m/s sees an obstruction and hits the brakes after a reaction time of 0.2 s. The brakes produce a deceleration of 5 m/s\u00b2. Calculate the total stopping distance of the car.",
         "given": "Speed $u = 25\\text{ m/s}$, reaction time $t_r = 0.2\\text{ s}$, deceleration $a = -5\\text{ m/s}^2$.",
         "formula": "Total Stopping Distance $s_{total} = s_{react} + s_{brake} = (u \\cdot t_r) + \\frac{u^2}{2|a|}$.",
         "substitution": "$s_{react} = 25 \\times 0.2 = 5\\text{ m}$; $s_{brake} = \\frac{25^2}{2 \\times 5} = \\frac{625}{10} = 62.5\\text{ m}$.",
@@ -784,10 +862,13 @@
         "unit": "m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.23: Two-phase stopping distance (reaction distance + braking distance)"
+        "figure_caption": "Fig. 4.23: Two-phase stopping distance (reaction distance + braking distance)",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 45,
+        "section": "Section 4.5"
       },
       {
-        "problem": "A racing car has a uniform acceleration of 4 m/s². What distance will it cover in 10 s after start?",
+        "problem": "A racing car has a uniform acceleration of 4 m/s\u00b2. What distance will it cover in 10 s after start?",
         "given": "$u = 0\\text{ m/s}, a = 4\\text{ m/s}^2, t = 10\\text{ s}$.",
         "formula": "$s = ut + \\frac{1}{2}at^2$.",
         "substitution": "$s = (0)(10) + \\frac{1}{2}(4)(10)^2$.",
@@ -796,10 +877,13 @@
         "unit": "m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.24: Acceleration displacement parabola for racing car"
+        "figure_caption": "Fig. 4.24: Acceleration displacement parabola for racing car",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 45,
+        "section": "Section 4.5"
       },
       {
-        "problem": "A trolley going down an inclined plane has an acceleration of 2 cm/s². What will be its velocity 3 s after the start?",
+        "problem": "A trolley going down an inclined plane has an acceleration of 2 cm/s\u00b2. What will be its velocity 3 s after the start?",
         "given": "$u = 0, a = 2\\text{ cm/s}^2 = 0.02\\text{ m/s}^2, t = 3\\text{ s}$.",
         "formula": "$v = u + at$.",
         "substitution": "$v = 0 + (2)(3) = 6\\text{ cm/s}$.",
@@ -808,7 +892,10 @@
         "unit": "cm/s and m/s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.25: Trolley acceleration on inclined plane"
+        "figure_caption": "Fig. 4.25: Trolley acceleration on inclined plane",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 45,
+        "section": "Section 4.5"
       },
       {
         "problem": "Explain why time of ascent equals time of descent for an object thrown vertically upward in the absence of air resistance.",
@@ -820,7 +907,10 @@
         "unit": "Kinematic Symmetry",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.26: Symmetric vertical trajectory and flight time balance"
+        "figure_caption": "Fig. 4.26: Symmetric vertical trajectory and flight time balance",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 45,
+        "section": "Section 4.5"
       }
     ],
     "common_misconceptions": [
@@ -941,7 +1031,10 @@
         "unit": "km/s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.27: Satellite circular orbit and tangential velocity vector"
+        "figure_caption": "Fig. 4.27: Satellite circular orbit and tangential velocity vector",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 46,
+        "section": "Section 4.6"
       },
       {
         "problem": "Why is uniform circular motion called an accelerated motion even when the speed of the body remains strictly constant?",
@@ -953,7 +1046,10 @@
         "unit": "Kinematic Vector Law",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.28: Tangential velocity vectors around circular path showing direction change"
+        "figure_caption": "Fig. 4.28: Tangential velocity vectors around circular path showing direction change",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 46,
+        "section": "Section 4.6"
       },
       {
         "problem": "A tip of the second's hand of a clock has length 10 cm. Find its angular speed and linear tangential speed.",
@@ -965,7 +1061,10 @@
         "unit": "cm/s and m/s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.29: Clock dial circular motion geometry"
+        "figure_caption": "Fig. 4.29: Clock dial circular motion geometry",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 46,
+        "section": "Section 4.6"
       },
       {
         "problem": "When a stone tied to a string and whirled in a circular path is released, in which direction does it fly off? Explain why.",
@@ -977,7 +1076,10 @@
         "unit": "Tangential Kinematics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.30: Tangential straight-line trajectory upon release of whirled stone"
+        "figure_caption": "Fig. 4.30: Tangential straight-line trajectory upon release of whirled stone",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 46,
+        "section": "Section 4.6"
       },
       {
         "problem": "A cyclist moves around a circular track of radius 70 m in 44 s at uniform speed. Calculate the cyclist's speed and magnitude of displacement after 22 s.",
@@ -989,7 +1091,10 @@
         "unit": "m/s and m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.31: Half-lap displacement on circular track"
+        "figure_caption": "Fig. 4.31: Half-lap displacement on circular track",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 46,
+        "section": "Section 4.6"
       },
       {
         "problem": "Contrast linear velocity and centripetal acceleration in uniform circular motion in terms of direction.",
@@ -1001,7 +1106,10 @@
         "unit": "Orthogonal Vector Law",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.32: Perpendicular relationship between velocity and centripetal acceleration"
+        "figure_caption": "Fig. 4.32: Perpendicular relationship between velocity and centripetal acceleration",
+        "image_search_query": "kinematics motion class 9 ncert",
+        "page": 46,
+        "section": "Section 4.6"
       }
     ],
     "common_misconceptions": [
@@ -1088,8 +1196,8 @@
   {
     "curriculum_id": "b1a05ff2-8ca8-4d59-b7c7-cc0e1304c3ae",
     "order_index": 7,
-    "title": "Master Problem Solver & Comprehensive Textbook Exercise Ledger (Q1 to Q10)",
-    "description": "Exhaustive step-by-step master solver resolving every in-text numerical and chapter-end exercise problem (Q1 through Q10) from NCERT Class 9 Science Chapter 4: Motion.",
+    "title": "Master Kinematics Numerical Solver & NCERT Exercise Problem Ledger (Revise, Reflect, Refine Q1 to Q16)",
+    "description": "Exhaustive step-by-step master numerical solutions for all in-text activities and all 16 'Revise, Reflect, Refine' chapter-end exercise problems from NCERT Exploration Grade 9 Chapter 4.",
     "board": "CBSE",
     "class_level": "Class 9",
     "estimated_minutes": 20,
@@ -1112,64 +1220,244 @@
     "chapter_notes": "### 4.19 Comprehensive NCERT Exercise Solutions Ledger\n\n#### Q1. Athlete on Circular Track\n- $D = 200\\text{ m} \\implies r = 100\\text{ m}$. Time for 1 round $= 40\\text{ s}$.\n- Time $t = 2\\text{ min } 20\\text{ s} = 140\\text{ s}$.\n- Number of rounds $= 140/40 = 3.5$.\n- **Distance** $= 3.5 \\times 2\\pi r = 3.5 \\times 2 \\times \\frac{22}{7} \\times 100 = \\mathbf{2200\\text{ m}}$.\n- **Displacement** $=$ Straight line between diametrically opposite points $= 2r = \\mathbf{200\\text{ m}}$.\n\n#### Q2. Joseph's Jogging Trajectory\n- Point $A$ to $B$: $300\\text{ m}$ in $2\\text{ min } 50\\text{ s} = 170\\text{ s}$.\n  * Average Speed $= 300 / 170 = \\mathbf{1.76\\text{ m/s}}$.\n  * Average Velocity $= 300 / 170 = \\mathbf{1.76\\text{ m/s}}$ (along $AB$).\n- Point $A$ to $C$ (turns back $100\\text{ m}$ in $1\\text{ min} = 60\\text{ s}$):\n  * Total Distance $= 300 + 100 = 400\\text{ m}$. Total Time $= 170 + 60 = 230\\text{ s}$.\n  * **Average Speed** $= 400 / 230 = \\mathbf{1.74\\text{ m/s}}$.\n  * Net Displacement $= 300 - 100 = 200\\text{ m}$.\n  * **Average Velocity** $= 200 / 230 = \\mathbf{0.87\\text{ m/s}}$ (along $AB$).\n\n#### Q3. Abdul's Commute Average Speed\n- Let distance to school be $x\\text{ km}$.\n- Time to go: $t_1 = x / 20$. Time to return: $t_2 = x / 30$.\n- Total distance $= 2x$. Total time $= x/20 + x/30 = 5x / 60 = x / 12$.\n- **Average Speed** $= \\frac{2x}{x/12} = 2 \\times 12 = \\mathbf{24\\text{ km/h}}$.\n*(Notice: NOT the simple arithmetic average of 25 km/h, but the harmonic mean: $\\frac{2 \\times 20 \\times 30}{20 + 30} = 24\\text{ km/h}$!)*\n\n#### Q4. Motorboat Acceleration\n- Starts from rest: $u = 0$. Acceleration $a = 3.0\\text{ m/s}^2$. Time $t = 8.0\\text{ s}$.\n- $s = ut + \\frac{1}{2}at^2 = 0 + \\frac{1}{2} \\times 3.0 \\times (8)^2 = \\frac{1}{2} \\times 3 \\times 64 = \\mathbf{96\\text{ m}}$.\n\n#### Q5. Two Braking Cars v-t Comparison\n- Car 1: $u_1 = 52\\text{ km/h} = 52 \\times \\frac{5}{18} = 14.44\\text{ m/s}$. Stops in $t_1 = 5\\text{ s}$.\n  * Distance covered $s_1 = \\frac{1}{2} \\times \\text{base} \\times \\text{height} = \\frac{1}{2} \\times 5 \\times 14.44 = \\mathbf{36.1\\text{ m}}$.\n- Car 2: $u_2 = 3\\text{ km/h} = 3 \\times \\frac{5}{18} = 0.833\\text{ m/s}$. Stops in $t_2 = 10\\text{ s}$.\n  * Distance covered $s_2 = \\frac{1}{2} \\times 10 \\times 0.833 = \\mathbf{4.17\\text{ m}}$.\n- **Conclusion**: Car 1 traveled much farther ($36.1\\text{ m}$ vs $4.17\\text{ m}$) after the application of brakes.",
     "worked_examples": [
       {
-        "problem": "NCERT Ex Q1. An athlete completes one round of a circular track of diameter 200 m in 40 s. What will be the distance covered and the displacement at the end of 2 minutes 20 s?",
-        "given": "$D = 200\\text{ m} \\implies r = 100\\text{ m}$. Time for 1 round $= 40\\text{ s}$. Total time $t = 140\\text{ s}$.",
-        "formula": "Rounds $n = \\frac{140}{40} = 3.5$. Distance $s = 3.5 \\times 2\\pi r$. Displacement across diameter $= 2r = D$.",
-        "substitution": "$s = 3.5 \\times 2 \\times \\frac{22}{7} \\times 100 = 2200\\text{ m}$. Displacement $= 200\\text{ m}$.",
-        "calculation": "1. Distance $= 3.5 \\times 628.57 = \\mathbf{2200\\text{ m}}$.\n2. Displacement $= \\mathbf{200\\text{ m}}$ (straight-line diameter).",
-        "finalAnswer": "Distance = 2200 m; Displacement = 200 m.",
-        "unit": "m",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.3: Athlete circular track trajectory"
+        "problem": "Textbook Revise, Reflect, Refine Q1 (Section 4.1, p. 21): My father went to a shop from home which is located at a distance of 500 m. After purchasing goods, he returned home. What is the total distance travelled and what is his final displacement?",
+        "given": "Distance from home to shop d = 500 m; Return journey from shop to home d = 500 m; Initial point = Home; Final point = Home.",
+        "formula": "Distance = Total path length travelled; Displacement = Shortest straight-line vector from initial position to final position ($\\Delta x = x_f - x_i$).",
+        "substitution": "Distance = 500 m + 500 m; Displacement = 0 m (returns to starting point).",
+        "calculation": "Total distance = 500 + 500 = 1000 m = 1 km.\nDisplacement vector $\\Delta x = x_{\\text{home}} - x_{\\text{home}} = 0$ m.",
+        "finalAnswer": "Total distance travelled is 1000 m (1 km); Net displacement is 0 m.",
+        "unit": "m and km",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "distance versus displacement round trip vector physics",
+        "page": 21,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "NCERT Ex Q2. Joseph jogs from one end A to the other end B of a straight 300 m road in 2 min 50 s and then turns around and jogs 100 m back to point C in another 1 min. What are Joseph's average speeds and velocities in jogging: (a) from A to B, and (b) from A to C?",
-        "given": "Path $AB = 300\\text{ m}, t_1 = 170\\text{ s}$. Path $BC = 100\\text{ m}, t_2 = 60\\text{ s}$. Total time to C $= 230\\text{ s}$.",
-        "formula": "$v_{avg} = \\frac{\\text{Total Distance}}{\\text{Total Time}}$; $\\vec{v}_{avg} = \\frac{\\text{Net Displacement}}{\\text{Total Time}}$.",
-        "substitution": "(a) $A \\to B$: Dist = 300 m, Disp = 300 m, Time = 170 s. (b) $A \\to C$: Dist = 400 m, Disp = 200 m, Time = 230 s.",
-        "calculation": "1. From A to B:\n   - Average Speed $= 300 / 170 = \\mathbf{1.76\\text{ m/s}}$.\n   - Average Velocity $= 300 / 170 = \\mathbf{1.76\\text{ m/s}}$ (along AB).\n2. From A to C:\n   - Average Speed $= 400 / 230 = \\mathbf{1.74\\text{ m/s}}$.\n   - Average Velocity $= (300 - 100) / 230 = 200 / 230 = \\mathbf{0.87\\text{ m/s}}$ (along AC).",
-        "finalAnswer": "(a) From A to B: Avg Speed = 1.76 m/s, Avg Velocity = 1.76 m/s. (b) From A to C: Avg Speed = 1.74 m/s, Avg Velocity = 0.87 m/s.",
-        "unit": "m/s",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.33: Joseph's straight jogging trajectory and reverse turn displacement"
+        "problem": "Textbook Revise, Reflect, Refine Q2 (Section 4.1, p. 21): A student runs from the ground floor to the fourth floor of a school building (vertical height = 12 m) and then returns to the ground floor. Find the total distance covered and the net displacement.",
+        "given": "Vertical height per direction h = 12 m; Upward climb = 12 m; Downward return = 12 m.",
+        "formula": "Distance = Total vertical path length; Net Displacement = $\\Delta y = y_{\\text{final}} - y_{\\text{initial}}$.",
+        "substitution": "Distance = 12 m + 12 m; Net Displacement = 0 m.",
+        "calculation": "Distance = 12 + 12 = 24 m.\nSince the student returns to the original ground floor datum, $\\Delta y = 0$ m.",
+        "finalAnswer": "Total distance covered is 24 m; Net displacement is 0 m.",
+        "unit": "meters",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "vertical motion distance displacement stairs physics",
+        "page": 21,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "NCERT Ex Q3. Abdul, while driving to school, computes the average speed for his trip to be 20 km/h. On his return trip along the same route, there is less traffic and the average speed is 30 km/h. What is the average speed for Abdul's trip?",
-        "given": "Let one-way distance be $x\\text{ km}$. Speed to school $v_1 = 20\\text{ km/h}$. Speed returning $v_2 = 30\\text{ km/h}$.",
-        "formula": "Average Speed $= \\frac{\\text{Total Distance}}{\\text{Total Time}} = \\frac{2x}{t_1 + t_2} = \\frac{2x}{\\frac{x}{v_1} + \\frac{x}{v_2}} = \\frac{2v_1 v_2}{v_1 + v_2}$ (Harmonic Mean).",
-        "substitution": "$v_{avg} = \\frac{2 \\times 20 \\times 30}{20 + 30} = \\frac{1200}{50}$.",
-        "calculation": "$v_{avg} = \\frac{1200}{50} = \\mathbf{24\\text{ km/h}}$.",
-        "finalAnswer": "Average speed for Abdul's round trip = 24 km/h (Note: it is NOT the arithmetic average 25 km/h).",
-        "unit": "km/h",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.6: Round trip harmonic mean average speed diagram"
+        "problem": "Textbook Revise, Reflect, Refine Q3 (Section 4.2, p. 22): A girl is riding her scooter and finds that its speedometer reading is 36 km h\u207b\u00b9. Express this speed in meters per second (m s\u207b\u00b9).",
+        "given": "Speed v = 36 km h\u207b\u00b9; Conversion factor: $1\\text{ km h}^{-1} = \\frac{1000\\text{ m}}{3600\\text{ s}} = \\frac{5}{18}\\text{ m s}^{-1}$.",
+        "formula": "$v\\text{ (m s}^{-1}\\text{)} = v\\text{ (km h}^{-1}\\text{)} \\times \\frac{5}{18}$.",
+        "substitution": "$v = 36 \\times \\frac{5}{18}$.",
+        "calculation": "$v = 2 \\times 5 = 10\\text{ m s}^{-1}$.",
+        "finalAnswer": "The speed of the scooter is 10 m s\u207b\u00b9.",
+        "unit": "m s\u207b\u00b9",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "km h to m s conversion speedometer physics",
+        "page": 22,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "NCERT Ex Q4. A motorboat starting from rest on a lake accelerates in a straight line at a constant rate of 3.0 m/s² for 8.0 s. How far does the boat travel during this time?",
-        "given": "$u = 0\\text{ m/s}, a = 3.0\\text{ m/s}^2, t = 8.0\\text{ s}$.",
-        "formula": "$s = ut + \\frac{1}{2}at^2$.",
-        "substitution": "$s = (0)(8.0) + \\frac{1}{2}(3.0)(8.0)^2 = \\frac{1}{2}(3.0)(64)$.",
-        "calculation": "$s = 1.5 \\times 64 = \\mathbf{96\\text{ m}}$.",
-        "finalAnswer": "The motorboat travels 96 m.",
-        "unit": "m",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.20: Straight-line boat acceleration profile"
+        "problem": "Textbook Revise, Reflect, Refine Q4 (Section 4.3, p. 22): A car starts from rest and its velocity reaches 24 m s\u207b\u00b9 in 6 s. Find the acceleration of the car, assuming it is uniform.",
+        "given": "Initial velocity u = 0 m s\u207b\u00b9 (starts from rest); Final velocity v = 24 m s\u207b\u00b9; Time interval t = 6 s.",
+        "formula": "Acceleration $a = \\frac{v - u}{t}$.",
+        "substitution": "$a = \\frac{24 - 0}{6}$.",
+        "calculation": "$a = \\frac{24}{6} = 4\\text{ m s}^{-2}$.",
+        "finalAnswer": "The uniform acceleration of the car is 4 m s\u207b\u00b2.",
+        "unit": "m s\u207b\u00b2",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "car uniform acceleration velocity time kinematics",
+        "page": 22,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "NCERT Ex Q7. A ball is gently dropped from a height of 20 m. If its velocity increases uniformly at the rate of 10 m/s², with what velocity will it strike the ground? After what time will it strike the ground?",
-        "given": "$u = 0\\text{ m/s}, s = 20\\text{ m}, a = 10\\text{ m/s}^2$.",
-        "formula": "$v^2 = u^2 + 2as$; $v = u + at \\implies t = \\frac{v - u}{a}$.",
-        "substitution": "$v^2 = 0 + 2(10)(20) = 400 \\implies v = \\sqrt{400} = 20\\text{ m/s}$. $t = \\frac{20 - 0}{10} = 2\\text{ s}$.",
-        "calculation": "1. Impact speed: $v = \\mathbf{20\\text{ m/s}}$.\n2. Time of fall: $t = \\frac{20}{10} = \\mathbf{2\\text{ s}}$.",
-        "finalAnswer": "Impact velocity = 20 m/s; Time taken = 2 s.",
-        "unit": "m/s and s",
+        "problem": "Textbook Revise, Reflect, Refine Q5 (Section 4.3, p. 22): A motorbike moving with an initial velocity of 28 m s\u207b\u00b9 undergoes a constant deceleration of 0.5 m s\u207b\u00b2 upon braking. How much time will it take to come to a complete stop?",
+        "given": "Initial velocity u = 28 m s\u207b\u00b9; Final velocity v = 0 m s\u207b\u00b9 (stops); Acceleration $a = -0.5\\text{ m s}^{-2}$ (deceleration).",
+        "formula": "First Kinematic Equation: $v = u + at \\implies t = \\frac{v - u}{a}$.",
+        "substitution": "$t = \\frac{0 - 28}{-0.5}$.",
+        "calculation": "$t = \\frac{-28}{-0.5} = 28 \\times 2 = 56\\text{ s}$.",
+        "finalAnswer": "The motorbike will take 56 seconds to come to a complete stop.",
+        "unit": "seconds",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "vehicle braking deceleration time physics kinematics",
+        "page": 22,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q6 & Q7 (Section 4.4, p. 22): Fig. 4.27 and Fig. 4.28 show position-time graphs of two objects A and B. (i) In Fig. 4.27, which object is moving faster? (ii) In Fig. 4.28, what does the intersection point of lines A and B represent?",
+        "given": "Position-time graphs where slope represents velocity ($v = \\frac{\\Delta x}{\\Delta t}$).",
+        "formula": "Slope of position-time graph = Velocity ($v = \\tan\\theta$).",
+        "substitution": "Evaluate angle of inclination $\\theta$ and intersection coordinates $(t_0, x_0)$.",
+        "calculation": "1. Part (i): In a position-time graph, a steeper slope corresponds to a higher speed. If line A has a greater angle with the time axis than line B ($\\theta_A > \\theta_B$), object A covers more distance per unit time and is therefore moving faster than object B.\n2. Part (ii): The intersection point of the two trajectories represents the exact instant of time and position where object A and object B meet (overtake each other at the same spatial coordinate).",
+        "finalAnswer": "(i) The object with the steeper slope moves faster; (ii) The intersection point indicates the exact time and position where both objects meet/cross.",
+        "unit": "Graphical Kinematics Analysis",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 4.22: Free fall from 20 m height under gravity"
+        "figure_caption": "Fig. 4.27 & 4.28: Position-time graphs for objects A and B",
+        "image_search_query": "position time graph slope velocity intersection meeting",
+        "page": 22,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q8 (Section 4.3, p. 22): A truck driver driving at 54 km h\u207b\u00b9 notices a roadblock 20 m ahead and applies brakes, producing a maximum uniform deceleration of 6 m s\u207b\u00b2. Will the truck stop before hitting the roadblock?",
+        "given": "Initial velocity $u = 54\\text{ km h}^{-1} = 54 \\times \\frac{5}{18} = 15\\text{ m s}^{-1}$; Final velocity v = 0 m s\u207b\u00b9; Deceleration $a = -6\\text{ m s}^{-2}$; Distance to roadblock $d = 20\\text{ m}$.",
+        "formula": "Third Kinematic Equation: $v^2 = u^2 + 2as \\implies s = \\frac{v^2 - u^2}{2a}$.",
+        "substitution": "$s = \\frac{0^2 - 15^2}{2(-6)} = \\frac{-225}{-12}$.",
+        "calculation": "$s = \\frac{225}{12} = 18.75\\text{ m}$.\nSince stopping distance $s = 18.75\\text{ m} < 20\\text{ m}$, the truck comes to rest 1.25 m before the roadblock.",
+        "finalAnswer": "Yes, the truck will stop before hitting the roadblock, coming to rest at 18.75 m (1.25 m ahead of the obstacle).",
+        "unit": "meters",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "stopping distance kinematics third equation motion",
+        "page": 22,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q9 (Section 4.3, p. 22): A car starts from rest and accelerates uniformly to 20 m s\u207b\u00b9 in 10 s. Calculate: (a) the acceleration of the car, (b) the distance travelled by the car during this period.",
+        "given": "Initial velocity u = 0 m s\u207b\u00b9; Final velocity v = 20 m s\u207b\u00b9; Time interval t = 10 s.",
+        "formula": "(a) $a = \\frac{v - u}{t}$; (b) $s = ut + \\frac{1}{2}at^2$.",
+        "substitution": "(a) $a = \\frac{20 - 0}{10} = 2\\text{ m s}^{-2}$; (b) $s = 0(10) + \\frac{1}{2}(2)(10)^2$.",
+        "calculation": "(a) $a = 2\\text{ m s}^{-2}$.\n(b) $s = 0 + 1 \\times 100 = 100\\text{ m}$.",
+        "finalAnswer": "(a) Acceleration is 2 m s\u207b\u00b2; (b) Distance travelled is 100 m.",
+        "unit": "m s\u207b\u00b2 and m",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "kinematics uniform acceleration distance traveled",
+        "page": 22,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q10 (Section 4.3, p. 22): A bus is travelling at 36 km h\u207b\u00b9 when the driver sees an obstacle 50 m ahead and applies brakes, producing a constant deceleration of 1 m s\u207b\u00b2. (a) What distance does the bus travel before stopping? (b) Does it hit the obstacle?",
+        "given": "Initial velocity $u = 36\\text{ km h}^{-1} = 36 \\times \\frac{5}{18} = 10\\text{ m s}^{-1}$; Final velocity v = 0 m s\u207b\u00b9; Deceleration $a = -1\\text{ m s}^{-2}$; Obstacle distance $d = 50\\text{ m}$.",
+        "formula": "$v^2 = u^2 + 2as \\implies s = \\frac{v^2 - u^2}{2a}$.",
+        "substitution": "$s = \\frac{0^2 - 10^2}{2(-1)} = \\frac{-100}{-2}$.",
+        "calculation": "$s = 50\\text{ m}$.\nThe bus travels exactly 50 m and stops right at the obstacle without colliding.",
+        "finalAnswer": "(a) Distance travelled before stopping is 50 m; (b) The bus stops precisely at the obstacle without hitting it.",
+        "unit": "meters",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "bus braking stopping distance obstacle kinematics",
+        "page": 22,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q11 (Section 4.1, p. 23): A student said: 'The Earth moves around the Sun.' In this context, explain: (a) What is the frame of reference? (b) Can the Sun be considered moving from another frame of reference?",
+        "given": "Orbital motion of astronomical bodies and choice of coordinate frame.",
+        "formula": "Relativity of Motion: Motion is not absolute; position, velocity, and trajectory depend entirely on the chosen reference frame.",
+        "substitution": "Evaluate Heliocentric vs Geocentric vs Galactocentric reference frames.",
+        "calculation": "1. (a) In the statement 'The Earth moves around the Sun', the chosen frame of reference is the HELIOCENTRIC FRAME (centered at the Sun, assumed stationary relative to the solar system).\n2. (b) Yes! From a GEOCENTRIC FRAME (an observer standing on Earth), the Sun appears to revolve around Earth every 24 hours. Furthermore, from a GALACTOCENTRIC FRAME (the center of the Milky Way galaxy), the Sun orbits the galactic core at ~220 km s\u207b\u00b9, completing an orbit every 230 million years.",
+        "finalAnswer": "(a) Reference frame is the Sun (Heliocentric frame); (b) Yes, relative to Earth the Sun moves across the sky, and relative to the Milky Way core the Sun orbits at 220 km s\u207b\u00b9.",
+        "unit": "Frame of Reference Relativity",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "heliocentric geocentric frame of reference physics",
+        "page": 23,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q12 (Section 4.4, p. 23): The velocity-time graph from 0 s to 120 s for a cyclist is shown in Fig. 4.30: (0 to 20 s: accelerates from 0 to 6 m s\u207b\u00b9; 20 to 80 s: constant speed 6 m s\u207b\u00b9; 80 to 120 s: decelerates from 6 m s\u207b\u00b9 to rest). Calculate: (a) Acceleration in each phase, (b) Total distance covered.",
+        "given": "Cyclist motion graph Fig. 4.30:\nPhase 1 (0\u201320 s): u = 0, v = 6 m s\u207b\u00b9, t = 20 s.\nPhase 2 (20\u201380 s): v = 6 m s\u207b\u00b9, t = 60 s.\nPhase 3 (80\u2013120 s): u = 6 m s\u207b\u00b9, v = 0 m s\u207b\u00b9, t = 40 s.",
+        "formula": "Acceleration $a = \\frac{v - u}{t}$; Total Distance = Area under the velocity-time curve (trapezium area $A = \\frac{1}{2}(b_1 + b_2)h$).",
+        "substitution": "$a_1 = \\frac{6 - 0}{20}$; $a_2 = 0$; $a_3 = \\frac{0 - 6}{40}$. Area with $b_1 = 120\\text{ s}$, $b_2 = (80 - 20) = 60\\text{ s}$, $h = 6\\text{ m s}^{-1}$.",
+        "calculation": "1. Accelerations:\n   - Phase 1: $a_1 = \\frac{6}{20} = +0.3\\text{ m s}^{-2}$.\n   - Phase 2: $a_2 = 0\\text{ m s}^{-2}$ (uniform velocity).\n   - Phase 3: $a_3 = \\frac{-6}{40} = -0.15\\text{ m s}^{-2}$ (deceleration).\n2. Total Distance = Area of Trapezium:\n   $s = \\frac{1}{2}(120 + 60) \\times 6 = \\frac{1}{2}(180) \\times 6 = 90 \\times 6 = 540\\text{ m}$.",
+        "finalAnswer": "(a) $a_1 = +0.3\\text{ m s}^{-2}$, $a_2 = 0$, $a_3 = -0.15\\text{ m s}^{-2}$; (b) Total distance covered is 540 m.",
+        "unit": "m s\u207b\u00b2 and meters",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 4.30: Velocity-time graph for cyclist from 0 s to 120 s",
+        "image_search_query": "velocity time graph area under curve trapezium distance",
+        "page": 23,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q13 (Section 4.2, p. 23): A girl preparing for her first marathon runs on a straight track. She runs the first 5 km at an average speed of 10 km h\u207b\u00b9 and the next 5 km at 8 km h\u207b\u00b9. Calculate her average speed for the entire 10 km run.",
+        "given": "Distance $d_1 = 5\\text{ km}$, speed $v_1 = 10\\text{ km h}^{-1}$; Distance $d_2 = 5\\text{ km}$, speed $v_2 = 8\\text{ km h}^{-1}$; Total distance $D = 10\\text{ km}$.",
+        "formula": "Average Speed $v_{\\text{avg}} = \\frac{\\text{Total Distance}}{\\text{Total Time}} = \\frac{d_1 + d_2}{t_1 + t_2}$, where $t = \\frac{d}{v}$.",
+        "substitution": "$t_1 = \\frac{5}{10} = 0.5\\text{ h}$; $t_2 = \\frac{5}{8} = 0.625\\text{ h}$.",
+        "calculation": "Total time $T = 0.5 + 0.625 = 1.125\\text{ h} = \\frac{9}{8}\\text{ h}$.\n$v_{\\text{avg}} = \\frac{10}{1.125} = \\frac{10}{\\frac{9}{8}} = \\frac{80}{9} \\approx 8.89\\text{ km h}^{-1}$.",
+        "finalAnswer": "The average speed for the entire 10 km marathon training run is 8.89 km h\u207b\u00b9 (or 2.47 m s\u207b\u00b9).",
+        "unit": "km h\u207b\u00b9",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "average speed harmonic mean distance physics kinematics",
+        "page": 23,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q14 (Section 4.2, p. 23): On entering a state highway, a car continues to move with a constant speed of 72 km h\u207b\u00b9. (a) Write the mathematical equation relating distance travelled (s) and time (t). (b) Draw the position-time graph for this motion.",
+        "given": "Constant speed $v = 72\\text{ km h}^{-1} = 72 \\times \\frac{5}{18} = 20\\text{ m s}^{-1}$; Acceleration a = 0.",
+        "formula": "$s(t) = v \\cdot t$.",
+        "substitution": "$s(t) = 20t$ (in SI units, s in meters and t in seconds) or $s(t) = 72t$ (in km and hours).",
+        "calculation": "Since velocity is strictly constant, the relationship is linear through the origin ($s \\propto t$). The position-time graph is a straight line passing through $(0, 0)$ with constant positive slope $\\tan\\theta = 20\\text{ m s}^{-1}$.",
+        "finalAnswer": "(a) Linear equation: $s = 20t$ (where s is in meters, t in seconds); (b) A straight line graph passing through the origin with constant slope equal to 20 m s\u207b\u00b9.",
+        "unit": "Kinematic Equation & Graph",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "uniform motion position time graph straight line slope",
+        "page": 23,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q15 (Section 4.3, p. 23): Two cars A and B start moving from rest with constant accelerations $a_A$ and $a_B$. If the ratio of their accelerations is $a_A : a_B = 1 : 2$, find the ratio of the distances travelled by them in the same time interval t.",
+        "given": "Initial velocities $u_A = u_B = 0$; Accelerations ratio $\\frac{a_A}{a_B} = \\frac{1}{2}$; Same time interval t.",
+        "formula": "Second Kinematic Equation: $s = ut + \\frac{1}{2}at^2$. Since $u = 0$, $s = \\frac{1}{2}at^2 \\implies s \\propto a$.",
+        "substitution": "$\\frac{s_A}{s_B} = \\frac{\\frac{1}{2}a_A t^2}{\\frac{1}{2}a_B t^2} = \\frac{a_A}{a_B}$.",
+        "calculation": "$\\frac{s_A}{s_B} = \\frac{1}{2}$.",
+        "finalAnswer": "The ratio of distances travelled in the same time interval is 1 : 2.",
+        "unit": "dimensionless ratio",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "ratio of distances uniform acceleration kinematics",
+        "page": 23,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q16 (Section 4.5, p. 23): Rohan studies science from 6:00 PM to 7:30 PM at home. Consider the tip of the minute hand of a wall clock of length 7 cm. For this 1.5-hour study session, find: (a) The distance travelled by the tip of the minute hand, (b) The magnitude of displacement of the tip.",
+        "given": "Study interval $\\Delta t = 1.5\\text{ hours}$ (from 6:00 PM to 7:30 PM); Radius of circular path $r = 7\\text{ cm} = 0.07\\text{ m}$; In 1.5 h, the minute hand completes 1.5 full revolutions (1 full turn + 0.5 turn).",
+        "formula": "Circumference $C = 2\\pi r$; Distance $s = N \\times 2\\pi r$; In 1.5 revolutions, final position is diametrically opposite to initial position $\\implies$ Displacement $|\\Delta \\vec{r}| = 2r$.",
+        "substitution": "$s = 1.5 \\times 2 \\times \\frac{22}{7} \\times 7$; $|\\Delta \\vec{r}| = 2 \\times 7$.",
+        "calculation": "1. Distance:\n   $s = 1.5 \\times 44 = 66\\text{ cm} = 0.66\\text{ m}$.\n2. Displacement:\n   At 6:00 PM, minute hand is at 12 (top). At 7:30 PM, minute hand is at 6 (bottom).\n   The shortest straight-line distance is the diameter of the circle:\n   $\\text{Displacement} = 2r = 2 \\times 7 = 14\\text{ cm}$ (directed vertically downward).",
+        "finalAnswer": "(a) Distance travelled by the tip is 66 cm (0.66 m); (b) Magnitude of displacement is 14 cm vertically downwards.",
+        "unit": "cm and m",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "clock minute hand distance displacement circular motion",
+        "page": 23,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "In-Text Question (Section 4.1 & 4.2, p. 4 & p. 6): (a) Under what condition(s) is the magnitude of average velocity equal to the average speed? (b) Does fuel used up in a vehicle depend on distance travelled or displacement? Justify.",
+        "given": "Kinematic definitions of speed, velocity, distance, displacement, and mechanical fuel dissipation.",
+        "formula": "Average Speed = $\\frac{\\text{Distance}}{\\text{Time}}$; Average Velocity = $\\frac{|\\Delta \\vec{x}|}{\\text{Time}}$; Fuel consumption work $W = F_{\\text{resist}} \\cdot s$.",
+        "substitution": "Equate speed and velocity conditions.",
+        "calculation": "1. Part (a): Magnitude of average velocity equals average speed if and only if the object moves along a strictly STRAIGHT LINE in a SINGLE UNVARYING DIRECTION without reversing (so that Distance $\\equiv$ |Displacement|).\n2. Part (b): Fuel consumption depends on DISTANCE travelled, NOT displacement. Overcoming rolling friction, aerodynamic drag, and engine losses requires applying a tractive force along the entire actual path length traversed ($W = \\int F_{\\text{friction}} ds$). If a car drives 500 km and returns home (displacement = 0), fuel is consumed over all 500 km of road.",
+        "finalAnswer": "(a) When an object moves in a straight line without reversing direction; (b) Fuel depends on distance travelled because engines do work against friction along the entire actual path.",
+        "unit": "Kinematic Principles",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "distance displacement average velocity speed straight line",
+        "page": 4,
+        "section": "Section 4.1"
       }
     ],
     "common_misconceptions": [

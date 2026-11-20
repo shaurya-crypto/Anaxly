@@ -29,15 +29,30 @@
     "chapter_notes": "# Chapter 11: Thermodynamics\n## Module 65: Thermal Equilibrium, Zeroth Law of Thermodynamics, Heat, Work & Internal Energy (First Law)\n\n### 1. Real-Life Physical Intuition & The Concept of Thermal Equilibrium\nWhen you pour boiling hot tea into a ceramic cup and leave it on your study table, heat spontaneously flows from the hot liquid to the cooler ceramic cup and the surrounding room. Eventually, the temperature of the tea becomes identical to that of the room. At this point, macroscopic heat transfer ceases; the tea and the room are in **thermal equilibrium**.\n\nThermodynamics is the macroscopic science of energy transformation between heat and work. Unlike mechanics, which tracks individual particle velocities and forces, thermodynamics characterizes the macroscopic state of a bulk system using macroscopic state variables:\n- Pressure ($P$ in $\\text{N/m}^2$ or $\\text{Pa}$)\n- Volume ($V$ in $\\text{m}^3$)\n- Temperature ($T$ in $\\text{K}$)\n- Amount of substance ($n$ in moles or mass $m$ in $\\text{kg}$)\n\n### 2. Zeroth Law of Thermodynamics: The Basis of Thermometry\nConsider three thermodynamic systems $A$, $B$, and $C$.\n- If system $A$ is in thermal equilibrium with system $C$, then $T_A = T_C$.\n- If system $B$ is also in thermal equilibrium with system $C$, then $T_B = T_C$.\n- **The Zeroth Law of Thermodynamics States**: *Two systems in thermal equilibrium with a third system separately are in thermal equilibrium with each other.*\nTherefore:\n$$T_A = T_B$$\nThis fundamental law justifies the concept of temperature as a measurable physical property that determines whether two systems are in thermal equilibrium. A thermometer is simply system $C$!\n\n### 3. Thermodynamic State Variables & State Functions\nA **state variable** depends solely on the current equilibrium state of the system, not on the path or history taken to reach that state.\n- **Extensive Variables**: Depend on the size or mass of the system (e.g., Volume $V$, Mass $M$, Internal Energy $U$, Entropy $S$).\n- **Intensive Variables**: Independent of system size (e.g., Pressure $P$, Temperature $T$, Density $\\rho$).\n\n### 4. Internal Energy ($U$)\nThe **Internal Energy** ($U$) of a thermodynamic system is the sum of all microscopic kinetic energies and potential energies of its constituent molecules:\n$$U = E_k(\\text{microscopic}) + E_p(\\text{microscopic})$$\nFor an **ideal gas**, intermolecular forces are zero, meaning microscopic potential energy vanishes ($E_p = 0$). Hence, for an ideal gas:\n$$U = U(T)$$\nThe internal energy of an ideal gas depends solely on its absolute temperature $T$. For a monoatomic ideal gas with $n$ moles:\n$$U = \\frac{3}{2} n R T$$\n\n### 5. Heat ($Q$) and Work ($W$)\n- **Heat ($Q$)**: Energy transferred across a system boundary solely due to a temperature difference.\n  * $Q > 0$: Heat added/absorbed by the system.\n  * $Q < 0$: Heat released/rejected by the system.\n- **Thermodynamic Work ($W$)**: Energy transferred across system boundaries via macroscopic forces moving through a distance.\n  * If a gas expands against an external pressure $P$ by volume change $dV$:\n    $$dW = P \\, dV$$\n    $$W = \\int_{V_1}^{V_2} P \\, dV$$\n  * By standard NCERT/Physics convention:\n    * $W > 0$: Work done **by** the system (expansion, $dV > 0$).\n    * $W < 0$: Work done **on** the system (compression, $dV < 0$).\n\n### 6. The First Law of Thermodynamics\nThe First Law of Thermodynamics is the universal law of conservation of energy applied to thermodynamic systems:\n$$\\Delta Q = \\Delta U + \\Delta W$$\nIn differential form:\n$$dQ = dU + dW = dU + P \\, dV$$\nRearranging for the change in internal energy:\n$$\\Delta U = Q - W$$\n> **Fundamental Theorem**: While heat $Q$ and work $W$ are path-dependent quantities (path functions), the difference $\\Delta U = Q - W$ is strictly a state function, independent of the path connecting the initial and final states!\n\n### 7. Worked Example 11.1 (Textbook Derivation)\n**Problem**: A gas enclosed in a cylinder is supplied with $110 \\text{ J}$ of heat. The gas expands and performs $40 \\text{ J}$ of external work against the piston. Determine the change in internal energy of the gas.\n- **Given**: Heat supplied $\\Delta Q = +110 \\text{ J}$, Work done by gas $\\Delta W = +40 \\text{ J}$.\n- **Formula**: $\\Delta U = \\Delta Q - \\Delta W$\n- **Calculation**: $\\Delta U = 110 - 40 = 70 \\text{ J}$.\n- **Physical Interpretation**: $70 \\text{ J}$ of the absorbed heat went into raising the random kinetic energy of the gas molecules (raising its temperature), while the remaining $40 \\text{ J}$ was converted into mechanical work.",
     "worked_examples": [
       {
-        "example_title": "NCERT Rigorous Application - Thermal Equilibrium, Zeroth Law of Thermodynamics, Heat, Work & Internal Energy (First Law)",
-        "problem_statement": "Detailed step-by-step problem walkthrough from NCERT Chapter 11.",
-        "step_by_step_solution": [
-          "Step 1: Identify given physical parameters with standard SI units.",
-          "Step 2: Apply core governing physics laws and algebraic formulas.",
-          "Step 3: Substitute numerical values and perform dimensional check.",
-          "Step 4: Box final numerical result with appropriate physical units."
-        ],
-        "boxed_answer": "Complete step-by-step derivation verified."
+        "problem": "A 10.0 kg lead block falls from a height of 20.0 m onto an insulated concrete floor. Assuming 80% of its mechanical energy is converted into internal thermal energy of the lead block upon impact, calculate the temperature rise of the lead block. (Take specific heat capacity of lead c = 130 J kg⁻¹ K⁻¹, g = 9.8 m s⁻²)",
+        "given": "Mass of lead block m = 10.0 kg, Fall height h = 20.0 m, Fraction of energy converted η = 80% = 0.80, Specific heat capacity of lead c = 130 J kg⁻¹ K⁻¹, Acceleration due to gravity g = 9.8 m s⁻²",
+        "to_calculate": "Temperature rise ΔT of the lead block",
+        "formula": "Mechanical energy lost ΔE = m · g · h; Thermal energy absorbed ΔQ = 0.80 · ΔE = m · c · ΔT => ΔT = (0.80 · g · h) / c",
+        "substitution": "ΔT = (0.80 × 9.8 m s⁻² × 20.0 m) / (130 J kg⁻¹ K⁻¹)",
+        "calculation": "Numerator = 0.80 × 9.8 × 20.0 = 156.8 J kg⁻¹; Denominator = 130 J kg⁻¹ K⁻¹; ΔT = 156.8 / 130 = 1.206 K ≈ 1.21 K",
+        "rough_work": "[ROUGH_WORK]\n156.8 / 130 = 1.20615...\nRounding to 2 decimal places: 1.21 °C or 1.21 K.",
+        "finalAnswer": "The temperature rise of the lead block is 1.21 K (or 1.21 °C)",
+        "unit": "K (or °C)",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Section 11.4 & 11.5, Page 229",
+        "image_search_query": "first law thermodynamics heat work internal energy"
+      },
+      {
+        "problem": "A thermodynamic system absorbs 500 J of heat from its surroundings while expanding quasi-statically against a constant external pressure of 1.013 × 10⁵ Pa from an initial volume of 2.0 × 10⁻³ m³ to a final volume of 5.0 × 10⁻³ m³. Calculate (a) the work done by the gas, and (b) the change in internal energy of the system.",
+        "given": "Heat absorbed ΔQ = +500 J, Constant pressure P = 1.013 × 10⁵ Pa, Initial volume V₁ = 2.0 × 10⁻³ m³, Final volume V₂ = 5.0 × 10⁻³ m³",
+        "to_calculate": "(a) Work done by the gas ΔW, (b) Change in internal energy ΔU",
+        "formula": "(a) ΔW = P · ΔV = P · (V₂ - V₁)\n(b) First Law of Thermodynamics: ΔQ = ΔU + ΔW => ΔU = ΔQ - ΔW",
+        "substitution": "(a) ΔW = (1.013 × 10⁵ Pa) × (5.0 × 10⁻³ m³ - 2.0 × 10⁻³ m³) = 1.013 × 10⁵ × 3.0 × 10⁻³ J\n(b) ΔU = 500 J - 303.9 J",
+        "calculation": "(a) ΔW = 1.013 × 10⁵ × 3.0 × 10⁻³ = 303.9 J\n(b) ΔU = 500 - 303.9 = +196.1 J",
+        "rough_work": "[ROUGH_WORK]\nΔV = 3.0 × 10⁻³ m³\nΔW = 101300 × 0.003 = 303.9 J\nΔU = 500 - 303.9 = 196.1 J",
+        "finalAnswer": "(a) Work done by gas ΔW = 303.9 J; (b) Change in internal energy ΔU = +196.1 J",
+        "unit": "J",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Section 11.5, Page 230",
+        "image_search_query": "quasi-static expansion pv work diagram"
       }
     ],
     "common_misconceptions": [
@@ -46,26 +61,68 @@
     ],
     "concept_questions": [
       {
-        "question": "Can the temperature of a gas increase without adding any heat to it?",
+        "question": "Two separate thermodynamic systems A and B are each in thermal equilibrium with a third system C. According to the Zeroth Law of Thermodynamics, what can be definitively concluded about systems A and B?",
         "options": [
-          "(Recommended) Yes, if external work is done on the gas during adiabatic compression (ΔW < 0, so ΔU = -ΔW > 0)",
-          "No, temperature change strictly requires heat flow across the boundary",
-          "Yes, but only if the gas is an ideal gas at absolute zero",
-          "No, the First Law of Thermodynamics forbids temperature changes without heat"
+          "(Recommended) Systems A and B are in thermal equilibrium with each other",
+          "Systems A and B must have the exact same internal energy",
+          "Systems A and B must have the exact same volume and pressure",
+          "Heat must flow continuously from A to B through C"
         ],
-        "correct_answer": "(Recommended) Yes, if external work is done on the gas during adiabatic compression (ΔW < 0, so ΔU = -ΔW > 0)",
-        "explanation": "According to the First Law, ΔU = Q - W. If no heat is transferred (Q = 0, adiabatic), compressing the gas (W < 0) yields ΔU = -W > 0, which directly increases the internal energy and temperature."
+        "correctAnswer": "(Recommended) Systems A and B are in thermal equilibrium with each other",
+        "correct_answer": "(Recommended) Systems A and B are in thermal equilibrium with each other",
+        "explanation": "The Zeroth Law states that if systems A and B are separately in thermal equilibrium with C, then A and B are in thermal equilibrium with each other. This defines temperature as the universal state variable determining thermal equilibrium.",
+        "hint": "Recall the fundamental postulate of temperature equality.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 11.3, Page 228",
+        "image_search_query": "zeroth law thermodynamics thermal equilibrium"
       },
       {
-        "question": "Why is internal energy (U) a state function while heat (Q) and work (W) are path functions?",
+        "question": "Which of the following physical quantities is a state variable (state function) rather than a path-dependent function in thermodynamics?",
         "options": [
-          "(Recommended) Because U depends only on the thermodynamic state variables (P, V, T), whereas Q and W depend on the specific path taken on the P-V diagram",
-          "Because U can be measured with a thermometer, whereas Q and W cannot be measured",
-          "Because U is always conserved in every process, whereas Q and W are not conserved",
-          "Because U is an intensive property while Q and W are extensive properties"
+          "(Recommended) Internal Energy (U)",
+          "Heat exchanged (Q)",
+          "Mechanical work done (W)",
+          "Heat capacity during a polytropic path"
         ],
-        "correct_answer": "(Recommended) Because U depends only on the thermodynamic state variables (P, V, T), whereas Q and W depend on the specific path taken on the P-V diagram",
-        "explanation": "Internal energy is a unique property of the thermodynamic state of the gas. The area under the curve on a P-V indicator diagram represents work W, which visibly varies depending on the trajectory connecting the initial and final states."
+        "correctAnswer": "(Recommended) Internal Energy (U)",
+        "correct_answer": "(Recommended) Internal Energy (U)",
+        "explanation": "Internal energy U depends strictly on the thermodynamic state (P, V, T) and its change ΔU is independent of the path taken between states. Q and W depend explicitly on the specific trajectory.",
+        "hint": "Consider which variable has a unique value at every point on an indicator diagram.",
+        "blooms_level": "Analyze",
+        "textbook_reference": "Section 11.4, Page 229",
+        "image_search_query": "thermodynamic state function path function"
+      },
+      {
+        "question": "An ideal gas undergoes a complete cyclic process returning to its initial state. What is the net change in internal energy ΔU and the relation between total heat absorbed Q and total work done W?",
+        "options": [
+          "(Recommended) ΔU = 0 and Q = W",
+          "ΔU > 0 and Q > W",
+          "ΔU < 0 and Q = -W",
+          "ΔU = Q + W where W is always zero"
+        ],
+        "correctAnswer": "(Recommended) ΔU = 0 and Q = W",
+        "correct_answer": "(Recommended) ΔU = 0 and Q = W",
+        "explanation": "Since internal energy U is a state function, its net change around any closed cycle is zero (ΔU = 0). By First Law ΔQ = ΔU + ΔW, we obtain Q_net = W_net.",
+        "hint": "Evaluate the net change of a state function around a closed path.",
+        "blooms_level": "Apply",
+        "textbook_reference": "Section 11.5, Page 230",
+        "image_search_query": "cyclic process first law thermodynamics"
+      },
+      {
+        "question": "During an adiabatic compression of a gas, 250 J of mechanical work is performed on the gas by an external piston. What is the change in internal energy ΔU of the gas?",
+        "options": [
+          "(Recommended) +250 J (temperature increases)",
+          "-250 J (temperature decreases)",
+          "0 J (temperature remains constant)",
+          "+500 J (double the mechanical work)"
+        ],
+        "correctAnswer": "(Recommended) +250 J (temperature increases)",
+        "correct_answer": "(Recommended) +250 J (temperature increases)",
+        "explanation": "In an adiabatic process, heat transfer ΔQ = 0. By the First Law: ΔQ = ΔU + ΔW => 0 = ΔU + (-250 J) => ΔU = +250 J. Work done on the gas increases internal energy, raising its temperature.",
+        "hint": "Use ΔQ = 0 and note that work done on the gas corresponds to ΔW = -250 J.",
+        "blooms_level": "Apply",
+        "textbook_reference": "Section 11.5, Page 230",
+        "image_search_query": "adiabatic compression work internal energy"
       }
     ],
     "concept_visuals": [
@@ -116,22 +173,102 @@
       "Understand physical intuition, SI units, and dimensional consistency"
     ],
     "chapter_notes": "# Chapter 11: Thermodynamics\n## Module 66: Specific Heat Capacities of Gases, Mayer's Relation ($C_p - C_v = R$) & State Variables\n\n### 1. Why Do Gases Have Multiple Specific Heat Capacities?\nWhen heating a solid or a liquid, the thermal expansion is minute, so virtually all absorbed heat goes into raising temperature. However, when heating a gas, the gas expands significantly against external pressure, performing mechanical work.\n- If the gas is held at **constant volume**, all absorbed heat increases internal energy: no work is done ($W = 0$).\n- If the gas is kept at **constant pressure**, it expands as it is heated, performing work $P \\, \\Delta V$. Thus, additional heat is required to achieve the same temperature rise!\n\n### 2. Molar Specific Heat Capacities Defined\nFor $1 \\text{ mole}$ of an ideal gas:\n1. **Molar Specific Heat at Constant Volume ($C_v$)**:\n   $$C_v = \\left(\\frac{dQ}{dT}\\right)_v = \\left(\\frac{dU}{dT}\\right)_v$$\n   Since for an ideal gas $U = U(T)$ regardless of volume:\n   $$dU = n C_v \\, dT$$\n\n2. **Molar Specific Heat at Constant Pressure ($C_p$)**:\n   $$C_p = \\left(\\frac{dQ}{dT}\\right)_p$$\n\n### 3. Rigorous Derivation of Mayer's Relation ($C_p - C_v = R$)\nConsider $1 \\text{ mole}$ of an ideal gas undergoing a temperature rise $dT$:\n- **Case 1: Heated at Constant Volume ($dV = 0$)**:\n  By the First Law of Thermodynamics:\n  $$dQ_v = dU + dW = dU + P(0) = dU$$\n  Since $dQ_v = C_v \\, dT$:\n  $$dU = C_v \\, dT$$\n\n- **Case 2: Heated at Constant Pressure ($P = \\text{constant}$)**:\n  By the First Law:\n  $$dQ_p = dU + dW = dU + P \\, dV$$\n  Since $dQ_p = C_p \\, dT$ and $dU = C_v \\, dT$:\n  $$C_p \\, dT = C_v \\, dT + P \\, dV$$\n\nFrom the ideal gas equation for $1 \\text{ mole}$ ($P V = R T$):\nDifferentiating at constant pressure $P$:\n$$P \\, dV = R \\, dT$$\nSubstitute $P \\, dV = R \\, dT$ into the First Law expression:\n$$C_p \\, dT = C_v \\, dT + R \\, dT$$\nDividing throughout by $dT$:\n$$C_p = C_v + R \\implies C_p - C_v = R$$\nThis celebrated equation is **Mayer's Relation**.\n\n### 4. Ratio of Specific Heats (Adiabatic Index $\\gamma$)\nThe dimensionless ratio of specific heats is:\n$$\\gamma = \\frac{C_p}{C_v} = 1 + \\frac{R}{C_v}$$\nSince $C_p > C_v$, $\\gamma > 1$ for all gases:\n- **Monoatomic Gas** (He, Ne, Ar): Degrees of freedom $f = 3$\n  $$C_v = \\frac{3}{2}R, \\quad C_p = \\frac{5}{2}R, \\quad \\gamma = \\frac{5}{3} \\approx 1.67$$\n- **Diatomic Gas** ($N_2, O_2, H_2$ at room temperature): Degrees of freedom $f = 5$\n  $$C_v = \\frac{5}{2}R, \\quad C_p = \\frac{7}{2}R, \\quad \\gamma = \\frac{7}{5} = 1.40$$\n- **Triatomic / Polyatomic Non-linear Gas** ($H_2O, NH_3$): Degrees of freedom $f = 6$\n  $$C_v = 3R, \\quad C_p = 4R, \\quad \\gamma = \\frac{4}{3} \\approx 1.33$$\n\n### 5. Board Numerical Problem\n**Problem**: Calculate the specific heat capacity of diatomic nitrogen gas ($N_2$) at constant volume and constant pressure. Given universal gas constant $R = 8.314 \\text{ J/(mol K)}$ and molar mass $M = 28 \\times 10^{-3} \\text{ kg/mol}$.\n- **Step 1: Molar heat capacities**:\n  $$C_v = \\frac{5}{2}R = 2.5 \\times 8.314 = 20.785 \\text{ J/(mol K)}$$\n  $$C_p = \\frac{7}{2}R = 3.5 \\times 8.314 = 29.099 \\text{ J/(mol K)}$$\n- **Step 2: Specific heat capacities per kg ($c_v = C_v / M$)**:\n  $$c_v = \\frac{20.785}{28 \\times 10^{-3}} \\approx 742.3 \\text{ J/(kg K)}$$\n  $$c_p = \\frac{29.099}{28 \\times 10^{-3}} \\approx 1039.3 \\text{ J/(kg K)}$$",
-    "worked_examples": [],
+    "worked_examples": [
+      {
+        "problem": "Starting from the First Law of Thermodynamics for 1 mole of an ideal gas, derive Mayer's relation C_p - C_v = R. Using this relation, determine the molar heat capacities at constant volume (C_v) and constant pressure (C_p), along with their ratio γ = C_p / C_v, for (a) Helium (monatomic, 3 translational degrees of freedom) and (b) Nitrogen (diatomic, 5 degrees of freedom at room temperature). (Take R = 8.314 J mol⁻¹ K⁻¹)",
+        "given": "Number of moles μ = 1 mol, Ideal gas equation P · V = R · T, Internal energy for degree of freedom f: U = (f/2) · R · T, Universal gas constant R = 8.314 J mol⁻¹ K⁻¹",
+        "to_calculate": "Derivation of C_p - C_v = R, and numerical values of C_v, C_p, and γ for monatomic and diatomic gases",
+        "formula": "First Law: dQ = dU + P · dV. At constant volume (dV = 0): C_v = (dQ/dT)_v = dU/dT. At constant pressure: C_p = (dQ/dT)_p = dU/dT + P(dV/dT)_p. Since P · V = R · T => P(dV/dT)_p = R. Hence C_p = C_v + R => C_p - C_v = R.\nEquipartition: C_v = (f/2) · R, C_p = ((f+2)/2) · R, γ = C_p / C_v = 1 + 2/f.",
+        "substitution": "(a) Monatomic (f = 3): C_v = (3/2) · 8.314 J mol⁻¹ K⁻¹; C_p = (5/2) · 8.314 J mol⁻¹ K⁻¹; γ = 5/3 ≈ 1.67\n(b) Diatomic (f = 5): C_v = (5/2) · 8.314 J mol⁻¹ K⁻¹; C_p = (7/2) · 8.314 J mol⁻¹ K⁻¹; γ = 7/5 = 1.40",
+        "calculation": "(a) Monatomic:\nC_v = 1.5 × 8.314 = 12.47 J mol⁻¹ K⁻¹\nC_p = 2.5 × 8.314 = 20.785 J mol⁻¹ K⁻¹\nγ = 20.785 / 12.47 = 1.667\n(b) Diatomic:\nC_v = 2.5 × 8.314 = 20.785 J mol⁻¹ K⁻¹\nC_p = 3.5 × 8.314 = 29.099 J mol⁻¹ K⁻¹\nγ = 29.099 / 20.785 = 1.400",
+        "rough_work": "[ROUGH_WORK]\n1.5 × 8.314 = 12.471 J/(mol K)\n2.5 × 8.314 = 20.785 J/(mol K)\n3.5 × 8.314 = 29.099 J/(mol K)\nγ_mono = 5/3 = 1.67, γ_dia = 7/5 = 1.40.",
+        "finalAnswer": "(a) Helium (Monatomic): C_v = 12.47 J mol⁻¹ K⁻¹, C_p = 20.79 J mol⁻¹ K⁻¹, γ = 1.67; (b) Nitrogen (Diatomic): C_v = 20.79 J mol⁻¹ K⁻¹, C_p = 29.10 J mol⁻¹ K⁻¹, γ = 1.40",
+        "unit": "J mol⁻¹ K⁻¹",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Section 11.6, Page 231",
+        "image_search_query": "mayer relation cp cv r derivation"
+      },
+      {
+        "problem": "Calculate the amount of heat required to raise the temperature of 2.0 moles of an ideal diatomic gas from 25 °C to 75 °C at (a) constant volume, and (b) constant pressure. Also calculate the external work performed by the gas in case (b). (Take R = 8.314 J mol⁻¹ K⁻¹, C_v = 20.79 J mol⁻¹ K⁻¹)",
+        "given": "Number of moles μ = 2.0 mol, Initial temperature T₁ = 25 °C = 298.15 K, Final temperature T₂ = 75 °C = 348.15 K => ΔT = 50.0 K, C_v = 20.79 J mol⁻¹ K⁻¹, R = 8.314 J mol⁻¹ K⁻¹",
+        "to_calculate": "(a) Heat absorbed at constant volume Q_v, (b) Heat absorbed at constant pressure Q_p, (c) Work done W_p",
+        "formula": "(a) Q_v = μ · C_v · ΔT\n(b) Q_p = μ · C_p · ΔT = μ · (C_v + R) · ΔT\n(c) W_p = Q_p - Q_v = μ · R · ΔT",
+        "substitution": "(a) Q_v = 2.0 mol × 20.79 J mol⁻¹ K⁻¹ × 50.0 K\n(b) C_p = 20.79 + 8.314 = 29.104 J mol⁻¹ K⁻¹; Q_p = 2.0 mol × 29.104 J mol⁻¹ K⁻¹ × 50.0 K\n(c) W_p = 2.0 mol × 8.314 J mol⁻¹ K⁻¹ × 50.0 K",
+        "calculation": "(a) Q_v = 100 × 20.79 = 2079 J\n(b) Q_p = 100 × 29.104 = 2910.4 J\n(c) W_p = 100 × 8.314 = 831.4 J\nCheck: Q_p - Q_v = 2910.4 - 2079 = 831.4 J = W_p (First Law confirmed).",
+        "rough_work": "[ROUGH_WORK]\n2 × 50 = 100\n100 × 20.79 = 2079 J\n100 × 29.104 = 2910.4 J\nDifference = 831.4 J",
+        "finalAnswer": "(a) Q_v = 2079 J; (b) Q_p = 2910.4 J; (c) External work W_p = 831.4 J",
+        "unit": "J",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Section 11.6, Page 231",
+        "image_search_query": "molar heat capacity constant pressure volume"
+      }
+    ],
     "common_misconceptions": [
       "Confusing sign conventions or boundary conditions in Specific Heat Capacities of Gases, Mayer's Relation (Cp - Cv = R) & State Variables",
       "Omitting SI units in final calculations during board examinations"
     ],
     "concept_questions": [
       {
-        "question": "Why is the molar specific heat at constant pressure (Cp) always greater than that at constant volume (Cv)?",
+        "question": "Why is the molar specific heat of a gas at constant pressure (C_p) always strictly greater than that at constant volume (C_v)?",
         "options": [
-          "(Recommended) At constant pressure, part of the heat energy is expended in doing work against external pressure during expansion (P dV), while at constant volume no work is done",
-          "Because molecules move faster at constant pressure than at constant volume",
-          "Because the gas ionizes when heated at constant pressure",
-          "Because the volume decreases during constant pressure heating"
+          "(Recommended) At constant pressure, heat is spent in both increasing internal energy and doing external expansion work",
+          "Molecules move at higher speeds under constant volume conditions",
+          "Internal energy remains constant during isobaric heating",
+          "At constant pressure, gas molecules lose degrees of freedom"
         ],
-        "correct_answer": "(Recommended) At constant pressure, part of the heat energy is expended in doing work against external pressure during expansion (P dV), while at constant volume no work is done",
-        "explanation": "At constant volume dV = 0, so dW = 0 and all heat goes into dU. At constant pressure, dQ = dU + P dV, requiring extra heat equivalent to the expansion work done."
+        "correctAnswer": "(Recommended) At constant pressure, heat is spent in both increasing internal energy and doing external expansion work",
+        "correct_answer": "(Recommended) At constant pressure, heat is spent in both increasing internal energy and doing external expansion work",
+        "explanation": "At constant volume, all heat supplied goes solely into increasing the internal energy (ΔW = 0). At constant pressure, the gas expands against external pressure, requiring additional energy to perform mechanical work (ΔW = P·ΔV). Hence C_p = C_v + R > C_v.",
+        "hint": "Analyze the two components where energy is expended when a gas is allowed to expand.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 11.6, Page 231",
+        "image_search_query": "cp greater than cv thermodynamics"
+      },
+      {
+        "question": "What is the molar specific heat capacity of an ideal gas during an isothermal process and during an adiabatic process, respectively?",
+        "options": [
+          "(Recommended) C_iso = ∞ and C_adia = 0",
+          "C_iso = 0 and C_adia = ∞",
+          "C_iso = R and C_adia = γ R",
+          "C_iso = C_v and C_adia = C_p"
+        ],
+        "correctAnswer": "(Recommended) C_iso = ∞ and C_adia = 0",
+        "correct_answer": "(Recommended) C_iso = ∞ and C_adia = 0",
+        "explanation": "Molar heat capacity is defined as C = ΔQ / (μ · ΔT). In an isothermal process, heat is exchanged while ΔT = 0, so C = ΔQ / 0 = ∞. In an adiabatic process, ΔQ = 0 while ΔT ≠ 0, so C = 0 / (μ · ΔT) = 0.",
+        "hint": "Use C = ΔQ / (μ · ΔT) and consider ΔT = 0 vs ΔQ = 0.",
+        "blooms_level": "Analyze",
+        "textbook_reference": "Section 11.6, Page 231",
+        "image_search_query": "molar heat capacity isothermal adiabatic"
+      },
+      {
+        "question": "Which of the following thermodynamic variables is intensive (independent of the total size or mass of the system)?",
+        "options": [
+          "(Recommended) Pressure (P) and Temperature (T)",
+          "Volume (V) and Internal Energy (U)",
+          "Heat Capacity (S) and Enthalpy (H)",
+          "Total mass (M) and Mole number (μ)"
+        ],
+        "correctAnswer": "(Recommended) Pressure (P) and Temperature (T)",
+        "correct_answer": "(Recommended) Pressure (P) and Temperature (T)",
+        "explanation": "Intensive variables do not scale with system size (dividing the system in half leaves P, T, and density unchanged). Volume, internal energy, mass, and heat capacity are extensive variables.",
+        "hint": "Think of what happens when a gas container is partitioned into two identical halves.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 11.7, Page 232",
+        "image_search_query": "intensive extensive thermodynamic variables"
+      },
+      {
+        "question": "For a rigid triatomic non-linear gas molecule (such as H₂O vapour) having 6 degrees of freedom (3 translational + 3 rotational), what are the predicted values of C_v, C_p, and γ?",
+        "options": [
+          "(Recommended) C_v = 3 R, C_p = 4 R, γ = 1.33",
+          "C_v = (5/2) R, C_p = (7/2) R, γ = 1.40",
+          "C_v = (3/2) R, C_p = (5/2) R, γ = 1.67",
+          "C_v = 4 R, C_p = 5 R, γ = 1.25"
+        ],
+        "correctAnswer": "(Recommended) C_v = 3 R, C_p = 4 R, γ = 1.33",
+        "correct_answer": "(Recommended) C_v = 3 R, C_p = 4 R, γ = 1.33",
+        "explanation": "With f = 6 degrees of freedom: C_v = (6/2) R = 3 R. Using Mayer's relation: C_p = C_v + R = 4 R. Ratio γ = C_p / C_v = 4/3 ≈ 1.33.",
+        "hint": "Apply equipartition theorem C_v = (f/2) R and C_p = C_v + R for f = 6.",
+        "blooms_level": "Apply",
+        "textbook_reference": "Section 11.6, Page 231",
+        "image_search_query": "degrees of freedom triatomic gas specific heat"
       }
     ],
     "concept_visuals": [
@@ -183,22 +320,102 @@
       "Understand physical intuition, SI units, and dimensional consistency"
     ],
     "chapter_notes": "# Chapter 11: Thermodynamics\n## Module 67: Thermodynamic Processes: Isothermal, Adiabatic, Isochoric, Isobaric & Indicator Diagrams\n\n### 1. Quasi-Static Process\nA process executed so infinitesimally slowly that the system remains in thermodynamic equilibrium with its surroundings at every intermediate instant is called a **quasi-static process**. Frictionless, reversible quasi-static processes trace continuous paths on an indicator ($P-V$) diagram.\n\n### 2. Isothermal Process ($T = \\text{constant}$)\nA process occurring at constant temperature.\n- **Equation of State**:\n  $$P V = \\text{constant} \\implies P_1 V_1 = P_2 V_2$$\n- **Conditions**: Conducting walls of cylinder, extremely slow compression or expansion allowing heat exchange to maintain constant $T$.\n- **Change in Internal Energy**:\n  Since $T$ is constant, $\\Delta U = 0$.\n- **First Law Formulation**:\n  $$Q = W$$\n  All heat absorbed is converted directly into external work.\n- **Work Done in Isothermal Expansion**:\n  $$W_{\\text{iso}} = \\int_{V_1}^{V_2} P \\, dV = \\int_{V_1}^{V_2} \\frac{nRT}{V} \\, dV = nRT [\\ln V]_{V_1}^{V_2}$$\n  $$W_{\\text{iso}} = nRT \\ln\\left(\\frac{V_2}{V_1}\\right) = 2.303 \\, nRT \\log_{10}\\left(\\frac{V_2}{V_1}\\right) = 2.303 \\, nRT \\log_{10}\\left(\\frac{P_1}{P_2}\\right)$$\n\n### 3. Adiabatic Process ($Q = 0$)\nA process in which no heat enters or leaves the system across its boundaries.\n- **Equation of State**:\n  $$P V^\\gamma = \\text{constant} = K$$\n  In terms of $T$ and $V$:\n  $$T V^{\\gamma - 1} = \\text{constant}$$\n  In terms of $P$ and $T$:\n  $$P^{1 - \\gamma} T^\\gamma = \\text{constant}$$\n- **Conditions**: Insulating walls (adiabatic boundary), extremely rapid sudden expansion or compression (e.g., bursting of a tire, propagation of sound waves).\n- **First Law Formulation**:\n  Since $Q = 0$:\n  $$\\Delta U + W = 0 \\implies W = -\\Delta U = -n C_v (T_2 - T_1) = \\frac{nR(T_1 - T_2)}{\\gamma - 1}$$\n  In terms of pressures and volumes:\n  $$W_{\\text{adia}} = \\frac{P_1 V_1 - P_2 V_2}{\\gamma - 1}$$\n\n### 4. Slopes on the Indicator ($P-V$) Diagram\n- **Slope of Isothermal Curve**:\n  $$P V = C \\implies P \\, dV + V \\, dP = 0 \\implies \\left(\\frac{dP}{dV}\\right)_{\\text{iso}} = -\\frac{P}{V}$$\n- **Slope of Adiabatic Curve**:\n  $$P V^\\gamma = C \\implies \\gamma P V^{\\gamma - 1} \\, dV + V^\\gamma \\, dP = 0 \\implies \\left(\\frac{dP}{dV}\\right)_{\\text{adia}} = -\\gamma \\frac{P}{V}$$\n- **Key Invariant**:\n  $$\\text{Slope of Adiabatic} = \\gamma \\times (\\text{Slope of Isothermal})$$\n  Because $\\gamma > 1$, an adiabatic curve is strictly **steeper** than an isothermal curve at any intersection point!\n\n### 5. Isochoric & Isobaric Processes\n1. **Isochoric Process ($V = \\text{constant}$)**:\n   - $dV = 0 \\implies W = 0$.\n   - By First Law: $Q = \\Delta U = n C_v \\Delta T$.\n2. **Isobaric Process ($P = \\text{constant}$)**:\n   - $W = P(V_2 - V_1) = nR(T_2 - T_1)$.\n   - $Q = n C_p \\Delta T$.\n   - $\\Delta U = n C_v \\Delta T$.\n\n### 6. Worked Board Problem\n**Problem**: An ideal gas at $27^\\circ\\text{C}$ is suddenly compressed to $\\frac{1}{8}\\text{th}$ of its original volume. If $\\gamma = 1.5$, find the final temperature of the gas.\n- **Solution**:\n  - Given: $T_1 = 27 + 273 = 300 \\text{ K}$, $V_2 = \\frac{1}{8}V_1$, $\\gamma = 1.5$.\n  - Formula: $T_1 V_1^{\\gamma - 1} = T_2 V_2^{\\gamma - 1}$\n  - Calculation:\n    $$T_2 = T_1 \\left(\\frac{V_1}{V_2}\\right)^{\\gamma - 1} = 300 \\times (8)^{1.5 - 1} = 300 \\times 8^{0.5} = 300 \\times \\sqrt{8} = 300 \\times 2.828 \\approx 848.5 \\text{ K}$$\n    $$t_2 = 848.5 - 273 = 575.5^\\circ\\text{C}$$\n  - The gas heats up drastically during adiabatic compression because work done on the gas increases internal energy.",
-    "worked_examples": [],
+    "worked_examples": [
+      {
+        "problem": "One mole of an ideal gas at temperature T = 300 K undergoes a quasi-static isothermal expansion from an initial volume of V₁ = 1.0 × 10⁻² m³ to a final volume of V₂ = 2.0 × 10⁻² m³. Calculate (a) the work done by the gas, (b) the heat absorbed from the thermal reservoir, and (c) the change in internal energy of the gas. (Take R = 8.314 J mol⁻¹ K⁻¹, ln 2 = 0.69315)",
+        "given": "Number of moles μ = 1.0 mol, Constant temperature T = 300 K, Initial volume V₁ = 1.0 × 10⁻² m³, Final volume V₂ = 2.0 × 10⁻² m³, Expansion ratio V₂/V₁ = 2.0, R = 8.314 J mol⁻¹ K⁻¹",
+        "to_calculate": "(a) Work done W_iso, (b) Heat absorbed Q_iso, (c) Change in internal energy ΔU",
+        "formula": "(a) W_iso = μ · R · T · ln(V₂ / V₁)\n(b) Since T is constant, for an ideal gas internal energy U depends only on T => ΔU = 0\n(c) First Law: Q_iso = ΔU + W_iso = 0 + W_iso => Q_iso = W_iso",
+        "substitution": "(a) W_iso = 1.0 mol × 8.314 J mol⁻¹ K⁻¹ × 300 K × ln(2)\n= 8.314 × 300 × 0.69315 J",
+        "calculation": "8.314 × 300 = 2494.2 J\nW_iso = 2494.2 × 0.69315 = 1728.85 J ≈ 1729 J\n(b) Q_iso = W_iso = +1729 J\n(c) ΔU = 0 J",
+        "rough_work": "[ROUGH_WORK]\n2494.2 × 0.69315 = 1728.854 J\nRounding off to 4 sig figs: 1729 J.",
+        "finalAnswer": "(a) Work done W_iso = 1729 J; (b) Heat absorbed Q_iso = +1729 J; (c) Change in internal energy ΔU = 0 J",
+        "unit": "J",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Section 11.8.2, Page 234",
+        "image_search_query": "isothermal expansion pv indicator diagram"
+      },
+      {
+        "problem": "An ideal diatomic gas (γ = 1.40) initially at pressure P₁ = 1.0 × 10⁵ Pa and temperature T₁ = 300 K is compressed adiabatically to 1/8th of its initial volume (V₂ = V₁ / 8). Calculate (a) the final pressure P₂, (b) the final temperature T₂, and (c) the work done per mole during this adiabatic compression. (Take R = 8.314 J mol⁻¹ K⁻¹, 2⁴·² = 18.38)",
+        "given": "Adiabatic index γ = 1.40, Initial pressure P₁ = 1.0 × 10⁵ Pa, Initial temperature T₁ = 300 K, Volume compression ratio V₁/V₂ = 8.0, Number of moles μ = 1.0 mol, R = 8.314 J mol⁻¹ K⁻¹",
+        "to_calculate": "(a) Final pressure P₂, (b) Final temperature T₂, (c) Work done per mole W_adia",
+        "formula": "(a) Adiabatic law: P₁ · V₁ᵞ = P₂ · V₂ᵞ ⇒ P₂ = P₁ · (V₁ / V₂)ᵞ\n(b) Temperature relation: T₁ · V₁ᵞ⁻¹ = T₂ · V₂ᵞ⁻¹ ⇒ T₂ = T₁ · (V₁ / V₂)ᵞ⁻¹\n(c) Adiabatic work: W_adia = (μ · R · (T₁ - T₂)) / (γ - 1)",
+        "substitution": "(a) P₂ = 1.0 × 10⁵ Pa × (8)¹·⁴\nNote: 8¹·⁴ = (2³)¹·⁴ = 2⁴·² = 18.38 => P₂ = 1.0 × 10⁵ × 18.38 Pa\n(b) T₂ = 300 K × (8)⁰·⁴ = 300 × 8⁰·⁴ = 300 × 2¹·² = 300 × 2.2974 K\n(c) W_adia = (1.0 × 8.314 × (300 - 689.2)) / (1.4 - 1.0)",
+        "calculation": "(a) P₂ = 18.38 × 10⁵ Pa = 1.84 × 10⁶ Pa\n(b) 8⁰·⁴ = 2.2974; T₂ = 300 × 2.2974 = 689.2 K\n(c) T₁ - T₂ = 300 - 689.2 = -389.2 K\nW_adia = (8.314 × (-389.2)) / 0.4 = -3235.8 / 0.4 = -8089.5 J ≈ -8.09 kJ",
+        "rough_work": "[ROUGH_WORK]\n2⁴·² = 18.379\n8⁰·⁴ = 2.2974\n300 × 2.2974 = 689.22 K\n8.314 × (-389.22) / 0.4 = -8089.6 J",
+        "finalAnswer": "(a) Final pressure P₂ = 1.84 × 10⁶ Pa (18.4 atm); (b) Final temperature T₂ = 689.2 K; (c) Work done on the gas W = -8.09 kJ (work done by gas is -8.09 kJ)",
+        "unit": "Pa, K, kJ",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Section 11.8.3, Page 235",
+        "image_search_query": "adiabatic compression pv curve indicator"
+      }
+    ],
     "common_misconceptions": [
       "Confusing sign conventions or boundary conditions in Thermodynamic Processes: Isothermal, Adiabatic, Isochoric, Isobaric & Indicator Diagrams",
       "Omitting SI units in final calculations during board examinations"
     ],
     "concept_questions": [
       {
-        "question": "Why is an adiabatic curve steeper than an isothermal curve on a P-V diagram?",
+        "question": "On an indicator diagram (P-V plot), how does the magnitude of the slope of an adiabatic curve compare to that of an isothermal curve passing through the exact same point (P, V)?",
         "options": [
-          "(Recommended) Because the slope of an adiabatic curve is -γ(P/V), which is γ times steeper than the isothermal slope -P/V, with γ > 1",
-          "Because the pressure is zero in an adiabatic process",
-          "Because the volume remains constant in an adiabatic process",
-          "Because heat flows freely into the system during adiabatic expansion"
+          "(Recommended) The adiabatic slope is steeper by a factor of γ (Slope_adia = γ · Slope_iso)",
+          "The isothermal slope is steeper by a factor of γ",
+          "Both slopes are strictly identical because temperature is continuous",
+          "The adiabatic curve has zero slope because heat cannot flow"
         ],
-        "correct_answer": "(Recommended) Because the slope of an adiabatic curve is -γ(P/V), which is γ times steeper than the isothermal slope -P/V, with γ > 1",
-        "explanation": "Differentiating PV = const yields dP/dV = -P/V. Differentiating PV^γ = const yields dP/dV = -γ(P/V). Since γ > 1 (e.g. 1.4 for air), the adiabatic curve has a steeper negative slope."
+        "correctAnswer": "(Recommended) The adiabatic slope is steeper by a factor of γ (Slope_adia = γ · Slope_iso)",
+        "correct_answer": "(Recommended) The adiabatic slope is steeper by a factor of γ (Slope_adia = γ · Slope_iso)",
+        "explanation": "Differentiating P·V = constant gives (dP/dV)_iso = -P/V. Differentiating P · Vᵞ = constant gives (dP/dV)_adia = -γ·(P/V). Since γ = C_p / C_v > 1, the adiabatic curve is always γ times steeper.",
+        "hint": "Differentiate P·V = const and P · Vᵞ = const with respect to V.",
+        "blooms_level": "Analyze",
+        "textbook_reference": "Section 11.8.3, Page 235",
+        "image_search_query": "slope adiabatic curve vs isothermal curve"
+      },
+      {
+        "question": "A gas expands from volume V₁ to V₂ along three different paths: (1) Isobaric, (2) Isothermal, and (3) Adiabatic. In which process is the work done by the gas the greatest?",
+        "options": [
+          "(Recommended) Isobaric process",
+          "Isothermal process",
+          "Adiabatic process",
+          "Work done is identical in all three processes"
+        ],
+        "correctAnswer": "(Recommended) Isobaric process",
+        "correct_answer": "(Recommended) Isobaric process",
+        "explanation": "Work done is the area under the P-V curve. In isobaric expansion, pressure remains at its maximum value P₁. In isothermal and adiabatic expansions, pressure decreases during expansion, with adiabatic falling fastest. Thus Area_isobaric > Area_isothermal > Area_adiabatic.",
+        "hint": "Compare the area under the P-V curves between V₁ and V₂.",
+        "blooms_level": "Apply",
+        "textbook_reference": "Section 11.8, Page 234",
+        "image_search_query": "work done comparison isobaric isothermal adiabatic"
+      },
+      {
+        "question": "What is the primary physical requirement for a real thermodynamic process to be classified as quasi-static?",
+        "options": [
+          "(Recommended) The process must occur infinitesimally slowly so the system remains in mechanical and thermal equilibrium at every intermediate stage",
+          "The container walls must be perfectly rigid with zero friction",
+          "The process must be completed instantaneously so heat cannot escape",
+          "The pressure of the gas must remain strictly constant throughout"
+        ],
+        "correctAnswer": "(Recommended) The process must occur infinitesimally slowly so the system remains in mechanical and thermal equilibrium at every intermediate stage",
+        "correct_answer": "(Recommended) The process must occur infinitesimally slowly so the system remains in mechanical and thermal equilibrium at every intermediate stage",
+        "explanation": "A quasi-static process is an idealized succession of equilibrium states, achieved when the process proceeds infinitesimally slowly compared to the relaxation time of the system.",
+        "hint": "Consider the condition needed for state variables P and T to be well-defined at all intermediate moments.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 11.8.1, Page 233",
+        "image_search_query": "quasi-static process equilibrium thermodynamics"
+      },
+      {
+        "question": "In an isochoric heating process, 400 J of heat is delivered to a rigid closed vessel containing an ideal gas. What are the values of the work done ΔW and the change in internal energy ΔU?",
+        "options": [
+          "(Recommended) ΔW = 0 J and ΔU = +400 J",
+          "ΔW = +400 J and ΔU = 0 J",
+          "ΔW = -400 J and ΔU = +400 J",
+          "ΔW = +200 J and ΔU = +200 J"
+        ],
+        "correctAnswer": "(Recommended) ΔW = 0 J and ΔU = +400 J",
+        "correct_answer": "(Recommended) ΔW = 0 J and ΔU = +400 J",
+        "explanation": "In an isochoric process, volume is constant (ΔV = 0), so work done ΔW = P·ΔV = 0. By the First Law: ΔQ = ΔU + ΔW => 400 J = ΔU + 0 => ΔU = +400 J.",
+        "hint": "Check the value of ΔV for a rigid vessel.",
+        "blooms_level": "Apply",
+        "textbook_reference": "Section 11.8.4, Page 235",
+        "image_search_query": "isochoric heating constant volume first law"
       }
     ],
     "concept_visuals": [
@@ -249,22 +466,102 @@
       "Understand physical intuition, SI units, and dimensional consistency"
     ],
     "chapter_notes": "# Chapter 11: Thermodynamics\n## Module 68: Second Law of Thermodynamics, Heat Engines, Refrigerators & Reversibility\n\n### 1. Inadequacy of the First Law\nThe First Law of Thermodynamics guarantees conservation of energy, but does **not** explain the direction of natural processes:\n- It does not prevent heat from flowing spontaneously from a cold body to a hotter body.\n- It does not forbid a motionless car from spontaneously absorbing thermal energy from the road and accelerating forward!\nThe **Second Law of Thermodynamics** specifies the natural direction of energy dissipation and the fundamental limits of energy conversion.\n\n### 2. Heat Engine Architecture\nA **heat engine** is a cyclical thermodynamic device that absorbs heat from a high-temperature reservoir (source), converts a fraction of it into mechanical work, and rejects the remaining heat to a lower-temperature reservoir (sink).\n- Working cycle:\n  * Heat absorbed from source at $T_1$: $Q_1$\n  * Mechanical work output: $W$\n  * Heat rejected to sink at $T_2$: $Q_2$\n- Since the engine operates in a closed cycle, $\\Delta U_{\\text{cycle}} = 0$.\n  By the First Law:\n  $$W = Q_1 - Q_2$$\n- **Thermal Efficiency ($\\eta$)**:\n  $$\\eta = \\frac{\\text{Work Output}}{\\text{Heat Input}} = \\frac{W}{Q_1} = \\frac{Q_1 - Q_2}{Q_1} = 1 - \\frac{Q_2}{Q_1}$$\n\n### 3. Refrigerator and Heat Pump\nA **refrigerator** is a heat engine operating in reverse: it absorbs heat $Q_2$ from a cold body at $T_2$, receives external work $W$ from an electric compressor, and rejects heat $Q_1 = Q_2 + W$ to the warmer surroundings at $T_1$.\n- **Coefficient of Performance ($\\beta$ or $\\text{COP}$)**:\n  $$\\beta = \\frac{\\text{Desired Output}}{\\text{Work Input}} = \\frac{Q_2}{W} = \\frac{Q_2}{Q_1 - Q_2}$$\n\n### 4. Statements of the Second Law of Thermodynamics\n1. **Kelvin-Planck Statement**:\n   * *It is impossible to construct an engine operating in a cycle whose sole effect is to extract heat from a reservoir and convert it completely into equivalent work without rejecting any heat.*\n   * **Implication**: A 100% efficient heat engine ($\\eta = 1, Q_2 = 0$) is physically impossible!\n2. **Clausius Statement**:\n   * *It is impossible to construct a cyclic device whose sole effect is the transfer of heat from a cooler body to a hotter body without requiring an external work input.*\n   * **Implication**: A refrigerator with infinite COP ($W = 0$) is physically impossible!\n\n> **Equivalence of the Two Statements**: A violation of the Kelvin-Planck statement directly leads to a violation of the Clausius statement, and vice versa.\n\n### 5. Reversible vs Irreversible Processes\n- **Reversible Process**: A process that can be reversed such that both the system and the surroundings are restored to their exact initial states without leaving any net change anywhere in the universe. Requirements:\n  1. Quasi-static (infinitely slow).\n  2. Complete absence of dissipative forces (zero friction, zero viscosity, zero electrical resistance).\n- **Irreversible Process**: All natural spontaneous processes in nature (free expansion of gases, friction, heat transfer across finite temperature difference) are irreversible.",
-    "worked_examples": [],
+    "worked_examples": [
+      {
+        "problem": "A heat engine operates between a heat source at T₁ = 600 K and a heat sink at T₂ = 300 K. In each cycle, it absorbs 2500 J of thermal energy from the source and delivers 1000 J of useful mechanical work. Calculate (a) the heat rejected to the sink per cycle, (b) the actual thermal efficiency η of the engine, and (c) the maximum theoretical efficiency η_carnot operating between these two reservoir temperatures.",
+        "given": "Source temperature T₁ = 600 K, Sink temperature T₂ = 300 K, Heat absorbed Q₁ = 2500 J, Work output W = 1000 J",
+        "to_calculate": "(a) Heat rejected Q₂, (b) Actual thermal efficiency η, (c) Maximum Carnot efficiency η_carnot",
+        "formula": "(a) Energy conservation: W = Q₁ - Q₂ => Q₂ = Q₁ - W\n(b) Actual efficiency: η = W / Q₁ = (Q₁ - Q₂) / Q₁\n(c) Carnot efficiency: η_carnot = 1 - (T₂ / T₁)",
+        "substitution": "(a) Q₂ = 2500 J - 1000 J\n(b) η = 1000 J / 2500 J\n(c) η_carnot = 1 - (300 K / 600 K)",
+        "calculation": "(a) Q₂ = 1500 J\n(b) η = 1000 / 2500 = 0.40 = 40%\n(c) η_carnot = 1 - 0.50 = 0.50 = 50%\nComparison: Actual efficiency (40%) is less than ideal Carnot limit (50%), consistent with Second Law of Thermodynamics.",
+        "rough_work": "[ROUGH_WORK]\n2500 - 1000 = 1500 J\n1000 / 2500 = 0.40 (40%)\n1 - 300/600 = 0.50 (50%)",
+        "finalAnswer": "(a) Heat rejected Q₂ = 1500 J; (b) Actual efficiency η = 40%; (c) Maximum Carnot efficiency η_carnot = 50%",
+        "unit": "J, %",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Section 11.9, Page 236",
+        "image_search_query": "heat engine efficiency second law diagram"
+      },
+      {
+        "problem": "A domestic refrigerator maintains its food compartment at T₂ = -3 °C while the kitchen room temperature is T₁ = 27 °C. Assuming it operates on a reversible Carnot refrigerator cycle: (a) calculate its coefficient of performance (COP, β), and (b) determine the electrical work required to extract 540 J of heat from the cold compartment.",
+        "given": "Cold reservoir temperature T₂ = -3 °C = (-3 + 273.15) K = 270.15 K ≈ 270 K, Hot reservoir temperature T₁ = 27 °C = (27 + 273.15) K = 300 K, Heat extracted Q₂ = 540 J",
+        "to_calculate": "(a) Coefficient of performance β, (b) Work input W required",
+        "formula": "(a) Reversible COP: β = Q₂ / W = T₂ / (T₁ - T₂)\n(b) Required work: W = Q₂ / β = Q₂ · (T₁ - T₂) / T₂",
+        "substitution": "(a) β = 270 K / (300 K - 270 K) = 270 / 30\n(b) W = 540 J / 9.0",
+        "calculation": "(a) β = 270 / 30 = 9.0\n(b) W = 540 / 9.0 = 60.0 J\nHeat rejected to room Q₁ = Q₂ + W = 540 + 60 = 600 J.",
+        "rough_work": "[ROUGH_WORK]\n270 / (300 - 270) = 270 / 30 = 9\nW = 540 / 9 = 60 J\nQ₁ = 540 + 60 = 600 J",
+        "finalAnswer": "(a) Coefficient of performance β = 9.0; (b) Work input required W = 60.0 J",
+        "unit": "Dimensionless, J",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Section 11.9, Page 236",
+        "image_search_query": "refrigerator coefficient of performance diagram"
+      }
+    ],
     "common_misconceptions": [
       "Confusing sign conventions or boundary conditions in Second Law of Thermodynamics, Heat Engines, Refrigerators & Reversibility",
       "Omitting SI units in final calculations during board examinations"
     ],
     "concept_questions": [
       {
-        "question": "Can a room be cooled by leaving the door of a domestic refrigerator open?",
+        "question": "Which of the following statements represents the Kelvin-Planck formulation of the Second Law of Thermodynamics?",
         "options": [
-          "(Recommended) No, the room will actually become warmer because the refrigerator rejects more heat to the room (Q1 = Q2 + W) than it absorbs from it (Q2)",
-          "Yes, the cold air from the refrigerator cools the entire room uniformly",
-          "The temperature of the room remains completely unchanged",
-          "The room cools down first and then immediately catches fire"
+          "(Recommended) No process is possible whose sole result is the absorption of heat from a reservoir and its complete conversion into work",
+          "Heat can flow spontaneously from a colder body to a hotter body without any external work",
+          "The total internal energy of any isolated system is strictly conserved",
+          "The efficiency of any real engine always equals unity (100%)"
         ],
-        "correct_answer": "(Recommended) No, the room will actually become warmer because the refrigerator rejects more heat to the room (Q1 = Q2 + W) than it absorbs from it (Q2)",
-        "explanation": "The room acts as both the source and sink. The refrigerator absorbs Q2 from the room, consumes electrical work W from the mains, and dumps Q1 = Q2 + W into the room. Net heat added to the room is W > 0, so the room heats up."
+        "correctAnswer": "(Recommended) No process is possible whose sole result is the absorption of heat from a reservoir and its complete conversion into work",
+        "correct_answer": "(Recommended) No process is possible whose sole result is the absorption of heat from a reservoir and its complete conversion into work",
+        "explanation": "The Kelvin-Planck statement asserts that a 100% efficient heat engine is impossible; some heat must always be rejected to a colder reservoir (sink).",
+        "hint": "Identify the statement prohibiting a heat engine from operating with zero heat rejection.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 11.9, Page 236",
+        "image_search_query": "kelvin planck statement second law thermodynamics"
+      },
+      {
+        "question": "If a refrigerator door is left wide open in a completely sealed, thermally insulated room, what will happen to the room temperature over time?",
+        "options": [
+          "(Recommended) The room temperature will gradually increase",
+          "The room temperature will gradually decrease",
+          "The room temperature will remain exactly constant",
+          "The room temperature will first drop to freezing and then stabilize"
+        ],
+        "correctAnswer": "(Recommended) The room temperature will gradually increase",
+        "correct_answer": "(Recommended) The room temperature will gradually increase",
+        "explanation": "A refrigerator exhausts heat Q₁ = Q₂ + W into the room. Since the room is sealed, the heat expelled at the back condenser coils exceeds the heat extracted from the interior by the electrical work input W done by the compressor. Hence net thermal energy of the room increases.",
+        "hint": "Consider the First Law for the sealed room: Q_net = 0, work W is added by the electrical outlet.",
+        "blooms_level": "Apply",
+        "textbook_reference": "Section 11.9, Page 236",
+        "image_search_query": "refrigerator open in closed room heating"
+      },
+      {
+        "question": "What is the primary physical cause of irreversibility in almost all macroscopic natural thermodynamic processes?",
+        "options": [
+          "(Recommended) Dissipative effects (friction, viscosity, electrical resistance) and unconstrained spontaneous expansions",
+          "The conservation of total mechanical energy in frictionless systems",
+          "The finite mass of microscopic gas atoms",
+          "Infinitesimally slow quasi-static heat exchanges"
+        ],
+        "correctAnswer": "(Recommended) Dissipative effects (friction, viscosity, electrical resistance) and unconstrained spontaneous expansions",
+        "correct_answer": "(Recommended) Dissipative effects (friction, viscosity, electrical resistance) and unconstrained spontaneous expansions",
+        "explanation": "Irreversibility arises from dissipative forces (converting ordered mechanical energy into disordered thermal motion) and spontaneous non-equilibrium processes (free expansion, rapid chemical reactions, finite temperature heat transfer).",
+        "hint": "Think about energy dissipation and spontaneous mixing.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 11.10, Page 236",
+        "image_search_query": "irreversible processes dissipation thermodynamics"
+      },
+      {
+        "question": "How is the Clausius statement of the Second Law of Thermodynamics related to the Kelvin-Planck statement?",
+        "options": [
+          "(Recommended) They are completely logically equivalent; a violation of one implies a direct violation of the other",
+          "Clausius applies only to solids, whereas Kelvin-Planck applies only to ideal gases",
+          "The Clausius statement contradicts the Kelvin-Planck statement for cyclic processes",
+          "Kelvin-Planck deals with entropy, whereas Clausius deals strictly with enthalpy"
+        ],
+        "correctAnswer": "(Recommended) They are completely logically equivalent; a violation of one implies a direct violation of the other",
+        "correct_answer": "(Recommended) They are completely logically equivalent; a violation of one implies a direct violation of the other",
+        "explanation": "It is proved by coupling a hypothetical engine that violates Kelvin-Planck to a refrigerator, which results in a net machine violating Clausius, and vice versa. Both express the same fundamental truth.",
+        "hint": "Recall the textbook proof coupling a heat engine and refrigerator.",
+        "blooms_level": "Analyze",
+        "textbook_reference": "Section 11.9, Page 236",
+        "image_search_query": "equivalence kelvin planck clausius statement"
       }
     ],
     "concept_visuals": [
@@ -314,22 +611,102 @@
       "Understand physical intuition, SI units, and dimensional consistency"
     ],
     "chapter_notes": "# Chapter 11: Thermodynamics\n## Module 69: Carnot Engine Cycle, Carnot Efficiency ($\\eta = 1 - T_2/T_1$) & Carnot's Theorem\n\n### 1. The Ideal Carnot Cycle\nIn 1824, French engineer Sadi Carnot conceived an idealized, completely reversible thermodynamic cycle operating between two heat reservoirs at temperatures $T_1$ (source) and $T_2$ (sink) ($T_1 > T_2$).\n\nThe Carnot cycle consists of four successive reversible strokes:\n1. **Stroke 1: Reversible Isothermal Expansion ($A \\to B$)**:\n   - The cylinder is placed on the hot source at $T_1$.\n   - Gas expands reversibly from $(P_1, V_1)$ to $(P_2, V_2)$ at constant temperature $T_1$.\n   - Heat absorbed: $Q_1 = W_1 = nRT_1 \\ln\\left(\\frac{V_2}{V_1}\\right)$.\n2. **Stroke 2: Reversible Adiabatic Expansion ($B \\to C$)**:\n   - The cylinder is placed on an insulating stand ($Q = 0$).\n   - Gas expands from $(P_2, V_2)$ to $(P_3, V_3)$, cooling from $T_1$ to $T_2$.\n   - Work done: $W_2 = \\frac{nR(T_1 - T_2)}{\\gamma - 1}$.\n3. **Stroke 3: Reversible Isothermal Compression ($C \\to D$)**:\n   - The cylinder is placed on the cold sink at $T_2$.\n   - Gas is compressed reversibly from $(P_3, V_3)$ to $(P_4, V_4)$ at constant temperature $T_2$.\n   - Heat rejected: $Q_2 = -W_3 = nRT_2 \\ln\\left(\\frac{V_3}{V_4}\\right)$.\n4. **Stroke 4: Reversible Adiabatic Compression ($D \\to A$)**:\n   - The cylinder is placed back on the insulating stand ($Q = 0$).\n   - Gas is compressed from $(P_4, V_4)$ back to initial state $(P_1, V_1)$, warming from $T_2$ to $T_1$.\n   - Work done: $W_4 = -\\frac{nR(T_1 - T_2)}{\\gamma - 1} = -W_2$.\n\n### 2. Net Work and Carnot Efficiency Derivation\n- Net work done in one complete cycle:\n  $$W_{\\text{net}} = W_1 + W_2 + W_3 + W_4$$\n  Since $W_2 + W_4 = 0$:\n  $$W_{\\text{net}} = W_1 + W_3 = nRT_1 \\ln\\left(\\frac{V_2}{V_1}\\right) - nRT_2 \\ln\\left(\\frac{V_3}{V_4}\\right)$$\n\nFor the two adiabatic stages ($B \\to C$ and $D \\to A$):\n$$T_1 V_2^{\\gamma - 1} = T_2 V_3^{\\gamma - 1} \\quad \\text{and} \\quad T_1 V_1^{\\gamma - 1} = T_2 V_4^{\\gamma - 1}$$\nDividing these equations gives:\n$$\\left(\\frac{V_2}{V_1}\\right)^{\\gamma - 1} = \\left(\\frac{V_3}{V_4}\\right)^{\\gamma - 1} \\implies \\frac{V_2}{V_1} = \\frac{V_3}{V_4}$$\nTherefore:\n$$\\frac{Q_2}{Q_1} = \\frac{T_2 \\ln(V_3/V_4)}{T_1 \\ln(V_2/V_1)} = \\frac{T_2}{T_1}$$\nSubstituting into the thermal efficiency equation:\n$$\\eta_{\\text{carnot}} = 1 - \\frac{Q_2}{Q_1} = 1 - \\frac{T_2}{T_1}$$\n\n### 3. Carnot's Theorem\n1. *No heat engine operating between two given constant temperature reservoirs $T_1$ and $T_2$ can be more efficient than a reversible Carnot engine operating between the same two temperatures.*\n2. *All reversible engines operating between the same two temperatures have identical efficiencies, irrespective of the nature of the working substance.*\n$$\\eta_{\\text{real}} \\le \\eta_{\\text{carnot}} = 1 - \\frac{T_2}{T_1}$$\n\n### 4. Board Numerical Problem\n**Problem**: A Carnot engine absorbs $1000 \\text{ J}$ of heat from a heat reservoir at $500 \\text{ K}$ and rejects heat to a sink at $300 \\text{ K}$.\n1. Find the efficiency of the engine.\n2. Find the mechanical work delivered per cycle.\n3. Find the amount of heat rejected to the sink per cycle.\n- **Solution**:\n  - $T_1 = 500 \\text{ K}, T_2 = 300 \\text{ K}, Q_1 = 1000 \\text{ J}$.\n  - Efficiency: $\\eta = 1 - \\frac{300}{500} = 1 - 0.6 = 0.40 = 40\\%$.\n  - Work: $W = \\eta \\times Q_1 = 0.40 \\times 1000 = 400 \\text{ J}$.\n  - Heat rejected: $Q_2 = Q_1 - W = 1000 - 400 = 600 \\text{ J}$.",
-    "worked_examples": [],
+    "worked_examples": [
+      {
+        "problem": "A Carnot engine works between two heat reservoirs at temperatures T₁ = 750 K and T₂ = 350 K. (a) Calculate the theoretical efficiency of this Carnot engine. (b) If the engine absorbs 1500 J of heat from the source in each cycle, determine the mechanical work performed per cycle and the heat rejected to the sink. (c) If the sink temperature is lowered to 300 K while keeping the source temperature unchanged, find the new efficiency.",
+        "given": "Initial source temperature T₁ = 750 K, Initial sink temperature T₂ = 350 K, Heat absorbed Q₁ = 1500 J, New sink temperature T₂' = 300 K",
+        "to_calculate": "(a) Initial Carnot efficiency η₁, (b) Work W and heat rejected Q₂, (c) New efficiency η₂",
+        "formula": "(a) η = 1 - (T₂ / T₁)\n(b) W = η · Q₁; Q₂ = Q₁ - W\n(c) η' = 1 - (T₂' / T₁)",
+        "substitution": "(a) η₁ = 1 - (350 / 750) = 1 - 7/15\n(b) W = (8/15) × 1500 J; Q₂ = 1500 J - W\n(c) η₂ = 1 - (300 / 750) = 1 - 2/5",
+        "calculation": "(a) η₁ = 1 - 0.4667 = 0.5333 = 53.33%\n(b) W = 8 × 100 = 800 J; Q₂ = 1500 - 800 = 700 J\n(c) η₂ = 1 - 0.40 = 0.60 = 60.0%",
+        "rough_work": "[ROUGH_WORK]\n350 / 750 = 7 / 15 = 0.4667\n1 - 7/15 = 8/15 = 0.5333\nW = (8/15) × 1500 = 800 J\nQ₂ = 700 J\n300 / 750 = 2/5 = 0.40 => η = 60%",
+        "finalAnswer": "(a) Initial efficiency η₁ = 53.33%; (b) Work output W = 800 J, Heat rejected Q₂ = 700 J; (c) New efficiency with sink at 300 K η₂ = 60.0%",
+        "unit": "%, J",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Section 11.11, Pages 237-238",
+        "image_search_query": "carnot engine cycle efficiency pv indicator"
+      },
+      {
+        "problem": "Two Carnot engines A and B are connected in series. Engine A receives heat at temperature T₁ = 900 K and rejects heat at an intermediate temperature T₂ to engine B. Engine B takes in this rejected heat and exhausts to a sink at T₃ = 400 K. Calculate the intermediate temperature T₂ if (a) the work outputs of both engines are equal (W_A = W_B), and (b) the efficiencies of both engines are equal (η_A = η_B).",
+        "given": "High reservoir temperature T₁ = 900 K, Low reservoir temperature T₃ = 400 K, Intermediate reservoir temperature T₂",
+        "to_calculate": "Intermediate temperature T₂ under conditions: (a) W_A = W_B, (b) η_A = η_B",
+        "formula": "Efficiency η = W / Q => W = η · Q.\n(a) For equal work: W_A = Q₁ · (1 - T₂/T₁) and W_B = Q₂ · (1 - T₃/T₂). Since Q₂ = Q₁ · (T₂/T₁), W_B = Q₁ · (T₂/T₁) · (1 - T₃/T₂) = Q₁ · (T₂ - T₃)/T₁. Setting W_A = W_B gives: (T₁ - T₂) / T₁ = (T₂ - T₃) / T₁ => T₁ - T₂ = T₂ - T₃ => T₂ = (T₁ + T₃) / 2 (Arithmetic Mean).\n(b) For equal efficiencies: 1 - T₂/T₁ = 1 - T₃/T₂ => T₂ / T₁ = T₃ / T₂ => T₂² = T₁ · T₃ => T₂ = √(T₁ · T₃) (Geometric Mean).",
+        "substitution": "(a) T₂ = (900 K + 400 K) / 2\n(b) T₂ = √(900 K × 400 K) = √(360000) K",
+        "calculation": "(a) T₂ = 1300 / 2 = 650 K\n(b) T₂ = √360000 = 600 K",
+        "rough_work": "[ROUGH_WORK]\n(a) 900 + 400 = 1300; 1300 / 2 = 650 K\n(b) 900 × 400 = 360000; sqrt(360000) = 600 K",
+        "finalAnswer": "(a) For equal work outputs: T₂ = 650 K; (b) For equal efficiencies: T₂ = 600 K",
+        "unit": "K",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Section 11.11, Page 239",
+        "image_search_query": "carnot engines in series intermediate temperature"
+      }
+    ],
     "common_misconceptions": [
       "Confusing sign conventions or boundary conditions in Carnot Engine Cycle, Carnot Efficiency (η = 1 - T2/T1) & Carnot's Theorem",
       "Omitting SI units in final calculations during board examinations"
     ],
     "concept_questions": [
       {
-        "question": "Under what condition would a Carnot engine achieve 100% thermal efficiency?",
+        "question": "What are the four successive thermodynamic processes that constitute an ideal Carnot cycle in sequence on an indicator (P-V) diagram?",
         "options": [
-          "(Recommended) If the sink temperature T2 is at absolute zero (0 K), which is practically unattainable by the Third Law of Thermodynamics",
-          "If the working substance is helium instead of air",
-          "If the cylinder is lubricated with zero friction",
-          "If the source temperature T1 is 100°C"
+          "(Recommended) 1. Isothermal expansion, 2. Adiabatic expansion, 3. Isothermal compression, 4. Adiabatic compression",
+          "1. Isobaric expansion, 2. Isochoric cooling, 3. Isobaric compression, 4. Isochoric heating",
+          "1. Adiabatic expansion, 2. Isothermal expansion, 3. Adiabatic compression, 4. Isothermal compression",
+          "1. Isothermal expansion, 2. Isobaric expansion, 3. Isothermal compression, 4. Isobaric compression"
         ],
-        "correct_answer": "(Recommended) If the sink temperature T2 is at absolute zero (0 K), which is practically unattainable by the Third Law of Thermodynamics",
-        "explanation": "Efficiency η = 1 - T2/T1. For η = 1, T2 must be 0 K or T1 must be infinity. Since absolute zero cannot be reached in a finite number of steps, 100% efficiency is physically impossible."
+        "correctAnswer": "(Recommended) 1. Isothermal expansion, 2. Adiabatic expansion, 3. Isothermal compression, 4. Adiabatic compression",
+        "correct_answer": "(Recommended) 1. Isothermal expansion, 2. Adiabatic expansion, 3. Isothermal compression, 4. Adiabatic compression",
+        "explanation": "The Carnot cycle consists of two reversible isotherms (at T₁ and T₂) linked by two reversible adiabats, returning the ideal gas to its initial state.",
+        "hint": "Recall the sequence alternating between isothermal and adiabatic stages.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 11.11, Page 237",
+        "image_search_query": "carnot cycle four stages pv indicator"
+      },
+      {
+        "question": "According to Carnot's Theorem, what factors determine the maximum possible thermal efficiency of any reversible heat engine operating between two given temperatures?",
+        "options": [
+          "(Recommended) Only the absolute temperatures of the hot source (T₁) and cold sink (T₂), completely independent of the working substance",
+          "The molar mass and specific heat ratio γ of the working gas",
+          "The total volume of the engine cylinder and pressure limits",
+          "The rate of heat transfer through the cylinder walls"
+        ],
+        "correctAnswer": "(Recommended) Only the absolute temperatures of the hot source (T₁) and cold sink (T₂), completely independent of the working substance",
+        "correct_answer": "(Recommended) Only the absolute temperatures of the hot source (T₁) and cold sink (T₂), completely independent of the working substance",
+        "explanation": "Carnot's theorem proves that all reversible engines operating between the same two temperatures have the identical maximum efficiency η = 1 - T₂/T₁, regardless of whether the working substance is helium, air, steam, or liquid.",
+        "hint": "Carnot efficiency formula η = 1 - T₂/T₁ contains only two variables.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 11.11, Page 239",
+        "image_search_query": "carnot theorem working substance independence"
+      },
+      {
+        "question": "To increase the efficiency of a Carnot engine by a given percentage, is it more effective to raise the source temperature T₁ by ΔT or to lower the sink temperature T₂ by the same ΔT?",
+        "options": [
+          "(Recommended) Lowering the sink temperature T₂ by ΔT is more effective because T₂ < T₁",
+          "Raising the source temperature T₁ by ΔT is always more effective",
+          "Both choices yield the mathematically identical increase in efficiency",
+          "Neither changes the efficiency because efficiency depends only on ratio of pressures"
+        ],
+        "correctAnswer": "(Recommended) Lowering the sink temperature T₂ by ΔT is more effective because T₂ < T₁",
+        "correct_answer": "(Recommended) Lowering the sink temperature T₂ by ΔT is more effective because T₂ < T₁",
+        "explanation": "Efficiency η = 1 - T₂/T₁. The sensitivity |∂η/∂T₂| = 1/T₁, while ∂η/∂T₁ = T₂/T₁². Since T₂ < T₁, we have 1/T₁ > T₂/T₁². Thus decreasing T₂ by ΔT increases efficiency more than increasing T₁ by the same ΔT.",
+        "hint": "Compare the derivatives |∂η/∂T₂| = 1/T₁ and ∂η/∂T₁ = T₂/T₁².",
+        "blooms_level": "Analyze",
+        "textbook_reference": "Section 11.11, Page 238",
+        "image_search_query": "increase carnot efficiency source vs sink temperature"
+      },
+      {
+        "question": "Can the thermal efficiency of any heat engine operating between finite source and sink temperatures ever equal 100% (η = 1)?",
+        "options": [
+          "(Recommended) No, because achieving η = 1 would require the cold sink to be at absolute zero (T₂ = 0 K), which is unattainable by the Third Law of Thermodynamics",
+          "Yes, by using an ideal monoatomic gas with zero molecular friction",
+          "Yes, provided all four processes in the cycle are conducted infinitely slowly",
+          "No, only because real engines experience mechanical friction in their bearings"
+        ],
+        "correctAnswer": "(Recommended) No, because achieving η = 1 would require the cold sink to be at absolute zero (T₂ = 0 K), which is unattainable by the Third Law of Thermodynamics",
+        "correct_answer": "(Recommended) No, because achieving η = 1 would require the cold sink to be at absolute zero (T₂ = 0 K), which is unattainable by the Third Law of Thermodynamics",
+        "explanation": "For η = 1 - T₂/T₁ to equal 1, T₂ must be 0 K or T₁ must be ∞. Absolute zero (0 K) cannot be reached in a finite number of thermodynamic steps, making 100% efficiency fundamentally impossible in nature.",
+        "hint": "Check the condition for η = 1 - T₂/T₁ = 1.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 11.11, Page 238",
+        "image_search_query": "absolute zero third law carnot efficiency limit"
       }
     ],
     "concept_visuals": [
@@ -383,15 +760,135 @@
     "chapter_notes": "# Chapter 11: Thermodynamics\n## Module 70: Comprehensive NCERT Exercises 11.1 to 11.10 Detailed Step-by-Step Solver\n\n### Exercise 11.1\n**Question**: A geyser heats water flowing at the rate of $2.0 \\text{ litres per minute}$ from $27^\\circ\\text{C}$ to $77^\\circ\\text{C}$. If the geyser operates on a gas burner, what is the rate of consumption of the fuel if its heat of combustion is $4.0 \\times 10^4 \\text{ J/g}$?\n- **Step 1**: Volume flow rate = $2.0 \\text{ L/min} = \\frac{2.0 \\times 10^{-3} \\text{ m}^3}{60 \\text{ s}}$.\n  Mass flow rate $m' = \\frac{2.0 \\text{ kg}}{60 \\text{ s}} = \\frac{1}{30} \\text{ kg/s}$.\n- **Step 2**: Temperature increase $\\Delta T = 77 - 27 = 50^\\circ\\text{C} = 50 \\text{ K}$.\n  Specific heat capacity of water $c = 4184 \\text{ J/(kg K)}$.\n- **Step 3**: Rate of heat required:\n  $$\\frac{dQ}{dt} = m' c \\Delta T = \\left(\\frac{1}{30}\\right) \\times 4184 \\times 50 = \\frac{209200}{30} \\approx 6973.3 \\text{ J/s}$$\n- **Step 4**: Fuel consumption rate:\n  Heat of combustion $H = 4.0 \\times 10^4 \\text{ J/g} = 4.0 \\times 10^7 \\text{ J/kg}$.\n  $$\\frac{dm_{\\text{fuel}}}{dt} = \\frac{dQ/dt}{H} = \\frac{6973.3}{4.0 \\times 10^7} \\approx 1.743 \\times 10^{-4} \\text{ kg/s} = 0.174 \\text{ g/s} = 10.46 \\text{ g/min}$$\n- **Boxed Answer**: Fuel consumption rate = **$10.5 \\text{ g/min}$**.\n\n---\n\n### Exercise 11.2\n**Question**: What amount of heat must be supplied to $2.0 \\times 10^{-2} \\text{ kg}$ of nitrogen (at room temperature) to raise its temperature by $45^\\circ\\text{C}$ at constant pressure? (Molecular mass of $N_2 = 28$, $R = 8.3 \\text{ J/(mol K)}$).\n- **Step 1**: Number of moles $n = \\frac{m}{M} = \\frac{20 \\text{ g}}{28 \\text{ g/mol}} = \\frac{5}{7} \\text{ mol}$.\n- **Step 2**: Molar heat capacity at constant pressure for diatomic $N_2$:\n  $$C_p = \\frac{7}{2}R = 3.5 \\times 8.3 = 29.05 \\text{ J/(mol K)}$$\n- **Step 3**: Heat required:\n  $$Q = n C_p \\Delta T = \\left(\\frac{5}{7}\\right) \\times 29.05 \\times 45 = 933.75 \\text{ J}$$\n- **Boxed Answer**: Heat required = **$934 \\text{ J}$**.\n\n---\n\n### Exercise 11.3\n**Question**: Explain why:\n1. Two bodies at different temperatures $T_1$ and $T_2$ if brought in thermal contact do not necessarily settle to the mean temperature $(T_1 + T_2)/2$.\n2. The coolant in a chemical or nuclear plant should have high specific heat.\n3. Air pressure in a car tyre increases during driving.\n4. The climate of a harbour town is more temperate than that of a town in a desert at the same latitude.\n- **Answers**:\n  1. Equilibrium temperature depends on heat capacities ($m_1 c_1$ and $m_2 c_2$). Heat lost = Heat gained: $m_1 c_1 (T_1 - T) = m_2 c_2 (T - T_2)$. Only if $m_1 c_1 = m_2 c_2$ does $T = (T_1 + T_2)/2$.\n  2. High specific heat enables the coolant to absorb large amounts of heat with only a small rise in its own temperature, maximizing cooling efficiency.\n  3. Friction between the rolling tyre and the road does work on the tyre, heating the trapped air. By Gay-Lussac's Law at constant volume, $P \\propto T$, so pressure increases.\n  4. Water has a tremendous specific heat capacity ($4184 \\text{ J/(kg K)}$) compared to land/sand. The sea absorbs heat during hot days and releases it slowly at night, moderating coastal temperature extremes.\n\n---\n\n### Exercise 11.4\n**Question**: In changing the state of a gas adiabatically from an equilibrium state $A$ to another equilibrium state $B$, an amount of work equal to $22.3 \\text{ J}$ is done on the system. If the gas is taken from state $A$ to $B$ via a process in which the net heat absorbed by the system is $9.35 \\text{ cal}$, how much is the net work done by the system in the latter case? ($1 \\text{ cal} = 4.19 \\text{ J}$).\n- **Step 1**: For adiabatic path ($A \\to B$), $Q = 0$, $W_{\\text{adia}} = -22.3 \\text{ J}$ (work done on system).\n  By First Law: $\\Delta U = U_B - U_A = Q - W = 0 - (-22.3) = +22.3 \\text{ J}$.\n- **Step 2**: For second path ($A \\to B$):\n  Heat absorbed $Q = 9.35 \\text{ cal} = 9.35 \\times 4.19 \\text{ J} = 39.18 \\text{ J}$.\n  Since internal energy is a state function, $\\Delta U$ is identical: $\\Delta U = +22.3 \\text{ J}$.\n- **Step 3**: Work done by system:\n  $$W = Q - \\Delta U = 39.18 - 22.3 = 16.88 \\text{ J}$$\n- **Boxed Answer**: Net work done by the system = **$16.9 \\text{ J}$**.\n\n---\n\n### Exercise 11.5\n**Question**: A thermodynamic system is taken from an original state to an intermediate state by the linear process shown in Fig. (11.1). Its volume is then reduced to the original value by an isobaric process. Calculate the total work done by the gas from $E$ to $F$ to $G$.\n- **Step 1**: Identify indicator diagram: $E \\to F$ is linear expansion from $(P_E, V_E)$ to $(P_F, V_F)$, $F \\to G$ is isobaric compression at $P_F$.\n- **Step 2**: Work done in a cyclic or multi-stage path is the area under the trajectory on the $P-V$ diagram.\n- **Boxed Answer**: Work done = **Area under the curve on $P-V$ diagram**.\n\n---\n\n### Exercise 11.6 to 11.10 Key Insights\n- **Carnot Refrigerator COP**: $\\beta = \\frac{T_2}{T_1 - T_2}$. For freezing water into ice at $0^\\circ\\text{C}$ in a room at $27^\\circ\\text{C}$, $\\beta = \\frac{273}{300 - 273} = \\frac{273}{27} \\approx 10.1$.\n- **Steam Engine Efficiency**: Operates between boiler ($T_1$) and condenser ($T_2$). Even ideal Carnot efficiency rarely exceeds $30\\%$ to $40\\%$ for conventional temperature differentials.",
     "worked_examples": [
       {
-        "example_title": "NCERT Rigorous Application - Comprehensive NCERT Exercises 11.1 to 11.10 Detailed Step-by-Step Solver",
-        "problem_statement": "Detailed step-by-step problem walkthrough from NCERT Chapter 11.",
-        "step_by_step_solution": [
-          "Step 1: Identify given physical parameters with standard SI units.",
-          "Step 2: Apply core governing physics laws and algebraic formulas.",
-          "Step 3: Substitute numerical values and perform dimensional check.",
-          "Step 4: Box final numerical result with appropriate physical units."
-        ],
-        "boxed_answer": "Complete step-by-step derivation verified."
+        "problem": "NCERT Exercise 11.1: A geyser heats water flowing at the rate of 3.0 litres per minute from 27 °C to 77 °C. If the geyser operates on a gas burner, what is the rate of consumption of the fuel if its heat of combustion is 4.0 × 10⁴ J/g ?",
+        "given": "Volume flow rate of water V/t = 3.0 L min⁻¹ = 3.0 × 10⁻³ m³ min⁻¹ = (3.0 × 10⁻³ / 60) m³ s⁻¹ = 5.0 × 10⁻⁵ m³ s⁻¹, Density of water ρ = 1000 kg m⁻³, Mass flow rate m/t = ρ · (V/t) = 1000 × 5.0 × 10⁻⁵ = 5.0 × 10⁻² kg s⁻¹ = 3.0 kg min⁻¹, Initial temperature T₁ = 27 °C, Final temperature T₂ = 77 °C => ΔT = 77 - 27 = 50 °C = 50 K, Specific heat capacity of water c = 4186 J kg⁻¹ K⁻¹ ≈ 4.2 × 10³ J kg⁻¹ K⁻¹, Heat of combustion of fuel H = 4.0 × 10⁴ J g⁻¹ = 4.0 × 10⁷ J kg⁻¹",
+        "to_calculate": "Rate of consumption of fuel (dm_fuel / dt)",
+        "formula": "Rate of heat absorbed by water: dQ/dt = (dm_water / dt) · c · ΔT\nHeat supplied by fuel: dQ/dt = (dm_fuel / dt) · H\nEquating both: (dm_fuel / dt) = [ (dm_water / dt) · c · ΔT ] / H",
+        "substitution": "(dm_fuel / dt) = [ (3.0 kg min⁻¹) × (4186 J kg⁻¹ K⁻¹) × (50 K) ] / (4.0 × 10⁷ J kg⁻¹)",
+        "calculation": "dQ/min = 3.0 × 4186 × 50 = 627900 J min⁻¹ = 6.279 × 10⁵ J min⁻¹\nRate of fuel consumption in kg/min:\n(dm_fuel / dt) = 6.279 × 10⁵ / (4.0 × 10⁷) = 0.0156975 kg min⁻¹\nConverting to grams per minute (g/min):\nRate = 0.0157 kg min⁻¹ × 1000 g/kg = 15.7 g min⁻¹",
+        "rough_work": "[ROUGH_WORK]\n3 × 4186 × 50 = 627,900 J/min\nHeat of combustion = 40,000 J/g\nRate = 627,900 / 40,000 = 15.6975 g/min ≈ 15.7 g/min.",
+        "finalAnswer": "Rate of fuel consumption = 15.7 g min⁻¹ (or 0.262 g s⁻¹)",
+        "unit": "g min⁻¹",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Exercise 11.1, Page 242",
+        "image_search_query": "geyser water heating gas consumption calculation"
+      },
+      {
+        "problem": "NCERT Exercise 11.2: What amount of heat must be supplied to 2.0 × 10⁻² kg of nitrogen (at room temperature) to raise its temperature by 45 °C at constant pressure? (Molecular mass of N₂ = 28; R = 8.3 J mol⁻¹ K⁻¹.)",
+        "given": "Mass of nitrogen m = 2.0 × 10⁻² kg = 20.0 g, Molar mass of N₂ M = 28 g mol⁻¹ = 28 × 10⁻³ kg mol⁻¹, Temperature rise ΔT = 45 °C = 45 K, Gas constant R = 8.3 J mol⁻¹ K⁻¹",
+        "to_calculate": "Amount of heat supplied at constant pressure Q_p",
+        "formula": "Number of moles: μ = m / M\nNitrogen is a diatomic gas with 5 degrees of freedom at room temperature.\nMolar heat capacity at constant pressure: C_p = (7/2) · R\nHeat supplied: Q_p = μ · C_p · ΔT = (m / M) · (7/2 · R) · ΔT",
+        "substitution": "μ = 20.0 / 28 = 0.7143 mol\nC_p = (7/2) × 8.3 J mol⁻¹ K⁻¹ = 29.05 J mol⁻¹ K⁻¹\nQ_p = (0.7143 mol) × (29.05 J mol⁻¹ K⁻¹) × (45 K)",
+        "calculation": "Q_p = (20.0 / 28) × 29.05 × 45\n= (5 / 7) × 29.05 × 45 = 0.71428 × 1307.25 = 933.75 J ≈ 934 J",
+        "rough_work": "[ROUGH_WORK]\n20 / 28 = 5/7\nC_p = 3.5 × 8.3 = 29.05\nQ_p = (5/7) × 29.05 × 45 = 933.75 J",
+        "finalAnswer": "Heat required to raise temperature at constant pressure Q_p = 934 J",
+        "unit": "J",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Exercise 11.2, Page 242",
+        "image_search_query": "molar heat capacity constant pressure nitrogen"
+      },
+      {
+        "problem": "NCERT Exercise 11.3: Explain why:\n(a) Two bodies at different temperatures T₁ and T₂ if brought in thermal contact do not necessarily settle to the mean temperature (T₁ + T₂)/2.\n(b) The coolant in a chemical or a nuclear plant (i.e., the liquid used to prevent the different parts of a plant from getting too hot) should have high specific heat.\n(c) Air pressure in a car tyre increases during driving.\n(d) The climate of a harbour town is more temperate than that of a town in a desert at the same latitude.",
+        "given": "Theoretical concepts based on heat exchange, heat capacity, gas laws, and thermal moderation",
+        "to_calculate": "Systematic scientific explanations for parts (a), (b), (c), and (d)",
+        "formula": "(a) Heat lost = Heat gained => m₁ · c₁ · (T₁ - T_f) = m₂ · c₂ · (T_f - T₂)\n(b) Q = m · c · ΔT => ΔT = Q / (m · c)\n(c) Gay-Lussac's Law: P / T = constant for constant volume\n(d) Specific heat capacity of water c_water = 4186 J kg⁻¹ K⁻¹ vs sand/rock c_sand ≈ 800 J kg⁻¹ K⁻¹",
+        "substitution": "Qualitative step-by-step physical reasoning with standard governing laws",
+        "calculation": "(a) Final equilibrium temperature T_f = (m₁ c₁ T₁ + m₂ c₂ T₂) / (m₁ c₁ + m₂ c₂). T_f equals (T₁ + T₂)/2 ONLY if the two bodies have identical thermal capacities (m₁ c₁ = m₂ c₂). If their masses or specific heats differ, T_f will be closer to the temperature of the body with larger thermal capacity.\n(b) A coolant with high specific heat absorbs a tremendous amount of heat Q with only a minimal rise in its temperature (ΔT = Q/(mc)), preventing the reactor core from overheating without boiling away.\n(c) During driving, continuous frictional rolling resistance between the tyre rubber and the asphalt road generates heat. This increases the temperature T of the air inside the tyre. Since the tyre volume V is approximately constant, by Gay-Lussac's Law (P ∝ T), the internal air pressure increases.\n(d) Water has an exceptionally high specific heat capacity (4186 J kg⁻¹ K⁻¹), nearly 5 times that of dry sand/soil (≈ 800 J kg⁻¹ K⁻¹). Water absorbs and releases large amounts of heat with minimal temperature change, exerting a strong moderating maritime influence on coastal towns, preventing extreme temperature swings seen in arid deserts.",
+        "rough_work": "[ROUGH_WORK]\n(a) T_f = (C₁T₁ + C₂T₂) / (C₁ + C₂)\n(b) ΔT ∝ 1/c\n(c) P ∝ T at const V\n(d) c_water >> c_sand",
+        "finalAnswer": "Explanations verified: (a) Equilibrium depends on thermal capacities m₁c₁ and m₂c₂; (b) High specific heat ensures maximum heat absorption per degree rise; (c) Friction heats trapped air raising pressure (P ∝ T); (d) High specific heat of sea water moderates coastal diurnal and seasonal temperatures.",
+        "unit": "Qualitative Conceptual Derivation",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Exercise 11.3, Page 242",
+        "image_search_query": "thermal contact specific heat coolant ocean climate"
+      },
+      {
+        "problem": "NCERT Exercise 11.4: A cylinder with a movable piston contains 3 moles of hydrogen at standard temperature and pressure (STP). The walls of the cylinder are made of a heat insulator, and the piston is insulated by having a pile of sand on it. By what factor does the pressure of the gas increase if the gas is compressed to half its original volume? (Take γ = 1.4 for H₂)",
+        "given": "Number of moles μ = 3 mol, Diatomic gas hydrogen H₂ has γ = 1.4, Perfectly insulated walls => Adiabatic process (ΔQ = 0), Initial volume = V₁, Final volume V₂ = V₁ / 2 => V₁ / V₂ = 2.0",
+        "to_calculate": "Factor of pressure increase (P₂ / P₁)",
+        "formula": "Adiabatic equation of state: P₁ · V₁ᵞ = P₂ · V₂ᵞ ⇒ P₂ / P₁ = (V₁ / V₂)ᵞ",
+        "substitution": "P₂ / P₁ = (2.0)¹·⁴",
+        "calculation": "(2)¹·⁴ = 2⁷ᐟ⁵ = 2¹·⁴\nUsing logarithms:\nlog₁₀(2¹·⁴) = 1.4 × log₁₀(2) = 1.4 × 0.30103 = 0.42144\nAntilog(0.42144) = 10⁰·⁴²¹⁴4 = 2.639 ≈ 2.64",
+        "rough_work": "[ROUGH_WORK]\n2¹·⁴ = 2.6390158\nFactor = 2.64",
+        "finalAnswer": "The pressure of the gas increases by a factor of 2.64 (P₂ = 2.64 P₁)",
+        "unit": "Dimensionless ratio",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Exercise 11.4, Page 242",
+        "image_search_query": "adiabatic compression hydrogen pressure factor"
+      },
+      {
+        "problem": "NCERT Exercise 11.5: In changing the state of a gas adiabatically from an equilibrium state A to another equilibrium state B, an amount of work equal to 22.3 J is done on the system. If the gas is taken from state A to B via a process in which the net heat absorbed by the system is 9.35 cal, how much is the net work done by the system in the latter case? (Take 1 cal = 4.19 J)",
+        "given": "Adiabatic path (A → B): Work done on the system W_adia = -22.3 J, Heat exchanged Q_adia = 0 J\nNon-adiabatic path (A → B): Net heat absorbed Q = 9.35 cal, Conversion factor 1 cal = 4.19 J",
+        "to_calculate": "Net work done by the system W in the second process",
+        "formula": "First Law of Thermodynamics: ΔQ = ΔU + ΔW\nFor adiabatic path: ΔU = Q_adia - W_adia = 0 - (-22.3 J) = +22.3 J\nSince internal energy U is a state function, ΔU is identical for both paths: ΔU = +22.3 J\nFor second path: W = Q - ΔU",
+        "substitution": "Q in Joules: Q = 9.35 cal × 4.19 J cal⁻¹ = 39.1765 J\nW = 39.1765 J - 22.3 J",
+        "calculation": "Q = 9.35 × 4.19 = 39.18 J\nW = 39.18 - 22.30 = +16.88 J ≈ +16.9 J",
+        "rough_work": "[ROUGH_WORK]\n9.35 × 4.19 = 39.1765\n39.1765 - 22.3 = 16.8765 ≈ 16.9 J",
+        "finalAnswer": "Net work done by the system in the second process W = +16.9 J",
+        "unit": "J",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Exercise 11.5, Page 242",
+        "image_search_query": "first law state function internal energy work done"
+      },
+      {
+        "problem": "NCERT Exercise 11.6: Two cylinders A and B of equal capacity are connected to each other via a stopcock. A contains a gas at standard temperature and pressure (STP: P₁ = 1 atm, T₁ = 273 K). B is completely evacuated. The entire system is thermally insulated. The stopcock is suddenly opened. Answer the following:\n(a) What is the final pressure of the gas in A and B?\n(b) What is the change in internal energy of the gas?\n(c) What is the change in the temperature of the gas?\n(d) Do the intermediate states of the system (before settling to the final equilibrium state) lie on its P-V-T surface?",
+        "given": "Equal volume of cylinders V_A = V_B = V, Initial state in A: P₁ = 1 atm, V₁ = V, T₁ = 273 K; B is vacuum. Thermally insulated system (Q = 0). Sudden free expansion into vacuum.",
+        "to_calculate": "(a) Final pressure P₂, (b) Change in internal energy ΔU, (c) Change in temperature ΔT, (d) Thermodynamic equilibrium path validity on P-V-T surface",
+        "formula": "Free expansion of a gas against zero external opposing pressure: P_ext = 0 => W = 0.\nInsulated walls => Q = 0.\nFirst Law: ΔU = Q - W = 0 - 0 = 0.\nFor an ideal gas, U = U(T); since ΔU = 0 => ΔT = 0 (T₂ = T₁).\nBoyle's Law for initial and final states: P₁ · V₁ = P₂ · V₂.",
+        "substitution": "(a) Total final volume V₂ = V_A + V_B = V + V = 2V\nP₂ = P₁ · (V₁ / V₂) = 1 atm × (V / 2V) = 0.5 atm",
+        "calculation": "(a) Final pressure P₂ = 0.5 atm\n(b) Change in internal energy ΔU = 0 J (since Q = 0 and W = 0)\n(c) Change in temperature ΔT = 0 K (final temperature remains 273 K)\n(d) No. The free expansion is a rapid, turbulent, non-equilibrium irreversible process. Intermediate states have non-uniform pressure and temperature throughout the volume and do not correspond to thermodynamic equilibrium states, hence they do not lie on the equilibrium P-V-T equation of state surface.",
+        "rough_work": "[ROUGH_WORK]\nFree expansion: W = 0, Q = 0 => ΔU = 0 => ΔT = 0.\nP₂ = P₁ / 2 = 0.5 atm.\nIntermediate states non-equilibrium => not on P-V-T surface.",
+        "finalAnswer": "(a) Final pressure P₂ = 0.5 atm; (b) ΔU = 0; (c) ΔT = 0; (d) No, intermediate non-equilibrium states do not lie on the P-V-T surface.",
+        "unit": "atm, J, K, Conceptual",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Exercise 11.6, Page 242",
+        "image_search_query": "free expansion joule expansion pvt surface"
+      },
+      {
+        "problem": "NCERT Exercise 11.7: An electric heater supplies heat to a system at a rate of 100 W. If the system performs work at a rate of 75 joules per second, at what rate is the internal energy increasing?",
+        "given": "Rate of heat supply dQ/dt = +100 W = +100 J s⁻¹, Rate of work done by system dW/dt = +75 J s⁻¹",
+        "to_calculate": "Rate of increase of internal energy (dU/dt)",
+        "formula": "Differential form of First Law of Thermodynamics: dQ/dt = dU/dt + dW/dt => dU/dt = dQ/dt - dW/dt",
+        "substitution": "dU/dt = 100 J s⁻¹ - 75 J s⁻¹",
+        "calculation": "dU/dt = 25 J s⁻¹ = 25 W",
+        "rough_work": "[ROUGH_WORK]\n100 - 75 = 25 W.",
+        "finalAnswer": "Rate of increase of internal energy dU/dt = 25 W (or 25 J s⁻¹)",
+        "unit": "W (or J s⁻¹)",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Exercise 11.7, Page 242",
+        "image_search_query": "first law rate form internal energy power"
+      },
+      {
+        "problem": "NCERT Exercise 11.8: A thermodynamic system is taken from an original state to an intermediate state by the linear process shown in Fig. 11.11. Its volume is then reduced to the original value from E to F by an isobaric process. Calculate the total work done by the gas from D to E to F. (Figure 11.11 specifications: State D: P_D = 6.0 × 10⁴ Pa, V_D = 2.0 m³; State E: P_E = 2.0 × 10⁴ Pa, V_E = 5.0 m³; State F: P_F = 2.0 × 10⁴ Pa, V_F = 2.0 m³)",
+        "given": "Coordinates from Fig. 11.11:\nPoint D: (P_D = 6.0 × 10⁴ Pa, V_D = 2.0 m³)\nPoint E: (P_E = 2.0 × 10⁴ Pa, V_E = 5.0 m³)\nPoint F: (P_F = 2.0 × 10⁴ Pa, V_F = 2.0 m³)\nProcess D → E: Linear expansion from V = 2.0 m³ to 5.0 m³\nProcess E → F: Isobaric compression from V = 5.0 m³ to 2.0 m³ at constant P = 2.0 × 10⁴ Pa",
+        "to_calculate": "Total work done by the gas W_total = W_DE + W_EF",
+        "formula": "Work done is area under the P-V graph:\nW_DE = Area of trapezium under line DE = ½ · (P_D + P_E) · (V_E - V_D)\nW_EF = P_E · (V_F - V_E) = P_E · (V_D - V_E)\nTotal work W_total = W_DE + W_EF = Area of triangle DEF = ½ · (P_D - P_E) · (V_E - V_D)",
+        "substitution": "W_DE = ½ × (6.0 × 10⁴ Pa + 2.0 × 10⁴ Pa) × (5.0 m³ - 2.0 m³) = ½ × (8.0 × 10⁴) × 3.0 J\nW_EF = (2.0 × 10⁴ Pa) × (2.0 m³ - 5.0 m³) = 2.0 × 10⁴ × (-3.0) J\nW_total = W_DE + W_EF",
+        "calculation": "W_DE = 4.0 × 10⁴ × 3.0 = +1.20 × 10⁵ J = +120 kJ\nW_EF = 2.0 × 10⁴ × (-3.0) = -6.0 × 10⁴ J = -60 kJ\nW_total = 1.20 × 10⁵ J - 0.60 × 10⁵ J = +6.0 × 10⁴ J = +60 kJ\nDirect triangle check: W_total = Area(ΔDEF) = ½ × (P_D - P_F) × (V_E - V_D) = ½ × (4.0 × 10⁴) × 3.0 = 6.0 × 10⁴ J = 60 kJ.",
+        "rough_work": "[ROUGH_WORK]\nTrapezium area = 0.5 × 80000 × 3 = 120,000 J\nIsobaric compression = 20000 × (-3) = -60,000 J\nTotal = 120,000 - 60,000 = 60,000 J = 60 kJ.",
+        "finalAnswer": "Total work done by the gas from D to E to F is W_total = 6.0 × 10⁴ J (or 60 kJ)",
+        "unit": "J (or kJ)",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Exercise 11.8, Page 243",
+        "figure_reference": "Fig. 11.11",
+        "image_search_query": "pv indicator diagram triangle work calculation"
+      },
+      {
+        "problem": "NCERT Exercise 11.9: A refrigerator is to maintain eatables kept inside at 9 °C. If room temperature is 36 °C, calculate the coefficient of performance (COP) of the refrigerator.",
+        "given": "Temperature inside refrigerator T₂ = 9 °C = (9 + 273.15) K = 282.15 K ≈ 282 K, Room temperature T₁ = 36 °C = (36 + 273.15) K = 309.15 K ≈ 309 K",
+        "to_calculate": "Coefficient of performance (COP, β) of the refrigerator",
+        "formula": "Ideal Carnot COP: β = T₂ / (T₁ - T₂)",
+        "substitution": "β = 282.15 K / (309.15 K - 282.15 K) = 282.15 / 27.0",
+        "calculation": "β = 282.15 / 27.0 = 10.45",
+        "rough_work": "[ROUGH_WORK]\n282.15 / 27.0 = 10.45\nIf using 282 / 27 = 10.44.",
+        "finalAnswer": "The coefficient of performance of the refrigerator is β = 10.45 (or 10.4)",
+        "unit": "Dimensionless ratio",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Section 11.9, Standard Syllabus Exercise 11.9",
+        "image_search_query": "refrigerator cop coefficient of performance calculation"
+      },
+      {
+        "problem": "NCERT Exercise 11.10: A Carnot engine operates with an efficiency of 40% when its sink temperature is at 300 K. By how much must the source temperature be increased if the efficiency is to be increased to 50%, keeping the sink temperature unchanged?",
+        "given": "Initial sink temperature T₂ = 300 K, Initial efficiency η₁ = 40% = 0.40, Target efficiency η₂ = 50% = 0.50, Sink temperature unchanged T₂' = 300 K",
+        "to_calculate": "Increase in source temperature ΔT₁ = T₁' - T₁",
+        "formula": "Carnot efficiency: η = 1 - (T₂ / T₁) => T₁ = T₂ / (1 - η)",
+        "substitution": "Initial source temp: T₁ = 300 K / (1 - 0.40) = 300 / 0.60\nNew source temp: T₁' = 300 K / (1 - 0.50) = 300 / 0.50",
+        "calculation": "T₁ = 300 / 0.60 = 500 K\nT₁' = 300 / 0.50 = 600 K\nIncrease ΔT₁ = T₁' - T₁ = 600 K - 500 K = 100 K",
+        "rough_work": "[ROUGH_WORK]\nT₁ = 300 / 0.6 = 500 K\nT₁' = 300 / 0.5 = 600 K\nΔT₁ = 600 - 500 = 100 K",
+        "finalAnswer": "The source temperature must be increased by 100 K (or 100 °C)",
+        "unit": "K (or °C)",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 11, Section 11.11, Standard Syllabus Exercise 11.10",
+        "image_search_query": "carnot engine efficiency source temperature increase"
       }
     ],
     "common_misconceptions": [
@@ -400,15 +897,101 @@
     ],
     "concept_questions": [
       {
-        "question": "In an adiabatic process from state A to B, 22.3 J of work is done on the system. If taken from A to B via another path absorbing 39.2 J of heat, what is the work done?",
+        "question": "In NCERT Exercise 11.5, when a gas is transformed from state A to B adiabatically, 22.3 J of work is done ON the system. Along another non-adiabatic path absorbing 39.2 J of heat, what is the net work done BY the gas?",
         "options": [
-          "(Recommended) 16.9 J",
-          "22.3 J",
-          "61.5 J",
-          "-16.9 J"
+          "(Recommended) +16.9 J",
+          "+61.5 J",
+          "-16.9 J",
+          "+22.3 J"
         ],
-        "correct_answer": "(Recommended) 16.9 J",
-        "explanation": "ΔU = -W_adia = +22.3 J. For the new path, W = Q - ΔU = 39.2 J - 22.3 J = 16.9 J."
+        "correctAnswer": "(Recommended) +16.9 J",
+        "correct_answer": "(Recommended) +16.9 J",
+        "explanation": "Since internal energy is a state function, ΔU = Q_adia - W_adia = 0 - (-22.3 J) = +22.3 J. For the new path: W = Q - ΔU = 39.2 J - 22.3 J = +16.9 J.",
+        "hint": "Apply ΔU = Q - W with ΔU = +22.3 J.",
+        "blooms_level": "Apply",
+        "textbook_reference": "Exercise 11.5, Page 242",
+        "image_search_query": "first law state function work calculation"
+      },
+      {
+        "question": "During the free expansion of an ideal gas into a vacuum inside an insulated vessel (NCERT Exercise 11.6), why does the temperature of the gas remain unchanged?",
+        "options": [
+          "(Recommended) Because no heat is exchanged (Q = 0) and no work is done against vacuum (W = 0), so ΔU = 0, and U depends only on T for an ideal gas",
+          "Because the molecules lose potential energy which converts into kinetic energy",
+          "Because high pressure suppresses molecular speeds",
+          "Because the stopcock conducts heat into the vacuum"
+        ],
+        "correctAnswer": "(Recommended) Because no heat is exchanged (Q = 0) and no work is done against vacuum (W = 0), so ΔU = 0, and U depends only on T for an ideal gas",
+        "correct_answer": "(Recommended) Because no heat is exchanged (Q = 0) and no work is done against vacuum (W = 0), so ΔU = 0, and U depends only on T for an ideal gas",
+        "explanation": "Free expansion involves no external opposing force (P_ext = 0 => W = 0) and no heat transfer through insulation (Q = 0). Thus ΔU = 0. For an ideal gas with zero intermolecular potential energy, U depends purely on T, so ΔT = 0.",
+        "hint": "Analyze W and Q during expansion against zero opposing pressure.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Exercise 11.6, Page 242",
+        "image_search_query": "free expansion temperature ideal gas"
+      },
+      {
+        "question": "In NCERT Exercise 11.4, when 3 moles of hydrogen gas are compressed adiabatically to half their initial volume (V₂ = V₁/2 with γ = 1.4), by what factor does the temperature of the gas change?",
+        "options": [
+          "(Recommended) Increases by a factor of 1.32 (T₂ = 1.32 T₁)",
+          "Increases by a factor of 2.64",
+          "Decreases by a factor of 0.50",
+          "Remains constant because it is insulated"
+        ],
+        "correctAnswer": "(Recommended) Increases by a factor of 1.32 (T₂ = 1.32 T₁)",
+        "correct_answer": "(Recommended) Increases by a factor of 1.32 (T₂ = 1.32 T₁)",
+        "explanation": "For adiabatic process: T₁ · V₁ᵞ⁻¹ = T₂ · V₂ᵞ⁻¹ ⇒ T₂ / T₁ = (V₁ / V₂)ᵞ⁻¹ = (2)⁰·⁴ ≈ 1.3195 ≈ 1.32.",
+        "hint": "Use T₂/T₁ = (V₁/V₂)ᵞ⁻¹ with γ = 1.4.",
+        "blooms_level": "Apply",
+        "textbook_reference": "Exercise 11.4, Page 242",
+        "image_search_query": "adiabatic compression temperature factor"
+      },
+      {
+        "question": "For the cyclic process shown in Fig. 11.11 (NCERT Exercise 11.8), what does the net area enclosed by the triangle DEF represent on the P-V plane?",
+        "options": [
+          "(Recommended) The net work done by the system (+60 kJ) over the entire cycle D → E → F → D",
+          "The total internal energy at vertex D",
+          "The heat capacity of the working substance",
+          "The mechanical efficiency of an ideal Carnot cycle"
+        ],
+        "correctAnswer": "(Recommended) The net work done by the system (+60 kJ) over the entire cycle D → E → F → D",
+        "correct_answer": "(Recommended) The net work done by the system (+60 kJ) over the entire cycle D → E → F → D",
+        "explanation": "On any P-V indicator diagram, the area enclosed by a clockwise closed curve represents the net mechanical work done by the system during one complete cycle: Area = ½ × base × height = ½ × 3.0 m³ × 4.0 × 10⁴ Pa = 60 kJ.",
+        "hint": "Recall the geometric meaning of enclosed loop area on an indicator diagram.",
+        "blooms_level": "Apply",
+        "textbook_reference": "Exercise 11.8, Page 243",
+        "figure_reference": "Fig. 11.11",
+        "image_search_query": "enclosed area pv diagram net work"
+      },
+      {
+        "question": "If an electric heater inputs 100 W of heat into a gas while the gas does mechanical expansion work at 75 W (NCERT Exercise 11.7), what will happen to the gas temperature?",
+        "options": [
+          "(Recommended) The temperature will increase because internal energy rises at a rate of 25 W",
+          "The temperature will decrease because 75 W of work is done",
+          "The temperature will remain constant because work and heat balance",
+          "The temperature will oscillate between 75 °C and 100 °C"
+        ],
+        "correctAnswer": "(Recommended) The temperature will increase because internal energy rises at a rate of 25 W",
+        "correct_answer": "(Recommended) The temperature will increase because internal energy rises at a rate of 25 W",
+        "explanation": "Rate of internal energy change dU/dt = dQ/dt - dW/dt = 100 W - 75 W = +25 W > 0. Since dU > 0, the internal energy and therefore the temperature of the gas must rise.",
+        "hint": "Check the sign of dU/dt = dQ/dt - dW/dt.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Exercise 11.7, Page 242",
+        "image_search_query": "first law rate form internal energy temperature"
+      },
+      {
+        "question": "A Carnot engine has an efficiency of 40% with sink at 300 K. To raise the efficiency to 50% without altering the sink temperature (NCERT Exercise 11.10), what must be the new source temperature?",
+        "options": [
+          "(Recommended) 600 K (an increase of 100 K)",
+          "500 K (no increase needed)",
+          "750 K (an increase of 250 K)",
+          "400 K (a decrease of 100 K)"
+        ],
+        "correctAnswer": "(Recommended) 600 K (an increase of 100 K)",
+        "correct_answer": "(Recommended) 600 K (an increase of 100 K)",
+        "explanation": "Initial: 1 - 300/T₁ = 0.40 => T₁ = 300/0.6 = 500 K. Target: 1 - 300/T₁' = 0.50 => T₁' = 300/0.5 = 600 K. Increase = 600 - 500 = 100 K.",
+        "hint": "Use T₁ = T₂ / (1 - η) for η = 0.4 and η = 0.5.",
+        "blooms_level": "Apply",
+        "textbook_reference": "Section 11.11, Standard Syllabus Exercise 11.10",
+        "image_search_query": "carnot engine efficiency source temp increase"
       }
     ],
     "concept_visuals": [

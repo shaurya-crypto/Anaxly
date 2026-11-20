@@ -1,0 +1,1273 @@
+[
+  {
+    "id": "d72d29e8-235a-4d3d-85b1-fed9cea7538e",
+    "curriculum_id": "b4d374eb-c31b-47bf-9a1d-fff1e997e2a2",
+    "order_index": 1,
+    "title": "Accumulation of Variation and Heredity Basics",
+    "description": "Understand inheritance, traits, inherited vs acquired traits, and hereditary rules.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 1: Accumulation of Variation and Heredity Basics. Final-Term Examination Syllabus. \nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Scientific Vector Diagram\n- Diagram Type: vector_svg_diagram\n\n\n\n\n\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Genotype and Phenotype definitions",
+      "Dominant and recessive traits"
+    ],
+    "success_criteria": "Student can distinguish between acquired and inherited traits.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:40:31.608949+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Inheritance of traits from parents to progeny",
+      "Acquired and inherited traits differences",
+      "Role of DNA in protein synthesis and trait expression"
+    ],
+    "chapter_notes": "\"\"",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "Illustrative Problem (Module 1, Section 1): Explain the scientific mechanism and write relevant balanced equations or principles for: Genotype and Phenotype definitions.",
+        "given": "Concepts from CBSE Class 10 Science: Accumulation of Variation and Heredity Basics.",
+        "formula": "Standard board law, equation, or anatomical mechanism.",
+        "substitution": "Step-by-step pedagogical application.",
+        "calculation": "Detailed step-by-step examination of Accumulation of Variation and Heredity Basics adhering to official board marking schemes.",
+        "finalAnswer": "Topper-ready solution covering the fundamental principles of Accumulation of Variation and Heredity Basics.",
+        "unit": "Scientific Law & Mechanism",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "class 10 science chapter_8_hered ncert diagram",
+        "page": 10,
+        "section": "Section 1"
+      }
+    ],
+    "common_misconceptions": [],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734831450_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Accumulation of Variation and Heredity Basics: Understand inheritance, traits, inherited vs acquired traits, and hereditary rules.",
+              "keyTakeaway": "Genotype and Phenotype definitions"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Genotype and Phenotype definitions"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734831450_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Accumulation of Variation and Heredity Basics - Fundamental Equations",
+              "equations": [
+                "Genotype and Phenotype definitions",
+                "Dominant and recessive traits"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Genotype and Phenotype definitions"
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734831450_3",
+          "type": "DIAGRAM",
+          "title": "Accumulation of Variation and Heredity Basics Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Accumulation of Variation and Heredity Basics Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Genotype and Phenotype definitions",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Dominant and recessive traits",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Accumulation of Variation and Heredity Basics",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Accumulation of Variation and Heredity Basics | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;\">\n  \n  <defs>\n    <pattern id=\"chalkGrid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.75\"/>\n    </pattern>\n    <!-- Royal Blue Vector Arrow -->\n    <marker id=\"arrowRoyal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#2563EB\"/>\n    </marker>\n    <!-- Cyan / Sky Ray Arrow -->\n    <marker id=\"arrowIce\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0284C7\"/>\n    </marker>\n    <!-- Scholar Emerald Current / Normal Arrow -->\n    <marker id=\"arrowSage\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#16A34A\"/>\n    </marker>\n    <!-- Crimson Vector Arrow -->\n    <marker id=\"arrowCrimson\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#DC2626\"/>\n    </marker>\n    <!-- Deep Charcoal Ink Arrow -->\n    <marker id=\"arrowCharcoal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0F172A\"/>\n    </marker>\n    <!-- Warm Amber Arrow -->\n    <marker id=\"arrowAmber\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#D97706\"/>\n    </marker>\n  </defs>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" fill=\"url(#chalkGrid)\" opacity=\"0.6\"/>\n\n  <rect x=\"40\" y=\"12\" width=\"460\" height=\"22\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\"/>\n  <text x=\"270\" y=\"27\" text-anchor=\"middle\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"bold\">Accumulation of Variation and Heredity Basics</text>\n\n  <g transform=\"translate(25, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#F0FDF4\" stroke=\"#16A34A\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DCFCE7\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#16A34A\">1. Physical Intuition</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Real-World Hook</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#64748B\">Tangible daily basis</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#64748B\">Observable mechanism</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Underlying Driver</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#64748B\">Core energetic / structural</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#64748B\">fundamental force</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Classroom Analogy</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#64748B\">Concrete representation</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Intuitive bridge to law</text>\n  </g>\n\n  <line x1=\"180\" y1=\"140\" x2=\"195\" y2=\"140\" stroke=\"#2563EB\" stroke-width=\"2\" marker-end=\"url(#arrowRoyal)\"/>\n\n  <g transform=\"translate(195, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#EFF6FF\" stroke=\"#2563EB\" stroke-width=\"1.4\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DBEAFE\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">2. Governing Principle</text>\n\n    <rect x=\"10\" y=\"36\" width=\"130\" height=\"50\" rx=\"4\" fill=\"#FFFFFF\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n    <text x=\"75\" y=\"55\" text-anchor=\"middle\" font-size=\"8\" font-weight=\"bold\" fill=\"#2563EB\">CORE LAW / THEOREM</text>\n    <text x=\"75\" y=\"72\" text-anchor=\"middle\" font-size=\"8.5\" font-weight=\"bold\" fill=\"#0F172A\">Accumulation of Va</text>\n\n    <circle cx=\"15\" cy=\"110\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"113\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Governing Rules</text>\n    <text x=\"25\" y=\"125\" font-size=\"7\" fill=\"#64748B\">Strict scientific criteria</text>\n    <text x=\"25\" y=\"135\" font-size=\"7\" fill=\"#64748B\">Mandatory conditions</text>\n\n    <circle cx=\"15\" cy=\"155\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"158\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">SI Units &amp; Constants</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Dimensional integrity</text>\n    <text x=\"25\" y=\"180\" font-size=\"7\" fill=\"#64748B\">Zero unit conversion loss</text>\n  </g>\n\n  <line x1=\"350\" y1=\"140\" x2=\"365\" y2=\"140\" stroke=\"#16A34A\" stroke-width=\"2\" marker-end=\"url(#arrowSage)\"/>\n\n  <g transform=\"translate(365, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#FDE68A\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#D97706\">3. Board Application</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Trio Layout</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#0F172A\">Given \u2192 Formula</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#0F172A\">Substitution \u2192 Boxed</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Common Trap</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#DC2626\">Avoid unit mismatches</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#DC2626\">Watch sign conventions</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Scoring Keywords</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#16A34A\">Verbatim definitions</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#16A34A\">Full 100% credit</text>\n  </g>\n\n  <rect x=\"40\" y=\"254\" width=\"460\" height=\"18\" rx=\"4\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"270\" y=\"266\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"#0F172A\">Authentic Vector Schematic \u2022 CBSE / ICSE / IB Scholastic Standards</text>\n</svg> | Authentic conceptual relationship model plotted on digital chalkboard."
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734831450_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Genotype and Phenotype definitions"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "Which of the following correctly describes Accumulation of Variation and Heredity Basics?",
+              "explanation": "By fundamental principle, Genotype and Phenotype definitions is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734831450_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Inheritance of traits from parents to progeny",
+                "Acquired and inherited traits differences",
+                "Role of DNA in protein synthesis and trait expression"
+              ],
+              "formulasToRemember": [
+                "Genotype and Phenotype definitions",
+                "Dominant and recessive traits"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Accumulation of Variation and Heredity Basics - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Accumulation of Variation and Heredity Basics",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:40:31.450Z",
+        "provenance": "CBSE Official Curriculum",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734831450",
+      "subtopics": [
+        "Inheritance of traits from parents to progeny",
+        "Acquired and inherited traits differences",
+        "Role of DNA in protein synthesis and trait expression"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "",
+      "diagram_idea": "",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "",
+      "concept_questions": [],
+      "estimated_minutes": 20,
+      "textbook_examples": [],
+      "textbook_exercises": [],
+      "textbook_definitions": []
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "2f8290d9-2540-4872-ba46-cbb4f2ebe695",
+    "curriculum_id": "b4d374eb-c31b-47bf-9a1d-fff1e997e2a2",
+    "order_index": 2,
+    "title": "Mendel's Laws of Inheritance",
+    "description": "Master monohybrid and dihybrid crosses, phenotypic/genotypic ratios, and Mendel's conclusions.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 2: Mendel's Laws of Inheritance. Final-Term Examination Syllabus. \nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Scientific Vector Diagram\n- Diagram Type: vector_svg_diagram\n\n\n\n\n\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "3:1 phenotypic ratio in monohybrid cross",
+      "9:3:3:1 ratio in dihybrid cross"
+    ],
+    "success_criteria": "Student can construct Punnett squares for monohybrid and dihybrid crosses.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:40:31.854045+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Mendel's experiments with garden pea plants",
+      "Monohybrid cross and Law of Segregation",
+      "Dihybrid cross and Law of Independent Assortment"
+    ],
+    "chapter_notes": "\"\"",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "Illustrative Problem (Module 2, Section 2): Explain the scientific mechanism and write relevant balanced equations or principles for: 3:1 phenotypic ratio in monohybrid cross.",
+        "given": "Concepts from CBSE Class 10 Science: Mendel's Laws of Inheritance.",
+        "formula": "Standard board law, equation, or anatomical mechanism.",
+        "substitution": "Step-by-step pedagogical application.",
+        "calculation": "Detailed step-by-step examination of Mendel's Laws of Inheritance adhering to official board marking schemes.",
+        "finalAnswer": "Topper-ready solution covering the fundamental principles of Mendel's Laws of Inheritance.",
+        "unit": "Scientific Law & Mechanism",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "class 10 science chapter_8_hered ncert diagram",
+        "page": 20,
+        "section": "Section 2"
+      }
+    ],
+    "common_misconceptions": [],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734831711_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Mendel's Laws of Inheritance: Master monohybrid and dihybrid crosses, phenotypic/genotypic ratios, and Mendel's conclusions.",
+              "keyTakeaway": "3:1 phenotypic ratio in monohybrid cross"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: 3:1 phenotypic ratio in monohybrid cross"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734831711_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Mendel's Laws of Inheritance - Fundamental Equations",
+              "equations": [
+                "3:1 phenotypic ratio in monohybrid cross",
+                "9:3:3:1 ratio in dihybrid cross"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "3:1 phenotypic ratio in monohybrid cross"
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734831711_3",
+          "type": "DIAGRAM",
+          "title": "Mendel's Laws of Inheritance Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Mendel's Laws of Inheritance Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "3:1 phenotypic ratio in monohybrid cross",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "9:3:3:1 ratio in dihybrid cross",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Mendel's Laws of Inheritance",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Mendel's Laws of Inheritance | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;\">\n  \n  <defs>\n    <pattern id=\"chalkGrid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.75\"/>\n    </pattern>\n    <!-- Royal Blue Vector Arrow -->\n    <marker id=\"arrowRoyal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#2563EB\"/>\n    </marker>\n    <!-- Cyan / Sky Ray Arrow -->\n    <marker id=\"arrowIce\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0284C7\"/>\n    </marker>\n    <!-- Scholar Emerald Current / Normal Arrow -->\n    <marker id=\"arrowSage\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#16A34A\"/>\n    </marker>\n    <!-- Crimson Vector Arrow -->\n    <marker id=\"arrowCrimson\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#DC2626\"/>\n    </marker>\n    <!-- Deep Charcoal Ink Arrow -->\n    <marker id=\"arrowCharcoal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0F172A\"/>\n    </marker>\n    <!-- Warm Amber Arrow -->\n    <marker id=\"arrowAmber\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#D97706\"/>\n    </marker>\n  </defs>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" fill=\"url(#chalkGrid)\" opacity=\"0.6\"/>\n\n  <rect x=\"40\" y=\"12\" width=\"460\" height=\"22\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\"/>\n  <text x=\"270\" y=\"27\" text-anchor=\"middle\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"bold\">Mendel's Laws of Inheritance</text>\n\n  <g transform=\"translate(25, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#F0FDF4\" stroke=\"#16A34A\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DCFCE7\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#16A34A\">1. Physical Intuition</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Real-World Hook</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#64748B\">Tangible daily basis</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#64748B\">Observable mechanism</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Underlying Driver</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#64748B\">Core energetic / structural</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#64748B\">fundamental force</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Classroom Analogy</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#64748B\">Concrete representation</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Intuitive bridge to law</text>\n  </g>\n\n  <line x1=\"180\" y1=\"140\" x2=\"195\" y2=\"140\" stroke=\"#2563EB\" stroke-width=\"2\" marker-end=\"url(#arrowRoyal)\"/>\n\n  <g transform=\"translate(195, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#EFF6FF\" stroke=\"#2563EB\" stroke-width=\"1.4\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DBEAFE\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">2. Governing Principle</text>\n\n    <rect x=\"10\" y=\"36\" width=\"130\" height=\"50\" rx=\"4\" fill=\"#FFFFFF\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n    <text x=\"75\" y=\"55\" text-anchor=\"middle\" font-size=\"8\" font-weight=\"bold\" fill=\"#2563EB\">CORE LAW / THEOREM</text>\n    <text x=\"75\" y=\"72\" text-anchor=\"middle\" font-size=\"8.5\" font-weight=\"bold\" fill=\"#0F172A\">Mendel's Laws of I</text>\n\n    <circle cx=\"15\" cy=\"110\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"113\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Governing Rules</text>\n    <text x=\"25\" y=\"125\" font-size=\"7\" fill=\"#64748B\">Strict scientific criteria</text>\n    <text x=\"25\" y=\"135\" font-size=\"7\" fill=\"#64748B\">Mandatory conditions</text>\n\n    <circle cx=\"15\" cy=\"155\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"158\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">SI Units &amp; Constants</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Dimensional integrity</text>\n    <text x=\"25\" y=\"180\" font-size=\"7\" fill=\"#64748B\">Zero unit conversion loss</text>\n  </g>\n\n  <line x1=\"350\" y1=\"140\" x2=\"365\" y2=\"140\" stroke=\"#16A34A\" stroke-width=\"2\" marker-end=\"url(#arrowSage)\"/>\n\n  <g transform=\"translate(365, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#FDE68A\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#D97706\">3. Board Application</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Trio Layout</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#0F172A\">Given \u2192 Formula</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#0F172A\">Substitution \u2192 Boxed</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Common Trap</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#DC2626\">Avoid unit mismatches</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#DC2626\">Watch sign conventions</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Scoring Keywords</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#16A34A\">Verbatim definitions</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#16A34A\">Full 100% credit</text>\n  </g>\n\n  <rect x=\"40\" y=\"254\" width=\"460\" height=\"18\" rx=\"4\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"270\" y=\"266\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"#0F172A\">Authentic Vector Schematic \u2022 CBSE / ICSE / IB Scholastic Standards</text>\n</svg> | Authentic conceptual relationship model plotted on digital chalkboard."
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734831711_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "3:1 phenotypic ratio in monohybrid cross"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "Which of the following correctly describes Mendel's Laws of Inheritance?",
+              "explanation": "By fundamental principle, 3:1 phenotypic ratio in monohybrid cross is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734831711_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Mendel's experiments with garden pea plants",
+                "Monohybrid cross and Law of Segregation",
+                "Dihybrid cross and Law of Independent Assortment"
+              ],
+              "formulasToRemember": [
+                "3:1 phenotypic ratio in monohybrid cross",
+                "9:3:3:1 ratio in dihybrid cross"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Mendel's Laws of Inheritance - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Mendel's Laws of Inheritance",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:40:31.711Z",
+        "provenance": "CBSE Official Curriculum",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734831711",
+      "subtopics": [
+        "Mendel's experiments with garden pea plants",
+        "Monohybrid cross and Law of Segregation",
+        "Dihybrid cross and Law of Independent Assortment"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "",
+      "diagram_idea": "",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "",
+      "concept_questions": [],
+      "estimated_minutes": 20,
+      "textbook_examples": [],
+      "textbook_exercises": [],
+      "textbook_definitions": []
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "f615cfdb-6f91-4cdd-95c1-9358cde0c504",
+    "curriculum_id": "b4d374eb-c31b-47bf-9a1d-fff1e997e2a2",
+    "order_index": 3,
+    "title": "Sex Determination",
+    "description": "Understand how sex is genetically determined in humans and other species.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 3: Sex Determination. Final-Term Examination Syllabus. \nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Scientific Vector Diagram\n- Diagram Type: vector_svg_diagram\n\n\n\n\n\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Equal probability of male/female child",
+      "Sex chromosome inheritance"
+    ],
+    "success_criteria": "Student can explain why the father determines the sex of the child genetically.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:40:32.087228+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "XY and XX sex chromosomes in humans",
+      "Role of male gamete in determining child's sex",
+      "Environmental sex determination in reptiles"
+    ],
+    "chapter_notes": "\"\"",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "Illustrative Problem (Module 3, Section 3): Explain the scientific mechanism and write relevant balanced equations or principles for: Equal probability of male/female child.",
+        "given": "Concepts from CBSE Class 10 Science: Sex Determination.",
+        "formula": "Standard board law, equation, or anatomical mechanism.",
+        "substitution": "Step-by-step pedagogical application.",
+        "calculation": "Detailed step-by-step examination of Sex Determination adhering to official board marking schemes.",
+        "finalAnswer": "Topper-ready solution covering the fundamental principles of Sex Determination.",
+        "unit": "Scientific Law & Mechanism",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "class 10 science chapter_8_hered ncert diagram",
+        "page": 30,
+        "section": "Section 3"
+      }
+    ],
+    "common_misconceptions": [],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734831968_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Sex Determination: Understand how sex is genetically determined in humans and other species.",
+              "keyTakeaway": "Equal probability of male/female child"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Equal probability of male/female child"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734831968_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Sex Determination - Fundamental Equations",
+              "equations": [
+                "Equal probability of male/female child",
+                "Sex chromosome inheritance"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Equal probability of male/female child"
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734831968_3",
+          "type": "DIAGRAM",
+          "title": "Sex Determination Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Sex Determination Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Equal probability of male/female child",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Sex chromosome inheritance",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Sex Determination",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Sex Determination | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;\">\n  \n  <defs>\n    <pattern id=\"chalkGrid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.75\"/>\n    </pattern>\n    <!-- Royal Blue Vector Arrow -->\n    <marker id=\"arrowRoyal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#2563EB\"/>\n    </marker>\n    <!-- Cyan / Sky Ray Arrow -->\n    <marker id=\"arrowIce\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0284C7\"/>\n    </marker>\n    <!-- Scholar Emerald Current / Normal Arrow -->\n    <marker id=\"arrowSage\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#16A34A\"/>\n    </marker>\n    <!-- Crimson Vector Arrow -->\n    <marker id=\"arrowCrimson\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#DC2626\"/>\n    </marker>\n    <!-- Deep Charcoal Ink Arrow -->\n    <marker id=\"arrowCharcoal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0F172A\"/>\n    </marker>\n    <!-- Warm Amber Arrow -->\n    <marker id=\"arrowAmber\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#D97706\"/>\n    </marker>\n  </defs>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" fill=\"url(#chalkGrid)\" opacity=\"0.6\"/>\n\n  <rect x=\"40\" y=\"12\" width=\"460\" height=\"22\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\"/>\n  <text x=\"270\" y=\"27\" text-anchor=\"middle\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"bold\">Sex Determination</text>\n\n  <g transform=\"translate(25, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#F0FDF4\" stroke=\"#16A34A\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DCFCE7\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#16A34A\">1. Physical Intuition</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Real-World Hook</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#64748B\">Tangible daily basis</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#64748B\">Observable mechanism</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Underlying Driver</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#64748B\">Core energetic / structural</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#64748B\">fundamental force</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Classroom Analogy</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#64748B\">Concrete representation</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Intuitive bridge to law</text>\n  </g>\n\n  <line x1=\"180\" y1=\"140\" x2=\"195\" y2=\"140\" stroke=\"#2563EB\" stroke-width=\"2\" marker-end=\"url(#arrowRoyal)\"/>\n\n  <g transform=\"translate(195, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#EFF6FF\" stroke=\"#2563EB\" stroke-width=\"1.4\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DBEAFE\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">2. Governing Principle</text>\n\n    <rect x=\"10\" y=\"36\" width=\"130\" height=\"50\" rx=\"4\" fill=\"#FFFFFF\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n    <text x=\"75\" y=\"55\" text-anchor=\"middle\" font-size=\"8\" font-weight=\"bold\" fill=\"#2563EB\">CORE LAW / THEOREM</text>\n    <text x=\"75\" y=\"72\" text-anchor=\"middle\" font-size=\"8.5\" font-weight=\"bold\" fill=\"#0F172A\">Sex Determination</text>\n\n    <circle cx=\"15\" cy=\"110\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"113\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Governing Rules</text>\n    <text x=\"25\" y=\"125\" font-size=\"7\" fill=\"#64748B\">Strict scientific criteria</text>\n    <text x=\"25\" y=\"135\" font-size=\"7\" fill=\"#64748B\">Mandatory conditions</text>\n\n    <circle cx=\"15\" cy=\"155\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"158\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">SI Units &amp; Constants</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Dimensional integrity</text>\n    <text x=\"25\" y=\"180\" font-size=\"7\" fill=\"#64748B\">Zero unit conversion loss</text>\n  </g>\n\n  <line x1=\"350\" y1=\"140\" x2=\"365\" y2=\"140\" stroke=\"#16A34A\" stroke-width=\"2\" marker-end=\"url(#arrowSage)\"/>\n\n  <g transform=\"translate(365, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#FDE68A\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#D97706\">3. Board Application</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Trio Layout</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#0F172A\">Given \u2192 Formula</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#0F172A\">Substitution \u2192 Boxed</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Common Trap</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#DC2626\">Avoid unit mismatches</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#DC2626\">Watch sign conventions</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Scoring Keywords</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#16A34A\">Verbatim definitions</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#16A34A\">Full 100% credit</text>\n  </g>\n\n  <rect x=\"40\" y=\"254\" width=\"460\" height=\"18\" rx=\"4\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"270\" y=\"266\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"#0F172A\">Authentic Vector Schematic \u2022 CBSE / ICSE / IB Scholastic Standards</text>\n</svg> | Authentic conceptual relationship model plotted on digital chalkboard."
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734831968_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Equal probability of male/female child"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "Which of the following correctly describes Sex Determination?",
+              "explanation": "By fundamental principle, Equal probability of male/female child is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734831968_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "XY and XX sex chromosomes in humans",
+                "Role of male gamete in determining child's sex",
+                "Environmental sex determination in reptiles"
+              ],
+              "formulasToRemember": [
+                "Equal probability of male/female child",
+                "Sex chromosome inheritance"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Sex Determination - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Sex Determination",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:40:31.968Z",
+        "provenance": "CBSE Official Curriculum",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734831968",
+      "subtopics": [
+        "XY and XX sex chromosomes in humans",
+        "Role of male gamete in determining child's sex",
+        "Environmental sex determination in reptiles"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "",
+      "diagram_idea": "",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "",
+      "concept_questions": [],
+      "estimated_minutes": 20,
+      "textbook_examples": [],
+      "textbook_exercises": [],
+      "textbook_definitions": []
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "579e485b-6413-4181-a5b8-2d32405e339f",
+    "curriculum_id": "b4d374eb-c31b-47bf-9a1d-fff1e997e2a2",
+    "order_index": 4,
+    "title": "In-Text Questions Solver",
+    "description": "Step-by-step solutions for all in-text questions in Chapter 8.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 4: In-Text Questions Solver. Final-Term Examination Syllabus. \nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Scientific Vector Diagram\n- Diagram Type: vector_svg_diagram\n\n\n\n\n\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "NCERT genetics problem-solving steps"
+    ],
+    "success_criteria": "Student can solve in-text genetics word problems accurately.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:40:32.332276+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Progeny trait prediction problems",
+      "Blood group genetics reasoning",
+      "Evolutionary linkage queries"
+    ],
+    "chapter_notes": "\"\"",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "Illustrative Problem (Module 4, Section 4): Explain the scientific mechanism and write relevant balanced equations or principles for: NCERT genetics problem-solving steps.",
+        "given": "Concepts from CBSE Class 10 Science: In-Text Questions Solver.",
+        "formula": "Standard board law, equation, or anatomical mechanism.",
+        "substitution": "Step-by-step pedagogical application.",
+        "calculation": "Detailed step-by-step examination of In-Text Questions Solver adhering to official board marking schemes.",
+        "finalAnswer": "Topper-ready solution covering the fundamental principles of In-Text Questions Solver.",
+        "unit": "Scientific Law & Mechanism",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "class 10 science chapter_8_hered ncert diagram",
+        "page": 40,
+        "section": "Section 4"
+      }
+    ],
+    "common_misconceptions": [],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734832187_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "In-Text Questions Solver: Step-by-step solutions for all in-text questions in Chapter 8.",
+              "keyTakeaway": "NCERT genetics problem-solving steps"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: NCERT genetics problem-solving steps"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734832187_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "In-Text Questions Solver - Fundamental Equations",
+              "equations": [
+                "NCERT genetics problem-solving steps"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "NCERT genetics problem-solving steps"
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734832187_3",
+          "type": "DIAGRAM",
+          "title": "In-Text Questions Solver Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "In-Text Questions Solver Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "NCERT genetics problem-solving steps",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Functional Component",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "In-Text Questions Solver",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "In-Text Questions Solver | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;\">\n  \n  <defs>\n    <pattern id=\"chalkGrid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.75\"/>\n    </pattern>\n    <!-- Royal Blue Vector Arrow -->\n    <marker id=\"arrowRoyal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#2563EB\"/>\n    </marker>\n    <!-- Cyan / Sky Ray Arrow -->\n    <marker id=\"arrowIce\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0284C7\"/>\n    </marker>\n    <!-- Scholar Emerald Current / Normal Arrow -->\n    <marker id=\"arrowSage\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#16A34A\"/>\n    </marker>\n    <!-- Crimson Vector Arrow -->\n    <marker id=\"arrowCrimson\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#DC2626\"/>\n    </marker>\n    <!-- Deep Charcoal Ink Arrow -->\n    <marker id=\"arrowCharcoal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0F172A\"/>\n    </marker>\n    <!-- Warm Amber Arrow -->\n    <marker id=\"arrowAmber\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#D97706\"/>\n    </marker>\n  </defs>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" fill=\"url(#chalkGrid)\" opacity=\"0.6\"/>\n\n  <rect x=\"40\" y=\"12\" width=\"460\" height=\"22\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\"/>\n  <text x=\"270\" y=\"27\" text-anchor=\"middle\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"bold\">In-Text Questions Solver</text>\n\n  <g transform=\"translate(25, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#F0FDF4\" stroke=\"#16A34A\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DCFCE7\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#16A34A\">1. Physical Intuition</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Real-World Hook</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#64748B\">Tangible daily basis</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#64748B\">Observable mechanism</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Underlying Driver</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#64748B\">Core energetic / structural</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#64748B\">fundamental force</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Classroom Analogy</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#64748B\">Concrete representation</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Intuitive bridge to law</text>\n  </g>\n\n  <line x1=\"180\" y1=\"140\" x2=\"195\" y2=\"140\" stroke=\"#2563EB\" stroke-width=\"2\" marker-end=\"url(#arrowRoyal)\"/>\n\n  <g transform=\"translate(195, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#EFF6FF\" stroke=\"#2563EB\" stroke-width=\"1.4\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DBEAFE\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">2. Governing Principle</text>\n\n    <rect x=\"10\" y=\"36\" width=\"130\" height=\"50\" rx=\"4\" fill=\"#FFFFFF\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n    <text x=\"75\" y=\"55\" text-anchor=\"middle\" font-size=\"8\" font-weight=\"bold\" fill=\"#2563EB\">CORE LAW / THEOREM</text>\n    <text x=\"75\" y=\"72\" text-anchor=\"middle\" font-size=\"8.5\" font-weight=\"bold\" fill=\"#0F172A\">In-Text Questions </text>\n\n    <circle cx=\"15\" cy=\"110\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"113\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Governing Rules</text>\n    <text x=\"25\" y=\"125\" font-size=\"7\" fill=\"#64748B\">Strict scientific criteria</text>\n    <text x=\"25\" y=\"135\" font-size=\"7\" fill=\"#64748B\">Mandatory conditions</text>\n\n    <circle cx=\"15\" cy=\"155\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"158\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">SI Units &amp; Constants</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Dimensional integrity</text>\n    <text x=\"25\" y=\"180\" font-size=\"7\" fill=\"#64748B\">Zero unit conversion loss</text>\n  </g>\n\n  <line x1=\"350\" y1=\"140\" x2=\"365\" y2=\"140\" stroke=\"#16A34A\" stroke-width=\"2\" marker-end=\"url(#arrowSage)\"/>\n\n  <g transform=\"translate(365, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#FDE68A\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#D97706\">3. Board Application</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Trio Layout</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#0F172A\">Given \u2192 Formula</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#0F172A\">Substitution \u2192 Boxed</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Common Trap</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#DC2626\">Avoid unit mismatches</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#DC2626\">Watch sign conventions</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Scoring Keywords</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#16A34A\">Verbatim definitions</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#16A34A\">Full 100% credit</text>\n  </g>\n\n  <rect x=\"40\" y=\"254\" width=\"460\" height=\"18\" rx=\"4\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"270\" y=\"266\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"#0F172A\">Authentic Vector Schematic \u2022 CBSE / ICSE / IB Scholastic Standards</text>\n</svg> | Authentic conceptual relationship model plotted on digital chalkboard."
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734832187_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "NCERT genetics problem-solving steps"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "Which of the following correctly describes In-Text Questions Solver?",
+              "explanation": "By fundamental principle, NCERT genetics problem-solving steps is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734832187_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Progeny trait prediction problems",
+                "Blood group genetics reasoning",
+                "Evolutionary linkage queries"
+              ],
+              "formulasToRemember": [
+                "NCERT genetics problem-solving steps"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "In-Text Questions Solver - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "In-Text Questions Solver",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:40:32.187Z",
+        "provenance": "CBSE Official Curriculum",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734832187",
+      "subtopics": [
+        "Progeny trait prediction problems",
+        "Blood group genetics reasoning",
+        "Evolutionary linkage queries"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "",
+      "diagram_idea": "",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "",
+      "concept_questions": [],
+      "estimated_minutes": 20,
+      "textbook_examples": [],
+      "textbook_exercises": [],
+      "textbook_definitions": []
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "f3c21d9e-cd12-4384-af91-5b0140a6d167",
+    "curriculum_id": "b4d374eb-c31b-47bf-9a1d-fff1e997e2a2",
+    "order_index": 5,
+    "title": "NCERT In-Text & Chapter-End Exercises Master Solver",
+    "description": "Practice board-pattern numericals and subjective questions for Chapter 8.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 5: End-of-Chapter Review Exercises & Masterclass. Final-Term Examination Syllabus. \nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Scientific Vector Diagram\n- Diagram Type: vector_svg_diagram\n\n\n\n\n\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Comprehensive board exam genetics questions"
+    ],
+    "success_criteria": "Student can solve all chapter-end genetics exercises.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:40:32.55674+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Monohybrid cross calculation practice",
+      "End-of-chapter exercise problem solving"
+    ],
+    "chapter_notes": "\"\"",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "In-Text Question & Exercise (Section 8.1, 8.2 & p. 6): (a) A Mendelian cross between tall pea plants (TT) and short pea plants (tt) produced all tall plants in the F1 generation. When F1 plants were self-pollinated, what was the ratio of tall to short plants in the F2 generation? (b) How is the sex of a human child determined genetically?",
+        "given": "Mendelian monohybrid cross; Human chromosomal sex determination.",
+        "formula": "Monohybrid phenotypic ratio 3 : 1, genotypic ratio 1 : 2 : 1. Sex determination: Female XX, Male XY. Probability of male vs female = 50% each.",
+        "substitution": "Punnett square analysis: F1 (Tt) x F1 (Tt) -> TT, Tt, Tt, tt.",
+        "calculation": "(a) Mendelian Monohybrid Cross:\n1. Parents: TT (pure tall) x tt (pure dwarf).\n2. Gametes: T and t -> F1 Generation: All Tt (heterozygous tall; 'T' is dominant over recessive 't').\n3. Selfing F1 (Tt x Tt):\n   Gametes: T, t from both parents.\n   F2 Genotypes: 1 TT : 2 Tt : 1 tt (Genotypic ratio 1 : 2 : 1).\n   F2 Phenotypes: 3 Tall : 1 Short (Phenotypic ratio 3 : 1, i.e. 75% tall, 25% dwarf).\n(b) Sex Determination in Humans:\nHuman females have two homologous X chromosomes (XX), producing only one type of ovum carrying an X chromosome. Human males have heteromorphic sex chromosomes (XY), producing two types of sperm: 50% carry an X chromosome, and 50% carry a Y chromosome.\n- If an X-sperm fertilises the ovum: Zygote is XX -> Female child.\n- If a Y-sperm fertilises the ovum: Zygote is XY -> Male child.\nSince fertilization by X or Y sperm is an equal random probability (50%), the child's genetic sex is determined strictly by the father's fertilising sperm.",
+        "finalAnswer": "(a) F2 phenotypic ratio is 3 Tall : 1 Short (75% tall, 25% short); (b) Sex is determined by the sperm: X-sperm produces a girl (XX), Y-sperm produces a boy (XY) with 50% probability.",
+        "unit": "Mendelian Genetics",
+        "has_diagram": true,
+        "diagram_source": "image_search",
+        "figure_caption": "Mendelian monohybrid cross and human sex determination chart",
+        "image_search_query": "mendel monohybrid cross punnett square sex determination xx xy",
+        "page": 2,
+        "section": "Section 8.1"
+      }
+    ],
+    "common_misconceptions": [],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734832434_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "End-of-Chapter Review Exercises & Masterclass: Practice board-pattern numericals and subjective questions for Chapter 8.",
+              "keyTakeaway": "Comprehensive board exam genetics questions"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Comprehensive board exam genetics questions"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734832434_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "End-of-Chapter Review Exercises & Masterclass - Fundamental Equations",
+              "equations": [
+                "Comprehensive board exam genetics questions"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Comprehensive board exam genetics questions"
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734832434_3",
+          "type": "DIAGRAM",
+          "title": "End-of-Chapter Review Exercises & Masterclass Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "End-of-Chapter Review Exercises & Masterclass Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Comprehensive board exam genetics questions",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Functional Component",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "End-of-Chapter Review Exercises & Masterclass",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "End-of-Chapter Review Exercises & Masterclass | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;\">\n  \n  <defs>\n    <pattern id=\"chalkGrid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.75\"/>\n    </pattern>\n    <!-- Royal Blue Vector Arrow -->\n    <marker id=\"arrowRoyal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#2563EB\"/>\n    </marker>\n    <!-- Cyan / Sky Ray Arrow -->\n    <marker id=\"arrowIce\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0284C7\"/>\n    </marker>\n    <!-- Scholar Emerald Current / Normal Arrow -->\n    <marker id=\"arrowSage\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#16A34A\"/>\n    </marker>\n    <!-- Crimson Vector Arrow -->\n    <marker id=\"arrowCrimson\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#DC2626\"/>\n    </marker>\n    <!-- Deep Charcoal Ink Arrow -->\n    <marker id=\"arrowCharcoal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0F172A\"/>\n    </marker>\n    <!-- Warm Amber Arrow -->\n    <marker id=\"arrowAmber\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#D97706\"/>\n    </marker>\n  </defs>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" fill=\"url(#chalkGrid)\" opacity=\"0.6\"/>\n\n  <rect x=\"40\" y=\"12\" width=\"460\" height=\"22\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\"/>\n  <text x=\"270\" y=\"27\" text-anchor=\"middle\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"bold\">End-of-Chapter Review Exercises & Masterclass</text>\n\n  <g transform=\"translate(25, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#F0FDF4\" stroke=\"#16A34A\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DCFCE7\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#16A34A\">1. Physical Intuition</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Real-World Hook</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#64748B\">Tangible daily basis</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#64748B\">Observable mechanism</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Underlying Driver</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#64748B\">Core energetic / structural</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#64748B\">fundamental force</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Classroom Analogy</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#64748B\">Concrete representation</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Intuitive bridge to law</text>\n  </g>\n\n  <line x1=\"180\" y1=\"140\" x2=\"195\" y2=\"140\" stroke=\"#2563EB\" stroke-width=\"2\" marker-end=\"url(#arrowRoyal)\"/>\n\n  <g transform=\"translate(195, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#EFF6FF\" stroke=\"#2563EB\" stroke-width=\"1.4\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DBEAFE\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">2. Governing Principle</text>\n\n    <rect x=\"10\" y=\"36\" width=\"130\" height=\"50\" rx=\"4\" fill=\"#FFFFFF\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n    <text x=\"75\" y=\"55\" text-anchor=\"middle\" font-size=\"8\" font-weight=\"bold\" fill=\"#2563EB\">CORE LAW / THEOREM</text>\n    <text x=\"75\" y=\"72\" text-anchor=\"middle\" font-size=\"8.5\" font-weight=\"bold\" fill=\"#0F172A\">End-of-Chapter Rev</text>\n\n    <circle cx=\"15\" cy=\"110\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"113\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Governing Rules</text>\n    <text x=\"25\" y=\"125\" font-size=\"7\" fill=\"#64748B\">Strict scientific criteria</text>\n    <text x=\"25\" y=\"135\" font-size=\"7\" fill=\"#64748B\">Mandatory conditions</text>\n\n    <circle cx=\"15\" cy=\"155\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"158\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">SI Units &amp; Constants</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Dimensional integrity</text>\n    <text x=\"25\" y=\"180\" font-size=\"7\" fill=\"#64748B\">Zero unit conversion loss</text>\n  </g>\n\n  <line x1=\"350\" y1=\"140\" x2=\"365\" y2=\"140\" stroke=\"#16A34A\" stroke-width=\"2\" marker-end=\"url(#arrowSage)\"/>\n\n  <g transform=\"translate(365, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#FDE68A\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#D97706\">3. Board Application</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Trio Layout</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#0F172A\">Given \u2192 Formula</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#0F172A\">Substitution \u2192 Boxed</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Common Trap</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#DC2626\">Avoid unit mismatches</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#DC2626\">Watch sign conventions</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Scoring Keywords</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#16A34A\">Verbatim definitions</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#16A34A\">Full 100% credit</text>\n  </g>\n\n  <rect x=\"40\" y=\"254\" width=\"460\" height=\"18\" rx=\"4\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"270\" y=\"266\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"#0F172A\">Authentic Vector Schematic \u2022 CBSE / ICSE / IB Scholastic Standards</text>\n</svg> | Authentic conceptual relationship model plotted on digital chalkboard."
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734832434_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Comprehensive board exam genetics questions"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "Which of the following correctly describes End-of-Chapter Review Exercises & Masterclass?",
+              "explanation": "By fundamental principle, Comprehensive board exam genetics questions is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734832434_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Monohybrid cross calculation practice",
+                "End-of-chapter exercise problem solving"
+              ],
+              "formulasToRemember": [
+                "Comprehensive board exam genetics questions"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "End-of-Chapter Review Exercises & Masterclass - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "End-of-Chapter Review Exercises & Masterclass",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:40:32.434Z",
+        "provenance": "CBSE Official Curriculum",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734832434",
+      "subtopics": [
+        "Monohybrid cross calculation practice",
+        "End-of-chapter exercise problem solving"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "",
+      "diagram_idea": "",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "",
+      "concept_questions": [],
+      "estimated_minutes": 20,
+      "textbook_examples": [],
+      "textbook_exercises": [],
+      "textbook_definitions": []
+    },
+    "quiz_questions": []
+  }
+]

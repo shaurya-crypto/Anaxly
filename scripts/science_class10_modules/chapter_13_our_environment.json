@@ -1,0 +1,2241 @@
+[
+  {
+    "id": "c0608680-a15a-4c28-bcfa-ed4494facd9b",
+    "curriculum_id": "687bf76e-31ca-47e0-b8b6-12a372598a2e",
+    "order_index": 1,
+    "title": "Ecosystem and its Components",
+    "description": "Master the definition of an ecosystem, biotic and abiotic components, producers, consumers, and decomposers with real-life examples like ponds, gardens, and aquariums.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 1: Ecosystem and its Components. Final-Term Examination Syllabus. Emphasize the distinction between living (biotic) and non-living (abiotic) factors. Explain why decomposers are essential nutrient recyclers.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: A schematic diagram showing sun, green plants (producers), herbivores, carnivores, and decomposers connected with arrows to soil and water.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Ecosystem -> Biotic Components (Producers | Consumers | Decomposers) & Abiotic Components (Temperature | Rainfall | Soil | Minerals) -> Natural vs Artificial\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Ecosystem -> Biotic Components (Producers | Consumers | Decomposers) & Abiotic Components (Temperature | Rainfall | Soil | Minerals) -> Natural vs Artificial\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Ecosystem: \"All the interacting organisms in an area together with the non-living constituents of the environment forming a self-sustaining unit.\" [SI Unit: Not applicable (Ecological unit)]\n- Producers: \"Organisms that can make organic compounds like sugar and starch from inorganic substances using radiant energy of the Sun in the presence of chlorophyll.\" [SI Unit: Not applicable]\n- Decomposers: \"Microorganisms (bacteria and fungi) that break-down complex organic substances from dead remains and waste into simple inorganic substances.\" [SI Unit: Not applicable]\n\n- Textbook Concrete Examples:\n- Garden Ecosystem: A garden contains plants (grasses, rose, jasmine) and animals (frogs, insects, birds) interacting with abiotic factors like temperature and soil, forming a miniature ecosystem.\n- Aquarium Maintenance: Setting up a glass jar with water, fish, oxygen pump, and aquatic plants creates a human-made self-sustaining aquarium ecosystem.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text & Concept Check:\n    * [Q1] (conceptual): Why does an aquarium have to be cleaned once in a while?\n      Method: Unlike natural ponds which have self-cleaning mechanisms and decomposers, an aquarium is a closed artificial system where fish waste and uneaten food accumulate.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Ecosystem: A self-sustaining functional unit comprising all interacting organisms in an area together with the non-living constituents of the environment.\":\n    * [Q1] (1-mark MCQ): Which of the following is a natural ecosystem?\n      -> Ideal Model Answer: Pond\n      -> Socratic Hint: Think about ecosystems formed naturally without human interference.\n    * [Q2] (2-mark Definition): Define an ecosystem. Give one example of a human-made ecosystem.\n      -> Ideal Model Answer: An ecosystem consists of biotic and abiotic components interacting together. Example: An aquarium or crop field.\n      -> Socratic Hint: Mention both living (biotic) and non-living (abiotic) parts.\n    * [Q3] (3-mark Short Answer): Why is an aquarium considered a human-made ecosystem while a pond is a natural ecosystem?\n      -> Ideal Model Answer: An aquarium is created and maintained by humans with artificial supply of food, water, and oxygen, whereas a pond is self-sustaining and formed naturally.\n      -> Socratic Hint: Focus on who sets up and maintains the components.\n    * [Q4] (PYQ): Distinguish between biotic and abiotic components of an ecosystem with examples.\n      -> Ideal Model Answer: Biotic components are living things like plants and animals. Abiotic components are non-living physical factors like temperature and soil.\n      -> Socratic Hint: Classify living vs non-living.\n  * Concept #2 \"Producers, Consumers, and Decomposers\":\n    * [Q1] (1-mark MCQ): Which of the following organisms act as decomposers in an ecosystem?\n      -> Ideal Model Answer: Bacteria and fungi\n      -> Socratic Hint: They break down complex organic remains into simple inorganic substances.\n    * [Q2] (2-mark Definition): What are producers? Give two examples.\n      -> Ideal Model Answer: Producers are autotrophic organisms that can make organic compounds from inorganic substances using solar energy. Examples: Green plants, blue-green algae.\n      -> Socratic Hint: Mention photosynthesis.\n    * [Q3] (3-mark Short Answer): Explain the role of decomposers in an ecosystem. What would happen if all decomposers disappeared?\n      -> Ideal Model Answer: Decomposers break down dead remains and waste products, recycling nutrients back into the soil. Without them, garbage and dead bodies would accumulate, and soil replenishment would stop.\n      -> Socratic Hint: Think about nutrient cycling and waste accumulation.\n    * [Q4] (Competency): Why do we not get any energy if we try to eat coal, even though coal is organic-rich carbon?\n      -> Ideal Model Answer: Enzymes in our body are specific in action and cannot break down coal to release energy, unlike digestible food substances.\n      -> Socratic Hint: Enzyme specificity.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Ecosystem: A self-sustaining functional unit comprising all interacting organisms in an area together with the non-living constituents of the environment.\":\n    - Visual Title: \"Ecosystem Interaction Map\" (vector_svg_diagram)\n    - Why Needed: Helps students visualize how living and non-living components interact in nature.\n    - What to Explain: Explain how biotic factors depend on abiotic factors like sunlight and water.\n    - Timing & Directive: Show this at the start of the class when defining the ecosystem.\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Ecosystem: A self-sustaining functional unit comprising all interacting organisms in an area together with the non-living constituents of the environment.",
+      "Biotic Components: The living organisms in an ecosystem (plants, animals, microorganisms, human beings).",
+      "Abiotic Components: The physical and non-living factors of an ecosystem (temperature, rainfall, wind, soil, minerals).",
+      "Producers: Autotrophic organisms (green plants and certain bacteria) that produce organic compounds from inorganic substances using solar energy.",
+      "Consumers: Heterotrophic organisms that depend directly or indirectly on producers for food (herbivores, carnivores, omnivores, parasites).",
+      "Decomposers: Microorganisms (bacteria and fungi) that break down dead remains and waste products into simple inorganic substances."
+    ],
+    "success_criteria": "Accurately classify any given organism or environmental factor into biotic/abiotic and producer/consumer/decomposing categories.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:47:58.741348+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Definition of an Ecosystem",
+      "Biotic and Abiotic Components",
+      "Natural vs. Artificial Ecosystems",
+      "Producers, Consumers, and Decomposers"
+    ],
+    "chapter_notes": "An ecosystem is the structural and functional unit of ecology where living organisms interact with each other and with the surrounding physical environment. It has two main components: (1) Biotic components comprising producers (autotrophs like green plants), consumers (herbivores, carnivores, omnivores, parasites), and decomposers (saprophytic bacteria and fungi); (2) Abiotic components comprising climatic and physical factors such as light, temperature, rainfall, wind, soil texture, and minerals. Ecosystems can be natural (forests, ponds, lakes) or artificial/human-made (crop-fields, aquariums). Decomposers play a vital ecological role by breaking down complex organic substances into simple inorganic substances, thereby replenishing soil nutrients.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Biological Classification",
+        "given": "List of organisms",
+        "formula": "Autotrophic ability = Producer; Heterotrophic feeding = Consumer",
+        "problem": "Classify the following into producers and consumers: Grass, Deer, Lion, Algae, Rabbit.",
+        "calculation": "Direct biological classification based on nutritional mode.",
+        "finalAnswer": "Producers: Grass, Algae; Consumers: Deer, Lion, Rabbit",
+        "substitution": "Grass -> Producer, Deer -> Consumer, Lion -> Consumer, Algae -> Producer, Rabbit -> Consumer",
+        "image_search_query": "class 10 science chapter_13_our_ ncert",
+        "page": 10,
+        "section": "Section 1"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing consumers with producers (e.g., thinking green plants are consumers).",
+      "Assuming all microorganisms are harmful (ignoring beneficial decomposers like soil bacteria and fungi)."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735278162_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Ecosystem and its Components: Master the definition of an ecosystem, biotic and abiotic components, producers, consumers, and decomposers with real-life examples like ponds, gardens, and aquariums.",
+              "keyTakeaway": "Ecosystem: A self-sustaining functional unit comprising all interacting organisms in an area together with the non-living constituents of the environment."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Ecosystem: A self-sustaining functional unit comprising all interacting organisms in an area together with the non-living constituents of the environment."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc113.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735278162_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Ecosystem and its Components - Fundamental Equations",
+              "equations": [
+                "Ecosystem: A self-sustaining functional unit comprising all interacting organisms in an area together with the non-living constituents of the environment.",
+                "Biotic Components: The living organisms in an ecosystem (plants, animals, microorganisms, human beings).",
+                "Abiotic Components: The physical and non-living factors of an ecosystem (temperature, rainfall, wind, soil, minerals)."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Ecosystem: A self-sustaining functional unit comprising all interacting organisms in an area together with the non-living constituents of the environment."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc113.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735278162_3",
+          "type": "GRAPH",
+          "title": "Ecosystem and its Components Mathematical Graph",
+          "content": {
+            "graph": {
+              "range": [
+                -5,
+                20
+              ],
+              "title": "Ecosystem and its Components Coordinate Graph",
+              "domain": [
+                -5,
+                10
+              ],
+              "xLabel": "x",
+              "yLabel": "y",
+              "graphType": "function",
+              "variables": [
+                {
+                  "max": 10,
+                  "min": -5,
+                  "name": "m",
+                  "step": 0.5,
+                  "label": "Slope (m)",
+                  "current": 2
+                },
+                {
+                  "max": 10,
+                  "min": -5,
+                  "name": "c",
+                  "step": 0.5,
+                  "label": "y-intercept (c)",
+                  "current": 1
+                }
+              ],
+              "expression": "y = 2 * x + 1",
+              "progressiveSteps": [
+                {
+                  "action": "axes",
+                  "stepIndex": 0,
+                  "description": "Display coordinate axes and reference grid"
+                },
+                {
+                  "action": "points",
+                  "stepIndex": 1,
+                  "description": "Plot discrete coordinates"
+                },
+                {
+                  "action": "line",
+                  "stepIndex": 2,
+                  "description": "Trace continuous function curve"
+                },
+                {
+                  "action": "intercept",
+                  "stepIndex": 3,
+                  "description": "Highlight y-intercept"
+                },
+                {
+                  "action": "slope_triangle",
+                  "stepIndex": 4,
+                  "description": "Form slope triangle Delta y / Delta x"
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_graph",
+            "content": "y = 2 * x + 1"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc113.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 150
+        },
+        {
+          "id": "step_mod_1793735278162_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Ecosystem: A self-sustaining functional unit comprising all interacting organisms in an area together with the non-living constituents of the environment."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If List of organisms, what is the value?",
+              "explanation": "By fundamental principle, Ecosystem: A self-sustaining functional unit comprising all interacting organisms in an area together with the non-living constituents of the environment. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735278162_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Definition of an Ecosystem",
+                "Biotic and Abiotic Components",
+                "Natural vs. Artificial Ecosystems",
+                "Producers, Consumers, and Decomposers"
+              ],
+              "formulasToRemember": [
+                "Ecosystem: A self-sustaining functional unit comprising all interacting organisms in an area together with the non-living constituents of the environment.",
+                "Biotic Components: The living organisms in an ecosystem (plants, animals, microorganisms, human beings).",
+                "Abiotic Components: The physical and non-living factors of an ecosystem (temperature, rainfall, wind, soil, minerals)."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Ecosystem and its Components - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Ecosystem and its Components",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:47:58.162Z",
+        "provenance": "jesc113.pdf",
+        "totalEstimatedMinutes": 9,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735278162",
+      "subtopics": [
+        "Definition of an Ecosystem",
+        "Biotic and Abiotic Components",
+        "Natural vs. Artificial Ecosystems",
+        "Producers, Consumers, and Decomposers"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Ecosystem Components & Nutrient Flow</text><rect x='30' y='60' width='140' height='70' rx='6' fill='#EFF6FF' stroke='#2563EB' stroke-width='1.5'/><text x='100' y='85' font-family='Arial' font-size='13' font-weight='bold' fill='#2563EB' text-anchor='middle'>Producers</text><text x='100' y='110' font-family='Arial' font-size='11' fill='#334155' text-anchor='middle'>Green Plants, Algae</text><rect x='200' y='60' width='140' height='70' rx='6' fill='#F0FDF4' stroke='#16A34A' stroke-width='1.5'/><text x='270' y='85' font-family='Arial' font-size='13' font-weight='bold' fill='#16A34A' text-anchor='middle'>Consumers</text><text x='270' y='110' font-family='Arial' font-size='11' fill='#334155' text-anchor='middle'>Herbivores, Carnivores</text><rect x='370' y='60' width='140' height='70' rx='6' fill='#FEF2F2' stroke='#DC2626' stroke-width='1.5'/><text x='440' y='85' font-family='Arial' font-size='13' font-weight='bold' fill='#DC2626' text-anchor='middle'>Decomposers</text><text x='440' y='110' font-family='Arial' font-size='11' fill='#334155' text-anchor='middle'>Bacteria & Fungi</text><path d='M 170 95 L 200 95' fill='none' stroke='#64748B' stroke-width='2' marker-end='url(#arrow)'/><path d='M 340 95 L 370 95' fill='none' stroke='#64748B' stroke-width='2'/><rect x='150' y='160' width='240' height='80' rx='6' fill='#F8FAFC' stroke='#64748B' stroke-width='1.5'/><text x='270' y='185' font-family='Arial' font-size='13' font-weight='bold' fill='#0F172A' text-anchor='middle'>Abiotic Environment</text><text x='270' y='215' font-family='Arial' font-size='11' fill='#334155' text-anchor='middle'>Temperature, Rainfall, Soil, Minerals, Sunlight</text></svg>",
+      "diagram_idea": "Diagram showing an ecosystem interacting between biotic organisms and abiotic factors in a pond or forest.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "A schematic diagram showing sun, green plants (producers), herbivores, carnivores, and decomposers connected with arrows to soil and water.",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='40' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Biotic & Abiotic Interaction</text><rect x='60' y='80' width='180' height='120' rx='8' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='150' y='110' font-family='Arial' font-size='14' font-weight='bold' fill='#2563EB' text-anchor='middle'>BIOTIC</text><text x='150' y='140' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>- Producers</text><text x='150' y='165' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>- Consumers</text><text x='150' y='190' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>- Decomposers</text><rect x='300' y='80' width='180' height='120' rx='8' fill='#F0FDF4' stroke='#16A34A' stroke-width='2'/><text x='390' y='110' font-family='Arial' font-size='14' font-weight='bold' fill='#16A34A' text-anchor='middle'>ABIOTIC</text><text x='390' y='140' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>- Temperature</text><text x='390' y='165' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>- Rainfall & Soil</text><text x='390' y='190' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>- Minerals & Wind</text></svg>",
+          "why_needed": "Helps students visualize how living and non-living components interact in nature.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='40' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Biotic & Abiotic Interaction</text><rect x='60' y='80' width='180' height='120' rx='8' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='150' y='110' font-family='Arial' font-size='14' font-weight='bold' fill='#2563EB' text-anchor='middle'>BIOTIC</text><text x='150' y='140' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>- Producers</text><text x='150' y='165' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>- Consumers</text><text x='150' y='190' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>- Decomposers</text><rect x='300' y='80' width='180' height='120' rx='8' fill='#F0FDF4' stroke='#16A34A' stroke-width='2'/><text x='390' y='110' font-family='Arial' font-size='14' font-weight='bold' fill='#16A34A' text-anchor='middle'>ABIOTIC</text><text x='390' y='140' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>- Temperature</text><text x='390' y='165' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>- Rainfall & Soil</text><text x='390' y='190' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>- Minerals & Wind</text></svg>",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Boxes for Biotic and Abiotic components with connecting arrows.",
+          "concept_title": "Ecosystem: A self-sustaining functional unit comprising all interacting organisms in an area together with the non-living constituents of the environment.",
+          "diagram_title": "Ecosystem Interaction Map",
+          "timing_and_cue": "Show this at the start of the class when defining the ecosystem.",
+          "what_to_explain": "Explain how biotic factors depend on abiotic factors like sunlight and water.",
+          "interactive_math_formula": ""
+        }
+      ],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "Ecosystem -> Biotic Components (Producers | Consumers | Decomposers) & Abiotic Components (Temperature | Rainfall | Soil | Minerals) -> Natural vs Artificial",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Which of the following is a natural ecosystem?",
+              "ideal_answer": "Pond",
+              "socratic_hint": "Think about ecosystems formed naturally without human interference."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Define an ecosystem. Give one example of a human-made ecosystem.",
+              "ideal_answer": "An ecosystem consists of biotic and abiotic components interacting together. Example: An aquarium or crop field.",
+              "socratic_hint": "Mention both living (biotic) and non-living (abiotic) parts."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "Why is an aquarium considered a human-made ecosystem while a pond is a natural ecosystem?",
+              "ideal_answer": "An aquarium is created and maintained by humans with artificial supply of food, water, and oxygen, whereas a pond is self-sustaining and formed naturally.",
+              "socratic_hint": "Focus on who sets up and maintains the components."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q4",
+              "question": "Distinguish between biotic and abiotic components of an ecosystem with examples.",
+              "ideal_answer": "Biotic components are living things like plants and animals. Abiotic components are non-living physical factors like temperature and soil.",
+              "socratic_hint": "Classify living vs non-living."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Ecosystem: A self-sustaining functional unit comprising all interacting organisms in an area together with the non-living constituents of the environment."
+        },
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Which of the following organisms act as decomposers in an ecosystem?",
+              "ideal_answer": "Bacteria and fungi",
+              "socratic_hint": "They break down complex organic remains into simple inorganic substances."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "What are producers? Give two examples.",
+              "ideal_answer": "Producers are autotrophic organisms that can make organic compounds from inorganic substances using solar energy. Examples: Green plants, blue-green algae.",
+              "socratic_hint": "Mention photosynthesis."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "Explain the role of decomposers in an ecosystem. What would happen if all decomposers disappeared?",
+              "ideal_answer": "Decomposers break down dead remains and waste products, recycling nutrients back into the soil. Without them, garbage and dead bodies would accumulate, and soil replenishment would stop.",
+              "socratic_hint": "Think about nutrient cycling and waste accumulation."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q4",
+              "question": "Why do we not get any energy if we try to eat coal, even though coal is organic-rich carbon?",
+              "ideal_answer": "Enzymes in our body are specific in action and cannot break down coal to release energy, unlike digestible food substances.",
+              "socratic_hint": "Enzyme specificity."
+            }
+          ],
+          "concept_index": 1,
+          "concept_title": "Producers, Consumers, and Decomposers"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Garden Ecosystem",
+          "scenario": "A garden contains plants (grasses, rose, jasmine) and animals (frogs, insects, birds) interacting with abiotic factors like temperature and soil, forming a miniature ecosystem."
+        },
+        {
+          "title": "Aquarium Maintenance",
+          "scenario": "Setting up a glass jar with water, fish, oxygen pump, and aquatic plants creates a human-made self-sustaining aquarium ecosystem."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "Why does an aquarium have to be cleaned once in a while?",
+              "question_type": "conceptual",
+              "solution_method": "Unlike natural ponds which have self-cleaning mechanisms and decomposers, an aquarium is a closed artificial system where fish waste and uneaten food accumulate."
+            }
+          ],
+          "exercise_number": "In-Text & Concept Check"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Ecosystem",
+          "si_units": "Not applicable (Ecological unit)",
+          "definition": "All the interacting organisms in an area together with the non-living constituents of the environment forming a self-sustaining unit."
+        },
+        {
+          "concept": "Producers",
+          "si_units": "Not applicable",
+          "definition": "Organisms that can make organic compounds like sugar and starch from inorganic substances using radiant energy of the Sun in the presence of chlorophyll."
+        },
+        {
+          "concept": "Decomposers",
+          "si_units": "Not applicable",
+          "definition": "Microorganisms (bacteria and fungi) that break-down complex organic substances from dead remains and waste into simple inorganic substances."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "4fd06e26-709b-48fc-b78d-0ec7192d10d6",
+    "curriculum_id": "687bf76e-31ca-47e0-b8b6-12a372598a2e",
+    "order_index": 2,
+    "title": "Food Chains, Trophic Levels, and Energy Flow",
+    "description": "Explore food chains, trophic levels, the 10% energy flow law (Lindeman's law), unidirectional energy flow, and food webs.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 2: Food Chains, Trophic Levels, and Energy Flow. Final-Term Examination Syllabus. Emphasize why food chains rarely exceed 4 trophic levels (due to 90% energy loss at each step). Use numerical examples for the 10% law.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Pyramid with 4 tiers: Producers (bottom), Primary Consumers, Secondary Consumers, Top Carnivores (top).\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Sunlight (100%) -> Producers (1% captured) -> Primary Consumers (10%) -> Secondary Consumers (1%) -> Tertiary Consumers (0.1%)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Sunlight (100%) -> Producers (1% captured) -> Primary Consumers (10%) -> Secondary Consumers (1%) -> Tertiary Consumers (0.1%)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Trophic Level: \"Each step or level of a food chain representing organisms categorized by their feeding position.\" [SI Unit: Not applicable]\n- 10% Law: \"An average of 10% of the food eaten is turned into the organism's own body and made available for the next level of consumers.\" [SI Unit: Percent (%)]\n\n- Textbook Concrete Examples:\n- Forest Food Chain: Grass -> Deer -> Tiger (Producers -> Herbivore -> Carnivore).\n- Pond Food Chain: Phytoplankton -> Zooplankton -> Small Fish -> Large Fish.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - NCERT Chapter Questions:\n    * [Q1] (conceptual): What are trophic levels? Give an example of a food chain and state the different trophic levels in it.\n      Method: Define trophic level. Give example: Grass (Producer, 1st) -> Goat (Herbivore, 2nd) -> Human (Carnivore/Omnivore, 3rd).\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Food Chain: A series of organisms taking part at various biotic levels in which one organism eats another.\":\n    * [Q1] (1-mark MCQ): In a food chain consisting of grass, goat, and lion, which organism occupies the third trophic level?\n      -> Ideal Model Answer: Lion\n      -> Socratic Hint: Grass is 1st (producer), goat is 2nd (herbivore), lion is 3rd (carnivore).\n    * [Q2] (2-mark Definition): Define trophic level. Name the trophic level occupied by herbivores.\n      -> Ideal Model Answer: Trophic level is each step or level of a food chain. Herbivores occupy the second trophic level.\n      -> Socratic Hint: Producers are 1st, herbivores are primary consumers at 2nd.\n    * [Q3] (3-mark Short Answer): Why do food chains generally consist of only three or four steps?\n      -> Ideal Model Answer: Due to the 10% law of energy transfer, very little energy is available after four trophic levels, leaving insufficient energy to sustain higher levels.\n      -> Socratic Hint: Think about energy loss at each step.\n    * [Q4] (PYQ): What is a food web? Why is a food web more realistic than a straight-line food chain?\n      -> Ideal Model Answer: A food web is a network of branching food chains. It is realistic because most organisms are eaten by two or more other kinds of organisms, not just one.\n      -> Socratic Hint: Alternative feeding choices.\n  * Concept #2 \"10% Law: Only about 10% of the food eaten is turned into the organism's own body and made available for the next level of consumers.\":\n    * [Q1] (1-mark MCQ): If 10,000 J of solar energy is trapped by green plants, how much energy will be available to the secondary consumer?\n      -> Ideal Model Answer: 10 J\n      -> Socratic Hint: Plants get 1% of sunlight? Wait, if 10,000 J is plant energy: Primary consumer gets 10% = 1000 J; Secondary consumer gets 10% of 1000 = 100 J. Let's calculate carefully: Plant = 10,000 J -> Herbivore = 1,000 J -> Carnivore = 100 J.\n    * [Q2] (2-mark Numerical): Calculate the energy available at the tertiary consumer level if producers have 20,000 J of energy.\n      -> Ideal Model Answer: Producers: 20,000 J -> Primary: 2,000 J -> Secondary: 200 J -> Tertiary: 20 J.\n      -> Socratic Hint: Apply 10% rule successively for 3 steps.\n    * [Q3] (3-mark Short Answer): State two main features of energy flow through ecosystems deduced from the energy flow diagram.\n      -> Ideal Model Answer: 1. Flow of energy is unidirectional. 2. Energy available at each trophic level gets diminished progressively due to heat loss.\n      -> Socratic Hint: Unidirectional and decreasing.\n    * [Q4] (Competency): Why is the number of individuals greatest at the producer level and lowest at the top carnivore level?\n      -> Ideal Model Answer: Because energy decreases drastically at each higher trophic level due to the 10% law, supporting fewer individuals at the top.\n      -> Socratic Hint: Pyramid of numbers and energy.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"10% Law: Only about 10% of the food eaten is turned into the organism's own body and made available for the next level of consumers.\":\n    - Visual Title: \"10% Energy Flow Rule\" (vector_svg_diagram)\n    - Why Needed: Clearly demonstrates numerical energy attenuation across trophic steps.\n    - What to Explain: Walk through how 10,000 J becomes 1,000 J, then 100 J, then 10 J.\n    - Timing & Directive: Present when explaining numerical problems related to energy transfer.\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Food Chain: A series of organisms taking part at various biotic levels in which one organism eats another.",
+      "Trophic Level: Each step or level of a food chain (Producers -> Primary Consumers -> Secondary Consumers -> Tertiary Consumers).",
+      "10% Law: Only about 10% of the food eaten is turned into the organism's own body and made available for the next level of consumers.",
+      "Unidirectional Energy Flow: Energy captured by autotrophs does not revert back to the solar input, and energy moving up trophic levels is not available to previous levels.",
+      "Food Web: A network of branching food chains showing multiple feeding relationships in an ecosystem."
+    ],
+    "success_criteria": "Calculate energy transfer across trophic levels using the 10% law and draw accurate food chains and food webs.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:47:59.424002+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Food Chain and Trophic Levels",
+      "Flow of Energy in an Ecosystem",
+      "10% Law of Energy Transfer",
+      "Unidirectional Energy Flow",
+      "Food Webs and Complexity"
+    ],
+    "chapter_notes": "Energy flow in an ecosystem is unidirectional. Green plants capture about 1% of sunlight falling on their leaves and convert it into food energy. When organisms eat plants or other animals, energy is lost as heat during respiration, digestion, and movement. According to Lindeman's 10% law, only 10% of the energy is transferred from one trophic level to the next. Trophic levels are structured as: 1st Level: Producers (Autotrophs), 2nd Level: Primary Consumers (Herbivores), 3rd Level: Secondary Consumers (Small carnivores), 4th Level: Tertiary Consumers (Large carnivores). Because energy loss is enormous at each step, food chains are restricted to 3 or 4 steps. A food web represents multiple interconnected food chains.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Joules (J)",
+        "given": "Producer energy = 5,000 J",
+        "formula": "Energy at next trophic level = 10% of previous level energy",
+        "problem": "If 5,000 Joules of energy is available to producers, calculate the energy transferred to secondary consumers.",
+        "calculation": "5000 * 0.1 = 500 J; 500 * 0.1 = 50 J",
+        "finalAnswer": "50",
+        "substitution": "Primary consumer = 10% of 5000 J = 500 J; Secondary consumer = 10% of 500 J",
+        "image_search_query": "class 10 science chapter_13_our_ ncert",
+        "page": 20,
+        "section": "Section 2"
+      }
+    ],
+    "common_misconceptions": [
+      "Believing energy flows in a cycle (it is strictly unidirectional: Sun -> Producers -> Consumers -> Decomposers -> Heat).",
+      "Confusing 1% sunlight capture by plants with the 10% energy transfer between trophic levels."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735278847_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Food Chains, Trophic Levels, and Energy Flow: Explore food chains, trophic levels, the 10% energy flow law (Lindeman's law), unidirectional energy flow, and food webs.",
+              "keyTakeaway": "Food Chain: A series of organisms taking part at various biotic levels in which one organism eats another."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Food Chain: A series of organisms taking part at various biotic levels in which one organism eats another."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc113.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735278847_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Food Chains, Trophic Levels, and Energy Flow - Fundamental Equations",
+              "equations": [
+                "Food Chain: A series of organisms taking part at various biotic levels in which one organism eats another.",
+                "Trophic Level: Each step or level of a food chain (Producers -> Primary Consumers -> Secondary Consumers -> Tertiary Consumers).",
+                "10% Law: Only about 10% of the food eaten is turned into the organism's own body and made available for the next level of consumers."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Food Chain: A series of organisms taking part at various biotic levels in which one organism eats another."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc113.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735278847_3",
+          "type": "DIAGRAM",
+          "title": "Food Chains, Trophic Levels, and Energy Flow Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Food Chains, Trophic Levels, and Energy Flow Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Food Chain: A series of organisms taking part at various biotic levels in which one organism eats another.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Trophic Level: Each step or level of a food chain (Producers -> Primary Consumers -> Secondary Consumers -> Tertiary Consumers).",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "vector_svg",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Food Chains, Trophic Levels, and Energy Flow | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Trophic Levels & Energy Pyramid</text><polygon points='270,50 420,220 120,220' fill='#FEF08A' stroke='#D97706' stroke-width='2'/><text x='270' y='90' font-family='Arial' font-size='12' font-weight='bold' fill='#92400E' text-anchor='middle'>Tertiary Consumers (0.1%)</text><line x1='195' y1='110' x2='345' y2='110' stroke='#D97706' stroke-width='1.5'/><text x='270' y='135' font-family='Arial' font-size='12' font-weight='bold' fill='#92400E' text-anchor='middle'>Secondary Consumers (1%)</text><line x1='165' y1='150' x2='375' y2='150' stroke='#D97706' stroke-width='1.5'/><text x='270' y='175' font-family='Arial' font-size='12' font-weight='bold' fill='#92400E' text-anchor='middle'>Primary Consumers (10%)</text><line x1='135' y1='190' x2='405' y2='190' stroke='#D97706' stroke-width='1.5'/><text x='270' y='210' font-family='Arial' font-size='12' font-weight='bold' fill='#92400E' text-anchor='middle'>Producers (100% / 10,000J)</text></svg> | Pyramid with 4 tiers: Producers (bottom), Primary Consumers, Secondary Consumers, Top Carnivores (top)."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc113.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735278847_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Food Chain: A series of organisms taking part at various biotic levels in which one organism eats another."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Producer energy = 5,000 J, what is the value?",
+              "explanation": "By fundamental principle, Food Chain: A series of organisms taking part at various biotic levels in which one organism eats another. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735278847_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Food Chain and Trophic Levels",
+                "Flow of Energy in an Ecosystem",
+                "10% Law of Energy Transfer",
+                "Unidirectional Energy Flow",
+                "Food Webs and Complexity"
+              ],
+              "formulasToRemember": [
+                "Food Chain: A series of organisms taking part at various biotic levels in which one organism eats another.",
+                "Trophic Level: Each step or level of a food chain (Producers -> Primary Consumers -> Secondary Consumers -> Tertiary Consumers).",
+                "10% Law: Only about 10% of the food eaten is turned into the organism's own body and made available for the next level of consumers."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Food Chains, Trophic Levels, and Energy Flow - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Food Chains, Trophic Levels, and Energy Flow",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:47:58.847Z",
+        "provenance": "jesc113.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735278847",
+      "subtopics": [
+        "Food Chain and Trophic Levels",
+        "Flow of Energy in an Ecosystem",
+        "10% Law of Energy Transfer",
+        "Unidirectional Energy Flow",
+        "Food Webs and Complexity"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Trophic Levels & Energy Pyramid</text><polygon points='270,50 420,220 120,220' fill='#FEF08A' stroke='#D97706' stroke-width='2'/><text x='270' y='90' font-family='Arial' font-size='12' font-weight='bold' fill='#92400E' text-anchor='middle'>Tertiary Consumers (0.1%)</text><line x1='195' y1='110' x2='345' y2='110' stroke='#D97706' stroke-width='1.5'/><text x='270' y='135' font-family='Arial' font-size='12' font-weight='bold' fill='#92400E' text-anchor='middle'>Secondary Consumers (1%)</text><line x1='165' y1='150' x2='375' y2='150' stroke='#D97706' stroke-width='1.5'/><text x='270' y='175' font-family='Arial' font-size='12' font-weight='bold' fill='#92400E' text-anchor='middle'>Primary Consumers (10%)</text><line x1='135' y1='190' x2='405' y2='190' stroke='#D97706' stroke-width='1.5'/><text x='270' y='210' font-family='Arial' font-size='12' font-weight='bold' fill='#92400E' text-anchor='middle'>Producers (100% / 10,000J)</text></svg>",
+      "diagram_idea": "Ecological pyramid showing Trophic levels 1 to 4 with energy values and percentage losses.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Pyramid with 4 tiers: Producers (bottom), Primary Consumers, Secondary Consumers, Top Carnivores (top).",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Energy Flow & 10% Law Calculation</text><rect x='50' y='60' width='440' height='35' rx='6' fill='#DCFCE7' stroke='#16A34A' stroke-width='2'/><text x='270' y='82' font-family='Arial' font-size='13' font-weight='bold' fill='#16A34A' text-anchor='middle'>Producers: 10,000 Joules</text><rect x='90' y='110' width='360' height='35' rx='6' fill='#FEF9C3' stroke='#CA8A04' stroke-width='2'/><text x='270' y='132' font-family='Arial' font-size='13' font-weight='bold' fill='#CA8A04' text-anchor='middle'>Primary Consumers: 1,000 Joules</text><rect x='130' y='160' width='280' height='35' rx='6' fill='#FFEDD5' stroke='#EA580C' stroke-width='2'/><text x='270' y='182' font-family='Arial' font-size='13' font-weight='bold' fill='#EA580C' text-anchor='middle'>Secondary Consumers: 100 Joules</text><rect x='170' y='210' width='200' height='35' rx='6' fill='#FEE2E2' stroke='#DC2626' stroke-width='2'/><text x='270' y='232' font-family='Arial' font-size='13' font-weight='bold' fill='#DC2626' text-anchor='middle'>Tertiary: 10 Joules</text></svg>",
+          "why_needed": "Clearly demonstrates numerical energy attenuation across trophic steps.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Energy Flow & 10% Law Calculation</text><rect x='50' y='60' width='440' height='35' rx='6' fill='#DCFCE7' stroke='#16A34A' stroke-width='2'/><text x='270' y='82' font-family='Arial' font-size='13' font-weight='bold' fill='#16A34A' text-anchor='middle'>Producers: 10,000 Joules</text><rect x='90' y='110' width='360' height='35' rx='6' fill='#FEF9C3' stroke='#CA8A04' stroke-width='2'/><text x='270' y='132' font-family='Arial' font-size='13' font-weight='bold' fill='#CA8A04' text-anchor='middle'>Primary Consumers: 1,000 Joules</text><rect x='130' y='160' width='280' height='35' rx='6' fill='#FFEDD5' stroke='#EA580C' stroke-width='2'/><text x='270' y='182' font-family='Arial' font-size='13' font-weight='bold' fill='#EA580C' text-anchor='middle'>Secondary Consumers: 100 Joules</text><rect x='170' y='210' width='200' height='35' rx='6' fill='#FEE2E2' stroke='#DC2626' stroke-width='2'/><text x='270' y='232' font-family='Arial' font-size='13' font-weight='bold' fill='#DC2626' text-anchor='middle'>Tertiary: 10 Joules</text></svg>",
+          "image_query": "biological structure diagram of 10% Energy Flow Rule with labeled anatomical parts and microscopic cellular details",
+          "video_query": "10% Energy Flow Rule biology educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Stacked horizontal bars representing energy values.",
+          "concept_title": "10% Law: Only about 10% of the food eaten is turned into the organism's own body and made available for the next level of consumers.",
+          "diagram_title": "10% Energy Flow Rule",
+          "timing_and_cue": "Present when explaining numerical problems related to energy transfer.",
+          "what_to_explain": "Walk through how 10,000 J becomes 1,000 J, then 100 J, then 10 J.",
+          "image_search_query": "biological structure diagram of 10% Energy Flow Rule with labeled anatomical parts and microscopic cellular details",
+          "video_search_query": "10% Energy Flow Rule biology educational demonstration video",
+          "interactive_math_formula": ""
+        }
+      ],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "Sunlight (100%) -> Producers (1% captured) -> Primary Consumers (10%) -> Secondary Consumers (1%) -> Tertiary Consumers (0.1%)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "In a food chain consisting of grass, goat, and lion, which organism occupies the third trophic level?",
+              "ideal_answer": "Lion",
+              "socratic_hint": "Grass is 1st (producer), goat is 2nd (herbivore), lion is 3rd (carnivore)."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Define trophic level. Name the trophic level occupied by herbivores.",
+              "ideal_answer": "Trophic level is each step or level of a food chain. Herbivores occupy the second trophic level.",
+              "socratic_hint": "Producers are 1st, herbivores are primary consumers at 2nd."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "Why do food chains generally consist of only three or four steps?",
+              "ideal_answer": "Due to the 10% law of energy transfer, very little energy is available after four trophic levels, leaving insufficient energy to sustain higher levels.",
+              "socratic_hint": "Think about energy loss at each step."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q4",
+              "question": "What is a food web? Why is a food web more realistic than a straight-line food chain?",
+              "ideal_answer": "A food web is a network of branching food chains. It is realistic because most organisms are eaten by two or more other kinds of organisms, not just one.",
+              "socratic_hint": "Alternative feeding choices."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Food Chain: A series of organisms taking part at various biotic levels in which one organism eats another."
+        },
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "If 10,000 J of solar energy is trapped by green plants, how much energy will be available to the secondary consumer?",
+              "ideal_answer": "10 J",
+              "socratic_hint": "Plants get 1% of sunlight? Wait, if 10,000 J is plant energy: Primary consumer gets 10% = 1000 J; Secondary consumer gets 10% of 1000 = 100 J. Let's calculate carefully: Plant = 10,000 J -> Herbivore = 1,000 J -> Carnivore = 100 J."
+            },
+            {
+              "type": "2-mark Numerical",
+              "q_num": "Q2",
+              "question": "Calculate the energy available at the tertiary consumer level if producers have 20,000 J of energy.",
+              "ideal_answer": "Producers: 20,000 J -> Primary: 2,000 J -> Secondary: 200 J -> Tertiary: 20 J.",
+              "socratic_hint": "Apply 10% rule successively for 3 steps."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "State two main features of energy flow through ecosystems deduced from the energy flow diagram.",
+              "ideal_answer": "1. Flow of energy is unidirectional. 2. Energy available at each trophic level gets diminished progressively due to heat loss.",
+              "socratic_hint": "Unidirectional and decreasing."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q4",
+              "question": "Why is the number of individuals greatest at the producer level and lowest at the top carnivore level?",
+              "ideal_answer": "Because energy decreases drastically at each higher trophic level due to the 10% law, supporting fewer individuals at the top.",
+              "socratic_hint": "Pyramid of numbers and energy."
+            }
+          ],
+          "concept_index": 1,
+          "concept_title": "10% Law: Only about 10% of the food eaten is turned into the organism's own body and made available for the next level of consumers."
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Forest Food Chain",
+          "scenario": "Grass -> Deer -> Tiger (Producers -> Herbivore -> Carnivore)."
+        },
+        {
+          "title": "Pond Food Chain",
+          "scenario": "Phytoplankton -> Zooplankton -> Small Fish -> Large Fish."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "What are trophic levels? Give an example of a food chain and state the different trophic levels in it.",
+              "question_type": "conceptual",
+              "solution_method": "Define trophic level. Give example: Grass (Producer, 1st) -> Goat (Herbivore, 2nd) -> Human (Carnivore/Omnivore, 3rd)."
+            }
+          ],
+          "exercise_number": "NCERT Chapter Questions"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Trophic Level",
+          "si_units": "Not applicable",
+          "definition": "Each step or level of a food chain representing organisms categorized by their feeding position."
+        },
+        {
+          "concept": "10% Law",
+          "si_units": "Percent (%)",
+          "definition": "An average of 10% of the food eaten is turned into the organism's own body and made available for the next level of consumers."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "4b1303de-b514-414c-bc69-57bc3196de6a",
+    "curriculum_id": "687bf76e-31ca-47e0-b8b6-12a372598a2e",
+    "order_index": 3,
+    "title": "Biological Magnification",
+    "description": "Understand how harmful non-biodegradable chemicals like pesticides accumulate progressively at higher trophic levels.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 3: Biological Magnification. Final-Term Examination Syllabus. Explain why human beings have the highest concentration of toxins. Emphasize the word 'non-biodegradable'.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: A pyramid or ladder showing increasing dots (toxins) from producers to top carnivores.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Pesticides applied to crops -> Absorbed by soil/water -> Taken up by plants -> Eaten by herbivores (Concentration rises) -> Eaten by carnivores / Humans (Maximum concentration)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Pesticides applied to crops -> Absorbed by soil/water -> Taken up by plants -> Eaten by herbivores (Concentration rises) -> Eaten by carnivores / Humans (Maximum concentration)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Biological Magnification: \"The progressive accumulation of non-biodegradable harmful chemicals in organisms at each successive trophic level.\" [SI Unit: ppm (parts per million)]\n\n- Textbook Concrete Examples:\n- Pesticide Residues in Food: Wheat, rice, fruits, and vegetables containing pesticide residues absorbed from soil treated with agricultural chemicals.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - NCERT Exercise Q6:\n    * [Q6] (conceptual): What is biological magnification? Will the levels of this magnification be different at different levels of the ecosystem?\n      Method: Define biomagnification. Explain that levels are different and highest at the top trophic level.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Biological Magnification: The progressive accumulation of non-biodegradable chemicals at each higher trophic level in a food chain.\":\n    * [Q1] (1-mark MCQ): Which organisms will have the maximum concentration of pesticides in a pond food chain?\n      -> Ideal Model Answer: Large fish (Top carnivores)\n      -> Socratic Hint: Chemicals accumulate progressively at each higher trophic level.\n    * [Q2] (2-mark Definition): Define biological magnification. Why does it occur?\n      -> Ideal Model Answer: Biological magnification is the progressive accumulation of non-biodegradable chemicals at each higher trophic level. It occurs because these chemicals cannot be broken down or excreted and multiply in concentration up the food chain.\n      -> Socratic Hint: Non-degradable nature and feeding across levels.\n    * [Q3] (3-mark Short Answer): Why do food grains, vegetables, and fruits contain varying amounts of pesticide residues despite washing?\n      -> Ideal Model Answer: Because pesticides applied to crops are absorbed by plants from soil and water along with nutrients. Since they are non-biodegradable, they persist inside plant tissues and cannot always be removed by washing.\n      -> Socratic Hint: Absorption from soil/water and internal tissue storage.\n    * [Q4] (PYQ): Will the levels of biological magnification be different at different trophic levels of an ecosystem? Explain.\n      -> Ideal Model Answer: Yes. The concentration of harmful chemicals increases progressively from producers to top carnivores, being highest at the top trophic level.\n      -> Socratic Hint: Higher level = higher concentration.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Biological Magnification: The progressive accumulation of non-biodegradable harmful chemicals in organisms at each successive trophic level.\":\n    - Visual Title: \"Biomagnification Progression\" (vector_svg_diagram)\n    - Why Needed: Visualizes toxin concentration increase from bottom to top.\n    - What to Explain: Point out how non-degradable chemicals multiply in concentration at each step.\n    - Timing & Directive: Display while discussing why top carnivores and humans have high chemical toxicity.\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Pesticides & Chemicals: Non-degradable chemical substances used to protect crops from diseases and pests.",
+      "Biological Magnification: The progressive accumulation of non-biodegradable chemicals at each higher trophic level in a food chain.",
+      "Top Trophic Level Concentration: Human beings and top carnivores accumulate the maximum concentration of toxic chemicals because they occupy the highest level in food chains."
+    ],
+    "success_criteria": "Explain the mechanism of biomagnification and predict which trophic level suffers the highest chemical concentration.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:48:00.090234+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Entry of Pesticides into Food Chains",
+      "Non-degradable Chemical Accumulation",
+      "Biological Magnification (Biomagnification)",
+      "Impact on Human Beings at Top Trophic Levels"
+    ],
+    "chapter_notes": "Pesticides and agricultural chemicals (such as DDT) used to protect crops are washed down into the soil or water bodies. Plants absorb these along with water and minerals. Since these chemicals are non-biodegradable (cannot be broken down by biological processes), they get accumulated progressively at each higher trophic level. As human beings occupy the top trophic level in most food chains, we accumulate the maximum concentration of these harmful chemical residues in our bodies. This phenomenon is known as biological magnification (or biomagnification).",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "ppm",
+        "given": "Pesticide concentration increasing up the food chain",
+        "formula": "Biomagnification principle",
+        "problem": "In a food chain, water has 0.02 ppm of pesticide, phytoplankton has 5 ppm, small fish has 240 ppm, and fish-eating birds have 1,600 ppm. Explain this trend.",
+        "calculation": "Progressive non-degradable accumulation per trophic level.",
+        "finalAnswer": "Biological Magnification",
+        "substitution": "Water (0.02) -> Phytoplankton (5) -> Small Fish (240) -> Birds (1600)",
+        "image_search_query": "class 10 science chapter_13_our_ ncert",
+        "page": 30,
+        "section": "Section 3"
+      }
+    ],
+    "common_misconceptions": [
+      "Believing washing vegetables removes all pesticide residues (internalized chemicals cannot be washed off).",
+      "Thinking biodegradable chemicals also undergo biological magnification."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735279534_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Biological Magnification: Understand how harmful non-biodegradable chemicals like pesticides accumulate progressively at higher trophic levels.",
+              "keyTakeaway": "Pesticides & Chemicals: Non-degradable chemical substances used to protect crops from diseases and pests."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Pesticides & Chemicals: Non-degradable chemical substances used to protect crops from diseases and pests."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc113.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735279534_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Biological Magnification - Fundamental Equations",
+              "equations": [
+                "Pesticides & Chemicals: Non-degradable chemical substances used to protect crops from diseases and pests.",
+                "Biological Magnification: The progressive accumulation of non-biodegradable chemicals at each higher trophic level in a food chain.",
+                "Top Trophic Level Concentration: Human beings and top carnivores accumulate the maximum concentration of toxic chemicals because they occupy the highest level in food chains."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Pesticides & Chemicals: Non-degradable chemical substances used to protect crops from diseases and pests."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc113.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735279534_3",
+          "type": "DIAGRAM",
+          "title": "Biological Magnification Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Biological Magnification Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Pesticides & Chemicals: Non-degradable chemical substances used to protect crops from diseases and pests.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Biological Magnification: The progressive accumulation of non-biodegradable chemicals at each higher trophic level in a food chain.",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Biological Magnification",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Biological Magnification | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Biological Magnification (Biomagnification)</text><rect x='50' y='60' width='440' height='40' rx='6' fill='#FEF2F2' stroke='#DC2626' stroke-width='2'/><text x='270' y='85' font-family='Arial' font-size='13' font-weight='bold' fill='#DC2626' text-anchor='middle'>Top Carnivores / Humans (Maximum Concentration)</text><rect x='90' y='115' width='360' height='40' rx='6' fill='#FFEDD5' stroke='#EA580C' stroke-width='2'/><text x='270' y='140' font-family='Arial' font-size='13' font-weight='bold' fill='#EA580C' text-anchor='middle'>Secondary Consumers (High Concentration)</text><rect x='130' y='170' width='280' height='40' rx='6' fill='#FEF9C3' stroke='#CA8A04' stroke-width='2'/><text x='270' y='195' font-family='Arial' font-size='13' font-weight='bold' fill='#CA8A04' text-anchor='middle'>Primary Consumers (Moderate Concentration)</text><rect x='170' y='225' width='200' height='40' rx='6' fill='#DCFCE7' stroke='#16A34A' stroke-width='2'/><text x='270' y='250' font-family='Arial' font-size='13' font-weight='bold' fill='#16A34A' text-anchor='middle'>Producers (Lowest Concentration)</text></svg> | A pyramid or ladder showing increasing dots (toxins) from producers to top carnivores."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc113.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735279534_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Pesticides & Chemicals: Non-degradable chemical substances used to protect crops from diseases and pests."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Pesticide concentration increasing up the food chain, what is the value?",
+              "explanation": "By fundamental principle, Pesticides & Chemicals: Non-degradable chemical substances used to protect crops from diseases and pests. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735279534_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Entry of Pesticides into Food Chains",
+                "Non-degradable Chemical Accumulation",
+                "Biological Magnification (Biomagnification)",
+                "Impact on Human Beings at Top Trophic Levels"
+              ],
+              "formulasToRemember": [
+                "Pesticides & Chemicals: Non-degradable chemical substances used to protect crops from diseases and pests.",
+                "Biological Magnification: The progressive accumulation of non-biodegradable chemicals at each higher trophic level in a food chain.",
+                "Top Trophic Level Concentration: Human beings and top carnivores accumulate the maximum concentration of toxic chemicals because they occupy the highest level in food chains."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Biological Magnification - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Biological Magnification",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:47:59.535Z",
+        "provenance": "jesc113.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735279534",
+      "subtopics": [
+        "Entry of Pesticides into Food Chains",
+        "Non-degradable Chemical Accumulation",
+        "Biological Magnification (Biomagnification)",
+        "Impact on Human Beings at Top Trophic Levels"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Biological Magnification (Biomagnification)</text><rect x='50' y='60' width='440' height='40' rx='6' fill='#FEF2F2' stroke='#DC2626' stroke-width='2'/><text x='270' y='85' font-family='Arial' font-size='13' font-weight='bold' fill='#DC2626' text-anchor='middle'>Top Carnivores / Humans (Maximum Concentration)</text><rect x='90' y='115' width='360' height='40' rx='6' fill='#FFEDD5' stroke='#EA580C' stroke-width='2'/><text x='270' y='140' font-family='Arial' font-size='13' font-weight='bold' fill='#EA580C' text-anchor='middle'>Secondary Consumers (High Concentration)</text><rect x='130' y='170' width='280' height='40' rx='6' fill='#FEF9C3' stroke='#CA8A04' stroke-width='2'/><text x='270' y='195' font-family='Arial' font-size='13' font-weight='bold' fill='#CA8A04' text-anchor='middle'>Primary Consumers (Moderate Concentration)</text><rect x='170' y='225' width='200' height='40' rx='6' fill='#DCFCE7' stroke='#16A34A' stroke-width='2'/><text x='270' y='250' font-family='Arial' font-size='13' font-weight='bold' fill='#16A34A' text-anchor='middle'>Producers (Lowest Concentration)</text></svg>",
+      "diagram_idea": "Step-by-step ladder showing rising concentration of toxic chemical particles from water/plants to top carnivores.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "A pyramid or ladder showing increasing dots (toxins) from producers to top carnivores.",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='40' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Toxin Accumulation Upward</text><circle cx='100' cy='150' r='30' fill='#DCFCE7' stroke='#16A34A' stroke-width='2'/><text x='100' y='155' font-family='Arial' font-size='12' fill='#16A34A' text-anchor='middle'>0.02 ppm</text><text x='100' y='200' font-family='Arial' font-size='12' font-weight='bold' fill='#0F172A' text-anchor='middle'>Producers</text><path d='M 140 150 L 190 150' fill='none' stroke='#64748B' stroke-width='2'/><circle cx='230' cy='150' r='30' fill='#FEF9C3' stroke='#CA8A04' stroke-width='2'/><text x='230' y='155' font-family='Arial' font-size='12' fill='#CA8A04' text-anchor='middle'>5 ppm</text><text x='230' y='200' font-family='Arial' font-size='12' font-weight='bold' fill='#0F172A' text-anchor='middle'>Herbivore</text><path d='M 270 150 L 320 150' fill='none' stroke='#64748B' stroke-width='2'/><circle cx='360' cy='150' r='30' fill='#FFEDD5' stroke='#EA580C' stroke-width='2'/><text x='360' y='155' font-family='Arial' font-size='12' fill='#EA580C' text-anchor='middle'>240 ppm</text><text x='360' y='200' font-family='Arial' font-size='12' font-weight='bold' fill='#0F172A' text-anchor='middle'>Carnivore</text><path d='M 400 150 L 450 150' fill='none' stroke='#64748B' stroke-width='2'/><circle cx='480' cy='150' r='30' fill='#FEF2F2' stroke='#DC2626' stroke-width='2'/><text x='480' y='155' font-family='Arial' font-size='12' fill='#DC2626' text-anchor='middle'>1600 ppm</text><text x='480' y='200' font-family='Arial' font-size='12' font-weight='bold' fill='#0F172A' text-anchor='middle'>Top/Human</text></svg>",
+          "why_needed": "Visualizes toxin concentration increase from bottom to top.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='40' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Toxin Accumulation Upward</text><circle cx='100' cy='150' r='30' fill='#DCFCE7' stroke='#16A34A' stroke-width='2'/><text x='100' y='155' font-family='Arial' font-size='12' fill='#16A34A' text-anchor='middle'>0.02 ppm</text><text x='100' y='200' font-family='Arial' font-size='12' font-weight='bold' fill='#0F172A' text-anchor='middle'>Producers</text><path d='M 140 150 L 190 150' fill='none' stroke='#64748B' stroke-width='2'/><circle cx='230' cy='150' r='30' fill='#FEF9C3' stroke='#CA8A04' stroke-width='2'/><text x='230' y='155' font-family='Arial' font-size='12' fill='#CA8A04' text-anchor='middle'>5 ppm</text><text x='230' y='200' font-family='Arial' font-size='12' font-weight='bold' fill='#0F172A' text-anchor='middle'>Herbivore</text><path d='M 270 150 L 320 150' fill='none' stroke='#64748B' stroke-width='2'/><circle cx='360' cy='150' r='30' fill='#FFEDD5' stroke='#EA580C' stroke-width='2'/><text x='360' y='155' font-family='Arial' font-size='12' fill='#EA580C' text-anchor='middle'>240 ppm</text><text x='360' y='200' font-family='Arial' font-size='12' font-weight='bold' fill='#0F172A' text-anchor='middle'>Carnivore</text><path d='M 400 150 L 450 150' fill='none' stroke='#64748B' stroke-width='2'/><circle cx='480' cy='150' r='30' fill='#FEF2F2' stroke='#DC2626' stroke-width='2'/><text x='480' y='155' font-family='Arial' font-size='12' fill='#DC2626' text-anchor='middle'>1600 ppm</text><text x='480' y='200' font-family='Arial' font-size='12' font-weight='bold' fill='#0F172A' text-anchor='middle'>Top/Human</text></svg>",
+          "image_query": "biological structure diagram of Biomagnification Progression with labeled anatomical parts and microscopic cellular details",
+          "video_query": "Biomagnification Progression biology educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Bar chart or ladder showing toxic load.",
+          "concept_title": "Biological Magnification: The progressive accumulation of non-biodegradable harmful chemicals in organisms at each successive trophic level.",
+          "diagram_title": "Biomagnification Progression",
+          "timing_and_cue": "Display while discussing why top carnivores and humans have high chemical toxicity.",
+          "what_to_explain": "Point out how non-degradable chemicals multiply in concentration at each step.",
+          "image_search_query": "biological structure diagram of Biomagnification Progression with labeled anatomical parts and microscopic cellular details",
+          "video_search_query": "Biomagnification Progression biology educational demonstration video",
+          "interactive_math_formula": ""
+        }
+      ],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "Pesticides applied to crops -> Absorbed by soil/water -> Taken up by plants -> Eaten by herbivores (Concentration rises) -> Eaten by carnivores / Humans (Maximum concentration)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Which organisms will have the maximum concentration of pesticides in a pond food chain?",
+              "ideal_answer": "Large fish (Top carnivores)",
+              "socratic_hint": "Chemicals accumulate progressively at each higher trophic level."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Define biological magnification. Why does it occur?",
+              "ideal_answer": "Biological magnification is the progressive accumulation of non-biodegradable chemicals at each higher trophic level. It occurs because these chemicals cannot be broken down or excreted and multiply in concentration up the food chain.",
+              "socratic_hint": "Non-degradable nature and feeding across levels."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "Why do food grains, vegetables, and fruits contain varying amounts of pesticide residues despite washing?",
+              "ideal_answer": "Because pesticides applied to crops are absorbed by plants from soil and water along with nutrients. Since they are non-biodegradable, they persist inside plant tissues and cannot always be removed by washing.",
+              "socratic_hint": "Absorption from soil/water and internal tissue storage."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q4",
+              "question": "Will the levels of biological magnification be different at different trophic levels of an ecosystem? Explain.",
+              "ideal_answer": "Yes. The concentration of harmful chemicals increases progressively from producers to top carnivores, being highest at the top trophic level.",
+              "socratic_hint": "Higher level = higher concentration."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Biological Magnification: The progressive accumulation of non-biodegradable chemicals at each higher trophic level in a food chain."
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Pesticide Residues in Food",
+          "scenario": "Wheat, rice, fruits, and vegetables containing pesticide residues absorbed from soil treated with agricultural chemicals."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q6",
+              "question": "What is biological magnification? Will the levels of this magnification be different at different levels of the ecosystem?",
+              "question_type": "conceptual",
+              "solution_method": "Define biomagnification. Explain that levels are different and highest at the top trophic level."
+            }
+          ],
+          "exercise_number": "NCERT Exercise Q6"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Biological Magnification",
+          "si_units": "ppm (parts per million)",
+          "definition": "The progressive accumulation of non-biodegradable harmful chemicals in organisms at each successive trophic level."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "724b9501-50e8-41f0-8936-4be7aaa6a1d3",
+    "curriculum_id": "687bf76e-31ca-47e0-b8b6-12a372598a2e",
+    "order_index": 4,
+    "title": "Ozone Layer and Its Depletion",
+    "description": "Master the formation of ozone, its role as a UV shield, harmful effects of UV radiation, and the impact of CFCs and UNEP agreements.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 4: Ozone Layer and Its Depletion. Final-Term Examination Syllabus. Highlight both the protective role of stratospheric ozone and its toxicity at ground level. Emphasize the 1987 UNEP agreement.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Stratosphere layer with O3 filtering UV rays from the Sun towards Earth.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: UV Radiation + O2 -> Free O atoms -> O + O2 -> Ozone (O3) Layer Protection vs CFC Depletion -> UNEP 1987 Freeze Agreement\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"UV Radiation + O2 -> Free O atoms -> O + O2 -> Ozone (O3) Layer Protection vs CFC Depletion -> UNEP 1987 Freeze Agreement\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Ozone: \"A molecule formed by three atoms of oxygen (O3) serving as a protective UV shield in the stratosphere.\" [SI Unit: Dobson Units (DU)]\n- Chlorofluorocarbons (CFCs): \"Synthetic chemical compounds containing chlorine, fluorine, and carbon used as refrigerants and aerosol propellants.\" [SI Unit: Not applicable]\n\n- Textbook Concrete Examples:\n- Stratospheric Ozone Shield: Absorption of UV rays by stratospheric O3 protecting life on Earth from skin cancer.\n- CFC Regulation: Mandatory production of CFC-free refrigerators globally following the 1987 Montreal Protocol / UNEP agreement.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - NCERT Exercise Q9:\n    * [Q9] (conceptual): Why is damage to the ozone layer a cause for concern? What steps are being taken to limit this damage?\n      Method: Explain UV radiation dangers (skin cancer). State UNEP agreement to freeze CFC production and mandate CFC-free refrigerators.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Ozone (O3): A molecule formed by three atoms of oxygen; acts as a deadly poison at ground level but a protective shield at higher atmospheric levels.\":\n    * [Q1] (1-mark MCQ): What is the chemical formula of ozone?\n      -> Ideal Model Answer: O3\n      -> Socratic Hint: Formed by three atoms of oxygen.\n    * [Q2] (2-mark Definition): Why is damage to the ozone layer a cause for concern? Name the chemical responsible for it.\n      -> Ideal Model Answer: Ozone shields the Earth from harmful UV radiation that causes skin cancer and eye damage. Chlorofluorocarbons (CFCs) are primarily responsible for its depletion.\n      -> Socratic Hint: UV radiation shielding and CFCs.\n    * [Q3] (3-mark Short Answer): Describe how ozone is formed at the higher levels of the atmosphere with the help of chemical equations.\n      -> Ideal Model Answer: High-energy UV radiations split molecular oxygen into free oxygen atoms: O2 --(UV)--> O + O. These free oxygen atoms then combine with molecular oxygen to form ozone: O + O2 -> O3.\n      -> Socratic Hint: Two-step reaction involving UV splitting and recombination.\n    * [Q4] (PYQ): What role did UNEP play in saving the ozone layer in 1987?\n      -> Ideal Model Answer: In 1987, UNEP succeeded in forging an agreement among member countries to freeze CFC production at 1986 levels.\n      -> Socratic Hint: Freezing CFC production levels worldwide.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Ozone (O3): A molecule formed by three atoms of oxygen; acts as a deadly poison at ground level but a protective shield at higher atmospheric levels.\":\n    - Visual Title: \"Ozone Creation Mechanism\" (vector_svg_diagram)\n    - Why Needed: Shows the step-by-step photochemical reaction clearly.\n    - What to Explain: Explain UV splitting O2 into two O atoms, then reacting with another O2 to form O3.\n    - Timing & Directive: Show when explaining the chemical equations for ozone formation.\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Ozone (O3): A molecule formed by three atoms of oxygen; acts as a deadly poison at ground level but a protective shield at higher atmospheric levels.",
+      "UV Shielding: The stratosphere ozone layer absorbs harmful ultraviolet (UV) radiation from the Sun, preventing skin cancer and biological damage.",
+      "Ozone Formation: Higher energy UV radiations split molecular oxygen (O2) into free oxygen (O) atoms, which combine with O2 to form O3.",
+      "Chlorofluorocarbons (CFCs): Synthetic chemical compounds used as refrigerants and in fire extinguishers that deplete the ozone layer.",
+      "UNEP Agreement (1987): United Nations Environment Programme agreement to freeze CFC production at 1986 levels worldwide."
+    ],
+    "success_criteria": "Write the chemical equations for ozone formation and explain the mechanism of ozone depletion by CFCs and international preventive measures.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:48:00.734096+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Ozone Molecule (O3) and Atmospheric Position",
+      "Formation of Ozone via UV Action on Oxygen",
+      "Protective Shield Against UV Radiation",
+      "Depletion of Ozone Layer by CFCs",
+      "UNEP and International Agreements (Montreal Protocol)"
+    ],
+    "chapter_notes": "Ozone (O3) is a triatomic molecule of oxygen. While oxygen (O2) is essential for aerobic respiration, ozone at ground level is a deadly poison. However, in the stratosphere, ozone forms a protective shield that absorbs harmful ultraviolet (UV) radiation from the Sun, which causes skin cancer and genetic mutations in organisms. Ozone is formed when high-energy UV radiations split molecular oxygen (O2) into free oxygen (O) atoms: O2 -> O + O (UV), followed by O + O2 -> O3. In the 1980s, the ozone layer began to drop sharply due to synthetic chemicals like chlorofluorocarbons (CFCs) used in refrigerators and fire extinguishers. To combat this, the United Nations Environment Programme (UNEP) in 1987 forged an agreement to freeze CFC production at 1986 levels, making CFC-free appliances mandatory worldwide.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Chemical equations",
+        "given": "Molecular oxygen (O2) and UV radiation",
+        "formula": "Photodissociation and recombination reactions",
+        "problem": "Write the two chemical equations representing the formation of ozone in the stratosphere.",
+        "calculation": "Balanced chemical representation",
+        "finalAnswer": "O2 --(UV)--> O + O and O + O2 -> O3",
+        "substitution": "O2 + UV -> O + O; O + O2 -> O3",
+        "image_search_query": "class 10 science chapter_13_our_ ncert",
+        "page": 40,
+        "section": "Section 4"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing O2 (breathable oxygen) with O3 (ozone, which is poisonous at ground level).",
+      "Thinking ozone is located in the lower troposphere rather than the stratosphere."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735280194_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Ozone Layer and Its Depletion: Master the formation of ozone, its role as a UV shield, harmful effects of UV radiation, and the impact of CFCs and UNEP agreements.",
+              "keyTakeaway": "Ozone (O3): A molecule formed by three atoms of oxygen; acts as a deadly poison at ground level but a protective shield at higher atmospheric levels."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Ozone (O3): A molecule formed by three atoms of oxygen; acts as a deadly poison at ground level but a protective shield at higher atmospheric levels."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc113.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735280194_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Ozone Layer and Its Depletion - Fundamental Equations",
+              "equations": [
+                "Ozone (O3): A molecule formed by three atoms of oxygen; acts as a deadly poison at ground level but a protective shield at higher atmospheric levels.",
+                "UV Shielding: The stratosphere ozone layer absorbs harmful ultraviolet (UV) radiation from the Sun, preventing skin cancer and biological damage.",
+                "Ozone Formation: Higher energy UV radiations split molecular oxygen (O2) into free oxygen (O) atoms, which combine with O2 to form O3."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Ozone (O3): A molecule formed by three atoms of oxygen; acts as a deadly poison at ground level but a protective shield at higher atmospheric levels."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc113.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735280194_3",
+          "type": "DIAGRAM",
+          "title": "Ozone Layer and Its Depletion Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Ozone Layer and Its Depletion Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Ozone (O3): A molecule formed by three atoms of oxygen; acts as a deadly poison at ground level but a protective shield at higher atmospheric levels.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "UV Shielding: The stratosphere ozone layer absorbs harmful ultraviolet (UV) radiation from the Sun, preventing skin cancer and biological damage.",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Ozone Layer and Its Depletion",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Ozone Layer and Its Depletion | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Ozone Layer Formation & UV Shielding</text><circle cx='80' cy='120' r='30' fill='#FEF08A' stroke='#D97706' stroke-width='2'/><text x='80' y='125' font-family='Arial' font-size='12' font-weight='bold' fill='#D97706' text-anchor='middle'>Sun (UV)</text><path d='M 120 120 L 220 120' fill='none' stroke='#DC2626' stroke-width='2' stroke-dasharray='5,5'/><text x='170' y='110' font-family='Arial' font-size='11' fill='#DC2626' text-anchor='middle'>UV Radiation</text><rect x='230' y='90' width='160' height='60' rx='6' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='310' y='115' font-family='Arial' font-size='13' font-weight='bold' fill='#2563EB' text-anchor='middle'>Ozone Layer (O3)</text><text x='310' y='135' font-family='Arial' font-size='11' fill='#334155' text-anchor='middle'>Stratosphere Shield</text><path d='M 390 120 L 470 120' fill='none' stroke='#16A34A' stroke-width='2'/><text x='430' y='110' font-family='Arial' font-size='11' fill='#16A34A' text-anchor='middle'>Filtered UV</text><rect x='150' y='180' width='240' height='60' rx='6' fill='#F8FAFC' stroke='#64748B' stroke-width='1.5'/><text x='270' y='205' font-family='Arial' font-size='12' font-weight='bold' fill='#0F172A' text-anchor='middle'>Reactions: O2 + UV -> O + O</text><text x='270' y='225' font-family='Arial' font-size='12' font-weight='bold' fill='#0F172A' text-anchor='middle'>O + O2 -> O3</text></svg> | Stratosphere layer with O3 filtering UV rays from the Sun towards Earth."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc113.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735280194_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Ozone (O3): A molecule formed by three atoms of oxygen; acts as a deadly poison at ground level but a protective shield at higher atmospheric levels."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Molecular oxygen (O2) and UV radiation, what is the value?",
+              "explanation": "By fundamental principle, Ozone (O3): A molecule formed by three atoms of oxygen; acts as a deadly poison at ground level but a protective shield at higher atmospheric levels. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735280194_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Ozone Molecule (O3) and Atmospheric Position",
+                "Formation of Ozone via UV Action on Oxygen",
+                "Protective Shield Against UV Radiation",
+                "Depletion of Ozone Layer by CFCs",
+                "UNEP and International Agreements (Montreal Protocol)"
+              ],
+              "formulasToRemember": [
+                "Ozone (O3): A molecule formed by three atoms of oxygen; acts as a deadly poison at ground level but a protective shield at higher atmospheric levels.",
+                "UV Shielding: The stratosphere ozone layer absorbs harmful ultraviolet (UV) radiation from the Sun, preventing skin cancer and biological damage.",
+                "Ozone Formation: Higher energy UV radiations split molecular oxygen (O2) into free oxygen (O) atoms, which combine with O2 to form O3."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Ozone Layer and Its Depletion - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Ozone Layer and Its Depletion",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:48:00.194Z",
+        "provenance": "jesc113.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735280194",
+      "subtopics": [
+        "Ozone Molecule (O3) and Atmospheric Position",
+        "Formation of Ozone via UV Action on Oxygen",
+        "Protective Shield Against UV Radiation",
+        "Depletion of Ozone Layer by CFCs",
+        "UNEP and International Agreements (Montreal Protocol)"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Ozone Layer Formation & UV Shielding</text><circle cx='80' cy='120' r='30' fill='#FEF08A' stroke='#D97706' stroke-width='2'/><text x='80' y='125' font-family='Arial' font-size='12' font-weight='bold' fill='#D97706' text-anchor='middle'>Sun (UV)</text><path d='M 120 120 L 220 120' fill='none' stroke='#DC2626' stroke-width='2' stroke-dasharray='5,5'/><text x='170' y='110' font-family='Arial' font-size='11' fill='#DC2626' text-anchor='middle'>UV Radiation</text><rect x='230' y='90' width='160' height='60' rx='6' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='310' y='115' font-family='Arial' font-size='13' font-weight='bold' fill='#2563EB' text-anchor='middle'>Ozone Layer (O3)</text><text x='310' y='135' font-family='Arial' font-size='11' fill='#334155' text-anchor='middle'>Stratosphere Shield</text><path d='M 390 120 L 470 120' fill='none' stroke='#16A34A' stroke-width='2'/><text x='430' y='110' font-family='Arial' font-size='11' fill='#16A34A' text-anchor='middle'>Filtered UV</text><rect x='150' y='180' width='240' height='60' rx='6' fill='#F8FAFC' stroke='#64748B' stroke-width='1.5'/><text x='270' y='205' font-family='Arial' font-size='12' font-weight='bold' fill='#0F172A' text-anchor='middle'>Reactions: O2 + UV -> O + O</text><text x='270' y='225' font-family='Arial' font-size='12' font-weight='bold' fill='#0F172A' text-anchor='middle'>O + O2 -> O3</text></svg>",
+      "diagram_idea": "Diagram showing UV rays hitting O2, splitting into O atoms, combining to form O3, and CFCs breaking down ozone.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Stratosphere layer with O3 filtering UV rays from the Sun towards Earth.",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='40' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Photochemical Ozone Formation</text><rect x='60' y='80' width='120' height='60' rx='6' fill='#FEF2F2' stroke='#DC2626' stroke-width='2'/><text x='120' y='105' font-family='Arial' font-size='12' font-weight='bold' fill='#DC2626' text-anchor='middle'>O2 + UV</text><text x='120' y='125' font-family='Arial' font-size='11' fill='#334155' text-anchor='middle'>High Energy</text><path d='M 190 110 L 220 110' fill='none' stroke='#64748B' stroke-width='2'/><rect x='230' y='80' width='120' height='60' rx='6' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='290' y='105' font-family='Arial' font-size='12' font-weight='bold' fill='#2563EB' text-anchor='middle'>O + O</text><text x='290' y='125' font-family='Arial' font-size='11' fill='#334155' text-anchor='middle'>Free Atoms</text><path d='M 360 110 L 390 110' fill='none' stroke='#64748B' stroke-width='2'/><rect x='400' y='80' width='120' height='60' rx='6' fill='#F0FDF4' stroke='#16A34A' stroke-width='2'/><text x='460' y='105' font-family='Arial' font-size='12' font-weight='bold' fill='#16A34A' text-anchor='middle'>O3 (Ozone)</text><text x='460' y='125' font-family='Arial' font-size='11' fill='#334155' text-anchor='middle'>Stratosphere</text></svg>",
+          "why_needed": "Shows the step-by-step photochemical reaction clearly.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='40' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Photochemical Ozone Formation</text><rect x='60' y='80' width='120' height='60' rx='6' fill='#FEF2F2' stroke='#DC2626' stroke-width='2'/><text x='120' y='105' font-family='Arial' font-size='12' font-weight='bold' fill='#DC2626' text-anchor='middle'>O2 + UV</text><text x='120' y='125' font-family='Arial' font-size='11' fill='#334155' text-anchor='middle'>High Energy</text><path d='M 190 110 L 220 110' fill='none' stroke='#64748B' stroke-width='2'/><rect x='230' y='80' width='120' height='60' rx='6' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='290' y='105' font-family='Arial' font-size='12' font-weight='bold' fill='#2563EB' text-anchor='middle'>O + O</text><text x='290' y='125' font-family='Arial' font-size='11' fill='#334155' text-anchor='middle'>Free Atoms</text><path d='M 360 110 L 390 110' fill='none' stroke='#64748B' stroke-width='2'/><rect x='400' y='80' width='120' height='60' rx='6' fill='#F0FDF4' stroke='#16A34A' stroke-width='2'/><text x='460' y='105' font-family='Arial' font-size='12' font-weight='bold' fill='#16A34A' text-anchor='middle'>O3 (Ozone)</text><text x='460' y='125' font-family='Arial' font-size='11' fill='#334155' text-anchor='middle'>Stratosphere</text></svg>",
+          "image_query": "Chemical equation breakdown in boxes. scientific educational diagram with clear labels",
+          "video_query": "Ozone Creation Mechanism educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Chemical equation breakdown in boxes.",
+          "concept_title": "Ozone (O3): A molecule formed by three atoms of oxygen; acts as a deadly poison at ground level but a protective shield at higher atmospheric levels.",
+          "diagram_title": "Ozone Creation Mechanism",
+          "timing_and_cue": "Show when explaining the chemical equations for ozone formation.",
+          "what_to_explain": "Explain UV splitting O2 into two O atoms, then reacting with another O2 to form O3.",
+          "image_search_query": "Chemical equation breakdown in boxes. scientific educational diagram with clear labels",
+          "video_search_query": "Ozone Creation Mechanism educational demonstration video",
+          "interactive_math_formula": ""
+        }
+      ],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "UV Radiation + O2 -> Free O atoms -> O + O2 -> Ozone (O3) Layer Protection vs CFC Depletion -> UNEP 1987 Freeze Agreement",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "What is the chemical formula of ozone?",
+              "ideal_answer": "O3",
+              "socratic_hint": "Formed by three atoms of oxygen."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Why is damage to the ozone layer a cause for concern? Name the chemical responsible for it.",
+              "ideal_answer": "Ozone shields the Earth from harmful UV radiation that causes skin cancer and eye damage. Chlorofluorocarbons (CFCs) are primarily responsible for its depletion.",
+              "socratic_hint": "UV radiation shielding and CFCs."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "Describe how ozone is formed at the higher levels of the atmosphere with the help of chemical equations.",
+              "ideal_answer": "High-energy UV radiations split molecular oxygen into free oxygen atoms: O2 --(UV)--> O + O. These free oxygen atoms then combine with molecular oxygen to form ozone: O + O2 -> O3.",
+              "socratic_hint": "Two-step reaction involving UV splitting and recombination."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q4",
+              "question": "What role did UNEP play in saving the ozone layer in 1987?",
+              "ideal_answer": "In 1987, UNEP succeeded in forging an agreement among member countries to freeze CFC production at 1986 levels.",
+              "socratic_hint": "Freezing CFC production levels worldwide."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Ozone (O3): A molecule formed by three atoms of oxygen; acts as a deadly poison at ground level but a protective shield at higher atmospheric levels."
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Stratospheric Ozone Shield",
+          "scenario": "Absorption of UV rays by stratospheric O3 protecting life on Earth from skin cancer."
+        },
+        {
+          "title": "CFC Regulation",
+          "scenario": "Mandatory production of CFC-free refrigerators globally following the 1987 Montreal Protocol / UNEP agreement."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q9",
+              "question": "Why is damage to the ozone layer a cause for concern? What steps are being taken to limit this damage?",
+              "question_type": "conceptual",
+              "solution_method": "Explain UV radiation dangers (skin cancer). State UNEP agreement to freeze CFC production and mandate CFC-free refrigerators."
+            }
+          ],
+          "exercise_number": "NCERT Exercise Q9"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Ozone",
+          "si_units": "Dobson Units (DU)",
+          "definition": "A molecule formed by three atoms of oxygen (O3) serving as a protective UV shield in the stratosphere."
+        },
+        {
+          "concept": "Chlorofluorocarbons (CFCs)",
+          "si_units": "Not applicable",
+          "definition": "Synthetic chemical compounds containing chlorine, fluorine, and carbon used as refrigerants and aerosol propellants."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "9e72dcc4-2839-41dd-b6ff-f851d432e7b5",
+    "curriculum_id": "687bf76e-31ca-47e0-b8b6-12a372598a2e",
+    "order_index": 5,
+    "title": "Waste Management and Environmental Impact",
+    "description": "Distinguish between biodegradable and non-biodegradable substances, analyze garbage disposal problems, sewage treatment, and sustainable lifestyle practices.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 5: Waste Management and Environmental Impact. Final-Term Examination Syllabus. Explain enzyme specificity clearly. Why can't bacteria digest plastic? Emphasize the difference between biodegradable and non-biodegradable waste impacts.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Two columns: Biodegradable (Composting -> Manure) and Non-biodegradable (Recycling / Landfills).\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Waste Generation -> Segregation (Biodegradable vs Non-biodegradable) -> Treatment (Composting vs Recycling / Landfills)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Waste Generation -> Segregation (Biodegradable vs Non-biodegradable) -> Treatment (Composting vs Recycling / Landfills)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Biodegradable: \"Substances that are broken down by biological processes (saprophytes/bacteria).\" [SI Unit: Not applicable]\n- Non-biodegradable: \"Substances that are not broken down by biological processes and persist in the environment for a long time.\" [SI Unit: Not applicable]\n\n- Textbook Concrete Examples:\n- Kitchen Waste Decomposition: Vegetable peels and leftover food getting broken down by soil bacteria in a garden pit.\n- Plastic Persistence: Plastic bags and wrappers remaining unchanged in soil over decades.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - NCERT Exercise Q1 & Q7:\n    * [Q1] (conceptual): Which of the following groups contain only biodegradable items? (a) Grass, flowers and leather (b) Grass, wood and plastic (c) Fruit-peels, cake and lime-juice (d) Cake, wood and grass\n      Method: Evaluate each group. (a), (c), and (d) contain only biodegradable items. Note: Option (a), (c), (d) are all valid sets.\n    * [Q7] (conceptual): What are the problems caused by the non-biodegradable wastes that we generate?\n      Method: List environmental persistence, clogging of drains, soil infertility, and biomagnification.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Biodegradable Substances: Substances that are broken down by biological processes (action of bacteria and saprophytes).\":\n    * [Q1] (1-mark MCQ): Which of the following groups contain only biodegradable items?\n      -> Ideal Model Answer: Grass, flowers and leather\n      -> Socratic Hint: Check which materials are naturally decomposed by bacteria/fungi.\n    * [Q2] (2-mark Definition): Distinguish between biodegradable and non-biodegradable substances with one example each.\n      -> Ideal Model Answer: Biodegradable substances are broken down by biological processes (e.g., fruit peels). Non-biodegradable substances are not broken down and persist for a long time (e.g., plastics).\n      -> Socratic Hint: Action of microorganisms and persistence.\n    * [Q3] (3-mark Short Answer): Why are some substances biodegradable and some non-biodegradable?\n      -> Ideal Model Answer: Enzymes are specific in their action. Organisms like bacteria and saprophytes produce specific enzymes to break down organic substances like paper or food, but lack enzymes to break down synthetic materials like plastics.\n      -> Socratic Hint: Enzyme specificity.\n    * [Q4] (PYQ): Give two ways in which non-biodegradable substances affect the environment.\n      -> Ideal Model Answer: 1. They persist in the environment for a long time, causing clutter and pollution. 2. They may harm members of the ecosystem (e.g., plastics ingested by marine animals or choking soil).\n      -> Socratic Hint: Persistence and toxicity/choking.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Biodegradable Substances: Substances that are broken down by biological processes (action of bacteria and saprophytes).\":\n    - Visual Title: \"Biodegradable vs Non-Biodegradable\" (vector_svg_diagram)\n    - Why Needed: Contrasts the breakdown behavior of organic vs synthetic waste.\n    - What to Explain: Explain microbial action on organic waste vs persistence of plastics.\n    - Timing & Directive: Show when discussing waste management and recycling practices.\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Biodegradable Substances: Substances that are broken down by biological processes (action of bacteria and saprophytes).",
+      "Non-biodegradable Substances: Substances that are not broken down by biological processes and persist in the environment for a long time.",
+      "Enzyme Specificity: Enzymes are specific in action (e.g., bacteria cannot break down plastics or coal because they lack specific enzymes).",
+      "Waste Management: Methods of collecting, treating, and disposing of household, commercial, and industrial waste to prevent environmental pollution."
+    ],
+    "success_criteria": "Categorize household and industrial waste into biodegradable and non-biodegradable items and explain waste management strategies.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:48:01.014477+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Biodegradable vs. Non-biodegradable Substances",
+      "Enzyme Specificity and Waste Persistence",
+      "Garbage Generation and Disposal Problems",
+      "Sewage and Industrial Waste Treatment",
+      "Sustainable Alternatives (Kulhads, Paper Cups)"
+    ],
+    "chapter_notes": "In our daily activities, we generate large amounts of waste categorized into biodegradable (broken down by biological processes like bacteria and fungi) and non-biodegradable (inert substances that persist for a long time without breaking down, such as plastics). Enzymes are highly specific in action; hence, saprophytes cannot break down synthetic materials. Improvements in lifestyle, disposable items, and changing packaging have increased non-biodegradable waste generation, causing severe environmental issues. Proper waste management requires segregation at source, recycling, sewage treatment plants, and eco-friendly alternatives like paper cups or cloth bags.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Waste category",
+        "given": "List of waste items",
+        "formula": "Microbial breakdown capability",
+        "problem": "Classify the following into biodegradable and non-biodegradable: Plastic bag, Wood, Glass bottle, Used tea leaves, Aluminium foil.",
+        "calculation": "Categorization based on saprophytic action.",
+        "finalAnswer": "Biodegradable: Wood, Tea leaves; Non-biodegradable: Plastic bag, Glass bottle, Aluminium foil",
+        "substitution": "Plastic -> Non-biodegradable; Wood -> Biodegradable; Glass -> Non-biodegradable; Tea leaves -> Biodegradable; Aluminium -> Non-biodegradable",
+        "image_search_query": "class 10 science chapter_13_our_ ncert",
+        "page": 50,
+        "section": "Section 5"
+      }
+    ],
+    "common_misconceptions": [
+      "Assuming all garbage decomposes eventually if left long enough.",
+      "Thinking paper is non-biodegradable (paper is made from plant cellulose and is biodegradable)."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735280842_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Waste Management and Environmental Impact: Distinguish between biodegradable and non-biodegradable substances, analyze garbage disposal problems, sewage treatment, and sustainable lifestyle practices.",
+              "keyTakeaway": "Biodegradable Substances: Substances that are broken down by biological processes (action of bacteria and saprophytes)."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Biodegradable Substances: Substances that are broken down by biological processes (action of bacteria and saprophytes)."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc113.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735280842_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Waste Management and Environmental Impact - Fundamental Equations",
+              "equations": [
+                "Biodegradable Substances: Substances that are broken down by biological processes (action of bacteria and saprophytes).",
+                "Non-biodegradable Substances: Substances that are not broken down by biological processes and persist in the environment for a long time.",
+                "Enzyme Specificity: Enzymes are specific in action (e.g., bacteria cannot break down plastics or coal because they lack specific enzymes)."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Biodegradable Substances: Substances that are broken down by biological processes (action of bacteria and saprophytes)."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc113.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735280842_3",
+          "type": "DIAGRAM",
+          "title": "Waste Management and Environmental Impact Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Waste Management and Environmental Impact Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Biodegradable Substances: Substances that are broken down by biological processes (action of bacteria and saprophytes).",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Non-biodegradable Substances: Substances that are not broken down by biological processes and persist in the environment for a long time.",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Waste Management and Environmental Impact",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Waste Management and Environmental Impact | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Waste Segregation & Management</text><rect x='40' y='70' width='210' height='160' rx='8' fill='#F0FDF4' stroke='#16A34A' stroke-width='2'/><text x='145' y='100' font-family='Arial' font-size='14' font-weight='bold' fill='#16A34A' text-anchor='middle'>Biodegradable</text><text x='60' y='130' font-family='Arial' font-size='12' fill='#334155'>- Kitchen waste, Peels</text><text x='60' y='160' font-family='Arial' font-size='12' fill='#334155'>- Paper, Wood, Leaves</text><text x='60' y='190' font-family='Arial' font-size='12' font-weight='bold' fill='#16A34A'>Action: Composting</text><rect x='290' y='70' width='210' height='160' rx='8' fill='#FEF2F2' stroke='#DC2626' stroke-width='2'/><text x='395' y='100' font-family='Arial' font-size='14' font-weight='bold' fill='#DC2626' text-anchor='middle'>Non-Biodegradable</text><text x='310' y='130' font-family='Arial' font-size='12' fill='#334155'>- Plastics, Polythene</text><text x='310' y='160' font-family='Arial' font-size='12' fill='#334155'>- Glass, Metals, E-waste</text><text x='310' y='190' font-family='Arial' font-size='12' font-weight='bold' fill='#DC2626'>Action: Recycling</text></svg> | Two columns: Biodegradable (Composting -> Manure) and Non-biodegradable (Recycling / Landfills)."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc113.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735280842_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Biodegradable Substances: Substances that are broken down by biological processes (action of bacteria and saprophytes)."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If List of waste items, what is the value?",
+              "explanation": "By fundamental principle, Biodegradable Substances: Substances that are broken down by biological processes (action of bacteria and saprophytes). is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735280842_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Biodegradable vs. Non-biodegradable Substances",
+                "Enzyme Specificity and Waste Persistence",
+                "Garbage Generation and Disposal Problems",
+                "Sewage and Industrial Waste Treatment",
+                "Sustainable Alternatives (Kulhads, Paper Cups)"
+              ],
+              "formulasToRemember": [
+                "Biodegradable Substances: Substances that are broken down by biological processes (action of bacteria and saprophytes).",
+                "Non-biodegradable Substances: Substances that are not broken down by biological processes and persist in the environment for a long time.",
+                "Enzyme Specificity: Enzymes are specific in action (e.g., bacteria cannot break down plastics or coal because they lack specific enzymes)."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Waste Management and Environmental Impact - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Waste Management and Environmental Impact",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:48:00.842Z",
+        "provenance": "jesc113.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735280842",
+      "subtopics": [
+        "Biodegradable vs. Non-biodegradable Substances",
+        "Enzyme Specificity and Waste Persistence",
+        "Garbage Generation and Disposal Problems",
+        "Sewage and Industrial Waste Treatment",
+        "Sustainable Alternatives (Kulhads, Paper Cups)"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Waste Segregation & Management</text><rect x='40' y='70' width='210' height='160' rx='8' fill='#F0FDF4' stroke='#16A34A' stroke-width='2'/><text x='145' y='100' font-family='Arial' font-size='14' font-weight='bold' fill='#16A34A' text-anchor='middle'>Biodegradable</text><text x='60' y='130' font-family='Arial' font-size='12' fill='#334155'>- Kitchen waste, Peels</text><text x='60' y='160' font-family='Arial' font-size='12' fill='#334155'>- Paper, Wood, Leaves</text><text x='60' y='190' font-family='Arial' font-size='12' font-weight='bold' fill='#16A34A'>Action: Composting</text><rect x='290' y='70' width='210' height='160' rx='8' fill='#FEF2F2' stroke='#DC2626' stroke-width='2'/><text x='395' y='100' font-family='Arial' font-size='14' font-weight='bold' fill='#DC2626' text-anchor='middle'>Non-Biodegradable</text><text x='310' y='130' font-family='Arial' font-size='12' fill='#334155'>- Plastics, Polythene</text><text x='310' y='160' font-family='Arial' font-size='12' fill='#334155'>- Glass, Metals, E-waste</text><text x='310' y='190' font-family='Arial' font-size='12' font-weight='bold' fill='#DC2626'>Action: Recycling</text></svg>",
+      "diagram_idea": "Flowchart comparing biodegradable vs non-biodegradable waste management pathways.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Two columns: Biodegradable (Composting -> Manure) and Non-biodegradable (Recycling / Landfills).",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='40' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Decomposition vs Persistence</text><rect x='60' y='70' width='180' height='140' rx='8' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='150' y='100' font-family='Arial' font-size='13' font-weight='bold' fill='#2563EB' text-anchor='middle'>Organic Waste</text><text x='150' y='130' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>Decomposed by Bacteria</text><text x='150' y='160' font-family='Arial' font-size='12' fill='#16A34A' font-weight='bold' text-anchor='middle'>Returns to Soil</text><rect x='300' y='70' width='180' height='140' rx='8' fill='#FEF2F2' stroke='#DC2626' stroke-width='2'/><text x='390' y='100' font-family='Arial' font-size='13' font-weight='bold' fill='#DC2626' text-anchor='middle'>Plastic Waste</text><text x='390' y='130' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>Resistant to Enzymes</text><text x='390' y='160' font-family='Arial' font-size='12' fill='#DC2626' font-weight='bold' text-anchor='middle'>Persists for Decades</text></svg>",
+          "why_needed": "Contrasts the breakdown behavior of organic vs synthetic waste.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='40' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Decomposition vs Persistence</text><rect x='60' y='70' width='180' height='140' rx='8' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='150' y='100' font-family='Arial' font-size='13' font-weight='bold' fill='#2563EB' text-anchor='middle'>Organic Waste</text><text x='150' y='130' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>Decomposed by Bacteria</text><text x='150' y='160' font-family='Arial' font-size='12' fill='#16A34A' font-weight='bold' text-anchor='middle'>Returns to Soil</text><rect x='300' y='70' width='180' height='140' rx='8' fill='#FEF2F2' stroke='#DC2626' stroke-width='2'/><text x='390' y='100' font-family='Arial' font-size='13' font-weight='bold' fill='#DC2626' text-anchor='middle'>Plastic Waste</text><text x='390' y='130' font-family='Arial' font-size='12' fill='#334155' text-anchor='middle'>Resistant to Enzymes</text><text x='390' y='160' font-family='Arial' font-size='12' fill='#DC2626' font-weight='bold' text-anchor='middle'>Persists for Decades</text></svg>",
+          "image_query": "Comparison diagram with decomposition arrows. scientific educational diagram with clear labels",
+          "video_query": "Biodegradable vs Non-Biodegradable educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Comparison diagram with decomposition arrows.",
+          "concept_title": "Biodegradable Substances: Substances that are broken down by biological processes (action of bacteria and saprophytes).",
+          "diagram_title": "Biodegradable vs Non-Biodegradable",
+          "timing_and_cue": "Show when discussing waste management and recycling practices.",
+          "what_to_explain": "Explain microbial action on organic waste vs persistence of plastics.",
+          "image_search_query": "Comparison diagram with decomposition arrows. scientific educational diagram with clear labels",
+          "video_search_query": "Biodegradable vs Non-Biodegradable educational demonstration video",
+          "interactive_math_formula": ""
+        }
+      ],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "Waste Generation -> Segregation (Biodegradable vs Non-biodegradable) -> Treatment (Composting vs Recycling / Landfills)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Which of the following groups contain only biodegradable items?",
+              "ideal_answer": "Grass, flowers and leather",
+              "socratic_hint": "Check which materials are naturally decomposed by bacteria/fungi."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Distinguish between biodegradable and non-biodegradable substances with one example each.",
+              "ideal_answer": "Biodegradable substances are broken down by biological processes (e.g., fruit peels). Non-biodegradable substances are not broken down and persist for a long time (e.g., plastics).",
+              "socratic_hint": "Action of microorganisms and persistence."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "Why are some substances biodegradable and some non-biodegradable?",
+              "ideal_answer": "Enzymes are specific in their action. Organisms like bacteria and saprophytes produce specific enzymes to break down organic substances like paper or food, but lack enzymes to break down synthetic materials like plastics.",
+              "socratic_hint": "Enzyme specificity."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q4",
+              "question": "Give two ways in which non-biodegradable substances affect the environment.",
+              "ideal_answer": "1. They persist in the environment for a long time, causing clutter and pollution. 2. They may harm members of the ecosystem (e.g., plastics ingested by marine animals or choking soil).",
+              "socratic_hint": "Persistence and toxicity/choking."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Biodegradable Substances: Substances that are broken down by biological processes (action of bacteria and saprophytes)."
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Kitchen Waste Decomposition",
+          "scenario": "Vegetable peels and leftover food getting broken down by soil bacteria in a garden pit."
+        },
+        {
+          "title": "Plastic Persistence",
+          "scenario": "Plastic bags and wrappers remaining unchanged in soil over decades."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "Which of the following groups contain only biodegradable items? (a) Grass, flowers and leather (b) Grass, wood and plastic (c) Fruit-peels, cake and lime-juice (d) Cake, wood and grass",
+              "question_type": "conceptual",
+              "solution_method": "Evaluate each group. (a), (c), and (d) contain only biodegradable items. Note: Option (a), (c), (d) are all valid sets."
+            },
+            {
+              "q_num": "Q7",
+              "question": "What are the problems caused by the non-biodegradable wastes that we generate?",
+              "question_type": "conceptual",
+              "solution_method": "List environmental persistence, clogging of drains, soil infertility, and biomagnification."
+            }
+          ],
+          "exercise_number": "NCERT Exercise Q1 & Q7"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Biodegradable",
+          "si_units": "Not applicable",
+          "definition": "Substances that are broken down by biological processes (saprophytes/bacteria)."
+        },
+        {
+          "concept": "Non-biodegradable",
+          "si_units": "Not applicable",
+          "definition": "Substances that are not broken down by biological processes and persist in the environment for a long time."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "cf5ed3fc-db22-444e-bfed-f18e3495d5da",
+    "curriculum_id": "687bf76e-31ca-47e0-b8b6-12a372598a2e",
+    "order_index": 6,
+    "title": "NCERT In-Text & Chapter-End Exercises Master Solver",
+    "description": "Comprehensive step-by-step master solver for all NCERT in-text questions and end-of-chapter exercises (Q1 to Q9) for Chapter 13: Our Environment.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 6: NCERT Chapter Exercises & Board Master Solver. Final-Term Examination Syllabus. Walk through every end-of-chapter question systematically. Emphasize Q8 (impact of excessive biodegradable waste) as a common trick question.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Mind map with 5 branches: Ecosystem, Energy Flow, Biomagnification, Ozone, Waste Management.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: NCERT Exercises -> Q1-Q3 (MCQs) -> Q4-Q6 (Conceptual Reasoning) -> Q7-Q9 (Environmental & Ozone Issues)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"NCERT Exercises -> Q1-Q3 (MCQs) -> Q4-Q6 (Conceptual Reasoning) -> Q7-Q9 (Environmental & Ozone Issues)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Food Chain: \"A linear sequence of organisms where each is eaten by the next, transferring energy.\" [SI Unit: Not applicable]\n\n- Textbook Concrete Examples:\n- Grassland Food Chain: Grass -> Goat -> Human.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - End-of-Chapter Exercises (Q1-Q9):\n    * [Q1] (conceptual): Which of the following groups contain only biodegradable items? (a) Grass, flowers and leather (b) Grass, wood and plastic (c) Fruit-peels, cake and lime-juice (d) Cake, wood and grass\n      Method: Identify organic items. Options (a), (c), and (d) are biodegradable.\n    * [Q2] (conceptual): Which of the following constitute a food-chain? (a) Grass, wheat and mango (b) Grass, goat and human (c) Goat, cow and elephant (d) Grass, fish and goat\n      Method: Option (b) is a valid food chain where grass is eaten by goat, and goat by human.\n    * [Q3] (conceptual): Which of the following are environment-friendly practices? (a) Carrying cloth-bags (b) Switching off unnecessary lights (c) Walking to school (d) All of the above\n      Method: All listed practices reduce resource consumption and waste. Correct answer is (d).\n    * [Q4] (conceptual): What will happen if we kill all the organisms in one trophic level?\n      Method: Explain ecosystem collapse, starvation of higher levels, and overpopulation of lower levels.\n    * [Q5] (conceptual): Will the impact of removing all the organisms in a trophic level be different for different trophic levels? Can the organisms of any trophic level be removed without causing any damage?\n      Method: No trophic level can be removed without damage; producer removal causes total starvation.\n    * [Q6] (conceptual): What is biological magnification? Will the levels of this magnification be different at different levels of the ecosystem?\n      Method: Define biomagnification and explain that levels increase progressively towards the top.\n    * [Q7] (conceptual): What are the problems caused by the non-biodegradable wastes that we generate?\n      Method: List persistence, soil toxicity, drainage clogging, and biomagnification.\n    * [Q8] (conceptual): If all the waste we generate is biodegradable, will this have no impact on the environment?\n      Method: Excessive biodegradable waste rotting quickly can cause foul smell, breeding of disease vectors (mosquitoes, flies), and depletion of dissolved oxygen in water bodies.\n    * [Q9] (conceptual): Why is damage to the ozone layer a cause for concern? What steps are being taken to limit this damage?\n      Method: Explain UV radiation dangers and UNEP agreements freezing CFC production.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Biodegradable Item Identification: Recognizing organic items like grass, leather, and fruit peels.\":\n    * [Q1] (1-mark MCQ): Which of the following constitute a food-chain?\n      -> Ideal Model Answer: Grass, goat and human\n      -> Socratic Hint: Producers eaten by herbivores, eaten by carnivores/omnivores.\n    * [Q2] (2-mark Definition): Which of the following are environment-friendly practices? (a) Carrying cloth-bags (b) Switching off unnecessary lights (c) Walking to school (d) All of the above\n      -> Ideal Model Answer: (d) All of the above\n      -> Socratic Hint: All practices reduce waste and energy consumption.\n    * [Q3] (3-mark Short Answer): What will happen if we kill all the organisms in one trophic level?\n      -> Ideal Model Answer: It will disrupt the entire ecosystem. Populations of the lower trophic level will increase uncontrollably, while organisms at higher trophic levels will starve and die.\n      -> Socratic Hint: Ecological imbalance and starvation.\n    * [Q4] (5-mark Comprehensive): Will the impact of removing all the organisms in a trophic level be different for different trophic levels? Can the organisms of any trophic level be removed without causing any damage?\n      -> Ideal Model Answer: Yes, removing producers collapses the entire system immediately. Removing top carnivores leads to overpopulation of herbivores, overgrazing, and desertification. No trophic level can be removed without causing damage.\n      -> Socratic Hint: Interdependence across trophic levels.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Biodegradable Item Identification: Recognizing organic items like grass, leather, and fruit peels.\":\n    - Visual Title: \"NCERT Exercise Quick Review\" (vector_svg_diagram)\n    - Why Needed: Summarizes key board question concepts for rapid revision.\n    - What to Explain: Review questions on biodegradable items, food chains, and ozone depletion.\n    - Timing & Directive: Use at the end of the chapter as a final revision master guide.\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Biodegradable Item Identification: Recognizing organic items like grass, leather, and fruit peels.",
+      "Food-Chain Construction: Correct sequencing of producers, herbivores, and carnivores.",
+      "Environment-Friendly Practices: Cloth bags, walking, turning off unnecessary lights.",
+      "Trophic Level Removal Impact: Collapse of ecosystems when one trophic level is entirely removed."
+    ],
+    "success_criteria": "Solve every end-of-chapter question from NCERT Chapter 13 with rigorous scientific justification.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:48:01.694908+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "In-Text Question Analysis",
+      "NCERT Exercise Q1 to Q9 Complete Solutions",
+      "Board Exam Reasoning & Conceptual Traps",
+      "Environmental Practices & Competency Questions"
+    ],
+    "chapter_notes": "This master solver capsule covers all 9 end-of-chapter questions of NCERT Class 10 Science Chapter 13. Key question themes include: identifying biodegradable groups (grass, flowers, leather, fruit peels), constructing food chains (grass -> goat -> human), evaluating environment-friendly practices (cloth bags, walking, switching off lights), analyzing the ecological impact of removing a trophic level, explaining biological magnification and its varying levels, detailing problems caused by non-biodegradable wastes, discussing the environmental impact of biodegradable waste, and explaining ozone layer damage and mitigation steps.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "In-Text Question (Section 13.1 & 13.2, p. 5 & p. 9): (a) What are trophic levels? Give an example of a 4-step food chain and state the trophic level of each organism. (b) Explain the 10% Law of energy transfer in an ecosystem.",
+        "given": "Ecological energy dynamics and Lindeman's 10% efficiency law.",
+        "formula": "Energy at trophic level $(n+1) = 0.10 \\times \\text{Energy at level } n$.",
+        "substitution": "Grass (10,000 J) -> Deer (1,000 J) -> Tiger (100 J).",
+        "calculation": "(a) Trophic levels are the sequential feeding steps or nutritional tiers in an ecological food chain:\nExample 4-step grassland food chain:\n1. Grass / Producers (T1: First trophic level)\n2. Grasshopper / Primary Consumer (T2: Second trophic level)\n3. Frog / Secondary Consumer (T3: Third trophic level)\n4. Snake / Tertiary Consumer (T4: Fourth trophic level)\n(b) Lindeman's 10% Law: Only approximately 10% of the energy stored in organic biomass is transferred from one trophic level to the next. The remaining 90% is dissipated as respiratory heat, used for metabolic maintenance, reproduction, and unassimilated waste. Because energy drops drastically ($10,000\\text{ J} \\to 1,000\\text{ J} \\to 100\\text{ J} \\to 10\\text{ J}$), food chains rarely exceed 4 to 5 trophic tiers.",
+        "finalAnswer": "(a) Trophic levels are feeding tiers in a food chain (Producer -> Primary Consumer -> Secondary Consumer -> Tertiary Consumer); (b) Only 10% of biomass energy passes to the next trophic level; 90% is lost as metabolic heat.",
+        "unit": "Ecosystem energy dynamics",
+        "has_diagram": true,
+        "diagram_source": "image_search",
+        "figure_caption": "Ecological pyramid of energy showing 10% transfer between trophic levels",
+        "image_search_query": "trophic levels 10 percent energy law pyramid ecosystem",
+        "page": 5,
+        "section": "Section 13.1"
+      },
+      {
+        "problem": "End-of-Chapter Exercise Q6 & Q7 (p. 9): (a) What is biological magnification? Will the concentration of levels of this magnification be different at different levels of the ecosystem? (b) What is ozone and how does it affect any ecosystem? What causes the depletion of the ozone layer?",
+        "given": "Ecotoxicological bioaccumulation; Stratospheric O3 layer photochemistry.",
+        "formula": "Ozone creation: O2 + UV -> O + O; O + O2 -> O3. CFC radical catalytic ozone destruction.",
+        "substitution": "Biomagnification of non-biodegradable pesticides (DDT) up trophic chains.",
+        "calculation": "(a) Biological Magnification is the progressive increase in the concentration of non-biodegradable chemical toxins (such as pesticides, DDT, heavy metals) per unit biomass at progressively higher trophic levels of a food chain. Because these toxins cannot be metabolized or excreted, they accumulate. Concentration is HIGHEST at the top carnivore tier (e.g. humans or predatory birds).\n(b) Ozone (O3) in the stratosphere acts as a planetary protective shield absorbing harmful solar ultraviolet (UV-B) radiation, preventing skin cancer, cataracts, and phytoplankton mortality. Depletion is caused by Chlorofluorocarbons (CFCs), which release free chlorine radicals under UV that catalytically destroy thousands of ozone molecules ($Cl + O3 -> ClO + O2$).",
+        "finalAnswer": "(a) Biological magnification is progressive toxic accumulation, reaching maximum concentration at top trophic levels; (b) Stratospheric ozone shields Earth from lethal UV rays; depleted by CFCs.",
+        "unit": "Environmental ecotoxicology",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "biological magnification food chain ozone layer depletion cfcs",
+        "page": 9,
+        "section": "Exercises"
+      }
+    ],
+    "common_misconceptions": [
+      "Assuming biodegradable waste has zero environmental impact if dumped in excess.",
+      "Confusing food chains with food webs in board questions."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735281139_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "NCERT Chapter Exercises & Board Master Solver: Comprehensive step-by-step master solver for all NCERT in-text questions and end-of-chapter exercises (Q1 to Q9) for Chapter 13: Our Environment.",
+              "keyTakeaway": "Biodegradable Item Identification: Recognizing organic items like grass, leather, and fruit peels."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Biodegradable Item Identification: Recognizing organic items like grass, leather, and fruit peels."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc113.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735281139_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "NCERT Chapter Exercises & Board Master Solver - Fundamental Equations",
+              "equations": [
+                "Biodegradable Item Identification: Recognizing organic items like grass, leather, and fruit peels.",
+                "Food-Chain Construction: Correct sequencing of producers, herbivores, and carnivores.",
+                "Environment-Friendly Practices: Cloth bags, walking, turning off unnecessary lights."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Biodegradable Item Identification: Recognizing organic items like grass, leather, and fruit peels."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc113.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735281139_3",
+          "type": "DIAGRAM",
+          "title": "NCERT Chapter Exercises & Board Master Solver Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "NCERT Chapter Exercises & Board Master Solver Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Biodegradable Item Identification: Recognizing organic items like grass, leather, and fruit peels.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Food-Chain Construction: Correct sequencing of producers, herbivores, and carnivores.",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "NCERT Chapter Exercises & Board Master Solver",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "NCERT Chapter Exercises & Board Master Solver | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='270' y='30' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A' text-anchor='middle'>Chapter 13: Our Environment - Master Map</text><rect x='210' y='55' width='120' height='35' rx='6' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='270' y='78' font-family='Arial' font-size='12' font-weight='bold' fill='#2563EB' text-anchor='middle'>Our Environment</text><line x1='270' y1='90' x2='100' y2='130' stroke='#64748B' stroke-width='1.5'/><line x1='270' y1='90' x2='270' y2='130' stroke='#64748B' stroke-width='1.5'/><line x1='270' y1='90' x2='440' y2='130' stroke='#64748B' stroke-width='1.5'/><rect x='40' y='130' width='120' height='35' rx='6' fill='#F0FDF4' stroke='#16A34A' stroke-width='1.5'/><text x='100' y='153' font-family='Arial' font-size='11' font-weight='bold' fill='#16A34A' text-anchor='middle'>1. Ecosystem</text><rect x='210' y='130' width='120' height='35' rx='6' fill='#FEF9C3' stroke='#CA8A04' stroke-width='1.5'/><text x='270' y='153' font-family='Arial' font-size='11' font-weight='bold' fill='#CA8A04' text-anchor='middle'>2. Energy Flow</text><rect x='380' y='130' width='120' height='35' rx='6' fill='#FEF2F2' stroke='#DC2626' stroke-width='1.5'/><text x='440' y='153' font-family='Arial' font-size='11' font-weight='bold' fill='#DC2626' text-anchor='middle'>3. Biomagnification</text><line x1='100' y1='165' x2='175' y2='210' stroke='#64748B' stroke-width='1.5'/><line x1='100' y1='165' x2='365' y2='210' stroke='#64748B' stroke-width='1.5'/><rect x='115' y='210' width='120' height='35' rx='6' fill='#F8FAFC' stroke='#64748B' stroke-width='1.5'/><text x='175' y='233' font-family='Arial' font-size='11' font-weight='bold' fill='#0F172A' text-anchor='middle'>4. Ozone Layer</text><rect x='305' y='210' width='120' height='35' rx='6' fill='#F8FAFC' stroke='#64748B' stroke-width='1.5'/><text x='365' y='233' font-family='Arial' font-size='11' font-weight='bold' fill='#0F172A' text-anchor='middle'>5. Waste Disposal</text></svg> | Mind map with 5 branches: Ecosystem, Energy Flow, Biomagnification, Ozone, Waste Management."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc113.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735281139_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Biodegradable Item Identification: Recognizing organic items like grass, leather, and fruit peels."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Four organism groupings, what is the value?",
+              "explanation": "By fundamental principle, Biodegradable Item Identification: Recognizing organic items like grass, leather, and fruit peels. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735281139_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "In-Text Question Analysis",
+                "NCERT Exercise Q1 to Q9 Complete Solutions",
+                "Board Exam Reasoning & Conceptual Traps",
+                "Environmental Practices & Competency Questions"
+              ],
+              "formulasToRemember": [
+                "Biodegradable Item Identification: Recognizing organic items like grass, leather, and fruit peels.",
+                "Food-Chain Construction: Correct sequencing of producers, herbivores, and carnivores.",
+                "Environment-Friendly Practices: Cloth bags, walking, turning off unnecessary lights."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "NCERT Chapter Exercises & Board Master Solver - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "NCERT Chapter Exercises & Board Master Solver",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:48:01.139Z",
+        "provenance": "jesc113.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735281139",
+      "subtopics": [
+        "In-Text Question Analysis",
+        "NCERT Exercise Q1 to Q9 Complete Solutions",
+        "Board Exam Reasoning & Conceptual Traps",
+        "Environmental Practices & Competency Questions"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='270' y='30' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A' text-anchor='middle'>Chapter 13: Our Environment - Master Map</text><rect x='210' y='55' width='120' height='35' rx='6' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='270' y='78' font-family='Arial' font-size='12' font-weight='bold' fill='#2563EB' text-anchor='middle'>Our Environment</text><line x1='270' y1='90' x2='100' y2='130' stroke='#64748B' stroke-width='1.5'/><line x1='270' y1='90' x2='270' y2='130' stroke='#64748B' stroke-width='1.5'/><line x1='270' y1='90' x2='440' y2='130' stroke='#64748B' stroke-width='1.5'/><rect x='40' y='130' width='120' height='35' rx='6' fill='#F0FDF4' stroke='#16A34A' stroke-width='1.5'/><text x='100' y='153' font-family='Arial' font-size='11' font-weight='bold' fill='#16A34A' text-anchor='middle'>1. Ecosystem</text><rect x='210' y='130' width='120' height='35' rx='6' fill='#FEF9C3' stroke='#CA8A04' stroke-width='1.5'/><text x='270' y='153' font-family='Arial' font-size='11' font-weight='bold' fill='#CA8A04' text-anchor='middle'>2. Energy Flow</text><rect x='380' y='130' width='120' height='35' rx='6' fill='#FEF2F2' stroke='#DC2626' stroke-width='1.5'/><text x='440' y='153' font-family='Arial' font-size='11' font-weight='bold' fill='#DC2626' text-anchor='middle'>3. Biomagnification</text><line x1='100' y1='165' x2='175' y2='210' stroke='#64748B' stroke-width='1.5'/><line x1='100' y1='165' x2='365' y2='210' stroke='#64748B' stroke-width='1.5'/><rect x='115' y='210' width='120' height='35' rx='6' fill='#F8FAFC' stroke='#64748B' stroke-width='1.5'/><text x='175' y='233' font-family='Arial' font-size='11' font-weight='bold' fill='#0F172A' text-anchor='middle'>4. Ozone Layer</text><rect x='305' y='210' width='120' height='35' rx='6' fill='#F8FAFC' stroke='#64748B' stroke-width='1.5'/><text x='365' y='233' font-family='Arial' font-size='11' font-weight='bold' fill='#0F172A' text-anchor='middle'>5. Waste Disposal</text></svg>",
+      "diagram_idea": "Summary mind map of the entire chapter covering Ecosystem, Energy Flow, Biomagnification, Ozone, and Waste.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Mind map with 5 branches: Ecosystem, Energy Flow, Biomagnification, Ozone, Waste Management.",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='40' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Chapter Review Summary</text><rect x='50' y='70' width='130' height='150' rx='6' fill='#EFF6FF' stroke='#2563EB' stroke-width='1.5'/><text x='115' y='95' font-family='Arial' font-size='12' font-weight='bold' fill='#2563EB' text-anchor='middle'>Ecosystem</text><text x='60' y='125' font-family='Arial' font-size='11' fill='#334155'>- Biotic & Abiotic</text><text x='60' y='150' font-family='Arial' font-size='11' fill='#334155'>- Producers</text><text x='60' y='175' font-family='Arial' font-size='11' fill='#334155'>- Decomposers</text><rect x='200' y='70' width='130' height='150' rx='6' fill='#F0FDF4' stroke='#16A34A' stroke-width='1.5'/><text x='265' y='95' font-family='Arial' font-size='12' font-weight='bold' fill='#16A34A' text-anchor='middle'>Energy Flow</text><text x='210' y='125' font-family='Arial' font-size='11' fill='#334155'>- 10% Law</text><text x='210' y='150' font-family='Arial' font-size='11' fill='#334155'>- Trophic Levels</text><text x='210' y='175' font-family='Arial' font-size='11' fill='#334155'>- Food Web</text><rect x='350' y='70' width='130' height='150' rx='6' fill='#FEF2F2' stroke='#DC2626' stroke-width='1.5'/><text x='415' y='95' font-family='Arial' font-size='12' font-weight='bold' fill='#DC2626' text-anchor='middle'>Ozone & Waste</text><text x='360' y='125' font-family='Arial' font-size='11' fill='#334155'>- CFCs & UV</text><text x='360' y='150' font-family='Arial' font-size='11' fill='#334155'>- Biomagnification</text><text x='360' y='175' font-family='Arial' font-size='11' fill='#334155'>- Segregation</text></svg>",
+          "why_needed": "Summarizes key board question concepts for rapid revision.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='40' y='40' font-family='Arial' font-size='16' font-weight='bold' fill='#0F172A'>Chapter Review Summary</text><rect x='50' y='70' width='130' height='150' rx='6' fill='#EFF6FF' stroke='#2563EB' stroke-width='1.5'/><text x='115' y='95' font-family='Arial' font-size='12' font-weight='bold' fill='#2563EB' text-anchor='middle'>Ecosystem</text><text x='60' y='125' font-family='Arial' font-size='11' fill='#334155'>- Biotic & Abiotic</text><text x='60' y='150' font-family='Arial' font-size='11' fill='#334155'>- Producers</text><text x='60' y='175' font-family='Arial' font-size='11' fill='#334155'>- Decomposers</text><rect x='200' y='70' width='130' height='150' rx='6' fill='#F0FDF4' stroke='#16A34A' stroke-width='1.5'/><text x='265' y='95' font-family='Arial' font-size='12' font-weight='bold' fill='#16A34A' text-anchor='middle'>Energy Flow</text><text x='210' y='125' font-family='Arial' font-size='11' fill='#334155'>- 10% Law</text><text x='210' y='150' font-family='Arial' font-size='11' fill='#334155'>- Trophic Levels</text><text x='210' y='175' font-family='Arial' font-size='11' fill='#334155'>- Food Web</text><rect x='350' y='70' width='130' height='150' rx='6' fill='#FEF2F2' stroke='#DC2626' stroke-width='1.5'/><text x='415' y='95' font-family='Arial' font-size='12' font-weight='bold' fill='#DC2626' text-anchor='middle'>Ozone & Waste</text><text x='360' y='125' font-family='Arial' font-size='11' fill='#334155'>- CFCs & UV</text><text x='360' y='150' font-family='Arial' font-size='11' fill='#334155'>- Biomagnification</text><text x='360' y='175' font-family='Arial' font-size='11' fill='#334155'>- Segregation</text></svg>",
+          "image_query": "biological structure diagram of NCERT Exercise Quick Review with labeled anatomical parts and microscopic cellular details",
+          "video_query": "NCERT Exercise Quick Review biology educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Summary grid of chapter exercise highlights.",
+          "concept_title": "Biodegradable Item Identification: Recognizing organic items like grass, leather, and fruit peels.",
+          "diagram_title": "NCERT Exercise Quick Review",
+          "timing_and_cue": "Use at the end of the chapter as a final revision master guide.",
+          "what_to_explain": "Review questions on biodegradable items, food chains, and ozone depletion.",
+          "image_search_query": "biological structure diagram of NCERT Exercise Quick Review with labeled anatomical parts and microscopic cellular details",
+          "video_search_query": "NCERT Exercise Quick Review biology educational demonstration video",
+          "interactive_math_formula": ""
+        }
+      ],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "NCERT Exercises -> Q1-Q3 (MCQs) -> Q4-Q6 (Conceptual Reasoning) -> Q7-Q9 (Environmental & Ozone Issues)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Which of the following constitute a food-chain?",
+              "ideal_answer": "Grass, goat and human",
+              "socratic_hint": "Producers eaten by herbivores, eaten by carnivores/omnivores."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Which of the following are environment-friendly practices? (a) Carrying cloth-bags (b) Switching off unnecessary lights (c) Walking to school (d) All of the above",
+              "ideal_answer": "(d) All of the above",
+              "socratic_hint": "All practices reduce waste and energy consumption."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "What will happen if we kill all the organisms in one trophic level?",
+              "ideal_answer": "It will disrupt the entire ecosystem. Populations of the lower trophic level will increase uncontrollably, while organisms at higher trophic levels will starve and die.",
+              "socratic_hint": "Ecological imbalance and starvation."
+            },
+            {
+              "type": "5-mark Comprehensive",
+              "q_num": "Q4",
+              "question": "Will the impact of removing all the organisms in a trophic level be different for different trophic levels? Can the organisms of any trophic level be removed without causing any damage?",
+              "ideal_answer": "Yes, removing producers collapses the entire system immediately. Removing top carnivores leads to overpopulation of herbivores, overgrazing, and desertification. No trophic level can be removed without causing damage.",
+              "socratic_hint": "Interdependence across trophic levels."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Biodegradable Item Identification: Recognizing organic items like grass, leather, and fruit peels."
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Grassland Food Chain",
+          "scenario": "Grass -> Goat -> Human."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "Which of the following groups contain only biodegradable items? (a) Grass, flowers and leather (b) Grass, wood and plastic (c) Fruit-peels, cake and lime-juice (d) Cake, wood and grass",
+              "question_type": "conceptual",
+              "solution_method": "Identify organic items. Options (a), (c), and (d) are biodegradable."
+            },
+            {
+              "q_num": "Q2",
+              "question": "Which of the following constitute a food-chain? (a) Grass, wheat and mango (b) Grass, goat and human (c) Goat, cow and elephant (d) Grass, fish and goat",
+              "question_type": "conceptual",
+              "solution_method": "Option (b) is a valid food chain where grass is eaten by goat, and goat by human."
+            },
+            {
+              "q_num": "Q3",
+              "question": "Which of the following are environment-friendly practices? (a) Carrying cloth-bags (b) Switching off unnecessary lights (c) Walking to school (d) All of the above",
+              "question_type": "conceptual",
+              "solution_method": "All listed practices reduce resource consumption and waste. Correct answer is (d)."
+            },
+            {
+              "q_num": "Q4",
+              "question": "What will happen if we kill all the organisms in one trophic level?",
+              "question_type": "conceptual",
+              "solution_method": "Explain ecosystem collapse, starvation of higher levels, and overpopulation of lower levels."
+            },
+            {
+              "q_num": "Q5",
+              "question": "Will the impact of removing all the organisms in a trophic level be different for different trophic levels? Can the organisms of any trophic level be removed without causing any damage?",
+              "question_type": "conceptual",
+              "solution_method": "No trophic level can be removed without damage; producer removal causes total starvation."
+            },
+            {
+              "q_num": "Q6",
+              "question": "What is biological magnification? Will the levels of this magnification be different at different levels of the ecosystem?",
+              "question_type": "conceptual",
+              "solution_method": "Define biomagnification and explain that levels increase progressively towards the top."
+            },
+            {
+              "q_num": "Q7",
+              "question": "What are the problems caused by the non-biodegradable wastes that we generate?",
+              "question_type": "conceptual",
+              "solution_method": "List persistence, soil toxicity, drainage clogging, and biomagnification."
+            },
+            {
+              "q_num": "Q8",
+              "question": "If all the waste we generate is biodegradable, will this have no impact on the environment?",
+              "question_type": "conceptual",
+              "solution_method": "Excessive biodegradable waste rotting quickly can cause foul smell, breeding of disease vectors (mosquitoes, flies), and depletion of dissolved oxygen in water bodies."
+            },
+            {
+              "q_num": "Q9",
+              "question": "Why is damage to the ozone layer a cause for concern? What steps are being taken to limit this damage?",
+              "question_type": "conceptual",
+              "solution_method": "Explain UV radiation dangers and UNEP agreements freezing CFC production."
+            }
+          ],
+          "exercise_number": "End-of-Chapter Exercises (Q1-Q9)"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Food Chain",
+          "si_units": "Not applicable",
+          "definition": "A linear sequence of organisms where each is eaten by the next, transferring energy."
+        }
+      ]
+    },
+    "quiz_questions": []
+  }
+]

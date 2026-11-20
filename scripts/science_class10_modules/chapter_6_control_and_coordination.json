@@ -1,0 +1,2242 @@
+[
+  {
+    "id": "4c37fe5e-a553-4fcc-b64a-3c180c0d3956",
+    "curriculum_id": "c6e02abf-ddda-448f-ba41-14be519073c1",
+    "order_index": 1,
+    "title": "Animal Nervous System & Neuron Structure",
+    "description": "Master the structural and functional unit of the nervous system, receptors, and nerve impulse transmission.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 1: Animal Nervous System & Neuron Structure. Mid-Term Examination Syllabus. Emphasize the direction of impulse flow: Dendrite -> Cell Body -> Axon -> Synapse.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: A clear anatomical sketch of a neuron with labels for dendrite, cell body, axon, and nerve ending.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Stimulus -> Receptor -> Dendrite -> Cell Body -> Axon -> Synapse -> Next Neuron/Effector\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Stimulus -> Receptor -> Dendrite -> Cell Body -> Axon -> Synapse -> Next Neuron/Effector\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Receptor: \"Specialized tips of nerve cells that detect information from the environment.\" [SI Unit: N/A]\n- Synapse: \"The junction/gap between two adjacent neurons.\" [SI Unit: N/A]\n\n- Textbook Concrete Examples:\n- Taste and Smell: Gustatory receptors detect taste on tongue; olfactory receptors detect smell in nasal passage.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Q1 (Page 101):\n    * [Q1] (conceptual): What is the difference between a reflex action and walking?\n      Method: Reflex action is involuntary and controlled by spinal cord; walking is voluntary and controlled by cerebellum and cerebrum.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Receptor\":\n    * [Q1] (1-mark MCQ): Which of the following receptors is correctly matched with its function? (a) Gustatory - smell (b) Olfactory - taste (c) Gustatory - taste (d) Thermoreceptor - sight\n      -> Ideal Model Answer: (c) Gustatory - taste\n      -> Socratic Hint: Recall that tongue contains taste buds (gustatory receptors) and nose contains smell receptors (olfactory).\n    * [Q2] (2-mark Definition): Define receptors. Where are they usually located?\n      -> Ideal Model Answer: Receptors are specialized tips of nerve cells that detect all information from our environment. They are usually located in our sense organs such as the inner ear, nose, tongue, skin, and eyes.\n      -> Socratic Hint: Think about how your body senses touch or heat.\n    * [Q3] (3-mark Short Answer): Explain why olfactory and gustatory receptors are necessary for humans.\n      -> Ideal Model Answer: Olfactory receptors detect smell and gustatory receptors detect taste. These receptors allow us to perceive chemical stimuli in our environment, helping us identify food quality and avoid noxious substances.\n      -> Socratic Hint: Relate this to Activity 6.1 regarding blocked nose and food taste.\n    * [Q4] (5-mark Structured): Describe how information from the environment is detected and communicated in our body.\n      -> Ideal Model Answer: Information is detected by specialized receptors in sense organs. It is acquired at the dendritic tip of a nerve cell, setting off a chemical reaction that creates an electrical impulse. This travels from dendrite to cell body and along the axon.\n      -> Socratic Hint: Trace the pathway from stimulus detection to electrical impulse generation.\n    * [Q5] (PYQ): State the role of gustatory and olfactory receptors in human beings. (CBSE 2020)\n      -> Ideal Model Answer: Gustatory receptors detect taste, while olfactory receptors detect smell.\n      -> Socratic Hint: Keep definitions precise and direct.\n    * [Q6] (Competency): Why does food taste bland when you have a severe cold? Explain based on receptors.\n      -> Ideal Model Answer: Taste heavily relies on smell. When suffering from a cold, mucus blocks olfactory receptors in the nose, preventing them from detecting volatile food odors, thereby diminishing the perceived taste.\n      -> Socratic Hint: Connect smell and taste mechanisms discussed in Activity 6.1.\n  * Concept #2 \"Neuron\":\n    * [Q1] (1-mark MCQ): In a neuron, conversion of electrical signal to a chemical signal occurs at/in: (a) cell body (b) axonal end (c) dendritic tip (d) myelin sheath\n      -> Ideal Model Answer: (b) axonal end\n      -> Socratic Hint: Think about what is released at the end of the axon to cross the synapse.\n    * [Q2] (2-mark Definition): What is a synapse?\n      -> Ideal Model Answer: A synapse is the narrow gap between the axon terminal of one neuron and the dendritic tip of the next neuron where chemical messengers bridge the gap.\n      -> Socratic Hint: It acts as a junction between two neurons.\n    * [Q3] (3-mark Short Answer): Trace the sequence of events during transmission of a nerve impulse across a synapse.\n      -> Ideal Model Answer: 1. Electrical impulse reaches axonal end. 2. Triggers release of neurotransmitter chemicals. 3. Chemicals cross synapse and start electrical impulse in next dendrite.\n      -> Socratic Hint: Electrical -> Chemical -> Electrical.\n    * [Q4] (5-mark Structured): Draw a neat diagram of a neuron and label: (i) Dendrite (ii) Cell body (iii) Axon (iv) Nerve ending. Explain the function of each.\n      -> Ideal Model Answer: Dendrite acquires information; cell body processes it; axon transmits impulse away; nerve ending releases chemicals.\n      -> Socratic Hint: Draw clear branching dendrites, central soma, long axon, and terminal knobs.\n    * [Q5] (PYQ): How is an electrical impulse generated and transmitted along a neuron? (CBSE 2019)\n      -> Ideal Model Answer: Acquired at dendritic tip -> chemical reaction creates electrical impulse -> travels to cell body -> along axon to nerve ending.\n      -> Socratic Hint: Outline the path from dendrite to axon.\n    * [Q6] (Competency): Why are nerve impulses unidirectional across synapses?\n      -> Ideal Model Answer: Chemical substances (neurotransmitters) are released only from axon terminals and their receptors are present only on the post-synaptic dendritic membrane.\n      -> Socratic Hint: Chemicals are only stored at axon ends.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Neuron\":\n    - Visual Title: \"Neuron Anatomy & Signal Flow\" (vector_svg_diagram)\n    - Why Needed: Visualizing signal flow from dendrites to axon terminals.\n    - What to Explain: Point out how dendrites receive stimuli and axon terminals pass chemicals.\n    - Timing & Directive: Show when discussing signal transmission.\n    - Interactive Math Formula: N/A\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Receptor: Specialized tips of nerve cells that detect information from the environment (e.g., gustatory for taste, olfactory for smell).",
+      "Neuron: Structural and functional unit of nervous tissue consisting of dendrites, cell body (cyton), and axon.",
+      "Synapse: The microscopic gap between two neurons where electrical impulses are converted into chemical signals.",
+      "Neuromuscular Junction: The site of transmission of electric impulse from motor neuron to muscle fiber."
+    ],
+    "success_criteria": "Accurately trace the path of a nerve impulse from receptor to effector and explain the role of synapses.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:44:20.559121+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Receptors and Sense Organs",
+      "Structure of a Neuron",
+      "Synapse and Transmission of Nerve Impulse",
+      "Neuromuscular Junction"
+    ],
+    "chapter_notes": "Nervous tissue is composed of an organized network of neurons specialized for conducting information via electrical impulses. All information from the environment is detected by receptors in sense organs. The dendritic tip acquires information, creating an electrical impulse traveling through the cell body and axon. At axon terminals, chemicals cross the synapse to propagate the impulse to the next neuron or muscle/gland cell.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "N/A",
+        "given": "Neuron structure",
+        "formula": "Neural transmission pathway",
+        "problem": "Identify parts of a neuron where information is acquired and converted to chemical signal.",
+        "calculation": "N/A",
+        "finalAnswer": "Acquired at dendritic tips; converted to chemical signal at axon terminal.",
+        "substitution": "Dendritic tip (acquisition), Axon ending / Synapse (chemical conversion)",
+        "image_search_query": "class 10 science chapter_6_contr ncert",
+        "page": 10,
+        "section": "Section 1"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing dendrites and axon directions.",
+      "Believing electrical impulses jump directly across neurons without chemical synapses."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735059907_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Animal Nervous System & Neuron Structure: Master the structural and functional unit of the nervous system, receptors, and nerve impulse transmission.",
+              "keyTakeaway": "Receptor: Specialized tips of nerve cells that detect information from the environment (e.g., gustatory for taste, olfactory for smell)."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Receptor: Specialized tips of nerve cells that detect information from the environment (e.g., gustatory for taste, olfactory for smell)."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc106.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735059907_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Animal Nervous System & Neuron Structure - Fundamental Equations",
+              "equations": [
+                "Receptor: Specialized tips of nerve cells that detect information from the environment (e.g., gustatory for taste, olfactory for smell).",
+                "Neuron: Structural and functional unit of nervous tissue consisting of dendrites, cell body (cyton), and axon.",
+                "Synapse: The microscopic gap between two neurons where electrical impulses are converted into chemical signals."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Receptor: Specialized tips of nerve cells that detect information from the environment (e.g., gustatory for taste, olfactory for smell)."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc106.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735059907_3",
+          "type": "GRAPH",
+          "title": "Animal Nervous System & Neuron Structure Mathematical Graph",
+          "content": {
+            "graph": {
+              "range": [
+                -5,
+                20
+              ],
+              "title": "Animal Nervous System & Neuron Structure Coordinate Graph",
+              "domain": [
+                -5,
+                10
+              ],
+              "xLabel": "x",
+              "yLabel": "y",
+              "graphType": "function",
+              "variables": [
+                {
+                  "max": 10,
+                  "min": -5,
+                  "name": "m",
+                  "step": 0.5,
+                  "label": "Slope (m)",
+                  "current": 2
+                },
+                {
+                  "max": 10,
+                  "min": -5,
+                  "name": "c",
+                  "step": 0.5,
+                  "label": "y-intercept (c)",
+                  "current": 1
+                }
+              ],
+              "expression": "y = 2 * x + 1",
+              "progressiveSteps": [
+                {
+                  "action": "axes",
+                  "stepIndex": 0,
+                  "description": "Display coordinate axes and reference grid"
+                },
+                {
+                  "action": "points",
+                  "stepIndex": 1,
+                  "description": "Plot discrete coordinates"
+                },
+                {
+                  "action": "line",
+                  "stepIndex": 2,
+                  "description": "Trace continuous function curve"
+                },
+                {
+                  "action": "intercept",
+                  "stepIndex": 3,
+                  "description": "Highlight y-intercept"
+                },
+                {
+                  "action": "slope_triangle",
+                  "stepIndex": 4,
+                  "description": "Form slope triangle Delta y / Delta x"
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_graph",
+            "content": "y = 2 * x + 1"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc106.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 150
+        },
+        {
+          "id": "step_mod_1793735059907_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Receptor: Specialized tips of nerve cells that detect information from the environment (e.g., gustatory for taste, olfactory for smell)."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Neuron structure, what is the value?",
+              "explanation": "By fundamental principle, Receptor: Specialized tips of nerve cells that detect information from the environment (e.g., gustatory for taste, olfactory for smell). is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735059907_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Receptors and Sense Organs",
+                "Structure of a Neuron",
+                "Synapse and Transmission of Nerve Impulse",
+                "Neuromuscular Junction"
+              ],
+              "formulasToRemember": [
+                "Receptor: Specialized tips of nerve cells that detect information from the environment (e.g., gustatory for taste, olfactory for smell).",
+                "Neuron: Structural and functional unit of nervous tissue consisting of dendrites, cell body (cyton), and axon.",
+                "Synapse: The microscopic gap between two neurons where electrical impulses are converted into chemical signals."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Animal Nervous System & Neuron Structure - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Animal Nervous System & Neuron Structure",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:44:19.907Z",
+        "provenance": "jesc106.pdf",
+        "totalEstimatedMinutes": 9,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735059907",
+      "subtopics": [
+        "Receptors and Sense Organs",
+        "Structure of a Neuron",
+        "Synapse and Transmission of Nerve Impulse",
+        "Neuromuscular Junction"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"30\" y=\"35\" font-size=\"16\" font-weight=\"bold\" fill=\"#0F172A\">Figure 6.1 (a) Structure of Neuron</text><circle cx=\"120\" cy=\"140\" r=\"40\" fill=\"#FEF08A\" stroke=\"#CA8A04\" stroke-width=\"2\"/><text x=\"100\" y=\"145\" font-size=\"12\" fill=\"#0F172A\">Cell body</text><path d=\"M120 100 Q100 70 80 80 M120 100 Q130 60 150 70 M80 140 Q50 120 40 130\" stroke=\"#2563EB\" stroke-width=\"2.5\" fill=\"none\"/><text x=\"30\" y=\"70\" font-size=\"12\" fill=\"#2563EB\">Dendrites</text><path d=\"M160 140 L380 140\" stroke=\"#DC2626\" stroke-width=\"4\"/><text x=\"240\" y=\"125\" font-size=\"12\" fill=\"#DC2626\">Axon</text><circle cx=\"380\" cy=\"140\" r=\"15\" fill=\"#FCA5A5\" stroke=\"#DC2626\" stroke-width=\"2\"/><text x=\"395\" y=\"170\" font-size=\"12\" fill=\"#0F172A\">Nerve ending</text></svg>",
+      "diagram_idea": "Structure of neuron showing dendrites, cell body, axon, and nerve endings.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "A clear anatomical sketch of a neuron with labels for dendrite, cell body, axon, and nerve ending.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><circle cx=\"100\" cy=\"140\" r=\"35\" fill=\"#E0F2FE\" stroke=\"#0284C7\" stroke-width=\"2\"/><text x=\"75\" y=\"145\" font-size=\"12\" fill=\"#0F172A\">Soma</text><path d=\"M135 140 L360 140\" stroke=\"#16A34A\" stroke-width=\"3\"/><text x=\"200\" y=\"125\" font-size=\"12\" fill=\"#16A34A\">Axon</text><path d=\"M360 120 L420 100 M360 160 L420 180\" stroke=\"#16A34A\" stroke-width=\"2\"/><text x=\"425\" y=\"150\" font-size=\"12\" fill=\"#0F172A\">Synapse</text></svg>",
+          "why_needed": "Visualizing signal flow from dendrites to axon terminals.",
+          "diagram_svg": "<svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><circle cx=\"100\" cy=\"140\" r=\"35\" fill=\"#E0F2FE\" stroke=\"#0284C7\" stroke-width=\"2\"/><text x=\"75\" y=\"145\" font-size=\"12\" fill=\"#0F172A\">Soma</text><path d=\"M135 140 L360 140\" stroke=\"#16A34A\" stroke-width=\"3\"/><text x=\"200\" y=\"125\" font-size=\"12\" fill=\"#16A34A\">Axon</text><path d=\"M360 120 L420 100 M360 160 L420 180\" stroke=\"#16A34A\" stroke-width=\"2\"/><text x=\"425\" y=\"150\" font-size=\"12\" fill=\"#0F172A\">Synapse</text></svg>",
+          "image_query": "Neuron diagram with colored paths. scientific educational diagram with clear labels",
+          "video_query": "Neuron Anatomy & Signal Flow educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Neuron diagram with colored paths.",
+          "concept_title": "Neuron",
+          "diagram_title": "Neuron Anatomy & Signal Flow",
+          "timing_and_cue": "Show when discussing signal transmission.",
+          "what_to_explain": "Point out how dendrites receive stimuli and axon terminals pass chemicals.",
+          "image_search_query": "Neuron diagram with colored paths. scientific educational diagram with clear labels",
+          "video_search_query": "Neuron Anatomy & Signal Flow educational demonstration video",
+          "interactive_math_formula": "N/A"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Stimulus -> Receptor -> Dendrite -> Cell Body -> Axon -> Synapse -> Next Neuron/Effector",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Which of the following receptors is correctly matched with its function? (a) Gustatory - smell (b) Olfactory - taste (c) Gustatory - taste (d) Thermoreceptor - sight",
+              "ideal_answer": "(c) Gustatory - taste",
+              "socratic_hint": "Recall that tongue contains taste buds (gustatory receptors) and nose contains smell receptors (olfactory)."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Define receptors. Where are they usually located?",
+              "ideal_answer": "Receptors are specialized tips of nerve cells that detect all information from our environment. They are usually located in our sense organs such as the inner ear, nose, tongue, skin, and eyes.",
+              "socratic_hint": "Think about how your body senses touch or heat."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "Explain why olfactory and gustatory receptors are necessary for humans.",
+              "ideal_answer": "Olfactory receptors detect smell and gustatory receptors detect taste. These receptors allow us to perceive chemical stimuli in our environment, helping us identify food quality and avoid noxious substances.",
+              "socratic_hint": "Relate this to Activity 6.1 regarding blocked nose and food taste."
+            },
+            {
+              "type": "5-mark Structured",
+              "q_num": "Q4",
+              "question": "Describe how information from the environment is detected and communicated in our body.",
+              "ideal_answer": "Information is detected by specialized receptors in sense organs. It is acquired at the dendritic tip of a nerve cell, setting off a chemical reaction that creates an electrical impulse. This travels from dendrite to cell body and along the axon.",
+              "socratic_hint": "Trace the pathway from stimulus detection to electrical impulse generation."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q5",
+              "question": "State the role of gustatory and olfactory receptors in human beings. (CBSE 2020)",
+              "ideal_answer": "Gustatory receptors detect taste, while olfactory receptors detect smell.",
+              "socratic_hint": "Keep definitions precise and direct."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q6",
+              "question": "Why does food taste bland when you have a severe cold? Explain based on receptors.",
+              "ideal_answer": "Taste heavily relies on smell. When suffering from a cold, mucus blocks olfactory receptors in the nose, preventing them from detecting volatile food odors, thereby diminishing the perceived taste.",
+              "socratic_hint": "Connect smell and taste mechanisms discussed in Activity 6.1."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Receptor"
+        },
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "In a neuron, conversion of electrical signal to a chemical signal occurs at/in: (a) cell body (b) axonal end (c) dendritic tip (d) myelin sheath",
+              "ideal_answer": "(b) axonal end",
+              "socratic_hint": "Think about what is released at the end of the axon to cross the synapse."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "What is a synapse?",
+              "ideal_answer": "A synapse is the narrow gap between the axon terminal of one neuron and the dendritic tip of the next neuron where chemical messengers bridge the gap.",
+              "socratic_hint": "It acts as a junction between two neurons."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "Trace the sequence of events during transmission of a nerve impulse across a synapse.",
+              "ideal_answer": "1. Electrical impulse reaches axonal end. 2. Triggers release of neurotransmitter chemicals. 3. Chemicals cross synapse and start electrical impulse in next dendrite.",
+              "socratic_hint": "Electrical -> Chemical -> Electrical."
+            },
+            {
+              "type": "5-mark Structured",
+              "q_num": "Q4",
+              "question": "Draw a neat diagram of a neuron and label: (i) Dendrite (ii) Cell body (iii) Axon (iv) Nerve ending. Explain the function of each.",
+              "ideal_answer": "Dendrite acquires information; cell body processes it; axon transmits impulse away; nerve ending releases chemicals.",
+              "socratic_hint": "Draw clear branching dendrites, central soma, long axon, and terminal knobs."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q5",
+              "question": "How is an electrical impulse generated and transmitted along a neuron? (CBSE 2019)",
+              "ideal_answer": "Acquired at dendritic tip -> chemical reaction creates electrical impulse -> travels to cell body -> along axon to nerve ending.",
+              "socratic_hint": "Outline the path from dendrite to axon."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q6",
+              "question": "Why are nerve impulses unidirectional across synapses?",
+              "ideal_answer": "Chemical substances (neurotransmitters) are released only from axon terminals and their receptors are present only on the post-synaptic dendritic membrane.",
+              "socratic_hint": "Chemicals are only stored at axon ends."
+            }
+          ],
+          "concept_index": 1,
+          "concept_title": "Neuron"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Taste and Smell",
+          "scenario": "Gustatory receptors detect taste on tongue; olfactory receptors detect smell in nasal passage."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "What is the difference between a reflex action and walking?",
+              "question_type": "conceptual",
+              "solution_method": "Reflex action is involuntary and controlled by spinal cord; walking is voluntary and controlled by cerebellum and cerebrum."
+            }
+          ],
+          "exercise_number": "In-Text Q1 (Page 101)"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Receptor",
+          "si_units": "N/A",
+          "definition": "Specialized tips of nerve cells that detect information from the environment."
+        },
+        {
+          "concept": "Synapse",
+          "si_units": "N/A",
+          "definition": "The junction/gap between two adjacent neurons."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "20f9b83b-c3b3-443b-8af9-1c563ca2c5b1",
+    "curriculum_id": "c6e02abf-ddda-448f-ba41-14be519073c1",
+    "order_index": 2,
+    "title": "Reflex Action and Reflex Arc",
+    "description": "Understand rapid, automatic responses to stimuli and the neural pathway known as the reflex arc.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 2: Reflex Action and Reflex Arc. Mid-Term Examination Syllabus. Clearly explain the role of the spinal cord in forming reflex arcs.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Reflex arc schema with spinal cord, sensory neuron, and motor neuron.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Stimulus -> Receptors in Skin -> Sensory Neuron -> Spinal Cord (Relay Neuron) -> Motor Neuron -> Effector (Muscle)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Stimulus -> Receptors in Skin -> Sensory Neuron -> Spinal Cord (Relay Neuron) -> Motor Neuron -> Effector (Muscle)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Reflex Arc: \"The pathway taken by nerve impulses in a reflex action from receptor to effector through the spinal cord.\" [SI Unit: N/A]\n\n- Textbook Concrete Examples:\n- Touching a Hot Flame: Hand pulls back immediately without waiting for conscious thought.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Q5 (Page 105):\n    * [Q5] (conceptual): What is the role of the brain in reflex action?\n      Method: Reflex arcs are formed in the spinal cord itself for quick responses, though information also reaches the brain for record/awareness.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Reflex Action\":\n    * [Q1] (1-mark MCQ): Which of the following is a reflex action? (a) Writing (b) Typing (c) Knee-jerk response (d) Riding a bicycle\n      -> Ideal Model Answer: (c) Knee-jerk response\n      -> Socratic Hint: Reflex actions are sudden, involuntary responses without conscious thought.\n    * [Q2] (2-mark Definition): What is a reflex arc?\n      -> Ideal Model Answer: The pathway of communication from a sensory neuron through the spinal cord to a motor neuron in a reflex action is called a reflex arc.\n      -> Socratic Hint: Think of the shortest path from stimulus to response.\n    * [Q3] (3-mark Short Answer): Why have reflex arcs evolved in animals?\n      -> Ideal Model Answer: Thinking process in the brain is not instantaneous. Reflex arcs provide quick, efficient responses to dangerous stimuli (like heat) where immediate survival is paramount, bypassing complex brain processing.\n      -> Socratic Hint: Speed is key for survival.\n    * [Q4] (5-mark Structured): Trace the sequence of events (reflex arc) when a person touches a hot object.\n      -> Ideal Model Answer: 1. Receptors in skin detect heat (stimulus). 2. Sensory neuron carries signal to spinal cord. 3. Relay neuron processes in spinal cord. 4. Motor neuron carries signal to effector (muscle in arm). 5. Muscle pulls hand away.\n      -> Socratic Hint: Receptor -> Sensory -> Spinal Cord -> Motor -> Effector.\n    * [Q5] (PYQ): Define reflex action. Give an example. (CBSE 2020)\n      -> Ideal Model Answer: A reflex action is a rapid, automatic response to a stimulus. Example: Pulling hand back from a hot flame.\n      -> Socratic Hint: Keep it direct and standard.\n    * [Q6] (Competency): Even after complex brains evolved, reflex arcs continue to exist. Give reasons.\n      -> Ideal Model Answer: Brain thinking is complex and takes time. Reflex arcs operate instantaneously at the spinal cord level, offering vital protection against sudden hazards before conscious thought can occur.\n      -> Socratic Hint: Think about split-second survival needs.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Reflex Arc\":\n    - Visual Title: \"Reflex Arc Pathway\" (vector_svg_diagram)\n    - Why Needed: Essential for tracing input and output nerve pathways.\n    - What to Explain: Walk through sensory input -> spinal processing -> motor output.\n    - Timing & Directive: Use when explaining the speed of reflex responses.\n    - Interactive Math Formula: N/A\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Reflex Action: A sudden, involuntary mechanical response to a stimulus in the environment.",
+      "Reflex Arc: The pathway taken by nerve impulses in a reflex action, connecting input nerve, spinal cord, and output nerve.",
+      "Effector: Muscles or glands that execute the response in a reflex action."
+    ],
+    "success_criteria": "Draw and label a reflex arc and trace the exact path from receptor to effector.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:44:20.820701+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Definition of Reflex Action",
+      "The Reflex Arc Pathway",
+      "Role of the Spinal Cord",
+      "Evolutionary Advantage of Reflex Arcs"
+    ],
+    "chapter_notes": "Reflex actions are rapid, involuntary responses to environmental changes. The pathway of nerve impulses in this response is called a reflex arc. It typically consists of a sensory neuron, a relay neuron in the spinal cord, and a motor neuron leading to an effector. This avoids the delay of conscious brain processing.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "N/A",
+        "given": "Bright light stimulus",
+        "formula": "Reflex arc pathway",
+        "problem": "Trace sequence of events when bright light is focused on eyes.",
+        "calculation": "N/A",
+        "finalAnswer": "Pupil constricts automatically to protect the retina.",
+        "substitution": "Photoreceptors in retina -> Sensory neuron -> Brain/Spinal cord -> Motor neuron -> Iris muscles",
+        "image_search_query": "class 10 science chapter_6_contr ncert",
+        "page": 20,
+        "section": "Section 2"
+      }
+    ],
+    "common_misconceptions": [
+      "Assuming the brain is directly responsible for initiating reflex actions.",
+      "Confusing sensory and motor neurons."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735060678_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Reflex Action and Reflex Arc: Understand rapid, automatic responses to stimuli and the neural pathway known as the reflex arc.",
+              "keyTakeaway": "Reflex Action: A sudden, involuntary mechanical response to a stimulus in the environment."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Reflex Action: A sudden, involuntary mechanical response to a stimulus in the environment."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc106.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735060678_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Reflex Action and Reflex Arc - Fundamental Equations",
+              "equations": [
+                "Reflex Action: A sudden, involuntary mechanical response to a stimulus in the environment.",
+                "Reflex Arc: The pathway taken by nerve impulses in a reflex action, connecting input nerve, spinal cord, and output nerve.",
+                "Effector: Muscles or glands that execute the response in a reflex action."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Reflex Action: A sudden, involuntary mechanical response to a stimulus in the environment."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc106.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735060678_3",
+          "type": "DIAGRAM",
+          "title": "Reflex Action and Reflex Arc Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Reflex Action and Reflex Arc Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Reflex Action: A sudden, involuntary mechanical response to a stimulus in the environment.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Reflex Arc: The pathway taken by nerve impulses in a reflex action, connecting input nerve, spinal cord, and output nerve.",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Reflex Action and Reflex Arc",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Reflex Action and Reflex Arc | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"30\" y=\"35\" font-size=\"16\" font-weight=\"bold\" fill=\"#0F172A\">Figure 6.2 Reflex Arc</text><ellipse cx=\"270\" cy=\"140\" rx=\"50\" ry=\"70\" fill=\"#F1F5F9\" stroke=\"#475569\" stroke-width=\"2\"/><text x=\"245\" y=\"135\" font-size=\"12\" fill=\"#0F172A\">Spinal Cord</text><path d=\"M80 200 Q150 200 220 140\" stroke=\"#2563EB\" stroke-width=\"3\" fill=\"none\"/><text x=\"90\" y=\"225\" font-size=\"12\" fill=\"#2563EB\">Sensory Neuron</text><path d=\"M320 140 Q390 200 460 200\" stroke=\"#DC2626\" stroke-width=\"3\" fill=\"none\"/><text x=\"370\" y=\"225\" font-size=\"12\" fill=\"#DC2626\">Motor Neuron</text><circle cx=\"80\" cy=\"200\" r=\"8\" fill=\"#CA8A04\"/><text x=\"60\" y=\"230\" font-size=\"10\" fill=\"#CA8A04\">Receptor</text><circle cx=\"460\" cy=\"200\" r=\"8\" fill=\"#16A34A\"/><text x=\"440\" y=\"230\" font-size=\"10\" fill=\"#16A34A\">Effector</text></svg> | Reflex arc schema with spinal cord, sensory neuron, and motor neuron."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc106.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735060678_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Reflex Action: A sudden, involuntary mechanical response to a stimulus in the environment."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Bright light stimulus, what is the value?",
+              "explanation": "By fundamental principle, Reflex Action: A sudden, involuntary mechanical response to a stimulus in the environment. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735060678_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Definition of Reflex Action",
+                "The Reflex Arc Pathway",
+                "Role of the Spinal Cord",
+                "Evolutionary Advantage of Reflex Arcs"
+              ],
+              "formulasToRemember": [
+                "Reflex Action: A sudden, involuntary mechanical response to a stimulus in the environment.",
+                "Reflex Arc: The pathway taken by nerve impulses in a reflex action, connecting input nerve, spinal cord, and output nerve.",
+                "Effector: Muscles or glands that execute the response in a reflex action."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Reflex Action and Reflex Arc - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Reflex Action and Reflex Arc",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:44:20.679Z",
+        "provenance": "jesc106.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735060678",
+      "subtopics": [
+        "Definition of Reflex Action",
+        "The Reflex Arc Pathway",
+        "Role of the Spinal Cord",
+        "Evolutionary Advantage of Reflex Arcs"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"30\" y=\"35\" font-size=\"16\" font-weight=\"bold\" fill=\"#0F172A\">Figure 6.2 Reflex Arc</text><ellipse cx=\"270\" cy=\"140\" rx=\"50\" ry=\"70\" fill=\"#F1F5F9\" stroke=\"#475569\" stroke-width=\"2\"/><text x=\"245\" y=\"135\" font-size=\"12\" fill=\"#0F172A\">Spinal Cord</text><path d=\"M80 200 Q150 200 220 140\" stroke=\"#2563EB\" stroke-width=\"3\" fill=\"none\"/><text x=\"90\" y=\"225\" font-size=\"12\" fill=\"#2563EB\">Sensory Neuron</text><path d=\"M320 140 Q390 200 460 200\" stroke=\"#DC2626\" stroke-width=\"3\" fill=\"none\"/><text x=\"370\" y=\"225\" font-size=\"12\" fill=\"#DC2626\">Motor Neuron</text><circle cx=\"80\" cy=\"200\" r=\"8\" fill=\"#CA8A04\"/><text x=\"60\" y=\"230\" font-size=\"10\" fill=\"#CA8A04\">Receptor</text><circle cx=\"460\" cy=\"200\" r=\"8\" fill=\"#16A34A\"/><text x=\"440\" y=\"230\" font-size=\"10\" fill=\"#16A34A\">Effector</text></svg>",
+      "diagram_idea": "Diagram of reflex arc showing sensory neuron, relay neuron, motor neuron, spinal cord cross-section.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Reflex arc schema with spinal cord, sensory neuron, and motor neuron.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><rect x=\"230\" y=\"80\" width=\"80\" height=\"120\" rx=\"10\" fill=\"#FDE047\" stroke=\"#CA8A04\" stroke-width=\"2\"/><text x=\"245\" y=\"140\" font-size=\"12\" fill=\"#0F172A\">Spinal Cord</text><path d=\"M100 180 L230 140\" stroke=\"#0284C7\" stroke-width=\"3\"/><path d=\"M310 140 L440 180\" stroke=\"#DC2626\" stroke-width=\"3\"/></svg>",
+          "why_needed": "Essential for tracing input and output nerve pathways.",
+          "diagram_svg": "<svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><rect x=\"230\" y=\"80\" width=\"80\" height=\"120\" rx=\"10\" fill=\"#FDE047\" stroke=\"#CA8A04\" stroke-width=\"2\"/><text x=\"245\" y=\"140\" font-size=\"12\" fill=\"#0F172A\">Spinal Cord</text><path d=\"M100 180 L230 140\" stroke=\"#0284C7\" stroke-width=\"3\"/><path d=\"M310 140 L440 180\" stroke=\"#DC2626\" stroke-width=\"3\"/></svg>",
+          "image_query": "Spinal cord with sensory and motor loops. scientific educational diagram with clear labels",
+          "video_query": "Reflex Arc Pathway educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Spinal cord with sensory and motor loops.",
+          "concept_title": "Reflex Arc",
+          "diagram_title": "Reflex Arc Pathway",
+          "timing_and_cue": "Use when explaining the speed of reflex responses.",
+          "what_to_explain": "Walk through sensory input -> spinal processing -> motor output.",
+          "image_search_query": "Spinal cord with sensory and motor loops. scientific educational diagram with clear labels",
+          "video_search_query": "Reflex Arc Pathway educational demonstration video",
+          "interactive_math_formula": "N/A"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Stimulus -> Receptors in Skin -> Sensory Neuron -> Spinal Cord (Relay Neuron) -> Motor Neuron -> Effector (Muscle)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Which of the following is a reflex action? (a) Writing (b) Typing (c) Knee-jerk response (d) Riding a bicycle",
+              "ideal_answer": "(c) Knee-jerk response",
+              "socratic_hint": "Reflex actions are sudden, involuntary responses without conscious thought."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "What is a reflex arc?",
+              "ideal_answer": "The pathway of communication from a sensory neuron through the spinal cord to a motor neuron in a reflex action is called a reflex arc.",
+              "socratic_hint": "Think of the shortest path from stimulus to response."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "Why have reflex arcs evolved in animals?",
+              "ideal_answer": "Thinking process in the brain is not instantaneous. Reflex arcs provide quick, efficient responses to dangerous stimuli (like heat) where immediate survival is paramount, bypassing complex brain processing.",
+              "socratic_hint": "Speed is key for survival."
+            },
+            {
+              "type": "5-mark Structured",
+              "q_num": "Q4",
+              "question": "Trace the sequence of events (reflex arc) when a person touches a hot object.",
+              "ideal_answer": "1. Receptors in skin detect heat (stimulus). 2. Sensory neuron carries signal to spinal cord. 3. Relay neuron processes in spinal cord. 4. Motor neuron carries signal to effector (muscle in arm). 5. Muscle pulls hand away.",
+              "socratic_hint": "Receptor -> Sensory -> Spinal Cord -> Motor -> Effector."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q5",
+              "question": "Define reflex action. Give an example. (CBSE 2020)",
+              "ideal_answer": "A reflex action is a rapid, automatic response to a stimulus. Example: Pulling hand back from a hot flame.",
+              "socratic_hint": "Keep it direct and standard."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q6",
+              "question": "Even after complex brains evolved, reflex arcs continue to exist. Give reasons.",
+              "ideal_answer": "Brain thinking is complex and takes time. Reflex arcs operate instantaneously at the spinal cord level, offering vital protection against sudden hazards before conscious thought can occur.",
+              "socratic_hint": "Think about split-second survival needs."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Reflex Action"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Touching a Hot Flame",
+          "scenario": "Hand pulls back immediately without waiting for conscious thought."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q5",
+              "question": "What is the role of the brain in reflex action?",
+              "question_type": "conceptual",
+              "solution_method": "Reflex arcs are formed in the spinal cord itself for quick responses, though information also reaches the brain for record/awareness."
+            }
+          ],
+          "exercise_number": "In-Text Q5 (Page 105)"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Reflex Arc",
+          "si_units": "N/A",
+          "definition": "The pathway taken by nerve impulses in a reflex action from receptor to effector through the spinal cord."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "0cf85633-7723-435f-ba97-b5dcee4f7e8b",
+    "curriculum_id": "c6e02abf-ddda-448f-ba41-14be519073c1",
+    "order_index": 3,
+    "title": "Human Brain Structure & Functions",
+    "description": "Explore the Central Nervous System, major regions of the brain (fore-brain, mid-brain, hind-brain), and voluntary vs. involuntary control.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 3: Human Brain Structure & Functions. Mid-Term Examination Syllabus. Highlight the distinction between voluntary actions (cerebrum/fore-brain) and balance (cerebellum).\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Brain regions diagram with fore-brain, mid-brain, hind-brain, cerebellum, medulla.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: CNS -> Brain (Fore-brain | Mid-brain | Hind-brain) & Spinal Cord; PNS -> Cranial Nerves & Spinal Nerves\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"CNS -> Brain (Fore-brain | Mid-brain | Hind-brain) & Spinal Cord; PNS -> Cranial Nerves & Spinal Nerves\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Central Nervous System: \"The system comprising the brain and spinal cord that integrates all body information.\" [SI Unit: N/A]\n\n- Textbook Concrete Examples:\n- Riding a Bicycle: Coordinated by the cerebellum for balance and muscle precision.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Q3 (Page 105):\n    * [Q3] (conceptual): Which part of the brain maintains posture and equilibrium of the body?\n      Method: Cerebellum in the hind-brain.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Central Nervous System (CNS)\":\n    * [Q1] (1-mark MCQ): The central nervous system consists of: (a) brain and spinal cord (b) brain and peripheral nerves (c) spinal cord and reflex arc (d) all voluntary muscles\n      -> Ideal Model Answer: (a) brain and spinal cord\n      -> Socratic Hint: CNS is the primary processing center.\n    * [Q2] (2-mark Definition): Name the two major components of the central nervous system.\n      -> Ideal Model Answer: 1. Brain 2. Spinal cord.\n      -> Socratic Hint: They sit inside the skull and vertebral column.\n    * [Q3] (3-mark Short Answer): How are the brain and spinal cord protected in the human body?\n      -> Ideal Model Answer: Brain sits inside a bony box (cranium) in a fluid-filled balloon for shock absorption. Spinal cord is protected by the hard, bumpy vertebral column (backbone).\n      -> Socratic Hint: Think about skull and backbone.\n    * [Q4] (5-mark Structured): Explain the functions of the three major regions of the human brain.\n      -> Ideal Model Answer: 1. Fore-brain: Thinking, sensory interpretation (sight, smell, hearing), hunger center. 2. Mid-brain: Controls involuntary actions. 3. Hind-brain: Cerebellum (balance/posture), Medulla (blood pressure, salivation, vomiting), Pons.\n      -> Socratic Hint: Break down into Fore, Mid, and Hind-brain.\n    * [Q5] (PYQ): Which part of the brain maintains posture and equilibrium of the body? (CBSE 2021)\n      -> Ideal Model Answer: Cerebellum\n      -> Socratic Hint: Responsible for precision of voluntary actions.\n    * [Q6] (Competency): A person is staggering while walking and unable to coordinate muscle movements after consuming alcohol. Which part of the brain is affected?\n      -> Ideal Model Answer: Cerebellum, because it coordinates voluntary muscle movements and maintains posture and balance.\n      -> Socratic Hint: Alcohol specifically depresses this hind-brain region.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Central Nervous System (CNS)\":\n    - Visual Title: \"Brain and Spinal Cord Anatomy\" (vector_svg_diagram)\n    - Why Needed: Shows spatial relationship between brain and spinal cord.\n    - What to Explain: Identify cerebrum, cerebellum, brainstem, and spinal cord.\n    - Timing & Directive: Use when explaining CNS composition.\n    - Interactive Math Formula: N/A\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Central Nervous System (CNS): Comprises the brain and spinal cord, the main coordinating centers.",
+      "Peripheral Nervous System (PNS): Comprises cranial nerves (from brain) and spinal nerves (from spinal cord).",
+      "Fore-brain: Main thinking part of the brain; contains regions for hearing, smell, sight, and association.",
+      "Cerebellum: Part of the hind-brain responsible for precision of voluntary actions and body posture/balance.",
+      "Medulla: Part of the hind-brain controlling involuntary actions like blood pressure, salivation, and vomiting."
+    ],
+    "success_criteria": "List the functions of the fore-brain, mid-brain, hind-brain, and cerebrum/cerebellum accurately.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:44:21.44682+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Central Nervous System (CNS) and Peripheral Nervous System (PNS)",
+      "Fore-brain (Thinking, Sensory Processing)",
+      "Mid-brain and Hind-brain (Involuntary Actions)",
+      "Cerebellum (Posture and Balance)",
+      "Protection of Brain and Spinal Cord"
+    ],
+    "chapter_notes": "The brain is the main coordinating center of the body, forming the CNS with the spinal cord. It has three regions: 1. Fore-brain: Thinking, voluntary action initiation, and sensory processing. 2. Mid-brain: Involuntary reflex coordination. 3. Hind-brain: Cerebellum (posture, balance, voluntary precision) and Medulla (involuntary actions like heartbeat, breathing, blood pressure). Protected by cranium and cerebrospinal fluid.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "N/A",
+        "given": "Involuntary physiological control",
+        "formula": "Hind-brain anatomy",
+        "problem": "Identify the brain center responsible for regulating blood pressure and vomiting.",
+        "calculation": "N/A",
+        "finalAnswer": "Medulla",
+        "substitution": "Medulla in the hind-brain",
+        "image_search_query": "class 10 science chapter_6_contr ncert",
+        "page": 30,
+        "section": "Section 3"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing cerebrum (thinking/fore-brain) with cerebellum (balance/hind-brain).",
+      "Thinking spinal cord only handles reflexes."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735060923_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Human Brain Structure & Functions: Explore the Central Nervous System, major regions of the brain (fore-brain, mid-brain, hind-brain), and voluntary vs. involuntary control.",
+              "keyTakeaway": "Central Nervous System (CNS): Comprises the brain and spinal cord, the main coordinating centers."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Central Nervous System (CNS): Comprises the brain and spinal cord, the main coordinating centers."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc106.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735060923_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Human Brain Structure & Functions - Fundamental Equations",
+              "equations": [
+                "Central Nervous System (CNS): Comprises the brain and spinal cord, the main coordinating centers.",
+                "Peripheral Nervous System (PNS): Comprises cranial nerves (from brain) and spinal nerves (from spinal cord).",
+                "Fore-brain: Main thinking part of the brain; contains regions for hearing, smell, sight, and association."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Central Nervous System (CNS): Comprises the brain and spinal cord, the main coordinating centers."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc106.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735060923_3",
+          "type": "GRAPH",
+          "title": "Human Brain Structure & Functions Mathematical Graph",
+          "content": {
+            "graph": {
+              "range": [
+                -5,
+                20
+              ],
+              "title": "Human Brain Structure & Functions Coordinate Graph",
+              "domain": [
+                -5,
+                10
+              ],
+              "xLabel": "x",
+              "yLabel": "y",
+              "graphType": "function",
+              "variables": [
+                {
+                  "max": 10,
+                  "min": -5,
+                  "name": "m",
+                  "step": 0.5,
+                  "label": "Slope (m)",
+                  "current": 2
+                },
+                {
+                  "max": 10,
+                  "min": -5,
+                  "name": "c",
+                  "step": 0.5,
+                  "label": "y-intercept (c)",
+                  "current": 1
+                }
+              ],
+              "expression": "y = 2 * x + 1",
+              "progressiveSteps": [
+                {
+                  "action": "axes",
+                  "stepIndex": 0,
+                  "description": "Display coordinate axes and reference grid"
+                },
+                {
+                  "action": "points",
+                  "stepIndex": 1,
+                  "description": "Plot discrete coordinates"
+                },
+                {
+                  "action": "line",
+                  "stepIndex": 2,
+                  "description": "Trace continuous function curve"
+                },
+                {
+                  "action": "intercept",
+                  "stepIndex": 3,
+                  "description": "Highlight y-intercept"
+                },
+                {
+                  "action": "slope_triangle",
+                  "stepIndex": 4,
+                  "description": "Form slope triangle Delta y / Delta x"
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_graph",
+            "content": "y = 2 * x + 1"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc106.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 150
+        },
+        {
+          "id": "step_mod_1793735060923_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Central Nervous System (CNS): Comprises the brain and spinal cord, the main coordinating centers."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Involuntary physiological control, what is the value?",
+              "explanation": "By fundamental principle, Central Nervous System (CNS): Comprises the brain and spinal cord, the main coordinating centers. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735060923_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Central Nervous System (CNS) and Peripheral Nervous System (PNS)",
+                "Fore-brain (Thinking, Sensory Processing)",
+                "Mid-brain and Hind-brain (Involuntary Actions)",
+                "Cerebellum (Posture and Balance)",
+                "Protection of Brain and Spinal Cord"
+              ],
+              "formulasToRemember": [
+                "Central Nervous System (CNS): Comprises the brain and spinal cord, the main coordinating centers.",
+                "Peripheral Nervous System (PNS): Comprises cranial nerves (from brain) and spinal nerves (from spinal cord).",
+                "Fore-brain: Main thinking part of the brain; contains regions for hearing, smell, sight, and association."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Human Brain Structure & Functions - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Human Brain Structure & Functions",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:44:20.923Z",
+        "provenance": "jesc106.pdf",
+        "totalEstimatedMinutes": 9,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735060923",
+      "subtopics": [
+        "Central Nervous System (CNS) and Peripheral Nervous System (PNS)",
+        "Fore-brain (Thinking, Sensory Processing)",
+        "Mid-brain and Hind-brain (Involuntary Actions)",
+        "Cerebellum (Posture and Balance)",
+        "Protection of Brain and Spinal Cord"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"30\" y=\"35\" font-size=\"16\" font-weight=\"bold\" fill=\"#0F172A\">Figure 6.3 Human Brain Regions</text><path d=\"M200 80 Q270 40 340 80 Q380 120 340 180 Q270 220 200 180 Q160 120 200 80 Z\" fill=\"#E0F2FE\" stroke=\"#0284C7\" stroke-width=\"2\"/><text x=\"240\" y=\"100\" font-size=\"12\" fill=\"#0284C7\">Fore-brain (Cerebrum)</text><circle cx=\"320\" cy=\"180\" r=\"35\" fill=\"#FEF08A\" stroke=\"#CA8A04\" stroke-width=\"2\"/><text x=\"295\" y=\"185\" font-size=\"12\" fill=\"#CA8A04\">Cerebellum</text><rect x=\"250\" y=\"185\" width=\"40\" height=\"30\" fill=\"#FCA5A5\" stroke=\"#DC2626\" stroke-width=\"2\"/><text x=\"255\" y=\"204\" font-size=\"10\" fill=\"#DC2626\">Medulla</text></svg>",
+      "diagram_idea": "Human brain cross-section showing cerebrum, cerebellum, medulla, and pituitary gland.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Brain regions diagram with fore-brain, mid-brain, hind-brain, cerebellum, medulla.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><ellipse cx=\"270\" cy=\"100\" rx=\"60\" ry=\"40\" fill=\"#BAE6FD\" stroke=\"#0284C7\" stroke-width=\"2\"/><rect x=\"262\" y=\"140\" width=\"16\" height=\"100\" fill=\"#FDE047\" stroke=\"#CA8A04\" stroke-width=\"2\"/></svg>",
+          "why_needed": "Shows spatial relationship between brain and spinal cord.",
+          "diagram_svg": "<svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><ellipse cx=\"270\" cy=\"100\" rx=\"60\" ry=\"40\" fill=\"#BAE6FD\" stroke=\"#0284C7\" stroke-width=\"2\"/><rect x=\"262\" y=\"140\" width=\"16\" height=\"100\" fill=\"#FDE047\" stroke=\"#CA8A04\" stroke-width=\"2\"/></svg>",
+          "image_query": "CNS layout sketch. scientific educational diagram with clear labels",
+          "video_query": "Brain and Spinal Cord Anatomy educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "CNS layout sketch.",
+          "concept_title": "Central Nervous System (CNS)",
+          "diagram_title": "Brain and Spinal Cord Anatomy",
+          "timing_and_cue": "Use when explaining CNS composition.",
+          "what_to_explain": "Identify cerebrum, cerebellum, brainstem, and spinal cord.",
+          "image_search_query": "CNS layout sketch. scientific educational diagram with clear labels",
+          "video_search_query": "Brain and Spinal Cord Anatomy educational demonstration video",
+          "interactive_math_formula": "N/A"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "CNS -> Brain (Fore-brain | Mid-brain | Hind-brain) & Spinal Cord; PNS -> Cranial Nerves & Spinal Nerves",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "The central nervous system consists of: (a) brain and spinal cord (b) brain and peripheral nerves (c) spinal cord and reflex arc (d) all voluntary muscles",
+              "ideal_answer": "(a) brain and spinal cord",
+              "socratic_hint": "CNS is the primary processing center."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Name the two major components of the central nervous system.",
+              "ideal_answer": "1. Brain 2. Spinal cord.",
+              "socratic_hint": "They sit inside the skull and vertebral column."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "How are the brain and spinal cord protected in the human body?",
+              "ideal_answer": "Brain sits inside a bony box (cranium) in a fluid-filled balloon for shock absorption. Spinal cord is protected by the hard, bumpy vertebral column (backbone).",
+              "socratic_hint": "Think about skull and backbone."
+            },
+            {
+              "type": "5-mark Structured",
+              "q_num": "Q4",
+              "question": "Explain the functions of the three major regions of the human brain.",
+              "ideal_answer": "1. Fore-brain: Thinking, sensory interpretation (sight, smell, hearing), hunger center. 2. Mid-brain: Controls involuntary actions. 3. Hind-brain: Cerebellum (balance/posture), Medulla (blood pressure, salivation, vomiting), Pons.",
+              "socratic_hint": "Break down into Fore, Mid, and Hind-brain."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q5",
+              "question": "Which part of the brain maintains posture and equilibrium of the body? (CBSE 2021)",
+              "ideal_answer": "Cerebellum",
+              "socratic_hint": "Responsible for precision of voluntary actions."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q6",
+              "question": "A person is staggering while walking and unable to coordinate muscle movements after consuming alcohol. Which part of the brain is affected?",
+              "ideal_answer": "Cerebellum, because it coordinates voluntary muscle movements and maintains posture and balance.",
+              "socratic_hint": "Alcohol specifically depresses this hind-brain region."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Central Nervous System (CNS)"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Riding a Bicycle",
+          "scenario": "Coordinated by the cerebellum for balance and muscle precision."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q3",
+              "question": "Which part of the brain maintains posture and equilibrium of the body?",
+              "question_type": "conceptual",
+              "solution_method": "Cerebellum in the hind-brain."
+            }
+          ],
+          "exercise_number": "In-Text Q3 (Page 105)"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Central Nervous System",
+          "si_units": "N/A",
+          "definition": "The system comprising the brain and spinal cord that integrates all body information."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "bb6a6663-1e5f-4df0-9f5d-88fe81ecfcae",
+    "curriculum_id": "c6e02abf-ddda-448f-ba41-14be519073c1",
+    "order_index": 4,
+    "title": "Coordination in Plants & Plant Hormones",
+    "description": "Examine immediate responses, tropic movements (phototropism, geotropism), and plant growth regulators (auxins, gibberellins, cytokinins, abscisic acid).",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 4: Coordination in Plants & Plant Hormones. Mid-Term Examination Syllabus. Contrast fast non-growth movements in Mimosa with slow growth tropic movements.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Shoot bending towards light with auxin concentration labels.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Plant Movement -> Immediate (Turgor change, e.g., Mimosa) | Growth-dependent (Tropism: Phototropism, Geotropism, Chemotropism)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Plant Movement -> Immediate (Turgor change, e.g., Mimosa) | Growth-dependent (Tropism: Phototropism, Geotropism, Chemotropism)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Tropism: \"Directional growth movement of plant organs in response to external stimuli.\" [SI Unit: N/A]\n- Auxin: \"A plant hormone synthesized at shoot tips that promotes cell elongation.\" [SI Unit: N/A]\n\n- Textbook Concrete Examples:\n- Chhui-mui (Touch-me-not) Plant: Leaves fold up immediately on touch due to changes in water amount (turgor pressure).\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Q1 (Page 108):\n    * [Q1] (conceptual): What are plant hormones?\n      Method: Chemical compounds synthesized by plants to help coordinate growth, development, and responses to the environment.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Tropism\":\n    * [Q1] (1-mark MCQ): The bending of shoot towards light is known as: (a) Geotropism (b) Phototropism (c) Hydrotropism (d) Chemotropism\n      -> Ideal Model Answer: (b) Phototropism\n      -> Socratic Hint: Photo refers to light.\n    * [Q2] (2-mark Definition): Define geotropism with an example.\n      -> Ideal Model Answer: Geotropism is the directional growth of plant parts in response to gravity. Example: Plant roots grow downwards into the soil (positive geotropism).\n      -> Socratic Hint: Geo relates to gravity/earth.\n    * [Q3] (3-mark Short Answer): Explain how plant roots show positive geotropism and shoots show negative geotropism.\n      -> Ideal Model Answer: Roots grow downward in response to gravity's pull (positive geotropism), whereas shoots grow upward against gravity (negative geotropism).\n      -> Socratic Hint: Compare directions of root and shoot growth relative to earth.\n    * [Q4] (5-mark Structured): How does phototropism occur in plants? Explain with reference to auxin.\n      -> Ideal Model Answer: When light falls from one side, auxin diffuses towards the shady side of the shoot. Higher auxin concentration on the shady side stimulates cells to grow longer there, causing the shoot to bend towards the light source.\n      -> Socratic Hint: Auxin accumulates away from light and accelerates cell elongation on the dark side.\n    * [Q5] (PYQ): Name the plant hormone responsible for cell elongation and phototropic bending. (CBSE 2019)\n      -> Ideal Model Answer: Auxin\n      -> Socratic Hint: Synthesized at the shoot tip.\n    * [Q6] (Competency): Why do tendrils coil around a support when they touch it?\n      -> Ideal Model Answer: When tendrils touch a support, the part in contact does not grow as rapidly as the part away from the support, causing the tendril to circle and cling around the object.\n      -> Socratic Hint: Differential growth rate on contact.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Tropism\":\n    - Visual Title: \"Phototropism Mechanism\" (vector_svg_diagram)\n    - Why Needed: Clearly depicts auxin redistribution and unequal growth.\n    - What to Explain: Explain light direction, auxin migration to dark side, and cell elongation.\n    - Timing & Directive: Present when discussing plant hormone mechanisms.\n    - Interactive Math Formula: N/A\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Tropism: Directional growth movement of plants in response to environmental stimuli (light, gravity, water).",
+      "Phototropism: Directional growth movement in response to light (shoots bend towards light, positive phototropism).",
+      "Geotropism: Growth movement in response to gravity (roots grow down, positive geotropism).",
+      "Auxin: Plant hormone synthesized at shoot tips that promotes cell elongation and mediates phototropism."
+    ],
+    "success_criteria": "Describe the mechanism of phototropism and list the functions of auxins, gibberellins, cytokinins, and abscisic acid.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:44:22.086991+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Immediate Response vs Growth Movement",
+      "Tropic Movements (Phototropism, Geotropism, Chemotropism)",
+      "Role of Auxin in Phototropism",
+      "Plant Hormones (Gibberellins, Cytokinins, Abscisic Acid)"
+    ],
+    "chapter_notes": "Plants lack nervous and muscular systems, relying on chemical communication and turgor changes. Sensitive plants (Mimosa pudica) show immediate responses via water loss/gain in cells. Growth-dependent movements include tropisms: phototropism (light response via auxin redistribution), geotropism (gravity response), and chemotropism (chemical response like pollen tube growth). Plant hormones: Auxin (cell elongation), Gibberellins (stem growth), Cytokinins (cell division), Abscisic Acid (growth inhibition/wilting).",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "N/A",
+        "given": "Unilateral light stimulus",
+        "formula": "Auxin redistribution mechanism",
+        "problem": "Explain how auxin causes a plant shoot to bend towards sunlight.",
+        "calculation": "N/A",
+        "finalAnswer": "Shoot bends towards light source.",
+        "substitution": "Auxin migrates to shady side -> rapid cell elongation on shady side -> bending towards light",
+        "image_search_query": "class 10 science chapter_6_contr ncert",
+        "page": 40,
+        "section": "Section 4"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing immediate turgor-based plant movement with growth-based tropic movement.",
+      "Believing plants have nervous systems."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735061548_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Coordination in Plants & Plant Hormones: Examine immediate responses, tropic movements (phototropism, geotropism), and plant growth regulators (auxins, gibberellins, cytokinins, abscisic acid).",
+              "keyTakeaway": "Tropism: Directional growth movement of plants in response to environmental stimuli (light, gravity, water)."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Tropism: Directional growth movement of plants in response to environmental stimuli (light, gravity, water)."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc106.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735061548_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Coordination in Plants & Plant Hormones - Fundamental Equations",
+              "equations": [
+                "Tropism: Directional growth movement of plants in response to environmental stimuli (light, gravity, water).",
+                "Phototropism: Directional growth movement in response to light (shoots bend towards light, positive phototropism).",
+                "Geotropism: Growth movement in response to gravity (roots grow down, positive geotropism)."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Tropism: Directional growth movement of plants in response to environmental stimuli (light, gravity, water)."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc106.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735061548_3",
+          "type": "DIAGRAM",
+          "title": "Coordination in Plants & Plant Hormones Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Coordination in Plants & Plant Hormones Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Tropism: Directional growth movement of plants in response to environmental stimuli (light, gravity, water).",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Phototropism: Directional growth movement in response to light (shoots bend towards light, positive phototropism).",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Coordination in Plants & Plant Hormones",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Coordination in Plants & Plant Hormones | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"30\" y=\"35\" font-size=\"16\" font-weight=\"bold\" fill=\"#0F172A\">Figure 6.5 Phototropism (Auxin Action)</text><path d=\"M240 220 L220 100\" stroke=\"#16A34A\" stroke-width=\"12\" stroke-linecap=\"round\" fill=\"none\"/><circle cx=\"450\" cy=\"140\" r=\"20\" fill=\"#FEF08A\" stroke=\"#CA8A04\" stroke-width=\"2\"/><text x=\"435\" y=\"145\" font-size=\"12\" fill=\"#CA8A04\">Light</text><text x=\"130\" y=\"140\" font-size=\"12\" fill=\"#DC2626\">High Auxin (Shady side)</text></svg> | Shoot bending towards light with auxin concentration labels."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc106.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735061548_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Tropism: Directional growth movement of plants in response to environmental stimuli (light, gravity, water)."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Unilateral light stimulus, what is the value?",
+              "explanation": "By fundamental principle, Tropism: Directional growth movement of plants in response to environmental stimuli (light, gravity, water). is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735061548_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Immediate Response vs Growth Movement",
+                "Tropic Movements (Phototropism, Geotropism, Chemotropism)",
+                "Role of Auxin in Phototropism",
+                "Plant Hormones (Gibberellins, Cytokinins, Abscisic Acid)"
+              ],
+              "formulasToRemember": [
+                "Tropism: Directional growth movement of plants in response to environmental stimuli (light, gravity, water).",
+                "Phototropism: Directional growth movement in response to light (shoots bend towards light, positive phototropism).",
+                "Geotropism: Growth movement in response to gravity (roots grow down, positive geotropism)."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Coordination in Plants & Plant Hormones - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Coordination in Plants & Plant Hormones",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:44:21.549Z",
+        "provenance": "jesc106.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735061548",
+      "subtopics": [
+        "Immediate Response vs Growth Movement",
+        "Tropic Movements (Phototropism, Geotropism, Chemotropism)",
+        "Role of Auxin in Phototropism",
+        "Plant Hormones (Gibberellins, Cytokinins, Abscisic Acid)"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"30\" y=\"35\" font-size=\"16\" font-weight=\"bold\" fill=\"#0F172A\">Figure 6.5 Phototropism (Auxin Action)</text><path d=\"M240 220 L220 100\" stroke=\"#16A34A\" stroke-width=\"12\" stroke-linecap=\"round\" fill=\"none\"/><circle cx=\"450\" cy=\"140\" r=\"20\" fill=\"#FEF08A\" stroke=\"#CA8A04\" stroke-width=\"2\"/><text x=\"435\" y=\"145\" font-size=\"12\" fill=\"#CA8A04\">Light</text><text x=\"130\" y=\"140\" font-size=\"12\" fill=\"#DC2626\">High Auxin (Shady side)</text></svg>",
+      "diagram_idea": "Diagram showing auxin accumulation on the shady side of a shoot causing bending towards light.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Shoot bending towards light with auxin concentration labels.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><path d=\"M270 200 L250 80\" stroke=\"#16A34A\" stroke-width=\"10\" fill=\"none\"/><circle cx=\"400\" cy=\"100\" r=\"15\" fill=\"#FDE047\" stroke=\"#CA8A04\" stroke-width=\"2\"/></svg>",
+          "why_needed": "Clearly depicts auxin redistribution and unequal growth.",
+          "diagram_svg": "<svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><path d=\"M270 200 L250 80\" stroke=\"#16A34A\" stroke-width=\"10\" fill=\"none\"/><circle cx=\"400\" cy=\"100\" r=\"15\" fill=\"#FDE047\" stroke=\"#CA8A04\" stroke-width=\"2\"/></svg>",
+          "image_query": "Shoot diagram with light rays and auxin gradients. scientific educational diagram with clear labels",
+          "video_query": "Phototropism Mechanism educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Shoot diagram with light rays and auxin gradients.",
+          "concept_title": "Tropism",
+          "diagram_title": "Phototropism Mechanism",
+          "timing_and_cue": "Present when discussing plant hormone mechanisms.",
+          "what_to_explain": "Explain light direction, auxin migration to dark side, and cell elongation.",
+          "image_search_query": "Shoot diagram with light rays and auxin gradients. scientific educational diagram with clear labels",
+          "video_search_query": "Phototropism Mechanism educational demonstration video",
+          "interactive_math_formula": "N/A"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Plant Movement -> Immediate (Turgor change, e.g., Mimosa) | Growth-dependent (Tropism: Phototropism, Geotropism, Chemotropism)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "The bending of shoot towards light is known as: (a) Geotropism (b) Phototropism (c) Hydrotropism (d) Chemotropism",
+              "ideal_answer": "(b) Phototropism",
+              "socratic_hint": "Photo refers to light."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Define geotropism with an example.",
+              "ideal_answer": "Geotropism is the directional growth of plant parts in response to gravity. Example: Plant roots grow downwards into the soil (positive geotropism).",
+              "socratic_hint": "Geo relates to gravity/earth."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "Explain how plant roots show positive geotropism and shoots show negative geotropism.",
+              "ideal_answer": "Roots grow downward in response to gravity's pull (positive geotropism), whereas shoots grow upward against gravity (negative geotropism).",
+              "socratic_hint": "Compare directions of root and shoot growth relative to earth."
+            },
+            {
+              "type": "5-mark Structured",
+              "q_num": "Q4",
+              "question": "How does phototropism occur in plants? Explain with reference to auxin.",
+              "ideal_answer": "When light falls from one side, auxin diffuses towards the shady side of the shoot. Higher auxin concentration on the shady side stimulates cells to grow longer there, causing the shoot to bend towards the light source.",
+              "socratic_hint": "Auxin accumulates away from light and accelerates cell elongation on the dark side."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q5",
+              "question": "Name the plant hormone responsible for cell elongation and phototropic bending. (CBSE 2019)",
+              "ideal_answer": "Auxin",
+              "socratic_hint": "Synthesized at the shoot tip."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q6",
+              "question": "Why do tendrils coil around a support when they touch it?",
+              "ideal_answer": "When tendrils touch a support, the part in contact does not grow as rapidly as the part away from the support, causing the tendril to circle and cling around the object.",
+              "socratic_hint": "Differential growth rate on contact."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Tropism"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Chhui-mui (Touch-me-not) Plant",
+          "scenario": "Leaves fold up immediately on touch due to changes in water amount (turgor pressure)."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "What are plant hormones?",
+              "question_type": "conceptual",
+              "solution_method": "Chemical compounds synthesized by plants to help coordinate growth, development, and responses to the environment."
+            }
+          ],
+          "exercise_number": "In-Text Q1 (Page 108)"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Tropism",
+          "si_units": "N/A",
+          "definition": "Directional growth movement of plant organs in response to external stimuli."
+        },
+        {
+          "concept": "Auxin",
+          "si_units": "N/A",
+          "definition": "A plant hormone synthesized at shoot tips that promotes cell elongation."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "ad805c6a-7067-4348-a5aa-70227bb48ccd",
+    "curriculum_id": "c6e02abf-ddda-448f-ba41-14be519073c1",
+    "order_index": 5,
+    "title": "Hormones in Animals & Endocrine System",
+    "description": "Study endocrine glands, animal hormones (adrenaline, thyroxin, growth hormone, insulin, testosterone, oestrogen), and feedback mechanisms.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 5: Hormones in Animals & Endocrine System. Mid-Term Examination Syllabus. Emphasize ductless nature of endocrine glands and feedback control loops.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Endocrine system map with gland locations.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Endocrine Glands -> Adrenal (Adrenaline) | Thyroid (Thyroxin) | Pituitary (Growth Hormone) | Pancreas (Insulin) | Testes/Ovaries (Sex Hormones)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Endocrine Glands -> Adrenal (Adrenaline) | Thyroid (Thyroxin) | Pituitary (Growth Hormone) | Pancreas (Insulin) | Testes/Ovaries (Sex Hormones)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Hormone: \"Chemical messengers secreted by endocrine glands directly into the blood to regulate physiological processes.\" [SI Unit: N/A]\n- Feedback Mechanism: \"A regulatory loop that controls the timing and amount of hormone released in the body.\" [SI Unit: N/A]\n\n- Textbook Concrete Examples:\n- Fight-or-Flight Response in Squirrels: Adrenaline secretion increases heart rate and breathing, diverting blood to skeletal muscles during scary situations.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Q1 (Page 111):\n    * [Q1] (conceptual): How does chemical coordination take place in animals?\n      Method: Through hormones secreted by endocrine glands directly into the bloodstream, reaching target organs.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Endocrine System\":\n    * [Q1] (1-mark MCQ): Which hormone prepares the body for emergency situations? (a) Insulin (b) Thyroxin (c) Adrenaline (d) Growth hormone\n      -> Ideal Model Answer: (c) Adrenaline\n      -> Socratic Hint: Known as the emergency or fight-or-flight hormone.\n    * [Q2] (2-mark Definition): What is the function of insulin in the human body?\n      -> Ideal Model Answer: Insulin is produced by the pancreas and helps regulate blood sugar levels. Deficiency leads to diabetes.\n      -> Socratic Hint: Think of sugar regulation.\n    * [Q3] (3-mark Short Answer): Why is iodised salt important in our diet?\n      -> Ideal Model Answer: Iodine is essential for the thyroid gland to synthesize thyroxin hormone, which regulates metabolism for body growth. Iodine deficiency causes goitre.\n      -> Socratic Hint: Relate iodine -> thyroxin -> goitre prevention.\n    * [Q4] (5-mark Structured): Describe the physiological changes that occur in the human body when adrenaline is secreted into the blood.\n      -> Ideal Model Answer: 1. Heart beats faster, supplying more oxygen to muscles. 2. Blood supply to digestive system/skin reduced; diverted to skeletal muscles. 3. Breathing rate increases due to contraction of diaphragm and rib muscles.\n      -> Socratic Hint: Think about preparing for intense physical action (fighting or running).\n    * [Q5] (PYQ): Name the hormone whose deficiency causes diabetes. Which gland secretes it? (CBSE 2020)\n      -> Ideal Model Answer: Insulin; secreted by the pancreas.\n      -> Socratic Hint: Crucial blood sugar regulator.\n    * [Q6] (Competency): How do feedback mechanisms regulate hormone secretion in the body? Explain with an example.\n      -> Ideal Model Answer: Feedback mechanisms control the timing and amount of hormone release. For example, when blood sugar levels rise, pancreatic cells detect this and produce more insulin; as sugar levels fall, insulin secretion is reduced.\n      -> Socratic Hint: Think of a thermostat controlling room temperature.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Endocrine System\":\n    - Visual Title: \"Major Endocrine Glands\" (vector_svg_diagram)\n    - Why Needed: Locates endocrine glands across the human body.\n    - What to Explain: Point out pituitary, thyroid, adrenal, pancreas, and gonads.\n    - Timing & Directive: Show when discussing animal hormonal coordination.\n    - Interactive Math Formula: N/A\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Endocrine System: System of ductless glands that secrete hormones directly into the blood for chemical coordination.",
+      "Adrenaline: Hormone secreted by adrenal glands that prepares the body for emergency (fight-or-flight) situations.",
+      "Thyroxin: Hormone secreted by thyroid gland (requires iodine) that regulates carbohydrate, protein, and fat metabolism.",
+      "Insulin: Hormone secreted by pancreas that regulates blood sugar levels.",
+      "Feedback Mechanism: Regulatory mechanism that controls the timing and precise quantity of hormone release."
+    ],
+    "success_criteria": "List major endocrine glands, their hormones, and their target functions accurately.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:44:22.360628+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Endocrine System vs Nervous System",
+      "Adrenaline and Fight-or-Flight Response",
+      "Thyroxin and Goitre",
+      "Growth Hormone and Diabetes (Insulin)",
+      "Feedback Mechanisms"
+    ],
+    "chapter_notes": "Chemical coordination in animals is mediated by hormones secreted by endocrine glands directly into the bloodstream. Key glands and hormones: 1. Adrenal gland -> Adrenaline (fight-or-flight response). 2. Thyroid gland -> Thyroxin (metabolism; iodine dependent; deficiency causes goitre). 3. Pituitary gland -> Growth hormone (dwarfism if deficient). 4. Pancreas -> Insulin (regulates blood sugar; deficiency causes diabetes). 5. Testes/Ovaries -> Testosterone/Oestrogen (puberty changes). Regulated by feedback mechanisms.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "N/A",
+        "given": "Blood glucose fluctuations",
+        "formula": "Feedback control loop",
+        "problem": "Explain the role of feedback mechanism in insulin regulation.",
+        "calculation": "N/A",
+        "finalAnswer": "Maintains optimal blood sugar levels automatically.",
+        "substitution": "High blood sugar -> Pancreas detects -> Insulin increased -> Sugar normalizes -> Insulin secretion reduced",
+        "image_search_query": "class 10 science chapter_6_contr ncert",
+        "page": 50,
+        "section": "Section 5"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing exocrine glands (with ducts) with endocrine glands (ductless).",
+      "Believing hormones act instantly like electrical nerve impulses."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735062187_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Hormones in Animals & Endocrine System: Study endocrine glands, animal hormones (adrenaline, thyroxin, growth hormone, insulin, testosterone, oestrogen), and feedback mechanisms.",
+              "keyTakeaway": "Endocrine System: System of ductless glands that secrete hormones directly into the blood for chemical coordination."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Endocrine System: System of ductless glands that secrete hormones directly into the blood for chemical coordination."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc106.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735062187_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Hormones in Animals & Endocrine System - Fundamental Equations",
+              "equations": [
+                "Endocrine System: System of ductless glands that secrete hormones directly into the blood for chemical coordination.",
+                "Adrenaline: Hormone secreted by adrenal glands that prepares the body for emergency (fight-or-flight) situations.",
+                "Thyroxin: Hormone secreted by thyroid gland (requires iodine) that regulates carbohydrate, protein, and fat metabolism."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Endocrine System: System of ductless glands that secrete hormones directly into the blood for chemical coordination."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc106.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735062187_3",
+          "type": "DIAGRAM",
+          "title": "Hormones in Animals & Endocrine System Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Hormones in Animals & Endocrine System Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Endocrine System: System of ductless glands that secrete hormones directly into the blood for chemical coordination.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Adrenaline: Hormone secreted by adrenal glands that prepares the body for emergency (fight-or-flight) situations.",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Hormones in Animals & Endocrine System",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Hormones in Animals & Endocrine System | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"30\" y=\"35\" font-size=\"16\" font-weight=\"bold\" fill=\"#0F172A\">Figure 6.7 Endocrine Glands</text><circle cx=\"270\" cy=\"60\" r=\"12\" fill=\"#FCA5A5\" stroke=\"#DC2626\" stroke-width=\"2\"/><text x=\"290\" y=\"65\" font-size=\"10\" fill=\"#0F172A\">Pituitary</text><circle cx=\"270\" cy=\"90\" r=\"15\" fill=\"#FEF08A\" stroke=\"#CA8A04\" stroke-width=\"2\"/><text x=\"295\" y=\"95\" font-size=\"10\" fill=\"#0F172A\">Thyroid</text><rect x=\"260\" y=\"150\" width=\"20\" height=\"15\" fill=\"#FDE047\" stroke=\"#CA8A04\" stroke-width=\"2\"/><text x=\"285\" y=\"160\" font-size=\"10\" fill=\"#0F172A\">Pancreas</text></svg> | Endocrine system map with gland locations."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc106.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735062187_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Endocrine System: System of ductless glands that secrete hormones directly into the blood for chemical coordination."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Blood glucose fluctuations, what is the value?",
+              "explanation": "By fundamental principle, Endocrine System: System of ductless glands that secrete hormones directly into the blood for chemical coordination. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735062187_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Endocrine System vs Nervous System",
+                "Adrenaline and Fight-or-Flight Response",
+                "Thyroxin and Goitre",
+                "Growth Hormone and Diabetes (Insulin)",
+                "Feedback Mechanisms"
+              ],
+              "formulasToRemember": [
+                "Endocrine System: System of ductless glands that secrete hormones directly into the blood for chemical coordination.",
+                "Adrenaline: Hormone secreted by adrenal glands that prepares the body for emergency (fight-or-flight) situations.",
+                "Thyroxin: Hormone secreted by thyroid gland (requires iodine) that regulates carbohydrate, protein, and fat metabolism."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Hormones in Animals & Endocrine System - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Hormones in Animals & Endocrine System",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:44:22.187Z",
+        "provenance": "jesc106.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735062187",
+      "subtopics": [
+        "Endocrine System vs Nervous System",
+        "Adrenaline and Fight-or-Flight Response",
+        "Thyroxin and Goitre",
+        "Growth Hormone and Diabetes (Insulin)",
+        "Feedback Mechanisms"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"30\" y=\"35\" font-size=\"16\" font-weight=\"bold\" fill=\"#0F172A\">Figure 6.7 Endocrine Glands</text><circle cx=\"270\" cy=\"60\" r=\"12\" fill=\"#FCA5A5\" stroke=\"#DC2626\" stroke-width=\"2\"/><text x=\"290\" y=\"65\" font-size=\"10\" fill=\"#0F172A\">Pituitary</text><circle cx=\"270\" cy=\"90\" r=\"15\" fill=\"#FEF08A\" stroke=\"#CA8A04\" stroke-width=\"2\"/><text x=\"295\" y=\"95\" font-size=\"10\" fill=\"#0F172A\">Thyroid</text><rect x=\"260\" y=\"150\" width=\"20\" height=\"15\" fill=\"#FDE047\" stroke=\"#CA8A04\" stroke-width=\"2\"/><text x=\"285\" y=\"160\" font-size=\"10\" fill=\"#0F172A\">Pancreas</text></svg>",
+      "diagram_idea": "Diagram of human endocrine glands (male and female) showing hypothalamus, pituitary, thyroid, adrenal, pancreas, testes/ovaries.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Endocrine system map with gland locations.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><circle cx=\"270\" cy=\"80\" r=\"15\" fill=\"#BAE6FD\" stroke=\"#0284C7\" stroke-width=\"2\"/><text x=\"295\" y=\"85\" font-size=\"12\" fill=\"#0F172A\">Pituitary / Thyroid</text></svg>",
+          "why_needed": "Locates endocrine glands across the human body.",
+          "diagram_svg": "<svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><circle cx=\"270\" cy=\"80\" r=\"15\" fill=\"#BAE6FD\" stroke=\"#0284C7\" stroke-width=\"2\"/><text x=\"295\" y=\"85\" font-size=\"12\" fill=\"#0F172A\">Pituitary / Thyroid</text></svg>",
+          "image_query": "Major Endocrine Glands detailed educational scientific diagram with labeled components and annotations",
+          "video_query": "Major Endocrine Glands educational laboratory experiment demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Body outline with labeled endocrine glands.",
+          "concept_title": "Endocrine System",
+          "diagram_title": "Major Endocrine Glands",
+          "timing_and_cue": "Show when discussing animal hormonal coordination.",
+          "what_to_explain": "Point out pituitary, thyroid, adrenal, pancreas, and gonads.",
+          "image_search_query": "Major Endocrine Glands detailed educational scientific diagram with labeled components and annotations",
+          "video_search_query": "Major Endocrine Glands educational laboratory experiment demonstration video",
+          "interactive_math_formula": "N/A"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Endocrine Glands -> Adrenal (Adrenaline) | Thyroid (Thyroxin) | Pituitary (Growth Hormone) | Pancreas (Insulin) | Testes/Ovaries (Sex Hormones)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Which hormone prepares the body for emergency situations? (a) Insulin (b) Thyroxin (c) Adrenaline (d) Growth hormone",
+              "ideal_answer": "(c) Adrenaline",
+              "socratic_hint": "Known as the emergency or fight-or-flight hormone."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "What is the function of insulin in the human body?",
+              "ideal_answer": "Insulin is produced by the pancreas and helps regulate blood sugar levels. Deficiency leads to diabetes.",
+              "socratic_hint": "Think of sugar regulation."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "Why is iodised salt important in our diet?",
+              "ideal_answer": "Iodine is essential for the thyroid gland to synthesize thyroxin hormone, which regulates metabolism for body growth. Iodine deficiency causes goitre.",
+              "socratic_hint": "Relate iodine -> thyroxin -> goitre prevention."
+            },
+            {
+              "type": "5-mark Structured",
+              "q_num": "Q4",
+              "question": "Describe the physiological changes that occur in the human body when adrenaline is secreted into the blood.",
+              "ideal_answer": "1. Heart beats faster, supplying more oxygen to muscles. 2. Blood supply to digestive system/skin reduced; diverted to skeletal muscles. 3. Breathing rate increases due to contraction of diaphragm and rib muscles.",
+              "socratic_hint": "Think about preparing for intense physical action (fighting or running)."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q5",
+              "question": "Name the hormone whose deficiency causes diabetes. Which gland secretes it? (CBSE 2020)",
+              "ideal_answer": "Insulin; secreted by the pancreas.",
+              "socratic_hint": "Crucial blood sugar regulator."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q6",
+              "question": "How do feedback mechanisms regulate hormone secretion in the body? Explain with an example.",
+              "ideal_answer": "Feedback mechanisms control the timing and amount of hormone release. For example, when blood sugar levels rise, pancreatic cells detect this and produce more insulin; as sugar levels fall, insulin secretion is reduced.",
+              "socratic_hint": "Think of a thermostat controlling room temperature."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Endocrine System"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Fight-or-Flight Response in Squirrels",
+          "scenario": "Adrenaline secretion increases heart rate and breathing, diverting blood to skeletal muscles during scary situations."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "How does chemical coordination take place in animals?",
+              "question_type": "conceptual",
+              "solution_method": "Through hormones secreted by endocrine glands directly into the bloodstream, reaching target organs."
+            }
+          ],
+          "exercise_number": "In-Text Q1 (Page 111)"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Hormone",
+          "si_units": "N/A",
+          "definition": "Chemical messengers secreted by endocrine glands directly into the blood to regulate physiological processes."
+        },
+        {
+          "concept": "Feedback Mechanism",
+          "si_units": "N/A",
+          "definition": "A regulatory loop that controls the timing and amount of hormone released in the body."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "61dc4f77-97d5-4345-8c58-3ca00e0fdcc3",
+    "curriculum_id": "c6e02abf-ddda-448f-ba41-14be519073c1",
+    "order_index": 6,
+    "title": "NCERT In-Text & Chapter-End Exercises Master Solver",
+    "description": "Complete exhaustive step-by-step solutions for all end-of-chapter exercises and in-text questions for Chapter 6.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 6: NCERT Chapter Exercises & Master Problem Solver. Mid-Term Examination Syllabus. Walk through textbook exercises step by step, ensuring students understand both conceptual and comparative questions.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Master flowchart of Control and Coordination in plants and animals.\n- Diagram Type: flowchart\n- Chapter Multi-Level Flowchart: Chapter Review -> Nervous System (Neurons, Reflex, Brain) | Endocrine System (Hormones, Glands) | Plant Coordination (Tropism, Hormones)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Chapter Review -> Nervous System (Neurons, Reflex, Brain) | Endocrine System (Hormones, Glands) | Plant Coordination (Tropism, Hormones)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Control and Coordination: \"The integrated functioning of organ systems to respond to stimuli and maintain homeostasis.\" [SI Unit: N/A]\n\n- Textbook Concrete Examples:\n- Chapter Review Problem Set: Solving all textbook exercises systematically.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - Chapter Exercises (Page 112):\n    * [Q11] (conceptual): Compare and contrast nervous and hormonal mechanisms for control and coordination in animals.\n      Method: Tabulate differences based on speed, pathway (neurons vs blood), target specificity, and duration.\n    * [Q12] (conceptual): What is the difference between the manner in which movement takes place in a sensitive plant and the movement in our legs?\n      Method: Explain turgor pressure changes in plant cells vs muscle protein contraction in animal legs.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Chapter Review\":\n    * [Q1] (1-mark MCQ): Which of the following is a plant hormone? (a) Insulin (b) Thyroxin (c) Oestrogen (d) Cytokinin\n      -> Ideal Model Answer: (d) Cytokinin\n      -> Socratic Hint: Check plant vs animal hormone lists.\n    * [Q2] (1-mark MCQ): The gap between two neurons is called a: (a) dendrite (b) synapse (c) axon (d) impulse\n      -> Ideal Model Answer: (b) synapse\n      -> Socratic Hint: Junction between neurons.\n    * [Q3] (3-mark Short Answer): Compare and contrast nervous and hormonal mechanisms for control and coordination in animals.\n      -> Ideal Model Answer: Nervous: Uses electrical impulses via neurons; very fast; reaches specific connected cells; short-lived. Hormonal: Uses chemical messengers via blood; slower; reaches all body cells; long-lasting effects.\n      -> Socratic Hint: Compare speed, medium, and target specificity.\n    * [Q4] (5-mark Structured): What is the difference between the manner in which movement takes place in a sensitive plant and the movement in our legs?\n      -> Ideal Model Answer: Sensitive plant movement is independent of growth, caused by turgor pressure changes (water movement in/out of cells) in response to touch, occurring very rapidly. Movement in our legs is voluntary, controlled by the CNS, involving muscular tissue where specialized proteins change shape in response to nerve impulses.\n      -> Socratic Hint: Compare turgor/water-based vs muscle/protein-based movement.\n    * [Q5] (PYQ): How do auxins promote the growth of a tendril around a support? (CBSE 2020)\n      -> Ideal Model Answer: When tendrils touch a support, auxin redistributes, causing cells away from the support to grow faster than cells in contact, resulting in coiling around the support.\n      -> Socratic Hint: Differential growth rate on touch.\n    * [Q6] (Competency): Why is a system of control and coordination essential in multicellular organisms?\n      -> Ideal Model Answer: Multicellular organisms have specialized tissues and organs that must work together in an integrated, synchronized manner to respond appropriately to external environmental changes and maintain internal homeostasis.\n      -> Socratic Hint: Think about division of labor in complex bodies.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Comprehensive Review\":\n    - Visual Title: \"Master Control Systems\" (flowchart)\n    - Why Needed: Provides holistic view of chapter topics.\n    - What to Explain: Summarize plant and animal coordination mechanisms.\n    - Timing & Directive: Use for final chapter revision.\n    - Interactive Math Formula: N/A\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Comprehensive Review: Synthesis of nervous and hormonal control mechanisms in plants and animals."
+    ],
+    "success_criteria": "Successfully solve all chapter-end exercises with rigorous scientific reasoning.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:44:23.01683+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "In-Text Question Analysis",
+      "Chapter-End Exercise Solutions (Q1 to Q12)",
+      "Board Examination Practice Problems"
+    ],
+    "chapter_notes": "This master capsule reviews all fundamental concepts of Chapter 6, providing complete solutions to NCERT textbook exercises (Q1 to Q12). It reinforces the dual control systems: nervous (fast electrical signals) and hormonal (slow chemical messengers), along with plant tropic and turgor responses.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "In-Text Question (Section 6.1 & 6.2, p. 6 & p. 9): (a) What is the difference between a reflex action and walking? (b) What happens at the synapse between two neurons?",
+        "given": "Somatic voluntary locomotion vs involuntary spinal reflex arcs; Neurotransmitter synaptic transmission.",
+        "formula": "Reflex Arc: Receptor -> Sensory Neuron -> Spinal Relay Neuron -> Motor Neuron -> Effector. Synaptic transmission: Chemical neurotransmitters (acetylcholine) diffuse across synaptic cleft.",
+        "substitution": "Involuntary spinal arc vs cerebral cortical motor planning.",
+        "calculation": "(a) Reflex Action vs Walking:\n1. Reflex action: Rapid, involuntary, automatic motor response to an immediate external hazard (e.g. withdrawing hand from hot flame). Coordinated primarily by the SPINAL CORD without prior conscious brain intervention.\n2. Walking: Voluntary, intentional, learned locomotor action coordinated and controlled consciously by the FOREBRAIN (cerebral motor cortex and cerebellum for balance).\n(b) Events at the Synapse:\nWhen an electrical nerve impulse reaches the axon terminal of the pre-synaptic neuron, it triggers synaptic vesicles to release chemical neurotransmitters (e.g. acetylcholine) into the microscopic gap (synaptic cleft). The neurotransmitters diffuse across the cleft and bind to specific receptor sites on the dendrite membrane of the post-synaptic neuron, initiating a new electrical impulse. This chemical bridge ensures strictly UNIDIRECTIONAL signal transmission.",
+        "finalAnswer": "(a) Reflex action is an automatic involuntary spinal response; walking is a conscious voluntary action controlled by the forebrain; (b) Electrical impulse releases chemical neurotransmitters across the synaptic cleft to initiate a new impulse in the next neuron.",
+        "unit": "Neurobiology",
+        "has_diagram": true,
+        "diagram_source": "image_search",
+        "figure_caption": "Synaptic transmission between axon terminal and dendrite",
+        "image_search_query": "chemical synapse neurotransmitter axon dendrite diagram class 10",
+        "page": 6,
+        "section": "Section 6.1"
+      },
+      {
+        "problem": "In-Text Question & Exercise (Section 6.3 & p. 13): (a) What are plant hormones (phytohormones)? Give examples of growth promoters and growth inhibitors. (b) How does phototropism occur in plant shoots?",
+        "given": "Plant hormonal signaling; Shoot phototropism mechanism.",
+        "formula": "Auxin differential elongation on shaded side: Stem bends toward light ($L_{\\text{shaded}} > L_{\\text{illuminated}}$).",
+        "substitution": "Auxin redistribution away from unilateral light source.",
+        "calculation": "(a) Plant hormones are chemical coordination substances synthesized in minute quantities at shoot/root tips that regulate cell division, elongation, and differentiation.\n- Growth Promoters: Auxins (cell elongation, apical dominance), Gibberellins (stem elongation, seed germination), Cytokinins (active cell division, stomatal opening).\n- Growth Inhibitor: Abscisic Acid / ABA (induces dormancy, leaf wilting/fall, stomatal closure under drought stress).\n(b) Mechanism of Phototropism: When unilateral sunlight shines on one side of a plant shoot, auxin synthesized at the shoot tip diffuses toward the SHADED SIDE of the stem. The higher concentration of auxin stimulates the cells on the shaded side to grow and elongate faster than cells on the illuminated side. This asymmetric elongation causes the shoot stem to curve and bend toward the light source (positive phototropism).",
+        "finalAnswer": "(a) Promoters: Auxin, Gibberellin, Cytokinin; Inhibitor: Abscisic acid (ABA); (b) Auxin migrates to the shaded side, stimulating faster elongation and causing the shoot to bend towards light.",
+        "unit": "Plant Physiology",
+        "has_diagram": true,
+        "diagram_source": "image_search",
+        "figure_caption": "Auxin redistribution and phototropic bending of shoot toward unilateral light",
+        "image_search_query": "phototropism auxin shaded side shoot bending experiment",
+        "page": 9,
+        "section": "Section 6.3"
+      }
+    ],
+    "common_misconceptions": [
+      "Mixing up plant hormones (auxin, cytokinin) with animal hormones (insulin, adrenaline).",
+      "Confusing reflex action with voluntary locomotion."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735062476_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "NCERT Chapter Exercises & Master Problem Solver: Complete exhaustive step-by-step solutions for all end-of-chapter exercises and in-text questions for Chapter 6.",
+              "keyTakeaway": "Comprehensive Review: Synthesis of nervous and hormonal control mechanisms in plants and animals."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Comprehensive Review: Synthesis of nervous and hormonal control mechanisms in plants and animals."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc106.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735062476_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "NCERT Chapter Exercises & Master Problem Solver - Fundamental Equations",
+              "equations": [
+                "Comprehensive Review: Synthesis of nervous and hormonal control mechanisms in plants and animals."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Comprehensive Review: Synthesis of nervous and hormonal control mechanisms in plants and animals."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc106.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735062476_3",
+          "type": "DIAGRAM",
+          "title": "NCERT Chapter Exercises & Master Problem Solver Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "NCERT Chapter Exercises & Master Problem Solver Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Comprehensive Review: Synthesis of nervous and hormonal control mechanisms in plants and animals.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Functional Component",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "NCERT Chapter Exercises & Master Problem Solver",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "NCERT Chapter Exercises & Master Problem Solver | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"30\" y=\"35\" font-size=\"16\" font-weight=\"bold\" fill=\"#0F172A\">Chapter 6 Summary Flowchart</text><rect x=\"40\" y=\"80\" width=\"140\" height=\"50\" rx=\"6\" fill=\"#E0F2FE\" stroke=\"#0284C7\" stroke-width=\"2\"/><text x=\"60\" y=\"110\" font-size=\"12\" fill=\"#0F172A\">Nervous System</text><rect x=\"360\" y=\"80\" width=\"140\" height=\"50\" rx=\"6\" fill=\"#FEF08A\" stroke=\"#CA8A04\" stroke-width=\"2\"/><text x=\"380\" y=\"110\" font-size=\"12\" fill=\"#0F172A\">Endocrine System</text></svg> | Master flowchart of Control and Coordination in plants and animals."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc106.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735062476_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Comprehensive Review: Synthesis of nervous and hormonal control mechanisms in plants and animals."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Options (a), (b), (c), (d), what is the value?",
+              "explanation": "By fundamental principle, Comprehensive Review: Synthesis of nervous and hormonal control mechanisms in plants and animals. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735062476_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "In-Text Question Analysis",
+                "Chapter-End Exercise Solutions (Q1 to Q12)",
+                "Board Examination Practice Problems"
+              ],
+              "formulasToRemember": [
+                "Comprehensive Review: Synthesis of nervous and hormonal control mechanisms in plants and animals."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "NCERT Chapter Exercises & Master Problem Solver - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "NCERT Chapter Exercises & Master Problem Solver",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:44:22.476Z",
+        "provenance": "jesc106.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735062476",
+      "subtopics": [
+        "In-Text Question Analysis",
+        "Chapter-End Exercise Solutions (Q1 to Q12)",
+        "Board Examination Practice Problems"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"30\" y=\"35\" font-size=\"16\" font-weight=\"bold\" fill=\"#0F172A\">Chapter 6 Summary Flowchart</text><rect x=\"40\" y=\"80\" width=\"140\" height=\"50\" rx=\"6\" fill=\"#E0F2FE\" stroke=\"#0284C7\" stroke-width=\"2\"/><text x=\"60\" y=\"110\" font-size=\"12\" fill=\"#0F172A\">Nervous System</text><rect x=\"360\" y=\"80\" width=\"140\" height=\"50\" rx=\"6\" fill=\"#FEF08A\" stroke=\"#CA8A04\" stroke-width=\"2\"/><text x=\"380\" y=\"110\" font-size=\"12\" fill=\"#0F172A\">Endocrine System</text></svg>",
+      "diagram_idea": "Summary flowchart connecting nervous and hormonal coordination.",
+      "diagram_type": "flowchart",
+      "what_to_make": "Master flowchart of Control and Coordination in plants and animals.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"200\" y=\"40\" font-size=\"14\" font-weight=\"bold\" fill=\"#0F172A\">Control & Coordination</text></svg>",
+          "why_needed": "Provides holistic view of chapter topics.",
+          "diagram_svg": "<svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/><text x=\"200\" y=\"40\" font-size=\"14\" font-weight=\"bold\" fill=\"#0F172A\">Control & Coordination</text></svg>",
+          "image_query": "Branching summary tree. scientific educational diagram with clear labels",
+          "video_query": "Master Control Systems educational demonstration video",
+          "diagram_type": "flowchart",
+          "what_to_make": "Branching summary tree.",
+          "concept_title": "Comprehensive Review",
+          "diagram_title": "Master Control Systems",
+          "timing_and_cue": "Use for final chapter revision.",
+          "what_to_explain": "Summarize plant and animal coordination mechanisms.",
+          "image_search_query": "Branching summary tree. scientific educational diagram with clear labels",
+          "video_search_query": "Master Control Systems educational demonstration video",
+          "interactive_math_formula": "N/A"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Chapter Review -> Nervous System (Neurons, Reflex, Brain) | Endocrine System (Hormones, Glands) | Plant Coordination (Tropism, Hormones)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Which of the following is a plant hormone? (a) Insulin (b) Thyroxin (c) Oestrogen (d) Cytokinin",
+              "ideal_answer": "(d) Cytokinin",
+              "socratic_hint": "Check plant vs animal hormone lists."
+            },
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q2",
+              "question": "The gap between two neurons is called a: (a) dendrite (b) synapse (c) axon (d) impulse",
+              "ideal_answer": "(b) synapse",
+              "socratic_hint": "Junction between neurons."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "Compare and contrast nervous and hormonal mechanisms for control and coordination in animals.",
+              "ideal_answer": "Nervous: Uses electrical impulses via neurons; very fast; reaches specific connected cells; short-lived. Hormonal: Uses chemical messengers via blood; slower; reaches all body cells; long-lasting effects.",
+              "socratic_hint": "Compare speed, medium, and target specificity."
+            },
+            {
+              "type": "5-mark Structured",
+              "q_num": "Q4",
+              "question": "What is the difference between the manner in which movement takes place in a sensitive plant and the movement in our legs?",
+              "ideal_answer": "Sensitive plant movement is independent of growth, caused by turgor pressure changes (water movement in/out of cells) in response to touch, occurring very rapidly. Movement in our legs is voluntary, controlled by the CNS, involving muscular tissue where specialized proteins change shape in response to nerve impulses.",
+              "socratic_hint": "Compare turgor/water-based vs muscle/protein-based movement."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q5",
+              "question": "How do auxins promote the growth of a tendril around a support? (CBSE 2020)",
+              "ideal_answer": "When tendrils touch a support, auxin redistributes, causing cells away from the support to grow faster than cells in contact, resulting in coiling around the support.",
+              "socratic_hint": "Differential growth rate on touch."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q6",
+              "question": "Why is a system of control and coordination essential in multicellular organisms?",
+              "ideal_answer": "Multicellular organisms have specialized tissues and organs that must work together in an integrated, synchronized manner to respond appropriately to external environmental changes and maintain internal homeostasis.",
+              "socratic_hint": "Think about division of labor in complex bodies."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Chapter Review"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Chapter Review Problem Set",
+          "scenario": "Solving all textbook exercises systematically."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q11",
+              "question": "Compare and contrast nervous and hormonal mechanisms for control and coordination in animals.",
+              "question_type": "conceptual",
+              "solution_method": "Tabulate differences based on speed, pathway (neurons vs blood), target specificity, and duration."
+            },
+            {
+              "q_num": "Q12",
+              "question": "What is the difference between the manner in which movement takes place in a sensitive plant and the movement in our legs?",
+              "question_type": "conceptual",
+              "solution_method": "Explain turgor pressure changes in plant cells vs muscle protein contraction in animal legs."
+            }
+          ],
+          "exercise_number": "Chapter Exercises (Page 112)"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Control and Coordination",
+          "si_units": "N/A",
+          "definition": "The integrated functioning of organ systems to respond to stimuli and maintain homeostasis."
+        }
+      ]
+    },
+    "quiz_questions": []
+  }
+]

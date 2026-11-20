@@ -1,0 +1,2039 @@
+[
+  {
+    "id": "8647675c-c600-4df0-a924-3b44192f72a9",
+    "curriculum_id": "f28bed4a-681d-4766-82b9-f5ea292c371e",
+    "order_index": 1,
+    "title": "Reflection of Light and Plane Mirrors",
+    "description": "Master the foundational laws of reflection, characteristics of plane mirrors, and curved reflecting surfaces.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 1: Reflection of Light and Plane Mirrors. Mid-Term Examination Syllabus. Emphasize normal drawing in reflection. Practice angle calculations where angle with the mirror surface is given.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Plane mirror surface, normal line perpendicular, incident ray with arrow, reflected ray with arrow, angle i and angle r labeled.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Light Propagation -> Rectilinear Path -> Reflection -> Laws of Reflection (i = r, Coplanar) -> Plane vs Curved Surfaces\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Light Propagation -> Rectilinear Path -> Reflection -> Laws of Reflection (i = r, Coplanar) -> Plane vs Curved Surfaces\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Laws of Reflection: \"The angle of incidence equals the angle of reflection, and the incident ray, normal, and reflected ray lie in the same plane.\" [SI Unit: Degrees (\u00b0)]\n\n- Textbook Concrete Examples:\n- Activity 9.1 (Shining Spoon): Viewing your face in the curved inward and outward surfaces of a large shining spoon.\n\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Law of Reflection 1: Angle of incidence equals angle of reflection (i = r).\":\n    * [Q1] (1-mark MCQ): A ray of light strikes a plane mirror at an angle of 30\u00b0 with the mirror surface. What is the angle of reflection?\n      -> Ideal Model Answer: 60\u00b0\n      -> Socratic Hint: Remember that the angle of incidence is measured with respect to the normal (perpendicular to the surface), not the mirror surface itself!\n    * [Q2] (2-mark Definition): State the two laws of reflection of light.\n      -> Ideal Model Answer: (1) The angle of incidence is equal to the angle of reflection. (2) The incident ray, normal to the mirror at the point of incidence, and the reflected ray all lie in the same plane.\n      -> Socratic Hint: Recite both the angular equality and the coplanar requirement.\n  * Concept #2 \"Plane Mirror Image Properties\":\n    * [Q1] (1-mark MCQ): If an object is placed 10 cm in front of a plane mirror, what is the distance between the object and its image?\n      -> Ideal Model Answer: 20 cm\n      -> Socratic Hint: The image is formed as far behind the mirror as the object is in front. Calculate total distance object-to-image.\n    * [Q2] (PYQ): Why is the image formed by a plane mirror called a virtual image?\n      -> Ideal Model Answer: Because the light rays do not actually intersect at the image position; they only appear to diverge from it, and it cannot be caught on a screen.\n      -> Socratic Hint: Think about whether light rays physically pass through the image location behind the mirror.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Law of Reflection 1: Angle of incidence equals angle of reflection (i = r).\":\n    - Visual Title: \"Laws of Reflection Geometry\" (vector_svg_diagram)\n    - Why Needed: Visualizes angle measurement relative to the normal.\n    - What to Explain: Show students that i and r are always measured from the dashed normal line.\n    - Timing & Directive: Present at start of class when discussing reflection laws.\n    - Interactive Math Formula: i = r\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Law of Reflection 1: Angle of incidence equals angle of reflection (i = r).",
+      "Law of Reflection 2: Incident ray, normal, and reflected ray lie in the same plane.",
+      "Plane Mirror Image Properties: Virtual, erect, laterally inverted, same size, and at equal distance behind the mirror."
+    ],
+    "success_criteria": "Calculate angles of incidence/reflection and explain lateral inversion in plane mirrors.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:45:23.578994+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Nature of light and straight-line propagation",
+      "Laws of reflection",
+      "Characteristics of images formed by plane mirrors",
+      "Introduction to curved reflecting surfaces (Activity 9.1)"
+    ],
+    "chapter_notes": "Light is an electromagnetic radiation that enables us to see. By observing common optical phenomena, we conclude that light travels in straight lines (rectilinear propagation), indicated as a ray of light. When light falls on a polished surface like a mirror, reflection occurs obeying the laws of reflection: (i) Angle i = Angle r, and (ii) Incident ray, normal, and reflected ray are coplanar. Plane mirrors produce virtual, erect, laterally inverted images of the same size placed at an equal distance behind the mirror. Curved surfaces (like a shining spoon in Activity 9.1) distort or scale images differently, paving the way for spherical mirrors.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "degrees",
+        "given": "Angle with surface = 40\u00b0",
+        "formula": "Angle of incidence i = 90\u00b0 - (Angle with surface); i = r",
+        "problem": "A light ray makes an angle of 40\u00b0 with a plane reflecting surface. Find the angle of reflection.",
+        "calculation": "Since angle of incidence equals angle of reflection, r = 50\u00b0.",
+        "finalAnswer": "50\u00b0",
+        "substitution": "i = 90\u00b0 - 40\u00b0 = 50\u00b0",
+        "image_search_query": "class 10 science chapter_9_light ncert",
+        "page": 10,
+        "section": "Section 1"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing angle of incidence with the angle made with the mirror surface.",
+      "Believing plane mirror images are real because we see them."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735123003_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Reflection of Light and Plane Mirrors: Master the foundational laws of reflection, characteristics of plane mirrors, and curved reflecting surfaces.",
+              "keyTakeaway": "Law of Reflection 1: Angle of incidence equals angle of reflection (i = r)."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Law of Reflection 1: Angle of incidence equals angle of reflection (i = r)."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc109.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735123003_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Reflection of Light and Plane Mirrors - Fundamental Equations",
+              "equations": [
+                "Law of Reflection 1: Angle of incidence equals angle of reflection (i = r).",
+                "Law of Reflection 2: Incident ray, normal, and reflected ray lie in the same plane.",
+                "Plane Mirror Image Properties: Virtual, erect, laterally inverted, same size, and at equal distance behind the mirror."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Law of Reflection 1: Angle of incidence equals angle of reflection (i = r)."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc109.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735123003_3",
+          "type": "DIAGRAM",
+          "title": "Reflection of Light and Plane Mirrors Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Reflection of Light and Plane Mirrors Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Law of Reflection 1: Angle of incidence equals angle of reflection (i = r).",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Law of Reflection 2: Incident ray, normal, and reflected ray lie in the same plane.",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Reflection of Light and Plane Mirrors",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Reflection of Light and Plane Mirrors | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='150' y1='200' x2='390' y2='200' stroke='#0F172A' stroke-width='4'/><line x1='270' y1='200' x2='270' y2='60' stroke='#64748B' stroke-width='1.5' stroke-dasharray='4'/><text x='275' y='75' fill='#64748B' font-family='sans-serif' font-size='12'>Normal</text><line x1='150' y1='100' x2='270' y2='200' stroke='#2563EB' stroke-width='2'/><polygon points='215,142 205,140 210,150' fill='#2563EB'/><text x='160' y='130' fill='#2563EB' font-family='sans-serif' font-size='12'>Incident Ray</text><line x1='270' y1='200' x2='380' y2='100' stroke='#DC2626' stroke-width='2'/><polygon points='320,140 330,143 325,152' fill='#DC2626'/><text x='330' y='130' fill='#DC2626' font-family='sans-serif' font-size='12'>Reflected Ray</text><path d='M 250 160 A 25 25 0 0 1 270 175' fill='none' stroke='#0F172A' stroke-width='1.5'/><text x='235' y='165' fill='#0F172A' font-family='sans-serif' font-size='11'>i</text><path d='M 270 175 A 25 25 0 0 1 290 160' fill='none' stroke='#0F172A' stroke-width='1.5'/><text x='295' y='165' fill='#0F172A' font-family='sans-serif' font-size='11'>r</text><text x='250' y='225' fill='#0F172A' font-family='sans-serif' font-size='12'>Reflecting Surface (Plane Mirror)</text></svg> | Plane mirror surface, normal line perpendicular, incident ray with arrow, reflected ray with arrow, angle i and angle r labeled."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc109.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735123003_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Law of Reflection 1: Angle of incidence equals angle of reflection (i = r)."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Angle with surface = 40\u00b0, what is the value?",
+              "explanation": "By fundamental principle, Law of Reflection 1: Angle of incidence equals angle of reflection (i = r). is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735123003_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Nature of light and straight-line propagation",
+                "Laws of reflection",
+                "Characteristics of images formed by plane mirrors",
+                "Introduction to curved reflecting surfaces (Activity 9.1)"
+              ],
+              "formulasToRemember": [
+                "Law of Reflection 1: Angle of incidence equals angle of reflection (i = r).",
+                "Law of Reflection 2: Incident ray, normal, and reflected ray lie in the same plane.",
+                "Plane Mirror Image Properties: Virtual, erect, laterally inverted, same size, and at equal distance behind the mirror."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Reflection of Light and Plane Mirrors - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Reflection of Light and Plane Mirrors",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:45:23.004Z",
+        "provenance": "jesc109.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735123003",
+      "subtopics": [
+        "Nature of light and straight-line propagation",
+        "Laws of reflection",
+        "Characteristics of images formed by plane mirrors",
+        "Introduction to curved reflecting surfaces (Activity 9.1)"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='150' y1='200' x2='390' y2='200' stroke='#0F172A' stroke-width='4'/><line x1='270' y1='200' x2='270' y2='60' stroke='#64748B' stroke-width='1.5' stroke-dasharray='4'/><text x='275' y='75' fill='#64748B' font-family='sans-serif' font-size='12'>Normal</text><line x1='150' y1='100' x2='270' y2='200' stroke='#2563EB' stroke-width='2'/><polygon points='215,142 205,140 210,150' fill='#2563EB'/><text x='160' y='130' fill='#2563EB' font-family='sans-serif' font-size='12'>Incident Ray</text><line x1='270' y1='200' x2='380' y2='100' stroke='#DC2626' stroke-width='2'/><polygon points='320,140 330,143 325,152' fill='#DC2626'/><text x='330' y='130' fill='#DC2626' font-family='sans-serif' font-size='12'>Reflected Ray</text><path d='M 250 160 A 25 25 0 0 1 270 175' fill='none' stroke='#0F172A' stroke-width='1.5'/><text x='235' y='165' fill='#0F172A' font-family='sans-serif' font-size='11'>i</text><path d='M 270 175 A 25 25 0 0 1 290 160' fill='none' stroke='#0F172A' stroke-width='1.5'/><text x='295' y='165' fill='#0F172A' font-family='sans-serif' font-size='11'>r</text><text x='250' y='225' fill='#0F172A' font-family='sans-serif' font-size='12'>Reflecting Surface (Plane Mirror)</text></svg>",
+      "diagram_idea": "Ray diagram showing incident ray, reflected ray, normal line, angle i, and angle r on a plane mirror.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Plane mirror surface, normal line perpendicular, incident ray with arrow, reflected ray with arrow, angle i and angle r labeled.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='150' y1='200' x2='390' y2='200' stroke='#0F172A' stroke-width='4'/><line x1='270' y1='200' x2='270' y2='60' stroke='#64748B' stroke-width='1.5' stroke-dasharray='4'/><line x1='150' y1='100' x2='270' y2='200' stroke='#2563EB' stroke-width='2'/><line x1='270' y1='200' x2='380' y2='100' stroke='#DC2626' stroke-width='2'/><text x='210' y='240' fill='#0F172A' font-family='sans-serif' font-size='14'>Angle of Incidence (i) = Angle of Reflection (r)</text></svg>",
+          "why_needed": "Visualizes angle measurement relative to the normal.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='150' y1='200' x2='390' y2='200' stroke='#0F172A' stroke-width='4'/><line x1='270' y1='200' x2='270' y2='60' stroke='#64748B' stroke-width='1.5' stroke-dasharray='4'/><line x1='150' y1='100' x2='270' y2='200' stroke='#2563EB' stroke-width='2'/><line x1='270' y1='200' x2='380' y2='100' stroke='#DC2626' stroke-width='2'/><text x='210' y='240' fill='#0F172A' font-family='sans-serif' font-size='14'>Angle of Incidence (i) = Angle of Reflection (r)</text></svg>",
+          "image_query": "Mirror line, normal, incident ray, reflected ray, angle i and r arcs. scientific educational diagram with clear labels",
+          "video_query": "Laws of Reflection Geometry educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Mirror line, normal, incident ray, reflected ray, angle i and r arcs.",
+          "concept_title": "Law of Reflection 1: Angle of incidence equals angle of reflection (i = r).",
+          "diagram_title": "Laws of Reflection Geometry",
+          "timing_and_cue": "Present at start of class when discussing reflection laws.",
+          "what_to_explain": "Show students that i and r are always measured from the dashed normal line.",
+          "image_search_query": "Mirror line, normal, incident ray, reflected ray, angle i and r arcs. scientific educational diagram with clear labels",
+          "video_search_query": "Laws of Reflection Geometry educational demonstration video",
+          "interactive_math_formula": "i = r"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Light Propagation -> Rectilinear Path -> Reflection -> Laws of Reflection (i = r, Coplanar) -> Plane vs Curved Surfaces",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "A ray of light strikes a plane mirror at an angle of 30\u00b0 with the mirror surface. What is the angle of reflection?",
+              "ideal_answer": "60\u00b0",
+              "socratic_hint": "Remember that the angle of incidence is measured with respect to the normal (perpendicular to the surface), not the mirror surface itself!"
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "State the two laws of reflection of light.",
+              "ideal_answer": "(1) The angle of incidence is equal to the angle of reflection. (2) The incident ray, normal to the mirror at the point of incidence, and the reflected ray all lie in the same plane.",
+              "socratic_hint": "Recite both the angular equality and the coplanar requirement."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Law of Reflection 1: Angle of incidence equals angle of reflection (i = r)."
+        },
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "If an object is placed 10 cm in front of a plane mirror, what is the distance between the object and its image?",
+              "ideal_answer": "20 cm",
+              "socratic_hint": "The image is formed as far behind the mirror as the object is in front. Calculate total distance object-to-image."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q2",
+              "question": "Why is the image formed by a plane mirror called a virtual image?",
+              "ideal_answer": "Because the light rays do not actually intersect at the image position; they only appear to diverge from it, and it cannot be caught on a screen.",
+              "socratic_hint": "Think about whether light rays physically pass through the image location behind the mirror."
+            }
+          ],
+          "concept_index": 1,
+          "concept_title": "Plane Mirror Image Properties"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Activity 9.1 (Shining Spoon)",
+          "scenario": "Viewing your face in the curved inward and outward surfaces of a large shining spoon."
+        }
+      ],
+      "textbook_exercises": [],
+      "textbook_definitions": [
+        {
+          "concept": "Laws of Reflection",
+          "si_units": "Degrees (\u00b0)",
+          "definition": "The angle of incidence equals the angle of reflection, and the incident ray, normal, and reflected ray lie in the same plane."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "dd9d262a-dc05-464c-b94d-e8982cf376bb",
+    "curriculum_id": "f28bed4a-681d-4766-82b9-f5ea292c371e",
+    "order_index": 2,
+    "title": "Spherical Mirrors: Terminology and Focus",
+    "description": "Understand concave and convex mirrors, poles, centres of curvature, principal axes, and principal foci.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 2: Spherical Mirrors: Terminology and Focus. Mid-Term Examination Syllabus. Clearly distinguish between real focus of concave mirrors and virtual focus of convex mirrors using diagrams.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Concave mirror with parallel rays converging at F; Convex mirror with parallel rays diverging from F behind the mirror.\n- Diagram Type: ray_optics\n- Chapter Multi-Level Flowchart: Spherical Mirror -> Concave (Inward) | Convex (Outward) -> Terms: P, C, R, F, f -> Relation: R = 2f\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Spherical Mirror -> Concave (Inward) | Convex (Outward) -> Terms: P, C, R, F, f -> Relation: R = 2f\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Principal Focus (Concave): \"The point on the principal axis where rays parallel to the principal axis actually meet after reflection.\" [SI Unit: Metres (m) or Centimetres (cm)]\n\n- Textbook Concrete Examples:\n- Activity 9.2: Focusing sunlight using a concave mirror to burn a paper and find approximate focal length.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-text Q (Page 142):\n    * [Q1] (conceptual): Define the principal focus of a concave mirror.\n      Method: State that parallel rays converge at a specific point on the principal axis.\n    * [Q2] (numerical): The radius of curvature of a spherical mirror is 20 cm. What is its focal length?\n      Method: Use f = R/2 -> 20/2 = 10 cm.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Concave Mirror\":\n    * [Q1] (1-mark MCQ): Which of the following mirrors is a converging mirror?\n      -> Ideal Model Answer: Concave mirror\n      -> Socratic Hint: Think about how parallel rays behave when striking a concave mirror versus a convex mirror.\n    * [Q2] (2-mark Definition): Define the pole of a spherical mirror.\n      -> Ideal Model Answer: The centre of the reflecting surface of a spherical mirror is a point called the pole (P). It lies on the surface of the mirror.\n      -> Socratic Hint: Where is the geometric center of the mirror's reflecting face?\n  * Concept #2 \"Radius and Focal Length Relation: R = 2f for mirrors of small aperture.\":\n    * [Q1] (5-mark Numerical): The radius of curvature of a spherical mirror is 20 cm. What is its focal length?\n      -> Ideal Model Answer: f = R / 2 = 20 cm / 2 = 10 cm.\n      -> Socratic Hint: Use the formula connecting focal length f and radius of curvature R.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Concave Mirror\":\n    - Visual Title: \"Concave Mirror Principal Focus\" (ray_optics)\n    - Why Needed: Demonstrates converging nature of concave mirrors.\n    - What to Explain: Parallel rays converge at F in front of the mirror.\n    - Timing & Directive: Show when discussing focal length and focus definition.\n    - Interactive Math Formula: f = R/2\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Concave Mirror: Spherical mirror with reflecting surface curved inwards.",
+      "Convex Mirror: Spherical mirror with reflecting surface curved outwards.",
+      "Radius and Focal Length Relation: R = 2f for mirrors of small aperture."
+    ],
+    "success_criteria": "Relate focal length and radius of curvature using R = 2f.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:45:24.251519+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Definition of concave and convex mirrors",
+      "Key terms: Pole (P), Centre of Curvature (C), Radius of Curvature (R)",
+      "Principal axis and principal focus (F)",
+      "Focal length (f) and relationship R = 2f"
+    ],
+    "chapter_notes": "Spherical mirrors have reflecting surfaces that form part of a sphere. A concave mirror curves inwards towards the sphere's centre, while a convex mirror curves outwards. Key terminology includes: Pole (P, centre of reflecting surface), Centre of Curvature (C, centre of the hollow sphere), Radius of Curvature (R, radius of the sphere), Principal Axis (straight line passing through P and C), Principal Focus (F, point where parallel rays converge or appear to diverge), and Focal Length (f, distance between P and F). For small apertures, R = 2f.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "cm",
+        "given": "R = +32 cm (convex mirror)",
+        "formula": "f = R / 2",
+        "problem": "Find the focal length of a convex mirror whose radius of curvature is 32 cm.",
+        "calculation": "f = 16 cm",
+        "finalAnswer": "+16 cm",
+        "substitution": "f = 32 / 2",
+        "image_search_query": "class 10 science chapter_9_light ncert",
+        "page": 20,
+        "section": "Section 2"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing focus position for convex mirrors (virtual focus behind mirror) with concave mirrors (real focus in front).",
+      "Forgetting sign conventions when applying R = 2f."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735123684_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Spherical Mirrors: Terminology and Focus: Understand concave and convex mirrors, poles, centres of curvature, principal axes, and principal foci.",
+              "keyTakeaway": "Concave Mirror: Spherical mirror with reflecting surface curved inwards."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Concave Mirror: Spherical mirror with reflecting surface curved inwards."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc109.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735123684_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Spherical Mirrors: Terminology and Focus - Fundamental Equations",
+              "equations": [
+                "Concave Mirror: Spherical mirror with reflecting surface curved inwards.",
+                "Convex Mirror: Spherical mirror with reflecting surface curved outwards.",
+                "Radius and Focal Length Relation: R = 2f for mirrors of small aperture."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Concave Mirror: Spherical mirror with reflecting surface curved inwards."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc109.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735123684_3",
+          "type": "DIAGRAM",
+          "title": "Spherical Mirrors: Terminology and Focus Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Spherical Mirrors: Terminology and Focus Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Concave Mirror: Spherical mirror with reflecting surface curved inwards.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Convex Mirror: Spherical mirror with reflecting surface curved outwards.",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Spherical Mirrors: Terminology and Focus",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Spherical Mirrors: Terminology and Focus | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><path d='M 270 40 Q 240 140 270 240' fill='none' stroke='#0F172A' stroke-width='3'/><line x1='120' y1='140' x2='260' y2='140' stroke='#2563EB' stroke-width='1.5'/><line x1='120' y1='100' x2='252' y2='118' stroke='#2563EB' stroke-width='1.5'/><line x1='120' y1='180' x2='252' y2='162' stroke='#2563EB' stroke-width='1.5'/><line x1='250' y1='140' x2='350' y2='140' stroke='#DC2626' stroke-width='1.5'/><line x1='252' y1='118' x2='350' y2='140' stroke='#DC2626' stroke-width='1.5'/><line x1='252' y1='162' x2='350' y2='140' stroke='#DC2626' stroke-width='1.5'/><circle cx='250' cy='140' r='3' fill='#0F172A'/><text x='245' y='160' fill='#0F172A' font-family='sans-serif' font-size='12'>F</text><text x='200' y='260' fill='#0F172A' font-family='sans-serif' font-size='12'>Concave Mirror Focus</text></svg> | Concave mirror with parallel rays converging at F; Convex mirror with parallel rays diverging from F behind the mirror."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc109.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735123684_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Concave Mirror: Spherical mirror with reflecting surface curved inwards."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If R = +32 cm (convex mirror), what is the value?",
+              "explanation": "By fundamental principle, Concave Mirror: Spherical mirror with reflecting surface curved inwards. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735123684_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Definition of concave and convex mirrors",
+                "Key terms: Pole (P), Centre of Curvature (C), Radius of Curvature (R)",
+                "Principal axis and principal focus (F)",
+                "Focal length (f) and relationship R = 2f"
+              ],
+              "formulasToRemember": [
+                "Concave Mirror: Spherical mirror with reflecting surface curved inwards.",
+                "Convex Mirror: Spherical mirror with reflecting surface curved outwards.",
+                "Radius and Focal Length Relation: R = 2f for mirrors of small aperture."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Spherical Mirrors: Terminology and Focus - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Spherical Mirrors: Terminology and Focus",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:45:23.684Z",
+        "provenance": "jesc109.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735123684",
+      "subtopics": [
+        "Definition of concave and convex mirrors",
+        "Key terms: Pole (P), Centre of Curvature (C), Radius of Curvature (R)",
+        "Principal axis and principal focus (F)",
+        "Focal length (f) and relationship R = 2f"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><path d='M 270 40 Q 240 140 270 240' fill='none' stroke='#0F172A' stroke-width='3'/><line x1='120' y1='140' x2='260' y2='140' stroke='#2563EB' stroke-width='1.5'/><line x1='120' y1='100' x2='252' y2='118' stroke='#2563EB' stroke-width='1.5'/><line x1='120' y1='180' x2='252' y2='162' stroke='#2563EB' stroke-width='1.5'/><line x1='250' y1='140' x2='350' y2='140' stroke='#DC2626' stroke-width='1.5'/><line x1='252' y1='118' x2='350' y2='140' stroke='#DC2626' stroke-width='1.5'/><line x1='252' y1='162' x2='350' y2='140' stroke='#DC2626' stroke-width='1.5'/><circle cx='250' cy='140' r='3' fill='#0F172A'/><text x='245' y='160' fill='#0F172A' font-family='sans-serif' font-size='12'>F</text><text x='200' y='260' fill='#0F172A' font-family='sans-serif' font-size='12'>Concave Mirror Focus</text></svg>",
+      "diagram_idea": "Ray paths showing parallel rays converging at F for concave mirror and diverging from F for convex mirror.",
+      "diagram_type": "ray_optics",
+      "what_to_make": "Concave mirror with parallel rays converging at F; Convex mirror with parallel rays diverging from F behind the mirror.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><path d='M 300 40 Q 250 140 300 240' fill='none' stroke='#0F172A' stroke-width='3'/><line x1='100' y1='140' x2='400' y2='140' stroke='#64748B' stroke-width='1'/><line x1='150' y1='100' x2='275' y2='100' stroke='#2563EB' stroke-width='2'/><line x1='275' y1='100' x2='340' y2='140' stroke='#DC2626' stroke-width='2'/><circle cx='340' cy='140' r='4' fill='#DC2626'/><text x='345' y='155' fill='#DC2626' font-family='sans-serif' font-size='12'>F</text></svg>",
+          "why_needed": "Demonstrates converging nature of concave mirrors.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><path d='M 300 40 Q 250 140 300 240' fill='none' stroke='#0F172A' stroke-width='3'/><line x1='100' y1='140' x2='400' y2='140' stroke='#64748B' stroke-width='1'/><line x1='150' y1='100' x2='275' y2='100' stroke='#2563EB' stroke-width='2'/><line x1='275' y1='100' x2='340' y2='140' stroke='#DC2626' stroke-width='2'/><circle cx='340' cy='140' r='4' fill='#DC2626'/><text x='345' y='155' fill='#DC2626' font-family='sans-serif' font-size='12'>F</text></svg>",
+          "image_query": "concave mirror ray diagram showing principal axis, pole, focus, center of curvature, and image formation",
+          "video_query": "concave mirror image formation ray optics laboratory experiment demonstration",
+          "diagram_type": "ray_optics",
+          "what_to_make": "Concave mirror curve, principal axis, parallel incident rays, converging reflected rays at F.",
+          "concept_title": "Concave Mirror",
+          "diagram_title": "Concave Mirror Principal Focus",
+          "timing_and_cue": "Show when discussing focal length and focus definition.",
+          "what_to_explain": "Parallel rays converge at F in front of the mirror.",
+          "image_search_query": "concave mirror ray diagram showing principal axis, pole, focus, center of curvature, and image formation",
+          "video_search_query": "concave mirror image formation ray optics laboratory experiment demonstration",
+          "interactive_math_formula": "f = R/2"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Spherical Mirror -> Concave (Inward) | Convex (Outward) -> Terms: P, C, R, F, f -> Relation: R = 2f",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Which of the following mirrors is a converging mirror?",
+              "ideal_answer": "Concave mirror",
+              "socratic_hint": "Think about how parallel rays behave when striking a concave mirror versus a convex mirror."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Define the pole of a spherical mirror.",
+              "ideal_answer": "The centre of the reflecting surface of a spherical mirror is a point called the pole (P). It lies on the surface of the mirror.",
+              "socratic_hint": "Where is the geometric center of the mirror's reflecting face?"
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Concave Mirror"
+        },
+        {
+          "questions": [
+            {
+              "type": "5-mark Numerical",
+              "q_num": "Q1",
+              "question": "The radius of curvature of a spherical mirror is 20 cm. What is its focal length?",
+              "ideal_answer": "f = R / 2 = 20 cm / 2 = 10 cm.",
+              "socratic_hint": "Use the formula connecting focal length f and radius of curvature R."
+            }
+          ],
+          "concept_index": 2,
+          "concept_title": "Radius and Focal Length Relation: R = 2f for mirrors of small aperture."
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Activity 9.2",
+          "scenario": "Focusing sunlight using a concave mirror to burn a paper and find approximate focal length."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "Define the principal focus of a concave mirror.",
+              "question_type": "conceptual",
+              "solution_method": "State that parallel rays converge at a specific point on the principal axis."
+            },
+            {
+              "q_num": "Q2",
+              "question": "The radius of curvature of a spherical mirror is 20 cm. What is its focal length?",
+              "question_type": "numerical",
+              "solution_method": "Use f = R/2 -> 20/2 = 10 cm."
+            }
+          ],
+          "exercise_number": "In-text Q (Page 142)"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Principal Focus (Concave)",
+          "si_units": "Metres (m) or Centimetres (cm)",
+          "definition": "The point on the principal axis where rays parallel to the principal axis actually meet after reflection."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "c57ff668-709f-4372-8f69-65fca8ea9046",
+    "curriculum_id": "f28bed4a-681d-4766-82b9-f5ea292c371e",
+    "order_index": 3,
+    "title": "Image Formation by Spherical Mirrors and Mirror Formula",
+    "description": "Master ray diagram rules, image characteristics tables, sign conventions, mirror formula, and magnification.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 3: Image Formation by Spherical Mirrors and Mirror Formula. Mid-Term Examination Syllabus. Strictly enforce the New Cartesian Sign Convention before substituting values into the mirror formula.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Cartesian coordinate system centered at pole P, showing positive x, negative x, positive y, negative y quadrants for reflection.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Spherical Mirrors -> Ray Rules (1, 2, 3, 4) -> Sign Convention (Cartesian) -> Mirror Formula (1/v + 1/u = 1/f) -> Magnification (m = -v/u)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Spherical Mirrors -> Ray Rules (1, 2, 3, 4) -> Sign Convention (Cartesian) -> Mirror Formula (1/v + 1/u = 1/f) -> Magnification (m = -v/u)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Mirror Formula: \"1/v + 1/u = 1/f, relating object distance u, image distance v, and focal length f.\" [SI Unit: Dimensionless relation]\n\n- Textbook Concrete Examples:\n- Example 9.1: Convex mirror rear-view calculation with R = 3.00 m and object distance u = -5.00 m.\n- Example 9.2: Concave mirror screen placement and image size calculation for object at 25 cm.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - End of Chapter Q7:\n    * [Q7] (conceptual): We wish to obtain an erect image of an object, using a concave mirror of focal length 15 cm. What should be the range of distance of the object from the mirror?\n      Method: Between pole P and focus F (0 to 15 cm).\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Mirror Formula: 1/v + 1/u = 1/f connecting object distance u, image distance v, and focal length f.\":\n    * [Q1] (5-mark Numerical): An object is placed at 25 cm in front of a concave mirror of focal length 15 cm. Find the image distance and nature of the image.\n      -> Ideal Model Answer: v = -37.5 cm; Real and inverted.\n      -> Socratic Hint: Substitute u = -25 cm and f = -15 cm into 1/v + 1/u = 1/f.\n  * Concept #2 \"Magnification (m): m = h'/h = -v/u, indicating image enlargement and orientation (+ for virtual, - for real).\":\n    * [Q1] (1-mark MCQ): What does a negative sign in the value of magnification indicate?\n      -> Ideal Model Answer: The image is real and inverted.\n      -> Socratic Hint: Think about real images formed below the principal axis versus virtual images above.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Mirror Formula: 1/v + 1/u = 1/f connecting object distance u, image distance v, and focal length f.\":\n    - Visual Title: \"Cartesian Sign Convention for Spherical Mirrors\" (vector_svg_diagram)\n    - Why Needed: Prevents sign errors in numerical problem-solving.\n    - What to Explain: Explain why u is always negative and how f depends on mirror type.\n    - Timing & Directive: Review sign convention before starting Example 9.1 and 9.2.\n    - Interactive Math Formula: 1/v + 1/u = 1/f\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Mirror Formula: 1/v + 1/u = 1/f connecting object distance u, image distance v, and focal length f.",
+      "Magnification (m): m = h'/h = -v/u, indicating image enlargement and orientation (+ for virtual, - for real).",
+      "Ray Rule 1: Ray parallel to principal axis passes through (or appears to diverge from) principal focus F."
+    ],
+    "success_criteria": "Solve numerical problems using the Mirror Formula and New Cartesian Sign Convention.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:45:24.949778+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Four principal ray rules for spherical mirrors",
+      "Ray diagrams for concave and convex mirrors (Tables 9.1 & 9.2)",
+      "New Cartesian Sign Convention",
+      "Mirror Formula (1/v + 1/u = 1/f) and Magnification (m = -v/u = h'/h)"
+    ],
+    "chapter_notes": "Image formation in spherical mirrors uses ray diagrams governed by four key rules: (i) Parallel rays pass through focus F, (ii) Rays through focus emerge parallel, (iii) Rays through centre of curvature C reflect back along the same path, and (iv) Oblique rays at pole P reflect at equal angles. The New Cartesian Sign Convention sets pole P as origin, object on the left, distances measured right as positive, left as negative, heights above principal axis positive, and below negative. The mirror formula is 1/v + 1/u = 1/f. Magnification m = h'/h = -v/u.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Metres (m)",
+        "given": "R = +3.00 m, f = +1.50 m, u = -5.00 m",
+        "formula": "1/v + 1/u = 1/f; m = -v/u",
+        "problem": "A convex mirror used for rear-view on an automobile has a radius of curvature of 3.00 m. If a bus is located at 5.00 m from this mirror, find the position, nature and size of the image.",
+        "calculation": "1/v = 1/1.50 + 1/5.00 = 6.50/7.50 -> v = +1.15 m; m = -1.15/(-5.00) = +0.23",
+        "finalAnswer": "v = +1.15 m, virtual, erect, smaller",
+        "substitution": "1/v + 1/(-5.00) = 1/1.50",
+        "image_search_query": "class 10 science chapter_9_light ncert",
+        "page": 30,
+        "section": "Section 3"
+      }
+    ],
+    "common_misconceptions": [
+      "Forgetting negative signs for object distance u in front of mirrors.",
+      "Confusing focal length signs for concave (-) vs convex (+) mirrors."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735124362_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Image Formation by Spherical Mirrors and Mirror Formula: Master ray diagram rules, image characteristics tables, sign conventions, mirror formula, and magnification.",
+              "keyTakeaway": "Mirror Formula: 1/v + 1/u = 1/f connecting object distance u, image distance v, and focal length f."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Mirror Formula: 1/v + 1/u = 1/f connecting object distance u, image distance v, and focal length f."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc109.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735124362_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Image Formation by Spherical Mirrors and Mirror Formula - Fundamental Equations",
+              "equations": [
+                "Mirror Formula: 1/v + 1/u = 1/f connecting object distance u, image distance v, and focal length f.",
+                "Magnification (m): m = h'/h = -v/u, indicating image enlargement and orientation (+ for virtual, - for real).",
+                "Ray Rule 1: Ray parallel to principal axis passes through (or appears to diverge from) principal focus F."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Mirror Formula: 1/v + 1/u = 1/f connecting object distance u, image distance v, and focal length f."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc109.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735124362_3",
+          "type": "DIAGRAM",
+          "title": "Image Formation by Spherical Mirrors and Mirror Formula Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Image Formation by Spherical Mirrors and Mirror Formula Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Mirror Formula: 1/v + 1/u = 1/f connecting object distance u, image distance v, and focal length f.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Magnification (m): m = h'/h = -v/u, indicating image enlargement and orientation (+ for virtual, - for real).",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Image Formation by Spherical Mirrors and Mirror Formula",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Image Formation by Spherical Mirrors and Mirror Formula | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='70' y1='140' x2='470' y2='140' stroke='#64748B' stroke-width='1.5'/><line x1='270' y1='40' x2='270' y2='240' stroke='#64748B' stroke-width='1.5'/><path d='M 320 60 Q 280 140 320 220' fill='none' stroke='#0F172A' stroke-width='3'/><text x='275' y='35' fill='#0F172A' font-family='sans-serif' font-size='12'>+y (Height Up)</text><text x='275' y='255' fill='#0F172A' font-family='sans-serif' font-size='12'>-y (Height Down)</text><text x='400' y='130' fill='#0F172A' font-family='sans-serif' font-size='12'>+x (Distance Right)</text><text x='80' y='130' fill='#0F172A' font-family='sans-serif' font-size='12'>-x (Distance Left / u)</text><circle cx='320' cy='140' r='4' fill='#DC2626'/><text x='315' y='160' fill='#DC2626' font-family='sans-serif' font-size='12'>P (Origin)</text></svg> | Cartesian coordinate system centered at pole P, showing positive x, negative x, positive y, negative y quadrants for reflection."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc109.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735124362_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Mirror Formula: 1/v + 1/u = 1/f connecting object distance u, image distance v, and focal length f."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If R = +3.00 m, f = +1.50 m, u = -5.00 m, what is the value?",
+              "explanation": "By fundamental principle, Mirror Formula: 1/v + 1/u = 1/f connecting object distance u, image distance v, and focal length f. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735124362_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Four principal ray rules for spherical mirrors",
+                "Ray diagrams for concave and convex mirrors (Tables 9.1 & 9.2)",
+                "New Cartesian Sign Convention",
+                "Mirror Formula (1/v + 1/u = 1/f) and Magnification (m = -v/u = h'/h)"
+              ],
+              "formulasToRemember": [
+                "Mirror Formula: 1/v + 1/u = 1/f connecting object distance u, image distance v, and focal length f.",
+                "Magnification (m): m = h'/h = -v/u, indicating image enlargement and orientation (+ for virtual, - for real).",
+                "Ray Rule 1: Ray parallel to principal axis passes through (or appears to diverge from) principal focus F."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Image Formation by Spherical Mirrors and Mirror Formula - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Image Formation by Spherical Mirrors and Mirror Formula",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:45:24.362Z",
+        "provenance": "jesc109.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735124362",
+      "subtopics": [
+        "Four principal ray rules for spherical mirrors",
+        "Ray diagrams for concave and convex mirrors (Tables 9.1 & 9.2)",
+        "New Cartesian Sign Convention",
+        "Mirror Formula (1/v + 1/u = 1/f) and Magnification (m = -v/u = h'/h)"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='70' y1='140' x2='470' y2='140' stroke='#64748B' stroke-width='1.5'/><line x1='270' y1='40' x2='270' y2='240' stroke='#64748B' stroke-width='1.5'/><path d='M 320 60 Q 280 140 320 220' fill='none' stroke='#0F172A' stroke-width='3'/><text x='275' y='35' fill='#0F172A' font-family='sans-serif' font-size='12'>+y (Height Up)</text><text x='275' y='255' fill='#0F172A' font-family='sans-serif' font-size='12'>-y (Height Down)</text><text x='400' y='130' fill='#0F172A' font-family='sans-serif' font-size='12'>+x (Distance Right)</text><text x='80' y='130' fill='#0F172A' font-family='sans-serif' font-size='12'>-x (Distance Left / u)</text><circle cx='320' cy='140' r='4' fill='#DC2626'/><text x='315' y='160' fill='#DC2626' font-family='sans-serif' font-size='12'>P (Origin)</text></svg>",
+      "diagram_idea": "New Cartesian Sign Convention coordinate axes aligned with a concave mirror.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Cartesian coordinate system centered at pole P, showing positive x, negative x, positive y, negative y quadrants for reflection.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='100' y1='140' x2='480' y2='140' stroke='#0F172A' stroke-width='1.5'/><line x1='290' y1='50' x2='290' y2='230' stroke='#0F172A' stroke-width='1.5'/><text x='300' y='130' fill='#2563EB' font-family='sans-serif' font-size='14'>P (Pole / Origin)</text><text x='150' y='125' fill='#DC2626' font-family='sans-serif' font-size='12'>Object Distance (-u)</text><text x='350' y='125' fill='#16A34A' font-family='sans-serif' font-size='12'>Image Distance (+v or -v)</text></svg>",
+          "why_needed": "Prevents sign errors in numerical problem-solving.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='100' y1='140' x2='480' y2='140' stroke='#0F172A' stroke-width='1.5'/><line x1='290' y1='50' x2='290' y2='230' stroke='#0F172A' stroke-width='1.5'/><text x='300' y='130' fill='#2563EB' font-family='sans-serif' font-size='14'>P (Pole / Origin)</text><text x='150' y='125' fill='#DC2626' font-family='sans-serif' font-size='12'>Object Distance (-u)</text><text x='350' y='125' fill='#16A34A' font-family='sans-serif' font-size='12'>Image Distance (+v or -v)</text></svg>",
+          "image_query": "Axes with origin at Pole P, object on left -u , focal point, and image distance. scientific educational diagram with clear labels",
+          "video_query": "Cartesian Sign Convention for Spherical Mirrors educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Axes with origin at Pole P, object on left (-u), focal point, and image distance.",
+          "concept_title": "Mirror Formula: 1/v + 1/u = 1/f connecting object distance u, image distance v, and focal length f.",
+          "diagram_title": "Cartesian Sign Convention for Spherical Mirrors",
+          "timing_and_cue": "Review sign convention before starting Example 9.1 and 9.2.",
+          "what_to_explain": "Explain why u is always negative and how f depends on mirror type.",
+          "image_search_query": "Axes with origin at Pole P, object on left -u , focal point, and image distance. scientific educational diagram with clear labels",
+          "video_search_query": "Cartesian Sign Convention for Spherical Mirrors educational demonstration video",
+          "interactive_math_formula": "1/v + 1/u = 1/f"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Spherical Mirrors -> Ray Rules (1, 2, 3, 4) -> Sign Convention (Cartesian) -> Mirror Formula (1/v + 1/u = 1/f) -> Magnification (m = -v/u)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "5-mark Numerical",
+              "q_num": "Q1",
+              "question": "An object is placed at 25 cm in front of a concave mirror of focal length 15 cm. Find the image distance and nature of the image.",
+              "ideal_answer": "v = -37.5 cm; Real and inverted.",
+              "socratic_hint": "Substitute u = -25 cm and f = -15 cm into 1/v + 1/u = 1/f."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Mirror Formula: 1/v + 1/u = 1/f connecting object distance u, image distance v, and focal length f."
+        },
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "What does a negative sign in the value of magnification indicate?",
+              "ideal_answer": "The image is real and inverted.",
+              "socratic_hint": "Think about real images formed below the principal axis versus virtual images above."
+            }
+          ],
+          "concept_index": 1,
+          "concept_title": "Magnification (m): m = h'/h = -v/u, indicating image enlargement and orientation (+ for virtual, - for real)."
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Example 9.1",
+          "scenario": "Convex mirror rear-view calculation with R = 3.00 m and object distance u = -5.00 m."
+        },
+        {
+          "title": "Example 9.2",
+          "scenario": "Concave mirror screen placement and image size calculation for object at 25 cm."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q7",
+              "question": "We wish to obtain an erect image of an object, using a concave mirror of focal length 15 cm. What should be the range of distance of the object from the mirror?",
+              "question_type": "conceptual",
+              "solution_method": "Between pole P and focus F (0 to 15 cm)."
+            }
+          ],
+          "exercise_number": "End of Chapter Q7"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Mirror Formula",
+          "si_units": "Dimensionless relation",
+          "definition": "1/v + 1/u = 1/f, relating object distance u, image distance v, and focal length f."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "dafe5453-8359-45fa-a79f-2ecaf4ae7e99",
+    "curriculum_id": "f28bed4a-681d-4766-82b9-f5ea292c371e",
+    "order_index": 4,
+    "title": "Refraction of Light, Snell's Law, and Refractive Index",
+    "description": "Explore light refraction across media boundaries, Snell's law, absolute refractive index, and optical density.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 4: Refraction of Light, Snell's Law, and Refractive Index. Mid-Term Examination Syllabus. Emphasize how bending direction depends on relative optical densities of the two media.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Air (rarer) and Glass (denser) interface, normal line, incident ray bending towards normal.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Refraction -> Speed Change Across Media -> Snell's Law (sin i / sin r = n) -> Refractive Index (n = c/v) -> Optical Density\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Refraction -> Speed Change Across Media -> Snell's Law (sin i / sin r = n) -> Refractive Index (n = c/v) -> Optical Density\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Snell's Law: \"sin i / sin r = constant (refractive index of second medium with respect to first).\" [SI Unit: Dimensionless]\n\n- Textbook Concrete Examples:\n- Activity 9.10: Refraction through a rectangular glass slab showing parallel emergent ray and lateral displacement.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-text Q (Page 150):\n    * [Q2] (numerical): Light enters from air to glass having refractive index 1.50. What is the speed of light in the glass?\n      Method: v = c / n -> (3 x 10^8) / 1.50 = 2 x 10^8 m/s.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Snell's Law of Refraction: The ratio of the sine of angle of incidence to the sine of angle of refraction is a constant (sin i / sin r = n21).\":\n    * [Q1] (2-mark Definition): State Snell's law of refraction of light.\n      -> Ideal Model Answer: The ratio of the sine of angle of incidence to the sine of angle of refraction is a constant for a given pair of media and given color of light (sin i / sin r = constant).\n      -> Socratic Hint: Mention sines of angles i and r and the constant term.\n  * Concept #2 \"Absolute Refractive Index (n): Ratio of speed of light in vacuum/air to speed of light in the medium (n = c / v).\":\n    * [Q1] (5-mark Numerical): Light enters from air to glass having refractive index 1.50. What is the speed of light in the glass? (Speed of light in vacuum = 3 \u00d7 10^8 m/s)\n      -> Ideal Model Answer: 2 \u00d7 10^8 m/s\n      -> Socratic Hint: Use n = c / v rearranged as v = c / n.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Snell's Law of Refraction: The ratio of the sine of angle of incidence to the sine of angle of refraction is a constant (sin i / sin r = n21).\":\n    - Visual Title: \"Refraction and Snell's Law\" (vector_svg_diagram)\n    - Why Needed: Illustrates ray bending towards the normal when entering denser media.\n    - What to Explain: Point out angle i in air and angle r in glass.\n    - Timing & Directive: Use when explaining Snell's Law formula.\n    - Interactive Math Formula: sin(i) / sin(r) = n\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Snell's Law of Refraction: The ratio of the sine of angle of incidence to the sine of angle of refraction is a constant (sin i / sin r = n21).",
+      "Absolute Refractive Index (n): Ratio of speed of light in vacuum/air to speed of light in the medium (n = c / v).",
+      "Bending Rule: Rarer to denser bends towards normal; denser to rarer bends away from normal."
+    ],
+    "success_criteria": "Calculate speed of light in various media using absolute refractive index formulas.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:45:25.624798+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Phenomenon of refraction and real-life examples",
+      "Refraction through a rectangular glass slab (Activity 9.10)",
+      "Laws of refraction and Snell's Law (sin i / sin r = constant)",
+      "Absolute and relative refractive index (n = c / v)",
+      "Optical density vs mass density"
+    ],
+    "chapter_notes": "Refraction is the change in direction of light when it travels obliquely from one transparent medium to another, caused by a change in the speed of light. Laws of refraction: (i) Incident ray, refracted ray, and normal are coplanar, and (ii) Snell's law: sin i / sin r = constant (n21). Absolute refractive index nm = c / v. Optically denser medium has a higher refractive index where light slows down and bends towards the normal. Kerosene has higher optical density than water despite lower mass density.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "m/s",
+        "given": "n = 1.50, c = 3 x 10^8 m/s",
+        "formula": "n = c / v",
+        "problem": "Light enters from air to glass having refractive index 1.50. What is the speed of light in the glass? (c = 3 x 10^8 m/s)",
+        "calculation": "v = (3 x 10^8) / 1.50 = 2 x 10^8",
+        "finalAnswer": "2 x 10^8",
+        "substitution": "1.50 = (3 x 10^8) / v",
+        "image_search_query": "class 10 science chapter_9_light ncert",
+        "page": 40,
+        "section": "Section 4"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing optical density with mass density (e.g., kerosene vs water).",
+      "Forgetting that refractive index has no units."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735125061_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Refraction of Light, Snell's Law, and Refractive Index: Explore light refraction across media boundaries, Snell's law, absolute refractive index, and optical density.",
+              "keyTakeaway": "Snell's Law of Refraction: The ratio of the sine of angle of incidence to the sine of angle of refraction is a constant (sin i / sin r = n21)."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Snell's Law of Refraction: The ratio of the sine of angle of incidence to the sine of angle of refraction is a constant (sin i / sin r = n21)."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc109.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735125061_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Refraction of Light, Snell's Law, and Refractive Index - Fundamental Equations",
+              "equations": [
+                "Snell's Law of Refraction: The ratio of the sine of angle of incidence to the sine of angle of refraction is a constant (sin i / sin r = n21).",
+                "Absolute Refractive Index (n): Ratio of speed of light in vacuum/air to speed of light in the medium (n = c / v).",
+                "Bending Rule: Rarer to denser bends towards normal; denser to rarer bends away from normal."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Snell's Law of Refraction: The ratio of the sine of angle of incidence to the sine of angle of refraction is a constant (sin i / sin r = n21)."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc109.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735125061_3",
+          "type": "DIAGRAM",
+          "title": "Refraction of Light, Snell's Law, and Refractive Index Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Refraction of Light, Snell's Law, and Refractive Index Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Snell's Law of Refraction: The ratio of the sine of angle of incidence to the sine of angle of refraction is a constant (sin i / sin r = n21).",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Absolute Refractive Index (n): Ratio of speed of light in vacuum/air to speed of light in the medium (n = c / v).",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Refraction of Light, Snell's Law, and Refractive Index",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Refraction of Light, Snell's Law, and Refractive Index | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='40' y='140' width='460' height='120' fill='#F1F5F9'/><line x1='40' y1='140' x2='500' y2='140' stroke='#0F172A' stroke-width='2'/><text x='60' y='100' fill='#0F172A' font-family='sans-serif' font-size='12'>Medium 1 (Air - Rarer)</text><text x='60' y='180' fill='#0F172A' font-family='sans-serif' font-size='12'>Medium 2 (Glass - Denser)</text><line x1='270' y1='60' x2='270' y2='220' stroke='#64748B' stroke-width='1.5' stroke-dasharray='4'/><line x1='150' y1='80' x2='270' y2='140' stroke='#2563EB' stroke-width='2'/><line x1='270' y1='140' x2='330' y2='220' stroke='#DC2626' stroke-width='2'/></svg> | Air (rarer) and Glass (denser) interface, normal line, incident ray bending towards normal."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc109.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735125061_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Snell's Law of Refraction: The ratio of the sine of angle of incidence to the sine of angle of refraction is a constant (sin i / sin r = n21)."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If n = 1.50, c = 3 x 10^8 m/s, what is the value?",
+              "explanation": "By fundamental principle, Snell's Law of Refraction: The ratio of the sine of angle of incidence to the sine of angle of refraction is a constant (sin i / sin r = n21). is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735125061_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Phenomenon of refraction and real-life examples",
+                "Refraction through a rectangular glass slab (Activity 9.10)",
+                "Laws of refraction and Snell's Law (sin i / sin r = constant)",
+                "Absolute and relative refractive index (n = c / v)",
+                "Optical density vs mass density"
+              ],
+              "formulasToRemember": [
+                "Snell's Law of Refraction: The ratio of the sine of angle of incidence to the sine of angle of refraction is a constant (sin i / sin r = n21).",
+                "Absolute Refractive Index (n): Ratio of speed of light in vacuum/air to speed of light in the medium (n = c / v).",
+                "Bending Rule: Rarer to denser bends towards normal; denser to rarer bends away from normal."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Refraction of Light, Snell's Law, and Refractive Index - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Refraction of Light, Snell's Law, and Refractive Index",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:45:25.061Z",
+        "provenance": "jesc109.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735125061",
+      "subtopics": [
+        "Phenomenon of refraction and real-life examples",
+        "Refraction through a rectangular glass slab (Activity 9.10)",
+        "Laws of refraction and Snell's Law (sin i / sin r = constant)",
+        "Absolute and relative refractive index (n = c / v)",
+        "Optical density vs mass density"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='40' y='140' width='460' height='120' fill='#F1F5F9'/><line x1='40' y1='140' x2='500' y2='140' stroke='#0F172A' stroke-width='2'/><text x='60' y='100' fill='#0F172A' font-family='sans-serif' font-size='12'>Medium 1 (Air - Rarer)</text><text x='60' y='180' fill='#0F172A' font-family='sans-serif' font-size='12'>Medium 2 (Glass - Denser)</text><line x1='270' y1='60' x2='270' y2='220' stroke='#64748B' stroke-width='1.5' stroke-dasharray='4'/><line x1='150' y1='80' x2='270' y2='140' stroke='#2563EB' stroke-width='2'/><line x1='270' y1='140' x2='330' y2='220' stroke='#DC2626' stroke-width='2'/></svg>",
+      "diagram_idea": "Ray bending at air-glass interface with normal line, angle i, and angle r.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Air (rarer) and Glass (denser) interface, normal line, incident ray bending towards normal.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='50' y1='140' x2='490' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='270' y1='50' x2='270' y2='230' stroke='#64748B' stroke-dasharray='4'/><line x1='150' y1='80' x2='270' y2='140' stroke='#2563EB' stroke-width='2'/><line x1='270' y1='140' x2='340' y2='220' stroke='#DC2626' stroke-width='2'/></svg>",
+          "why_needed": "Illustrates ray bending towards the normal when entering denser media.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='50' y1='140' x2='490' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='270' y1='50' x2='270' y2='230' stroke='#64748B' stroke-dasharray='4'/><line x1='150' y1='80' x2='270' y2='140' stroke='#2563EB' stroke-width='2'/><line x1='270' y1='140' x2='340' y2='220' stroke='#DC2626' stroke-width='2'/></svg>",
+          "image_query": "Air-glass interface, normal, incident ray, refracted ray bending inward. scientific educational diagram with clear labels",
+          "video_query": "Refraction and Snell's Law educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Air-glass interface, normal, incident ray, refracted ray bending inward.",
+          "concept_title": "Snell's Law of Refraction: The ratio of the sine of angle of incidence to the sine of angle of refraction is a constant (sin i / sin r = n21).",
+          "diagram_title": "Refraction and Snell's Law",
+          "timing_and_cue": "Use when explaining Snell's Law formula.",
+          "what_to_explain": "Point out angle i in air and angle r in glass.",
+          "image_search_query": "Air-glass interface, normal, incident ray, refracted ray bending inward. scientific educational diagram with clear labels",
+          "video_search_query": "Refraction and Snell's Law educational demonstration video",
+          "interactive_math_formula": "sin(i) / sin(r) = n"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Refraction -> Speed Change Across Media -> Snell's Law (sin i / sin r = n) -> Refractive Index (n = c/v) -> Optical Density",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q1",
+              "question": "State Snell's law of refraction of light.",
+              "ideal_answer": "The ratio of the sine of angle of incidence to the sine of angle of refraction is a constant for a given pair of media and given color of light (sin i / sin r = constant).",
+              "socratic_hint": "Mention sines of angles i and r and the constant term."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Snell's Law of Refraction: The ratio of the sine of angle of incidence to the sine of angle of refraction is a constant (sin i / sin r = n21)."
+        },
+        {
+          "questions": [
+            {
+              "type": "5-mark Numerical",
+              "q_num": "Q1",
+              "question": "Light enters from air to glass having refractive index 1.50. What is the speed of light in the glass? (Speed of light in vacuum = 3 \u00d7 10^8 m/s)",
+              "ideal_answer": "2 \u00d7 10^8 m/s",
+              "socratic_hint": "Use n = c / v rearranged as v = c / n."
+            }
+          ],
+          "concept_index": 1,
+          "concept_title": "Absolute Refractive Index (n): Ratio of speed of light in vacuum/air to speed of light in the medium (n = c / v)."
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Activity 9.10",
+          "scenario": "Refraction through a rectangular glass slab showing parallel emergent ray and lateral displacement."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q2",
+              "question": "Light enters from air to glass having refractive index 1.50. What is the speed of light in the glass?",
+              "question_type": "numerical",
+              "solution_method": "v = c / n -> (3 x 10^8) / 1.50 = 2 x 10^8 m/s."
+            }
+          ],
+          "exercise_number": "In-text Q (Page 150)"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Snell's Law",
+          "si_units": "Dimensionless",
+          "definition": "sin i / sin r = constant (refractive index of second medium with respect to first)."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "72d04cd0-5d8b-4b76-8997-f11085944bb3",
+    "curriculum_id": "f28bed4a-681d-4766-82b9-f5ea292c371e",
+    "order_index": 5,
+    "title": "Refraction by Spherical Lenses and Ray Diagrams",
+    "description": "Understand convex and concave lenses, optical centres, principal foci, and lens ray diagram rules.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 5: Refraction by Spherical Lenses and Ray Diagrams. Mid-Term Examination Syllabus. Compare lens ray rules directly with mirror ray rules to help students build intuition.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Convex lens, optical centre O, F1, 2F1, F2, 2F2, parallel incident rays converging at F2.\n- Diagram Type: ray_optics\n- Chapter Multi-Level Flowchart: Lenses -> Convex (Converging) | Concave (Diverging) -> Terms: Optical Centre O, F1, F2 -> Ray Rules -> Image Formation\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Lenses -> Convex (Converging) | Concave (Diverging) -> Terms: Optical Centre O, F1, F2 -> Ray Rules -> Image Formation\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Optical Centre: \"The central point of a lens through which light passes without deviation.\" [SI Unit: Metres (m)]\n\n- Textbook Concrete Examples:\n- Activity 9.11: Burning paper with sunlight using a convex lens to find approximate focal length.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - End of Chapter Q3:\n    * [Q3] (conceptual): Where should an object be placed in front of a convex lens to get a real image of the size of the object?\n      Method: At twice the focal length (At 2F1).\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Convex Lens: Thicker at the middle, converges light rays (converging lens).\":\n    * [Q1] (1-mark MCQ): Which lens always produces a virtual, erect, and diminished image regardless of object position?\n      -> Ideal Model Answer: Concave lens\n      -> Socratic Hint: Think about diverging lenses and their image characteristics.\n    * [Q2] (2-mark Definition): Define the optical centre of a spherical lens.\n      -> Ideal Model Answer: The central point of a lens through which a ray of light passes without suffering any deviation is called its optical centre (O).\n      -> Socratic Hint: Where is the exact geometric center point inside the lens?\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Convex Lens: Thicker at the middle, converges light rays (converging lens).\":\n    - Visual Title: \"Convex Lens Convergence\" (ray_optics)\n    - Why Needed: Shows how convex lenses bend parallel light rays to a focal point.\n    - What to Explain: Highlight focal point F2 on the opposite side.\n    - Timing & Directive: Show during introduction of convex lens properties.\n    - Interactive Math Formula: 1/v - 1/u = 1/f\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Convex Lens: Thicker at the middle, converges light rays (converging lens).",
+      "Concave Lens: Thicker at the edges, diverges light rays (diverging lens).",
+      "Lens Ray Rule 3: A ray passing through the optical centre of a lens emerges without any deviation."
+    ],
+    "success_criteria": "Construct accurate ray diagrams for convex and concave lenses across various object positions.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:45:25.901254+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Definition of convex (converging) and concave (diverging) lenses",
+      "Key terms: Optical centre (O), principal foci (F1, F2)",
+      "Three principal ray rules for lenses",
+      "Image formation summary for lenses (Tables 9.4 and 9.5)"
+    ],
+    "chapter_notes": "Spherical lenses are transparent materials bound by two surfaces, at least one of which is spherical. Convex lenses converge parallel rays to focus F2 and are thicker in the middle. Concave lenses diverge parallel rays appearing from F1 and are thicker at the edges. Optical centre O is the central point where rays pass undeviated. Lenses have two principal foci (F1 and F2). Ray rules for lenses: (i) Parallel rays pass through F2 (or diverge from F1), (ii) Rays through focus emerge parallel, and (iii) Rays through optical centre O pass straight without deviation.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "cm",
+        "given": "Object position at 2F1",
+        "formula": "Lens image formation rules for convex lens",
+        "problem": "State the position of the image formed by a convex lens when the object is placed at 2F1.",
+        "calculation": "Image is formed at 2F2 on the other side of the lens with the same size (real and inverted).",
+        "finalAnswer": "At 2F2",
+        "substitution": "u = -2f",
+        "image_search_query": "class 10 science chapter_9_light ncert",
+        "page": 50,
+        "section": "Section 5"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing convex lens focus behavior (converging) with concave mirror focus behavior.",
+      "Forgetting that lenses have two focal points on either side."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735125737_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Refraction by Spherical Lenses and Ray Diagrams: Understand convex and concave lenses, optical centres, principal foci, and lens ray diagram rules.",
+              "keyTakeaway": "Convex Lens: Thicker at the middle, converges light rays (converging lens)."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Convex Lens: Thicker at the middle, converges light rays (converging lens)."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc109.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735125737_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Refraction by Spherical Lenses and Ray Diagrams - Fundamental Equations",
+              "equations": [
+                "Convex Lens: Thicker at the middle, converges light rays (converging lens).",
+                "Concave Lens: Thicker at the edges, diverges light rays (diverging lens).",
+                "Lens Ray Rule 3: A ray passing through the optical centre of a lens emerges without any deviation."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Convex Lens: Thicker at the middle, converges light rays (converging lens)."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc109.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735125737_3",
+          "type": "DIAGRAM",
+          "title": "Refraction by Spherical Lenses and Ray Diagrams Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Refraction by Spherical Lenses and Ray Diagrams Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Convex Lens: Thicker at the middle, converges light rays (converging lens).",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Concave Lens: Thicker at the edges, diverges light rays (diverging lens).",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Refraction by Spherical Lenses and Ray Diagrams",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Refraction by Spherical Lenses and Ray Diagrams | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><path d='M 270 60 Q 295 140 270 220 Q 245 140 270 60' fill='#F1F5F9' stroke='#0F172A' stroke-width='2'/><line x1='100' y1='140' x2='440' y2='140' stroke='#64748B' stroke-width='1'/><line x1='120' y1='100' x2='270' y2='100' stroke='#2563EB' stroke-width='2'/><line x1='270' y1='100' x2='380' y2='140' stroke='#DC2626' stroke-width='2'/><circle cx='380' cy='140' r='3' fill='#DC2626'/><text x='385' y='155' fill='#DC2626' font-family='sans-serif' font-size='12'>F2</text></svg> | Convex lens, optical centre O, F1, 2F1, F2, 2F2, parallel incident rays converging at F2."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc109.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735125737_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Convex Lens: Thicker at the middle, converges light rays (converging lens)."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Object position at 2F1, what is the value?",
+              "explanation": "By fundamental principle, Convex Lens: Thicker at the middle, converges light rays (converging lens). is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735125737_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Definition of convex (converging) and concave (diverging) lenses",
+                "Key terms: Optical centre (O), principal foci (F1, F2)",
+                "Three principal ray rules for lenses",
+                "Image formation summary for lenses (Tables 9.4 and 9.5)"
+              ],
+              "formulasToRemember": [
+                "Convex Lens: Thicker at the middle, converges light rays (converging lens).",
+                "Concave Lens: Thicker at the edges, diverges light rays (diverging lens).",
+                "Lens Ray Rule 3: A ray passing through the optical centre of a lens emerges without any deviation."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Refraction by Spherical Lenses and Ray Diagrams - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Refraction by Spherical Lenses and Ray Diagrams",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:45:25.737Z",
+        "provenance": "jesc109.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735125737",
+      "subtopics": [
+        "Definition of convex (converging) and concave (diverging) lenses",
+        "Key terms: Optical centre (O), principal foci (F1, F2)",
+        "Three principal ray rules for lenses",
+        "Image formation summary for lenses (Tables 9.4 and 9.5)"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><path d='M 270 60 Q 295 140 270 220 Q 245 140 270 60' fill='#F1F5F9' stroke='#0F172A' stroke-width='2'/><line x1='100' y1='140' x2='440' y2='140' stroke='#64748B' stroke-width='1'/><line x1='120' y1='100' x2='270' y2='100' stroke='#2563EB' stroke-width='2'/><line x1='270' y1='100' x2='380' y2='140' stroke='#DC2626' stroke-width='2'/><circle cx='380' cy='140' r='3' fill='#DC2626'/><text x='385' y='155' fill='#DC2626' font-family='sans-serif' font-size='12'>F2</text></svg>",
+      "diagram_idea": "Convex lens converging parallel rays to F2.",
+      "diagram_type": "ray_optics",
+      "what_to_make": "Convex lens, optical centre O, F1, 2F1, F2, 2F2, parallel incident rays converging at F2.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><path d='M 270 50 Q 300 140 270 230 Q 240 140 270 50' fill='#E2E8F0' stroke='#0F172A' stroke-width='2'/><line x1='100' y1='140' x2='450' y2='140' stroke='#64748B' stroke-width='1'/><line x1='120' y1='100' x2='270' y2='100' stroke='#2563EB' stroke-width='2'/><line x1='270' y1='100' x2='370' y2='140' stroke='#DC2626' stroke-width='2'/></svg>",
+          "why_needed": "Shows how convex lenses bend parallel light rays to a focal point.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><path d='M 270 50 Q 300 140 270 230 Q 240 140 270 50' fill='#E2E8F0' stroke='#0F172A' stroke-width='2'/><line x1='100' y1='140' x2='450' y2='140' stroke='#64748B' stroke-width='1'/><line x1='120' y1='100' x2='270' y2='100' stroke='#2563EB' stroke-width='2'/><line x1='270' y1='100' x2='370' y2='140' stroke='#DC2626' stroke-width='2'/></svg>",
+          "image_query": "convex lens ray diagram showing optical center, principal focus F1 F2, 2F1 2F2, and refracted light rays",
+          "video_query": "convex lens image formation physics optics laboratory experiment demonstration",
+          "diagram_type": "ray_optics",
+          "what_to_make": "Convex lens shape, principal axis, parallel rays converging at F2.",
+          "concept_title": "Convex Lens: Thicker at the middle, converges light rays (converging lens).",
+          "diagram_title": "Convex Lens Convergence",
+          "timing_and_cue": "Show during introduction of convex lens properties.",
+          "what_to_explain": "Highlight focal point F2 on the opposite side.",
+          "image_search_query": "convex lens ray diagram showing optical center, principal focus F1 F2, 2F1 2F2, and refracted light rays",
+          "video_search_query": "convex lens image formation physics optics laboratory experiment demonstration",
+          "interactive_math_formula": "1/v - 1/u = 1/f"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Lenses -> Convex (Converging) | Concave (Diverging) -> Terms: Optical Centre O, F1, F2 -> Ray Rules -> Image Formation",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Which lens always produces a virtual, erect, and diminished image regardless of object position?",
+              "ideal_answer": "Concave lens",
+              "socratic_hint": "Think about diverging lenses and their image characteristics."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Define the optical centre of a spherical lens.",
+              "ideal_answer": "The central point of a lens through which a ray of light passes without suffering any deviation is called its optical centre (O).",
+              "socratic_hint": "Where is the exact geometric center point inside the lens?"
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Convex Lens: Thicker at the middle, converges light rays (converging lens)."
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Activity 9.11",
+          "scenario": "Burning paper with sunlight using a convex lens to find approximate focal length."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q3",
+              "question": "Where should an object be placed in front of a convex lens to get a real image of the size of the object?",
+              "question_type": "conceptual",
+              "solution_method": "At twice the focal length (At 2F1)."
+            }
+          ],
+          "exercise_number": "End of Chapter Q3"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Optical Centre",
+          "si_units": "Metres (m)",
+          "definition": "The central point of a lens through which light passes without deviation."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "c7ba9ae4-23d6-4434-895b-65cbccaeaeba",
+    "curriculum_id": "f28bed4a-681d-4766-82b9-f5ea292c371e",
+    "order_index": 6,
+    "title": "NCERT In-Text & Chapter-End Exercises Master Solver",
+    "description": "Master lens formula, magnification, optical power in dioptres, and solve all chapter exercises and numericals.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 6: Lens Formula, Magnification, Power of a Lens, and Chapter Master Solver. Mid-Term Examination Syllabus. Highlight the crucial difference in signs between the mirror formula and lens formula to prevent student confusion.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Lens power illustration showing P = 1/f with positive and negative power values.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Lenses -> Lens Formula (1/v - 1/u = 1/f) -> Magnification (m = v/u) -> Power (P = 1/f in dioptres) -> Lens Combinations (P1 + P2)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Lenses -> Lens Formula (1/v - 1/u = 1/f) -> Magnification (m = v/u) -> Power (P = 1/f in dioptres) -> Lens Combinations (P1 + P2)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Power of a Lens: \"The reciprocal of focal length expressed in metres (P = 1/f).\" [SI Unit: Dioptre (D)]\n\n- Textbook Concrete Examples:\n- Example 9.3: Concave lens object distance calculation for image at 10 cm.\n- Example 9.4: Convex lens image position and height calculation for object at 15 cm.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - End of Chapter Q16:\n    * [Q16] (numerical): Find the focal length of a lens of power -2.0 D. What type of lens is this?\n      Method: f = 1 / P -> 1 / (-2.0) = -0.50 m = -50 cm. Concave lens.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Lens Formula: 1/v - 1/u = 1/f connecting object distance u, image distance v, and focal length f for lenses.\":\n    * [Q1] (5-mark Numerical): A concave lens has focal length of 15 cm. At what distance should the object from the lens be placed so that it forms an image at 10 cm from the lens?\n      -> Ideal Model Answer: u = -30 cm\n      -> Socratic Hint: Use the lens formula 1/v - 1/u = 1/f with v = -10 cm and f = -15 cm.\n  * Concept #2 \"Power of a Lens: Reciprocal of focal length in metres (P = 1 / f), measured in Dioptres (D).\":\n    * [Q1] (1-mark MCQ): What is the SI unit of power of a lens?\n      -> Ideal Model Answer: Dioptre (D)\n      -> Socratic Hint: Recall the unit defined for 1 / f where f is in meters.\n    * [Q2] (3-mark Numerical): Find the focal length of a lens of power -2.0 D. What type of lens is this?\n      -> Ideal Model Answer: f = -0.50 m (-50 cm); Concave lens.\n      -> Socratic Hint: Use f = 1 / P. Negative power implies a concave lens.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Power of a Lens: Reciprocal of focal length in metres (P = 1 / f), measured in Dioptres (D).\":\n    - Visual Title: \"Power of Lens and Dioptre Scale\" (vector_svg_diagram)\n    - Why Needed: Reinforces power calculations and unit conversions.\n    - What to Explain: Explain that focal length must be in metres when calculating power.\n    - Timing & Directive: Present when introducing lens power and numerical problems.\n    - Interactive Math Formula: P = 1 / f\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Lens Formula: 1/v - 1/u = 1/f connecting object distance u, image distance v, and focal length f for lenses.",
+      "Lens Magnification: m = h'/h = v/u.",
+      "Power of a Lens: Reciprocal of focal length in metres (P = 1 / f), measured in Dioptres (D)."
+    ],
+    "success_criteria": "Calculate lens power, focal lengths, and solve complete textbook numerical problems.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:45:26.555835+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Lens formula (1/v - 1/u = 1/f)",
+      "Lens magnification (m = h'/h = v/u)",
+      "Power of a lens (P = 1/f) and SI unit Dioptre (D)",
+      "Combination of lenses in contact",
+      "Complete exercise and numerical problem solver"
+    ],
+    "chapter_notes": "The lens formula is 1/v - 1/u = 1/f. Magnification m = h'/h = v/u. Power of a lens P is the reciprocal of focal length in metres: P = 1 / f. The SI unit of power is dioptre (D), where 1 D = 1 m^-1. Convex lenses have positive power, and concave lenses have negative power. When lenses are placed in contact, net power is the algebraic sum of individual powers: P = P1 + P2 + P3 + ...",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "In-Text Question (Section 9.2, p. 12): A concave mirror produces three times magnified real image of an object placed at 10 cm in front of it. Where is the image located? What is the focal length of the mirror?",
+        "given": "Object distance u = -10 cm (sign convention); Magnification m = -3 (real, inverted image).",
+        "formula": "Magnification $m = -\\frac{v}{u}$; Mirror Formula: $\\frac{1}{f} = \\frac{1}{v} + \\frac{1}{u}$.",
+        "substitution": "$-3 = -\\frac{v}{-10} \\implies -3 = \\frac{v}{10} \\implies v = -30\\text{ cm}$.",
+        "calculation": "1. Image distance: $v = -30\\text{ cm}$ (located 30 cm in front of the concave mirror on the same side as object).\n2. Focal length:\n   $\\frac{1}{f} = \\frac{1}{-30} + \\frac{1}{-10} = \\frac{-1 - 3}{30} = \\frac{-4}{30} = -\\frac{2}{15}$.\n   $f = -\\frac{15}{2} = -7.5\\text{ cm}$.",
+        "finalAnswer": "Image is located at 30 cm in front of the mirror (v = -30 cm); Focal length of the mirror is -7.5 cm.",
+        "unit": "centimeters (cm)",
+        "has_diagram": true,
+        "diagram_source": "image_search",
+        "figure_caption": "Concave mirror real magnified image ray diagram",
+        "image_search_query": "concave mirror real magnified image ray diagram optics",
+        "page": 12,
+        "section": "Section 9.2"
+      },
+      {
+        "problem": "In-Text Question (Section 9.3, p. 17): Light enters from air to glass having refractive index 1.50. What is the speed of light in glass? (Speed of light in vacuum c = 3 * 10^8 m s^-1).",
+        "given": "Refractive index of glass n = 1.50; Speed of light in vacuum $c = 3 \\times 10^8\\text{ m s}^{-1}$.",
+        "formula": "Absolute Refractive Index $n = \\frac{c}{v} \\implies v = \\frac{c}{n}$.",
+        "substitution": "$v = \\frac{3 \\times 10^8}{1.50}$.",
+        "calculation": "$v = 2.0 \\times 10^8\\text{ m s}^{-1}$.",
+        "finalAnswer": "The speed of light in glass is 2.0 * 10^8 m s^-1.",
+        "unit": "m s\u207b\u00b9",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "refraction of light speed in medium snell law calculation",
+        "page": 17,
+        "section": "Section 9.3"
+      },
+      {
+        "problem": "End-of-Chapter Exercise Q10 (p. 26): An object 5 cm in length is held 25 cm away from a converging lens of focal length 10 cm. Draw the ray diagram and find the position, size, and the nature of the image formed.",
+        "given": "Object height $h_1 = +5\\text{ cm}$; Object distance $u = -25\\text{ cm}$; Focal length of convex lens $f = +10\\text{ cm}$.",
+        "formula": "Lens Formula: $\\frac{1}{f} = \\frac{1}{v} - \\frac{1}{u} \\implies \\frac{1}{v} = \\frac{1}{f} + \\frac{1}{u}$; Magnification $m = \\frac{v}{u} = \\frac{h_2}{h_1}$.",
+        "substitution": "$\\frac{1}{v} = \\frac{1}{10} + \\frac{1}{-25} = \\frac{1}{10} - \\frac{1}{25} = \\frac{5 - 2}{50} = \\frac{3}{50}$.",
+        "calculation": "1. Image distance: $v = +\\frac{50}{3} \\approx +16.67\\text{ cm}$ (formed on opposite side of lens, real).\n2. Image height: $h_2 = h_1 \\times \\frac{v}{u} = 5 \\times \\frac{50/3}{-25} = 5 \\times \\left(-\\frac{2}{3}\\right) = -\\frac{10}{3} \\approx -3.33\\text{ cm}$.\n3. Nature: Real, inverted, and diminished (height 3.33 cm).",
+        "finalAnswer": "Image is real, inverted, located at +16.67 cm behind the lens with height -3.33 cm.",
+        "unit": "centimeters (cm)",
+        "has_diagram": true,
+        "diagram_source": "image_search",
+        "figure_caption": "Convex lens real inverted diminished image ray diagram",
+        "image_search_query": "convex lens ray diagram real inverted image focal length",
+        "page": 26,
+        "section": "Exercises"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing the lens formula (minus sign: 1/v - 1/u = 1/f) with the mirror formula (plus sign: 1/v + 1/u = 1/f).",
+      "Forgetting to convert focal length into metres before calculating power in dioptres."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735126002_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Lens Formula, Magnification, Power of a Lens, and Chapter Master Solver: Master lens formula, magnification, optical power in dioptres, and solve all chapter exercises and numericals.",
+              "keyTakeaway": "Lens Formula: 1/v - 1/u = 1/f connecting object distance u, image distance v, and focal length f for lenses."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Lens Formula: 1/v - 1/u = 1/f connecting object distance u, image distance v, and focal length f for lenses."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc109.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735126002_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Lens Formula, Magnification, Power of a Lens, and Chapter Master Solver - Fundamental Equations",
+              "equations": [
+                "Lens Formula: 1/v - 1/u = 1/f connecting object distance u, image distance v, and focal length f for lenses.",
+                "Lens Magnification: m = h'/h = v/u.",
+                "Power of a Lens: Reciprocal of focal length in metres (P = 1 / f), measured in Dioptres (D)."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Lens Formula: 1/v - 1/u = 1/f connecting object distance u, image distance v, and focal length f for lenses."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc109.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735126002_3",
+          "type": "DIAGRAM",
+          "title": "Lens Formula, Magnification, Power of a Lens, and Chapter Master Solver Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Lens Formula, Magnification, Power of a Lens, and Chapter Master Solver Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Lens Formula: 1/v - 1/u = 1/f connecting object distance u, image distance v, and focal length f for lenses.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Lens Magnification: m = h'/h = v/u.",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Lens Formula, Magnification, Power of a Lens, and Chapter Master Solver",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Lens Formula, Magnification, Power of a Lens, and Chapter Master Solver | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='150' y='80' fill='#2563EB' font-family='sans-serif' font-size='16'>Convex Lens: P = + (Positive)</text><text x='150' y='140' fill='#DC2626' font-family='sans-serif' font-size='16'>Concave Lens: P = - (Negative)</text><text x='150' y='200' fill='#0F172A' font-family='sans-serif' font-size='14'>SI Unit: Dioptre (D) where 1 D = 1 m^-1</text></svg> | Lens power illustration showing P = 1/f with positive and negative power values."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc109.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735126002_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Lens Formula: 1/v - 1/u = 1/f connecting object distance u, image distance v, and focal length f for lenses."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If P = -2.0 D, what is the value?",
+              "explanation": "By fundamental principle, Lens Formula: 1/v - 1/u = 1/f connecting object distance u, image distance v, and focal length f for lenses. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735126002_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Lens formula (1/v - 1/u = 1/f)",
+                "Lens magnification (m = h'/h = v/u)",
+                "Power of a lens (P = 1/f) and SI unit Dioptre (D)",
+                "Combination of lenses in contact",
+                "Complete exercise and numerical problem solver"
+              ],
+              "formulasToRemember": [
+                "Lens Formula: 1/v - 1/u = 1/f connecting object distance u, image distance v, and focal length f for lenses.",
+                "Lens Magnification: m = h'/h = v/u.",
+                "Power of a Lens: Reciprocal of focal length in metres (P = 1 / f), measured in Dioptres (D)."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Lens Formula, Magnification, Power of a Lens, and Chapter Master Solver - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Lens Formula, Magnification, Power of a Lens, and Chapter Master Solver",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:45:26.002Z",
+        "provenance": "jesc109.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735126002",
+      "subtopics": [
+        "Lens formula (1/v - 1/u = 1/f)",
+        "Lens magnification (m = h'/h = v/u)",
+        "Power of a lens (P = 1/f) and SI unit Dioptre (D)",
+        "Combination of lenses in contact",
+        "Complete exercise and numerical problem solver"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='150' y='80' fill='#2563EB' font-family='sans-serif' font-size='16'>Convex Lens: P = + (Positive)</text><text x='150' y='140' fill='#DC2626' font-family='sans-serif' font-size='16'>Concave Lens: P = - (Negative)</text><text x='150' y='200' fill='#0F172A' font-family='sans-serif' font-size='14'>SI Unit: Dioptre (D) where 1 D = 1 m^-1</text></svg>",
+      "diagram_idea": "Lens power calculation and dioptre scale representation.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Lens power illustration showing P = 1/f with positive and negative power values.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='100' y='80' width='340' height='100' rx='8' fill='#F1F5F9' stroke='#2563EB' stroke-width='2'/><text x='150' y='120' fill='#0F172A' font-family='sans-serif' font-size='18'>Power P = 1 / f (f in metres)</text><text x='170' y='155' fill='#16A34A' font-family='sans-serif' font-size='14'>SI Unit: Dioptre (D)</text></svg>",
+          "why_needed": "Reinforces power calculations and unit conversions.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='100' y='80' width='340' height='100' rx='8' fill='#F1F5F9' stroke='#2563EB' stroke-width='2'/><text x='150' y='120' fill='#0F172A' font-family='sans-serif' font-size='18'>Power P = 1 / f (f in metres)</text><text x='170' y='155' fill='#16A34A' font-family='sans-serif' font-size='14'>SI Unit: Dioptre (D)</text></svg>",
+          "image_query": "Power formula box and convex/concave lens comparisons. scientific educational diagram with clear labels",
+          "video_query": "Power of Lens and Dioptre Scale educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Power formula box and convex/concave lens comparisons.",
+          "concept_title": "Power of a Lens: Reciprocal of focal length in metres (P = 1 / f), measured in Dioptres (D).",
+          "diagram_title": "Power of Lens and Dioptre Scale",
+          "timing_and_cue": "Present when introducing lens power and numerical problems.",
+          "what_to_explain": "Explain that focal length must be in metres when calculating power.",
+          "image_search_query": "Power formula box and convex/concave lens comparisons. scientific educational diagram with clear labels",
+          "video_search_query": "Power of Lens and Dioptre Scale educational demonstration video",
+          "interactive_math_formula": "P = 1 / f"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Lenses -> Lens Formula (1/v - 1/u = 1/f) -> Magnification (m = v/u) -> Power (P = 1/f in dioptres) -> Lens Combinations (P1 + P2)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "5-mark Numerical",
+              "q_num": "Q1",
+              "question": "A concave lens has focal length of 15 cm. At what distance should the object from the lens be placed so that it forms an image at 10 cm from the lens?",
+              "ideal_answer": "u = -30 cm",
+              "socratic_hint": "Use the lens formula 1/v - 1/u = 1/f with v = -10 cm and f = -15 cm."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Lens Formula: 1/v - 1/u = 1/f connecting object distance u, image distance v, and focal length f for lenses."
+        },
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "What is the SI unit of power of a lens?",
+              "ideal_answer": "Dioptre (D)",
+              "socratic_hint": "Recall the unit defined for 1 / f where f is in meters."
+            },
+            {
+              "type": "3-mark Numerical",
+              "q_num": "Q2",
+              "question": "Find the focal length of a lens of power -2.0 D. What type of lens is this?",
+              "ideal_answer": "f = -0.50 m (-50 cm); Concave lens.",
+              "socratic_hint": "Use f = 1 / P. Negative power implies a concave lens."
+            }
+          ],
+          "concept_index": 2,
+          "concept_title": "Power of a Lens: Reciprocal of focal length in metres (P = 1 / f), measured in Dioptres (D)."
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Example 9.3",
+          "scenario": "Concave lens object distance calculation for image at 10 cm."
+        },
+        {
+          "title": "Example 9.4",
+          "scenario": "Convex lens image position and height calculation for object at 15 cm."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q16",
+              "question": "Find the focal length of a lens of power -2.0 D. What type of lens is this?",
+              "question_type": "numerical",
+              "solution_method": "f = 1 / P -> 1 / (-2.0) = -0.50 m = -50 cm. Concave lens."
+            }
+          ],
+          "exercise_number": "End of Chapter Q16"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Power of a Lens",
+          "si_units": "Dioptre (D)",
+          "definition": "The reciprocal of focal length expressed in metres (P = 1/f)."
+        }
+      ]
+    },
+    "quiz_questions": []
+  }
+]

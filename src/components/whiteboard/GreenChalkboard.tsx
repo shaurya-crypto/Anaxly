@@ -3515,11 +3515,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         } else if (discretePoints.length > 0) {
           if (titleText === 'Cartesian Graph') titleText = 'Discrete Points Plot'
         } else {
-          // Standard linear default
-          titleText = 'Linear Graph: y = mx + c'
-          if (!hasExplicitDomain) domain = [-5, 5]
-          formula = 'x + 1'
-          calloutText = 'Slope m = Delta_y / Delta_x'
+          // Zero meaningless default line invariant: strictly refuse to draw arbitrary y = x + 1 lines without formula or points
+          console.warn('[GreenChalkboard] Zero meaningless graph invariant: Denied drawing default line without explicit formula, segments, or points:', query)
+          return
         }
 
         // Auto-fit domain if discrete points given without explicit domain

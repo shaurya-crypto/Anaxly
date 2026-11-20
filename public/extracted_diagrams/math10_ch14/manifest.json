@@ -1,0 +1,116 @@
+[
+  {
+    "figure_id": "Fig. 14.1",
+    "page_number": 9,
+    "caption": "Fig. 14.1",
+    "filename": "fig_14_1.webp",
+    "file_path": "public/extracted_diagrams/math10_ch14\\fig_14_1.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 1005,
+      "aspect_ratio": 1.04
+    },
+    "file_size_kb": 139.7,
+    "crop_bbox": [
+      60.0,
+      257.0,
+      444.1,
+      621.4
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.2",
+    "page_number": 10,
+    "caption": "Fig. 14.2",
+    "filename": "fig_14_2.webp",
+    "file_path": "public/extracted_diagrams/math10_ch14\\fig_14_2.webp",
+    "dimensions": {
+      "width": 965,
+      "height": 1102,
+      "aspect_ratio": 0.88
+    },
+    "file_size_kb": 172.4,
+    "crop_bbox": [
+      81.0,
+      165.3,
+      428.5,
+      562.3
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.3",
+    "page_number": 12,
+    "caption": "Fig. 14.3",
+    "filename": "fig_14_3.webp",
+    "file_path": "public/extracted_diagrams/math10_ch14\\fig_14_3.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 619,
+      "aspect_ratio": 1.7
+    },
+    "file_size_kb": 38.5,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.0,
+      319.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.4",
+    "page_number": 14,
+    "caption": "Fig. 14.4 1, 2, 3, 4, 5, 6, 7, 8 (see Fig. 14.5 ), and these are equally",
+    "filename": "fig_14_4.webp",
+    "file_path": "public/extracted_diagrams/math10_ch14\\fig_14_4.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 523,
+      "aspect_ratio": 2.01
+    },
+    "file_size_kb": 85.1,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.1,
+      285.5
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.5",
+    "page_number": 14,
+    "caption": "Fig. 14.5 ), and these are equally likely outcomes. What is the probability that it will",
+    "filename": "fig_14_5.webp",
+    "file_path": "public/extracted_diagrams/math10_ch14\\fig_14_5.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 560,
+      "aspect_ratio": 1.88
+    },
+    "file_size_kb": 87.4,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.1,
+      298.9
+    ]
+  },
+  {
+    "figure_id": "Fig. 14.6",
+    "page_number": 15,
+    "caption": "Fig. 14.6",
+    "filename": "fig_14_6.webp",
+    "file_path": "public/extracted_diagrams/math10_ch14\\fig_14_6.webp",
+    "dimensions": {
+      "width": 1050,
+      "height": 593,
+      "aspect_ratio": 1.77
+    },
+    "file_size_kb": 36.6,
+    "crop_bbox": [
+      60.0,
+      97.0,
+      444.0,
+      310.8
+    ]
+  }
+]

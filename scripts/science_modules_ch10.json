@@ -32,7 +32,10 @@
         "unit": "Acoustic Production",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.2: Vibrations producing sound in elastic bodies"
+        "figure_caption": "Fig. 10.2: Vibrations producing sound in elastic bodies",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 81,
+        "section": "Section 10.1"
       },
       {
         "problem": "Why is sound wave called a mechanical wave? Can two astronauts talk to each other on the surface of the moon as they do on earth?",
@@ -44,7 +47,10 @@
         "unit": "Vacuum Invariant",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.7: Electric bell jar experiment proving sound cannot travel in vacuum"
+        "figure_caption": "Fig. 10.7: Electric bell jar experiment proving sound cannot travel in vacuum",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 81,
+        "section": "Section 10.1"
       },
       {
         "problem": "Describe an activity to show that sound can travel through solids with high efficiency.",
@@ -56,7 +62,10 @@
         "unit": "Solid Medium Transmission",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.5: Sound transmission through solid materials"
+        "figure_caption": "Fig. 10.5: Sound transmission through solid materials",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 81,
+        "section": "Section 10.1"
       },
       {
         "problem": "How do human vocal cords produce speech of varying pitch? Explain the anatomical mechanism in the larynx.",
@@ -68,7 +77,10 @@
         "unit": "Laryngeal Biomechanics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.3: Vocal cords in human larynx producing sound"
+        "figure_caption": "Fig. 10.3: Vocal cords in human larynx producing sound",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 81,
+        "section": "Section 10.1"
       },
       {
         "problem": "When a tuning fork is struck and its stem is pressed against a tabletop, why does the sound become significantly louder?",
@@ -80,7 +92,10 @@
         "unit": "Forced Oscillations",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.4: Tuning fork vibration and acoustic radiation"
+        "figure_caption": "Fig. 10.4: Tuning fork vibration and acoustic radiation",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 81,
+        "section": "Section 10.1"
       },
       {
         "problem": "Do the particles of air travel all the way from a ringing bell to our ears? Explain what physically travels across the room.",
@@ -92,7 +107,10 @@
         "unit": "Wave Dynamics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.10: Spherical propagation of sound energy without bulk particle drift"
+        "figure_caption": "Fig. 10.10: Spherical propagation of sound energy without bulk particle drift",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 81,
+        "section": "Section 10.1"
       }
     ],
     "common_misconceptions": [
@@ -174,7 +192,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If a massive meteor explodes in deep space right next to your spacecraft, will you hear a deafening thunderous boom or dead silence?\"\n   - Law: State the mechanical nature of sound and detail the bell jar vacuum experiment.\n   - Socratic check: \"When a tuning fork rings, do the air molecules around it fly across the classroom into your ear? What actually travels?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If a massive meteor explodes in deep space right next to your spacecraft, will you hear a deafening thunderous boom or dead silence?\"\n   - Law: State the mechanical nature of sound and detail the bell jar vacuum experiment.\n   - Socratic check: \"When a tuning fork rings, do the air molecules around it fly across the classroom into your ear? What actually travels?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "1908699a-60c6-4a5e-9f27-05f9111fe142",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 2,
@@ -209,7 +230,10 @@
         "unit": "s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.16: Periodic density variation and graphical representation of sound wave"
+        "figure_caption": "Fig. 10.16: Periodic density variation and graphical representation of sound wave",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 82,
+        "section": "Section 10.2"
       },
       {
         "problem": "A sound wave travels at a speed of 339 m/s. If its wavelength is 1.5 cm, what is the frequency of the wave? Will it be audible to human ears?",
@@ -221,7 +245,10 @@
         "unit": "Hz",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.19: Graphical representation of high-frequency ultrasonic wave"
+        "figure_caption": "Fig. 10.19: Graphical representation of high-frequency ultrasonic wave",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 82,
+        "section": "Section 10.2"
       },
       {
         "problem": "Calculate the wavelength of a sound wave whose frequency is 220 Hz and speed is 440 m/s in a given medium.",
@@ -233,7 +260,10 @@
         "unit": "m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.12: Anatomical wavelength dimension between consecutive compressions"
+        "figure_caption": "Fig. 10.12: Anatomical wavelength dimension between consecutive compressions",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 82,
+        "section": "Section 10.2"
       },
       {
         "problem": "A person is listening to a tone of 500 Hz sitting at a distance of 450 m from the source of the sound. What is the time interval between successive compressions reaching the listener?",
@@ -245,7 +275,10 @@
         "unit": "s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.16a: Sinusoidal periodic density variation with time period T"
+        "figure_caption": "Fig. 10.16a: Sinusoidal periodic density variation with time period T",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 82,
+        "section": "Section 10.2"
       },
       {
         "problem": "Explain the difference between compressions and rarefactions in terms of particle density and pressure. How are they represented on a displacement-distance graph?",
@@ -257,7 +290,10 @@
         "unit": "Graph Mapping",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.16: Mapping physical compressions/rarefactions to sinusoidal graph"
+        "figure_caption": "Fig. 10.16: Mapping physical compressions/rarefactions to sinusoidal graph",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 82,
+        "section": "Section 10.2"
       },
       {
         "problem": "A vibrating body produces 50 waves in 0.5 seconds. If the distance between a compression and the next rarefaction is 68 cm, calculate: (a) Frequency, (b) Wavelength, (c) Wave speed.",
@@ -269,7 +305,10 @@
         "unit": "m/s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.8: Longitudinal wave propagation along a slinky spring"
+        "figure_caption": "Fig. 10.8: Longitudinal wave propagation along a slinky spring",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 82,
+        "section": "Section 10.2"
       }
     ],
     "common_misconceptions": [
@@ -351,7 +390,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If a wave has a distance of 50 cm between a compression and the VERY NEXT rarefaction, what is its wavelength? Is it 50 cm or 100 cm?\"\n   - Law: Define longitudinal vs transverse waves, amplitude, time period, and derive $v = \\nu\\lambda$.\n   - Socratic check: \"A sound wave has frequency 1000 Hz and speed 340 m/s. Calculate its wavelength!\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If a wave has a distance of 50 cm between a compression and the VERY NEXT rarefaction, what is its wavelength? Is it 50 cm or 100 cm?\"\n   - Law: Define longitudinal vs transverse waves, amplitude, time period, and derive $v = \\nu\\lambda$.\n   - Socratic check: \"A sound wave has frequency 1000 Hz and speed 340 m/s. Calculate its wavelength!\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "1908699a-60c6-4a5e-9f27-05f9111fe142",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 3,
@@ -366,7 +408,7 @@
       "Tone vs Note: Pure single-frequency oscillation vs complex musical mixture of harmonic overtones"
     ],
     "key_concepts": [
-      "Pitch (Shrillness): Pitch is the auditory sensation that allows us to classify a sound as shrill or grave/flat; it is governed entirely by the frequency of vibration—higher frequency corresponds to higher pitch.",
+      "Pitch (Shrillness): Pitch is the auditory sensation that allows us to classify a sound as shrill or grave/flat; it is governed entirely by the frequency of vibration\u2014higher frequency corresponds to higher pitch.",
       "Loudness & Amplitude Squared: Loudness is the measure of auditory response of the ear to sound energy, determined primarily by the amplitude of the vibrating body ($Loudness \\propto Amplitude^2$); doubling the amplitude quadruples the loudness.",
       "Intensity of Sound: Intensity is the physical acoustic power transmitted per unit area perpendicular to wave direction ($\\text{W/m}^2$), an objective quantity independent of human ear sensitivity, whereas loudness is a subjective psychological sensation.",
       "Quality or Timbre: Quality or timbre is the characteristic of a musical sound that enables us to distinguish between two sounds having the identical pitch and loudness emitted by different sources, determined by the harmonic waveform shape.",
@@ -386,7 +428,10 @@
         "unit": "Pitch Comparison",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.17: Comparison of low-frequency vs high-frequency sound waveforms"
+        "figure_caption": "Fig. 10.17: Comparison of low-frequency vs high-frequency sound waveforms",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 83,
+        "section": "Section 10.3"
       },
       {
         "problem": "If the amplitude of a sound wave is increased by a factor of 3, how will the loudness of the sound be affected?",
@@ -398,7 +443,10 @@
         "unit": "Square Law",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.22: Waveform showing tripled amplitude and magnified acoustic power"
+        "figure_caption": "Fig. 10.22: Waveform showing tripled amplitude and magnified acoustic power",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 83,
+        "section": "Section 10.3"
       },
       {
         "problem": "Distinguish between a tone and a note in acoustics.",
@@ -410,7 +458,10 @@
         "unit": "Harmonic Acoustics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.25: Harmonic waveform characteristics of musical instruments"
+        "figure_caption": "Fig. 10.25: Harmonic waveform characteristics of musical instruments",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 83,
+        "section": "Section 10.3"
       },
       {
         "problem": "Two musical notes played on a flute and a violin have the same pitch and the same loudness. Can you distinguish between them? Name the property of sound that enables this.",
@@ -422,7 +473,10 @@
         "unit": "Timbre",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.26: Acoustic resonance and unique timbre in musical instruments"
+        "figure_caption": "Fig. 10.26: Acoustic resonance and unique timbre in musical instruments",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 83,
+        "section": "Section 10.3"
       },
       {
         "problem": "Why does a woman's voice generally sound more shrill than a man's voice?",
@@ -434,7 +488,10 @@
         "unit": "Anatomical Acoustics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.3: Vocal cord tension and frequency determination"
+        "figure_caption": "Fig. 10.3: Vocal cord tension and frequency determination",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 83,
+        "section": "Section 10.3"
       },
       {
         "problem": "Explain the difference between loudness and intensity of sound. Can two sounds have the same intensity but different loudness?",
@@ -446,7 +503,10 @@
         "unit": "Psychoacoustics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.21: Sound energy spreading over distance"
+        "figure_caption": "Fig. 10.21: Sound energy spreading over distance",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 83,
+        "section": "Section 10.3"
       }
     ],
     "common_misconceptions": [
@@ -461,7 +521,7 @@
       "diagram_type": "image",
       "concept_visuals": [
         {
-          "concept_title": "Pitch (Shrillness): Pitch is the auditory sensation that allows us to classify a sound as shrill or grave/flat; it is governed entirely by the frequency of vibration—higher frequency corresponds to higher pitch.",
+          "concept_title": "Pitch (Shrillness): Pitch is the auditory sensation that allows us to classify a sound as shrill or grave/flat; it is governed entirely by the frequency of vibration\u2014higher frequency corresponds to higher pitch.",
           "diagram_title": "Pitch vs Frequency Wave Comparison",
           "diagram_type": "image_search",
           "image_query": "Textbook comparative graph showing two waveforms: low frequency low pitch and high frequency high pitch . scientific educational diagram with clear labels",
@@ -528,7 +588,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If a flute and a violin play the EXACT same note at the EXACT same loudness, how does your brain know instantly which one is the violin?\"\n   - Law: Detail the tri-particulate acoustic triad: Pitch (Frequency), Loudness (Amplitude^2), and Timbre (Waveform).\n   - Socratic check: \"If a guitarist doubles the amplitude of vibration by plucking harder, by what factor does the loudness multiply?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If a flute and a violin play the EXACT same note at the EXACT same loudness, how does your brain know instantly which one is the violin?\"\n   - Law: Detail the tri-particulate acoustic triad: Pitch (Frequency), Loudness (Amplitude^2), and Timbre (Waveform).\n   - Socratic check: \"If a guitarist doubles the amplitude of vibration by plucking harder, by what factor does the loudness multiply?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "1908699a-60c6-4a5e-9f27-05f9111fe142",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 4,
@@ -563,7 +626,10 @@
         "unit": "m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.23: Round-trip reflection distance for echo determination"
+        "figure_caption": "Fig. 10.23: Round-trip reflection distance for echo determination",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 84,
+        "section": "Section 10.4"
       },
       {
         "problem": "A person standing between two parallel cliffs fires a gun. He hears the first echo after 2 s and the second echo after 3 s. Calculate the distance between the two cliffs. (Speed of sound in air = 340 m/s).",
@@ -575,7 +641,10 @@
         "unit": "m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.23: Dual echo reflections between two parallel boundaries"
+        "figure_caption": "Fig. 10.23: Dual echo reflections between two parallel boundaries",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 84,
+        "section": "Section 10.4"
       },
       {
         "problem": "Derive the minimum distance required between the listener and reflecting obstacle to hear a distinct echo in air at 22 deg C.",
@@ -587,7 +656,10 @@
         "unit": "m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.23: Geometric path of echo round trip"
+        "figure_caption": "Fig. 10.23: Geometric path of echo round trip",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 84,
+        "section": "Section 10.4"
       },
       {
         "problem": "What is reverberation? How can it be reduced in a cinema hall or auditorium?",
@@ -599,7 +671,10 @@
         "unit": "Architectural Acoustics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.21: Sound absorption and energy dissipation in halls"
+        "figure_caption": "Fig. 10.21: Sound absorption and energy dissipation in halls",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 84,
+        "section": "Section 10.4"
       },
       {
         "problem": "What produces a sonic boom? Why do windows of buildings shake when a supersonic fighter jet flies overhead?",
@@ -611,7 +686,10 @@
         "unit": "Gas Dynamics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.11: Supersonic aircraft and conical shock wave formation"
+        "figure_caption": "Fig. 10.11: Supersonic aircraft and conical shock wave formation",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 84,
+        "section": "Section 10.4"
       },
       {
         "problem": "During a thunderstorm, lightning is seen several seconds before thunder is heard, even though both occur simultaneously. Explain why.",
@@ -623,7 +701,10 @@
         "unit": "Speed Discrepancy",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.10: Atmospheric acoustic propagation over large distance"
+        "figure_caption": "Fig. 10.10: Atmospheric acoustic propagation over large distance",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 84,
+        "section": "Section 10.4"
       }
     ],
     "common_misconceptions": [
@@ -705,7 +786,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Why can't you hear an echo inside your bedroom when you shout, but you hear it clearly standing in front of a giant cliff?\"\n   - Law: State the 0.1 s persistence of hearing and derive the 17.2 m minimum distance rule.\n   - Socratic check: \"An echo is heard 2 seconds after shouting near a mountain. If sound speed is 340 m/s, how far is the mountain? Don't forget the round trip!\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Why can't you hear an echo inside your bedroom when you shout, but you hear it clearly standing in front of a giant cliff?\"\n   - Law: State the 0.1 s persistence of hearing and derive the 17.2 m minimum distance rule.\n   - Socratic check: \"An echo is heard 2 seconds after shouting near a mountain. If sound speed is 340 m/s, how far is the mountain? Don't forget the round trip!\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "1908699a-60c6-4a5e-9f27-05f9111fe142",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 5,
@@ -740,7 +824,10 @@
         "unit": "m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.28: SONAR underwater ultrasonic transmission and reflection"
+        "figure_caption": "Fig. 10.28: SONAR underwater ultrasonic transmission and reflection",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 85,
+        "section": "Section 10.5"
       },
       {
         "problem": "A ship sends out ultrasound that returns from the seabed and is detected after 3.42 s. If the speed of ultrasound through seawater is 1531 m/s, what is the distance of the seabed from the ship?",
@@ -752,7 +839,10 @@
         "unit": "m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.28: Seabed echo ranging via SONAR transducer"
+        "figure_caption": "Fig. 10.28: Seabed echo ranging via SONAR transducer",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 85,
+        "section": "Section 10.5"
       },
       {
         "problem": "How does a bat use ultrasound to catch prey in total darkness? Explain the mechanism of echolocation.",
@@ -764,7 +854,10 @@
         "unit": "Bio-Echolocation",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.27: Echolocation in bats hunting insects in darkness"
+        "figure_caption": "Fig. 10.27: Echolocation in bats hunting insects in darkness",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 85,
+        "section": "Section 10.5"
       },
       {
         "problem": "Describe how ultrasound is used to detect internal cracks and flaws in metallic blocks during civil and aerospace engineering inspections.",
@@ -776,7 +869,10 @@
         "unit": "Non-Destructive Testing",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.29: Ultrasonic flaw detection in structural materials"
+        "figure_caption": "Fig. 10.29: Ultrasonic flaw detection in structural materials",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 85,
+        "section": "Section 10.5"
       },
       {
         "problem": "Why is ultrasound preferred over X-rays for examining internal organs like the liver, kidneys, and pregnant uterus?",
@@ -788,7 +884,10 @@
         "unit": "Diagnostic Medicine",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.29: Acoustic imaging and medical sensing technologies"
+        "figure_caption": "Fig. 10.29: Acoustic imaging and medical sensing technologies",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 85,
+        "section": "Section 10.5"
       },
       {
         "problem": "What is the audible range of the average human ear? What are frequencies below and above this range called?",
@@ -800,7 +899,10 @@
         "unit": "Acoustic Spectrum",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.27: Ultrasonic spectrum utilized by bats and marine mammals"
+        "figure_caption": "Fig. 10.27: Ultrasonic spectrum utilized by bats and marine mammals",
+        "image_search_query": "class 9 science chapter 10 ncert diagram",
+        "page": 85,
+        "section": "Section 10.5"
       }
     ],
     "common_misconceptions": [
@@ -882,12 +984,15 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"How can a blind bat fly through dense pitch-black forest at 40 km/h and snatch a tiny mosquito out of thin air without colliding with a single twig?\"\n   - Law: Detail the auditory spectrum (Infrasound < 20 Hz, Ultrasound > 20 kHz) and the SONAR equation $2d = vt$.\n   - Socratic check: \"A ship sends a SONAR signal and receives the echo from the ocean bed 4 seconds later. If sound in seawater travels at 1500 m/s, how deep is the seabed?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"How can a blind bat fly through dense pitch-black forest at 40 km/h and snatch a tiny mosquito out of thin air without colliding with a single twig?\"\n   - Law: Detail the auditory spectrum (Infrasound < 20 Hz, Ultrasound > 20 kHz) and the SONAR equation $2d = vt$.\n   - Socratic check: \"A ship sends a SONAR signal and receives the echo from the ocean bed 4 seconds later. If sound in seawater travels at 1500 m/s, how deep is the seabed?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "1908699a-60c6-4a5e-9f27-05f9111fe142",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 6,
-    "title": "Anatomy of the Human Ear & Master NCERT Sound Problem Solver",
-    "description": "Analyze the outer, middle, and inner ear anatomy, trace the transformation of pressure waves into mechanical lever amplification and auditory nerve electrical impulses, and solve every NCERT chapter-end question.",
+    "title": "Master Problem Solver & Comprehensive NCERT Chapter Exercise Ledger (Revise, Reflect, Refine Q1 to Q15)",
+    "description": "Exhaustive step-by-step master solutions for all in-text activities and chapter-end 'Revise, Reflect, Refine' exercise problems from NCERT Exploration Grade 9 Chapter 10.",
     "subtopics": [
       "Outer Ear Architecture: Pinna, auditory canal, and tympanic membrane (eardrum)",
       "Middle Ear Lever Mechanics: Three ossicles (Hammer/Malleus, Anvil/Incus, Stirrup/Stapes)",
@@ -899,7 +1004,7 @@
     "key_concepts": [
       "Outer Ear Architecture: The outer ear consists of the pinna which collects sound waves from surroundings, guiding them through the auditory canal to strike the thin elastic tympanic membrane (eardrum).",
       "Tympanic Membrane Vibration: When a compression reaches the eardrum, external pressure pushes it inward; when a rarefaction arrives, pressure decreases and the membrane moves outward, vibrating in sync with sound frequency.",
-      "Middle Ear Ossicular Amplification: The middle ear houses three tiny bones—the hammer (malleus), anvil (incus), and stirrup (stapes)—which act as a compound mechanical lever system, amplifying the mechanical vibrations more than 20 to 30 times.",
+      "Middle Ear Ossicular Amplification: The middle ear houses three tiny bones\u2014the hammer (malleus), anvil (incus), and stirrup (stapes)\u2014which act as a compound mechanical lever system, amplifying the mechanical vibrations more than 20 to 30 times.",
       "Inner Ear Cochlear Transduction: The stapes pushes against the oval window of the cochlea (a fluid-filled spiral snail-shell structure); fluid pressure waves stimulate specialized microscopic sensory hair cells in the organ of Corti, converting vibrations into electrical nerve signals.",
       "Auditory Nerve Transmission: Electrical nerve impulses generated by cochlear hair cells are transmitted via the auditory nerve directly to the temporal lobe of the brain, which interprets the signals as sound.",
       "Complete NCERT Chapter 10 Mastery: Step-by-step solutions for all in-text questions and chapter-end numerical exercises guaranteeing 100% board accuracy."
@@ -908,76 +1013,49 @@
     "chapter_notes": "### 10.15 Anatomy & Physiology of the Human Ear\nThe human ear is divided into three primary anatomical regions:\n\n#### 1. The Outer Ear\n- **Pinna**: The visible external cartilaginous flap. Acts as a funnel collecting sound waves from all directions.\n- **Auditory Canal (Ear Canal)**: A ~2.5 cm tube leading inwards, channeling sound waves.\n- **Tympanic Membrane (Eardrum)**: A delicate, stretched circular membrane terminating the auditory canal. Compressions force it inward; rarefactions pull it outward.\n\n#### 2. The Middle Ear\n- Contains **three tiny ossicles** (the smallest bones in the human body):\n  1. **Hammer (Malleus)**: Attached directly to the eardrum.\n  2. **Anvil (Incus)**: Intermediate lever connecting hammer to stirrup.\n  3. **Stirrup (Stapes)**: Footplate rests against the oval window of the inner ear.\n- **Amplification Function**: These bones form a mechanical lever system. Together with the large area ratio between eardrum ($~55\\text{ mm}^2$) and oval window ($~3.2\\text{ mm}^2$), they amplify the pressure vibrations **over 20-30 times**.\n- **Eustachian Tube**: Connects middle ear to the throat, equalizing air pressure on both sides of the eardrum during swallowing or yawning.\n\n#### 3. The Inner Ear\n- **Cochlea**: A spiral, fluid-filled snail-shell-like bony organ.\n- **Organ of Corti & Sensory Hair Cells**: As the stapes vibrates the oval window, fluid waves ripple through the cochlear perilymph and endolymph. These fluid waves bend microscopic stereocilia (hair cells), generating **action potentials (electrical nerve impulses)**.\n- **Auditory Nerve**: Collects electrical impulses from cochlear nerve fibers and carries them to the brain's auditory cortex, which interprets them as speech, music, or environmental sound.",
     "worked_examples": [
       {
-        "problem": "Explain the step-by-step sequence of events that takes place inside the human ear from the moment a sound wave enters the pinna until it is perceived by the brain.",
-        "given": "Acoustic wave entering external ear to auditory cortex perception.",
-        "formula": "Biomechanical Acoustic Transduction Cascade",
-        "substitution": "Outer Ear -> Middle Ear Lever -> Inner Ear Fluid -> Electrical Impulses -> Brain.",
-        "calculation": "1. Pinna collects sound waves and directs them down the auditory canal.\n2. Pressure waves strike the tympanic membrane (eardrum), causing it to vibrate in exact synchrony.\n3. The three middle ear ossicles (hammer, anvil, stirrup) amplify these vibrations mechanically by ~25-30x.\n4. The stapes transmits amplified vibrations to the oval window of the cochlea.\n5. Fluid ripples inside the cochlea stimulate sensory hair cells, converting mechanical oscillations into electrical nerve impulses.\n6. The auditory nerve carries these electrical signals to the brain, which interprets them as sound.",
-        "finalAnswer": "Pinna collects -> eardrum vibrates -> ossicles amplify -> cochlea converts fluid waves to electrical signals -> auditory nerve sends to brain.",
-        "unit": "Auditory Physiology",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.24: Complete schematic anatomical diagram of the human ear"
+        "problem": "Textbook Revise, Reflect, Refine Q3 (Section 10.2, p. 21): A sound wave has a frequency of 2 kHz and wavelength 35 cm. How long will it take to travel a distance of 1.5 km?",
+        "given": "Frequency f = 2 kHz = 2000 Hz; Wavelength lambda = 35 cm = 0.35 m; Distance d = 1.5 km = 1500 m.",
+        "formula": "Wave Speed v = f * lambda; Travel Time t = d / v.",
+        "substitution": "v = 2000 * 0.35; t = 1500 / v.",
+        "calculation": "1. Speed of sound: v = 2000 * 0.35 = 700 m s^-1.\n2. Time taken: t = 1500 / 700 = 15 / 7 approx 2.14 s.",
+        "finalAnswer": "The sound wave travels at 700 m s^-1 and takes 2.14 seconds to cover 1.5 km.",
+        "unit": "seconds",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "sound wave speed frequency wavelength physics calculation",
+        "page": 21,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "What are the three tiny bones in the middle ear? What vital function do they perform?",
-        "given": "Middle ear ossicular anatomy.",
-        "formula": "Mechanical Advantage of Middle Ear Lever System",
-        "substitution": "Malleus (Hammer), Incus (Anvil), Stapes (Stirrup).",
-        "calculation": "1. The three bones are: (a) Hammer (Malleus), (b) Anvil (Incus), (c) Stirrup (Stapes).\n2. Function: They act as a compound mechanical lever system to amplify the delicate vibrations received from the large eardrum.\n3. They concentrate this amplified force onto the tiny oval window of the cochlea, increasing acoustic pressure by over 20-30 times so sound can efficiently enter the dense fluid medium of the inner ear.",
-        "finalAnswer": "Hammer, anvil, and stirrup amplify vibrations from the eardrum >20-30 times and transfer them to the cochlea's oval window.",
-        "unit": "Ossicular Mechanics",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.24: Middle ear ossicles: hammer, anvil, and stirrup"
+        "problem": "Textbook Revise, Reflect, Refine Q4 (Section 10.3, p. 21): A person clapped his hands near a cliff and heard the echo after 5 s. What is the distance of the cliff from the person if the speed of sound is 346 m s^-1?",
+        "given": "Total echo round-trip time t = 5 s; Speed of sound v = 346 m s^-1.",
+        "formula": "Echo distance equation: 2d = v * t => d = (v * t) / 2.",
+        "substitution": "d = (346 * 5) / 2.",
+        "calculation": "d = 1730 / 2 = 865 m.",
+        "finalAnswer": "The distance of the cliff is 865 meters.",
+        "unit": "meters",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "echo sound reflection distance cliff calculation physics",
+        "page": 21,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "Why does your ear 'pop' when riding an elevator in a high-rise building or flying in an airplane? Which anatomical structure resolves this?",
-        "given": "Atmospheric pressure change across altitude.",
-        "formula": "Boyle's Law & Pressure Balance across Tympanic Membrane",
-        "substitution": "External canal pressure vs sealed middle ear cavity pressure.",
-        "calculation": "1. When altitude changes rapidly, outside atmospheric pressure decreases while air in the middle ear remains at higher ground-level pressure.\n2. This pressure imbalance forces the eardrum to bulge outward, producing ear fullness or pain.\n3. The **Eustachian tube** connects the middle ear cavity to the back of the nasopharynx.\n4. When you swallow, chew, or yawn, the Eustachian tube opens, allowing trapped air to vent and equalizing pressure on both sides of the eardrum, accompanied by a 'pop'.",
-        "finalAnswer": "Rapid altitude change creates pressure difference across the eardrum; the Eustachian tube opens during swallowing to equalize pressure.",
-        "unit": "Barometric Physiology",
+        "problem": "Textbook Revise, Reflect, Refine Q5 & Q6 (Section 10.4, p. 21): SONAR & Ultrasound Echo Ranging: A submarine emits a sonar pulse which returns from an underwater reef after 1.02 s. If the speed of ultrasound in salt water is 1531 m s^-1, how far away is the reef?",
+        "given": "Round-trip time t = 1.02 s; Speed of sound in seawater v = 1531 m s^-1.",
+        "formula": "2d = v * t => d = (v * t) / 2.",
+        "substitution": "d = (1531 * 1.02) / 2.",
+        "calculation": "d = 1561.62 / 2 = 780.81 m.",
+        "finalAnswer": "The underwater reef is 780.81 meters away from the submarine.",
+        "unit": "meters",
         "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.24: Eustachian tube connecting middle ear to pharynx"
-      },
-      {
-        "problem": "An acoustic source emits sound of frequency 100 Hz. How many times does it vibrate in a minute?",
-        "given": "Frequency nu = 100 Hz = 100 vibrations per second. Time t = 1 minute = 60 seconds.",
-        "formula": "Total Vibrations N = nu * t",
-        "substitution": "N = 100 * 60",
-        "calculation": "N = 100 * 60 = 6000 vibrations",
-        "finalAnswer": "The acoustic source vibrates 6000 times in one minute.",
-        "unit": "Vibrations (NCERT Q6)",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.16: Oscillations per unit time representing frequency"
-      },
-      {
-        "problem": "Does sound follow the same laws of reflection as light does? Explain with an experimental setup.",
-        "given": "Experimental verification of laws of reflection of sound.",
-        "formula": "Laws of Acoustic Reflection: angle i = angle r; Incident, normal, and reflected in same plane.",
-        "substitution": "Two hollow pipes angled toward a smooth metallic or wooden board with a clock.",
-        "calculation": "1. Yes, sound strictly obeys the same laws of reflection as light.\n2. Apparatus: Take two identical long hollow pipes (A and B) inclined toward a polished vertical board, separated by an acoustic screen along the normal.\n3. Place a ticking clock at the open mouth of pipe A.\n4. Listen at the mouth of pipe B and adjust its angle until the ticking is loudest.\n5. Measuring the angles shows that the angle of incidence equals the angle of reflection (angle i = angle r), and both pipes lie in the same horizontal plane.",
-        "finalAnswer": "Yes, sound obeys identical laws of reflection (angle i = angle r in same plane), verified using two angled hollow tubes and a ticking clock.",
-        "unit": "NCERT Exercise Q7",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.23: Experimental verification of reflection of sound"
-      },
-      {
-        "problem": "The sound waves emitted by three sources A, B and C are represented in Fig. 10.30. Which source produces sound with: (a) Maximum loudness, (b) Maximum pitch?",
-        "given": "Comparative waveforms A, B, C from NCERT Fig. 10.30.",
-        "formula": "Loudness proportional to Amplitude; Pitch proportional to Frequency.",
-        "substitution": "Compare wave heights (amplitude) and wave crowding (frequency/wavelength).",
-        "calculation": "1. Waveform with greatest crest-to-trough vertical height has the maximum amplitude, corresponding to maximum loudness.\n2. Waveform with the greatest number of waves packed into the same horizontal distance has the highest frequency, corresponding to maximum pitch.\n3. Inspecting Fig. 10.30: Wave with largest peak height produces maximum loudness; wave with shortest wavelength / closest peaks produces maximum pitch.",
-        "finalAnswer": "The source with the greatest amplitude has maximum loudness; the source with the highest wave frequency has maximum pitch.",
-        "unit": "NCERT Exercise Q19",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 10.30: Waveform comparison of sound sources A, B, and C"
+        "diagram_source": "image_search",
+        "figure_caption": "SONAR ultrasound transmission and reflection from ocean bed",
+        "image_search_query": "sonar ultrasound pulse reflection submarine ocean depth",
+        "page": 21,
+        "section": "Revise, Reflect, Refine"
       }
     ],
     "common_misconceptions": [
@@ -1014,7 +1092,7 @@
           "video_search_query": "Eardrum Membrane Acoustic Oscillation educational demonstration video"
         },
         {
-          "concept_title": "Middle Ear Ossicular Amplification: The middle ear houses three tiny bones—the hammer (malleus), anvil (incus), and stirrup (stapes)—which act as a compound mechanical lever system, amplifying the mechanical vibrations more than 20 to 30 times.",
+          "concept_title": "Middle Ear Ossicular Amplification: The middle ear houses three tiny bones\u2014the hammer (malleus), anvil (incus), and stirrup (stapes)\u2014which act as a compound mechanical lever system, amplifying the mechanical vibrations more than 20 to 30 times.",
           "diagram_title": "Middle Ear Ossicle Lever Amplification",
           "diagram_type": "image_search",
           "image_query": "magnified view of hammer, anvil, and stirrup lever system. scientific educational diagram with clear labels",
@@ -1059,6 +1137,9 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"How does a physical wave of vibrating air molecules turn into electrical thoughts inside your brain? Which organ is the biochemical microphone?\"\n   - Law: Detail the anatomy of outer ear, middle ear ossicles, and inner ear cochlea.\n   - Socratic check: \"Why do the three tiny bones in your middle ear exist? Why couldn't the eardrum connect directly to the cochlea?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"How does a physical wave of vibrating air molecules turn into electrical thoughts inside your brain? Which organ is the biochemical microphone?\"\n   - Law: Detail the anatomy of outer ear, middle ear ossicles, and inner ear cochlea.\n   - Socratic check: \"Why do the three tiny bones in your middle ear exist? Why couldn't the eardrum connect directly to the cochlea?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "1908699a-60c6-4a5e-9f27-05f9111fe142",
+    "class_level": "Class 9",
+    "board": "CBSE"
   }
 ]

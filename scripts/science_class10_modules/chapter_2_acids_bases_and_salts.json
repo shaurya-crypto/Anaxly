@@ -1,0 +1,614 @@
+[
+  {
+    "id": "5224e7dc-3d49-4ace-b0bf-4c3267b450a9",
+    "curriculum_id": "afa18ea6-511f-47a1-8328-4c66b9543dbc",
+    "order_index": 1,
+    "title": "Indicators & Chemical Properties of Acids and Bases: Metal Reactions, Carbonate Action & Neutralisation",
+    "description": "Explore natural, synthetic, and olfactory indicators. Master acid and base reactions with active metals (hydrogen gas evolution and pop sound test), metal carbonates and hydrogen carbonates (effervescence and lime water test), and the fundamental neutralisation reaction.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 1: Indicators & Chemical Properties of Acids and Bases: Metal Reactions, Carbonate Action & Neutralisation. Mid-Term Examination Syllabus. Adhere strictly to Socratic teaching cadence, pure Unicode mathematical typography, and step-by-step chemical equations.",
+    "key_concepts": [
+      "Acid-Base Indicators: Substances that change color or odor in acidic or basic media. Litmus turns red in acid and blue in base; phenolphthalein remains colorless in acid and turns pink in base; methyl orange turns red in acid and yellow in base.",
+      "Active Metal Displacement: Acids react with metals situated above hydrogen in the reactivity series to produce salt and liberate hydrogen gas: Acid + Metal \u2192 Salt + H\u2082\u2191.",
+      "Carbonate & Hydrogen Carbonate Reaction: All metal carbonates and hydrogen carbonates react with acids to give a corresponding salt, carbon dioxide, and water: Metal Carbonate/Bicarbonate + Acid \u2192 Salt + CO\u2082\u2191 + H\u2082O.",
+      "Carbon Dioxide Confirmatory Test: Passing CO\u2082 gas through lime water turns it milky due to insoluble calcium carbonate formation; prolonged bubbling clears the turbidity as soluble calcium hydrogen carbonate forms.",
+      "Neutralisation Equilibrium: The reaction between an acid and a base giving salt and water: H\u207a(aq) + OH\u207b(aq) \u2192 H\u2082O(l)."
+    ],
+    "success_criteria": "Student can classify indicators, write balanced molecular equations for acid-metal and acid-carbonate reactions, explain the lime water test, and derive the neutralisation law.",
+    "estimated_minutes": 45,
+    "created_at": "2026-11-12T11:44:11.045428+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Natural indicators (Litmus, turmeric, red cabbage) vs synthetic indicators (Phenolphthalein, Methyl Orange)",
+      "Olfactory indicators (vanilla essence, chopped onion, clove oil) for sensory detection of acids and bases",
+      "Reaction of active metals with acids: Zn + 2HCl \u2192 ZnCl\u2082 + H\u2082\u2191 (Laboratory setup and pop-test detection)",
+      "Reaction of amphoteric bases with metals: 2NaOH + Zn \u2192 Na\u2082ZnO\u2082 (Sodium zincate) + H\u2082\u2191",
+      "Action of acids on metal carbonates: Na\u2082CO\u2083 + 2HCl \u2192 2NaCl + H\u2082O + CO\u2082\u2191",
+      "Action of acids on metal hydrogen carbonates: NaHCO\u2083 + HCl \u2192 NaCl + H\u2082O + CO\u2082\u2191",
+      "Lime water confirmatory test: Ca(OH)\u2082 + CO\u2082 \u2192 CaCO\u2083\u2193 (milky precipitate) + H\u2082O",
+      "Effect of excess carbon dioxide: CaCO\u2083 + H\u2082O + CO\u2082 \u2192 Ca(HCO\u2083)\u2082 (soluble clear solution)",
+      "Neutralisation reaction: Acid + Base \u2192 Salt + Water (HCl + NaOH \u2192 NaCl + H\u2082O)",
+      "Reaction of metallic oxides with acids (CuO + 2HCl \u2192 CuCl\u2082 + H\u2082O: Basic nature of metal oxides)",
+      "Reaction of non-metallic oxides with bases (Ca(OH)\u2082 + CO\u2082 \u2192 CaCO\u2083 + H\u2082O: Acidic nature of non-metal oxides)"
+    ],
+    "chapter_notes": "### 2.1 Understanding Acids, Bases and Indicators\nAcids are sour in taste and change the colour of blue litmus to red. Bases are bitter in taste, soapy to touch, and change red litmus to blue.\n\n#### 1. Chemical Indicators\n- **Natural Indicators**: Litmus (extracted from lichens, purple neutral dye), Turmeric (turns reddish-brown with base), Red cabbage juice.\n- **Synthetic Indicators**: \n  - *Phenolphthalein*: Colourless in acidic/neutral solution; bright pink in basic solution.\n  - *Methyl Orange*: Red in acidic solution; yellow in neutral/basic solution.\n- **Olfactory Indicators**: Substances whose odour changes in acidic or basic media (onion extract, vanilla essence, clove oil).\n\n#### 2. Reactions with Active Metals\n$$\\text{Acid} + \\text{Metal} \\to \\text{Salt} + \\text{H}_2\\uparrow$$\n$$2\\text{HCl}(aq) + \\text{Zn}(s) \\to \\text{ZnCl}_2(aq) + \\text{H}_2(g)$$\n$$\\text{H}_2\\text{SO}_4(aq) + \\text{Zn}(s) \\to \\text{ZnSO}_4(aq) + \\text{H}_2(g)$$\n- *Hydrogen Gas Test*: Bring a burning candle near the mouth of the test tube. The gas burns with a characteristic **'pop' sound**.\n- *Reaction with strong base*:\n$$2\\text{NaOH}(aq) + \\text{Zn}(s) \\to \\text{Na}_2\\text{ZnO}_2(aq) \\text{ (Sodium zincate)} + \\text{H}_2(g)$$\n\n#### 3. Reactions with Metal Carbonates and Metal Hydrogen Carbonates\n$$\\text{Metal Carbonate} + \\text{Acid} \\to \\text{Salt} + \\text{CO}_2\\uparrow + \\text{H}_2\\text{O}$$\n$$\\text{Na}_2\\text{CO}_3(s) + 2\\text{HCl}(aq) \\to 2\\text{NaCl}(aq) + \\text{H}_2\\text{O}(l) + \\text{CO}_2(g)$$\n$$\\text{NaHCO}_3(s) + \\text{HCl}(aq) \\to \\text{NaCl}(aq) + \\text{H}_2\\text{O}(l) + \\text{CO}_2(g)$$\n\n#### 4. The Lime Water Confirmatory Test for $\\text{CO}_2$\nWhen the evolved gas is passed through lime water (calcium hydroxide solution):\n$$\\text{Ca(OH)}_2(aq) + \\text{CO}_2(g) \\to \\text{CaCO}_3(s) \\downarrow \\text{ (Milky precipitate)} + \\text{H}_2\\text{O}(l)$$\nOn passing excess $\\text{CO}_2$, the milky solution turns completely clear:\n$$\\text{CaCO}_3(s) + \\text{H}_2\\text{O}(l) + \\text{CO}_2(g) \\to \\text{Ca(HCO}_3)_2(aq) \\text{ (Soluble calcium bicarbonate)}$$\n\n#### 5. Neutralisation & Oxide Reactions\n$$\\text{Acid} + \\text{Base} \\to \\text{Salt} + \\text{Water}$$\n$$\\text{HCl}(aq) + \\text{NaOH}(aq) \\to \\text{NaCl}(aq) + \\text{H}_2\\text{O}(l)$$\n- **Metallic oxides are basic in nature**:\n$$\\text{CuO}(s) \\text{ (Black)} + 2\\text{HCl}(aq) \\to \\text{CuCl}_2(aq) \\text{ (Blue-green solution)} + \\text{H}_2\\text{O}(l)$$\n- **Non-metallic oxides are acidic in nature**:\n$$\\text{Ca(OH)}_2(aq) + \\text{CO}_2(g) \\to \\text{CaCO}_3(s) + \\text{H}_2\\text{O}(l)$$",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "chemical reaction",
+        "given": "Metal compound A + dilute HCl -> effervescence. Gas extinguishes candle and turns lime water milky. Salt formed = CaCl\u2082.",
+        "formula": "Gas that extinguishes candle and turns lime water milky is CO\u2082. Carbonates react with acid to give CO\u2082 and CaCl\u2082.",
+        "problem": "Textbook Example: A metal compound A reacts with dilute hydrochloric acid to produce effervescence. The gas evolved extinguishes a burning candle and turns lime water milky. Write a balanced chemical equation for the reaction if one of the compounds formed is calcium chloride.",
+        "calculation": "Step 1: The gas that extinguishes fire and turns lime water milky is carbon dioxide (CO\u2082).\nStep 2: Since calcium chloride (CaCl\u2082) is one product, the metal must be calcium (Ca).\nStep 3: Metal carbonate + Acid -> Salt + Water + CO\u2082.\nStep 4: Equation: CaCO\u2083(s) + 2HCl(aq) -> CaCl\u2082(aq) + H\u2082O(l) + CO\u2082(g)\u2191.",
+        "finalAnswer": "Compound A is Calcium Carbonate (CaCO\u2083). Balanced equation: CaCO\u2083 + 2HCl \u2192 CaCl\u2082 + H\u2082O + CO\u2082\u2191.",
+        "has_diagram": false,
+        "substitution": "Compound A = Calcium carbonate (CaCO\u2083). Acid = HCl.",
+        "image_search_query": "class 10 science chapter_2_acids ncert",
+        "page": 10,
+        "section": "Section 1"
+      }
+    ],
+    "common_misconceptions": [
+      "Thinking that all metals react with bases to produce hydrogen gas (only amphoteric metals like Zn and Al react with strong alkalis).",
+      "Assuming that limestone, chalk, and marble are chemically different compounds (all are physical forms of calcium carbonate CaCO\u2083)."
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "diagram_type": "image_search",
+          "concept_title": "Acid-Metal Reaction & Hydrogen Evolution",
+          "diagram_title": "Laboratory Preparation of Hydrogen Gas with Pop-Sound Test",
+          "what_to_explain": "Demonstrate zinc granules reacting with dilute acid in a test tube fitted with a delivery tube passing through soap solution, forming hydrogen bubbles that pop with a flame.",
+          "image_search_query": "reaction of zinc granules with dilute sulphuric acid laboratory apparatus pop sound test",
+          "video_search_query": "reaction of zinc with dilute acid testing hydrogen gas pop sound demonstration"
+        },
+        {
+          "diagram_type": "image_search",
+          "concept_title": "Lime Water Test for Carbon Dioxide",
+          "diagram_title": "Carbon Dioxide Evolution and Lime Water Milkiness Test",
+          "what_to_explain": "Explain the formation of insoluble calcium carbonate causing milkiness, followed by dissolution on excess CO2.",
+          "image_search_query": "passing carbon dioxide gas through lime water apparatus test tube demonstration",
+          "video_search_query": "testing carbon dioxide gas with lime water chemistry experiment"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "short_answer",
+              "question": "Why should curd and sour substances not be kept in brass and copper vessels?",
+              "ideal_answer": "Curd and sour substances contain organic acids (such as lactic acid). These acids react with brass and copper to form toxic, poisonous metallic salts that can cause severe food poisoning.",
+              "socratic_hint": "Recall that acids react with metals situated above hydrogen to form salts."
+            },
+            {
+              "type": "short_answer",
+              "question": "Which gas is usually liberated when an acid reacts with a metal? Illustrate with an example and describe how to test for the gas.",
+              "ideal_answer": "Hydrogen gas (H\u2082) is liberated. Example: Zn + H\u2082SO\u2084 \u2192 ZnSO\u2084 + H\u2082\u2191. Test: Bring a burning splinter near the mouth of the gas collection tube; it burns with a distinctive pop sound.",
+              "socratic_hint": "Think about what gas creates acoustic pops when ignited in air."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Acid Reactions & Indicators"
+        }
+      ]
+    },
+    "quiz_questions": [
+      {
+        "hint": "Recall that acids react with metals situated above hydrogen to form salts.",
+        "type": "short_answer",
+        "options": [],
+        "question": "Why should curd and sour substances not be kept in brass and copper vessels?",
+        "explanation": "Curd and sour substances contain organic acids (such as lactic acid). These acids react with brass and copper to form toxic, poisonous metallic salts that can cause severe food poisoning.",
+        "correct_answer": "Curd and sour substances contain organic acids (such as lactic acid). These acids react with brass and copper to form toxic, poisonous metallic salts that can cause severe food poisoning."
+      },
+      {
+        "hint": "Think about what gas creates acoustic pops when ignited in air.",
+        "type": "short_answer",
+        "options": [],
+        "question": "Which gas is usually liberated when an acid reacts with a metal? Illustrate with an example and describe how to test for the gas.",
+        "explanation": "Hydrogen gas (H\u2082) is liberated. Example: Zn + H\u2082SO\u2084 \u2192 ZnSO\u2084 + H\u2082\u2191. Test: Bring a burning splinter near the mouth of the gas collection tube; it burns with a distinctive pop sound.",
+        "correct_answer": "Hydrogen gas (H\u2082) is liberated. Example: Zn + H\u2082SO\u2084 \u2192 ZnSO\u2084 + H\u2082\u2191. Test: Bring a burning splinter near the mouth of the gas collection tube; it burns with a distinctive pop sound."
+      }
+    ]
+  },
+  {
+    "id": "4c51fa48-5e43-4c80-b361-6b58042f7a66",
+    "curriculum_id": "afa18ea6-511f-47a1-8328-4c66b9543dbc",
+    "order_index": 2,
+    "title": "The Molecular Nature of Acidic & Basic Solutions: Hydronium Ions (H\u2083O\u207a), Dilution Thermodynamics & Electrolytic Conduction",
+    "description": "Investigate what all acids and bases have in common at the submicroscopic scale. Prove that acidity requires aqueous ionisation (why dry HCl gas fails to affect dry litmus), analyze electrolytic conduction through ions, and master the exothermic thermodynamics of dilution.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 2: The Molecular Nature of Acidic & Basic Solutions: Hydronium Ions (H\u2083O\u207a), Dilution Thermodynamics & Electrolytic Conduction. Mid-Term Examination Syllabus. Adhere strictly to Socratic teaching cadence, pure Unicode mathematical typography, and step-by-step chemical equations.",
+    "key_concepts": [
+      "Ionic Conduction: Acids conduct electricity in aqueous solutions because they dissociate into free-moving cations (H\u2083O\u207a) and anions (e.g. Cl\u207b, SO\u2084\u00b2\u207b).",
+      "Covalent Non-Electrolytes: Compounds like glucose and ethyl alcohol have covalently bonded hydrogen that does not ionise in water; hence, they do not conduct electricity or show acidic properties.",
+      "Hydronium Ion Invariant: Hydrogen ions H\u207a are bare protons with high charge density that immediately hydrate in aqueous solutions: HCl + H\u2082O \u2192 H\u2083O\u207a + Cl\u207b.",
+      "Alkalis: Soluble bases that produce OH\u207b ions in solution. All alkalis are bases, but not all bases are alkalis (e.g. Fe(OH)\u2083 is a base but insoluble in water).",
+      "Dilution Rule: Dilution decreases the concentration of ions (H\u2083O\u207a / OH\u207b) per unit volume. The process is intensely exothermic; adding water to concentrated acid can cause local superheating, flash boiling, and violent splatter."
+    ],
+    "success_criteria": "Student can explain why alcohol is not an acid, write the hydration reaction of H\u207a to H\u2083O\u207a, and explain the safety rationale for acid dilution.",
+    "estimated_minutes": 45,
+    "created_at": "2026-11-12T11:44:11.146312+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Electrolytic conduction through acids: The beaker circuit experiment with bulb and battery",
+      "Why glucose (C\u2086H\u2081\u2082O\u2086) and alcohol (C\u2082H\u2085OH) solutions do not conduct electricity despite containing hydrogen",
+      "The imperative role of water in acid dissociation: Dry HCl gas vs moist blue litmus paper",
+      "Hydronium ion formation: H\u207a cannot exist independently and binds with H\u2082O to form H\u2083O\u207a",
+      "Base dissociation in aqueous medium: Generation of hydroxide ions OH\u207b(aq)",
+      "Definition of Alkalis: Bases that dissolve in water (NaOH, KOH, Ca(OH)\u2082, Mg(OH)\u2082)",
+      "Thermodynamics of acid dilution: Strongly exothermic dissolution kinetics",
+      "Safety protocol for dilution: Always add concentrated acid dropwise to water with continuous stirring"
+    ],
+    "chapter_notes": "### 2.2 What Do All Acids and All Bases Have in Common?\n\n#### 1. Electric Conductivity in Acid Solutions\n- When an electric circuit containing a battery, bulb, and switch is connected to two graphite/iron electrodes immersed in dilute $\\text{HCl}$ or dilute $\\text{H}_2\\text{SO}_4$, the **bulb glows brightly**.\n- The electric current is carried through the solution by **ions**:\n$$\\text{HCl}(aq) \\to \\text{H}^+(aq) + \\text{Cl}^-(aq)$$\n$$\\text{HNO}_3(aq) \\to \\text{H}^+(aq) + \\text{NO}_3^-(aq)$$\n- In contrast, when the experiment is repeated with **glucose** ($\\text{C}_6\\text{H}_{12}\\text{O}_6$) or **alcohol** ($\\text{C}_2\\text{H}_5\\text{OH}$), the bulb **does NOT glow**. Even though they contain hydrogen atoms, their covalent bonds do not dissociate into free ions in water.\n\n#### 2. Do Acids Produce Ions Only in Aqueous Solution?\n- When dry $\\text{NaCl}$ is treated with concentrated $\\text{H}_2\\text{SO}_4$, dry $\\text{HCl}$ gas is generated:\n$$\\text{NaCl}(s) + \\text{H}_2\\text{SO}_4(l) \\to \\text{NaHSO}_4(s) + \\text{HCl}(g)$$\n- If dry $\\text{HCl}$ gas is brought in contact with **dry blue litmus paper**, there is **NO change in colour**.\n- When exposed to **moist blue litmus paper**, it turns **bright red**.\n- **Reason**: Separation of $\\text{H}^+$ ion from $\\text{HCl}$ molecules occurs only in the presence of water:\n$$\\text{HCl} + \\text{H}_2\\text{O} \\to \\text{H}_3\\text{O}^+ \\text{ (Hydronium ion)} + \\text{Cl}^-$$\n- Free $\\text{H}^+$ ions cannot exist independently because they are bare protons; they combine with water molecules to form **hydronium ions** $\\text{H}_3\\text{O}^+$.\n\n#### 3. Dissociation of Bases in Water\nBases generate hydroxide ions $\\text{OH}^-(aq)$ in water:\n$$\\text{NaOH}(s) \\xrightarrow{\\text{H}_2\\text{O}} \\text{Na}^+(aq) + \\text{OH}^-(aq)$$\n$$\\text{KOH}(s) \\xrightarrow{\\text{H}_2\\text{O}} \\text{K}^+(aq) + \\text{OH}^-(aq)$$\n$$\\text{Mg(OH)}_2(s) \\xrightarrow{\\text{H}_2\\text{O}} \\text{Mg}^{2+}(aq) + 2\\text{OH}^-(aq)$$\n- Bases that are soluble in water are called **alkalis**.\n\n#### 4. Dilution Thermodynamics & Safe Protocol\nMixing an acid or base with water results in decrease in the concentration of ions ($\\text{H}_3\\text{O}^+ / \\text{OH}^-$) per unit volume. This process is called **dilution**.\n- **Safety Precaution**: The acid must ALWAYS be added slowly to water with constant stirring.\n- *Why not water to acid?* If water is added to concentrated acid, the heat generated is so intense that the mixture may splash out, causing severe chemical burns, and the glass container may break due to excessive local thermal expansion.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "conceptual deduction",
+        "given": "Aqueous solutions of an acid (e.g. HCl) and glucose (C\u2086H\u2081\u2082O\u2086).",
+        "formula": "Electrical conduction in liquids requires mobile charged ions.",
+        "problem": "Textbook In-Text Question: Why does an aqueous solution of an acid conduct electricity, whereas a solution of glucose does not?",
+        "calculation": "Step 1: An electric current in a liquid solution is transported by the movement of mobile ions toward oppositely charged electrodes.\nStep 2: In aqueous solution, acids ionise completely or partially to release mobile hydronium ions (H\u2083O\u207a) and negative counter-ions.\nStep 3: Glucose (C\u2086H\u2081\u2082O\u2086) is a covalent molecular compound. In water, it dissolves without breaking into ions; no free charged particles exist to transport electrical current.",
+        "finalAnswer": "Aqueous acid conducts electricity because it produces mobile ions (H\u2083O\u207a and acid anions); glucose dissolves as neutral covalent molecules without generating free ions.",
+        "has_diagram": false,
+        "substitution": "HCl(aq) dissociates into H\u207a/H\u2083O\u207a and Cl\u207b ions; glucose does not ionise.",
+        "image_search_query": "class 10 science chapter_2_acids ncert",
+        "page": 20,
+        "section": "Section 2"
+      }
+    ],
+    "common_misconceptions": [
+      "Believing that all hydrogen-containing substances are acidic (glucose and alcohol contain hydrogen but are neutral non-electrolytes).",
+      "Thinking that H\u207a exists as a free bare proton floating in aqueous solution (it is always bonded as H\u2083O\u207a or higher hydrates)."
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "diagram_type": "image_search",
+          "concept_title": "Electric Conduction in Acid Solution",
+          "diagram_title": "Beaker Circuit Showing Acid Conductivity vs Glucose Non-Conductivity",
+          "what_to_explain": "Show the beaker with carbon electrodes, battery, and glowing bulb in dilute HCl versus unlit bulb in glucose solution.",
+          "image_search_query": "acid solution conducts electricity beaker bulb battery apparatus experiment diagram",
+          "video_search_query": "do acids conduct electricity beaker bulb experiment class 10 science"
+        },
+        {
+          "diagram_type": "image_search",
+          "concept_title": "Dry HCl Gas vs Moist Litmus Test",
+          "diagram_title": "Preparation of Dry HCl Gas and Action on Dry vs Moist Litmus Paper",
+          "what_to_explain": "Demonstrate that dry HCl gas has zero effect on dry blue litmus, while turning moist blue litmus instantly red due to hydronium ion formation.",
+          "image_search_query": "preparation of hydrochloric acid gas testing with dry and wet litmus paper diagram",
+          "video_search_query": "action of dry hcl gas on dry and moist litmus paper experiment"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "short_answer",
+              "question": "Why does dry HCl gas not change the colour of dry litmus paper?",
+              "ideal_answer": "Dry HCl gas does not contain free hydrogen or hydronium ions (H\u2083O\u207a). Ionisation can occur only in the presence of water: HCl + H\u2082O \u2192 H\u2083O\u207a + Cl\u207b. Without water, no acidic character is exhibited.",
+              "socratic_hint": "What medium is required for HCl to split into ions?"
+            },
+            {
+              "type": "short_answer",
+              "question": "While diluting an acid, why is it recommended that the acid should be added to water and not water to the acid?",
+              "ideal_answer": "The dilution of concentrated acid with water is an extremely exothermic process. If water is poured into acid, a large burst of heat is produced in a small volume, causing the acid to flash boil, spatter violently, and potentially shatter the glass container.",
+              "socratic_hint": "Consider the high heat capacity of water when absorbing exothermic heat."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Ionisation and Dilution"
+        }
+      ]
+    },
+    "quiz_questions": [
+      {
+        "hint": "What medium is required for HCl to split into ions?",
+        "type": "short_answer",
+        "options": [],
+        "question": "Why does dry HCl gas not change the colour of dry litmus paper?",
+        "explanation": "Dry HCl gas does not contain free hydrogen or hydronium ions (H\u2083O\u207a). Ionisation can occur only in the presence of water: HCl + H\u2082O \u2192 H\u2083O\u207a + Cl\u207b. Without water, no acidic character is exhibited.",
+        "correct_answer": "Dry HCl gas does not contain free hydrogen or hydronium ions (H\u2083O\u207a). Ionisation can occur only in the presence of water: HCl + H\u2082O \u2192 H\u2083O\u207a + Cl\u207b. Without water, no acidic character is exhibited."
+      },
+      {
+        "hint": "Consider the high heat capacity of water when absorbing exothermic heat.",
+        "type": "short_answer",
+        "options": [],
+        "question": "While diluting an acid, why is it recommended that the acid should be added to water and not water to the acid?",
+        "explanation": "The dilution of concentrated acid with water is an extremely exothermic process. If water is poured into acid, a large burst of heat is produced in a small volume, causing the acid to flash boil, spatter violently, and potentially shatter the glass container.",
+        "correct_answer": "The dilution of concentrated acid with water is an extremely exothermic process. If water is poured into acid, a large burst of heat is produced in a small volume, causing the acid to flash boil, spatter violently, and potentially shatter the glass container."
+      }
+    ]
+  },
+  {
+    "id": "066fe15f-ed7b-4643-89f5-a72585d0de56",
+    "curriculum_id": "afa18ea6-511f-47a1-8328-4c66b9543dbc",
+    "order_index": 3,
+    "title": "Quantitative Acidity: The Universal Indicator, pH Scale (0\u201314), Logarithmic Hydronium Concentration & Real-Life Significance",
+    "description": "Master quantitative measurements of acidity and basicity using universal indicator and the pH scale (0 to 14). Differentiate strong versus weak acids, understand logarithmic hydronium concentration relationships, and explore the crucial role of pH in living organisms, digestion, soil health, and tooth decay.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 3: Quantitative Acidity: The Universal Indicator, pH Scale (0\u201314), Logarithmic Hydronium Concentration & Real-Life Significance. Mid-Term Examination Syllabus. Adhere strictly to Socratic teaching cadence, pure Unicode mathematical typography, and step-by-step chemical equations.",
+    "key_concepts": [
+      "The pH Concept: A logarithmic measure of the concentration of free hydronium ions in solution. Lower pH represents higher [H\u2083O\u207a] concentration; every one-unit decrease represents a tenfold increase in hydronium ion concentration.",
+      "Strong vs Weak Acid Dissociation: Strong acids dissociate virtually 100% into ions in aqueous solution; weak acids reach an equilibrium where only a small percentage of molecules dissociate.",
+      "Physiological pH Tolerance: Living organisms function within a narrow pH range (7.0 to 7.8). Deviations disrupt enzyme conformation and cellular metabolism.",
+      "Digestive Acidity & Antacids: The stomach produces hydrochloric acid to activate pepsin. During indigestion, excess acid causes pain, which is neutralized by mild non-corrosive bases called antacids (e.g. Mg(OH)\u2082 or NaHCO\u2083).",
+      "Enamel Demineralization: Tooth enamel (calcium hydroxyapatite) is the hardest substance in the human body, but undergoes demineralisation when mouth bacteria ferment sugar into lactic acid below pH 5.5."
+    ],
+    "success_criteria": "Student can read pH color charts, calculate relative [H\u207a] concentration ratios, explain physiological pH buffers, and describe the biochemical causes of tooth decay.",
+    "estimated_minutes": 45,
+    "created_at": "2026-11-12T11:44:11.208196+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Universal indicator: A mixture of several indicators providing a graded spectrum of color across pH values",
+      "The pH scale: Definition from German \"potenz\" (power); pH = -log\u2081\u2080[H\u207a]",
+      "The neutral benchmark: Pure water at 25\u00b0C has [H\u207a] = [OH\u207b] = 10\u207b\u2077 M, hence pH = 7",
+      "Acidic spectrum (pH < 7) vs Basic/Alkaline spectrum (pH > 7)",
+      "Strong acids (HCl, HNO\u2083, H\u2082SO\u2084) vs Weak acids (CH\u2083COOH, citric, oxalic)",
+      "Strong bases (NaOH, KOH) vs Weak bases (NH\u2084OH, Mg(OH)\u2082)",
+      "pH in human physiology: Blood pH homeostasis (7.35\u20137.45) and digestive gastric juice (pH ~ 1.2\u20133.0)",
+      "Acid rain: Rainwater with pH < 5.6 and its devastating ecological impact on aquatic ecosystems",
+      "Soil pH and agricultural liming: Treatment of acidic soil with CaO, Ca(OH)\u2082, or CaCO\u2083",
+      "Tooth decay mechanics: Dissolution of enamel Ca\u2085(PO\u2084)\u2083OH below critical threshold pH 5.5",
+      "Natural self-defense: Methanoic acid in bee and nettle stings, neutralized by mild bases (baking soda, dock plant)"
+    ],
+    "chapter_notes": "### 2.3 How Strong Are Acid or Base Solutions?\n\n#### 1. Universal Indicator & The pH Scale\nA **universal indicator** is a blend of several indicators that exhibits different colours at different concentrations of hydrogen ions in a solution.\n- The scale measuring hydrogen ion concentration is called the **pH scale** ($p$ for *potenz* in German, meaning power):\n$$\\text{pH} = -\\log_{10}[\\text{H}^+]$$\n- At $25^\\circ\\text{C}$ in neutral pure water: $[\\text{H}^+] = [\\text{OH}^-] = 10^{-7}\\text{ mol/L} \\implies \\text{pH} = 7$.\n- **Acidic solutions**: $[\\text{H}^+] > 10^{-7}\\text{ mol/L} \\implies \\mathbf{\\text{pH} < 7}$.\n- **Neutral solutions**: $\\mathbf{\\text{pH} = 7}$.\n- **Basic solutions**: $[\\text{H}^+] < 10^{-7}\\text{ mol/L} \\implies \\mathbf{\\text{pH} > 7}$.\n\n#### 2. Strong vs Weak Acids and Bases\n- **Strong Acids**: Acids that ionise completely in aqueous solution (e.g. $\\text{HCl}$, $\\text{H}_2\\text{SO}_4$, $\\text{HNO}_3$).\n- **Weak Acids**: Acids that ionise only partially in solution (e.g. $\\text{CH}_3\\text{COOH}$ acetic acid, $\\text{H}_2\\text{CO}_3$ carbonic acid).\n- **Strong Bases**: Bases that dissociate completely into $\\text{OH}^-$ ions (e.g. $\\text{NaOH}$, $\\text{KOH}$).\n- **Weak Bases**: Bases that dissociate partially (e.g. $\\text{NH}_4\\text{OH}$, $\\text{Mg(OH)}_2$).\n\n#### 3. Importance of pH in Everyday Life\n1. **Living Organisms**: Our body works within a narrow pH range of **7.0 to 7.8**. When the pH of rain water is less than **5.6**, it is termed **acid rain**, which lowers river water pH and endangers aquatic life.\n2. **Soil pH**: Most crops grow best in neutral to mildly alkaline soil (pH 6.5\u20137.5). If soil is too acidic, farmers treat it with **quicklime** ($\\text{CaO}$), **slaked lime** ($\\text{Ca(OH)}_2$), or **chalk** ($\\text{CaCO}_3$).\n3. **Digestive System**: The stomach produces hydrochloric acid ($\\text{pH} \\approx 1.2-3.0$) to digest food without harming the stomach wall. Excess acid causes burning and pain, neutralized by **antacids** such as **Milk of Magnesia** ($\\text{Mg(OH)}_2$) or baking soda ($\\text{NaHCO}_3$).\n4. **Tooth Decay**: Tooth enamel is made of crystalline **calcium hydroxyapatite** ($\\text{Ca}_5(\\text{PO}_4)_3\\text{OH}$), the hardest substance in the body. When oral pH falls below **5.5**, bacteria fermenting sugars produce organic acids that corrode the enamel. Using basic toothpaste neutralizes this acidity.\n5. **Self Defense in Nature**:\n   - *Bee sting / Ant bite*: Injects **methanoic acid** (formic acid), causing sharp pain; neutralized with moist baking soda.\n   - *Nettle leaf hairs*: Contain stinging hair injecting methanoic acid; traditionally soothed by rubbing leaves of the **dock plant** (which contains mild alkaline sap).",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "comparative analysis",
+        "given": "Solution A has pH = 6. Solution B has pH = 8.",
+        "formula": "pH = -log\u2081\u2080[H\u207a]. Lower pH indicates higher [H\u207a] concentration. pH < 7 is acidic; pH > 7 is basic.",
+        "problem": "Textbook In-Text Problem: You have two solutions, A and B. The pH of solution A is 6 and pH of solution B is 8. Which solution has more hydrogen ion concentration? Which of these is acidic and which is basic?",
+        "calculation": "Step 1: The relationship between pH and hydrogen ion concentration is inverse: [H\u207a] = 10^(-pH).\nStep 2: For Solution A, [H\u207a] = 10\u207b\u2076 M. For Solution B, [H\u207a] = 10\u207b\u2078 M.\nStep 3: Comparing the values: 10\u207b\u2076 / 10\u207b\u2078 = 10\u00b2 = 100 times.\nStep 4: Solution A has 100 times greater hydrogen ion concentration than Solution B.\nStep 5: Solution A (pH 6 < 7) is acidic; Solution B (pH 8 > 7) is basic.",
+        "finalAnswer": "Solution A has more hydrogen ion concentration (100\u00d7 higher). Solution A is acidic and Solution B is basic.",
+        "has_diagram": false,
+        "substitution": "[H\u207a]_A = 10\u207b\u2076 mol/L; [H\u207a]_B = 10\u207b\u2078 mol/L.",
+        "image_search_query": "class 10 science chapter_2_acids ncert",
+        "page": 30,
+        "section": "Section 3"
+      }
+    ],
+    "common_misconceptions": [
+      "Assuming that a solution of pH 3 has only three times more hydrogen ions than pH 1 (it is logarithmic, so pH 1 has 100 times more H\u207a than pH 3).",
+      "Thinking that basic solutions contain zero H\u207a ions (they still contain H\u207a, but [OH\u207b] >> [H\u207a])."
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "diagram_type": "image_search",
+          "concept_title": "Universal Indicator pH Color Scale",
+          "diagram_title": "The Full 0 to 14 pH Color Gradient and Common Substance Benchmarks",
+          "what_to_explain": "Display the complete red-yellow-green-blue-violet universal indicator rainbow from 0 (gastric acid) to 7 (pure water) to 14 (sodium hydroxide).",
+          "image_search_query": "universal indicator ph color scale chart 0 to 14 with common substances ncert diagram",
+          "video_search_query": "ph scale universal indicator testing household substances experiment"
+        },
+        {
+          "diagram_type": "image_search",
+          "concept_title": "Tooth Enamel Acid Erosion",
+          "diagram_title": "Bacterial Fermentation and Demineralisation of Calcium Hydroxyapatite below pH 5.5",
+          "what_to_explain": "Illustrate dental plaque bacteria converting carbohydrates into lactic acid, dropping oral pH below 5.5 and dissolving hydroxyapatite crystals.",
+          "image_search_query": "tooth decay ph 5.5 enamel demineralisation diagram",
+          "video_search_query": "how tooth decay occurs ph scale explanation science"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "short_answer",
+              "question": "Five solutions A, B, C, D and E when tested with universal indicator showed pH as 4, 1, 11, 7 and 9, respectively. Which solution is (a) neutral, (b) strongly alkaline, (c) strongly acidic, (d) weakly acidic, (e) weakly alkaline? Arrange the pH in increasing order of hydrogen ion concentration.",
+              "ideal_answer": "(a) Neutral: D (pH 7), (b) Strongly alkaline: C (pH 11), (c) Strongly acidic: B (pH 1), (d) Weakly acidic: A (pH 4), (e) Weakly alkaline: E (pH 9). Increasing order of [H\u207a]: pH 11 < pH 9 < pH 7 < pH 4 < pH 1 (i.e. C < E < D < A < B).",
+              "socratic_hint": "Remember that lowest pH corresponds to highest hydrogen ion concentration."
+            },
+            {
+              "type": "short_answer",
+              "question": "Under what soil condition do you think a farmer would treat the soil of his fields with quicklime (calcium oxide) or slaked lime (calcium hydroxide) or chalk (calcium carbonate)?",
+              "ideal_answer": "A farmer treats field soil with quicklime, slaked lime, or chalk when the soil becomes excessively acidic (pH < 6.0). These compounds are basic in nature and neutralize soil acidity to bring it to the optimal range (6.5\u20137.5) required for healthy plant growth.",
+              "socratic_hint": "Consider whether calcium oxide and hydroxide are acidic or basic."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "pH Scale and Physiological Applications"
+        }
+      ]
+    },
+    "quiz_questions": [
+      {
+        "hint": "Remember that lowest pH corresponds to highest hydrogen ion concentration.",
+        "type": "short_answer",
+        "options": [],
+        "question": "Five solutions A, B, C, D and E when tested with universal indicator showed pH as 4, 1, 11, 7 and 9, respectively. Which solution is (a) neutral, (b) strongly alkaline, (c) strongly acidic, (d) weakly acidic, (e) weakly alkaline? Arrange the pH in increasing order of hydrogen ion concentration.",
+        "explanation": "(a) Neutral: D (pH 7), (b) Strongly alkaline: C (pH 11), (c) Strongly acidic: B (pH 1), (d) Weakly acidic: A (pH 4), (e) Weakly alkaline: E (pH 9). Increasing order of [H\u207a]: pH 11 < pH 9 < pH 7 < pH 4 < pH 1 (i.e. C < E < D < A < B).",
+        "correct_answer": "(a) Neutral: D (pH 7), (b) Strongly alkaline: C (pH 11), (c) Strongly acidic: B (pH 1), (d) Weakly acidic: A (pH 4), (e) Weakly alkaline: E (pH 9). Increasing order of [H\u207a]: pH 11 < pH 9 < pH 7 < pH 4 < pH 1 (i.e. C < E < D < A < B)."
+      },
+      {
+        "hint": "Consider whether calcium oxide and hydroxide are acidic or basic.",
+        "type": "short_answer",
+        "options": [],
+        "question": "Under what soil condition do you think a farmer would treat the soil of his fields with quicklime (calcium oxide) or slaked lime (calcium hydroxide) or chalk (calcium carbonate)?",
+        "explanation": "A farmer treats field soil with quicklime, slaked lime, or chalk when the soil becomes excessively acidic (pH < 6.0). These compounds are basic in nature and neutralize soil acidity to bring it to the optimal range (6.5\u20137.5) required for healthy plant growth.",
+        "correct_answer": "A farmer treats field soil with quicklime, slaked lime, or chalk when the soil becomes excessively acidic (pH < 6.0). These compounds are basic in nature and neutralize soil acidity to bring it to the optimal range (6.5\u20137.5) required for healthy plant growth."
+      }
+    ]
+  },
+  {
+    "id": "8b17282d-c7b4-455b-87c9-14950b2f89bc",
+    "curriculum_id": "afa18ea6-511f-47a1-8328-4c66b9543dbc",
+    "order_index": 4,
+    "title": "The Chemistry of Industrial & Domestic Salts: Chlor-Alkali Process, Bleaching Powder, Baking Soda, Washing Soda, Water of Crystallisation & Plaster of Paris",
+    "description": "Master the chemistry, industrial manufacturing, chemical equations, and practical applications of compounds derived from common salt (NaCl): the Chlor-Alkali process (NaOH, Cl\u2082, H\u2082), Bleaching Powder (CaOCl\u2082), Baking Soda (NaHCO\u2083), Washing Soda (Na\u2082CO\u2083\u00b710H\u2082O), water of crystallisation in copper sulfate, and Plaster of Paris (CaSO\u2084\u00b7\u00bdH\u2082O).",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 4: The Chemistry of Industrial & Domestic Salts: Chlor-Alkali Process, Bleaching Powder, Baking Soda, Washing Soda, Water of Crystallisation & Plaster of Paris. Mid-Term Examination Syllabus. Adhere strictly to Socratic teaching cadence, pure Unicode mathematical typography, and step-by-step chemical equations.",
+    "key_concepts": [
+      "Salt pH Invariants: Strong acid + Strong base \u2192 Neutral salt (pH = 7); Strong acid + Weak base \u2192 Acidic salt (pH < 7); Weak acid + Strong base \u2192 Basic salt (pH > 7).",
+      "Chlor-Alkali Electrolysis: When electricity is passed through brine, it decomposes into chlorine at the positive anode, hydrogen at the negative cathode, and sodium hydroxide in solution: 2NaCl(aq) + 2H\u2082O(l) \u2192 2NaOH(aq) + Cl\u2082(g) + H\u2082(g).",
+      "Bleaching Powder Mechanics: Formed by the action of chlorine gas on dry slaked lime: Ca(OH)\u2082 + Cl\u2082 \u2192 CaOCl\u2082 + H\u2082O. Acts as a powerful oxidising agent and disinfectant.",
+      "Baking Powder vs Baking Soda: Baking soda is pure NaHCO\u2083; on heating alone, it releases CO\u2082 but leaves bitter alkaline Na\u2082CO\u2083. Baking powder blends NaHCO\u2083 with a mild edible acid (tartaric acid), which neutralizes Na\u2082CO\u2083 to form a pleasant-tasting sodium salt.",
+      "Water of Crystallisation & POP: Water of crystallisation is the fixed number of water molecules chemically bonded in one formula unit of a salt. Gypsum CaSO\u2084\u00b72H\u2082O heated carefully at 373 K yields Plaster of Paris CaSO\u2084\u00b7\u00bdH\u2082O; above 373 K, all water is lost, forming dead burnt plaster."
+    ],
+    "success_criteria": "Student can write manufacturing reactions for all 5 commercial salts, explain the difference between baking soda and baking powder, and calculate water of crystallisation.",
+    "estimated_minutes": 45,
+    "created_at": "2026-11-12T11:44:11.329769+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Classification and family of salts: Neutral, acidic, and basic salts based on parent acid-base strength",
+      "Common Salt (NaCl) as a primary chemical feedstock in industry",
+      "The Chlor-Alkali Process: Electrolysis of aqueous sodium chloride (brine) and electrode products",
+      "Anode product (Chlorine Cl\u2082) and cathode product (Hydrogen H\u2082) and cathode solution (Sodium hydroxide NaOH)",
+      "Bleaching Powder (CaOCl\u2082): Preparation from dry slaked lime and chlorine, properties and industrial uses",
+      "Baking Soda (NaHCO\u2083): Solvay process synthesis, action of heat, and role of tartaric acid in baking powder",
+      "Washing Soda (Na\u2082CO\u2083\u00b710H\u2082O): Recrystallisation of anhydrous sodium carbonate and permanent water softening",
+      "Water of crystallisation: Hydrated crystalline salts vs anhydrous forms (CuSO\u2084\u00b75H\u2082O blue vitriol dehydration)",
+      "Plaster of Paris (CaSO\u2084\u00b7\u00bdH\u2082O): Controlled thermal dehydration of Gypsum (CaSO\u2084\u00b72H\u2082O) at 373 K (100\u00b0C)",
+      "The setting mechanism of Plaster of Paris: Rehydration back to hard interlocking crystalline gypsum"
+    ],
+    "chapter_notes": "### 2.4 More About Salts & Chemicals from Common Salt\n\n#### 1. pH of Salts\n- **Neutral Salt**: Strong Acid + Strong Base $\\to \\text{pH} = 7$ (e.g. $\\text{NaCl}, \\text{K}_2\\text{SO}_4, \\text{NaNO}_3$).\n- **Acidic Salt**: Strong Acid + Weak Base $\\to \\text{pH} < 7$ (e.g. $\\text{NH}_4\\text{Cl}, \\text{CuSO}_4$).\n- **Basic Salt**: Weak Acid + Strong Base $\\to \\text{pH} > 7$ (e.g. $\\text{CH}_3\\text{COONa}, \\text{Na}_2\\text{CO}_3, \\text{NaHCO}_3$).\n\n#### 2. The Chlor-Alkali Process\nWhen electricity is passed through an aqueous solution of sodium chloride (**brine**):\n$$2\\text{NaCl}(aq) + 2\\text{H}_2\\text{O}(l) \\to 2\\text{NaOH}(aq) + \\text{Cl}_2(g) + \\text{H}_2(g)$$\n- **At the Anode (+)**: Chlorine gas ($\\text{Cl}_2$) is evolved (used for water treatment, PVC, disinfectants, CFCs).\n- **At the Cathode (-)**: Hydrogen gas ($\\text{H}_2$) is evolved (used as fuel, margarine, ammonia for fertilizers).\n- **Near the Cathode**: Sodium hydroxide ($\\text{NaOH}$) solution forms (used for de-greasing metals, soaps, paper making).\n\n#### 3. Bleaching Powder ($\\text{CaOCl}_2$)\nProduced by the action of chlorine on dry slaked lime:\n$$\\text{Ca(OH)}_2(s) + \\text{Cl}_2(g) \\to \\text{CaOCl}_2(s) + \\text{H}_2\\text{O}(l)$$\n- *Uses*: Bleaching cotton and linen in textile industry; wood pulp in paper factories; chemical oxidising agent; disinfectant for water.\n\n#### 4. Baking Soda ($\\text{NaHCO}_3$, Sodium Hydrogen Carbonate)\nManufactured via the Solvay process:\n$$\\text{NaCl} + \\text{H}_2\\text{O} + \\text{CO}_2 + \\text{NH}_3 \\to \\text{NH}_4\\text{Cl} \\text{ (Ammonium chloride)} + \\text{NaHCO}_3 \\text{ (Sodium hydrogen carbonate)}$$\n- It is a mild, non-corrosive basic salt. On heating during cooking:\n$$2\\text{NaHCO}_3 \\xrightarrow{\\Delta} \\text{Na}_2\\text{CO}_3 + \\text{H}_2\\text{O} + \\text{CO}_2\\uparrow$$\n- **Baking Powder**: A mixture of baking soda ($\\text{NaHCO}_3$) and a mild edible acid like **tartaric acid**. When heated in water:\n$$\\text{NaHCO}_3 + \\text{H}^+ \\to \\text{CO}_2\\uparrow + \\text{H}_2\\text{O} + \\text{Sodium salt of acid}$$\nThe evolved $\\text{CO}_2$ gas causes bread and cakes to rise, making them light and spongy.\n\n#### 5. Washing Soda ($\\text{Na}_2\\text{CO}_3\\cdot 10\\text{H}_2\\text{O}$)\nObtained by recrystallisation of sodium carbonate from water:\n$$\\text{Na}_2\\text{CO}_3 + 10\\text{H}_2\\text{O} \\to \\text{Na}_2\\text{CO}_3\\cdot 10\\text{H}_2\\text{O}$$\n- *Uses*: Glass, soap, and paper industries; manufacturing borax; domestic cleaning agent; **permanent water softening**.\n\n#### 6. Water of Crystallisation & Plaster of Paris\n- **Water of crystallisation** is the fixed number of water molecules present in one formula unit of a salt (e.g. $\\text{CuSO}_4\\cdot 5\\text{H}_2\\text{O}$, $\\text{FeSO}_4\\cdot 7\\text{H}_2\\text{O}$, $\\text{Na}_2\\text{CO}_3\\cdot 10\\text{H}_2\\text{O}$).\n- When blue copper sulfate crystals are heated, water is lost and they turn into white anhydrous $\\text{CuSO}_4$.\n- **Plaster of Paris** ($\\text{CaSO}_4\\cdot \\frac{1}{2}\\text{H}_2\\text{O}$, Calcium sulfate hemihydrate):\nPrepared by heating Gypsum ($\\text{CaSO}_4\\cdot 2\\text{H}_2\\text{O}$) at **373 K (100\u00b0C)**:\n$$\\text{CaSO}_4\\cdot 2\\text{H}_2\\text{O} \\xrightarrow{373\\text{ K}} \\text{CaSO}_4\\cdot \\frac{1}{2}\\text{H}_2\\text{O} + 1\\frac{1}{2}\\text{H}_2\\text{O}$$\n- *Setting Property*: On mixing with water, it rehydrates to form hard gypsum:\n$$\\text{CaSO}_4\\cdot \\frac{1}{2}\\text{H}_2\\text{O} + 1\\frac{1}{2}\\text{H}_2\\text{O} \\to \\text{CaSO}_4\\cdot 2\\text{H}_2\\text{O} \\text{ (Hard solid mass)}$$\n- *Uses*: Supporting fractured bones in correct position; making casts for toys, statues, and decorative ornaments; fireproofing.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "chemical explanation",
+        "given": "Plaster of Paris (CaSO\u2084\u00b7\u00bdH\u2082O) stored in unsealed vs moisture-proof container.",
+        "formula": "CaSO\u2084\u00b7\u00bdH\u2082O + 1\u00bdH\u2082O \u2192 CaSO\u2084\u00b72H\u2082O (Gypsum, hard solid).",
+        "problem": "Textbook Example: Plaster of Paris should be stored in a moisture-proof container. Explain why. Write an equation to show the reaction between Plaster of Paris and water.",
+        "calculation": "Step 1: Plaster of Paris is calcium sulfate hemihydrate (CaSO\u2084\u00b7\u00bdH\u2082O).\nStep 2: When it comes in contact with ambient moisture or water vapor, it readily absorbs water.\nStep 3: This rehydration triggers an exothermic crystallization into gypsum (CaSO\u2084\u00b72H\u2082O), which sets into an unworkable, rock-hard solid mass.\nStep 4: Once set, it loses its molding and plastering properties permanently.\nStep 5: Therefore, it must be stored in completely airtight, moisture-proof containers.",
+        "finalAnswer": "Plaster of Paris reacts with ambient moisture to set into hard gypsum: CaSO\u2084\u00b7\u00bdH\u2082O + 1\u00bdH\u2082O \u2192 CaSO\u2084\u00b72H\u2082O. Storing in moisture-proof containers prevents premature hardening.",
+        "has_diagram": false,
+        "substitution": "Reaction with atmospheric moisture.",
+        "image_search_query": "class 10 science chapter_2_acids ncert",
+        "page": 40,
+        "section": "Section 4"
+      }
+    ],
+    "common_misconceptions": [
+      "Assuming baking soda and baking powder are identical (baking soda is pure NaHCO\u2083 which produces bitter Na\u2082CO\u2083; baking powder has added tartaric acid to prevent bitterness).",
+      "Thinking that half a water molecule can exist in CaSO\u2084\u00b7\u00bdH\u2082O (two formula units of CaSO\u2084 share one water molecule: 2CaSO\u2084\u00b7H\u2082O)."
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "diagram_type": "image_search",
+          "concept_title": "Chlor-Alkali Electrolysis Cell",
+          "diagram_title": "Electrolysis of Brine Showing Anode (Cl\u2082), Cathode (H\u2082), and NaOH Membrane",
+          "what_to_explain": "Demonstrate the movement of chloride ions to the anode releasing Cl2, water reduction at the cathode releasing H2, and formation of NaOH solution.",
+          "image_search_query": "chlor alkali process cell membrane electrolysis brine diagram ncert",
+          "video_search_query": "chlor alkali process membrane cell animation chemistry"
+        },
+        {
+          "diagram_type": "image_search",
+          "concept_title": "Water of Crystallisation Dehydration",
+          "diagram_title": "Heating Copper Sulfate Crystals (Blue to White) and Rehydration",
+          "what_to_explain": "Illustrate blue vitriol losing 5 water molecules to become white anhydrous copper sulfate, with water droplets condensing at the test tube rim.",
+          "image_search_query": "heating copper sulphate crystals test tube water of crystallisation experiment diagram",
+          "video_search_query": "heating copper sulphate crystals water of crystallisation demonstration"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "short_answer",
+              "question": "What is the chemical name and formula of bleaching powder? How is it prepared? Write chemical equation for the reaction.",
+              "ideal_answer": "Chemical name: Calcium oxychloride. Formula: CaOCl\u2082. Preparation: It is produced by the action of chlorine gas on dry slaked lime [Ca(OH)\u2082]: Ca(OH)\u2082 + Cl\u2082 \u2192 CaOCl\u2082 + H\u2082O.",
+              "socratic_hint": "Identify the product when slaked lime absorbs chlorine gas."
+            },
+            {
+              "type": "short_answer",
+              "question": "Give two important uses of washing soda and two of baking soda.",
+              "ideal_answer": "Washing soda (Na\u2082CO\u2083\u00b710H\u2082O) uses: (1) Removing permanent hardness of water, (2) Manufacturing glass, soap, and paper. Baking soda (NaHCO\u2083) uses: (1) Ingredient in baking powder to make bread/cakes rise, (2) Active ingredient in antacids to relieve acidity.",
+              "socratic_hint": "Recall household baking and laundry applications."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Commercial Salts Synthesis"
+        }
+      ]
+    },
+    "quiz_questions": [
+      {
+        "hint": "Identify the product when slaked lime absorbs chlorine gas.",
+        "type": "short_answer",
+        "options": [],
+        "question": "What is the chemical name and formula of bleaching powder? How is it prepared? Write chemical equation for the reaction.",
+        "explanation": "Chemical name: Calcium oxychloride. Formula: CaOCl\u2082. Preparation: It is produced by the action of chlorine gas on dry slaked lime [Ca(OH)\u2082]: Ca(OH)\u2082 + Cl\u2082 \u2192 CaOCl\u2082 + H\u2082O.",
+        "correct_answer": "Chemical name: Calcium oxychloride. Formula: CaOCl\u2082. Preparation: It is produced by the action of chlorine gas on dry slaked lime [Ca(OH)\u2082]: Ca(OH)\u2082 + Cl\u2082 \u2192 CaOCl\u2082 + H\u2082O."
+      },
+      {
+        "hint": "Recall household baking and laundry applications.",
+        "type": "short_answer",
+        "options": [],
+        "question": "Give two important uses of washing soda and two of baking soda.",
+        "explanation": "Washing soda (Na\u2082CO\u2083\u00b710H\u2082O) uses: (1) Removing permanent hardness of water, (2) Manufacturing glass, soap, and paper. Baking soda (NaHCO\u2083) uses: (1) Ingredient in baking powder to make bread/cakes rise, (2) Active ingredient in antacids to relieve acidity.",
+        "correct_answer": "Washing soda (Na\u2082CO\u2083\u00b710H\u2082O) uses: (1) Removing permanent hardness of water, (2) Manufacturing glass, soap, and paper. Baking soda (NaHCO\u2083) uses: (1) Ingredient in baking powder to make bread/cakes rise, (2) Active ingredient in antacids to relieve acidity."
+      }
+    ]
+  },
+  {
+    "id": "292b89a2-63f2-473a-935e-abf431a17c94",
+    "curriculum_id": "afa18ea6-511f-47a1-8328-4c66b9543dbc",
+    "order_index": 5,
+    "title": "NCERT In-Text & Chapter-End Exercises Master Solver",
+    "description": "Resolve every in-text problem and chapter-end exercise question from NCERT Class 10 Chapter 2 with complete, board-exam topper step-by-step layout: balanced equations, given data, formula, chemical logic, and boxed answers.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 5: Comprehensive NCERT In-Text & Chapter-End Master Numerical & Conceptual Exercise Solver. Mid-Term Examination Syllabus. Adhere strictly to Socratic teaching cadence, pure Unicode mathematical typography, and step-by-step chemical equations.",
+    "key_concepts": [
+      "Master Board Exam Method: Lay out chemical answers with Given -> Governing Equation -> Chemical Explanation -> Observations -> Final Concluding Answer.",
+      "Water Softening Invariant: Washing soda Na\u2082CO\u2083 removes permanent hardness (caused by soluble calcium and magnesium chlorides/sulfates) by precipitating insoluble carbonates: Ca\u00b2\u207a(aq) + CO\u2083\u00b2\u207b(aq) \u2192 CaCO\u2083\u2193.",
+      "Electrolytic Disparity: Pure distilled water does not conduct electricity because it contains negligibly small ion concentrations (10\u207b\u2077 M); rainwater contains dissolved atmospheric gases (CO\u2082, SO\u2082, NO\u2082) that form carbonic, sulfurous, and nitric acids, releasing mobile ions that conduct current.",
+      "Dilution Ion Density: Adding water increases total volume, which lowers the number of H\u2083O\u207a ions per cubic centimeter (decreases concentration), causing the pH to increase toward 7.",
+      "Limestone Geochemistry: Limestone, chalk, marble, and egg-shells are all calcium carbonate (CaCO\u2083); they all effervesce vigorously with dilute acids releasing carbon dioxide."
+    ],
+    "success_criteria": "Student can solve any NCERT Class 10 Chapter 2 exercise problem with full marks in CBSE/ICSE board examinations.",
+    "estimated_minutes": 45,
+    "created_at": "2026-11-12T11:44:12.152126+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "In-text question series 1: Curd storage, metal-acid gas identification, and pop-test detection",
+      "In-text question series 2: Aqueous ionisation, conductivity of acids vs glucose, and dry litmus test",
+      "In-text question series 3: Hydronium concentration during dilution and comparative pH 6 vs pH 8 analysis",
+      "In-text question series 4: Universal indicator identification (pH 4, 1, 11, 7, 9) and soil acidity treatment",
+      "In-text question series 5: Bleaching powder synthesis, water softening, and Plaster of Paris rehydration",
+      "Chapter-end Exercise Q1-Q5: Multiple choice questions (litmus reaction, egg shell reaction, neutralisation ratios)",
+      "Chapter-end Exercise Q6-Q10: Writing word and balanced equations for metal-acid and carbonate-acid reactions",
+      "Chapter-end Exercise Q11-Q15: Distilled water vs rain water conductivity, absence of water in acid crystals, and baking/washing soda uses"
+    ],
+    "chapter_notes": "### 2.5 NCERT Comprehensive Exercise Solver\n\n#### Solutions to Crucial Chapter-End Questions:\n\n1. **Why does distilled water not conduct electricity, whereas rain water does?**\n   - Distilled water is pure water with no dissolved mineral salts or acids; its degree of ionisation is extremely low ($[\\text{H}^+] = [\\text{OH}^-] = 10^{-7}\\text{ M}$), so it lacks sufficient mobile charge carriers to conduct an electric current.\n   - Rain water dissolves atmospheric gases such as carbon dioxide ($\\text{CO}_2$), sulfur dioxide ($\\text{SO}_2$), and nitrogen oxides ($\\text{NO}_x$) to form acids:\n$$\\text{CO}_2 + \\text{H}_2\\text{O} \\to \\text{H}_2\\text{CO}_3 \\text{ (Carbonic acid)}$$\n$$\\text{H}_2\\text{CO}_3 \\rightleftharpoons 2\\text{H}^+(aq) + \\text{CO}_3^{2-}(aq)$$\n   - These mobile ions readily conduct an electric current.\n\n2. **Why do acids not show acidic behaviour in the absence of water?**\n   - The acidic behaviour of an acid is exclusively due to the presence of hydrogen/hydronium ions ($\\text{H}_3\\text{O}^+$).\n   - An acid molecule cannot dissociate into ions without a polar solvent like water to hydrate the hydrogen ion:\n$$\\text{HCl} + \\text{H}_2\\text{O} \\to \\text{H}_3\\text{O}^+ + \\text{Cl}^-$$\n   - In the absence of water, covalent acid molecules remain un-ionised, exhibiting zero acidic properties.\n\n3. **A solution turns red litmus blue; its pH is likely to be:**\n   - (A) 1, (B) 4, (C) 5, (D) 10.\n   - **Answer**: (D) 10. A solution that turns red litmus blue must be basic ($\\text{pH} > 7$).\n\n4. **A solution reacts with crushed egg-shells to give a gas that turns lime-water milky. The solution contains:**\n   - (A) $\\text{NaCl}$, (B) $\\text{HCl}$, (C) $\\text{LiCl}$, (D) $\\text{KCl}$.\n   - **Answer**: (B) $\\text{HCl}$. Egg-shells consist of calcium carbonate ($\\text{CaCO}_3$). $\\text{CaCO}_3 + 2\\text{HCl} \\to \\text{CaCl}_2 + \\text{H}_2\\text{O} + \\text{CO}_2\\uparrow$. $\\text{CO}_2$ turns lime water milky.\n\n5. **$10\\text{ mL}$ of a solution of $\\text{NaOH}$ is found to be completely neutralised by $8\\text{ mL}$ of a given solution of $\\text{HCl}$. If we take $20\\text{ mL}$ of the same solution of $\\text{NaOH}$, the amount $\\text{HCl}$ solution required to neutralise it will be:**\n   - (A) $4\\text{ mL}$, (B) $8\\text{ mL}$, (C) $12\\text{ mL}$, (D) $16\\text{ mL}$.\n   - **Answer**: (D) $16\\text{ mL}$. Neutralisation stoichiometry is directly proportional: doubling $\\text{NaOH}$ from $10\\text{ mL}$ to $20\\text{ mL}$ requires doubling $\\text{HCl}$ from $8\\text{ mL}$ to $16\\text{ mL}$.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "In-Text Question (Section 2.1, p. 6): Why should curd and sour substances not be kept in brass and copper vessels?",
+        "given": "Curd and sour food items contain organic acids (lactic acid).",
+        "formula": "Acid + Metal -> Salt + Hydrogen gas.",
+        "substitution": "Organic acids react with copper and brass (copper-zinc alloy).",
+        "calculation": "Acids react with brass and copper to form soluble toxic metallic salts and liberate gas. These metal compounds make food poisonous and cause heavy metal toxicity.",
+        "finalAnswer": "Sour substances contain acids that react with copper and brass to produce toxic, poisonous metallic salts.",
+        "unit": "Chemical reactivity",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "curd sour substances brass copper vessels reaction",
+        "page": 6,
+        "section": "Section 2.1"
+      },
+      {
+        "problem": "In-Text Question (Section 2.2, p. 9): Why do HCl, HNO3 show acidic characters in aqueous solutions while alcohol and glucose solutions do not?",
+        "given": "HCl, HNO3 vs C2H5OH, C6H12O6 in aqueous medium.",
+        "formula": "Arrhenius acid definition: Acids dissociate in water to release mobile H+(aq) or H3O+(aq) ions.",
+        "substitution": "HCl -> H+ + Cl-; Glucose and ethanol do not ionize in water.",
+        "calculation": "HCl and HNO3 are polar electrolytes that ionise completely in polar water to generate hydronium ions (H3O+), which are responsible for acidic properties and electrical conductance. Alcohol and glucose consist of covalent bonds that do not dissociate into ions in water, showing no acidic behavior.",
+        "finalAnswer": "HCl and HNO3 release mobile H3O+ ions in water, whereas alcohol and glucose do not ionise.",
+        "unit": "Ionisation mechanics",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "acid dissociation hcl vs glucose water ionisation",
+        "page": 9,
+        "section": "Section 2.2"
+      },
+      {
+        "problem": "In-Text Question (Section 2.3, p. 12): Five solutions A, B, C, D and E when tested with universal indicator showed pH of 4, 1, 11, 7 and 9 respectively. Which solution is: (a) Neutral, (b) Strongly alkaline, (c) Strongly acidic, (d) Weakly acidic, (e) Weakly alkaline? Arrange in increasing order of H+ concentration.",
+        "given": "pH values: A=4, B=1, C=11, D=7, E=9.",
+        "formula": "pH = -log10[H+]. pH < 7 is acidic, pH = 7 is neutral, pH > 7 is basic. Lower pH indicates higher [H+].",
+        "substitution": "Correlate each pH value with acidity/alkalinity scale.",
+        "calculation": "(a) Neutral: D (pH = 7).\n(b) Strongly alkaline: C (pH = 11).\n(c) Strongly acidic: B (pH = 1).\n(d) Weakly acidic: A (pH = 4).\n(e) Weakly alkaline: E (pH = 9).\nIncreasing order of [H+] (lowest to highest H+ ion concentration):\npH 11 < pH 9 < pH 7 < pH 4 < pH 1 => C < E < D < A < B.",
+        "finalAnswer": "(a) D (neutral); (b) C (strongly basic); (c) B (strongly acidic); (d) A (weakly acidic); (e) E (weakly basic). [H+] order: C < E < D < A < B.",
+        "unit": "pH scale analysis",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "ph scale universal indicator color chart acid base",
+        "page": 12,
+        "section": "Section 2.3"
+      },
+      {
+        "problem": "End-of-Chapter Exercise Q7 & Q8 (p. 18): (a) Write balanced chemical equations for reactions between dilute sulphuric acid and zinc granules, and dilute hydrochloric acid and magnesium ribbon. (b) Why does distilled water not conduct electricity, whereas rainwater does?",
+        "given": "Acid-metal displacement; Electrical conductivity of water samples.",
+        "formula": "Zn + H2SO4 -> ZnSO4 + H2; Mg + 2HCl -> MgCl2 + H2; Electrolytic conduction requires mobile ions.",
+        "substitution": "Distilled water lacks dissolved electrolytes; Rainwater dissolves atmospheric CO2, SO2 forming carbonic acid.",
+        "calculation": "(a) Zn(s) + H2SO4(aq) -> ZnSO4(aq) + H2(g); Mg(s) + 2HCl(aq) -> MgCl2(aq) + H2(g).\n(b) Distilled water is pure molecular H2O with negligible ionisation ([H+] = [OH-] = 10^-7 M), lacking mobile charge carriers. Rainwater absorbs atmospheric gases (CO2, SO2) forming weak acids like H2CO3 that dissociate into mobile ions (H+, HCO3-), conducting electric current.",
+        "finalAnswer": "(a) Zn + H2SO4 -> ZnSO4 + H2; Mg + 2HCl -> MgCl2 + H2; (b) Rainwater dissolves atmospheric gases forming conducting ions, whereas distilled water lacks free ions.",
+        "unit": "Chemical equations & conductivity",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "distilled water vs rainwater electricity conduction experiment",
+        "page": 18,
+        "section": "Exercises"
+      },
+      {
+        "problem": "End-of-Chapter Exercise Q14 & Q15 (p. 19): (a) What is Plaster of Paris? Why should it be stored in a moisture-proof container? (b) Give two important industrial uses each of washing soda and baking soda.",
+        "given": "Hydrated salts: CaSO4.1/2H2O, Na2CO3.10H2O, NaHCO3.",
+        "formula": "POP setting reaction: CaSO4.1/2H2O + 1.5H2O -> CaSO4.2H2O (Gypsum, hard solid mass).",
+        "substitution": "Chemical property analysis of industrial sodium and calcium salts.",
+        "calculation": "(a) Plaster of Paris (Calcium sulphate hemihydrate, CaSO4.1/2H2O) absorbs atmospheric moisture exothermically to form a hard, rigid crystalline mass of gypsum (CaSO4.2H2O), permanently losing its moulding properties. Hence it must be sealed in airtight moisture-proof bags.\n(b) Washing Soda (Na2CO3.10H2O): 1. Permanent hardness removal from water. 2. Glass, soap, and paper manufacturing.\nBaking Soda (NaHCO3): 1. Leavening agent in baking powder (releases CO2 on heating). 2. Antacid in medicines to neutralise excess stomach acid.",
+        "finalAnswer": "(a) POP forms hard gypsum upon absorbing moisture; (b) Washing soda softens hard water and manufactures glass; Baking soda acts as leavening agent and medicinal antacid.",
+        "unit": "Inorganic salt chemistry",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "plaster of paris gypsum reaction baking washing soda uses",
+        "page": 19,
+        "section": "Exercises"
+      }
+    ],
+    "common_misconceptions": [
+      "Believing that iron forms ferric chloride (FeCl\u2083) with dilute HCl (it forms ferrous chloride FeCl\u2082 because liberated hydrogen gas acts as a reducing agent).",
+      "Thinking that rainwater is 100% pure neutral water (it naturally dissolves atmospheric gases, forming weak acids and conducting electricity)."
+    ],
+    "visual_lesson_plan": {
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "diagram_type": "image_search",
+          "concept_title": "NCERT Exercise Problem Solving Chalkboard",
+          "diagram_title": "Step-by-Step Layout of Board Exam Acid-Base Numerical and Chemical Equations",
+          "what_to_explain": "Walk students through the 5-step board exam method for writing balanced chemical equations and solving acid-base neutralization problems.",
+          "image_search_query": "acids bases and salts class 10 ncert exercise solutions board equations diagram",
+          "video_search_query": "acids bases and salts class 10 ncert exercise questions solutions"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "short_answer",
+              "question": "Why does an aqueous solution of an acid conduct electricity?",
+              "ideal_answer": "In water, an acid dissociates into mobile cations (hydronium ions H\u2083O\u207a) and anions (e.g. Cl\u207b, SO\u2084\u00b2\u207b). These mobile ions move toward oppositely charged electrodes, carrying the electric current through the solution.",
+              "socratic_hint": "What type of particles carry electric current in a liquid electrolyte?"
+            },
+            {
+              "type": "short_answer",
+              "question": "Plaster of Paris should be stored in a moisture-proof container. Explain why.",
+              "ideal_answer": "Plaster of Paris (CaSO\u2084\u00b7\u00bdH\u2082O) readily absorbs moisture from the atmosphere and undergoes an exothermic reaction to form hard gypsum (CaSO\u2084\u00b72H\u2082O): CaSO\u2084\u00b7\u00bdH\u2082O + 1\u00bdH\u2082O \u2192 CaSO\u2084\u00b72H\u2082O. Once set into hard gypsum, it loses its setting and molding properties permanently.",
+              "socratic_hint": "What happens to POP when it absorbs water?"
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Comprehensive Review"
+        }
+      ]
+    },
+    "quiz_questions": [
+      {
+        "hint": "What type of particles carry electric current in a liquid electrolyte?",
+        "type": "short_answer",
+        "options": [],
+        "question": "Why does an aqueous solution of an acid conduct electricity?",
+        "explanation": "In water, an acid dissociates into mobile cations (hydronium ions H\u2083O\u207a) and anions (e.g. Cl\u207b, SO\u2084\u00b2\u207b). These mobile ions move toward oppositely charged electrodes, carrying the electric current through the solution.",
+        "correct_answer": "In water, an acid dissociates into mobile cations (hydronium ions H\u2083O\u207a) and anions (e.g. Cl\u207b, SO\u2084\u00b2\u207b). These mobile ions move toward oppositely charged electrodes, carrying the electric current through the solution."
+      },
+      {
+        "hint": "What happens to POP when it absorbs water?",
+        "type": "short_answer",
+        "options": [],
+        "question": "Plaster of Paris should be stored in a moisture-proof container. Explain why.",
+        "explanation": "Plaster of Paris (CaSO\u2084\u00b7\u00bdH\u2082O) readily absorbs moisture from the atmosphere and undergoes an exothermic reaction to form hard gypsum (CaSO\u2084\u00b72H\u2082O): CaSO\u2084\u00b7\u00bdH\u2082O + 1\u00bdH\u2082O \u2192 CaSO\u2084\u00b72H\u2082O. Once set into hard gypsum, it loses its setting and molding properties permanently.",
+        "correct_answer": "Plaster of Paris (CaSO\u2084\u00b7\u00bdH\u2082O) readily absorbs moisture from the atmosphere and undergoes an exothermic reaction to form hard gypsum (CaSO\u2084\u00b72H\u2082O): CaSO\u2084\u00b7\u00bdH\u2082O + 1\u00bdH\u2082O \u2192 CaSO\u2084\u00b72H\u2082O. Once set into hard gypsum, it loses its setting and molding properties permanently."
+      }
+    ]
+  }
+]

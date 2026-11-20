@@ -32,7 +32,10 @@
         "unit": "Molecular Genetics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.16: Cellular DNA inheritance and reproductive continuity"
+        "figure_caption": "Fig. 11.16: Cellular DNA inheritance and reproductive continuity",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 101,
+        "section": "Section 11.1"
       },
       {
         "problem": "Why is variation beneficial to the species, even if it may not necessarily benefit the individual organism?",
@@ -44,7 +47,10 @@
         "unit": "Evolutionary Ecology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.17: Environmental adaptation across life cycles"
+        "figure_caption": "Fig. 11.17: Environmental adaptation across life cycles",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 101,
+        "section": "Section 11.1"
       },
       {
         "problem": "Describe the four distinct stages in the complete metamorphosis of a butterfly (Fig. 11.17). How does this life cycle optimize survival?",
@@ -56,7 +62,10 @@
         "unit": "Developmental Biology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.17: Life cycle of a butterfly showing complete metamorphosis"
+        "figure_caption": "Fig. 11.17: Life cycle of a butterfly showing complete metamorphosis",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 101,
+        "section": "Section 11.1"
       },
       {
         "problem": "Why does sexual reproduction produce much greater variation than asexual reproduction?",
@@ -68,7 +77,10 @@
         "unit": "Genetic Variation",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.16: Genetic recombination in sexual reproduction"
+        "figure_caption": "Fig. 11.16: Genetic recombination in sexual reproduction",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 101,
+        "section": "Section 11.1"
       },
       {
         "problem": "Can a cell divide simply by duplicating its DNA without creating new cellular machinery? Explain what would happen.",
@@ -80,7 +92,10 @@
         "unit": "Cell Physiology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.16: Cytoplasmic division alongside nuclear division"
+        "figure_caption": "Fig. 11.16: Cytoplasmic division alongside nuclear division",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 101,
+        "section": "Section 11.1"
       },
       {
         "problem": "What is the difference between an individual organism's survival need and species survival need regarding reproduction?",
@@ -92,7 +107,10 @@
         "unit": "Evolutionary Principles",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.17: Generational succession in life cycles"
+        "figure_caption": "Fig. 11.17: Generational succession in life cycles",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 101,
+        "section": "Section 11.1"
       }
     ],
     "common_misconceptions": [
@@ -174,7 +192,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If an animal never reproduces in its entire life, will it drop dead? If not, why is reproduction considered a fundamental characteristic of life?\"\n   - Law: Detail DNA copying fidelity, chromosomes, and the survival value of variations.\n   - Socratic check: \"Why is an exact, 100% photocopy of parental DNA actually dangerous for the long-term survival of a species?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If an animal never reproduces in its entire life, will it drop dead? If not, why is reproduction considered a fundamental characteristic of life?\"\n   - Law: Detail DNA copying fidelity, chromosomes, and the survival value of variations.\n   - Socratic check: \"Why is an exact, 100% photocopy of parental DNA actually dangerous for the long-term survival of a species?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "ba28b0f0-bc67-4638-8c25-092fd7604db4",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 2,
@@ -209,7 +230,10 @@
         "unit": "Protozoan Fission",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.16: Cellular division plane in protozoans"
+        "figure_caption": "Fig. 11.16: Cellular division plane in protozoans",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 102,
+        "section": "Section 11.2"
       },
       {
         "problem": "Why cannot complex multicellular organisms like humans, dogs, or birds reproduce by fragmentation or regeneration as Spirogyra and Planaria do?",
@@ -221,7 +245,10 @@
         "unit": "Tissue Complexity",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.17: Complex multicellular organ differentiation"
+        "figure_caption": "Fig. 11.17: Complex multicellular organ differentiation",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 102,
+        "section": "Section 11.2"
       },
       {
         "problem": "How will an organism be benefited if it reproduces through spores? Explain using Rhizopus (bread mould).",
@@ -233,7 +260,10 @@
         "unit": "Spore Survival",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.1: Spore and vegetative propagation structures"
+        "figure_caption": "Fig. 11.1: Spore and vegetative propagation structures",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 102,
+        "section": "Section 11.2"
       },
       {
         "problem": "Why is regeneration not considered the same as reproduction? Explain using Planaria.",
@@ -245,7 +275,10 @@
         "unit": "Regenerative Biology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.16: Cellular proliferation in regenerative repair"
+        "figure_caption": "Fig. 11.16: Cellular proliferation in regenerative repair",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 102,
+        "section": "Section 11.2"
       },
       {
         "problem": "Describe how multiple fission in Plasmodium provides an adaptive advantage inside the human host.",
@@ -257,7 +290,10 @@
         "unit": "Parasitology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.16: Multiple fission within protective cyst"
+        "figure_caption": "Fig. 11.16: Multiple fission within protective cyst",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 102,
+        "section": "Section 11.2"
       },
       {
         "problem": "Compare budding in Hydra with budding in Yeast in terms of cellular organization and detachment.",
@@ -269,7 +305,10 @@
         "unit": "Comparative Budding",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.1: Budding mechanisms in lower organisms"
+        "figure_caption": "Fig. 11.1: Budding mechanisms in lower organisms",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 102,
+        "section": "Section 11.2"
       }
     ],
     "common_misconceptions": [
@@ -351,7 +390,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you cut a lizard's tail off, it grows a new tail, but the severed tail doesn't grow a new lizard. Is that reproduction or regeneration?\"\n   - Law: Define binary/multiple fission, budding, spores, fragmentation, and regeneration.\n   - Socratic check: \"Why does Leishmania divide only along a strict longitudinal line, whereas Amoeba can divide in any direction?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you cut a lizard's tail off, it grows a new tail, but the severed tail doesn't grow a new lizard. Is that reproduction or regeneration?\"\n   - Law: Define binary/multiple fission, budding, spores, fragmentation, and regeneration.\n   - Socratic check: \"Why does Leishmania divide only along a strict longitudinal line, whereas Amoeba can divide in any direction?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "ba28b0f0-bc67-4638-8c25-092fd7604db4",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 3,
@@ -386,7 +428,10 @@
         "unit": "Foliar Propagation",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.1: Bryophyllum leaf showing plantlets sprouting in margin notches"
+        "figure_caption": "Fig. 11.1: Bryophyllum leaf showing plantlets sprouting in margin notches",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 103,
+        "section": "Section 11.3"
       },
       {
         "problem": "Explain the horticultural process of grafting. What are the 'stock' and 'scion', and what biological condition is essential for a successful graft union?",
@@ -398,7 +443,10 @@
         "unit": "Horticultural Grafting",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.2: Artificial vegetative propagation techniques"
+        "figure_caption": "Fig. 11.2: Artificial vegetative propagation techniques",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 103,
+        "section": "Section 11.3"
       },
       {
         "problem": "Describe an activity to demonstrate layering in a jasmine plant (Activity 11.4).",
@@ -410,7 +458,10 @@
         "unit": "Activity 11.4 Lab Analysis",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.4: Technique of layering in plants"
+        "figure_caption": "Fig. 11.4: Technique of layering in plants",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 103,
+        "section": "Section 11.3"
       },
       {
         "problem": "State four distinct agronomic and commercial advantages of vegetative propagation over growing crops from seeds.",
@@ -422,7 +473,10 @@
         "unit": "Agronomy",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.1: Vegetative propagation agronomic applications"
+        "figure_caption": "Fig. 11.1: Vegetative propagation agronomic applications",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 103,
+        "section": "Section 11.3"
       },
       {
         "problem": "Explain the biological principle of plant tissue culture (micropropagation). Why is it conducted in strictly sterile conditions?",
@@ -434,7 +488,10 @@
         "unit": "Biotechnology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.2: Micropropagation and artificial propagation methods"
+        "figure_caption": "Fig. 11.2: Micropropagation and artificial propagation methods",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 103,
+        "section": "Section 11.3"
       },
       {
         "problem": "If a farmer cuts a potato into four pieces and plants them in soil, why will some pieces grow into healthy potato plants while others rot away?",
@@ -446,7 +503,10 @@
         "unit": "Tuber Morphogenesis",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.1: Tuber buds and foliar plantlet sprouting"
+        "figure_caption": "Fig. 11.1: Tuber buds and foliar plantlet sprouting",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 103,
+        "section": "Section 11.3"
       }
     ],
     "common_misconceptions": [
@@ -528,7 +588,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Commercial bananas don't have any seeds inside them. If there are no seeds, how on earth do farmers plant millions of new banana trees every year?\"\n   - Law: Detail natural vegetative propagation (Bryophyllum leaf notches, potato eyes) and artificial techniques (cutting, layering, grafting, tissue culture).\n   - Socratic check: \"In grafting, why must the cambium layer of the scion touch the cambium layer of the stock?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Commercial bananas don't have any seeds inside them. If there are no seeds, how on earth do farmers plant millions of new banana trees every year?\"\n   - Law: Detail natural vegetative propagation (Bryophyllum leaf notches, potato eyes) and artificial techniques (cutting, layering, grafting, tissue culture).\n   - Socratic check: \"In grafting, why must the cambium layer of the scion touch the cambium layer of the stock?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "ba28b0f0-bc67-4638-8c25-092fd7604db4",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 4,
@@ -563,7 +626,10 @@
         "unit": "Floral Morphology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.11: Detailed structure of a pistil (stigma, style, ovary, ovule)"
+        "figure_caption": "Fig. 11.11: Detailed structure of a pistil (stigma, style, ovary, ovule)",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 104,
+        "section": "Section 11.4"
       },
       {
         "problem": "What is the difference between self-pollination and cross-pollination (Fig. 11.13)? Which produces greater genetic variation in offspring?",
@@ -575,7 +641,10 @@
         "unit": "Pollination Dynamics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.13: Self-pollination versus cross-pollination mechanisms"
+        "figure_caption": "Fig. 11.13: Self-pollination versus cross-pollination mechanisms",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 104,
+        "section": "Section 11.4"
       },
       {
         "problem": "Explain the step-by-step process of pollen germination on the stigma and the growth of the pollen tube leading to fertilization (Fig. 11.14).",
@@ -587,7 +656,10 @@
         "unit": "Embryology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.14: Germination of pollen on stigma and pollen tube growth"
+        "figure_caption": "Fig. 11.14: Germination of pollen on stigma and pollen tube growth",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 104,
+        "section": "Section 11.4"
       },
       {
         "problem": "What are the post-fertilization changes that occur in a flower to transform it into a fruit and seed (Fig. 11.15)?",
@@ -599,7 +671,10 @@
         "unit": "Carpology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.15: Transformation of a fertilized ovary into fruit and ovule into seed"
+        "figure_caption": "Fig. 11.15: Transformation of a fertilized ovary into fruit and ovule into seed",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 104,
+        "section": "Section 11.4"
       },
       {
         "problem": "Distinguish between unisexual and bisexual flowers. Give two examples of each.",
@@ -611,7 +686,10 @@
         "unit": "Floral Classification",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.11: Bisexual flower showing both stamens and pistil"
+        "figure_caption": "Fig. 11.11: Bisexual flower showing both stamens and pistil",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 104,
+        "section": "Section 11.4"
       },
       {
         "problem": "What will happen if pollination does not take place in a flowering plant? Will fruits and seeds be formed?",
@@ -623,7 +701,10 @@
         "unit": "Reproductive Ecology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.13: Pollination as indispensable prerequisite for seed setting"
+        "figure_caption": "Fig. 11.13: Pollination as indispensable prerequisite for seed setting",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 104,
+        "section": "Section 11.4"
       }
     ],
     "common_misconceptions": [
@@ -705,7 +786,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"When you eat a juicy mango or sweet apple, which exact part of the original flower are you chewing on?\"\n   - Law: Detail floral anatomy, distinguish unisexual/bisexual, and explain pollination and syngamy.\n   - Socratic check: \"What happens to the ovule and the ovary after fertilization takes place?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"When you eat a juicy mango or sweet apple, which exact part of the original flower are you chewing on?\"\n   - Law: Detail floral anatomy, distinguish unisexual/bisexual, and explain pollination and syngamy.\n   - Socratic check: \"What happens to the ovule and the ovary after fertilization takes place?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "ba28b0f0-bc67-4638-8c25-092fd7604db4",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 5,
@@ -740,7 +824,10 @@
         "unit": "Thermoregulatory Physiology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.18: Anatomical layout of male reproductive system and scrotum"
+        "figure_caption": "Fig. 11.18: Anatomical layout of male reproductive system and scrotum",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 105,
+        "section": "Section 11.5"
       },
       {
         "problem": "What are the specific functions performed by the seminal vesicles and prostate gland in the male reproductive system?",
@@ -752,7 +839,10 @@
         "unit": "Accessory Endocrinology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.18: Seminal vesicles and prostate gland along vas deferens"
+        "figure_caption": "Fig. 11.18: Seminal vesicles and prostate gland along vas deferens",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 105,
+        "section": "Section 11.5"
       },
       {
         "problem": "Name the exact anatomical site where fertilization takes place in the human female body. What happens to the ovum if it is not fertilized?",
@@ -764,7 +854,10 @@
         "unit": "Gynaecological Physiology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.19: Female reproductive system showing ovaries, fallopian tubes, uterus"
+        "figure_caption": "Fig. 11.19: Female reproductive system showing ovaries, fallopian tubes, uterus",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 105,
+        "section": "Section 11.5"
       },
       {
         "problem": "Trace the path of a sperm cell from its origin in the seminiferous tubules of the testis until it fertilizes an egg cell in the female body.",
@@ -776,7 +869,10 @@
         "unit": "Transit Trajectory",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.18: Male duct system connecting to female tract"
+        "figure_caption": "Fig. 11.18: Male duct system connecting to female tract",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 105,
+        "section": "Section 11.5"
       },
       {
         "problem": "Compare sperm and ovum in terms of: (a) Relative size, (b) Motility, (c) Number produced per cycle.",
@@ -788,7 +884,10 @@
         "unit": "Gametology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.19: Ovarian release of single ovum"
+        "figure_caption": "Fig. 11.19: Ovarian release of single ovum",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 105,
+        "section": "Section 11.5"
       },
       {
         "problem": "Why is the urethra in males called a urinogenital duct, while in females the urinary and reproductive tracts are completely separate?",
@@ -800,7 +899,10 @@
         "unit": "Comparative Anatomy",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.18: Male urinogenital canal pathway"
+        "figure_caption": "Fig. 11.18: Male urinogenital canal pathway",
+        "image_search_query": "class 9 science chapter 11 ncert diagram",
+        "page": 105,
+        "section": "Section 11.5"
       }
     ],
     "common_misconceptions": [
@@ -882,12 +984,15 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Why are the male testes suspended outside the body in a pouch, rather than safely protected inside the abdominal cavity like the ovaries?\"\n   - Law: Detail male anatomy, scrotal temperature regulation, female anatomy, and oviductal fertilization site.\n   - Socratic check: \"Where does the sperm meet and fertilize the egg: inside the uterus or inside the fallopian tube?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Why are the male testes suspended outside the body in a pouch, rather than safely protected inside the abdominal cavity like the ovaries?\"\n   - Law: Detail male anatomy, scrotal temperature regulation, female anatomy, and oviductal fertilization site.\n   - Socratic check: \"Where does the sperm meet and fertilize the egg: inside the uterus or inside the fallopian tube?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "ba28b0f0-bc67-4638-8c25-092fd7604db4",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 6,
-    "title": "The Menstrual Cycle, Embryonic Gestation, Reproductive Health & Master NCERT Solver",
-    "description": "Analyze the 28-day menstrual cycle timeline, explore placental maternal-fetal exchange, evaluate contraceptive strategies (barrier, chemical, IUD, surgical), examine STI prevention, and solve all NCERT chapter exercises.",
+    "title": "Master Problem Solver & Comprehensive NCERT Chapter Exercise Ledger (Revise, Reflect, Refine Q1 to Q15)",
+    "description": "Exhaustive step-by-step master solutions for all in-text activities and chapter-end 'Revise, Reflect, Refine' exercise problems from NCERT Exploration Grade 9 Chapter 11.",
     "subtopics": [
       "The 28-Day Menstrual Cycle: Menstruation (days 1-5), Follicular phase, Ovulation (day 14), Luteal phase",
       "Implantation & Gestation: Blastocyst embedding into uterine endometrium; 9-month gestation",
@@ -908,76 +1013,34 @@
     "chapter_notes": "### 11.18 The 28-Day Menstrual Cycle\nThe female reproductive cycle repeats approximately every **28 days**:\n1. **Menstruation Phase (Days 1 to 5)**: If fertilization does not occur, the corpus luteum degenerates, progesterone levels drop, and the vascular uterine endometrium breaks down, discharging blood and tissue through the vagina.\n2. **Follicular / Proliferative Phase (Days 6 to 13)**: Pituitary FSH stimulates an ovarian follicle to mature. Estrogen stimulates endometrial thickening.\n3. **Ovulation (Day 14)**: A surge of LH triggers the rupture of the Graafian follicle, releasing the secondary oocyte into the fallopian tube.\n4. **Luteal / Secretory Phase (Days 15 to 28)**: Ruptured follicle becomes the **corpus luteum**, secreting high levels of **progesterone** to maintain the glandular, nutrient-rich endometrium for potential implantation.\n\n### 11.19 Embryonic Development & The Placenta\n1. **Implantation**: The zygote undergoes cleavage, forming a hollow ball of cells called a **blastocyst**, which embeds in the uterine wall ~6-8 days after fertilization.\n2. **The Placenta**:\n   - A specialized disc-shaped tissue embedded in the uterine wall, connected to the fetus via the **umbilical cord**.\n   - Contains microscopic finger-like **chorionic villi** on the fetal side projecting into maternal blood spaces.\n   - *Vital Functions*:\n     - **Nutrient & Gas Delivery**: Oxygen, glucose, amino acids, and antibodies diffuse from maternal blood into fetal blood.\n     - **Waste Elimination**: Carbon dioxide and nitrogenous wastes (urea) diffuse from fetal blood into maternal blood for excretion by the mother's kidneys.\n3. **Gestation Period**: In humans, gestation lasts approximately **9 months (38 to 40 weeks / ~280 days)**, culminating in rhythmic uterine contractions (**parturition / labor**) to deliver the baby.\n\n### 11.20 Reproductive Health & Contraception\nContraception prevents unwanted pregnancy, spacing births and protecting health:\n- **1. Barrier Methods**: Condoms (on penis) or diaphragms (in vagina). Prevent sperm from reaching ovum. *Condoms provide the ONLY effective protection against Sexually Transmitted Infections (STIs)*.\n- **2. Chemical / Hormonal Methods**: Oral contraceptive pills containing synthetic estrogen/progesterone that inhibit pituitary FSH/LH, preventing ovulation. Can cause minor hormonal side effects.\n- **3. Intrauterine Devices (IUDs)**: Devices like the **Copper-T** inserted into the uterus by a doctor (Fig. 11.23). Copper ions impair sperm motility and prevent implantation.\n- **4. Surgical Methods (Permanent Sterilization)**:\n  - **Vasectomy (Males)**: Small portion of vas deferens is cut and ligated; sperm cannot enter semen.\n  - **Tubectomy (Females)**: Fallopian tubes are cut and tied; ovum cannot meet sperm.\n\n### 11.21 Sexually Transmitted Infections (STIs)\n- **Bacterial**: *Gonorrhoea* (Neisseria gonorrhoeae), *Syphilis* (Treponema pallidum). Treatable with antibiotics.\n- **Viral**: *Genital Warts* (Human Papillomavirus - HPV), *HIV/AIDS* (Human Immunodeficiency Virus). Incurable; managed with antivirals.\n- **Legal Protection**: Prenatal sex determination using ultrasound is strictly banned by the **PCPNDT Act** to prevent female foeticide.",
     "worked_examples": [
       {
-        "problem": "What happens when the human egg is not fertilized? Explain the 28-day menstrual cycle phases (Fig. 11.21).",
-        "given": "Ovarian and uterine cycle without fertilization.",
-        "formula": "Menstrual Cycle Timeline: Menstruation -> Follicular -> Ovulation -> Luteal",
-        "substitution": "Progesterone withdrawal leading to endometrial shedding.",
-        "calculation": "1. If fertilization does not occur within 24 hours of ovulation, the egg degenerates.\n2. The corpus luteum in the ovary ceases progesterone production.\n3. The thick, spongy uterine endometrium, rich in blood vessels and glands built to support an embryo, is no longer needed.\n4. The lining breaks down and is shed along with blood, mucous, and the unfertilized egg through the vagina.\n5. This bleeding phase is menstruation, lasting 3 to 5 days, resetting the cycle.",
-        "finalAnswer": "The unfertilized egg degenerates, progesterone levels plunge, and the vascular uterine endometrium is shed as menstrual bleeding lasting 3-5 days.",
-        "unit": "Menstrual Physiology",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.21: Key stages of the 28-day menstrual cycle"
+        "problem": "Textbook Revise, Reflect, Refine Q1 & Q2 (Section 11.2, p. 18): A flower's anthers are removed before it matures (emasculation). Later, pollen from another flower is dusted onto its stigma. (a) Will this flower produce seeds? (b) Name the process of transfer of pollen. (c) What is the advantage of cross-pollination?",
+        "given": "Artificial emasculation of bisexual flower followed by controlled cross-pollination.",
+        "formula": "Floral sexual reproduction: Pollination -> Pollen Tube Germination -> Double Fertilization -> Seed Formation.",
+        "substitution": "Assess carpel (gynoecium) integrity and pollination success.",
+        "calculation": "1. (a) Yes, the flower will successfully produce seeds because its female reproductive organ (carpel/pistil comprising stigma, style, and ovary) is completely intact and healthy.\n2. (b) The transfer of pollen grains from the anther to the stigma of a flower is termed POLLINATION (specifically CROSS-POLLINATION / XENOGAMY).\n3. (c) Advantage of cross-pollination: Combines distinct genetic alleles from two parent plants, increasing genetic diversity, hybrid vigor, disease resistance, and adaptive plasticity.",
+        "finalAnswer": "(a) Yes, seeds will form; (b) Cross-pollination; (c) Introduces genetic variation and enhances evolutionary adaptability.",
+        "unit": "Plant Reproductive Biology",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "flower emasculation cross pollination pistil stamen seed",
+        "page": 18,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "What is the role of the placenta during pregnancy (Fig. 11.22)? Explain its structural adaptations for exchange.",
-        "given": "Maternal-fetal interface during gestation.",
-        "formula": "Counter-Current Chorionic Villi Diffusion",
-        "substitution": "Maternal blood sinuses surrounding fetal chorionic villi.",
-        "calculation": "1. The placenta is a temporary disc-shaped organ formed jointly by embryonic and maternal tissues embedded in the uterine wall.\n2. **Structure**: On the fetal side, millions of microscopic finger-like projections called chorionic villi extend into large pools of maternal blood.\n3. This provides an enormous surface area for efficient diffusion.\n4. **Function**: Oxygen, glucose, amino acids, and maternal antibodies diffuse across the thin membrane into fetal capillaries; metabolic wastes (carbon dioxide, urea) diffuse in reverse from fetus to mother for excretion.",
-        "finalAnswer": "Placenta's chorionic villi provide vast surface area for maternal-fetal exchange of oxygen, glucose, antibodies, and elimination of fetal waste.",
-        "unit": "Placental Physiology",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.22: Stages of pregnancy and placental fetal exchange"
-      },
-      {
-        "problem": "What are the different methods of contraception? How do they prevent pregnancy, and which method protects against STIs?",
-        "given": "Classification of contraceptive techniques.",
-        "formula": "Contraceptive Mechanism Mapping: Barrier, Chemical, IUD, Surgical",
-        "substitution": "Physical blocking vs ovulation inhibition vs implantation prevention vs gamete transit block.",
-        "calculation": "1. **Barrier Methods**: Condoms, diaphragms. Physically block sperm entry. Latex condoms uniquely protect against Sexually Transmitted Infections (HIV, syphilis).\n2. **Chemical/Hormonal Methods**: Oral pills. Alter female hormone balance to prevent ovulation.\n3. **Intrauterine Devices (IUDs)**: Copper-T inserted into uterus. Suppresses sperm motility and prevents implantation.\n4. **Surgical Methods**: Vasectomy (vas deferens tied in males) and Tubectomy (fallopian tubes tied in females). Permanently blocks gamete transit.",
-        "finalAnswer": "Barrier (condoms, also prevents STIs), Chemical (pills stop ovulation), IUD (Copper-T stops implantation), Surgical (vasectomy/tubectomy permanent blocks).",
-        "unit": "Reproductive Health",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.23: Intra-Uterine Device (Copper-T) contraception"
-      },
-      {
-        "problem": "Why is female foeticide a grave social crime, and which Indian legal act strictly prohibits prenatal sex determination?",
-        "given": "Misuse of prenatal diagnostic ultrasonography in India.",
-        "formula": "PCPNDT Act & Child Sex Ratio Balance",
-        "substitution": "Ultrasound sex determination leading to selective abortion of female fetuses.",
-        "calculation": "1. Female foeticide is the illegal aborting of female fetuses following prenatal sex determination, driven by social gender bias.\n2. This practice creates severe distortions in the child sex ratio (skewed male-to-female proportions), leading to demographic crises and social instability.\n3. In India, prenatal sex determination using ultrasound or genetic testing is strictly prohibited by law under the **PCPNDT Act (Pre-Conception and Pre-Natal Diagnostic Techniques Act, 1994)**, making disclosure of fetal sex punishable by imprisonment and heavy fines.",
-        "finalAnswer": "Female foeticide skews the sex ratio; prenatal sex determination is strictly prohibited and penalized under India's PCPNDT Act.",
-        "unit": "Bioethics & Law",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.23: Reproductive health regulations and clinical contraception"
-      },
-      {
-        "problem": "Can a woman become pregnant if copulation occurs on Day 25 of her 28-day menstrual cycle? Explain based on ovulation timing.",
-        "given": "Ovulation timing in standard 28-day menstrual cycle.",
-        "formula": "Fertile Window Calculation: Day 14 +/- 2 days",
-        "substitution": "Day 25 is deep in the post-ovulatory luteal phase.",
-        "calculation": "1. In a regular 28-day cycle, ovulation occurs roughly on Day 14.\n2. The released ovum survives in the fallopian tube for only 12 to 24 hours.\n3. By Day 16, the unfertilized ovum has already degenerated, and the corpus luteum is secreting progesterone.\n4. On Day 25, there is no viable egg in the reproductive tract, and the endometrium is preparing to shed.\n5. Therefore, pregnancy cannot occur on Day 25 of a regular cycle.",
-        "finalAnswer": "No; ovulation occurs around Day 14 and the ovum survives only 24 hours; by Day 25 no viable egg exists.",
-        "unit": "Fertility Window",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.21: Fertile window on 28-day menstrual cycle timeline"
-      },
-      {
-        "problem": "How does the Copper-T intrauterine device prevent pregnancy? Does it protect against sexually transmitted infections?",
-        "given": "Mechanism of Copper-T IUD.",
-        "formula": "Copper Ion Spermicidal & Implantation Prevention Action",
-        "substitution": "In situ uterine foreign-body response and copper ion release.",
-        "calculation": "1. Copper-T is a T-shaped plastic device wrapped in fine copper wire, placed inside the uterine cavity by a doctor.\n2. It continuously releases trace copper ions into uterine fluid.\n3. Copper ions are toxic to sperm: they suppress sperm motility, impair their fertilizing capacity, and induce a mild endometrial reaction that prevents blastocyst implantation.\n4. **STI Protection**: It does NOT protect against STIs because it does not create a physical barrier preventing microbial contact between mucous membranes during intercourse.",
-        "finalAnswer": "Copper-T releases copper ions suppressing sperm motility and preventing implantation; it provides ZERO protection against STIs.",
-        "unit": "Contraceptive Science",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 11.23: Copper-T intrauterine contraceptive device"
+        "problem": "Textbook Revise, Reflect, Refine Q4 & Q5 (Section 11.3, p. 18): (a) Why does asexual reproduction produce offspring that are genetically identical clones of the parent? (b) Explain why the menstrual cycle ceases during human pregnancy.",
+        "given": "Asexual mitotic clonal reproduction; Human endocrine regulation during gestation.",
+        "formula": "Mitotic DNA replication fidelity; Progesterone endocrine feedback.",
+        "substitution": "Correlate cellular mechanisms with physiological outcomes.",
+        "calculation": "1. Part (a): Asexual reproduction involves a single parent organism and proceeds strictly via mitotic division without gamete formation, meiosis, or fertilization. DNA replication creates exact copies with zero genetic crossing over, producing clones.\n2. Part (b): After implantation of the blastocyst, the corpus luteum and placenta secrete high levels of PROGESTERONE and ESTROGEN. High progesterone maintains the vascularized uterine endometrium to support embryonic nourishment and exerts negative feedback on the pituitary gland, inhibiting FSH and LH secretion. Consequently, no new ovarian follicles mature, ovulation is blocked, and menstruation ceases.",
+        "finalAnswer": "(a) Asexual reproduction relies strictly on mitosis without genetic recombination, producing identical clones; (b) High progesterone levels maintain the endometrium and inhibit ovulation, halting menstruation.",
+        "unit": "Endocrine & Genetic Physiology",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "menstrual cycle pregnancy progesterone hormone feedback",
+        "page": 18,
+        "section": "Revise, Reflect, Refine"
       }
     ],
     "common_misconceptions": [
@@ -1059,6 +1122,9 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Does the blood of a mother mix directly with the blood of her developing baby inside the womb? If not, how does the fetus breathe and eat?\"\n   - Law: Detail the 28-day menstrual cycle, the placenta, contraceptive categories, and the PCPNDT Act.\n   - Socratic check: \"Why do birth control pills protect against pregnancy, but fail to protect against HIV/AIDS?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Does the blood of a mother mix directly with the blood of her developing baby inside the womb? If not, how does the fetus breathe and eat?\"\n   - Law: Detail the 28-day menstrual cycle, the placenta, contraceptive categories, and the PCPNDT Act.\n   - Socratic check: \"Why do birth control pills protect against pregnancy, but fail to protect against HIV/AIDS?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "ba28b0f0-bc67-4638-8c25-092fd7604db4",
+    "class_level": "Class 9",
+    "board": "CBSE"
   }
 ]

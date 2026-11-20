@@ -32,7 +32,10 @@
         "unit": "g",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.2: Mass invariance of vinegar and baking soda in closed conical flask"
+        "figure_caption": "Fig. 9.2: Mass invariance of vinegar and baking soda in closed conical flask",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 61,
+        "section": "Section 9.1"
       },
       {
         "problem": "Hydrogen and oxygen combine in the ratio of 1:8 by mass to form water. What mass of oxygen gas would be required to react completely with 3 g of hydrogen gas?",
@@ -44,7 +47,10 @@
         "unit": "g",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.3: Constant mass ratio of constituent elements in water"
+        "figure_caption": "Fig. 9.3: Constant mass ratio of constituent elements in water",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 61,
+        "section": "Section 9.1"
       },
       {
         "problem": "When 3.0 g of carbon is burnt in 8.0 g of oxygen, 11.0 g of carbon dioxide is produced. What mass of carbon dioxide will be formed when 3.0 g of carbon is burnt in 50.0 g of oxygen? Which law of chemical combination governs your answer?",
@@ -56,7 +62,10 @@
         "unit": "g",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.4: Stoichiometric mass combination governed by Law of Definite Proportions"
+        "figure_caption": "Fig. 9.4: Stoichiometric mass combination governed by Law of Definite Proportions",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 61,
+        "section": "Section 9.1"
       },
       {
         "problem": "A 10.0 g sample of calcium carbonate on heating decomposes to produce 5.6 g of calcium oxide (quicklime) and a gaseous product. Calculate the mass of carbon dioxide gas evolved.",
@@ -68,7 +77,10 @@
         "unit": "g",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.1: Decomposition mass balance of calcium carbonate"
+        "figure_caption": "Fig. 9.1: Decomposition mass balance of calcium carbonate",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 61,
+        "section": "Section 9.1"
       },
       {
         "problem": "Explain why the mass of an open beaker decreases when effervescent antacid tablets are dropped into water, whereas the mass of a closed flask remains constant.",
@@ -80,7 +92,10 @@
         "unit": "Law of Conservation of Mass",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.2: Activity 9.2 open vs sealed reaction flask comparison"
+        "figure_caption": "Fig. 9.2: Activity 9.2 open vs sealed reaction flask comparison",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 61,
+        "section": "Section 9.1"
       },
       {
         "problem": "Two samples of copper oxide were analyzed. Sample A (2.16 g) yielded 1.73 g of copper on reduction. Sample B (1.35 g) yielded 1.08 g of copper. Show that these data illustrate the Law of Constant Proportions.",
@@ -92,7 +107,10 @@
         "unit": "Percentage Ratio",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.4: Constant composition in copper oxide samples"
+        "figure_caption": "Fig. 9.4: Constant composition in copper oxide samples",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 61,
+        "section": "Section 9.1"
       }
     ],
     "common_misconceptions": [
@@ -174,7 +192,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you burn 100 grams of wood, the ash left behind weighs only 5 grams. Did 95 grams of matter vanish from the universe, or where did it go?\"\n   - Law: State Lavoisier's Law of Conservation of Mass and Proust's Law of Definite Proportions.\n   - Socratic check: \"Why must the reaction flask with vinegar and baking soda be sealed with a tight rubber cork to prove mass conservation?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you burn 100 grams of wood, the ash left behind weighs only 5 grams. Did 95 grams of matter vanish from the universe, or where did it go?\"\n   - Law: State Lavoisier's Law of Conservation of Mass and Proust's Law of Definite Proportions.\n   - Socratic check: \"Why must the reaction flask with vinegar and baking soda be sealed with a tight rubber cork to prove mass conservation?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "9a32d68b-ea7e-4860-99c1-0152d3dd6fcd",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 2,
@@ -209,7 +230,10 @@
         "unit": "Postulate Analysis",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.1: Mass conservation tied directly to Dalton's indivisible atom postulate"
+        "figure_caption": "Fig. 9.1: Mass conservation tied directly to Dalton's indivisible atom postulate",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 62,
+        "section": "Section 9.2"
       },
       {
         "problem": "Which postulate of Dalton's atomic theory can explain the law of definite proportions?",
@@ -221,7 +245,10 @@
         "unit": "Postulate Analysis",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.4: Definite proportions derived from Dalton's compound atom ratios"
+        "figure_caption": "Fig. 9.4: Definite proportions derived from Dalton's compound atom ratios",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 62,
+        "section": "Section 9.2"
       },
       {
         "problem": "Define atomic mass unit. Why was Carbon-12 chosen as the standard reference instead of Hydrogen or Oxygen-16?",
@@ -233,7 +260,10 @@
         "unit": "Atomic Mass Scale",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.5: Relative atomic mass reference scale based on Carbon-12"
+        "figure_caption": "Fig. 9.5: Relative atomic mass reference scale based on Carbon-12",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 62,
+        "section": "Section 9.2"
       },
       {
         "problem": "Write the IUPAC chemical symbols and their Latin roots for: (a) Sodium, (b) Potassium, (c) Iron, (d) Lead, (e) Gold, (f) Silver.",
@@ -245,7 +275,10 @@
         "unit": "Chemical Nomenclature",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.14: Element symbols and atomic lattice organization"
+        "figure_caption": "Fig. 9.14: Element symbols and atomic lattice organization",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 62,
+        "section": "Section 9.2"
       },
       {
         "problem": "Why is it not possible to see an atom with naked eyes? Give quantitative dimensions of atomic radii.",
@@ -257,7 +290,10 @@
         "unit": "m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.6: Nanoscale atomic dimension of hydrogen atom"
+        "figure_caption": "Fig. 9.6: Nanoscale atomic dimension of hydrogen atom",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 62,
+        "section": "Section 9.2"
       },
       {
         "problem": "State two major limitations or drawbacks of Dalton's atomic theory revealed by subsequent scientific discoveries.",
@@ -269,7 +305,10 @@
         "unit": "Atomic Theory Evolution",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.6: Subatomic electron-pair sharing refuting hard indivisible sphere postulate"
+        "figure_caption": "Fig. 9.6: Subatomic electron-pair sharing refuting hard indivisible sphere postulate",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 62,
+        "section": "Section 9.2"
       }
     ],
     "common_misconceptions": [
@@ -351,7 +390,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you write 'CO' instead of 'Co' in your chemistry exam, why will the examiner give you zero marks?\"\n   - Law: Detail IUPAC capitalization rules, Latin roots, and the Carbon-12 atomic mass standard.\n   - Socratic check: \"Why did scientists choose 1/12th of Carbon-12 rather than 1/16th of Oxygen-16 as the universal atomic mass unit?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you write 'CO' instead of 'Co' in your chemistry exam, why will the examiner give you zero marks?\"\n   - Law: Detail IUPAC capitalization rules, Latin roots, and the Carbon-12 atomic mass standard.\n   - Socratic check: \"Why did scientists choose 1/12th of Carbon-12 rather than 1/16th of Oxygen-16 as the universal atomic mass unit?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "9a32d68b-ea7e-4860-99c1-0152d3dd6fcd",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 3,
@@ -386,7 +428,10 @@
         "unit": "Atomicity",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.7: Diatomic chlorine molecule demonstrating atomicity of 2"
+        "figure_caption": "Fig. 9.7: Diatomic chlorine molecule demonstrating atomicity of 2",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 63,
+        "section": "Section 9.3"
       },
       {
         "problem": "Explain with an electron-dot diagram the formation of a covalent bond in a molecule of hydrogen (H2).",
@@ -398,7 +443,10 @@
         "unit": "Covalent Bond",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.6: Formation of a hydrogen molecule by electron sharing"
+        "figure_caption": "Fig. 9.6: Formation of a hydrogen molecule by electron sharing",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 63,
+        "section": "Section 9.3"
       },
       {
         "problem": "Show how an oxygen molecule (O2) is formed by the sharing of electrons. What type of covalent bond is present?",
@@ -410,7 +458,10 @@
         "unit": "Double Covalent Bond",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.8: Formation of an oxygen molecule with double bond"
+        "figure_caption": "Fig. 9.8: Formation of an oxygen molecule with double bond",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 63,
+        "section": "Section 9.3"
       },
       {
         "problem": "Explain the formation of a hydrogen chloride (HCl) molecule using covalent electron sharing.",
@@ -422,7 +473,10 @@
         "unit": "Hetero-atomic Covalent Bond",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.9: Formation of a hydrogen chloride molecule"
+        "figure_caption": "Fig. 9.9: Formation of a hydrogen chloride molecule",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 63,
+        "section": "Section 9.3"
       },
       {
         "problem": "How does an oxygen atom bind with two hydrogen atoms to form a water (H2O) molecule? Detail the number of shared and unshared electrons.",
@@ -434,7 +488,10 @@
         "unit": "Molecular Geometry",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.10: Formation of a water molecule"
+        "figure_caption": "Fig. 9.10: Formation of a water molecule",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 63,
+        "section": "Section 9.3"
       },
       {
         "problem": "Using the mass ratio of elements in water (H:O = 1:8) and ammonia (N:H = 14:3), calculate the atomic ratio of combining atoms in both compounds.",
@@ -446,7 +503,10 @@
         "unit": "Atomic Ratio",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.10: Atomic ratio derivation in water molecule"
+        "figure_caption": "Fig. 9.10: Atomic ratio derivation in water molecule",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 63,
+        "section": "Section 9.3"
       }
     ],
     "common_misconceptions": [
@@ -528,7 +588,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Why do noble gases like Helium and Neon float as single lone atoms, but Hydrogen and Oxygen ALWAYS travel in pairs as H2 and O2?\"\n   - Law: Define molecule, atomicity, duplet/octet rules, and single/double covalent bonding.\n   - Socratic check: \"How many electrons are shared in a double covalent bond in an O2 molecule? Count the shared pairs!\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Why do noble gases like Helium and Neon float as single lone atoms, but Hydrogen and Oxygen ALWAYS travel in pairs as H2 and O2?\"\n   - Law: Define molecule, atomicity, duplet/octet rules, and single/double covalent bonding.\n   - Socratic check: \"How many electrons are shared in a double covalent bond in an O2 molecule? Count the shared pairs!\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "9a32d68b-ea7e-4860-99c1-0152d3dd6fcd",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 4,
@@ -563,7 +626,10 @@
         "unit": "Ion Formation",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.11: Formation of a sodium cation and chloride anion"
+        "figure_caption": "Fig. 9.11: Formation of a sodium cation and chloride anion",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 64,
+        "section": "Section 9.4"
       },
       {
         "problem": "Why do solid ionic compounds like NaCl not conduct electricity, whereas their aqueous solutions and molten states conduct electricity readily?",
@@ -575,7 +641,10 @@
         "unit": "Electrical Conductivity",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.15: Experimental set-up for testing electrical conductivity of solutions"
+        "figure_caption": "Fig. 9.15: Experimental set-up for testing electrical conductivity of solutions",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 64,
+        "section": "Section 9.4"
       },
       {
         "problem": "What is a polyatomic ion? Give three examples of polyatomic anions with -1, -2, and -3 charges respectively.",
@@ -587,7 +656,10 @@
         "unit": "Polyatomic Ions",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.16: Ionic compound lattice with polyatomic groups"
+        "figure_caption": "Fig. 9.16: Ionic compound lattice with polyatomic groups",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 64,
+        "section": "Section 9.4"
       },
       {
         "problem": "Describe the 3D crystal lattice of sodium chloride. Why is it incorrect to speak of a single 'molecule' of solid sodium chloride?",
@@ -599,7 +671,10 @@
         "unit": "Crystallography",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.14: Sodium chloride crystal structure and 3D cubic crystal lattice"
+        "figure_caption": "Fig. 9.14: Sodium chloride crystal structure and 3D cubic crystal lattice",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 64,
+        "section": "Section 9.4"
       },
       {
         "problem": "Write the electron transfer scheme showing the formation of magnesium oxide (MgO) from magnesium (Z = 12) and oxygen (Z = 8).",
@@ -611,7 +686,10 @@
         "unit": "Divalent Ionic Bond",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.13: Electron transfer mechanism in binary ionic compound formation"
+        "figure_caption": "Fig. 9.13: Electron transfer mechanism in binary ionic compound formation",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 64,
+        "section": "Section 9.4"
       },
       {
         "problem": "An element X has atomic number 12, and element Y has atomic number 17. Deduce: (a) Type of bond formed between X and Y, (b) Chemical formula of the compound, (c) Physical state at room temperature.",
@@ -623,7 +701,10 @@
         "unit": "Formula Deduction",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.16: Ionic compound lattice characteristics"
+        "figure_caption": "Fig. 9.16: Ionic compound lattice characteristics",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 64,
+        "section": "Section 9.4"
       }
     ],
     "common_misconceptions": [
@@ -705,7 +786,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Dry salt in a salt shaker cannot conduct a single spark of electricity, but the moment you dissolve it in a glass of water, it conducts electricity brilliantly! Why?\"\n   - Law: Detail electron transfer, electrostatic bonding, and the 3D cubic NaCl crystal lattice.\n   - Socratic check: \"In solid NaCl, why can't the ions move to conduct electricity?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Dry salt in a salt shaker cannot conduct a single spark of electricity, but the moment you dissolve it in a glass of water, it conducts electricity brilliantly! Why?\"\n   - Law: Detail electron transfer, electrostatic bonding, and the 3D cubic NaCl crystal lattice.\n   - Socratic check: \"In solid NaCl, why can't the ions move to conduct electricity?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "9a32d68b-ea7e-4860-99c1-0152d3dd6fcd",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 5,
@@ -740,7 +824,10 @@
         "unit": "Chemical Formulae",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.17: Covalent and ionic molecular formula formulation"
+        "figure_caption": "Fig. 9.17: Covalent and ionic molecular formula formulation",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 65,
+        "section": "Section 9.5"
       },
       {
         "problem": "Write the names of the compounds represented by the following formulae: (a) Al2(SO4)3, (b) CaCl2, (c) K2SO4, (d) KNO3, (e) CaCO3.",
@@ -752,7 +839,10 @@
         "unit": "Compound Nomenclature",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.16: Polyatomic ionic lattice nomenclature"
+        "figure_caption": "Fig. 9.16: Polyatomic ionic lattice nomenclature",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 65,
+        "section": "Section 9.5"
       },
       {
         "problem": "Why is the formula of calcium hydroxide written as Ca(OH)2 and not CaOH2?",
@@ -764,7 +854,10 @@
         "unit": "Parentheses Rule",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.17: Molecular geometry and formula notation"
+        "figure_caption": "Fig. 9.17: Molecular geometry and formula notation",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 65,
+        "section": "Section 9.5"
       },
       {
         "problem": "Write the chemical formula of carbon tetrachloride and draw its structural formula showing covalent bonds.",
@@ -776,7 +869,10 @@
         "unit": "Binary Covalent Formula",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.9: Single covalent bonding geometry in chlorine compounds"
+        "figure_caption": "Fig. 9.9: Single covalent bonding geometry in chlorine compounds",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 65,
+        "section": "Section 9.5"
       },
       {
         "problem": "An element M forms an oxide with formula M2O3. What will be the formula of its: (a) Chloride, (b) Sulphate, (c) Phosphate?",
@@ -788,7 +884,10 @@
         "unit": "Algebraic Formula Deduction",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.16: Trivalent cation salt formulation"
+        "figure_caption": "Fig. 9.16: Trivalent cation salt formulation",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 65,
+        "section": "Section 9.5"
       },
       {
         "problem": "Deduce the chemical formula of iron(III) oxide and copper(II) sulphate.",
@@ -800,7 +899,10 @@
         "unit": "Stock Notation",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.14: Transition metal salt crystal lattices"
+        "figure_caption": "Fig. 9.14: Transition metal salt crystal lattices",
+        "image_search_query": "class 9 science chapter 9 ncert diagram",
+        "page": 65,
+        "section": "Section 9.5"
       }
     ],
     "common_misconceptions": [
@@ -882,12 +984,15 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If calcium has valency 2 and hydroxide has valency 1, why will you lose marks if you write CaOH2 without brackets?\"\n   - Law: Teach the criss-cross algorithm, metal-left non-metal-right rule, and polyatomic parentheses.\n   - Socratic check: \"Write the formula of aluminium oxide! Aluminium has valency 3, oxygen has valency 2. Cross them over!\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If calcium has valency 2 and hydroxide has valency 1, why will you lose marks if you write CaOH2 without brackets?\"\n   - Law: Teach the criss-cross algorithm, metal-left non-metal-right rule, and polyatomic parentheses.\n   - Socratic check: \"Write the formula of aluminium oxide! Aluminium has valency 3, oxygen has valency 2. Cross them over!\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "9a32d68b-ea7e-4860-99c1-0152d3dd6fcd",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 6,
-    "title": "Molecular Mass, Formula Unit Mass & Master NCERT Stoichiometry Solver",
-    "description": "Calculate molecular masses of covalent molecules, determine formula unit masses of ionic lattices, and solve every worked example, in-text problem, and chapter-end question from NCERT Chapter 9.",
+    "title": "Master Problem Solver & Comprehensive NCERT Chapter Exercise Ledger (Revise, Reflect, Refine Q1 to Q15)",
+    "description": "Exhaustive step-by-step master solutions for all in-text activities and chapter-end 'Revise, Reflect, Refine' exercise problems from NCERT Exploration Grade 9 Chapter 9.",
     "subtopics": [
       "Molecular Mass Definition: Sum of atomic masses of all atoms in a covalent molecule",
       "Formula Unit Mass Definition: Sum of atomic masses of all atoms in a formula unit of an ionic compound",
@@ -908,76 +1013,64 @@
     "chapter_notes": "### 9.17 Molecular Mass\nThe **molecular mass** of a substance is the sum of the atomic masses of all the atoms in a molecule:\n$$\\text{Molecular Mass} = \\sum (\\text{Number of atoms of element}_i \\times \\text{Atomic mass of element}_i)$$\n- **Examples**:\n  1. **Water ($\\text{H}_2\\text{O}$)**:\n     $$2 \\times 1\\text{ u} + 1 \\times 16\\text{ u} = 2 + 16 = \\mathbf{18\\text{ u}}$$\n  2. **Nitric Acid ($\\text{HNO}_3$)**:\n     $$1 \\times 1\\text{ u} + 1 \\times 14\\text{ u} + 3 \\times 16\\text{ u} = 1 + 14 + 48 = \\mathbf{63\\text{ u}}$$\n  3. **Methanol ($\\text{CH}_3\\text{OH}$)**:\n     $$1 \\times 12 + 4 \\times 1 + 1 \\times 16 = 12 + 4 + 16 = \\mathbf{32\\text{ u}}$$\n  4. **Carbon Dioxide ($\\text{CO}_2$)**:\n     $$1 \\times 12 + 2 \\times 16 = 12 + 32 = \\mathbf{44\\text{ u}}$$\n\n### 9.18 Formula Unit Mass\nUsed specifically for substances whose constituent particles are **ions** (ionic lattices):\n- **1. Sodium Chloride ($\\text{NaCl}$)**:\n  $$1 \\times 23\\text{ u} + 1 \\times 35.5\\text{ u} = \\mathbf{58.5\\text{ u}}$$\n- **2. Calcium Chloride ($\\text{CaCl}_2$)**:\n  $$1 \\times 40\\text{ u} + 2 \\times 35.5\\text{ u} = 40 + 71 = \\mathbf{111\\text{ u}}$$\n- **3. Potassium Carbonate ($\\text{K}_2\\text{CO}_3$)**:\n  $$2 \\times 39 + 1 \\times 12 + 3 \\times 16 = 78 + 12 + 48 = \\mathbf{138\\text{ u}}$$\n- **4. Zinc Oxide ($\\text{ZnO}$)**:\n  $$1 \\times 65\\text{ u} + 1 \\times 16\\text{ u} = \\mathbf{81\\text{ u}}$$\n\n### 9.19 Mass Percentage Composition\n$$\\%\\text{ of Element} = \\frac{\\text{Total mass of that element in 1 formula unit}}{\\text{Molecular / Formula mass of compound}} \\times 100$$\n- In $\\text{H}_2\\text{O}$ ($18\\text{ u}$):\n  $$\\%\\text{ H} = \\frac{2}{18} \\times 100 = 11.11\\%, \\quad \\%\\text{ O} = \\frac{16}{18} \\times 100 = 88.89\\%$$",
     "worked_examples": [
       {
-        "problem": "Calculate the molecular masses of: H2, O2, Cl2, CO2, CH4, C2H6, C2H4, NH3, CH3OH. (Atomic masses: H=1 u, C=12 u, N=14 u, O=16 u, Cl=35.5 u).",
-        "given": "Formulas of 9 covalent compounds with standard atomic masses.",
-        "formula": "Molecular Mass = Sum of (Number of atoms * Atomic mass)",
-        "substitution": "Multiply atom counts by atomic masses and sum.",
-        "calculation": "1. H2 = 2 * 1 = 2 u\n2. O2 = 2 * 16 = 32 u\n3. Cl2 = 2 * 35.5 = 71 u\n4. CO2 = 12 + (2 * 16) = 12 + 32 = 44 u\n5. CH4 = 12 + (4 * 1) = 16 u\n6. C2H6 = (2 * 12) + (6 * 1) = 24 + 6 = 30 u\n7. C2H4 = (2 * 12) + (4 * 1) = 24 + 4 = 28 u\n8. NH3 = 14 + (3 * 1) = 17 u\n9. CH3OH = 12 + (4 * 1) + 16 = 32 u",
-        "finalAnswer": "H2=2 u, O2=32 u, Cl2=71 u, CO2=44 u, CH4=16 u, C2H6=30 u, C2H4=28 u, NH3=17 u, CH3OH=32 u.",
-        "unit": "u",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.17: Molecular masses of covalent species"
+        "problem": "Textbook Revise, Reflect, Refine Q1 & Q2 (Section 9.1, p. 20): In a reaction, 5.3 g of sodium carbonate reacted with 6.0 g of ethanoic acid. The products were 2.2 g of carbon dioxide, 0.9 g of water, and 8.2 g of sodium ethanoate. Show that these observations are in agreement with the Law of Conservation of Mass.",
+        "given": "Reactants: Sodium carbonate (5.3 g) + Ethanoic acid (6.0 g).\nProducts: Sodium ethanoate (8.2 g) + Carbon dioxide (2.2 g) + Water (0.9 g).",
+        "formula": "Law of Conservation of Mass: Total Mass of Reactants = Total Mass of Products in any closed chemical system.",
+        "substitution": "Mass of reactants = 5.3 + 6.0; Mass of products = 8.2 + 2.2 + 0.9.",
+        "calculation": "1. Total mass of reactants = 5.3 g + 6.0 g = 11.3 g.\n2. Total mass of products = 8.2 g + 2.2 g + 0.9 g = 11.3 g.\nSince Total Mass of Reactants (11.3 g) = Total Mass of Products (11.3 g), mass is strictly conserved.",
+        "finalAnswer": "Total mass of reactants (11.3 g) equals total mass of products (11.3 g), strictly verifying the Law of Conservation of Mass.",
+        "unit": "grams (g)",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "law of conservation of mass reaction flask experiment",
+        "page": 20,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "Calculate the formula unit masses of ZnO, Na2O, K2CO3. (Atomic masses: Zn=65 u, Na=23 u, K=39 u, C=12 u, O=16 u).",
-        "given": "Formulas of 3 ionic salts with standard atomic masses.",
-        "formula": "Formula Unit Mass = Sum of (Number of ions * Atomic mass)",
-        "substitution": "Substitute atomic masses into formulas.",
-        "calculation": "1. ZnO = 65 + 16 = 81 u\n2. Na2O = (2 * 23) + 16 = 46 + 16 = 62 u\n3. K2CO3 = (2 * 39) + 12 + (3 * 16) = 78 + 12 + 48 = 138 u",
-        "finalAnswer": "ZnO = 81 u, Na2O = 62 u, K2CO3 = 138 u.",
-        "unit": "u",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.14: Formula unit mass in ionic crystal lattices"
+        "problem": "Textbook Revise, Reflect, Refine Q3 & Q4 (Section 9.1, p. 20): Hydrogen and oxygen combine in the ratio of 1 : 8 by mass to form water. What mass of oxygen gas would be required to react completely with 3 g of hydrogen gas?",
+        "given": "Mass ratio H : O in water (H2O) = 1 : 8; Mass of hydrogen gas = 3 g.",
+        "formula": "Law of Definite Proportions (Proust): Mass of Oxygen = Mass of Hydrogen * (8 / 1).",
+        "substitution": "Mass of Oxygen = 3 g * 8.",
+        "calculation": "Mass of Oxygen = 24 g.\n(If excess oxygen were supplied, only 24 g would react; remaining oxygen would stay unreacted).",
+        "finalAnswer": "Exactly 24 g of oxygen gas is required to react completely with 3 g of hydrogen gas.",
+        "unit": "grams (g)",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "law of definite proportions water hydrogen oxygen ratio",
+        "page": 20,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "Calculate the mass percentage of each element in copper sulphate pentahydrate, CuSO4.5H2O. (Atomic masses: Cu=63.5 u, S=32 u, O=16 u, H=1 u).",
-        "given": "Formula CuSO4.5H2O (Blue vitriol).",
-        "formula": "% Element = (Mass of Element in formula / Total Formula Mass) * 100",
-        "substitution": "Total mass = 63.5 + 32 + (4 * 16) + 5 * (18) = 63.5 + 32 + 64 + 90 = 249.5 u.",
-        "calculation": "1. Cu mass = 63.5 u -> % Cu = (63.5 / 249.5) * 100 = 25.45%\n2. S mass = 32 u -> % S = (32 / 249.5) * 100 = 12.83%\n3. H mass = 10 * 1 = 10 u -> % H = (10 / 249.5) * 100 = 4.01%\n4. O mass = (4 + 5) * 16 = 144 u -> % O = (144 / 249.5) * 100 = 57.71%",
-        "finalAnswer": "Cu: 25.45%, S: 12.83%, H: 4.01%, O: 57.71% (Total = 100.0%).",
-        "unit": "%",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.16: Hydrated copper sulphate crystal lattice composition"
+        "problem": "Textbook Revise, Reflect, Refine Q8 (Section 9.4, p. 20): Calculate the molecular mass and formula unit mass of: (a) H2O, (b) HNO3, (c) CaCl2, (d) Na2CO3. (Atomic masses: H=1 u, N=14 u, O=16 u, Na=23 u, C=12 u, Cl=35.5 u, Ca=40 u).",
+        "given": "Standard atomic weights: H=1, N=14, O=16, Na=23, C=12, Cl=35.5, Ca=40.",
+        "formula": "Molecular / Formula Unit Mass = Sum of (Atomic mass of each element * its subscript in formula).",
+        "substitution": "(a) 2(1) + 16; (b) 1 + 14 + 3(16); (c) 40 + 2(35.5); (d) 2(23) + 12 + 3(16).",
+        "calculation": "1. H2O: 2 + 16 = 18 u.\n2. HNO3: 1 + 14 + 48 = 63 u.\n3. CaCl2: 40 + 71 = 111 u.\n4. Na2CO3: 46 + 12 + 48 = 106 u.",
+        "finalAnswer": "(a) H2O = 18 u; (b) HNO3 = 63 u; (c) CaCl2 = 111 u; (d) Na2CO3 = 106 u.",
+        "unit": "atomic mass units (u)",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "molecular mass formula unit mass calculation chemistry",
+        "page": 20,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "A 0.24 g sample of compound of oxygen and boron was found by analysis to contain 0.096 g of boron and 0.144 g of oxygen. Calculate the percentage composition of the compound by mass.",
-        "given": "Total sample mass = 0.24 g. Mass of Boron = 0.096 g. Mass of Oxygen = 0.144 g.",
-        "formula": "% Element = (Mass of Element / Total Sample Mass) * 100",
-        "substitution": "% B = (0.096 / 0.24) * 100; % O = (0.144 / 0.24) * 100",
-        "calculation": "1. % Boron = (0.096 / 0.24) * 100 = 40%\n2. % Oxygen = (0.144 / 0.24) * 100 = 60%\n3. Sum of percentages = 40% + 60% = 100%",
-        "finalAnswer": "Boron: 40%, Oxygen: 60%.",
-        "unit": "% (NCERT Exercise Q1)",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.4: Analytical mass percentage determination"
-      },
-      {
-        "problem": "Give the names of the elements present in the following compounds: (a) Quick lime, (b) Hydrogen bromide, (c) Baking powder, (d) Potassium sulphate.",
-        "given": "Common chemical names of 4 household and industrial compounds.",
-        "formula": "Chemical Formula -> Constituent Elements Identification",
-        "substitution": "(a) Quick lime = CaO; (b) Hydrogen bromide = HBr; (c) Baking powder = NaHCO3; (d) Potassium sulphate = K2SO4.",
-        "calculation": "(a) Quick lime (CaO): Calcium and Oxygen\n(b) Hydrogen bromide (HBr): Hydrogen and Bromine\n(c) Baking powder (NaHCO3): Sodium, Hydrogen, Carbon, and Oxygen\n(d) Potassium sulphate (K2SO4): Potassium, Sulphur, and Oxygen",
-        "finalAnswer": "(a) Calcium, Oxygen; (b) Hydrogen, Bromine; (c) Sodium, Hydrogen, Carbon, Oxygen; (d) Potassium, Sulphur, Oxygen.",
-        "unit": "NCERT Exercise Q8",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.17: Constituent elements in common compounds"
-      },
-      {
-        "problem": "Which has more atoms: 100 grams of sodium or 100 grams of iron? (Given: atomic mass of Na = 23 u, Fe = 56 u).",
-        "given": "Mass of Na = 100 g, atomic mass = 23 u. Mass of Fe = 100 g, atomic mass = 56 u.",
-        "formula": "Number of atoms N = (Mass / Atomic Mass) * N_A",
-        "substitution": "N_Na = (100 / 23) * N_A; N_Fe = (100 / 56) * N_A",
-        "calculation": "1. Number of atoms in 100 g Na = (100 / 23) * N_A = 4.348 * N_A\n2. Number of atoms in 100 g Fe = (100 / 56) * N_A = 1.786 * N_A\n3. Since 4.348 > 1.786, 100 g of sodium contains significantly more atoms than 100 g of iron.",
-        "finalAnswer": "100 grams of sodium contains more atoms (4.348 N_A atoms) than 100 grams of iron (1.786 N_A atoms) because sodium has a much smaller atomic mass.",
-        "unit": "NCERT Exercise Q11",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 9.1: Atomic mass vs atomic count relationship"
+        "problem": "Textbook Revise, Reflect, Refine Q9 & Q10 (Section 9.3, p. 20): Write chemical formulae for compounds formed by criss-cross valency: (a) Aluminium and Sulphate, (b) Magnesium and Chloride, (c) Calcium and Oxide, (d) Sodium and Carbonate, (e) Ammonium and Nitrate.",
+        "given": "Cations: Al^3+, Mg^2+, Ca^2+, Na^+, NH4^+; Anions: SO4^2-, Cl^-, O^2-, CO3^2-, NO3^-.",
+        "formula": "Criss-cross valency rule: Cross over charges and simplify to smallest integer ratios.",
+        "substitution": "(a) Al(3+) SO4(2-); (b) Mg(2+) Cl(1-); (c) Ca(2+) O(2-); (d) Na(1+) CO3(2-); (e) NH4(1+) NO3(1-).",
+        "calculation": "1. Aluminium Sulphate: Al^3+ and SO4^2- -> Al2(SO4)3.\n2. Magnesium Chloride: Mg^2+ and Cl^- -> MgCl2.\n3. Calcium Oxide: Ca^2+ and O^2- -> Ca2O2 -> CaO.\n4. Sodium Carbonate: Na^+ and CO3^2- -> Na2CO3.\n5. Ammonium Nitrate: NH4^+ and NO3^- -> NH4NO3.",
+        "finalAnswer": "(a) Al2(SO4)3; (b) MgCl2; (c) CaO; (d) Na2CO3; (e) NH4NO3.",
+        "unit": "Chemical Formulae",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "chemical formula criss cross valency method chemistry",
+        "page": 20,
+        "section": "Revise, Reflect, Refine"
       }
     ],
     "common_misconceptions": [
@@ -1059,6 +1152,9 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Why do chemists use the term 'molecular mass' for water (H2O), but insist on using 'formula unit mass' for table salt (NaCl)?\"\n   - Law: Guide step-by-step molecular and formula unit mass summation using atomic masses.\n   - Socratic check: \"Calculate the molecular mass of nitric acid (HNO3)! H=1, N=14, O=16. Add them up!\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Why do chemists use the term 'molecular mass' for water (H2O), but insist on using 'formula unit mass' for table salt (NaCl)?\"\n   - Law: Guide step-by-step molecular and formula unit mass summation using atomic masses.\n   - Socratic check: \"Calculate the molecular mass of nitric acid (HNO3)! H=1, N=14, O=16. Add them up!\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "9a32d68b-ea7e-4860-99c1-0152d3dd6fcd",
+    "class_level": "Class 9",
+    "board": "CBSE"
   }
 ]

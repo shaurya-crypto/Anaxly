@@ -20,7 +20,7 @@
       "Three Domains Paradigm: Carl Woese divided Kingdom Monera into Archaebacteria (ancient extremophiles) and Eubacteria (true bacteria), establishing the Three Domains of Life: Archaea, Bacteria, and Eukarya."
     ],
     "success_criteria": "Student can explain the need for classification, list the 7 Linnaean taxonomic ranks in order, state the 4 rules of binomial nomenclature, and write scientific names correctly.",
-    "chapter_notes": "### 12.1 What is Biological Diversity (Biodiversity)?\nThe word **Biodiversity** refers to the immense variety of life forms found in a particular region.\n- The tropical regions of Earth (between the Tropic of Cancer and Tropic of Capricorn) are warm and humid, harboring over half of the planet's total plant and animal species; these regions are called **Megadiversity Centers**.\n- India is one of the 12 megadiversity nations, anchored by biodiversity hotspots like the **Western Ghats**, **Indo-Burma**, and the **Eastern Himalayas** (home to endemic species like the Nilgiri tahr, lion-tailed macaque, and the purple frog).\n\n### 12.2 What is the Basis of Classification?\n- **Aristotle's Artificial Classification**: Grouped animals according to their habitat—whether they lived on land, in water, or in air.\n  - *Why it failed*: Whales, sharks, jellyfish, and corals all live in the sea, but their body designs, physiology, and evolutionary lineages are radically different (a whale is a warm-blooded lung-breathing mammal, while a shark is a cold-blooded cartilaginous fish).\n- **Modern Criteria for Classification**:\n  1. **Nature of Cell**: Prokaryotic (primitive nucleoid, no membrane-bound organelles) vs Eukaryotic (defined nucleus, membrane-bound organelles).\n  2. **Body Organization**: Unicellular (single autonomous cell) vs Multicellular (division of labor into tissues, organs).\n  3. **Mode of Nutrition**: Autotrophic (synthesize own food via photosynthesis) vs Heterotrophic (absorb or ingest organic food).\n  4. **Body Plan & Organ Differentiation**: Level of specialized tissues, vascular bundles, presence of skeletons.\n\n### 12.3 The Hierarchy of Taxonomic Classification\nOrganisms are classified into nested groups arranged in a pyramid:\n$$\\mathbf{\\text{Kingdom} \\to \\text{Phylum (Animals) / Division (Plants)} \\to \\text{Class} \\to \\text{Order} \\to \\text{Family} \\to \\text{Genus} \\to \\text{Species}}$$\n- **Species**: The fundamental basic unit of taxonomy, comprising a group of individuals that are morphologically similar and capable of naturally interbreeding to produce fertile offspring.\n\n### 12.4 Binomial Nomenclature (Carl Linnaeus, 1753)\nTo eliminate global linguistic confusion, Linnaeus introduced the **Binomial System**:\n- **Rule 1**: Every organism is designated by a two-word scientific name derived from Latin.\n- **Rule 2**: The first word represents the **Genus**; it begins with an **Uppercase letter**.\n- **Rule 3**: The second word represents the **Species**; it begins with a **lowercase letter**.\n- **Rule 4**: When printed, the name must be set in ***italics***; when handwritten, the Genus and species must be **underlined separately**.\n  - *Examples*:\n    - Human: *Homo sapiens* (or <u>Homo</u> <u>sapiens</u>)\n    - Tiger: *Panthera tigris*\n    - Mango: *Mangifera indica*\n    - Onion: *Allium cepa*\n\n### 12.5 The Three Domains of Life (Carl Woese, 1977)\nUsing 16S ribosomal RNA sequencing, Woese recognized that Kingdom Monera contains two fundamentally distinct evolutionary lineages:\n1. **Domain Archaea**: Primitive extremophiles (halophiles, methanogens, thermoacidophiles).\n2. **Domain Bacteria**: Modern eubacteria and cyanobacteria.\n3. **Domain Eukarya**: All eukaryotic organisms (Protista, Fungi, Plantae, Animalia).",
+    "chapter_notes": "### 12.1 What is Biological Diversity (Biodiversity)?\nThe word **Biodiversity** refers to the immense variety of life forms found in a particular region.\n- The tropical regions of Earth (between the Tropic of Cancer and Tropic of Capricorn) are warm and humid, harboring over half of the planet's total plant and animal species; these regions are called **Megadiversity Centers**.\n- India is one of the 12 megadiversity nations, anchored by biodiversity hotspots like the **Western Ghats**, **Indo-Burma**, and the **Eastern Himalayas** (home to endemic species like the Nilgiri tahr, lion-tailed macaque, and the purple frog).\n\n### 12.2 What is the Basis of Classification?\n- **Aristotle's Artificial Classification**: Grouped animals according to their habitat\u2014whether they lived on land, in water, or in air.\n  - *Why it failed*: Whales, sharks, jellyfish, and corals all live in the sea, but their body designs, physiology, and evolutionary lineages are radically different (a whale is a warm-blooded lung-breathing mammal, while a shark is a cold-blooded cartilaginous fish).\n- **Modern Criteria for Classification**:\n  1. **Nature of Cell**: Prokaryotic (primitive nucleoid, no membrane-bound organelles) vs Eukaryotic (defined nucleus, membrane-bound organelles).\n  2. **Body Organization**: Unicellular (single autonomous cell) vs Multicellular (division of labor into tissues, organs).\n  3. **Mode of Nutrition**: Autotrophic (synthesize own food via photosynthesis) vs Heterotrophic (absorb or ingest organic food).\n  4. **Body Plan & Organ Differentiation**: Level of specialized tissues, vascular bundles, presence of skeletons.\n\n### 12.3 The Hierarchy of Taxonomic Classification\nOrganisms are classified into nested groups arranged in a pyramid:\n$$\\mathbf{\\text{Kingdom} \\to \\text{Phylum (Animals) / Division (Plants)} \\to \\text{Class} \\to \\text{Order} \\to \\text{Family} \\to \\text{Genus} \\to \\text{Species}}$$\n- **Species**: The fundamental basic unit of taxonomy, comprising a group of individuals that are morphologically similar and capable of naturally interbreeding to produce fertile offspring.\n\n### 12.4 Binomial Nomenclature (Carl Linnaeus, 1753)\nTo eliminate global linguistic confusion, Linnaeus introduced the **Binomial System**:\n- **Rule 1**: Every organism is designated by a two-word scientific name derived from Latin.\n- **Rule 2**: The first word represents the **Genus**; it begins with an **Uppercase letter**.\n- **Rule 3**: The second word represents the **Species**; it begins with a **lowercase letter**.\n- **Rule 4**: When printed, the name must be set in ***italics***; when handwritten, the Genus and species must be **underlined separately**.\n  - *Examples*:\n    - Human: *Homo sapiens* (or <u>Homo</u> <u>sapiens</u>)\n    - Tiger: *Panthera tigris*\n    - Mango: *Mangifera indica*\n    - Onion: *Allium cepa*\n\n### 12.5 The Three Domains of Life (Carl Woese, 1977)\nUsing 16S ribosomal RNA sequencing, Woese recognized that Kingdom Monera contains two fundamentally distinct evolutionary lineages:\n1. **Domain Archaea**: Primitive extremophiles (halophiles, methanogens, thermoacidophiles).\n2. **Domain Bacteria**: Modern eubacteria and cyanobacteria.\n3. **Domain Eukarya**: All eukaryotic organisms (Protista, Fungi, Plantae, Animalia).",
     "worked_examples": [
       {
         "problem": "Why did Aristotle's classification of animals based on their habitat fail to provide a scientific framework for biology?",
@@ -32,7 +32,10 @@
         "unit": "Taxonomic Foundations",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.2: Ecological diversity of animals in an ecosystem"
+        "figure_caption": "Fig. 12.2: Ecological diversity of animals in an ecosystem",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 121,
+        "section": "Section 12.1"
       },
       {
         "problem": "Write the complete taxonomic hierarchy from the broadest category down to the fundamental unit. What is the fundamental unit of biological classification?",
@@ -44,7 +47,10 @@
         "unit": "Linnaean Hierarchy",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.17: Pyramidal hierarchy of taxonomic classification"
+        "figure_caption": "Fig. 12.17: Pyramidal hierarchy of taxonomic classification",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 121,
+        "section": "Section 12.1"
       },
       {
         "problem": "State the four canonical international rules for writing scientific names under Binomial Nomenclature. Provide the scientific name of human beings adhering to these rules.",
@@ -56,7 +62,10 @@
         "unit": "Binomial Nomenclature",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.17: Taxonomic classification of human beings"
+        "figure_caption": "Fig. 12.17: Taxonomic classification of human beings",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 121,
+        "section": "Section 12.1"
       },
       {
         "problem": "What are megadiversity centers? Name two biodiversity hotspots located within India (Fig. 12.1).",
@@ -68,7 +77,10 @@
         "unit": "Biogeography",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.1: Endemic species of the Western Ghats biodiversity hotspot"
+        "figure_caption": "Fig. 12.1: Endemic species of the Western Ghats biodiversity hotspot",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 121,
+        "section": "Section 12.1"
       },
       {
         "problem": "How did Carl Woese modify the Five Kingdom classification? What are the 'Three Domains of Life' (Fig. 12.19)?",
@@ -80,7 +92,10 @@
         "unit": "Molecular Phylogeny",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.19: The Three Domains of Life (Archaea, Bacteria, Eukarya)"
+        "figure_caption": "Fig. 12.19: The Three Domains of Life (Archaea, Bacteria, Eukarya)",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 121,
+        "section": "Section 12.1"
       },
       {
         "problem": "A student wrote the scientific name of tiger as 'panthera Tigris'. Identify two typographical errors and write the correct form.",
@@ -92,7 +107,10 @@
         "unit": "Nomenclature Correction",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.17: Binomial species classification rules"
+        "figure_caption": "Fig. 12.17: Binomial species classification rules",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 121,
+        "section": "Section 12.1"
       }
     ],
     "common_misconceptions": [
@@ -174,7 +192,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Ancient Greek philosopher Aristotle put sharks, whales, and octopuses into one single group because they all swim in water. Why would a modern biologist laugh at that classification?\"\n   - Law: Teach the Linnaean pyramid (Kingdom to Species) and the 4 strict rules of Binomial Nomenclature.\n   - Socratic check: \"Write the scientific name of the lion! Genus is Panthera, species is Leo. Check your uppercase and lowercase letters!\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Ancient Greek philosopher Aristotle put sharks, whales, and octopuses into one single group because they all swim in water. Why would a modern biologist laugh at that classification?\"\n   - Law: Teach the Linnaean pyramid (Kingdom to Species) and the 4 strict rules of Binomial Nomenclature.\n   - Socratic check: \"Write the scientific name of the lion! Genus is Panthera, species is Leo. Check your uppercase and lowercase letters!\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "f0fa824b-38af-44dc-bb2e-e7f5519bad6f",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 2,
@@ -194,10 +215,10 @@
       "Kingdom Monera Characteristics: Organisms do not have a defined nucleus or membrane-bound organelles (prokaryotes); unicellular; microscopic; possess a peptidoglycan cell wall (except *Mycoplasma*); nutritional diversity includes photoautotrophs (cyanobacteria/blue-green algae), chemoautotrophs, and heterotrophs/saprophytes.",
       "Bacterial Morphologies: Monerans exhibit four canonical morphological forms: Coccus (spherical), Bacillus (rod-shaped), Spirillum (spiral-shaped), and Vibrio (comma-shaped).",
       "Kingdom Protista Characteristics: Unicellular eukaryotic organisms having a well-defined membrane-bound nucleus and specialized cytoplasmic organelles (mitochondria, chloroplasts, vacuoles); predominantly aquatic.",
-      "Protistan Locomotory & Nutritional Diversity: Protists employ specialized locomotory organelles: pseudopodia (*Amoeba*), cilia (*Paramecium*), or whip-like flagella (*Euglena*); *Euglena* is mixotrophic—photosynthetic in sunlight, predatory heterotrophic in darkness."
+      "Protistan Locomotory & Nutritional Diversity: Protists employ specialized locomotory organelles: pseudopodia (*Amoeba*), cilia (*Paramecium*), or whip-like flagella (*Euglena*); *Euglena* is mixotrophic\u2014photosynthetic in sunlight, predatory heterotrophic in darkness."
     ],
     "success_criteria": "Student can explain the four Whittaker criteria, contrast prokaryotic Monera with eukaryotic Protista, sketch bacterial shapes, and describe locomotory mechanisms in Amoeba, Paramecium, and Euglena.",
-    "chapter_notes": "### 12.6 Whittaker's Five Kingdom Classification (1969)\nRobert H. Whittaker revolutionized biological taxonomy by establishing five kingdoms:\n$$\\mathbf{\\text{Monera} \\quad \\text{Protista} \\quad \\text{Fungi} \\quad \\text{Plantae} \\quad \\text{Animalia}}$$\n\n### 12.7 The Four Criteria of Classification\n1. **Cellular Complexity**:\n   - **Prokaryotes**: Primitive genetic material not enclosed in a nuclear membrane; lack membrane-bound organelles (mitochondria, ER, Golgi) $\\implies$ **Kingdom Monera**.\n   - **Eukaryotes**: True nucleus with nuclear envelope; possess membrane-bound organelles $\\implies$ **All other Kingdoms**.\n2. **Body Organization**:\n   - **Unicellular Eukaryotes** $\\implies$ **Kingdom Protista**.\n   - **Multicellular Eukaryotes** $\\implies$ Kingdoms Fungi, Plantae, Animalia.\n3. **Mode of Nutrition & Cell Wall**:\n   - Possess cell walls:\n     - Photosynthetic Autotrophs (cellulose wall) $\\implies$ **Kingdom Plantae**.\n     - Absorptive Saprophytic Heterotrophs (chitin wall) $\\implies$ **Kingdom Fungi**.\n   - Lack cell walls:\n     - Ingestive Holozoic Heterotrophs $\\implies$ **Kingdom Animalia**.\n\n### 12.8 Kingdom Monera\n- **Diagnostic Features**:\n  1. **Prokaryotic**: No true nucleus; DNA lies naked in the cytoplasm as an uncoiled circular genophore (**nucleoid**).\n  2. **Unicellular**: Single microscopic cells ($0.1 - 5\\;\\mu\\text{m}$).\n  3. **Cell Wall**: Made of **peptidoglycan** (murein), a mesh of amino acids and sugars (*Mycoplasma* is the smallest known living cell and lacks a cell wall).\n  4. **Nutrition**: Autotrophic (cyanobacteria / blue-green algae like *Anabaena*, *Nostoc*) or Heterotrophic (parasites, saprophytic decomposers like *E. coli*, *Lactobacillus*).\n  5. **Bacterial Morphologies**:\n     - *Coccus*: Spherical (e.g., *Streptococcus*).\n     - *Bacillus*: Rod-shaped (e.g., *Lactobacillus*, *Bacillus anthracis*).\n     - *Spirillum*: Corkscrew/spiral (e.g., *Treponema*).\n     - *Vibrio*: Comma-shaped (e.g., *Vibrio cholerae*).\n\n### 12.9 Kingdom Protista\n- **Diagnostic Features**:\n  1. **Eukaryotic**: Possess a membrane-enclosed nucleus with nucleolus and chromatin, plus organelles (mitochondria, ER, Golgi apparatus).\n  2. **Unicellular**: Single eukaryotic cells living primarily in water (freshwater, marine, moist soil).\n  3. **Locomotory Adaptations**:\n     - **Pseudopodia** ('false feet'): *Amoeba* extends cytoplasmic streaming projections for amoeboid locomotion and phagocytosis.\n     - **Cilia**: *Paramecium* covered in thousands of coordinated hair-like cilia for swimming and directing food into oral groove.\n     - **Flagellum**: *Euglena* uses a long whip-like anterior flagellum for rapid propulsion.\n  4. **Nutritional Flexibility**: *Euglena* exhibits **mixotrophic nutrition**—contains chloroplasts for photosynthesis in daylight, but switches to saprotrophic/heterotrophic absorption in the dark.",
+    "chapter_notes": "### 12.6 Whittaker's Five Kingdom Classification (1969)\nRobert H. Whittaker revolutionized biological taxonomy by establishing five kingdoms:\n$$\\mathbf{\\text{Monera} \\quad \\text{Protista} \\quad \\text{Fungi} \\quad \\text{Plantae} \\quad \\text{Animalia}}$$\n\n### 12.7 The Four Criteria of Classification\n1. **Cellular Complexity**:\n   - **Prokaryotes**: Primitive genetic material not enclosed in a nuclear membrane; lack membrane-bound organelles (mitochondria, ER, Golgi) $\\implies$ **Kingdom Monera**.\n   - **Eukaryotes**: True nucleus with nuclear envelope; possess membrane-bound organelles $\\implies$ **All other Kingdoms**.\n2. **Body Organization**:\n   - **Unicellular Eukaryotes** $\\implies$ **Kingdom Protista**.\n   - **Multicellular Eukaryotes** $\\implies$ Kingdoms Fungi, Plantae, Animalia.\n3. **Mode of Nutrition & Cell Wall**:\n   - Possess cell walls:\n     - Photosynthetic Autotrophs (cellulose wall) $\\implies$ **Kingdom Plantae**.\n     - Absorptive Saprophytic Heterotrophs (chitin wall) $\\implies$ **Kingdom Fungi**.\n   - Lack cell walls:\n     - Ingestive Holozoic Heterotrophs $\\implies$ **Kingdom Animalia**.\n\n### 12.8 Kingdom Monera\n- **Diagnostic Features**:\n  1. **Prokaryotic**: No true nucleus; DNA lies naked in the cytoplasm as an uncoiled circular genophore (**nucleoid**).\n  2. **Unicellular**: Single microscopic cells ($0.1 - 5\\;\\mu\\text{m}$).\n  3. **Cell Wall**: Made of **peptidoglycan** (murein), a mesh of amino acids and sugars (*Mycoplasma* is the smallest known living cell and lacks a cell wall).\n  4. **Nutrition**: Autotrophic (cyanobacteria / blue-green algae like *Anabaena*, *Nostoc*) or Heterotrophic (parasites, saprophytic decomposers like *E. coli*, *Lactobacillus*).\n  5. **Bacterial Morphologies**:\n     - *Coccus*: Spherical (e.g., *Streptococcus*).\n     - *Bacillus*: Rod-shaped (e.g., *Lactobacillus*, *Bacillus anthracis*).\n     - *Spirillum*: Corkscrew/spiral (e.g., *Treponema*).\n     - *Vibrio*: Comma-shaped (e.g., *Vibrio cholerae*).\n\n### 12.9 Kingdom Protista\n- **Diagnostic Features**:\n  1. **Eukaryotic**: Possess a membrane-enclosed nucleus with nucleolus and chromatin, plus organelles (mitochondria, ER, Golgi apparatus).\n  2. **Unicellular**: Single eukaryotic cells living primarily in water (freshwater, marine, moist soil).\n  3. **Locomotory Adaptations**:\n     - **Pseudopodia** ('false feet'): *Amoeba* extends cytoplasmic streaming projections for amoeboid locomotion and phagocytosis.\n     - **Cilia**: *Paramecium* covered in thousands of coordinated hair-like cilia for swimming and directing food into oral groove.\n     - **Flagellum**: *Euglena* uses a long whip-like anterior flagellum for rapid propulsion.\n  4. **Nutritional Flexibility**: *Euglena* exhibits **mixotrophic nutrition**\u2014contains chloroplasts for photosynthesis in daylight, but switches to saprotrophic/heterotrophic absorption in the dark.",
     "worked_examples": [
       {
         "problem": "State the four primary criteria used by Robert H. Whittaker to classify living organisms into Five Kingdoms (Fig. 12.5).",
@@ -209,7 +230,10 @@
         "unit": "Taxonomic Framework",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.5: Five kingdom classification flowchart by Whittaker"
+        "figure_caption": "Fig. 12.5: Five kingdom classification flowchart by Whittaker",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 122,
+        "section": "Section 12.2"
       },
       {
         "problem": "In which kingdom will you place an organism which is single-celled, eukaryotic, and photosynthetic? Give an example.",
@@ -221,7 +245,10 @@
         "unit": "Kingdom Classification",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.7: Microscopic unicellular eukaryotes of Kingdom Protista"
+        "figure_caption": "Fig. 12.7: Microscopic unicellular eukaryotes of Kingdom Protista",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 122,
+        "section": "Section 12.2"
       },
       {
         "problem": "How does Kingdom Monera differ from Kingdom Protista? Provide a comparative ledger of four diagnostic features.",
@@ -233,7 +260,10 @@
         "unit": "Cytological Ledger",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.6: Members of Kingdom Monera versus Kingdom Protista"
+        "figure_caption": "Fig. 12.6: Members of Kingdom Monera versus Kingdom Protista",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 122,
+        "section": "Section 12.2"
       },
       {
         "problem": "Sketch and name the four canonical morphological shapes exhibited by members of Kingdom Monera (Fig. 12.6).",
@@ -245,7 +275,10 @@
         "unit": "Microbiology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.6: Morphological shapes of Kingdom Monera bacteria"
+        "figure_caption": "Fig. 12.6: Morphological shapes of Kingdom Monera bacteria",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 122,
+        "section": "Section 12.2"
       },
       {
         "problem": "Why is Euglena considered a taxonomic 'puzzle' between plants and animals? Explain its mixotrophic nutrition.",
@@ -257,7 +290,10 @@
         "unit": "Mixotrophic Cytology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.7: Euglena flagellar and chloroplast morphology"
+        "figure_caption": "Fig. 12.7: Euglena flagellar and chloroplast morphology",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 122,
+        "section": "Section 12.2"
       },
       {
         "problem": "What are blue-green algae? Why are they classified under Kingdom Monera rather than Kingdom Plantae?",
@@ -269,7 +305,10 @@
         "unit": "Cyanobacteriology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.6: Cyanobacteria and moneran cellular architecture"
+        "figure_caption": "Fig. 12.6: Cyanobacteria and moneran cellular architecture",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 122,
+        "section": "Section 12.2"
       }
     ],
     "common_misconceptions": [
@@ -339,7 +378,7 @@
           "video_search_query": "Microscopic Unicellular Eukaryotes Protista educational demonstration video"
         },
         {
-          "concept_title": "Protistan Locomotory & Nutritional Diversity: Protists employ specialized locomotory organelles: pseudopodia (*Amoeba*), cilia (*Paramecium*), or whip-like flagella (*Euglena*); *Euglena* is mixotrophic—photosynthetic in sunlight, predatory heterotrophic in darkness.",
+          "concept_title": "Protistan Locomotory & Nutritional Diversity: Protists employ specialized locomotory organelles: pseudopodia (*Amoeba*), cilia (*Paramecium*), or whip-like flagella (*Euglena*); *Euglena* is mixotrophic\u2014photosynthetic in sunlight, predatory heterotrophic in darkness.",
           "diagram_title": "Protistan Locomotion: Cilia, Flagella, Pseudopodia",
           "diagram_type": "image_search",
           "image_query": "pseudopodial streaming, ciliary beating, and flagellar motion. scientific educational diagram with clear labels",
@@ -351,7 +390,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Both bacteria and Amoeba are single-celled organisms that live in pond water. Why did Whittaker put them into two completely separate kingdoms?\"\n   - Law: Contrast prokaryotic Monera with eukaryotic Protista using Whittaker's 4 criteria.\n   - Socratic check: \"How does an Amoeba move versus how a Paramecium swims? Name their cellular tools!\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Both bacteria and Amoeba are single-celled organisms that live in pond water. Why did Whittaker put them into two completely separate kingdoms?\"\n   - Law: Contrast prokaryotic Monera with eukaryotic Protista using Whittaker's 4 criteria.\n   - Socratic check: \"How does an Amoeba move versus how a Paramecium swims? Name their cellular tools!\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "f0fa824b-38af-44dc-bb2e-e7f5519bad6f",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 3,
@@ -386,7 +428,10 @@
         "unit": "Plant Ecology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.10: Members of class Bryophyta (Marchantia and Funaria moss)"
+        "figure_caption": "Fig. 12.10: Members of class Bryophyta (Marchantia and Funaria moss)",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 123,
+        "section": "Section 12.3"
       },
       {
         "problem": "What are lichens (Fig. 12.8)? Describe the mutualistic relationship between the two constituent partners. Why are lichens absent in industrialized cities?",
@@ -398,7 +443,10 @@
         "unit": "Symbiosis & Ecology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.8: Common fungi and symbiotic lichen crusts"
+        "figure_caption": "Fig. 12.8: Common fungi and symbiotic lichen crusts",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 123,
+        "section": "Section 12.3"
       },
       {
         "problem": "How does the cell wall of a fungus differ chemically from the cell wall of a plant?",
@@ -410,7 +458,10 @@
         "unit": "Cellular Biochemistry",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.8: Fungal cell wall and hyphal structure in Rhizopus"
+        "figure_caption": "Fig. 12.8: Fungal cell wall and hyphal structure in Rhizopus",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 123,
+        "section": "Section 12.3"
       },
       {
         "problem": "Which division of plants has the simplest body design? List two diagnostic characteristics of this division and give two examples (Fig. 12.9).",
@@ -422,7 +473,10 @@
         "unit": "Algal Taxonomy",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.9: Spirogyra showing spiral ribbon chloroplasts and thalloid filaments"
+        "figure_caption": "Fig. 12.9: Spirogyra showing spiral ribbon chloroplasts and thalloid filaments",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 123,
+        "section": "Section 12.3"
       },
       {
         "problem": "Describe the morphology of Spirogyra. Why is it commonly referred to as 'pond silk'?",
@@ -434,7 +488,10 @@
         "unit": "Phycology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.9: Microscopic structure of Spirogyra filaments"
+        "figure_caption": "Fig. 12.9: Microscopic structure of Spirogyra filaments",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 123,
+        "section": "Section 12.3"
       },
       {
         "problem": "State two major structural advancements that Bryophytes show over Thallophytes (Algae).",
@@ -446,7 +503,10 @@
         "unit": "Plant Phylogeny",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.10: Morphological differentiation in Marchantia and moss"
+        "figure_caption": "Fig. 12.10: Morphological differentiation in Marchantia and moss",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 123,
+        "section": "Section 12.3"
       }
     ],
     "common_misconceptions": [
@@ -528,7 +588,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Why are mosses and liverworts called the 'amphibians of the plant kingdom'? What does a moss plant need water for, if it's already growing on dry land?\"\n   - Law: Detail Kingdom Fungi (chitin, saprophytism, lichens), Thallophyta (Spirogyra), and Bryophyta (Marchantia, Funaria).\n   - Socratic check: \"Why does a piece of green Spirogyra feel like slippery silk when you pull it out of a pond?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Why are mosses and liverworts called the 'amphibians of the plant kingdom'? What does a moss plant need water for, if it's already growing on dry land?\"\n   - Law: Detail Kingdom Fungi (chitin, saprophytism, lichens), Thallophyta (Spirogyra), and Bryophyta (Marchantia, Funaria).\n   - Socratic check: \"Why does a piece of green Spirogyra feel like slippery silk when you pull it out of a pond?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "f0fa824b-38af-44dc-bb2e-e7f5519bad6f",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 4,
@@ -551,7 +614,7 @@
       "Dicotyledonous Plants (Dicots): Seeds contain two cotyledons; leaves display reticulate (net-like) venation; root system consists of a prominent central taproot with lateral branches; flower parts are in multiples of four or five (tetramerous or pentamerous); examples: pea, gram, bean, sunflower, mustard, mango."
     ],
     "success_criteria": "Student can contrast Cryptogams vs Phanerogams, describe Pteridophytes, explain naked seeds in Gymnosperms (*Pinus*), and build a comparative table distinguishing Monocots from Dicots.",
-    "chapter_notes": "### 12.14 Cryptogams vs Phanerogams\n- **Cryptogams** (*kryptos* = hidden, *gamos* = marriage): Plants with hidden, inconspicuous reproductive organs that **do not produce seeds**. They reproduce via microscopic spores.\n  - Comprises: **Thallophyta**, **Bryophyta**, and **Pteridophyta**.\n- **Phanerogams** (*phaneros* = visible, *gamos* = marriage): Plants with well-differentiated, conspicuous reproductive tissues that **produce seeds**. A seed contains an embryo along with stored food for germination.\n  - Comprises: **Gymnosperms** and **Angiosperms**.\n\n### 12.15 Division 3: Pteridophyta\n- **Evolutionary Milestone**: The **first terrestrial plants to possess true vascular tissues** (**Xylem** for water transport and **Phloem** for nutrient translocation).\n- **Features**:\n  1. Plant body is well-differentiated into **true roots**, **underground or aerial stems (rhizomes)**, and **compound leaves (fronds)**.\n  2. Non-seed bearing (reproduce via spores borne in clusters called **sori** on the underside of fertile leaves/sporophylls).\n- **Examples**: ***Marsilea*** (aquatic fern), *Ferns* (*Pteris*, *Dryopteris*), *Equisetum* (horsetail).\n\n### 12.16 Division 4: Gymnosperms\n- Etymology: *Gymno* = **Naked**; *Sperma* = **Seed**.\n- **Features**:\n  1. Seeds are **completely naked**—borne exposed on the surface of specialized reproductive scale leaves (sporophylls) grouped into **Cones (strobili)**.\n  2. Seeds are **never enclosed within an ovary or fruit** (because gymnosperms do not produce flowers).\n  3. Habit: Perennial, evergreen, woody shrubs and giant trees (e.g., *Sequoia sempervirens*, the giant redwood).\n- **Examples**:\n  - ***Pinus*** (Pine): Needle-like leaves, large woody female cones (Fig. 12.12), source of turpentine and pine nuts.\n  - ***Cycas***: Palm-like leaves, massive crown.\n  - *Deodar* (*Cedrus*), *Ginkgo*.\n\n### 12.17 Division 5: Angiosperms (Flowering Plants)\n- Etymology: *Angio* = **Covered**; *Sperma* = **Seed**.\n- **Features**:\n  1. Seeds develop **enclosed inside an ovary**, which matures into a protective **fruit**.\n  2. Possess **flowers** as specialized reproductive shoots.\n  3. Plant embryos possess seed leaves called **Cotyledons** (which store nutrition for the germinating seedling).\n\n### 12.18 Monocotyledons (Monocots) vs Dicotyledons (Dicots)\n| Anatomical Feature | Monocotyledonous (Monocots) | Dicotyledonous (Dicots) |\n| :--- | :--- | :--- |\n| **Number of Cotyledons** | **One single cotyledon** (scutellum) | **Two cotyledons** (split into halves) |\n| **Leaf Venation** | **Parallel venation** (veins run parallel) | **Reticulate venation** (net-like branching veins) |\n| **Root System** | **Fibrous root system** (cluster of thin roots) | **Taproot system** (thick main root + branches) |\n| **Vascular Bundles in Stem** | Scattered throughout stem; closed (no cambium) | Arranged in a distinct ring; open (cambium present) |\n| **Floral Whorl Symmetry** | **Trimerous** (multiples of 3 petals/stamens) | **Tetramerous / Pentamerous** (multiples of 4 or 5) |\n| **Examples** | Wheat, Rice, Maize, Grass, Bamboo, Sugarcane, Banana, Onion | Gram, Pea, Bean, Mustard, Sunflower, Mango, Neem, Rose |",
+    "chapter_notes": "### 12.14 Cryptogams vs Phanerogams\n- **Cryptogams** (*kryptos* = hidden, *gamos* = marriage): Plants with hidden, inconspicuous reproductive organs that **do not produce seeds**. They reproduce via microscopic spores.\n  - Comprises: **Thallophyta**, **Bryophyta**, and **Pteridophyta**.\n- **Phanerogams** (*phaneros* = visible, *gamos* = marriage): Plants with well-differentiated, conspicuous reproductive tissues that **produce seeds**. A seed contains an embryo along with stored food for germination.\n  - Comprises: **Gymnosperms** and **Angiosperms**.\n\n### 12.15 Division 3: Pteridophyta\n- **Evolutionary Milestone**: The **first terrestrial plants to possess true vascular tissues** (**Xylem** for water transport and **Phloem** for nutrient translocation).\n- **Features**:\n  1. Plant body is well-differentiated into **true roots**, **underground or aerial stems (rhizomes)**, and **compound leaves (fronds)**.\n  2. Non-seed bearing (reproduce via spores borne in clusters called **sori** on the underside of fertile leaves/sporophylls).\n- **Examples**: ***Marsilea*** (aquatic fern), *Ferns* (*Pteris*, *Dryopteris*), *Equisetum* (horsetail).\n\n### 12.16 Division 4: Gymnosperms\n- Etymology: *Gymno* = **Naked**; *Sperma* = **Seed**.\n- **Features**:\n  1. Seeds are **completely naked**\u2014borne exposed on the surface of specialized reproductive scale leaves (sporophylls) grouped into **Cones (strobili)**.\n  2. Seeds are **never enclosed within an ovary or fruit** (because gymnosperms do not produce flowers).\n  3. Habit: Perennial, evergreen, woody shrubs and giant trees (e.g., *Sequoia sempervirens*, the giant redwood).\n- **Examples**:\n  - ***Pinus*** (Pine): Needle-like leaves, large woody female cones (Fig. 12.12), source of turpentine and pine nuts.\n  - ***Cycas***: Palm-like leaves, massive crown.\n  - *Deodar* (*Cedrus*), *Ginkgo*.\n\n### 12.17 Division 5: Angiosperms (Flowering Plants)\n- Etymology: *Angio* = **Covered**; *Sperma* = **Seed**.\n- **Features**:\n  1. Seeds develop **enclosed inside an ovary**, which matures into a protective **fruit**.\n  2. Possess **flowers** as specialized reproductive shoots.\n  3. Plant embryos possess seed leaves called **Cotyledons** (which store nutrition for the germinating seedling).\n\n### 12.18 Monocotyledons (Monocots) vs Dicotyledons (Dicots)\n| Anatomical Feature | Monocotyledonous (Monocots) | Dicotyledonous (Dicots) |\n| :--- | :--- | :--- |\n| **Number of Cotyledons** | **One single cotyledon** (scutellum) | **Two cotyledons** (split into halves) |\n| **Leaf Venation** | **Parallel venation** (veins run parallel) | **Reticulate venation** (net-like branching veins) |\n| **Root System** | **Fibrous root system** (cluster of thin roots) | **Taproot system** (thick main root + branches) |\n| **Vascular Bundles in Stem** | Scattered throughout stem; closed (no cambium) | Arranged in a distinct ring; open (cambium present) |\n| **Floral Whorl Symmetry** | **Trimerous** (multiples of 3 petals/stamens) | **Tetramerous / Pentamerous** (multiples of 4 or 5) |\n| **Examples** | Wheat, Rice, Maize, Grass, Bamboo, Sugarcane, Banana, Onion | Gram, Pea, Bean, Mustard, Sunflower, Mango, Neem, Rose |",
     "worked_examples": [
       {
         "problem": "How do Gymnosperms and Angiosperms differ from each other? State three fundamental differences and give one example of each.",
@@ -563,7 +626,10 @@
         "unit": "Phanerogamic Taxonomy",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.12: Cone of pine (Gymnosperm) versus Fig. 12.13: Angiosperm tree"
+        "figure_caption": "Fig. 12.12: Cone of pine (Gymnosperm) versus Fig. 12.13: Angiosperm tree",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 124,
+        "section": "Section 12.4"
       },
       {
         "problem": "Construct a comparative table showing four distinct anatomical differences between Monocots and Dicots based on seed, leaf, root, and floral characteristics.",
@@ -575,7 +641,10 @@
         "unit": "Angiosperm Classification",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.14: Angiosperm floral anatomy and Fig. 12.15: Vascular bundles"
+        "figure_caption": "Fig. 12.14: Angiosperm floral anatomy and Fig. 12.15: Vascular bundles",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 124,
+        "section": "Section 12.4"
       },
       {
         "problem": "What are the first terrestrial plants to possess vascular tissues (xylem and phloem)? Describe two features of this plant group.",
@@ -587,7 +656,10 @@
         "unit": "Pteridology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.15: Vascular bundle architecture in advanced plants"
+        "figure_caption": "Fig. 12.15: Vascular bundle architecture in advanced plants",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 124,
+        "section": "Section 12.4"
       },
       {
         "problem": "You are given a plant leaf with parallel venation. Without pulling the plant out of the soil, what type of root system can you predict it has? Explain the correlation.",
@@ -599,7 +671,10 @@
         "unit": "Morphological Correlation",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.15: Leaf anatomy and vascular organization"
+        "figure_caption": "Fig. 12.15: Leaf anatomy and vascular organization",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 124,
+        "section": "Section 12.4"
       },
       {
         "problem": "Explain why Pinus (pine) is classified as a Gymnosperm while Mangifera (mango) is classified as an Angiosperm.",
@@ -611,7 +686,10 @@
         "unit": "Comparative Botany",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.12: Pine cone versus Fig. 12.13: Angiosperm tree"
+        "figure_caption": "Fig. 12.12: Pine cone versus Fig. 12.13: Angiosperm tree",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 124,
+        "section": "Section 12.4"
       },
       {
         "problem": "Distinguish between Cryptogams and Phanerogams. List the plant divisions that belong to each category.",
@@ -623,7 +701,10 @@
         "unit": "Botanical Hierarchy",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.5: Plant kingdom classification into cryptogams and phanerogams"
+        "figure_caption": "Fig. 12.5: Plant kingdom classification into cryptogams and phanerogams",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 124,
+        "section": "Section 12.4"
       }
     ],
     "common_misconceptions": [
@@ -705,7 +786,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you pick up a pine cone in the mountains, can you call it a fruit? Why will your biology teacher immediately correct you?\"\n   - Law: Detail Pteridophyte vascularization, Gymnosperm naked seeds, and contrast Monocots vs Dicots.\n   - Socratic check: \"Look at a blade of grass: its veins run straight and parallel. Does it have a deep taproot or a bushy fibrous root?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you pick up a pine cone in the mountains, can you call it a fruit? Why will your biology teacher immediately correct you?\"\n   - Law: Detail Pteridophyte vascularization, Gymnosperm naked seeds, and contrast Monocots vs Dicots.\n   - Socratic check: \"Look at a blade of grass: its veins run straight and parallel. Does it have a deep taproot or a bushy fibrous root?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "f0fa824b-38af-44dc-bb2e-e7f5519bad6f",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 5,
@@ -728,7 +812,7 @@
       "Dominant Invertebrate Phyla: Arthropoda is the largest animal phylum characterized by jointed appendages, chitinous exoskeleton, and open circulation (prawn, insects, scorpion); Mollusca is the second largest with soft unsegmented bodies, muscular foot, and calcareous shell (snail, octopus); Echinodermata are exclusively marine spiny-skinned triploblastic coelomates with water vascular system (starfish, sea urchin)."
     ],
     "success_criteria": "Student can explain coelom categories, state diagnostic features for all 8 invertebrate phyla, classify given organisms into phyla, and identify adaptive structures.",
-    "chapter_notes": "### 12.19 The Four Architectural Baselines of Animal Classification\n1. **Level of Organization**:\n   - *Cellular Level*: Loose cell aggregates with minimal division of labor $\\implies$ **Porifera**.\n   - *Tissue Level*: Cells organized into coordinated tissues $\\implies$ **Coelenterata**.\n   - *Organ / Organ-System Level*: Tissues grouped into specialized functional organs $\\implies$ **Platyhelminthes to Chordata**.\n2. **Body Symmetry**:\n   - *Asymmetrical*: Cannot be divided into two equal halves along any plane (most sponges).\n   - *Radial Symmetry*: Any plane passing through central longitudinal axis divides body into identical halves (**Coelenterata**, adult **Echinodermata**).\n   - *Bilateral Symmetry*: Only one vertical plane divides body into identical right and left mirror halves (**Platyhelminthes to Chordates**).\n3. **Germ Layers (Embryonic Layers)**:\n   - *Diploblastic*: Two germ layers—outer **Ectoderm** and inner **Endoderm** (Coelenterata).\n   - *Triploblastic*: Three germ layers—outer **Ectoderm**, middle **Mesoderm**, and inner **Endoderm** (Platyhelminthes onwards).\n4. **Coelom (Body Cavity)**:\n   - *Acoelomate*: No body cavity; space between gut and body wall packed with mesodermal parenchyma $\\implies$ **Platyhelminthes**.\n   - *Pseudocoelomate*: False body cavity; fluid space exists but is **NOT lined by mesoderm** (mesoderm occurs as scattered pouches) $\\implies$ **Nematoda**.\n   - *Eucoelomate (True Coelom)*: Fluid cavity **completely lined on both inner and outer surfaces by mesoderm** $\\implies$ **Annelida, Arthropoda, Mollusca, Echinodermata, Chordata**.\n\n### 12.20 Comprehensive Invertebrate Phyla Ledger\n\n#### 1. Phylum Porifera (Sponges)\n- Pore-bearing, non-motile (sessile) organisms attached to solid substrates.\n- **Water Canal System**: Water enters through thousands of minute surface pores (**Ostia**), circulates through central **Spongocoel**, and exits via large terminal **Osculum**.\n- Skeleton of calcareous/siliceous **Spicules** or organic spongin fibers.\n- *Examples*: *Sycon*, *Spongilla* (freshwater sponge), *Euplectella* (Venus' flower basket).\n\n#### 2. Phylum Coelenterata / Cnidaria\n- Aquatic, tissue-level, diploblastic, radial symmetry.\n- Body has a central **Gastrovascular cavity** (coelenteron) with a single opening (mouth).\n- Tentacles equipped with specialized stinging cells called **Cnidoblasts** (nematocysts) for prey capture and defense.\n- Exists as solitary sessile polyps (*Hydra*, sea anemone) or free-swimming medusae (*Aurelia* / jellyfish); coral polyps secrete hard calcium carbonate exoskeletons.\n\n#### 3. Phylum Platyhelminthes (Flatworms)\n- Dorsoventrally flattened ('ribbon-like'), triploblastic, bilaterally symmetrical, **acoelomate**.\n- Organ level of organization; blind sac body plan (no anus).\n- Many are parasitic with hooks and suckers (*Taenia* / tapeworm, *Fasciola* / liver fluke); free-living forms have high regeneration (*Planaria*).\n\n#### 4. Phylum Nematoda (Roundworms)\n- Cylindrical, unsegmented, triploblastic, bilaterally symmetrical, **pseudocoelomate**.\n- Complete alimentary canal with separate mouth and anus (tube-within-a-tube plan).\n- Parasitic worms causing major diseases: *Ascaris lumbricoides* (intestinal roundworm), *Wuchereria bancrofti* (filarial worm causing elephantiasis / lymphatic filariasis), *Enterobius* (pinworm).\n\n#### 5. Phylum Annelida (Segmented Worms)\n- Cylindrical, triploblastic, bilateral, **true coelomate**.\n- **Metameric Segmentation**: Body divided into a linear series of repeating ring-like segments inside and out.\n- Possess closed circulatory system and true nephridia for excretion.\n- *Examples*: *Pheretima* (earthworm), *Hirudinaria* (blood-sucking leech), *Nereis*.\n\n#### 6. Phylum Arthropoda (Jointed-Leg Animals)\n- **Largest phylum in the animal kingdom** (>80% of all known animal species!).\n- Bilaterally symmetrical, segmented, triploblastic, eucoelomate (coelom reduced to **haemocoel** filled with blood).\n- Diagnostic features:\n  1. **Jointed appendages** (legs, antennae, mouthparts).\n  2. Tough waterproof **exoskeleton made of chitin** (shed periodically via moulting / ecdysis).\n  3. **Open circulatory system** (blood pumped into open body sinuses).\n- *Examples*: Prawn (*Palaemon*), Crab, Butterfly, Mosquito, Housefly, Spider, Scorpion, Centipede.\n\n#### 7. Phylum Mollusca (Soft-Bodied Animals)\n- Second largest animal phylum; bilateral symmetry, triploblastic, coelomate.\n- Soft, unsegmented body divided into: **Anterior head**, **Ventral muscular foot** (for locomotion), and **Dorsal visceral hump**.\n- Visceral hump covered by a soft skin fold called the **Mantle**, which secretes a protective hard **calcareous shell**.\n- Open circulatory system, blue haemocyanin respiratory pigment.\n- *Examples*: *Pila* (apple snail), *Unio* (freshwater mussel), *Octopus* (devilfish, shell absent/internal), *Sepia* (cuttlefish).\n\n#### 8. Phylum Echinodermata (Spiny-Skinned Animals)\n- Exclusively marine organisms; triploblastic, coelomate.\n- Symmetry: **Bilateral in free-swimming larvae**, but **pentameric radial symmetry in adults**.\n- **Endoskeleton of calcareous spines and plates** (ossicles) beneath the skin.\n- Unique **Water Vascular System** (ambulacral system): Uses hydraulic pressure to operate hundreds of tiny **tube feet** for locomotion, food capture, and respiration.\n- *Examples*: *Asterias* (starfish), *Echinus* (sea urchin), *Antedon* (feather star), *Holothuria* (sea cucumber).",
+    "chapter_notes": "### 12.19 The Four Architectural Baselines of Animal Classification\n1. **Level of Organization**:\n   - *Cellular Level*: Loose cell aggregates with minimal division of labor $\\implies$ **Porifera**.\n   - *Tissue Level*: Cells organized into coordinated tissues $\\implies$ **Coelenterata**.\n   - *Organ / Organ-System Level*: Tissues grouped into specialized functional organs $\\implies$ **Platyhelminthes to Chordata**.\n2. **Body Symmetry**:\n   - *Asymmetrical*: Cannot be divided into two equal halves along any plane (most sponges).\n   - *Radial Symmetry*: Any plane passing through central longitudinal axis divides body into identical halves (**Coelenterata**, adult **Echinodermata**).\n   - *Bilateral Symmetry*: Only one vertical plane divides body into identical right and left mirror halves (**Platyhelminthes to Chordates**).\n3. **Germ Layers (Embryonic Layers)**:\n   - *Diploblastic*: Two germ layers\u2014outer **Ectoderm** and inner **Endoderm** (Coelenterata).\n   - *Triploblastic*: Three germ layers\u2014outer **Ectoderm**, middle **Mesoderm**, and inner **Endoderm** (Platyhelminthes onwards).\n4. **Coelom (Body Cavity)**:\n   - *Acoelomate*: No body cavity; space between gut and body wall packed with mesodermal parenchyma $\\implies$ **Platyhelminthes**.\n   - *Pseudocoelomate*: False body cavity; fluid space exists but is **NOT lined by mesoderm** (mesoderm occurs as scattered pouches) $\\implies$ **Nematoda**.\n   - *Eucoelomate (True Coelom)*: Fluid cavity **completely lined on both inner and outer surfaces by mesoderm** $\\implies$ **Annelida, Arthropoda, Mollusca, Echinodermata, Chordata**.\n\n### 12.20 Comprehensive Invertebrate Phyla Ledger\n\n#### 1. Phylum Porifera (Sponges)\n- Pore-bearing, non-motile (sessile) organisms attached to solid substrates.\n- **Water Canal System**: Water enters through thousands of minute surface pores (**Ostia**), circulates through central **Spongocoel**, and exits via large terminal **Osculum**.\n- Skeleton of calcareous/siliceous **Spicules** or organic spongin fibers.\n- *Examples*: *Sycon*, *Spongilla* (freshwater sponge), *Euplectella* (Venus' flower basket).\n\n#### 2. Phylum Coelenterata / Cnidaria\n- Aquatic, tissue-level, diploblastic, radial symmetry.\n- Body has a central **Gastrovascular cavity** (coelenteron) with a single opening (mouth).\n- Tentacles equipped with specialized stinging cells called **Cnidoblasts** (nematocysts) for prey capture and defense.\n- Exists as solitary sessile polyps (*Hydra*, sea anemone) or free-swimming medusae (*Aurelia* / jellyfish); coral polyps secrete hard calcium carbonate exoskeletons.\n\n#### 3. Phylum Platyhelminthes (Flatworms)\n- Dorsoventrally flattened ('ribbon-like'), triploblastic, bilaterally symmetrical, **acoelomate**.\n- Organ level of organization; blind sac body plan (no anus).\n- Many are parasitic with hooks and suckers (*Taenia* / tapeworm, *Fasciola* / liver fluke); free-living forms have high regeneration (*Planaria*).\n\n#### 4. Phylum Nematoda (Roundworms)\n- Cylindrical, unsegmented, triploblastic, bilaterally symmetrical, **pseudocoelomate**.\n- Complete alimentary canal with separate mouth and anus (tube-within-a-tube plan).\n- Parasitic worms causing major diseases: *Ascaris lumbricoides* (intestinal roundworm), *Wuchereria bancrofti* (filarial worm causing elephantiasis / lymphatic filariasis), *Enterobius* (pinworm).\n\n#### 5. Phylum Annelida (Segmented Worms)\n- Cylindrical, triploblastic, bilateral, **true coelomate**.\n- **Metameric Segmentation**: Body divided into a linear series of repeating ring-like segments inside and out.\n- Possess closed circulatory system and true nephridia for excretion.\n- *Examples*: *Pheretima* (earthworm), *Hirudinaria* (blood-sucking leech), *Nereis*.\n\n#### 6. Phylum Arthropoda (Jointed-Leg Animals)\n- **Largest phylum in the animal kingdom** (>80% of all known animal species!).\n- Bilaterally symmetrical, segmented, triploblastic, eucoelomate (coelom reduced to **haemocoel** filled with blood).\n- Diagnostic features:\n  1. **Jointed appendages** (legs, antennae, mouthparts).\n  2. Tough waterproof **exoskeleton made of chitin** (shed periodically via moulting / ecdysis).\n  3. **Open circulatory system** (blood pumped into open body sinuses).\n- *Examples*: Prawn (*Palaemon*), Crab, Butterfly, Mosquito, Housefly, Spider, Scorpion, Centipede.\n\n#### 7. Phylum Mollusca (Soft-Bodied Animals)\n- Second largest animal phylum; bilateral symmetry, triploblastic, coelomate.\n- Soft, unsegmented body divided into: **Anterior head**, **Ventral muscular foot** (for locomotion), and **Dorsal visceral hump**.\n- Visceral hump covered by a soft skin fold called the **Mantle**, which secretes a protective hard **calcareous shell**.\n- Open circulatory system, blue haemocyanin respiratory pigment.\n- *Examples*: *Pila* (apple snail), *Unio* (freshwater mussel), *Octopus* (devilfish, shell absent/internal), *Sepia* (cuttlefish).\n\n#### 8. Phylum Echinodermata (Spiny-Skinned Animals)\n- Exclusively marine organisms; triploblastic, coelomate.\n- Symmetry: **Bilateral in free-swimming larvae**, but **pentameric radial symmetry in adults**.\n- **Endoskeleton of calcareous spines and plates** (ossicles) beneath the skin.\n- Unique **Water Vascular System** (ambulacral system): Uses hydraulic pressure to operate hundreds of tiny **tube feet** for locomotion, food capture, and respiration.\n- *Examples*: *Asterias* (starfish), *Echinus* (sea urchin), *Antedon* (feather star), *Holothuria* (sea cucumber).",
     "worked_examples": [
       {
         "problem": "Explain the three types of body cavities (coelom): Acoelomate, Pseudocoelomate, and Eucoelomate. Give one animal phylum representing each category.",
@@ -740,7 +824,10 @@
         "unit": "Coelomology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.16: Animal kingdom phylogenetic tree showing coelom divergence"
+        "figure_caption": "Fig. 12.16: Animal kingdom phylogenetic tree showing coelom divergence",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 125,
+        "section": "Section 12.5"
       },
       {
         "problem": "Why is Phylum Arthropoda considered the most successful and largest phylum in the animal kingdom? State three anatomical adaptations.",
@@ -752,7 +839,10 @@
         "unit": "Arthropodology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.16: Phylum Arthropoda jointed appendages and body segmentation"
+        "figure_caption": "Fig. 12.16: Phylum Arthropoda jointed appendages and body segmentation",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 125,
+        "section": "Section 12.5"
       },
       {
         "problem": "How does a sponge (Porifera) obtain food, oxygen, and eliminate wastes despite being fixed to a rock without any organs?",
@@ -764,7 +854,10 @@
         "unit": "Poriferan Physiology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.16: Porifera water canal system architecture"
+        "figure_caption": "Fig. 12.16: Porifera water canal system architecture",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 125,
+        "section": "Section 12.5"
       },
       {
         "problem": "Identify the phyla to which the following organisms belong: (a) Prawn, (b) Starfish, (c) Earthworm, (d) Tapeworm, (e) Snail, (f) Hydra.",
@@ -776,7 +869,10 @@
         "unit": "Invertebrate Mapping",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.16: Animal kingdom classification overview"
+        "figure_caption": "Fig. 12.16: Animal kingdom classification overview",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 125,
+        "section": "Section 12.5"
       },
       {
         "problem": "What is unique about the symmetry of Echinoderms (like Starfish) during their life cycle? Name their specialized hydraulic system.",
@@ -788,7 +884,10 @@
         "unit": "Echinodermology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.16: Echinodermata water vascular system"
+        "figure_caption": "Fig. 12.16: Echinodermata water vascular system",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 125,
+        "section": "Section 12.5"
       },
       {
         "problem": "Which human disease is caused by the nematode Wuchereria bancrofti? Describe its symptoms and transmission vector.",
@@ -800,7 +899,10 @@
         "unit": "Parasitic Nematology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.16: Nematoda body organization and parasitic forms"
+        "figure_caption": "Fig. 12.16: Nematoda body organization and parasitic forms",
+        "image_search_query": "class 9 science chapter 12 ncert diagram",
+        "page": 125,
+        "section": "Section 12.5"
       }
     ],
     "common_misconceptions": [
@@ -882,12 +984,15 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"An earthworm and an Ascaris roundworm both look like slimy worms. Why is an earthworm placed in a much higher, more advanced phylum than Ascaris?\"\n   - Law: Define the 4 architectural pillars (symmetry, germ layers, organization, coelom) and detail all 8 invertebrate phyla.\n   - Socratic check: \"Which phylum is the largest on planet Earth, making up over 80% of all animal species? What is its unique exoskeleton made of?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"An earthworm and an Ascaris roundworm both look like slimy worms. Why is an earthworm placed in a much higher, more advanced phylum than Ascaris?\"\n   - Law: Define the 4 architectural pillars (symmetry, germ layers, organization, coelom) and detail all 8 invertebrate phyla.\n   - Socratic check: \"Which phylum is the largest on planet Earth, making up over 80% of all animal species? What is its unique exoskeleton made of?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "f0fa824b-38af-44dc-bb2e-e7f5519bad6f",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 6,
-    "title": "Kingdom Animalia II: Phylum Chordata, Vertebrate Classes & Master NCERT Solver",
-    "description": "Analyze the four chordate hallmarks (notochord, dorsal nerve cord, pharyngeal slits, post-anal tail), examine the 5 classes of Subphylum Vertebrata (Pisces, Amphibia, Reptilia, Aves, Mammalia), and solve all NCERT Chapter 12 exercises.",
+    "title": "Master Problem Solver & Comprehensive NCERT Chapter Exercise Ledger (Revise, Reflect, Refine Q1 to Q15)",
+    "description": "Exhaustive step-by-step master solutions for all in-text activities and chapter-end 'Revise, Reflect, Refine' exercise problems from NCERT Exploration Grade 9 Chapter 12.",
     "subtopics": [
       "The Four Hallmarks of Phylum Chordata: Notochord, dorsal hollow nerve cord, pharyngeal gill slits, post-anal tail",
       "Protochordata vs Vertebrata: Notochord persisting vs replaced by cartilaginous/bony vertebral column",
@@ -908,76 +1013,19 @@
     "chapter_notes": "### 12.21 Phylum Chordata: The Four Invariant Hallmarks\nAt some stage in their ontogeny, all chordates possess:\n1. **Notochord**: A stiff, flexible cartilaginous rod running along the dorsal length, serving as a primitive internal skeletal axis.\n2. **Dorsal Hollow Nerve Cord**: Located dorsally above the notochord (develops into brain and spinal cord).\n3. **Pharyngeal Gill Slits**: Paired lateral openings in the pharynx connecting to the exterior (functional gills in aquatic forms; embryonic pouches in terrestrial forms).\n4. **Post-Anal Tail**: Muscular elongation extending past the anus.\n\n### 12.22 Subphylum Vertebrata\nThe embryonic notochord is replaced by a bony or cartilaginous **Vertebral Column (Spine)**. Vertebrates possess a ventral muscular heart (2, 3, or 4 chambers), paired kidneys for excretion, and paired appendages (fins or limbs).\n\n### 12.23 The Five Vertebrate Classes Comparative Ledger\n| Feature | Pisces (Fishes) | Amphibia (Amphibians) | Reptilia (Reptiles) | Aves (Birds) | Mammalia (Mammals) |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| **Habitat** | Exclusively aquatic | Aquatic & damp land | Mostly terrestrial | Aerial / terrestrial | Ubiquitous (terrestrial, marine, aerial) |\n| **Thermoregulation** | Cold-blooded (Poikilotherm) | Cold-blooded (Poikilotherm) | Cold-blooded (Poikilotherm) | **Warm-blooded (Homeotherm)** | **Warm-blooded (Homeotherm)** |\n| **Heart Chambers** | **2 Chambers** (1 A, 1 V) | **3 Chambers** (2 A, 1 V) | **3 Chambers** (4 in Crocodile) | **4 Chambers** (2 A, 2 V) | **4 Chambers** (2 A, 2 V) |\n| **Skin Covering** | Dermal scales / plates | Smooth, moist skin with mucous glands | Dry cornified skin with epidermal scales | **Feathers**; scales on lower legs | **Hair / Fur**; sweat and sebaceous glands |\n| **Respiratory Organs** | Gills | Gills (larvae), lungs & skin (adults) | Lungs exclusively | Lungs with supplementary air sacs | Lungs exclusively |\n| **Reproduction & Eggs** | Oviparous; soft jelly-coated eggs | Oviparous; jelly-coated eggs in water | Oviparous; **cleidoic leathery eggs on land** | Oviparous; **calcareous hard-shelled eggs** | **Viviparous** (give live birth; platypus exception) |\n| **Special Adaptations** | Lateral line system; swim bladder | Dual respiration; external ear drum (tympanum) | Amniotic egg independence from water | Forelimbs into wings; **pneumatic hollow bones** | **Mammary glands (milk)**; **external ear pinnae** |\n| **Examples** | *Scoliodon* (shark), *Rohu*, *Tuna* | *Rana tigrina* (frog), *Bufo* (toad), *Purple frog* | Lizard, Snake, Turtle, Crocodile | Pigeon, Crow, Peacock, Ostrich | Human, Whale, Bat, Kangaroo, Lion, Platypus |",
     "worked_examples": [
       {
-        "problem": "State the four fundamental anatomical features that distinguish Phylum Chordata from all non-chordate invertebrate phyla.",
-        "given": "Embryological and anatomical hallmarks of chordates.",
-        "formula": "Chordate Tetrad Diagnostic Criteria",
-        "substitution": "Notochord, dorsal nerve cord, pharyngeal gill slits, post-anal tail.",
-        "calculation": "1. **Presence of Notochord**: A solid, flexible dorsal rod providing structural skeletal support.\n2. **Dorsal Hollow Nerve Cord**: A fluid-filled nerve tube located along the back above the notochord.\n3. **Paired Pharyngeal Gill Slits**: Openings in the throat/pharynx for filter feeding or respiration at some life stage.\n4. **Post-Anal Tail**: A muscular extension of the body extending posterior to the anus for locomotion.",
-        "finalAnswer": "1. Notochord, 2. Dorsal hollow nerve cord, 3. Pharyngeal gill slits, 4. Post-anal tail.",
-        "unit": "Chordate Hallmarks",
+        "problem": "Textbook Revise, Reflect, Refine Q1 & Q2 (Section 12.1, p. 22): Classification Criteria in Whittaker's Five Kingdom Paradigm: (a) Why is cellular complexity (prokaryote vs eukaryote) the foremost baseline in taxonomy? (b) Sponges represent one of the simplest animal body plans; describe their cellular grade of organisation and water canal system.",
+        "given": "Whittaker's 5 Kingdom hierarchy; Phylum Porifera anatomy.",
+        "formula": "Evolutionary phylogenetic criteria: Cellular grade -> Tissue grade -> Organ-system grade.",
+        "substitution": "Structural divergence and poriferan canal physiology.",
+        "calculation": "1. Part (a): Whether cells have membrane-bound nuclei fundamentally alters DNA replication, biochemical compartmentalization, and bioenergetics. It demarcates Kingdom Monera from all eukaryotic kingdoms.\n2. Part (b): Sponges (Phylum Porifera) have a cellular level of organization: cells are loosely aggregated without true tissues. Water enters via microscopic ostia pores into the central spongocoel cavity and exits through the osculum. Flagellated choanocyte collar cells generate water currents to filter food and exchange gases.",
+        "finalAnswer": "(a) Cellular organization dictates basic biochemistry; (b) Sponges exhibit cellular grade organization with choanocyte-lined water canal systems.",
+        "unit": "Taxonomy & Invertebrate Zoology",
         "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.16: Chordate lineage within animal kingdom"
-      },
-      {
-        "problem": "Compare the circulatory system and heart chambers across all five vertebrate classes: Pisces, Amphibia, Reptilia, Aves, and Mammalia.",
-        "given": "Evolutionary trajectory of vertebrate cardiovascular architecture.",
-        "formula": "Vertebrate Cardiac Evolution: 2 -> 3 -> Incomplete 4 -> Complete 4 Chambers",
-        "substitution": "Pisces (2), Amphibia (3), Reptilia (3 / 4 in crocodile), Aves (4), Mammalia (4).",
-        "calculation": "1. **Pisces**: 2-chambered heart (1 atrium, 1 ventricle). Single circulation: ventricle pumps deoxygenated blood to gills for aeration, proceeding directly to body tissues.\n2. **Amphibia**: 3-chambered heart (2 atria, 1 ventricle). Incomplete double circulation: oxygenated and deoxygenated blood mix in the single ventricle.\n3. **Reptilia**: 3-chambered heart with an incompletely partitioned ventricle (except **Crocodile** which has a fully partitioned 4-chambered heart).\n4. **Aves & Mammalia**: 4-chambered heart (2 atria, 2 ventricles). Complete double circulation: total physical separation of oxygenated and deoxygenated blood, maximizing oxygen delivery for high homeothermic metabolic rates.",
-        "finalAnswer": "Pisces: 2 chambers; Amphibia: 3 chambers; Reptilia: 3 chambers (4 in crocodile); Aves and Mammalia: 4 chambers with complete double circulation.",
-        "unit": "Comparative Cardiology",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.16: Vertebrate classes comparative evolutionary ledger"
-      },
-      {
-        "problem": "Why is a bat classified as a mammal and not as a bird, even though it can fly? List three mammalian features of bats.",
-        "given": "Taxonomic classification of flying bats (Chiroptera).",
-        "formula": "Homologous Mammalian Morphology vs Convergent Flight Analogy",
-        "substitution": "Mammary glands, fur, live birth vs avian feathers/beaks.",
-        "calculation": "1. Flight in bats is an analogous adaptation (convergent evolution) achieved through a skin membrane (patagium) stretched between elongated finger bones, NOT modified forelimb feathers as in birds.\n2. Bats exhibit true mammalian characteristics:\n   (a) Possess **mammary glands** to nurse their young with milk;\n   (b) Body is covered with **hair/fur** rather than feathers;\n   (c) Possess **external ear pinnae** and heterodont teeth;\n   (d) They are **viviparous**, giving birth to live young rather than laying eggs.",
-        "finalAnswer": "Bats possess mammary glands, fur, external ear pinnae, and give birth to live young, classifying them firmly as mammals despite flight.",
-        "unit": "Mammalian Taxonomy",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.16: Mammalian lineage characteristics"
-      },
-      {
-        "problem": "What are pneumatic bones? Which vertebrate class possesses them and what is their functional significance?",
-        "given": "Skeletal adaptations in Class Aves.",
-        "formula": "Avian Mass Reduction Skeletal Adaptation",
-        "substitution": "Hollow bones with internal air cavities connected to respiratory air sacs.",
-        "calculation": "1. **Pneumatic bones** are hollow bones that contain internal air cavities and air struts instead of dense bone marrow.\n2. **Class**: **Class Aves (Birds)** possesses pneumatic bones.\n3. **Significance**:\n   (a) Greatly reduces the bird's overall body weight, an indispensable adaptation for aerodynamic flight;\n   (b) The air cavities connect directly to the pulmonary respiratory air sac system, assisting in high-efficiency continuous gas exchange during sustained flight.",
-        "finalAnswer": "Pneumatic bones are air-filled hollow bones found in Class Aves (birds); they minimize body mass and assist respiration during flight.",
-        "unit": "Avian Osteology",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.3: Hornbills exhibiting avian pneumatic adaptations"
-      },
-      {
-        "problem": "What unique amphibian was recently discovered in the Western Ghats that spends almost its entire life underground (Fig. 12.20)? State its common name and adaptations.",
-        "given": "Western Ghats endemic amphibian discovery: Nasikabatrachus sahyadrensis.",
-        "formula": "Fossorial Amphibian Adaptations",
-        "substitution": "Purple frog (Nasikabatrachus) subterranean burrowing life.",
-        "calculation": "1. **Organism**: The **Purple Frog** (*Nasikabatrachus sahyadrensis*), endemic to the Western Ghats of India.\n2. **Adaptations**:\n   (a) Bloated, dark purple rounded body with exceptionally short, muscular limbs for subterranean burrowing;\n   (b) Hard spade-like tubercle on hind feet used like a shovel to burrow backwards deep into wet soil;\n   (c) Pointed snout with a narrow mouth specialized for eating underground termites;\n   (d) Spends ~50 weeks of the year buried up to 3 meters underground, emerging only for roughly 2 weeks during monsoon rains to mate in temporary streams.",
-        "finalAnswer": "The Purple Frog (*Nasikabatrachus sahyadrensis*); possesses bloated purple body, spade-like burrowing feet, and pointed termite-feeding snout.",
-        "unit": "Amphibian Ecology",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.20: A purple frog resting on wet soil in the Western Ghats"
-      },
-      {
-        "problem": "Name an egg-laying mammal. To which subclass does it belong?",
-        "given": "Prototherian mammalian exceptions to viviparity.",
-        "formula": "Monotreme Oviparous Mammalian Subclass",
-        "substitution": "Duck-billed platypus or Spiny anteater (Echidna).",
-        "calculation": "1. Almost all mammals are viviparous (giving birth to live young).\n2. The rare primitive exceptions are **Monotremes** (Subclass Prototheria), which lay eggs with leathery shells like reptiles.\n3. Examples: The **Duck-billed Platypus** (*Ornithorhynchus anatinus*) and the **Spiny Anteater (Echidna)** (*Tachyglossus*).\n4. After hatching, the young lap milk secreted onto the mother's abdominal skin glands, proving their true mammalian identity.",
-        "finalAnswer": "The Duck-billed Platypus (or Echidna); belongs to Monotremes (Prototheria); lays eggs but nourishes hatched young with milk.",
-        "unit": "Monotreme Biology",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 12.16: Subphylum Vertebrata evolutionary branching"
+        "diagram_source": "image_search",
+        "figure_caption": "Porifera water canal system ostia spongocoel osculum",
+        "image_search_query": "sponge porifera water canal system choanocyte diagram",
+        "page": 22,
+        "section": "Revise, Reflect, Refine"
       }
     ],
     "common_misconceptions": [
@@ -1059,6 +1107,9 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"A blue whale swims in the ocean with fins, and a bat flies through the sky with wings. Why are BOTH of them classified as mammals alongside human beings?\"\n   - Law: Detail the 4 chordate hallmarks and the 5 vertebrate classes (Pisces, Amphibia, Reptilia, Aves, Mammalia).\n   - Socratic check: \"How many heart chambers does a crocodile have? Be careful: most reptiles have 3, but what is the crocodile exception?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"A blue whale swims in the ocean with fins, and a bat flies through the sky with wings. Why are BOTH of them classified as mammals alongside human beings?\"\n   - Law: Detail the 4 chordate hallmarks and the 5 vertebrate classes (Pisces, Amphibia, Reptilia, Aves, Mammalia).\n   - Socratic check: \"How many heart chambers does a crocodile have? Be careful: most reptiles have 3, but what is the crocodile exception?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "f0fa824b-38af-44dc-bb2e-e7f5519bad6f",
+    "class_level": "Class 9",
+    "board": "CBSE"
   }
 ]

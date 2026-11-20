@@ -1,0 +1,2062 @@
+[
+  {
+    "id": "24a1d5ce-2a1e-419a-98e7-664f2117905c",
+    "curriculum_id": "3d673a53-4d61-4007-b0f4-b8b5a7df51e0",
+    "order_index": 1,
+    "title": "Introduction to Chemical Reactions & Observations",
+    "description": "Master the identification of chemical reactions through everyday observations, word equations, and skeletal chemical equations.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 1: Introduction to Chemical Reactions & Observations. Mid-Term Examination Syllabus. Emphasize real-life examples like souring of milk or rusting of iron to ground the concept.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: A spirit lamp, tongs holding Mg ribbon, watch-glass collecting white ash.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Chemical Reactions -> Observations (Gas, Temp, Colour, State) -> Word Equations -> Skeletal Equations\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Chemical Reactions -> Observations (Gas, Temp, Colour, State) -> Word Equations -> Skeletal Equations\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Chemical Reaction: \"A process in which substances undergo a chemical change to form new substances with entirely different properties.\" [SI Unit: N/A]\n\n- Textbook Concrete Examples:\n- Magnesium Ribbon Burning: Burning a cleaned magnesium ribbon in air producing a dazzling white flame and white powder of magnesium oxide.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Page 2:\n    * [Q1] (conceptual): Why should a magnesium ribbon be cleaned before burning in air?\n      Method: Magnesium reacts with moist air to form a protective layer of magnesium oxide on its surface. Rubbing with sandpaper removes this layer so pure magnesium can burn.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Chemical Reaction\":\n    * [Q1] (1-mark MCQ): Which of the following is not a characteristic of a chemical reaction?\n      -> Ideal Model Answer: Change in mass\n      -> Socratic Hint: Recall the law of conservation of mass; mass remains constant.\n    * [Q2] (2-mark Definition): State two observations that indicate a chemical reaction has taken place.\n      -> Ideal Model Answer: Evolution of a gas and change in temperature.\n      -> Socratic Hint: Think about what happens when zinc reacts with dilute acid.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Chemical Reaction\":\n    - Visual Title: \"Magnesium Combustion\" (vector_svg_diagram)\n    - Why Needed: Visualizes Activity 1.1 clearly.\n    - What to Explain: Explain how magnesium ribbon burns with a dazzling white flame.\n    - Timing & Directive: Introduce at start of class.\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Chemical Reaction",
+      "Reactants and Products",
+      "Word Equation",
+      "Skeletal Equation"
+    ],
+    "success_criteria": "Identify and write correct word and skeletal equations for given chemical changes.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:42:01.261694+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Characteristics of Chemical Reactions",
+      "Physical vs Chemical Change",
+      "Word Equations",
+      "Skeletal Chemical Equations",
+      "Magnesium Ribbon Burning Activity"
+    ],
+    "chapter_notes": "A chemical reaction involves the breaking and making of bonds between atoms to produce new substances. The initial substances are reactants and new substances are products. Observations include change in state, colour, evolution of gas, and change in temperature.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Word Equation",
+        "given": "Reactants: Magnesium and Oxygen; Product: Magnesium oxide",
+        "formula": "Reactants -> Products",
+        "problem": "Write the word equation for burning of magnesium in air.",
+        "calculation": "Combine reactants on LHS and product on RHS with an arrow.",
+        "finalAnswer": "Magnesium + Oxygen -> Magnesium oxide",
+        "substitution": "Magnesium + Oxygen -> Magnesium oxide",
+        "image_search_query": "class 10 science chapter_1_chemi ncert",
+        "page": 10,
+        "section": "Section 1"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing physical changes with chemical changes.",
+      "Omitting physical states in equations."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734920685_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Introduction to Chemical Reactions & Observations: Master the identification of chemical reactions through everyday observations, word equations, and skeletal chemical equations.",
+              "keyTakeaway": "Chemical Reaction"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Chemical Reaction"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc101.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734920685_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Introduction to Chemical Reactions & Observations - Fundamental Equations",
+              "equations": [
+                "Chemical Reaction",
+                "Reactants and Products",
+                "Word Equation"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Chemical Reaction"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc101.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734920685_3",
+          "type": "DIAGRAM",
+          "title": "Introduction to Chemical Reactions & Observations Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Introduction to Chemical Reactions & Observations Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Chemical Reaction",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Reactants and Products",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "vector_svg",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Introduction to Chemical Reactions & Observations | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='100' y1='200' x2='440' y2='200' stroke='#0F172A' stroke-width='2'/><path d='M250 140 L270 180 L230 180 Z' fill='#DC2626'/><text x='230' y='220' font-family='sans-serif' font-size='14' fill='#0F172A'>Spirit Lamp</text><line x1='300' y1='100' x2='380' y2='150' stroke='#2563EB' stroke-width='3'/><text x='310' y='90' font-family='sans-serif' font-size='14' fill='#2563EB'>Magnesium Ribbon</text></svg> | A spirit lamp, tongs holding Mg ribbon, watch-glass collecting white ash."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc101.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734920685_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Chemical Reaction"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Reactants: Magnesium and Oxygen; Product: Magnesium oxide, what is the value?",
+              "explanation": "By fundamental principle, Chemical Reaction is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734920685_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Characteristics of Chemical Reactions",
+                "Physical vs Chemical Change",
+                "Word Equations",
+                "Skeletal Chemical Equations",
+                "Magnesium Ribbon Burning Activity"
+              ],
+              "formulasToRemember": [
+                "Chemical Reaction",
+                "Reactants and Products",
+                "Word Equation"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Introduction to Chemical Reactions & Observations - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Introduction to Chemical Reactions & Observations",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:42:00.685Z",
+        "provenance": "jesc101.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734920685",
+      "subtopics": [
+        "Characteristics of Chemical Reactions",
+        "Physical vs Chemical Change",
+        "Word Equations",
+        "Skeletal Chemical Equations",
+        "Magnesium Ribbon Burning Activity"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='100' y1='200' x2='440' y2='200' stroke='#0F172A' stroke-width='2'/><path d='M250 140 L270 180 L230 180 Z' fill='#DC2626'/><text x='230' y='220' font-family='sans-serif' font-size='14' fill='#0F172A'>Spirit Lamp</text><line x1='300' y1='100' x2='380' y2='150' stroke='#2563EB' stroke-width='3'/><text x='310' y='90' font-family='sans-serif' font-size='14' fill='#2563EB'>Magnesium Ribbon</text></svg>",
+      "diagram_idea": "Magnesium ribbon burning setup with spirit lamp and watch-glass.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "A spirit lamp, tongs holding Mg ribbon, watch-glass collecting white ash.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='150' y='50' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A'>Activity 1.1: Burning of Magnesium Ribbon</text></svg>",
+          "why_needed": "Visualizes Activity 1.1 clearly.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='150' y='50' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A'>Activity 1.1: Burning of Magnesium Ribbon</text></svg>",
+          "image_query": "Spirit lamp and burning magnesium ribbon. scientific educational diagram with clear labels",
+          "video_query": "Magnesium Combustion educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Spirit lamp and burning magnesium ribbon.",
+          "concept_title": "Chemical Reaction",
+          "diagram_title": "Magnesium Combustion",
+          "timing_and_cue": "Introduce at start of class.",
+          "what_to_explain": "Explain how magnesium ribbon burns with a dazzling white flame.",
+          "image_search_query": "Spirit lamp and burning magnesium ribbon. scientific educational diagram with clear labels",
+          "video_search_query": "Magnesium Combustion educational demonstration video",
+          "interactive_math_formula": ""
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Chemical Reactions -> Observations (Gas, Temp, Colour, State) -> Word Equations -> Skeletal Equations",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Which of the following is not a characteristic of a chemical reaction?",
+              "ideal_answer": "Change in mass",
+              "socratic_hint": "Recall the law of conservation of mass; mass remains constant."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "State two observations that indicate a chemical reaction has taken place.",
+              "ideal_answer": "Evolution of a gas and change in temperature.",
+              "socratic_hint": "Think about what happens when zinc reacts with dilute acid."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Chemical Reaction"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Magnesium Ribbon Burning",
+          "scenario": "Burning a cleaned magnesium ribbon in air producing a dazzling white flame and white powder of magnesium oxide."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "Why should a magnesium ribbon be cleaned before burning in air?",
+              "question_type": "conceptual",
+              "solution_method": "Magnesium reacts with moist air to form a protective layer of magnesium oxide on its surface. Rubbing with sandpaper removes this layer so pure magnesium can burn."
+            }
+          ],
+          "exercise_number": "In-Text Page 2"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Chemical Reaction",
+          "si_units": "N/A",
+          "definition": "A process in which substances undergo a chemical change to form new substances with entirely different properties."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "0061626a-b77f-4d7a-9536-93712ac6bfcd",
+    "curriculum_id": "3d673a53-4d61-4007-b0f4-b8b5a7df51e0",
+    "order_index": 2,
+    "title": "Balancing Chemical Equations & Physical States",
+    "description": "Learn the law of conservation of mass and master the step-by-step hit-and-trial method for balancing chemical equations.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 2: Balancing Chemical Equations & Physical States. Mid-Term Examination Syllabus. Walk through the 7 steps of balancing the iron-water reaction meticulously.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Comparison table for atom balancing.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Unbalanced Equation -> Draw Boxes -> Count Atoms -> Max Atom Rule (Hit & Trial) -> Add States (s,l,g,aq)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Unbalanced Equation -> Draw Boxes -> Count Atoms -> Max Atom Rule (Hit & Trial) -> Add States (s,l,g,aq)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Balanced Chemical Equation: \"An equation in which the number of atoms of each element is equal on both the reactant and product sides.\" [SI Unit: N/A]\n\n- Textbook Concrete Examples:\n- Balancing Iron and Steam Reaction: 3Fe(s) + 4H2O(g) -> Fe3O4(s) + 4H2(g)\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Page 6:\n    * [Q2] (numerical): Write the balanced equation for Hydrogen + Chlorine -> Hydrogen chloride\n      Method: H2 + Cl2 -> 2HCl\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Law of Conservation of Mass\":\n    * [Q1] (2-mark Definition): Why must a chemical equation be balanced?\n      -> Ideal Model Answer: To satisfy the Law of Conservation of Mass, which states that mass can neither be created nor destroyed in a chemical reaction.\n      -> Socratic Hint: Think about atomic mass conservation on LHS and RHS.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Hit-and-Trial Method\":\n    - Visual Title: \"Atom Count Table\" (vector_svg_diagram)\n    - Why Needed: Helps students systematically check atom balance.\n    - What to Explain: Compare element counts on LHS and RHS.\n    - Timing & Directive: Use during equation balancing.\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Law of Conservation of Mass",
+      "Balanced Chemical Equation",
+      "Hit-and-Trial Method",
+      "Physical States"
+    ],
+    "success_criteria": "Successfully balance complex skeletal equations such as Fe + H2O -> Fe3O4 + H2.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:42:01.534657+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Law of Conservation of Mass",
+      "Skeletal vs Balanced Equations",
+      "Hit-and-Trial Method",
+      "Incorporating Physical States (s, l, g, aq)",
+      "Reaction Conditions"
+    ],
+    "chapter_notes": "Mass can neither be created nor destroyed. Therefore, the total number of atoms of each element must be equal on both LHS and RHS of a chemical equation. We use the hit-and-trial method starting from the compound with maximum atoms.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Balanced Equation",
+        "given": "LHS: Zn=1, H=2, S=1, O=4; RHS: Zn=1, H=2, S=1, O=4",
+        "formula": "Atom balance check",
+        "problem": "Balance: Zn + H2SO4 -> ZnSO4 + H2",
+        "calculation": "Atoms on both sides are equal.",
+        "finalAnswer": "Zn + H2SO4 -> ZnSO4 + H2",
+        "substitution": "Already balanced",
+        "image_search_query": "class 10 science chapter_1_chemi ncert",
+        "page": 20,
+        "section": "Section 2"
+      }
+    ],
+    "common_misconceptions": [
+      "Altering formulas inside the boxes (e.g., changing H2O to H2O2) instead of changing coefficients."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734921372_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Balancing Chemical Equations & Physical States: Learn the law of conservation of mass and master the step-by-step hit-and-trial method for balancing chemical equations.",
+              "keyTakeaway": "Law of Conservation of Mass"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Law of Conservation of Mass"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc101.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734921372_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Balancing Chemical Equations & Physical States - Fundamental Equations",
+              "equations": [
+                "Law of Conservation of Mass",
+                "Balanced Chemical Equation",
+                "Hit-and-Trial Method"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Law of Conservation of Mass"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc101.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734921372_3",
+          "type": "DIAGRAM",
+          "title": "Balancing Chemical Equations & Physical States Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Balancing Chemical Equations & Physical States Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Law of Conservation of Mass",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Balanced Chemical Equation",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Balancing Chemical Equations & Physical States",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Balancing Chemical Equations & Physical States | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='50' y='50' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A'>Balancing Table Example (Zn + H2SO4)</text></svg> | Comparison table for atom balancing."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc101.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734921372_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Law of Conservation of Mass"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If LHS: Zn=1, H=2, S=1, O=4; RHS: Zn=1, H=2, S=1, O=4, what is the value?",
+              "explanation": "By fundamental principle, Law of Conservation of Mass is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734921372_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Law of Conservation of Mass",
+                "Skeletal vs Balanced Equations",
+                "Hit-and-Trial Method",
+                "Incorporating Physical States (s, l, g, aq)",
+                "Reaction Conditions"
+              ],
+              "formulasToRemember": [
+                "Law of Conservation of Mass",
+                "Balanced Chemical Equation",
+                "Hit-and-Trial Method"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Balancing Chemical Equations & Physical States - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Balancing Chemical Equations & Physical States",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:42:01.372Z",
+        "provenance": "jesc101.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734921372",
+      "subtopics": [
+        "Law of Conservation of Mass",
+        "Skeletal vs Balanced Equations",
+        "Hit-and-Trial Method",
+        "Incorporating Physical States (s, l, g, aq)",
+        "Reaction Conditions"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='50' y='50' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A'>Balancing Table Example (Zn + H2SO4)</text></svg>",
+      "diagram_idea": "Table comparing LHS and RHS atom counts.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Comparison table for atom balancing.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/></svg>",
+          "why_needed": "Helps students systematically check atom balance.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/></svg>",
+          "image_query": "Table layout. scientific educational diagram with clear labels",
+          "video_query": "Atom Count Table educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Table layout.",
+          "concept_title": "Hit-and-Trial Method",
+          "diagram_title": "Atom Count Table",
+          "timing_and_cue": "Use during equation balancing.",
+          "what_to_explain": "Compare element counts on LHS and RHS.",
+          "image_search_query": "Table layout. scientific educational diagram with clear labels",
+          "video_search_query": "Atom Count Table educational demonstration video",
+          "interactive_math_formula": ""
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Unbalanced Equation -> Draw Boxes -> Count Atoms -> Max Atom Rule (Hit & Trial) -> Add States (s,l,g,aq)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q1",
+              "question": "Why must a chemical equation be balanced?",
+              "ideal_answer": "To satisfy the Law of Conservation of Mass, which states that mass can neither be created nor destroyed in a chemical reaction.",
+              "socratic_hint": "Think about atomic mass conservation on LHS and RHS."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Law of Conservation of Mass"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Balancing Iron and Steam Reaction",
+          "scenario": "3Fe(s) + 4H2O(g) -> Fe3O4(s) + 4H2(g)"
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q2",
+              "question": "Write the balanced equation for Hydrogen + Chlorine -> Hydrogen chloride",
+              "question_type": "numerical",
+              "solution_method": "H2 + Cl2 -> 2HCl"
+            }
+          ],
+          "exercise_number": "In-Text Page 6"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Balanced Chemical Equation",
+          "si_units": "N/A",
+          "definition": "An equation in which the number of atoms of each element is equal on both the reactant and product sides."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "78b59efe-3aa8-4ec9-af2c-cdac6adfd6c3",
+    "curriculum_id": "3d673a53-4d61-4007-b0f4-b8b5a7df51e0",
+    "order_index": 3,
+    "title": "Types of Reactions: Combination & Decomposition",
+    "description": "Understand combination and thermal, electrolytic, and photolytic decomposition reactions with accompanying energy changes.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 3: Types of Reactions: Combination & Decomposition. Mid-Term Examination Syllabus. Highlight electrolysis of water (Activity 1.7) and silver chloride photolysis (Activity 1.8).\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Plastic mug with carbon electrodes and inverted test tubes.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Reaction Types -> Combination (A+B -> C) | Decomposition (A -> B+C) [Thermal, Electrolytic, Photolytic]\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Reaction Types -> Combination (A+B -> C) | Decomposition (A -> B+C) [Thermal, Electrolytic, Photolytic]\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Decomposition Reaction: \"A reaction in which a single reactant breaks down to give two or more simpler products.\" [SI Unit: N/A]\n\n- Textbook Concrete Examples:\n- Slaked Lime Formation: CaO(s) + H2O(l) -> Ca(OH)2(aq) + Heat\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Page 10:\n    * [Q1] (conceptual): A solution of a substance 'X' is used for whitewashing. (i) Name 'X' and its formula. (ii) Write the reaction with water.\n      Method: (i) Calcium oxide, CaO. (ii) CaO + H2O -> Ca(OH)2\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Combination Reaction\":\n    * [Q1] (1-mark MCQ): Which of the following is a combination reaction? (A) CaO + H2O -> Ca(OH)2 (B) CaCO3 -> CaO + CO2\n      -> Ideal Model Answer: (A)\n      -> Socratic Hint: Combination means two or more reactants forming a single product.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Electrolytic Decomposition\":\n    - Visual Title: \"Water Electrolysis\" (vector_svg_diagram)\n    - Why Needed: Shows 2:1 ratio of H2 and O2 gases.\n    - What to Explain: Explain why hydrogen gas volume is double of oxygen.\n    - Timing & Directive: Discuss during Activity 1.7.\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Combination Reaction",
+      "Exothermic Reaction",
+      "Decomposition Reaction",
+      "Endothermic Reaction"
+    ],
+    "success_criteria": "Differentiate between combination and decomposition reactions and classify energy requirements.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:42:02.188343+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Combination Reactions",
+      "Exothermic Reactions",
+      "Decomposition Reactions",
+      "Thermal Decomposition",
+      "Electrolytic Decomposition",
+      "Photolytic Decomposition"
+    ],
+    "chapter_notes": "Combination reactions involve two or more substances combining to form a single product. Decomposition reactions are the exact opposite, where a single reactant breaks down into simpler products using heat, light, or electricity.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Reaction Type",
+        "given": "Single reactant breaking down into multiple products with heat.",
+        "formula": "Thermal Decomposition",
+        "problem": "Identify the type of reaction: 2FeSO4(s) -> Fe2O3(s) + SO2(g) + SO3(g)",
+        "calculation": "Decomposition via heat.",
+        "finalAnswer": "Thermal Decomposition Reaction",
+        "substitution": "Heat applied to FeSO4",
+        "image_search_query": "class 10 science chapter_1_chemi ncert",
+        "page": 30,
+        "section": "Section 3"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing endothermic processes with exothermic ones."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734921652_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Types of Reactions: Combination & Decomposition: Understand combination and thermal, electrolytic, and photolytic decomposition reactions with accompanying energy changes.",
+              "keyTakeaway": "Combination Reaction"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Combination Reaction"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc101.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734921652_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Types of Reactions: Combination & Decomposition - Fundamental Equations",
+              "equations": [
+                "Combination Reaction",
+                "Exothermic Reaction",
+                "Decomposition Reaction"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Combination Reaction"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc101.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734921652_3",
+          "type": "DIAGRAM",
+          "title": "Types of Reactions: Combination & Decomposition Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Types of Reactions: Combination & Decomposition Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Combination Reaction",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Exothermic Reaction",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "vector_svg",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Types of Reactions: Combination & Decomposition | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='180' y='40' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A'>Electrolysis of Water (Activity 1.7)</text></svg> | Plastic mug with carbon electrodes and inverted test tubes."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc101.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734921652_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Combination Reaction"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Single reactant breaking down into multiple products with heat., what is the value?",
+              "explanation": "By fundamental principle, Combination Reaction is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734921652_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Combination Reactions",
+                "Exothermic Reactions",
+                "Decomposition Reactions",
+                "Thermal Decomposition",
+                "Electrolytic Decomposition",
+                "Photolytic Decomposition"
+              ],
+              "formulasToRemember": [
+                "Combination Reaction",
+                "Exothermic Reaction",
+                "Decomposition Reaction"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Types of Reactions: Combination & Decomposition - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Types of Reactions: Combination & Decomposition",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:42:01.653Z",
+        "provenance": "jesc101.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734921652",
+      "subtopics": [
+        "Combination Reactions",
+        "Exothermic Reactions",
+        "Decomposition Reactions",
+        "Thermal Decomposition",
+        "Electrolytic Decomposition",
+        "Photolytic Decomposition"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='180' y='40' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A'>Electrolysis of Water (Activity 1.7)</text></svg>",
+      "diagram_idea": "Electrolysis of water apparatus setup.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Plastic mug with carbon electrodes and inverted test tubes.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/></svg>",
+          "why_needed": "Shows 2:1 ratio of H2 and O2 gases.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/></svg>",
+          "image_query": "electrolysis of water experimental apparatus diagram with battery, cathode, anode, test tubes, and collected hydrogen and oxygen gases",
+          "video_query": "electrolysis of water laboratory experiment demonstration",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Mug setup with battery and test tubes.",
+          "concept_title": "Electrolytic Decomposition",
+          "diagram_title": "Water Electrolysis",
+          "timing_and_cue": "Discuss during Activity 1.7.",
+          "what_to_explain": "Explain why hydrogen gas volume is double of oxygen.",
+          "image_search_query": "electrolysis of water experimental apparatus diagram with battery, cathode, anode, test tubes, and collected hydrogen and oxygen gases",
+          "video_search_query": "electrolysis of water laboratory experiment demonstration",
+          "interactive_math_formula": ""
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Reaction Types -> Combination (A+B -> C) | Decomposition (A -> B+C) [Thermal, Electrolytic, Photolytic]",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Which of the following is a combination reaction? (A) CaO + H2O -> Ca(OH)2 (B) CaCO3 -> CaO + CO2",
+              "ideal_answer": "(A)",
+              "socratic_hint": "Combination means two or more reactants forming a single product."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Combination Reaction"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Slaked Lime Formation",
+          "scenario": "CaO(s) + H2O(l) -> Ca(OH)2(aq) + Heat"
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "A solution of a substance 'X' is used for whitewashing. (i) Name 'X' and its formula. (ii) Write the reaction with water.",
+              "question_type": "conceptual",
+              "solution_method": "(i) Calcium oxide, CaO. (ii) CaO + H2O -> Ca(OH)2"
+            }
+          ],
+          "exercise_number": "In-Text Page 10"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Decomposition Reaction",
+          "si_units": "N/A",
+          "definition": "A reaction in which a single reactant breaks down to give two or more simpler products."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "29045cf2-9ea6-411e-b1e8-962f70cd52b3",
+    "curriculum_id": "3d673a53-4d61-4007-b0f4-b8b5a7df51e0",
+    "order_index": 4,
+    "title": "Displacement & Double Displacement Reactions",
+    "description": "Master displacement and double displacement reactions, reactivity series, and precipitation processes.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 4: Displacement & Double Displacement Reactions. Mid-Term Examination Syllabus. Use the reactivity series to explain why iron displaces copper but copper cannot displace iron.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Test tube with blue CuSO4 solution and iron nail.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Reaction Types -> Displacement (A + BC -> AC + B) | Double Displacement (AB + CD -> AD + CB)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Reaction Types -> Displacement (A + BC -> AC + B) | Double Displacement (AB + CD -> AD + CB)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Precipitation Reaction: \"Any reaction that produces an insoluble substance (precipitate).\" [SI Unit: N/A]\n\n- Textbook Concrete Examples:\n- Iron Nail in Copper Sulphate: Fe(s) + CuSO4(aq) -> FeSO4(aq) + Cu(s)\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Page 13:\n    * [Q2] (conceptual): Give an example of a double displacement reaction other than Activity 1.10.\n      Method: AgNO3(aq) + NaCl(aq) -> AgCl(s) + NaNO3(aq)\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Displacement Reaction\":\n    * [Q1] (1-mark MCQ): What happens when iron nail is dipped in copper sulphate solution?\n      -> Ideal Model Answer: Iron displaces copper, turning solution light green and nail brownish.\n      -> Socratic Hint: Iron is more reactive than copper.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Displacement Reaction\":\n    - Visual Title: \"Iron & Copper Sulphate\" (vector_svg_diagram)\n    - Why Needed: Visualizes color change from blue to green.\n    - What to Explain: Explain how Fe displaces Cu.\n    - Timing & Directive: Discuss during Activity 1.9.\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Displacement Reaction",
+      "Reactivity Series",
+      "Double Displacement Reaction",
+      "Precipitation Reaction"
+    ],
+    "success_criteria": "Predict whether a displacement reaction will occur based on the reactivity series and write ionic exchange equations.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:42:02.475284+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Displacement Reactions",
+      "Metal Reactivity Series",
+      "Double Displacement Reactions",
+      "Precipitation Reactions",
+      "Exchange of Ions"
+    ],
+    "chapter_notes": "In a displacement reaction, a more reactive element displaces a less reactive element from its compound. In double displacement reactions, two ionic species exchange partners, often forming an insoluble precipitate.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Balanced Equation",
+        "given": "Reactants: Na2SO4 and BaCl2",
+        "formula": "Double Displacement / Precipitation",
+        "problem": "Write the balanced equation for sodium sulphate and barium chloride reaction.",
+        "calculation": "Exchange ions: Ba2+ + SO42- -> BaSO4",
+        "finalAnswer": "Na2SO4(aq) + BaCl2(aq) -> BaSO4(s) + 2NaCl(aq)",
+        "substitution": "Na2SO4(aq) + BaCl2(aq) -> BaSO4(s) + 2NaCl(aq)",
+        "image_search_query": "class 10 science chapter_1_chemi ncert",
+        "page": 40,
+        "section": "Section 4"
+      }
+    ],
+    "common_misconceptions": [
+      "Assuming less reactive metals can displace more reactive metals."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734922299_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Displacement & Double Displacement Reactions: Master displacement and double displacement reactions, reactivity series, and precipitation processes.",
+              "keyTakeaway": "Displacement Reaction"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Displacement Reaction"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc101.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734922299_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Displacement & Double Displacement Reactions - Fundamental Equations",
+              "equations": [
+                "Displacement Reaction",
+                "Reactivity Series",
+                "Double Displacement Reaction"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Displacement Reaction"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc101.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734922299_3",
+          "type": "DIAGRAM",
+          "title": "Displacement & Double Displacement Reactions Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Displacement & Double Displacement Reactions Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Displacement Reaction",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Reactivity Series",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "vector_svg",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Displacement & Double Displacement Reactions | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='180' y='40' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A'>Activity 1.9: Iron Nail in Copper Sulphate</text></svg> | Test tube with blue CuSO4 solution and iron nail."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc101.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734922299_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Displacement Reaction"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Reactants: Na2SO4 and BaCl2, what is the value?",
+              "explanation": "By fundamental principle, Displacement Reaction is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734922299_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Displacement Reactions",
+                "Metal Reactivity Series",
+                "Double Displacement Reactions",
+                "Precipitation Reactions",
+                "Exchange of Ions"
+              ],
+              "formulasToRemember": [
+                "Displacement Reaction",
+                "Reactivity Series",
+                "Double Displacement Reaction"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Displacement & Double Displacement Reactions - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Displacement & Double Displacement Reactions",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:42:02.299Z",
+        "provenance": "jesc101.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734922299",
+      "subtopics": [
+        "Displacement Reactions",
+        "Metal Reactivity Series",
+        "Double Displacement Reactions",
+        "Precipitation Reactions",
+        "Exchange of Ions"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='180' y='40' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A'>Activity 1.9: Iron Nail in Copper Sulphate</text></svg>",
+      "diagram_idea": "Iron nail in copper sulphate test tube setup.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Test tube with blue CuSO4 solution and iron nail.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/></svg>",
+          "why_needed": "Visualizes color change from blue to green.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/></svg>",
+          "image_query": "Test tubes A and B comparison. scientific educational diagram with clear labels",
+          "video_query": "Iron & Copper Sulphate educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Test tubes A and B comparison.",
+          "concept_title": "Displacement Reaction",
+          "diagram_title": "Iron & Copper Sulphate",
+          "timing_and_cue": "Discuss during Activity 1.9.",
+          "what_to_explain": "Explain how Fe displaces Cu.",
+          "image_search_query": "Test tubes A and B comparison. scientific educational diagram with clear labels",
+          "video_search_query": "Iron & Copper Sulphate educational demonstration video",
+          "interactive_math_formula": ""
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Reaction Types -> Displacement (A + BC -> AC + B) | Double Displacement (AB + CD -> AD + CB)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "What happens when iron nail is dipped in copper sulphate solution?",
+              "ideal_answer": "Iron displaces copper, turning solution light green and nail brownish.",
+              "socratic_hint": "Iron is more reactive than copper."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Displacement Reaction"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Iron Nail in Copper Sulphate",
+          "scenario": "Fe(s) + CuSO4(aq) -> FeSO4(aq) + Cu(s)"
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q2",
+              "question": "Give an example of a double displacement reaction other than Activity 1.10.",
+              "question_type": "conceptual",
+              "solution_method": "AgNO3(aq) + NaCl(aq) -> AgCl(s) + NaNO3(aq)"
+            }
+          ],
+          "exercise_number": "In-Text Page 13"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Precipitation Reaction",
+          "si_units": "N/A",
+          "definition": "Any reaction that produces an insoluble substance (precipitate)."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "70ad4091-a2d0-4ed8-8c92-70126e2e68c0",
+    "curriculum_id": "3d673a53-4d61-4007-b0f4-b8b5a7df51e0",
+    "order_index": 5,
+    "title": "Oxidation, Reduction, Corrosion & Rancidity",
+    "description": "Master oxidation-reduction (redox) reactions and understand everyday consequences like corrosion and rancidity.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 5: Oxidation, Reduction, Corrosion & Rancidity. Mid-Term Examination Syllabus. Use clear arrows to show electron/oxygen transfer during redox reactions on the board.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Tripod stand, wire gauze, china dish with copper powder, and burner.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Redox -> Oxidation (Gain O / Lose H) + Reduction (Lose O / Gain H) -> Everyday Effects (Corrosion, Rancidity)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Redox -> Oxidation (Gain O / Lose H) + Reduction (Lose O / Gain H) -> Everyday Effects (Corrosion, Rancidity)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Redox Reaction: \"A chemical reaction in which one reactant gets oxidised while the other gets reduced.\" [SI Unit: N/A]\n\n- Textbook Concrete Examples:\n- Copper to Copper Oxide: 2Cu + O2 -> 2CuO (Heating copper powder)\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Page 13:\n    * [Q3] (conceptual): Identify substances oxidised and reduced in: CuO(s) + H2(g) -> Cu(s) + H2O(l)\n      Method: H2 is oxidised to H2O; CuO is reduced to Cu.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Oxidation and Reduction\":\n    * [Q1] (2-mark Definition): Define oxidation and reduction in terms of oxygen transfer.\n      -> Ideal Model Answer: Oxidation is the gain of oxygen; reduction is the loss of oxygen.\n      -> Socratic Hint: Think about copper turning to copper oxide.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Redox Reaction\":\n    - Visual Title: \"Oxidation & Reduction Flow\" (vector_svg_diagram)\n    - Why Needed: Clearly distinguishes oxidation vs reduction.\n    - What to Explain: Trace oxygen gain and loss.\n    - Timing & Directive: Use when explaining redox definitions.\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Oxidation",
+      "Reduction",
+      "Redox Reaction",
+      "Corrosion",
+      "Rancidity"
+    ],
+    "success_criteria": "Identify oxidizing and reducing agents in given redox equations and explain corrosion prevention.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:42:02.709545+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Oxidation Definition (Gain of Oxygen / Loss of Hydrogen)",
+      "Reduction Definition (Loss of Oxygen / Gain of Hydrogen)",
+      "Redox Reactions",
+      "Corrosion of Metals",
+      "Rancidity of Fats and Oils"
+    ],
+    "chapter_notes": "If a substance gains oxygen or loses hydrogen during a reaction, it is oxidised. If it loses oxygen or gains hydrogen, it is reduced. Reactions where both occur simultaneously are redox reactions. Corrosion and rancidity are everyday oxidative degradation processes.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Oxidising Agent",
+        "given": "ZnO losing oxygen to form Zn; C gaining oxygen to form CO",
+        "formula": "Oxidising agent is the substance getting reduced.",
+        "problem": "Identify the oxidising agent in: ZnO + C -> Zn + CO",
+        "calculation": "ZnO is reduced, hence it is the oxidising agent.",
+        "finalAnswer": "ZnO",
+        "substitution": "ZnO loses O to become Zn",
+        "image_search_query": "class 10 science chapter_1_chemi ncert",
+        "page": 50,
+        "section": "Section 5"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing the substance oxidised with the oxidising agent."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734922586_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Oxidation, Reduction, Corrosion & Rancidity: Master oxidation-reduction (redox) reactions and understand everyday consequences like corrosion and rancidity.",
+              "keyTakeaway": "Oxidation"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Oxidation"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc101.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734922586_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Oxidation, Reduction, Corrosion & Rancidity - Fundamental Equations",
+              "equations": [
+                "Oxidation",
+                "Reduction",
+                "Redox Reaction"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Oxidation"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc101.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734922586_3",
+          "type": "DIAGRAM",
+          "title": "Oxidation, Reduction, Corrosion & Rancidity Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Oxidation, Reduction, Corrosion & Rancidity Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Oxidation",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Reduction",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Oxidation, Reduction, Corrosion & Rancidity",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Oxidation, Reduction, Corrosion & Rancidity | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='150' y='40' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A'>Activity 1.11: Oxidation of Copper</text></svg> | Tripod stand, wire gauze, china dish with copper powder, and burner."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc101.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734922586_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Oxidation"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If ZnO losing oxygen to form Zn; C gaining oxygen to form CO, what is the value?",
+              "explanation": "By fundamental principle, Oxidation is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734922586_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Oxidation Definition (Gain of Oxygen / Loss of Hydrogen)",
+                "Reduction Definition (Loss of Oxygen / Gain of Hydrogen)",
+                "Redox Reactions",
+                "Corrosion of Metals",
+                "Rancidity of Fats and Oils"
+              ],
+              "formulasToRemember": [
+                "Oxidation",
+                "Reduction",
+                "Redox Reaction"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Oxidation, Reduction, Corrosion & Rancidity - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Oxidation, Reduction, Corrosion & Rancidity",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:42:02.586Z",
+        "provenance": "jesc101.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734922586",
+      "subtopics": [
+        "Oxidation Definition (Gain of Oxygen / Loss of Hydrogen)",
+        "Reduction Definition (Loss of Oxygen / Gain of Hydrogen)",
+        "Redox Reactions",
+        "Corrosion of Metals",
+        "Rancidity of Fats and Oils"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='150' y='40' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A'>Activity 1.11: Oxidation of Copper</text></svg>",
+      "diagram_idea": "Heating copper powder in a china dish.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Tripod stand, wire gauze, china dish with copper powder, and burner.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/></svg>",
+          "why_needed": "Clearly distinguishes oxidation vs reduction.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/></svg>",
+          "image_query": "Reaction flow arrows. scientific educational diagram with clear labels",
+          "video_query": "Oxidation & Reduction Flow educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Reaction flow arrows.",
+          "concept_title": "Redox Reaction",
+          "diagram_title": "Oxidation & Reduction Flow",
+          "timing_and_cue": "Use when explaining redox definitions.",
+          "what_to_explain": "Trace oxygen gain and loss.",
+          "image_search_query": "Reaction flow arrows. scientific educational diagram with clear labels",
+          "video_search_query": "Oxidation & Reduction Flow educational demonstration video",
+          "interactive_math_formula": ""
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Redox -> Oxidation (Gain O / Lose H) + Reduction (Lose O / Gain H) -> Everyday Effects (Corrosion, Rancidity)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q1",
+              "question": "Define oxidation and reduction in terms of oxygen transfer.",
+              "ideal_answer": "Oxidation is the gain of oxygen; reduction is the loss of oxygen.",
+              "socratic_hint": "Think about copper turning to copper oxide."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Oxidation and Reduction"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Copper to Copper Oxide",
+          "scenario": "2Cu + O2 -> 2CuO (Heating copper powder)"
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q3",
+              "question": "Identify substances oxidised and reduced in: CuO(s) + H2(g) -> Cu(s) + H2O(l)",
+              "question_type": "conceptual",
+              "solution_method": "H2 is oxidised to H2O; CuO is reduced to Cu."
+            }
+          ],
+          "exercise_number": "In-Text Page 13"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Redox Reaction",
+          "si_units": "N/A",
+          "definition": "A chemical reaction in which one reactant gets oxidised while the other gets reduced."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "e53978d2-8aa2-4c33-9103-bb9eaf4b43f9",
+    "curriculum_id": "3d673a53-4d61-4007-b0f4-b8b5a7df51e0",
+    "order_index": 6,
+    "title": "NCERT In-Text & Chapter-End Exercises Master Solver",
+    "description": "Comprehensive step-by-step solution solver for all chapter-end exercises and remaining NCERT questions.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 6: NCERT In-Text & Chapter-End Exercises Master Solver. Mid-Term Examination Syllabus. Walk through student doubts on exercise questions systematically.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Hierarchical tree of combination, decomposition, displacement, double displacement, and redox reactions.\n- Diagram Type: flowchart\n- Chapter Multi-Level Flowchart: Exercises -> Translation -> Balancing -> State Symbols -> Final Verification\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Exercises -> Translation -> Balancing -> State Symbols -> Final Verification\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Chapter Review: \"Comprehensive application of all reaction types and balancing rules.\" [SI Unit: N/A]\n\n- Textbook Concrete Examples:\n- Exercise Problem Translation: Translating word statements into balanced chemical equations with states.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - Chapter-End Exercise Q5:\n    * [Q5(a)] (proof): Hydrogen gas combines with nitrogen to form ammonia.\n      Method: 3H2(g) + N2(g) -> 2NH3(g)\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Board Exercise Mastery\":\n    * [Q1] (5-mark Numerical): Translate and balance: Barium chloride reacts with aluminium sulphate to give aluminium chloride and a precipitate of barium sulphate.\n      -> Ideal Model Answer: 3BaCl2(aq) + Al2(SO4)3(aq) -> 2AlCl3(aq) + 3BaSO4(s)\n      -> Socratic Hint: Write formulas first: BaCl2, Al2(SO4)3, AlCl3, BaSO4. Then balance Ba, Cl, Al, and SO4 groups.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Board Exam Problem Solving\":\n    - Visual Title: \"Reaction Types Map\" (flowchart)\n    - Why Needed: Helps students quickly classify reactions in exams.\n    - What to Explain: Review all 5 main reaction types.\n    - Timing & Directive: Use at the end of the chapter review.\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Board Exam Problem Solving",
+      "Chemical Equation Balancing",
+      "Reaction Identification"
+    ],
+    "success_criteria": "Flawlessly solve any exercise question from Chapter 1 with proper balancing and state symbols.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:42:02.98246+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Exercise Q1-Q20 Complete Solutions",
+      "Balancing Practice",
+      "Reaction Classification Mastery",
+      "Board Exam Strategy & Common Traps"
+    ],
+    "chapter_notes": "This masterclass capsule reviews all major textbook problems, ensuring zero gaps in student preparation for board examinations.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "In-Text Question (Section 1.1, p. 6): Why must a magnesium ribbon be cleaned before burning in air?",
+        "given": "Magnesium ribbon stored in laboratory environment.",
+        "formula": "Surface passivating oxide formation: 2Mg + O2 -> 2MgO.",
+        "substitution": "Magnesium reacts with atmospheric oxygen over time to form a protective layer of basic magnesium oxide.",
+        "calculation": "The layer of basic magnesium oxide prevents contact between magnesium metal and atmospheric oxygen. Rubbing with sandpaper removes this inert coating so that clean magnesium can ignite readily.",
+        "finalAnswer": "Cleaned to remove the inert magnesium oxide protective coating so the metal can ignite.",
+        "unit": "Chemical passivity",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "magnesium ribbon burning air experiment",
+        "page": 6,
+        "section": "Section 1.1"
+      },
+      {
+        "problem": "In-Text Question (Section 1.1, p. 6): Write balanced chemical equations for: (a) Hydrogen + Chlorine -> Hydrogen chloride, (b) Barium chloride + Aluminium sulphate -> Barium sulphate + Aluminium chloride, (c) Sodium + Water -> Sodium hydroxide + Hydrogen.",
+        "given": "Three word equations for chemical reactions.",
+        "formula": "Law of Conservation of Mass; balancing coefficients.",
+        "substitution": "Equate atoms on reactant and product sides.",
+        "calculation": "(a) H2(g) + Cl2(g) -> 2HCl(g)\n(b) 3BaCl2(aq) + Al2(SO4)3(aq) -> 3BaSO4(s) + 2AlCl3(aq)\n(c) 2Na(s) + 2H2O(l) -> 2NaOH(aq) + H2(g)",
+        "finalAnswer": "(a) H2 + Cl2 -> 2HCl; (b) 3BaCl2 + Al2(SO4)3 -> 3BaSO4 + 2AlCl3; (c) 2Na + 2H2O -> 2NaOH + H2.",
+        "unit": "Balanced equations",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "balancing chemical equations state symbols",
+        "page": 6,
+        "section": "Section 1.1"
+      },
+      {
+        "problem": "In-Text Question (Section 1.2, p. 10): A solution of substance 'X' is used for whitewashing. (a) Name substance 'X' and state its formula. (b) Write the reaction of 'X' with water. (c) Why does lime water turn milky when carbon dioxide is bubbled through?",
+        "given": "Whitewashing chemistry; reaction with water and atmospheric CO2.",
+        "formula": "CaO + H2O -> Ca(OH)2 (Slaking of lime); Ca(OH)2 + CO2 -> CaCO3 + H2O.",
+        "substitution": "Calcium oxide (quicklime) dissolves exothermically in water.",
+        "calculation": "(a) Substance X is Quicklime; chemical formula is CaO (Calcium oxide).\n(b) CaO(s) + H2O(l) -> Ca(OH)2(aq) + Heat (Slaked lime).\n(c) Passing CO2 through clear lime water Ca(OH)2 forms insoluble calcium carbonate precipitate (CaCO3), which creates the milky turbidity.",
+        "finalAnswer": "(a) Substance X is CaO (Quicklime); (b) CaO + H2O -> Ca(OH)2 + Heat; (c) Insoluble CaCO3 precipitate causes milkiness.",
+        "unit": "Chemical equations",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "quicklime slaked lime calcium carbonate whitewash",
+        "page": 10,
+        "section": "Section 1.2"
+      },
+      {
+        "problem": "In-Text Question (Section 1.2, p. 10): Why is the volume of gas collected at one electrode during electrolysis of water double that of the other? Name both gases.",
+        "given": "Electrolytic decomposition of liquid water (H2O).",
+        "formula": "2H2O(l) -> 2H2(g) + O2(g) (Stoichiometric molar ratio 2 : 1).",
+        "substitution": "At cathode: 2H+ + 2e- -> H2; At anode: 2O(2-) -> O2 + 4e-.",
+        "calculation": "Each water molecule contains two hydrogen atoms bonded to one oxygen atom. Decomposition releases two molecules of hydrogen gas for every one molecule of oxygen gas. Per Avogadro's law, equal moles of gases occupy equal volumes, so hydrogen volume is double oxygen volume.",
+        "finalAnswer": "Hydrogen gas at the cathode is double the volume of oxygen gas at the anode (2 : 1 volume ratio).",
+        "unit": "Electrochemical stoichiometry",
+        "has_diagram": true,
+        "diagram_source": "image_search",
+        "figure_caption": "Water electrolysis apparatus showing 2:1 gas volume ratio",
+        "image_search_query": "electrolysis of water apparatus cathode anode gases",
+        "page": 10,
+        "section": "Section 1.2"
+      },
+      {
+        "problem": "In-Text Question (Section 1.2, p. 13): Why does the blue colour of copper sulphate solution fade and change to light green when an iron nail is dipped in it?",
+        "given": "Iron nail placed in aqueous CuSO4 solution.",
+        "formula": "Single displacement reaction: Fe(s) + CuSO4(aq) -> FeSO4(aq) + Cu(s).",
+        "substitution": "Iron is more reactive than copper in the activity series.",
+        "calculation": "Iron displaces copper from copper sulphate solution because Fe is higher in the reactivity series than Cu. The blue Cu2+ ions are reduced to reddish-brown copper metal deposited on the nail, while green Fe2+ (ferrous sulphate) ions enter solution.",
+        "finalAnswer": "Iron displaces copper to form light green ferrous sulphate (FeSO4) while reddish-brown copper deposits on the nail.",
+        "unit": "Displacement reaction",
+        "has_diagram": true,
+        "diagram_source": "image_search",
+        "figure_caption": "Iron nail in copper sulphate solution single displacement",
+        "image_search_query": "iron nail in copper sulphate solution displacement",
+        "page": 13,
+        "section": "Section 1.2"
+      },
+      {
+        "problem": "End-of-Chapter Exercise Q4 & Q5 (p. 15): (a) What is a balanced chemical equation and why must equations be balanced? (b) Translate into balanced equations: Nitrogen gas combines with hydrogen gas to form ammonia; Hydrogen sulphide gas burns in air to give water and sulphur dioxide.",
+        "given": "Law of conservation of mass in chemical reactions.",
+        "formula": "Sum of reactant atoms = Sum of product atoms; N2 + 3H2 -> 2NH3; 2H2S + 3O2 -> 2H2O + 2SO2.",
+        "substitution": "Equate atoms across both sides.",
+        "calculation": "(a) An equation where the total number of atoms of each element on reactant side equals the product side. Per the Law of Conservation of Mass, matter cannot be created or destroyed.\n(b) Nitrogen + Hydrogen: N2(g) + 3H2(g) -> 2NH3(g).\n(c) Hydrogen sulphide in air: 2H2S(g) + 3O2(g) -> 2H2O(l) + 2SO2(g).",
+        "finalAnswer": "(a) Must be balanced to satisfy the Law of Conservation of Mass; (b) N2 + 3H2 -> 2NH3; (c) 2H2S + 3O2 -> 2H2O + 2SO2.",
+        "unit": "Chemical equations",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "chemical reaction mass conservation balanced equation",
+        "page": 15,
+        "section": "Exercises"
+      },
+      {
+        "problem": "End-of-Chapter Exercise Q6, Q7, Q8 (p. 15): Balance: (a) HNO3 + Ca(OH)2 -> Ca(NO3)2 + H2O, (b) NaOH + H2SO4 -> Na2SO4 + H2O, (c) BaCl2 + H2SO4 -> BaSO4 + HCl, (d) Zn + 2AgNO3 -> Zn(NO3)2 + 2Ag.",
+        "given": "Four unbalanced chemical transformations.",
+        "formula": "Balancing elemental stoichometry.",
+        "substitution": "Step-by-step coefficient adjustment.",
+        "calculation": "(a) 2HNO3 + Ca(OH)2 -> Ca(NO3)2 + 2H2O\n(b) 2NaOH + H2SO4 -> Na2SO4 + 2H2O\n(c) BaCl2 + H2SO4 -> BaSO4 + 2HCl\n(d) Zn + 2AgNO3 -> Zn(NO3)2 + 2Ag (Displacement reaction)",
+        "finalAnswer": "(a) 2HNO3 + Ca(OH)2 -> Ca(NO3)2 + 2H2O; (b) 2NaOH + H2SO4 -> Na2SO4 + 2H2O; (c) BaCl2 + H2SO4 -> BaSO4 + 2HCl; (d) Zn + 2AgNO3 -> Zn(NO3)2 + 2Ag.",
+        "unit": "Balanced equations",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "balanced chemical equations ncert class 10 solutions",
+        "page": 15,
+        "section": "Exercises"
+      },
+      {
+        "problem": "End-of-Chapter Exercise Q9 & Q10 (p. 15): (a) Distinguish between exothermic and endothermic reactions with equations. (b) Why is cellular respiration considered an exothermic reaction?",
+        "given": "Enthalpy and energy flow in chemical processes.",
+        "formula": "Exothermic: Reactants -> Products + Energy; Endothermic: Reactants + Energy -> Products.",
+        "substitution": "Respiration equation: C6H12O6 + 6O2 -> 6CO2 + 6H2O + Energy (ATP).",
+        "calculation": "(a) Exothermic reactions release thermal/chemical energy to surroundings (e.g. burning methane: CH4 + 2O2 -> CO2 + 2H2O + Heat). Endothermic reactions absorb thermal energy (e.g. CaCO3 + Heat -> CaO + CO2).\n(b) In cellular respiration, glucose is oxidised by inhaled oxygen in mitochondria, releasing 2870 kJ/mol of energy trapped as ATP for cellular work. Because energy is liberated, respiration is exothermic.",
+        "finalAnswer": "(a) Exothermic releases heat while endothermic absorbs heat; (b) Respiration oxidises glucose, releasing energy as ATP, making it exothermic.",
+        "unit": "Chemical energetics",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "exothermic vs endothermic reactions respiration chemistry",
+        "page": 15,
+        "section": "Exercises"
+      },
+      {
+        "problem": "End-of-Chapter Exercise Q16 & Q17 (p. 16): (a) Explain Oxidation and Reduction in terms of oxygen gain/loss. (b) A shiny brown element 'X' on heating in air turns black. Identify 'X' and the black compound.",
+        "given": "Redox principles; thermal oxidation of element X.",
+        "formula": "Oxidation: Gain of oxygen; Reduction: Loss of oxygen. 2Cu + O2 -> 2CuO.",
+        "substitution": "Element X is Copper (Cu); black compound is Copper(II) oxide (CuO).",
+        "calculation": "(a) Oxidation involves gain of oxygen or loss of hydrogen (e.g., 2Mg + O2 -> 2MgO). Reduction involves loss of oxygen or gain of hydrogen (e.g., CuO + H2 -> Cu + H2O).\n(b) Shiny brown element X is Copper metal (Cu). When heated in air, it reacts with oxygen to form a black surface coating of Copper(II) oxide: 2Cu(s) + O2(g) -> 2CuO(s).",
+        "finalAnswer": "(a) Oxidation = gain of oxygen, Reduction = loss of oxygen; (b) Element X is Copper (Cu), black substance is Copper(II) oxide (CuO).",
+        "unit": "Redox chemistry",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "copper oxidation black copper oxide heating air",
+        "page": 16,
+        "section": "Exercises"
+      },
+      {
+        "problem": "End-of-Chapter Exercise Q18 & Q19 (p. 16): (a) Why do we apply paint on iron articles? (b) Why are oil and fat containing food items flushed with nitrogen gas?",
+        "given": "Prevention of corrosion and food rancidity.",
+        "formula": "Rusting requires Fe + O2 + H2O; Rancidity is aerobic oxidation of unsaturated fatty acids.",
+        "substitution": "Barrier protection and inert gas atmosphere.",
+        "calculation": "(a) Paint forms an impermeable barrier preventing atmospheric oxygen and moisture from contacting the surface of iron, preventing rust (hydrated ferric oxide Fe2O3.xH2O) formation.\n(b) Oils and fats undergo oxidation when exposed to air, producing volatile foul-smelling aldehydes and ketones (rancidity). Flushing with unreactive nitrogen gas expels oxygen, preventing oxidation and preserving food freshness.",
+        "finalAnswer": "(a) Paint blocks oxygen and moisture to stop rust; (b) Nitrogen gas is inert and displaces oxygen to prevent oxidative rancidity.",
+        "unit": "Applied chemistry",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "corrosion prevention painting food packaging nitrogen rancidity",
+        "page": 16,
+        "section": "Exercises"
+      }
+    ],
+    "common_misconceptions": [
+      "Forgetting to balance polyatomic ions as single units when convenient."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734922838_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "NCERT In-Text & Chapter-End Exercises Master Solver: Comprehensive step-by-step solution solver for all chapter-end exercises and remaining NCERT questions.",
+              "keyTakeaway": "Board Exam Problem Solving"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Board Exam Problem Solving"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc101.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734922838_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "NCERT In-Text & Chapter-End Exercises Master Solver - Fundamental Equations",
+              "equations": [
+                "Board Exam Problem Solving",
+                "Chemical Equation Balancing",
+                "Reaction Identification"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Board Exam Problem Solving"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc101.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734922838_3",
+          "type": "DIAGRAM",
+          "title": "NCERT In-Text & Chapter-End Exercises Master Solver Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "NCERT In-Text & Chapter-End Exercises Master Solver Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Board Exam Problem Solving",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Chemical Equation Balancing",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "NCERT In-Text & Chapter-End Exercises Master Solver",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "NCERT In-Text & Chapter-End Exercises Master Solver | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='180' y='40' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A'>Chapter 1 Concept Summary Tree</text></svg> | Hierarchical tree of combination, decomposition, displacement, double displacement, and redox reactions."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc101.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734922838_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Board Exam Problem Solving"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Reactants: BaCl2, H2SO4; Products: BaSO4, HCl, what is the value?",
+              "explanation": "By fundamental principle, Board Exam Problem Solving is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734922838_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Exercise Q1-Q20 Complete Solutions",
+                "Balancing Practice",
+                "Reaction Classification Mastery",
+                "Board Exam Strategy & Common Traps"
+              ],
+              "formulasToRemember": [
+                "Board Exam Problem Solving",
+                "Chemical Equation Balancing",
+                "Reaction Identification"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "NCERT In-Text & Chapter-End Exercises Master Solver - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "NCERT In-Text & Chapter-End Exercises Master Solver",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:42:02.838Z",
+        "provenance": "jesc101.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734922838",
+      "subtopics": [
+        "Exercise Q1-Q20 Complete Solutions",
+        "Balancing Practice",
+        "Reaction Classification Mastery",
+        "Board Exam Strategy & Common Traps"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='180' y='40' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A'>Chapter 1 Concept Summary Tree</text></svg>",
+      "diagram_idea": "Summary flowchart of all reaction types.",
+      "diagram_type": "flowchart",
+      "what_to_make": "Hierarchical tree of combination, decomposition, displacement, double displacement, and redox reactions.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/></svg>",
+          "why_needed": "Helps students quickly classify reactions in exams.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/></svg>",
+          "image_query": "Branching flow chart. scientific educational diagram with clear labels",
+          "video_query": "Reaction Types Map educational demonstration video",
+          "diagram_type": "flowchart",
+          "what_to_make": "Branching flow chart.",
+          "concept_title": "Board Exam Problem Solving",
+          "diagram_title": "Reaction Types Map",
+          "timing_and_cue": "Use at the end of the chapter review.",
+          "what_to_explain": "Review all 5 main reaction types.",
+          "image_search_query": "Branching flow chart. scientific educational diagram with clear labels",
+          "video_search_query": "Reaction Types Map educational demonstration video",
+          "interactive_math_formula": ""
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Exercises -> Translation -> Balancing -> State Symbols -> Final Verification",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "5-mark Numerical",
+              "q_num": "Q1",
+              "question": "Translate and balance: Barium chloride reacts with aluminium sulphate to give aluminium chloride and a precipitate of barium sulphate.",
+              "ideal_answer": "3BaCl2(aq) + Al2(SO4)3(aq) -> 2AlCl3(aq) + 3BaSO4(s)",
+              "socratic_hint": "Write formulas first: BaCl2, Al2(SO4)3, AlCl3, BaSO4. Then balance Ba, Cl, Al, and SO4 groups."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Board Exercise Mastery"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Exercise Problem Translation",
+          "scenario": "Translating word statements into balanced chemical equations with states."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q5(a)",
+              "question": "Hydrogen gas combines with nitrogen to form ammonia.",
+              "question_type": "proof",
+              "solution_method": "3H2(g) + N2(g) -> 2NH3(g)"
+            }
+          ],
+          "exercise_number": "Chapter-End Exercise Q5"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Chapter Review",
+          "si_units": "N/A",
+          "definition": "Comprehensive application of all reaction types and balancing rules."
+        }
+      ]
+    },
+    "quiz_questions": []
+  }
+]

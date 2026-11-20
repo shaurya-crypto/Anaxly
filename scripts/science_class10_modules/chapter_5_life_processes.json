@@ -1,0 +1,1544 @@
+[
+  {
+    "id": "2b6f6c97-4648-4023-ae0a-2fad30c49868",
+    "curriculum_id": "e18d7508-7ff8-4a0e-abcf-50884bb33e53",
+    "order_index": 1,
+    "title": "Nutrition in Plants and Animals",
+    "description": "Understand autotrophic and heterotrophic nutrition, photosynthesis, and human digestive system mechanisms.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 1: Nutrition in Plants and Animals. Mid-Term Examination Syllabus. \nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Scientific Vector Diagram\n- Diagram Type: vector_svg_diagram\n\n\n\n\n\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Light and dark reactions of photosynthesis",
+      "Role of HCl, pepsin, and bile juice"
+    ],
+    "success_criteria": "Student can trace the path of food through the human digestive system and name key enzymes.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:40:26.519042+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Photosynthesis process and stomatal regulation",
+      "Holozoic nutrition in amoeba",
+      "Human alimentary canal and digestive enzymes"
+    ],
+    "chapter_notes": "\"\"",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "Illustrative Problem (Module 1, Section 1): Explain the scientific mechanism and write relevant balanced equations or principles for: Light and dark reactions of photosynthesis.",
+        "given": "Concepts from CBSE Class 10 Science: Nutrition in Plants and Animals.",
+        "formula": "Standard board law, equation, or anatomical mechanism.",
+        "substitution": "Step-by-step pedagogical application.",
+        "calculation": "Detailed step-by-step examination of Nutrition in Plants and Animals adhering to official board marking schemes.",
+        "finalAnswer": "Topper-ready solution covering the fundamental principles of Nutrition in Plants and Animals.",
+        "unit": "Scientific Law & Mechanism",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "class 10 science chapter_5_life_ ncert diagram",
+        "page": 10,
+        "section": "Section 1"
+      }
+    ],
+    "common_misconceptions": [],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734826382_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Nutrition in Plants and Animals: Understand autotrophic and heterotrophic nutrition, photosynthesis, and human digestive system mechanisms.",
+              "keyTakeaway": "Light and dark reactions of photosynthesis"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Light and dark reactions of photosynthesis"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734826382_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Nutrition in Plants and Animals - Fundamental Equations",
+              "equations": [
+                "Light and dark reactions of photosynthesis",
+                "Role of HCl, pepsin, and bile juice"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Light and dark reactions of photosynthesis"
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734826382_3",
+          "type": "DIAGRAM",
+          "title": "Nutrition in Plants and Animals Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Nutrition in Plants and Animals Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Light and dark reactions of photosynthesis",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Role of HCl, pepsin, and bile juice",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Nutrition in Plants and Animals",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Nutrition in Plants and Animals | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;\">\n  \n  <defs>\n    <pattern id=\"chalkGrid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.75\"/>\n    </pattern>\n    <!-- Royal Blue Vector Arrow -->\n    <marker id=\"arrowRoyal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#2563EB\"/>\n    </marker>\n    <!-- Cyan / Sky Ray Arrow -->\n    <marker id=\"arrowIce\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0284C7\"/>\n    </marker>\n    <!-- Scholar Emerald Current / Normal Arrow -->\n    <marker id=\"arrowSage\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#16A34A\"/>\n    </marker>\n    <!-- Crimson Vector Arrow -->\n    <marker id=\"arrowCrimson\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#DC2626\"/>\n    </marker>\n    <!-- Deep Charcoal Ink Arrow -->\n    <marker id=\"arrowCharcoal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0F172A\"/>\n    </marker>\n    <!-- Warm Amber Arrow -->\n    <marker id=\"arrowAmber\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#D97706\"/>\n    </marker>\n  </defs>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" fill=\"url(#chalkGrid)\" opacity=\"0.6\"/>\n\n  <rect x=\"40\" y=\"12\" width=\"460\" height=\"22\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\"/>\n  <text x=\"270\" y=\"27\" text-anchor=\"middle\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"bold\">Nutrition in Plants and Animals</text>\n\n  <g transform=\"translate(25, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#F0FDF4\" stroke=\"#16A34A\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DCFCE7\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#16A34A\">1. Physical Intuition</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Real-World Hook</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#64748B\">Tangible daily basis</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#64748B\">Observable mechanism</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Underlying Driver</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#64748B\">Core energetic / structural</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#64748B\">fundamental force</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Classroom Analogy</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#64748B\">Concrete representation</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Intuitive bridge to law</text>\n  </g>\n\n  <line x1=\"180\" y1=\"140\" x2=\"195\" y2=\"140\" stroke=\"#2563EB\" stroke-width=\"2\" marker-end=\"url(#arrowRoyal)\"/>\n\n  <g transform=\"translate(195, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#EFF6FF\" stroke=\"#2563EB\" stroke-width=\"1.4\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DBEAFE\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">2. Governing Principle</text>\n\n    <rect x=\"10\" y=\"36\" width=\"130\" height=\"50\" rx=\"4\" fill=\"#FFFFFF\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n    <text x=\"75\" y=\"55\" text-anchor=\"middle\" font-size=\"8\" font-weight=\"bold\" fill=\"#2563EB\">CORE LAW / THEOREM</text>\n    <text x=\"75\" y=\"72\" text-anchor=\"middle\" font-size=\"8.5\" font-weight=\"bold\" fill=\"#0F172A\">Nutrition in Plant</text>\n\n    <circle cx=\"15\" cy=\"110\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"113\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Governing Rules</text>\n    <text x=\"25\" y=\"125\" font-size=\"7\" fill=\"#64748B\">Strict scientific criteria</text>\n    <text x=\"25\" y=\"135\" font-size=\"7\" fill=\"#64748B\">Mandatory conditions</text>\n\n    <circle cx=\"15\" cy=\"155\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"158\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">SI Units &amp; Constants</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Dimensional integrity</text>\n    <text x=\"25\" y=\"180\" font-size=\"7\" fill=\"#64748B\">Zero unit conversion loss</text>\n  </g>\n\n  <line x1=\"350\" y1=\"140\" x2=\"365\" y2=\"140\" stroke=\"#16A34A\" stroke-width=\"2\" marker-end=\"url(#arrowSage)\"/>\n\n  <g transform=\"translate(365, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#FDE68A\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#D97706\">3. Board Application</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Trio Layout</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#0F172A\">Given \u2192 Formula</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#0F172A\">Substitution \u2192 Boxed</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Common Trap</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#DC2626\">Avoid unit mismatches</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#DC2626\">Watch sign conventions</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Scoring Keywords</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#16A34A\">Verbatim definitions</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#16A34A\">Full 100% credit</text>\n  </g>\n\n  <rect x=\"40\" y=\"254\" width=\"460\" height=\"18\" rx=\"4\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"270\" y=\"266\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"#0F172A\">Authentic Vector Schematic \u2022 CBSE / ICSE / IB Scholastic Standards</text>\n</svg> | Authentic conceptual relationship model plotted on digital chalkboard."
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734826382_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Light and dark reactions of photosynthesis"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "Which of the following correctly describes Nutrition in Plants and Animals?",
+              "explanation": "By fundamental principle, Light and dark reactions of photosynthesis is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734826382_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Photosynthesis process and stomatal regulation",
+                "Holozoic nutrition in amoeba",
+                "Human alimentary canal and digestive enzymes"
+              ],
+              "formulasToRemember": [
+                "Light and dark reactions of photosynthesis",
+                "Role of HCl, pepsin, and bile juice"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Nutrition in Plants and Animals - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Nutrition in Plants and Animals",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:40:26.382Z",
+        "provenance": "CBSE Official Curriculum",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734826382",
+      "subtopics": [
+        "Photosynthesis process and stomatal regulation",
+        "Holozoic nutrition in amoeba",
+        "Human alimentary canal and digestive enzymes"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "",
+      "diagram_idea": "",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "",
+      "concept_questions": [],
+      "estimated_minutes": 20,
+      "textbook_examples": [],
+      "textbook_exercises": [],
+      "textbook_definitions": []
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "83a5b506-b1e1-48e2-8580-a064f9e566ce",
+    "curriculum_id": "e18d7508-7ff8-4a0e-abcf-50884bb33e53",
+    "order_index": 2,
+    "title": "Respiration in Living Organisms",
+    "description": "Explore aerobic and anaerobic respiration pathways and human respiratory system mechanics.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 2: Respiration in Living Organisms. Mid-Term Examination Syllabus. \nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Scientific Vector Diagram\n- Diagram Type: vector_svg_diagram\n\n\n\n\n\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "ATP as energy currency",
+      "Inhalation and exhalation mechanics"
+    ],
+    "success_criteria": "Student can compare aerobic and anaerobic respiration pathways.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:40:26.754823+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Breakdown pathways of glucose",
+      "Human respiratory system and gaseous exchange",
+      "Role of alveoli and respiratory pigments (hemoglobin)"
+    ],
+    "chapter_notes": "\"\"",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "Illustrative Problem (Module 2, Section 2): Explain the scientific mechanism and write relevant balanced equations or principles for: ATP as energy currency.",
+        "given": "Concepts from CBSE Class 10 Science: Respiration in Living Organisms.",
+        "formula": "Standard board law, equation, or anatomical mechanism.",
+        "substitution": "Step-by-step pedagogical application.",
+        "calculation": "Detailed step-by-step examination of Respiration in Living Organisms adhering to official board marking schemes.",
+        "finalAnswer": "Topper-ready solution covering the fundamental principles of Respiration in Living Organisms.",
+        "unit": "Scientific Law & Mechanism",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "class 10 science chapter_5_life_ ncert diagram",
+        "page": 20,
+        "section": "Section 2"
+      }
+    ],
+    "common_misconceptions": [],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734826630_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Respiration in Living Organisms: Explore aerobic and anaerobic respiration pathways and human respiratory system mechanics.",
+              "keyTakeaway": "ATP as energy currency"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: ATP as energy currency"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734826630_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Respiration in Living Organisms - Fundamental Equations",
+              "equations": [
+                "ATP as energy currency",
+                "Inhalation and exhalation mechanics"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "ATP as energy currency"
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734826630_3",
+          "type": "DIAGRAM",
+          "title": "Respiration in Living Organisms Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Respiration in Living Organisms Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "ATP as energy currency",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Inhalation and exhalation mechanics",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "vector_svg",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Respiration in Living Organisms | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;\">\n  \n  <defs>\n    <pattern id=\"chalkGrid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.75\"/>\n    </pattern>\n    <!-- Royal Blue Vector Arrow -->\n    <marker id=\"arrowRoyal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#2563EB\"/>\n    </marker>\n    <!-- Cyan / Sky Ray Arrow -->\n    <marker id=\"arrowIce\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0284C7\"/>\n    </marker>\n    <!-- Scholar Emerald Current / Normal Arrow -->\n    <marker id=\"arrowSage\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#16A34A\"/>\n    </marker>\n    <!-- Crimson Vector Arrow -->\n    <marker id=\"arrowCrimson\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#DC2626\"/>\n    </marker>\n    <!-- Deep Charcoal Ink Arrow -->\n    <marker id=\"arrowCharcoal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0F172A\"/>\n    </marker>\n    <!-- Warm Amber Arrow -->\n    <marker id=\"arrowAmber\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#D97706\"/>\n    </marker>\n  </defs>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" fill=\"url(#chalkGrid)\" opacity=\"0.6\"/>\n\n  <rect x=\"40\" y=\"12\" width=\"460\" height=\"22\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\"/>\n  <text x=\"270\" y=\"27\" text-anchor=\"middle\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"bold\">Respiration in Living Organisms</text>\n\n  <g transform=\"translate(25, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#F0FDF4\" stroke=\"#16A34A\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DCFCE7\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#16A34A\">1. Physical Intuition</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Real-World Hook</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#64748B\">Tangible daily basis</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#64748B\">Observable mechanism</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Underlying Driver</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#64748B\">Core energetic / structural</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#64748B\">fundamental force</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Classroom Analogy</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#64748B\">Concrete representation</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Intuitive bridge to law</text>\n  </g>\n\n  <line x1=\"180\" y1=\"140\" x2=\"195\" y2=\"140\" stroke=\"#2563EB\" stroke-width=\"2\" marker-end=\"url(#arrowRoyal)\"/>\n\n  <g transform=\"translate(195, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#EFF6FF\" stroke=\"#2563EB\" stroke-width=\"1.4\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DBEAFE\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">2. Governing Principle</text>\n\n    <rect x=\"10\" y=\"36\" width=\"130\" height=\"50\" rx=\"4\" fill=\"#FFFFFF\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n    <text x=\"75\" y=\"55\" text-anchor=\"middle\" font-size=\"8\" font-weight=\"bold\" fill=\"#2563EB\">CORE LAW / THEOREM</text>\n    <text x=\"75\" y=\"72\" text-anchor=\"middle\" font-size=\"8.5\" font-weight=\"bold\" fill=\"#0F172A\">Respiration in Liv</text>\n\n    <circle cx=\"15\" cy=\"110\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"113\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Governing Rules</text>\n    <text x=\"25\" y=\"125\" font-size=\"7\" fill=\"#64748B\">Strict scientific criteria</text>\n    <text x=\"25\" y=\"135\" font-size=\"7\" fill=\"#64748B\">Mandatory conditions</text>\n\n    <circle cx=\"15\" cy=\"155\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"158\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">SI Units &amp; Constants</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Dimensional integrity</text>\n    <text x=\"25\" y=\"180\" font-size=\"7\" fill=\"#64748B\">Zero unit conversion loss</text>\n  </g>\n\n  <line x1=\"350\" y1=\"140\" x2=\"365\" y2=\"140\" stroke=\"#16A34A\" stroke-width=\"2\" marker-end=\"url(#arrowSage)\"/>\n\n  <g transform=\"translate(365, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#FDE68A\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#D97706\">3. Board Application</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Trio Layout</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#0F172A\">Given \u2192 Formula</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#0F172A\">Substitution \u2192 Boxed</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Common Trap</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#DC2626\">Avoid unit mismatches</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#DC2626\">Watch sign conventions</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Scoring Keywords</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#16A34A\">Verbatim definitions</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#16A34A\">Full 100% credit</text>\n  </g>\n\n  <rect x=\"40\" y=\"254\" width=\"460\" height=\"18\" rx=\"4\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"270\" y=\"266\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"#0F172A\">Authentic Vector Schematic \u2022 CBSE / ICSE / IB Scholastic Standards</text>\n</svg> | Authentic conceptual relationship model plotted on digital chalkboard."
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734826630_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "ATP as energy currency"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "Which of the following correctly describes Respiration in Living Organisms?",
+              "explanation": "By fundamental principle, ATP as energy currency is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734826630_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Breakdown pathways of glucose",
+                "Human respiratory system and gaseous exchange",
+                "Role of alveoli and respiratory pigments (hemoglobin)"
+              ],
+              "formulasToRemember": [
+                "ATP as energy currency",
+                "Inhalation and exhalation mechanics"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Respiration in Living Organisms - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Respiration in Living Organisms",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:40:26.630Z",
+        "provenance": "CBSE Official Curriculum",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734826630",
+      "subtopics": [
+        "Breakdown pathways of glucose",
+        "Human respiratory system and gaseous exchange",
+        "Role of alveoli and respiratory pigments (hemoglobin)"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "",
+      "diagram_idea": "",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "",
+      "concept_questions": [],
+      "estimated_minutes": 20,
+      "textbook_examples": [],
+      "textbook_exercises": [],
+      "textbook_definitions": []
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "2e8adb9b-b2dd-4140-b5a7-4962c79865f0",
+    "curriculum_id": "e18d7508-7ff8-4a0e-abcf-50884bb33e53",
+    "order_index": 3,
+    "title": "Transportation in Human Beings and Plants",
+    "description": "Study human heart structure, blood circulation, blood vessels, and transport in plants (xylem and phloem).",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 3: Transportation in Human Beings and Plants. Mid-Term Examination Syllabus. \nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Scientific Vector Diagram\n- Diagram Type: vector_svg_diagram\n\n\n\n\n\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Systole and diastole",
+      "Transpiration pull and root pressure"
+    ],
+    "success_criteria": "Student can diagram and explain double circulation in humans.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:40:26.977756+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Structure and functioning of human heart",
+      "Double circulation and blood pressure",
+      "Transportation of water and minerals in xylem, translocation in phloem"
+    ],
+    "chapter_notes": "\"\"",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "Illustrative Problem (Module 3, Section 3): Explain the scientific mechanism and write relevant balanced equations or principles for: Systole and diastole.",
+        "given": "Concepts from CBSE Class 10 Science: Transportation in Human Beings and Plants.",
+        "formula": "Standard board law, equation, or anatomical mechanism.",
+        "substitution": "Step-by-step pedagogical application.",
+        "calculation": "Detailed step-by-step examination of Transportation in Human Beings and Plants adhering to official board marking schemes.",
+        "finalAnswer": "Topper-ready solution covering the fundamental principles of Transportation in Human Beings and Plants.",
+        "unit": "Scientific Law & Mechanism",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "class 10 science chapter_5_life_ ncert diagram",
+        "page": 30,
+        "section": "Section 3"
+      }
+    ],
+    "common_misconceptions": [],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734826855_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Transportation in Human Beings and Plants: Study human heart structure, blood circulation, blood vessels, and transport in plants (xylem and phloem).",
+              "keyTakeaway": "Systole and diastole"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Systole and diastole"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734826855_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Transportation in Human Beings and Plants - Fundamental Equations",
+              "equations": [
+                "Systole and diastole",
+                "Transpiration pull and root pressure"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Systole and diastole"
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734826855_3",
+          "type": "DIAGRAM",
+          "title": "Transportation in Human Beings and Plants Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Transportation in Human Beings and Plants Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Systole and diastole",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Transpiration pull and root pressure",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "vector_svg",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Transportation in Human Beings and Plants | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;\">\n  \n  <defs>\n    <pattern id=\"chalkGrid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.75\"/>\n    </pattern>\n    <!-- Royal Blue Vector Arrow -->\n    <marker id=\"arrowRoyal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#2563EB\"/>\n    </marker>\n    <!-- Cyan / Sky Ray Arrow -->\n    <marker id=\"arrowIce\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0284C7\"/>\n    </marker>\n    <!-- Scholar Emerald Current / Normal Arrow -->\n    <marker id=\"arrowSage\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#16A34A\"/>\n    </marker>\n    <!-- Crimson Vector Arrow -->\n    <marker id=\"arrowCrimson\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#DC2626\"/>\n    </marker>\n    <!-- Deep Charcoal Ink Arrow -->\n    <marker id=\"arrowCharcoal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0F172A\"/>\n    </marker>\n    <!-- Warm Amber Arrow -->\n    <marker id=\"arrowAmber\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#D97706\"/>\n    </marker>\n  </defs>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" fill=\"url(#chalkGrid)\" opacity=\"0.6\"/>\n\n  <rect x=\"40\" y=\"12\" width=\"460\" height=\"22\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\"/>\n  <text x=\"270\" y=\"27\" text-anchor=\"middle\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"bold\">Transportation in Human Beings and Plants</text>\n\n  <g transform=\"translate(25, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#F0FDF4\" stroke=\"#16A34A\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DCFCE7\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#16A34A\">1. Physical Intuition</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Real-World Hook</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#64748B\">Tangible daily basis</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#64748B\">Observable mechanism</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Underlying Driver</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#64748B\">Core energetic / structural</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#64748B\">fundamental force</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Classroom Analogy</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#64748B\">Concrete representation</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Intuitive bridge to law</text>\n  </g>\n\n  <line x1=\"180\" y1=\"140\" x2=\"195\" y2=\"140\" stroke=\"#2563EB\" stroke-width=\"2\" marker-end=\"url(#arrowRoyal)\"/>\n\n  <g transform=\"translate(195, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#EFF6FF\" stroke=\"#2563EB\" stroke-width=\"1.4\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DBEAFE\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">2. Governing Principle</text>\n\n    <rect x=\"10\" y=\"36\" width=\"130\" height=\"50\" rx=\"4\" fill=\"#FFFFFF\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n    <text x=\"75\" y=\"55\" text-anchor=\"middle\" font-size=\"8\" font-weight=\"bold\" fill=\"#2563EB\">CORE LAW / THEOREM</text>\n    <text x=\"75\" y=\"72\" text-anchor=\"middle\" font-size=\"8.5\" font-weight=\"bold\" fill=\"#0F172A\">Transportation in </text>\n\n    <circle cx=\"15\" cy=\"110\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"113\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Governing Rules</text>\n    <text x=\"25\" y=\"125\" font-size=\"7\" fill=\"#64748B\">Strict scientific criteria</text>\n    <text x=\"25\" y=\"135\" font-size=\"7\" fill=\"#64748B\">Mandatory conditions</text>\n\n    <circle cx=\"15\" cy=\"155\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"158\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">SI Units &amp; Constants</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Dimensional integrity</text>\n    <text x=\"25\" y=\"180\" font-size=\"7\" fill=\"#64748B\">Zero unit conversion loss</text>\n  </g>\n\n  <line x1=\"350\" y1=\"140\" x2=\"365\" y2=\"140\" stroke=\"#16A34A\" stroke-width=\"2\" marker-end=\"url(#arrowSage)\"/>\n\n  <g transform=\"translate(365, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#FDE68A\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#D97706\">3. Board Application</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Trio Layout</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#0F172A\">Given \u2192 Formula</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#0F172A\">Substitution \u2192 Boxed</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Common Trap</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#DC2626\">Avoid unit mismatches</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#DC2626\">Watch sign conventions</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Scoring Keywords</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#16A34A\">Verbatim definitions</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#16A34A\">Full 100% credit</text>\n  </g>\n\n  <rect x=\"40\" y=\"254\" width=\"460\" height=\"18\" rx=\"4\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"270\" y=\"266\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"#0F172A\">Authentic Vector Schematic \u2022 CBSE / ICSE / IB Scholastic Standards</text>\n</svg> | Authentic conceptual relationship model plotted on digital chalkboard."
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734826855_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Systole and diastole"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "Which of the following correctly describes Transportation in Human Beings and Plants?",
+              "explanation": "By fundamental principle, Systole and diastole is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734826855_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Structure and functioning of human heart",
+                "Double circulation and blood pressure",
+                "Transportation of water and minerals in xylem, translocation in phloem"
+              ],
+              "formulasToRemember": [
+                "Systole and diastole",
+                "Transpiration pull and root pressure"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Transportation in Human Beings and Plants - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Transportation in Human Beings and Plants",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:40:26.855Z",
+        "provenance": "CBSE Official Curriculum",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734826855",
+      "subtopics": [
+        "Structure and functioning of human heart",
+        "Double circulation and blood pressure",
+        "Transportation of water and minerals in xylem, translocation in phloem"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "",
+      "diagram_idea": "",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "",
+      "concept_questions": [],
+      "estimated_minutes": 20,
+      "textbook_examples": [],
+      "textbook_exercises": [],
+      "textbook_definitions": []
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "8ed9ac3f-55f5-4e07-90b0-5ab48662487d",
+    "curriculum_id": "e18d7508-7ff8-4a0e-abcf-50884bb33e53",
+    "order_index": 4,
+    "title": "Excretion in Human Beings and Plants",
+    "description": "Learn excretory system structures, nephron functioning, urine formation, and plant excretion methods.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 4: Excretion in Human Beings and Plants. Mid-Term Examination Syllabus. \nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Scientific Vector Diagram\n- Diagram Type: vector_svg_diagram\n\n\n\n\n\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Glomerular filtration",
+      "Artificial kidney (Hemodialysis)"
+    ],
+    "success_criteria": "Student can explain urine formation inside the nephron.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:40:27.245803+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Human excretory system and nephron structure",
+      "Mechanism of urine formation (filtration, reabsorption)",
+      "Excretion methods in plants"
+    ],
+    "chapter_notes": "\"\"",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "Illustrative Problem (Module 4, Section 4): Explain the scientific mechanism and write relevant balanced equations or principles for: Glomerular filtration.",
+        "given": "Concepts from CBSE Class 10 Science: Excretion in Human Beings and Plants.",
+        "formula": "Standard board law, equation, or anatomical mechanism.",
+        "substitution": "Step-by-step pedagogical application.",
+        "calculation": "Detailed step-by-step examination of Excretion in Human Beings and Plants adhering to official board marking schemes.",
+        "finalAnswer": "Topper-ready solution covering the fundamental principles of Excretion in Human Beings and Plants.",
+        "unit": "Scientific Law & Mechanism",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "class 10 science chapter_5_life_ ncert diagram",
+        "page": 40,
+        "section": "Section 4"
+      }
+    ],
+    "common_misconceptions": [],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734827088_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Excretion in Human Beings and Plants: Learn excretory system structures, nephron functioning, urine formation, and plant excretion methods.",
+              "keyTakeaway": "Glomerular filtration"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Glomerular filtration"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734827088_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Excretion in Human Beings and Plants - Fundamental Equations",
+              "equations": [
+                "Glomerular filtration",
+                "Artificial kidney (Hemodialysis)"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Glomerular filtration"
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734827088_3",
+          "type": "DIAGRAM",
+          "title": "Excretion in Human Beings and Plants Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Excretion in Human Beings and Plants Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Glomerular filtration",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Artificial kidney (Hemodialysis)",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Excretion in Human Beings and Plants",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Excretion in Human Beings and Plants | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;\">\n  \n  <defs>\n    <pattern id=\"chalkGrid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.75\"/>\n    </pattern>\n    <!-- Royal Blue Vector Arrow -->\n    <marker id=\"arrowRoyal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#2563EB\"/>\n    </marker>\n    <!-- Cyan / Sky Ray Arrow -->\n    <marker id=\"arrowIce\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0284C7\"/>\n    </marker>\n    <!-- Scholar Emerald Current / Normal Arrow -->\n    <marker id=\"arrowSage\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#16A34A\"/>\n    </marker>\n    <!-- Crimson Vector Arrow -->\n    <marker id=\"arrowCrimson\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#DC2626\"/>\n    </marker>\n    <!-- Deep Charcoal Ink Arrow -->\n    <marker id=\"arrowCharcoal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0F172A\"/>\n    </marker>\n    <!-- Warm Amber Arrow -->\n    <marker id=\"arrowAmber\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#D97706\"/>\n    </marker>\n  </defs>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" fill=\"url(#chalkGrid)\" opacity=\"0.6\"/>\n\n  <rect x=\"40\" y=\"12\" width=\"460\" height=\"22\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\"/>\n  <text x=\"270\" y=\"27\" text-anchor=\"middle\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"bold\">Excretion in Human Beings and Plants</text>\n\n  <g transform=\"translate(25, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#F0FDF4\" stroke=\"#16A34A\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DCFCE7\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#16A34A\">1. Physical Intuition</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Real-World Hook</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#64748B\">Tangible daily basis</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#64748B\">Observable mechanism</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Underlying Driver</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#64748B\">Core energetic / structural</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#64748B\">fundamental force</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Classroom Analogy</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#64748B\">Concrete representation</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Intuitive bridge to law</text>\n  </g>\n\n  <line x1=\"180\" y1=\"140\" x2=\"195\" y2=\"140\" stroke=\"#2563EB\" stroke-width=\"2\" marker-end=\"url(#arrowRoyal)\"/>\n\n  <g transform=\"translate(195, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#EFF6FF\" stroke=\"#2563EB\" stroke-width=\"1.4\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DBEAFE\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">2. Governing Principle</text>\n\n    <rect x=\"10\" y=\"36\" width=\"130\" height=\"50\" rx=\"4\" fill=\"#FFFFFF\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n    <text x=\"75\" y=\"55\" text-anchor=\"middle\" font-size=\"8\" font-weight=\"bold\" fill=\"#2563EB\">CORE LAW / THEOREM</text>\n    <text x=\"75\" y=\"72\" text-anchor=\"middle\" font-size=\"8.5\" font-weight=\"bold\" fill=\"#0F172A\">Excretion in Human</text>\n\n    <circle cx=\"15\" cy=\"110\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"113\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Governing Rules</text>\n    <text x=\"25\" y=\"125\" font-size=\"7\" fill=\"#64748B\">Strict scientific criteria</text>\n    <text x=\"25\" y=\"135\" font-size=\"7\" fill=\"#64748B\">Mandatory conditions</text>\n\n    <circle cx=\"15\" cy=\"155\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"158\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">SI Units &amp; Constants</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Dimensional integrity</text>\n    <text x=\"25\" y=\"180\" font-size=\"7\" fill=\"#64748B\">Zero unit conversion loss</text>\n  </g>\n\n  <line x1=\"350\" y1=\"140\" x2=\"365\" y2=\"140\" stroke=\"#16A34A\" stroke-width=\"2\" marker-end=\"url(#arrowSage)\"/>\n\n  <g transform=\"translate(365, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#FDE68A\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#D97706\">3. Board Application</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Trio Layout</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#0F172A\">Given \u2192 Formula</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#0F172A\">Substitution \u2192 Boxed</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Common Trap</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#DC2626\">Avoid unit mismatches</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#DC2626\">Watch sign conventions</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Scoring Keywords</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#16A34A\">Verbatim definitions</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#16A34A\">Full 100% credit</text>\n  </g>\n\n  <rect x=\"40\" y=\"254\" width=\"460\" height=\"18\" rx=\"4\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"270\" y=\"266\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"#0F172A\">Authentic Vector Schematic \u2022 CBSE / ICSE / IB Scholastic Standards</text>\n</svg> | Authentic conceptual relationship model plotted on digital chalkboard."
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734827088_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Glomerular filtration"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "Which of the following correctly describes Excretion in Human Beings and Plants?",
+              "explanation": "By fundamental principle, Glomerular filtration is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734827088_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Human excretory system and nephron structure",
+                "Mechanism of urine formation (filtration, reabsorption)",
+                "Excretion methods in plants"
+              ],
+              "formulasToRemember": [
+                "Glomerular filtration",
+                "Artificial kidney (Hemodialysis)"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Excretion in Human Beings and Plants - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Excretion in Human Beings and Plants",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:40:27.088Z",
+        "provenance": "CBSE Official Curriculum",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734827088",
+      "subtopics": [
+        "Human excretory system and nephron structure",
+        "Mechanism of urine formation (filtration, reabsorption)",
+        "Excretion methods in plants"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "",
+      "diagram_idea": "",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "",
+      "concept_questions": [],
+      "estimated_minutes": 20,
+      "textbook_examples": [],
+      "textbook_exercises": [],
+      "textbook_definitions": []
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "f0d954c0-6f47-4111-b08c-b14d52df35e5",
+    "curriculum_id": "e18d7508-7ff8-4a0e-abcf-50884bb33e53",
+    "order_index": 5,
+    "title": "In-Text Questions Solver",
+    "description": "Step-by-step solutions for all in-text questions in Chapter 5.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 5: In-Text Questions Solver. Mid-Term Examination Syllabus. \nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Scientific Vector Diagram\n- Diagram Type: vector_svg_diagram\n\n\n\n\n\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "NCERT biological reasoning templates"
+    ],
+    "success_criteria": "Student can answer all conceptual in-text biology questions accurately.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:40:27.491819+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Energy requirements reasoning",
+      "Salivary amylase action",
+      "Nephron functioning queries"
+    ],
+    "chapter_notes": "\"\"",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "Illustrative Problem (Module 5, Section 5): Explain the scientific mechanism and write relevant balanced equations or principles for: NCERT biological reasoning templates.",
+        "given": "Concepts from CBSE Class 10 Science: In-Text Questions Solver.",
+        "formula": "Standard board law, equation, or anatomical mechanism.",
+        "substitution": "Step-by-step pedagogical application.",
+        "calculation": "Detailed step-by-step examination of In-Text Questions Solver adhering to official board marking schemes.",
+        "finalAnswer": "Topper-ready solution covering the fundamental principles of In-Text Questions Solver.",
+        "unit": "Scientific Law & Mechanism",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "class 10 science chapter_5_life_ ncert diagram",
+        "page": 50,
+        "section": "Section 5"
+      }
+    ],
+    "common_misconceptions": [],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734827346_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "In-Text Questions Solver: Step-by-step solutions for all in-text questions in Chapter 5.",
+              "keyTakeaway": "NCERT biological reasoning templates"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: NCERT biological reasoning templates"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734827346_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "In-Text Questions Solver - Fundamental Equations",
+              "equations": [
+                "NCERT biological reasoning templates"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "NCERT biological reasoning templates"
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734827346_3",
+          "type": "DIAGRAM",
+          "title": "In-Text Questions Solver Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "In-Text Questions Solver Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "NCERT biological reasoning templates",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Functional Component",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "In-Text Questions Solver",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "In-Text Questions Solver | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;\">\n  \n  <defs>\n    <pattern id=\"chalkGrid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.75\"/>\n    </pattern>\n    <!-- Royal Blue Vector Arrow -->\n    <marker id=\"arrowRoyal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#2563EB\"/>\n    </marker>\n    <!-- Cyan / Sky Ray Arrow -->\n    <marker id=\"arrowIce\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0284C7\"/>\n    </marker>\n    <!-- Scholar Emerald Current / Normal Arrow -->\n    <marker id=\"arrowSage\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#16A34A\"/>\n    </marker>\n    <!-- Crimson Vector Arrow -->\n    <marker id=\"arrowCrimson\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#DC2626\"/>\n    </marker>\n    <!-- Deep Charcoal Ink Arrow -->\n    <marker id=\"arrowCharcoal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0F172A\"/>\n    </marker>\n    <!-- Warm Amber Arrow -->\n    <marker id=\"arrowAmber\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#D97706\"/>\n    </marker>\n  </defs>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" fill=\"url(#chalkGrid)\" opacity=\"0.6\"/>\n\n  <rect x=\"40\" y=\"12\" width=\"460\" height=\"22\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\"/>\n  <text x=\"270\" y=\"27\" text-anchor=\"middle\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"bold\">In-Text Questions Solver</text>\n\n  <g transform=\"translate(25, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#F0FDF4\" stroke=\"#16A34A\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DCFCE7\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#16A34A\">1. Physical Intuition</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Real-World Hook</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#64748B\">Tangible daily basis</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#64748B\">Observable mechanism</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Underlying Driver</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#64748B\">Core energetic / structural</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#64748B\">fundamental force</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Classroom Analogy</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#64748B\">Concrete representation</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Intuitive bridge to law</text>\n  </g>\n\n  <line x1=\"180\" y1=\"140\" x2=\"195\" y2=\"140\" stroke=\"#2563EB\" stroke-width=\"2\" marker-end=\"url(#arrowRoyal)\"/>\n\n  <g transform=\"translate(195, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#EFF6FF\" stroke=\"#2563EB\" stroke-width=\"1.4\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DBEAFE\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">2. Governing Principle</text>\n\n    <rect x=\"10\" y=\"36\" width=\"130\" height=\"50\" rx=\"4\" fill=\"#FFFFFF\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n    <text x=\"75\" y=\"55\" text-anchor=\"middle\" font-size=\"8\" font-weight=\"bold\" fill=\"#2563EB\">CORE LAW / THEOREM</text>\n    <text x=\"75\" y=\"72\" text-anchor=\"middle\" font-size=\"8.5\" font-weight=\"bold\" fill=\"#0F172A\">In-Text Questions </text>\n\n    <circle cx=\"15\" cy=\"110\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"113\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Governing Rules</text>\n    <text x=\"25\" y=\"125\" font-size=\"7\" fill=\"#64748B\">Strict scientific criteria</text>\n    <text x=\"25\" y=\"135\" font-size=\"7\" fill=\"#64748B\">Mandatory conditions</text>\n\n    <circle cx=\"15\" cy=\"155\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"158\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">SI Units &amp; Constants</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Dimensional integrity</text>\n    <text x=\"25\" y=\"180\" font-size=\"7\" fill=\"#64748B\">Zero unit conversion loss</text>\n  </g>\n\n  <line x1=\"350\" y1=\"140\" x2=\"365\" y2=\"140\" stroke=\"#16A34A\" stroke-width=\"2\" marker-end=\"url(#arrowSage)\"/>\n\n  <g transform=\"translate(365, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#FDE68A\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#D97706\">3. Board Application</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Trio Layout</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#0F172A\">Given \u2192 Formula</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#0F172A\">Substitution \u2192 Boxed</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Common Trap</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#DC2626\">Avoid unit mismatches</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#DC2626\">Watch sign conventions</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Scoring Keywords</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#16A34A\">Verbatim definitions</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#16A34A\">Full 100% credit</text>\n  </g>\n\n  <rect x=\"40\" y=\"254\" width=\"460\" height=\"18\" rx=\"4\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"270\" y=\"266\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"#0F172A\">Authentic Vector Schematic \u2022 CBSE / ICSE / IB Scholastic Standards</text>\n</svg> | Authentic conceptual relationship model plotted on digital chalkboard."
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734827346_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "NCERT biological reasoning templates"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "Which of the following correctly describes In-Text Questions Solver?",
+              "explanation": "By fundamental principle, NCERT biological reasoning templates is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734827346_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Energy requirements reasoning",
+                "Salivary amylase action",
+                "Nephron functioning queries"
+              ],
+              "formulasToRemember": [
+                "NCERT biological reasoning templates"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "In-Text Questions Solver - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "In-Text Questions Solver",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:40:27.347Z",
+        "provenance": "CBSE Official Curriculum",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734827346",
+      "subtopics": [
+        "Energy requirements reasoning",
+        "Salivary amylase action",
+        "Nephron functioning queries"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "",
+      "diagram_idea": "",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "",
+      "concept_questions": [],
+      "estimated_minutes": 20,
+      "textbook_examples": [],
+      "textbook_exercises": [],
+      "textbook_definitions": []
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "1c2b11bc-6c6f-432b-bbe1-413455c878ca",
+    "curriculum_id": "e18d7508-7ff8-4a0e-abcf-50884bb33e53",
+    "order_index": 6,
+    "title": "NCERT In-Text & Chapter-End Exercises Master Solver",
+    "description": "Practice board-pattern questions and diagram-based problems for Chapter 5.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 6: End-of-Chapter Review Exercises & Masterclass. Mid-Term Examination Syllabus. \nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Scientific Vector Diagram\n- Diagram Type: vector_svg_diagram\n\n\n\n\n\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Comprehensive board exam question patterns"
+    ],
+    "success_criteria": "Student can solve all end-of-chapter questions and label diagrams correctly.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:40:27.719243+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Heart and nephron diagram labeling",
+      "Multiple choice and subjective exercises"
+    ],
+    "chapter_notes": "\"\"",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "In-Text Question (Nutrition & Respiration): (a) What are the necessary conditions for autotrophic nutrition and what are its by-products? (b) Differentiate between aerobic and anaerobic respiration in terms of ATP yield and end-products.",
+        "given": "Photosynthetic and respiratory biochemical pathways.",
+        "formula": "Photosynthesis: 6CO2 + 12H2O + Sunlight + Chlorophyll -> C6H12O6 + 6O2 + 6H2O. Aerobic yield = 36-38 ATP; Anaerobic yield = 2 ATP.",
+        "substitution": "Analyze metabolic equations.",
+        "calculation": "(a) Necessary conditions: Chlorophyll pigment, solar radiation (sunlight), carbon dioxide (CO2), and water (H2O). By-products: Oxygen gas (O2) and water.\n(b) Aerobic vs Anaerobic Respiration:\n1. Aerobic: Occurs in mitochondria in the presence of oxygen. Glucose is completely broken down to CO2 and H2O, yielding high energy (36\u201338 ATP per glucose molecule).\n2. Anaerobic: Occurs in cytoplasm in the absence of oxygen. In yeast (fermentation), end-products are Ethanol + CO2 + 2 ATP. In human muscle cells during strenuous exercise, end-product is Lactic Acid + 2 ATP (causing muscle fatigue and cramps).",
+        "finalAnswer": "(a) Conditions: Sunlight, chlorophyll, CO2, H2O; by-product is O2; (b) Aerobic yields 36-38 ATP with CO2 + H2O; Anaerobic yields only 2 ATP with ethanol/lactic acid.",
+        "unit": "Biochemical bioenergetics",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "aerobic versus anaerobic respiration pathways glucose breakdown",
+        "page": 10,
+        "section": "In-Text Nutrition"
+      },
+      {
+        "problem": "In-Text Question (Transportation & Excretion): (a) What is double circulation in human beings and why is it necessary? (b) Describe the structure and functioning of a nephron in human kidneys.",
+        "given": "Cardiovascular double loop and renal filtration units.",
+        "formula": "Double circulation: Pulmonary circuit (heart -> lungs -> heart) + Systemic circuit (heart -> body -> heart).",
+        "substitution": "Trace blood flow and ultrafiltration in nephron.",
+        "calculation": "(a) Double circulation: Blood flows through the four-chambered heart twice during one complete cycle through the body (pulmonary circulation to oxygenate blood, systemic circulation to supply tissues). Necessity: Completely separates oxygenated and deoxygenated blood, ensuring high oxygen delivery efficiency to maintain constant homeostatic body temperature (endothermy).\n(b) Nephron Function: 1. Ultrafiltration: High hydrostatic pressure in glomerulus forces water, glucose, amino acids, salts, and urea into Bowman's capsule forming glomerular filtrate. 2. Selective Reabsorption: Along proximal tubule and loop of Henle, useful substances (glucose, ions, water) are reabsorbed into peritubular capillaries. 3. Tubular Secretion: Extra ions and urea are secreted into collecting duct to form urine.",
+        "finalAnswer": "(a) Double circulation passes blood twice through the heart, ensuring complete separation of oxygenated/deoxygenated blood; (b) Nephron filters blood in glomerulus, reabsorbs nutrients in tubules, and collects urine.",
+        "unit": "Physiological organ systems",
+        "has_diagram": true,
+        "diagram_source": "image_search",
+        "figure_caption": "Structure of a nephron showing glomerulus, tubule, and collecting duct",
+        "image_search_query": "nephron structure and function diagram human kidney class 10",
+        "page": 20,
+        "section": "In-Text Excretion"
+      }
+    ],
+    "common_misconceptions": [],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734827593_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "End-of-Chapter Review Exercises & Masterclass: Practice board-pattern questions and diagram-based problems for Chapter 5.",
+              "keyTakeaway": "Comprehensive board exam question patterns"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Comprehensive board exam question patterns"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734827593_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "End-of-Chapter Review Exercises & Masterclass - Fundamental Equations",
+              "equations": [
+                "Comprehensive board exam question patterns"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Comprehensive board exam question patterns"
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734827593_3",
+          "type": "DIAGRAM",
+          "title": "End-of-Chapter Review Exercises & Masterclass Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "End-of-Chapter Review Exercises & Masterclass Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Comprehensive board exam question patterns",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Functional Component",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "End-of-Chapter Review Exercises & Masterclass",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "End-of-Chapter Review Exercises & Masterclass | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;\">\n  \n  <defs>\n    <pattern id=\"chalkGrid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.75\"/>\n    </pattern>\n    <!-- Royal Blue Vector Arrow -->\n    <marker id=\"arrowRoyal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#2563EB\"/>\n    </marker>\n    <!-- Cyan / Sky Ray Arrow -->\n    <marker id=\"arrowIce\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0284C7\"/>\n    </marker>\n    <!-- Scholar Emerald Current / Normal Arrow -->\n    <marker id=\"arrowSage\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#16A34A\"/>\n    </marker>\n    <!-- Crimson Vector Arrow -->\n    <marker id=\"arrowCrimson\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#DC2626\"/>\n    </marker>\n    <!-- Deep Charcoal Ink Arrow -->\n    <marker id=\"arrowCharcoal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0F172A\"/>\n    </marker>\n    <!-- Warm Amber Arrow -->\n    <marker id=\"arrowAmber\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#D97706\"/>\n    </marker>\n  </defs>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" fill=\"url(#chalkGrid)\" opacity=\"0.6\"/>\n\n  <rect x=\"40\" y=\"12\" width=\"460\" height=\"22\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\"/>\n  <text x=\"270\" y=\"27\" text-anchor=\"middle\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"bold\">End-of-Chapter Review Exercises & Masterclass</text>\n\n  <g transform=\"translate(25, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#F0FDF4\" stroke=\"#16A34A\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DCFCE7\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#16A34A\">1. Physical Intuition</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Real-World Hook</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#64748B\">Tangible daily basis</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#64748B\">Observable mechanism</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Underlying Driver</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#64748B\">Core energetic / structural</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#64748B\">fundamental force</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Classroom Analogy</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#64748B\">Concrete representation</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Intuitive bridge to law</text>\n  </g>\n\n  <line x1=\"180\" y1=\"140\" x2=\"195\" y2=\"140\" stroke=\"#2563EB\" stroke-width=\"2\" marker-end=\"url(#arrowRoyal)\"/>\n\n  <g transform=\"translate(195, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#EFF6FF\" stroke=\"#2563EB\" stroke-width=\"1.4\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DBEAFE\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">2. Governing Principle</text>\n\n    <rect x=\"10\" y=\"36\" width=\"130\" height=\"50\" rx=\"4\" fill=\"#FFFFFF\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n    <text x=\"75\" y=\"55\" text-anchor=\"middle\" font-size=\"8\" font-weight=\"bold\" fill=\"#2563EB\">CORE LAW / THEOREM</text>\n    <text x=\"75\" y=\"72\" text-anchor=\"middle\" font-size=\"8.5\" font-weight=\"bold\" fill=\"#0F172A\">End-of-Chapter Rev</text>\n\n    <circle cx=\"15\" cy=\"110\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"113\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Governing Rules</text>\n    <text x=\"25\" y=\"125\" font-size=\"7\" fill=\"#64748B\">Strict scientific criteria</text>\n    <text x=\"25\" y=\"135\" font-size=\"7\" fill=\"#64748B\">Mandatory conditions</text>\n\n    <circle cx=\"15\" cy=\"155\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"158\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">SI Units &amp; Constants</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Dimensional integrity</text>\n    <text x=\"25\" y=\"180\" font-size=\"7\" fill=\"#64748B\">Zero unit conversion loss</text>\n  </g>\n\n  <line x1=\"350\" y1=\"140\" x2=\"365\" y2=\"140\" stroke=\"#16A34A\" stroke-width=\"2\" marker-end=\"url(#arrowSage)\"/>\n\n  <g transform=\"translate(365, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#FDE68A\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#D97706\">3. Board Application</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Trio Layout</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#0F172A\">Given \u2192 Formula</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#0F172A\">Substitution \u2192 Boxed</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Common Trap</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#DC2626\">Avoid unit mismatches</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#DC2626\">Watch sign conventions</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Scoring Keywords</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#16A34A\">Verbatim definitions</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#16A34A\">Full 100% credit</text>\n  </g>\n\n  <rect x=\"40\" y=\"254\" width=\"460\" height=\"18\" rx=\"4\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"270\" y=\"266\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"#0F172A\">Authentic Vector Schematic \u2022 CBSE / ICSE / IB Scholastic Standards</text>\n</svg> | Authentic conceptual relationship model plotted on digital chalkboard."
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734827593_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Comprehensive board exam question patterns"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "Which of the following correctly describes End-of-Chapter Review Exercises & Masterclass?",
+              "explanation": "By fundamental principle, Comprehensive board exam question patterns is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734827593_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Heart and nephron diagram labeling",
+                "Multiple choice and subjective exercises"
+              ],
+              "formulasToRemember": [
+                "Comprehensive board exam question patterns"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "End-of-Chapter Review Exercises & Masterclass - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "End-of-Chapter Review Exercises & Masterclass",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:40:27.593Z",
+        "provenance": "CBSE Official Curriculum",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734827593",
+      "subtopics": [
+        "Heart and nephron diagram labeling",
+        "Multiple choice and subjective exercises"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "",
+      "diagram_idea": "",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "",
+      "concept_questions": [],
+      "estimated_minutes": 20,
+      "textbook_examples": [],
+      "textbook_exercises": [],
+      "textbook_definitions": []
+    },
+    "quiz_questions": []
+  }
+]

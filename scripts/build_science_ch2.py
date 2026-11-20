@@ -1,0 +1,692 @@
+import json
+import os
+
+CH2_ID = "c0d6c12e-5576-434d-b541-5142fe09f03b"
+
+def generate_ch2():
+    modules = [
+        # Module 1
+        {
+            "curriculum_id": CH2_ID,
+            "order_index": 1,
+            "title": "Discovery of the Cell, Cytological Staining Protocols & Microscopic Precision",
+            "description": "Trace Robert Hooke's seminal 1665 cork observation, contrast primitive single lenses with modern compound optics, master laboratory staining protocols (methylene blue, safranin, iodine), and estimate cellular dimensions using microscope ocular micrometry.",
+            "board": "CBSE",
+            "class_level": "Class 9",
+            "estimated_minutes": 25,
+            "subtopics": [
+                "Robert Hooke (1665) and Antonie van Leeuwenhoek (1674) seminal discoveries",
+                "Compound Microscope vs Electron Microscope: Resolving power and magnification",
+                "Laboratory Staining Protocols: Methylene blue, safranin, and iodine stains",
+                "Activity 2.1: Onion peel temporary mount preparation & microscopic examination",
+                "Activity 2.2: Human cheek cell temporary mount & animal vs plant cytological contrast",
+                "Cell dimension estimation and SI micrometer (μm) conversion mechanics"
+            ],
+            "key_concepts": [
+                "The Cell as Fundamental Unit: Robert Hooke (1665) coined 'cell' observing cork; Leeuwenhoek (1674) first observed free living cells in pond water.",
+                "Classical Cell Theory: Schleiden (1838) and Schwann (1839) established all organisms consist of cells; Rudolf Virchow (1855) added 'Omnis cellula-e cellula' (all cells arise from pre-existing cells).",
+                "Resolution & Magnification: Optical microscopes use glass lenses and visible light (resolution limit ~0.2 μm); electron microscopes use electron beams and electromagnetic coils (resolution ~0.2 nm).",
+                "Cytological Stains: Biological tissues are largely transparent; differential stains bind selectively (methylene blue to acidic nuclei, iodine to plant starches/cell walls).",
+                "Cell Dimensions & Micrometry: 1 meter = 10⁶ micrometers (μm) = 10⁹ nanometers (nm). Plant cells average 10–100 μm; bacterial cells average 1–10 μm.",
+                "Activity 2.1 & 2.2 Invariant: Onion peel cells exhibit regular brick-like cell walls and peripheral nuclei; cheek cells lack cell walls and possess central nuclei."
+            ],
+            "success_criteria": "Student can explain cell theory chronology, differentiate onion peel and cheek cell slides, calculate cell dimensions in micrometers, and describe temporary mount preparation.",
+            "chapter_notes": "### 2.1 Discovery and Cell Theory\nIn 1665, Robert Hooke observed thin slices of bottle cork under a primitive microscope, identifying honey-comb-like compartments which he designated *cells* (Latin: 'small rooms'). Antonie van Leeuwenhoek (1674) discovered free-living unicellular organisms in pond water.\n\n### 2.2 Cell Theory Framework\n1. All living organisms are composed of one or more cells (Schleiden & Schwann).\n2. The cell is the fundamental structural and functional unit of life.\n3. All cells arise from pre-existing cells via division (*Omnis cellula-e cellula*, Virchow, 1855).\n\n### 2.3 Microscopic Preparation (Activities 2.1 & 2.2)\nMounting an onion peel requires peeling inner concave epidermis, transferring to water, staining with iodine or safranin, and mounting under coverslip without air bubbles.",
+            "worked_examples": [
+                {
+                    "problem": "Activity 2.1 / Section 2.1 (p. 3): Under a light microscope, an onion peel cell is measured to have a length of 0.05 mm. Express this length in micrometers (μm) and calculate how many such cells laid end-to-end would span a distance of 1 cm.",
+                    "given": "Cell length l = 0.05 mm; Target span L = 1 cm = 10 mm; Conversion: 1 mm = 1000 μm.",
+                    "formula": "Length in μm = l (mm) × 1000; Number of cells N = L / l.",
+                    "substitution": "l = 0.05 × 1000 = 50 μm; N = 10 mm / 0.05 mm.",
+                    "calculation": "Step 1: Convert 0.05 mm to μm: 0.05 × 1000 = 50 μm.\nStep 2: Calculate number of cells: N = 10 / 0.05 = 1000 / 5 = 200 cells.",
+                    "finalAnswer": "The cell length is 50 μm, and exactly 200 cells laid end-to-end span 1 cm.",
+                    "unit": "μm and cells",
+                    "has_diagram": True,
+                    "diagram_source": "book_extracted",
+                    "figure_caption": "Fig. 2.1: Microscopic scale of cells and field of view",
+                    "image_search_query": "onion peel cells light microscope 100x",
+                    "page": 3,
+                    "section": "Section 2.1"
+                },
+                {
+                    "problem": "In-Text Question (Section 2.1, p. 7): Why is it important to cut the two potato pieces in roughly equal size and surface area in Activity 2.2?",
+                    "given": "Laboratory protocol for comparative osmosis experiment using potato pieces.",
+                    "formula": "Rate of Osmosis ∝ Surface Area exposed to solution; Experimental Control Invariant.",
+                    "substitution": "Diffusion and osmosis are surface-dependent transport phenomena.",
+                    "calculation": "If the potato pieces have unequal surface areas, the rate of water exchange (endosmosis or exosmosis) would vary independently of the solution concentration. Equal surface area ensures that the mass difference is strictly driven by the water chemical potential gradient (solution tonicity) rather than geometric discrepancies.",
+                    "finalAnswer": "Equal surface area ensures that tonicity is the sole independent variable governing the rate of water flow across the cell membranes.",
+                    "unit": "Experimental Control Principle",
+                    "has_diagram": False,
+                    "diagram_source": "image_search",
+                    "figure_caption": "",
+                    "image_search_query": "potato osmometer experiment surface area control",
+                    "page": 7,
+                    "section": "Section 2.1"
+                }
+            ],
+            "common_misconceptions": [
+                {
+                    "misconception": "Robert Hooke discovered living cells.",
+                    "correction": "Hooke observed dead cork tissue consisting solely of cellulose cell walls; Leeuwenhoek was the first to observe living moving cells.",
+                    "why_it_matters": "Clarifies the difference between structural cell wall matrices and living protoplasm."
+                }
+            ],
+            "visual_lesson_plan": {
+                "title": "Discovery of the Cell & Microscopic Staining Protocols Visual Plan",
+                "diagram_type": "image",
+                "concept_visuals": [
+                    {
+                        "concept_title": "Onion Peel vs Cheek Cell Microscopic Architecture",
+                        "diagram_title": "Comparative Cytological Lattice of Plant vs Animal Mounts",
+                        "diagram_type": "image_search",
+                        "image_query": "onion peel cells versus cheek cells microscope comparison",
+                        "video_query": "onion peel cheek cell temporary mount preparation",
+                        "what_to_make": "Dual-panel comparative microscopic view showing rectangular plant cells with cell walls vs irregular animal cheek cells.",
+                        "timing_and_cue": "Display at 02:30 during laboratory mount procedure explanation.",
+                        "image_search_query": "onion peel cheek cells microscope comparison",
+                        "video_search_query": "onion peel cheek cell temporary mount experiment"
+                    }
+                ]
+            },
+            "ai_system_prompt_context": "CBSE Class 9 Science Chapter 2 Module 1: Cell Discovery & Microscopic Staining. Follow Socratic cadence with 5-6 sentence explanations and strict checkpoint gating."
+        },
+        # Module 2
+        {
+            "curriculum_id": CH2_ID,
+            "order_index": 2,
+            "title": "Plasma Membrane Dynamics: Fluid Mosaic Architecture, Diffusion & Osmosis Mechanics",
+            "description": "Master the selectively permeable plasma membrane, Singer-Nicolson lipid bilayer dynamics, passive diffusion kinetics, and quantitative osmosis (hypotonic, isotonic, and hypertonic media dynamics).",
+            "board": "CBSE",
+            "class_level": "Class 9",
+            "estimated_minutes": 25,
+            "subtopics": [
+                "Plasma Membrane Structure: Phospholipid bilayer and embedded transport proteins",
+                "Selective Permeability: Why polar molecules require facilitated transport while gases diffuse freely",
+                "Diffusion: Net spontaneous movement from high concentration to low concentration",
+                "Osmosis: Net solvent (water) movement across a selectively permeable membrane",
+                "Tonicity Spectrum: Hypotonic (Endosmosis/Turgor), Isotonic (Dynamic Equilibrium), Hypertonic (Exosmosis/Plasmolysis)",
+                "Endocytosis & Phagocytosis: Amoebic food engulfment mechanics"
+            ],
+            "key_concepts": [
+                "Selectively Permeable Membrane: Allows passage of solvent and selected solutes while blocking large polar polymers.",
+                "Fick's Diffusion Law: Rate of diffusion is proportional to concentration gradient, surface area, and temperature.",
+                "Osmotic Chemical Potential: Water moves down its chemical potential gradient from higher water potential (dilute/hypotonic) to lower water potential (concentrated/hypertonic).",
+                "Turgor vs Plasmolysis: In hypotonic media, plant cells develop turgor pressure (cell wall resists lysis); in hypertonic media, plant protoplasts shrink away from cell walls (plasmolysis).",
+                "Animal Cell Vulnerability: Animal cells lack cell walls and burst (lyse) in strongly hypotonic solutions (e.g., RBC hemolysis in pure water).",
+                "Active Transport vs Passive Transport: Active transport moves solutes against concentration gradients utilizing ATP."
+            ],
+            "success_criteria": "Student can predict cell volume changes in hypotonic, isotonic, and hypertonic solutions, and contrast diffusion, osmosis, and active transport.",
+            "chapter_notes": "### 2.4 Plasma Membrane and Transport Mechanics\nThe plasma membrane is flexible, composed of organic molecules called lipids and proteins. Transport occurs via diffusion (gases like O₂ and CO₂) and osmosis (water).\n\n### 2.5 Solutions and Cell Behavior\n1. **Hypotonic Solution**: Medium has higher water concentration than cell ⟶ Net endosmosis ⟶ Cell swells.\n2. **Isotonic Solution**: Equal water concentration ⟶ Dynamic equilibrium ⟶ No net change.\n3. **Hypertonic Solution**: Medium has lower water concentration ⟶ Net exosmosis ⟶ Cell shrinks (plasmolysis in plant cells).",
+            "worked_examples": [
+                {
+                    "problem": "Textbook Revise, Reflect, Refine Q2 (Section 2.2, p. 17): Two similar animal cells, X and Y, are placed in two different solutions. After 30 minutes, Cell X has swollen and burst, while Cell Y has shrunk and shriveled. Identify the nature of the solutions in which Cell X and Cell Y were placed, and explain the biophysical mechanism.",
+                    "given": "Cell X swelled and burst; Cell Y shrunk and shriveled; Both are animal cells lacking cell walls.",
+                    "formula": "Osmosis: Water moves from region of higher water chemical potential to lower water chemical potential.",
+                    "substitution": "Cell X in solution with higher water potential (Hypotonic); Cell Y in solution with lower water potential (Hypertonic).",
+                    "calculation": "1. Solution X is Hypotonic (dilute). Surrounding water potential is greater than intra-cellular water potential. Water rushes into Cell X via endosmosis. Lacking a rigid cell wall, the delicate plasma membrane stretches beyond its elastic limit and lyses (bursts).\n2. Solution Y is Hypertonic (concentrated brine/syrup). Internal water potential is higher than external medium. Water moves out via exosmosis, causing cell collapse and crenation.",
+                    "finalAnswer": "Solution X is Hypotonic (causing endosmotic lysis); Solution Y is Hypertonic (causing exosmotic crenation/shrinkage).",
+                    "unit": "Tonicity Classification",
+                    "has_diagram": True,
+                    "diagram_source": "image_search",
+                    "figure_caption": "Osmotic behavior of animal cells in hypotonic vs hypertonic media",
+                    "image_search_query": "red blood cell hypotonic isotonic hypertonic osmosis",
+                    "page": 17,
+                    "section": "Section 2.2"
+                },
+                {
+                    "problem": "Textbook Revise, Reflect, Refine Q8 (Section 2.2, p. 19): A researcher took two fresh carrot pieces of identical mass and placed Carrot A in pure water and Carrot B in a saturated salt solution. After 24 hours, Carrot A became stiff and increased in mass, whereas Carrot B became limp, flaccid, and decreased in mass. Explain the observation.",
+                    "given": "Carrot A in pure water; Carrot B in saturated salt solution; Initial masses equal.",
+                    "formula": "Endosmosis into plant cells generates Turgor Pressure; Exosmosis produces Flaccidity and Plasmolysis.",
+                    "substitution": "Carrot A in Hypotonic medium; Carrot B in Hypertonic medium.",
+                    "calculation": "1. Carrot A: Surrounding water is hypotonic. Water enters carrot parenchyma cells by endosmosis, filling vacuoles and generating high turgor pressure against cell walls, increasing mass and rigidity.\n2. Carrot B: Saturated salt solution is hypertonic. Water exits vacuoles by exosmosis into the surrounding brine, leading to protoplast shrinkage (plasmolysis), loss of turgor, mass reduction, and flaccidity.",
+                    "finalAnswer": "Carrot A gained mass and rigidity due to endosmosis and turgor pressure; Carrot B lost mass and became flaccid due to exosmotic plasmolysis.",
+                    "unit": "Plant Osmotic Mechanics",
+                    "has_diagram": False,
+                    "diagram_source": "image_search",
+                    "figure_caption": "",
+                    "image_search_query": "plant tissue osmosis turgor pressure plasmolysis",
+                    "page": 19,
+                    "section": "Section 2.2"
+                }
+            ],
+            "common_misconceptions": [
+                {
+                    "misconception": "In an isotonic solution, water molecules stop moving across the cell membrane.",
+                    "correction": "Water molecules continue moving across the membrane in both directions at equal rates; net flux is zero (dynamic equilibrium).",
+                    "why_it_matters": "Fundamental to understanding thermodynamic equilibrium in cellular biophysics."
+                }
+            ],
+            "visual_lesson_plan": {
+                "title": "Plasma Membrane Dynamics Visual Plan",
+                "diagram_type": "image",
+                "concept_visuals": [
+                    {
+                        "concept_title": "Osmosis Triad: Hypotonic, Isotonic, Hypertonic Solutions",
+                        "diagram_title": "Cell Volume Response under Differential Osmotic Environments",
+                        "diagram_type": "image_search",
+                        "image_query": "osmosis plant and animal cells hypotonic hypertonic diagram",
+                        "video_query": "osmosis and turgor pressure in plant cells",
+                        "what_to_make": "Three-panel comparative diagram showing cell behavior in hypotonic, isotonic, and hypertonic media.",
+                        "timing_and_cue": "Show at 03:00 during discussion of solution tonicity.",
+                        "image_search_query": "plant cell osmosis turgor plasmolysis diagram",
+                        "video_search_query": "osmosis plant animal cells demonstration"
+                    }
+                ]
+            },
+            "ai_system_prompt_context": "CBSE Class 9 Science Chapter 2 Module 2: Membrane Dynamics & Osmosis. Emphasize water potential gradients and cell wall counter-pressure."
+        },
+        # Module 3
+        {
+            "curriculum_id": CH2_ID,
+            "order_index": 3,
+            "title": "The Cell Wall & The Cytoplasmic Operating Engine: Prokaryote vs Eukaryote Architecture",
+            "description": "Analyze the plant cell wall's tensile strength, define cytoplasm and cytosol, contrast primitive prokaryotic blueprints (nucleoid, 70S ribosomes) with compartmentalized eukaryotic systems, and evaluate evolutionary advantages.",
+            "board": "CBSE",
+            "class_level": "Class 9",
+            "estimated_minutes": 25,
+            "subtopics": [
+                "Plant Cell Wall: Cellulose fibrils, hemicellulose, and pectin matrix",
+                "Wall Pressure vs Turgor Pressure: The mechanical equilibrium preventing cell lysis",
+                "Cytoplasm vs Cytosol: Colloidal suspension of enzymes, substrates, and cytoskeleton",
+                "Prokaryotic Architecture: Nucleoid, lack of membrane-bound organelles, 70S ribosomes",
+                "Eukaryotic Architecture: Membrane-bound nucleus, compartmentalized organelles, 80S ribosomes",
+                "Compartmentalization Principle: Decoupling incompatible biochemical reactions"
+            ],
+            "key_concepts": [
+                "Cell Wall Tensile Strength: Composed of rigid cellulose microfibrils; permits plant, fungal, and bacterial cells to withstand high osmotic pressures without bursting.",
+                "Wall Pressure Invariant: When endosmosis creates internal hydrostatic Turgor Pressure ($P_t$), the rigid cell wall exerts an equal and opposing Wall Pressure ($P_w$). Net intake stops when $P_w = P_t$.",
+                "Cytoplasm Definition: The protoplasmic fluid content bounded by the plasma membrane, excluding the nucleus.",
+                "Prokaryotes (Bacteria, Cyanobacteria): Small (1–10 μm), genetic material naked in an un-enveloped nucleoid, circular DNA, lacking membrane-bound organelles.",
+                "Eukaryotes (Protists, Fungi, Plants, Animals): Large (10–100 μm), linear chromosomes enclosed in nuclear envelope, extensive membrane-bound compartmentalization.",
+                "Evolutionary Advantage of Compartmentalization: Allows simultaneous execution of mutually opposing biochemical processes (e.g., oxidative respiration in mitochondria vs protein synthesis on ribosomes)."
+            ],
+            "success_criteria": "Student can contrast prokaryotic and eukaryotic cytological features and explain wall pressure dynamics mathematically.",
+            "chapter_notes": "### 2.6 The Cell Wall\nPlant cells have an additional rigid outer layer composed mainly of **cellulose**, providing structural strength. In hypotonic media, plant cells swell until the wall exerts pressure equal to internal turgor pressure.\n\n### 2.7 Prokaryotic vs Eukaryotic Cells\n| Feature | Prokaryotic Cell | Eukaryotic Cell |\n|---|---|---|\n| Size | Generally small (1–10 μm) | Generally large (10–100 μm) |\n| Nuclear Region | Poorly defined (Nucleoid), no nuclear membrane | Well defined, surrounded by nuclear envelope |\n| Chromosome | Single circular chromosome | Multiple linear chromosomes |\n| Organelles | Membrane-bound organelles absent | Membrane-bound organelles present |",
+            "worked_examples": [
+                {
+                    "problem": "In-Text Question (Section 2.2, p. 7): What argument would you give for the necessity of a cell wall in plants? What consequences would you predict for a plant cell if its cell wall were removed?",
+                    "given": "Plant cells living in hypotonic external environments (e.g. soil water, rain).",
+                    "formula": "Wall Pressure ($P_w$) opposes internal Turgor Pressure ($P_t$).",
+                    "substitution": "Without cell wall, protoplast behaves like an animal cell.",
+                    "calculation": "1. Necessity: Plants cannot move to shelter; they absorb soil water which is strongly hypotonic. The cellulose cell wall exerts inward Wall Pressure resisting osmotic expansion, allowing cells to stay turgid without rupturing.\n2. Consequence of removal (protoplast): In a hypotonic medium, continuous endosmosis would cause the fragile plasma membrane to stretch and lyse (burst). Furthermore, the plant would lose mechanical rigidity and wilt completely.",
+                    "finalAnswer": "The cell wall is necessary to resist osmotic bursting and provide upright mechanical support; without it, plant cells burst in hypotonic media and wilt.",
+                    "unit": "Cytological Adaptation",
+                    "has_diagram": False,
+                    "diagram_source": "image_search",
+                    "figure_caption": "",
+                    "image_search_query": "plant cell wall turgor pressure diagram",
+                    "page": 7,
+                    "section": "Section 2.2"
+                },
+                {
+                    "problem": "Textbook Revise, Reflect, Refine Q9 (Section 2.2, p. 19): Indicate the presence or absence of the following structures in bacterial and animal cells: Chromosome, Nucleus, Mitochondria, Golgi complex, Chromoplasts.",
+                    "given": "Five cytological structures across bacterial cell (prokaryote) and animal cell (eukaryote).",
+                    "formula": "Prokaryotes lack membrane-bound organelles and a nuclear envelope; Animal cells lack plastids.",
+                    "substitution": "Evaluate structure-by-structure.",
+                    "calculation": "1. Chromosome: Present in both (single circular DNA in bacteria; multiple linear chromosomes in animal cells).\n2. Nucleus: Absent in bacterial cell (nucleoid instead); Present in animal cell.\n3. Mitochondria: Absent in bacterial cell; Present in animal cell.\n4. Golgi complex: Absent in bacterial cell; Present in animal cell.\n5. Chromoplasts: Absent in both (plastids are exclusively found in plant cells).",
+                    "finalAnswer": "Bacterial cell: Chromosome (Present), Nucleus (Absent), Mitochondria (Absent), Golgi (Absent), Chromoplasts (Absent). Animal cell: Chromosome (Present), Nucleus (Present), Mitochondria (Present), Golgi (Present), Chromoplasts (Absent).",
+                    "unit": "Comparative Cytological Ledger",
+                    "has_diagram": False,
+                    "diagram_source": "image_search",
+                    "figure_caption": "",
+                    "image_search_query": "bacterial cell versus animal cell organelle comparison",
+                    "page": 19,
+                    "section": "Section 2.2"
+                }
+            ],
+            "common_misconceptions": [
+                {
+                    "misconception": "Bacteria have no DNA because they lack a nucleus.",
+                    "correction": "Bacteria possess DNA organized in an un-enveloped nuclear region termed the nucleoid.",
+                    "why_it_matters": "Crucial for understanding genetics and molecular biology across kingdoms."
+                }
+            ],
+            "visual_lesson_plan": {
+                "title": "Prokaryote vs Eukaryote Architecture Visual Plan",
+                "diagram_type": "image",
+                "concept_visuals": [
+                    {
+                        "concept_title": "Prokaryotic vs Eukaryotic Structural Ultrastructure",
+                        "diagram_title": "Bacterial Cell Blueprint vs Compartmentalized Eukaryote",
+                        "diagram_type": "image_search",
+                        "image_query": "prokaryote versus eukaryote ultrastructure diagram",
+                        "video_query": "prokaryotic and eukaryotic cells comparison animation",
+                        "what_to_make": "Dual ultrastructural schematic showing bacterial nucleoid alongside eukaryotic organelles.",
+                        "timing_and_cue": "Show at 02:45 during discussion of nuclear organization.",
+                        "image_search_query": "prokaryotic vs eukaryotic cell ultrastructure",
+                        "video_search_query": "prokaryotic vs eukaryotic cell comparison"
+                    }
+                ]
+            },
+            "ai_system_prompt_context": "CBSE Class 9 Science Chapter 2 Module 3: Cell Wall & Prokaryote vs Eukaryote. Emphasize wall pressure and organelle compartmentalization."
+        },
+        # Module 4
+        {
+            "curriculum_id": CH2_ID,
+            "order_index": 4,
+            "title": "The Genetic Control Center & The Endomembrane Assembly Line (Nucleus, ER & Golgi)",
+            "description": "Examine the nuclear envelope, chromatin-chromosome dynamics, genes as hereditary units, protein synthesis in RER, lipid biogenesis in SER, hepatic detoxification, and Golgi vesicle trafficking.",
+            "board": "CBSE",
+            "class_level": "Class 9",
+            "estimated_minutes": 25,
+            "subtopics": [
+                "Nuclear Architecture: Nuclear envelope, nuclear pores, nucleoplasm, and nucleolus",
+                "Chromatin vs Chromosomes: DNA-histone packaging dynamics during interphase vs mitosis",
+                "Rough Endoplasmic Reticulum (RER): Ribosome binding and secretory protein synthesis",
+                "Smooth Endoplasmic Reticulum (SER): Lipid biogenesis and liver xenobiotic detoxification",
+                "Membrane Biogenesis: Coordinated synthesis and trafficking of membrane components",
+                "Golgi Apparatus: Cis-to-trans cisternal processing, protein glycosylation, and vesicle sorting"
+            ],
+            "key_concepts": [
+                "The Nucleus (Cell Control Center): Enclosed by a double membrane perforated by nuclear pores controlling bidirectional nucleocytoplasmic transport.",
+                "Chromatin-Chromosome Transition: In non-dividing cells, genetic material is dispersed as chromatin threads; during division, it condenses into visible chromosomes.",
+                "Endoplasmic Reticulum Network: Vast interconnected membrane tubules and sheets; RER manufactures proteins, SER manufactures phospholipids and steroid lipids.",
+                "Liver Detoxification Invariant: SER in vertebrate hepatocytes possesses enzymes that detoxify drugs and poisons by converting hydrophobic toxins into water-soluble excretable forms.",
+                "Membrane Biogenesis Principle: Lipids synthesized by SER and proteins synthesized by RER combine to form new cellular membranes.",
+                "Golgi Functional Hierarchy: Discovered by Camillo Golgi; consists of membrane-bound cisternae stacked parallel to each other; modifies, packages, and routes biochemical products."
+            ],
+            "success_criteria": "Student can outline the pathway of membrane biogenesis and explain the functions of the nucleus, RER, SER, and Golgi apparatus.",
+            "chapter_notes": "### 2.8 Nucleus\nThe nucleus has a double-layered cover called the **nuclear envelope** with pores. It contains chromosomes containing DNA (Deoxyribonucleic acid) and proteins. Functional segments of DNA are called **genes**.\n\n### 2.9 Endoplasmic Reticulum (ER)\n- **RER**: Looks rough under microscope due to attached ribosomes (sites of protein manufacture).\n- **SER**: Synthesizes fat molecules (lipids). Plays a crucial role in detoxifying poisons and drugs in liver cells.\n- **Membrane Biogenesis**: The process of building the cell membrane using lipids from SER and proteins from RER.\n\n### 2.10 Golgi Apparatus\nFlattened sacs (cisternae) that modify, package, and dispatch materials synthesized near the ER to inside and outside the cell.",
+            "worked_examples": [
+                {
+                    "problem": "Textbook Revise, Reflect, Refine Q14 (Section 2.4, p. 20): The cell membrane of a cell is made up of proteins and lipids. Which cell organelles help in the synthesis of cell membrane? Write the path of these compounds from their site of synthesis to the cell membrane.",
+                    "given": "Plasma membrane biochemical composition: Phospholipids + Proteins.",
+                    "formula": "Membrane Biogenesis Trafficking Pathway: RER (proteins) + SER (lipids) ⟶ Transport Vesicles ⟶ Golgi Apparatus ⟶ Secretory Vesicles ⟶ Plasma Membrane.",
+                    "substitution": "Trace molecular movement through the endomembrane system.",
+                    "calculation": "1. Membrane proteins are synthesized by ribosomes bound to the Rough Endoplasmic Reticulum (RER) and translocated into the ER lumen.\n2. Membrane phospholipids and cholesterol are synthesized by enzymes in the Smooth Endoplasmic Reticulum (SER).\n3. These biomolecules are packaged into transport vesicles that bud off the ER and fuse with the cis-face of the Golgi apparatus.\n4. Within Golgi cisternae, proteins undergo enzymatic modifications (glycosylation to form glycoproteins and glycolipids).\n5. Transport vesicles bud from the trans-face of the Golgi and fuse directly with the plasma membrane via exocytosis, integrating new proteins and lipids into the membrane.",
+                    "finalAnswer": "RER synthesizes proteins and SER synthesizes lipids. Pathway: ER ⟶ Transport Vesicles ⟶ Golgi Complex ⟶ Secretory Vesicles ⟶ Cell Membrane.",
+                    "unit": "Membrane Biogenesis Pathway",
+                    "has_diagram": True,
+                    "diagram_source": "image_search",
+                    "figure_caption": "Endomembrane trafficking and membrane biogenesis flow",
+                    "image_search_query": "membrane biogenesis endoplasmic reticulum golgi trafficking",
+                    "page": 20,
+                    "section": "Section 2.4"
+                },
+                {
+                    "problem": "Textbook Revise, Reflect, Refine Q11 (Section 2.4, p. 19): Identify the pair that incorrectly matches the cell organelle with its function: (i) Ribosome — Protein synthesis, (ii) SER — Lipid and cellulose synthesis, (iii) Lysosome — Digestion of foreign agents.",
+                    "given": "Three organelle-function pairs.",
+                    "formula": "Biochemical function analysis of eukaryotic organelles.",
+                    "substitution": "Evaluate pairing (ii): SER role in polysaccharide synthesis.",
+                    "calculation": "1. Pair (i): Ribosomes are the universal sites of mRNA translation and protein synthesis (Correct).\n2. Pair (ii): SER synthesizes lipids, steroids, and phospholipids, but cellulose is synthesized by cellulose synthase enzyme rosettes at the plasma membrane, NOT by SER (Incorrect pairing).\n3. Pair (iii): Lysosomes contain acid hydrolases that digest foreign pathogens and cellular debris (Correct).",
+                    "finalAnswer": "Pair (ii) is incorrect because SER synthesizes lipids but does not synthesize cellulose.",
+                    "unit": "Cytological Function Evaluation",
+                    "has_diagram": False,
+                    "diagram_source": "image_search",
+                    "figure_caption": "",
+                    "image_search_query": "smooth endoplasmic reticulum lipid synthesis function",
+                    "page": 19,
+                    "section": "Section 2.4"
+                }
+            ],
+            "common_misconceptions": [
+                {
+                    "misconception": "Chromatin and chromosomes are two completely different chemical substances.",
+                    "correction": "Chromatin and chromosomes are identical in chemical composition (DNA + histone proteins); chromatin is diffuse/uncoiled, while chromosomes are tightly supercoiled and condensed for cell division.",
+                    "why_it_matters": "Crucial for understanding nuclear organization and cytogenetics."
+                }
+            ],
+            "visual_lesson_plan": {
+                "title": "Nucleus & Endomembrane System Visual Plan",
+                "diagram_type": "image",
+                "concept_visuals": [
+                    {
+                        "concept_title": "Endomembrane Protein & Lipid Trafficking Highway",
+                        "diagram_title": "RER, SER, Golgi Apparatus and Vesicular Secretion",
+                        "diagram_type": "image_search",
+                        "image_query": "endomembrane system ER golgi vesicle trafficking diagram",
+                        "video_query": "endomembrane system protein synthesis and transport",
+                        "what_to_make": "Detailed anatomical pathway from nuclear envelope through RER/SER to Golgi cisternae and plasma membrane.",
+                        "timing_and_cue": "Show at 03:15 during membrane biogenesis explanation.",
+                        "image_search_query": "endomembrane system rough er golgi vesicle secretion",
+                        "video_search_query": "endomembrane system animation"
+                    }
+                ]
+            },
+            "ai_system_prompt_context": "CBSE Class 9 Science Chapter 2 Module 4: Genetic Control & Endomembrane System. Enforce 6-stage Socratic teaching cadence."
+        },
+        # Module 5
+        {
+            "curriculum_id": CH2_ID,
+            "order_index": 5,
+            "title": "Powerhouses, Cellular Recycling & Plastid Factories (Mitochondria, Lysosomes & Plastids)",
+            "description": "Unpack mitochondrial chemiosmotic ATP synthesis, lysosomal acid hydrolase autolysis ('suicide bags'), the plastid triad (chloroplasts, chromoplasts, leucoplasts), endosymbiotic theory, and large central vacuole mechanics.",
+            "board": "CBSE",
+            "class_level": "Class 9",
+            "estimated_minutes": 25,
+            "subtopics": [
+                "Mitochondrial Ultrastructure: Outer membrane, folded cristae, and matrix",
+                "ATP (Adenosine Triphosphate): Universal bioenergetic currency and cellular work",
+                "Semi-Autonomous Nature: Circular mtDNA and 70S ribosomes in mitochondria and chloroplasts",
+                "Lysosomes: Hydrolytic enzymes, phagocytic waste digestion, and autolysis ('suicide bags')",
+                "Plastids Spectrum: Chloroplasts (photosynthesis), Chromoplasts (pigments), Leucoplasts (nutrient storage)",
+                "Plant Central Vacuole: Tonoplast membrane, cell sap, hydrostatic turgidity, and waste storage"
+            ],
+            "key_concepts": [
+                "Mitochondria as Powerhouse: Double-membrane organelle; folded inner membrane (cristae) provides enormous surface area for ATP-generating respiratory enzymes.",
+                "ATP Energy Currency: Releases energy by hydrolytic cleavage of phosphoanhydride bonds ($ATP \to ADP + P_i$), driving active transport and biosynthesis.",
+                "Endosymbiotic Invariant: Mitochondria and chloroplasts have their own circular DNA and 70S ribosomes, enabling autonomous protein synthesis and binary fission-like replication.",
+                "Lysosomal Autolysis ('Suicide Bags'): Contain hydrolytic acid enzymes; if cellular metabolism is disrupted or the cell is irreparably damaged, lysosomes burst, digesting the entire cell.",
+                "Plastid Differentiation: Chloroplasts contain chlorophyll for photosynthesis; chromoplasts contain carotenoids giving fruits/flowers red/yellow colors; leucoplasts store starch (amyloplasts), fats (elaioplasts), and proteins (aleuroplasts).",
+                "Central Vacuole Dynamics: Occupies 50–90% of plant cell volume; bounded by selectively permeable tonoplast, maintaining turgor and storing organic solutes."
+            ],
+            "success_criteria": "Student can compare mitochondria and chloroplasts structurally and functionally, explain lysosomal autolysis, and classify plastid types.",
+            "chapter_notes": "### 2.11 Mitochondria\nKnown as powerhouses of the cell. They produce energy in the form of **ATP** (Adenosine triphosphate). Mitochondria have two membranes: outer membrane is porous; inner membrane is deeply folded into **cristae**. Mitochondria have their own DNA and ribosomes.\n\n### 2.12 Lysosomes\nMembrane-bound sacs filled with digestive enzymes made by RER. They act as waste disposal systems. If a cell is damaged, lysosomes burst and their enzymes digest their own cell, hence known as **'suicide bags'**.\n\n### 2.13 Plastids (Plants Only)\n- **Chromoplasts**: Colored plastids (chloroplasts contain chlorophyll for photosynthesis; carotenoids provide yellow/orange/red).\n- **Leucoplasts**: Colorless plastids that store starch, oils, and protein granules.\n- Like mitochondria, plastids possess their own DNA and ribosomes.\n\n### 2.14 Vacuoles\nSmall in animal cells; large central vacuole in mature plant cells providing rigidity and turgidity.",
+            "worked_examples": [
+                {
+                    "problem": "Textbook Revise, Reflect, Refine Q6 (Section 2.5, p. 18): Mitochondria and chloroplasts are two important organelles in a plant cell. Discuss how these two organelles are structurally and functionally similar to each other, and different from each other.",
+                    "given": "Mitochondria and Chloroplast organelles in plant cells.",
+                    "formula": "Comparative cytology: Structural characteristics vs Metabolic roles.",
+                    "substitution": "Analyze double membranes, genome, and biochemical energetics.",
+                    "calculation": "1. Similarities:\n   - Both possess a double-membrane envelope (outer and inner membranes).\n   - Both are semi-autonomous: they contain their own circular DNA and 70S ribosomes, synthesizing some of their own proteins.\n   - Both participate in cellular bioenergetics and ATP synthesis.\n2. Differences:\n   - Internal Structure: Mitochondria possess folded inner cristae and matrix; chloroplasts possess stacked thylakoid grana and fluid stroma.\n   - Pigments: Chloroplasts contain chlorophyll and carotenoids; mitochondria lack photosynthetic pigments.\n   - Function: Mitochondria perform cellular respiration (oxidizing glucose to release CO₂ and ATP); chloroplasts perform photosynthesis (capturing solar energy to reduce CO₂ into glucose).",
+                    "finalAnswer": "Both are double-membraned semi-autonomous organelles with DNA and ribosomes. Mitochondria oxidize glucose during respiration; chloroplasts synthesize glucose during photosynthesis.",
+                    "unit": "Organelle Comparative Analysis",
+                    "has_diagram": True,
+                    "diagram_source": "image_search",
+                    "figure_caption": "Mitochondrion vs Chloroplast ultrastructure comparison",
+                    "image_search_query": "mitochondria versus chloroplast ultrastructure comparison diagram",
+                    "page": 18,
+                    "section": "Section 2.5"
+                },
+                {
+                    "problem": "Textbook Revise, Reflect, Refine Q12 (Section 2.5, p. 19): What outcome do you expect, if all the mitochondria are removed from a eukaryotic cell?",
+                    "given": "A eukaryotic cell devoid of mitochondria.",
+                    "formula": "Bioenergetic yield: Aerobic cellular respiration (~36 ATP/glucose) vs Anaerobic cytosolic glycolysis (2 ATP/glucose).",
+                    "substitution": "Removal of oxidative phosphorylation machinery.",
+                    "calculation": "1. Mitochondria generate over 90% of the cell's ATP via the Krebs cycle and oxidative phosphorylation.\n2. In the absence of mitochondria, the cell can only rely on cytosolic glycolysis, generating a meager 2 net ATP molecules per glucose molecule while accumulating toxic lactic acid.\n3. The cell will be completely unable to meet its bioenergetic demands for active transport, macromolecular synthesis, cell division, and homeostatic ion regulation, leading rapidly to metabolic arrest and cell death.",
+                    "finalAnswer": "The cell will fail to synthesize sufficient ATP to sustain active transport and metabolism, resulting in rapid cellular death.",
+                    "unit": "Cellular Energetics Consequence",
+                    "has_diagram": False,
+                    "diagram_source": "image_search",
+                    "figure_caption": "",
+                    "image_search_query": "mitochondria atp cellular respiration energy failure",
+                    "page": 19,
+                    "section": "Section 2.5"
+                },
+                {
+                    "problem": "Textbook Revise, Reflect, Refine Q5 (Section 2.5, p. 18): Two students, Renu and Rohit, were having a discussion on plastids. Renu claimed that all plant parts, including underground roots, contain plastids. Rohit argued that roots do not perform photosynthesis and therefore cannot contain plastids. Who is correct? Justify.",
+                    "given": "Contrasting assertions on the presence of plastids in underground plant roots.",
+                    "formula": "Plastid taxonomy: Chloroplasts (green photosynthetic), Chromoplasts (colored), Leucoplasts (colorless storage).",
+                    "substitution": "Evaluate root cytology.",
+                    "calculation": "1. Rohit erroneously assumes that all plastids are green photosynthetic chloroplasts.\n2. Plastids are classified into chromoplasts, chloroplasts, and LEUCOPLASTS.\n3. Underground roots (e.g. carrots, sweet potatoes, radishes) are packed with leucoplasts (such as amyloplasts that store starch reserves and elaioplasts that store lipids).\n4. Therefore, Renu is correct: plant roots do contain plastids in the form of leucoplasts.",
+                    "finalAnswer": "Renu is correct. Plant roots contain colorless storage plastids termed leucoplasts (storing starch, oils, and proteins) even though they lack photosynthetic chloroplasts.",
+                    "unit": "Plastid Classification Justification",
+                    "has_diagram": False,
+                    "diagram_source": "image_search",
+                    "figure_caption": "",
+                    "image_search_query": "leucoplasts starch storage plant root cells",
+                    "page": 18,
+                    "section": "Section 2.5"
+                }
+            ],
+            "common_misconceptions": [
+                {
+                    "misconception": "Mitochondria create energy out of nothing.",
+                    "correction": "Mitochondria do not create energy (violating the first law of thermodynamics); they transduce chemical energy stored in glucose bonds into usable ATP phosphate bonds.",
+                    "why_it_matters": "Reinforces fundamental physics-chemistry-biology energy conservation laws."
+                }
+            ],
+            "visual_lesson_plan": {
+                "title": "Mitochondria, Lysosomes & Plastids Visual Plan",
+                "diagram_type": "image",
+                "concept_visuals": [
+                    {
+                        "concept_title": "Mitochondria and Chloroplast Energy Converters",
+                        "diagram_title": "Comparative Ultrastructure of Cristae vs Thylakoid Grana",
+                        "diagram_type": "image_search",
+                        "image_query": "mitochondria and chloroplast structure diagram labeled",
+                        "video_query": "mitochondria and chloroplast ATP production animation",
+                        "what_to_make": "Dual high-resolution cutaway diagram of mitochondrion and chloroplast showing circular DNA and internal membranes.",
+                        "timing_and_cue": "Show at 03:00 during discussion of semi-autonomous organelles.",
+                        "image_search_query": "mitochondria and chloroplast labeled ultrastructure",
+                        "video_search_query": "mitochondria and chloroplast endosymbiosis animation"
+                    }
+                ]
+            },
+            "ai_system_prompt_context": "CBSE Class 9 Science Chapter 2 Module 5: Bioenergetics, Lysosomes & Plastids. Highlight ATP synthesis and endosymbiotic genome preservation."
+        },
+        # Module 6
+        {
+            "curriculum_id": CH2_ID,
+            "order_index": 6,
+            "title": "Cell Division Mechanics: Mitosis (Growth & Repair) vs Meiosis (Gamete Diversity)",
+            "description": "Master equational somatic mitosis and reductional germline meiosis, track chromosome conservation across sexual reproduction, understand cancer checkpoint breakdowns, and contrast cytokinesis in plants vs animals.",
+            "board": "CBSE",
+            "class_level": "Class 9",
+            "estimated_minutes": 25,
+            "subtopics": [
+                "Cell Cycle Overview: Interphase (G1, S, G2) and M-Phase division",
+                "Mitosis (Equational Division): Prophase, Metaphase, Anaphase, Telophase",
+                "Cytokinesis Mechanics: Cleavage furrow in animal cells vs cell plate in plant cells",
+                "Meiosis (Reductional Division): Meiosis I, crossing over, homologous pairing, and Meiosis II",
+                "Chromosome Conservation: How meiosis maintains species diploid number (2n) across generations",
+                "Cell Cycle Checkpoints & Oncology: Contact inhibition loss, tumor formation, and crown gall"
+            ],
+            "key_concepts": [
+                "Mitosis as Equational Division: Single nuclear division yielding two identical diploid (2n) daughter cells; essential for bodily growth, tissue regeneration, and asexual reproduction.",
+                "Meiosis as Reductional Division: Two successive nuclear divisions following one round of DNA replication, producing four genetically distinct haploid (n) gametes.",
+                "Chromosome Invariant in Sexual Reproduction: If gametes were diploid (2n), fertilization would double chromosome count every generation ($2n \to 4n \to 8n$). Meiosis halves chromosomes ($2n \to n$) so zygotic fusion reconstitutes exact diploidy ($n + n = 2n$).",
+                "Genetic Diversity via Crossing Over: Non-sister chromatids of homologous chromosomes exchange alleles during Meiosis I, generating unique genetic combinations.",
+                "Plant vs Animal Cytokinesis: Animal cells divide by inward constriction of a contractile ring (cleavage furrow); plant cells divide by outward centrifugal deposition of Golgi-derived vesicles forming a cell plate.",
+                "Checkpoints & Tumor Inhibition: Contact inhibition halts division in crowded tissues; mutations disrupting checkpoint genes lead to uncontrolled mitosis, forming tumors (e.g., animal carcinomas or plant crown gall)."
+            ],
+            "success_criteria": "Student can compare mitosis and meiosis in table format, explain why gametes must be haploid, and differentiate plant vs animal cytokinesis.",
+            "chapter_notes": "### 2.15 Cell Division\nNew cells are formed in organisms in order to grow, to replace old, dead and injured cells, and to form gametes required for reproduction.\n\n### 2.16 Mitosis vs Meiosis\n- **Mitosis**: Process by which most cells divide for growth. Mother cell divides to form **two identical daughter cells** with the same number of chromosomes ($2n \\to 2n$).\n- **Meiosis**: Specific division in reproductive organs producing gametes. Involves **two consecutive divisions**, resulting in **four new cells**, each with **half the number of chromosomes** ($2n \\to n$). Upon fertilization, the normal diploid chromosome count is restored.",
+            "worked_examples": [
+                {
+                    "problem": "Textbook Revise, Reflect, Refine Q15 (Section 2.6, p. 20): What would happen if gametes are formed by mitotic divisions instead of meiotic divisions?",
+                    "given": "Hypothetical scenario where gametes (sperm and egg) are produced via mitosis (equational division).",
+                    "formula": "Zygote chromosome count = Chromosomes in male gamete ($N_m$) + Chromosomes in female gamete ($N_f$).",
+                    "substitution": "In mitosis, daughter cells retain parental diploid chromosome number: $N_m = 2n$, $N_f = 2n$.",
+                    "calculation": "1. If a human somatic cell with $2n = 46$ chromosomes divided mitotically to form gametes, each sperm and egg would contain 46 chromosomes.\n2. Upon fertilization, the resulting zygote would possess $46 + 46 = 92$ chromosomes (tetraploid, $4n$).\n3. In the subsequent generation, gametes would contain 92 chromosomes, yielding offspring with $92 + 92 = 184$ chromosomes ($8n$).\n4. Chromosome numbers would double exponentially in every generation ($2n \to 4n \to 8n \to 16n$), disrupting gene dosage balance and causing catastrophic developmental arrest and extinction.",
+                    "finalAnswer": "The chromosome number would double every successive generation, causing fatal genomic instability and collapse of species identity.",
+                    "unit": "Genomic Stability Analysis",
+                    "has_diagram": False,
+                    "diagram_source": "image_search",
+                    "figure_caption": "",
+                    "image_search_query": "mitosis versus meiosis chromosome number doubling diagram",
+                    "page": 20,
+                    "section": "Section 2.6"
+                },
+                {
+                    "problem": "Textbook Revise, Reflect, Refine Q13 (Section 2.6, p. 19): Which phenomenon inhibits the formation of tumors in the human body? Can plants also develop tumors? Explain.",
+                    "given": "Cell cycle regulation and pathology across animals and plants.",
+                    "formula": "Contact inhibition and apoptotic checkpoints vs uncontrolled mitotic proliferation.",
+                    "substitution": "Mechanisms preventing tumorigenesis.",
+                    "calculation": "1. In human tissues, CONTACT INHIBITION is the primary mechanism: when normal cells touch adjacent cells, surface receptors send inhibitory signals arresting division at the G1/S checkpoint. Furthermore, DNA-repair checkpoints and programmed cell death (apoptosis) eliminate cells with oncogenic mutations.\n2. Yes, plants can also develop tumors. A prominent example is Crown Gall Disease, where the soil bacterium *Agrobacterium tumefaciens* transfers its T-DNA plasmid into plant nuclear genomes, causing unregulated auxin and cytokinin synthesis and driving continuous, uncontrolled cell division to form galls (plant tumors).",
+                    "finalAnswer": "Contact inhibition and apoptosis inhibit tumors in humans; Yes, plants develop tumors such as Crown Gall disease caused by Agrobacterium tumefaciens.",
+                    "unit": "Oncological & Botanical Pathology",
+                    "has_diagram": False,
+                    "diagram_source": "image_search",
+                    "figure_caption": "",
+                    "image_search_query": "contact inhibition cancer cells crown gall plant tumor",
+                    "page": 19,
+                    "section": "Section 2.6"
+                }
+            ],
+            "common_misconceptions": [
+                {
+                    "misconception": "Meiosis happens all over the human body whenever cells divide.",
+                    "correction": "Meiosis occurs exclusively in specialized germ cells of reproductive organs (testes and ovaries); all other somatic cells divide strictly by mitosis.",
+                    "why_it_matters": "Essential for understanding sexual reproduction and inheritance."
+                }
+            ],
+            "visual_lesson_plan": {
+                "title": "Mitosis vs Meiosis Mechanics Visual Plan",
+                "diagram_type": "image",
+                "concept_visuals": [
+                    {
+                        "concept_title": "Comparative Chromosome Dynamics in Mitosis vs Meiosis",
+                        "diagram_title": "Equational Somatic Mitosis (2n) vs Reductional Meiosis (n)",
+                        "diagram_type": "image_search",
+                        "image_query": "mitosis versus meiosis chromosome stages comparison diagram",
+                        "video_query": "mitosis vs meiosis comparison animation",
+                        "what_to_make": "Side-by-side karyotypic stages comparing mitotic 2n daughter cells with meiotic haploid gametes.",
+                        "timing_and_cue": "Show at 03:00 during chromosome count tracking.",
+                        "image_search_query": "mitosis vs meiosis comparison stages diagram",
+                        "video_search_query": "mitosis vs meiosis animation"
+                    }
+                ]
+            },
+            "ai_system_prompt_context": "CBSE Class 9 Science Chapter 2 Module 6: Mitosis vs Meiosis. Emphasize diploid reconstitution upon fertilization."
+        },
+        # Module 7: Master Problem Solver Ledger
+        {
+            "curriculum_id": CH2_ID,
+            "order_index": 7,
+            "title": "Master Problem Solver & Comprehensive Textbook Exercise Ledger (Q1 to Q16)",
+            "description": "Exhaustive step-by-step master solutions for all in-text questions and the complete set of 16 'Revise, Reflect, Refine' chapter-end exercise problems from NCERT Exploration Grade 9 Chapter 2.",
+            "board": "CBSE",
+            "class_level": "Class 9",
+            "estimated_minutes": 35,
+            "subtopics": [
+                "In-Text Questions: Potato cube equal size control, plant cell wall necessity, flower pigments, vacuole size, and skin meiosis",
+                "Revise, Reflect, Refine Q1: Terminology differentiation (Cytoplasm vs Nucleoplasm, Cell wall vs Plasma membrane, Chromatin vs Chromosomes, Plastids vs Mitochondria)",
+                "Revise, Reflect, Refine Q2: Animal Cell X (burst) vs Cell Y (shrunk) tonicity analysis",
+                "Revise, Reflect, Refine Q3: Plant cell diagram Fig. 2.20 organelle identification (a to g)",
+                "Revise, Reflect, Refine Q4 & Q7: DNA-containing organelles (Nucleus, Mitochondria, Plastids)",
+                "Revise, Reflect, Refine Q5 & Q6: Root plastids (Renu vs Rohit) and Mitochondria vs Chloroplast comparison",
+                "Revise, Reflect, Refine Q8: Carrot A (water) vs Carrot B (brine) osmosis dynamics",
+                "Revise, Reflect, Refine Q9: Bacteria vs Animal organelle presence/absence matrix",
+                "Revise, Reflect, Refine Q10: Four-Potato Cup Osmoscope experiment (Cups A, B, C, D)",
+                "Revise, Reflect, Refine Q11 & Q12: Organelle matching and mitochondrial removal consequences",
+                "Revise, Reflect, Refine Q13 & Q15: Tumor inhibition and mitotic gamete disaster",
+                "Revise, Reflect, Refine Q14: Membrane biogenesis pathway from RER/SER to cell membrane",
+                "Revise, Reflect, Refine Q16: Deepa's agro-processing food preservation case study"
+            ],
+            "key_concepts": [
+                "Zero Omission Principle: Every single in-text and exercise problem from Chapter 2 is completely resolved with board topper layout.",
+                "Osmoscope Mechanics (Q10): Raw potato cells provide living selectively permeable membranes; solute in cavity draws water by endosmosis; boiled cells (Cup D) have dead denatured membranes incapable of osmosis.",
+                "Agro-Preservation Science (Q16): High salt/sugar creates extreme hypertonic medium, driving exosmosis and plasmolytic dehydration in bacteria/fungi to prevent spoilage.",
+                "Organelle-Function Matrix (Q3): Nucleus (director), Mitochondria (ATP generator), Chloroplast (sugar producer), Vacuole (turgidity buffer), Cell wall (rigid armor), Membrane (selective gateway), Golgi (packaging router).",
+                "Endosymbiotic Organelles (Q4, Q7): Mitochondria and Chloroplasts carry autonomous circular DNA and 70S ribosomes.",
+                "Topper Step-by-Step Layout: Given ⟶ Formula/Principle ⟶ Substitution ⟶ Line-by-Line Calculation/Reasoning ⟶ Boxed Final Answer."
+            ],
+            "success_criteria": "Student can solve all 16 chapter-end exercise problems and all in-text activities with complete scientific precision.",
+            "chapter_notes": "### Master Exercise & In-Text Ledger\nThis module delivers the complete topper-grade solutions for every single exercise and in-text question in Chapter 2 (Cell: The Building Block of Life), formatted per CBSE/NCERT board marking guidelines.",
+            "worked_examples": [
+                {
+                    "problem": "Textbook Revise, Reflect, Refine Q1 (p. 17): Differentiate between the following pairs of terms: (a) Cytoplasm and Nucleoplasm, (b) Cell wall and Plasma membrane, (c) Chromatin and Chromosomes, (d) Plastids and Mitochondria.",
+                    "given": "Four pairs of fundamental cytological terms.",
+                    "formula": "Comparative structural, chemical, and functional criteria.",
+                    "substitution": "Evaluate each pair systematically.",
+                    "calculation": "1. (a) Cytoplasm vs Nucleoplasm:\n   - Cytoplasm: Protoplasmic fluid outside the nucleus enclosed by the plasma membrane, containing metabolic organelles.\n   - Nucleoplasm: Fluid nucleoplasm enclosed within the double-layered nuclear envelope, housing chromatin and nucleolus.\n2. (b) Cell Wall vs Plasma Membrane:\n   - Cell Wall: Rigid, non-living, fully permeable outer protective shell made of cellulose; found in plants, fungi, bacteria.\n   - Plasma Membrane: Flexible, living, selectively permeable lipid-protein bilayer boundary present in all living cells.\n3. (c) Chromatin vs Chromosomes:\n   - Chromatin: Diffuse, uncoiled, thread-like network of DNA and histones present in non-dividing (interphase) nuclei.\n   - Chromosomes: Highly condensed, distinct rod-shaped structures visible exclusively during cell division.\n4. (d) Plastids vs Mitochondria:\n   - Plastids: Found only in plant cells; exist as chloroplasts (photosynthesis), chromoplasts, or leucoplasts (storage).\n   - Mitochondria: Found in virtually all eukaryotic cells; synthesize ATP via oxidative phosphorylation during respiration.",
+                    "finalAnswer": "All four pairs differentiated using strict histological, chemical, and functional criteria.",
+                    "unit": "Cytological Differentiation",
+                    "has_diagram": False,
+                    "diagram_source": "image_search",
+                    "figure_caption": "",
+                    "image_search_query": "cytoplasm nucleoplasm cell wall membrane comparison",
+                    "page": 17,
+                    "section": "Revise, Reflect, Refine"
+                },
+                {
+                    "problem": "Textbook Revise, Reflect, Refine Q3 (p. 18): Look at the diagram of a cell in Fig. 2.20. Identify the parts labelled from (a) to (g) and write one key function for each.",
+                    "given": "Plant cell diagram Fig. 2.20 with labels (a) to (g).",
+                    "formula": "Organelle identification and physiological assignment.",
+                    "substitution": "Correlate visual labels with organelles.",
+                    "calculation": "1. (a) Cell Wall: Provides rigid mechanical support and protects against osmotic bursting.\n2. (b) Plasma Membrane: Selectively regulates entry and exit of ions, nutrients, and water.\n3. (c) Chloroplast: Performs photosynthesis, converting sunlight, water, and CO₂ into glucose.\n4. (d) Nucleus: Stores genetic instructions (DNA) and coordinates all metabolic activities.\n5. (e) Mitochondrion: Cellular powerhouse generating ATP via aerobic cellular respiration.\n6. (f) Central Vacuole: Maintains hydrostatic turgor pressure and stores cell sap and metabolic wastes.\n7. (g) Golgi Apparatus: Modifies, sorts, packages, and routes proteins and lipids from the ER.",
+                    "finalAnswer": "(a) Cell Wall, (b) Plasma Membrane, (c) Chloroplast, (d) Nucleus, (e) Mitochondrion, (f) Central Vacuole, (g) Golgi Apparatus.",
+                    "unit": "Plant Cell Organelle Identification",
+                    "has_diagram": True,
+                    "diagram_source": "book_extracted",
+                    "figure_caption": "Fig. 2.20: Structural diagram of a plant cell with labelled organelles",
+                    "image_search_query": "plant cell diagram labeled organelles class 9",
+                    "page": 18,
+                    "section": "Revise, Reflect, Refine"
+                },
+                {
+                    "problem": "Textbook Revise, Reflect, Refine Q4 & Q7 (p. 18): Which of the following pairs of cell organelles contains DNA? (i) Mitochondria and Chloroplast, (ii) Chloroplast and Lysosome, (iii) Mitochondria and Ribosome, (iv) Golgi apparatus and ER.",
+                    "given": "Four organelle pairings to test organelle genome presence.",
+                    "formula": "Endosymbiotic theory: Mitochondria and Plastids possess autonomous circular DNA and 70S ribosomes.",
+                    "substitution": "Verify presence of nucleic acid genome.",
+                    "calculation": "Lysosomes, Golgi apparatus, and ER contain no DNA. Ribosomes contain ribosomal RNA (rRNA) and proteins, but no DNA. Mitochondria and Chloroplasts both carry their own circular double-stranded DNA genomes inherited from ancestral endosymbiotic prokaryotes.",
+                    "finalAnswer": "Option (i) Mitochondria and Chloroplast is correct; both are semi-autonomous organelles possessing their own DNA.",
+                    "unit": "Organelle Genome Identification",
+                    "has_diagram": False,
+                    "diagram_source": "image_search",
+                    "figure_caption": "",
+                    "image_search_query": "mitochondria chloroplast circular dna organelle genome",
+                    "page": 18,
+                    "section": "Revise, Reflect, Refine"
+                },
+                {
+                    "problem": "Textbook Revise, Reflect, Refine Q10 (p. 19): The 4-Potato Cup Osmoscope Experiment: Four peeled potato halves scooped into cups. Cup A: Empty. Cup B: 1 tsp sugar. Cup C: 1 tsp salt. Cup D: Boiled potato + 1 tsp sugar. All placed in water dishes. Explain: (i) Why water gathers in hollow cavities of B and C, (ii) Why Cup A is necessary, (iii) Why water does not gather in Cups A and D.",
+                    "given": "Four potato cup experimental setups in water dishes.",
+                    "formula": "Osmosis requires: (1) Selectively permeable living membrane, (2) Water chemical potential gradient.",
+                    "substitution": "Analyze each cup condition.",
+                    "calculation": "1. Part (i): In Cups B and C, solid sugar and salt dissolve in residual moisture to form highly concentrated (hypertonic) solutions inside the scooped cavities. The surrounding water dish is hypotonic. Living potato parenchyma cell membranes act as selectively permeable barriers, allowing water to flow down its chemical potential gradient by endosmosis into the cavities.\n2. Part (ii): Cup A (empty raw potato) serves as a NEGATIVE CONTROL. It proves that water does not enter the cavity by simple capillary action, gravity, or mechanical seepage in the absence of an osmotic solute gradient.\n3. Part (iii): In Cup A, no solute gradient exists, so net water flux is zero. In Cup D, boiling denatured membrane proteins and disrupted lipid bilayers, killing the cells. Lacking intact semi-permeable membranes, dead cells cannot perform osmosis, so no water gathers.",
+                    "finalAnswer": "(i) Endosmosis down water potential gradient; (ii) Serves as negative experimental control; (iii) Cup A lacks solute gradient, while boiling destroyed living semi-permeable membranes in Cup D.",
+                    "unit": "Laboratory Experiment Analysis",
+                    "has_diagram": True,
+                    "diagram_source": "image_search",
+                    "figure_caption": "Potato osmoscope experimental setups A, B, C, D",
+                    "image_search_query": "potato osmometer experiment sugar salt control boiled",
+                    "page": 19,
+                    "section": "Revise, Reflect, Refine"
+                },
+                {
+                    "problem": "Textbook Revise, Reflect, Refine Q16 (p. 20): Deepa's Food Preservation Case Study: Farmer Deepa preserves excess amla and lemons by making pickles, murabbas, and sharbat with high concentrations of salt, sugar, or jaggery. (i) Which scientific concept is applied? (ii) How does high salt/sugar prevent bacterial and fungal spoilage? (iii) Suggest a healthy recipe. (iv) What scientific values are demonstrated?",
+                    "given": "Traditional food preservation using salt, sugar, and jaggery.",
+                    "formula": "Osmotic microbial dehydration via Exosmosis and Plasmolysis.",
+                    "substitution": "Correlate cellular water potential with microbial growth inhibition.",
+                    "calculation": "1. Part (i): The core scientific concept applied is OSMOSIS (specifically EXOSMOSIS leading to cellular PLASMOLYSIS).\n2. Part (ii): High concentrations of salt or sugar create an intensely HYPERTONIC external environment. When airborne bacteria or fungal spores contaminate the food, water is drawn rapidly out of the microbial cells into the hypertonic medium by exosmosis. The microbial protoplasts undergo severe plasmolysis, dehydrating their enzymes and arresting metabolic division, thereby preventing spoilage.\n3. Part (iii): Healthy recipe: Sun-cured spiced amla murabba using raw jaggery syrup, rock salt, ginger, and turmeric.\n4. Part (iv): Scientific values: Resource efficiency, reduction of post-harvest food waste, sustainability, food security, and applying scientific reasoning to indigenous culinary techniques.",
+                    "finalAnswer": "(i) Osmosis & Plasmolysis; (ii) Hypertonic medium causes microbial exosmosis and plasmolysis, arresting growth; (iii) Jaggery-cured amla murabba; (iv) Waste minimization and sustainable food security.",
+                    "unit": "Applied Food Preservation Science",
+                    "has_diagram": False,
+                    "diagram_source": "image_search",
+                    "figure_caption": "",
+                    "image_search_query": "food preservation osmosis high salt sugar plasmolysis",
+                    "page": 20,
+                    "section": "Revise, Reflect, Refine"
+                },
+                {
+                    "problem": "In-Text Question (Section 2.3, p. 12 & 15): (a) Do white flowers contain any pigment? Give reasons. (b) Instead of many small vacuoles, why do mature plant cells possess a single large central vacuole?",
+                    "given": "Flower petal pigmentation; Plant cell vacuolar architecture.",
+                    "formula": "Plastid spectrum vs Vacuolar turgidity biophysics.",
+                    "substitution": "Analyze petal cytology and vacuolar volume optimization.",
+                    "calculation": "1. Part (a): White flower petals do NOT contain colored chromoplast pigments (like red/orange carotenoids or purple anthocyanins). Instead, their cells contain colorless plastids called LEUCOPLASTS. The white appearance is caused by the reflection and scattering of all visible light wavelengths by microscopic air pockets trapped between intercellular spaces of the petal tissue.\n2. Part (b): A single large central vacuole (occupying up to 90% of cell volume) pushes the living cytoplasm and nucleus into a thin peripheral layer against the cell wall. This configuration maximizes the surface-area-to-volume ratio for gas and nutrient exchange with minimal cytoplasmic metabolic maintenance cost, while exerting uniform hydrostatic turgor pressure to maintain upright mechanical rigidity.",
+                    "finalAnswer": "(a) White petals lack colored pigments and contain colorless leucoplasts, appearing white due to total light reflection; (b) A single large central vacuole optimizes turgor pressure and pushes cytoplasm to the periphery for efficient diffusion.",
+                    "unit": "Cytological Reasoning",
+                    "has_diagram": False,
+                    "diagram_source": "image_search",
+                    "figure_caption": "",
+                    "image_search_query": "plant cell large central vacuole turgidity leucoplast",
+                    "page": 12,
+                    "section": "Section 2.3"
+                }
+            ],
+            "common_misconceptions": [
+                {
+                    "misconception": "Boiling a potato preserves its osmotic capabilities.",
+                    "correction": "Boiling denatures membrane transport proteins and dissolves phospholipid bilayers; dead membranes are completely permeable and cannot perform selective osmosis.",
+                    "why_it_matters": "Central to the biophysical definition of living selective permeability."
+                }
+            ],
+            "visual_lesson_plan": {
+                "title": "Master Problem Solver Ledger Visual Plan",
+                "diagram_type": "image",
+                "concept_visuals": [
+                    {
+                        "concept_title": "The Four-Potato Cup Osmometer Master Layout",
+                        "diagram_title": "Experimental Setup: Cups A, B, C, D Endosmosis vs Boiling Control",
+                        "diagram_type": "image_search",
+                        "image_query": "potato osmometer experiment four cups sugar salt boiled water",
+                        "video_query": "potato osmometer class 9 experiment demonstration",
+                        "what_to_make": "Four-cup comparative laboratory layout showing water pooling in B and C, and empty cavities in control A and boiled D.",
+                        "timing_and_cue": "Display at 02:00 during Question 10 lab breakdown.",
+                        "image_search_query": "potato osmoscope experiment setup diagram",
+                        "video_search_query": "potato osmoscope experiment class 9"
+                    }
+                ]
+            },
+            "ai_system_prompt_context": "CBSE Class 9 Science Chapter 2 Module 7: Master Problem Solver. Strictly enforce Board Topper step-by-step layout with zero question omissions."
+        }
+    ]
+    
+    with open("scripts/science_modules_ch2.json", "w", encoding="utf-8") as f:
+        json.dump(modules, f, indent=2)
+    print(f"Generated scripts/science_modules_ch2.json with {len(modules)} modules!")
+
+if __name__ == "__main__":
+    generate_ch2()

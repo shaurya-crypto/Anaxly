@@ -14,6 +14,12 @@ sys.path.append(os.path.dirname(__file__))
 from svg_builder_class10 import build_circle_sector_segment_svg, get_svg_wrapper
 
 def get_ch11_modules():
+    import json, os
+    json_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "maths_class10_modules", "ch11_areas_related_to_circles.json")
+    if os.path.exists(json_path):
+        with open(json_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
     CURRICULUM_ID = "938ed126-df2f-438f-b6dc-8c7e1273ec24"
     
     # SVG 1: Sector & Segment with 60 deg angle

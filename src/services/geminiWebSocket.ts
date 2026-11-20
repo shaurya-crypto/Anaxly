@@ -102,7 +102,7 @@ export class GeminiLiveClient {
     this.avatarConfig = options?.avatarConfig;
     this.systemInstruction = options?.systemInstruction || `You are a friendly, expert tutor for Classes 6-12. 
     1. Language Style: ALWAYS use simple, colloquial Hinglish, Hindi, or English. NO heavy, complex, or academic words. Talk like a friendly local teacher; use conversational phrases like "samjhe," "dekho," "bilkul," "chalo" to make concepts clear.
-    2. Socratic Cadence: Strictly enforce the 6-stage Socratic cycle: (1)Intuition, (2)Formulation, (3)Example, (4)Numerical, (5)Checkpoint, (6)Board-Exam Numerical.
+    2. Socratic Cadence & Mandatory Visual Search: Strictly enforce the 6-stage Socratic cycle: (1)Intuition & Visual Search, (2)Formulation, (3)Example, (4)Numerical, (5)Checkpoint, (6)Board-Exam Numerical. At the START of every concept (Stage 1), you MUST PROACTIVELY CALL search_and_show_image(query="<full detailed search query>", title="<Title>", caption="<Caption>") and/or search_and_show_video(query="<full detailed video query>", title="<Title>", description="<Description>") to display authentic real-world visuals while teaching. ALWAYS use rich, fully detailed queries (10-25 words) specifying exact apparatus, components, and anatomical structures for exact matches — NEVER use vague 1-2 word search queries.
     3. Progression: NEVER advance stages, concepts, or pages until the student confirms understanding or explicitly commands "next concept." Wait for student input at every stage.
     4. Chalkboard: Write step-by-step in "Topper Layout" (Given -> Formula -> Substitution -> Calculation -> Answer). Write 1 or at most 2 steps per line using textbook notation, NO code operators.
     STEP-BY-STEP PROBLEM SOLVING & HUMAN-UNDERSTANDABLE NUMERICAL LAYOUT:
@@ -112,7 +112,13 @@ export class GeminiLiveClient {
     - Formula line (e.g. Formula: F = m × a)
     - Substitution line (e.g. Step 1: F = 2 kg × 5 m/s²)
     - Calculation line (e.g. Step 2: F = 10 N)
-    - Boxed Answer line (e.g. Answer: Force F = 10 N)`;
+    - Boxed Answer line (e.g. Answer: Force F = 10 N)
+    5. Graphing & Visual Gating Mandate:
+    - NEVER call plot_mathematical_graph without genuine mathematical purpose, and NEVER output a meaningless default line y = x.
+    - When plotting lines/curves, ALWAYS provide actual points (intercepts, intersection, roots, vertex, endpoints) and line segments if bounded (with start and end stopping points).
+    - Support comparative plotting of 2-3 functions/lines simultaneously using formulas array with distinct colors and labels.
+    - If a geometric diagram (e.g. triangles, circles, angles), physical apparatus, optics ray path, or circuit is needed, use render_svg_diagram or search_and_show_image — NEVER use plot_mathematical_graph.
+    - NEVER call plot_mathematical_graph for non-mathematical topics (Biology, Anatomy, Histology, Chemical Bonding, Tissue Structures, Literature, History).`;
     this.ai = new GoogleGenAI({
       apiKey: this.apiKey,
       httpOptions: { apiVersion: "v1alpha" },
@@ -227,20 +233,68 @@ export class GeminiLiveClient {
           this.handleSingleToolCall("plot_mathematical_graph", parsed);
         } catch {}
       } else {
+        const extractBalancedBracket = (src: string, key: string): string | null => {
+          const idx = src.search(new RegExp(`\\b${key}\\s*=\\s*\\[`, 'i'));
+          if (idx === -1) return null;
+          const startBracket = src.indexOf('[', idx);
+          if (startBracket === -1) return null;
+          let depth = 0;
+          for (let i = startBracket; i < src.length; i++) {
+            if (src[i] === '[') depth++;
+            else if (src[i] === ']') {
+              depth--;
+              if (depth === 0) return src.substring(startBracket, i + 1);
+            }
+          }
+          return null;
+        };
+
         const explicitFormula = body.match(/\bformula\s*=\s*["']([^"']*)["']/i);
         const explicitTitle = body.match(/\btitle\s*=\s*["']([^"']*)["']/i);
         const explicitDomain = body.match(/\bdomain\s*=\s*["']([^"']*)["']/i);
         const explicitRange = body.match(/\brange\s*=\s*["']([^"']*)["']/i);
         const explicitCallout = body.match(/\bcallout\s*=\s*["']([^"']*)["']/i);
-        const explicitPoints = body.match(/\bpoints\s*=\s*["']([^"']*)["']/i);
-        const formula = explicitFormula ? explicitFormula[1] : body.split(',')[0]?.replace(/^["']|["']$/g, '').trim() || 'x';
+
+        let points: any = undefined;
+        const balancedPoints = extractBalancedBracket(body, 'points');
+        if (balancedPoints) {
+          try { points = JSON.parse(balancedPoints); } catch { points = balancedPoints; }
+        } else {
+          const explicitPoints = body.match(/\bpoints\s*=\s*(?:["']([^"']*)["']|(\[[^\]]*\])|([^\s,\)]+))/i);
+          if (explicitPoints) {
+            points = explicitPoints[1] || explicitPoints[2] || explicitPoints[3];
+          }
+        }
+
+        let formulas: any = undefined;
+        const balancedFormulas = extractBalancedBracket(body, 'formulas');
+        if (balancedFormulas) {
+          try { formulas = JSON.parse(balancedFormulas); } catch { formulas = balancedFormulas; }
+        } else {
+          const explicitFormulasStr = body.match(/\bformulas\s*=\s*["']([^"']*)["']/i);
+          if (explicitFormulasStr) formulas = explicitFormulasStr[1];
+        }
+
+        let segments: any = undefined;
+        const balancedSegments = extractBalancedBracket(body, 'segments');
+        if (balancedSegments) {
+          try { segments = JSON.parse(balancedSegments); } catch { segments = balancedSegments; }
+        } else {
+          const explicitSegmentsStr = body.match(/\bsegments\s*=\s*["']([^"']*)["']/i);
+          if (explicitSegmentsStr) segments = explicitSegmentsStr[1];
+        }
+
+        const formula = explicitFormula ? explicitFormula[1] : body.split(',')[0]?.replace(/^["']|["']$/g, '').trim() || undefined;
+
         this.handleSingleToolCall("plot_mathematical_graph", {
           formula,
+          formulas,
+          segments,
           title: explicitTitle ? explicitTitle[1] : undefined,
           domain: explicitDomain ? explicitDomain[1] : undefined,
           range: explicitRange ? explicitRange[1] : undefined,
           callout: explicitCallout ? explicitCallout[1] : undefined,
-          points: explicitPoints ? explicitPoints[1] : undefined,
+          points,
         });
       }
     }
@@ -468,20 +522,7 @@ export class GeminiLiveClient {
           const parameters = args.parameters || {};
           this.callbacks.onVisualAction?.(action, parameters);
         } else if (name === "plot_mathematical_graph") {
-          const formulasList = Array.isArray(args.formulas) ? args.formulas.join('; ') : '';
-          const formulaStr = args.formula || formulasList || 'linear';
-          const formatted = [
-            formulaStr ? `formula=${formulaStr}` : '',
-            formulasList ? `formulas=${formulasList}` : '',
-            args.domain ? `domain=${typeof args.domain === 'string' ? args.domain : JSON.stringify(args.domain)}` : '',
-            args.range ? `range=${typeof args.range === 'string' ? args.range : JSON.stringify(args.range)}` : '',
-            args.title ? `title=${args.title}` : '',
-            args.callout ? `callout=${args.callout}` : '',
-            args.points ? `points=${typeof args.points === 'string' ? args.points : JSON.stringify(args.points)}` : '',
-            args.slope ? `slope=true` : '',
-            args.overwrite ? `overwrite=true` : '',
-          ].filter(Boolean).join(' | ');
-          this.callbacks.onChalkboardToolCall?.("draw_graph", formatted);
+          this.callbacks.onChalkboardToolCall?.("draw_graph", args);
         } else if (name === "open_interactive_simulation") {
           const sceneType = args.sceneType || "geometry";
           const parameters = args.parameters || {};
@@ -763,14 +804,28 @@ export class GeminiLiveClient {
               },
               {
                 name: "plot_mathematical_graph",
-                description: "CRITICAL GRAPH GATING: Plot an interactive mathematical function or physics kinematic/dynamic curve directly on the whiteboard canvas (e.g. quadratic parabola, calculus derivative, trigonometric curve, kinematics velocity-time or distance-time curve) whenever a visual curve or coordinate graph aids understanding with actual mathematical coordinates AND WORKED CALCULATIONS (roots, intercepts, vertex, slope, or table of values). Seamlessly supports both Mathematics and Physics. NEVER call this tool for non-mathematical topics (Biology, Anatomy, Histology, Chemical Bonding, Tissue Structures, Literature, History) — use render_svg_diagram or draw_flowchart instead. Call close_graph or write_chalkboard(action='close_graph') when moving on.",
+                description: "CRITICAL GRAPH GATING: ZERO MEANINGLESS GRAPH INVARIANT. Plot an interactive mathematical function or physics kinematic/dynamic curve directly on the whiteboard canvas (e.g. quadratic parabola, calculus derivative, trigonometric curve, kinematics velocity-time or distance-time curve) whenever a visual curve or coordinate graph aids understanding with actual mathematical coordinates AND WORKED CALCULATIONS (roots, intercepts, vertex, slope, or table of values). Supports 2-3 simultaneous functions and bounded line segments with stopping points. STRICT PROHIBITION: NEVER output a meaningless default line y = x or open a graph without points, segments, or actual mathematical purpose. MANDATE: When plotting lines/curves, ALWAYS provide actual points (intercepts, intersection, roots, vertex, endpoints) and segments if bounded (with start and end points). If a geometric diagram (e.g. triangles, circles, angles) or physical apparatus is needed, use render_svg_diagram or search_and_show_image — NEVER use plot_mathematical_graph. NEVER call this tool for non-mathematical topics (Biology, Anatomy, Histology, Chemical Bonding, Tissue Structures, Literature, History) — use render_svg_diagram or draw_flowchart instead. Call close_graph or write_chalkboard(action='close_graph') when moving on.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,
                   properties: {
                     formula: {
                       type: Type.STRING,
-                      description: "The mathematical formula to plot, e.g. 'x^2 - 4' or '2x + 1' or 'velocity-time' or 'sin(x)'",
+                      description: "The primary mathematical formula to plot, e.g. 'x^2 - 4' or '2x + 1' or 'sin(x)'. Never pass meaningless placeholder 'x'.",
+                    },
+                    formulas: {
+                      type: Type.ARRAY,
+                      items: { type: Type.STRING },
+                      description: "Optional list of 2-3 simultaneous formulas for comparative multi-curve graphs, e.g. ['2x + 1', '-x + 4'] or JSON formula objects.",
+                    },
+                    segments: {
+                      type: Type.ARRAY,
+                      items: { type: Type.STRING },
+                      description: "Optional bounded line segments with stopping start and end points, e.g. ['{\"start\": [0, 0], \"end\": [4, 8], \"label\": \"OA\"}']. Always specify when lines have endpoints.",
+                    },
+                    points: {
+                      type: Type.STRING,
+                      description: "Critical coordinate points to highlight with coordinates and labels, e.g. '(0, -4), (2, 0), (-2, 0)' or JSON array of points with callouts.",
                     },
                     domain: {
                       type: Type.STRING,
@@ -788,15 +843,6 @@ export class GeminiLiveClient {
                       type: Type.STRING,
                       description: "Key features or annotations, e.g. 'Roots at x = -2, 2 | Minimum at (0, -4)'",
                     },
-                    points: {
-                      type: Type.STRING,
-                      description: "Critical coordinate points to highlight, e.g. '(0, -4), (2, 0), (-2, 0)'",
-                    },
-                    formulas: {
-                      type: Type.ARRAY,
-                      items: { type: Type.STRING },
-                      description: "Optional list of multiple formulas for comparative multi-curve graphs (e.g. ['2x + 1', '-x + 4']).",
-                    },
                     slope: {
                       type: Type.BOOLEAN,
                       description: "Whether to render a slope triangle (Delta y / Delta x) displaying rate of change or velocity.",
@@ -806,7 +852,6 @@ export class GeminiLiveClient {
                       description: "Set to true to overwrite/update the existing graph on the current page instead of adding another.",
                     },
                   },
-                  required: ["formula"],
                 },
               },
               {
@@ -982,7 +1027,7 @@ export class GeminiLiveClient {
               },
               {
                 name: "search_and_show_image",
-                description: "Search the web for an authentic, high-resolution scientific educational diagram, electron micrograph, real apparatus, or histology slide and display it directly on the student's chalkboard. Use proactively when teaching structural concepts or when the student hesitates, is confused, or requests to see another picture or real-life view.",
+                description: "MANDATORY CONCEPT START VISUAL: You MUST call this tool on your VERY FIRST TURN of introducing ANY concept (Stage 1 Intuition) to display an authentic, high-resolution scientific educational diagram, electron micrograph, real apparatus photograph, or histology slide directly on the student's chalkboard. Do NOT wait for the student to ask — call it PROACTIVELY at the start of every concept. Also call when the student hesitates, is confused, or requests another picture or real-life view.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,
@@ -1005,7 +1050,7 @@ export class GeminiLiveClient {
               },
               {
                 name: "search_and_show_video",
-                description: "Search for and display an educational demonstration video or experimental animation directly on the student's chalkboard. Use proactively when teaching physical motion, dynamic biological processes, laboratory apparatus experiments, or when the student asks for a video demonstration.",
+                description: "PROACTIVE CONCEPT VIDEO DEMONSTRATION: Call this tool at the START of any concept (Stage 1 Intuition) that involves physical motion, dynamic processes, laboratory experiments, wave phenomena, chemical reactions, or mechanical apparatus to display an educational demonstration video directly on the student's chalkboard. Also call when the student asks for a video demonstration or needs to see a process in action.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,

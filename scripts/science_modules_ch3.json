@@ -36,7 +36,10 @@
         "unit": "Histological Adaptations",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.1: Comparative plant vs animal architectural blueprints"
+        "figure_caption": "Fig. 3.1: Comparative plant vs animal architectural blueprints",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 29,
+        "section": "Section 3.1"
       },
       {
         "problem": "Why do actively dividing meristematic cells lack sap storage vacuoles?",
@@ -48,7 +51,10 @@
         "unit": "Cytology Invariant",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.2: Longitudinal section of shoot apex showing compact meristematic cells"
+        "figure_caption": "Fig. 3.2: Longitudinal section of shoot apex showing compact meristematic cells",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 29,
+        "section": "Section 3.1"
       },
       {
         "problem": "A potted plant is placed horizontally. What meristem is responsible for the upward bending of the shoot and downward bending of the root?",
@@ -60,7 +66,10 @@
         "unit": "Primary Meristem Function",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.3: Location of Apical, Intercalary, and Lateral meristems on a plant body"
+        "figure_caption": "Fig. 3.3: Location of Apical, Intercalary, and Lateral meristems on a plant body",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 29,
+        "section": "Section 3.1"
       },
       {
         "problem": "A tree trunk increases in girth and diameter every year. Which specific tissue is responsible for this secondary growth?",
@@ -72,7 +81,10 @@
         "unit": "Secondary Meristem Function",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.5: Secondary thickening in dicot stem driven by lateral cambium"
+        "figure_caption": "Fig. 3.5: Secondary thickening in dicot stem driven by lateral cambium",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 29,
+        "section": "Section 3.1"
       },
       {
         "problem": "Why does a lawn regrow rapidly after being cut by a lawnmower, whereas a sunflower stem ceases upward growth if its tip is trimmed?",
@@ -84,7 +96,10 @@
         "unit": "Meristem Adaptation",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.6: Monocot grass stem demonstrating nodal intercalary meristem bands"
+        "figure_caption": "Fig. 3.6: Monocot grass stem demonstrating nodal intercalary meristem bands",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 29,
+        "section": "Section 3.1"
       },
       {
         "problem": "In Activity 3.1, why did root growth in Jar B cease completely after 1 cm was cut from the tips on Day 4, while Jar A roots continued elongating?",
@@ -96,7 +111,10 @@
         "unit": "Experimental Lab Deduction",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.2: Growth of onion roots in water jars (Jar A uncut vs Jar B excised)"
+        "figure_caption": "Fig. 3.2: Growth of onion roots in water jars (Jar A uncut vs Jar B excised)",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 29,
+        "section": "Section 3.1"
       }
     ],
     "common_misconceptions": [
@@ -217,7 +235,10 @@
         "unit": "Cellular Transformation",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.7: Transverse section of plant stem displaying tissue differentiation layers"
+        "figure_caption": "Fig. 3.7: Transverse section of plant stem displaying tissue differentiation layers",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 30,
+        "section": "Section 3.2"
       },
       {
         "problem": "Why is parenchyma termed the basic packaging and storage tissue of plants?",
@@ -229,7 +250,10 @@
         "unit": "Ground Tissue Mechanics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.10: Parenchyma tissue (transverse and longitudinal sections showing intercellular spaces)"
+        "figure_caption": "Fig. 3.10: Parenchyma tissue (transverse and longitudinal sections showing intercellular spaces)",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 30,
+        "section": "Section 3.2"
       },
       {
         "problem": "How does chlorenchyma differ functionally and structurally from general parenchyma?",
@@ -241,7 +265,10 @@
         "unit": "Photosynthetic Histology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.8: Leaf cross-section showing palisade and spongy chlorenchyma"
+        "figure_caption": "Fig. 3.8: Leaf cross-section showing palisade and spongy chlorenchyma",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 30,
+        "section": "Section 3.2"
       },
       {
         "problem": "How do hydrophytic aquatic plants like Eichhornia (water hyacinth) and Hydrilla float on the water surface?",
@@ -253,7 +280,10 @@
         "unit": "Hydrophyte Adaptations",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.9: Aerenchyma cross-section in aquatic petioles showing vast air lacunae"
+        "figure_caption": "Fig. 3.9: Aerenchyma cross-section in aquatic petioles showing vast air lacunae",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 30,
+        "section": "Section 3.2"
       },
       {
         "problem": "Why can climbers and tender cucurbit tendrils bend and twist around supports without snapping during heavy winds?",
@@ -265,7 +295,10 @@
         "unit": "Tensile Mechanical Support",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.11: Collenchyma cells showing prominent corner pectin thickenings"
+        "figure_caption": "Fig. 3.11: Collenchyma cells showing prominent corner pectin thickenings",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 30,
+        "section": "Section 3.2"
       },
       {
         "problem": "Which tissue makes up the husk of a coconut, and what biochemical feature gives it immense hardness?",
@@ -277,7 +310,10 @@
         "unit": "Lignified Biomechanics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.12: Sclerenchyma fibres and sclereids showing thick lignified walls and narrow lumen"
+        "figure_caption": "Fig. 3.12: Sclerenchyma fibres and sclereids showing thick lignified walls and narrow lumen",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 30,
+        "section": "Section 3.2"
       }
     ],
     "common_misconceptions": [
@@ -387,7 +423,7 @@
       "Cork Suberin Shield: Dead, compactly arranged bark cells coated with suberin, making stems impervious to gases and water."
     ],
     "success_criteria": "Student can contrast xylem and phloem in directionality, cellular components, and living status, describe stomatal guard cell mechanics, and explain suberin's protective role.",
-    "chapter_notes": "### 3.7 Complex Permanent Tissues\nUnlike simple tissues, complex tissues are made of **more than one type of cell** working together as a conducting unit (**Vascular Bundle**).\n\n### 3.8 Xylem (Wood) — Water Conduction Pipeline\n- **Direction**: Strictly **Unidirectional** (Roots -> Stem -> Leaves).\n- **Driving Force**: Passive transpiration pull + root pressure (does NOT require ATP).\n- **Four Elements**:\n  1. **Tracheids**: Elongated, dead, tube-like cells with tapering ends and lignified walls with pits.\n  2. **Vessels**: Long, tube-like cylindrical pipes placed end-to-end with perforated transverse walls. Major conducting element in angiosperms.\n  3. **Xylem Parenchyma**: **Only living component**; stores starch and conducts water radially (ray parenchyma).\n  4. **Xylem Sclerenchyma (Fibres)**: Dead, thick lignified fibres providing tensile support.\n\n### 3.9 Phloem (Bast) — Food Translocation Pipeline\n- **Direction**: **Bidirectional** (Source leaves -> Storage roots, or Stored starch in spring -> Growing buds).\n- **Driving Force**: Active transport consuming **ATP**; builds osmotic pressure to push sap.\n- **Four Elements**:\n  1. **Sieve Tubes**: Tubular cells with perforated end-walls (**sieve plates**). Possess peripheral cytoplasm but **lack a nucleus** at maturity!\n  2. **Companion Cells**: Specialized parenchymatous cells with dense cytoplasm and large nuclei; connected via plasmodesmata to regulate enucleated sieve tubes.\n  3. **Phloem Parenchyma**: Living cells storing resins, latex, and nutrients.\n  4. **Phloem Fibres (Bast fibres)**: **Only dead component**; provides mechanical strength (e.g., jute, flax, hemp fibres used in ropes).\n\n### 3.10 Epidermis, Stomata & Cork\n1. **Epidermis**: Single outer protective cell layer coated with water-resistant waxy **cutin**.\n2. **Stomata**: Small pores in leaf epidermis enclosed by two kidney/bean-shaped **guard cells**. Regulates transpiration and gas exchange ($O_2, CO_2$).\n3. **Cork (Bark)**: In older stems, secondary lateral meristem (cork cambium) replaces epidermis with compact dead cork cells impregnated with **suberin**, making it completely impervious to gases and water.",
+    "chapter_notes": "### 3.7 Complex Permanent Tissues\nUnlike simple tissues, complex tissues are made of **more than one type of cell** working together as a conducting unit (**Vascular Bundle**).\n\n### 3.8 Xylem (Wood) \u2014 Water Conduction Pipeline\n- **Direction**: Strictly **Unidirectional** (Roots -> Stem -> Leaves).\n- **Driving Force**: Passive transpiration pull + root pressure (does NOT require ATP).\n- **Four Elements**:\n  1. **Tracheids**: Elongated, dead, tube-like cells with tapering ends and lignified walls with pits.\n  2. **Vessels**: Long, tube-like cylindrical pipes placed end-to-end with perforated transverse walls. Major conducting element in angiosperms.\n  3. **Xylem Parenchyma**: **Only living component**; stores starch and conducts water radially (ray parenchyma).\n  4. **Xylem Sclerenchyma (Fibres)**: Dead, thick lignified fibres providing tensile support.\n\n### 3.9 Phloem (Bast) \u2014 Food Translocation Pipeline\n- **Direction**: **Bidirectional** (Source leaves -> Storage roots, or Stored starch in spring -> Growing buds).\n- **Driving Force**: Active transport consuming **ATP**; builds osmotic pressure to push sap.\n- **Four Elements**:\n  1. **Sieve Tubes**: Tubular cells with perforated end-walls (**sieve plates**). Possess peripheral cytoplasm but **lack a nucleus** at maturity!\n  2. **Companion Cells**: Specialized parenchymatous cells with dense cytoplasm and large nuclei; connected via plasmodesmata to regulate enucleated sieve tubes.\n  3. **Phloem Parenchyma**: Living cells storing resins, latex, and nutrients.\n  4. **Phloem Fibres (Bast fibres)**: **Only dead component**; provides mechanical strength (e.g., jute, flax, hemp fibres used in ropes).\n\n### 3.10 Epidermis, Stomata & Cork\n1. **Epidermis**: Single outer protective cell layer coated with water-resistant waxy **cutin**.\n2. **Stomata**: Small pores in leaf epidermis enclosed by two kidney/bean-shaped **guard cells**. Regulates transpiration and gas exchange ($O_2, CO_2$).\n3. **Cork (Bark)**: In older stems, secondary lateral meristem (cork cambium) replaces epidermis with compact dead cork cells impregnated with **suberin**, making it completely impervious to gases and water.",
     "worked_examples": [
       {
         "problem": "Why are xylem and phloem classified as complex permanent tissues rather than simple tissues?",
@@ -399,7 +435,10 @@
         "unit": "Vascular Architecture",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.13: Vascular bundle cross-section showing xylem and phloem cylinders"
+        "figure_caption": "Fig. 3.13: Vascular bundle cross-section showing xylem and phloem cylinders",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 31,
+        "section": "Section 3.3"
       },
       {
         "problem": "Compare tracheids and vessels on the basis of shape, end walls, and efficiency of water conduction.",
@@ -411,7 +450,10 @@
         "unit": "Hydraulic Architecture",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.14: Tracheid and vessel element morphology and perforation plates"
+        "figure_caption": "Fig. 3.14: Tracheid and vessel element morphology and perforation plates",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 31,
+        "section": "Section 3.3"
       },
       {
         "problem": "What is the only living component of xylem tissue, and what is its physiological role?",
@@ -423,7 +465,10 @@
         "unit": "Physiological Storage",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.15: Radial xylem parenchyma ray cells conducting solutes laterally"
+        "figure_caption": "Fig. 3.15: Radial xylem parenchyma ray cells conducting solutes laterally",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 31,
+        "section": "Section 3.3"
       },
       {
         "problem": "How do mature sieve tube elements survive and transport sugars despite lacking a nucleus?",
@@ -435,7 +480,10 @@
         "unit": "Translocation Symbiosis",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.16: Longitudinal section of Phloem showing sieve plate, sieve tube, and companion cell"
+        "figure_caption": "Fig. 3.16: Longitudinal section of Phloem showing sieve plate, sieve tube, and companion cell",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 31,
+        "section": "Section 3.3"
       },
       {
         "problem": "What are stomata, and how do guard cells regulate transpiration and gaseous exchange in the plant epidermis?",
@@ -447,7 +495,10 @@
         "unit": "Epidermal Gas Exchange",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.4: Guard cells and stomatal pore in epidermal peel (open vs closed state)"
+        "figure_caption": "Fig. 3.4: Guard cells and stomatal pore in epidermal peel (open vs closed state)",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 31,
+        "section": "Section 3.3"
       },
       {
         "problem": "How does cork (bark) form protective tissue in mature trees, and what chemical makes it impervious to gases and water?",
@@ -459,7 +510,10 @@
         "unit": "Protective Histology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.5: Protective cork layer (bark) showing suberised cell walls"
+        "figure_caption": "Fig. 3.5: Protective cork layer (bark) showing suberised cell walls",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 31,
+        "section": "Section 3.3"
       }
     ],
     "common_misconceptions": [
@@ -581,7 +635,10 @@
         "unit": "Epithelial Invariant",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.17: Types of epithelium: squamous, cuboidal, columnar, and ciliated"
+        "figure_caption": "Fig. 3.17: Types of epithelium: squamous, cuboidal, columnar, and ciliated",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 32,
+        "section": "Section 3.4"
       },
       {
         "problem": "Why are the alveoli of lungs and blood capillaries lined by simple squamous epithelium rather than stratified cuboidal epithelium?",
@@ -593,7 +650,10 @@
         "unit": "Diffusion Biomechanics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.17a: Simple squamous epithelium lining alveolar exchange surfaces"
+        "figure_caption": "Fig. 3.17a: Simple squamous epithelium lining alveolar exchange surfaces",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 32,
+        "section": "Section 3.4"
       },
       {
         "problem": "How does stratified squamous epithelium in human skin prevent mechanical wear and tear and water loss?",
@@ -605,7 +665,10 @@
         "unit": "Integumentary Protection",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.17b: Stratified squamous epithelium showing basal dividing and surface keratin layers"
+        "figure_caption": "Fig. 3.17b: Stratified squamous epithelium showing basal dividing and surface keratin layers",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 32,
+        "section": "Section 3.4"
       },
       {
         "problem": "Differentiate between cuboidal and ciliated columnar epithelium on the basis of location and function.",
@@ -617,7 +680,10 @@
         "unit": "Epithelial Specialization",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.17c: Ciliated columnar epithelium showing surface cilia and basal oval nuclei"
+        "figure_caption": "Fig. 3.17c: Ciliated columnar epithelium showing surface cilia and basal oval nuclei",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 32,
+        "section": "Section 3.4"
       },
       {
         "problem": "How does glandular epithelium originate, and what do glands secrete?",
@@ -629,7 +695,10 @@
         "unit": "Secretory Histology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.17d: Glandular epithelial invagination forming secretory unit"
+        "figure_caption": "Fig. 3.17d: Glandular epithelial invagination forming secretory unit",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 32,
+        "section": "Section 3.4"
       },
       {
         "problem": "Why is blood classified as a connective tissue even though it is a circulating fluid?",
@@ -641,7 +710,10 @@
         "unit": "Fluid Connective Tissue",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.18: Blood smear showing erythrocytes (RBCs), leukocytes (WBCs), and platelets in plasma"
+        "figure_caption": "Fig. 3.18: Blood smear showing erythrocytes (RBCs), leukocytes (WBCs), and platelets in plasma",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 32,
+        "section": "Section 3.4"
       }
     ],
     "common_misconceptions": [
@@ -762,7 +834,10 @@
         "unit": "Matrix Biomechanics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.18: Connective tissue variants: Areolar, Adipose, Bone, Hyaline Cartilage"
+        "figure_caption": "Fig. 3.18: Connective tissue variants: Areolar, Adipose, Bone, Hyaline Cartilage",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 33,
+        "section": "Section 3.5"
       },
       {
         "problem": "Why is bone tissue hard and inflexible, and what are osteocytes?",
@@ -774,7 +849,10 @@
         "unit": "Mineralized Skeleton",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.18c: Compact bone ground section showing Haversian canal, lamellae, and osteocytes in lacunae"
+        "figure_caption": "Fig. 3.18c: Compact bone ground section showing Haversian canal, lamellae, and osteocytes in lacunae",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 33,
+        "section": "Section 3.5"
       },
       {
         "problem": "Where is cartilage located in the human body, and why can the external ear (pinna) be bent easily without breaking?",
@@ -786,7 +864,10 @@
         "unit": "Flexible Skeletal Tissue",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.18d: Hyaline cartilage showing chondrocytes in pairs within chondrin matrix"
+        "figure_caption": "Fig. 3.18d: Hyaline cartilage showing chondrocytes in pairs within chondrin matrix",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 33,
+        "section": "Section 3.5"
       },
       {
         "problem": "Differentiate between a ligament and a tendon on the basis of: (a) tissues connected, (b) fibre composition, and (c) elasticity.",
@@ -798,7 +879,10 @@
         "unit": "Articular Biomechanics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.18: Musculoskeletal joint illustrating tendon insertion and ligamentous capsular stabilization"
+        "figure_caption": "Fig. 3.18: Musculoskeletal joint illustrating tendon insertion and ligamentous capsular stabilization",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 33,
+        "section": "Section 3.5"
       },
       {
         "problem": "What is areolar tissue, and where is it located in the human body?",
@@ -810,7 +894,10 @@
         "unit": "Packaging Connective Tissue",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.18a: Areolar tissue showing collagen fibres, elastin fibres, fibroblasts, and mast cells"
+        "figure_caption": "Fig. 3.18a: Areolar tissue showing collagen fibres, elastin fibres, fibroblasts, and mast cells",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 33,
+        "section": "Section 3.5"
       },
       {
         "problem": "Why does adipose tissue act as an efficient thermal insulator, and where is it predominantly stored?",
@@ -822,7 +909,10 @@
         "unit": "Thermal Homeostasis",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.18b: Adipose tissue showing adipocytes with massive central fat droplets"
+        "figure_caption": "Fig. 3.18b: Adipose tissue showing adipocytes with massive central fat droplets",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 33,
+        "section": "Section 3.5"
       }
     ],
     "common_misconceptions": [
@@ -943,7 +1033,10 @@
         "unit": "Myology Biomechanics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.19: Muscle tissue types: Striated, Smooth (Unstriated), and Cardiac"
+        "figure_caption": "Fig. 3.19: Muscle tissue types: Striated, Smooth (Unstriated), and Cardiac",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 34,
+        "section": "Section 3.6"
       },
       {
         "problem": "Describe the histological structure of skeletal (striated) muscle. Why are they called voluntary muscles?",
@@ -955,7 +1048,10 @@
         "unit": "Voluntary Myology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.19a: Striated muscle fibres showing peripheral nuclei and transverse banding"
+        "figure_caption": "Fig. 3.19a: Striated muscle fibres showing peripheral nuclei and transverse banding",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 34,
+        "section": "Section 3.6"
       },
       {
         "problem": "How do smooth (unstriated) muscles differ from skeletal muscles in appearance, location, and control?",
@@ -967,7 +1063,10 @@
         "unit": "Visceral Myology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.19b: Smooth muscle fibres showing spindle shape and central nucleus"
+        "figure_caption": "Fig. 3.19b: Smooth muscle fibres showing spindle shape and central nucleus",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 34,
+        "section": "Section 3.6"
       },
       {
         "problem": "What unique structural features enable cardiac muscle to contract rhythmically throughout life without fatigue?",
@@ -979,7 +1078,10 @@
         "unit": "Cardiovascular Histology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.19c: Cardiac muscle fibres showing branching cylinders and dark intercalated discs"
+        "figure_caption": "Fig. 3.19c: Cardiac muscle fibres showing branching cylinders and dark intercalated discs",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 34,
+        "section": "Section 3.6"
       },
       {
         "problem": "Describe the three primary architectural regions of a neuron and trace the path of an electrical impulse through a single nerve cell.",
@@ -991,7 +1093,10 @@
         "unit": "Neuroanatomy",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.20: Structural blueprint of a neuron showing dendrites, cyton, axon, and nerve endings"
+        "figure_caption": "Fig. 3.20: Structural blueprint of a neuron showing dendrites, cyton, axon, and nerve endings",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 34,
+        "section": "Section 3.6"
       },
       {
         "problem": "What is a synapse, and why can nerve impulses travel in only one direction across a synapse?",
@@ -1003,7 +1108,10 @@
         "unit": "Synaptic Neurobiology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.21: Synaptic cleft diagram illustrating neurotransmitter vesicle exocytosis"
+        "figure_caption": "Fig. 3.21: Synaptic cleft diagram illustrating neurotransmitter vesicle exocytosis",
+        "image_search_query": "plant animal tissues class 9 ncert",
+        "page": 34,
+        "section": "Section 3.6"
       }
     ],
     "common_misconceptions": [
@@ -1090,8 +1198,8 @@
   {
     "curriculum_id": "1053ed93-7167-423b-bdf0-0c73f2b179ff",
     "order_index": 7,
-    "title": "Master Problem Solver & Comprehensive Textbook Exercise Ledger (Q1 to Q15)",
-    "description": "Exhaustive step-by-step master solver resolving every in-text question and chapter-end exercise problem (Q1 through Q15) from NCERT Class 9 Science Chapter 3: Tissues.",
+    "title": "Master Problem Solver & Comprehensive Textbook Exercise Ledger (Revise, Reflect, Refine Q1 to Q15)",
+    "description": "Exhaustive step-by-step master solutions for all in-text questions and all 15 'Revise, Reflect, Refine' chapter-end exercise problems from NCERT Exploration Grade 9 Chapter 3.",
     "board": "CBSE",
     "class_level": "Class 9",
     "estimated_minutes": 20,
@@ -1112,64 +1220,229 @@
     "chapter_notes": "### 3.22 Comprehensive NCERT Exercise Solutions Ledger\n\n#### Q1. Define the term 'tissue'.\n**Answer**: A tissue is defined as a cluster or group of structurally similar cells along with their intercellular substance that originate from a common embryonic source and work cooperatively to perform a specific physiological function.\n\n#### Q2. How many types of elements together make up the xylem tissue? Name them.\n**Answer**: Xylem tissue is composed of **four** distinct cellular elements:\n1. **Tracheids** (Dead, elongated, tubular conducting cells with tapering ends and lignified walls).\n2. **Vessels** (Dead, wide, cylindrical pipe-like continuous conducting channels).\n3. **Xylem Parenchyma** (The only living component; stores food and conducts water sideways).\n4. **Xylem Fibres** (Dead, heavily lignified sclerenchymatous fibres providing mechanical support).\n\n#### Q3. How are simple tissues different from complex tissues in plants?\n**Answer**:\n- **Simple Tissues**: Composed of **only one type of cell** that are structurally and functionally identical (e.g., Parenchyma, Collenchyma, Sclerenchyma).\n- **Complex Tissues**: Composed of **more than one type of cell** that differ in structure but cooperate to perform a common unified function (e.g., Xylem and Phloem).\n\n#### Q4. What is the utility of tissues in multicellular organisms?\n**Answer**:\n1. **Division of Labour**: Different groups of cells specialize in specific functions (e.g., muscle cells contract, nerve cells transmit impulses, blood transports nutrients).\n2. **Higher Efficiency**: Specialization allows organs to perform functions with maximum metabolic efficiency.\n3. **Higher Survival Value**: Individual cell exhaustion does not cause organismal death.\n\n#### Q5. Name the regions in which parenchyma tissue is present.\n**Answer**: Parenchyma is found in the cortex, pith of stems and roots, leaf mesophyll (as chlorenchyma), pulp of fleshy fruits, and in aquatic plants (as aerenchyma in petioles).\n\n#### Q6. What is the role of epidermis in plants?\n**Answer**:\n1. **Protection**: Shields internal tissues from physical injury, parasitic fungal infection, and mechanical damage.\n2. **Waterproofing**: Secretes a waxy cutin layer to minimize transpiration water loss in xerophytes.\n3. **Gas Exchange & Transpiration**: Houses stomata and guard cells for $CO_2/O_2$ exchange and transpiration pull.\n\n#### Q7. How does the cork act as a protective tissue?\n**Answer**: Cork cells are dead at maturity, compactly arranged without intercellular spaces, and have their cell walls heavily impregnated with **suberin**. Suberin makes cork completely impermeable to water and gases, preventing desiccation, bacterial infection, and mechanical injury.\n\n#### Q8. Complete the tissue identification table:\n- **Tissue that forms inner lining of our mouth**: Simple Squamous Epithelium.\n- **Tissue that connects muscle to bone in humans**: Tendon.\n- **Tissue that transports food in plants**: Phloem.\n- **Tissue that stores fat in our body**: Adipose Tissue.\n- **Connective tissue with a fluid matrix**: Blood.\n- **Tissue present in the brain**: Nervous Tissue.",
     "worked_examples": [
       {
-        "problem": "NCERT Q1. Define the term 'tissue'.",
-        "given": "Biological structural organization.",
-        "formula": "Tissue Invariant",
-        "substitution": "A cluster of cells with similar origin, structure, and coordinated function.",
-        "calculation": "A group of morphologically similar cells that arise from a common embryonic germ layer and work together to execute a specialized biological function constitutes a tissue (e.g. xylem, blood, muscular tissue).",
-        "finalAnswer": "A tissue is a cluster of structurally similar cells originating from a common source that work together to perform a specific function.",
-        "unit": "NCERT Definition",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.22: Hierarchy of life: Cells -> Tissues -> Organs -> Organ Systems"
+        "problem": "Textbook Revise, Reflect, Refine Q1 (Section 3.1, p. 17): Meristematic tissues divide repeatedly. What property of their cells allows them to do this? (i) They have thick walls for protection. (ii) They contain large vacuoles that store nutrients. (iii) They have thin walls, dense cytoplasm and large prominent nucleus. (iv) They are functionally differentiated cells.",
+        "given": "Four cytological characterization options for actively dividing plant meristematic cells.",
+        "formula": "Cytology of Mitotic Cells: Continuous division requires thin deformable walls, high metabolic turnover (dense cytoplasm, no vacuoles), and active transcription (large prominent nucleus).",
+        "substitution": "Evaluate options against meristematic histology.",
+        "calculation": "1. Meristematic cells undergo continuous mitotic cycles. Thick walls (i) and functional differentiation (iv) prevent division.\n2. Large vacuoles (ii) store sap and would physically obstruct spindle formation and chromosome segregation.\n3. Thin cellulose walls allow rapid cell expansion; dense protoplasm provides high metabolic energy; and prominent nuclei drive continuous replication.",
+        "finalAnswer": "Correct Option: (iii) They have thin walls, dense cytoplasm and large prominent nucleus.",
+        "unit": "Cytological Identification",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "meristematic tissue onion root tip cytology",
+        "page": 17,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "NCERT Q2. How many types of elements together make up the xylem tissue? Name them.",
-        "given": "Cellular components of xylem complex tissue.",
-        "formula": "Xylem Element Quadrilogy",
-        "substitution": "Four distinct cell types cooperate to conduct water and minerals.",
-        "calculation": "Xylem is composed of four specialized elements:\n1. Tracheids (elongated, dead, tapered pitted cells).\n2. Vessels (continuous tubular pipes with perforated end plates).\n3. Xylem parenchyma (living storage cells with thin walls).\n4. Xylem sclerenchyma fibres (dead, lignified mechanical supportive fibres).",
-        "finalAnswer": "Four types of elements make up xylem: (1) Tracheids, (2) Vessels, (3) Xylem parenchyma, and (4) Xylem fibres.",
-        "unit": "NCERT Textbook Solver",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.14: The four cellular components of xylem tissue"
+        "problem": "Textbook Revise, Reflect, Refine Q2 (Section 3.2, p. 17): If a plant is unable to transport food from leaves to roots, which tissue is malfunctioning? (i) Xylem, (ii) Phloem, (iii) Epidermis, (iv) Sclerenchyma.",
+        "given": "Failure of bidirectional translocation of photosynthates (sucrose, amino acids) from leaves to roots.",
+        "formula": "Vascular translocation: Xylem transports water and minerals unidirectionally; Phloem transports organic nutrients bidirectionally.",
+        "substitution": "Identify the conducting tissue responsible for food transport.",
+        "calculation": "Leaves synthesize sucrose via photosynthesis. Phloem (specifically sieve tubes and companion cells) translocates this dissolved food to storage sinks and roots using ATP-driven active transport. Failure of food transport indicates phloem dysfunction.",
+        "finalAnswer": "Correct Option: (ii) Phloem.",
+        "unit": "Plant Vascular Physiology",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "phloem sieve tube companion cell translocation",
+        "page": 17,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "NCERT Q3. How are simple tissues different from complex tissues in plants?",
-        "given": "Classification of plant permanent tissues.",
-        "formula": "Homogeneity vs Heterogeneity Criterion",
-        "substitution": "Simple tissues = single cell type; Complex tissues = multiple cooperating cell types.",
-        "calculation": "1. Simple tissues (Parenchyma, Collenchyma, Sclerenchyma) consist of structurally identical cells performing similar functions.\n2. Complex tissues (Xylem, Phloem) consist of more than one type of cell working together as a coordinated unit to conduct sap.",
-        "finalAnswer": "Simple tissues are composed of only one type of cell, whereas complex tissues are composed of multiple distinct cell types working together.",
-        "unit": "NCERT Contrast",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.10: Simple plant tissues compared with complex vascular bundle"
+        "problem": "Textbook Revise, Reflect, Refine Q3 (Section 3.3, p. 17): Why are the epithelial tissues that line an animal's internal organs usually only one or a few cells thick? (i) To store food efficiently, (ii) To provide maximum strength, (iii) To allow quick exchange of materials across them, (iv) To reduce friction.",
+        "given": "Histological thickness of internal epithelial linings (alveoli, nephrons, capillaries, intestine).",
+        "formula": "Fick's Diffusion Law: Rate of diffusion is inversely proportional to barrier thickness ($Rate \\propto 1 / \\Delta x$).",
+        "substitution": "Evaluate biological utility of thin single-layered epithelium.",
+        "calculation": "Epithelial linings in organs such as pulmonary alveoli, capillary walls, and renal tubules are specialized for rapid diffusion, filtration, and absorption. A thin simple epithelium (single cell layer) minimizes the diffusion pathway $\\Delta x$, enabling rapid exchange of respiratory gases, nutrients, and waste products.",
+        "finalAnswer": "Correct Option: (iii) To allow quick exchange of materials across them.",
+        "unit": "Animal Histology",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "simple squamous epithelium diffusion barrier",
+        "page": 17,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "NCERT Q4. Differentiate between striated, unstriated and cardiac muscles on the basis of their structure and site/location in the body.",
-        "given": "Comparative myology in mammals.",
-        "formula": "Tri-Muscle Structural Comparison",
-        "substitution": "Striated (Skeletal) vs Unstriated (Smooth) vs Cardiac.",
-        "calculation": "| Feature | Striated (Skeletal) | Unstriated (Smooth) | Cardiac |\n| :--- | :--- | :--- | :--- |\n| Location | Attached to bones | Walls of hollow internal organs (gut, iris, vessels) | Exclusively in heart wall |\n| Shape | Long, cylindrical | Spindle-shaped, tapering | Cylindrical, branched |\n| Striations | Present (dark/light bands) | Absent | Present (faint) with intercalated discs |\n| Nuclei | Multinucleated, peripheral | Uninucleated, central | Uninucleated, central |\n| Control | Voluntary | Involuntary | Involuntary, tireless |",
-        "finalAnswer": "Skeletal: voluntary, striated, multinucleated, on bones. Smooth: involuntary, non-striated, spindle-shaped, in gut/vessels. Cardiac: involuntary, branched, intercalated discs, in heart.",
-        "unit": "NCERT Master Table",
+        "problem": "Textbook Revise, Reflect, Refine Q4 & Q5 (Section 3.3, p. 17): You perform two jumps (Fig. 3.21): (a) Straight-leg jump (knees/ankles stiff), (b) Normal jump (knees/ankles bent). How did ankle, knee, and hip positions differ? Which joint is involved when bending knees and ankles?",
+        "given": "Kinematic comparison of stiff-legged jump vs normal flexed jump; Joint movement analysis.",
+        "formula": "Skeletal biomechanics: Shock absorption via flexor muscles and synovial hinge joints.",
+        "substitution": "Evaluate angular displacement of joints and shock impact.",
+        "calculation": "1. In normal jumping, hips, knees, and ankles undergo flexion during landing, lengthening impact duration and distributing shock force across quadriceps, gastrocnemius, tendons, and cartilage. In a straight-leg jump, joints remain locked in rigid extension, transmitting high unattenuated impact forces directly into bones and the spine.\n2. The knee and ankle joints are primarily HINGE JOINTS (allowing flexion and extension in a single sagittal plane).",
+        "finalAnswer": "Bending knees and ankles elongates landing impact time and cushions shock; the joints involved in bending knees and ankles are (ii) Hinge joints.",
+        "unit": "Musculoskeletal Biomechanics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.19: Comparative histology of skeletal, smooth, and cardiac muscle"
+        "figure_caption": "Fig. 3.21: Straight-leg vs normal jump showing knee and ankle joint mechanics",
+        "image_search_query": "knee hinge joint synovial flexion extension anatomy",
+        "page": 17,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "NCERT Q13 & Q14. Name the tissue present in: (a) Skin, (b) Bark of a tree, (c) Bone, (d) Lining of kidney tubule, (e) Vascular bundle, (f) Brain.",
-        "given": "Identification of biological tissues across organ systems.",
-        "formula": "Histological Classification Ledger",
-        "substitution": "Matching organ location with specific specialized tissue category.",
-        "calculation": "1. Skin: Stratified keratinized squamous epithelium.\n2. Bark of a tree: Protective cork (phellem) impregnated with suberin.\n3. Bone: Rigid connective tissue with osteocytes in calcium phosphate matrix.\n4. Lining of kidney tubule: Simple cuboidal epithelium.\n5. Vascular bundle: Complex permanent tissues (Xylem and Phloem).\n6. Brain: Nervous tissue consisting of neurons and neuroglia.",
-        "finalAnswer": "(a) Stratified squamous epithelium, (b) Cork/Phellem, (c) Bone connective tissue, (d) Cuboidal epithelium, (e) Xylem & Phloem, (f) Nervous tissue.",
-        "unit": "NCERT Master Identification",
+        "problem": "Textbook Revise, Reflect, Refine Q6 (Section 3.3, p. 17): Assertion & Reason Analysis: A. Assertion: Epithelium is well-vascularized with rich blood vessels. Reason: It covers outer body surfaces. B. Assertion: Bone matrix is hard and non-flexible. Reason: It is composed of calcium and phosphorus compounds. C. Assertion: Tendons connect bone to bone. Reason: Tendons transmit muscle force. D. Assertion: In a hinge joint, movement occurs in one plane. Reason: Bone ends allow sliding in all directions.",
+        "given": "Four assertion-reason pairings on animal tissues and joints.",
+        "formula": "Histological principles: Epithelium is avascular; Bone has calcium hydroxyapatite; Ligaments connect bone-to-bone, tendons connect muscle-to-bone; Hinge joints restrict motion to one plane.",
+        "substitution": "Evaluate truth value of each Assertion and Reason.",
+        "calculation": "A. Epithelium is completely AVASCULAR (nourished by diffusion from underlying connective tissue dermis). Assertion is False; Reason is True \u27f6 Option (iv).\nB. Bone matrix is hard and rigid due to calcium phosphate and carbonate salts. Both (A) and (R) are True, and (R) correctly explains (A) \u27f6 Option (i).\nC. Tendons connect MUSCLE TO BONE (ligaments connect bone to bone). Assertion is False; Reason is True \u27f6 Option (iv).\nD. Hinge joint allows motion strictly in ONE plane (like a door hinge), NOT all directions. Assertion is True; Reason is False \u27f6 Option (iii).",
+        "finalAnswer": "A: (iv) A is false, R is true; B: (i) Both A and R are true and R explains A; C: (iv) A is false, R is true; D: (iii) A is true, R is false.",
+        "unit": "Histological Logic Analysis",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "bone histology haversian system calcium phosphorus",
+        "page": 17,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q7 (Section 3.1, p. 18): Data in Table 3.7 gives age of teak tree (5, 10, 20, 25, 30, 40 yrs), diameter DBH (4, 8, 24, 28, 32, 40 cm), and annual rings (5, 10, 20, 25, 30, 40). (i) Analyse stem diameter over time. (ii) Relation between diameter and annual rings. (iii) Which specialised tissue is responsible for girth, and where is it located?",
+        "given": "Teak tree growth data from Table 3.7 over a 40-year period.",
+        "formula": "Secondary Growth: Lateral meristem (cambium) cuts off secondary xylem (spring wood + autumn wood = 1 annual ring per year).",
+        "substitution": "Analyze growth rates and correlate with cambial activity.",
+        "calculation": "1. Part (i): DBH increases continuously with age. Growth rate is rapid during the first 20 years (from 4 cm at 5 yr to 24 cm at 20 yr, averaging 1.33 cm/yr) and then stabilizes to a steady linear increment (~0.8 cm/yr from 20 to 40 yr).\n2. Part (ii): Number of annual rings is strictly equal to the age of the tree in years (1:1 direct proportionality). Each year, vascular cambium produces one ring of earlywood and latewood.\n3. Part (iii): The tissue responsible for increasing stem girth is the LATERAL MERISTEM (specifically VASCULAR CAMBIUM and CORK CAMBIUM / PHELLOGEN), located circumferentially beneath the bark as cylindrical dividing layers.",
+        "finalAnswer": "(i) Girth increases steadily with time; (ii) Annual rings equal the tree's age (1 ring/year); (iii) Lateral meristem (cambium) located radially beneath the bark.",
+        "unit": "Dendrochronology & Secondary Growth",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 3.23: Human anatomical map highlighting tissue distribution"
+        "figure_caption": "Table 3.7 & Secondary growth rings in woody dicot stem",
+        "image_search_query": "tree annual rings vascular cambium secondary growth",
+        "page": 18,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q8 (Section 3.2, p. 18): In a forest, a tree was severely debarked by an elephant to eat the nutrient-rich bark (Fig. 3.22). (i) Which function(s) of the tree are hampered by debarking? (ii) Which plant tissue is lost? (iii) Can the tree survive long term?",
+        "given": "Complete removal of outer bark around tree trunk (girdling / debarking).",
+        "formula": "Bark anatomy: Cork (protective barrier) + Cork Cambium + Secondary Phloem (nutrient translocation).",
+        "substitution": "Analyze structural and physiological consequences of girdling.",
+        "calculation": "1. Part (i): Functions hampered: Translocation of prepared organic food (sucrose) from crown leaves down to root system; mechanical protection against fungal/bacterial infections; and prevention of evaporative desiccation.\n2. Part (ii): Debarking removes the protective CORK (phellem), CORK CAMBIUM (phellogen), and crucially the SECONDARY PHLOEM located immediately under the bark.\n3. Part (iii): Without functional phloem, roots are starved of photosynthates. Starved roots eventually fail to absorb water and minerals, leading to systemic tree death within months unless partial vertical bark strips remain intact.",
+        "finalAnswer": "(i) Food translocation to roots and pathogen protection are hampered; (ii) Cork and secondary phloem are lost; (iii) Tree dies due to root starvation unless girdling is incomplete.",
+        "unit": "Forest Botany & Tissue Pathology",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 3.22: Tree debarked by elephant showing exposed inner xylem",
+        "image_search_query": "tree debarking girdling phloem transport death",
+        "page": 18,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q9 (Section 3.2, p. 19): Aamrapali observed that a young mango sapling's stem bends flexibly during monsoon winds without breaking. Which tissue is responsible for this flexibility? Predict the impact if this tissue was replaced by sclerenchyma.",
+        "given": "Mechanical flexibility in herbaceous young stems vs rigid brittle woody stems.",
+        "formula": "Mechanical plant tissues: Collenchyma provides tensile flexibility; Sclerenchyma provides rigid load-bearing stiffness.",
+        "substitution": "Tissue characteristics and functional adaptations.",
+        "calculation": "1. The tissue responsible for mechanical flexibility with tensile strength is COLLENCHYMA (characterized by living elongated cells with localized pectin and cellulose thickenings at cell corners).\n2. If collenchyma were replaced by SCLERENCHYMA (dead cells with heavily lignified, rigid, inflexible secondary walls), the sapling stem would lose all elasticity. Instead of bending smoothly with violent monsoon gusts, the brittle stem would snap and break under bending stress.",
+        "finalAnswer": "Collenchyma provides bending flexibility; if replaced by sclerenchyma, the stem would become rigid and brittle, snapping in strong winds.",
+        "unit": "Plant Mechanical Histology",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "collenchyma corner thickening plant stem flexibility",
+        "page": 19,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q10 (Section 3.1, p. 19): Sohan planted two types of sugarcane cuttings: Type A (internode piece without nodes) and Type B (stem cutting containing intact nodes with lateral buds, Fig. 3.23). After a few weeks, Type B sprouted into plants, but Type A did not sprout. (i) Why did Type B grow while Type A failed? (ii) What was present in Type B? (iii) What parameters ensure a fair comparison?",
+        "given": "Sugarcane stem cuttings: Type A (internodal only) vs Type B (nodal with bud).",
+        "formula": "Meristematic Localization: Intercalary and axillary meristems are localized strictly at NODES.",
+        "substitution": "Correlate presence of dividing meristematic cells with regenerative sprouting.",
+        "calculation": "1. Part (i) & (ii): Sugarcane possesses intercalary meristems and dormant vegetative axillary buds situated exclusively at the NODES (joints) of the stem. Type B cuttings possessed intact nodes containing active meristematic tissues capable of mitotic division to initiate roots and shoots. Type A consisted solely of differentiated internodal tissue devoid of meristems, rendering growth impossible.\n2. Part (iii): Controlled parameters: Soil composition, moisture level, temperature, depth of planting, sunlight exposure, and cutting diameter.",
+        "finalAnswer": "(i) Type B possessed active meristems at nodes; (ii) Nodal intercalary meristems and axillary buds; (iii) Equal water, soil, sunlight, and cutting size for a fair test.",
+        "unit": "Vegetative Regeneration Mechanics",
+        "has_diagram": true,
+        "diagram_source": "book_extracted",
+        "figure_caption": "Fig. 3.23: Sugarcane stem cuttings Type A (no node) vs Type B (with node)",
+        "image_search_query": "sugarcane nodes buds intercalary meristem vegetative propagation",
+        "page": 19,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q11 (Section 3.2, p. 19): During class, Rohan states: 'A tissue is a group of similar cells performing similar functions.' Rajiv counter-argues: 'This is true for simple tissues, but different for complex tissues.' Provide your scientific explanation.",
+        "given": "Two definitions of biological tissues debated by students.",
+        "formula": "Histological taxonomy: Simple permanent tissues (homogeneous) vs Complex permanent tissues (heterogeneous).",
+        "substitution": "Evaluate cellular composition of parenchyma vs xylem/phloem.",
+        "calculation": "1. Rajiv's counter-argument is scientifically sound and more accurate.\n2. Simple tissues (Parenchyma, Collenchyma, Sclerenchyma) consist of only ONE type of cell that are morphologically identical and work together.\n3. In contrast, Complex tissues (Xylem and Phloem) are composed of MULTIPLE DISTINCT CELL TYPES originating from the same meristem and coordinating to perform a common function. For instance, Xylem comprises four distinct cell types: tracheids, vessels, xylem parenchyma, and xylem fibres.",
+        "finalAnswer": "Rajiv is correct: Simple tissues have homogeneous cells (one type), whereas complex tissues like xylem and phloem unite diverse cell types coordinating a shared function.",
+        "unit": "Histological Taxonomy",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "xylem complex tissue four elements tracheids vessels",
+        "page": 19,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q12 (Section 3.2, p. 19): Coconut husk fibres are used for making tough, durable mats. Which plant tissue provides this strength? Explain why living parenchyma could not serve this purpose.",
+        "given": "Physical characteristics of coir (coconut husk) and functional requirements of floor mats.",
+        "formula": "Histological mechanics: Lignified sclerenchyma fibres vs unlignified living parenchyma.",
+        "substitution": "Correlate cellular wall composition with tensile wear resistance.",
+        "calculation": "1. Coconut husk is composed of SCLERENCHYMA FIBRES (specifically sclerenchymatous sclereids and elongated thick-walled fibres).\n2. Their secondary cell walls are heavily impregnated with LIGNIN, a natural complex polymer that acts as cement, rendering the cells impermeable, rigid, and resistant to decay, microbial rot, and abrasive wear.\n3. Living parenchyma cells have thin cellulose walls, large fluid-filled vacuoles, and soft protoplasm. Under foot pressure or friction, parenchyma cells would compress, tear, rot, and lose all structural integrity instantly.",
+        "finalAnswer": "Sclerenchyma provides high tensile toughness via lignified dead cell walls; living parenchyma is soft and fragile, collapsing under abrasive mechanical stress.",
+        "unit": "Plant Fiber Mechanics",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "coconut husk coir sclerenchyma fibres lignin",
+        "page": 19,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q13 (Section 3.1, p. 19): Vibha claims to Neha: 'Meristematic cells are located in all parts of a plant, and that is why plants can grow anywhere.' What questions can Neha ask Vibha to help her understand the localized nature of meristematic tissues?",
+        "given": "Misconception that plant growth and meristems are uniformly distributed throughout the plant body.",
+        "formula": "Socratic inquiry into localized apical, lateral, and intercalary meristem distribution.",
+        "substitution": "Formulate targeted diagnostic questions based on plant observations.",
+        "calculation": "To guide Vibha to self-correct, Neha can ask:\n1. 'If meristems are everywhere, why does a tree trunk only lengthen at the tips of branches and roots, rather than stretching in the middle of a mature trunk?'\n2. 'If you trim the apical root tip of an onion bulb in water, why does that specific root stop growing in length completely while untouched roots continue to elongate?'\n3. 'Why does secondary thickening (girth expansion) happen strictly in rings around the stem diameter rather than in random lumps?'",
+        "finalAnswer": "Neha can ask why growth stops when shoot/root tips are trimmed, and why mature tree trunks elongate exclusively at apical buds rather than everywhere.",
+        "unit": "Socratic Pedagogical Inquiry",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "apical lateral intercalary meristems plant zones",
+        "page": 19,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q14 (Section 3.1, p. 19): A plant cell and an animal cell are of the same size. (i) How do their mechanical support strategies differ? (ii) What assumptions are made when comparing their tissue architecture?",
+        "given": "Comparative cell and tissue mechanics between plants and animals.",
+        "formula": "Stationary autotrophic support (external rigid cell wall) vs Motile heterotrophic support (cytoskeleton + internal extracellular matrix/skeletons).",
+        "substitution": "Analyze metabolic energy expenditure vs structural rigidity.",
+        "calculation": "1. Part (i): A plant cell relies on an external, non-living cellulose CELL WALL that works in conjunction with internal vacuolar turgor pressure to maintain shape without metabolic expenditure. An animal cell lacks a cell wall and relies on an internal dynamic protein cytoskeleton (microfilaments, microtubules) anchored to an extracellular collagen matrix, bones, and cartilage.\n2. Part (ii): Assumptions: Both cells operate under standard physiological temperature and pressure; the plant cell is fully hydrated in a hypotonic extracellular fluid; and the animal cell is bathed in an isotonic extracellular fluid (interstitial fluid/blood plasma).",
+        "finalAnswer": "(i) Plant cells use rigid cellulose walls and turgor pressure; animal cells use protein cytoskeletons and skeletal connective tissues; (ii) Assumes plant cell in hypotonic and animal cell in isotonic media.",
+        "unit": "Comparative Cytological Mechanics",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "plant versus animal cell structural support mechanisms",
+        "page": 19,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q15 (Section 3.2, p. 19): A textbook states: 'Each plant tissue performs only one specific function.' What questions would you ask to critically examine this statement, and what investigation would you undertake?",
+        "given": "Oversimplified claim regarding tissue monofunctionality.",
+        "formula": "Multifunctional tissue biology (e.g. Parenchyma stores food, performs photosynthesis as chlorenchyma, provides buoyancy as aerenchyma, and repairs wounds).",
+        "substitution": "Formulate critical scientific questions and experimental investigations.",
+        "calculation": "1. Critical Questions:\n   - 'If parenchyma only has one function, why does it perform photosynthesis in leaves (chlorenchyma), store starch in roots, provide floatation in aquatic plants (aerenchyma), and divide to heal graft wounds?'\n   - 'Doesn't xylem conduct water AND simultaneously provide the primary mechanical load-bearing support for massive trees via wood?'\n2. Investigative Procedure: Prepare thin sections of different organs of the same plant (leaf, petiole, aquatic stem, tuber). Stain with safranin and fast green to demonstrate how the same tissue type exhibits structural modifications to execute multiple distinct physiological functions.",
+        "finalAnswer": "Critique by noting that parenchyma stores starch, performs photosynthesis, and provides buoyancy; investigate by observing tissue histology across aquatic and terrestrial organs.",
+        "unit": "Critical Histological Evaluation",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "parenchyma chlorenchyma aerenchyma multiple functions",
+        "page": 19,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "In-Text Question (Section 3.2, p. 7): (a) Why is a thick waxy cuticle on the outer epidermis an adaptation for desert plants? (b) What will happen if there were no stomata in plant leaves?",
+        "given": "Plant epidermal adaptations and stomatal physiology.",
+        "formula": "Transpiration biophysics: Cuticular resistance and stomatal pore regulation.",
+        "substitution": "Analyze water loss and gas exchange.",
+        "calculation": "1. Part (a): Desert xerophytes face intense solar radiation and arid winds. A thick layer of water-impermeable CUTIN (waxy cuticle) on epidermal cells minimizes cuticular transpiration, preventing fatal desiccation.\n2. Part (b): Stomata are microscopic pores guarded by specialized guard cells. Without stomata: (1) Plants could not exchange respiratory and photosynthetic gases (CO\u2082 uptake for Calvin cycle and O\u2082 release would cease, halting photosynthesis); (2) Transpirational pull would vanish, arresting the upward ascent of sap (water and minerals) from roots to leaves.",
+        "finalAnswer": "(a) Thick waxy cutin minimizes transpiration water loss; (b) Without stomata, photosynthesis stops due to zero CO\u2082 diffusion, and transpirational water transport collapses.",
+        "unit": "Epidermal & Stomatal Physiology",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "desert plant thick cuticle stomata transpiration",
+        "page": 7,
+        "section": "Section 3.2"
       }
     ],
     "common_misconceptions": [

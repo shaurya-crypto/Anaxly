@@ -7,7 +7,7 @@
       "The Four Earth Spheres: Lithosphere (crust/soil), Hydrosphere (water/ice), Atmosphere (air blanket), Biosphere (living zone)",
       "The Sun as Driving Engine: Solar constant, incoming shortwave radiation, atmospheric reflection (albedo)",
       "The Thermal Buffer Role of Atmosphere: Bad conductor of heat preventing extreme diurnal swings",
-      "Comparative Planetology: Earth's moderate temperatures vs Moon's extreme swings (-190°C to +110°C)",
+      "Comparative Planetology: Earth's moderate temperatures vs Moon's extreme swings (-190\u00b0C to +110\u00b0C)",
       "Urban Heat Island (UHI) Effect: Concrete, asphalt, and reduced evapotranspiration in cities",
       "Anna Mani & Solar Meteorology: Pioneer work mapping India's solar radiation potential"
     ],
@@ -16,11 +16,11 @@
       "The Four Earth Spheres: Lithosphere (outer solid mineral crust and soil), Hydrosphere (71% of surface covered by oceans, seas, rivers, ground water, and polar ice caps), Atmosphere (multi-layered blanket of gases enveloping Earth), and Biosphere (the narrow global life-supporting zone where lithosphere, hydrosphere, and atmosphere interact).",
       "Solar Radiation Budget: The Sun is the primary source of virtually all energy on Earth; of incoming shortwave solar radiation, ~30% is reflected back to space (albedo by clouds and ice), ~20% is absorbed by the atmosphere, and ~50% is absorbed by the land and oceans, powering weather, ocean currents, and photosynthesis.",
       "Atmospheric Thermal Blanket: Air is a very poor conductor of heat; during the day, the atmosphere prevents solar radiation from heating Earth's surface to unlivable extremes; at night, it slows down the radiant escape of heat into cold space, preventing freezing.",
-      "Earth vs Moon Temperature Contrast: The Moon is the same distance from the Sun as Earth, but has zero atmosphere; consequently, temperatures on the lunar surface swing violently from -190°C during the night to +110°C during the lunar day, proving the indispensable moderating role of Earth's atmosphere.",
+      "Earth vs Moon Temperature Contrast: The Moon is the same distance from the Sun as Earth, but has zero atmosphere; consequently, temperatures on the lunar surface swing violently from -190\u00b0C during the night to +110\u00b0C during the lunar day, proving the indispensable moderating role of Earth's atmosphere.",
       "Urban Heat Island Effect: Urban metropolitan areas experience significantly higher ambient temperatures than surrounding rural landscapes due to dark asphalt and concrete absorbing solar radiation, tall building canyons trapping heat, waste heat from air conditioning/vehicles, and loss of cooling vegetative evapotranspiration."
     ],
     "success_criteria": "Student can describe the 4 Earth spheres, diagram the solar radiation budget, explain why the atmosphere moderates temperatures compared to the Moon, and detail causes of the Urban Heat Island effect.",
-    "chapter_notes": "### 13.1 The Earth as an Integrated System\nEarth is a dynamic, interconnected planetary system where matter cycles continuously and energy flows unidirectionally. It is structured into **four primary spheres**:\n1. **Lithosphere**: The solid outer rocky crust, continental plates, and soil mantle that supply mineral nutrients to plants.\n2. **Hydrosphere**: All liquid, solid, and gaseous water covering **~71% of Earth's surface** (oceans, rivers, lakes, groundwater, glaciers, and polar ice sheets/cryosphere).\n3. **Atmosphere**: The gaseous blanket held by Earth's gravity, providing oxygen for respiration, carbon dioxide for photosynthesis, and protecting against solar ultraviolet radiation.\n4. **Biosphere**: The life-supporting global zone where the lithosphere, hydrosphere, and atmosphere intersect and interact, sustaining living organisms.\n\n### 13.2 The Solar Energy Budget\nThe Sun powers the entire Earth system:\n- **Solar Constant**: Solar energy received per unit area at the outer boundary of the atmosphere is approximately **$1.36\\text{ kW/m}^2$**.\n- **Energy Budget Dynamics**:\n  - **~30% Albedo**: Reflected immediately back into space by clouds, atmospheric aerosol particles, and high-albedo polar ice/snow.\n  - **~20% Atmospheric Absorption**: Absorbed by ozone, water vapor, and aerosols in atmospheric layers.\n  - **~50% Surface Absorption**: Absorbed by land masses and oceans, driving atmospheric convection, oceanic currents, and the hydrological cycle.\n- **Anna Mani (1918–2001)**: Renowned Indian meteorologist who standardized and automated solar radiation measuring instruments across India, establishing the foundational datasets for India's modern renewable solar energy program (Fig. 13.3 & 13.4).\n\n### 13.3 The Thermal Buffer Role of the Atmosphere\nAir is a **poor conductor of heat**. The atmosphere acts as a planetary thermostat:\n- **During Daylight**: Prevents a sudden, scorching rise in temperature by scattering and absorbing incoming radiation.\n- **During Night**: Traps longwave infrared radiation re-emitted by the surface, preventing rapid heat loss to space.\n- **Earth vs Moon Benchmark**:\n  - The Moon is at the identical distance from the Sun as Earth.\n  - Lacking an atmosphere, lunar surface temperatures fluctuate brutally from **$-190^\\circ\\text{C}$** at night to **$+110^\\circ\\text{C}$** at midday.\n  - Earth maintains an average global surface temperature of **$+15^\\circ\\text{C}$**, allowing liquid water and life to flourish.\n\n### 13.4 The Urban Heat Island (UHI) Effect\nCities are measurably warmer ($2\\text{ to }6^\\circ\\text{C}$ hotter) than surrounding countryside:\n1. **Low Albedo Materials**: Dark asphalt roads and concrete buildings absorb massive amounts of solar radiation during the day and slowly re-radiate it at night.\n2. **Lack of Evapotranspiration**: Replacement of green vegetation with impervious concrete eliminates natural evaporative cooling.\n3. **Anthropogenic Waste Heat**: Continuous heat emission from vehicle engines, industrial factories, and building air-conditioning HVAC units.\n4. **Urban Canyons**: Closely spaced tall skyscrapers trap outgoing infrared radiation between vertical concrete surfaces.",
+    "chapter_notes": "### 13.1 The Earth as an Integrated System\nEarth is a dynamic, interconnected planetary system where matter cycles continuously and energy flows unidirectionally. It is structured into **four primary spheres**:\n1. **Lithosphere**: The solid outer rocky crust, continental plates, and soil mantle that supply mineral nutrients to plants.\n2. **Hydrosphere**: All liquid, solid, and gaseous water covering **~71% of Earth's surface** (oceans, rivers, lakes, groundwater, glaciers, and polar ice sheets/cryosphere).\n3. **Atmosphere**: The gaseous blanket held by Earth's gravity, providing oxygen for respiration, carbon dioxide for photosynthesis, and protecting against solar ultraviolet radiation.\n4. **Biosphere**: The life-supporting global zone where the lithosphere, hydrosphere, and atmosphere intersect and interact, sustaining living organisms.\n\n### 13.2 The Solar Energy Budget\nThe Sun powers the entire Earth system:\n- **Solar Constant**: Solar energy received per unit area at the outer boundary of the atmosphere is approximately **$1.36\\text{ kW/m}^2$**.\n- **Energy Budget Dynamics**:\n  - **~30% Albedo**: Reflected immediately back into space by clouds, atmospheric aerosol particles, and high-albedo polar ice/snow.\n  - **~20% Atmospheric Absorption**: Absorbed by ozone, water vapor, and aerosols in atmospheric layers.\n  - **~50% Surface Absorption**: Absorbed by land masses and oceans, driving atmospheric convection, oceanic currents, and the hydrological cycle.\n- **Anna Mani (1918\u20132001)**: Renowned Indian meteorologist who standardized and automated solar radiation measuring instruments across India, establishing the foundational datasets for India's modern renewable solar energy program (Fig. 13.3 & 13.4).\n\n### 13.3 The Thermal Buffer Role of the Atmosphere\nAir is a **poor conductor of heat**. The atmosphere acts as a planetary thermostat:\n- **During Daylight**: Prevents a sudden, scorching rise in temperature by scattering and absorbing incoming radiation.\n- **During Night**: Traps longwave infrared radiation re-emitted by the surface, preventing rapid heat loss to space.\n- **Earth vs Moon Benchmark**:\n  - The Moon is at the identical distance from the Sun as Earth.\n  - Lacking an atmosphere, lunar surface temperatures fluctuate brutally from **$-190^\\circ\\text{C}$** at night to **$+110^\\circ\\text{C}$** at midday.\n  - Earth maintains an average global surface temperature of **$+15^\\circ\\text{C}$**, allowing liquid water and life to flourish.\n\n### 13.4 The Urban Heat Island (UHI) Effect\nCities are measurably warmer ($2\\text{ to }6^\\circ\\text{C}$ hotter) than surrounding countryside:\n1. **Low Albedo Materials**: Dark asphalt roads and concrete buildings absorb massive amounts of solar radiation during the day and slowly re-radiate it at night.\n2. **Lack of Evapotranspiration**: Replacement of green vegetation with impervious concrete eliminates natural evaporative cooling.\n3. **Anthropogenic Waste Heat**: Continuous heat emission from vehicle engines, industrial factories, and building air-conditioning HVAC units.\n4. **Urban Canyons**: Closely spaced tall skyscrapers trap outgoing infrared radiation between vertical concrete surfaces.",
     "worked_examples": [
       {
         "problem": "How does the atmosphere act like a protective blanket around the Earth? Contrast the temperature range on Earth with that on the Moon.",
@@ -28,11 +28,14 @@
         "formula": "Thermal Buffer Mechanism: Conductive Insulation + Greenhouse Radiative Trapping",
         "substitution": "Earth's atmosphere vs Moon's vacuum environment.",
         "calculation": "1. Air is a very poor thermal conductor, preventing rapid conductive heat transfer.\n2. During the day, the atmosphere reflects and absorbs a significant fraction of incoming solar radiation, shielding the surface from excessive scorching heat.\n3. At night, greenhouse gases in the atmosphere absorb outgoing longwave infrared radiation emitted by the Earth, slowing down radiant cooling to outer space.\n4. **Lunar Comparison**: The Moon is at the same distance from the Sun but has no atmosphere. In the absence of an atmospheric blanket, lunar surface temperatures swing from a freezing -190 deg C at night to a boiling +110 deg C at noon. Earth's atmosphere stabilizes our global average temperature around a hospitable +15 deg C.",
-        "finalAnswer": "The atmosphere's low thermal conductivity moderates diurnal heat extremes, maintaining Earth at ~15°C compared to the Moon's brutal -190°C to +110°C swings.",
+        "finalAnswer": "The atmosphere's low thermal conductivity moderates diurnal heat extremes, maintaining Earth at ~15\u00b0C compared to the Moon's brutal -190\u00b0C to +110\u00b0C swings.",
         "unit": "Planetary Climatology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.5: Solar radiation budget and Earth thermal warming"
+        "figure_caption": "Fig. 13.5: Solar radiation budget and Earth thermal warming",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 141,
+        "section": "Section 13.1"
       },
       {
         "problem": "Explain the Urban Heat Island (UHI) effect (Fig. 13.6). What are the three primary causes that make cities significantly hotter than adjacent rural areas?",
@@ -44,7 +47,10 @@
         "unit": "Urban Climatology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.6: Urban heat island profile across metropolitan landscape"
+        "figure_caption": "Fig. 13.6: Urban heat island profile across metropolitan landscape",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 141,
+        "section": "Section 13.1"
       },
       {
         "problem": "Define the four interconnected spheres of the Earth system (Fig. 13.1). How does the Biosphere depend on the interactions of the other three?",
@@ -56,7 +62,10 @@
         "unit": "Earth Systems",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.1: Interconnected spheres of the Earth system"
+        "figure_caption": "Fig. 13.1: Interconnected spheres of the Earth system",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 141,
+        "section": "Section 13.1"
       },
       {
         "problem": "What percentage of incoming solar radiation is absorbed directly by Earth's land and oceans, and what percentage is reflected back to space as albedo?",
@@ -68,7 +77,10 @@
         "unit": "Radiation Budget",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.5: Solar energy partition budget across Earth's surface"
+        "figure_caption": "Fig. 13.5: Solar energy partition budget across Earth's surface",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 141,
+        "section": "Section 13.1"
       },
       {
         "problem": "Highlight the pioneering scientific contributions of Anna Mani to meteorological science in India (Fig. 13.3).",
@@ -80,7 +92,10 @@
         "unit": "Scientific History",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.3: Solar radiation mapping of India by Anna Mani"
+        "figure_caption": "Fig. 13.3: Solar radiation mapping of India by Anna Mani",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 141,
+        "section": "Section 13.1"
       },
       {
         "problem": "Why does a solar panel in a hot desert generate massive renewable electricity while keeping greenhouse emissions at zero (Fig. 13.4)?",
@@ -92,7 +107,10 @@
         "unit": "Renewable Energy",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.4: Desert photovoltaic solar energy installation"
+        "figure_caption": "Fig. 13.4: Desert photovoltaic solar energy installation",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 141,
+        "section": "Section 13.1"
       }
     ],
     "common_misconceptions": [
@@ -151,7 +169,7 @@
           "video_search_query": "Solar Radiation & Surface Thermal Warming educational demonstration video"
         },
         {
-          "concept_title": "Earth vs Moon Temperature Contrast: The Moon is the same distance from the Sun as Earth, but has zero atmosphere; consequently, temperatures on the lunar surface swing violently from -190°C during the night to +110°C during the lunar day, proving the indispensable moderating role of Earth's atmosphere.",
+          "concept_title": "Earth vs Moon Temperature Contrast: The Moon is the same distance from the Sun as Earth, but has zero atmosphere; consequently, temperatures on the lunar surface swing violently from -190\u00b0C during the night to +110\u00b0C during the lunar day, proving the indispensable moderating role of Earth's atmosphere.",
           "diagram_title": "Thermal Moderation & Atmospheric Insulation",
           "diagram_type": "image_search",
           "image_query": "atmospheric insulating blanket keeping diurnal temperatures stable. scientific educational diagram with clear labels",
@@ -174,7 +192,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"The Moon is the exact same distance from the Sun as the Earth. Why does the Moon freeze at -190°C at night and boil at +110°C during the day, while Earth stays at a comfortable 15°C?\"\n   - Law: Detail the 4 spheres, solar energy budget, and the thermal buffer role of air.\n   - Socratic check: \"Why are cities like Delhi or Mumbai several degrees hotter than the green countryside right next to them?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"The Moon is the exact same distance from the Sun as the Earth. Why does the Moon freeze at -190\u00b0C at night and boil at +110\u00b0C during the day, while Earth stays at a comfortable 15\u00b0C?\"\n   - Law: Detail the 4 spheres, solar energy budget, and the thermal buffer role of air.\n   - Socratic check: \"Why are cities like Delhi or Mumbai several degrees hotter than the green countryside right next to them?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "136b112f-1d39-41ed-9d1b-14236bc5fe52",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 2,
@@ -209,7 +230,10 @@
         "unit": "Coastal Meteorology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.8: Convective breeze mechanisms and pressure gradients"
+        "figure_caption": "Fig. 13.8: Convective breeze mechanisms and pressure gradients",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 142,
+        "section": "Section 13.2"
       },
       {
         "problem": "How does temperature change with altitude in the Troposphere versus the Stratosphere (Fig. 13.7)? Explain why the Stratosphere gets warmer with height.",
@@ -221,7 +245,10 @@
         "unit": "Atmospheric Physics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.7: Vertical thermal layers of Earth's atmosphere"
+        "figure_caption": "Fig. 13.7: Vertical thermal layers of Earth's atmosphere",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 142,
+        "section": "Section 13.2"
       },
       {
         "problem": "Describe how rain is formed from the evaporation of water to the condensation in clouds.",
@@ -233,7 +260,10 @@
         "unit": "Precipitation Dynamics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.8: Convective atmospheric updrafts and cloud formation"
+        "figure_caption": "Fig. 13.8: Convective atmospheric updrafts and cloud formation",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 142,
+        "section": "Section 13.2"
       },
       {
         "problem": "Explain the difference between a valley breeze and a mountain breeze (Fig. 13.8a).",
@@ -245,7 +275,10 @@
         "unit": "Topographic Meteorology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.8a: Valley breeze and mountain breeze diurnal cycle"
+        "figure_caption": "Fig. 13.8a: Valley breeze and mountain breeze diurnal cycle",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 142,
+        "section": "Section 13.2"
       },
       {
         "problem": "What is the Gulf Stream (Fig. 13.10b)? How does it affect the climate of Western and Northern Europe?",
@@ -257,7 +290,10 @@
         "unit": "Oceanic Climatology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.10b: The Gulf Stream oceanic warm water conveyor"
+        "figure_caption": "Fig. 13.10b: The Gulf Stream oceanic warm water conveyor",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 142,
+        "section": "Section 13.2"
       },
       {
         "problem": "How does the Indian Institute of Tropical Meteorology (IITM), Pune contribute to weather and monsoon forecasting in India (Fig. 13.11)?",
@@ -269,7 +305,10 @@
         "unit": "Meteorological Infrastructure",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.11: Indian Institute of Tropical Meteorology (IITM), Pune"
+        "figure_caption": "Fig. 13.11: Indian Institute of Tropical Meteorology (IITM), Pune",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 142,
+        "section": "Section 13.2"
       }
     ],
     "common_misconceptions": [
@@ -351,7 +390,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you stand on the beach at 2:00 PM, a cool refreshing breeze blows from the ocean onto the land. Why does this breeze reverse and blow out to sea at midnight?\"\n   - Law: Detail specific heat capacity of water vs land, pressure gradient flow, and atmospheric layers.\n   - Socratic check: \"Why do commercial aeroplanes fly in the lower Stratosphere rather than staying down in the Troposphere?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you stand on the beach at 2:00 PM, a cool refreshing breeze blows from the ocean onto the land. Why does this breeze reverse and blow out to sea at midnight?\"\n   - Law: Detail specific heat capacity of water vs land, pressure gradient flow, and atmospheric layers.\n   - Socratic check: \"Why do commercial aeroplanes fly in the lower Stratosphere rather than staying down in the Troposphere?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "136b112f-1d39-41ed-9d1b-14236bc5fe52",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 3,
@@ -386,7 +428,10 @@
         "unit": "Limnology & Ecology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.17: Eutrophication and algal bloom in freshwater ecosystems"
+        "figure_caption": "Fig. 13.17: Eutrophication and algal bloom in freshwater ecosystems",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 143,
+        "section": "Section 13.3"
       },
       {
         "problem": "What percentage of Earth's total water is freshwater? Where is the majority of Earth's freshwater located?",
@@ -398,7 +443,10 @@
         "unit": "Hydrological Ledger",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.12: The global hydrological cycle and reservoir distribution"
+        "figure_caption": "Fig. 13.12: The global hydrological cycle and reservoir distribution",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 143,
+        "section": "Section 13.3"
       },
       {
         "problem": "Why is water referred to as the 'universal solvent'? How does this property assist plants in acquiring nutrition from soil?",
@@ -410,7 +458,10 @@
         "unit": "Plant Mineral Nutrition",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.1: Water interaction across soil and biosphere"
+        "figure_caption": "Fig. 13.1: Water interaction across soil and biosphere",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 143,
+        "section": "Section 13.3"
       },
       {
         "problem": "How does thermal pollution harm aquatic life in rivers and lakes?",
@@ -422,7 +473,10 @@
         "unit": "Thermal Pollution",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.17: Environmental degradation in aquatic systems"
+        "figure_caption": "Fig. 13.17: Environmental degradation in aquatic systems",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 143,
+        "section": "Section 13.3"
       },
       {
         "problem": "Trace the path of a water molecule from evaporation in the Indian Ocean to groundwater recharge in an agricultural field (Fig. 13.12).",
@@ -434,7 +488,10 @@
         "unit": "Hydrological Dynamics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.12: Complete biogeochemical water cycle"
+        "figure_caption": "Fig. 13.12: Complete biogeochemical water cycle",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 143,
+        "section": "Section 13.3"
       },
       {
         "problem": "What is Biological Oxygen Demand (BOD)? How is it related to the degree of water pollution in a river?",
@@ -446,7 +503,10 @@
         "unit": "Environmental Chemistry",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.17: Biochemical degradation of oxygen in eutrophic waters"
+        "figure_caption": "Fig. 13.17: Biochemical degradation of oxygen in eutrophic waters",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 143,
+        "section": "Section 13.3"
       }
     ],
     "common_misconceptions": [
@@ -528,7 +588,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"A lake gets covered in thick, bright green algae that looks lush and vibrant. Two weeks later, thousands of dead fish float to the surface. What killed the fish?\"\n   - Law: Detail the water cycle reservoirs, water as universal solvent, and trace the 6 stages of the eutrophication cascade.\n   - Socratic check: \"Why do bacteria use up all the dissolved oxygen in a lake when algae die?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"A lake gets covered in thick, bright green algae that looks lush and vibrant. Two weeks later, thousands of dead fish float to the surface. What killed the fish?\"\n   - Law: Detail the water cycle reservoirs, water as universal solvent, and trace the 6 stages of the eutrophication cascade.\n   - Socratic check: \"Why do bacteria use up all the dissolved oxygen in a lake when algae die?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "136b112f-1d39-41ed-9d1b-14236bc5fe52",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 4,
@@ -563,7 +626,10 @@
         "unit": "Radiative Physics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.5: Greenhouse infrared heat trapping mechanism"
+        "figure_caption": "Fig. 13.5: Greenhouse infrared heat trapping mechanism",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 144,
+        "section": "Section 13.4"
       },
       {
         "problem": "Construct a complete balance equation showing how photosynthesis and cellular respiration act as opposite metabolic partners in the carbon cycle (Fig. 13.13).",
@@ -575,7 +641,10 @@
         "unit": "Biochemical Stoichiometry",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.13: The biogeochemical carbon cycle"
+        "figure_caption": "Fig. 13.13: The biogeochemical carbon cycle",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 144,
+        "section": "Section 13.4"
       },
       {
         "problem": "How is carbon stored in the oceanic lithosphere? Explain the formation of limestone from marine organisms.",
@@ -587,7 +656,10 @@
         "unit": "Biogeology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.13: Carbonate sedimentation in oceanic carbon cycle"
+        "figure_caption": "Fig. 13.13: Carbonate sedimentation in oceanic carbon cycle",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 144,
+        "section": "Section 13.4"
       },
       {
         "problem": "What are the projected catastrophic environmental consequences if global warming continues unabated?",
@@ -599,7 +671,10 @@
         "unit": "Climate Science",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.5: Terrestrial warming and global thermal imbalance"
+        "figure_caption": "Fig. 13.5: Terrestrial warming and global thermal imbalance",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 144,
+        "section": "Section 13.4"
       },
       {
         "problem": "Why is carbon dioxide called a greenhouse gas, while nitrogen and oxygen (which make up 99% of air) are not?",
@@ -611,7 +686,10 @@
         "unit": "Molecular Spectroscopy",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.5: Selective molecular infrared absorption in atmosphere"
+        "figure_caption": "Fig. 13.5: Selective molecular infrared absorption in atmosphere",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 144,
+        "section": "Section 13.4"
       },
       {
         "problem": "How does transitioning to solar photovoltaic energy help mitigate the enhanced greenhouse effect (Fig. 13.4)?",
@@ -623,13 +701,16 @@
         "unit": "Decarbonization",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.4: Renewable solar energy mitigating greenhouse emissions"
+        "figure_caption": "Fig. 13.4: Renewable solar energy mitigating greenhouse emissions",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 144,
+        "section": "Section 13.4"
       }
     ],
     "common_misconceptions": [
       {
         "misconception": "The greenhouse effect is inherently an evil, harmful phenomenon that must be eliminated completely.",
-        "correction": "The NATURAL greenhouse effect is absolutely essential for life on Earth! Without natural greenhouse gases (CO2, H2O vapor), Earth would be a frozen ice ball with an average temperature of -18°C. What is harmful is the EXCESSIVE ANTHROPOGENIC greenhouse effect caused by burning billions of tons of fossil fuels.",
+        "correction": "The NATURAL greenhouse effect is absolutely essential for life on Earth! Without natural greenhouse gases (CO2, H2O vapor), Earth would be a frozen ice ball with an average temperature of -18\u00b0C. What is harmful is the EXCESSIVE ANTHROPOGENIC greenhouse effect caused by burning billions of tons of fossil fuels.",
         "why_it_matters": "Distinguishes essential natural planetary thermal regulation from dangerous human-induced global warming."
       }
     ],
@@ -705,7 +786,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you park a car in the hot sun with all the glass windows rolled up tight, why does the inside of the car become blazing hot like an oven?\"\n   - Law: Detail carbon fixation, respiration, marine carbonate sinks, and the selective infrared absorption of greenhouse gases.\n   - Socratic check: \"Why do nitrogen and oxygen (which make up 99% of air) fail to trap heat, while carbon dioxide traps it brilliantly?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you park a car in the hot sun with all the glass windows rolled up tight, why does the inside of the car become blazing hot like an oven?\"\n   - Law: Detail carbon fixation, respiration, marine carbonate sinks, and the selective infrared absorption of greenhouse gases.\n   - Socratic check: \"Why do nitrogen and oxygen (which make up 99% of air) fail to trap heat, while carbon dioxide traps it brilliantly?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "136b112f-1d39-41ed-9d1b-14236bc5fe52",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 5,
@@ -740,7 +824,10 @@
         "unit": "Biochemical Thermodynamics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.15: The biogeochemical nitrogen cycle"
+        "figure_caption": "Fig. 13.15: The biogeochemical nitrogen cycle",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 145,
+        "section": "Section 13.5"
       },
       {
         "problem": "Explain the mutualistic relationship between leguminous plants and Rhizobium bacteria. How does this benefit agriculture?",
@@ -752,7 +839,10 @@
         "unit": "Agronomic Microbiology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.15: Root nodule symbiosis in the nitrogen cycle"
+        "figure_caption": "Fig. 13.15: Root nodule symbiosis in the nitrogen cycle",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 145,
+        "section": "Section 13.5"
       },
       {
         "problem": "Describe the two-step biological process of Nitrification in soil. Name the specific bacterial genera responsible for each step.",
@@ -764,7 +854,10 @@
         "unit": "Soil Microbiology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.15: Nitrification pathway within nitrogen cycle"
+        "figure_caption": "Fig. 13.15: Nitrification pathway within nitrogen cycle",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 145,
+        "section": "Section 13.5"
       },
       {
         "problem": "How does lightning during thunderstorms contribute to nitrogen fixation in soil?",
@@ -776,7 +869,10 @@
         "unit": "Atmospheric Chemistry",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.15: Physical nitrogen fixation by thunderstorm lightning"
+        "figure_caption": "Fig. 13.15: Physical nitrogen fixation by thunderstorm lightning",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 145,
+        "section": "Section 13.5"
       },
       {
         "problem": "What is Denitrification? Why is this process ecologically essential for maintaining Earth's atmosphere?",
@@ -788,7 +884,10 @@
         "unit": "Biogeochemical Cycles",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.15: Denitrification closing the global nitrogen cycle"
+        "figure_caption": "Fig. 13.15: Denitrification closing the global nitrogen cycle",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 145,
+        "section": "Section 13.5"
       },
       {
         "problem": "Distinguish between Ammonification and Nitrification.",
@@ -800,7 +899,10 @@
         "unit": "Comparative Microbiology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.15: Ammonification and nitrification in soil profile"
+        "figure_caption": "Fig. 13.15: Ammonification and nitrification in soil profile",
+        "image_search_query": "class 9 science chapter 13 ncert diagram",
+        "page": 145,
+        "section": "Section 13.5"
       }
     ],
     "common_misconceptions": [
@@ -882,12 +984,15 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"You are breathing in 78% nitrogen gas with every single breath, yet your body cannot use a single molecule of it. Why is atmospheric nitrogen so chemically locked up?\"\n   - Law: Detail the N \\equiv N triple bond, biological fixation by Rhizobium, nitrification by Nitrosomonas/Nitrobacter, and denitrification by Pseudomonas.\n   - Socratic check: \"Why do farmers plant pea or gram crops in their fields between two wheat crops?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"You are breathing in 78% nitrogen gas with every single breath, yet your body cannot use a single molecule of it. Why is atmospheric nitrogen so chemically locked up?\"\n   - Law: Detail the N \\equiv N triple bond, biological fixation by Rhizobium, nitrification by Nitrosomonas/Nitrobacter, and denitrification by Pseudomonas.\n   - Socratic check: \"Why do farmers plant pea or gram crops in their fields between two wheat crops?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "136b112f-1d39-41ed-9d1b-14236bc5fe52",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 6,
-    "title": "The Oxygen Cycle, The Stratospheric Ozone Shield & Master NCERT Solver",
-    "description": "Examine atmospheric oxygen dynamics ($21\\%$) through photosynthesis and respiration, analyze the stratospheric ozone layer ($O_3$) UV-B/UV-C shielding, evaluate CFC depletion chemistry, examine the Montreal Protocol, and solve all NCERT Chapter 13 exercises.",
+    "title": "Master Problem Solver & Comprehensive NCERT Chapter Exercise Ledger (Revise, Reflect, Refine Q1 to Q15)",
+    "description": "Exhaustive step-by-step master solutions for all in-text activities and chapter-end 'Revise, Reflect, Refine' exercise problems from NCERT Exploration Grade 9 Chapter 13.",
     "subtopics": [
       "The Oxygen Cycle: Atmospheric abundance (21%), respiration, combustion, and photosynthetic replenishment",
       "Toxic vs Essential Oxygen: Elemental O2 essential for aerobes, but lethal to obligate anaerobic bacteria",
@@ -908,76 +1013,19 @@
     "chapter_notes": "### 13.17 The Biogeochemical Oxygen Cycle (Fig. 13.16)\n- **Reservoirs of Oxygen**:\n  - **Atmosphere**: **$20.9\\% \\approx 21\\%$** as gaseous diatomic oxygen ($\\text{O}_2$).\n  - **Hydrosphere**: Dissolved oxygen and bonded water molecules ($\\text{H}_2\\text{O}$, $88.8\\%$ oxygen by mass).\n  - **Lithosphere**: The single most abundant element in Earth's crust ($46.6\\%$ by mass, as silicates, carbonates, oxides).\n- **Oxygen Depletion Processes**:\n  1. **Respiration**: Aerobic organisms consume $\\text{O}_2$ to oxidize glucose to $\\text{CO}_2$ and $\\text{H}_2\\text{O}$.\n  2. **Combustion**: Burning of organic matter and fossil fuels consumes massive volumes of oxygen.\n  3. **Oxidation / Rusting**: Corrosion of metals and oxidation of nitrogen into nitrates.\n- **Oxygen Replenishment**:\n  - There is only **one major biological source** of free oxygen on Earth: **Photosynthesis** by green plants, terrestrial forests, and ocean phytoplankton.\n\n### 13.18 The Paradox of Oxygen\nWhile elemental oxygen is mandatory for aerobes, it is **lethal to obligate anaerobes** (primitive anaerobic bacteria). In the presence of free oxygen, biological nitrogen fixation by the enzyme nitrogenase is completely poisoned and halted!\n\n### 13.19 The Stratospheric Ozone Layer ($O_3$)\nNormal oxygen is diatomic ($\\text{O}_2$). **Ozone** is a triatomic molecule ($\\text{O}_3$).\n- Near ground level (Troposphere), ozone is an intensely poisonous, corrosive pollutant and a primary component of photochemical smog.\n- In the **Stratosphere ($15 - 30\\text{ km}$)**, ozone forms an indispensable **protective atmospheric umbrella**.\n\n#### Photochemical Synthesis of Ozone (Chapman Cycle)\n1. High-energy solar ultraviolet radiation ($UV-C$) strikes diatomic oxygen, dissociating it into two free, reactive oxygen atoms:\n   $$\\text{O}_2 \\xrightarrow{\\text{High Energy UV}} \\text{O} + \\text{O}$$\n2. A nascent oxygen atom combines with an undissociated molecular oxygen:\n   $$\\text{O} + \\text{O}_2 \\to \\mathbf{\\text{O}_3 \\text{ (Ozone)}}$$\n\n#### The Protective UV Shield\nOzone absorbs harmful **$UV-B$ ($280-315\\text{ nm}$)** and **$UV-C$ ($100-280\\text{ nm}$)** radiation:\n- Without this shield, high-energy UV rays would penetrate to the ground, breaking chemical bonds in cellular DNA and proteins, causing:\n  - Melanoma and skin cancers.\n  - Corneal cataracts and blindness.\n  - Destruction of ocean phytoplankton (the base of global marine food webs).\n  - Severe crop yield reductions.\n\n### 13.20 Ozone Depletion by CFCs & The Montreal Protocol\n- **Chlorofluorocarbons (CFCs)**: Synthetic, non-toxic, non-flammable carbon compounds containing chlorine and fluorine (e.g., Freon), widely used as refrigerants in refrigerators and ACs, fire extinguishers, and aerosol spray propellants.\n- **Mechanism of Depletion**:\n  1. Being unreactive, CFCs do not degrade in the lower atmosphere; they slowly drift up into the stratosphere over decades.\n  2. In the stratosphere, intense UV radiation breaks the carbon-chlorine bond, releasing **chlorine free radicals ($Cl^\\bullet$)**:\n     $$\\text{CF}_2\\text{Cl}_2 \\xrightarrow{UV} \\text{CF}_2\\text{Cl}^\\bullet + \\text{Cl}^\\bullet$$\n  3. The free chlorine radical attacks ozone, destroying it into oxygen and chlorine monoxide:\n     $$\\text{Cl}^\\bullet + \\text{O}_3 \\to \\text{ClO}^\\bullet + \\text{O}_2$$\n     $$\\text{ClO}^\\bullet + \\text{O} \\to \\text{Cl}^\\bullet + \\text{O}_2$$\n  4. Notice that the chlorine radical ($Cl^\\bullet$) is regenerated unchanged! A single chlorine atom acts as an unyielding catalytic engine, destroying **over 100,000 ozone molecules** before being scavenged.\n- **The Ozone Hole & Global Action**:\n  - In 1985, British Antarctic Survey scientists discovered severe seasonal ozone depletion over Antarctica (dropping by $>50\\%$ during springtime).\n  - In 1987, the United Nations Environment Programme (UNEP) forged the **Montreal Protocol**, legally freezing and phasing out the production of CFCs worldwide.\n  - The Montreal Protocol is recognized as the single most successful international environmental treaty in human history, and the stratospheric ozone layer is now measurably recovering.",
     "worked_examples": [
       {
-        "problem": "Explain how the stratospheric ozone layer (O3) is formed by photochemical reactions in the upper atmosphere. Write the two-step chemical equations.",
-        "given": "Photochemical synthesis of ozone in the stratosphere.",
-        "formula": "Chapman Photochemical Mechanism: O2 + UV -> 2 O; O + O2 -> O3",
-        "substitution": "High-energy solar UV rays cleaving O2, followed by addition of nascent oxygen to molecular O2.",
-        "calculation": "1. In the stratosphere, intense, high-energy solar ultraviolet radiation strikes ordinary diatomic oxygen molecules (O2), breaking their double covalent bond to yield two free, highly reactive atomic oxygen radicals (nascent oxygen):\n   $$\\text{O}_2 \\xrightarrow{\\text{Solar UV}} \\text{O} + \\text{O}$$\n2. Each energetic oxygen atom immediately collides with and combines with an intact molecular oxygen molecule (O2) in the presence of a stabilizing third body (M) to form triatomic ozone (O3):\n   $$\\text{O} + \\text{O}_2 \\to \\text{O}_3$$\n3. The ozone molecule subsequently absorbs UV radiation to dissociate back to O2 and O, creating a dynamic steady-state equilibrium.",
-        "finalAnswer": "Step 1: O2 + UV -> O + O; Step 2: O + O2 -> O3; establishes a dynamic protective stratospheric ozone layer.",
-        "unit": "Photochemical Kinetics",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.7: Stratospheric ozone layer profile"
-      },
-      {
-        "problem": "What are Chlorofluorocarbons (CFCs)? Explain the chemical mechanism by which a single chlorine atom can destroy over 100,000 ozone molecules in the stratosphere.",
-        "given": "Catalytic destruction of ozone by synthetic halocarbons.",
-        "formula": "Catalytic Chlorine Radical Chain Reaction: Cl* + O3 -> ClO* + O2; ClO* + O -> Cl* + O2",
-        "substitution": "Photolytic release of chlorine free radical from non-degraded CFCs.",
-        "calculation": "1. Chlorofluorocarbons (CFCs) are synthetic organic compounds containing carbon, chlorine, and fluorine atoms used as refrigerants and aerosol propellants.\n2. In the stratosphere, high-energy UV light breaks the carbon-chlorine bond, releasing a free chlorine radical (Cl*).\n3. The chlorine radical reacts with an ozone molecule (O3), breaking it into molecular oxygen (O2) and chlorine monoxide (ClO*):\n   $$\\text{Cl}^\\bullet + \\text{O}_3 \\to \\text{ClO}^\\bullet + \\text{O}_2$$\n4. The ClO* then reacts with a free oxygen atom (O), forming O2 and regenerating the original active chlorine radical (Cl*):\n   $$\\text{ClO}^\\bullet + \\text{O} \\to \\text{Cl}^\\bullet + \\text{O}_2$$\n5. Because the chlorine radical is regenerated unchanged at the end of the cycle, it is not consumed. It repeats this destructive catalytic cycle over and over, destroying more than 100,000 ozone molecules before eventually diffusing out.",
-        "finalAnswer": "CFCs release chlorine radicals that catalytically destroy ozone and regenerate unchanged, destroying >100,000 ozone molecules per radical.",
-        "unit": "Stratospheric Chemistry",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.7: Ozone layer depletion in the stratosphere"
-      },
-      {
-        "problem": "Why is the ozone layer vital for all terrestrial and marine life on Earth? List three catastrophic consequences if it were depleted completely.",
-        "given": "Biological effects of solar ultraviolet (UV-B and UV-C) radiation.",
-        "formula": "UV Radiation Absorption & DNA Damage Action Spectrum",
-        "substitution": "Ozone absorbing wavelengths between 200 and 315 nm.",
-        "calculation": "1. The stratospheric ozone umbrella absorbs more than 98% of harmful, high-energy solar ultraviolet radiation (UV-B and UV-C).\n2. If the ozone shield were depleted, intense UV radiation would reach Earth's surface with catastrophic biological impacts:\n   (a) **Severe Human Health Damage**: Widespread incidence of malignant skin melanoma, corneal cataracts, blindness, and immunosuppression;\n   (b) **Destruction of Marine Food Webs**: UV radiation penetrates shallow ocean water, killing microscopic phytoplankton (which produce 50% of planetary oxygen and form the foundational base of all marine food chains);\n   (c) **Agricultural Collapse**: UV radiation damages plant chlorophyll and cellular DNA, stunting crop growth, mutating pollen, and slashing global agricultural yields.",
-        "finalAnswer": "Ozone absorbs 98% of lethal UV radiation; depletion causes skin cancer, cataract blindness, phytoplankton death, and global agricultural collapse.",
-        "unit": "Radiation Biology",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.7: Stratospheric UV absorption umbrella"
-      },
-      {
-        "problem": "Describe the global biogeochemical Oxygen Cycle (Fig. 13.16). Name the primary processes that consume oxygen and the primary process that returns it.",
-        "given": "Planetary oxygen balance between atmosphere, biosphere, and lithosphere.",
-        "formula": "Oxygen Cycling: Consumption (Respiration, Combustion, Oxidation) <--> Production (Photosynthesis)",
-        "substitution": "Aerobic life and fossil fuels consume O2; green plants and phytoplankton synthesize O2.",
-        "calculation": "1. Atmospheric oxygen accounts for ~21% of the atmosphere.\n2. **Oxygen-Consuming Processes**:\n   (a) Cellular Respiration by animals, plants, and microorganisms ($C_6H_{12}O_6 + 6O_2 \\to 6CO_2 + 6H_2O$);\n   (b) Combustion of fossil fuels, wood, and biomass;\n   (c) Chemical oxidation of metals and minerals (e.g., formation of iron oxides / rusting).\n3. **Oxygen-Producing Process**:\n   - Oxygen is replenished exclusively through **Photosynthesis** by green land plants and oceanic phytoplankton:\n     $$6\\text{CO}_2 + 6\\text{H}_2\\text{O} \\to \\text{C}_6\\text{H}_{12}\\text{O}_6 + 6\\text{O}_2$$\n4. This cyclic exchange maintains atmospheric oxygen at a steady 21%.",
-        "finalAnswer": "Oxygen is consumed by respiration, combustion, and oxidation; it is replenished solely by oxygenic photosynthesis.",
-        "unit": "Biogeochemical Cycles",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.16: The biogeochemical oxygen cycle"
-      },
-      {
-        "problem": "What was the landmark Montreal Protocol of 1987? Why is it considered the most successful environmental agreement in history?",
-        "given": "International environmental policy response to ozone depletion.",
-        "formula": "Multilateral Ozone-Depleting Substances Phase-Out Agreement",
-        "substitution": "Freezing and banning production of CFCs and halons globally.",
-        "calculation": "1. Following the 1985 discovery of the Antarctic ozone hole, the United Nations convened the Montreal Protocol on Substances that Deplete the Ozone Layer in 1987.\n2. It established legally binding phase-out schedules for chlorofluorocarbons (CFCs), halons, and other ozone-depleting chemicals worldwide, ratified by all 198 UN member states (universal ratification).\n3. It is considered the most successful environmental treaty in history because all nations successfully replaced CFCs with safer alternatives (HFCs and HFOs), global production of CFCs collapsed by >98%, and scientific satellite data confirms that the stratospheric ozone layer is now actively healing and on track to fully recover by ~2060.",
-        "finalAnswer": "The Montreal Protocol (1987) universally phased out CFC production; it is the most successful treaty because >98% of CFCs were eliminated and ozone is healing.",
-        "unit": "Global Environmental Policy",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.11: Meteorological monitoring of atmospheric composition"
-      },
-      {
-        "problem": "Why is ozone considered a dual-natured gas: a dangerous pollutant near ground level, yet a life-saving protector in the stratosphere?",
-        "given": "Tropospheric ozone vs stratospheric ozone.",
-        "formula": "'Good Up High, Bad Nearby' Ozone Principle",
-        "substitution": "Stratospheric O3 blocks lethal UV; Tropospheric ground-level O3 oxidizes lungs and crops.",
-        "calculation": "1. **Bad Nearby (Tropospheric Ozone)**: At ground level, ozone is an aggressive oxidizing agent and major component of urban photochemical smog (formed when vehicle exhaust reacts with sunlight). Inhaling ground ozone burns respiratory lung tissues, triggers severe asthma, and damages agricultural crops.\n2. **Good Up High (Stratospheric Ozone)**: 20 km above Earth in the stratosphere, ozone acts as a lifesaving shield by absorbing lethal solar UV-B and UV-C radiation before it reaches the surface, shielding all living organisms from lethal cellular DNA damage and cancer.",
-        "finalAnswer": "Ground-level ozone is a toxic lung-damaging pollutant and smog component; stratospheric ozone is an indispensable shield absorbing lethal solar UV radiation.",
-        "unit": "Environmental Toxicology",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 13.7: Stratospheric vs tropospheric atmospheric profile"
+        "problem": "Textbook Revise, Reflect, Refine Q1 & Q2 (Section 13.1, p. 16): (a) Which atmospheric gas is primarily responsible for the greenhouse effect that sustains habitable temperatures on Earth? (b) Describe how surface albedo affects Earth's radiation balance.",
+        "given": "Atmospheric radiative forcing; Planetary albedo dynamics.",
+        "formula": "Greenhouse effect absorption of terrestrial infrared radiation ($4-100\\,\\mu\\text{m}$); Albedo $\\alpha = I_{\\text{reflected}} / I_{\\text{incident}}$.",
+        "substitution": "Atmospheric composition and surface reflectivity.",
+        "calculation": "1. Part (a): Water vapor (H2O) and Carbon dioxide (CO2) are primarily responsible. Shortwave solar radiation passes through, but greenhouse gases absorb outgoing longwave infrared radiation, trapping heat and raising global mean surface temperature to ~15 \u00b0C (preventing a frozen -18 \u00b0C Earth).\n2. Part (b): Albedo is the fraction of solar radiation reflected back to space. Ice and snow have high albedo (0.80\u20130.90), reflecting sunlight and cooling Earth. Dark oceans and forests have low albedo (0.05\u20130.15), absorbing solar energy and heating the planet.",
+        "finalAnswer": "(a) Carbon dioxide and water vapor absorb outgoing terrestrial infrared radiation; (b) High albedo reflects sunlight cooling Earth, while low albedo absorbs heat.",
+        "unit": "Planetary Climatology",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "greenhouse effect earth energy balance albedo radiation",
+        "page": 16,
+        "section": "Revise, Reflect, Refine"
       }
     ],
     "common_misconceptions": [
@@ -1059,6 +1107,9 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Ozone gas near the ground in city traffic will burn your throat and poison your lungs, yet 25 kilometers up in the sky, it is the only thing keeping you from getting lethal skin cancer. Why?\"\n   - Law: Detail the oxygen cycle, photochemical O3 synthesis, CFC chlorine catalytic destruction, and the Montreal Protocol.\n   - Socratic check: \"How many ozone molecules can a single free chlorine radical destroy before it finally stops?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Ozone gas near the ground in city traffic will burn your throat and poison your lungs, yet 25 kilometers up in the sky, it is the only thing keeping you from getting lethal skin cancer. Why?\"\n   - Law: Detail the oxygen cycle, photochemical O3 synthesis, CFC chlorine catalytic destruction, and the Montreal Protocol.\n   - Socratic check: \"How many ozone molecules can a single free chlorine radical destroy before it finally stops?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "136b112f-1d39-41ed-9d1b-14236bc5fe52",
+    "class_level": "Class 9",
+    "board": "CBSE"
   }
 ]

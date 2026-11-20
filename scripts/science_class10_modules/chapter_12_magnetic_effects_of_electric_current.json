@@ -1,0 +1,2154 @@
+[
+  {
+    "id": "34878d3a-2385-46f7-a55b-79373c836323",
+    "curriculum_id": "273e23d2-9db4-407e-a809-05f8bc45716d",
+    "order_index": 1,
+    "title": "Oersted's Discovery and Magnetic Field Fundamentals",
+    "description": "Master Oersted's experiment linking electricity and magnetism, magnetic field concepts, and Activities 12.1 to 12.3.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 1: Oersted's Discovery and Magnetic Field Fundamentals. Final-Term Examination Syllabus. Emphasize Oersted's serendipitous discovery in 1820 and how it unified electricity and magnetism.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Circuit with battery, key K, straight copper wire XY, and compass needle underneath showing angular deflection.\n- Diagram Type: circuit_schematic\n- Chapter Multi-Level Flowchart: Electricity & Magnetism -> Oersted's Discovery -> Current carrying wire produces Magnetic Field -> Compass Needle Deflection\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Electricity & Magnetism -> Oersted's Discovery -> Current carrying wire produces Magnetic Field -> Compass Needle Deflection\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Magnetic Field: \"The region surrounding a magnet in which the force of the magnet can be detected.\" [SI Unit: Tesla (T) or Weber per square metre (Wb/m\u00b2)]\n\n- Textbook Concrete Examples:\n- Activity 12.1: Deflection of Compass Needle: A straight thick copper wire XY is placed in an electric circuit. When current is switched on, a nearby compass needle deflects.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - Page 196 Question:\n    * [Q1] (conceptual): Why does a compass needle get deflected when brought near a bar magnet?\n      Method: Explain that the compass needle is a small bar magnet whose poles experience magnetic force in the magnetic field of the bar magnet.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Current-carrying wire produces a magnetic field\":\n    * [Q1] (1-mark MCQ): Who accidentally discovered the magnetic effect of electric current in 1820?\n      -> Ideal Model Answer: Hans Christian Oersted\n      -> Socratic Hint: Think of the 19th-century scientist whose name is also a unit of magnetic field strength.\n    * [Q2] (2-mark Definition): What happens to a compass needle placed near a current-carrying straight copper wire?\n      -> Ideal Model Answer: The compass needle gets deflected, proving that an electric current produces a magnetic field around it.\n      -> Socratic Hint: Recall Activity 12.1 where the key was plugged in.\n    * [Q3] (3-mark Short Answer): State Oersted's observation and explain its significance in physics.\n      -> Ideal Model Answer: Oersted observed that a compass needle deflects when current flows through a nearby wire. This proved that electricity and magnetism are related phenomena.\n      -> Socratic Hint: Connect electricity flowing in a conductor to the deflection of a magnetic needle.\n    * [Q4] (PYQ): Why does a compass needle get deflected when brought near a bar magnet?\n      -> Ideal Model Answer: A compass needle is a small bar magnet. The magnetic field of the bar magnet exerts a magnetic force on the compass needle poles, causing deflection.\n      -> Socratic Hint: Consider what a compass needle actually is.\n    * [Q5] (Competency): If the current in Activity 12.1 is doubled, how does the deflection of the compass needle change?\n      -> Ideal Model Answer: The deflection increases because a higher current produces a stronger magnetic field.\n      -> Socratic Hint: Magnetic field strength is directly proportional to current.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Current-carrying wire produces a magnetic field\":\n    - Visual Title: \"Oersted's Experiment Setup\" (circuit_schematic)\n    - Why Needed: Visualizes how electric current creates a magnetic force affecting compass needles.\n    - What to Explain: Explain how closing the key causes current flow and instant needle deflection.\n    - Timing & Directive: Ask student: What happens when the key is closed?\n    - Interactive Math Formula: B \\propto I\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Current-carrying wire produces a magnetic field",
+      "Magnetic field definition and SI unit (Tesla / Gauss)",
+      "Compass needle behavior near magnets",
+      "Like poles repel, unlike poles attract"
+    ],
+    "success_criteria": "Explain Oersted's experiment and state how electric currents produce magnetic fields.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:47:59.229389+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Magnetic effect of electric current",
+      "Oersted's experiment",
+      "Definition of magnetic field",
+      "Properties of bar magnet poles"
+    ],
+    "chapter_notes": "Hans Christian Oersted in 1820 discovered that electric current flowing through a metallic wire produces a magnetic field. A compass needle (a small bar magnet) gets deflected near it. The region surrounding a magnet where its magnetic force can be detected is called a magnetic field. Magnetic field has both magnitude and direction.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Dimensionless",
+        "given": "Compass needle free to rotate horizontally.",
+        "formula": "Earth's magnetic field interaction with magnetic dipole.",
+        "problem": "Explain the direction of north-seeking and south-seeking poles of a compass needle.",
+        "calculation": "Needle aligns with local magnetic field lines.",
+        "finalAnswer": "North-seeking pole points to North; South-seeking pole points to South.",
+        "substitution": "North pole points to geographic north (magnetic south).",
+        "image_search_query": "class 10 science chapter_12_magn ncert",
+        "page": 10,
+        "section": "Section 1"
+      }
+    ],
+    "common_misconceptions": [
+      "Thinking a compass needle is made of ordinary iron (it is a permanent magnet).",
+      "Confusing geographic poles with magnetic poles."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735278641_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Oersted's Discovery and Magnetic Field Fundamentals: Master Oersted's experiment linking electricity and magnetism, magnetic field concepts, and Activities 12.1 to 12.3.",
+              "keyTakeaway": "Current-carrying wire produces a magnetic field"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Current-carrying wire produces a magnetic field"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc112.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735278641_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Oersted's Discovery and Magnetic Field Fundamentals - Fundamental Equations",
+              "equations": [
+                "Current-carrying wire produces a magnetic field",
+                "Magnetic field definition and SI unit (Tesla / Gauss)",
+                "Compass needle behavior near magnets"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Current-carrying wire produces a magnetic field"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc112.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735278641_3",
+          "type": "DIAGRAM",
+          "title": "Oersted's Discovery and Magnetic Field Fundamentals Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Oersted's Discovery and Magnetic Field Fundamentals Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Current-carrying wire produces a magnetic field",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Magnetic field definition and SI unit (Tesla / Gauss)",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Oersted's Discovery and Magnetic Field Fundamentals",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Oersted's Discovery and Magnetic Field Fundamentals | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='100' y1='140' x2='440' y2='140' stroke='#0F172A' stroke-width='3'/><circle cx='270' cy='140' r='30' fill='#F8FAFC' stroke='#2563EB' stroke-width='2'/><line x1='270' y1='120' x2='270' y2='160' stroke='#DC2626' stroke-width='2'/><polygon points='270,115 265,125 275,125' fill='#DC2626'/><text x='275' y='195' font-family='sans-serif' font-size='14' fill='#0F172A' text-anchor='middle'>Compass Needle Deflection</text><text x='270' y='60' font-family='sans-serif' font-size='16' font-weight='bold' fill='#2563EB' text-anchor='middle'>Oersted's Experiment (Activity 12.1)</text></svg> | Circuit with battery, key K, straight copper wire XY, and compass needle underneath showing angular deflection."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc112.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735278641_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Current-carrying wire produces a magnetic field"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Compass needle free to rotate horizontally., what is the value?",
+              "explanation": "By fundamental principle, Current-carrying wire produces a magnetic field is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735278641_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Magnetic effect of electric current",
+                "Oersted's experiment",
+                "Definition of magnetic field",
+                "Properties of bar magnet poles"
+              ],
+              "formulasToRemember": [
+                "Current-carrying wire produces a magnetic field",
+                "Magnetic field definition and SI unit (Tesla / Gauss)",
+                "Compass needle behavior near magnets"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Oersted's Discovery and Magnetic Field Fundamentals - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Oersted's Discovery and Magnetic Field Fundamentals",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:47:58.641Z",
+        "provenance": "jesc112.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735278641",
+      "subtopics": [
+        "Magnetic effect of electric current",
+        "Oersted's experiment",
+        "Definition of magnetic field",
+        "Properties of bar magnet poles"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='100' y1='140' x2='440' y2='140' stroke='#0F172A' stroke-width='3'/><circle cx='270' cy='140' r='30' fill='#F8FAFC' stroke='#2563EB' stroke-width='2'/><line x1='270' y1='120' x2='270' y2='160' stroke='#DC2626' stroke-width='2'/><polygon points='270,115 265,125 275,125' fill='#DC2626'/><text x='275' y='195' font-family='sans-serif' font-size='14' fill='#0F172A' text-anchor='middle'>Compass Needle Deflection</text><text x='270' y='60' font-family='sans-serif' font-size='16' font-weight='bold' fill='#2563EB' text-anchor='middle'>Oersted's Experiment (Activity 12.1)</text></svg>",
+      "diagram_idea": "Diagram of Oersted's setup with a battery, switch, straight wire, and compass needle showing deflection.",
+      "diagram_type": "circuit_schematic",
+      "what_to_make": "Circuit with battery, key K, straight copper wire XY, and compass needle underneath showing angular deflection.",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='120' y1='140' x2='420' y2='140' stroke='#0F172A' stroke-width='3'/><circle cx='270' cy='140' r='35' fill='#F1F5F9' stroke='#2563EB' stroke-width='2'/><line x1='255' y1='155' x2='285' y2='125' stroke='#DC2626' stroke-width='3'/><polygon points='285,125 277,126 284,133' fill='#DC2626'/><text x='270' y='210' font-family='sans-serif' font-size='14' fill='#0F172A' text-anchor='middle'>Deflected Compass Needle</text></svg>",
+          "why_needed": "Visualizes how electric current creates a magnetic force affecting compass needles.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='120' y1='140' x2='420' y2='140' stroke='#0F172A' stroke-width='3'/><circle cx='270' cy='140' r='35' fill='#F1F5F9' stroke='#2563EB' stroke-width='2'/><line x1='255' y1='155' x2='285' y2='125' stroke='#DC2626' stroke-width='3'/><polygon points='285,125 277,126 284,133' fill='#DC2626'/><text x='270' y='210' font-family='sans-serif' font-size='14' fill='#0F172A' text-anchor='middle'>Deflected Compass Needle</text></svg>",
+          "image_query": "simple closed electric circuit diagram with electric cell battery, bulb, plug key switch closed, ammeter in series, and arrows showing conventional current flow",
+          "video_query": "simple electric circuit connection battery bulb switch ammeter demonstration",
+          "diagram_type": "circuit_schematic",
+          "what_to_make": "Straight wire over compass with battery and switch.",
+          "concept_title": "Current-carrying wire produces a magnetic field",
+          "diagram_title": "Oersted's Experiment Setup",
+          "timing_and_cue": "Ask student: What happens when the key is closed?",
+          "what_to_explain": "Explain how closing the key causes current flow and instant needle deflection.",
+          "image_search_query": "simple closed electric circuit diagram with electric cell battery, bulb, plug key switch closed, ammeter in series, and arrows showing conventional current flow",
+          "video_search_query": "simple electric circuit connection battery bulb switch ammeter demonstration",
+          "interactive_math_formula": "B \\propto I"
+        }
+      ],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "Electricity & Magnetism -> Oersted's Discovery -> Current carrying wire produces Magnetic Field -> Compass Needle Deflection",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Who accidentally discovered the magnetic effect of electric current in 1820?",
+              "ideal_answer": "Hans Christian Oersted",
+              "socratic_hint": "Think of the 19th-century scientist whose name is also a unit of magnetic field strength."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "What happens to a compass needle placed near a current-carrying straight copper wire?",
+              "ideal_answer": "The compass needle gets deflected, proving that an electric current produces a magnetic field around it.",
+              "socratic_hint": "Recall Activity 12.1 where the key was plugged in."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "State Oersted's observation and explain its significance in physics.",
+              "ideal_answer": "Oersted observed that a compass needle deflects when current flows through a nearby wire. This proved that electricity and magnetism are related phenomena.",
+              "socratic_hint": "Connect electricity flowing in a conductor to the deflection of a magnetic needle."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q4",
+              "question": "Why does a compass needle get deflected when brought near a bar magnet?",
+              "ideal_answer": "A compass needle is a small bar magnet. The magnetic field of the bar magnet exerts a magnetic force on the compass needle poles, causing deflection.",
+              "socratic_hint": "Consider what a compass needle actually is."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q5",
+              "question": "If the current in Activity 12.1 is doubled, how does the deflection of the compass needle change?",
+              "ideal_answer": "The deflection increases because a higher current produces a stronger magnetic field.",
+              "socratic_hint": "Magnetic field strength is directly proportional to current."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Current-carrying wire produces a magnetic field"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Activity 12.1: Deflection of Compass Needle",
+          "scenario": "A straight thick copper wire XY is placed in an electric circuit. When current is switched on, a nearby compass needle deflects."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "Why does a compass needle get deflected when brought near a bar magnet?",
+              "question_type": "conceptual",
+              "solution_method": "Explain that the compass needle is a small bar magnet whose poles experience magnetic force in the magnetic field of the bar magnet."
+            }
+          ],
+          "exercise_number": "Page 196 Question"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Magnetic Field",
+          "si_units": "Tesla (T) or Weber per square metre (Wb/m\u00b2)",
+          "definition": "The region surrounding a magnet in which the force of the magnet can be detected."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "0e352ebd-0821-4dca-b3ee-257e7a1281cd",
+    "curriculum_id": "273e23d2-9db4-407e-a809-05f8bc45716d",
+    "order_index": 2,
+    "title": "Magnetic Field Lines and Properties",
+    "description": "Understand magnetic field lines, iron filing patterns (Activity 12.2), compass tracing (Activity 12.3), and closed curves.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 2: Magnetic Field Lines and Properties. Final-Term Examination Syllabus. Emphasize why non-intersection is a classic board examination question.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Bar magnet labeled N and S with smooth concentric loop field lines and arrows.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Bar Magnet -> Iron Filings Pattern -> Field Lines Definition -> Properties (Closed curves, Non-intersecting, Strength)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Bar Magnet -> Iron Filings Pattern -> Field Lines Definition -> Properties (Closed curves, Non-intersecting, Strength)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Magnetic Field Line: \"The path along which a hypothetical free north pole would tend to move.\" [SI Unit: Dimensionless path representation]\n\n- Textbook Concrete Examples:\n- Activity 12.2: Iron Filings Pattern: Iron filings sprinkled around a bar magnet and tapped gently align themselves along magnetic field lines.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - Page 200 Questions:\n    * [Q1] (construction): Draw magnetic field lines around a bar magnet.\n      Method: Draw closed loops emerging from N to S outside and S to N inside.\n    * [Q2] (conceptual): List the properties of magnetic field lines.\n      Method: List direction (N to S), closed curves, relative strength via crowding, non-intersection.\n    * [Q3] (proof): Why don't two magnetic field lines intersect each other?\n      Method: Explain intersection paradox where compass needle would point in two directions.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Field lines emerge from North pole and merge at South pole\":\n    * [Q1] (1-mark MCQ): Outside a bar magnet, the direction of magnetic field lines is:\n      -> Ideal Model Answer: From North pole to South pole\n      -> Socratic Hint: Think about where magnetic field lines start and end outside the magnet body.\n    * [Q2] (2-mark Definition): Define magnetic field lines.\n      -> Ideal Model Answer: Magnetic field lines are paths along which a hypothetical free north pole tends to move in a magnetic field.\n      -> Socratic Hint: Imagine placing a tiny isolated north pole near a magnet.\n    * [Q3] (3-mark Short Answer): Why don't two magnetic field lines intersect each other?\n      -> Ideal Model Answer: If they intersected, at the point of intersection the compass needle would point in two different directions, which is physically impossible.\n      -> Socratic Hint: Can a compass needle point in two directions at the exact same time?\n    * [Q4] (PYQ): List three properties of magnetic field lines.\n      -> Ideal Model Answer: 1. They form closed continuous curves. 2. They emerge from North and merge at South outside. 3. Crowded lines indicate stronger magnetic field.\n      -> Socratic Hint: Recall direction, crowding, and intersection rules.\n    * [Q5] (Competency): What does the crowding of magnetic field lines at the poles of a bar magnet signify?\n      -> Ideal Model Answer: It signifies that the magnetic field is strongest near the poles.\n      -> Socratic Hint: Closeness of lines = strength of field.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Field lines emerge from North pole and merge at South pole\":\n    - Visual Title: \"Bar Magnet Field Lines\" (vector_svg_diagram)\n    - Why Needed: Essential for visualizing 3D magnetic flux flow.\n    - What to Explain: Point out arrows pointing from N to S externally and S to N internally.\n    - Timing & Directive: Ask student: What is the direction of field lines inside the magnet?\n    - Interactive Math Formula: B \\text{ field lines loop continuously}\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Field lines emerge from North pole and merge at South pole",
+      "Field lines are closed continuous curves",
+      "Degree of closeness indicates magnetic field strength",
+      "No two field lines can intersect each other"
+    ],
+    "success_criteria": "State all 4 properties of magnetic field lines and explain why they never intersect.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:47:59.905305+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Magnetic field lines around bar magnet",
+      "Properties of field lines",
+      "Direction of magnetic field",
+      "Intersection rule of field lines"
+    ],
+    "chapter_notes": "Magnetic field lines represent magnetic fields. By convention, field lines emerge from the North pole and merge at the South pole outside the magnet, and go from South to North inside, forming closed curves. Field strength is proportional to line density. Two field lines never intersect because it would imply two directions of magnetic field at one point.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Dimensionless",
+        "given": "Bar magnet with North (N) and South (S) poles.",
+        "formula": "Closed loop magnetic flux continuity.",
+        "problem": "Identify the direction of magnetic field inside a bar magnet.",
+        "calculation": "Completes the closed loop of magnetic field line.",
+        "finalAnswer": "From South pole to North pole",
+        "substitution": "Inside magnet: South to North.",
+        "image_search_query": "class 10 science chapter_12_magn ncert",
+        "page": 20,
+        "section": "Section 2"
+      }
+    ],
+    "common_misconceptions": [
+      "Thinking magnetic field lines start at North and end at South without forming closed loops inside the magnet.",
+      "Believing field lines are physical threads."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735279340_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Magnetic Field Lines and Properties: Understand magnetic field lines, iron filing patterns (Activity 12.2), compass tracing (Activity 12.3), and closed curves.",
+              "keyTakeaway": "Field lines emerge from North pole and merge at South pole"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Field lines emerge from North pole and merge at South pole"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc112.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735279340_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Magnetic Field Lines and Properties - Fundamental Equations",
+              "equations": [
+                "Field lines emerge from North pole and merge at South pole",
+                "Field lines are closed continuous curves",
+                "Degree of closeness indicates magnetic field strength"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Field lines emerge from North pole and merge at South pole"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc112.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735279340_3",
+          "type": "DIAGRAM",
+          "title": "Magnetic Field Lines and Properties Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Magnetic Field Lines and Properties Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Field lines emerge from North pole and merge at South pole",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Field lines are closed continuous curves",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Magnetic Field Lines and Properties",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Magnetic Field Lines and Properties | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='200' y='120' width='140' height='40' fill='#DC2626'/><text x='225' y='145' font-family='sans-serif' font-size='18' font-weight='bold' fill='#FFFFFF'>N</text><text x='315' y='145' font-family='sans-serif' font-size='18' font-weight='bold' fill='#FFFFFF'>S</text><path d='M270,120 C270,40 100,40 100,140 C100,240 270,240 270,160' fill='none' stroke='#2563EB' stroke-width='2'/><polygon points='180,88 190,83 185,93' fill='#2563EB'/><text x='270' y='30' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A' text-anchor='middle'>Magnetic Field Lines around Bar Magnet</text></svg> | Bar magnet labeled N and S with smooth concentric loop field lines and arrows."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc112.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735279340_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Field lines emerge from North pole and merge at South pole"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Bar magnet with North (N) and South (S) poles., what is the value?",
+              "explanation": "By fundamental principle, Field lines emerge from North pole and merge at South pole is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735279340_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Magnetic field lines around bar magnet",
+                "Properties of field lines",
+                "Direction of magnetic field",
+                "Intersection rule of field lines"
+              ],
+              "formulasToRemember": [
+                "Field lines emerge from North pole and merge at South pole",
+                "Field lines are closed continuous curves",
+                "Degree of closeness indicates magnetic field strength"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Magnetic Field Lines and Properties - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Magnetic Field Lines and Properties",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:47:59.340Z",
+        "provenance": "jesc112.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735279340",
+      "subtopics": [
+        "Magnetic field lines around bar magnet",
+        "Properties of field lines",
+        "Direction of magnetic field",
+        "Intersection rule of field lines"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='200' y='120' width='140' height='40' fill='#DC2626'/><text x='225' y='145' font-family='sans-serif' font-size='18' font-weight='bold' fill='#FFFFFF'>N</text><text x='315' y='145' font-family='sans-serif' font-size='18' font-weight='bold' fill='#FFFFFF'>S</text><path d='M270,120 C270,40 100,40 100,140 C100,240 270,240 270,160' fill='none' stroke='#2563EB' stroke-width='2'/><polygon points='180,88 190,83 185,93' fill='#2563EB'/><text x='270' y='30' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A' text-anchor='middle'>Magnetic Field Lines around Bar Magnet</text></svg>",
+      "diagram_idea": "Bar magnet with curved field lines marked with arrows from N to S.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Bar magnet labeled N and S with smooth concentric loop field lines and arrows.",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='210' y='120' width='120' height='40' fill='#2563EB'/><text x='235' y='145' font-family='sans-serif' font-size='18' font-weight='bold' fill='#FFFFFF'>N</text><text x='295' y='145' font-family='sans-serif' font-size='18' font-weight='bold' fill='#FFFFFF'>S</text><path d='M270,120 C270,60 140,60 140,140 C140,220 270,220 270,160' fill='none' stroke='#DC2626' stroke-width='2'/></svg>",
+          "why_needed": "Essential for visualizing 3D magnetic flux flow.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='210' y='120' width='120' height='40' fill='#2563EB'/><text x='235' y='145' font-family='sans-serif' font-size='18' font-weight='bold' fill='#FFFFFF'>N</text><text x='295' y='145' font-family='sans-serif' font-size='18' font-weight='bold' fill='#FFFFFF'>S</text><path d='M270,120 C270,60 140,60 140,140 C140,220 270,220 270,160' fill='none' stroke='#DC2626' stroke-width='2'/></svg>",
+          "image_query": "Bar magnet N-S with curved loops. scientific educational diagram with clear labels",
+          "video_query": "Bar Magnet Field Lines educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Bar magnet N-S with curved loops.",
+          "concept_title": "Field lines emerge from North pole and merge at South pole",
+          "diagram_title": "Bar Magnet Field Lines",
+          "timing_and_cue": "Ask student: What is the direction of field lines inside the magnet?",
+          "what_to_explain": "Point out arrows pointing from N to S externally and S to N internally.",
+          "image_search_query": "Bar magnet N-S with curved loops. scientific educational diagram with clear labels",
+          "video_search_query": "Bar Magnet Field Lines educational demonstration video",
+          "interactive_math_formula": "B \\text{ field lines loop continuously}"
+        }
+      ],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "Bar Magnet -> Iron Filings Pattern -> Field Lines Definition -> Properties (Closed curves, Non-intersecting, Strength)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Outside a bar magnet, the direction of magnetic field lines is:",
+              "ideal_answer": "From North pole to South pole",
+              "socratic_hint": "Think about where magnetic field lines start and end outside the magnet body."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Define magnetic field lines.",
+              "ideal_answer": "Magnetic field lines are paths along which a hypothetical free north pole tends to move in a magnetic field.",
+              "socratic_hint": "Imagine placing a tiny isolated north pole near a magnet."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "Why don't two magnetic field lines intersect each other?",
+              "ideal_answer": "If they intersected, at the point of intersection the compass needle would point in two different directions, which is physically impossible.",
+              "socratic_hint": "Can a compass needle point in two directions at the exact same time?"
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q4",
+              "question": "List three properties of magnetic field lines.",
+              "ideal_answer": "1. They form closed continuous curves. 2. They emerge from North and merge at South outside. 3. Crowded lines indicate stronger magnetic field.",
+              "socratic_hint": "Recall direction, crowding, and intersection rules."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q5",
+              "question": "What does the crowding of magnetic field lines at the poles of a bar magnet signify?",
+              "ideal_answer": "It signifies that the magnetic field is strongest near the poles.",
+              "socratic_hint": "Closeness of lines = strength of field."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Field lines emerge from North pole and merge at South pole"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Activity 12.2: Iron Filings Pattern",
+          "scenario": "Iron filings sprinkled around a bar magnet and tapped gently align themselves along magnetic field lines."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "Draw magnetic field lines around a bar magnet.",
+              "question_type": "construction",
+              "solution_method": "Draw closed loops emerging from N to S outside and S to N inside."
+            },
+            {
+              "q_num": "Q2",
+              "question": "List the properties of magnetic field lines.",
+              "question_type": "conceptual",
+              "solution_method": "List direction (N to S), closed curves, relative strength via crowding, non-intersection."
+            },
+            {
+              "q_num": "Q3",
+              "question": "Why don't two magnetic field lines intersect each other?",
+              "question_type": "proof",
+              "solution_method": "Explain intersection paradox where compass needle would point in two directions."
+            }
+          ],
+          "exercise_number": "Page 200 Questions"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Magnetic Field Line",
+          "si_units": "Dimensionless path representation",
+          "definition": "The path along which a hypothetical free north pole would tend to move."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "4865e3a7-d307-4929-8bbf-e73375de2d13",
+    "curriculum_id": "273e23d2-9db4-407e-a809-05f8bc45716d",
+    "order_index": 3,
+    "title": "Magnetic Field due to Current-Carrying Conductors, Loops, and Solenoids",
+    "description": "Master right-hand thumb rule, magnetic fields of straight wires, circular loops, and solenoids (Activity 12.4-12.6).",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 3: Magnetic Field due to Current-Carrying Conductors, Loops, and Solenoids. Final-Term Examination Syllabus. Practice right-hand thumb rule with students using their right hands during the session.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Right hand gripping a vertical wire with thumb up and curved magnetic field arrows around it.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Current-Carrying Conductor -> Straight Wire (Concentric Circles, Right-Hand Rule) -> Circular Loop -> Solenoid (Uniform Field, Electromagnet)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Current-Carrying Conductor -> Straight Wire (Concentric Circles, Right-Hand Rule) -> Circular Loop -> Solenoid (Uniform Field, Electromagnet)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Solenoid: \"A coil of many circular turns of insulated copper wire wrapped closely in the shape of a cylinder.\" [SI Unit: Dimensionless geometry]\n\n- Textbook Concrete Examples:\n- Example 12.1: Horizontal Power Line Current: Current flows east to west. Magnetic field is clockwise below/above when viewed from east end.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - Page 201 & 207 Questions:\n    * [Q3 (p.201)] (conceptual): The magnetic field inside a long straight solenoid-carrying current is (a) zero (b) decreases towards ends (c) increases towards ends (d) is the same at all points.\n      Method: Select (d) because parallel field lines indicate uniform magnetic field.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Right-hand thumb rule for straight conductors\":\n    * [Q1] (1-mark MCQ): According to the right-hand thumb rule, if the thumb points in the direction of current, the wrapped fingers show the direction of:\n      -> Ideal Model Answer: Magnetic field lines\n      -> Socratic Hint: Think about holding a wire with your right hand.\n    * [Q2] (2-mark Definition): State the Right-Hand Thumb Rule.\n      -> Ideal Model Answer: If you hold a current-carrying straight conductor in your right hand such that your thumb points towards the current, your fingers wrap around the conductor in the direction of magnetic field lines.\n      -> Socratic Hint: Thumb = Current, Fingers = Magnetic field.\n    * [Q3] (3-mark Short Answer): How does the magnetic field produced by a straight current-carrying wire depend on distance and current?\n      -> Ideal Model Answer: 1. Magnetic field strength is directly proportional to current (B \\propto I). 2. It is inversely proportional to distance from the wire (B \\propto 1/r).\n      -> Socratic Hint: More current = stronger field; farther away = weaker field.\n    * [Q4] (PYQ): What is a solenoid? Compare its magnetic field with that of a bar magnet.\n      -> Ideal Model Answer: A solenoid is a coil of many circular turns of insulated copper wire wrapped in a cylinder. Its magnetic field pattern is identical to that of a bar magnet, having North and South poles.\n      -> Socratic Hint: Think of a helical spring carrying current.\n    * [Q5] (Competency): Why is the magnetic field inside a solenoid considered uniform?\n      -> Ideal Model Answer: Because the field lines inside the solenoid are in the form of parallel straight lines, indicating equal strength at all interior points.\n      -> Socratic Hint: Look at the spacing and shape of field lines inside Fig. 12.10.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Right-hand thumb rule for straight conductors\":\n    - Visual Title: \"Right-Hand Thumb Rule\" (vector_svg_diagram)\n    - Why Needed: Core spatial rule tested in board exams.\n    - What to Explain: Demonstrate thumb pointing along current and fingers showing circular field lines.\n    - Timing & Directive: Ask student: Which way do fingers curl if current flows downwards?\n    - Interactive Math Formula: \\vec{B} \\perp \\vec{I}\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Right-hand thumb rule for straight conductors",
+      "Concentric circles pattern around straight wire",
+      "Magnetic field inside solenoid is uniform",
+      "Solenoid acts like a bar magnet"
+    ],
+    "success_criteria": "Apply the right-hand thumb rule to find magnetic field directions and describe solenoid characteristics.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:48:00.154374+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Right-Hand Thumb Rule (Maxwell's corkscrew rule)",
+      "Magnetic field around straight conductor",
+      "Magnetic field of circular loop",
+      "Solenoid magnetic field and electromagnets"
+    ],
+    "chapter_notes": "The magnetic field around a straight current-carrying wire consists of concentric circles. Direction is given by the Right-Hand Thumb Rule. For a circular loop, field lines combine and form straight lines at the center. A solenoid is a cylindrical coil whose magnetic field is uniform inside and resembles a bar magnet. Soft iron core inside a solenoid forms an electromagnet.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Direction",
+        "given": "Current = East to West.",
+        "formula": "Right-Hand Thumb Rule.",
+        "problem": "A current through a horizontal power line flows east to west. Find the magnetic field direction directly below it.",
+        "calculation": "Fingers wrap clockwise when viewed from the east end.",
+        "finalAnswer": "Clockwise (when viewed from east end)",
+        "substitution": "Thumb pointing West.",
+        "image_search_query": "class 10 science chapter_12_magn ncert",
+        "page": 30,
+        "section": "Section 3"
+      }
+    ],
+    "common_misconceptions": [
+      "Using the left hand instead of the right hand for the thumb rule.",
+      "Confusing solenoid poles with bar magnet poles."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735280006_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Magnetic Field due to Current-Carrying Conductors, Loops, and Solenoids: Master right-hand thumb rule, magnetic fields of straight wires, circular loops, and solenoids (Activity 12.4-12.6).",
+              "keyTakeaway": "Right-hand thumb rule for straight conductors"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Right-hand thumb rule for straight conductors"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc112.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735280006_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Magnetic Field due to Current-Carrying Conductors, Loops, and Solenoids - Fundamental Equations",
+              "equations": [
+                "Right-hand thumb rule for straight conductors",
+                "Concentric circles pattern around straight wire",
+                "Magnetic field inside solenoid is uniform"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Right-hand thumb rule for straight conductors"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc112.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735280006_3",
+          "type": "DIAGRAM",
+          "title": "Magnetic Field due to Current-Carrying Conductors, Loops, and Solenoids Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Magnetic Field due to Current-Carrying Conductors, Loops, and Solenoids Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Right-hand thumb rule for straight conductors",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Concentric circles pattern around straight wire",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Magnetic Field due to Current-Carrying Conductors, Loops, and Solenoids",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Magnetic Field due to Current-Carrying Conductors, Loops, and Solenoids | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='270' y1='40' x2='270' y2='240' stroke='#0F172A' stroke-width='4'/><path d='M270,90 C320,90 340,130 320,160' fill='none' stroke='#2563EB' stroke-width='2'/><polygon points='320,160 312,153 315,163' fill='#2563EB'/><text x='270' y='25' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A' text-anchor='middle'>Right-Hand Thumb Rule</text></svg> | Right hand gripping a vertical wire with thumb up and curved magnetic field arrows around it."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc112.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735280006_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Right-hand thumb rule for straight conductors"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Current = East to West., what is the value?",
+              "explanation": "By fundamental principle, Right-hand thumb rule for straight conductors is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735280006_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Right-Hand Thumb Rule (Maxwell's corkscrew rule)",
+                "Magnetic field around straight conductor",
+                "Magnetic field of circular loop",
+                "Solenoid magnetic field and electromagnets"
+              ],
+              "formulasToRemember": [
+                "Right-hand thumb rule for straight conductors",
+                "Concentric circles pattern around straight wire",
+                "Magnetic field inside solenoid is uniform"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Magnetic Field due to Current-Carrying Conductors, Loops, and Solenoids - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Magnetic Field due to Current-Carrying Conductors, Loops, and Solenoids",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:48:00.006Z",
+        "provenance": "jesc112.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735280006",
+      "subtopics": [
+        "Right-Hand Thumb Rule (Maxwell's corkscrew rule)",
+        "Magnetic field around straight conductor",
+        "Magnetic field of circular loop",
+        "Solenoid magnetic field and electromagnets"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='270' y1='40' x2='270' y2='240' stroke='#0F172A' stroke-width='4'/><path d='M270,90 C320,90 340,130 320,160' fill='none' stroke='#2563EB' stroke-width='2'/><polygon points='320,160 312,153 315,163' fill='#2563EB'/><text x='270' y='25' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A' text-anchor='middle'>Right-Hand Thumb Rule</text></svg>",
+      "diagram_idea": "Right hand holding a wire with thumb pointing UP and fingers curling counter-clockwise.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Right hand gripping a vertical wire with thumb up and curved magnetic field arrows around it.",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='270' y1='50' x2='270' y2='230' stroke='#2563EB' stroke-width='4'/><ellipse cx='270' cy='140' rx='60' ry='20' fill='none' stroke='#DC2626' stroke-width='2'/><polygon points='330,140 320,135 320,145' fill='#DC2626'/></svg>",
+          "why_needed": "Core spatial rule tested in board exams.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='270' y1='50' x2='270' y2='230' stroke='#2563EB' stroke-width='4'/><ellipse cx='270' cy='140' rx='60' ry='20' fill='none' stroke='#DC2626' stroke-width='2'/><polygon points='330,140 320,135 320,145' fill='#DC2626'/></svg>",
+          "image_query": "electric circuit schematic diagram of Right-Hand Thumb Rule with battery, switch, ammeter, voltmeter, and labeled circuit components",
+          "video_query": "electric circuit Right-Hand Thumb Rule physics laboratory experiment demonstration",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Hand with thumb up and concentric circle arrows.",
+          "concept_title": "Right-hand thumb rule for straight conductors",
+          "diagram_title": "Right-Hand Thumb Rule",
+          "timing_and_cue": "Ask student: Which way do fingers curl if current flows downwards?",
+          "what_to_explain": "Demonstrate thumb pointing along current and fingers showing circular field lines.",
+          "image_search_query": "electric circuit schematic diagram of Right-Hand Thumb Rule with battery, switch, ammeter, voltmeter, and labeled circuit components",
+          "video_search_query": "electric circuit Right-Hand Thumb Rule physics laboratory experiment demonstration",
+          "interactive_math_formula": "\\vec{B} \\perp \\vec{I}"
+        }
+      ],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "Current-Carrying Conductor -> Straight Wire (Concentric Circles, Right-Hand Rule) -> Circular Loop -> Solenoid (Uniform Field, Electromagnet)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "According to the right-hand thumb rule, if the thumb points in the direction of current, the wrapped fingers show the direction of:",
+              "ideal_answer": "Magnetic field lines",
+              "socratic_hint": "Think about holding a wire with your right hand."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "State the Right-Hand Thumb Rule.",
+              "ideal_answer": "If you hold a current-carrying straight conductor in your right hand such that your thumb points towards the current, your fingers wrap around the conductor in the direction of magnetic field lines.",
+              "socratic_hint": "Thumb = Current, Fingers = Magnetic field."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "How does the magnetic field produced by a straight current-carrying wire depend on distance and current?",
+              "ideal_answer": "1. Magnetic field strength is directly proportional to current (B \\propto I). 2. It is inversely proportional to distance from the wire (B \\propto 1/r).",
+              "socratic_hint": "More current = stronger field; farther away = weaker field."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q4",
+              "question": "What is a solenoid? Compare its magnetic field with that of a bar magnet.",
+              "ideal_answer": "A solenoid is a coil of many circular turns of insulated copper wire wrapped in a cylinder. Its magnetic field pattern is identical to that of a bar magnet, having North and South poles.",
+              "socratic_hint": "Think of a helical spring carrying current."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q5",
+              "question": "Why is the magnetic field inside a solenoid considered uniform?",
+              "ideal_answer": "Because the field lines inside the solenoid are in the form of parallel straight lines, indicating equal strength at all interior points.",
+              "socratic_hint": "Look at the spacing and shape of field lines inside Fig. 12.10."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Right-hand thumb rule for straight conductors"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Example 12.1: Horizontal Power Line Current",
+          "scenario": "Current flows east to west. Magnetic field is clockwise below/above when viewed from east end."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q3 (p.201)",
+              "question": "The magnetic field inside a long straight solenoid-carrying current is (a) zero (b) decreases towards ends (c) increases towards ends (d) is the same at all points.",
+              "question_type": "conceptual",
+              "solution_method": "Select (d) because parallel field lines indicate uniform magnetic field."
+            }
+          ],
+          "exercise_number": "Page 201 & 207 Questions"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Solenoid",
+          "si_units": "Dimensionless geometry",
+          "definition": "A coil of many circular turns of insulated copper wire wrapped closely in the shape of a cylinder."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "88f0750a-cc9f-4164-89b1-4630ba282f54",
+    "curriculum_id": "273e23d2-9db4-407e-a809-05f8bc45716d",
+    "order_index": 4,
+    "title": "Force on a Current-Carrying Conductor and Fleming's Left-Hand Rule",
+    "description": "Examine the force exerted on a current-carrying conductor in a magnetic field (Activity 12.7) and Fleming's Left-Hand Rule.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 4: Force on a Current-Carrying Conductor and Fleming's Left-Hand Rule. Final-Term Examination Syllabus. Have students physically raise their left hand and align fingers during class.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Left hand with Thumb (Motion), Forefinger (Field), Middle finger (Current) at 90 degrees.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Conductor in Magnetic Field -> Magnetic Force -> Fleming's Left-Hand Rule (Thumb=Motion, Forefinger=Field, Middle=Current) -> Applications (Motors)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Conductor in Magnetic Field -> Magnetic Force -> Fleming's Left-Hand Rule (Thumb=Motion, Forefinger=Field, Middle=Current) -> Applications (Motors)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Fleming's Left-Hand Rule: \"Rule stating that thumb, forefinger, and middle finger of left hand mutually perpendicular indicate Force, Field, and Current respectively.\" [SI Unit: Directional rule]\n\n- Textbook Concrete Examples:\n- Example 12.2: Electron in Magnetic Field: An electron enters a magnetic field at right angles; force direction is determined considering conventional current opposite to motion.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - Page 203 & 207 Questions:\n    * [Q5 (p.207)] (conceptual): When is the force experienced by a current-carrying conductor placed in a magnetic field largest?\n      Method: When the direction of current is at right angles to the direction of the magnetic field.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Current-carrying conductor in magnetic field experiences a force\":\n    * [Q1] (1-mark MCQ): The direction of force on a current-carrying wire in a magnetic field is given by:\n      -> Ideal Model Answer: Fleming's left-hand rule\n      -> Socratic Hint: Remember: Left hand for motors/force, Right hand for generators/induction.\n    * [Q2] (2-mark Definition): State Fleming's Left-Hand Rule.\n      -> Ideal Model Answer: Stretch the thumb, forefinger, and middle finger of your left hand mutually perpendicular. If the forefinger points in magnetic field and middle finger in current, the thumb points in direction of motion/force.\n      -> Socratic Hint: Father (Force/Thumb), Mother (Magnetic Field/Forefinger), Children (Current/Middle finger).\n    * [Q3] (3-mark Short Answer): Under what condition is the force experienced by a current-carrying conductor in a magnetic field maximum?\n      -> Ideal Model Answer: The force is maximum when the direction of current is at right angles (90 degrees) to the direction of the magnetic field.\n      -> Socratic Hint: Think about sine theta being maximum at 90 degrees.\n    * [Q4] (PYQ): An electron enters a magnetic field at right angles to it. What is the direction of force acting on it?\n      -> Ideal Model Answer: Into the page. (Since electron current is opposite to electron motion, apply Fleming's left-hand rule accordingly).\n      -> Socratic Hint: Remember conventional current is opposite to electron motion.\n    * [Q5] (Competency): List two devices that use current-carrying conductors and magnetic fields.\n      -> Ideal Model Answer: Electric motor and electric generator (or loudspeakers/microphones).\n      -> Socratic Hint: Common household appliances utilizing electromagnetism.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Current-carrying conductor in magnetic field experiences a force\":\n    - Visual Title: \"Fleming's Left-Hand Rule\" (vector_svg_diagram)\n    - Why Needed: Crucial rule for determining force direction in motors.\n    - What to Explain: Explain FBI mnemonic: Forefinger = Field, Centre/Middle = Current, Thumb = Force/Motion.\n    - Timing & Directive: Ask student: What does the forefinger represent?\n    - Interactive Math Formula: F = I(l \\times B)\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Current-carrying conductor in magnetic field experiences a force",
+      "Force is perpendicular to both current and magnetic field",
+      "Fleming's Left-Hand Rule (Thumb = Motion, Forefinger = Field, Middle = Current)",
+      "Maximum force when conductor is at right angles to field"
+    ],
+    "success_criteria": "Apply Fleming's Left-Hand Rule accurately to determine force, magnetic field, or current directions.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:48:00.847538+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Force on current-carrying conductor",
+      "Factors affecting magnetic force",
+      "Fleming's Left-Hand Rule",
+      "Application in electric motors and devices"
+    ],
+    "chapter_notes": "Andr\u00e9 Marie Ampere suggested magnets exert equal and opposite forces on current-carrying conductors. The magnitude of force is greatest when current is perpendicular to the magnetic field. Fleming's Left-Hand Rule relates Magnetic Field (Forefinger), Current (Middle finger), and Force/Motion (Thumb). Used in electric motors, loudspeakers, etc.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Direction",
+        "given": "Electron motion = East (Current = West), Magnetic Field = Downward.",
+        "formula": "Fleming's Left-Hand Rule.",
+        "problem": "An electron moves horizontally towards east in a vertically downward magnetic field. Find the force direction.",
+        "calculation": "Using left hand: Thumb points towards North.",
+        "finalAnswer": "Towards North",
+        "substitution": "Forefinger = Down, Middle finger = West.",
+        "image_search_query": "class 10 science chapter_12_magn ncert",
+        "page": 40,
+        "section": "Section 4"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing Left-Hand rule (motor/force) with Right-Hand rule (generator/induction).",
+      "Ignoring that conventional current is opposite to electron flow direction."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735280255_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Force on a Current-Carrying Conductor and Fleming's Left-Hand Rule: Examine the force exerted on a current-carrying conductor in a magnetic field (Activity 12.7) and Fleming's Left-Hand Rule.",
+              "keyTakeaway": "Current-carrying conductor in magnetic field experiences a force"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Current-carrying conductor in magnetic field experiences a force"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc112.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735280255_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Force on a Current-Carrying Conductor and Fleming's Left-Hand Rule - Fundamental Equations",
+              "equations": [
+                "Current-carrying conductor in magnetic field experiences a force",
+                "Force is perpendicular to both current and magnetic field",
+                "Fleming's Left-Hand Rule (Thumb = Motion, Forefinger = Field, Middle = Current)"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Current-carrying conductor in magnetic field experiences a force"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc112.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735280255_3",
+          "type": "GRAPH",
+          "title": "Force on a Current-Carrying Conductor and Fleming's Left-Hand Rule Mathematical Graph",
+          "content": {
+            "graph": {
+              "range": [
+                -5,
+                20
+              ],
+              "title": "Force on a Current-Carrying Conductor and Fleming's Left-Hand Rule Coordinate Graph",
+              "domain": [
+                -5,
+                10
+              ],
+              "xLabel": "x",
+              "yLabel": "y",
+              "graphType": "function",
+              "variables": [
+                {
+                  "max": 10,
+                  "min": -5,
+                  "name": "m",
+                  "step": 0.5,
+                  "label": "Slope (m)",
+                  "current": 2
+                },
+                {
+                  "max": 10,
+                  "min": -5,
+                  "name": "c",
+                  "step": 0.5,
+                  "label": "y-intercept (c)",
+                  "current": 1
+                }
+              ],
+              "expression": "y = 2 * x + 1",
+              "progressiveSteps": [
+                {
+                  "action": "axes",
+                  "stepIndex": 0,
+                  "description": "Display coordinate axes and reference grid"
+                },
+                {
+                  "action": "points",
+                  "stepIndex": 1,
+                  "description": "Plot discrete coordinates"
+                },
+                {
+                  "action": "line",
+                  "stepIndex": 2,
+                  "description": "Trace continuous function curve"
+                },
+                {
+                  "action": "intercept",
+                  "stepIndex": 3,
+                  "description": "Highlight y-intercept"
+                },
+                {
+                  "action": "slope_triangle",
+                  "stepIndex": 4,
+                  "description": "Form slope triangle Delta y / Delta x"
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_graph",
+            "content": "y = 2 * x + 1"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc112.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 150
+        },
+        {
+          "id": "step_mod_1793735280255_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Current-carrying conductor in magnetic field experiences a force"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Electron motion = East (Current = West), Magnetic Field = Downward., what is the value?",
+              "explanation": "By fundamental principle, Current-carrying conductor in magnetic field experiences a force is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735280255_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Force on current-carrying conductor",
+                "Factors affecting magnetic force",
+                "Fleming's Left-Hand Rule",
+                "Application in electric motors and devices"
+              ],
+              "formulasToRemember": [
+                "Current-carrying conductor in magnetic field experiences a force",
+                "Force is perpendicular to both current and magnetic field",
+                "Fleming's Left-Hand Rule (Thumb = Motion, Forefinger = Field, Middle = Current)"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Force on a Current-Carrying Conductor and Fleming's Left-Hand Rule - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Force on a Current-Carrying Conductor and Fleming's Left-Hand Rule",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:48:00.256Z",
+        "provenance": "jesc112.pdf",
+        "totalEstimatedMinutes": 9,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735280255",
+      "subtopics": [
+        "Force on current-carrying conductor",
+        "Factors affecting magnetic force",
+        "Fleming's Left-Hand Rule",
+        "Application in electric motors and devices"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='270' y1='180' x2='270' y2='80' stroke='#2563EB' stroke-width='4'/><line x1='270' y1='180' x2='370' y2='200' stroke='#16A34A' stroke-width='4'/><line x1='270' y1='180' x2='180' y2='140' stroke='#DC2626' stroke-width='4'/><text x='270' y='40' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A' text-anchor='middle'>Fleming's Left-Hand Rule</text></svg>",
+      "diagram_idea": "Fleming's left hand showing mutually perpendicular thumb, forefinger, and middle finger.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "Left hand with Thumb (Motion), Forefinger (Field), Middle finger (Current) at 90 degrees.",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='270' y1='160' x2='270' y2='70' stroke='#2563EB' stroke-width='3'/><text x='280' y='70' font-family='sans-serif' font-size='12' fill='#2563EB'>Field (Forefinger)</text><line x1='270' y1='160' x2='370' y2='190' stroke='#16A34A' stroke-width='3'/><text x='375' y='200' font-family='sans-serif' font-size='12' fill='#16A34A'>Current (Middle)</text><line x1='270' y1='160' x2='180' y2='120' stroke='#DC2626' stroke-width='3'/><text x='110' y='120' font-family='sans-serif' font-size='12' fill='#DC2626'>Motion (Thumb)</text></svg>",
+          "why_needed": "Crucial rule for determining force direction in motors.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='270' y1='160' x2='270' y2='70' stroke='#2563EB' stroke-width='3'/><text x='280' y='70' font-family='sans-serif' font-size='12' fill='#2563EB'>Field (Forefinger)</text><line x1='270' y1='160' x2='370' y2='190' stroke='#16A34A' stroke-width='3'/><text x='375' y='200' font-family='sans-serif' font-size='12' fill='#16A34A'>Current (Middle)</text><line x1='270' y1='160' x2='180' y2='120' stroke='#DC2626' stroke-width='3'/><text x='110' y='120' font-family='sans-serif' font-size='12' fill='#DC2626'>Motion (Thumb)</text></svg>",
+          "image_query": "electric circuit schematic diagram of Fleming's Left-Hand Rule with battery, switch, ammeter, voltmeter, and labeled circuit components",
+          "video_query": "electric circuit Fleming's Left-Hand Rule physics laboratory experiment demonstration",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Three orthogonal axes labeled Force, Field, Current.",
+          "concept_title": "Current-carrying conductor in magnetic field experiences a force",
+          "diagram_title": "Fleming's Left-Hand Rule",
+          "timing_and_cue": "Ask student: What does the forefinger represent?",
+          "what_to_explain": "Explain FBI mnemonic: Forefinger = Field, Centre/Middle = Current, Thumb = Force/Motion.",
+          "image_search_query": "electric circuit schematic diagram of Fleming's Left-Hand Rule with battery, switch, ammeter, voltmeter, and labeled circuit components",
+          "video_search_query": "electric circuit Fleming's Left-Hand Rule physics laboratory experiment demonstration",
+          "interactive_math_formula": "F = I(l \\times B)"
+        }
+      ],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "Conductor in Magnetic Field -> Magnetic Force -> Fleming's Left-Hand Rule (Thumb=Motion, Forefinger=Field, Middle=Current) -> Applications (Motors)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "The direction of force on a current-carrying wire in a magnetic field is given by:",
+              "ideal_answer": "Fleming's left-hand rule",
+              "socratic_hint": "Remember: Left hand for motors/force, Right hand for generators/induction."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "State Fleming's Left-Hand Rule.",
+              "ideal_answer": "Stretch the thumb, forefinger, and middle finger of your left hand mutually perpendicular. If the forefinger points in magnetic field and middle finger in current, the thumb points in direction of motion/force.",
+              "socratic_hint": "Father (Force/Thumb), Mother (Magnetic Field/Forefinger), Children (Current/Middle finger)."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "Under what condition is the force experienced by a current-carrying conductor in a magnetic field maximum?",
+              "ideal_answer": "The force is maximum when the direction of current is at right angles (90 degrees) to the direction of the magnetic field.",
+              "socratic_hint": "Think about sine theta being maximum at 90 degrees."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q4",
+              "question": "An electron enters a magnetic field at right angles to it. What is the direction of force acting on it?",
+              "ideal_answer": "Into the page. (Since electron current is opposite to electron motion, apply Fleming's left-hand rule accordingly).",
+              "socratic_hint": "Remember conventional current is opposite to electron motion."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q5",
+              "question": "List two devices that use current-carrying conductors and magnetic fields.",
+              "ideal_answer": "Electric motor and electric generator (or loudspeakers/microphones).",
+              "socratic_hint": "Common household appliances utilizing electromagnetism."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Current-carrying conductor in magnetic field experiences a force"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Example 12.2: Electron in Magnetic Field",
+          "scenario": "An electron enters a magnetic field at right angles; force direction is determined considering conventional current opposite to motion."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q5 (p.207)",
+              "question": "When is the force experienced by a current-carrying conductor placed in a magnetic field largest?",
+              "question_type": "conceptual",
+              "solution_method": "When the direction of current is at right angles to the direction of the magnetic field."
+            }
+          ],
+          "exercise_number": "Page 203 & 207 Questions"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Fleming's Left-Hand Rule",
+          "si_units": "Directional rule",
+          "definition": "Rule stating that thumb, forefinger, and middle finger of left hand mutually perpendicular indicate Force, Field, and Current respectively."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "b7b9b375-cd98-41a7-a54f-8fabc6b01aa2",
+    "curriculum_id": "273e23d2-9db4-407e-a809-05f8bc45716d",
+    "order_index": 5,
+    "title": "Domestic Electric Circuits and Safety Measures",
+    "description": "Understand main supply, live, neutral, and earth wires, short-circuiting, overloading, fuses, and safety protocols.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 5: Domestic Electric Circuits and Safety Measures. Final-Term Examination Syllabus. Highlight safety precautions and numerical calculations for power and current.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Schematic diagram with Live (red), Neutral (black), Earth (green), meter box, and parallel loads.\n- Diagram Type: circuit_schematic\n- Chapter Multi-Level Flowchart: Mains Supply (220V) -> Fuse & Meter -> Live/Neutral/Earth Wires -> Parallel Appliance Circuits -> Safety Devices (Earth & Fuse)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Mains Supply (220V) -> Fuse & Meter -> Live/Neutral/Earth Wires -> Parallel Appliance Circuits -> Safety Devices (Earth & Fuse)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Electric Fuse: \"A safety device used for protecting circuits and appliances by melting and breaking the circuit when current exceeds safe limits.\" [SI Unit: Ampere (A) rating]\n\n- Textbook Concrete Examples:\n- Domestic Circuit Schematic (Fig 12.15): Electricity meter, main fuse, distribution box, 5A circuits for fans/bulbs, and 15A circuits for geysers.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - Page 205 & 207 Questions:\n    * [Q2 (p.205)] (numerical): An electric oven of 2 kW power rating is operated in a domestic electric circuit (220 V) that has a current rating of 5 A. What result do you expect? Explain.\n      Method: Calculate current I = P/V = 2000W / 220V = 9.09 A. Since 9.09 A exceeds the 5 A rating, the fuse will melt and trip.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Live wire (Red, 220V) and Neutral wire (Black, 0V)\":\n    * [Q1] (1-mark MCQ): What is the colour insulation of the live wire in domestic circuits?\n      -> Ideal Model Answer: Red\n      -> Socratic Hint: Think of the colour conventionally used for positive/live supply.\n    * [Q2] (2-mark Definition): What is the function of an earth wire in domestic electrical appliances?\n      -> Ideal Model Answer: It provides a low-resistance conducting path to the ground, ensuring any current leakage keeps the appliance potential equal to the earth, preventing severe electric shocks.\n      -> Socratic Hint: Why do we connect metal bodies to green wires?\n    * [Q3] (3-mark Short Answer): Differentiate between short-circuiting and overloading in domestic circuits.\n      -> Ideal Model Answer: Short-circuiting occurs when live and neutral wires touch directly due to damaged insulation. Overloading occurs when too many appliances are connected to a single socket or supply voltage spikes.\n      -> Socratic Hint: Direct contact vs excessive load.\n    * [Q4] (PYQ): What is an electric fuse? How does it protect domestic circuits?\n      -> Ideal Model Answer: An electric fuse is a safety device containing a wire with low melting point. When current exceeds safe limits, Joule heating melts the fuse wire, breaking the circuit.\n      -> Socratic Hint: How does melting protect appliances?\n    * [Q5] (Competency): Why are appliances connected in parallel rather than in series in domestic circuits?\n      -> Ideal Model Answer: In parallel connection, every appliance gets equal potential difference (220V) and can be switched ON/OFF independently without affecting others.\n      -> Socratic Hint: What happens if one bulb blows out in a series string?\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Live wire (Red, 220V) and Neutral wire (Black, 0V)\":\n    - Visual Title: \"Domestic Circuit Layout\" (circuit_schematic)\n    - Why Needed: Essential for understanding household wiring and safety standards.\n    - What to Explain: Explain color coding (Red live, Black neutral, Green earth) and parallel connections.\n    - Timing & Directive: Ask student: Why are appliances connected in parallel in our homes?\n    - Interactive Math Formula: P = VI\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Live wire (Red, 220V) and Neutral wire (Black, 0V)",
+      "Earth wire (Green) connected to metallic body for safety",
+      "Electric fuse melts during high current to prevent damage",
+      "Short-circuiting caused by direct contact of live and neutral wires"
+    ],
+    "success_criteria": "Explain the role of live, neutral, earth wires, fuses, and precautions against overloading.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:48:01.570771+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Domestic wiring components (Live, Neutral, Earth)",
+      "Potential difference (220V AC, 50Hz)",
+      "Short-circuiting and Overloading",
+      "Electric fuse and Earthing safety"
+    ],
+    "chapter_notes": "Domestic power supply in India is 220V AC with 50 Hz frequency. Live wire (red) and neutral wire (black) carry current. Earth wire (green) connects metallic appliance bodies to the earth for safety. Fuses melt due to Joule heating when current surges during short-circuits or overloading.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Ampere (A)",
+        "given": "P = 2000 W, V = 220 V, Fuse rating = 5 A.",
+        "formula": "P = V * I => I = P / V",
+        "problem": "Calculate current drawn by a 2 kW (2000 W) geyser on 220 V supply and check if a 5 A fuse is sufficient.",
+        "calculation": "I = 9.09 A",
+        "finalAnswer": "9.09 A (Exceeds 5 A fuse rating)",
+        "substitution": "I = 2000 / 220",
+        "image_search_query": "class 10 science chapter_12_magn ncert",
+        "page": 50,
+        "section": "Section 5"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing live wire color (red) with neutral (black).",
+      "Assuming earth wire carries normal operating current."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735280958_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Domestic Electric Circuits and Safety Measures: Understand main supply, live, neutral, and earth wires, short-circuiting, overloading, fuses, and safety protocols.",
+              "keyTakeaway": "Live wire (Red, 220V) and Neutral wire (Black, 0V)"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Live wire (Red, 220V) and Neutral wire (Black, 0V)"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc112.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735280958_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Domestic Electric Circuits and Safety Measures - Fundamental Equations",
+              "equations": [
+                "Live wire (Red, 220V) and Neutral wire (Black, 0V)",
+                "Earth wire (Green) connected to metallic body for safety",
+                "Electric fuse melts during high current to prevent damage"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Live wire (Red, 220V) and Neutral wire (Black, 0V)"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc112.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735280958_3",
+          "type": "DIAGRAM",
+          "title": "Domestic Electric Circuits and Safety Measures Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Domestic Electric Circuits and Safety Measures Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Live wire (Red, 220V) and Neutral wire (Black, 0V)",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Earth wire (Green) connected to metallic body for safety",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Domestic Electric Circuits and Safety Measures",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Domestic Electric Circuits and Safety Measures | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='50' y1='80' x2='490' y2='80' stroke='#DC2626' stroke-width='2'/><text x='20' y='85' font-family='sans-serif' font-size='12' fill='#DC2626'>Live</text><line x1='50' y1='140' x2='490' y2='140' stroke='#0F172A' stroke-width='2'/><text x='15' y='145' font-family='sans-serif' font-size='12' fill='#0F172A'>Neutral</text><line x1='50' y1='200' x2='490' y2='200' stroke='#16A34A' stroke-width='2'/><text x='15' y='205' font-family='sans-serif' font-size='12' fill='#16A34A'>Earth</text><text x='270' y='40' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A' text-anchor='middle'>Domestic Electric Circuit</text></svg> | Schematic diagram with Live (red), Neutral (black), Earth (green), meter box, and parallel loads."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc112.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735280958_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Live wire (Red, 220V) and Neutral wire (Black, 0V)"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If P = 2000 W, V = 220 V, Fuse rating = 5 A., what is the value?",
+              "explanation": "By fundamental principle, Live wire (Red, 220V) and Neutral wire (Black, 0V) is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735280958_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Domestic wiring components (Live, Neutral, Earth)",
+                "Potential difference (220V AC, 50Hz)",
+                "Short-circuiting and Overloading",
+                "Electric fuse and Earthing safety"
+              ],
+              "formulasToRemember": [
+                "Live wire (Red, 220V) and Neutral wire (Black, 0V)",
+                "Earth wire (Green) connected to metallic body for safety",
+                "Electric fuse melts during high current to prevent damage"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Domestic Electric Circuits and Safety Measures - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Domestic Electric Circuits and Safety Measures",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:48:00.958Z",
+        "provenance": "jesc112.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735280958",
+      "subtopics": [
+        "Domestic wiring components (Live, Neutral, Earth)",
+        "Potential difference (220V AC, 50Hz)",
+        "Short-circuiting and Overloading",
+        "Electric fuse and Earthing safety"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='50' y1='80' x2='490' y2='80' stroke='#DC2626' stroke-width='2'/><text x='20' y='85' font-family='sans-serif' font-size='12' fill='#DC2626'>Live</text><line x1='50' y1='140' x2='490' y2='140' stroke='#0F172A' stroke-width='2'/><text x='15' y='145' font-family='sans-serif' font-size='12' fill='#0F172A'>Neutral</text><line x1='50' y1='200' x2='490' y2='200' stroke='#16A34A' stroke-width='2'/><text x='15' y='205' font-family='sans-serif' font-size='12' fill='#16A34A'>Earth</text><text x='270' y='40' font-family='sans-serif' font-size='16' font-weight='bold' fill='#0F172A' text-anchor='middle'>Domestic Electric Circuit</text></svg>",
+      "diagram_idea": "Domestic wiring schematic showing live, neutral, earth wires, fuse, and meter.",
+      "diagram_type": "circuit_schematic",
+      "what_to_make": "Schematic diagram with Live (red), Neutral (black), Earth (green), meter box, and parallel loads.",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='40' y1='70' x2='500' y2='70' stroke='#DC2626' stroke-width='2'/><line x1='40' y1='130' x2='500' y2='130' stroke='#0F172A' stroke-width='2'/><line x1='40' y1='190' x2='500' y2='190' stroke='#16A34A' stroke-width='2'/><rect x='220' y='90' width='60' height='80' fill='#F1F5F9' stroke='#2563EB' stroke-width='2'/><text x='250' y='135' font-family='sans-serif' font-size='14' fill='#2563EB' text-anchor='middle'>Load</text></svg>",
+          "why_needed": "Essential for understanding household wiring and safety standards.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='40' y1='70' x2='500' y2='70' stroke='#DC2626' stroke-width='2'/><line x1='40' y1='130' x2='500' y2='130' stroke='#0F172A' stroke-width='2'/><line x1='40' y1='190' x2='500' y2='190' stroke='#16A34A' stroke-width='2'/><rect x='220' y='90' width='60' height='80' fill='#F1F5F9' stroke='#2563EB' stroke-width='2'/><text x='250' y='135' font-family='sans-serif' font-size='14' fill='#2563EB' text-anchor='middle'>Load</text></svg>",
+          "image_query": "parallel electric circuit diagram with battery cells, plug key switch, ammeter, three resistors connected in parallel branches across voltmeter",
+          "video_query": "parallel combination of resistors in electric circuit laboratory experiment demonstration",
+          "diagram_type": "circuit_schematic",
+          "what_to_make": "Three supply lines branching into parallel appliance sockets.",
+          "concept_title": "Live wire (Red, 220V) and Neutral wire (Black, 0V)",
+          "diagram_title": "Domestic Circuit Layout",
+          "timing_and_cue": "Ask student: Why are appliances connected in parallel in our homes?",
+          "what_to_explain": "Explain color coding (Red live, Black neutral, Green earth) and parallel connections.",
+          "image_search_query": "parallel electric circuit diagram with battery cells, plug key switch, ammeter, three resistors connected in parallel branches across voltmeter",
+          "video_search_query": "parallel combination of resistors in electric circuit laboratory experiment demonstration",
+          "interactive_math_formula": "P = VI"
+        }
+      ],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "Mains Supply (220V) -> Fuse & Meter -> Live/Neutral/Earth Wires -> Parallel Appliance Circuits -> Safety Devices (Earth & Fuse)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "What is the colour insulation of the live wire in domestic circuits?",
+              "ideal_answer": "Red",
+              "socratic_hint": "Think of the colour conventionally used for positive/live supply."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "What is the function of an earth wire in domestic electrical appliances?",
+              "ideal_answer": "It provides a low-resistance conducting path to the ground, ensuring any current leakage keeps the appliance potential equal to the earth, preventing severe electric shocks.",
+              "socratic_hint": "Why do we connect metal bodies to green wires?"
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q3",
+              "question": "Differentiate between short-circuiting and overloading in domestic circuits.",
+              "ideal_answer": "Short-circuiting occurs when live and neutral wires touch directly due to damaged insulation. Overloading occurs when too many appliances are connected to a single socket or supply voltage spikes.",
+              "socratic_hint": "Direct contact vs excessive load."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q4",
+              "question": "What is an electric fuse? How does it protect domestic circuits?",
+              "ideal_answer": "An electric fuse is a safety device containing a wire with low melting point. When current exceeds safe limits, Joule heating melts the fuse wire, breaking the circuit.",
+              "socratic_hint": "How does melting protect appliances?"
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q5",
+              "question": "Why are appliances connected in parallel rather than in series in domestic circuits?",
+              "ideal_answer": "In parallel connection, every appliance gets equal potential difference (220V) and can be switched ON/OFF independently without affecting others.",
+              "socratic_hint": "What happens if one bulb blows out in a series string?"
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Live wire (Red, 220V) and Neutral wire (Black, 0V)"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Domestic Circuit Schematic (Fig 12.15)",
+          "scenario": "Electricity meter, main fuse, distribution box, 5A circuits for fans/bulbs, and 15A circuits for geysers."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q2 (p.205)",
+              "question": "An electric oven of 2 kW power rating is operated in a domestic electric circuit (220 V) that has a current rating of 5 A. What result do you expect? Explain.",
+              "question_type": "numerical",
+              "solution_method": "Calculate current I = P/V = 2000W / 220V = 9.09 A. Since 9.09 A exceeds the 5 A rating, the fuse will melt and trip."
+            }
+          ],
+          "exercise_number": "Page 205 & 207 Questions"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Electric Fuse",
+          "si_units": "Ampere (A) rating",
+          "definition": "A safety device used for protecting circuits and appliances by melting and breaking the circuit when current exceeds safe limits."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "f338eeb6-aa88-46a2-a140-bee968eb1ea5",
+    "curriculum_id": "273e23d2-9db4-407e-a809-05f8bc45716d",
+    "order_index": 6,
+    "title": "NCERT In-Text & Chapter-End Exercises Master Solver",
+    "description": "Complete step-by-step solution solver for all chapter-end exercises and remaining NCERT questions.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 6: Comprehensive NCERT Exercises and Problem Solver. Final-Term Examination Syllabus. Walk through exercise questions interactively, testing student mastery of all rules learned in the chapter.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Hierarchical mind map of Chapter 12 core topics and rules.\n- Diagram Type: flowchart\n- Chapter Multi-Level Flowchart: Chapter Review -> Exercise Q1-Q9 Solver -> Conceptual Verification -> Board Exam Mastery\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Chapter Review -> Exercise Q1-Q9 Solver -> Conceptual Verification -> Board Exam Mastery\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Short Circuit: \"Abrupt surge of current when live and neutral wires come into direct contact due to damaged insulation.\" [SI Unit: High Amperage]\n\n- Textbook Concrete Examples:\n- Exercise Review: Comprehensive review of all conceptual and numerical problems from Chapter 12.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - Chapter 12 Exercises (Page 207):\n    * [Q1] (conceptual): Which of the following correctly describes the magnetic field near a long straight wire?\n      Method: Select (d) concentric circles centred on the wire based on Oersted and Ampere experiments.\n    * [Q2] (conceptual): At the time of short circuit, the current in the circuit\n      Method: Select (c) increases heavily due to zero resistance path.\n    * [Q3] (conceptual): State whether true or false: (a) The field at the centre of a long circular coil carrying current will be parallel straight lines. (b) A wire with a green insulation is usually the live wire of an electric supply.\n      Method: (a) True. (b) False (green is earth).\n    * [Q4] (conceptual): List two methods of producing magnetic fields.\n      Method: Permanent magnets and current-carrying electromagnets.\n    * [Q8] (conceptual): When does an electric short circuit occur?\n      Method: When live and neutral wires touch directly due to damaged insulation.\n    * [Q9] (conceptual): What is the function of an earth wire? Why is it necessary to earth metallic appliances?\n      Method: Earth wire provides low-resistance path to ground, preventing severe electric shocks from metallic appliance leakages.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Complete review of magnetic field line properties\":\n    * [Q1] (1-mark MCQ): Which of the following correctly describes the magnetic field near a long straight wire? (a) straight perpendicular lines (b) straight parallel lines (c) radial lines (d) concentric circles centred on the wire.\n      -> Ideal Model Answer: (d) concentric circles centred on the wire\n      -> Socratic Hint: Recall the iron filings pattern from Activity 12.5.\n    * [Q2] (1-mark MCQ): At the time of short circuit, the current in the circuit: (a) reduces substantially (b) does not change (c) increases heavily (d) varies continuously.\n      -> Ideal Model Answer: (c) increases heavily\n      -> Socratic Hint: What happens when live and neutral touch directly with zero resistance?\n    * [Q3] (2-mark Definition): State whether true or false: A wire with a green insulation is usually the live wire of an electric supply.\n      -> Ideal Model Answer: False. Green insulation is used for the earth wire, while live wire has red insulation.\n      -> Socratic Hint: Recall standard wire colour coding.\n    * [Q4] (3-mark Short Answer): List two methods of producing magnetic fields.\n      -> Ideal Model Answer: 1. Using a permanent bar magnet. 2. Using a current-carrying conductor or solenoid (electromagnet).\n      -> Socratic Hint: Natural magnets vs current-produced magnetic fields.\n    * [Q5] (5-mark Numerical): Imagine that you are sitting in a chamber with your back to one wall. An electron beam, moving horizontally from back wall towards the front wall, is deflected by a strong magnetic field to your right side. What is the direction of magnetic field?\n      -> Ideal Model Answer: Electron beam moving front = Current moving back. Deflected to right (Force = Right). Using Fleming's left-hand rule with Middle finger pointing back and Thumb pointing right, the Forefinger points vertically downward.\n      -> Socratic Hint: Carefully track electron motion vs conventional current direction.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Complete review of magnetic field line properties\":\n    - Visual Title: \"Chapter 12 Master Summary\" (flowchart)\n    - Why Needed: Provides a holistic review before board examinations.\n    - What to Explain: Review all key rules: Right-Hand Thumb Rule, Fleming's Left-Hand Rule, and domestic circuit safety.\n    - Timing & Directive: Ask student: Can you summarize the difference between the two main rules learned in this chapter?\n    - Interactive Math Formula: \\Sigma \\text{ Rules & Applications}\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Complete review of magnetic field line properties",
+      "Short-circuit current surge analysis",
+      "Right-hand and left-hand rule application practice",
+      "Electromagnetic safety mechanisms"
+    ],
+    "success_criteria": "Successfully solve all chapter-end exercise questions with accurate reasoning and calculations.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:48:01.867906+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Chapter-end exercise solutions",
+      "MCQ analysis and reasoning",
+      "Board numerical problem-solving techniques",
+      "Conceptual doubt clearing"
+    ],
+    "chapter_notes": "Master solver capsule covering all remaining chapter exercises (Q1 to Q9 on page 207). Emphasizes thorough step-by-step reasoning for board exam top scores.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "In-Text Question (Section 12.1 & 12.2, p. 6 & p. 9): (a) State Right-Hand Thumb Rule and Maxwell's Corkscrew Rule. (b) Why don't two magnetic field lines ever intersect each other?",
+        "given": "Magnetic field geometry surrounding current-carrying conductors and solenoids.",
+        "formula": "Biot-Savart Law / Ampere's circuital law; Tangent to field line gives magnetic field direction vector B.",
+        "substitution": "Geometric vector direction at intersection point.",
+        "calculation": "(a) Right-Hand Thumb Rule: Imagine grasping a straight current-carrying wire in your right hand with the thumb pointing in the direction of current. Your curled fingers will point in the direction of concentric magnetic field lines.\n(b) Intersection impossibility: The tangent to a magnetic field line at any point gives the unique direction of the magnetic field vector B at that point. If two lines intersected, a magnetic compass needle placed at the intersection would have to point in two different directions simultaneously, which is physically impossible. Hence magnetic field lines never intersect.",
+        "finalAnswer": "(a) Thumb points along current, curled fingers give magnetic field direction; (b) Field lines never cross because the magnetic field can have only one unique direction at any given point.",
+        "unit": "Magnetic field physics",
+        "has_diagram": true,
+        "diagram_source": "image_search",
+        "figure_caption": "Right-hand thumb rule and non-intersecting magnetic field lines",
+        "image_search_query": "right hand thumb rule magnetic field lines intersection physics",
+        "page": 6,
+        "section": "Section 12.1"
+      },
+      {
+        "problem": "End-of-Chapter Exercise Q6 & Q7 (p. 13): (a) State Fleming's Left-Hand Rule and its application. (b) What is the function of an earth wire in domestic electrical appliances? Why must metallic appliances be earthed?",
+        "given": "Lorentz magnetic force on current carrier; Domestic electrical safety.",
+        "formula": "Lorentz force $\\vec{F} = I(\\vec{L} \\times \\vec{B})$; Earth connection provides low-resistance path to ground ($R_{\\text{earth}} \\to 0$).",
+        "substitution": "Forefinger = Field B, Centre finger = Current I, Thumb = Force F.",
+        "calculation": "(a) Fleming's Left-Hand Rule: Stretch the thumb, forefinger, and middle finger of the left hand mutually perpendicular. If the forefinger points in direction of magnetic field (B) and middle finger in direction of current (I), the thumb indicates the direction of mechanical motion/force (F) acting on the conductor. Applied in electric motors.\n(b) Earth Wire: The green earth wire connects the metallic outer casing of high-power appliances (refrigerators, irons, toasters) directly to a buried copper earth plate. If live wire insulation fails and touches the metallic body, the low-resistance ground path shunts fault current into the earth, blowing the fuse or tripping the circuit breaker immediately and preventing lethal electric shocks to the user.",
+        "finalAnswer": "(a) Fleming's Left-Hand Rule determines direction of motor force (Thumb = Force, Forefinger = Field, Middle = Current); (b) Earth wire channels leakage current safely into ground, preventing lethal electric shock.",
+        "unit": "Electrical safety & motor rule",
+        "has_diagram": true,
+        "diagram_source": "image_search",
+        "figure_caption": "Fleming's left-hand rule and domestic three-pin earth wiring",
+        "image_search_query": "flemings left hand rule domestic earthing safety diagram",
+        "page": 13,
+        "section": "Exercises"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing earth wire color with neutral wire.",
+      "Assuming fuses protect against power outages instead of current surges."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735281684_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Comprehensive NCERT Exercises and Problem Solver: Complete step-by-step solution solver for all chapter-end exercises and remaining NCERT questions.",
+              "keyTakeaway": "Complete review of magnetic field line properties"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Complete review of magnetic field line properties"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc112.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735281684_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Comprehensive NCERT Exercises and Problem Solver - Fundamental Equations",
+              "equations": [
+                "Complete review of magnetic field line properties",
+                "Short-circuit current surge analysis",
+                "Right-hand and left-hand rule application practice"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Complete review of magnetic field line properties"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc112.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735281684_3",
+          "type": "DIAGRAM",
+          "title": "Comprehensive NCERT Exercises and Problem Solver Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Comprehensive NCERT Exercises and Problem Solver Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Complete review of magnetic field line properties",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Short-circuit current surge analysis",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Comprehensive NCERT Exercises and Problem Solver",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Comprehensive NCERT Exercises and Problem Solver | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='200' y='30' width='140' height='40' fill='#2563EB' rx='6'/><text x='270' y='55' font-family='sans-serif' font-size='14' font-weight='bold' fill='#FFFFFF' text-anchor='middle'>Magnetic Effects</text><rect x='80' y='120' width='120' height='40' fill='#16A34A' rx='6'/><text x='140' y='145' font-family='sans-serif' font-size='12' fill='#FFFFFF' text-anchor='middle'>Right-Hand Rule</text><rect x='340' y='120' width='120' height='40' fill='#DC2626' rx='6'/><text x='400' y='145' font-family='sans-serif' font-size='12' fill='#FFFFFF' text-anchor='middle'>Left-Hand Rule</text><line x1='240' y1='70' x2='140' y2='120' stroke='#0F172A' stroke-width='2'/><line x1='300' y1='70' x2='400' y2='120' stroke='#0F172A' stroke-width='2'/></svg> | Hierarchical mind map of Chapter 12 core topics and rules."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc112.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735281684_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Complete review of magnetic field line properties"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Metallic appliances connected to mains., what is the value?",
+              "explanation": "By fundamental principle, Complete review of magnetic field line properties is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735281684_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Chapter-end exercise solutions",
+                "MCQ analysis and reasoning",
+                "Board numerical problem-solving techniques",
+                "Conceptual doubt clearing"
+              ],
+              "formulasToRemember": [
+                "Complete review of magnetic field line properties",
+                "Short-circuit current surge analysis",
+                "Right-hand and left-hand rule application practice"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Comprehensive NCERT Exercises and Problem Solver - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Comprehensive NCERT Exercises and Problem Solver",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:48:01.684Z",
+        "provenance": "jesc112.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735281684",
+      "subtopics": [
+        "Chapter-end exercise solutions",
+        "MCQ analysis and reasoning",
+        "Board numerical problem-solving techniques",
+        "Conceptual doubt clearing"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='200' y='30' width='140' height='40' fill='#2563EB' rx='6'/><text x='270' y='55' font-family='sans-serif' font-size='14' font-weight='bold' fill='#FFFFFF' text-anchor='middle'>Magnetic Effects</text><rect x='80' y='120' width='120' height='40' fill='#16A34A' rx='6'/><text x='140' y='145' font-family='sans-serif' font-size='12' fill='#FFFFFF' text-anchor='middle'>Right-Hand Rule</text><rect x='340' y='120' width='120' height='40' fill='#DC2626' rx='6'/><text x='400' y='145' font-family='sans-serif' font-size='12' fill='#FFFFFF' text-anchor='middle'>Left-Hand Rule</text><line x1='240' y1='70' x2='140' y2='120' stroke='#0F172A' stroke-width='2'/><line x1='300' y1='70' x2='400' y2='120' stroke='#0F172A' stroke-width='2'/></svg>",
+      "diagram_idea": "Summary flowchart connecting magnetic field sources, rules, and domestic safety.",
+      "diagram_type": "flowchart",
+      "what_to_make": "Hierarchical mind map of Chapter 12 core topics and rules.",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='190' y='30' width='160' height='40' fill='#0F172A' rx='6'/><text x='270' y='55' font-family='sans-serif' font-size='14' font-weight='bold' fill='#FFFFFF' text-anchor='middle'>Chapter 12 Master Map</text><rect x='60' y='130' width='120' height='40' fill='#2563EB' rx='6'/><text x='120' y='155' font-family='sans-serif' font-size='12' fill='#FFFFFF' text-anchor='middle'>Fields & Wires</text><rect x='360' y='130' width='120' height='40' fill='#16A34A' rx='6'/><text x='420' y='155' font-family='sans-serif' font-size='12' fill='#FFFFFF' text-anchor='middle'>Domestic Circuits</text></svg>",
+          "why_needed": "Provides a holistic review before board examinations.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='190' y='30' width='160' height='40' fill='#0F172A' rx='6'/><text x='270' y='55' font-family='sans-serif' font-size='14' font-weight='bold' fill='#FFFFFF' text-anchor='middle'>Chapter 12 Master Map</text><rect x='60' y='130' width='120' height='40' fill='#2563EB' rx='6'/><text x='120' y='155' font-family='sans-serif' font-size='12' fill='#FFFFFF' text-anchor='middle'>Fields & Wires</text><rect x='360' y='130' width='120' height='40' fill='#16A34A' rx='6'/><text x='420' y='155' font-family='sans-serif' font-size='12' fill='#FFFFFF' text-anchor='middle'>Domestic Circuits</text></svg>",
+          "image_query": "domestic household electric circuit diagram showing live wire, neutral wire, earth wire, electricity board fuse, electric meter, and distribution box with MCB",
+          "video_query": "domestic electric circuits household wiring earth wire live wire demonstration",
+          "diagram_type": "flowchart",
+          "what_to_make": "Mind map flowchart connecting fields, forces, and circuits.",
+          "concept_title": "Complete review of magnetic field line properties",
+          "diagram_title": "Chapter 12 Master Summary",
+          "timing_and_cue": "Ask student: Can you summarize the difference between the two main rules learned in this chapter?",
+          "what_to_explain": "Review all key rules: Right-Hand Thumb Rule, Fleming's Left-Hand Rule, and domestic circuit safety.",
+          "image_search_query": "domestic household electric circuit diagram showing live wire, neutral wire, earth wire, electricity board fuse, electric meter, and distribution box with MCB",
+          "video_search_query": "domestic electric circuits household wiring earth wire live wire demonstration",
+          "interactive_math_formula": "\\Sigma \\text{ Rules & Applications}"
+        }
+      ],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "Chapter Review -> Exercise Q1-Q9 Solver -> Conceptual Verification -> Board Exam Mastery",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Which of the following correctly describes the magnetic field near a long straight wire? (a) straight perpendicular lines (b) straight parallel lines (c) radial lines (d) concentric circles centred on the wire.",
+              "ideal_answer": "(d) concentric circles centred on the wire",
+              "socratic_hint": "Recall the iron filings pattern from Activity 12.5."
+            },
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q2",
+              "question": "At the time of short circuit, the current in the circuit: (a) reduces substantially (b) does not change (c) increases heavily (d) varies continuously.",
+              "ideal_answer": "(c) increases heavily",
+              "socratic_hint": "What happens when live and neutral touch directly with zero resistance?"
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q3",
+              "question": "State whether true or false: A wire with a green insulation is usually the live wire of an electric supply.",
+              "ideal_answer": "False. Green insulation is used for the earth wire, while live wire has red insulation.",
+              "socratic_hint": "Recall standard wire colour coding."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q4",
+              "question": "List two methods of producing magnetic fields.",
+              "ideal_answer": "1. Using a permanent bar magnet. 2. Using a current-carrying conductor or solenoid (electromagnet).",
+              "socratic_hint": "Natural magnets vs current-produced magnetic fields."
+            },
+            {
+              "type": "5-mark Numerical",
+              "q_num": "Q5",
+              "question": "Imagine that you are sitting in a chamber with your back to one wall. An electron beam, moving horizontally from back wall towards the front wall, is deflected by a strong magnetic field to your right side. What is the direction of magnetic field?",
+              "ideal_answer": "Electron beam moving front = Current moving back. Deflected to right (Force = Right). Using Fleming's left-hand rule with Middle finger pointing back and Thumb pointing right, the Forefinger points vertically downward.",
+              "socratic_hint": "Carefully track electron motion vs conventional current direction."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Complete review of magnetic field line properties"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Exercise Review",
+          "scenario": "Comprehensive review of all conceptual and numerical problems from Chapter 12."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "Which of the following correctly describes the magnetic field near a long straight wire?",
+              "question_type": "conceptual",
+              "solution_method": "Select (d) concentric circles centred on the wire based on Oersted and Ampere experiments."
+            },
+            {
+              "q_num": "Q2",
+              "question": "At the time of short circuit, the current in the circuit",
+              "question_type": "conceptual",
+              "solution_method": "Select (c) increases heavily due to zero resistance path."
+            },
+            {
+              "q_num": "Q3",
+              "question": "State whether true or false: (a) The field at the centre of a long circular coil carrying current will be parallel straight lines. (b) A wire with a green insulation is usually the live wire of an electric supply.",
+              "question_type": "conceptual",
+              "solution_method": "(a) True. (b) False (green is earth)."
+            },
+            {
+              "q_num": "Q4",
+              "question": "List two methods of producing magnetic fields.",
+              "question_type": "conceptual",
+              "solution_method": "Permanent magnets and current-carrying electromagnets."
+            },
+            {
+              "q_num": "Q8",
+              "question": "When does an electric short circuit occur?",
+              "question_type": "conceptual",
+              "solution_method": "When live and neutral wires touch directly due to damaged insulation."
+            },
+            {
+              "q_num": "Q9",
+              "question": "What is the function of an earth wire? Why is it necessary to earth metallic appliances?",
+              "question_type": "conceptual",
+              "solution_method": "Earth wire provides low-resistance path to ground, preventing severe electric shocks from metallic appliance leakages."
+            }
+          ],
+          "exercise_number": "Chapter 12 Exercises (Page 207)"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Short Circuit",
+          "si_units": "High Amperage",
+          "definition": "Abrupt surge of current when live and neutral wires come into direct contact due to damaged insulation."
+        }
+      ]
+    },
+    "quiz_questions": []
+  }
+]

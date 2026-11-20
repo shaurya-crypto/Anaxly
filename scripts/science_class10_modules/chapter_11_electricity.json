@@ -1,0 +1,2378 @@
+[
+  {
+    "id": "aa4ffb76-0140-4380-a730-a836b2e0c833",
+    "curriculum_id": "7e89576e-316d-4dcd-9676-95b4334a3ecd",
+    "order_index": 1,
+    "title": "Electric Current, Charge, and Circuits",
+    "description": "Understand electric charge, the rate of flow of charge (electric current), conventional current direction, and ammeter connections in a closed circuit.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 1: Electric Current, Charge, and Circuits. Final-Term Examination Syllabus. Emphasize water current analogy for intuitive understanding. Explain why conventional current is opposite to electron flow.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: A closed loop circuit containing a 4-cell battery, a plug key (closed), an ammeter with + and - terminals, and an electric bulb.\n- Diagram Type: circuit_schematic\n- Chapter Multi-Level Flowchart: Electric Charge -> Flow of Electrons -> Electric Current (I = Q/t) -> Measured by Ammeter in Series\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Electric Charge -> Flow of Electrons -> Electric Current (I = Q/t) -> Measured by Ammeter in Series\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Electric Current: \"The amount of charge flowing through a particular area in unit time (rate of flow of electric charges).\" [SI Unit: Ampere (A) or C/s]\n- Electric Circuit: \"A continuous and closed path of an electric current.\" [SI Unit: N/A]\n\n- Textbook Concrete Examples:\n- Torch light mechanism: Cells provide flow of charges through the bulb when the switch makes a conducting link.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Exercises (Page 172):\n    * [Q1] (conceptual): What does an electric circuit mean?\n      Method: Define electric circuit as a continuous and closed path of an electric current.\n    * [Q2] (conceptual): Define the unit of current.\n      Method: Define 1 Ampere as 1 coulomb of charge flowing per second.\n    * [Q3] (numerical): Calculate the number of electrons constituting one coulomb of charge.\n      Method: Use n = Q/e where Q = 1 C and e = 1.6 * 10^-19 C to get 6.25 * 10^18 electrons.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Electric Current ($I = Q/t$)\":\n    * [Q1] (1-mark MCQ): What is the SI unit of electric current?\n      -> Ideal Model Answer: Ampere (A)\n      -> Socratic Hint: Think of the French scientist Andre-Marie Ampere after whom it is named.\n    * [Q2] (2-mark Definition): Define 1 ampere of electric current.\n      -> Ideal Model Answer: 1 ampere is constituted by the flow of one coulomb of charge per second (1 A = 1 C/1 s).\n      -> Socratic Hint: Relate current I = Q/t with Q = 1 C and t = 1 s.\n    * [Q3] (3-mark Derivation): Calculate the amount of charge flowing through a conductor if a current of 0.5 A flows for 10 minutes.\n      -> Ideal Model Answer: Given I = 0.5 A, t = 10 min = 600 s. Q = I * t = 0.5 * 600 = 300 C.\n      -> Socratic Hint: Convert minutes into seconds before multiplying with current.\n    * [Q4] (5-mark Numerical): A current of 2 A flows through a conductor for 5 minutes. Find (a) total charge passing through cross-section, (b) total number of electrons flowing.\n      -> Ideal Model Answer: (a) Q = I * t = 2 * 300 = 600 C. (b) n = Q/e = 600 / (1.6 * 10^-19) = 3.75 * 10^21 electrons.\n      -> Socratic Hint: Use Q = ne where charge of electron e = 1.6 * 10^-19 C.\n    * [Q5] (PYQ): State the relationship between electric current, charge, and time. Write its SI unit.\n      -> Ideal Model Answer: I = Q/t. SI unit of electric current is Ampere (A).\n      -> Socratic Hint: Recall the basic definition: rate of flow of electric charges.\n    * [Q6] (Competency): Why is an ammeter always connected in series in an electric circuit?\n      -> Ideal Model Answer: An ammeter has very low resistance and measures the entire current flowing through that part of the circuit.\n      -> Socratic Hint: Think about whether a current measuring device needs to experience the full flow of charge.\n  * Concept #2 \"Quantization of Charge ($Q = ne$)\":\n    * [Q1] (1-mark MCQ): How many electrons constitute one coulomb of charge?\n      -> Ideal Model Answer: Nearly 6 * 10^18 electrons.\n      -> Socratic Hint: Divide 1 C by the charge of a single electron (1.6 * 10^-19 C).\n    * [Q2] (2-mark Definition): What is the magnitude of charge on an electron?\n      -> Ideal Model Answer: An electron possesses a negative charge of 1.6 * 10^-19 C.\n      -> Socratic Hint: Memorize fundamental elementary charge value.\n    * [Q3] (3-mark Derivation): Verify that 1 C of charge contains 6.25 * 10^18 electrons.\n      -> Ideal Model Answer: n = 1 / (1.6 * 10^-19) = 6.25 * 10^18 electrons.\n      -> Socratic Hint: Perform division 1 / 1.6 and adjust exponent.\n    * [Q4] (5-mark Numerical): Calculate the total charge on 10^20 electrons.\n      -> Ideal Model Answer: Q = ne = 10^20 * 1.6 * 10^-19 C = 16 C.\n      -> Socratic Hint: Multiply number of electrons n by charge e.\n    * [Q5] (PYQ): Calculate the number of electrons constituting one coulomb of charge.\n      -> Ideal Model Answer: n = Q/e = 1 / (1.6 * 10^-19) = 6.25 * 10^18 electrons.\n      -> Socratic Hint: Direct NCERT in-text question solution.\n    * [Q6] (Competency): Can a charge of 3.2 * 10^-19 C exist on a body? Explain.\n      -> Ideal Model Answer: Yes, because it is an integral multiple of elementary charge (n = 3.2 * 10^-19 / 1.6 * 10^-19 = 2).\n      -> Socratic Hint: Check if Q/e results in an integer.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Electric Current ($I = Q/t$)\":\n    - Visual Title: \"Schematic Circuit Diagram\" (circuit_schematic)\n    - Why Needed: Shows how current flows from positive to negative terminal through components.\n    - What to Explain: Point out the ammeter connected in series and the direction of conventional current.\n    - Timing & Directive: Introduce at the start of Capsule 1 to ground students in circuit symbols.\n    - Interactive Math Formula: I = Q / t\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Electric Current ($I = Q/t$)",
+      "Quantization of Charge ($Q = ne$)",
+      "Conventional Direction of Current",
+      "Ammeter in Series"
+    ],
+    "success_criteria": "Calculate current, charge, and electron count accurately and draw standard schematic circuit diagrams.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:46:43.586613+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Electric Charge and Quantization",
+      "Electric Current Definition and Formula",
+      "SI Unit of Current (Ampere)",
+      "Direction of Electric Current vs Electron Flow",
+      "Schematic Diagrams and Ammeter Connection"
+    ],
+    "chapter_notes": "Electricity is a controllable and convenient form of energy. A continuous and closed path of an electric current is called an electric circuit. Electric current is expressed as the rate of flow of electric charges ($I = Q/t$). In metallic wires, electrons constitute the flow of charges. Conventionally, the direction of electric current is taken as opposite to the direction of the flow of electrons. The SI unit of electric charge is coulomb (C), equivalent to 6 * 10^18 electrons. The SI unit of current is ampere (A). An ammeter measures electric current and is always connected in series.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "C",
+        "given": "I = 0.5 A, t = 10 min = 600 s",
+        "formula": "Q = I * t",
+        "problem": "A current of 0.5 A is drawn by a filament of an electric bulb for 10 minutes. Find the amount of electric charge that flows through the circuit.",
+        "calculation": "0.5 * 600 = 300",
+        "finalAnswer": "300",
+        "substitution": "Q = 0.5 A * 600 s",
+        "image_search_query": "class 10 science chapter_11_elec ncert",
+        "page": 10,
+        "section": "Section 1"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing electron flow direction with conventional current direction.",
+      "Connecting ammeter in parallel instead of series."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735203426_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Electric Current, Charge, and Circuits: Understand electric charge, the rate of flow of charge (electric current), conventional current direction, and ammeter connections in a closed circuit.",
+              "keyTakeaway": "Electric Current ($I = Q/t$)"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Electric Current ($I = Q/t$)"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc111.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735203426_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Electric Current, Charge, and Circuits - Fundamental Equations",
+              "equations": [
+                "Electric Current ($I = Q/t$)",
+                "Quantization of Charge ($Q = ne$)",
+                "Conventional Direction of Current"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Electric Current ($I = Q/t$)"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc111.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735203426_3",
+          "type": "DIAGRAM",
+          "title": "Electric Current, Charge, and Circuits Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Electric Current, Charge, and Circuits Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Electric Current ($I = Q/t$)",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Quantization of Charge ($Q = ne$)",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Electric Current, Charge, and Circuits",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Electric Current, Charge, and Circuits | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='60' y='110' width='30' height='60' rx='4' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='75' y='145' font-family='sans-serif' font-size='14' fill='#2563EB' text-anchor='middle'>A</text><line x1='90' y1='140' x2='180' y2='140' stroke='#0F172A' stroke-width='2'/><circle cx='180' cy='140' r='15' fill='none' stroke='#0F172A' stroke-width='2'/><path d='M170 150 L190 130 M170 130 L190 150' stroke='#0F172A' stroke-width='2'/><text x='180' y='110' font-family='sans-serif' font-size='12' fill='#0F172A' text-anchor='middle'>Bulb</text><line x1='195' y1='140' x2='300' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='300' y1='125' x2='300' y2='155' stroke='#0F172A' stroke-width='2'/><circle cx='300' cy='140' r='4' fill='#0F172A'/><text x='300' y='110' font-family='sans-serif' font-size='12' fill='#0F172A' text-anchor='middle'>Key (K)</text><line x1='304' y1='140' x2='420' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='420' y1='110' x2='420' y2='170' stroke='#0F172A' stroke-width='2'/><line x1='430' y1='120' x2='430' y2='160' stroke='#0F172A' stroke-width='2'/><line x1='420' y1='130' x2='430' y2='130' stroke='#0F172A' stroke-width='2'/><line x1='420' y1='150' x2='430' y2='150' stroke='#0F172A' stroke-width='2'/><text x='425' y='95' font-family='sans-serif' font-size='12' fill='#0F172A' text-anchor='middle'>Battery</text><line x1='60' y1='140' x2='40' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='40' y1='140' x2='40' y2='220' stroke='#0F172A' stroke-width='2'/><line x1='40' y1='220' x2='450' y2='220' stroke='#0F172A' stroke-width='2'/><line x1='450' y1='220' x2='450' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='450' y1='140' x2='435' y2='140' stroke='#0F172A' stroke-width='2'/></svg> | A closed loop circuit containing a 4-cell battery, a plug key (closed), an ammeter with + and - terminals, and an electric bulb."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc111.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735203426_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Electric Current ($I = Q/t$)"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If I = 0.5 A, t = 10 min = 600 s, what is the value?",
+              "explanation": "By fundamental principle, Electric Current ($I = Q/t$) is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735203426_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Electric Charge and Quantization",
+                "Electric Current Definition and Formula",
+                "SI Unit of Current (Ampere)",
+                "Direction of Electric Current vs Electron Flow",
+                "Schematic Diagrams and Ammeter Connection"
+              ],
+              "formulasToRemember": [
+                "Electric Current ($I = Q/t$)",
+                "Quantization of Charge ($Q = ne$)",
+                "Conventional Direction of Current"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Electric Current, Charge, and Circuits - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Electric Current, Charge, and Circuits",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:46:43.427Z",
+        "provenance": "jesc111.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735203426",
+      "subtopics": [
+        "Electric Charge and Quantization",
+        "Electric Current Definition and Formula",
+        "SI Unit of Current (Ampere)",
+        "Direction of Electric Current vs Electron Flow",
+        "Schematic Diagrams and Ammeter Connection"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='60' y='110' width='30' height='60' rx='4' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='75' y='145' font-family='sans-serif' font-size='14' fill='#2563EB' text-anchor='middle'>A</text><line x1='90' y1='140' x2='180' y2='140' stroke='#0F172A' stroke-width='2'/><circle cx='180' cy='140' r='15' fill='none' stroke='#0F172A' stroke-width='2'/><path d='M170 150 L190 130 M170 130 L190 150' stroke='#0F172A' stroke-width='2'/><text x='180' y='110' font-family='sans-serif' font-size='12' fill='#0F172A' text-anchor='middle'>Bulb</text><line x1='195' y1='140' x2='300' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='300' y1='125' x2='300' y2='155' stroke='#0F172A' stroke-width='2'/><circle cx='300' cy='140' r='4' fill='#0F172A'/><text x='300' y='110' font-family='sans-serif' font-size='12' fill='#0F172A' text-anchor='middle'>Key (K)</text><line x1='304' y1='140' x2='420' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='420' y1='110' x2='420' y2='170' stroke='#0F172A' stroke-width='2'/><line x1='430' y1='120' x2='430' y2='160' stroke='#0F172A' stroke-width='2'/><line x1='420' y1='130' x2='430' y2='130' stroke='#0F172A' stroke-width='2'/><line x1='420' y1='150' x2='430' y2='150' stroke='#0F172A' stroke-width='2'/><text x='425' y='95' font-family='sans-serif' font-size='12' fill='#0F172A' text-anchor='middle'>Battery</text><line x1='60' y1='140' x2='40' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='40' y1='140' x2='40' y2='220' stroke='#0F172A' stroke-width='2'/><line x1='40' y1='220' x2='450' y2='220' stroke='#0F172A' stroke-width='2'/><line x1='450' y1='220' x2='450' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='450' y1='140' x2='435' y2='140' stroke='#0F172A' stroke-width='2'/></svg>",
+      "diagram_idea": "Schematic diagram of electric circuit comprising cell, bulb, ammeter, and plug key.",
+      "diagram_type": "circuit_schematic",
+      "what_to_make": "A closed loop circuit containing a 4-cell battery, a plug key (closed), an ammeter with + and - terminals, and an electric bulb.",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='60' y='110' width='30' height='60' rx='4' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='75' y='145' font-family='sans-serif' font-size='14' fill='#2563EB' text-anchor='middle'>A</text><line x1='90' y1='140' x2='180' y2='140' stroke='#0F172A' stroke-width='2'/><circle cx='180' cy='140' r='15' fill='none' stroke='#0F172A' stroke-width='2'/><path d='M170 150 L190 130 M170 130 L190 150' stroke='#0F172A' stroke-width='2'/><line x1='195' y1='140' x2='300' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='300' y1='125' x2='300' y2='155' stroke='#0F172A' stroke-width='2'/><circle cx='300' cy='140' r='4' fill='#0F172A'/><line x1='304' y1='140' x2='420' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='420' y1='110' x2='420' y2='170' stroke='#0F172A' stroke-width='2'/><line x1='430' y1='120' x2='430' y2='160' stroke='#0F172A' stroke-width='2'/><line x1='40' y1='140' x2='60' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='40' y1='140' x2='40' y2='220' stroke='#0F172A' stroke-width='2'/><line x1='40' y1='220' x2='450' y2='220' stroke='#0F172A' stroke-width='2'/><line x1='450' y1='220' x2='450' y2='140' stroke='#0F172A' stroke-width='2'/></svg>",
+          "why_needed": "Shows how current flows from positive to negative terminal through components.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='60' y='110' width='30' height='60' rx='4' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='75' y='145' font-family='sans-serif' font-size='14' fill='#2563EB' text-anchor='middle'>A</text><line x1='90' y1='140' x2='180' y2='140' stroke='#0F172A' stroke-width='2'/><circle cx='180' cy='140' r='15' fill='none' stroke='#0F172A' stroke-width='2'/><path d='M170 150 L190 130 M170 130 L190 150' stroke='#0F172A' stroke-width='2'/><line x1='195' y1='140' x2='300' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='300' y1='125' x2='300' y2='155' stroke='#0F172A' stroke-width='2'/><circle cx='300' cy='140' r='4' fill='#0F172A'/><line x1='304' y1='140' x2='420' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='420' y1='110' x2='420' y2='170' stroke='#0F172A' stroke-width='2'/><line x1='430' y1='120' x2='430' y2='160' stroke='#0F172A' stroke-width='2'/><line x1='40' y1='140' x2='60' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='40' y1='140' x2='40' y2='220' stroke='#0F172A' stroke-width='2'/><line x1='40' y1='220' x2='450' y2='220' stroke='#0F172A' stroke-width='2'/><line x1='450' y1='220' x2='450' y2='140' stroke='#0F172A' stroke-width='2'/></svg>",
+          "image_query": "series electric circuit diagram with battery cells, closed plug key switch, ammeter in series, three resistors in series, and direction of electric current",
+          "video_query": "series combination of resistors in electric circuit laboratory experiment demonstration",
+          "diagram_type": "circuit_schematic",
+          "what_to_make": "Circuit diagram with battery, ammeter, bulb, and key.",
+          "concept_title": "Electric Current ($I = Q/t$)",
+          "diagram_title": "Schematic Circuit Diagram",
+          "timing_and_cue": "Introduce at the start of Capsule 1 to ground students in circuit symbols.",
+          "what_to_explain": "Point out the ammeter connected in series and the direction of conventional current.",
+          "image_search_query": "series electric circuit diagram with battery cells, closed plug key switch, ammeter in series, three resistors in series, and direction of electric current",
+          "video_search_query": "series combination of resistors in electric circuit laboratory experiment demonstration",
+          "interactive_math_formula": "I = Q / t"
+        }
+      ],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "Electric Charge -> Flow of Electrons -> Electric Current (I = Q/t) -> Measured by Ammeter in Series",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "What is the SI unit of electric current?",
+              "ideal_answer": "Ampere (A)",
+              "socratic_hint": "Think of the French scientist Andre-Marie Ampere after whom it is named."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Define 1 ampere of electric current.",
+              "ideal_answer": "1 ampere is constituted by the flow of one coulomb of charge per second (1 A = 1 C/1 s).",
+              "socratic_hint": "Relate current I = Q/t with Q = 1 C and t = 1 s."
+            },
+            {
+              "type": "3-mark Derivation",
+              "q_num": "Q3",
+              "question": "Calculate the amount of charge flowing through a conductor if a current of 0.5 A flows for 10 minutes.",
+              "ideal_answer": "Given I = 0.5 A, t = 10 min = 600 s. Q = I * t = 0.5 * 600 = 300 C.",
+              "socratic_hint": "Convert minutes into seconds before multiplying with current."
+            },
+            {
+              "type": "5-mark Numerical",
+              "q_num": "Q4",
+              "question": "A current of 2 A flows through a conductor for 5 minutes. Find (a) total charge passing through cross-section, (b) total number of electrons flowing.",
+              "ideal_answer": "(a) Q = I * t = 2 * 300 = 600 C. (b) n = Q/e = 600 / (1.6 * 10^-19) = 3.75 * 10^21 electrons.",
+              "socratic_hint": "Use Q = ne where charge of electron e = 1.6 * 10^-19 C."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q5",
+              "question": "State the relationship between electric current, charge, and time. Write its SI unit.",
+              "ideal_answer": "I = Q/t. SI unit of electric current is Ampere (A).",
+              "socratic_hint": "Recall the basic definition: rate of flow of electric charges."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q6",
+              "question": "Why is an ammeter always connected in series in an electric circuit?",
+              "ideal_answer": "An ammeter has very low resistance and measures the entire current flowing through that part of the circuit.",
+              "socratic_hint": "Think about whether a current measuring device needs to experience the full flow of charge."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Electric Current ($I = Q/t$)"
+        },
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "How many electrons constitute one coulomb of charge?",
+              "ideal_answer": "Nearly 6 * 10^18 electrons.",
+              "socratic_hint": "Divide 1 C by the charge of a single electron (1.6 * 10^-19 C)."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "What is the magnitude of charge on an electron?",
+              "ideal_answer": "An electron possesses a negative charge of 1.6 * 10^-19 C.",
+              "socratic_hint": "Memorize fundamental elementary charge value."
+            },
+            {
+              "type": "3-mark Derivation",
+              "q_num": "Q3",
+              "question": "Verify that 1 C of charge contains 6.25 * 10^18 electrons.",
+              "ideal_answer": "n = 1 / (1.6 * 10^-19) = 6.25 * 10^18 electrons.",
+              "socratic_hint": "Perform division 1 / 1.6 and adjust exponent."
+            },
+            {
+              "type": "5-mark Numerical",
+              "q_num": "Q4",
+              "question": "Calculate the total charge on 10^20 electrons.",
+              "ideal_answer": "Q = ne = 10^20 * 1.6 * 10^-19 C = 16 C.",
+              "socratic_hint": "Multiply number of electrons n by charge e."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q5",
+              "question": "Calculate the number of electrons constituting one coulomb of charge.",
+              "ideal_answer": "n = Q/e = 1 / (1.6 * 10^-19) = 6.25 * 10^18 electrons.",
+              "socratic_hint": "Direct NCERT in-text question solution."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q6",
+              "question": "Can a charge of 3.2 * 10^-19 C exist on a body? Explain.",
+              "ideal_answer": "Yes, because it is an integral multiple of elementary charge (n = 3.2 * 10^-19 / 1.6 * 10^-19 = 2).",
+              "socratic_hint": "Check if Q/e results in an integer."
+            }
+          ],
+          "concept_index": 1,
+          "concept_title": "Quantization of Charge ($Q = ne$)"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Torch light mechanism",
+          "scenario": "Cells provide flow of charges through the bulb when the switch makes a conducting link."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "What does an electric circuit mean?",
+              "question_type": "conceptual",
+              "solution_method": "Define electric circuit as a continuous and closed path of an electric current."
+            },
+            {
+              "q_num": "Q2",
+              "question": "Define the unit of current.",
+              "question_type": "conceptual",
+              "solution_method": "Define 1 Ampere as 1 coulomb of charge flowing per second."
+            },
+            {
+              "q_num": "Q3",
+              "question": "Calculate the number of electrons constituting one coulomb of charge.",
+              "question_type": "numerical",
+              "solution_method": "Use n = Q/e where Q = 1 C and e = 1.6 * 10^-19 C to get 6.25 * 10^18 electrons."
+            }
+          ],
+          "exercise_number": "In-Text Exercises (Page 172)"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Electric Current",
+          "si_units": "Ampere (A) or C/s",
+          "definition": "The amount of charge flowing through a particular area in unit time (rate of flow of electric charges)."
+        },
+        {
+          "concept": "Electric Circuit",
+          "si_units": "N/A",
+          "definition": "A continuous and closed path of an electric current."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "e9ec26cd-53bf-41af-acd1-458e527cf3eb",
+    "curriculum_id": "7e89576e-316d-4dcd-9676-95b4334a3ecd",
+    "order_index": 2,
+    "title": "Electric Potential and Potential Difference",
+    "description": "Explore electric pressure (potential difference), work done in moving unit charge, the Volt, and voltmeter parallel connections.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 2: Electric Potential and Potential Difference. Final-Term Examination Syllabus. Use the water pump and tank analogy to explain potential difference clearly.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: A resistor connected in a circuit with a voltmeter bridging across its two ends (parallel branch).\n- Diagram Type: circuit_schematic\n- Chapter Multi-Level Flowchart: Chemical Energy in Cell -> Potential Difference (V = W/Q) -> Electric Pressure -> Charge Motion\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Chemical Energy in Cell -> Potential Difference (V = W/Q) -> Electric Pressure -> Charge Motion\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Potential Difference: \"Work done to move a unit charge from one point to the other in an electric circuit.\" [SI Unit: Volt (V) or J C^-1]\n\n- Textbook Concrete Examples:\n- Water tank pressure analogy: Water flows out of a tube when connected to a tank kept at a higher level, creating pressure difference.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Exercises (Page 174):\n    * [Q1] (conceptual): Name a device that helps to maintain a potential difference across a conductor.\n      Method: A cell or battery.\n    * [Q2] (conceptual): What is meant by saying that the potential difference between two points is 1 V?\n      Method: 1 joule of work is done to move 1 coulomb of charge between the points.\n    * [Q3] (numerical): How much energy is given to each coulomb of charge passing through a 6 V battery?\n      Method: Energy (Work) = V * Q = 6 V * 1 C = 6 J.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Potential Difference ($V = W/Q$)\":\n    * [Q1] (1-mark MCQ): What is the SI unit of electric potential difference?\n      -> Ideal Model Answer: Volt (V)\n      -> Socratic Hint: Named after Italian physicist Alessandro Volta.\n    * [Q2] (2-mark Definition): Define 1 volt of potential difference.\n      -> Ideal Model Answer: 1 volt is the potential difference between two points when 1 joule of work is done to move a charge of 1 coulomb from one point to the other.\n      -> Socratic Hint: V = W/Q where W = 1 J and Q = 1 C.\n    * [Q3] (3-mark Derivation): How much work is done in moving a charge of 2 C across two points having potential difference 12 V?\n      -> Ideal Model Answer: W = V * Q = 12 V * 2 C = 24 J.\n      -> Socratic Hint: Rearrange V = W/Q to W = VQ.\n    * [Q4] (5-mark Numerical): Calculate the work done in moving a charge of 5 C from a point at 115 V to a point at 120 V.\n      -> Ideal Model Answer: Potential difference V = 120 - 115 = 5 V. Work W = V * Q = 5 V * 5 C = 25 J.\n      -> Socratic Hint: Find the difference in potential first.\n    * [Q5] (PYQ): Name the device used to measure potential difference across a conductor and state how it is connected in a circuit.\n      -> Ideal Model Answer: Voltmeter; it is always connected in parallel across the points.\n      -> Socratic Hint: Contrast with ammeter which is in series.\n    * [Q6] (Competency): Why does water flow from a high tank to a lower one? How does this relate to electric charges flowing in a wire?\n      -> Ideal Model Answer: Water flows due to pressure difference. Similarly, electrons flow only when there is an electric pressure difference (potential difference) maintained by a cell or battery.\n      -> Socratic Hint: Think of the pressure difference water analogy in the textbook.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Potential Difference ($V = W/Q$)\":\n    - Visual Title: \"Voltmeter in Parallel Setup\" (circuit_schematic)\n    - Why Needed: Illustrates how a voltmeter bridges across a component without breaking the main line.\n    - What to Explain: Emphasize high internal resistance of voltmeter so negligible current diverts through it.\n    - Timing & Directive: Show when discussing how to measure potential difference across a resistor.\n    - Interactive Math Formula: V = W / Q\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Potential Difference ($V = W/Q$)",
+      "SI Unit: Volt (1 V = 1 J C^-1)",
+      "Voltmeter in Parallel"
+    ],
+    "success_criteria": "Solve numericals involving work done, charge, and potential difference, and explain voltmeter placement.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:46:44.259357+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Water Flow Analogy for Potential Difference",
+      "Definition of Electric Potential Difference ($V = W/Q$)",
+      "SI Unit of Potential Difference (Volt)",
+      "Voltmeter Connection in Parallel",
+      "Worked Examples on Work, Charge, and Voltage"
+    ],
+    "chapter_notes": "Charges do not flow in a copper wire by themselves, just as water in a horizontal tube does not flow. A pressure difference (potential difference) is required. The electric potential difference between two points in an electric circuit carrying some current is defined as the work done to move a unit charge from one point to the other ($V = W/Q$). The SI unit is volt (V). A voltmeter measures potential difference and is connected in parallel.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "J",
+        "given": "Q = 2 C, V = 12 V",
+        "formula": "W = V * Q",
+        "problem": "How much work is done in moving a charge of 2 C across two points having a potential difference 12 V?",
+        "calculation": "12 * 2 = 24",
+        "finalAnswer": "24",
+        "substitution": "W = 12 V * 2 C",
+        "image_search_query": "class 10 science chapter_11_elec ncert",
+        "page": 20,
+        "section": "Section 2"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing potential difference with current.",
+      "Connecting voltmeter in series instead of parallel."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735203690_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Electric Potential and Potential Difference: Explore electric pressure (potential difference), work done in moving unit charge, the Volt, and voltmeter parallel connections.",
+              "keyTakeaway": "Potential Difference ($V = W/Q$)"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Potential Difference ($V = W/Q$)"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc111.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735203690_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Electric Potential and Potential Difference - Fundamental Equations",
+              "equations": [
+                "Potential Difference ($V = W/Q$)",
+                "SI Unit: Volt (1 V = 1 J C^-1)",
+                "Voltmeter in Parallel"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Potential Difference ($V = W/Q$)"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc111.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735203690_3",
+          "type": "DIAGRAM",
+          "title": "Electric Potential and Potential Difference Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Electric Potential and Potential Difference Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Potential Difference ($V = W/Q$)",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "SI Unit: Volt (1 V = 1 J C^-1)",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "vector_svg",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Electric Potential and Potential Difference | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='100' y1='140' x2='200' y2='140' stroke='#0F172A' stroke-width='2'/><path d='M200 140 L210 130 L230 150 L250 130 L270 150 L280 140' fill='none' stroke='#0F172A' stroke-width='2'/><line x1='280' y1='140' x2='380' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='150' y1='140' x2='150' y2='80' stroke='#0F172A' stroke-width='2'/><line x1='150' y1='80' x2='230' y2='80' stroke='#0F172A' stroke-width='2'/><circle cx='240' cy='80' r='18' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='240' y='85' font-family='sans-serif' font-size='14' fill='#2563EB' text-anchor='middle'>V</text><line x1='250' y1='80' x2='330' y2='80' stroke='#0F172A' stroke-width='2'/><line x1='330' y1='80' x2='330' y2='140' stroke='#0F172A' stroke-width='2'/><text x='240' y='170' font-family='sans-serif' font-size='14' fill='#0F172A' text-anchor='middle'>Resistor (R)</text></svg> | A resistor connected in a circuit with a voltmeter bridging across its two ends (parallel branch)."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc111.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735203690_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Potential Difference ($V = W/Q$)"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Q = 2 C, V = 12 V, what is the value?",
+              "explanation": "By fundamental principle, Potential Difference ($V = W/Q$) is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735203690_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Water Flow Analogy for Potential Difference",
+                "Definition of Electric Potential Difference ($V = W/Q$)",
+                "SI Unit of Potential Difference (Volt)",
+                "Voltmeter Connection in Parallel",
+                "Worked Examples on Work, Charge, and Voltage"
+              ],
+              "formulasToRemember": [
+                "Potential Difference ($V = W/Q$)",
+                "SI Unit: Volt (1 V = 1 J C^-1)",
+                "Voltmeter in Parallel"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Electric Potential and Potential Difference - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Electric Potential and Potential Difference",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:46:43.690Z",
+        "provenance": "jesc111.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735203690",
+      "subtopics": [
+        "Water Flow Analogy for Potential Difference",
+        "Definition of Electric Potential Difference ($V = W/Q$)",
+        "SI Unit of Potential Difference (Volt)",
+        "Voltmeter Connection in Parallel",
+        "Worked Examples on Work, Charge, and Voltage"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='100' y1='140' x2='200' y2='140' stroke='#0F172A' stroke-width='2'/><path d='M200 140 L210 130 L230 150 L250 130 L270 150 L280 140' fill='none' stroke='#0F172A' stroke-width='2'/><line x1='280' y1='140' x2='380' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='150' y1='140' x2='150' y2='80' stroke='#0F172A' stroke-width='2'/><line x1='150' y1='80' x2='230' y2='80' stroke='#0F172A' stroke-width='2'/><circle cx='240' cy='80' r='18' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='240' y='85' font-family='sans-serif' font-size='14' fill='#2563EB' text-anchor='middle'>V</text><line x1='250' y1='80' x2='330' y2='80' stroke='#0F172A' stroke-width='2'/><line x1='330' y1='80' x2='330' y2='140' stroke='#0F172A' stroke-width='2'/><text x='240' y='170' font-family='sans-serif' font-size='14' fill='#0F172A' text-anchor='middle'>Resistor (R)</text></svg>",
+      "diagram_idea": "Voltmeter connected in parallel across a resistor.",
+      "diagram_type": "circuit_schematic",
+      "what_to_make": "A resistor connected in a circuit with a voltmeter bridging across its two ends (parallel branch).",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='100' y1='140' x2='200' y2='140' stroke='#0F172A' stroke-width='2'/><path d='M200 140 L210 130 L230 150 L250 130 L270 150 L280 140' fill='none' stroke='#0F172A' stroke-width='2'/><line x1='280' y1='140' x2='380' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='150' y1='140' x2='150' y2='80' stroke='#0F172A' stroke-width='2'/><line x1='150' y1='80' x2='230' y2='80' stroke='#0F172A' stroke-width='2'/><circle cx='240' cy='80' r='18' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='240' y='85' font-family='sans-serif' font-size='14' fill='#2563EB' text-anchor='middle'>V</text><line x1='250' y1='80' x2='330' y2='80' stroke='#0F172A' stroke-width='2'/><line x1='330' y1='80' x2='330' y2='140' stroke='#0F172A' stroke-width='2'/></svg>",
+          "why_needed": "Illustrates how a voltmeter bridges across a component without breaking the main line.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='100' y1='140' x2='200' y2='140' stroke='#0F172A' stroke-width='2'/><path d='M200 140 L210 130 L230 150 L250 130 L270 150 L280 140' fill='none' stroke='#0F172A' stroke-width='2'/><line x1='280' y1='140' x2='380' y2='140' stroke='#0F172A' stroke-width='2'/><line x1='150' y1='140' x2='150' y2='80' stroke='#0F172A' stroke-width='2'/><line x1='150' y1='80' x2='230' y2='80' stroke='#0F172A' stroke-width='2'/><circle cx='240' cy='80' r='18' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='240' y='85' font-family='sans-serif' font-size='14' fill='#2563EB' text-anchor='middle'>V</text><line x1='250' y1='80' x2='330' y2='80' stroke='#0F172A' stroke-width='2'/><line x1='330' y1='80' x2='330' y2='140' stroke='#0F172A' stroke-width='2'/></svg>",
+          "image_query": "series electric circuit diagram with battery cells, closed plug key switch, ammeter in series, three resistors in series, and direction of electric current",
+          "video_query": "series combination of resistors in electric circuit laboratory experiment demonstration",
+          "diagram_type": "circuit_schematic",
+          "what_to_make": "Resistor in series line with voltmeter branching in parallel.",
+          "concept_title": "Potential Difference ($V = W/Q$)",
+          "diagram_title": "Voltmeter in Parallel Setup",
+          "timing_and_cue": "Show when discussing how to measure potential difference across a resistor.",
+          "what_to_explain": "Emphasize high internal resistance of voltmeter so negligible current diverts through it.",
+          "image_search_query": "series electric circuit diagram with battery cells, closed plug key switch, ammeter in series, three resistors in series, and direction of electric current",
+          "video_search_query": "series combination of resistors in electric circuit laboratory experiment demonstration",
+          "interactive_math_formula": "V = W / Q"
+        }
+      ],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "Chemical Energy in Cell -> Potential Difference (V = W/Q) -> Electric Pressure -> Charge Motion",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "What is the SI unit of electric potential difference?",
+              "ideal_answer": "Volt (V)",
+              "socratic_hint": "Named after Italian physicist Alessandro Volta."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Define 1 volt of potential difference.",
+              "ideal_answer": "1 volt is the potential difference between two points when 1 joule of work is done to move a charge of 1 coulomb from one point to the other.",
+              "socratic_hint": "V = W/Q where W = 1 J and Q = 1 C."
+            },
+            {
+              "type": "3-mark Derivation",
+              "q_num": "Q3",
+              "question": "How much work is done in moving a charge of 2 C across two points having potential difference 12 V?",
+              "ideal_answer": "W = V * Q = 12 V * 2 C = 24 J.",
+              "socratic_hint": "Rearrange V = W/Q to W = VQ."
+            },
+            {
+              "type": "5-mark Numerical",
+              "q_num": "Q4",
+              "question": "Calculate the work done in moving a charge of 5 C from a point at 115 V to a point at 120 V.",
+              "ideal_answer": "Potential difference V = 120 - 115 = 5 V. Work W = V * Q = 5 V * 5 C = 25 J.",
+              "socratic_hint": "Find the difference in potential first."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q5",
+              "question": "Name the device used to measure potential difference across a conductor and state how it is connected in a circuit.",
+              "ideal_answer": "Voltmeter; it is always connected in parallel across the points.",
+              "socratic_hint": "Contrast with ammeter which is in series."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q6",
+              "question": "Why does water flow from a high tank to a lower one? How does this relate to electric charges flowing in a wire?",
+              "ideal_answer": "Water flows due to pressure difference. Similarly, electrons flow only when there is an electric pressure difference (potential difference) maintained by a cell or battery.",
+              "socratic_hint": "Think of the pressure difference water analogy in the textbook."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Potential Difference ($V = W/Q$)"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Water tank pressure analogy",
+          "scenario": "Water flows out of a tube when connected to a tank kept at a higher level, creating pressure difference."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "Name a device that helps to maintain a potential difference across a conductor.",
+              "question_type": "conceptual",
+              "solution_method": "A cell or battery."
+            },
+            {
+              "q_num": "Q2",
+              "question": "What is meant by saying that the potential difference between two points is 1 V?",
+              "question_type": "conceptual",
+              "solution_method": "1 joule of work is done to move 1 coulomb of charge between the points."
+            },
+            {
+              "q_num": "Q3",
+              "question": "How much energy is given to each coulomb of charge passing through a 6 V battery?",
+              "question_type": "numerical",
+              "solution_method": "Energy (Work) = V * Q = 6 V * 1 C = 6 J."
+            }
+          ],
+          "exercise_number": "In-Text Exercises (Page 174)"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Potential Difference",
+          "si_units": "Volt (V) or J C^-1",
+          "definition": "Work done to move a unit charge from one point to the other in an electric circuit."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "efd73e50-2763-47b5-81d0-fef4c86cfdd5",
+    "curriculum_id": "7e89576e-316d-4dcd-9676-95b4334a3ecd",
+    "order_index": 3,
+    "title": "Ohm's Law, Resistance, and Resistivity",
+    "description": "Master Ohm's Law ($V=IR$), resistance units, V-I graphs, and the factors affecting resistance ($\rho l/A$).",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 3: Ohm's Law, Resistance, and Resistivity. Final-Term Examination Syllabus. Explain slope of V-I graph. Emphasize that resistivity depends only on material and temperature, not dimensions.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Cartesian plot with Voltage (V) on Y-axis and Current (I) on X-axis showing a straight ascending line.\n- Diagram Type: mafs_graph\n- Chapter Multi-Level Flowchart: V \\propto I -> R = V/I -> R = \\rho l/A -> Resistivity (\\rho) Characteristic of Material\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"V \\propto I -> R = V/I -> R = \\rho l/A -> Resistivity (\\rho) Characteristic of Material\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Ohm's Law: \"Potential difference across a conductor is directly proportional to the current through it at constant temperature.\" [SI Unit: V = IR]\n- Electrical Resistivity: \"Resistance offered by a cube of a material of unit length and unit cross-sectional area.\" [SI Unit: \\Omega \\text{ m}]\n\n- Textbook Concrete Examples:\n- Nichrome wire V-I graph: Activity 11.1 plotting V vs I yields a straight line passing through origin confirming Ohm's law.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Exercises (Page 181):\n    * [Q1] (conceptual): On what factors does the resistance of a conductor depend?\n      Method: Length, area of cross-section, and nature of material.\n    * [Q2] (conceptual): Will current flow more easily through a thick wire or a thin wire of the same material?\n      Method: Thick wire because resistance is inversely proportional to cross-sectional area (R \\propto 1/A).\n    * [Q3] (numerical): Let resistance remain constant while potential difference decreases to half. What change in current?\n      Method: Since I = V/R, if V becomes V/2, current also decreases to half.\n    * [Q4] (conceptual): Why are coils of electric toasters and irons made of alloy rather than pure metal?\n      Method: Higher resistivity and non-oxidizing nature at high temperatures.\n    * [Q5] (conceptual): Use Table 11.2 to answer: (a) Which among iron and mercury is better conductor? (b) Which material is best conductor?\n      Method: (a) Iron (lower resistivity). (b) Silver.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Ohm's Law ($V \\propto I \\implies V = IR$)\":\n    * [Q1] (1-mark MCQ): What does the slope of a V-I graph for an ohmic conductor represent?\n      -> Ideal Model Answer: Resistance (R)\n      -> Socratic Hint: Slope = V / I = R.\n    * [Q2] (2-mark Definition): State Ohm's Law.\n      -> Ideal Model Answer: The potential difference V across the ends of a given metallic wire in an electric circuit is directly proportional to the current flowing through it, provided its temperature remains the same.\n      -> Socratic Hint: Mention constant temperature condition.\n    * [Q3] (3-mark Derivation): Define 1 ohm of resistance.\n      -> Ideal Model Answer: 1 ohm is the resistance of a conductor when a potential difference of 1 volt across its ends causes a current of 1 ampere to flow through it (1 \\Omega = 1 V / 1 A).\n      -> Socratic Hint: R = V/I with V=1V and I=1A.\n    * [Q4] (5-mark Numerical): Resistance of a metal wire of length 1 m is 26 \\Omega at 20\u00b0C. If diameter is 0.3 mm, find resistivity.\n      -> Ideal Model Answer: d = 0.3 * 10^-3 m, r = 0.15 * 10^-3 m. A = \\pi r^2 = \\pi (2.25 * 10^-8). \\rho = RA/l = 26 * \\pi * 2.25 * 10^-8 / 1 = 1.84 * 10^-6 \\Omega \\text{ m}.\n      -> Socratic Hint: Use \\rho = (R * \\pi * d^2) / (4 * l).\n    * [Q5] (PYQ): On what factors does the resistance of a conductor depend?\n      -> Ideal Model Answer: (1) Length (l), (2) Area of cross-section (A), (3) Nature of material, and (4) Temperature.\n      -> Socratic Hint: Recall R \\propto l/A.\n    * [Q6] (Competency): Why are alloys like nichrome used in electrical heating devices rather than pure metals?\n      -> Ideal Model Answer: Alloys have higher resistivity than constituent metals and do not oxidize (burn) readily at high temperatures.\n      -> Socratic Hint: Think of toasters and electric irons heating elements.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Ohm's Law ($V \\propto I \\implies V = IR$)\":\n    - Visual Title: \"V-I Graph for Ohmic Resistor\" (mafs_graph)\n    - Why Needed: Demonstrates linear relationship between V and I, where slope equals resistance R.\n    - What to Explain: Show how slope $\\Delta V / \\Delta I$ yields constant resistance R.\n    - Timing & Directive: Present when explaining Ohm's law experimental verification.\n    - Interactive Math Formula: V = R * I\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Ohm's Law ($V \\propto I \\implies V = IR$)",
+      "Resistance ($R = V/I$)",
+      "Resistivity Formula ($R = \\rho l/A$)",
+      "SI Unit of Resistivity ($\\Omega \\text{ m}$)"
+    ],
+    "success_criteria": "Apply Ohm's law and resistivity formulas to calculate resistance, current, and material properties.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:46:44.924141+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Ohm's Law Statement and Activity 11.1",
+      "V-I Characteristics Graph (Straight Line)",
+      "Resistance and its SI Unit (Ohm, $\\Omega$)",
+      "Factors Affecting Resistance (Length, Area, Material)",
+      "Electrical Resistivity ($\\rho$) and Table 11.2 Analysis"
+    ],
+    "chapter_notes": "Georg Simon Ohm found that potential difference V is directly proportional to current I ($V = IR$). The constant R is resistance, measured in ohms (\\Omega). Resistance depends directly on length ($l$) and inversely on area of cross-section ($A$), and on material nature: $R = \\rho \\frac{l}{A}$, where $\\rho$ is electrical resistivity. Metals have very low resistivity, while insulators have extremely high resistivity. Alloys are used in heating devices due to high resistivity and resistance to oxidation.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "\\Omega \\text{ m}",
+        "given": "R = 26 \\Omega, l = 1 m, d = 0.3 mm = 3 * 10^-4 m",
+        "formula": "\\rho = (RA) / l = (R * \\pi * d^2) / (4 * l)",
+        "problem": "Resistance of a metal wire of length 1 m is 26 \\Omega at 20\u00b0C. If diameter is 0.3 mm, find resistivity.",
+        "calculation": "1.84 * 10^-6",
+        "finalAnswer": "1.84 * 10^-6",
+        "substitution": "\\rho = (26 * 3.14 * (3 * 10^-4)^2) / (4 * 1)",
+        "image_search_query": "class 10 science chapter_11_elec ncert",
+        "page": 30,
+        "section": "Section 3"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing resistance (property of conductor) with resistivity (property of material).",
+      "Assuming resistance decreases with length."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735204364_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Ohm's Law, Resistance, and Resistivity: Master Ohm's Law ($V=IR$), resistance units, V-I graphs, and the factors affecting resistance ($\rho l/A$).",
+              "keyTakeaway": "Ohm's Law ($V \\propto I \\implies V = IR$)"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Ohm's Law ($V \\propto I \\implies V = IR$)"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc111.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735204364_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Ohm's Law, Resistance, and Resistivity - Fundamental Equations",
+              "equations": [
+                "Ohm's Law ($V \\propto I \\implies V = IR$)",
+                "Resistance ($R = V/I$)",
+                "Resistivity Formula ($R = \\rho l/A$)"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Ohm's Law ($V \\propto I \\implies V = IR$)"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc111.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735204364_3",
+          "type": "DIAGRAM",
+          "title": "Ohm's Law, Resistance, and Resistivity Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Ohm's Law, Resistance, and Resistivity Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Ohm's Law ($V \\propto I \\implies V = IR$)",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Resistance ($R = V/I$)",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Ohm's Law, Resistance, and Resistivity",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Ohm's Law, Resistance, and Resistivity | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='60' y1='220' x2='480' y2='220' stroke='#0F172A' stroke-width='2'/><line x1='60' y1='40' x2='60' y2='220' stroke='#0F172A' stroke-width='2'/><text x='480' y='245' font-family='sans-serif' font-size='12' fill='#0F172A'>Current (I)</text><text x='35' y='50' font-family='sans-serif' font-size='12' fill='#0F172A'>Potential V</text><line x1='60' y1='220' x2='420' y2='60' stroke='#2563EB' stroke-width='3'/><circle cx='150' cy='180' r='4' fill='#DC2626'/><circle cx='240' cy='140' r='4' fill='#DC2626'/><circle cx='330' cy='100' r='4' fill='#DC2626'/></svg> | Cartesian plot with Voltage (V) on Y-axis and Current (I) on X-axis showing a straight ascending line."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc111.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735204364_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Ohm's Law ($V \\propto I \\implies V = IR$)"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If R = 26 \\Omega, l = 1 m, d = 0.3 mm = 3 * 10^-4 m, what is the value?",
+              "explanation": "By fundamental principle, Ohm's Law ($V \\propto I \\implies V = IR$) is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735204364_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Ohm's Law Statement and Activity 11.1",
+                "V-I Characteristics Graph (Straight Line)",
+                "Resistance and its SI Unit (Ohm, $\\Omega$)",
+                "Factors Affecting Resistance (Length, Area, Material)",
+                "Electrical Resistivity ($\\rho$) and Table 11.2 Analysis"
+              ],
+              "formulasToRemember": [
+                "Ohm's Law ($V \\propto I \\implies V = IR$)",
+                "Resistance ($R = V/I$)",
+                "Resistivity Formula ($R = \\rho l/A$)"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Ohm's Law, Resistance, and Resistivity - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Ohm's Law, Resistance, and Resistivity",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:46:44.364Z",
+        "provenance": "jesc111.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735204364",
+      "subtopics": [
+        "Ohm's Law Statement and Activity 11.1",
+        "V-I Characteristics Graph (Straight Line)",
+        "Resistance and its SI Unit (Ohm, $\\Omega$)",
+        "Factors Affecting Resistance (Length, Area, Material)",
+        "Electrical Resistivity ($\\rho$) and Table 11.2 Analysis"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='60' y1='220' x2='480' y2='220' stroke='#0F172A' stroke-width='2'/><line x1='60' y1='40' x2='60' y2='220' stroke='#0F172A' stroke-width='2'/><text x='480' y='245' font-family='sans-serif' font-size='12' fill='#0F172A'>Current (I)</text><text x='35' y='50' font-family='sans-serif' font-size='12' fill='#0F172A'>Potential V</text><line x1='60' y1='220' x2='420' y2='60' stroke='#2563EB' stroke-width='3'/><circle cx='150' cy='180' r='4' fill='#DC2626'/><circle cx='240' cy='140' r='4' fill='#DC2626'/><circle cx='330' cy='100' r='4' fill='#DC2626'/></svg>",
+      "diagram_idea": "V-I linear graph passing through the origin.",
+      "diagram_type": "mafs_graph",
+      "what_to_make": "Cartesian plot with Voltage (V) on Y-axis and Current (I) on X-axis showing a straight ascending line.",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='60' y1='220' x2='480' y2='220' stroke='#0F172A' stroke-width='2'/><line x1='60' y1='40' x2='60' y2='220' stroke='#0F172A' stroke-width='2'/><line x1='60' y1='220' x2='420' y2='60' stroke='#2563EB' stroke-width='3'/></svg>",
+          "why_needed": "Demonstrates linear relationship between V and I, where slope equals resistance R.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='60' y1='220' x2='480' y2='220' stroke='#0F172A' stroke-width='2'/><line x1='60' y1='40' x2='60' y2='220' stroke='#0F172A' stroke-width='2'/><line x1='60' y1='220' x2='420' y2='60' stroke='#2563EB' stroke-width='3'/></svg>",
+          "image_query": "Ohm's law verification circuit diagram with battery, rheostat variable resistor, series ammeter, voltmeter across nichrome wire resistor, and plug key",
+          "video_query": "verification of Ohm's law physics laboratory experiment demonstration with voltmeter ammeter rheostat",
+          "diagram_type": "mafs_graph",
+          "what_to_make": "Straight line graph passing through origin with V on Y-axis and I on X-axis.",
+          "concept_title": "Ohm's Law ($V \\propto I \\implies V = IR$)",
+          "diagram_title": "V-I Graph for Ohmic Resistor",
+          "timing_and_cue": "Present when explaining Ohm's law experimental verification.",
+          "what_to_explain": "Show how slope $\\Delta V / \\Delta I$ yields constant resistance R.",
+          "image_search_query": "Ohm's law verification circuit diagram with battery, rheostat variable resistor, series ammeter, voltmeter across nichrome wire resistor, and plug key",
+          "video_search_query": "verification of Ohm's law physics laboratory experiment demonstration with voltmeter ammeter rheostat",
+          "interactive_math_formula": "V = R * I"
+        }
+      ],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "V \\propto I -> R = V/I -> R = \\rho l/A -> Resistivity (\\rho) Characteristic of Material",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "What does the slope of a V-I graph for an ohmic conductor represent?",
+              "ideal_answer": "Resistance (R)",
+              "socratic_hint": "Slope = V / I = R."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "State Ohm's Law.",
+              "ideal_answer": "The potential difference V across the ends of a given metallic wire in an electric circuit is directly proportional to the current flowing through it, provided its temperature remains the same.",
+              "socratic_hint": "Mention constant temperature condition."
+            },
+            {
+              "type": "3-mark Derivation",
+              "q_num": "Q3",
+              "question": "Define 1 ohm of resistance.",
+              "ideal_answer": "1 ohm is the resistance of a conductor when a potential difference of 1 volt across its ends causes a current of 1 ampere to flow through it (1 \\Omega = 1 V / 1 A).",
+              "socratic_hint": "R = V/I with V=1V and I=1A."
+            },
+            {
+              "type": "5-mark Numerical",
+              "q_num": "Q4",
+              "question": "Resistance of a metal wire of length 1 m is 26 \\Omega at 20\u00b0C. If diameter is 0.3 mm, find resistivity.",
+              "ideal_answer": "d = 0.3 * 10^-3 m, r = 0.15 * 10^-3 m. A = \\pi r^2 = \\pi (2.25 * 10^-8). \\rho = RA/l = 26 * \\pi * 2.25 * 10^-8 / 1 = 1.84 * 10^-6 \\Omega \\text{ m}.",
+              "socratic_hint": "Use \\rho = (R * \\pi * d^2) / (4 * l)."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q5",
+              "question": "On what factors does the resistance of a conductor depend?",
+              "ideal_answer": "(1) Length (l), (2) Area of cross-section (A), (3) Nature of material, and (4) Temperature.",
+              "socratic_hint": "Recall R \\propto l/A."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q6",
+              "question": "Why are alloys like nichrome used in electrical heating devices rather than pure metals?",
+              "ideal_answer": "Alloys have higher resistivity than constituent metals and do not oxidize (burn) readily at high temperatures.",
+              "socratic_hint": "Think of toasters and electric irons heating elements."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Ohm's Law ($V \\propto I \\implies V = IR$)"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Nichrome wire V-I graph",
+          "scenario": "Activity 11.1 plotting V vs I yields a straight line passing through origin confirming Ohm's law."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "On what factors does the resistance of a conductor depend?",
+              "question_type": "conceptual",
+              "solution_method": "Length, area of cross-section, and nature of material."
+            },
+            {
+              "q_num": "Q2",
+              "question": "Will current flow more easily through a thick wire or a thin wire of the same material?",
+              "question_type": "conceptual",
+              "solution_method": "Thick wire because resistance is inversely proportional to cross-sectional area (R \\propto 1/A)."
+            },
+            {
+              "q_num": "Q3",
+              "question": "Let resistance remain constant while potential difference decreases to half. What change in current?",
+              "question_type": "numerical",
+              "solution_method": "Since I = V/R, if V becomes V/2, current also decreases to half."
+            },
+            {
+              "q_num": "Q4",
+              "question": "Why are coils of electric toasters and irons made of alloy rather than pure metal?",
+              "question_type": "conceptual",
+              "solution_method": "Higher resistivity and non-oxidizing nature at high temperatures."
+            },
+            {
+              "q_num": "Q5",
+              "question": "Use Table 11.2 to answer: (a) Which among iron and mercury is better conductor? (b) Which material is best conductor?",
+              "question_type": "conceptual",
+              "solution_method": "(a) Iron (lower resistivity). (b) Silver."
+            }
+          ],
+          "exercise_number": "In-Text Exercises (Page 181)"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Ohm's Law",
+          "si_units": "V = IR",
+          "definition": "Potential difference across a conductor is directly proportional to the current through it at constant temperature."
+        },
+        {
+          "concept": "Electrical Resistivity",
+          "si_units": "\\Omega \\text{ m}",
+          "definition": "Resistance offered by a cube of a material of unit length and unit cross-sectional area."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "0eb627d3-0a60-49b5-bcc1-4a89f3673a21",
+    "curriculum_id": "7e89576e-316d-4dcd-9676-95b4334a3ecd",
+    "order_index": 4,
+    "title": "Resistance of a System of Resistors (Series & Parallel)",
+    "description": "Analyze series ($R_s = R_1 + R_2 + R_3$) and parallel ($1/R_p = 1/R_1 + 1/R_2 + 1/R_3$) resistor combinations and their circuit implications.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 4: Resistance of a System of Resistors (Series & Parallel). Final-Term Examination Syllabus. Highlight why household wiring uses parallel circuits (independent control, same voltage).\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Two circuits: top showing 3 resistors in a single straight line (series), bottom showing 3 resistors in parallel branches.\n- Diagram Type: circuit_schematic\n- Chapter Multi-Level Flowchart: Resistor Combination -> Series (Rs = Sum) | Parallel (1/Rp = Sum of Reciprocals) -> Domestic Applications\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Resistor Combination -> Series (Rs = Sum) | Parallel (1/Rp = Sum of Reciprocals) -> Domestic Applications\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Series Combination: \"Resistors connected end-to-end such that the same current flows through each.\" [SI Unit: Rs = R1 + R2 + R3]\n- Parallel Combination: \"Resistors connected between the same two points sharing the same potential difference.\" [SI Unit: 1/Rp = 1/R1 + 1/R2 + 1/R3]\n\n- Textbook Concrete Examples:\n- Fairy lights troubleshooting: Series-connected decorative lights require testing each bulb when one fuses because the circuit breaks.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Exercises (Page 185 & 188):\n    * [Q1] (conceptual): Draw a schematic diagram of a circuit consisting of a battery of three 2V cells, 5 \\Omega, 8 \\Omega, 12 \\Omega resistors in series, and a plug key.\n      Method: Draw series loop with battery, key, and three zigzag resistor symbols.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Series Combination ($R_s = R_1 + R_2 + R_3$)\":\n    * [Q1] (1-mark MCQ): What remains constant across resistors connected in series?\n      -> Ideal Model Answer: Electric current (I)\n      -> Socratic Hint: There is only one path for charge flow.\n    * [Q2] (2-mark Definition): Write the formula for equivalent resistance when three resistors are connected in series.\n      -> Ideal Model Answer: Rs = R1 + R2 + R3\n      -> Socratic Hint: Sum of individual resistances.\n    * [Q3] (3-mark Derivation): Derive the formula for equivalent resistance of three resistors connected in series.\n      -> Ideal Model Answer: V = V1 + V2 + V3. By Ohm's law, IRs = IR1 + IR2 + IR3. Canceling I gives Rs = R1 + R2 + R3.\n      -> Socratic Hint: Total voltage is sum of individual potential drops.\n    * [Q4] (5-mark Numerical): An electric lamp (20 \\Omega) and a conductor (4 \\Omega) are connected in series to a 6 V battery. Calculate total resistance, current, and potential difference across each.\n      -> Ideal Model Answer: Rs = 20 + 4 = 24 \\Omega. I = 6 / 24 = 0.25 A. V_lamp = 0.25 * 20 = 5 V; V_conductor = 0.25 * 4 = 1 V.\n      -> Socratic Hint: Find total resistance first, then current, then individual V = IR.\n    * [Q5] (PYQ): Why is a series arrangement not used for domestic circuits?\n      -> Ideal Model Answer: If one component fails, the circuit breaks and all components stop working. Also, appliances require different currents which is impossible in series.\n      -> Socratic Hint: Think of festive fairy lights failing.\n    * [Q6] (Competency): Three resistors 2 \\Omega, 3 \\Omega, and 6 \\Omega are connected. How to get total resistance of 4 \\Omega?\n      -> Ideal Model Answer: Connect 3 \\Omega and 6 \\Omega in parallel (giving 2 \\Omega), and connect this combination in series with the 2 \\Omega resistor (2 + 2 = 4 \\Omega).\n      -> Socratic Hint: Test parallel combinations with 3 and 6.\n  * Concept #2 \"Parallel Combination ($1/R_p = 1/R_1 + 1/R_2 + 1/R_3$)\":\n    * [Q1] (1-mark MCQ): What remains constant across resistors connected in parallel?\n      -> Ideal Model Answer: Potential difference (V)\n      -> Socratic Hint: Connected across same two terminals.\n    * [Q2] (2-mark Definition): State the reciprocal rule for parallel resistances.\n      -> Ideal Model Answer: The reciprocal of equivalent resistance of a group of resistances joined in parallel is equal to the sum of reciprocals of individual resistances.\n      -> Socratic Hint: 1/Rp = 1/R1 + 1/R2 + 1/R3.\n    * [Q3] (3-mark Derivation): Derive the formula for parallel combination equivalent resistance.\n      -> Ideal Model Answer: I = I1 + I2 + I3. By Ohm's law, V/Rp = V/R1 + V/R2 + V/R3. Canceling V gives 1/Rp = 1/R1 + 1/R2 + 1/R3.\n      -> Socratic Hint: Total current is sum of branch currents.\n    * [Q4] (5-mark Numerical): Resistors 5 \\Omega, 10 \\Omega, 30 \\Omega are connected in parallel to a 12 V battery. Find current through each, total current, and total resistance.\n      -> Ideal Model Answer: I1 = 12/5 = 2.4 A; I2 = 12/10 = 1.2 A; I3 = 12/30 = 0.4 A. Total I = 4 A. Rp = 12 / 4 = 3 \\Omega.\n      -> Socratic Hint: Calculate branch currents using V/R.\n    * [Q5] (PYQ): What are the advantages of connecting electrical devices in parallel?\n      -> Ideal Model Answer: Each device gets the same voltage, independent operation (if one fails others work), and lower total resistance.\n      -> Socratic Hint: Contrast with series circuit flaws.\n    * [Q6] (Competency): How can three resistors of 2 \\Omega, 3 \\Omega, 6 \\Omega be connected to give total resistance of 1 \\Omega?\n      -> Ideal Model Answer: Connect all three in parallel: 1/Rp = 1/2 + 1/3 + 1/6 = (3+2+1)/6 = 1 \\implies Rp = 1 \\Omega.\n      -> Socratic Hint: Sum of reciprocals must equal 1/1.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Series Combination ($R_s = R_1 + R_2 + R_3$)\":\n    - Visual Title: \"Series vs Parallel Resistor Networks\" (circuit_schematic)\n    - Why Needed: Visualizes topological difference between end-to-end and branch connections.\n    - What to Explain: Compare how current encounters sequential barriers in series versus split pathways in parallel.\n    - Timing & Directive: Use when starting resistor combinations topic.\n    - Interactive Math Formula: Rs = R1 + R2 + R3\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Series Combination ($R_s = R_1 + R_2 + R_3$)",
+      "Parallel Combination ($1/R_p = 1/R_1 + 1/R_2 + 1/R_3$)"
+    ],
+    "success_criteria": "Calculate equivalent resistance and branch currents for complex series-parallel resistor networks.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:46:45.61338+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Resistors in Series (Current same, Voltage splits)",
+      "Equivalent Resistance in Series ($R_s = \\sum R_i$)",
+      "Resistors in Parallel (Voltage same, Current splits)",
+      "Equivalent Resistance in Parallel ($1/R_p = \\sum 1/R_i$)",
+      "Disadvantages of Series Circuits for Domestic Wiring"
+    ],
+    "chapter_notes": "Resistors can be combined in series or parallel. In series, $R_s = R_1 + R_2 + R_3$, current is constant, and equivalent resistance is greater than any individual resistance. In parallel, $\\frac{1}{R_p} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\frac{1}{R_3}$, potential difference is constant, and equivalent resistance is less than the smallest individual resistance. Parallel circuits are ideal for domestic wiring because appliances operate independently at full voltage.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "A",
+        "given": "R1 = 20 \\Omega, R2 = 4 \\Omega, V = 6 V",
+        "formula": "Rs = R1 + R2, I = V / Rs",
+        "problem": "An electric lamp (20 \\Omega) and a conductor (4 \\Omega) are connected in series to a 6 V battery. Calculate total resistance and current.",
+        "calculation": "0.25",
+        "finalAnswer": "0.25",
+        "substitution": "Rs = 20 + 4 = 24 \\Omega, I = 6 / 24",
+        "image_search_query": "class 10 science chapter_11_elec ncert",
+        "page": 40,
+        "section": "Section 4"
+      }
+    ],
+    "common_misconceptions": [
+      "Adding parallel resistances directly instead of their reciprocals.",
+      "Assuming current splits equally in parallel branches regardless of resistance values."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735205034_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Resistance of a System of Resistors (Series & Parallel): Analyze series ($R_s = R_1 + R_2 + R_3$) and parallel ($1/R_p = 1/R_1 + 1/R_2 + 1/R_3$) resistor combinations and their circuit implications.",
+              "keyTakeaway": "Series Combination ($R_s = R_1 + R_2 + R_3$)"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Series Combination ($R_s = R_1 + R_2 + R_3$)"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc111.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735205034_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Resistance of a System of Resistors (Series & Parallel) - Fundamental Equations",
+              "equations": [
+                "Series Combination ($R_s = R_1 + R_2 + R_3$)",
+                "Parallel Combination ($1/R_p = 1/R_1 + 1/R_2 + 1/R_3$)"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Series Combination ($R_s = R_1 + R_2 + R_3$)"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc111.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735205034_3",
+          "type": "DIAGRAM",
+          "title": "Resistance of a System of Resistors (Series & Parallel) Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Resistance of a System of Resistors (Series & Parallel) Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Series Combination ($R_s = R_1 + R_2 + R_3$)",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Parallel Combination ($1/R_p = 1/R_1 + 1/R_2 + 1/R_3$)",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Resistance of a System of Resistors (Series & Parallel)",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Resistance of a System of Resistors (Series & Parallel) | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-family='sans-serif' font-size='14' font-weight='bold' fill='#0F172A'>Series Resistors</text><line x1='30' y1='60' x2='90' y2='60' stroke='#0F172A' stroke-width='2'/><path d='M90 60 L100 50 L120 70 L140 50 L160 70 L170 60' fill='none' stroke='#0F172A' stroke-width='2'/><line x1='170' y1='60' x2='200' y2='60' stroke='#0F172A' stroke-width='2'/><path d='M200 60 L210 50 L230 70 L250 50 L270 70 L280 60' fill='none' stroke='#0F172A' stroke-width='2'/><line x1='280' y1='60' x2='310' y2='60' stroke='#0F172A' stroke-width='2'/><path d='M310 60 L320 50 L340 70 L360 50 L380 70 L390 60' fill='none' stroke='#0F172A' stroke-width='2'/><line x1='390' y1='60' x2='450' y2='60' stroke='#0F172A' stroke-width='2'/><text x='30' y='150' font-family='sans-serif' font-size='14' font-weight='bold' fill='#0F172A'>Parallel Resistors</text><line x1='30' y1='190' x2='100' y2='190' stroke='#0F172A' stroke-width='2'/><line x1='100' y1='190' x2='150' y2='150' stroke='#0F172A' stroke-width='2'/><line x1='100' y1='190' x2='150' y2='190' stroke='#0F172A' stroke-width='2'/><line x1='100' y1='190' x2='150' y2='230' stroke='#0F172A' stroke-width='2'/><path d='M150 150 L160 140 L180 160 L200 140 L220 160 L230 150' fill='none' stroke='#0F172A' stroke-width='2'/><path d='M150 190 L160 180 L180 200 L200 180 L220 200 L230 190' fill='none' stroke='#0F172A' stroke-width='2'/><path d='M150 230 L160 220 L180 240 L200 220 L220 240 L230 230' fill='none' stroke='#0F172A' stroke-width='2'/><line x1='230' y1='150' x2='280' y2='190' stroke='#0F172A' stroke-width='2'/><line x1='230' y1='190' x2='280' y2='190' stroke='#0F172A' stroke-width='2'/><line x1='230' y1='230' x2='280' y2='190' stroke='#0F172A' stroke-width='2'/><line x1='280' y1='190' x2='450' y2='190' stroke='#0F172A' stroke-width='2'/></svg> | Two circuits: top showing 3 resistors in a single straight line (series), bottom showing 3 resistors in parallel branches."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc111.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735205034_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Series Combination ($R_s = R_1 + R_2 + R_3$)"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If R1 = 20 \\Omega, R2 = 4 \\Omega, V = 6 V, what is the value?",
+              "explanation": "By fundamental principle, Series Combination ($R_s = R_1 + R_2 + R_3$) is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735205034_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Resistors in Series (Current same, Voltage splits)",
+                "Equivalent Resistance in Series ($R_s = \\sum R_i$)",
+                "Resistors in Parallel (Voltage same, Current splits)",
+                "Equivalent Resistance in Parallel ($1/R_p = \\sum 1/R_i$)",
+                "Disadvantages of Series Circuits for Domestic Wiring"
+              ],
+              "formulasToRemember": [
+                "Series Combination ($R_s = R_1 + R_2 + R_3$)",
+                "Parallel Combination ($1/R_p = 1/R_1 + 1/R_2 + 1/R_3$)"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Resistance of a System of Resistors (Series & Parallel) - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Resistance of a System of Resistors (Series & Parallel)",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:46:45.034Z",
+        "provenance": "jesc111.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735205034",
+      "subtopics": [
+        "Resistors in Series (Current same, Voltage splits)",
+        "Equivalent Resistance in Series ($R_s = \\sum R_i$)",
+        "Resistors in Parallel (Voltage same, Current splits)",
+        "Equivalent Resistance in Parallel ($1/R_p = \\sum 1/R_i$)",
+        "Disadvantages of Series Circuits for Domestic Wiring"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-family='sans-serif' font-size='14' font-weight='bold' fill='#0F172A'>Series Resistors</text><line x1='30' y1='60' x2='90' y2='60' stroke='#0F172A' stroke-width='2'/><path d='M90 60 L100 50 L120 70 L140 50 L160 70 L170 60' fill='none' stroke='#0F172A' stroke-width='2'/><line x1='170' y1='60' x2='200' y2='60' stroke='#0F172A' stroke-width='2'/><path d='M200 60 L210 50 L230 70 L250 50 L270 70 L280 60' fill='none' stroke='#0F172A' stroke-width='2'/><line x1='280' y1='60' x2='310' y2='60' stroke='#0F172A' stroke-width='2'/><path d='M310 60 L320 50 L340 70 L360 50 L380 70 L390 60' fill='none' stroke='#0F172A' stroke-width='2'/><line x1='390' y1='60' x2='450' y2='60' stroke='#0F172A' stroke-width='2'/><text x='30' y='150' font-family='sans-serif' font-size='14' font-weight='bold' fill='#0F172A'>Parallel Resistors</text><line x1='30' y1='190' x2='100' y2='190' stroke='#0F172A' stroke-width='2'/><line x1='100' y1='190' x2='150' y2='150' stroke='#0F172A' stroke-width='2'/><line x1='100' y1='190' x2='150' y2='190' stroke='#0F172A' stroke-width='2'/><line x1='100' y1='190' x2='150' y2='230' stroke='#0F172A' stroke-width='2'/><path d='M150 150 L160 140 L180 160 L200 140 L220 160 L230 150' fill='none' stroke='#0F172A' stroke-width='2'/><path d='M150 190 L160 180 L180 200 L200 180 L220 200 L230 190' fill='none' stroke='#0F172A' stroke-width='2'/><path d='M150 230 L160 220 L180 240 L200 220 L220 240 L230 230' fill='none' stroke='#0F172A' stroke-width='2'/><line x1='230' y1='150' x2='280' y2='190' stroke='#0F172A' stroke-width='2'/><line x1='230' y1='190' x2='280' y2='190' stroke='#0F172A' stroke-width='2'/><line x1='230' y1='230' x2='280' y2='190' stroke='#0F172A' stroke-width='2'/><line x1='280' y1='190' x2='450' y2='190' stroke='#0F172A' stroke-width='2'/></svg>",
+      "diagram_idea": "Series vs Parallel circuit schematics side by side.",
+      "diagram_type": "circuit_schematic",
+      "what_to_make": "Two circuits: top showing 3 resistors in a single straight line (series), bottom showing 3 resistors in parallel branches.",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-family='sans-serif' font-size='14' font-weight='bold' fill='#0F172A'>Series Resistors</text><line x1='30' y1='60' x2='90' y2='60' stroke='#0F172A' stroke-width='2'/><path d='M90 60 L100 50 L120 70 L140 50 L160 70 L170 60' fill='none' stroke='#0F172A' stroke-width='2'/><line x1='170' y1='60' x2='450' y2='60' stroke='#0F172A' stroke-width='2'/></svg>",
+          "why_needed": "Visualizes topological difference between end-to-end and branch connections.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' font-family='sans-serif' font-size='14' font-weight='bold' fill='#0F172A'>Series Resistors</text><line x1='30' y1='60' x2='90' y2='60' stroke='#0F172A' stroke-width='2'/><path d='M90 60 L100 50 L120 70 L140 50 L160 70 L170 60' fill='none' stroke='#0F172A' stroke-width='2'/><line x1='170' y1='60' x2='450' y2='60' stroke='#0F172A' stroke-width='2'/></svg>",
+          "image_query": "series electric circuit diagram with battery cells, closed plug key switch, ammeter in series, three resistors in series, and direction of electric current",
+          "video_query": "series combination of resistors in electric circuit laboratory experiment demonstration",
+          "diagram_type": "circuit_schematic",
+          "what_to_make": "Series and parallel schematic layouts.",
+          "concept_title": "Series Combination ($R_s = R_1 + R_2 + R_3$)",
+          "diagram_title": "Series vs Parallel Resistor Networks",
+          "timing_and_cue": "Use when starting resistor combinations topic.",
+          "what_to_explain": "Compare how current encounters sequential barriers in series versus split pathways in parallel.",
+          "image_search_query": "series electric circuit diagram with battery cells, closed plug key switch, ammeter in series, three resistors in series, and direction of electric current",
+          "video_search_query": "series combination of resistors in electric circuit laboratory experiment demonstration",
+          "interactive_math_formula": "Rs = R1 + R2 + R3"
+        }
+      ],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "Resistor Combination -> Series (Rs = Sum) | Parallel (1/Rp = Sum of Reciprocals) -> Domestic Applications",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "What remains constant across resistors connected in series?",
+              "ideal_answer": "Electric current (I)",
+              "socratic_hint": "There is only one path for charge flow."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Write the formula for equivalent resistance when three resistors are connected in series.",
+              "ideal_answer": "Rs = R1 + R2 + R3",
+              "socratic_hint": "Sum of individual resistances."
+            },
+            {
+              "type": "3-mark Derivation",
+              "q_num": "Q3",
+              "question": "Derive the formula for equivalent resistance of three resistors connected in series.",
+              "ideal_answer": "V = V1 + V2 + V3. By Ohm's law, IRs = IR1 + IR2 + IR3. Canceling I gives Rs = R1 + R2 + R3.",
+              "socratic_hint": "Total voltage is sum of individual potential drops."
+            },
+            {
+              "type": "5-mark Numerical",
+              "q_num": "Q4",
+              "question": "An electric lamp (20 \\Omega) and a conductor (4 \\Omega) are connected in series to a 6 V battery. Calculate total resistance, current, and potential difference across each.",
+              "ideal_answer": "Rs = 20 + 4 = 24 \\Omega. I = 6 / 24 = 0.25 A. V_lamp = 0.25 * 20 = 5 V; V_conductor = 0.25 * 4 = 1 V.",
+              "socratic_hint": "Find total resistance first, then current, then individual V = IR."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q5",
+              "question": "Why is a series arrangement not used for domestic circuits?",
+              "ideal_answer": "If one component fails, the circuit breaks and all components stop working. Also, appliances require different currents which is impossible in series.",
+              "socratic_hint": "Think of festive fairy lights failing."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q6",
+              "question": "Three resistors 2 \\Omega, 3 \\Omega, and 6 \\Omega are connected. How to get total resistance of 4 \\Omega?",
+              "ideal_answer": "Connect 3 \\Omega and 6 \\Omega in parallel (giving 2 \\Omega), and connect this combination in series with the 2 \\Omega resistor (2 + 2 = 4 \\Omega).",
+              "socratic_hint": "Test parallel combinations with 3 and 6."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Series Combination ($R_s = R_1 + R_2 + R_3$)"
+        },
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "What remains constant across resistors connected in parallel?",
+              "ideal_answer": "Potential difference (V)",
+              "socratic_hint": "Connected across same two terminals."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "State the reciprocal rule for parallel resistances.",
+              "ideal_answer": "The reciprocal of equivalent resistance of a group of resistances joined in parallel is equal to the sum of reciprocals of individual resistances.",
+              "socratic_hint": "1/Rp = 1/R1 + 1/R2 + 1/R3."
+            },
+            {
+              "type": "3-mark Derivation",
+              "q_num": "Q3",
+              "question": "Derive the formula for parallel combination equivalent resistance.",
+              "ideal_answer": "I = I1 + I2 + I3. By Ohm's law, V/Rp = V/R1 + V/R2 + V/R3. Canceling V gives 1/Rp = 1/R1 + 1/R2 + 1/R3.",
+              "socratic_hint": "Total current is sum of branch currents."
+            },
+            {
+              "type": "5-mark Numerical",
+              "q_num": "Q4",
+              "question": "Resistors 5 \\Omega, 10 \\Omega, 30 \\Omega are connected in parallel to a 12 V battery. Find current through each, total current, and total resistance.",
+              "ideal_answer": "I1 = 12/5 = 2.4 A; I2 = 12/10 = 1.2 A; I3 = 12/30 = 0.4 A. Total I = 4 A. Rp = 12 / 4 = 3 \\Omega.",
+              "socratic_hint": "Calculate branch currents using V/R."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q5",
+              "question": "What are the advantages of connecting electrical devices in parallel?",
+              "ideal_answer": "Each device gets the same voltage, independent operation (if one fails others work), and lower total resistance.",
+              "socratic_hint": "Contrast with series circuit flaws."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q6",
+              "question": "How can three resistors of 2 \\Omega, 3 \\Omega, 6 \\Omega be connected to give total resistance of 1 \\Omega?",
+              "ideal_answer": "Connect all three in parallel: 1/Rp = 1/2 + 1/3 + 1/6 = (3+2+1)/6 = 1 \\implies Rp = 1 \\Omega.",
+              "socratic_hint": "Sum of reciprocals must equal 1/1."
+            }
+          ],
+          "concept_index": 1,
+          "concept_title": "Parallel Combination ($1/R_p = 1/R_1 + 1/R_2 + 1/R_3$)"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Fairy lights troubleshooting",
+          "scenario": "Series-connected decorative lights require testing each bulb when one fuses because the circuit breaks."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "Draw a schematic diagram of a circuit consisting of a battery of three 2V cells, 5 \\Omega, 8 \\Omega, 12 \\Omega resistors in series, and a plug key.",
+              "question_type": "conceptual",
+              "solution_method": "Draw series loop with battery, key, and three zigzag resistor symbols."
+            }
+          ],
+          "exercise_number": "In-Text Exercises (Page 185 & 188)"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Series Combination",
+          "si_units": "Rs = R1 + R2 + R3",
+          "definition": "Resistors connected end-to-end such that the same current flows through each."
+        },
+        {
+          "concept": "Parallel Combination",
+          "si_units": "1/Rp = 1/R1 + 1/R2 + 1/R3",
+          "definition": "Resistors connected between the same two points sharing the same potential difference."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "5f3c09a8-a3bb-4c58-8140-507cedc7d8b2",
+    "curriculum_id": "7e89576e-316d-4dcd-9676-95b4334a3ecd",
+    "order_index": 5,
+    "title": "Heating Effect of Electric Current and Electric Power",
+    "description": "Understand Joule's Law of Heating ($H = I^2Rt$), electric power ($P = VI$), commercial energy units (kWh), and practical applications like fuses and heaters.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 5: Heating Effect of Electric Current and Electric Power. Final-Term Examination Syllabus. Explain the role of the fuse as a sacrificial safety component in series.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: A fuse cartridge diagram showing thin wire breaking when current exceeds rated limit.\n- Diagram Type: vector_svg_diagram\n- Chapter Multi-Level Flowchart: Electric Energy -> Power (P = VI) -> Joule Heating (H = I^2Rt) -> Practical Uses (Bulb, Fuse, Heater)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Electric Energy -> Power (P = VI) -> Joule Heating (H = I^2Rt) -> Practical Uses (Bulb, Fuse, Heater)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Electric Power: \"The rate at which electric energy is dissipated or consumed in an electric circuit.\" [SI Unit: Watt (W) or J/s]\n- Kilowatt-hour: \"Commercial unit of electrical energy consumed when 1 kW of power is used for 1 hour.\" [SI Unit: kWh (3.6 * 10^6 J)]\n\n- Textbook Concrete Examples:\n- Electric iron power ratings: An electric iron consumes 840 W at max heating and 360 W at min heating on 220 V.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Exercises (Page 190 & 192):\n    * [Q1] (conceptual): Why does the cord of an electric heater not glow while the heating element does?\n      Method: Heating element has much higher resistance than the cord.\n    * [Q2] (numerical): Compute heat generated while transferring 96,000 C of charge in 1 hour through 50 V potential difference.\n      Method: H = V * Q = 50 V * 96000 C = 4.8 * 10^6 J.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Joule's Law of Heating ($H = I^2Rt$)\":\n    * [Q1] (1-mark MCQ): What is the SI unit of heat energy?\n      -> Ideal Model Answer: Joule (J)\n      -> Socratic Hint: Standard work/energy unit.\n    * [Q2] (2-mark Definition): State Joule's Law of Heating.\n      -> Ideal Model Answer: Heat produced in a resistor is (i) directly proportional to square of current ($I^2$), (ii) directly proportional to resistance ($R$), and (iii) directly proportional to time ($t$).\n      -> Socratic Hint: H = I^2 * R * t.\n    * [Q3] (3-mark Derivation): Derive Joule's heating formula $H = I^2Rt$.\n      -> Ideal Model Answer: Work done $W = VQ$. Since $Q = It$ and $V = IR$, substituting gives $W = (IR)(It)t$ -> $H = I^2Rt$.\n      -> Socratic Hint: Combine VQ and Ohm's law.\n    * [Q4] (5-mark Numerical): 100 J of heat is produced each second in a 4 \\Omega resistance. Find potential difference across resistor.\n      -> Ideal Model Answer: H/t = 100 J/s, R = 4 \\Omega. I = \\sqrt{H / (Rt)} = \\sqrt{100 / 4} = 5 A. V = IR = 5 * 4 = 20 V.\n      -> Socratic Hint: Find current using H = I^2Rt, then calculate V = IR.\n    * [Q5] (PYQ): Why does the cord of an electric heater not glow while the heating element does?\n      -> Ideal Model Answer: The heating element has very high resistance compared to the connecting cord, so much more heat is dissipated in the element causing it to glow.\n      -> Socratic Hint: Compare resistances using H = I^2Rt.\n    * [Q6] (Competency): Explain how an electric fuse protects home appliances during a short circuit.\n      -> Ideal Model Answer: A fuse wire has low melting point and is connected in series. When current exceeds safe limit, excess heat melts the fuse wire, breaking the circuit.\n      -> Socratic Hint: Think of current surge and melting point.\n  * Concept #2 \"Electric Power ($P = VI = I^2R = V^2/R$)\":\n    * [Q1] (1-mark MCQ): What is the commercial unit of electrical energy?\n      -> Ideal Model Answer: Kilowatt-hour (kWh) or 'unit'\n      -> Socratic Hint: Power in kW multiplied by hours.\n    * [Q2] (2-mark Definition): Define 1 watt of electric power.\n      -> Ideal Model Answer: 1 watt is the power consumed by a device that carries 1 A of current when operated at a potential difference of 1 V.\n      -> Socratic Hint: P = VI with 1V and 1A.\n    * [Q3] (3-mark Derivation): Prove that 1 kWh = 3.6 * 10^6 joules.\n      -> Ideal Model Answer: 1 kWh = 1000 W * 3600 s = 3.6 * 10^6 Watt-seconds = 3.6 * 10^6 J.\n      -> Socratic Hint: Convert kW to W and hours to seconds.\n    * [Q4] (5-mark Numerical): An electric refrigerator rated 400 W operates 8 hours/day. Find cost of energy for 30 days at Rs 3.00 per kWh.\n      -> Ideal Model Answer: Energy = 400 W * 8 h * 30 days = 96,000 Wh = 96 kWh. Cost = 96 * 3 = Rs 288.00.\n      -> Socratic Hint: Calculate total kWh then multiply by rate.\n    * [Q5] (PYQ): An electric bulb is rated 220 V and 100 W. When operated on 110 V, what power is consumed?\n      -> Ideal Model Answer: Resistance R = V^2 / P = (220)^2 / 100 = 484 \\Omega. New Power P' = (V')^2 / R = (110)^2 / 484 = 12100 / 484 = 25 W.\n      -> Socratic Hint: Find resistance of bulb first which remains constant.\n    * [Q6] (Competency): Why do people pay electricity boards for energy rather than electrons?\n      -> Ideal Model Answer: Electrons are not consumed in a circuit; we pay for the electrical energy supplied by the power company to move electrons through appliances.\n      -> Socratic Hint: Refer to 'More to Know' box in textbook.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Joule's Law of Heating ($H = I^2Rt$)\":\n    - Visual Title: \"Electric Fuse Mechanism\" (vector_svg_diagram)\n    - Why Needed: Visualizes how a fuse protects circuits by melting during high current surges.\n    - What to Explain: Explain melting point property and series placement.\n    - Timing & Directive: Show when discussing practical applications of heating effect.\n    - Interactive Math Formula: H = I^2 * R * t\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Joule's Law of Heating ($H = I^2Rt$)",
+      "Electric Power ($P = VI = I^2R = V^2/R$)",
+      "Commercial Energy Unit ($1 \\text{ kWh} = 3.6 \\times 10^6 \\text{ J}$)"
+    ],
+    "success_criteria": "Calculate heat generated, electric power, and energy consumption costs accurately.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:46:46.278737+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Joule's Law of Heating Derivation ($H = I^2Rt$)",
+      "Practical Applications of Heating (Iron, Toaster, Bulb, Fuse)",
+      "Electric Power Formulae ($P = VI = I^2R = V^2/R$)",
+      "Commercial Unit of Energy (Kilowatt-hour, kWh / 'Unit')",
+      "Worked Examples on Power, Energy Cost, and Heat Generation"
+    ],
+    "chapter_notes": "When an electric circuit is purely resistive, source energy dissipates entirely as heat ($H = I^2Rt$), known as Joule's Law of Heating. Electric power is the rate of consumption of electrical energy ($P = VI = I^2R = V^2/R$). The SI unit of power is watt (W). The commercial unit of electrical energy is kilowatt-hour (kWh), where $1 \\text{ kWh} = 3.6 \\times 10^6 \\text{ J}$. Practical applications include electric irons, toasters, tungsten bulb filaments, and safety fuses.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Rs",
+        "given": "P = 400 W = 0.4 kW, t = 8 * 30 = 240 hours",
+        "formula": "Energy = P * t, Cost = Energy * rate",
+        "problem": "An electric refrigerator rated 400 W operates 8 hours/day. Find cost for 30 days at Rs 3.00 per kWh.",
+        "calculation": "96 * 3 = 288",
+        "finalAnswer": "288.00",
+        "substitution": "Energy = 0.4 kW * 240 h = 96 kWh",
+        "image_search_query": "class 10 science chapter_11_elec ncert",
+        "page": 50,
+        "section": "Section 5"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing power (rate of energy) with total energy consumed.",
+      "Assuming bulb resistance changes when operated at lower voltage."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735205722_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Heating Effect of Electric Current and Electric Power: Understand Joule's Law of Heating ($H = I^2Rt$), electric power ($P = VI$), commercial energy units (kWh), and practical applications like fuses and heaters.",
+              "keyTakeaway": "Joule's Law of Heating ($H = I^2Rt$)"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Joule's Law of Heating ($H = I^2Rt$)"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc111.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735205722_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Heating Effect of Electric Current and Electric Power - Fundamental Equations",
+              "equations": [
+                "Joule's Law of Heating ($H = I^2Rt$)",
+                "Electric Power ($P = VI = I^2R = V^2/R$)",
+                "Commercial Energy Unit ($1 \\text{ kWh} = 3.6 \\times 10^6 \\text{ J}$)"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Joule's Law of Heating ($H = I^2Rt$)"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc111.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735205722_3",
+          "type": "DIAGRAM",
+          "title": "Heating Effect of Electric Current and Electric Power Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Heating Effect of Electric Current and Electric Power Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Joule's Law of Heating ($H = I^2Rt$)",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Electric Power ($P = VI = I^2R = V^2/R$)",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Heating Effect of Electric Current and Electric Power",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Heating Effect of Electric Current and Electric Power | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='150' y='120' width='80' height='40' rx='4' fill='#E2E8F0' stroke='#0F172A' stroke-width='2'/><rect x='310' y='120' width='80' height='40' rx='4' fill='#E2E8F0' stroke='#0F172A' stroke-width='2'/><line x1='230' y1='140' x2='270' y2='140' stroke='#DC2626' stroke-width='4'/><line x1='270' y1='140' x2='310' y2='140' stroke='#DC2626' stroke-width='4'/><text x='270' y='100' font-family='sans-serif' font-size='14' fill='#0F172A' text-anchor='middle'>Fuse Wire (Melts on Overload)</text></svg> | A fuse cartridge diagram showing thin wire breaking when current exceeds rated limit."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc111.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735205722_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Joule's Law of Heating ($H = I^2Rt$)"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If P = 400 W = 0.4 kW, t = 8 * 30 = 240 hours, what is the value?",
+              "explanation": "By fundamental principle, Joule's Law of Heating ($H = I^2Rt$) is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735205722_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Joule's Law of Heating Derivation ($H = I^2Rt$)",
+                "Practical Applications of Heating (Iron, Toaster, Bulb, Fuse)",
+                "Electric Power Formulae ($P = VI = I^2R = V^2/R$)",
+                "Commercial Unit of Energy (Kilowatt-hour, kWh / 'Unit')",
+                "Worked Examples on Power, Energy Cost, and Heat Generation"
+              ],
+              "formulasToRemember": [
+                "Joule's Law of Heating ($H = I^2Rt$)",
+                "Electric Power ($P = VI = I^2R = V^2/R$)",
+                "Commercial Energy Unit ($1 \\text{ kWh} = 3.6 \\times 10^6 \\text{ J}$)"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Heating Effect of Electric Current and Electric Power - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Heating Effect of Electric Current and Electric Power",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:46:45.722Z",
+        "provenance": "jesc111.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735205722",
+      "subtopics": [
+        "Joule's Law of Heating Derivation ($H = I^2Rt$)",
+        "Practical Applications of Heating (Iron, Toaster, Bulb, Fuse)",
+        "Electric Power Formulae ($P = VI = I^2R = V^2/R$)",
+        "Commercial Unit of Energy (Kilowatt-hour, kWh / 'Unit')",
+        "Worked Examples on Power, Energy Cost, and Heat Generation"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='150' y='120' width='80' height='40' rx='4' fill='#E2E8F0' stroke='#0F172A' stroke-width='2'/><rect x='310' y='120' width='80' height='40' rx='4' fill='#E2E8F0' stroke='#0F172A' stroke-width='2'/><line x1='230' y1='140' x2='270' y2='140' stroke='#DC2626' stroke-width='4'/><line x1='270' y1='140' x2='310' y2='140' stroke='#DC2626' stroke-width='4'/><text x='270' y='100' font-family='sans-serif' font-size='14' fill='#0F172A' text-anchor='middle'>Fuse Wire (Melts on Overload)</text></svg>",
+      "diagram_idea": "Electric fuse wire melting schematic or power formula triangle.",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "A fuse cartridge diagram showing thin wire breaking when current exceeds rated limit.",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='150' y='120' width='80' height='40' rx='4' fill='#E2E8F0' stroke='#0F172A' stroke-width='2'/><rect x='310' y='120' width='80' height='40' rx='4' fill='#E2E8F0' stroke='#0F172A' stroke-width='2'/><line x1='230' y1='140' x2='310' y2='140' stroke='#DC2626' stroke-width='4'/></svg>",
+          "why_needed": "Visualizes how a fuse protects circuits by melting during high current surges.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='150' y='120' width='80' height='40' rx='4' fill='#E2E8F0' stroke='#0F172A' stroke-width='2'/><rect x='310' y='120' width='80' height='40' rx='4' fill='#E2E8F0' stroke='#0F172A' stroke-width='2'/><line x1='230' y1='140' x2='310' y2='140' stroke='#DC2626' stroke-width='4'/></svg>",
+          "image_query": "domestic household electric circuit diagram showing live wire, neutral wire, earth wire, electricity board fuse, electric meter, and distribution box with MCB",
+          "video_query": "domestic electric circuits household wiring earth wire live wire demonstration",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Fuse cartridge with metal ends and melting link.",
+          "concept_title": "Joule's Law of Heating ($H = I^2Rt$)",
+          "diagram_title": "Electric Fuse Mechanism",
+          "timing_and_cue": "Show when discussing practical applications of heating effect.",
+          "what_to_explain": "Explain melting point property and series placement.",
+          "image_search_query": "domestic household electric circuit diagram showing live wire, neutral wire, earth wire, electricity board fuse, electric meter, and distribution box with MCB",
+          "video_search_query": "domestic electric circuits household wiring earth wire live wire demonstration",
+          "interactive_math_formula": "H = I^2 * R * t"
+        }
+      ],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "Electric Energy -> Power (P = VI) -> Joule Heating (H = I^2Rt) -> Practical Uses (Bulb, Fuse, Heater)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "What is the SI unit of heat energy?",
+              "ideal_answer": "Joule (J)",
+              "socratic_hint": "Standard work/energy unit."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "State Joule's Law of Heating.",
+              "ideal_answer": "Heat produced in a resistor is (i) directly proportional to square of current ($I^2$), (ii) directly proportional to resistance ($R$), and (iii) directly proportional to time ($t$).",
+              "socratic_hint": "H = I^2 * R * t."
+            },
+            {
+              "type": "3-mark Derivation",
+              "q_num": "Q3",
+              "question": "Derive Joule's heating formula $H = I^2Rt$.",
+              "ideal_answer": "Work done $W = VQ$. Since $Q = It$ and $V = IR$, substituting gives $W = (IR)(It)t$ -> $H = I^2Rt$.",
+              "socratic_hint": "Combine VQ and Ohm's law."
+            },
+            {
+              "type": "5-mark Numerical",
+              "q_num": "Q4",
+              "question": "100 J of heat is produced each second in a 4 \\Omega resistance. Find potential difference across resistor.",
+              "ideal_answer": "H/t = 100 J/s, R = 4 \\Omega. I = \\sqrt{H / (Rt)} = \\sqrt{100 / 4} = 5 A. V = IR = 5 * 4 = 20 V.",
+              "socratic_hint": "Find current using H = I^2Rt, then calculate V = IR."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q5",
+              "question": "Why does the cord of an electric heater not glow while the heating element does?",
+              "ideal_answer": "The heating element has very high resistance compared to the connecting cord, so much more heat is dissipated in the element causing it to glow.",
+              "socratic_hint": "Compare resistances using H = I^2Rt."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q6",
+              "question": "Explain how an electric fuse protects home appliances during a short circuit.",
+              "ideal_answer": "A fuse wire has low melting point and is connected in series. When current exceeds safe limit, excess heat melts the fuse wire, breaking the circuit.",
+              "socratic_hint": "Think of current surge and melting point."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Joule's Law of Heating ($H = I^2Rt$)"
+        },
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "What is the commercial unit of electrical energy?",
+              "ideal_answer": "Kilowatt-hour (kWh) or 'unit'",
+              "socratic_hint": "Power in kW multiplied by hours."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Define 1 watt of electric power.",
+              "ideal_answer": "1 watt is the power consumed by a device that carries 1 A of current when operated at a potential difference of 1 V.",
+              "socratic_hint": "P = VI with 1V and 1A."
+            },
+            {
+              "type": "3-mark Derivation",
+              "q_num": "Q3",
+              "question": "Prove that 1 kWh = 3.6 * 10^6 joules.",
+              "ideal_answer": "1 kWh = 1000 W * 3600 s = 3.6 * 10^6 Watt-seconds = 3.6 * 10^6 J.",
+              "socratic_hint": "Convert kW to W and hours to seconds."
+            },
+            {
+              "type": "5-mark Numerical",
+              "q_num": "Q4",
+              "question": "An electric refrigerator rated 400 W operates 8 hours/day. Find cost of energy for 30 days at Rs 3.00 per kWh.",
+              "ideal_answer": "Energy = 400 W * 8 h * 30 days = 96,000 Wh = 96 kWh. Cost = 96 * 3 = Rs 288.00.",
+              "socratic_hint": "Calculate total kWh then multiply by rate."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q5",
+              "question": "An electric bulb is rated 220 V and 100 W. When operated on 110 V, what power is consumed?",
+              "ideal_answer": "Resistance R = V^2 / P = (220)^2 / 100 = 484 \\Omega. New Power P' = (V')^2 / R = (110)^2 / 484 = 12100 / 484 = 25 W.",
+              "socratic_hint": "Find resistance of bulb first which remains constant."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q6",
+              "question": "Why do people pay electricity boards for energy rather than electrons?",
+              "ideal_answer": "Electrons are not consumed in a circuit; we pay for the electrical energy supplied by the power company to move electrons through appliances.",
+              "socratic_hint": "Refer to 'More to Know' box in textbook."
+            }
+          ],
+          "concept_index": 1,
+          "concept_title": "Electric Power ($P = VI = I^2R = V^2/R$)"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Electric iron power ratings",
+          "scenario": "An electric iron consumes 840 W at max heating and 360 W at min heating on 220 V."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "Why does the cord of an electric heater not glow while the heating element does?",
+              "question_type": "conceptual",
+              "solution_method": "Heating element has much higher resistance than the cord."
+            },
+            {
+              "q_num": "Q2",
+              "question": "Compute heat generated while transferring 96,000 C of charge in 1 hour through 50 V potential difference.",
+              "question_type": "numerical",
+              "solution_method": "H = V * Q = 50 V * 96000 C = 4.8 * 10^6 J."
+            }
+          ],
+          "exercise_number": "In-Text Exercises (Page 190 & 192)"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Electric Power",
+          "si_units": "Watt (W) or J/s",
+          "definition": "The rate at which electric energy is dissipated or consumed in an electric circuit."
+        },
+        {
+          "concept": "Kilowatt-hour",
+          "si_units": "kWh (3.6 * 10^6 J)",
+          "definition": "Commercial unit of electrical energy consumed when 1 kW of power is used for 1 hour."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "3c078113-8062-4ad4-a1fd-b58ea7242313",
+    "curriculum_id": "7e89576e-316d-4dcd-9676-95b4334a3ecd",
+    "order_index": 6,
+    "title": "NCERT In-Text & Chapter-End Exercises Master Solver",
+    "description": "Exhaustively solve key textbook exercises and board-level numericals covering resistor networks, power ratings, and resistivity.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 6: End-of-Chapter Exercises & Board Numerical Master Solver. Final-Term Examination Syllabus. Walk students step-by-step through Ex Q1, Q3, and Q6. Emphasize dimensional analysis.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Flowchart connecting Ohm's law, resistance, power, and heating effect formulas.\n- Diagram Type: flowchart\n- Chapter Multi-Level Flowchart: Problem Statement -> Identify Given/Unknown -> Select Governing Law -> Substitute SI Units -> Box Final Answer\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Problem Statement -> Identify Given/Unknown -> Select Governing Law -> Substitute SI Units -> Box Final Answer\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Board Problem-Solving Strategy: \"Systematic extraction of given values, formula identification, dimensional consistency, and unit verification.\" [SI Unit: Standard SI]\n\n- Textbook Concrete Examples:\n- Resistor cutting problem: Dividing wire into n parts and connecting in parallel multiplies equivalent conductance by n^2.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - Chapter Exercises (Page 193-194):\n    * [Q1] (numerical): A piece of wire of resistance R is cut into five equal parts. Connected in parallel, equivalent is R'. Ratio R/R' is (a) 1/25 (b) 1/5 (c) 5 (d) 25\n      Method: Each part has R/5. 1/R' = 5/(R/5) + ... = 25/R -> R/R' = 25.\n    * [Q2] (conceptual): Which term does not represent electrical power? (a) I^2R (b) IR^2 (c) VI (d) V^2/R\n      Method: Check power formulas: P = VI, I^2R, V^2/R. IR^2 is incorrect.\n    * [Q3] (numerical): Bulb rated 220 V, 100 W. Operated on 110 V, power consumed is (a) 100 W (b) 75 W (c) 50 W (d) 25 W\n      Method: Find R = V^2/P = 484 \\Omega. P' = (110)^2 / 484 = 25 W.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Equivalent Resistance Ratios\":\n    * [Q1] (1-mark MCQ): A wire of resistance R is cut into 5 equal parts and connected in parallel to give R'. Ratio R/R' is:\n      -> Ideal Model Answer: 25\n      -> Socratic Hint: Each piece has resistance R/5. In parallel, 1/R' = 5/(R/5) + ... = 25/R -> R/R' = 25.\n    * [Q2] (3-mark Derivation): Which of the following does not represent electrical power? (a) I^2R, (b) IR^2, (c) VI, (d) V^2/R\n      -> Ideal Model Answer: (b) IR^2 because P = VI = (IR)I = I^2R = V(V/R) = V^2/R.\n      -> Socratic Hint: Substitute Ohm's law into P = VI.\n    * [Q3] (5-mark Numerical): A copper wire has diameter 0.5 mm and resistivity 1.6 * 10^-8 \\Omega m. What will be length to make resistance 10 \\Omega? How much does resistance change if diameter is doubled?\n      -> Ideal Model Answer: l = RA / \\rho = (10 * \\pi * (0.25 * 10^-3)^2) / (1.6 * 10^-8) = 122.7 m. If diameter doubles, area becomes 4 times, so resistance becomes 1/4th (2.5 \\Omega).\n      -> Socratic Hint: R is inversely proportional to d^2.\n    * [Q4] (PYQ): Show how you would connect three resistors of 6 \\Omega each to get total resistance of (i) 9 \\Omega, (ii) 4 \\Omega.\n      -> Ideal Model Answer: (i) Connect two in parallel (giving 3 \\Omega) in series with the third (3 + 6 = 9 \\Omega). (ii) Connect two in series (giving 12 \\Omega) in parallel with the third (12 * 6 / 18 = 4 \\Omega).\n      -> Socratic Hint: Test series/parallel combinations of 6 \\Omega.\n    * [Q5] (Competency): Several bulbs designed for 220 V are rated 10 W. How many can be connected in parallel on a 220 V line if max current is 5 A?\n      -> Ideal Model Answer: Current per bulb = P/V = 10 / 220 = 1/22 A. Total current = 5 A. Number of bulbs = 5 / (1/22) = 110 bulbs.\n      -> Socratic Hint: Divide max allowable current by current per bulb.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Equivalent Resistance Ratios\":\n    - Visual Title: \"Chapter Formula Master Map\" (flowchart)\n    - Why Needed: Connects all core equations of Chapter 11 into a unified mental map.\n    - What to Explain: Review each formula and its variables before tackling advanced board problems.\n    - Timing & Directive: Use at the beginning of Capsule 6 as a master review.\n    - Interactive Math Formula: P = V^2 / R\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Equivalent Resistance Ratios",
+      "Power Rating Variations ($P = V^2/R$)",
+      "Board Exam Numerical Strategies"
+    ],
+    "success_criteria": "Successfully solve all textbook exercises and complex board numerical problems.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:46:46.539564+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Resistor Cutting and Parallel Ratio Problems (Q1)",
+      "Bulb Power Rating Calculations at Different Voltages (Q3)",
+      "Wire Dimensions and Resistance Changes (Q6)",
+      "Complex Series-Parallel Combination Circuits (Q11, Q13, Q14)"
+    ],
+    "chapter_notes": "This capsule synthesizes all core formulas ($I=Q/t, V=W/Q, V=IR, R=\\rho l/A, R_s=\\sum R_i, 1/R_p=\\sum 1/R_i, H=I^2Rt, P=VI$) to solve rigorous board examination numericals. Pay special attention to unit conversions (mm to m, minutes to seconds, kW to W) and algebraic manipulations.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "In-Text Question (Section 11.1 & 11.2, p. 2 & p. 4): (a) A current of 0.5 A is drawn by a filament of an electric bulb for 10 minutes. Find the amount of electric charge that flows through the circuit. (b) How much work is done in moving a charge of 2 C across two points having a potential difference 12 V?",
+        "given": "(a) Current I = 0.5 A; Time t = 10 min = 600 s.\n(b) Charge Q = 2 C; Potential difference V = 12 V.",
+        "formula": "(a) Electric charge $Q = I \\times t$; (b) Work done $W = V \\times Q$.",
+        "substitution": "(a) $Q = 0.5 \\times 600$; (b) $W = 12 \\times 2$.",
+        "calculation": "(a) $Q = 300\\text{ Coulombs (C)}$.\n(b) $W = 24\\text{ Joules (J)}$.",
+        "finalAnswer": "(a) Amount of charge is 300 C; (b) Work done is 24 J.",
+        "unit": "Coulombs and Joules",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "electric charge current time potential difference formula",
+        "page": 2,
+        "section": "Section 11.1"
+      },
+      {
+        "problem": "In-Text Question (Section 11.5, p. 15): How can three resistors of resistances 2 \u03a9, 3 \u03a9, and 6 \u03a9 be connected to give a total resistance of: (a) 4 \u03a9, (b) 1 \u03a9?",
+        "given": "Resistors $R_1 = 2\\,\\Omega$, $R_2 = 3\\,\\Omega$, $R_3 = 6\\,\\Omega$.",
+        "formula": "Series: $R_s = R_1 + R_2$; Parallel: $\\frac{1}{R_p} = \\frac{1}{R_1} + \\frac{1}{R_2}$.",
+        "substitution": "(a) Parallel combination of 3 \u03a9 and 6 \u03a9 in series with 2 \u03a9.\n(b) All three resistors in parallel.",
+        "calculation": "1. Case (a): Connect 3 \u03a9 and 6 \u03a9 in parallel:\n   $R_p = \\frac{3 \\times 6}{3 + 6} = \\frac{18}{9} = 2\\,\\Omega$.\n   Connect this combination in series with the 2 \u03a9 resistor:\n   $R_{\\text{total}} = 2\\,\\Omega + R_p = 2 + 2 = 4\\,\\Omega$.\n2. Case (b): Connect all three resistors in parallel:\n   $\\frac{1}{R_p} = \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{6} = \\frac{3 + 2 + 1}{6} = \\frac{6}{6} = 1\\,\\Omega \\implies R_p = 1\\,\\Omega$.",
+        "finalAnswer": "(a) Connect 3 \u03a9 and 6 \u03a9 in parallel, then in series with 2 \u03a9 (total 4 \u03a9); (b) Connect all three resistors in parallel (total 1 \u03a9).",
+        "unit": "Ohms (\u03a9)",
+        "has_diagram": true,
+        "diagram_source": "image_search",
+        "figure_caption": "Circuit combination of three resistors in series and parallel",
+        "image_search_query": "resistors combination series parallel circuit diagram class 10",
+        "page": 15,
+        "section": "Section 11.5"
+      },
+      {
+        "problem": "End-of-Chapter Exercise Q11 & Q12 (p. 23): (a) An electric iron of resistance 20 \u03a9 takes a current of 5 A. Calculate the heat developed in 30 s. (b) An electric motor takes 5 A from a 220 V line. Determine the power of the motor and the energy consumed in 2 hours.",
+        "given": "(a) $R = 20\\,\\Omega$, $I = 5\\text{ A}$, $t = 30\\text{ s}$.\n(b) $I = 5\\text{ A}$, $V = 220\\text{ V}$, $t = 2\\text{ h} = 7200\\text{ s}$.",
+        "formula": "(a) Joule's Law of Heating: $H = I^2 R t$; (b) Electric Power $P = V \\times I$; Energy $E = P \\times t$.",
+        "substitution": "(a) $H = (5)^2 \\times 20 \\times 30$; (b) $P = 220 \\times 5$; $E = 1100 \\times 7200$.",
+        "calculation": "(a) $H = 25 \\times 20 \\times 30 = 500 \\times 30 = 15,000\\text{ J} = 15\\text{ kJ}$.\n(b) Power: $P = 1100\\text{ W} = 1.1\\text{ kW}$.\nEnergy: $E = 1.1\\text{ kW} \\times 2\\text{ h} = 2.2\\text{ kWh}$ (or $1100 \\times 7200 = 7.92 \\times 10^6\\text{ J} = 7.92\\text{ MJ}$).",
+        "finalAnswer": "(a) Heat developed is 15 kJ; (b) Power of motor is 1.1 kW (1100 W) and energy consumed is 2.2 kWh (7.92 MJ).",
+        "unit": "kJ and kWh",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "joules heating law power energy electricity calculation",
+        "page": 23,
+        "section": "Exercises"
+      }
+    ],
+    "common_misconceptions": [
+      "Forgetting to convert mm to meters when calculating wire resistance.",
+      "Confusing series and parallel resistance formulas in complex networks."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735206380_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "End-of-Chapter Exercises & Board Numerical Master Solver: Exhaustively solve key textbook exercises and board-level numericals covering resistor networks, power ratings, and resistivity.",
+              "keyTakeaway": "Equivalent Resistance Ratios"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Equivalent Resistance Ratios"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc111.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735206380_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "End-of-Chapter Exercises & Board Numerical Master Solver - Fundamental Equations",
+              "equations": [
+                "Equivalent Resistance Ratios",
+                "Power Rating Variations ($P = V^2/R$)",
+                "Board Exam Numerical Strategies"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Equivalent Resistance Ratios"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc111.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735206380_3",
+          "type": "DIAGRAM",
+          "title": "End-of-Chapter Exercises & Board Numerical Master Solver Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "End-of-Chapter Exercises & Board Numerical Master Solver Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Equivalent Resistance Ratios",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Power Rating Variations ($P = V^2/R$)",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Problem: Board exam numerical for End-of-Chapter Exercises & Board Numerical Master Solver | Given: Standard values with SI units | Formula: Governing equation | Substitution: Value substitution | Calculation: Step-by-step arithmetic in scratchpad | Answer: Evaluated result with correct SI units",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "End-of-Chapter Exercises & Board Numerical Master Solver | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='40' y='40' width='120' height='50' rx='6' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='100' y='70' font-family='sans-serif' font-size='12' fill='#2563EB' text-anchor='middle'>I = Q / t</text><rect x='210' y='40' width='120' height='50' rx='6' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='270' y='70' font-family='sans-serif' font-size='12' fill='#2563EB' text-anchor='middle'>V = W / Q</text><rect x='380' y='40' width='120' height='50' rx='6' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='440' y='70' font-family='sans-serif' font-size='12' fill='#2563EB' text-anchor='middle'>V = I R</text><rect x='125' y='140' width='120' height='50' rx='6' fill='#F0FDF4' stroke='#16A34A' stroke-width='2'/><text x='185' y='170' font-family='sans-serif' font-size='12' fill='#16A34A' text-anchor='middle'>R = \\rho l / A</text><rect x='295' y='140' width='120' height='50' rx='6' fill='#F0FDF4' stroke='#16A34A' stroke-width='2'/><text x='355' y='170' font-family='sans-serif' font-size='12' fill='#16A34A' text-anchor='middle'>H = I^2 R t</text><rect x='210' y='220' width='120' height='50' rx='6' fill='#FEF2F2' stroke='#DC2626' stroke-width='2'/><text x='270' y='250' font-family='sans-serif' font-size='12' fill='#DC2626' text-anchor='middle'>P = V I</text></svg> | Flowchart connecting Ohm's law, resistance, power, and heating effect formulas."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc111.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735206380_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Equivalent Resistance Ratios"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Resistance of each part = R/5, number of parts n = 5, what is the value?",
+              "explanation": "By fundamental principle, Equivalent Resistance Ratios is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735206380_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Resistor Cutting and Parallel Ratio Problems (Q1)",
+                "Bulb Power Rating Calculations at Different Voltages (Q3)",
+                "Wire Dimensions and Resistance Changes (Q6)",
+                "Complex Series-Parallel Combination Circuits (Q11, Q13, Q14)"
+              ],
+              "formulasToRemember": [
+                "Equivalent Resistance Ratios",
+                "Power Rating Variations ($P = V^2/R$)",
+                "Board Exam Numerical Strategies"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "End-of-Chapter Exercises & Board Numerical Master Solver - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "End-of-Chapter Exercises & Board Numerical Master Solver",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:46:46.380Z",
+        "provenance": "jesc111.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735206380",
+      "subtopics": [
+        "Resistor Cutting and Parallel Ratio Problems (Q1)",
+        "Bulb Power Rating Calculations at Different Voltages (Q3)",
+        "Wire Dimensions and Resistance Changes (Q6)",
+        "Complex Series-Parallel Combination Circuits (Q11, Q13, Q14)"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='40' y='40' width='120' height='50' rx='6' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='100' y='70' font-family='sans-serif' font-size='12' fill='#2563EB' text-anchor='middle'>I = Q / t</text><rect x='210' y='40' width='120' height='50' rx='6' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='270' y='70' font-family='sans-serif' font-size='12' fill='#2563EB' text-anchor='middle'>V = W / Q</text><rect x='380' y='40' width='120' height='50' rx='6' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='440' y='70' font-family='sans-serif' font-size='12' fill='#2563EB' text-anchor='middle'>V = I R</text><rect x='125' y='140' width='120' height='50' rx='6' fill='#F0FDF4' stroke='#16A34A' stroke-width='2'/><text x='185' y='170' font-family='sans-serif' font-size='12' fill='#16A34A' text-anchor='middle'>R = \\rho l / A</text><rect x='295' y='140' width='120' height='50' rx='6' fill='#F0FDF4' stroke='#16A34A' stroke-width='2'/><text x='355' y='170' font-family='sans-serif' font-size='12' fill='#16A34A' text-anchor='middle'>H = I^2 R t</text><rect x='210' y='220' width='120' height='50' rx='6' fill='#FEF2F2' stroke='#DC2626' stroke-width='2'/><text x='270' y='250' font-family='sans-serif' font-size='12' fill='#DC2626' text-anchor='middle'>P = V I</text></svg>",
+      "diagram_idea": "Summary flowchart of all chapter equations.",
+      "diagram_type": "flowchart",
+      "what_to_make": "Flowchart connecting Ohm's law, resistance, power, and heating effect formulas.",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='210' y='40' width='120' height='50' rx='6' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='270' y='70' font-family='sans-serif' font-size='12' fill='#2563EB' text-anchor='middle'>V = I R</text></svg>",
+          "why_needed": "Connects all core equations of Chapter 11 into a unified mental map.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><rect x='210' y='40' width='120' height='50' rx='6' fill='#EFF6FF' stroke='#2563EB' stroke-width='2'/><text x='270' y='70' font-family='sans-serif' font-size='12' fill='#2563EB' text-anchor='middle'>V = I R</text></svg>",
+          "image_query": "Flowchart mapping I, V, R, H, and P equations. scientific educational diagram with clear labels",
+          "video_query": "Chapter Formula Master Map educational demonstration video",
+          "diagram_type": "flowchart",
+          "what_to_make": "Flowchart mapping I, V, R, H, and P equations.",
+          "concept_title": "Equivalent Resistance Ratios",
+          "diagram_title": "Chapter Formula Master Map",
+          "timing_and_cue": "Use at the beginning of Capsule 6 as a master review.",
+          "what_to_explain": "Review each formula and its variables before tackling advanced board problems.",
+          "image_search_query": "Flowchart mapping I, V, R, H, and P equations. scientific educational diagram with clear labels",
+          "video_search_query": "Chapter Formula Master Map educational demonstration video",
+          "interactive_math_formula": "P = V^2 / R"
+        }
+      ],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "Problem Statement -> Identify Given/Unknown -> Select Governing Law -> Substitute SI Units -> Box Final Answer",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "A wire of resistance R is cut into 5 equal parts and connected in parallel to give R'. Ratio R/R' is:",
+              "ideal_answer": "25",
+              "socratic_hint": "Each piece has resistance R/5. In parallel, 1/R' = 5/(R/5) + ... = 25/R -> R/R' = 25."
+            },
+            {
+              "type": "3-mark Derivation",
+              "q_num": "Q2",
+              "question": "Which of the following does not represent electrical power? (a) I^2R, (b) IR^2, (c) VI, (d) V^2/R",
+              "ideal_answer": "(b) IR^2 because P = VI = (IR)I = I^2R = V(V/R) = V^2/R.",
+              "socratic_hint": "Substitute Ohm's law into P = VI."
+            },
+            {
+              "type": "5-mark Numerical",
+              "q_num": "Q3",
+              "question": "A copper wire has diameter 0.5 mm and resistivity 1.6 * 10^-8 \\Omega m. What will be length to make resistance 10 \\Omega? How much does resistance change if diameter is doubled?",
+              "ideal_answer": "l = RA / \\rho = (10 * \\pi * (0.25 * 10^-3)^2) / (1.6 * 10^-8) = 122.7 m. If diameter doubles, area becomes 4 times, so resistance becomes 1/4th (2.5 \\Omega).",
+              "socratic_hint": "R is inversely proportional to d^2."
+            },
+            {
+              "type": "PYQ",
+              "q_num": "Q4",
+              "question": "Show how you would connect three resistors of 6 \\Omega each to get total resistance of (i) 9 \\Omega, (ii) 4 \\Omega.",
+              "ideal_answer": "(i) Connect two in parallel (giving 3 \\Omega) in series with the third (3 + 6 = 9 \\Omega). (ii) Connect two in series (giving 12 \\Omega) in parallel with the third (12 * 6 / 18 = 4 \\Omega).",
+              "socratic_hint": "Test series/parallel combinations of 6 \\Omega."
+            },
+            {
+              "type": "Competency",
+              "q_num": "Q5",
+              "question": "Several bulbs designed for 220 V are rated 10 W. How many can be connected in parallel on a 220 V line if max current is 5 A?",
+              "ideal_answer": "Current per bulb = P/V = 10 / 220 = 1/22 A. Total current = 5 A. Number of bulbs = 5 / (1/22) = 110 bulbs.",
+              "socratic_hint": "Divide max allowable current by current per bulb."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Equivalent Resistance Ratios"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Resistor cutting problem",
+          "scenario": "Dividing wire into n parts and connecting in parallel multiplies equivalent conductance by n^2."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "A piece of wire of resistance R is cut into five equal parts. Connected in parallel, equivalent is R'. Ratio R/R' is (a) 1/25 (b) 1/5 (c) 5 (d) 25",
+              "question_type": "numerical",
+              "solution_method": "Each part has R/5. 1/R' = 5/(R/5) + ... = 25/R -> R/R' = 25."
+            },
+            {
+              "q_num": "Q2",
+              "question": "Which term does not represent electrical power? (a) I^2R (b) IR^2 (c) VI (d) V^2/R",
+              "question_type": "conceptual",
+              "solution_method": "Check power formulas: P = VI, I^2R, V^2/R. IR^2 is incorrect."
+            },
+            {
+              "q_num": "Q3",
+              "question": "Bulb rated 220 V, 100 W. Operated on 110 V, power consumed is (a) 100 W (b) 75 W (c) 50 W (d) 25 W",
+              "question_type": "numerical",
+              "solution_method": "Find R = V^2/P = 484 \\Omega. P' = (110)^2 / 484 = 25 W."
+            }
+          ],
+          "exercise_number": "Chapter Exercises (Page 193-194)"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Board Problem-Solving Strategy",
+          "si_units": "Standard SI",
+          "definition": "Systematic extraction of given values, formula identification, dimensional consistency, and unit verification."
+        }
+      ]
+    },
+    "quiz_questions": []
+  }
+]

@@ -14,6 +14,12 @@ sys.path.append(os.path.dirname(__file__))
 from svg_builder_class10 import build_circle_tangents_svg, build_concentric_circles_chord_svg, get_svg_wrapper
 
 def get_ch10_modules():
+    import json, os
+    json_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "maths_class10_modules", "ch10_circles.json")
+    if os.path.exists(json_path):
+        with open(json_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+
     CURRICULUM_ID = "0eba841d-8fcd-4e01-bbc0-247a3f0a29c5"
     
     # SVG 1: Theorem 10.1 (Radius Perpendicular to Tangent)

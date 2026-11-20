@@ -32,11 +32,14 @@
         "formula": "Net Force $\\vec{F}_{net} = \\vec{F}_1 + \\vec{F}_2$; Newton's Second Law $\\vec{a} = \\frac{\\vec{F}_{net}}{m}$.",
         "substitution": "$\\vec{F}_{net} = 15 - 10 = +5\\text{ N}$ (East). $a = \\frac{5\\text{ N}}{5\\text{ kg}}$.",
         "calculation": "1. Resultant Force: $F_{net} = 15 - 10 = \\mathbf{5\\text{ N}}$ toward East.\n2. Acceleration: $a = \\frac{5}{5} = \\mathbf{1\\text{ m/s}^2}$ toward East.",
-        "finalAnswer": "Net force = 5 N East; Acceleration = 1 m/s² East.",
-        "unit": "N and m/s²",
+        "finalAnswer": "Net force = 5 N East; Acceleration = 1 m/s\u00b2 East.",
+        "unit": "N and m/s\u00b2",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.1: Vector addition of opposing horizontal forces on a block"
+        "figure_caption": "Fig. 6.1: Vector addition of opposing horizontal forces on a block",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 81,
+        "section": "Section 6.1"
       },
       {
         "problem": "What is the difference between balanced and unbalanced forces? Can a balanced force system change the shape of an object?",
@@ -48,7 +51,10 @@
         "unit": "Mechanics Axiom",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.4: Balanced forces compressing a balloon vs accelerating a cart"
+        "figure_caption": "Fig. 6.4: Balanced forces compressing a balloon vs accelerating a cart",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 81,
+        "section": "Section 6.1"
       },
       {
         "problem": "A wooden box of mass 20 kg rests on a rough horizontal floor. The coefficient of static friction is such that a minimum horizontal push of 40 N is required to set it into motion. What is the frictional force when: (a) no push is applied, (b) a push of 25 N is applied, and (c) a push of 40 N is applied?",
@@ -60,7 +66,10 @@
         "unit": "N",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.5: Self-adjusting static friction curve up to limiting threshold"
+        "figure_caption": "Fig. 6.5: Self-adjusting static friction curve up to limiting threshold",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 81,
+        "section": "Section 6.1"
       },
       {
         "problem": "Why is friction referred to as a 'necessary evil' in everyday mechanics?",
@@ -72,7 +81,10 @@
         "unit": "Mechanics Philosophy",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.6: Friction at shoe-ground interface during walking"
+        "figure_caption": "Fig. 6.6: Friction at shoe-ground interface during walking",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 81,
+        "section": "Section 6.1"
       },
       {
         "problem": "A car of mass 1000 kg is moving at constant velocity of 20 m/s along a straight level road. If the engine delivers a forward driving force of 500 N, what is the magnitude of the opposing resistive forces (friction and air resistance)?",
@@ -84,19 +96,25 @@
         "unit": "N",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.7: Balanced horizontal forces at constant velocity cruising"
+        "figure_caption": "Fig. 6.7: Balanced horizontal forces at constant velocity cruising",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 81,
+        "section": "Section 6.1"
       },
       {
         "problem": "Define the SI unit of force (Newton) using the fundamental units of kilograms, meters, and seconds.",
         "given": "Newton's Second Law $F = ma$.",
         "formula": "$1\\text{ Newton} = 1\\text{ kg} \\times 1\\text{ m/s}^2 = 1\\text{ kg}\\cdot\\text{m}\\cdot\\text{s}^{-2}$.",
-        "substitution": "Mass of 1 kg accelerated at 1 m/s².",
+        "substitution": "Mass of 1 kg accelerated at 1 m/s\u00b2.",
         "calculation": "1. One Newton ($1\\text{ N}$) is defined as the magnitude of force that produces an acceleration of $1\\text{ m/s}^2$ in an object of mass $1\\text{ kg}$.\n2. Base SI units: $\\text{kg}\\cdot\\text{m/s}^2$.",
-        "finalAnswer": "1 Newton is the force that imparts an acceleration of 1 m/s² to a mass of 1 kg (1 N = 1 kg·m/s²).",
+        "finalAnswer": "1 Newton is the force that imparts an acceleration of 1 m/s\u00b2 to a mass of 1 kg (1 N = 1 kg\u00b7m/s\u00b2).",
         "unit": "SI Unit Invariant",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.8: Unit force accelerating 1 kg block at 1 m/s²"
+        "figure_caption": "Fig. 6.8: Unit force accelerating 1 kg block at 1 m/s\u00b2",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 81,
+        "section": "Section 6.1"
       }
     ],
     "common_misconceptions": [
@@ -218,7 +236,10 @@
         "unit": "NCERT In-Text Problem",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.9: Comparison of inertia between stone and rubber ball"
+        "figure_caption": "Fig. 6.9: Comparison of inertia between stone and rubber ball",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 82,
+        "section": "Section 6.2"
       },
       {
         "problem": "Explain Galileo's double inclined plane thought experiment. How did it overturn Aristotle's centuries-old fallacy about motion?",
@@ -230,7 +251,10 @@
         "unit": "Classical Epistemology",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.12: Galileo's double inclined plane thought experiment"
+        "figure_caption": "Fig. 6.12: Galileo's double inclined plane thought experiment",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 82,
+        "section": "Section 6.2"
       },
       {
         "problem": "Why does a person tend to fall backward when a bus suddenly starts moving forward, and fall forward when the bus suddenly applies brakes?",
@@ -242,7 +266,10 @@
         "unit": "Inertial Mechanics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.10: Passenger falling forward during abrupt braking due to inertia"
+        "figure_caption": "Fig. 6.10: Passenger falling forward during abrupt braking due to inertia",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 82,
+        "section": "Section 6.2"
       },
       {
         "problem": "Why is it advised to tie luggage kept on the roof of a bus with a sturdy rope?",
@@ -254,7 +281,10 @@
         "unit": "NCERT In-Text Problem",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.11: Luggage tied to roof of bus resisting inertial displacement"
+        "figure_caption": "Fig. 6.11: Luggage tied to roof of bus resisting inertial displacement",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 82,
+        "section": "Section 6.2"
       },
       {
         "problem": "Why do dust particles fall off a hanging carpet when it is beaten vigorously with a stick?",
@@ -266,7 +296,10 @@
         "unit": "NCERT In-Text Problem",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.13: Dust separating from carpet fabric due to inertia of rest"
+        "figure_caption": "Fig. 6.13: Dust separating from carpet fabric due to inertia of rest",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 82,
+        "section": "Section 6.2"
       },
       {
         "problem": "Why does a coin placed on a cardboard card over a tumbler drop straight into the tumbler when the card is flicked sharply with a finger?",
@@ -278,7 +311,10 @@
         "unit": "Activity 6.2 Lab Analysis",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.14: Activity 6.2 flicking card from under coin into tumbler"
+        "figure_caption": "Fig. 6.14: Activity 6.2 flicking card from under coin into tumbler",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 82,
+        "section": "Section 6.2"
       }
     ],
     "common_misconceptions": [
@@ -399,19 +435,25 @@
         "unit": "N and m/s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.17: Force acting on mass producing rate of change of momentum"
+        "figure_caption": "Fig. 6.17: Force acting on mass producing rate of change of momentum",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 83,
+        "section": "Section 6.3"
       },
       {
-        "problem": "Which would require a greater force: accelerating a 2 kg mass at 5 m/s² or a 4 kg mass at 2 m/s²?",
+        "problem": "Which would require a greater force: accelerating a 2 kg mass at 5 m/s\u00b2 or a 4 kg mass at 2 m/s\u00b2?",
         "given": "Case 1: $m_1 = 2\\text{ kg}, a_1 = 5\\text{ m/s}^2$. Case 2: $m_2 = 4\\text{ kg}, a_2 = 2\\text{ m/s}^2$.",
         "formula": "Newton's Second Law: $F = ma$.",
         "substitution": "$F_1 = m_1 a_1 = 2 \\times 5\\text{ N}$; $F_2 = m_2 a_2 = 4 \\times 2\\text{ N}$.",
         "calculation": "1. Force for Case 1: $F_1 = 2 \\times 5 = \\mathbf{10\\text{ N}}$.\n2. Force for Case 2: $F_2 = 4 \\times 2 = \\mathbf{8\\text{ N}}$.\n3. Since $10\\text{ N} > 8\\text{ N}$, accelerating the 2 kg mass requires a greater force.",
-        "finalAnswer": "Accelerating the 2 kg mass at 5 m/s² requires greater force (10 N vs 8 N).",
+        "finalAnswer": "Accelerating the 2 kg mass at 5 m/s\u00b2 requires greater force (10 N vs 8 N).",
         "unit": "N",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.18: Comparison of F = ma for different mass-acceleration pairs"
+        "figure_caption": "Fig. 6.18: Comparison of F = ma for different mass-acceleration pairs",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 83,
+        "section": "Section 6.3"
       },
       {
         "problem": "A motorcar is moving with a velocity of 108 km/h and takes 4 s to stop after the brakes are applied. Calculate the force exerted by the brakes on the motorcar if its mass along with the passengers is 1000 kg.",
@@ -423,7 +465,10 @@
         "unit": "N",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.19: Motorcar deceleration and opposing braking force"
+        "figure_caption": "Fig. 6.19: Motorcar deceleration and opposing braking force",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 83,
+        "section": "Section 6.3"
       },
       {
         "problem": "Why does a cricket fielder gradually pull his hands backward with the moving ball while taking a catch?",
@@ -431,23 +476,29 @@
         "formula": "Impulse-Momentum Theorem: $F = \\frac{\\Delta p}{\\Delta t} = \\frac{m(v - u)}{\\Delta t}$.",
         "substitution": "Pulling hands backward prolongs the impact deceleration duration $\\Delta t$.",
         "calculation": "1. The ball possesses large momentum ($p = mv$) which must be reduced to zero.\n2. If stopped instantaneously ($\\Delta t \\to 0$), the rate of change of momentum is immense, exerting a massive destructive force ($F$) that damages the fielder's palms.\n3. By pulling hands backward, the fielder increases the stopping time $\\Delta t$.\n4. Because force is inversely proportional to time ($F \\propto 1/\\Delta t$), the impact force is reduced safely.",
-        "finalAnswer": "Pulling hands back increases impact time (Δt), dramatically decreasing the rate of change of momentum and the force exerted on the palms.",
+        "finalAnswer": "Pulling hands back increases impact time (\u0394t), dramatically decreasing the rate of change of momentum and the force exerted on the palms.",
         "unit": "Impulse Biomechanics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.20: Fielder pulling hands back during a catch to increase impact time"
+        "figure_caption": "Fig. 6.20: Fielder pulling hands back during a catch to increase impact time",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 83,
+        "section": "Section 6.3"
       },
       {
-        "problem": "A force of 5 N gives a mass m₁ an acceleration of 10 m/s² and a mass m₂ an acceleration of 20 m/s². What acceleration would it give if both the masses were tied together?",
+        "problem": "A force of 5 N gives a mass m\u2081 an acceleration of 10 m/s\u00b2 and a mass m\u2082 an acceleration of 20 m/s\u00b2. What acceleration would it give if both the masses were tied together?",
         "given": "Force $F = 5\\text{ N}$. $a_1 = 10\\text{ m/s}^2 \\implies m_1 = \\frac{F}{a_1} = 0.5\\text{ kg}$. $a_2 = 20\\text{ m/s}^2 \\implies m_2 = \\frac{F}{a_2} = 0.25\\text{ kg}$.",
         "formula": "Combined Mass $M = m_1 + m_2$; Acceleration $a = \\frac{F}{M}$.",
         "substitution": "$M = 0.5 + 0.25 = 0.75\\text{ kg} = \\frac{3}{4}\\text{ kg}$. $a = \\frac{5}{0.75} = \\frac{5}{3/4}$.",
         "calculation": "$a = \\frac{20}{3} \\approx \\mathbf{6.67\\text{ m/s}^2}$.",
-        "finalAnswer": "Acceleration of combined masses = 6.67 m/s² (20/3 m/s²).",
-        "unit": "m/s²",
+        "finalAnswer": "Acceleration of combined masses = 6.67 m/s\u00b2 (20/3 m/s\u00b2).",
+        "unit": "m/s\u00b2",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.21: Combined tied masses accelerated by a common force"
+        "figure_caption": "Fig. 6.21: Combined tied masses accelerated by a common force",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 83,
+        "section": "Section 6.3"
       },
       {
         "problem": "Derive Newton's Second Law mathematical formula F = ma from first principles.",
@@ -459,7 +510,10 @@
         "unit": "Derivation",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.18: Rate of change of momentum derivation geometry"
+        "figure_caption": "Fig. 6.18: Rate of change of momentum derivation geometry",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 83,
+        "section": "Section 6.3"
       }
     ],
     "common_misconceptions": [
@@ -580,7 +634,10 @@
         "unit": "Classical Locomotion",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.22: Free body diagram of horse-cart-ground reaction forces"
+        "figure_caption": "Fig. 6.22: Free body diagram of horse-cart-ground reaction forces",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 84,
+        "section": "Section 6.4"
       },
       {
         "problem": "If action and reaction are always equal and opposite, why do they not cancel each other out to produce zero motion?",
@@ -592,7 +649,10 @@
         "unit": "Mechanics Axiom",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.23: Action and reaction acting on two separate interacting masses"
+        "figure_caption": "Fig. 6.23: Action and reaction acting on two separate interacting masses",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 84,
+        "section": "Section 6.4"
       },
       {
         "problem": "Why does a heavy rifle recoil backward when a high-speed bullet is fired forward?",
@@ -604,7 +664,10 @@
         "unit": "Ballistics Dynamics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.24: Rifle and bullet action-reaction force pair during firing"
+        "figure_caption": "Fig. 6.24: Rifle and bullet action-reaction force pair during firing",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 84,
+        "section": "Section 6.4"
       },
       {
         "problem": "Why is it difficult for a fireman to hold a hose that ejects large streams of water at a high velocity?",
@@ -616,7 +679,10 @@
         "unit": "Hydrodynamic Thrust",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.25: Fireman counterbalancing backward reaction thrust of firehose"
+        "figure_caption": "Fig. 6.25: Fireman counterbalancing backward reaction thrust of firehose",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 84,
+        "section": "Section 6.4"
       },
       {
         "problem": "Explain the propulsion of a rocket using Newton's Third Law.",
@@ -628,7 +694,10 @@
         "unit": "Aerospace Dynamics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.26: Rocket action (exhaust gas downward) and reaction (thrust upward)"
+        "figure_caption": "Fig. 6.26: Rocket action (exhaust gas downward) and reaction (thrust upward)",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 84,
+        "section": "Section 6.4"
       },
       {
         "problem": "Two spring balances A and B are hooked together. Balance A is fixed to a wall, and a student pulls balance B with a force of 50 N. What are the readings on balance A and balance B?",
@@ -640,7 +709,10 @@
         "unit": "Activity 6.4 Lab Analysis",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.27: Activity 6.4 two connected spring balances showing identical 50 N readings"
+        "figure_caption": "Fig. 6.27: Activity 6.4 two connected spring balances showing identical 50 N readings",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 84,
+        "section": "Section 6.4"
       }
     ],
     "common_misconceptions": [
@@ -761,7 +833,10 @@
         "unit": "m/s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.28: Pistol recoil velocity calculation using momentum conservation"
+        "figure_caption": "Fig. 6.28: Pistol recoil velocity calculation using momentum conservation",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 85,
+        "section": "Section 6.5"
       },
       {
         "problem": "A girl of mass 40 kg jumps with a horizontal velocity of 5 m/s onto a stationary cart with frictionless wheels. The mass of the cart is 3 kg. What is her velocity as the cart starts moving?",
@@ -773,7 +848,10 @@
         "unit": "m/s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.29: Girl jumping onto stationary cart momentum coalescence"
+        "figure_caption": "Fig. 6.29: Girl jumping onto stationary cart momentum coalescence",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 85,
+        "section": "Section 6.5"
       },
       {
         "problem": "Two hockey players of opposite teams, while trying to hit a ball on the ground, collide and immediately become entangled. One has a mass of 60 kg and was moving with a velocity 5.0 m/s, while the other player has a mass of 55 kg and was moving faster with a velocity 6.0 m/s towards the first player (opposite direction). In which direction and with what velocity will they move after becoming entangled?",
@@ -785,7 +863,10 @@
         "unit": "m/s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.30: Two colliding hockey players coalescing in inelastic collision"
+        "figure_caption": "Fig. 6.30: Two colliding hockey players coalescing in inelastic collision",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 85,
+        "section": "Section 6.5"
       },
       {
         "problem": "State the Law of Conservation of Linear Momentum. Under what condition is it strictly valid?",
@@ -797,7 +878,10 @@
         "unit": "Conservation Law",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.31: Conservation of momentum in two-ball collision before, during, and after"
+        "figure_caption": "Fig. 6.31: Conservation of momentum in two-ball collision before, during, and after",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 85,
+        "section": "Section 6.5"
       },
       {
         "problem": "Two objects of masses 100 g and 200 g are moving along the same line and direction with velocities of 2 m/s and 1 m/s, respectively. They collide and after the collision, the first object moves at a velocity of 1.67 m/s. Determine the velocity of the second object.",
@@ -809,7 +893,10 @@
         "unit": "m/s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.32: 1D elastic collision velocity redistribution between two masses"
+        "figure_caption": "Fig. 6.32: 1D elastic collision velocity redistribution between two masses",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 85,
+        "section": "Section 6.5"
       },
       {
         "problem": "Derive the Law of Conservation of Linear Momentum from Newton's Second and Third Laws of Motion.",
@@ -817,11 +904,14 @@
         "formula": "Newton's Third Law: $\\vec{F}_{AB} = -\\vec{F}_{BA}$; Newton's Second Law: $\\vec{F} = \\frac{m\\Delta v}{\\Delta t}$.",
         "substitution": "$F_{AB} = \\frac{m_1(v_1 - u_1)}{\\Delta t}$; $F_{BA} = \\frac{m_2(v_2 - u_2)}{\\Delta t}$.",
         "calculation": "1. By Third Law, force on B due to A equals negative of force on A due to B:\n   $\\frac{m_1(v_1 - u_1)}{\\Delta t} = -\\frac{m_2(v_2 - u_2)}{\\Delta t}$.\n2. Multiply both sides by $\\Delta t$:\n   $m_1 v_1 - m_1 u_1 = -m_2 v_2 + m_2 u_2$.\n3. Group initial terms on left and final terms on right:\n   $\\mathbf{m_1 u_1 + m_2 u_2 = m_1 v_1 + m_2 v_2}$.",
-        "finalAnswer": "m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂ (Conservation of momentum derived from Second and Third Laws).",
+        "finalAnswer": "m\u2081u\u2081 + m\u2082u\u2082 = m\u2081v\u2081 + m\u2082v\u2082 (Conservation of momentum derived from Second and Third Laws).",
         "unit": "Derivation",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.33: Derivation schematic of momentum conservation from action-reaction forces"
+        "figure_caption": "Fig. 6.33: Derivation schematic of momentum conservation from action-reaction forces",
+        "image_search_query": "forces motion newton laws class 9 ncert",
+        "page": 85,
+        "section": "Section 6.5"
       }
     ],
     "common_misconceptions": [
@@ -908,8 +998,8 @@
   {
     "curriculum_id": "7e1d5438-1174-4577-8599-5f05a6642093",
     "order_index": 6,
-    "title": "Master Dynamics Problem Solver: Authentic NCERT & Board Exam Numericals",
-    "description": "Exhaustive step-by-step master solver resolving every in-text numerical and chapter-end exercise problem (Q1 through Q18) from NCERT Class 9 Science Chapter 6: Forces and Laws of Motion.",
+    "title": "Master Numerical Solver & Comprehensive NCERT Chapter Exercise Ledger (Revise, Reflect, Refine Q1 to Q16)",
+    "description": "Exhaustive step-by-step master solutions for all in-text activities and all 16 'Revise, Reflect, Refine' chapter-end exercise problems from NCERT Exploration Grade 9 Chapter 6.",
     "board": "CBSE",
     "class_level": "Class 9",
     "estimated_minutes": 20,
@@ -931,64 +1021,244 @@
     "chapter_notes": "### 6.20 Comprehensive NCERT Exercise Solutions Ledger\n\n#### Q5. A truck starts from rest and rolls down a hill with constant acceleration. It travels a distance of 400 m in 20 s. Find its acceleration. Find the force acting on it if its mass is 7 tonnes (1 tonne = 1000 kg).\n- Given: $u = 0$, $s = 400\\text{ m}$, $t = 20\\text{ s}$, $m = 7 \\times 1000 = 7000\\text{ kg}$.\n- Using $s = ut + \\frac{1}{2}at^2$:\n  $$400 = 0 + \\frac{1}{2} \\times a \\times (20)^2 = 200 a \\implies a = \\frac{400}{200} = \\mathbf{2\\text{ m/s}^2}$$\n- Force:\n  $$F = m \\times a = 7000 \\times 2 = \\mathbf{14000\\text{ N}}$$\n\n#### Q6. A stone of 1 kg is thrown with a velocity of 20 m/s across the frozen surface of a lake and comes to rest after traveling a distance of 50 m. What is the force of friction between the stone and the ice?\n- Given: $m = 1\\text{ kg}$, $u = 20\\text{ m/s}$, $v = 0$, $s = 50\\text{ m}$.\n- Using $v^2 = u^2 + 2as$:\n  $$0 = (20)^2 + 2a(50) = 400 + 100a \\implies 100a = -400 \\implies a = -4\\text{ m/s}^2$$\n- Force of friction:\n  $$F = ma = 1 \\times (-4) = \\mathbf{-4\\text{ N}}$$\n  *(Negative sign indicates friction acts in opposite direction to motion).*\n\n#### Q7. An 8000 kg engine pulls a train of 5 wagons, each of 2000 kg, along a horizontal track. If the engine exerts a force of 40000 N and the track offers a friction force of 5000 N, then calculate: (a) the net accelerating force, (b) the acceleration of the train, and (c) the force of wagon 1 on wagon 2.\n- (a) **Net Accelerating Force**:\n  $$F_{\\text{net}} = F_{\\text{engine}} - F_{\\text{friction}} = 40000 - 5000 = \\mathbf{35000\\text{ N}}$$\n- (b) **Acceleration of Train**:\n  $$\\text{Total Mass } M = m_{\\text{engine}} + (5 \\times m_{\\text{wagon}}) = 8000 + (5 \\times 2000) = 8000 + 10000 = 18000\\text{ kg}$$\n  $$a = \\frac{F_{\\text{net}}}{M} = \\frac{35000}{18000} = \\mathbf{1.944\\text{ m/s}^2}$$\n- (c) **Force of Wagon 1 on Wagon 2**:\n  Wagon 1 pulls the remaining 4 wagons behind it (mass $= 4 \\times 2000 = 8000\\text{ kg}$).\n  $$F_{1\\to 2} = 8000 \\times a + (\\text{friction on 4 wagons}) = 8000 \\times 1.944 + 4000 = \\mathbf{19552\\text{ N}}$$\n\n#### Q14. A bullet of mass 10 g traveling horizontally with a velocity of 150 m/s strikes a stationary wooden block and comes to rest in 0.03 s. Calculate the distance of penetration of the bullet into the block. Also calculate the magnitude of the force exerted by the wooden block on the bullet.\n- Given: $m = 10\\text{ g} = 0.01\\text{ kg}$, $u = 150\\text{ m/s}$, $v = 0$, $t = 0.03\\text{ s}$.\n- $a = \\frac{v - u}{t} = \\frac{0 - 150}{0.03} = -5000\\text{ m/s}^2$.\n- Penetration distance: $s = ut + \\frac{1}{2}at^2 = (150 \\times 0.03) + \\frac{1}{2}(-5000)(0.03)^2 = 4.5 - 2.25 = \\mathbf{2.25\\text{ m}}$.\n- Retarding Force: $F = ma = 0.01 \\times (-5000) = \\mathbf{-50\\text{ N}}$ (Magnitude $= 50\\text{ N}$).",
     "worked_examples": [
       {
-        "problem": "NCERT Ex Q5. A truck starts from rest and rolls down a hill with constant acceleration. It travels a distance of 400 m in 20 s. Find its acceleration. Find the force acting on it if its mass is 7 tonnes (1 tonne = 1000 kg).",
-        "given": "$u = 0\\text{ m/s}, s = 400\\text{ m}, t = 20\\text{ s}, m = 7000\\text{ kg}$.",
-        "formula": "$s = ut + \\frac{1}{2}at^2 \\implies a = \\frac{2s}{t^2}$; $F = ma$.",
-        "substitution": "$400 = 0 + \\frac{1}{2}a(20)^2 \\implies 400 = 200a$. $F = 7000 \\times a$.",
-        "calculation": "1. Acceleration: $a = \\frac{400}{200} = \\mathbf{2\\text{ m/s}^2}$.\n2. Force: $F = 7000\\text{ kg} \\times 2\\text{ m/s}^2 = \\mathbf{14000\\text{ N}}$.",
-        "finalAnswer": "Acceleration = 2 m/s²; Force acting on truck = 14000 N.",
-        "unit": "m/s² and N",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.34: Truck rolling down incline under gravity and friction"
+        "problem": "Textbook Revise, Reflect, Refine Q1 (Section 6.1, p. 19): Using a horizontal force F, a heavy table is moved across the floor at a constant velocity. What is the magnitude and direction of the frictional force exerted by the floor on the table?",
+        "given": "Applied horizontal force = F; Motion of table = Constant velocity (acceleration a = 0).",
+        "formula": "Newton's First Law / Net Force Equilibrium: $\\Sigma F = F_{\\text{applied}} - f_{\\text{friction}} = m \\cdot a = 0$.",
+        "substitution": "$F - f_{\\text{friction}} = 0 \\implies f_{\\text{friction}} = F$.",
+        "calculation": "Since the table moves at a constant velocity, its acceleration is zero ($a = 0$). By Newton's second law, the net external force acting on the table must be identically zero. Therefore, the opposing kinetic frictional force exerted by the floor must have an exact magnitude equal to F, directed opposite to the direction of motion.",
+        "finalAnswer": "The frictional force has a magnitude exactly equal to F, acting in the direction opposite to the table's motion.",
+        "unit": "Newtons (N)",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "constant velocity dynamic equilibrium friction applied force",
+        "page": 19,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "NCERT Ex Q6. A stone of 1 kg is thrown with a velocity of 20 m/s across the frozen surface of a lake and comes to rest after traveling a distance of 50 m. What is the force of friction between the stone and the ice?",
-        "given": "$m = 1\\text{ kg}, u = 20\\text{ m/s}, v = 0\\text{ m/s}, s = 50\\text{ m}$.",
-        "formula": "$v^2 = u^2 + 2as \\implies a = \\frac{v^2 - u^2}{2s}$; $F = ma$.",
-        "substitution": "$a = \\frac{0^2 - 20^2}{2(50)} = \\frac{-400}{100} = -4\\text{ m/s}^2$. $F = (1)(-4)$.",
-        "calculation": "1. Retardation: $a = -4\\text{ m/s}^2$.\n2. Friction force: $F = 1 \\times (-4) = -\\mathbf{4\\text{ N}}$.",
-        "finalAnswer": "Force of friction = 4 N opposing the motion (-4 N).",
-        "unit": "N",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.35: Stone sliding on frozen ice lake coming to rest under friction"
+        "problem": "Textbook Revise, Reflect, Refine Q2 (Section 6.1, p. 19): For a ball rolling on an ideal frictionless horizontal surface, which of the following is true? (a) A constant force is required to keep it moving at constant velocity. (b) It will gradually slow down and stop. (c) It will continue to move with constant velocity forever. (d) Its acceleration will continuously increase.",
+        "given": "Ideal horizontal plane with zero friction ($f = 0$) and zero air resistance.",
+        "formula": "Galileo's Law of Inertia & Newton's First Law: An object in motion continues in uniform rectilinear motion unless acted upon by a net external force.",
+        "substitution": "Net horizontal force $\\Sigma F = 0$.",
+        "calculation": "In the complete absence of opposing resistive forces (friction, drag), no continuous forward force is required to sustain motion. By inertia, the ball maintains its uniform speed and direction indefinitely.",
+        "finalAnswer": "Correct Option: (c) It will continue to move with constant velocity forever.",
+        "unit": "Inertia Law",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "galileo inclined plane law of inertia frictionless surface",
+        "page": 19,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "NCERT Ex Q7. An 8000 kg engine pulls a train of 5 wagons, each of 2000 kg, along a horizontal track. If the engine exerts a force of 40000 N and the track offers a friction force of 5000 N, then calculate: (a) the net accelerating force, (b) the acceleration of the train, and (c) the force of wagon 1 on wagon 2.",
-        "given": "Engine mass $= 8000\\text{ kg}$. Wagons mass $= 5 \\times 2000 = 10000\\text{ kg}$. Total train mass $M = 8000 + 10000 = 18000\\text{ kg}$. Engine pull $F_{engine} = 40000\\text{ N}$, friction $F_{fric} = 5000\\text{ N}$.",
-        "formula": "(a) $F_{net} = F_{engine} - F_{fric}$; (b) $a = \\frac{F_{net}}{M}$; (c) Wagon 1 pulls wagons 2, 3, 4, 5 (mass $= 4 \\times 2000 = 8000\\text{ kg}$): $F_{1 \\to 2} = m_{4wagons} \\times a$.",
-        "substitution": "(a) $F_{net} = 40000 - 5000 = 35000\\text{ N}$. (b) $a = \\frac{35000}{18000} = 1.944\\text{ m/s}^2$. (c) $F_{1 \\to 2} = 8000 \\times 1.944$.",
-        "calculation": "1. (a) Net accelerating force: $F_{net} = \\mathbf{35000\\text{ N}}$.\n2. (b) Train acceleration: $a = \\frac{35000}{18000} = \\mathbf{1.944\\text{ m/s}^2}$.\n3. (c) Force of wagon 1 on wagon 2: $F = 8000\\text{ kg} \\times 1.944\\text{ m/s}^2 = \\mathbf{15555.6\\text{ N}}$ (or including friction share: $8000 \\times 1.944 + \\text{friction of 4 wagons} = 15555.6 + 4000 = 19555.6\\text{ N}$).",
-        "finalAnswer": "(a) Net accelerating force = 35000 N, (b) Acceleration = 1.944 m/s², (c) Force of wagon 1 on wagon 2 = 15556 N.",
-        "unit": "N and m/s²",
+        "problem": "Textbook Revise, Reflect, Refine Q3 (Section 6.2, p. 19): Two blocks P (mass $m_P = 2\\text{ kg}$) and Q (mass $m_Q = 3\\text{ kg}$) are placed in contact on a smooth frictionless horizontal table. A horizontal force $F = 10\\text{ N}$ is applied to block P pushing towards Q. Calculate: (a) The common acceleration of the blocks, (b) The contact force between block P and block Q.",
+        "given": "Mass of block P $m_P = 2\\text{ kg}$; Mass of block Q $m_Q = 3\\text{ kg}$; Applied horizontal force $F = 10\\text{ N}$; Frictionless surface.",
+        "formula": "Newton's Second Law: $F = (m_P + m_Q)a \\implies a = \\frac{F}{m_P + m_Q}$; Free body diagram of Q: $N_{\\text{contact}} = m_Q \\cdot a$.",
+        "substitution": "$a = \\frac{10}{2 + 3} = \\frac{10}{5}$; $N_{\\text{contact}} = 3 \\times a$.",
+        "calculation": "1. Common acceleration:\n   $a = 2\\text{ m s}^{-2}$.\n2. Contact normal force between P and Q:\n   The force accelerating block Q is solely the normal contact force from P:\n   $N_{\\text{contact}} = m_Q \\cdot a = 3\\text{ kg} \\times 2\\text{ m s}^{-2} = 6\\text{ N}$.\n   (By Newton's third law, Q pushes back on P with equal and opposite force $6\\text{ N}$, so net force on P is $10 - 6 = 4\\text{ N} = 2\\text{ kg} \\times 2\\text{ m s}^{-2}$).",
+        "finalAnswer": "(a) Common acceleration is 2 m s\u207b\u00b2; (b) Contact force between block P and block Q is 6 N.",
+        "unit": "m s\u207b\u00b2 and N",
         "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.36: Locomotive pulling 5 coupled freight wagons along track"
+        "diagram_source": "image_search",
+        "figure_caption": "Two contact blocks pushed horizontally on frictionless surface",
+        "image_search_query": "two blocks in contact normal force acceleration newton second law",
+        "page": 19,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "NCERT Ex Q14. A bullet of mass 10 g traveling horizontally with a velocity of 150 m/s strikes a stationary wooden block and comes to rest in 0.03 s. Calculate the distance of penetration of the bullet into the block. Also calculate the magnitude of the force exerted by the wooden block on the bullet.",
-        "given": "$m = 10\\text{ g} = 0.01\\text{ kg}, u = 150\\text{ m/s}, v = 0\\text{ m/s}, t = 0.03\\text{ s}$.",
-        "formula": "$a = \\frac{v - u}{t}$; $s = ut + \\frac{1}{2}at^2$; $F = ma$.",
-        "substitution": "$a = \\frac{0 - 150}{0.03} = -5000\\text{ m/s}^2$. $s = (150)(0.03) + \\frac{1}{2}(-5000)(0.03)^2$. $F = (0.01)(-5000)$.",
-        "calculation": "1. Retardation: $a = -\\mathbf{5000\\text{ m/s}^2}$.\n2. Distance of penetration: $s = 4.5 - \\frac{1}{2}(5000)(0.0009) = 4.5 - 2.25 = \\mathbf{2.25\\text{ m}}$.\n3. Magnitude of force: $|F| = 0.01 \\times 5000 = \\mathbf{50\\text{ N}}$.",
-        "finalAnswer": "Penetration distance = 2.25 m; Force exerted by block = 50 N.",
-        "unit": "m and N",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.37: Bullet penetrating wooden target and coming to rest"
+        "problem": "Textbook Revise, Reflect, Refine Q4 (Section 6.3, p. 20): While practising for the snake boat race (Vallam kali in Kerala), rowers push the water backwards with their oars. Explain in terms of Newton's laws why the boat surges forward.",
+        "given": "Rowing mechanics in traditional Kerala snake boat racing.",
+        "formula": "Newton's Third Law of Motion: For every action, there is an equal and opposite reaction ($\\vec{F}_{\\text{water on oar}} = -\\vec{F}_{\\text{oar on water}}$).",
+        "substitution": "Action = Oars push water backward; Reaction = Water pushes oars and boat forward.",
+        "calculation": "When rowers pull their oars, they exert a backward force (Action) on the water. By Newton's third law, the displaced water simultaneously exerts an equal and opposite forward reaction force on the oars. This forward force is transmitted through the rowlocks to the boat hull, overcoming water drag and propelling the snake boat forward.",
+        "finalAnswer": "The oars exert a backward force on the water (Action); the water exerts an equal and opposite forward force on the oars (Reaction), driving the boat forward.",
+        "unit": "Newton's Third Law Dynamics",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "rowing boat newton third law action reaction water",
+        "page": 20,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "NCERT Ex Q18. How much momentum will a dumb-bell of mass 10 kg transfer to the floor if it falls from a height of 80 cm? (Take downward acceleration g = 10 m/s²).",
-        "given": "$m = 10\\text{ kg}, s = 80\\text{ cm} = 0.8\\text{ m}, u = 0\\text{ m/s}, g = +10\\text{ m/s}^2$.",
-        "formula": "$v^2 = u^2 + 2gs \\implies v = \\sqrt{2gs}$; Momentum $p = mv$.",
-        "substitution": "$v^2 = 0 + 2(10)(0.8) = 16 \\implies v = \\sqrt{16} = 4\\text{ m/s}$. $p = 10 \\times 4$.",
-        "calculation": "1. Velocity on striking floor: $v = 4\\text{ m/s}$.\n2. Momentum transferred: $p = 10\\text{ kg} \\times 4\\text{ m/s} = \\mathbf{40\\text{ kg}\\cdot\\text{m/s}}$.",
-        "finalAnswer": "Momentum transferred to floor = 40 kg·m/s (or 40 N·s).",
-        "unit": "kg·m/s",
+        "problem": "Textbook Revise, Reflect, Refine Q5 (Section 6.1, p. 20): When an unbalanced net external force acts on an object, which of the following physical states can change? (i) Speed of the object, (ii) Direction of motion, (iii) Shape or size of the object, (iv) All of the above. Give concrete examples.",
+        "given": "Kinematic and mechanical manifestations of net unbalanced forces.",
+        "formula": "Force definition: An external influence that changes or tends to change the state of rest, uniform motion, direction, or dimensions of an object.",
+        "substitution": "Evaluate each category.",
+        "calculation": "1. Speed: Accelerating a car with the gas pedal increases speed ($F = ma$).\n2. Direction: Centripetal force changes the direction of a stone swung in a circle without necessarily changing speed.\n3. Shape/Size: Compressing a coiled spring or squeezing a rubber ball deforms its geometric dimensions.\n4. Therefore, an unbalanced force can simultaneously or independently alter speed, direction, and shape.",
+        "finalAnswer": "Correct Option: (iv) All of the above (speed, direction, and shape can all change under an unbalanced force).",
+        "unit": "Force Dynamics",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "effects of force change speed direction shape physics",
+        "page": 20,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q7 (Section 6.3, p. 20): A sailor jumps forward from a small rowing boat to the shore (Fig. 6.38). As the sailor steps forward onto the bank, the boat moves backwards into the water. Explain why.",
+        "given": "Sailor jumping forward off an untethered floating boat.",
+        "formula": "Newton's Third Law (Action-Reaction) & Conservation of Linear Momentum ($m_{\\text{sailor}} \\vec{v}_{\\text{sailor}} + m_{\\text{boat}} \\vec{v}_{\\text{boat}} = 0$).",
+        "substitution": "Action force applied by sailor's feet against the boat deck.",
+        "calculation": "To gain forward momentum, the sailor's feet must exert a backward muscular push on the boat floor (Action). By Newton's third law, the boat pushes the sailor forward (Reaction), enabling the leap. Since the boat floats freely on water with minimal resistance, the backward action force accelerates the boat backwards into the lake ($v_{\\text{boat}} = -\\frac{m_{\\text{sailor}}}{m_{\\text{boat}}} v_{\\text{sailor}}$).",
+        "finalAnswer": "To leap forward, the sailor pushes backward on the boat (Action); the boat pushes the sailor forward (Reaction) while recoiling backward into the water.",
+        "unit": "Momentum & Action-Reaction",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 6.38: Dumbbell falling under gravity transferring momentum to floor"
+        "figure_caption": "Fig. 6.38: Sailor jumping from a boat to the shore showing backward boat recoil",
+        "image_search_query": "sailor jumping from boat action reaction newton third law",
+        "page": 20,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q8 (Section 6.2, p. 20): During a high jump athletic event, athletes land on a thick foam mat or a deep sand bed rather than bare concrete. Explain the physics principle.",
+        "given": "Athlete landing from a high jump with downward momentum $p = mv$; Target: Minimize impact force.",
+        "formula": "Impulse-Momentum Theorem: $F_{\\text{impact}} = \\frac{\\Delta p}{\\Delta t}$.",
+        "substitution": "Compare impact duration $\\Delta t$ on rigid concrete vs soft foam.",
+        "calculation": "1. An athlete falling from height h reaches the ground with fixed downward momentum $p = m\\sqrt{2gh}$.\n2. Landing on bare concrete arrests momentum almost instantaneously ($\\Delta t \\to 0.005\\text{ s}$), generating an immense peak impact force $F = \\frac{\\Delta p}{\\Delta t}$ that shatters bones and tears ligaments.\n3. A thick foam mat or sand bed yields and deforms under the athlete's body, dramatically prolonging the stopping time $\\Delta t$ (e.g. to $\\sim 0.5\\text{ s}$). Because $\\Delta t$ is increased by a factor of 100, the average impact force experienced by the athlete's skeleton is reduced by 99%, preventing injury.",
+        "finalAnswer": "The cushioned mat increases the duration of impact (\u0394t), thereby drastically reducing the rate of change of momentum and minimizing the impact force (F = \u0394p/\u0394t).",
+        "unit": "Impulse & Force Mitigation",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "high jump foam landing impulse momentum stopping time",
+        "page": 20,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q9 (Section 6.3, p. 21): A vegetable hand cart of mass 40 kg moving at 3 m s\u207b\u00b9 collides head-on with an identical stationary empty cart of mass 10 kg. If the two carts lock together after impact, calculate their common velocity.",
+        "given": "Mass of cart 1 $m_1 = 40\\text{ kg}$, initial velocity $u_1 = 3\\text{ m s}^{-1}$; Mass of cart 2 $m_2 = 10\\text{ kg}$, initial velocity $u_2 = 0\\text{ m s}^{-1}$; Completely inelastic collision.",
+        "formula": "Law of Conservation of Linear Momentum: $m_1 u_1 + m_2 u_2 = (m_1 + m_2)v$.",
+        "substitution": "$(40 \\times 3) + (10 \\times 0) = (40 + 10)v$.",
+        "calculation": "$120 + 0 = 50v \\implies v = \\frac{120}{50} = 2.4\\text{ m s}^{-1}$.",
+        "finalAnswer": "The common velocity of the coupled carts after collision is 2.4 m s\u207b\u00b9 in the original direction of motion.",
+        "unit": "m s\u207b\u00b9",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "inelastic collision conservation of momentum carts physics",
+        "page": 21,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q10 (Section 6.2, p. 21): What is the mathematical shape of the acceleration-mass graph ($a$ vs $m$) for a constant applied net force F? Sketch and explain.",
+        "given": "Constant net force F acting on varying masses m.",
+        "formula": "Newton's Second Law: $a = \\frac{F}{m} \\implies a \\propto \\frac{1}{m}$.",
+        "substitution": "$a \\cdot m = F = \\text{constant}$.",
+        "calculation": "Since acceleration is inversely proportional to mass for a fixed force, the relationship represents a RECTANGULAR HYPERBOLA in the first quadrant. As mass approaches zero, acceleration approaches infinity; as mass becomes extremely large, acceleration asymptotically approaches zero.",
+        "finalAnswer": "The acceleration-mass graph is a rectangular hyperbola demonstrating inverse proportionality ($a \\propto 1/m$).",
+        "unit": "Graphical Kinematics",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "acceleration versus mass rectangular hyperbola inverse proportionality",
+        "page": 21,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q11 (Section 6.2, p. 21): The velocity-time graph of an object of mass 10 kg moving along a straight line on a floor shows that its speed decreases uniformly from 20 m s\u207b\u00b9 to 0 m s\u207b\u00b9 in 5 s. Find the frictional force exerted by the floor on the object.",
+        "given": "Mass m = 10 kg; Initial velocity u = 20 m s\u207b\u00b9; Final velocity v = 0 m s\u207b\u00b9; Time interval t = 5 s.",
+        "formula": "Acceleration $a = \\frac{v - u}{t}$; Frictional force $f = m \\cdot a$.",
+        "substitution": "$a = \\frac{0 - 20}{5} = -4\\text{ m s}^{-2}$; $f = 10 \\times (-4)$.",
+        "calculation": "$f = -40\\text{ N}$. The negative sign indicates that the frictional force opposes the direction of motion.",
+        "finalAnswer": "The frictional force exerted by the floor has a magnitude of 40 N, directed opposite to the object's velocity.",
+        "unit": "Newtons (N)",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "velocity time graph frictional stopping force newton second law",
+        "page": 21,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q12 (Section 6.2, p. 21): A bullet of mass 50 g moving with a speed of 100 m s\u207b\u00b9 enters a heavy wooden block and stops after penetrating a distance of 10 cm. Calculate: (a) The average deceleration of the bullet, (b) The resisting force exerted by the block.",
+        "given": "Mass $m = 50\\text{ g} = 0.05\\text{ kg}$; Initial velocity $u = 100\\text{ m s}^{-1}$; Final velocity v = 0 m s\u207b\u00b9; Penetration depth $s = 10\\text{ cm} = 0.1\\text{ m}$.",
+        "formula": "Third Kinematic Equation: $v^2 = u^2 + 2as \\implies a = \\frac{v^2 - u^2}{2s}$; Resisting force $F = m \\cdot a$.",
+        "substitution": "$a = \\frac{0^2 - 100^2}{2(0.1)} = \\frac{-10000}{0.2}$; $F = 0.05 \\times a$.",
+        "calculation": "1. Deceleration:\n   $a = -50000\\text{ m s}^{-2}$.\n2. Resisting Force:\n   $F = 0.05\\text{ kg} \\times (-50000\\text{ m s}^{-2}) = -2500\\text{ N}$.",
+        "finalAnswer": "(a) Average deceleration is 50,000 m s\u207b\u00b2; (b) The resisting force exerted by the wooden block is 2500 N.",
+        "unit": "m s\u207b\u00b2 and N",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "bullet penetrating wooden block stopping force work energy theorem",
+        "page": 21,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q13 (Section 6.2, p. 21): An ace footballer converts a penalty shot by kicking a stationary football of mass 400 g. The ball leaves the player's boot with a velocity of 30 m s\u207b\u00b9. If the duration of foot-ball contact is 0.02 s, calculate: (a) The impulse received by the ball, (b) The average force exerted by the footballer.",
+        "given": "Mass $m = 400\\text{ g} = 0.4\\text{ kg}$; Initial velocity u = 0; Final velocity $v = 30\\text{ m s}^{-1}$; Contact time $\\Delta t = 0.02\\text{ s}$.",
+        "formula": "Impulse $J = \\Delta p = m(v - u)$; Average Force $F_{\\text{avg}} = \\frac{J}{\\Delta t}$.",
+        "substitution": "$J = 0.4 \\times (30 - 0)$; $F_{\\text{avg}} = \\frac{12}{0.02}$.",
+        "calculation": "1. Impulse $J = 0.4 \\times 30 = 12\\text{ N s}$ (or $12\\text{ kg m s}^{-1}$).\n2. Force $F_{\\text{avg}} = \\frac{12}{0.02} = \\frac{1200}{2} = 600\\text{ N}$.",
+        "finalAnswer": "(a) Impulse received by the ball is 12 N s; (b) Average force exerted is 600 N.",
+        "unit": "N s and N",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "football kick impulse force momentum contact time",
+        "page": 21,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q14 (Section 6.3, p. 21): An object of mass 2 kg moving at 10 m s\u207b\u00b9 strikes a wall perpendicular to its face and rebounds elastically with the same speed. If the contact lasts 0.01 s, calculate: (a) The change in momentum of the object, (b) The average force exerted by the wall on the object.",
+        "given": "Mass m = 2 kg; Initial velocity $\\vec{u} = +10\\text{ m s}^{-1}$ (towards wall); Final velocity $\\vec{v} = -10\\text{ m s}^{-1}$ (rebound); Time $\\Delta t = 0.01\\text{ s}$.",
+        "formula": "Change in Momentum $\\Delta \\vec{p} = m(\\vec{v} - \\vec{u})$; Average Force $\\vec{F} = \\frac{\\Delta \\vec{p}}{\\Delta t}$.",
+        "substitution": "$\\Delta p = 2 \\times [(-10) - (+10)]$; $F = \\frac{\\Delta p}{0.01}$.",
+        "calculation": "1. Change in momentum:\n   $\\Delta p = 2 \\times (-20) = -40\\text{ kg m s}^{-1}$.\n2. Average Force:\n   $F = \\frac{-40}{0.01} = -4000\\text{ N}$ (directed away from the wall).",
+        "finalAnswer": "(a) Change in momentum is -40 kg m s\u207b\u00b9; (b) The average force exerted by the wall is 4000 N (directed away from the wall).",
+        "unit": "kg m s\u207b\u00b9 and N",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "elastic rebound ball wall momentum change normal force",
+        "page": 21,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q15 (Section 6.2, p. 21): A tractor pulls a harrow of mass $m_1 = 500\\text{ kg}$ connected via a steel hitch to a trailer of mass $m_2 = 1000\\text{ kg}$. If the tractor engine exerts a forward driving force of 6000 N and total ground friction is 1500 N, calculate: (a) The net acceleration of the system, (b) The tension force in the hitch coupling.",
+        "given": "Mass $m_1 = 500\\text{ kg}$, $m_2 = 1000\\text{ kg}$; Total mass $M = 1500\\text{ kg}$; Driving force $F_{\\text{engine}} = 6000\\text{ N}$; Frictional resistance $f_{\\text{friction}} = 1500\\text{ N}$. Trailer friction $f_2 = 1000\\text{ N}$.",
+        "formula": "Net Force $F_{\\text{net}} = F_{\\text{engine}} - f_{\\text{friction}} = M \\cdot a$; Trailer free body: $T - f_2 = m_2 \\cdot a$.",
+        "substitution": "$F_{\\text{net}} = 6000 - 1500 = 4500\\text{ N}$; $a = \\frac{4500}{1500}$.",
+        "calculation": "1. Acceleration:\n   $a = 3\\text{ m s}^{-2}$.\n2. Tension in coupling hitch pulling trailer ($m_2$):\n   $T = m_2 a + f_2 = (1000 \\times 3) + 1000 = 4000\\text{ N}$.",
+        "finalAnswer": "(a) System acceleration is 3 m s\u207b\u00b2; (b) Tension in the hitch is 4000 N.",
+        "unit": "m s\u207b\u00b2 and N",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "tractor pulling trailer tension force coupled system physics",
+        "page": 21,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q16 (Section 6.1, p. 21): When the north pole of a bar magnet is brought near the north pole of a magnetic compass needle, the needle is deflected away. (a) Is this a contact or non-contact force? (b) Does the compass needle exert an equal force on the bar magnet? Justify.",
+        "given": "Magnetic interaction between bar magnet and compass needle.",
+        "formula": "Action-at-a-distance non-contact field forces; Newton's Third Law universality.",
+        "substitution": "Magnetic field dipole interactions.",
+        "calculation": "1. (a) This is a NON-CONTACT FORCE (field force). The magnetic fields of the two magnetic dipoles interact across the intervening air space without physical material contact.\n2. (b) Yes! By Newton's Third Law of Motion, magnetic forces always occur in equal and opposite action-reaction pairs ($\\vec{F}_{\\text{magnet on needle}} = -\\vec{F}_{\\text{needle on magnet}}$). The compass needle exerts an exactly equal and opposite repulsive force on the massive bar magnet. The magnet does not noticeably move solely because its mass and frictional grip on the table are vastly larger than the minute mass of the pivot-mounted needle.",
+        "finalAnswer": "(a) Non-contact magnetic field force; (b) Yes, by Newton's Third Law, the compass needle exerts an equal and opposite magnetic force on the bar magnet.",
+        "unit": "Field Forces & Newton's Third Law",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "magnetic force action reaction newton third law compass",
+        "page": 21,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "In-Text Question (Section 6.2 & 6.3, p. 13 & p. 17): (a) A toy car of mass 100 g moves at a constant velocity of 0.5 m s\u207b\u00b9. What is the net force acting on it? (b) Why does a firefighter struggle to hold a high-velocity fire hose?",
+        "given": "(a) Mass m = 100 g = 0.1 kg, v = 0.5 m s\u207b\u00b9 constant $\\implies a = 0$.\n(b) High-pressure water discharged from fire hose nozzle.",
+        "formula": "(a) $\\Sigma F = ma$; (b) Newton's Third Law & Conservation of Linear Momentum ($F_{\\text{recoil}} = \\frac{dp}{dt} = v_{\\text{water}} \\frac{dm}{dt}$).",
+        "substitution": "(a) $F = 0.1 \\times 0 = 0\\text{ N}$. (b) Backward reaction force on firefighter.",
+        "calculation": "1. Part (a): Since velocity is constant, acceleration is zero ($a = 0$). By Newton's first and second laws, the net external force acting on the toy car is identically ZERO.\n2. Part (b): Water is pumped out of the nozzle at immense velocity and high mass flow rate ($\frac{dm}{dt}$). By Newton's third law, the stream of escaping water exerts a massive backward recoil reaction force ($F = v \\frac{dm}{dt}$) on the hose and the firefighter holding it. The firefighter must exert huge forward muscular force to prevent being thrown backwards.",
+        "finalAnswer": "(a) Net force is 0 N; (b) The escaping water exerts a powerful backward recoil reaction force (Newton's Third Law) that pushes against the firefighter.",
+        "unit": "Newtons (N)",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "firefighter fire hose recoil force newton third law",
+        "page": 13,
+        "section": "Section 6.2"
       }
     ],
     "common_misconceptions": [

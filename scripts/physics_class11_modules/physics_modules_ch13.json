@@ -25,22 +25,102 @@
       "Understand physical intuition, SI units, and dimensional consistency"
     ],
     "chapter_notes": "# Chapter 13: Oscillations\n## Module 77: Periodic and Oscillatory Motions, Period, Frequency & Simple Harmonic Motion (SHM)\n\n### 1. Real-Life Intuition: The World of Vibrations\nLook around you: a grandfather clock's swinging pendulum, the rhythmic heartbeat thumping in your chest, the plucked string of a guitar singing at 440 Hz, or the quartz crystal resonating in your wristwatch. All these motions exhibit a universal characteristic: they repeat themselves periodically over regular intervals of time.\n\n### 2. Periodic vs Oscillatory Motion\n- **Periodic Motion**: Any motion that repeats itself at regular intervals of time $T$ (e.g., the Earth orbiting the Sun, hands of a clock).\n- **Oscillatory / Vibratory Motion**: A specific type of periodic motion in which an object moves back and forth (**to and fro**) about a stable central equilibrium position (mean position).\n  * **Key Distinction**: *Every oscillatory motion is periodic, but every periodic motion is NOT oscillatory!* (The planetary orbit of Earth is periodic, but not to-and-fro).\n\n### 3. Fundamental Kinematic Parameters\n1. **Time Period ($T$)**: The smallest time interval after which the motion repeats itself. SI unit: second ($\\text{s}$).\n2. **Frequency ($\\nu$ or $f$)**: The number of complete oscillations executed per unit time:\n   $$\\nu = \\frac{1}{T}$$\n   SI unit: Hertz ($\\text{Hz} = \\text{s}^{-1}$).\n3. **Angular Frequency ($\\omega$)**:\n   $$\\omega = 2\\pi \\nu = \\frac{2\\pi}{T}$$\n   SI unit: radians per second ($\\text{rad/s}$).\n4. **Displacement ($x(t)$)**: The directed physical distance of the oscillating particle from its equilibrium mean position at any time $t$.\n\n### 4. Simple Harmonic Motion (SHM) Defined\n**Simple Harmonic Motion** is the simplest and most fundamental form of oscillatory motion, where:\n1. The restoring force (and hence acceleration) is directly proportional to the displacement of the particle from the mean position.\n2. The restoring force is always directed toward the mean position.\n\nMathematically:\n$$F = -k x$$\n$$a = \\frac{d^2x}{dt^2} = -\\omega^2 x$$\nwhere:\n- $k$ is the spring or force constant ($\\text{N/m}$).\n- $\\omega = \\sqrt{\\frac{k}{m}}$ is the natural angular frequency.\n\n### 5. Harmonic Displacement Function\nThe general mathematical solution of the linear SHM differential equation is:\n$$x(t) = A \\cos(\\omega t + \\phi)$$\nor equivalently:\n$$x(t) = A \\sin(\\omega t + \\phi')$$\nwhere:\n- $A$: **Amplitude**, the maximum displacement from the mean position on either side ($\\text{m}$).\n- $(\\omega t + \\phi)$: **Phase** of the motion at time $t$ (radians), determining the exact position and direction of motion.\n- $\\phi$: **Initial Phase / Epoch**, the phase at time $t = 0$.\n\n### 6. Socratic Check for Understanding\nConsider a particle oscillating between $x = -A$ and $x = +A$:\n- At the mean position ($x = 0$): Displacement is zero, restoring force is zero, speed is at its maximum!\n- At the extreme positions ($x = \\pm A$): Displacement is maximum, restoring force is maximum, speed momentarily drops to zero!",
-    "worked_examples": [],
+    "worked_examples": [
+      {
+        "problem": "NCERT Example 13.1: On an average, a human heart is found to beat 75 times in a minute. Calculate its beat frequency and period.",
+        "given": "Number of heart beats n = 75, Time interval t = 1 min = 60 s",
+        "to_calculate": "Beat frequency ν (in Hz) and time period T (in s)",
+        "formula": "Frequency ν = n / t; Period T = 1 / ν = t / n",
+        "substitution": "ν = 75 beats / 60 s; T = 60 s / 75",
+        "calculation": "ν = 1.25 s⁻¹ = 1.25 Hz\nT = 0.80 s",
+        "rough_work": "[ROUGH_WORK]\n75 / 60 = 5/4 = 1.25 Hz\n1 / 1.25 = 4/5 = 0.8 s",
+        "finalAnswer": "Beat frequency ν = 1.25 Hz; Period of heartbeat T = 0.80 s",
+        "unit": "Hz, s",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Example 13.1, Page 259",
+        "image_search_query": "heart beat frequency period periodic motion"
+      },
+      {
+        "problem": "NCERT Example 13.2: Which of the following functions of time represent (a) periodic and (b) non-periodic motion? Give the period for each case of periodic motion (ω is any positive constant):\n(i) sin ωt + cos ωt\n(ii) sin ωt + cos 2ωt + sin 4ωt\n(iii) e⁻ʷᵗ\n(iv) log(ωt)",
+        "given": "Mathematical functions of time t with angular frequency parameter ω > 0",
+        "to_calculate": "Classification into periodic or non-periodic, and determination of fundamental time period T",
+        "formula": "A function f(t) is periodic if f(t + T) = f(t) for a non-zero constant T.\n(i) sin ωt + cos ωt = √2 · sin(ωt + π/4), which is simple harmonic with period T = 2π / ω.\n(ii) Sum of harmonic functions with frequencies ω, 2ω, 4ω. Fundamental frequency is the greatest common divisor ω_0 = ω, so period T = 2π / ω.\n(iii) e⁻ʷᵗ decreases monotonically towards zero as t → ∞; it never repeats its values, hence non-periodic.\n(iv) log(ωt) increases monotonically towards infinity as t → ∞; it never repeats, hence non-periodic.",
+        "substitution": "(i) √2 sin(ωt + π/4) => T = 2π / ω\n(ii) LCM of periods (2π/ω, 2π/2ω, 2π/4ω) = 2π / ω\n(iii) Monotonic exponential decay => non-periodic\n(iv) Monotonic logarithmic divergence => non-periodic",
+        "calculation": "(i) Periodic (SHM) with period T = 2π / ω\n(ii) Periodic (not SHM) with period T = 2π / ω\n(iii) Non-periodic\n(iv) Non-periodic",
+        "rough_work": "[ROUGH_WORK]\n(i) sin + cos = sqrt(2) sin(wt + pi/4) => T = 2pi/w\n(ii) Periods: T, T/2, T/4 => common period T = 2pi/w\n(iii) exp(-wt) -> 0 as t -> inf => non-periodic\n(iv) log(wt) -> inf as t -> inf => non-periodic",
+        "finalAnswer": "(i) Periodic (SHM), T = 2π/ω; (ii) Periodic (non-SHM), T = 2π/ω; (iii) Non-periodic; (iv) Non-periodic",
+        "unit": "Conceptual, s",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Example 13.2, Page 260",
+        "image_search_query": "periodic non periodic functions fourier harmonics"
+      }
+    ],
     "common_misconceptions": [
       "Confusing sign conventions or boundary conditions in Periodic and Oscillatory Motions, Period, Frequency & Simple Harmonic Motion (SHM)",
       "Omitting SI units in final calculations during board examinations"
     ],
     "concept_questions": [
       {
-        "question": "What is the essential condition for a periodic motion to be classified as Simple Harmonic Motion (SHM)?",
+        "question": "What is the defining dynamical condition that distinguishes Simple Harmonic Motion (SHM) from general periodic oscillatory motion?",
         "options": [
-          "(Recommended) The restoring acceleration must be directly proportional to displacement from equilibrium and directed towards the mean position (a = -ω^2 x)",
-          "The particle must move in a complete circle at constant speed",
-          "The amplitude must increase exponentially with time",
-          "The velocity must remain constant throughout the motion"
+          "(Recommended) The restoring force is directly proportional to displacement from equilibrium and directed towards the equilibrium position (F = -k·x)",
+          "The velocity of the particle must be constant throughout the cycle",
+          "The mechanical energy must decay exponentially with time",
+          "The acceleration must be perpendicular to the displacement vector"
         ],
-        "correct_answer": "(Recommended) The restoring acceleration must be directly proportional to displacement from equilibrium and directed towards the mean position (a = -ω^2 x)",
-        "explanation": "SHM is mathematically governed by the linear restoring force F = -kx, leading directly to a = -ω^2 x. The minus sign indicates that acceleration always points back towards the equilibrium origin."
+        "correctAnswer": "(Recommended) The restoring force is directly proportional to displacement from equilibrium and directed towards the equilibrium position (F = -k·x)",
+        "correct_answer": "(Recommended) The restoring force is directly proportional to displacement from equilibrium and directed towards the equilibrium position (F = -k·x)",
+        "explanation": "SHM is characterized by linear restoring dynamics F = -k·x, leading directly to acceleration a = -ω²·x. General periodic motion (like planetary orbits) repeats in time without obeying a linear restoring law.",
+        "hint": "Identify the relationship between restoring force and displacement.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 13.3, Page 260",
+        "image_search_query": "simple harmonic motion restoring force linear"
+      },
+      {
+        "question": "Which of the following motions is periodic but NOT simple harmonic motion?",
+        "options": [
+          "(Recommended) The diurnal rotation of the Earth on its axis",
+          "Oscillations of a small mass attached to an ideal linear spring",
+          "Small angular oscillations of a simple pendulum (θ < 5°)",
+          "Vibrations of a tuning fork producing a pure tone"
+        ],
+        "correctAnswer": "(Recommended) The diurnal rotation of the Earth on its axis",
+        "correct_answer": "(Recommended) The diurnal rotation of the Earth on its axis",
+        "explanation": "The rotation of the Earth repeats every 24 hours, so it is periodic. However, it is not oscillatory about an equilibrium point and does not involve a restoring force proportional to displacement; hence it is not SHM.",
+        "hint": "Check which motion involves continuous rotation rather than to-and-fro oscillation.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 13.2, Page 259",
+        "image_search_query": "periodic versus simple harmonic motion earth rotation"
+      },
+      {
+        "question": "If a particle executing SHM has displacement x(t) = A · cos(ωt + φ), what is the phase difference between its displacement and its acceleration?",
+        "options": [
+          "(Recommended) π radians (180° out of phase)",
+          "π/2 radians (90° out of phase)",
+          "0 radians (completely in phase)",
+          "3π/2 radians (270° out of phase)"
+        ],
+        "correctAnswer": "(Recommended) π radians (180° out of phase)",
+        "correct_answer": "(Recommended) π radians (180° out of phase)",
+        "explanation": "Since x(t) = A cos(ωt + φ), taking the second derivative gives a(t) = -ω² A cos(ωt + φ) = ω² A cos(ωt + φ + π). The acceleration is opposite in sign to displacement, which corresponds to a phase lead of π radians (180°).",
+        "hint": "Recall a = -ω² x and write -cos θ as cos(θ + π).",
+        "blooms_level": "Analyze",
+        "textbook_reference": "Section 13.5, Page 264",
+        "image_search_query": "phase difference displacement velocity acceleration shm"
+      },
+      {
+        "question": "What is the relation between linear frequency ν (in Hz) and angular frequency ω (in rad/s) for any oscillatory motion?",
+        "options": [
+          "(Recommended) ω = 2π · ν",
+          "ω = ν / 2π",
+          "ω = 2π / ν",
+          "ω = √(2π · ν)"
+        ],
+        "correctAnswer": "(Recommended) ω = 2π · ν",
+        "correct_answer": "(Recommended) ω = 2π · ν",
+        "explanation": "One full oscillation corresponds to an angular traversal of 2π radians. If ν oscillations occur per second, the angular displacement per second is ω = 2π ν rad s⁻¹.",
+        "hint": "Recall that period T = 1/ν and ω = 2π/T.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 13.3, Page 260",
+        "image_search_query": "angular frequency linear frequency formula 2pi nu"
       }
     ],
     "concept_visuals": [
@@ -90,22 +170,103 @@
       "Understand physical intuition, SI units, and dimensional consistency"
     ],
     "chapter_notes": "# Chapter 13: Oscillations\n## Module 78: SHM and Uniform Circular Motion: The Reference Circle & Phasor Projection\n\n### 1. Intuition: The Shadow on the Wall\nImagine a ball attached to the outer rim of a rotating turntable spinning at a constant angular velocity $\\omega$. If you shine a bright horizontal flashlight at the turntable, the shadow of the ball projected onto an adjacent flat screen does not move in a circle: it oscillates back and forth in a straight line, slowing down at the edges and speeding up through the center.\n> **Theorem**: *The projection of uniform circular motion along any diameter of the circle executes pure Simple Harmonic Motion!*\n\n### 2. Mathematical Proof via Reference Circle\nLet a reference particle $P$ move counter-clockwise along a circle of radius $A$ (called the **reference circle**) with constant angular speed $\\omega$.\n- Let the position vector $\\vec{OP}$ make an initial angle $\\phi$ with the positive $x$-axis at time $t = 0$.\n- At time $t$, the angle made with the $x$-axis is:\n  $$\\theta(t) = \\omega t + \\phi$$\n\n#### Projection on the $x$-Axis (Horizontal Diameter):\nDrop a perpendicular from particle $P$ onto the horizontal $x$-axis:\n$$x(t) = A \\cos(\\omega t + \\phi)$$\nThis is precisely the equation of Simple Harmonic Motion!\n\n#### Projection on the $y$-Axis (Vertical Diameter):\nDrop a perpendicular from particle $P$ onto the vertical $y$-axis:\n$$y(t) = A \\sin(\\omega t + \\phi)$$\nThis also represents identical Simple Harmonic Motion, phase-shifted by $\\pi/2$ radians ($90^\\circ$).\n\n### 3. Physical Equivalence of Parameters\n- **Radius of the Reference Circle ($A$)** $\\iff$ **Amplitude of SHM ($A$)**.\n- **Constant Angular Speed of Circle ($\\omega$)** $\\iff$ **Angular Frequency of SHM ($\\omega$)**.\n- **Angular Position $\\theta(t) = \\omega t + \\phi$** $\\iff$ **Phase of SHM**.\n- **Initial Angle $\\phi$** $\\iff$ **Initial Phase / Epoch of SHM**.\n- **One Complete Revolution ($2\\pi$ radians)** $\\iff$ **One Complete Oscillation Period ($T = \\frac{2\\pi}{\\omega}$)**.\n\n### 4. Worked Board Problem\n**Problem**: A particle executes SHM of amplitude $5 \\text{ cm}$ and time period $6 \\text{ s}$. At $t = 0$, the particle is at $x = +5 \\text{ cm}$ (positive extreme). Write the equation of motion.\n- **Solution**:\n  - Amplitude $A = 5 \\text{ cm} = 0.05 \\text{ m}$.\n  - Angular frequency $\\omega = \\frac{2\\pi}{T} = \\frac{2\\pi}{6} = \\frac{\\pi}{3} \\text{ rad/s}$.\n  - General equation: $x(t) = A \\cos(\\omega t + \\phi)$.\n  - At $t = 0, x = +A$:\n    $$A = A \\cos(\\phi) \\implies \\cos(\\phi) = 1 \\implies \\phi = 0$$\n  - Equation of motion:\n    $$x(t) = 5 \\cos\\left(\\frac{\\pi}{3} t\\right) \\text{ cm}$$",
-    "worked_examples": [],
+    "worked_examples": [
+      {
+        "problem": "NCERT Example 13.3: Figure 13.10 shows two circular motions. The radius of the circle, the period of revolution, the initial position, and the sense of revolution are indicated. Obtain the simple harmonic motion of the x-projection of the radius vector of the revolving particle P in each case:\n(a) Radius r = 3 cm, Period T = 2 s, Initial position on positive x-axis (θ_0 = 0), sense of revolution is anticlockwise.\n(b) Radius r = 2 m, Period T = 4 s, Initial position at angle 45° (π/4 rad) with positive x-axis, sense of revolution is clockwise.",
+        "given": "Case (a): Amplitude A = 3 cm, Period T = 2 s => ω = 2π/T = π rad s⁻¹, Initial phase φ = 0, Anticlockwise rotation.\nCase (b): Amplitude A = 2 m, Period T = 4 s => ω = 2π/4 = π/2 rad s⁻¹, Initial phase φ = +π/4 rad, Clockwise rotation => angle θ(t) = π/4 - ωt.",
+        "to_calculate": "Equations for x(t) in cases (a) and (b)",
+        "formula": "The projection of uniform circular motion on the diameter (x-axis) is given by: x(t) = A · cos(θ(t)).\nFor anticlockwise: θ(t) = ωt + φ => x(t) = A · cos(ωt + φ)\nFor clockwise: θ(t) = φ - ωt => x(t) = A · cos(φ - ωt) = A · cos(ωt - φ) since cos(-θ) = cos(θ).",
+        "substitution": "(a) A = 3 cm, ω = π rad s⁻¹, φ = 0 => x(t) = 3 · cos(πt) cm\n(b) A = 2 m, ω = π/2 rad s⁻¹, θ(t) = π/4 - (π/2)t => x(t) = 2 · cos(π/4 - πt/2) = 2 · cos(πt/2 - π/4) m",
+        "calculation": "(a) x(t) = 3 cos(πt) (x in cm, t in s)\n(b) x(t) = 2 cos(πt/2 - π/4) (x in m, t in s)",
+        "rough_work": "[ROUGH_WORK]\n(a) w = 2pi/2 = pi rad/s. x = 3 cos(pi t)\n(b) w = 2pi/4 = pi/2 rad/s. phi = pi/4. Clockwise => theta = pi/4 - wt\nx = 2 cos(pi/4 - pi/2 t) = 2 cos(pi/2 t - pi/4)",
+        "finalAnswer": "(a) x(t) = 3 cos(πt) cm; (b) x(t) = 2 cos(πt/2 - π/4) m",
+        "unit": "cm, m",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Example 13.3, Page 262",
+        "figure_reference": "Fig. 13.10",
+        "image_search_query": "reference circle uniform circular motion shm projection"
+      },
+      {
+        "problem": "NCERT Example 13.4: A particle executes simple harmonic motion with amplitude A = 4.0 cm and period T = 12.0 s. At time t = 0, the particle is at x = +2.0 cm moving towards the mean position (negative direction). (a) Find the initial phase angle φ in x(t) = A · cos(ωt + φ). (b) Determine the time taken by the particle to reach the mean position (x = 0) from its starting position.",
+        "given": "Amplitude A = 4.0 cm, Period T = 12.0 s => ω = 2π / 12 = π/6 rad s⁻¹, Initial position x(0) = +2.0 cm, Initial velocity v(0) < 0 (moving towards mean position)",
+        "to_calculate": "(a) Initial phase φ, (b) Time t to reach mean position x = 0",
+        "formula": "x(t) = A · cos(ωt + φ)\nAt t = 0: x(0) = A · cos(φ) => cos(φ) = x(0) / A\nVelocity v(t) = -A · ω · sin(ωt + φ) => v(0) = -A ω sin(φ) < 0 => sin(φ) > 0 (First or second quadrant)\nMean position: x(t) = 0 => cos(ωt + φ) = 0 => ωt + φ = π/2",
+        "substitution": "cos(φ) = 2.0 / 4.0 = 0.5\nSince sin(φ) > 0, φ = +π/3 rad (60°)\nFor x = 0: (π/6) · t + π/3 = π/2",
+        "calculation": "(a) φ = π/3 rad (or 60°)\n(b) (π/6) · t = π/2 - π/3 = π/6 => t = 1.0 s",
+        "rough_work": "[ROUGH_WORK]\ncos(phi) = 1/2 => phi = pi/3 or -pi/3\nv < 0 => -A w sin(phi) < 0 => sin(phi) > 0 => phi = +pi/3\nwt + phi = pi/2 => pi/6 t + pi/3 = pi/2 => pi/6 t = pi/6 => t = 1 s.",
+        "finalAnswer": "(a) Initial phase φ = π/3 rad (+60°); (b) Time taken to reach mean position t = 1.0 s",
+        "unit": "rad, s",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Example 13.4, Page 263",
+        "image_search_query": "reference circle phasor initial phase shm"
+      }
+    ],
     "common_misconceptions": [
       "Confusing sign conventions or boundary conditions in SHM and Uniform Circular Motion: The Reference Circle & Phasor Projection",
       "Omitting SI units in final calculations during board examinations"
     ],
     "concept_questions": [
       {
-        "question": "What is the projection of a particle moving uniformly along a circle onto its diameter?",
+        "question": "What is the physical meaning of the Reference Circle in simple harmonic motion?",
         "options": [
-          "(Recommended) Pure Simple Harmonic Motion (SHM)",
-          "Uniform linear motion at constant velocity",
-          "Constant accelerated motion under gravity",
-          "Parabolic projectile motion"
+          "(Recommended) The projection of uniform circular motion onto any diameter of the circle describes simple harmonic motion",
+          "The actual spatial trajectory followed by an oscillating spring in 3D space",
+          "The contour of constant potential energy in polar coordinates",
+          "The circular path taken by a damped pendulum after many oscillations"
         ],
-        "correct_answer": "(Recommended) Pure Simple Harmonic Motion (SHM)",
-        "explanation": "Projecting position vector r = A[cos(ωt + φ) i + sin(ωt + φ) j] onto any diameter yields x(t) = A cos(ωt + φ), which is the exact definition of SHM."
+        "correctAnswer": "(Recommended) The projection of uniform circular motion onto any diameter of the circle describes simple harmonic motion",
+        "correct_answer": "(Recommended) The projection of uniform circular motion onto any diameter of the circle describes simple harmonic motion",
+        "explanation": "If a reference particle revolves uniformly in a circle of radius A with constant angular speed ω, its orthogonal projection on any diameter executes SHM with amplitude A and frequency ω.",
+        "hint": "Analyze the projection of a rotating vector on the x-axis.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 13.4, Page 261",
+        "image_search_query": "reference circle projection diameter shm"
+      },
+      {
+        "question": "In the standard SHM displacement expression x(t) = A · cos(ωt + φ), what physical state does the phase constant φ uniquely determine?",
+        "options": [
+          "(Recommended) The initial displacement and direction of velocity of the oscillating particle at time t = 0",
+          "The total mass and damping coefficient of the system",
+          "The maximum mechanical energy stored in the oscillator",
+          "The rate of decay of oscillation amplitude"
+        ],
+        "correctAnswer": "(Recommended) The initial displacement and direction of velocity of the oscillating particle at time t = 0",
+        "correct_answer": "(Recommended) The initial displacement and direction of velocity of the oscillating particle at time t = 0",
+        "explanation": "At t = 0, x(0) = A cos φ and v(0) = -ω A sin φ. Thus φ completely specifies both the starting position and the initial direction of motion.",
+        "hint": "Evaluate x(t) and v(t) at t = 0.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 13.4, Page 262",
+        "image_search_query": "initial phase angle shm displacement velocity"
+      },
+      {
+        "question": "If two simple harmonic motions along the same line are given by x₁ = A · sin(ωt) and x₂ = A · cos(ωt), what is the phase difference between them?",
+        "options": [
+          "(Recommended) π/2 radians (90°)",
+          "π radians (180°)",
+          "0 radians (in phase)",
+          "2π radians (360°)"
+        ],
+        "correctAnswer": "(Recommended) π/2 radians (90°)",
+        "correct_answer": "(Recommended) π/2 radians (90°)",
+        "explanation": "Writing both in cosine form: x₁ = A sin(ωt) = A cos(ωt - π/2). The phase of x₂ is ωt and phase of x₁ is (ωt - π/2). The phase difference Δφ = ωt - (ωt - π/2) = π/2 rad (90°).",
+        "hint": "Convert sin(ωt) into cos(ωt - π/2).",
+        "blooms_level": "Apply",
+        "textbook_reference": "Section 13.4, Page 263",
+        "image_search_query": "phase difference sine cosine harmonic wave"
+      },
+      {
+        "question": "How long does a particle executing SHM of period T take to travel from its positive extreme position (x = +A) to half its amplitude (x = +A/2)?",
+        "options": [
+          "(Recommended) T / 6",
+          "T / 4",
+          "T / 8",
+          "T / 12"
+        ],
+        "correctAnswer": "(Recommended) T / 6",
+        "correct_answer": "(Recommended) T / 6",
+        "explanation": "Taking x = A cos(ωt): at x = +A, t = 0. At x = +A/2, cos(ωt) = 1/2 => ωt = π/3. Since ω = 2π/T, we have (2π/T)·t = π/3 => t = T / 6.",
+        "hint": "Solve cos(ωt) = 1/2 for t in terms of T.",
+        "blooms_level": "Apply",
+        "textbook_reference": "Section 13.4, Page 263",
+        "image_search_query": "time taken extreme to half amplitude shm t over 6"
       }
     ],
     "concept_visuals": [
@@ -155,22 +316,103 @@
       "Understand physical intuition, SI units, and dimensional consistency"
     ],
     "chapter_notes": "# Chapter 13: Oscillations\n## Module 79: Velocity, Acceleration & Force Law for Simple Harmonic Motion\n\n### 1. Velocity in Simple Harmonic Motion\nGiven the displacement relation:\n$$x(t) = A \\cos(\\omega t + \\phi)$$\nVelocity is the time rate of change of displacement:\n$$v(t) = \\frac{dx}{dt} = \\frac{d}{dt}[A \\cos(\\omega t + \\phi)] = -\\omega A \\sin(\\omega t + \\phi)$$\nUsing the trigonometric identity $\\sin\\theta = \\pm\\sqrt{1 - \\cos^2\\theta}$:\n$$v = -\\omega A \\sqrt{1 - \\frac{x^2}{A^2}} = \\pm \\omega \\sqrt{A^2 - x^2}$$\n\n#### Analysis of Velocity:\n- **At Mean Position ($x = 0$)**:\n  $$v_{\\text{max}} = \\pm \\omega A$$\n  The particle travels fastest as it flies through its equilibrium center!\n- **At Extreme Positions ($x = \\pm A$)**:\n  $$v = 0$$\n  The particle momentarily comes to rest as it reverses direction.\n\n### 2. Acceleration in Simple Harmonic Motion\nAcceleration is the time derivative of velocity:\n$$a(t) = \\frac{dv}{dt} = \\frac{d}{dt}[-\\omega A \\sin(\\omega t + \\phi)] = -\\omega^2 A \\cos(\\omega t + \\phi)$$\nSince $x(t) = A \\cos(\\omega t + \\phi)$:\n$$a(t) = -\\omega^2 x(t)$$\n\n#### Analysis of Acceleration:\n- **At Mean Position ($x = 0$)**:\n  $$a = 0$$\n- **At Extreme Positions ($x = \\pm A$)**:\n  $$a_{\\text{max}} = \\mp \\omega^2 A$$\n  Acceleration is maximum at the extremes, pointing directly back toward the center!\n\n### 3. Phase Relationships Between $x, v,$ and $a$\n- **Displacement**: $x = A \\cos(\\omega t)$\n- **Velocity**: $v = \\omega A \\cos\\left(\\omega t + \\frac{\\pi}{2}\\right)$\n  $\\implies$ **Velocity leads displacement by a phase angle of $\\frac{\\pi}{2} \\text{ rad}$ ($90^\\circ$)**.\n- **Acceleration**: $a = \\omega^2 A \\cos(\\omega t + \\pi)$\n  $\\implies$ **Acceleration leads displacement by a phase angle of $\\pi \\text{ rad}$ ($180^\\circ$)** (completely in opposite phase!).\n\n### 4. Force Law for SHM\nBy Newton's Second Law:\n$$F = m a = m(-\\omega^2 x) = -(m \\omega^2) x$$\nDefining force constant $k = m \\omega^2$:\n$$F = -k x$$\nwhere:\n$$\\omega = \\sqrt{\\frac{k}{m}} \\implies T = \\frac{2\\pi}{\\omega} = 2\\pi \\sqrt{\\frac{m}{k}}$$\nThe restoring force is linear and proportional to negative displacement.",
-    "worked_examples": [],
+    "worked_examples": [
+      {
+        "problem": "NCERT Example 13.5: A body oscillates with simple harmonic motion according to the equation (in SI units):\nx(t) = 5.0 · cos[ 2π t + π/4 ]\nAt time t = 1.5 s, calculate: (a) the displacement, (b) the speed, and (c) the acceleration of the body.",
+        "given": "SHM equation: x(t) = 5.0 cos(2π t + π/4) m, Amplitude A = 5.0 m, Angular frequency ω = 2π rad s⁻¹, Initial phase φ = π/4 rad, Time t = 1.5 s",
+        "to_calculate": "(a) Displacement x(1.5), (b) Speed v(1.5), (c) Acceleration a(1.5)",
+        "formula": "(a) Displacement: x(t) = A · cos(ωt + φ)\n(b) Velocity: v(t) = dx/dt = -A · ω · sin(ωt + φ)\n(c) Acceleration: a(t) = d²x/dt² = -ω² · x(t)",
+        "substitution": "Phase angle at t = 1.5 s:\nθ = 2π × 1.5 + π/4 = 3π + π/4 = 13π/4 rad\nNote: cos(3π + π/4) = -cos(π/4) = -1/√2 = -0.7071\nsin(3π + π/4) = -sin(π/4) = -1/√2 = -0.7071\n(a) x = 5.0 × (-0.7071) m\n(b) v = -5.0 × (2π) × (-0.7071) m s⁻¹\n(c) a = -(2π)² × x = -4π² × (-3.5355) m s⁻²",
+        "calculation": "(a) x = -3.5355 m ≈ -3.54 m\n(b) v = +10π × 0.7071 = +22.21 m s⁻¹ ≈ +22.2 m s⁻¹\n(c) a = 4 × 9.8696 × 3.5355 = +139.57 m s⁻² ≈ +140 m s⁻²",
+        "rough_work": "[ROUGH_WORK]\nθ = 3π + π/4\ncos(3π + π/4) = -cos(π/4) = -0.7071\nx = 5 × (-0.7071) = -3.536 m\nv = -5 × 2π × (-0.7071) = 10π × 0.7071 = 22.21 m/s\na = -ω² x = -(2π)² × (-3.536) = 4π² × 3.536 = 139.6 m/s²",
+        "finalAnswer": "(a) Displacement x = -3.54 m; (b) Speed v = +22.2 m s⁻¹; (c) Acceleration a = +140 m s⁻²",
+        "unit": "m, m s⁻¹, m s⁻²",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Example 13.5, Page 265",
+        "image_search_query": "displacement velocity acceleration shm phase calculation"
+      },
+      {
+        "problem": "NCERT Example 13.6: Two identical springs of spring constant k are attached to a block of mass m and to fixed supports as shown in Fig. 13.14. Show that when the mass is displaced from its equilibrium position on either side, it executes simple harmonic motion. Find the period of oscillations.",
+        "given": "Two springs each of spring constant k connected to mass m on opposite sides of fixed walls (parallel arrangement in push-pull), Mass = m, Displacement = x",
+        "to_calculate": "Proof of SHM and expression for time period T",
+        "formula": "When the block is displaced to the right by distance x:\nLeft spring is stretched by x => exerts restoring force F₁ = -k · x (to the left).\nRight spring is compressed by x => exerts restoring force F₂ = -k · x (to the left).\nNet restoring force: F_net = F₁ + F₂ = -k · x - k · x = -2k · x.\nEquation of motion: m · (d²x/dt²) = -2k · x => d²x/dt² + (2k/m) · x = 0.\nThis is standard SHM d²x/dt² + ω² · x = 0 with effective spring constant k_eff = 2k.\nAngular frequency: ω = √(k_eff / m) = √(2k / m)\nPeriod: T = 2π / ω = 2π · √(m / 2k)",
+        "substitution": "k_eff = k + k = 2k\nT = 2π · √(m / 2k)",
+        "calculation": "Since F_net = -2kx is linearly proportional to displacement x and always directed opposite to displacement towards equilibrium, the motion is strictly simple harmonic.\nTime period T = 2π · √(m / (2k))",
+        "rough_work": "[ROUGH_WORK]\nLeft spring pulls left with kx.\nRight spring pushes left with kx.\nF_net = -2kx\nm a = -2kx => a = -(2k/m)x\nT = 2pi sqrt(m / 2k).",
+        "finalAnswer": "Motion is SHM with effective spring constant k_eff = 2k; Time period T = 2π · √(m / 2k)",
+        "unit": "s",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Example 13.6, Page 265",
+        "figure_reference": "Fig. 13.14",
+        "image_search_query": "two springs block fixed walls shm time period"
+      }
+    ],
     "common_misconceptions": [
       "Confusing sign conventions or boundary conditions in Velocity, Acceleration & Force Law for Simple Harmonic Motion",
       "Omitting SI units in final calculations during board examinations"
     ],
     "concept_questions": [
       {
-        "question": "What is the phase difference between velocity and acceleration in Simple Harmonic Motion?",
+        "question": "At which point in its trajectory does a particle executing simple harmonic motion experience its maximum velocity and zero acceleration?",
         "options": [
-          "(Recommended) π / 2 radians (90°)",
-          "π radians (180°)",
-          "Zero (they are in phase)",
-          "2π radians (360°)"
+          "(Recommended) At the mean (equilibrium) position (x = 0)",
+          "At the extreme positive position (x = +A)",
+          "At the extreme negative position (x = -A)",
+          "At half amplitude (x = ± A / 2)"
         ],
-        "correct_answer": "(Recommended) π / 2 radians (90°)",
-        "explanation": "Velocity leads displacement by π/2, while acceleration leads displacement by π. Therefore, the phase difference between velocity and acceleration is π - π/2 = π/2 radians (90°)."
+        "correctAnswer": "(Recommended) At the mean (equilibrium) position (x = 0)",
+        "correct_answer": "(Recommended) At the mean (equilibrium) position (x = 0)",
+        "explanation": "Velocity is given by v = ± ω √(A² - x²), which reaches its maximum v_max = ωA at x = 0. Acceleration is a = -ω²x, which is exactly zero at x = 0.",
+        "hint": "Set x = 0 in the velocity and acceleration equations.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 13.5, Page 264",
+        "image_search_query": "maximum velocity zero acceleration mean position shm"
+      },
+      {
+        "question": "If the amplitude of a simple harmonic oscillator is doubled while its mass and spring constant remain unchanged, what happens to its maximum acceleration and its time period?",
+        "options": [
+          "(Recommended) Maximum acceleration doubles, while the time period remains completely unchanged",
+          "Both maximum acceleration and time period double",
+          "Maximum acceleration quadruples, and time period is halved",
+          "Maximum acceleration remains constant, and time period doubles"
+        ],
+        "correctAnswer": "(Recommended) Maximum acceleration doubles, while the time period remains completely unchanged",
+        "correct_answer": "(Recommended) Maximum acceleration doubles, while the time period remains completely unchanged",
+        "explanation": "Maximum acceleration is a_max = ω² A. Since ω = √(k/m) is constant, a_max ∝ A (doubling A doubles a_max). The period T = 2π√(m/k) is isochronous and completely independent of amplitude.",
+        "hint": "Check the formulas a_max = ω²A and T = 2π√(m/k).",
+        "blooms_level": "Apply",
+        "textbook_reference": "Section 13.5, Page 265",
+        "image_search_query": "amplitude doubling acceleration time period isochronism"
+      },
+      {
+        "question": "What is the mathematical shape of the phase-space trajectory (velocity v plotted against displacement x) for a simple harmonic oscillator?",
+        "options": [
+          "(Recommended) An ellipse with semi-axes A and ωA",
+          "A parabola opening downwards",
+          "A straight line passing through the origin",
+          "A hyperbola asymptotic to the speed of light"
+        ],
+        "correctAnswer": "(Recommended) An ellipse with semi-axes A and ωA",
+        "correct_answer": "(Recommended) An ellipse with semi-axes A and ωA",
+        "explanation": "From x = A cos(ωt) and v = -ωA sin(ωt), we have (x/A)² + (v / (ωA))² = cos²(ωt) + sin²(ωt) = 1. This is the canonical equation of an ellipse.",
+        "hint": "Square and add (x/A) and (v/(ωA)).",
+        "blooms_level": "Analyze",
+        "textbook_reference": "Section 13.5, Page 264",
+        "image_search_query": "phase space trajectory ellipse displacement velocity shm"
+      },
+      {
+        "question": "A particle executes SHM with period T = 4.0 s. What is the minimum time required for it to travel from its mean position to x = A / √2?",
+        "options": [
+          "(Recommended) 0.5 s (T / 8)",
+          "1.0 s (T / 4)",
+          "0.67 s (T / 6)",
+          "0.33 s (T / 12)"
+        ],
+        "correctAnswer": "(Recommended) 0.5 s (T / 8)",
+        "correct_answer": "(Recommended) 0.5 s (T / 8)",
+        "explanation": "Using x = A sin(ωt): A / √2 = A sin(ωt) => sin(ωt) = 1/√2 => ωt = π/4. With ω = 2π/T, we get (2π/T)·t = π/4 => t = T / 8 = 4.0 / 8 = 0.5 s.",
+        "hint": "Solve sin(ωt) = 1/√2 for t in terms of T.",
+        "blooms_level": "Apply",
+        "textbook_reference": "Section 13.5, Page 264",
+        "image_search_query": "shm time mean position to a over root 2"
       }
     ],
     "concept_visuals": [
@@ -221,22 +463,102 @@
       "Understand physical intuition, SI units, and dimensional consistency"
     ],
     "chapter_notes": "# Chapter 13: Oscillations\n## Module 80: Energy in SHM: Kinetic, Potential & Conservation of Mechanical Energy\n\n### 1. Kinetic Energy ($K$) in SHM\nThe kinetic energy of an oscillating mass $m$ with velocity $v$ is:\n$$K = \\frac{1}{2} m v^2 = \\frac{1}{2} m \\omega^2 (A^2 - x^2) = \\frac{1}{2} k (A^2 - x^2)$$\nAs a function of time:\n$$K(t) = \\frac{1}{2} m \\omega^2 A^2 \\sin^2(\\omega t + \\phi) = \\frac{1}{2} k A^2 \\sin^2(\\omega t + \\phi)$$\n- At mean position ($x = 0$): $K = K_{\\text{max}} = \\frac{1}{2} k A^2$.\n- At extreme positions ($x = \\pm A$): $K = 0$.\n\n### 2. Potential Energy ($U$) in SHM\nThe work done by an external agent against the restoring force $F = -kx$ in displacing the mass from $0$ to $x$:\n$$U = \\int_0^x -F_{\\text{restoring}} \\, dx' = \\int_0^x k x' \\, dx' = \\frac{1}{2} k x^2$$\nUsing $x(t) = A \\cos(\\omega t + \\phi)$:\n$$U(t) = \\frac{1}{2} k A^2 \\cos^2(\\omega t + \\phi)$$\n- At mean position ($x = 0$): $U = 0$ (assuming potential energy zero at equilibrium).\n- At extreme positions ($x = \\pm A$): $U = U_{\\text{max}} = \\frac{1}{2} k A^2$.\n\n### 3. Total Mechanical Energy ($E$)\nSumming kinetic and potential energies:\n$$E = K + U = \\frac{1}{2} k (A^2 - x^2) + \\frac{1}{2} k x^2 = \\frac{1}{2} k A^2$$\nIn terms of time:\n$$E(t) = \\frac{1}{2} k A^2 [\\sin^2(\\omega t + \\phi) + \\cos^2(\\omega t + \\phi)] = \\frac{1}{2} k A^2 = \\text{constant}$$\n> **The Energy Conservation Invariant in SHM**:\n> *The total mechanical energy of an undamped simple harmonic oscillator is strictly constant and proportional to the square of its amplitude ($E \\propto A^2$ and $E \\propto \\omega^2$)!*\n\n### 4. Average Energies Over One Full Cycle\n- Average Kinetic Energy:\n  $$\\langle K \\rangle = \\frac{1}{T} \\int_0^T K(t) \\, dt = \\frac{1}{2} k A^2 \\langle \\sin^2 \\rangle = \\frac{1}{4} k A^2 = \\frac{1}{2} E$$\n- Average Potential Energy:\n  $$\\langle U \\rangle = \\frac{1}{T} \\int_0^T U(t) \\, dt = \\frac{1}{2} k A^2 \\langle \\cos^2 \\rangle = \\frac{1}{4} k A^2 = \\frac{1}{2} E$$\n- Over one cycle, energy is shared equally: exactly $50\\%$ average kinetic energy and $50\\%$ average potential energy!\n\n### 5. Frequency of Energy Oscillations\nWhile displacement, velocity, and acceleration oscillate with frequency $\\nu$ (period $T$), the energies $K(t)$ and $U(t)$ contain $\\sin^2(\\omega t) = \\frac{1 - \\cos(2\\omega t)}{2}$.\nHence:\n$$\\text{Frequency of Kinetic / Potential Energy Oscillation} = 2\\nu$$\nEnergy oscillates **twice as fast** as the mechanical particle itself!",
-    "worked_examples": [],
+    "worked_examples": [
+      {
+        "problem": "NCERT Example 13.7: A block whose mass is 1.0 kg is fastened to a horizontal spring. The spring has a spring constant of 50 N m⁻¹. The block is pulled to a distance x = 10 cm from its equilibrium position at x = 0 on a frictionless horizontal surface and released from rest at t = 0. Calculate: (a) the total mechanical energy of the oscillator, (b) the maximum speed of the block, (c) the potential energy and kinetic energy when the block is at x = 5.0 cm, and (d) the speed of the block at x = 5.0 cm.",
+        "given": "Mass m = 1.0 kg, Spring constant k = 50 N m⁻¹, Amplitude A = 10 cm = 0.10 m, Released from rest at x = A => Initial speed v_0 = 0",
+        "to_calculate": "(a) Total energy E, (b) Maximum speed v_max, (c) PE and KE at x = 0.05 m, (d) Speed v at x = 0.05 m",
+        "formula": "(a) Total mechanical energy: E = ½ · k · A²\n(b) At mean position, all energy is kinetic: E = ½ · m · v_max² => v_max = A · √(k / m)\n(c) Potential energy at x: U = ½ · k · x²; Kinetic energy: K = E - U = ½ · k · (A² - x²)\n(d) Speed at x: v = √(2K / m) = √(k/m · (A² - x²))",
+        "substitution": "(a) E = ½ × (50 N m⁻¹) × (0.10 m)²\n(b) v_max = 0.10 × √(50 / 1.0) = 0.10 × √50\n(c) At x = 0.05 m:\nU = ½ × 50 × (0.05)²\nK = E - U\n(d) v = √(50 × (0.10² - 0.05²))",
+        "calculation": "(a) E = 25 × 0.010 = 0.25 J\n(b) √50 = 7.071 m s⁻¹; v_max = 0.10 × 7.071 = 0.707 m s⁻¹ ≈ 0.71 m s⁻¹\n(c) U = 25 × 0.0025 = 0.0625 J\nK = 0.25 - 0.0625 = 0.1875 J\n(d) v = √(50 × (0.01 - 0.0025)) = √(50 × 0.0075) = √0.375 = 0.612 m s⁻¹",
+        "rough_work": "[ROUGH_WORK]\nE = 0.5 × 50 × 0.01 = 0.25 J\nv_max = 0.1 × sqrt(50) = 0.707 m/s\nU(5cm) = 0.5 × 50 × 0.0025 = 0.0625 J\nK(5cm) = 0.25 - 0.0625 = 0.1875 J\nv(5cm) = sqrt(2 × 0.1875 / 1) = sqrt(0.375) = 0.612 m/s",
+        "finalAnswer": "(a) Total energy E = 0.25 J; (b) Maximum speed v_max = 0.71 m s⁻¹; (c) At x = 5 cm: Potential energy U = 0.0625 J, Kinetic energy K = 0.1875 J; (d) Speed v = 0.61 m s⁻¹",
+        "unit": "J, m s⁻¹",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Example 13.7, Page 267",
+        "image_search_query": "energy in shm kinetic potential conservation curve"
+      },
+      {
+        "problem": "For a simple harmonic oscillator of amplitude A, find the displacement x from the mean position at which (a) the kinetic energy equals the potential energy, and (b) the kinetic energy is 75% of the total mechanical energy.",
+        "given": "Oscillator of amplitude A, Total energy E = ½ k A²\nKinetic energy K(x) = ½ k (A² - x²)\nPotential energy U(x) = ½ k x²",
+        "to_calculate": "(a) Displacement x where K = U, (b) Displacement x where K = 0.75 E",
+        "formula": "(a) K = U => ½ k (A² - x²) = ½ k x² => A² - x² = x² => 2x² = A² => x = ± A / √2\n(b) K = 0.75 E => ½ k (A² - x²) = 0.75 · (½ k A²) => A² - x² = 0.75 A² => x² = 0.25 A² => x = ± 0.50 A = ± A / 2",
+        "substitution": "(a) x = ± A / 1.414 = ± 0.707 A\n(b) x = ± A / 2",
+        "calculation": "(a) At x = ± A / √2 ≈ ± 0.707 A, K = U = E / 2\n(b) At x = ± A / 2, K = 3/4 E = 75% and U = 1/4 E = 25%",
+        "rough_work": "[ROUGH_WORK]\n(a) K = U => x = A / sqrt(2) = 0.707 A\n(b) K = 3/4 E => U = 1/4 E => x² = A²/4 => x = A/2.",
+        "finalAnswer": "(a) KE equals PE at x = ± A / √2 (≈ ± 0.707 A); (b) KE is 75% of total energy at x = ± A / 2",
+        "unit": "m (in terms of A)",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Section 13.6, Page 267",
+        "image_search_query": "shm kinetic energy equal potential energy displacement"
+      }
+    ],
     "common_misconceptions": [
       "Confusing sign conventions or boundary conditions in Energy in SHM: Kinetic, Potential & Conservation of Mechanical Energy",
       "Omitting SI units in final calculations during board examinations"
     ],
     "concept_questions": [
       {
-        "question": "At what displacement from the mean position is the kinetic energy of a simple harmonic oscillator equal to its potential energy?",
+        "question": "What is the frequency of oscillation of the kinetic energy (or potential energy) of a particle executing simple harmonic motion with frequency ν?",
         "options": [
-          "(Recommended) x = ± A / √2 (approximately 0.707 A)",
-          "x = ± A / 2",
-          "x = 0",
-          "x = ± A"
+          "(Recommended) 2ν (double the fundamental oscillation frequency)",
+          "ν (the same frequency)",
+          "ν / 2 (half the frequency)",
+          "4ν (four times the frequency)"
         ],
-        "correct_answer": "(Recommended) x = ± A / √2 (approximately 0.707 A)",
-        "explanation": "Setting K = U: 1/2 k (A^2 - x^2) = 1/2 k x^2 => A^2 - x^2 = x^2 => 2 x^2 = A^2 => x = ± A / √2."
+        "correctAnswer": "(Recommended) 2ν (double the fundamental oscillation frequency)",
+        "correct_answer": "(Recommended) 2ν (double the fundamental oscillation frequency)",
+        "explanation": "Kinetic energy K = ½ m v² = ½ m ω² A² sin²(ωt) = ¼ m ω² A² (1 - cos(2ωt)). The argument contains 2ω, meaning kinetic and potential energies complete two full cycles of oscillation for every one complete oscillation of displacement.",
+        "hint": "Use the trigonometric identity sin²(θ) = ½ (1 - cos 2θ).",
+        "blooms_level": "Analyze",
+        "textbook_reference": "Section 13.6, Page 267",
+        "image_search_query": "kinetic energy frequency double shm frequency"
+      },
+      {
+        "question": "How does the total mechanical energy E of an undamped simple harmonic oscillator depend on its amplitude A and frequency ν?",
+        "options": [
+          "(Recommended) E is proportional to both the square of amplitude (A²) and the square of frequency (ν²): E = 2π² m ν² A²",
+          "E is directly proportional to A and inversely to ν",
+          "E is independent of amplitude and depends linearly on ν",
+          "E is proportional to A³ and ν"
+        ],
+        "correctAnswer": "(Recommended) E is proportional to both the square of amplitude (A²) and the square of frequency (ν²): E = 2π² m ν² A²",
+        "correct_answer": "(Recommended) E is proportional to both the square of amplitude (A²) and the square of frequency (ν²): E = 2π² m ν² A²",
+        "explanation": "Total energy E = ½ m ω² A². Substituting ω = 2πν yields E = ½ m (2πν)² A² = 2π² m ν² A². Hence E ∝ A² and E ∝ ν².",
+        "hint": "Substitute ω = 2πν into E = ½ m ω² A².",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 13.6, Page 266",
+        "image_search_query": "total energy shm proportional amplitude squared frequency"
+      },
+      {
+        "question": "In an ideal simple harmonic oscillator with zero friction, which of the following remains strictly constant with time?",
+        "options": [
+          "(Recommended) Total mechanical energy (E = K + U)",
+          "Kinetic energy (K)",
+          "Potential energy (U)",
+          "Momentum (p)"
+        ],
+        "correctAnswer": "(Recommended) Total mechanical energy (E = K + U)",
+        "correct_answer": "(Recommended) Total mechanical energy (E = K + U)",
+        "explanation": "The linear restoring force F = -kx is a conservative force. While K and U continuously transform into one another throughout the cycle, their sum E = K + U = ½ k A² remains strictly conserved.",
+        "hint": "Apply the law of conservation of mechanical energy for conservative forces.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 13.6, Page 266",
+        "image_search_query": "conservation of mechanical energy shm graph"
+      },
+      {
+        "question": "At the mean position (x = 0), what fraction of the total mechanical energy of an SHM oscillator is in the form of potential energy?",
+        "options": [
+          "(Recommended) 0% (all energy is 100% kinetic)",
+          "50%",
+          "100%",
+          "25%"
+        ],
+        "correctAnswer": "(Recommended) 0% (all energy is 100% kinetic)",
+        "correct_answer": "(Recommended) 0% (all energy is 100% kinetic)",
+        "explanation": "Potential energy U = ½ k x². At x = 0, U = 0. Therefore, all total mechanical energy resides as kinetic energy (K = E).",
+        "hint": "Evaluate U = ½ k x² at x = 0.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 13.6, Page 266",
+        "image_search_query": "energy distribution mean position shm"
       }
     ],
     "concept_visuals": [
@@ -285,22 +607,102 @@
       "Understand physical intuition, SI units, and dimensional consistency"
     ],
     "chapter_notes": "# Chapter 13: Oscillations\n## Module 81: Oscillating Systems: Loaded Springs & The Simple Pendulum\n\n### 1. The Spring-Mass System\nConsider a block of mass $m$ attached to a massless ideal spring of spring constant $k$ resting on a frictionless horizontal floor:\n- Restoring force when pulled by displacement $x$:\n  $$F = -k x$$\n- By Newton's Second Law:\n  $$m \\frac{d^2x}{dt^2} = -k x \\implies \\frac{d^2x}{dt^2} + \\left(\\frac{k}{m}\\right)x = 0$$\n- Angular frequency and Time Period:\n  $$\\omega = \\sqrt{\\frac{k}{m}} \\implies T = 2\\pi \\sqrt{\\frac{m}{k}}$$\n\n#### Vertical Spring:\nWhen hung vertically, gravity produces an initial static extension $x_0 = \\frac{mg}{k}$. Oscillating about this new equilibrium position yields identical restoring dynamics:\n$$T = 2\\pi \\sqrt{\\frac{m}{k}} = 2\\pi \\sqrt{\\frac{x_0}{g}}$$\n\n#### Spring Combinations:\n1. **Series Combination**: Two springs ($k_1, k_2$) end-to-end:\n   $$\\frac{1}{k_{\\text{eff}}} = \\frac{1}{k_1} + \\frac{1}{k_2} \\implies T = 2\\pi \\sqrt{\\frac{m(k_1 + k_2)}{k_1 k_2}}$$\n2. **Parallel Combination**: Side-by-side:\n   $$k_{\\text{eff}} = k_1 + k_2 \\implies T = 2\\pi \\sqrt{\\frac{m}{k_1 + k_2}}$$\n\n### 2. The Simple Pendulum\nA simple pendulum consists of a point mass (bob) of mass $m$ suspended from a rigid support by an unstretchable, massless string of length $L$.\n- Displace the bob by small angle $\\theta$:\n  Restoring torque about suspension point $O$:\n  $$\\tau = -m g L \\sin\\theta$$\n- Moment of inertia of bob about $O$:\n  $$I = m L^2$$\n- Equation of rotational motion:\n  $$\\tau = I \\alpha \\implies m L^2 \\frac{d^2\\theta}{dt^2} = -m g L \\sin\\theta$$\n  $$\\frac{d^2\\theta}{dt^2} + \\left(\\frac{g}{L}\\right) \\sin\\theta = 0$$\n\n#### Small Angle Approximation ($\\sin\\theta \\approx \\theta$ for $\\theta < 10^\\circ$):\n$$\\frac{d^2\\theta}{dt^2} + \\left(\\frac{g}{L}\\right) \\theta = 0$$\nThis is the standard differential equation of SHM!\n$$\\omega = \\sqrt{\\frac{g}{L}} \\implies T = 2\\pi \\sqrt{\\frac{L}{g}}$$\n\n### 3. Key Invariants of Simple Pendulum\n1. **Mass Independence**: $T$ is completely independent of the mass $m$ or material of the bob.\n2. **Length Dependence**: $T \\propto \\sqrt{L}$.\n3. **Gravity Dependence**: $T \\propto \\frac{1}{\\sqrt{g}}$. At the center of the Earth or in a free-falling elevator ($g_{\\text{eff}} = 0$), $T \\to \\infty$ (the pendulum stops swinging).\n4. **Seconds Pendulum**: A pendulum whose half-period is $1 \\text{ second}$ ($T = 2.0 \\text{ s}$).\n   $$L = \\frac{g T^2}{4\\pi^2} = \\frac{9.8 \\times 4}{4 \\times (3.1416)^2} \\approx 0.993 \\text{ m} \\approx 1 \\text{ meter}$$",
-    "worked_examples": [],
+    "worked_examples": [
+      {
+        "problem": "NCERT Example 13.8: What is the length of a simple pendulum which ticks seconds (that is, a seconds pendulum whose half-period is 1.0 s, so its full period is T = 2.0 s)? (Take g = 9.8 m s⁻²)",
+        "given": "Time period of seconds pendulum T = 2.0 s, Acceleration due to gravity g = 9.8 m s⁻²",
+        "to_calculate": "Length of the pendulum L",
+        "formula": "Time period of simple pendulum: T = 2π · √(L / g) => T² = 4π² · (L / g) => L = (g · T²) / (4π²)",
+        "substitution": "L = [ (9.8 m s⁻²) × (2.0 s)² ] / [ 4 × (3.1416)² ]",
+        "calculation": "Numerator = 9.8 × 4 = 39.2 m s²\nDenominator = 4 × 9.8696 = 39.478\nL = 39.2 / 39.478 = 0.9929 m ≈ 0.993 m ≈ 1.0 m (nearly 1 metre)",
+        "rough_work": "[ROUGH_WORK]\nL = 9.8 × 4 / (4 × pi²) = 9.8 / 9.87 = 0.9929 m ≈ 99.3 cm.",
+        "finalAnswer": "Length of a seconds pendulum L = 0.993 m (approximately 1.0 m or 99.3 cm)",
+        "unit": "m (or cm)",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Example 13.8, Page 269",
+        "image_search_query": "seconds pendulum length calculation formula 99 cm"
+      },
+      {
+        "problem": "A body of mass m is suspended from two springs of force constants k₁ and k₂. Find the effective spring constant and the time period of vertical oscillations when the springs are connected (a) in series, and (b) in parallel.",
+        "given": "Mass of suspended body = m, Force constants of two springs = k₁ and k₂",
+        "to_calculate": "Effective spring constants k_s, k_p and corresponding time periods T_s, T_p",
+        "formula": "(a) Series combination:\nExtensions add: x = x₁ + x₂ while tension is equal T = k₁ x₁ = k₂ x₂\nx = T/k₁ + T/k₂ = T · (1/k₁ + 1/k₂) => 1 / k_s = 1/k₁ + 1/k₂ => k_s = (k₁ · k₂) / (k₁ + k₂)\nTime period: T_s = 2π · √(m / k_s) = 2π · √[ m(k₁ + k₂) / (k₁ k₂) ]\n(b) Parallel combination:\nExtension x is common to both: F = F₁ + F₂ = k₁ x + k₂ x = (k₁ + k₂) x => k_p = k₁ + k₂\nTime period: T_p = 2π · √(m / k_p) = 2π · √(m / (k₁ + k₂))",
+        "substitution": "k_s = k₁ k₂ / (k₁ + k₂)\nk_p = k₁ + k₂",
+        "calculation": "In series, effective stiffness decreases (k_s < min(k₁, k₂)), leading to a longer period T_s.\nIn parallel, effective stiffness increases (k_p > max(k₁, k₂)), leading to a shorter period T_p.",
+        "rough_work": "[ROUGH_WORK]\n1/k_s = 1/k₁ + 1/k₂ => k_s = k₁k₂/(k₁+k₂)\nk_p = k₁ + k₂\nT_s = 2pi sqrt(m(k₁+k₂)/(k₁k₂))\nT_p = 2pi sqrt(m/(k₁+k₂)).",
+        "finalAnswer": "(a) Series: k_s = (k₁ k₂) / (k₁ + k₂), T_s = 2π · √[ m(k₁ + k₂) / (k₁ k₂) ]; (b) Parallel: k_p = k₁ + k₂, T_p = 2π · √(m / (k₁ + k₂))",
+        "unit": "N m⁻¹, s",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Section 13.7, Page 268",
+        "image_search_query": "springs in series and parallel time period shm"
+      }
+    ],
     "common_misconceptions": [
       "Confusing sign conventions or boundary conditions in Oscillating Systems: Loaded Springs & The Simple Pendulum",
       "Omitting SI units in final calculations during board examinations"
     ],
     "concept_questions": [
       {
-        "question": "What happens to the time period of a simple pendulum if it is taken to the Moon, where acceleration due to gravity is 1/6th that of Earth?",
+        "question": "Why is the motion of a simple pendulum simple harmonic ONLY for small angular displacements (typically θ ≤ 5°)?",
         "options": [
-          "(Recommended) The time period increases by a factor of √6",
-          "The time period decreases by a factor of 6",
-          "The time period remains unchanged",
-          "The pendulum stops swinging completely"
+          "(Recommended) Because the restoring torque is proportional to sin θ, and sin θ ≈ θ (in radians) only when θ is very small",
+          "Because air resistance vanishes strictly at small angles",
+          "Because the string stretches elastically at larger angles",
+          "Because the acceleration due to gravity g varies with angle"
         ],
-        "correct_answer": "(Recommended) The time period increases by a factor of √6",
-        "explanation": "Since T = 2π √(L/g), if g decreases by a factor of 6, T scales as 1/√(1/6) = √6 times larger (swings much slower)."
+        "correctAnswer": "(Recommended) Because the restoring torque is proportional to sin θ, and sin θ ≈ θ (in radians) only when θ is very small",
+        "correct_answer": "(Recommended) Because the restoring torque is proportional to sin θ, and sin θ ≈ θ (in radians) only when θ is very small",
+        "explanation": "The restoring force along the arc is F = -mg sin θ. For SHM, restoring force must be linearly proportional to displacement x = Lθ. For small angles, Taylor expansion gives sin θ ≈ θ, yielding linear restoring force F ≈ -(mg/L) x. At larger angles, higher order terms introduce non-linearity.",
+        "hint": "Analyze the small-angle approximation for sin θ.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 13.8, Page 269",
+        "image_search_query": "simple pendulum small angle approximation sin theta theta"
+      },
+      {
+        "question": "If a simple pendulum is taken to the Moon, where acceleration due to gravity is 1/6th of that on Earth (g_moon = g_earth / 6), how does its time period change?",
+        "options": [
+          "(Recommended) It increases by a factor of √6 (≈ 2.45 times)",
+          "It decreases by a factor of 6",
+          "It decreases by a factor of √6",
+          "It remains unchanged because the mass of the bob is constant"
+        ],
+        "correctAnswer": "(Recommended) It increases by a factor of √6 (≈ 2.45 times)",
+        "correct_answer": "(Recommended) It increases by a factor of √6 (≈ 2.45 times)",
+        "explanation": "Time period T = 2π √(L / g) ∝ 1 / √g. On the moon, T_moon = T_earth · √(g_earth / g_moon) = T_earth · √6 ≈ 2.45 T_earth.",
+        "hint": "Use T ∝ 1/√g.",
+        "blooms_level": "Apply",
+        "textbook_reference": "Section 13.8, Page 270",
+        "image_search_query": "simple pendulum time period gravity moon earth"
+      },
+      {
+        "question": "What happens to the time period of a simple pendulum if its bob is replaced by an identical spherical bob made of lead (mass m_lead = 5 m_wood) of the same radius?",
+        "options": [
+          "(Recommended) The time period remains strictly unchanged",
+          "The time period increases by a factor of √5",
+          "The time period decreases by a factor of √5",
+          "The time period increases by 5 times"
+        ],
+        "correctAnswer": "(Recommended) The time period remains strictly unchanged",
+        "correct_answer": "(Recommended) The time period remains strictly unchanged",
+        "explanation": "From T = 2π √(L / g), the period depends solely on length L and local gravity g, and is completely independent of the mass or material of the bob.",
+        "hint": "Check whether mass m appears in the pendulum period formula.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Section 13.8, Page 269",
+        "image_search_query": "simple pendulum mass independence time period"
+      },
+      {
+        "question": "If an ideal spring of spring constant k is cut into two equal halves, what is the spring constant of each individual half?",
+        "options": [
+          "(Recommended) 2k (each half is twice as stiff)",
+          "k / 2 (each half is half as stiff)",
+          "k (unchanged)",
+          "4k (four times as stiff)"
+        ],
+        "correctAnswer": "(Recommended) 2k (each half is twice as stiff)",
+        "correct_answer": "(Recommended) 2k (each half is twice as stiff)",
+        "explanation": "The spring constant is inversely proportional to its length: k · L = constant. Cutting the length in half (L' = L/2) doubles the spring constant to k' = 2k.",
+        "hint": "Note that spring stiffness is inversely proportional to unstretched length.",
+        "blooms_level": "Apply",
+        "textbook_reference": "Section 13.7, Page 268",
+        "image_search_query": "spring cut in half spring constant doubles 2k"
       }
     ],
     "concept_visuals": [
@@ -352,15 +754,294 @@
     "chapter_notes": "# Chapter 13: Oscillations\n## Module 82: Comprehensive NCERT Exercises 13.1 to 13.22 Detailed Step-by-Step Solver\n\n### Exercise 13.1\n**Question**: Which of the following examples represent periodic motion?\n1. A swimmer completing one return trip from one bank of a river to the other and back.\n2. A freely suspended bar magnet displaced from its N-S direction and released.\n3. A hydrogen molecule rotating about its center of mass.\n4. An arrow released from a bow.\n- **Answers**:\n  1. Non-periodic: Swimmer may not repeat the return trip at regular constant intervals.\n  2. Periodic (and oscillatory): The restoring magnetic torque causes periodic oscillation about the Earth's magnetic meridian.\n  3. Periodic (rotational): Molecular rotation repeats after fixed time period $T$.\n  4. Non-periodic: The arrow flies forward and never returns.\n\n---\n\n### Exercise 13.2\n**Question**: Which of the following examples represent (nearly) simple harmonic motion and which represent periodic but not simple harmonic motion?\n1. The rotation of earth about its axis.\n2. Motion of an oscillating mercury column in a U-tube.\n3. Motion of a ball bearing inside a smooth curved bowl when released from a point slightly above the lower-most point.\n4. General vibrations of a polyatomic molecule about its equilibrium position.\n- **Answers**:\n  1. Periodic but NOT SHM: Rotational motion, not to-and-fro about a mean point with restoring force $F = -kx$.\n  2. SHM: The restoring pressure difference $2h\\rho g A$ is directly proportional to displacement $h$.\n  3. SHM: For small angular displacements, restoring force component along tangent is $-mg\\sin\\theta \\approx -mg\\frac{x}{R}$, satisfying $F \\propto -x$.\n  4. Periodic, composed of a superposition of several simple harmonic normal modes.\n\n---\n\n### Exercise 13.3\n**Question**: A particle is in linear simple harmonic motion between two points $A$ and $B$, $10 \\text{ cm}$ apart. Take the direction from $A$ to $B$ as positive. Give the signs of position, velocity, and acceleration on the particle when:\n1. At the end $A$.\n2. At the end $B$.\n3. At the mid-point of $AB$ going towards $A$.\n4. At $2 \\text{ cm}$ away from $B$ going towards $A$.\n- **Answers**:\n  - Let midpoint $O$ be origin ($x = 0$). Then $A$ is at $x = -5 \\text{ cm}$ and $B$ is at $x = +5 \\text{ cm}$.\n  1. At $A$: $x < 0$ (negative), $v = 0$ (zero), $a = -\\omega^2(-5) > 0$ (positive, directed towards $O$).\n  2. At $B$: $x > 0$ (positive), $v = 0$ (zero), $a = -\\omega^2(+5) < 0$ (negative, directed towards $O$).\n  3. At midpoint towards $A$: $x = 0$ (zero), $v < 0$ (negative), $a = 0$ (zero).\n  4. At $2 \\text{ cm}$ from $B$ towards $A$: $x = +3 \\text{ cm} > 0$ (positive), $v < 0$ (negative, moving towards left), $a = -\\omega^2(+3) < 0$ (negative).\n\n---\n\n### Exercise 13.4\n**Question**: A simple pendulum of length $1 \\text{ m}$ has a bob of mass $100 \\text{ g}$. It oscillates with an amplitude of $4 \\text{ cm}$. Find:\n1. Maximum acceleration of the bob.\n2. Maximum tension in the string ($g = 9.8 \\text{ m/s}^2$).\n- **Solution**:\n  - $L = 1 \\text{ m}, m = 0.1 \\text{ kg}, A = 0.04 \\text{ m}$.\n  - Angular frequency $\\omega = \\sqrt{\\frac{g}{L}} = \\sqrt{9.8} \\approx 3.13 \\text{ rad/s}$.\n  1. Maximum acceleration:\n     $$a_{\\text{max}} = \\omega^2 A = \\frac{g}{L} A = 9.8 \\times 0.04 = 0.392 \\text{ m/s}^2$$\n  2. Maximum tension occurs at the lowest point (mean position):\n     $$T_{\\text{max}} = mg + \\frac{m v_{\\text{max}}^2}{L} = mg + m \\omega^2 A^2 / L$$\n     $$v_{\\text{max}} = \\omega A = 3.13 \\times 0.04 = 0.1252 \\text{ m/s}$$\n     $$T_{\\text{max}} = (0.1 \\times 9.8) + \\frac{0.1 \\times (0.1252)^2}{1} = 0.98 + 0.00157 \\approx 0.9816 \\text{ N}$$\n- **Boxed Answer**: $a_{\\text{max}} = **0.392 \\text{ m/s}^2$**, $T_{\\text{max}} = **0.982 \\text{ N}$**.",
     "worked_examples": [
       {
-        "example_title": "NCERT Rigorous Application - Comprehensive NCERT Exercises 13.1 to 13.22 Detailed Step-by-Step Solver",
-        "problem_statement": "Detailed step-by-step problem walkthrough from NCERT Chapter 13.",
-        "step_by_step_solution": [
-          "Step 1: Identify given physical parameters with standard SI units.",
-          "Step 2: Apply core governing physics laws and algebraic formulas.",
-          "Step 3: Substitute numerical values and perform dimensional check.",
-          "Step 4: Box final numerical result with appropriate physical units."
-        ],
-        "boxed_answer": "Complete step-by-step derivation verified."
+        "problem": "NCERT Exercise 13.1: Which of the following examples represent periodic motion?\n(a) A swimmer completing one (return) trip from one bank of a river to the other and back.\n(b) A freely suspended bar magnet displaced from its N-S direction and released.\n(c) A hydrogen molecule rotating about its centre of mass.\n(d) An arrow released from a bow.",
+        "given": "Four physical scenarios of motion",
+        "to_calculate": "Classification of each motion as periodic or non-periodic with physical rationale",
+        "formula": "Periodic motion repeats itself in equal intervals of time along the identical path: f(t + T) = f(t).",
+        "substitution": "Analysis of recurrence and trajectory regularity for each case",
+        "calculation": "(a) Non-periodic: A swimmer takes varying stroke times and does not automatically repeat the return trip endlessly in precisely equal time intervals.\n(b) Periodic (and SHM): The magnetic restoring torque τ = -M B sin θ restores the magnet towards magnetic meridian, producing periodic oscillatory motion.\n(c) Periodic: Rotation of a diatomic molecule about its centre of mass repeats its spatial orientation at precise constant intervals T = 2π / ω.\n(d) Non-periodic: The arrow flies along a parabolic path and strikes a target, never returning to the bow.",
+        "rough_work": "[ROUGH_WORK]\n(a) Swimmer: non-periodic.\n(b) Bar magnet: periodic oscillation (SHM).\n(c) Rotating H₂: periodic rotation.\n(d) Released arrow: non-periodic unidirectional motion.",
+        "finalAnswer": "(a) Non-periodic; (b) Periodic; (c) Periodic; (d) Non-periodic",
+        "unit": "Qualitative Classification",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Exercise 13.1, Page 274",
+        "image_search_query": "periodic versus non periodic motion examples"
+      },
+      {
+        "problem": "NCERT Exercise 13.2: Which of the following examples represent (nearly) simple harmonic motion and which represent periodic but not simple harmonic motion?\n(a) The rotation of Earth about its axis.\n(b) Motion of an oscillating mercury column in a U-tube.\n(c) Motion of a ball bearing inside a smooth curved bowl, when released from a point slightly above the lowermost point.\n(d) General vibrations of a polyatomic molecule about its equilibrium position.",
+        "given": "Four examples of periodic motion",
+        "to_calculate": "Classification into SHM vs periodic but non-SHM",
+        "formula": "SHM requires: (1) oscillation about stable equilibrium, and (2) linear restoring force F = -kx (or torque τ = -Cθ).",
+        "substitution": "Dynamical analysis of restoring force for each system",
+        "calculation": "(a) Periodic but NOT SHM: The Earth rotates continuously in one direction; it does not oscillate back and forth about an equilibrium position.\n(b) Nearly SHM: Displacing the mercury column by y generates a hydrostatic restoring force F = -2 A ρ g y. Because F ∝ -y, the oscillation is SHM.\n(c) Nearly SHM: For small displacements in a spherical bowl of radius R, tangential restoring force F = -mg sin θ ≈ -(mg/R) s. Since F ∝ -s, it is SHM.\n(d) Periodic but NOT SHM: Polyatomic molecules have multiple anharmonic vibrational modes. The general vibration is a superposition of several normal modes and is periodic, but not pure SHM.",
+        "rough_work": "[ROUGH_WORK]\n(a) Earth: periodic non-SHM\n(b) Mercury U-tube: SHM (F = -2Aρgy)\n(c) Ball in bowl: SHM for small angles\n(d) Polyatomic vibration: periodic non-SHM (anharmonic superposition)",
+        "finalAnswer": "(a) Periodic but not SHM; (b) Simple Harmonic Motion; (c) Simple Harmonic Motion; (d) Periodic but not SHM",
+        "unit": "Qualitative Classification",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Exercise 13.2, Page 274",
+        "image_search_query": "simple harmonic vs periodic non shm examples"
+      },
+      {
+        "problem": "NCERT Exercise 13.3: Fig. 13.18 depicts four x-t plots for linear motion of a particle. Which of the plots represent periodic motion? What is the period of motion (in case of periodic motion)?",
+        "given": "Four graphs from Fig. 13.18:\n(a) Unidirectional square pulses from t = 0 to 2 s, 4 s, ...\n(b) Symmetrical triangular sawtooth wave repeating every 2 s\n(c) Damped exponential decay\n(d) Inverted sinusoidal humps repeating every T = 2 s",
+        "to_calculate": "Identification of periodic graphs and their time periods T",
+        "formula": "A plot is periodic if x(t + T) = x(t) for all t > 0 with constant T.",
+        "substitution": "Visual pattern matching and period identification from axis scales",
+        "calculation": "(a) Not periodic: The pulses occur once and do not repeat identically in the negative direction, or lack continuous time reversal symmetry.\n(b) Periodic motion: The triangular profile repeats identically every 2 seconds. Period T = 2.0 s.\n(c) Non-periodic: The amplitude decays exponentially towards zero; it never repeats.\n(d) Periodic motion: The periodic wave pattern repeats identically every 2 seconds. Period T = 2.0 s.",
+        "rough_work": "[ROUGH_WORK]\nGraph (a): not strictly periodic.\nGraph (b): periodic, repeats every 2 s => T = 2 s.\nGraph (c): damped non-periodic.\nGraph (d): periodic, repeats every 2 s => T = 2 s.",
+        "finalAnswer": "(b) Periodic with T = 2.0 s; (d) Periodic with T = 2.0 s; (a) and (c) are non-periodic",
+        "unit": "s",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Exercise 13.3, Page 274",
+        "figure_reference": "Fig. 13.18",
+        "image_search_query": "displacement time graph periodic motion time period"
+      },
+      {
+        "problem": "NCERT Exercise 13.4: Which of the following functions of time represent (a) simple harmonic, (b) periodic but not simple harmonic, and (c) non-periodic motion? Give period for each case of periodic motion (ω is any positive constant):\n(a) sin ωt - cos ωt\n(b) sin³ ωt\n(c) 3 cos(π/4 - 2ωt)\n(d) cos ωt + cos 3ωt + cos 5ωt\n(e) exp(-ω² t²)\n(f) 1 + ωt + ω² t²",
+        "given": "Mathematical time functions with parameter ω > 0",
+        "to_calculate": "Classification and determination of period T",
+        "formula": "(a) sin ωt - cos ωt = √2 sin(ωt - π/4) => Single harmonic => SHM with T = 2π/ω.\n(b) sin³ ωt = ¼ (3 sin ωt - sin 3ωt) => Superposition of two frequencies ω and 3ω => Periodic but not SHM, T = 2π/ω.\n(c) 3 cos(π/4 - 2ωt) = 3 cos(2ωt - π/4) => Single harmonic with angular frequency 2ω => SHM with T = 2π / (2ω) = π / ω.\n(d) Sum of three harmonics (ω, 3ω, 5ω) => Periodic but not SHM, fundamental period T = 2π/ω.\n(e) exp(-ω²t²) is a Gaussian function decaying to 0 as t → ∞ => Non-periodic.\n(f) 1 + ωt + ω²t² increases monotonically as t → ∞ => Non-periodic.",
+        "substitution": "Apply trigonometric identities and periodicity criteria",
+        "calculation": "(a) Simple Harmonic Motion, Period T = 2π / ω\n(b) Periodic (not SHM), Period T = 2π / ω\n(c) Simple Harmonic Motion, Period T = π / ω\n(d) Periodic (not SHM), Period T = 2π / ω\n(e) Non-periodic\n(f) Non-periodic",
+        "rough_work": "[ROUGH_WORK]\n(a) sqrt(2) sin(wt - pi/4) => SHM, T = 2pi/w\n(b) 1/4 (3 sin wt - sin 3wt) => periodic not SHM, T = 2pi/w\n(c) 3 cos(2wt - pi/4) => SHM, T = pi/w\n(d) sum of harmonics => periodic not SHM, T = 2pi/w\n(e) exp(-w²t²) => non-periodic\n(f) polynomial => non-periodic",
+        "finalAnswer": "(a) SHM, T = 2π/ω; (b) Periodic (non-SHM), T = 2π/ω; (c) SHM, T = π/ω; (d) Periodic (non-SHM), T = 2π/ω; (e) Non-periodic; (f) Non-periodic",
+        "unit": "s",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Exercise 13.4, Page 275",
+        "image_search_query": "trigonometric functions shm periodic non periodic"
+      },
+      {
+        "problem": "NCERT Exercise 13.5: A particle is in linear simple harmonic motion between two points, A and B, 10 cm apart. Take the direction from A to B as the positive direction and give the signs of velocity, acceleration and force on the particle when it is:\n(a) at the end A,\n(b) at the end B,\n(c) at the mid-point of AB going towards A,\n(d) at 2 cm away from B going towards A,\n(e) at 3 cm away from A going towards B, and\n(f) at 4 cm away from B going towards A.",
+        "given": "Points A and B are 10 cm apart => Equilibrium O is midway, OA = OB = 5 cm = Amplitude A.\nOrigin at O: Position of A is x = -5 cm, Position of B is x = +5 cm.\nDirection A → B is positive (+x).\nDynamics: Force F = -kx, Acceleration a = -ω²x, Velocity v = dx/dt.",
+        "to_calculate": "Signs (+, -, or 0) of v, a, and F at points (a) through (f)",
+        "formula": "F = -kx, a = -ω²x; v is positive for motion towards B and negative for motion towards A.",
+        "substitution": "(a) End A (x = -5 cm): v = 0 (turning point); a = -ω²(-5) > 0 (+); F = -k(-5) > 0 (+)\n(b) End B (x = +5 cm): v = 0; a = -ω²(+5) < 0 (-); F = -k(+5) < 0 (-)\n(c) Midpoint O (x = 0), going towards A: v < 0 (-); a = 0; F = 0\n(d) 2 cm away from B (x = +3 cm), going towards A: v < 0 (-); a = -ω²(+3) < 0 (-); F < 0 (-)\n(e) 3 cm away from A (x = -2 cm), going towards B: v > 0 (+); a = -ω²(-2) > 0 (+); F > 0 (+)\n(f) 4 cm away from B (x = +1 cm), going towards A: v < 0 (-); a = -ω²(+1) < 0 (-); F < 0 (-)",
+        "calculation": "Systematic sign tabulation:\n(a) v = 0, a is (+), F is (+)\n(b) v = 0, a is (-), F is (-)\n(c) v is (-), a = 0, F = 0\n(d) v is (-), a is (-), F is (-)\n(e) v is (+), a is (+), F is (+)\n(f) v is (-), a is (-), F is (-)",
+        "rough_work": "[ROUGH_WORK]\nA is at -5 cm, B is at +5 cm.\nF and a have same sign, opposite to sign of x.\nVelocity sign depends on direction of motion.",
+        "finalAnswer": "(a) v=0, a>0, F>0; (b) v=0, a<0, F<0; (c) v<0, a=0, F=0; (d) v<0, a<0, F<0; (e) v>0, a>0, F>0; (f) v<0, a<0, F<0",
+        "unit": "Signs (+, -, 0)",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Exercise 13.5, Page 275",
+        "image_search_query": "shm signs of velocity acceleration restoring force"
+      },
+      {
+        "problem": "NCERT Exercise 13.6: Which of the following relationships between the acceleration a and the displacement x of a particle involve simple harmonic motion?\n(a) a = 0.7 x\n(b) a = -200 x²\n(c) a = -10 x\n(d) a = 100 x³",
+        "given": "Four acceleration-displacement relations",
+        "to_calculate": "Identify which relation represents SHM",
+        "formula": "The defining condition for SHM is a = -ω² x (acceleration is directly proportional to displacement and opposite in direction).",
+        "substitution": "Check linearity and negative sign in a(x)",
+        "calculation": "(a) a = +0.7 x: Acceleration is in the same direction as displacement; particle accelerates away from equilibrium (unstable motion), NOT SHM.\n(b) a = -200 x²: Acceleration depends on x² (non-linear), NOT SHM.\n(c) a = -10 x: Acceleration is directly proportional to x and directed opposite to displacement with ω² = 10 s⁻². This is SIMPLE HARMONIC MOTION.\n(d) a = +100 x³: Non-linear and positive sign, NOT SHM.",
+        "rough_work": "[ROUGH_WORK]\nCondition: a = -k x with k > 0.\nOnly (c) a = -10x satisfies a ∝ -x.",
+        "finalAnswer": "Only relationship (c) a = -10 x represents simple harmonic motion",
+        "unit": "Identification",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Exercise 13.6, Page 275",
+        "image_search_query": "acceleration displacement relation simple harmonic motion"
+      },
+      {
+        "problem": "NCERT Exercise 13.7: The motion of a particle executing simple harmonic motion is described by the displacement function: x(t) = A · cos(ωt + φ). If the initial (t = 0) position of the particle is 1.0 cm and its initial velocity is ω cm s⁻¹, what are its amplitude and initial phase angle? The angular frequency of the particle is π s⁻¹. If instead of the cosine function, we choose the sine function x(t) = B · sin(ωt + α), what are the amplitude and initial phase of the particle with the same initial conditions?",
+        "given": "Initial conditions: x(0) = 1.0 cm, v(0) = ω cm s⁻¹, Angular frequency ω = π s⁻¹",
+        "to_calculate": "(a) Amplitude A and phase φ for cosine form; (b) Amplitude B and phase α for sine form",
+        "formula": "Cosine form: x(t) = A cos(ωt + φ), v(t) = -ω A sin(ωt + φ)\nAt t = 0: x(0) = A cos φ = 1, v(0) = -ω A sin φ = ω => A sin φ = -1\nSquaring and adding: A² (cos² φ + sin² φ) = 1² + (-1)² = 2 => A = √2 cm\ntan φ = (A sin φ) / (A cos φ) = -1 / 1 = -1. Since cos φ > 0 and sin φ < 0, φ is in fourth quadrant: φ = -π/4 rad (or 7π/4 rad).\nSine form: x(t) = B sin(ωt + α), v(t) = ω B cos(ωt + α)\nAt t = 0: x(0) = B sin α = 1, v(0) = ω B cos α = ω => B cos α = 1\nB² = 1² + 1² = 2 => B = √2 cm\ntan α = (B sin α) / (B cos α) = 1 / 1 = 1 => α = +π/4 rad (First quadrant).",
+        "substitution": "A = √2 cm ≈ 1.414 cm; φ = -π/4 rad = -45°\nB = √2 cm ≈ 1.414 cm; α = +π/4 rad = +45°",
+        "calculation": "Cosine representation: x(t) = √2 cos(πt - π/4) cm\nSine representation: x(t) = √2 sin(πt + π/4) cm\nBoth represent the exact same physical motion.",
+        "rough_work": "[ROUGH_WORK]\nx(0) = A cos φ = 1\nv(0) = -ω A sin φ = ω => A sin φ = -1\nA² = 1 + 1 = 2 => A = √2 cm\ntan φ = -1 => φ = -π/4\nFor sine: B sin α = 1, B cos α = 1 => B = √2, α = π/4.",
+        "finalAnswer": "Cosine form: Amplitude A = √2 cm (1.41 cm), Phase φ = -π/4 rad (-45°); Sine form: Amplitude B = √2 cm (1.41 cm), Phase α = +π/4 rad (+45°)",
+        "unit": "cm, rad",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Exercise 13.7, Page 275",
+        "image_search_query": "shm initial conditions amplitude phase cosine sine form"
+      },
+      {
+        "problem": "NCERT Exercise 13.8: A spring balance has a scale that reads from 0 to 50 kg. The length of the scale is 20 cm. A body suspended from this balance, when displaced and released, oscillates with a period of 0.60 s. What is the weight of the body? (Take g = 9.8 m s⁻²)",
+        "given": "Maximum mass on scale M_max = 50 kg, Maximum stretch for 50 kg: x_max = 20 cm = 0.20 m, Period of oscillation T = 0.60 s, g = 9.8 m s⁻²",
+        "to_calculate": "Weight of the suspended body W = m · g",
+        "formula": "Spring constant: k = F_max / x_max = (M_max · g) / x_max\nPeriod of oscillation: T = 2π · √(m / k) => T² = 4π² · (m / k) => m = (k · T²) / (4π²)\nWeight: W = m · g",
+        "substitution": "k = (50 kg × 9.8 m s⁻²) / (0.20 m) = 490 / 0.20 = 2450 N m⁻¹\nm = [ (2450 N m⁻¹) × (0.60 s)² ] / [ 4 × (3.1416)² ]\nW = m × 9.8 m s⁻²",
+        "calculation": "k = 2450 N m⁻¹\nm = (2450 × 0.36) / 39.478 = 882 / 39.478 = 22.34 kg\nW = 22.34 kg × 9.8 m s⁻² = 218.9 N ≈ 219 N (or 22.3 kg-wt)",
+        "rough_work": "[ROUGH_WORK]\nk = 50 × 9.8 / 0.2 = 2450 N/m\nm = 2450 × 0.36 / (4 × pi²) = 882 / 39.48 = 22.34 kg\nW = 22.34 × 9.8 = 218.93 N.",
+        "finalAnswer": "Mass of the body m = 22.3 kg; Weight of the body W = 219 N (or 22.3 kg-wt)",
+        "unit": "kg, N",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Exercise 13.8, Page 275",
+        "image_search_query": "spring balance scale length period mass weight calculation"
+      },
+      {
+        "problem": "NCERT Exercise 13.9: A spring having a spring constant k = 1200 N m⁻¹ is mounted on a horizontal table as shown in Fig. 13.19. A mass of 3.0 kg is attached to the free end of the spring. The mass is then pulled sideways to a distance of 2.0 cm and released. Determine: (i) the frequency of oscillations, (ii) maximum acceleration of the mass, and (iii) the maximum speed of the mass.",
+        "given": "Spring constant k = 1200 N m⁻¹, Mass m = 3.0 kg, Amplitude A = 2.0 cm = 0.020 m",
+        "to_calculate": "(i) Frequency ν, (ii) Maximum acceleration a_max, (iii) Maximum speed v_max",
+        "formula": "Angular frequency: ω = √(k / m)\n(i) Frequency: ν = ω / 2π = (1 / 2π) · √(k / m)\n(ii) Maximum acceleration: a_max = ω² · A = (k / m) · A\n(iii) Maximum speed: v_max = ω · A = A · √(k / m)",
+        "substitution": "ω = √(1200 / 3.0) = √400 = 20.0 rad s⁻¹\n(i) ν = 20.0 / (2 × 3.1416) = 10 / 3.1416\n(ii) a_max = (20.0 rad s⁻¹)² × (0.020 m) = 400 × 0.020\n(iii) v_max = (20.0 rad s⁻¹) × (0.020 m)",
+        "calculation": "ω = 20 rad s⁻¹\n(i) ν = 10 / 3.1416 = 3.183 Hz ≈ 3.2 Hz\n(ii) a_max = 400 × 0.020 = 8.0 m s⁻²\n(iii) v_max = 20 × 0.020 = 0.40 m s⁻¹",
+        "rough_work": "[ROUGH_WORK]\nsqrt(1200 / 3) = sqrt(400) = 20 rad/s\nν = 20 / 2pi = 3.18 Hz\na_max = 20² × 0.02 = 8 m/s²\nv_max = 20 × 0.02 = 0.4 m/s",
+        "finalAnswer": "(i) Frequency ν = 3.18 Hz; (ii) Maximum acceleration a_max = 8.0 m s⁻²; (iii) Maximum speed v_max = 0.40 m s⁻¹",
+        "unit": "Hz, m s⁻², m s⁻¹",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Exercise 13.9, Page 275",
+        "figure_reference": "Fig. 13.19",
+        "image_search_query": "horizontal spring mass oscillation frequency acceleration speed"
+      },
+      {
+        "problem": "NCERT Exercise 13.10: In Exercise 13.9, let us take the position of mass when the spring is uncompressed as x = 0, and the direction from left to right as the positive direction of x-axis. Give x as a function of time t for the oscillating mass if at the moment we start the stopwatch (t = 0), the mass is:\n(a) at the mean position,\n(b) at the maximum stretched position, and\n(c) at the maximum compressed position.\nIn what way do these functions for SHM differ from each other, in frequency, in amplitude or the initial phase?",
+        "given": "From Exercise 13.9: Amplitude A = 2.0 cm, Angular frequency ω = 20 rad s⁻¹\nGeneral displacement formula: x(t) = A · cos(ωt + φ) or x(t) = A · sin(ωt + φ')\nInitial conditions at t = 0:\n(a) Mean position moving right: x(0) = 0, v(0) > 0\n(b) Max stretched position: x(0) = +A\n(c) Max compressed position: x(0) = -A",
+        "to_calculate": "Displacement function x(t) for cases (a), (b), (c) and identify the differing parameter",
+        "formula": "x(t) = A · cos(ωt + φ)\n(a) x(0) = A cos φ = 0 => φ = -π/2 (for v > 0) => x(t) = A cos(ωt - π/2) = A sin(ωt)\n(b) x(0) = A cos φ = +A => φ = 0 => x(t) = A cos(ωt)\n(c) x(0) = A cos φ = -A => φ = π => x(t) = A cos(ωt + π) = -A cos(ωt)",
+        "substitution": "A = 2 cm, ω = 20 rad s⁻¹\n(a) x(t) = 2 sin(20t) cm (or 2 cos(20t - π/2) cm)\n(b) x(t) = 2 cos(20t) cm\n(c) x(t) = -2 cos(20t) cm (or 2 cos(20t + π) cm)",
+        "calculation": "(a) x(t) = 2 sin(20t) cm\n(b) x(t) = 2 cos(20t) cm\n(c) x(t) = -2 cos(20t) cm\nComparison: The amplitude (A = 2 cm) and frequency (ν = 3.18 Hz, ω = 20 rad s⁻¹) are strictly identical in all three cases. The functions differ ONLY in their initial phase φ.",
+        "rough_work": "[ROUGH_WORK]\n(a) at mean: x = 2 sin(20t)\n(b) at max stretch: x = 2 cos(20t)\n(c) at max compression: x = -2 cos(20t)\nDiffer only in phase.",
+        "finalAnswer": "(a) x(t) = 2 sin(20t) cm; (b) x(t) = 2 cos(20t) cm; (c) x(t) = -2 cos(20t) cm; The functions differ ONLY in their initial phase angle φ",
+        "unit": "cm, Phase Comparison",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Exercise 13.10, Page 276",
+        "image_search_query": "shm equations initial phase difference mean extreme"
+      },
+      {
+        "problem": "NCERT Exercise 13.11: Figures 13.20 correspond to two circular motions. The radius of the circle, the period of revolution, the initial position, and the sense of revolution (i.e. clockwise or anti-clockwise) are indicated on each figure.\n(a) Circle with radius A = 2.0 cm, Period T = 4.0 s, initial angle 0° at positive x-axis, anticlockwise.\n(b) Circle with radius A = 1.0 m, Period T = 30.0 s, initial angle 90° (π/2) at positive y-axis, clockwise.\nObtain the corresponding simple harmonic motions of the x-projection of the radius vector of the revolving particle P, in each case.",
+        "given": "Case (a): A = 2.0 cm, T = 4.0 s => ω = 2π / 4 = π/2 rad s⁻¹, Initial phase φ = 0, Anticlockwise rotation.\nCase (b): A = 1.0 m, T = 30.0 s => ω = 2π / 30 = π/15 rad s⁻¹, Initial phase φ = π/2 rad, Clockwise rotation.",
+        "to_calculate": "x-projection equation x(t) for cases (a) and (b)",
+        "formula": "x(t) = A · cos(θ(t))\nFor anticlockwise: θ(t) = ωt + φ => x(t) = A cos(ωt + φ)\nFor clockwise: θ(t) = φ - ωt => x(t) = A cos(φ - ωt) = A cos(ωt - φ)",
+        "substitution": "(a) A = 2.0 cm, ω = π/2 rad s⁻¹, φ = 0 => x(t) = 2.0 cos(πt / 2) cm\n(b) A = 1.0 m, ω = π/15 rad s⁻¹, φ = π/2 => x(t) = 1.0 cos(π/2 - πt / 15) = 1.0 sin(πt / 15) m",
+        "calculation": "(a) x(t) = 2 cos(πt / 2) cm\n(b) x(t) = sin(πt / 15) m (or cos(πt/15 - π/2) m)",
+        "rough_work": "[ROUGH_WORK]\n(a) w = 2pi/4 = pi/2 rad/s. x = 2 cos(pi t / 2) cm\n(b) w = 2pi/30 = pi/15 rad/s. phi = pi/2. Clockwise => theta = pi/2 - pi t/15\nx = cos(pi/2 - pi t/15) = sin(pi t/15) m.",
+        "finalAnswer": "(a) x(t) = 2 cos(πt / 2) cm; (b) x(t) = sin(πt / 15) m",
+        "unit": "cm, m",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Exercise 13.11, Page 276",
+        "figure_reference": "Fig. 13.20",
+        "image_search_query": "reference circle projection x axis harmonic motion"
+      },
+      {
+        "problem": "NCERT Exercise 13.12: Plot the corresponding reference circle for each of the following simple harmonic motions. Indicate the initial (t = 0) position of the particle, the radius of the circle, and the angular speed of the rotating particle. For simplicity, the sense of rotation may be fixed to be anticlockwise in every case: (x is in cm and t is in s):\n(a) x = -2 sin(3t + π/3)\n(b) x = cos(π/6 - t)\n(c) x = 3 sin(2πt + π/4)\n(d) x = 2 cos πt",
+        "given": "Four SHM equations with specified units (x in cm, t in s)",
+        "to_calculate": "Radius A, angular frequency ω, and initial phase angle φ_0 for each reference circle in standard form x = A cos(ωt + φ_0)",
+        "formula": "Standard cosine form: x(t) = A · cos(ωt + φ_0)\nTrigonometric conversions:\n-sin(θ) = cos(θ + π/2)\nsin(θ) = cos(θ - π/2) = cos(π/2 - θ)\ncos(θ) = cos(-θ)",
+        "substitution": "(a) x = -2 sin(3t + π/3) = 2 cos(3t + π/3 + π/2) = 2 cos(3t + 5π/6)\n(b) x = cos(π/6 - t) = cos(-(t - π/6)) = cos(t - π/6)\n(c) x = 3 sin(2πt + π/4) = 3 cos(2πt + π/4 - π/2) = 3 cos(2πt - π/4)\n(d) x = 2 cos(πt) = 2 cos(πt + 0)",
+        "calculation": "(a) Radius A = 2 cm, Angular speed ω = 3 rad s⁻¹, Initial phase φ_0 = 5π/6 rad (150°)\n(b) Radius A = 1 cm, Angular speed ω = 1 rad s⁻¹, Initial phase φ_0 = -π/6 rad (-30° or 330°)\n(c) Radius A = 3 cm, Angular speed ω = 2π rad s⁻¹, Initial phase φ_0 = -π/4 rad (-45° or 315°)\n(d) Radius A = 2 cm, Angular speed ω = π rad s⁻¹, Initial phase φ_0 = 0 rad (0°)",
+        "rough_work": "[ROUGH_WORK]\n(a) -sin(u) = cos(u + pi/2) => 3t + pi/3 + pi/2 = 3t + 5pi/6 => A=2, w=3, phi=5pi/6\n(b) cos(pi/6 - t) = cos(t - pi/6) => A=1, w=1, phi=-pi/6\n(c) sin(u) = cos(u - pi/2) => 2pi t + pi/4 - pi/2 = 2pi t - pi/4 => A=3, w=2pi, phi=-pi/4\n(d) A=2, w=pi, phi=0.",
+        "finalAnswer": "(a) Radius = 2 cm, ω = 3 rad s⁻¹, φ_0 = 5π/6 rad; (b) Radius = 1 cm, ω = 1 rad s⁻¹, φ_0 = -π/6 rad; (c) Radius = 3 cm, ω = 2π rad s⁻¹, φ_0 = -π/4 rad; (d) Radius = 2 cm, ω = π rad s⁻¹, φ_0 = 0 rad",
+        "unit": "cm, rad s⁻¹, rad",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Exercise 13.12, Page 276",
+        "image_search_query": "reference circle phasor shm plot radius angle"
+      },
+      {
+        "problem": "NCERT Exercise 13.13: Figure 13.21(a) shows a spring of force constant k clamped rigidly at one end and a mass m attached to its free end. A force F applied at the free end stretches the spring. Figure 13.21(b) shows the same spring clamped at both ends and stretched by a force F applied at its midpoint. Find the extension in both cases and compare the periods of oscillation.",
+        "given": "Fig. 13.21(a): Single spring of constant k with mass m attached at end.\nFig. 13.21(b): Spring of length L clamped at both ends, mass m attached at midpoint => equivalent to two springs of length L/2 connected in parallel.",
+        "to_calculate": "Extensions Δl_a, Δl_b and time periods T_a, T_b",
+        "formula": "Case (a): F = k · Δl_a => Δl_a = F / k; T_a = 2π · √(m / k)\nCase (b): Each half has length L/2, so each half has spring constant k' = 2k.\nBoth halves are in parallel on mass m => k_eff = k' + k' = 2k + 2k = 4k.\nApplied force F stretches both halves: F = k_eff · Δl_b = 4k · Δl_b => Δl_b = F / (4k).\nPeriod: T_b = 2π · √(m / k_eff) = 2π · √(m / 4k) = ½ · T_a.",
+        "substitution": "Δl_b = Δl_a / 4\nT_b = ½ · T_a",
+        "calculation": "Extension in case (b) is one-fourth of case (a): Δl_b = F / 4k = Δl_a / 4.\nTime period in case (b) is halved: T_b = T_a / 2.",
+        "rough_work": "[ROUGH_WORK]\nCase (a): k_eff = k, x = F/k, T = 2pi sqrt(m/k)\nCase (b): two halves in parallel, each k' = 2k => k_eff = 4k.\nx = F/4k, T = 2pi sqrt(m/4k) = T_a / 2.",
+        "finalAnswer": "Case (a): Extension = F/k, Period T_a = 2π √(m/k); Case (b): Extension = F/(4k) = Δl_a / 4, Period T_b = T_a / 2 (halved)",
+        "unit": "m, s",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Exercise 13.13, Page 276",
+        "figure_reference": "Fig. 13.21",
+        "image_search_query": "spring clamped at ends midpoint stretched parallel"
+      },
+      {
+        "problem": "NCERT Exercise 13.14: The piston in the cylinder head of a locomotive has a stroke (twice the amplitude) of 1.0 m. If the piston moves with simple harmonic motion with an angular frequency of 200 rad min⁻¹, what is its maximum speed?",
+        "given": "Stroke length = 2A = 1.0 m => Amplitude A = 1.0 / 2 = 0.50 m\nAngular frequency ω = 200 rad min⁻¹ = (200 / 60) rad s⁻¹ = 10/3 rad s⁻¹ ≈ 3.33 rad s⁻¹",
+        "to_calculate": "Maximum speed of the piston v_max",
+        "formula": "Maximum speed in SHM: v_max = ω · A",
+        "substitution": "v_max = (10/3 rad s⁻¹) × (0.50 m)",
+        "calculation": "v_max = 5/3 m s⁻¹ = 1.667 m s⁻¹ ≈ 1.67 m s⁻¹ (or 100 m min⁻¹)",
+        "rough_work": "[ROUGH_WORK]\n2A = 1.0 m => A = 0.5 m\nω = 200 / 60 = 10/3 rad/s\nv_max = 0.5 × 10/3 = 5/3 = 1.667 m/s.",
+        "finalAnswer": "Maximum speed of the piston v_max = 1.67 m s⁻¹ (or 100 m min⁻¹)",
+        "unit": "m s⁻¹",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Exercise 13.14, Page 277",
+        "image_search_query": "locomotive piston stroke amplitude maximum speed shm"
+      },
+      {
+        "problem": "NCERT Exercise 13.15: The acceleration due to gravity on the surface of Moon is 1.7 m s⁻². What is the time period of a simple pendulum on the surface of Moon if its time period on the surface of Earth is 3.5 s? (Take g on Earth = 9.8 m s⁻²)",
+        "given": "Period on Earth T_E = 3.5 s, g_Earth = 9.8 m s⁻², g_Moon = 1.7 m s⁻²",
+        "to_calculate": "Time period on Moon T_M",
+        "formula": "T = 2π · √(L / g) => T ∝ 1 / √g => T_M / T_E = √(g_E / g_M) => T_M = T_E · √(g_E / g_M)",
+        "substitution": "T_M = 3.5 s × √(9.8 / 1.7)",
+        "calculation": "9.8 / 1.7 = 5.7647\n√(5.7647) = 2.401\nT_M = 3.5 × 2.401 = 8.4035 s ≈ 8.4 s",
+        "rough_work": "[ROUGH_WORK]\nsqrt(9.8 / 1.7) = sqrt(5.7647) = 2.401\n3.5 × 2.401 = 8.403 s.",
+        "finalAnswer": "Time period of the simple pendulum on the Moon T_M = 8.4 s",
+        "unit": "s",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Exercise 13.15, Page 277",
+        "image_search_query": "simple pendulum time period moon earth gravity calculation"
+      },
+      {
+        "problem": "NCERT Exercise 13.16: A simple pendulum of length l and having a bob of mass m is suspended in a car. The car is moving on a circular track of radius R with a uniform speed v. If the pendulum makes small oscillations in a radial direction about its equilibrium position, what will be its time period?",
+        "given": "Length of pendulum = l, Mass of bob = m, Car moving on horizontal circle of radius R with constant speed v",
+        "to_calculate": "Effective acceleration due to gravity g_eff and time period T",
+        "formula": "The bob experiences two perpendicular accelerations:\n1. Vertical downward gravitational acceleration = g\n2. Horizontal radial centrifugal acceleration = a_c = v² / R\nEffective acceleration: g_eff = √(g² + a_c²) = √(g² + (v²/R)²)\nTime period: T = 2π · √(l / g_eff) = 2π · √[ l / √(g² + v⁴/R²) ]",
+        "substitution": "g_eff = [ g² + v⁴/R² ]¹ᐟ²\nT = 2π · [ l / (g² + v⁴/R²)¹ᐟ² ]¹ᐟ² = 2π · [ l² / (g² + v⁴/R²) ]¹ᐟ⁴",
+        "calculation": "Since g_eff > g, the effective gravity is increased, which reduces the time period of oscillation compared to a stationary car.",
+        "rough_work": "[ROUGH_WORK]\nVertical = g, horizontal = v²/R\ng_eff = sqrt(g² + v⁴/R²)\nT = 2pi sqrt(l / g_eff).",
+        "finalAnswer": "Time period T = 2π · √[ l / √(g² + v⁴/R²) ]",
+        "unit": "s",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Exercise 13.16, Page 277",
+        "image_search_query": "simple pendulum in car moving in circle effective gravity"
+      },
+      {
+        "problem": "NCERT Exercise 13.17: A cylindrical piece of cork of density ρ and base area A and height h floats in a liquid of density ρ_l. The cork is depressed slightly and released. Show that the cork oscillates up and down simple harmonically with a period T = 2π · √(h ρ / (ρ_l g)).",
+        "given": "Cylindrical cork of base area A, height h, density ρ floating in liquid of density ρ_l (where ρ < ρ_l)",
+        "to_calculate": "Derive equation of motion and time period T",
+        "formula": "Mass of cork: m = A · h · ρ.\nAt equilibrium: Weight = Upthrust => m g = A · h_submerged · ρ_l · g.\nWhen depressed downward by a small displacement y:\nExtra submerged volume = A · y\nExtra upward buoyant restoring force: F = -A · y · ρ_l · g\nEquation of motion: m · (d²y/dt²) = -A · ρ_l · g · y => d²y/dt² + [ (A · ρ_l · g) / m ] · y = 0\nThis is SHM d²y/dt² + ω² y = 0 with ω = √(A ρ_l g / m).\nPeriod T = 2π / ω = 2π · √(m / (A ρ_l g))",
+        "substitution": "Substitute m = A · h · ρ:\nT = 2π · √[ (A · h · ρ) / (A · ρ_l · g) ] = 2π · √[ (h · ρ) / (ρ_l · g) ]",
+        "calculation": "Since restoring force F = -(A ρ_l g) y is linear in displacement y and acts towards equilibrium, the motion is strictly simple harmonic.\nTime period T = 2π · √(h ρ / (ρ_l g)) (Hence Proved).",
+        "rough_work": "[ROUGH_WORK]\nExtra buoyant force = -A y ρ_l g\nm = A h ρ\nω² = A ρ_l g / (A h ρ) = ρ_l g / (h ρ)\nT = 2pi sqrt(h ρ / (ρ_l g)).",
+        "finalAnswer": "The cork executes SHM with time period T = 2π · √[ (h · ρ) / (ρ_l · g) ] (Hence Proved)",
+        "unit": "s",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Exercise 13.17, Page 277",
+        "image_search_query": "floating cork oscillation shm buoyant restoring force"
+      },
+      {
+        "problem": "NCERT Exercise 13.18: One end of a U-tube containing mercury is connected to a suction pump and the other end to atmosphere. A small pressure difference is maintained between the two columns. Show that, when the suction pump is removed, the column of mercury in the U-tube executes simple harmonic motion, and find its time period.",
+        "given": "U-tube of uniform cross-sectional area A, containing mercury of total column length L (or equilibrium height h in each limb, L = 2h), density ρ",
+        "to_calculate": "Proof of SHM and expression for time period T",
+        "formula": "When mercury level is depressed by y in one limb, it rises by y in the other limb.\nDifference in mercury levels between the two limbs = 2y.\nExcess hydrostatic pressure head = 2y · ρ · g.\nRestoring force: F = -Pressure × Area = -(2y · ρ · g) · A = -(2 A ρ g) · y.\nTotal mass of mercury in the U-tube: m = A · L · ρ = A · (2h) · ρ.\nEquation of motion: m · (d²y/dt²) = -(2 A ρ g) · y => d²y/dt² + [ (2 A ρ g) / (A L ρ) ] · y = 0\nd²y/dt² + (2g / L) · y = 0 (or d²y/dt² + (g / h) · y = 0).\nAngular frequency: ω = √(2g / L) = √(g / h)\nPeriod: T = 2π · √(L / 2g) = 2π · √(h / g)",
+        "substitution": "T = 2π · √(h / g) where h is the equilibrium liquid height in each limb",
+        "calculation": "Because restoring force F = -(2 A ρ g) y is linearly proportional to displacement y and directed towards equilibrium, the oscillation is simple harmonic.\nTime period T = 2π · √(h / g) (independent of density ρ and cross-section A).",
+        "rough_work": "[ROUGH_WORK]\nRestoring force = -2 y A ρ g\nm = L A ρ = 2h A ρ\na = -F/m = -(2 A ρ g / (2h A ρ)) y = -(g/h) y\nT = 2pi sqrt(h/g).",
+        "finalAnswer": "Motion is SHM with time period T = 2π · √(h / g) (where h is equilibrium height in each limb, or T = 2π √(L / 2g))",
+        "unit": "s",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Exercise 13.18, Page 277",
+        "image_search_query": "u tube liquid column oscillation shm time period"
+      },
+      {
+        "problem": "NCERT Exercise 13.19: A body of mass m is suspended by two springs of force constants k₁ and k₂ in series. If a mass m = 2.0 kg is suspended from two springs with k₁ = 300 N m⁻¹ and k₂ = 600 N m⁻¹, calculate (a) the effective force constant of the combination, (b) the time period of vertical oscillations, and (c) the extension in each spring at equilibrium.",
+        "given": "Mass m = 2.0 kg, Spring constants k₁ = 300 N m⁻¹, k₂ = 600 N m⁻¹, Acceleration due to gravity g = 9.8 m s⁻²",
+        "to_calculate": "(a) Effective spring constant k_eff, (b) Time period T, (c) Equilibrium extensions x₁ and x₂",
+        "formula": "(a) Series springs: 1 / k_eff = 1/k₁ + 1/k₂ => k_eff = (k₁ · k₂) / (k₁ + k₂)\n(b) Period: T = 2π · √(m / k_eff)\n(c) In series, tension under load is equal: T = m · g = k₁ x₁ = k₂ x₂ => x₁ = mg / k₁, x₂ = mg / k₂",
+        "substitution": "(a) k_eff = (300 × 600) / (300 + 600) = 180000 / 900\n(b) T = 2 × 3.1416 × √(2.0 / 200)\n(c) Load F = 2.0 × 9.8 = 19.6 N\nx₁ = 19.6 / 300; x₂ = 19.6 / 600",
+        "calculation": "(a) k_eff = 200 N m⁻¹\n(b) T = 2π × √(0.01) = 2π × 0.10 = 0.20π = 0.628 s\n(c) x₁ = 19.6 / 300 = 0.0653 m = 6.53 cm\nx₂ = 19.6 / 600 = 0.0327 m = 3.27 cm\nTotal extension x = x₁ + x₂ = 0.098 m = 9.8 cm (Check: F/k_eff = 19.6/200 = 0.098 m).",
+        "rough_work": "[ROUGH_WORK]\nk_eff = 300 × 600 / 900 = 200 N/m\nT = 2pi sqrt(2/200) = 0.2 pi = 0.628 s\nx₁ = 19.6 / 300 = 6.53 cm, x₂ = 19.6 / 600 = 3.27 cm",
+        "finalAnswer": "(a) Effective force constant k_eff = 200 N m⁻¹; (b) Time period T = 0.63 s; (c) Extensions: x₁ = 6.53 cm, x₂ = 3.27 cm",
+        "unit": "N m⁻¹, s, cm",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Additional Exercise 13.19",
+        "image_search_query": "springs in series effective spring constant extension"
+      },
+      {
+        "problem": "NCERT Exercise 13.20: A uniform circular disc of mass M = 1.2 kg and radius R = 0.20 m is pivoted at its rim about a horizontal frictionless axis. Find the period of small angular oscillations about the pivot.",
+        "given": "Uniform circular disc: Mass M = 1.2 kg, Radius R = 0.20 m, Pivot at rim (distance from CM is d = R = 0.20 m), g = 9.8 m s⁻²",
+        "to_calculate": "Moment of inertia about pivot I, and time period of physical pendulum T",
+        "formula": "Parallel axis theorem: I = I_cm + M · d² = ½ M R² + M R² = (3/2) · M · R²\nTime period of compound/physical pendulum: T = 2π · √[ I / (M · g · d) ] = 2π · √[ (3/2 M R²) / (M g R) ] = 2π · √[ 3R / 2g ]",
+        "substitution": "T = 2 × 3.1416 × √[ (3 × 0.20 m) / (2 × 9.8 m s⁻²) ] = 2π × √[ 0.60 / 19.6 ]",
+        "calculation": "0.60 / 19.6 = 0.030612 s²\n√(0.030612) = 0.17496 s\nT = 2 × 3.1416 × 0.17496 = 1.099 s ≈ 1.10 s",
+        "rough_work": "[ROUGH_WORK]\nI = 1.5 M R²\nT = 2pi sqrt(1.5 R / g) = 2pi sqrt(0.3 / 9.8) = 2pi sqrt(0.03061) = 2pi × 0.175 = 1.099 s.",
+        "finalAnswer": "Time period of oscillation of the disc T = 1.10 s",
+        "unit": "s",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Additional Exercise 13.20",
+        "image_search_query": "physical pendulum circular disc rim pivot period"
+      },
+      {
+        "problem": "NCERT Exercise 13.21: If a straight frictionless tunnel is drilled through the Earth passing through its centre, show that a body dropped into the tunnel executes simple harmonic motion. Calculate its time period of oscillation. (Take radius of Earth R_E = 6.4 × 10⁶ m, g = 9.8 m s⁻²)",
+        "given": "Tunnel through Earth's centre, Earth radius R_E = 6.4 × 10⁶ m, Surface gravity g = 9.8 m s⁻²",
+        "to_calculate": "Proof of SHM and numerical time period T",
+        "formula": "At distance r from Earth's centre (r ≤ R_E), only mass within sphere of radius r attracts the body:\nM(r) = M_E · (r³ / R_E³)\nGravitational force: F = -G M(r) m / r² = -G (M_E r³ / R_E³) m / r² = -(G M_E m / R_E³) · r = -(m g / R_E) · r\nSince F ∝ -r, motion is SHM with ω = √(g / R_E).\nTime period: T = 2π · √(R_E / g)",
+        "substitution": "T = 2 × 3.1416 × √[ (6.4 × 10⁶ m) / (9.8 m s⁻²) ]",
+        "calculation": "6.4 × 10⁶ / 9.8 = 6.5306 × 10⁵ s²\n√(6.5306 × 10⁵) = 808.12 s\nT = 2 × 3.1416 × 808.12 = 5077.6 s\nIn minutes: T = 5077.6 / 60 = 84.6 minutes ≈ 84.6 min (or 1.41 hours)",
+        "rough_work": "[ROUGH_WORK]\nF = -(mg/R) r => SHM.\nT = 2pi sqrt(R/g) = 2pi sqrt(6400000 / 9.8) = 2pi × 808.1 = 5078 s = 84.6 min.",
+        "finalAnswer": "Motion is simple harmonic; Time period T = 84.6 minutes (5078 s)",
+        "unit": "min (or s)",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Additional Exercise 13.21",
+        "image_search_query": "tunnel through earth simple harmonic motion 84.6 minutes"
+      },
+      {
+        "problem": "NCERT Exercise 13.22: When water drains out of a cylindrical wash-basin through a central bottom hole, explain the conditions under which standing surface waves and oscillatory sloshing resonance occur. If a cylindrical container of radius R = 15 cm contains water of depth h = 10 cm, estimate the fundamental resonant sloshing frequency. (Take g = 9.8 m s⁻²)",
+        "given": "Cylindrical container of radius R = 15 cm = 0.15 m, depth h = 10 cm = 0.10 m",
+        "to_calculate": "Physical explanation of sloshing resonance and fundamental natural frequency ν",
+        "formula": "For shallow liquid in a cylindrical vessel, fundamental standing wave sloshing frequency: ν = (1 / 2π) · √(1.841 · g · tanh(1.841 h / R) / R)",
+        "substitution": "1.841 h / R = 1.841 × 0.10 / 0.15 = 1.227\ntanh(1.227) ≈ 0.8418\nν = (1 / 2π) · √[ 1.841 × 9.8 × 0.8418 / 0.15 ]",
+        "calculation": "Numerator inside radical = 15.187\nInside radical = 15.187 / 0.15 = 101.25 s⁻²\nRoot = √101.25 = 10.06 rad s⁻¹\nν = 10.06 / (2 × 3.1416) = 1.60 Hz",
+        "rough_work": "[ROUGH_WORK]\ntanh(1.227) = 0.842\n1.841 × 9.8 × 0.842 / 0.15 = 101.28\nsqrt(101.28) = 10.06 rad/s\nν = 10.06 / 2pi = 1.60 Hz.",
+        "finalAnswer": "Fundamental liquid sloshing frequency ν = 1.60 Hz",
+        "unit": "Hz",
+        "textbook_reference": "NCERT Class 11 Physics Part 2, Chapter 13, Additional Exercise 13.22",
+        "image_search_query": "liquid sloshing resonance standing waves cylinder frequency"
       }
     ],
     "common_misconceptions": [
@@ -369,15 +1050,100 @@
     ],
     "concept_questions": [
       {
-        "question": "Where does the maximum tension in the string of an oscillating simple pendulum occur?",
+        "question": "In NCERT Exercise 13.8, a body oscillating on a spring balance has period T = 0.60 s with scale reading 0 to 50 kg over 20 cm. Why is the calculated weight W = 219 N rather than 50 kg?",
         "options": [
-          "(Recommended) At the lowest point (mean position), where both gravity and centripetal force act in the same downward direction",
-          "At the extreme positions",
-          "Halfway between mean and extreme",
-          "Tension remains constant throughout the swing"
+          "(Recommended) Because 50 kg represents the maximum capacity of the balance scale, whereas the suspended body that oscillates with T = 0.6 s has a mass of 22.3 kg",
+          "Because gravity acts only during the downward half of the oscillation",
+          "Because spring stiffness decreases when stretched",
+          "Because acceleration due to gravity is halved during oscillation"
         ],
-        "correct_answer": "(Recommended) At the lowest point (mean position), where both gravity and centripetal force act in the same downward direction",
-        "explanation": "At the lowest point, speed is maximum (v_max = ωA). The string must support both the weight mg and provide centripetal force m v^2 / L, making tension T = mg + m v_max^2 / L maximum."
+        "correctAnswer": "(Recommended) Because 50 kg represents the maximum capacity of the balance scale, whereas the suspended body that oscillates with T = 0.6 s has a mass of 22.3 kg",
+        "correct_answer": "(Recommended) Because 50 kg represents the maximum capacity of the balance scale, whereas the suspended body that oscillates with T = 0.6 s has a mass of 22.3 kg",
+        "explanation": "The scale data (50 kg across 20 cm) determines the spring constant k = 2450 N/m. The suspended oscillating mass is found from T = 2π√(m/k) = 0.60 s, giving m = 22.3 kg and W = mg = 219 N.",
+        "hint": "Distinguish between the spring's maximum scale rating and the actual attached mass.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Exercise 13.8, Page 275",
+        "image_search_query": "spring balance spring constant suspended mass"
+      },
+      {
+        "question": "When a spring of constant k is clamped at both ends and displaced at its midpoint (NCERT Exercise 13.13), why does the effective spring constant become 4k?",
+        "options": [
+          "(Recommended) Each half has length L/2 and stiffness 2k; displacing the midpoint compresses one half and stretches the other in parallel, giving k_eff = 2k + 2k = 4k",
+          "Because the mass of the spring is quadrupled",
+          "Because energy is proportional to the square of frequency",
+          "Because the two halves act in series"
+        ],
+        "correctAnswer": "(Recommended) Each half has length L/2 and stiffness 2k; displacing the midpoint compresses one half and stretches the other in parallel, giving k_eff = 2k + 2k = 4k",
+        "correct_answer": "(Recommended) Each half has length L/2 and stiffness 2k; displacing the midpoint compresses one half and stretches the other in parallel, giving k_eff = 2k + 2k = 4k",
+        "explanation": "Cutting length in half doubles stiffness to 2k. Since both halves attach to the same displaced midpoint, both exert restoring forces in the same direction: F = -(2k + 2k)x = -4kx.",
+        "hint": "Analyze the stiffness of each half and their parallel configuration on the midpoint.",
+        "blooms_level": "Analyze",
+        "textbook_reference": "Exercise 13.13, Page 276",
+        "image_search_query": "spring clamped at ends midpoint parallel stiffness 4k"
+      },
+      {
+        "question": "In NCERT Exercise 13.21, what is the remarkable property of the period T = 84.6 minutes for a body falling through a tunnel in the Earth?",
+        "options": [
+          "(Recommended) It is identical to the orbital period of a hypothetical satellite skimming the Earth's surface at low orbit: T = 2π √(R/g)",
+          "It equals exactly one solar day",
+          "It depends inversely on the mass of the dropped object",
+          "It is twice the rotation period of the Moon"
+        ],
+        "correctAnswer": "(Recommended) It is identical to the orbital period of a hypothetical satellite skimming the Earth's surface at low orbit: T = 2π √(R/g)",
+        "correct_answer": "(Recommended) It is identical to the orbital period of a hypothetical satellite skimming the Earth's surface at low orbit: T = 2π √(R/g)",
+        "explanation": "Both orbital motion at r = R_E and tunnel oscillation share the exact same characteristic frequency ω = √(g/R_E) ≈ 1.24 × 10⁻³ rad/s, yielding T = 2π √(R/g) = 84.6 minutes.",
+        "hint": "Compare the formulas for low Earth orbital period and tunnel SHM period.",
+        "blooms_level": "Analyze",
+        "textbook_reference": "Exercise 13.21, Page 277",
+        "image_search_query": "tunnel earth oscillation satellite orbital period 84 minutes"
+      },
+      {
+        "question": "Why is the time period of vertical oscillation of a floating cork (NCERT Exercise 13.17) independent of the cross-sectional area A of the cylinder?",
+        "options": [
+          "(Recommended) Because both the mass of the cork and the extra buoyant restoring force scale linearly with area A, so area cancels out in acceleration a = -[(ρ_l g) / (h ρ)] y",
+          "Because buoyant force depends only on atmospheric pressure",
+          "Because cork is completely impermeable to liquids",
+          "Because area appears only as a quadratic term"
+        ],
+        "correctAnswer": "(Recommended) Because both the mass of the cork and the extra buoyant restoring force scale linearly with area A, so area cancels out in acceleration a = -[(ρ_l g) / (h ρ)] y",
+        "correct_answer": "(Recommended) Because both the mass of the cork and the extra buoyant restoring force scale linearly with area A, so area cancels out in acceleration a = -[(ρ_l g) / (h ρ)] y",
+        "explanation": "Mass m = A h ρ and restoring force constant k = A ρ_l g. In ω² = k/m = (A ρ_l g) / (A h ρ) = (ρ_l g) / (h ρ), area A cancels out completely.",
+        "hint": "Check the ratio k / m where both k and m contain factor A.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Exercise 13.17, Page 277",
+        "image_search_query": "floating cork oscillation area independence"
+      },
+      {
+        "question": "For the U-tube mercury oscillator in NCERT Exercise 13.18, why does the time period T = 2π √(h/g) not depend on the density of mercury ρ?",
+        "options": [
+          "(Recommended) Because inertia (total mass m = 2hAρ) and restoring gravity force (F = 2yAρg) are both directly proportional to density ρ, cancelling it in the equation of motion",
+          "Because mercury is an incompressible non-wetting liquid",
+          "Because surface tension balances the weight",
+          "Because mercury atoms do not oscillate"
+        ],
+        "correctAnswer": "(Recommended) Because inertia (total mass m = 2hAρ) and restoring gravity force (F = 2yAρg) are both directly proportional to density ρ, cancelling it in the equation of motion",
+        "correct_answer": "(Recommended) Because inertia (total mass m = 2hAρ) and restoring gravity force (F = 2yAρg) are both directly proportional to density ρ, cancelling it in the equation of motion",
+        "explanation": "Just like a simple pendulum where mass m cancels from both sides of m·a = -mg(x/L), here density ρ appears in both inertial mass and gravitational restoring force, making period strictly a function of column height h and g.",
+        "hint": "Divide restoring force by mass to see which terms cancel.",
+        "blooms_level": "Understand",
+        "textbook_reference": "Exercise 13.18, Page 277",
+        "image_search_query": "u tube liquid oscillation density independence"
+      },
+      {
+        "question": "In NCERT Exercise 13.14, a locomotive piston with stroke 1.0 m has an angular frequency of 200 rad/min. What is its maximum acceleration?",
+        "options": [
+          "(Recommended) 5.56 m s⁻²",
+          "1.67 m s⁻²",
+          "11.1 m s⁻²",
+          "0.83 m s⁻²"
+        ],
+        "correctAnswer": "(Recommended) 5.56 m s⁻²",
+        "correct_answer": "(Recommended) 5.56 m s⁻²",
+        "explanation": "Amplitude A = stroke / 2 = 0.50 m. Angular frequency ω = 200/60 = 10/3 rad s⁻¹ ≈ 3.33 rad s⁻¹. Maximum acceleration a_max = ω² A = (10/3)² × 0.50 = (100/9) × 0.50 = 50/9 ≈ 5.56 m s⁻².",
+        "hint": "Use a_max = ω²A with A = 0.5 m and ω = 10/3 rad/s.",
+        "blooms_level": "Apply",
+        "textbook_reference": "Exercise 13.14, Page 277",
+        "image_search_query": "piston maximum acceleration shm calculation"
       }
     ],
     "concept_visuals": [

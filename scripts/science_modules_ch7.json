@@ -32,10 +32,13 @@
         "unit": "J",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.3: Work done by a force while displacing an object"
+        "figure_caption": "Fig. 7.3: Work done by a force while displacing an object",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 21,
+        "section": "Section 7.1"
       },
       {
-        "problem": "A porter lifts luggage of 15 kg from the ground and puts it on his head 1.5 m above the ground. Calculate the work done by him on the luggage. (Take g = 10 m/s²).",
+        "problem": "A porter lifts luggage of 15 kg from the ground and puts it on his head 1.5 m above the ground. Calculate the work done by him on the luggage. (Take g = 10 m/s\u00b2).",
         "given": "Mass $m = 15\\text{ kg}$, height $s = h = 1.5\\text{ m}$, acceleration due to gravity $g = 10\\text{ m/s}^2$.",
         "formula": "$W = F \\times s = (m \\cdot g) \\times h$.",
         "substitution": "$W = (15 \\times 10) \\times 1.5 = 150 \\times 1.5$.",
@@ -44,7 +47,10 @@
         "unit": "J",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.2: Lifting luggage against gravity to a height"
+        "figure_caption": "Fig. 7.2: Lifting luggage against gravity to a height",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 21,
+        "section": "Section 7.1"
       },
       {
         "problem": "A person pushes against a solid brick wall with a force of 200 N for 10 minutes until completely exhausted. Calculate the work done on the wall.",
@@ -56,7 +62,10 @@
         "unit": "J",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.5: Pushing against a stationary wall resulting in zero displacement"
+        "figure_caption": "Fig. 7.5: Pushing against a stationary wall resulting in zero displacement",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 21,
+        "section": "Section 7.1"
       },
       {
         "problem": "A bullock exerts a force of 140 N on a plough. The field being ploughed is 15 m long. How much work is done in ploughing the length of the field?",
@@ -68,7 +77,10 @@
         "unit": "J",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.1: Energy required to carry out agricultural ploughing"
+        "figure_caption": "Fig. 7.1: Energy required to carry out agricultural ploughing",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 21,
+        "section": "Section 7.1"
       },
       {
         "problem": "A block of mass 2 kg slides across a rough horizontal table with an initial velocity of 4 m/s and comes to rest after traveling 2 m. Calculate the work done by the force of friction.",
@@ -80,7 +92,10 @@
         "unit": "J",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.4: Force-displacement relationship under friction"
+        "figure_caption": "Fig. 7.4: Force-displacement relationship under friction",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 21,
+        "section": "Section 7.1"
       },
       {
         "problem": "Why does the earth orbiting the sun in a circular orbit experience zero work done by gravitational attraction?",
@@ -92,7 +107,10 @@
         "unit": "Orbital Mechanics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.6: Carrying load perpendicular to displacement producing zero work"
+        "figure_caption": "Fig. 7.6: Carrying load perpendicular to displacement producing zero work",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 21,
+        "section": "Section 7.1"
       }
     ],
     "common_misconceptions": [
@@ -174,7 +192,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Immediately mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you push as hard as you can against a concrete wall for 10 minutes, your arms will burn, but physics says you did ZERO work! Why?\"\n   - Law: Formulate W = F * s and two mandatory conditions.\n   - Socratic check: \"Why does gravity do zero work on a porter walking along a horizontal railway platform?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Immediately mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you push as hard as you can against a concrete wall for 10 minutes, your arms will burn, but physics says you did ZERO work! Why?\"\n   - Law: Formulate W = F * s and two mandatory conditions.\n   - Socratic check: \"Why does gravity do zero work on a porter walking along a horizontal railway platform?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "da5625a5-7071-4533-8667-13da4c28abda",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 2,
@@ -209,7 +230,10 @@
         "unit": "J",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.7: Kinetic energy of moving mass calculation"
+        "figure_caption": "Fig. 7.7: Kinetic energy of moving mass calculation",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 22,
+        "section": "Section 7.2"
       },
       {
         "problem": "What is the work to be done to increase the velocity of a car from 30 km/h to 60 km/h if the mass of the car is 1500 kg?",
@@ -221,7 +245,10 @@
         "unit": "J",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.8: Work-energy theorem applied to accelerating motorcar"
+        "figure_caption": "Fig. 7.8: Work-energy theorem applied to accelerating motorcar",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 22,
+        "section": "Section 7.2"
       },
       {
         "problem": "A 50 g bullet traveling at 200 m/s strikes a wooden block and penetrates 10 cm before coming to rest. Find the average resistive force exerted by the block.",
@@ -233,7 +260,10 @@
         "unit": "N",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.9: Penetration work dissipation in target medium"
+        "figure_caption": "Fig. 7.9: Penetration work dissipation in target medium",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 22,
+        "section": "Section 7.2"
       },
       {
         "problem": "By what factor does the kinetic energy of an object change if its speed is tripled?",
@@ -245,7 +275,10 @@
         "unit": "Ratio",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.10: Parabolic kinetic energy vs velocity curve"
+        "figure_caption": "Fig. 7.10: Parabolic kinetic energy vs velocity curve",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 22,
+        "section": "Section 7.2"
       },
       {
         "problem": "Two bodies of mass 1 kg and 4 kg have equal linear momentum. What is the ratio of their kinetic energies?",
@@ -257,7 +290,10 @@
         "unit": "Ratio",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.11: Relationship between kinetic energy, mass, and linear momentum"
+        "figure_caption": "Fig. 7.11: Relationship between kinetic energy, mass, and linear momentum",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 22,
+        "section": "Section 7.2"
       },
       {
         "problem": "A heavy steel sphere and a light tennis ball are dropped into a sand bed from the same height. Which one penetrates deeper and why?",
@@ -269,7 +305,10 @@
         "unit": "Activity 7.3 Lab Analysis",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.12: Steel ball penetration in sand trough measuring kinetic energy"
+        "figure_caption": "Fig. 7.12: Steel ball penetration in sand trough measuring kinetic energy",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 22,
+        "section": "Section 7.2"
       }
     ],
     "common_misconceptions": [
@@ -351,7 +390,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Immediately mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you double your car's speed from 30 km/h to 60 km/h, does your braking distance double or quadruple?\"\n   - Law & Derivation: Link W = Fs with v^2 - u^2 = 2as on the board.\n   - Socratic check: \"Why does linear momentum double when speed doubles, but kinetic energy quadruples?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Immediately mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If you double your car's speed from 30 km/h to 60 km/h, does your braking distance double or quadruple?\"\n   - Law & Derivation: Link W = Fs with v^2 - u^2 = 2as on the board.\n   - Socratic check: \"Why does linear momentum double when speed doubles, but kinetic energy quadruples?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "da5625a5-7071-4533-8667-13da4c28abda",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 3,
@@ -377,7 +419,7 @@
     "chapter_notes": "### 7.9 Potential Energy ($E_p$)\nPotential energy is energy stored within a system due to its position or mechanical deformation (e.g. stretched rubber band, compressed spring, wound-up toy car spring, water stored in high dam).\n\n### 7.10 Gravitational Potential Energy ($E_p = mgh$)\nWhen an object of mass $m$ is raised through vertical height $h$ against gravity:\n1. Minimum upward force required equals weight: $F = mg$.\n2. Work done against gravity:\n   $$W = F \\times h = (mg) \\times h = mgh$$\n3. This work is stored as gravitational potential energy:\n   $$\\mathbf{E_p = mgh}$$\n\n### 7.11 Path Independence in Gravitational Fields\nGravity is a **conservative force**. Whether a block is lifted vertically upward by height $h$ or pushed up a gentle ramp of length $L$ to the same height $h$:\n$$W = mg \\times h$$\nThe work done depends **only on the vertical height difference**, not on the path traveled.\n\n### 7.12 Law of Conservation of Energy\n$$\\mathbf{E_{total} = E_k + E_p = \\text{Constant}}$$\n*Energy can neither be created nor destroyed; it can only be transformed from one form to another.*\n\n### 7.13 Free Fall Verification Ledger\nConsider mass $m$ dropped from height $H$ ($u = 0$):\n1. **At Point A (Top, height $H$)**:\n   - $v_A = 0 \\implies E_k = 0$\n   - $E_p = mgH$\n   - **Total Energy** $= 0 + mgH = \\mathbf{mgH}$.\n2. **At Point B (Intermediate, fallen distance $x$, height $H - x$)**:\n   - $v_B^2 = 0 + 2gx = 2gx$\n   - $E_k = \\frac{1}{2}m(2gx) = mgx$\n   - $E_p = mg(H - x) = mgH - mgx$\n   - **Total Energy** $= mgx + (mgH - mgx) = \\mathbf{mgH}$.\n3. **At Point C (Ground, height $0$)**:\n   - $v_C^2 = 0 + 2gH = 2gH \\implies v_C = \\sqrt{2gH}$\n   - $E_k = \\frac{1}{2}m(2gH) = mgH$\n   - $E_p = 0$\n   - **Total Energy** $= mgH + 0 = \\mathbf{mgH}$.\nAt every instant, potential energy converts continuously into kinetic energy while total mechanical energy remains invariant.",
     "worked_examples": [
       {
-        "problem": "Find the energy possessed by an object of mass 10 kg when it is at a height of 6 m above the ground. Given, g = 9.8 m/s².",
+        "problem": "Find the energy possessed by an object of mass 10 kg when it is at a height of 6 m above the ground. Given, g = 9.8 m/s\u00b2.",
         "given": "Mass $m = 10\\text{ kg}$, height $h = 6\\text{ m}$, acceleration due to gravity $g = 9.8\\text{ m/s}^2$.",
         "formula": "$E_p = mgh$.",
         "substitution": "$E_p = 10 \\times 9.8 \\times 6$.",
@@ -386,10 +428,13 @@
         "unit": "J",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.13: Potential energy at elevated height h"
+        "figure_caption": "Fig. 7.13: Potential energy at elevated height h",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 23,
+        "section": "Section 7.3"
       },
       {
-        "problem": "An object of mass 12 kg is at a certain height above the ground. If the potential energy of the object is 480 J, find the height at which the object is with respect to the ground. Given, g = 10 m/s².",
+        "problem": "An object of mass 12 kg is at a certain height above the ground. If the potential energy of the object is 480 J, find the height at which the object is with respect to the ground. Given, g = 10 m/s\u00b2.",
         "given": "Mass $m = 12\\text{ kg}$, potential energy $E_p = 480\\text{ J}, g = 10\\text{ m/s}^2$.",
         "formula": "$E_p = mgh \\implies h = \\frac{E_p}{mg}$.",
         "substitution": "$h = \\frac{480}{12 \\times 10} = \\frac{480}{120}$.",
@@ -398,10 +443,13 @@
         "unit": "m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.15: Elevation height determined from potential energy"
+        "figure_caption": "Fig. 7.15: Elevation height determined from potential energy",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 23,
+        "section": "Section 7.3"
       },
       {
-        "problem": "A body of mass 2 kg is dropped from a height of 20 m. Calculate: (a) Potential energy at release, (b) Kinetic energy and velocity after falling 10 m, and (c) Kinetic energy and impact velocity just before hitting the ground. (Take g = 10 m/s²).",
+        "problem": "A body of mass 2 kg is dropped from a height of 20 m. Calculate: (a) Potential energy at release, (b) Kinetic energy and velocity after falling 10 m, and (c) Kinetic energy and impact velocity just before hitting the ground. (Take g = 10 m/s\u00b2).",
         "given": "Mass $m = 2\\text{ kg}$, total height $H = 20\\text{ m}, g = 10\\text{ m/s}^2$.",
         "formula": "Conservation of Mechanical Energy: $E_k + E_p = mgH$; $v = \\sqrt{2gx}$.",
         "substitution": "(a) $E_p = 2 \\times 10 \\times 20$. (b) $x = 10\\text{ m} \\implies E_k = mgx = 2 \\times 10 \\times 10$. (c) $h = 0 \\implies E_k = mgH = 400\\text{ J}$.",
@@ -410,7 +458,10 @@
         "unit": "J and m/s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.16: Free fall mechanical energy exchange ledger"
+        "figure_caption": "Fig. 7.16: Free fall mechanical energy exchange ledger",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 23,
+        "section": "Section 7.3"
       },
       {
         "problem": "A roller coaster car of mass 500 kg starts from rest at the top of a hill 30 m high. Assuming no friction, what is its speed at the bottom of the hill?",
@@ -422,7 +473,10 @@
         "unit": "m/s",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.17: Roller coaster energy conversion hill track"
+        "figure_caption": "Fig. 7.17: Roller coaster energy conversion hill track",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 23,
+        "section": "Section 7.3"
       },
       {
         "problem": "Show that the work done in moving a mass m up a smooth inclined plane of height h and length L is identical to lifting it vertically.",
@@ -434,7 +488,10 @@
         "unit": "Derivation",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.18: Path independence on inclined plane vs vertical lift"
+        "figure_caption": "Fig. 7.18: Path independence on inclined plane vs vertical lift",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 23,
+        "section": "Section 7.3"
       },
       {
         "problem": "Describe the energy transformations in an oscillating simple pendulum. Does it violate the Law of Conservation of Energy? Why does it eventually come to rest?",
@@ -446,7 +503,10 @@
         "unit": "Oscillatory Mechanics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.19: Simple pendulum energy transformations between mean and extreme positions"
+        "figure_caption": "Fig. 7.19: Simple pendulum energy transformations between mean and extreme positions",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 23,
+        "section": "Section 7.3"
       }
     ],
     "common_misconceptions": [
@@ -528,7 +588,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Immediately mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If energy cannot be created or destroyed, why does a pendulum eventually stop swinging?\"\n   - Numerical table: Lay out Top vs Middle vs Ground energy ledger on the board.\n   - Socratic check: \"At what height in free fall does kinetic energy exactly equal potential energy?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Immediately mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"If energy cannot be created or destroyed, why does a pendulum eventually stop swinging?\"\n   - Numerical table: Lay out Top vs Middle vs Ground energy ledger on the board.\n   - Socratic check: \"At what height in free fall does kinetic energy exactly equal potential energy?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "da5625a5-7071-4533-8667-13da4c28abda",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 4,
@@ -563,10 +626,13 @@
         "unit": "W",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.20: Power comparison of rope climbing girls"
+        "figure_caption": "Fig. 7.20: Power comparison of rope climbing girls",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 24,
+        "section": "Section 7.4"
       },
       {
-        "problem": "A boy of mass 50 kg runs up a staircase of 45 steps in 9 s. If the height of each step is 15 cm, find his power. Take g = 10 m/s².",
+        "problem": "A boy of mass 50 kg runs up a staircase of 45 steps in 9 s. If the height of each step is 15 cm, find his power. Take g = 10 m/s\u00b2.",
         "given": "Mass $m = 50\\text{ kg}$, number of steps $= 45$, step height $= 15\\text{ cm} = 0.15\\text{ m}$, total height $h = 45 \\times 0.15 = 6.75\\text{ m}$, time $t = 9\\text{ s}, g = 10\\text{ m/s}^2$.",
         "formula": "Work $W = mgh$; Power $P = \\frac{W}{t}$.",
         "substitution": "$W = 50 \\times 10 \\times 6.75 = 500 \\times 6.75 = 3375\\text{ J}$. $P = \\frac{3375}{9}$.",
@@ -575,7 +641,10 @@
         "unit": "W",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.21: Activity 7.6 staircase climbing power calculation"
+        "figure_caption": "Fig. 7.21: Activity 7.6 staircase climbing power calculation",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 24,
+        "section": "Section 7.4"
       },
       {
         "problem": "An electric bulb of 60 W is used for 6 hours per day. Calculate the 'units' of energy consumed in one day by the bulb.",
@@ -587,7 +656,10 @@
         "unit": "units",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.22: Electrical energy consumption and meter billing"
+        "figure_caption": "Fig. 7.22: Electrical energy consumption and meter billing",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 24,
+        "section": "Section 7.4"
       },
       {
         "problem": "A household consumes 250 units of electrical energy during a month. How much energy is this in Joules?",
@@ -599,7 +671,10 @@
         "unit": "J",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.23: Domestic electricity meter recording kWh units"
+        "figure_caption": "Fig. 7.23: Domestic electricity meter recording kWh units",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 24,
+        "section": "Section 7.4"
       },
       {
         "problem": "An electric heater is rated 1500 W. How much energy does it consume in 10 hours?",
@@ -611,10 +686,13 @@
         "unit": "kWh and J",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.24: High power electrical appliance power dissipation"
+        "figure_caption": "Fig. 7.24: High power electrical appliance power dissipation",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 24,
+        "section": "Section 7.4"
       },
       {
-        "problem": "An electric motor of an elevator lifts a mass of 1200 kg through a vertical height of 20 m in 40 s. Calculate the power delivered by the motor in Watts and in Horsepower. (Take g = 10 m/s²).",
+        "problem": "An electric motor of an elevator lifts a mass of 1200 kg through a vertical height of 20 m in 40 s. Calculate the power delivered by the motor in Watts and in Horsepower. (Take g = 10 m/s\u00b2).",
         "given": "Mass $m = 1200\\text{ kg}, h = 20\\text{ m}, t = 40\\text{ s}, g = 10\\text{ m/s}^2$.",
         "formula": "$W = mgh$; $P = \\frac{W}{t}$; $P_{hp} = \\frac{P}{746}$.",
         "substitution": "$W = 1200 \\times 10 \\times 20 = 240000\\text{ J}$. $P = \\frac{240000}{40} = 6000\\text{ W}$. $P_{hp} = \\frac{6000}{746}$.",
@@ -623,7 +701,10 @@
         "unit": "W and hp",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.25: Elevator winch motor lifting load"
+        "figure_caption": "Fig. 7.25: Elevator winch motor lifting load",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 24,
+        "section": "Section 7.4"
       }
     ],
     "common_misconceptions": [
@@ -705,7 +786,10 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Your electric bill says you used 200 'units'. Is a unit measuring power or energy?\"\n   - Derivation: 1 kWh = 1000 W * 3600 s = 3.6 * 10^6 J on board.\n   - Socratic check: \"Why do we use kWh instead of Joules for electrical billing?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Your electric bill says you used 200 'units'. Is a unit measuring power or energy?\"\n   - Derivation: 1 kWh = 1000 W * 3600 s = 3.6 * 10^6 J on board.\n   - Socratic check: \"Why do we use kWh instead of Joules for electrical billing?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "da5625a5-7071-4533-8667-13da4c28abda",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 5,
@@ -740,7 +824,10 @@
         "unit": "N",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.26: Class 1 lever crowbar mechanical advantage"
+        "figure_caption": "Fig. 7.26: Class 1 lever crowbar mechanical advantage",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 25,
+        "section": "Section 7.5"
       },
       {
         "problem": "A machine having a velocity ratio of 5 requires an effort of 200 N to raise a load of 800 N. Calculate: (a) Mechanical Advantage, and (b) Efficiency of the machine.",
@@ -752,7 +839,10 @@
         "unit": "%",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.27: Machine efficiency relation between MA and VR"
+        "figure_caption": "Fig. 7.27: Machine efficiency relation between MA and VR",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 25,
+        "section": "Section 7.5"
       },
       {
         "problem": "Classify the following everyday tools into Class 1, Class 2, or Class 3 levers: (a) Nutcracker, (b) Scissors, (c) Tweezers, (d) Wheelbarrow, (e) Sugar tongs, (f) Crowbar.",
@@ -764,7 +854,10 @@
         "unit": "Lever Taxonomy",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.28: The three classes of levers blueprint"
+        "figure_caption": "Fig. 7.28: The three classes of levers blueprint",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 25,
+        "section": "Section 7.5"
       },
       {
         "problem": "Why is a single fixed pulley used to draw water from a well even though its Mechanical Advantage is only 1 (no multiplication of force)?",
@@ -776,7 +869,10 @@
         "unit": "Pulley Mechanics",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.29: Single fixed pulley redirecting effort downward"
+        "figure_caption": "Fig. 7.29: Single fixed pulley redirecting effort downward",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 25,
+        "section": "Section 7.5"
       },
       {
         "problem": "A single movable pulley is used to lift a load of 1000 N. Assuming an ideal system without friction or pulley weight, calculate: (a) Velocity Ratio, (b) Effort needed, and (c) If the load is raised by 2 m, how far does the effort rope move?",
@@ -788,10 +884,13 @@
         "unit": "N and m",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.30: Single movable pulley system doubling force"
+        "figure_caption": "Fig. 7.30: Single movable pulley system doubling force",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 25,
+        "section": "Section 7.5"
       },
       {
-        "problem": "An inclined plane of length 5 m is used to roll a 200 kg barrel onto a truck platform 1 m high. Calculate: (a) Ideal Mechanical Advantage, and (b) Minimum effort force required along the incline. (Take g = 10 m/s²).",
+        "problem": "An inclined plane of length 5 m is used to roll a 200 kg barrel onto a truck platform 1 m high. Calculate: (a) Ideal Mechanical Advantage, and (b) Minimum effort force required along the incline. (Take g = 10 m/s\u00b2).",
         "given": "Incline length $L = 5\\text{ m}$, platform height $h = 1\\text{ m}$, barrel mass $m = 200\\text{ kg} \\implies \\text{Weight } W = mg = 2000\\text{ N}$.",
         "formula": "Ideal Incline: $MA = \\frac{L}{h}$; Effort $E = \\frac{W}{MA}$.",
         "substitution": "$MA = \\frac{5}{1} = 5$. $E = \\frac{2000}{5}$.",
@@ -800,7 +899,10 @@
         "unit": "N",
         "has_diagram": true,
         "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.31: Inclined plane used as a force-multiplying machine"
+        "figure_caption": "Fig. 7.31: Inclined plane used as a force-multiplying machine",
+        "image_search_query": "class 9 science chapter 7 ncert diagram",
+        "page": 25,
+        "section": "Section 7.5"
       }
     ],
     "common_misconceptions": [
@@ -882,12 +984,15 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Can a machine ever produce MORE work than the energy put into it?\"\n   - Law: Define MA, VR, and prove eta = MA/VR.\n   - Socratic check: \"Why does a pair of scissors designed for cutting metal have short blades and long handles, while cloth scissors have long blades and short handles?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Hook: \"Can a machine ever produce MORE work than the energy put into it?\"\n   - Law: Define MA, VR, and prove eta = MA/VR.\n   - Socratic check: \"Why does a pair of scissors designed for cutting metal have short blades and long handles, while cloth scissors have long blades and short handles?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "da5625a5-7071-4533-8667-13da4c28abda",
+    "class_level": "Class 9",
+    "board": "CBSE"
   },
   {
     "order_index": 6,
-    "title": "Master Numerical Solver & Comprehensive NCERT Chapter Exercise Ledger",
-    "description": "Complete step-by-step solutions for every NCERT Chapter 7 exercise problem, covering work calculation, kinetic and potential energy conversions, power metrics, commercial electricity billing, and lever mechanical advantage.",
+    "title": "Master Problem Solver & Comprehensive NCERT Chapter Exercise Ledger (Revise, Reflect, Refine Q1 to Q15)",
+    "description": "Exhaustive step-by-step master solutions for all in-text activities and chapter-end 'Revise, Reflect, Refine' exercise problems from NCERT Exploration Grade 9 Chapter 7.",
     "subtopics": [
       "NCERT Q1-Q5: Work conditions, signs of work, kinetic energy velocity-squared scaling",
       "NCERT Q6-Q10: Energy conservation during free fall, stopping distances under constant friction",
@@ -905,64 +1010,109 @@
     "chapter_notes": "### 7.20 Comprehensive NCERT Exercise Ledger Solutions\n\n#### NCERT Q1. Look at the activities listed below. Reason out whether or not work is done in the light of your understanding of the term 'work'.\n- **(a) Suma is swimming in a pond**: Work is **done**. Suma exerts a backward force on the water, and by reaction the water displaces her body forward ($s \\ne 0$, force and displacement are collinear).\n- **(b) A donkey is carrying a load on its back**: Work done by gravity is **zero** (gravity acts downward, displacement is horizontal, $\\theta = 90^\\circ$). Work done by the donkey's muscles against ground friction is positive.\n- **(c) A windmill is lifting water from a well**: Work is **done**. Upward force applied by the rope displaces water upward against gravity ($s \\ne 0$ in direction of force).\n- **(d) A green plant is carrying out photosynthesis**: **No work is done**. There is no macroscopic displacement of the plant or its parts ($s = 0$).\n- **(e) An engine is pulling a train**: Work is **done**. The engine exerts a forward driving force, displacing the train forward ($W = F \\cdot s > 0$).\n- **(f) Food grains are getting dried in the sun**: **No work is done**. Grains remain stationary ($s = 0$).\n- **(g) A sailboat is moving due to wind energy**: Work is **done**. Wind exerts a thrust force pushing the sail and boat forward in the direction of the wind.\n\n#### NCERT Q4. Certain force acting on a 20 kg mass changes its velocity from 5 m/s to 2 m/s. Calculate the work done by the force.\n- $m = 20\\text{ kg}, u = 5\\text{ m/s}, v = 2\\text{ m/s}$.\n- $W = \\frac{1}{2}m(v^2 - u^2) = \\frac{1}{2}(20)(2^2 - 5^2) = 10(4 - 25) = 10(-21) = -\\mathbf{210\\text{ J}}$.\n- Negative sign indicates retarding work done by opposing braking force.\n\n#### NCERT Q5. A mass of 10 kg is at a point A on a table. It is moved to a point B. If the line joining A and B is horizontal, what is the work done on the object by the gravitational force? Explain your answer.\n- Work done by gravity $= \\mathbf{0\\text{ J}}$.\n- Gravitational force acts vertically downward ($mg$), while displacement is horizontal ($AB$). The angle $\\theta = 90^\\circ$, and $\\cos 90^\\circ = 0 \\implies W = mg \\cdot s \\cdot \\cos 90^\\circ = 0$.\n\n#### NCERT Q9. A pair of bullocks exerts a force of 140 N on a plough. The field being ploughed is 15 m long. How much work is done in ploughing the length of the field?\n- $W = F \\times s = 140\\text{ N} \\times 15\\text{ m} = \\mathbf{2100\\text{ J}}$.\n\n#### NCERT Q10. Does the transfer of energy take place when you push a huge rock with all your might and fail to move it? Where is the energy you spend going?\n- No mechanical work is done on the rock because displacement $s = 0$.\n- However, chemical energy from ATP in your muscles is expended in isometric muscle contractions, and is converted entirely into **thermal heat energy**, raising muscle temperature and causing fatigue and perspiration.",
     "worked_examples": [
       {
-        "problem": "NCERT Ex Q4. Certain force acting on a 20 kg mass changes its velocity from 5 m/s to 2 m/s. Calculate the work done by the force.",
-        "given": "Mass $m = 20\\text{ kg}$, initial velocity $u = 5\\text{ m/s}$, final velocity $v = 2\\text{ m/s}$.",
-        "formula": "Work-Energy Theorem: $W = \\Delta E_k = \\frac{1}{2}m(v^2 - u^2)$.",
-        "substitution": "$W = \\frac{1}{2} \\times 20 \\times (2^2 - 5^2) = 10 \\times (4 - 25)$.",
-        "calculation": "$W = 10 \\times (-21) = -\\mathbf{210\\text{ J}}$.",
-        "finalAnswer": "Work done by the force = -210 Joules (negative work retarding the motion).",
-        "unit": "J",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.34: Deceleration work-energy calculation"
+        "problem": "Textbook Revise, Reflect, Refine Q1 (Section 7.1, p. 21): A force of 7 N acts on an object. The displacement is 8 m in the direction of the force. What is the work done in this case?",
+        "given": "Applied force F = 7 N; Displacement s = 8 m; Angle theta = 0 deg (in direction of force).",
+        "formula": "Work done W = F * s * cos(theta).",
+        "substitution": "W = 7 N * 8 m * cos(0) = 7 * 8 * 1.",
+        "calculation": "W = 56 J.",
+        "finalAnswer": "Work done is 56 Joules.",
+        "unit": "Joules (J)",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "work force displacement joules physics calculation",
+        "page": 21,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "NCERT Ex Q5. A mass of 10 kg is at a point A on a table. It is moved to a point B. If the line joining A and B is horizontal, what is the work done on the object by the gravitational force? Explain your answer.",
-        "given": "Mass $m = 10\\text{ kg}$, horizontal displacement $\\vec{s}$ from A to B.",
-        "formula": "$W = \\vec{F}_g \\cdot \\vec{s} = mg \\cdot s \\cdot \\cos\\theta$.",
-        "substitution": "Gravity acts vertically downwards; displacement is horizontal $\\implies \\theta = 90^\\circ$. $W = (10 \\times 9.8) \\times s \\times \\cos(90^\\circ)$.",
-        "calculation": "Since $\\cos 90^\\circ = 0$, $W = 98 \\times s \\times 0 = \\mathbf{0\\text{ J}}$.",
-        "finalAnswer": "Work done by gravity = 0 Joules because gravitational force is perpendicular to horizontal displacement.",
-        "unit": "J",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.35: Horizontal displacement on table under vertical gravity"
+        "problem": "Textbook Revise, Reflect, Refine Q2 & Q3 (Section 7.2, p. 21): When a ball thrown vertically upwards reaches its highest point: (a) What is its kinetic energy? (b) What is its potential energy? (c) Has mechanical energy been conserved?",
+        "given": "Ball of mass m thrown upward reaching maximum height h; Velocity at peak v = 0.",
+        "formula": "Kinetic Energy E_k = (1/2)mv^2; Gravitational Potential Energy E_p = mgh; Total Mechanical Energy E = E_k + E_p.",
+        "substitution": "At peak: v = 0 => E_k = 0; h = h_max => E_p = mgh_max.",
+        "calculation": "1. At the peak, instantaneous velocity v = 0, so kinetic energy is exactly ZERO.\n2. All initial kinetic energy has been converted into gravitational potential energy (E_p = mgh_max).\n3. Neglecting air resistance, the total mechanical energy remains constant throughout the flight.",
+        "finalAnswer": "(a) Kinetic energy is 0 J; (b) Potential energy is maximum (E_p = mgh); (c) Yes, mechanical energy is strictly conserved.",
+        "unit": "Joules (J)",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "conservation of mechanical energy vertical projectile trajectory",
+        "page": 21,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "NCERT Ex Q9. A pair of bullocks exerts a force of 140 N on a plough. The field being ploughed is 15 m long. How much work is done in ploughing the length of the field?",
-        "given": "Force $F = 140\\text{ N}$, displacement $s = 15\\text{ m}$ in the direction of force.",
-        "formula": "$W = F \\times s$.",
-        "substitution": "$W = 140 \\times 15$.",
-        "calculation": "$W = \\mathbf{2100\\text{ J}} = 2.1\\text{ kJ}$.",
-        "finalAnswer": "Work done = 2100 Joules (2.1 kJ).",
-        "unit": "J",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.36: Bullocks pulling plough along straight field length"
+        "problem": "Textbook Revise, Reflect, Refine Q4 (Section 7.2, p. 21): Identify the energy transformations in: (a) An electric heater, (b) Hydroelectric power plant, (c) Photosynthesis, (d) Burning of wood, (e) An archer releasing an arrow from a stretched bow.",
+        "given": "Five energy transduction scenarios.",
+        "formula": "Law of Conservation of Energy: Energy cannot be created or destroyed; it transforms from one form to another.",
+        "substitution": "Identify input and output energy forms.",
+        "calculation": "1. (a) Electric heater: Electrical Energy -> Thermal (Heat) Energy + Radiant (Light) Energy.\n2. (b) Hydroelectric plant: Gravitational Potential Energy of dam water -> Kinetic Energy of rushing water -> Mechanical Kinetic Energy of turbine -> Electrical Energy from generator.\n3. (c) Photosynthesis: Radiant Solar Light Energy -> Chemical Energy stored in glucose bonds.\n4. (d) Burning of wood: Chemical Potential Energy -> Thermal Energy + Light Energy.\n5. (e) Stretched bow: Elastic Potential Energy stored in deformed limbs -> Kinetic Energy of the flying arrow.",
+        "finalAnswer": "(a) Electrical -> Heat; (b) Potential -> Kinetic -> Electrical; (c) Solar -> Chemical; (d) Chemical -> Heat + Light; (e) Elastic Potential -> Kinetic.",
+        "unit": "Energy Transformation Analysis",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "energy transformation conservation examples physics",
+        "page": 21,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "NCERT Ex Q17. Calculate the work required to be done to stop a car of 1500 kg moving at a velocity of 60 km/h.",
-        "given": "Mass $m = 1500\\text{ kg}$, initial velocity $u = 60\\text{ km/h} = 60 \\times \\frac{5}{18} = \\frac{50}{3}\\text{ m/s}$, final velocity $v = 0\\text{ m/s}$.",
-        "formula": "$W = \\frac{1}{2}m(v^2 - u^2)$.",
-        "substitution": "$W = \\frac{1}{2} \\times 1500 \\times \\left[0^2 - \\left(\\frac{50}{3}\\right)^2\\right] = 750 \\times \\left(-\\frac{2500}{9}\\right)$.",
-        "calculation": "$W = -\\frac{1875000}{9} = -\\mathbf{208333.3\\text{ J}} \\approx -\\mathbf{208.33\\text{ kJ}}$.",
-        "finalAnswer": "Work required to stop the car = 208.33 kJ (magnitude = 2.08 * 10^5 J).",
-        "unit": "J",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.37: Stopping work calculation for moving automobile"
+        "problem": "Textbook Revise, Reflect, Refine Q5 (Section 7.1, p. 21): A student is slowly lifted straight up in an elevator from the ground floor to the 5th floor at constant speed. What is the work done on the student by: (a) Gravity, (b) The normal reaction force of the elevator floor, (c) The net force?",
+        "given": "Student mass = m; Vertical climb = h; Speed = constant (acceleration a = 0).",
+        "formula": "Work W = F * s * cos(theta); Net force equilibrium: N - mg = 0 => N = mg.",
+        "substitution": "(a) Gravity acts downward (theta = 180 deg); (b) Normal force acts upward (theta = 0 deg); (c) Net force = 0.",
+        "calculation": "1. Work done by gravity: W_g = mg * h * cos(180 deg) = -mgh (negative work).\n2. Work done by elevator floor: W_N = N * h * cos(0 deg) = +mgh (positive work).\n3. Net work: W_net = W_N + W_g = mgh - mgh = 0 J (consistent with Work-Energy Theorem: Delta E_k = 0).",
+        "finalAnswer": "(a) Work by gravity is -mgh (negative); (b) Work by normal force is +mgh (positive); (c) Net work done is 0 J.",
+        "unit": "Joules (J)",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "work done by gravity elevator constant speed",
+        "page": 21,
+        "section": "Revise, Reflect, Refine"
       },
       {
-        "problem": "NCERT Ex Q21. A body of mass 40 kg is raised to a height of 5 m above the ground. What is its potential energy? If the object is allowed to fall, find its kinetic energy when it is half-way down. (Take g = 10 m/s²).",
-        "given": "Mass $m = 40\\text{ kg}$, initial height $h = 5\\text{ m}, g = 10\\text{ m/s}^2$.",
-        "formula": "Initial Potential Energy $E_p = mgh$; Half-way height $h' = 2.5\\text{ m} \\implies E_k = \\text{Loss in } E_p = mg(h - h')$.",
-        "substitution": "Initial $E_p = 40 \\times 10 \\times 5 = 2000\\text{ J}$. Half-way: $E_k = 40 \\times 10 \\times 2.5$.",
-        "calculation": "1. Initial Potential Energy: $E_p = \\mathbf{2000\\text{ J}}$.\n2. Half-way down: By conservation of energy, half the potential energy has converted to kinetic energy: $E_k = \\frac{1}{2}(2000) = \\mathbf{1000\\text{ J}}$.",
-        "finalAnswer": "Initial potential energy = 2000 J; Kinetic energy half-way down = 1000 J.",
-        "unit": "J",
-        "has_diagram": true,
-        "diagram_source": "book_extracted",
-        "figure_caption": "Fig. 7.40: Free fall half-way energy partitioning"
+        "problem": "Textbook Revise, Reflect, Refine Q6 (Section 7.3, p. 21): A crane lifts a mass m = 500 kg to a height h = 30 m in time t = 20 s. Calculate: (a) The work done by the crane, (b) The power delivered by the crane (take g = 10 m s^-2).",
+        "given": "Mass m = 500 kg; Height h = 30 m; Time t = 20 s; g = 10 m s^-2.",
+        "formula": "Work done W = mgh; Power P = W / t.",
+        "substitution": "W = 500 * 10 * 30; P = 150000 / 20.",
+        "calculation": "1. Work: W = 150,000 J = 150 kJ.\n2. Power: P = 150,000 / 20 = 7,500 W = 7.5 kW.",
+        "finalAnswer": "(a) Work done is 150 kJ (1.5 * 10^5 J); (b) Power delivered is 7.5 kW (7500 W).",
+        "unit": "kJ and kW",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "crane lifting power work calculation physics",
+        "page": 21,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "Textbook Revise, Reflect, Refine Q7 & Q8 (Section 7.2, p. 22): Two objects A and B of mass m and 4m have the same kinetic energy. What is the ratio of their linear momenta? (b) An electric lamp consumes 1000 J of electrical energy in 10 s. What is its power?",
+        "given": "(a) Masses m_A = m, m_B = 4m; E_k,A = E_k,B.\n(b) Energy E = 1000 J; Time t = 10 s.",
+        "formula": "(a) Kinetic energy-momentum relation: E_k = p^2 / (2m) => p = sqrt(2m E_k).\n(b) Power P = E / t.",
+        "substitution": "(a) p_A / p_B = sqrt(2m E_k) / sqrt(2(4m) E_k) = sqrt(m / 4m) = sqrt(1/4) = 1/2.\n(b) P = 1000 / 10.",
+        "calculation": "(a) Ratio of linear momenta is 1 : 2.\n(b) P = 100 W.",
+        "finalAnswer": "(a) Ratio of momenta p_A : p_B is 1 : 2; (b) Power of the lamp is 100 Watts.",
+        "unit": "ratio and Watts (W)",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "momentum kinetic energy relation ratio physics",
+        "page": 22,
+        "section": "Revise, Reflect, Refine"
+      },
+      {
+        "problem": "In-Text Question (Section 7.1, p. 4 & p. 8): (a) A weightlifter holds a 150 kg barbell stationary overhead for 30 seconds. How much work is done on the barbell? (b) Does the kinetic energy of an object moving at constant velocity depend on direction?",
+        "given": "(a) Mass m = 150 kg; Stationary hold => displacement s = 0; Time t = 30 s.\n(b) Object of mass m with velocity vector v in uniform rectilinear motion.",
+        "formula": "(a) Work W = F * s; (b) Kinetic Energy E_k = (1/2)m v^2 (scalar quantity).",
+        "substitution": "(a) s = 0 => W = F * 0 = 0 J.",
+        "calculation": "1. Part (a): In physics, work requires non-zero displacement along the line of force. Although the weightlifter exerts muscular force and expends metabolic energy, displacement s = 0, so work done on the barbell is identically ZERO.\n2. Part (b): Kinetic energy depends solely on mass and the square of SPEED ($v^2 = \\vec{v} \\cdot \\vec{v}$). Because it is a scalar quantity, it is completely independent of the direction of motion.",
+        "finalAnswer": "(a) Zero work is done on the barbell; (b) Kinetic energy is a scalar quantity and does not depend on direction.",
+        "unit": "Joules and Scalar Physics",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "weightlifter holding barbell stationary zero work physics",
+        "page": 4,
+        "section": "Section 7.1"
       }
     ],
     "common_misconceptions": [
@@ -1033,6 +1183,9 @@
         }
       ]
     },
-    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Walk through board-topper numerical layout: Given -> Formula -> Substitution -> Line-by-Line Calculation -> Boxed Answer.\n   - Socratic check: \"Why is the work done by the braking force negative?\" HARD STOP: Wait for student answer!"
+    "ai_system_prompt_context": "MANDATORY LIVE TUTOR INVARIANTS:\n1. STEP 1 VISUAL MOUNTING: Mount the verified extracted diagram on Step 1.\n2. SOCRATIC CADENCE:\n   - Walk through board-topper numerical layout: Given -> Formula -> Substitution -> Line-by-Line Calculation -> Boxed Answer.\n   - Socratic check: \"Why is the work done by the braking force negative?\" HARD STOP: Wait for student answer!",
+    "curriculum_id": "da5625a5-7071-4533-8667-13da4c28abda",
+    "class_level": "Class 9",
+    "board": "CBSE"
   }
 ]

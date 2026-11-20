@@ -24,7 +24,7 @@ const WhiteboardWorkspace = dynamicImport(
 import { VisualizationSceneType } from '@/components/whiteboard/scenes/sceneTypes'
 import { resolveSceneType, parseSceneParams } from '@/components/whiteboard/scenes/sceneRegistry'
 import { getLanguageVoiceConfig } from '@/lib/voiceAndLanguageConfig'
-import { isLegitimateGraphTopic } from '@/lib/graphGating'
+import { isLegitimateGraphTopic, isValidGraphPayload, GraphFormulaItem, GraphSegmentItem, GraphPointItem } from '@/lib/graphGating'
 import { saveSessionState, loadSessionState, clearSessionState, pruneExpiredSessions } from '@/lib/sessionStateManager'
 import { isSchemaError } from '@/lib/utils'
 import type { MafsGraphCanvasProps } from '@/components/whiteboard/MafsGraphCanvas'
@@ -37,7 +37,7 @@ import { VisualEventQueue, parseVisualEventFromDirective } from '@/services/visu
 import { ChapterNotesModal } from '@/components/classroom/ChapterNotesModal'
 import { ClassroomFloatingChatInput } from '@/components/classroom/ClassroomFloatingChatInput'
 import { ClassroomConnectingAnimation } from '@/components/classroom/ClassroomConnectingAnimation'
-import { ClassroomSpeedControl } from '@/components/classroom/ClassroomSpeedControl'
+import { resolveBookForChapter, resolveTargetPageForLesson } from '@/lib/textbookResolver'
 import { CallControls } from '@/components/CallControls'
 import { ErrorModal } from '@/components/ErrorModal'
 import { MasteryQuizModal } from '@/components/quiz/MasteryQuizModal'
@@ -378,7 +378,13 @@ function buildConceptMicroDossiers(
 
     const hasExistingSvg = Boolean(matchedCv && (matchedCv.svg || matchedCv.diagram_svg))
     const isLegitGraph = isLegitimateGraphTopic(conceptName, resolvedSubject)
-    const isGraph = Boolean(matchedCv && (matchedCv.diagram_type === 'graph' || matchedCv.interactive_math_formula) && isLegitGraph)
+    const hasValidMathFormula = Boolean(
+      matchedCv?.interactive_math_formula &&
+      matchedCv.interactive_math_formula !== 'formula' &&
+      matchedCv.interactive_math_formula !== 'linear' &&
+      matchedCv.interactive_math_formula.trim() !== 'x'
+    )
+    const isGraph = Boolean(matchedCv && hasValidMathFormula && isLegitGraph)
     const isFlowchart = Boolean(matchedCv && matchedCv.diagram_type === 'draw_flowchart')
     const isImage = Boolean(matchedCv && (matchedCv.diagram_type === 'image' || matchedCv.image_url || matchedCv.image_search_query))
 
@@ -387,8 +393,8 @@ function buildConceptMicroDossiers(
       const isAnim = matchedCv.visual_type === 'animation' || /wave|current|flow|circuit|motion/i.test(matchedCv.diagram_title || '')
       const imgUrl = matchedCv.image_url || ''
       const searchQuery = matchedCv.image_search_query || matchedCv.diagram_title || conceptName
-      const actionCue = isGraph
-        ? `plot_mathematical_graph(formula="${matchedCv.interactive_math_formula || 'formula'}", title="${matchedCv.diagram_title || conceptName}")`
+      const actionCue = isGraph && matchedCv.interactive_math_formula
+        ? `plot_mathematical_graph(formula="${matchedCv.interactive_math_formula}", title="${matchedCv.diagram_title || conceptName}")`
         : isFlowchart
         ? `write_chalkboard(action="draw_flowchart", content="${matchedCv.what_to_make || conceptName}")`
         : isImage
@@ -654,9 +660,15 @@ function buildSingleConceptMicroDossier(
     )
 
   const isLegitimateGraph = isLegitimateGraphTopic(conceptName, resolvedSubject)
+  const hasValidMathFormula = Boolean(
+    matchedCv?.interactive_math_formula &&
+    matchedCv.interactive_math_formula !== 'formula' &&
+    matchedCv.interactive_math_formula !== 'linear' &&
+    matchedCv.interactive_math_formula.trim() !== 'x'
+  )
   const isGraph = Boolean(
     matchedCv &&
-    (matchedCv.diagram_type === 'graph' || matchedCv.interactive_math_formula) &&
+    hasValidMathFormula &&
     isLegitimateGraph
   )
   const isFlowchart = Boolean(matchedCv && matchedCv.diagram_type === 'draw_flowchart')
@@ -671,8 +683,8 @@ function buildSingleConceptMicroDossier(
   )
 
   let visualDirective = ''
-  if (isGraph) {
-    visualDirective = `\n   * MANDATORY GRAPH PLOT: Call plot_mathematical_graph(formula="${matchedCv?.interactive_math_formula || 'formula'}", title="${diagramTitle}") on Step 1!`
+  if (isGraph && matchedCv?.interactive_math_formula) {
+    visualDirective = `\n   * MATHEMATICAL/KINEMATIC GRAPH: When plotting coordinate functions or kinematics, call plot_mathematical_graph(formula="${matchedCv.interactive_math_formula}", title="${diagramTitle}") with actual key points or bounded stopping segments! NEVER output a line passing from origin without points or stopping segments. If a diagram is needed, use render_svg_diagram or search_and_show_image.`
   } else if (isFlowchart) {
     visualDirective = `\n   * MANDATORY FLOWCHART: Call write_chalkboard(action="draw_flowchart", content="${matchedCv?.what_to_make || conceptName}") on Step 1!`
   } else {
@@ -823,7 +835,6 @@ export default function ModuleClassroomPage() {
     setTeacherAudioMuted,
     pauseClass,
     resumeClass,
-    setPlaybackSpeed,
     endCall,
     resetToIdle,
     sendBoardContext,
@@ -957,6 +968,17 @@ export default function ModuleClassroomPage() {
 
   // Mafs.dev high-precision dynamic mathematical & scientific graph state
   const [activeGraph, setActiveGraph] = useState<MafsGraphCanvasProps | null>(null)
+
+  // Docked Textbook SideBookViewer State (Clean Zero-Bloat Ponytail UI)
+  const [isBookOpen, setIsBookOpen] = useState<boolean>(false)
+  const [bookPdfUrl, setBookPdfUrl] = useState<string | null>(null)
+  const [bookCurrentPage, setBookCurrentPage] = useState<number>(1)
+  const [bookTotalPages, setBookTotalPages] = useState<number | undefined>(undefined)
+  const [bookChapterTitle, setBookChapterTitle] = useState<string | undefined>(undefined)
+  const bookTotalPagesRef = useRef<number | undefined>(undefined)
+  const bookPdfUrlRef = useRef<string | null>(null)
+  bookTotalPagesRef.current = bookTotalPages
+  bookPdfUrlRef.current = bookPdfUrl
 
   // Whiteboard on-demand diagram generation progress tracker
   const [generatingDiagramTitle, setGeneratingDiagramTitle] = useState<string | null>(null)
@@ -1946,9 +1968,40 @@ CRITICAL DIRECTIVE:
           console.error('Failed to load module:', moduleId)
         } else {
           setActiveModule(mod)
-          setActiveCurriculum(
-            Array.isArray(mod.curriculums) ? mod.curriculums[0] : mod.curriculums
-          )
+          const curr = Array.isArray(mod.curriculums) ? mod.curriculums[0] : mod.curriculums
+          setActiveCurriculum(curr)
+
+          // Resolve authentic textbook PDF for this chapter
+          const resolvedBook = resolveBookForChapter({
+            classLevel: resolvedClassLevel || curr?.class_level || mod.class_level,
+            category: resolvedSubject || curr?.category,
+            chapterTitle: curr?.title || mod.title,
+            chapterOrderIndex: curr?.order_index || mod.order_index,
+            notesSourceFilename: curr?.notes_source_filename,
+          })
+          if (resolvedBook) {
+            setBookPdfUrl(resolvedBook.pdfUrl)
+            setBookTotalPages(resolvedBook.totalPages)
+            bookTotalPagesRef.current = resolvedBook.totalPages
+            bookPdfUrlRef.current = resolvedBook.pdfUrl
+            setBookChapterTitle(curr?.title || `Chapter ${resolvedBook.chapterNumber} Textbook`)
+            const modConcepts = parseKeyConcepts(mod.key_concepts)
+            const initialConceptName = modConcepts[currentConceptIndexRef.current || 0] || mod.title
+            const initialPage = resolveTargetPageForLesson({
+              conceptName: initialConceptName,
+              capsuleTitle: mod.title,
+              chapterNumber: curr?.order_index || mod.order_index,
+              classLevel: resolvedClassLevel || curr?.class_level || mod.class_level,
+              subject: resolvedSubject || curr?.category || mod.subject,
+              pdfPath: resolvedBook.pdfUrl,
+              conceptIndex: currentConceptIndexRef.current || 0,
+              totalConcepts: modConcepts.length || 1,
+              moduleIndex: typeof mod.order_index === 'number' ? mod.order_index - 1 : 0,
+              totalModules: 6,
+              totalPages: resolvedBook.totalPages,
+            })
+            setBookCurrentPage(initialPage)
+          }
 
           // Load or generate structured visual lesson plan
           if (mod.visual_lesson_plan && typeof mod.visual_lesson_plan === 'object' && Array.isArray(mod.visual_lesson_plan.steps)) {
@@ -1984,10 +2037,27 @@ CRITICAL DIRECTIVE:
           if (mod.curriculum_id) {
             const sibs = await getCachedSiblingModules(supabase, mod.curriculum_id)
             setSiblingModules(sibs || [])
+            if (resolvedBook && sibs && sibs.length > 0) {
+              const modConcepts = parseKeyConcepts(mod.key_concepts)
+              const initialConceptName = modConcepts[currentConceptIndexRef.current || 0] || mod.title
+              const pageWithSibs = resolveTargetPageForLesson({
+                conceptName: initialConceptName,
+                capsuleTitle: mod.title,
+                chapterNumber: curr?.order_index || mod.order_index,
+                classLevel: resolvedClassLevel || curr?.class_level || mod.class_level,
+                subject: resolvedSubject || curr?.category || mod.subject,
+                pdfPath: resolvedBook.pdfUrl,
+                conceptIndex: currentConceptIndexRef.current || 0,
+                totalConcepts: modConcepts.length || 1,
+                moduleIndex: typeof mod.order_index === 'number' ? mod.order_index - 1 : 0,
+                totalModules: sibs.length,
+                totalPages: resolvedBook.totalPages,
+              })
+              setBookCurrentPage(pageWithSibs)
+            }
           }
 
           // Fetch next chapter in the same class and category (ordered sequentially from cache)
-          const curr = Array.isArray(mod.curriculums) ? mod.curriculums[0] : mod.curriculums
           if (curr && curr.class_level && curr.category) {
             const nextInfo = await getCachedNextChapterInfo(supabase, {
               classLevel: curr.class_level,
@@ -2377,6 +2447,39 @@ CRITICAL DIRECTIVE:
       }
     }
   }, [transcripts, lessonManifest, activeModule])
+
+  // Auto-scroll docked textbook when tutor directs student to a page, exercise, or topic in live speech
+  useEffect(() => {
+    if (transcripts.length === 0) return
+    const lastTr = transcripts[transcripts.length - 1]
+    if (lastTr && lastTr.sender === 'teacher' && lastTr.text) {
+      const totalPgs = bookTotalPagesRef.current || bookTotalPages
+      if (totalPgs) {
+        const text = lastTr.text
+        if (/\b(?:page|pg\.?|exercise|ex\.?|example|fig(?:ure)?\.?)\b/i.test(text)) {
+          const keyConceptsList = parseKeyConcepts(activeModule?.key_concepts)
+          const currConceptTitle = keyConceptsList[currentConceptIndexRef.current || 0] || activeModule?.title
+          const target = resolveTargetPageForLesson({
+            content: text,
+            conceptName: currConceptTitle,
+            capsuleTitle: activeModule?.title,
+            chapterNumber: activeCurriculum?.order_index || activeModule?.order_index,
+            classLevel: resolvedClassLevel || activeCurriculum?.class_level || activeModule?.class_level,
+            subject: resolvedSubject || activeCurriculum?.category || activeModule?.subject,
+            pdfPath: bookPdfUrlRef.current || bookPdfUrl || undefined,
+            totalPages: totalPgs,
+            moduleIndex: typeof activeModule?.order_index === 'number' ? activeModule.order_index - 1 : 0,
+            totalModules: Math.max(1, siblingModules.length),
+            conceptIndex: currentConceptIndexRef.current || 0,
+            totalConcepts: keyConceptsList.length || 1,
+          })
+          if (target && target >= 1 && target <= totalPgs && target !== bookCurrentPage) {
+            setBookCurrentPage(target)
+          }
+        }
+      }
+    }
+  }, [transcripts])
 
   // Helper to auto-save visual timeline progress
   const saveVisualProgressToSupabase = async (stepIndex: number, completedStepIds: string[]) => {
@@ -3184,6 +3287,24 @@ CRITICAL DIRECTIVE:
     setIsCompletedBefore(false)
     setModuleCompletedSuccess(false)
 
+    const totalPgs = bookTotalPagesRef.current || bookTotalPages
+    if (totalPgs) {
+      const targetPg = resolveTargetPageForLesson({
+        conceptName: nextConceptTitle,
+        capsuleTitle: activeModule?.title,
+        chapterNumber: activeCurriculum?.order_index || activeModule?.order_index,
+        classLevel: resolvedClassLevel || activeCurriculum?.class_level || activeModule?.class_level,
+        subject: resolvedSubject || activeCurriculum?.category || activeModule?.subject,
+        pdfPath: bookPdfUrlRef.current || bookPdfUrl || undefined,
+        conceptIndex: nextIdx,
+        totalConcepts: keyConcepts.length,
+        moduleIndex: typeof activeModule?.order_index === 'number' ? activeModule.order_index - 1 : 0,
+        totalModules: Math.max(1, siblingModules.length),
+        totalPages: totalPgs,
+      })
+      setBookCurrentPage(targetPg)
+    }
+
     const norm = (s: string) =>
       String(s || '')
         .toLowerCase()
@@ -3294,8 +3415,8 @@ CRITICAL DIRECTIVE:
 
     const isNextLegitGraph = isLegitimateGraphTopic(nextConceptTitle, resolvedSubject)
     const nextVisualCue = isNextLegitGraph
-      ? `render_svg_diagram(title="${nextConceptTitle}", caption="Visual illustration") or plot_mathematical_graph(formula="...", title="${nextConceptTitle}") with worked derivations`
-      : `render_svg_diagram(title="${nextConceptTitle}", caption="Visual illustration")`
+      ? `search_and_show_image(query="<full detailed 10-25 word educational search query for ${nextConceptTitle} specifying exact components, apparatus, or anatomical structures>", title="${nextConceptTitle}", caption="Visual illustration") or plot_mathematical_graph(formula="...", title="${nextConceptTitle}") with worked derivations`
+      : `search_and_show_image(query="<full detailed 10-25 word educational search query for ${nextConceptTitle} specifying exact components, apparatus, or anatomical structures>", title="${nextConceptTitle}", caption="Visual illustration")`
 
     // Notify Gemini Live with single concept micro-dossier and instructions
     sendTextMessage(
@@ -3361,6 +3482,24 @@ ${nextDossier}`
     setLastCoveredConcept(targetConceptName)
     setIsCompletedBefore(false)
     setModuleCompletedSuccess(false)
+
+    const totalPgs = bookTotalPagesRef.current || bookTotalPages
+    if (totalPgs) {
+      const targetPg = resolveTargetPageForLesson({
+        conceptName: targetConceptName,
+        capsuleTitle: activeModule?.title,
+        chapterNumber: activeCurriculum?.order_index || activeModule?.order_index,
+        classLevel: resolvedClassLevel || activeCurriculum?.class_level || activeModule?.class_level,
+        subject: resolvedSubject || activeCurriculum?.category || activeModule?.subject,
+        pdfPath: bookPdfUrlRef.current || bookPdfUrl || undefined,
+        conceptIndex: targetIdx,
+        totalConcepts: keyConcepts.length,
+        moduleIndex: typeof activeModule?.order_index === 'number' ? activeModule.order_index - 1 : 0,
+        totalModules: Math.max(1, siblingModules.length),
+        totalPages: totalPgs,
+      })
+      setBookCurrentPage(targetPg)
+    }
 
     // Whiteboard 1-Concept-Per-Page: Switch to concept's dedicated page
     chalkboardRef.current?.goToPage?.(targetIdx, targetConceptName)
@@ -3989,8 +4128,8 @@ ${careerHook ? `- ${careerHook}\n` : ''}${favoriteHook ? `- ${favoriteHook}\n` :
 
     const isResumedLegitGraph = isLegitimateGraphTopic(currentConcept, resolvedSubject)
     const resumedVisualTool = isResumedLegitGraph
-      ? `render_svg_diagram(title="${currentConcept}", caption="Visual illustration") or plot_mathematical_graph(formula="...", title="${currentConcept}") with worked derivations`
-      : `render_svg_diagram(title="${currentConcept}", caption="Visual illustration")`
+      ? `search_and_show_image(query="<full detailed 10-25 word educational search query for ${currentConcept} specifying exact components, apparatus, or anatomical structures>", title="${currentConcept}", caption="Visual illustration") or plot_mathematical_graph(formula="...", title="${currentConcept}") with worked derivations`
+      : `search_and_show_image(query="<full detailed 10-25 word educational search query for ${currentConcept} specifying exact components, apparatus, or anatomical structures>", title="${currentConcept}", caption="Visual illustration")`
 
     const kickoffPrompt = selectedPyqQuestion
       ? `[SESSION START - BOARD EXAM PYQ PRACTICE]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). State that today we are tackling an authentic Board Exam Past Year Question on ${resolvedTitle}: "${selectedPyqQuestion}". Speak properly in 5 to 6 well-formed sentences laying out the problem context and physical setup without stopping halfway. YOU MUST CALL write_chalkboard(action="draw_question", content="Board PYQ: ${selectedPyqQuestion}", color="amber") RIGHT NOW IN THIS TURN! Then ask me what our given values or strategy should be in ${studentPreferredLanguage}. HARD STOP: Wait for my answer! (Stop speaking immediately if I speak or ask something).`
@@ -4002,7 +4141,7 @@ ${careerHook ? `- ${careerHook}\n` : ''}${favoriteHook ? `- ${favoriteHook}\n` :
       ? `[SESSION START - RESUMING CONCEPT ${currentConceptIndex + 1}: "${currentConcept}"]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). State that we are resuming Concept ${currentConceptIndex + 1}: "${currentConcept}". Existing chalkboard notes and visuals are ALREADY visible on the board: [see CURRENT DIGITAL CHALKBOARD STATE above]. Warmly acknowledge what is already on the board in 5 to 6 articulate sentences without stopping halfway. DO NOT re-write or duplicate existing notes or diagrams. Continue directly with the NEXT pedagogical step for this concept (e.g. formal definition, worked example, or board numerical). Complete your explanation first, then ask a checkpoint question. HARD STOP: Wait for my response! (Stop speaking immediately if I speak or ask something).`
       : isResumed
       ? `[SESSION START]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). State that we are resuming Concept ${currentConceptIndex + 1}: "${currentConcept}". Speak properly in 5 to 6 complete, articulate sentences: explain the intuition and physical setup thoroughly without stopping halfway. YOU MUST CALL write_chalkboard(action="draw_note", content="Intuition: <everyday hook>", color="botanical") AND ${resumedVisualTool} RIGHT NOW IN THIS TURN! Do NOT wait for the student to ask for a diagram. Complete your 5-6 sentence explanation first, then ask: "Did you catch this intuition?" or a relatable check question. HARD STOP: Wait for my response! (Stop speaking immediately if I speak or ask something).`
-      : `[SESSION START]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). Introduce Concept 1: "${firstConcept}" with a simple, tangible everyday real-life hook and clear physical intuition. Speak properly in 5 to 6 complete, articulate sentences—do NOT stop after speaking something half! Deliver the full intuitive picture. YOU MUST CALL write_chalkboard(action="draw_note", content="Intuition: <everyday hook>", color="botanical") AND render_svg_diagram(title="${firstConcept}", caption="Visual illustration") or appropriate visual tool RIGHT NOW IN THIS TURN! Do NOT wait for the student to ask for a diagram. Complete your 5-6 sentence explanation first, and then ask: "Did you catch this intuition?" or "Have you noticed this in daily life?" HARD STOP: Stop speaking and wait for my answer! (Stop speaking immediately if I speak or ask something).`
+      : `[SESSION START]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). Introduce Concept 1: "${firstConcept}" with a simple, tangible everyday real-life hook and clear physical intuition. Speak properly in 5 to 6 complete, articulate sentences—do NOT stop after speaking something half! Deliver the full intuitive picture. YOU MUST CALL write_chalkboard(action="draw_note", content="Intuition: <everyday hook>", color="botanical") AND search_and_show_image(query="<full detailed 10-25 word educational search query for ${firstConcept} specifying exact components, apparatus parts, anatomical structures, or system elements>", title="${firstConcept}", caption="Visual illustration") RIGHT NOW IN THIS TURN to display the authentic real-world diagram! If the concept involves physical motion, lab experiment, or dynamic process, ALSO call search_and_show_video. Do NOT wait for the student to ask for a visual. Complete your 5-6 sentence explanation first, and then ask: "Did you catch this intuition?" or "Have you noticed this in daily life?" HARD STOP: Stop speaking and wait for my answer! (Stop speaking immediately if I speak or ask something).`
 
     const singleConceptDossier = buildSingleConceptMicroDossier(
       currentConceptIndex,
@@ -4068,10 +4207,14 @@ You are an inspiring topper tutor standing at a live chalkboard.
    - USE CLEAN UNICODE GREEK & VECTORS: Use θ, α, β, γ, Δ, λ, μ, π, ρ, σ, τ, ω, Ω, √, ≈, ≤, ≥, ≠, ±, F⃗, v⃗, a⃗, p⃗, î, ĵ, k̂.
 
 STRICT 6-STAGE CADENCE PER CONCEPT:
-- STAGE 1 [REAL-LIFE INTUITION & PROACTIVE VISUAL] (PHASE 1 - INTUITION & GENERATIVE VISUAL):
-  Introduce a tangible everyday hook with rich physical intuition and real-world clarity. Speak properly in 5 to 6 complete sentences without stopping halfway. NEVER tell the student "I am unable to generate images".
-  MANDATORY: Call write_chalkboard(action="draw_note", content="Intuition: <hook>", color="botanical") AND immediately dispatch the appropriate visual tool (search_and_show_image, search_and_show_video, render_svg_diagram, draw_flowchart, or plot_mathematical_graph). Never wait for the student to ask for a visual!
-  Complete the 5-6 sentence explanation first, then ask if the intuition is clear, and wait for response (stopping immediately if student speaks).
+- STAGE 1 [REAL-LIFE INTUITION & MANDATORY VISUAL SEARCH] (PHASE 1 - INTUITION & PROACTIVE IMAGE/VIDEO SEARCH):
+   Introduce a tangible everyday hook with rich physical intuition and real-world clarity. Speak properly in 5 to 6 complete sentences without stopping halfway. NEVER tell the student "I am unable to generate images".
+   MANDATORY VISUAL SEARCH ON EVERY CONCEPT START:
+   1. ALWAYS call write_chalkboard(action="draw_note", content="Intuition: <hook>", color="botanical") to write the intuition on the board.
+   2. ALWAYS call search_and_show_image(query="<FULL DETAILED 10-25 word query specifying exact components, apparatus parts, anatomical structures, labeled diagram elements>", title="<Title>", caption="<Caption>") to display the authentic real-world diagram on the chalkboard. NEVER use vague 1-2 word queries like "cell" or "circuit" — specify every component (e.g. "plant cell labeled diagram showing cell wall, cell membrane, nucleus, vacuole, chloroplast, mitochondria, endoplasmic reticulum, and ribosomes").
+   3. If the concept involves physical motion, lab experiment, wave phenomena, chemical reaction, or mechanical apparatus, ALSO call search_and_show_video(query="<FULL DETAILED video query>", title="<Title>", description="<Description>") to show a demonstration video.
+   4. Never wait for the student to ask for a visual — you MUST dispatch it proactively on your very first turn!
+   Complete the 5-6 sentence explanation first, then ask if the intuition is clear, and wait for response (stopping immediately if student speaks).
 - STAGE 2 [CONCEPT FORMULATION & SCIENTIFIC LAW] (PHASE 2 - FORMAL DEFINITION (EXPLAIN FIRST -> READ ALOUD -> WRITE STEP-BY-STEP)):
   State the exact scientific law, definition, and SI units. Explain what is happening under the hood in 5 to 6 articulate sentences. Read aloud verbatim and write step-by-step:
   Call write_chalkboard(action="draw_highlight_box", content="Definition: <exact formal law and SI units>", color="coral").
@@ -4170,16 +4313,29 @@ EXPERIENCED MASTER TEACHER PEDAGOGY (TEACH LIKE AN ICONIC FACULTY MENTOR):
 ========================================================================================
 MULTIMEDIA & SCIENTIFIC VISUAL ENGINE TOOLS:
 ========================================================================================
+MANDATORY CONCEPT START VISUAL SEARCH (HIGHEST PRIORITY):
+   At the START of teaching ANY concept (Stage 1 Intuition), you MUST IMMEDIATELY call:
+   1. search_and_show_image(query="<comprehensive 10-25 word query>", title="<Title>", caption="<Caption>")
+      Use a FULLY DETAILED query specifying exact components, apparatus parts, anatomical structures, or system elements for an exact image match.
+      Examples: "CBSE Class 11 simple pendulum apparatus diagram showing bob, string, rigid support, mean position, and amplitude labels" or "labeled cross section of human eye showing cornea, aqueous humour, iris, pupil, lens, vitreous humour, retina, fovea, blind spot, and optic nerve"
+      NEVER use vague queries like "pendulum" or "eye diagram".
+   2. If the concept involves physical motion, laboratory experiment, wave phenomena, chemical reaction, or dynamic process, ALSO call:
+      search_and_show_video(query="<detailed video query>", title="<Title>", description="<Description>")
+      Example: "simple pendulum time period measurement laboratory experiment demonstration with stopwatch and bob oscillation"
+
 - HIGH-RES SCIENTIFIC IMAGES & DIAGRAMS (ONLINE SEARCH ENGINE FIRST):
-  Call search_and_show_image(query="<query>", title="<Title>", caption="<Caption>") or write_chalkboard(action="draw_image", content="<query> | <Title> | <Caption>") for electron micrographs, plant/animal cell organelles, histology tissues, physics experiments, and laboratory apparatus.
-  * MANDATE: Do NOT invent or hardcode static image URLs. Provide a precise, descriptive search query (e.g. "Carnot cycle indicator diagram" or "hydraulic lift Pascal law apparatus"). The platform searches online search engines (Bing/Web) FIRST and Wikipedia SECOND to retrieve and display authentic educational diagrams.
+   Call search_and_show_image(query="<query>", title="<Title>", caption="<Caption>") or write_chalkboard(action="draw_image", content="<query> | <Title> | <Caption>") for electron micrographs, plant/animal cell organelles, histology tissues, physics experiments, and laboratory apparatus.
+   * MANDATE: Do NOT invent or hardcode static image URLs. Provide a precise, descriptive search query. The platform searches online search engines (Bing/Web) FIRST and Wikipedia SECOND to retrieve and display authentic educational diagrams.
 - EDUCATIONAL DEMONSTRATION VIDEOS (ONLINE VIDEO SEARCH FIRST):
-  Call search_and_show_video(query="<query>", title="<Title>", description="<Description>") or write_chalkboard(action="draw_video", content="<query> | <Title> | <Description>") for dynamic physical experiments, kinematics demonstrations, wave resonance, or when the student asks to watch a video demonstration.
-  * MANDATE: The platform dynamically searches online video engines (YouTube/Web) FIRST and Wikimedia SECOND to display real playable video demonstrations directly on the chalkboard.
+   Call search_and_show_video(query="<query>", title="<Title>", description="<Description>") or write_chalkboard(action="draw_video", content="<query> | <Title> | <Description>") for dynamic physical experiments, kinematics demonstrations, wave resonance, or when the student asks to watch a video demonstration.
+   * MANDATE: The platform dynamically searches online video engines (YouTube/Web) FIRST and Wikimedia SECOND to display real playable video demonstrations directly on the chalkboard.
 - FLOWCHARTS & DECISION TREES:
   Call write_chalkboard(action="draw_flowchart", content="<Hierarchical or cycle flowchart string>") for multi-step biological cycles, taxonomic classifications, and chemical reaction pathways.
 - MATHEMATICAL & KINEMATIC FUNCTION GRAPHS:
   Call plot_mathematical_graph(formula="...", domain="[min,max]", range="[min,max]", title="...", callout="...") with accompanying worked calculations on the board. STRICT GATING: ONLY call this for actual mathematical equations or kinematics curves. NEVER call for Biology, Histology, or non-mathematical topics.
+  * ZERO MEANINGLESS GRAPH INVARIANT: NEVER output a meaningless default line y = x or open a graph without points or actual mathematical purpose.
+  * MULTI-LINE & SEGMENTS MANDATE: When plotting, support plotting 2-3 functions/lines at once using formulas=["f1", "f2"], line segments with start and end stopping points using segments=[{"start":[x1,y1], "end":[x2,y2], "label":"..."}], and key points with coordinates and labels using points=[{"x":x, "y":y, "label":"..."}].
+  * If a geometric diagram (triangles, circles, angles), physical apparatus, optics, or circuit is needed, use render_svg_diagram or search_and_show_image — NEVER plot_mathematical_graph.
 - VECTOR SVG DIAGRAMS:
   Call render_svg_diagram(title="<Concept>", caption="<Caption>") for 30° axonometric Hairline isometric illustrations, optics ray diagrams, and circuits.
 ${verifiedAssetsDirectives ? `\n========================================================================================\n${verifiedAssetsDirectives}\n` : ''}
@@ -4255,6 +4411,36 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
 
           // Convert content to string for text-based chalkboard drawing
           const stringContent = typeof content === 'string' ? content : (content?.content || content?.text || content?.note || (content ? JSON.stringify(content) : ''))
+
+          // Auto-scroll docked textbook when tutor teaches a topic, question, or diagram
+          const totalPgs = bookTotalPagesRef.current || bookTotalPages
+          if (totalPgs && stringContent) {
+            const activeConcepts = parseKeyConcepts(activeModule?.key_concepts)
+            const activeConceptName = activeConcepts[currentConceptIndexRef.current || 0] || activeModule?.title
+            const resolvedTargetPage = resolveTargetPageForLesson({
+              content: stringContent,
+              conceptName: activeConceptName,
+              capsuleTitle: activeModule?.title,
+              chapterNumber: activeCurriculum?.order_index || activeModule?.order_index,
+              classLevel: resolvedClassLevel || activeCurriculum?.class_level || activeModule?.class_level,
+              subject: resolvedSubject || activeCurriculum?.category || activeModule?.subject,
+              pdfPath: bookPdfUrlRef.current || bookPdfUrl || undefined,
+              totalPages: totalPgs,
+              moduleIndex: typeof activeModule?.order_index === 'number' ? activeModule.order_index - 1 : 0,
+              totalModules: Math.max(1, siblingModules.length),
+              conceptIndex: currentConceptIndexRef.current || 0,
+              totalConcepts: activeConcepts.length || 1,
+            })
+            if (resolvedTargetPage && resolvedTargetPage >= 1 && resolvedTargetPage <= totalPgs) {
+              setBookCurrentPage(resolvedTargetPage)
+            }
+            if (
+              action === 'draw_image' &&
+              (stringContent.includes('extracted_diagrams') || stringContent.includes('BOOK FIGURE'))
+            ) {
+              setIsBookOpen(true)
+            }
+          }
 
           const executeLiveDiagramGeneration = (
             targetConceptTitle: string,
@@ -4413,18 +4599,28 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
           else if (action === 'draw_table' || action === 'table') chalkboardRef.current.drawTable?.(content)
           else if (action === 'draw_geometry' || action === 'geometry') chalkboardRef.current.drawGeometry?.(content)
           else if (action === 'draw_graph' || action === 'graph' || action === 'plot_mathematical_graph') {
-            let formula = 'x^2 - 4'
-            let domain: [number, number] = [-5, 5]
-            let range: [number, number] = [-5, 5]
+            let formula: string | undefined = undefined
+            let formulas: Array<string | GraphFormulaItem> | undefined = undefined
+            let segments: any = undefined
+            let domain: [number, number] | undefined = undefined
+            let range: [number, number] | undefined = undefined
             let title = 'Graph'
             let callout = ''
-            let points = ''
+            let points: any = undefined
 
             if (typeof content === 'object' && content !== null) {
-              formula = content.formula || 'x^2 - 4'
-              title = content.title || `Graph: y = ${formula}`
+              formula = typeof content.formula === 'string' ? content.formula : undefined
+              if (Array.isArray(content.formulas)) {
+                formulas = content.formulas
+              }
+              if (Array.isArray(content.segments)) {
+                segments = content.segments
+              }
+              if (content.points) {
+                points = content.points
+              }
+              title = content.title || (formula ? `Graph: y = ${formula}` : (formulas && formulas.length > 0 ? 'Comparative Graphs' : (segments && segments.length > 0 ? 'Coordinate Segments' : 'Mathematical Graph')))
               callout = content.callout || ''
-              points = typeof content.points === 'string' ? content.points : (Array.isArray(content.points) ? JSON.stringify(content.points) : '')
               if (content.domain) {
                 if (Array.isArray(content.domain)) domain = [Number(content.domain[0]), Number(content.domain[1])]
                 else if (typeof content.domain === 'string') {
@@ -4443,9 +4639,34 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
               const pipeParts = (content || '').split('|').map((s: string) => s.trim())
               pipeParts.forEach((p: string) => {
                 if (p.startsWith('formula=')) formula = p.substring(8).trim()
+                else if (p.startsWith('formulas=')) {
+                  const rawFormulas = p.substring(9).trim()
+                  try {
+                    const parsed = JSON.parse(rawFormulas)
+                    if (Array.isArray(parsed)) formulas = parsed
+                  } catch {
+                    formulas = rawFormulas.split(/[;,]/).map((s) => s.trim()).filter(Boolean)
+                  }
+                }
+                else if (p.startsWith('segments=')) {
+                  const rawSegments = p.substring(9).trim()
+                  try {
+                    const parsed = JSON.parse(rawSegments)
+                    if (Array.isArray(parsed)) segments = parsed
+                  } catch {
+                    segments = rawSegments
+                  }
+                }
                 else if (p.startsWith('title=')) title = p.substring(6).trim()
                 else if (p.startsWith('callout=')) callout = p.substring(8).trim()
-                else if (p.startsWith('points=')) points = p.substring(7).trim()
+                else if (p.startsWith('points=')) {
+                  const rawPoints = p.substring(7).trim()
+                  try {
+                    points = JSON.parse(rawPoints)
+                  } catch {
+                    points = rawPoints
+                  }
+                }
                 else if (p.startsWith('domain=')) {
                   const m = p.match(/\[\s*([\-\d\.]+)\s*,\s*([\-\d\.]+)\s*\]/)
                   if (m) domain = [parseFloat(m[1]), parseFloat(m[2])]
@@ -4456,12 +4677,13 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                   formula = p
                 }
               })
-              if (!formula) formula = pipeParts[0] || 'x^2 - 4'
             }
-            const isAllowedGraph = isLegitimateGraphTopic(title || formula, resolvedSubject)
+
+            const candidatePayload = { formula, formulas, segments, points, domain, range, title, callout }
+            const isAllowedGraph = isLegitimateGraphTopic(title || formula || '', resolvedSubject)
             if (!isAllowedGraph) {
               console.log(`[Classroom Graph Gating] Denied graph plot for non-mathematical topic "${title || formula}" in subject ${resolvedSubject}. Rendering search-engine diagram instead.`)
-              const searchKw = extractConciseSearchKeyword(title || formula) || title || 'Scientific Diagram'
+              const searchKw = extractConciseSearchKeyword(title || formula || '') || title || 'Scientific Diagram'
               fetch('/api/diagram/search-image', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -4492,12 +4714,16 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                 .catch(() => executeLiveDiagramGeneration(title || 'Scientific Diagram', 'Visual conceptual diagram'))
               return
             }
-            if (typeof content === 'object' && content !== null) {
-              chalkboardRef.current.drawGraph?.(`formula=${formula} | title=${title}`)
-            } else if (typeof content === 'string') {
-              chalkboardRef.current.drawGraph?.(content)
+
+            if (!isValidGraphPayload(candidatePayload)) {
+              console.warn('[Classroom Graph Gating] Rejected meaningless or empty graph payload (no substantive functions/points/segments):', candidatePayload)
+              return
             }
-            setActiveGraph({ formula, domain, range, title, callout, points })
+
+            if (formula && typeof formula === 'string' && formula !== 'x' && formula !== 'linear') {
+              chalkboardRef.current.drawGraph?.(`formula=${formula} | title=${title}`)
+            }
+            setActiveGraph(candidatePayload)
           }
           else if (action === 'draw_numerical' || action === 'numerical' || action === 'worked_example' || action === 'solve') {
             let numericalData: any = content
@@ -5254,9 +5480,24 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
 
         {/* Board */}
         <div className="relative flex-1 min-h-0 min-w-0 flex flex-col overflow-hidden">
-          {/* Top-Right Speed Slider Control (Zero Emojis, Pure Hardware PlaybackRate) */}
-          <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-40">
-            <ClassroomSpeedControl onSpeedChange={setPlaybackSpeed} />
+          {/* Top-Right Speed Slider Control & Minimal Textbook Toggle */}
+          <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-40 flex items-center gap-2">
+            {bookPdfUrl && (
+              <button
+                id="toggle-textbook-btn"
+                type="button"
+                onClick={() => setIsBookOpen((prev) => !prev)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-medium cursor-pointer transition-colors shadow-sm ${
+                  isBookOpen
+                    ? 'bg-emerald-950/90 text-emerald-300 border-emerald-600/60'
+                    : 'bg-[#121c17]/90 text-stone-300 border-white/10 hover:bg-[#1a2d24] hover:text-white'
+                }`}
+                title={isBookOpen ? 'Hide Textbook' : 'Open Textbook'}
+              >
+                <BookOpen className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="hidden sm:inline">Textbook</span>
+              </button>
+            )}
           </div>
 
           {/* Hairline 30° Axonometric Connecting Stage */}
@@ -5368,6 +5609,23 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
               setCurrentConceptIndex(pageIdx)
               const targetConceptTitle = keyConceptsList[pageIdx] || `Concept ${pageIdx + 1}`
               setLastCoveredConcept(targetConceptTitle)
+              const totalPgs = bookTotalPagesRef.current || bookTotalPages
+              if (totalPgs) {
+                const targetPg = resolveTargetPageForLesson({
+                  conceptName: targetConceptTitle,
+                  capsuleTitle: activeModule?.title,
+                  chapterNumber: activeCurriculum?.order_index || activeModule?.order_index,
+                  classLevel: resolvedClassLevel || activeCurriculum?.class_level || activeModule?.class_level,
+                  subject: resolvedSubject || activeCurriculum?.category || activeModule?.subject,
+                  pdfPath: bookPdfUrlRef.current || bookPdfUrl || undefined,
+                  conceptIndex: pageIdx,
+                  totalConcepts: keyConceptsList.length,
+                  moduleIndex: typeof activeModule?.order_index === 'number' ? activeModule.order_index - 1 : 0,
+                  totalModules: Math.max(1, siblingModules.length),
+                  totalPages: totalPgs,
+                })
+                setBookCurrentPage(targetPg)
+              }
               if (moduleId) {
                 saveSessionState(moduleId, {
                   currentConceptIndex: pageIdx,
@@ -5413,6 +5671,13 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
             onVoiceStudentAnswer={handleStudentVoiceAnswer}
             generatingDiagramTitle={generatingDiagramTitle}
             activeHighlight={activeHighlight}
+            isBookOpen={isBookOpen}
+            bookPdfUrl={bookPdfUrl}
+            bookCurrentPage={bookCurrentPage}
+            bookTotalPages={bookTotalPages}
+            bookChapterTitle={bookChapterTitle}
+            onCloseBook={() => setIsBookOpen(false)}
+            onBookPageChange={(page) => setBookCurrentPage(page)}
           />
           {isCallActive && (
             <ClassroomFloatingChatInput

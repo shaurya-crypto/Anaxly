@@ -6,8 +6,10 @@ import { SobiCompanion } from './SobiCompanion'
 import { LiveChalkSubtitleStreamer, ActiveHighlight } from './LiveChalkSubtitleStreamer'
 import { VisualizationViewport } from './VisualizationViewport'
 import { MafsGraphCanvas, MafsGraphCanvasProps, GraphDisplayMode } from './MafsGraphCanvas'
+import { isValidGraphPayload } from '@/lib/graphGating'
 import { VisualizationSceneType } from './scenes/sceneTypes'
 import { resolveSceneType } from './scenes/sceneRegistry'
+import { SideBookViewer } from './SideBookViewer'
 import { VisualLessonManifest, LessonStep } from '@/types/lessonManifest'
 import { motion } from 'motion/react'
 import {
@@ -53,6 +55,13 @@ export interface WhiteboardWorkspaceProps {
   onCloseGraph?: () => void
   generatingDiagramTitle?: string | null
   activeHighlight?: ActiveHighlight | null
+  isBookOpen?: boolean
+  bookPdfUrl?: string | null
+  bookCurrentPage?: number
+  bookTotalPages?: number
+  bookChapterTitle?: string
+  onCloseBook?: () => void
+  onBookPageChange?: (page: number) => void
 }
 
 export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWorkspaceProps>(
@@ -90,6 +99,13 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
       onCloseGraph,
       generatingDiagramTitle = null,
       activeHighlight = null,
+      isBookOpen = false,
+      bookPdfUrl = null,
+      bookCurrentPage = 1,
+      bookTotalPages,
+      bookChapterTitle,
+      onCloseBook,
+      onBookPageChange,
     },
     ref
   ) => {
@@ -106,12 +122,19 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
     // 'docked' (split side-panel on right) | 'floating' (moveable draggable box) | 'maximized' | 'minimized'
     const [graphMode, setGraphMode] = useState<GraphDisplayMode>('docked')
 
-    // Automatically expand and dock the graph panel when a new graph is triggered by tutor
+    // Automatically expand and dock the graph panel when a new valid graph is triggered by tutor
     useEffect(() => {
-      if (activeGraph) {
-        setGraphMode((prev) => (prev === 'minimized' ? 'docked' : prev))
+      if (activeGraph && isValidGraphPayload(activeGraph)) {
+        setGraphMode((prev) => (prev === 'minimized' ? (isBookOpen ? 'floating' : 'docked') : prev))
       }
-    }, [activeGraph?.formula, activeGraph?.title])
+    }, [activeGraph?.formula, activeGraph?.formulas, activeGraph?.segments, activeGraph?.title, isBookOpen])
+
+    // Automatically switch docked graph to floating mode when textbook reader is open so both coexist smoothly
+    useEffect(() => {
+      if (isBookOpen && graphMode === 'docked') {
+        setGraphMode('floating')
+      }
+    }, [isBookOpen, graphMode])
 
     const handleWritingPositionChange = useCallback((pos: WritingPositionInfo) => {
       setWritingPosition((prev) => {
@@ -146,7 +169,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
       .map(([k, v]) => `${k}: ${v}`)
       .join(' · ')
 
-    const hasDockedGraph = Boolean(activeGraph && graphMode === 'docked')
+    const hasDockedGraph = Boolean(activeGraph && isValidGraphPayload(activeGraph) && graphMode === 'docked')
 
     return (
       <div 
@@ -293,11 +316,12 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
         </div>
 
         {/* MODE A: Docked Side-Panel Inside the Chalkboard (Right 45% of workspace) */}
-        {hasDockedGraph && activeGraph && (
+        {hasDockedGraph && activeGraph && isValidGraphPayload(activeGraph) && (
           <div className="relative w-full sm:w-[460px] md:w-[480px] lg:w-[520px] h-full shrink-0 border-l-2 border-[#E2E8F0] bg-[#FFFFFF] shadow-2xl flex flex-col z-20 animate-in slide-in-from-right duration-300">
             <MafsGraphCanvas
               formula={activeGraph.formula}
               formulas={activeGraph.formulas}
+              segments={activeGraph.segments}
               domain={activeGraph.domain}
               range={activeGraph.range}
               title={activeGraph.title}
@@ -310,17 +334,32 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
           </div>
         )}
 
+        {/* Docked Side Book Viewer (Right side panel, zero-bloat) */}
+        {isBookOpen && bookPdfUrl && (
+          <div className="max-sm:absolute max-sm:inset-0 max-sm:z-40 sm:relative sm:w-[440px] md:w-[480px] lg:w-[520px] xl:w-[560px] h-full shrink-0 border-l border-emerald-950/80 bg-[#0d1612] shadow-2xl flex flex-col z-20 animate-in slide-in-from-right duration-300">
+            <SideBookViewer
+              pdfUrl={bookPdfUrl}
+              targetPage={bookCurrentPage}
+              totalPages={bookTotalPages}
+              chapterTitle={bookChapterTitle}
+              onPageChange={onBookPageChange}
+              onClose={onCloseBook}
+            />
+          </div>
+        )}
+
         {/* MODE B: Moveable Floating Window (Draggable by student anywhere over the board) */}
-        {activeGraph && graphMode === 'floating' && (
+        {activeGraph && isValidGraphPayload(activeGraph) && graphMode === 'floating' && (
           <motion.div
             drag
             dragMomentum={false}
             dragElastic={0.05}
-            className="absolute top-12 right-6 z-30 w-[92vw] max-w-[500px] h-[450px] shadow-[0_25px_60px_rgba(15,23,42,0.18)] cursor-default animate-in fade-in zoom-in-95 duration-200"
+            className="absolute top-12 right-6 z-30 w-[92vw] max-w-[520px] h-[480px] shadow-[0_25px_60px_rgba(15,23,42,0.18)] cursor-default animate-in fade-in zoom-in-95 duration-200"
           >
             <MafsGraphCanvas
               formula={activeGraph.formula}
               formulas={activeGraph.formulas}
+              segments={activeGraph.segments}
               domain={activeGraph.domain}
               range={activeGraph.range}
               title={activeGraph.title}
@@ -334,11 +373,12 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
         )}
 
         {/* MODE C: Maximized Full-Chalkboard Graph Viewport */}
-        {activeGraph && graphMode === 'maximized' && (
+        {activeGraph && isValidGraphPayload(activeGraph) && graphMode === 'maximized' && (
           <div className="absolute inset-2 z-40 rounded-2xl overflow-hidden shadow-[0_25px_70px_rgba(15,23,42,0.22)] animate-in fade-in zoom-in-95 duration-200">
             <MafsGraphCanvas
               formula={activeGraph.formula}
               formulas={activeGraph.formulas}
+              segments={activeGraph.segments}
               domain={activeGraph.domain}
               range={activeGraph.range}
               title={activeGraph.title}
@@ -352,7 +392,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
         )}
 
         {/* MODE D: Minimized Floating Pill in Top-Right */}
-        {activeGraph && graphMode === 'minimized' && (
+        {activeGraph && isValidGraphPayload(activeGraph) && graphMode === 'minimized' && (
           <button
             onClick={() => setGraphMode('docked')}
             className="absolute top-14 right-4 z-30 flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#FFFFFF] border border-[#CBD5E1] shadow-xl text-[#0F172A] hover:bg-[#F8FAFC] transition-all cursor-pointer group animate-in fade-in"
@@ -360,7 +400,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
           >
             <Activity className="w-4 h-4 text-[#2563EB] group-hover:rotate-12 transition-transform" />
             <span className="text-xs font-semibold font-mono">
-              Graph: y = {activeGraph.formula}
+              {activeGraph.title || (Array.isArray(activeGraph.formulas) && activeGraph.formulas.length > 0 ? 'Multi-Curve Graph' : activeGraph.segments && activeGraph.segments.length > 0 ? 'Coordinate Segments' : `Graph: y = ${typeof activeGraph.formula === 'string' ? activeGraph.formula : 'Functions'}`)}
             </span>
             <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE] font-mono font-bold">
               Expand

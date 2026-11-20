@@ -1,0 +1,2073 @@
+[
+  {
+    "id": "5b8664b5-4f30-49d4-b248-fb84203e2743",
+    "curriculum_id": "66e0ab17-4317-4ecf-803a-a949851ab200",
+    "order_index": 1,
+    "title": "The Human Eye Structure and Power of Accommodation",
+    "description": "Explore the biological camera of the human eye, its key structural components, and the ciliary muscle mechanism enabling accommodation.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 1: The Human Eye Structure and Power of Accommodation. Mid-Term Examination Syllabus. Emphasize the camera analogy. Connect physical optics (lenses) with biological adaptation (ciliary muscles). Use clear visual descriptions of accommodation.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: A detailed 2D sagittal cross-section of the human eyeball with labels pointing to cornea, iris, pupil, lens, retina, and optic nerve.\n- Diagram Type: anatomy_structure\n- Chapter Multi-Level Flowchart: Human Eye Anatomy -> Cornea (Outer Refraction) | Iris-Pupil (Light Regulation) | Crystalline Lens (Focal Adjustment) | Retina (Image Formation & Phototransduction)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Human Eye Anatomy -> Cornea (Outer Refraction) | Iris-Pupil (Light Regulation) | Crystalline Lens (Focal Adjustment) | Retina (Image Formation & Phototransduction)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Least Distance of Distinct Vision: \"The minimum distance at which objects can be seen most distinctly without strain.\" [SI Unit: Centimetres (cm), typically 25 cm for a normal adult.]\n- Power of Accommodation: \"The ability of the eye lens to adjust its focal length to focus objects at varying distances.\" [SI Unit: Dioptres (D) or reciprocal metres.]\n\n- Textbook Concrete Examples:\n- Reading a Book: Holding a book at 25 cm allows comfortable reading as ciliary muscles exert moderate adjustment without fatigue.\n- Staring at the Horizon: Looking at distant mountains relaxes ciliary muscles, thinning the lens to focus parallel light rays onto the retina.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Exercises:\n    * [Q1] (conceptual): What is meant by power of accommodation of the eye?\n      Method: Define accommodation as the ability of the eye lens to alter its focal length using ciliary muscles.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Cornea\":\n    * [Q1] (1-mark MCQ): Where does most of the refraction of light rays entering the human eye occur?\n      -> Ideal Model Answer: At the outer surface of the cornea.\n      -> Socratic Hint: Think about the transparent spherical bulge on the front surface of the eyeball.\n    * [Q2] (2-mark Definition): Define Cornea and state its primary optical function.\n      -> Ideal Model Answer: Cornea is a thin, transparent membrane forming the bulge on the front surface of the eyeball. Its primary function is to refract most of the incoming light rays into the eye.\n      -> Socratic Hint: What is the very first barrier light hits when entering the eye?\n  * Concept #2 \"Power of Accommodation\":\n    * [Q1] (1-mark MCQ): When you look at objects closer to the eye, how do the ciliary muscles behave?\n      -> Ideal Model Answer: The ciliary muscles contract, increasing the curvature and thickness of the eye lens, thereby decreasing its focal length.\n      -> Socratic Hint: Contraction makes the lens thicker to bend light more for nearby objects.\n    * [Q2] (3-mark Short Answer): Explain what happens to the eye lens when viewing distant objects versus nearby objects.\n      -> Ideal Model Answer: For distant objects, ciliary muscles relax, making the lens thin and increasing focal length. For nearby objects, ciliary muscles contract, making the lens thick and decreasing focal length.\n      -> Socratic Hint: Relacked = thin = far; Contracted = thick = near.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Power of Accommodation\":\n    - Visual Title: \"Ciliary Muscle Action on Lens\" (anatomy_structure)\n    - Why Needed: Visualizes how focal length shifts between near and distant viewing.\n    - What to Explain: Point out how contraction thickens the lens for near objects.\n    - Timing & Directive: Show at minute 10 when explaining accommodation limits.\n    - Interactive Math Formula: 1/f = (n-1)(1/R1 - 1/R2)\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Cornea: Transparent spherical membrane forming the front bulge where most refraction occurs.",
+      "Pupil & Iris: Iris is a dark muscular diaphragm controlling pupil size; pupil regulates light entering the eye.",
+      "Retina: Light-sensitive delicate membrane containing rods and cones that generate electrical signals sent via optic nerves to the brain.",
+      "Power of Accommodation: The ability of the eye lens to adjust its focal length using ciliary muscles to focus objects at varying distances.",
+      "Near Point: Minimum distance for distinct vision without strain, equal to 25 cm for a normal young adult."
+    ],
+    "success_criteria": "Explain the step-by-step physiological mechanism of how ciliary muscles adjust the focal length of the crystalline lens for near and distant vision.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:45:38.89445+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Structure of Human Eye (Cornea, Iris, Pupil, Crystalline Lens, Retina, Optic Nerve)",
+      "Role of Iris and Pupil in regulating light",
+      "Power of Accommodation and focal length adjustment",
+      "Least distance of distinct vision (Near point) and Far point"
+    ],
+    "chapter_notes": "The human eye acts like a biological camera. Light enters through the cornea, a transparent protective membrane. The iris controls the aperture (pupil) through which light passes onto the crystalline lens. The lens forms a real, inverted image on the retina. The retina converts light energy into neural impulses via photoreceptors (rods and cones), transmitted through the optic nerve to the occipital lobe of the brain. The eye's ability to modify its focal length via ciliary muscle tension is termed 'accommodation'. For a normal human eye, the near point is 25 cm, and the far point is infinity.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "cm",
+        "given": "Near point = 25 cm, Far point = Infinity",
+        "formula": "Range = [Near Point, Far Point]",
+        "problem": "Calculate the range of vision for a normal human eye.",
+        "calculation": "Direct physiological standard for normal human vision.",
+        "finalAnswer": "25 cm to infinity",
+        "substitution": "Range = [25 cm, Infinity]",
+        "image_search_query": "class 10 science chapter_10_the_ ncert",
+        "page": 10,
+        "section": "Section 1"
+      }
+    ],
+    "common_misconceptions": [
+      "Believing the cornea forms the image (it is formed on the retina).",
+      "Thinking ciliary muscles expand the lens (they change curvature/thickness)."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735138375_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "The Human Eye Structure and Power of Accommodation: Explore the biological camera of the human eye, its key structural components, and the ciliary muscle mechanism enabling accommodation.",
+              "keyTakeaway": "Cornea: Transparent spherical membrane forming the front bulge where most refraction occurs."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Cornea: Transparent spherical membrane forming the front bulge where most refraction occurs."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc110.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735138375_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "The Human Eye Structure and Power of Accommodation - Fundamental Equations",
+              "equations": [
+                "Cornea: Transparent spherical membrane forming the front bulge where most refraction occurs.",
+                "Pupil & Iris: Iris is a dark muscular diaphragm controlling pupil size; pupil regulates light entering the eye.",
+                "Retina: Light-sensitive delicate membrane containing rods and cones that generate electrical signals sent via optic nerves to the brain."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Cornea: Transparent spherical membrane forming the front bulge where most refraction occurs."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc110.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735138375_3",
+          "type": "DIAGRAM",
+          "title": "The Human Eye Structure and Power of Accommodation Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "The Human Eye Structure and Power of Accommodation Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Cornea: Transparent spherical membrane forming the front bulge where most refraction occurs.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Pupil & Iris: Iris is a dark muscular diaphragm controlling pupil size; pupil regulates light entering the eye.",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "The Human Eye Structure and Power of Accommodation",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "The Human Eye Structure and Power of Accommodation | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><ellipse cx='270' cy='140' rx='130' ry='100' fill='none' stroke='#0F172A' stroke-width='2.5'/><path d='M 140 100 Q 160 140 140 180' fill='none' stroke='#2563EB' stroke-width='3'/><text x='70' y='105' fill='#2563EB' font-size='12' font-family='sans-serif'>Cornea</text><line x1='115' y1='110' x2='140' y2='120' stroke='#2563EB' stroke-width='1'/><ellipse cx='220' cy='140' rx='15' ry='35' fill='#16A34A' stroke='#0F172A' stroke-width='2'/><text x='190' y='65' fill='#16A34A' font-size='12' font-family='sans-serif'>Crystalline Lens</text><line x1='210' y1='70' x2='220' y2='105' stroke='#16A34A' stroke-width='1'/><path d='M 400 60 C 420 100 420 180 400 220' fill='none' stroke='#DC2626' stroke-width='3'/><text x='440' y='140' fill='#DC2626' font-size='12' font-family='sans-serif'>Retina</text><line x1='405' y1='140' x2='435' y2='140' stroke='#DC2626' stroke-width='1'/><path d='M 390 220 L 450 250' fill='none' stroke='#0F172A' stroke-width='2'/><text x='445' y='265' fill='#0F172A' font-size='12' font-family='sans-serif'>Optic Nerve</text></svg> | A detailed 2D sagittal cross-section of the human eyeball with labels pointing to cornea, iris, pupil, lens, retina, and optic nerve."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc110.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735138375_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Cornea: Transparent spherical membrane forming the front bulge where most refraction occurs."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Near point = 25 cm, Far point = Infinity, what is the value?",
+              "explanation": "By fundamental principle, Cornea: Transparent spherical membrane forming the front bulge where most refraction occurs. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735138375_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Structure of Human Eye (Cornea, Iris, Pupil, Crystalline Lens, Retina, Optic Nerve)",
+                "Role of Iris and Pupil in regulating light",
+                "Power of Accommodation and focal length adjustment",
+                "Least distance of distinct vision (Near point) and Far point"
+              ],
+              "formulasToRemember": [
+                "Cornea: Transparent spherical membrane forming the front bulge where most refraction occurs.",
+                "Pupil & Iris: Iris is a dark muscular diaphragm controlling pupil size; pupil regulates light entering the eye.",
+                "Retina: Light-sensitive delicate membrane containing rods and cones that generate electrical signals sent via optic nerves to the brain."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "The Human Eye Structure and Power of Accommodation - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "The Human Eye Structure and Power of Accommodation",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:45:38.375Z",
+        "provenance": "jesc110.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735138375",
+      "subtopics": [
+        "Structure of Human Eye (Cornea, Iris, Pupil, Crystalline Lens, Retina, Optic Nerve)",
+        "Role of Iris and Pupil in regulating light",
+        "Power of Accommodation and focal length adjustment",
+        "Least distance of distinct vision (Near point) and Far point"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><ellipse cx='270' cy='140' rx='130' ry='100' fill='none' stroke='#0F172A' stroke-width='2.5'/><path d='M 140 100 Q 160 140 140 180' fill='none' stroke='#2563EB' stroke-width='3'/><text x='70' y='105' fill='#2563EB' font-size='12' font-family='sans-serif'>Cornea</text><line x1='115' y1='110' x2='140' y2='120' stroke='#2563EB' stroke-width='1'/><ellipse cx='220' cy='140' rx='15' ry='35' fill='#16A34A' stroke='#0F172A' stroke-width='2'/><text x='190' y='65' fill='#16A34A' font-size='12' font-family='sans-serif'>Crystalline Lens</text><line x1='210' y1='70' x2='220' y2='105' stroke='#16A34A' stroke-width='1'/><path d='M 400 60 C 420 100 420 180 400 220' fill='none' stroke='#DC2626' stroke-width='3'/><text x='440' y='140' fill='#DC2626' font-size='12' font-family='sans-serif'>Retina</text><line x1='405' y1='140' x2='435' y2='140' stroke='#DC2626' stroke-width='1'/><path d='M 390 220 L 450 250' fill='none' stroke='#0F172A' stroke-width='2'/><text x='445' y='265' fill='#0F172A' font-size='12' font-family='sans-serif'>Optic Nerve</text></svg>",
+      "diagram_idea": "Cross-section diagram of the human eye showing Cornea, Iris, Pupil, Crystalline Lens, Ciliary Muscles, Retina, and Optic Nerve.",
+      "diagram_type": "anatomy_structure",
+      "what_to_make": "A detailed 2D sagittal cross-section of the human eyeball with labels pointing to cornea, iris, pupil, lens, retina, and optic nerve.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' fill='#0F172A' font-size='14' font-weight='bold' font-family='sans-serif'>Distant Object (Relaxed Muscles, Thin Lens)</text><ellipse cx='160' cy='100' rx='10' ry='30' fill='#2563EB'/><text x='30' y='170' fill='#0F172A' font-size='14' font-weight='bold' font-family='sans-serif'>Nearby Object (Contracted Muscles, Thick Lens)</text><ellipse cx='160' cy='220' rx='20' ry='35' fill='#16A34A'/></svg>",
+          "why_needed": "Visualizes how focal length shifts between near and distant viewing.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' fill='#0F172A' font-size='14' font-weight='bold' font-family='sans-serif'>Distant Object (Relaxed Muscles, Thin Lens)</text><ellipse cx='160' cy='100' rx='10' ry='30' fill='#2563EB'/><text x='30' y='170' fill='#0F172A' font-size='14' font-weight='bold' font-family='sans-serif'>Nearby Object (Contracted Muscles, Thick Lens)</text><ellipse cx='160' cy='220' rx='20' ry='35' fill='#16A34A'/></svg>",
+          "image_query": "Side-by-side comparison of relaxed thin vs contracted thick eye lens. scientific educational diagram with clear labels",
+          "video_query": "Ciliary Muscle Action on Lens educational demonstration video",
+          "diagram_type": "anatomy_structure",
+          "what_to_make": "Side-by-side comparison of relaxed (thin) vs contracted (thick) eye lens.",
+          "concept_title": "Power of Accommodation",
+          "diagram_title": "Ciliary Muscle Action on Lens",
+          "timing_and_cue": "Show at minute 10 when explaining accommodation limits.",
+          "what_to_explain": "Point out how contraction thickens the lens for near objects.",
+          "image_search_query": "Side-by-side comparison of relaxed thin vs contracted thick eye lens. scientific educational diagram with clear labels",
+          "video_search_query": "Ciliary Muscle Action on Lens educational demonstration video",
+          "interactive_math_formula": "1/f = (n-1)(1/R1 - 1/R2)"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Human Eye Anatomy -> Cornea (Outer Refraction) | Iris-Pupil (Light Regulation) | Crystalline Lens (Focal Adjustment) | Retina (Image Formation & Phototransduction)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Where does most of the refraction of light rays entering the human eye occur?",
+              "ideal_answer": "At the outer surface of the cornea.",
+              "socratic_hint": "Think about the transparent spherical bulge on the front surface of the eyeball."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Define Cornea and state its primary optical function.",
+              "ideal_answer": "Cornea is a thin, transparent membrane forming the bulge on the front surface of the eyeball. Its primary function is to refract most of the incoming light rays into the eye.",
+              "socratic_hint": "What is the very first barrier light hits when entering the eye?"
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Cornea"
+        },
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "When you look at objects closer to the eye, how do the ciliary muscles behave?",
+              "ideal_answer": "The ciliary muscles contract, increasing the curvature and thickness of the eye lens, thereby decreasing its focal length.",
+              "socratic_hint": "Contraction makes the lens thicker to bend light more for nearby objects."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q2",
+              "question": "Explain what happens to the eye lens when viewing distant objects versus nearby objects.",
+              "ideal_answer": "For distant objects, ciliary muscles relax, making the lens thin and increasing focal length. For nearby objects, ciliary muscles contract, making the lens thick and decreasing focal length.",
+              "socratic_hint": "Relacked = thin = far; Contracted = thick = near."
+            }
+          ],
+          "concept_index": 3,
+          "concept_title": "Power of Accommodation"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Reading a Book",
+          "scenario": "Holding a book at 25 cm allows comfortable reading as ciliary muscles exert moderate adjustment without fatigue."
+        },
+        {
+          "title": "Staring at the Horizon",
+          "scenario": "Looking at distant mountains relaxes ciliary muscles, thinning the lens to focus parallel light rays onto the retina."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "What is meant by power of accommodation of the eye?",
+              "question_type": "conceptual",
+              "solution_method": "Define accommodation as the ability of the eye lens to alter its focal length using ciliary muscles."
+            }
+          ],
+          "exercise_number": "In-Text Exercises"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Least Distance of Distinct Vision",
+          "si_units": "Centimetres (cm), typically 25 cm for a normal adult.",
+          "definition": "The minimum distance at which objects can be seen most distinctly without strain."
+        },
+        {
+          "concept": "Power of Accommodation",
+          "si_units": "Dioptres (D) or reciprocal metres.",
+          "definition": "The ability of the eye lens to adjust its focal length to focus objects at varying distances."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "709a1e0a-da9c-4aab-94fc-8020e7de7eba",
+    "curriculum_id": "66e0ab17-4317-4ecf-803a-a949851ab200",
+    "order_index": 2,
+    "title": "Defects of Vision and Their Correction",
+    "description": "Examine common refractive vision errors (Myopia, Hypermetropia, Presbyopia) and how suitable spherical lenses correct them.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 2: Defects of Vision and Their Correction. Mid-Term Examination Syllabus. Use clear comparative analogies between myopic (front-focused) and hypermetropic (back-focused) ray paths.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Three optical diagrams: (a) Far point of myopic eye, (b) Myopic eye image formation before retina, (c) Correction with concave lens.\n- Diagram Type: ray_optics\n- Chapter Multi-Level Flowchart: Vision Defects -> Myopia (Concave Lens) | Hypermetropia (Convex Lens) | Presbyopia (Bi-focal / Reading Glasses)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Vision Defects -> Myopia (Concave Lens) | Hypermetropia (Convex Lens) | Presbyopia (Bi-focal / Reading Glasses)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Myopia: \"A refractive defect where a person sees nearby objects clearly but distant objects appear blurred.\" [SI Unit: Corrective lens power in Dioptres (D).]\n- Hypermetropia: \"A refractive defect where a person sees distant objects clearly but nearby objects appear blurred.\" [SI Unit: Corrective lens power in Dioptres (D).]\n\n- Textbook Concrete Examples:\n- Blackboard Blur: A student sitting in the last row cannot read the blackboard clearly due to myopia.\n- Reading Strain: An elderly person holds a newspaper at 50 cm instead of 25 cm due to hypermetropia.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Exercises:\n    * [Q2] (numerical): A person with a myopic eye cannot see objects beyond 1.2 m distinctly. What should be the type of corrective lens?\n      Method: Myopia requires a concave lens. The focal length f = -1.2 m, and power P = 1/f = -1/1.2 D.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Myopia\":\n    * [Q1] (1-mark MCQ): Which lens is used to correct myopia or near-sightedness?\n      -> Ideal Model Answer: Concave lens of suitable power.\n      -> Socratic Hint: Concave lenses diverge light rays before entering the eye.\n    * [Q2] (3-mark Short Answer): State two causes of myopia and explain how a concave lens corrects it.\n      -> Ideal Model Answer: Causes: (1) Excessive curvature of the eye lens, (2) Elongation of the eyeball. A concave lens diverges incoming rays so they are focused directly onto the retina.\n      -> Socratic Hint: Why does the image fall short of the retina in myopic eyes?\n  * Concept #2 \"Hypermetropia\":\n    * [Q1] (2-mark Definition): What is hypermetropia? Name the lens used to correct it.\n      -> Ideal Model Answer: Hypermetropia is far-sightedness where a person can see distant objects clearly but not nearby objects. It is corrected using a convex lens.\n      -> Socratic Hint: Convex lenses converge light rays.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Hypermetropia\":\n    - Visual Title: \"Hypermetropic Eye and Convex Correction\" (ray_optics)\n    - Why Needed: Demonstrates why nearby light focuses behind the retina.\n    - What to Explain: Explain how the convex lens pre-focuses rays onto the retina.\n    - Timing & Directive: Present right after explaining myopia.\n    - Interactive Math Formula: 1/f = 1/v - 1/u\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Myopia: Vision defect where distant objects appear blurred because images form in front of the retina. Corrected with a concave lens.",
+      "Hypermetropia: Vision defect where nearby objects appear blurred because images form behind the retina. Corrected with a convex lens.",
+      "Presbyopia: Age-related reduction in accommodation due to ciliary muscle weakening and lens inflexibility.",
+      "Bi-focal Lenses: Combination lenses with an upper concave part (distant vision) and lower convex part (near vision)."
+    ],
+    "success_criteria": "Diagnose a vision defect description and prescribe the correct optical lens type with ray diagram justification.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:45:39.51927+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Myopia (Near-sightedness) causes and correction using concave lenses",
+      "Hypermetropia (Far-sightedness) causes and correction using convex lenses",
+      "Presbyopia and Astigmatism overview",
+      "Bi-focal lenses for dual vision correction"
+    ],
+    "chapter_notes": "Refractive defects occur when the eye fails to focus images sharply on the retina. In Myopia (near-sightedness), the far point is closer than infinity; rays converge in front of the retina due to an elongated eyeball or excessive lens curvature. Corrected with diverging (concave) lenses. In Hypermetropia (far-sightedness), the near point recedes beyond 25 cm; rays converge behind the retina due to a shortened eyeball or flat lens. Corrected with converging (convex) lenses. Presbyopia arises in old age due to ciliary muscle fatigue and lens hardening.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Dioptres (D)",
+        "given": "Object distance u = -infinity, Image distance v = -80 cm = -0.8 m",
+        "formula": "1/f = 1/v - 1/u",
+        "problem": "A myopic person's far point is 80 cm. Find the power of the lens required to correct vision.",
+        "calculation": "f = -0.8 m = -80 cm; P = 1/f = 1 / (-0.8) = -1.25 D",
+        "finalAnswer": "-1.25 D",
+        "substitution": "1/f = 1/(-0.8) - 1/(-infinity) = -1/0.8",
+        "image_search_query": "class 10 science chapter_10_the_ ncert",
+        "page": 20,
+        "section": "Section 2"
+      }
+    ],
+    "common_misconceptions": [
+      "Assuming hypermetropia means failing to see distant objects.",
+      "Confusing concave lens divergence with convex convergence."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735139010_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Defects of Vision and Their Correction: Examine common refractive vision errors (Myopia, Hypermetropia, Presbyopia) and how suitable spherical lenses correct them.",
+              "keyTakeaway": "Myopia: Vision defect where distant objects appear blurred because images form in front of the retina. Corrected with a concave lens."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Myopia: Vision defect where distant objects appear blurred because images form in front of the retina. Corrected with a concave lens."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc110.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735139010_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Defects of Vision and Their Correction - Fundamental Equations",
+              "equations": [
+                "Myopia: Vision defect where distant objects appear blurred because images form in front of the retina. Corrected with a concave lens.",
+                "Hypermetropia: Vision defect where nearby objects appear blurred because images form behind the retina. Corrected with a convex lens.",
+                "Presbyopia: Age-related reduction in accommodation due to ciliary muscle weakening and lens inflexibility."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Myopia: Vision defect where distant objects appear blurred because images form in front of the retina. Corrected with a concave lens."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc110.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735139010_3",
+          "type": "DIAGRAM",
+          "title": "Defects of Vision and Their Correction Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Defects of Vision and Their Correction Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Myopia: Vision defect where distant objects appear blurred because images form in front of the retina. Corrected with a concave lens.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Hypermetropia: Vision defect where nearby objects appear blurred because images form behind the retina. Corrected with a convex lens.",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Defects of Vision and Their Correction",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Defects of Vision and Their Correction | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' fill='#0F172A' font-size='13' font-weight='bold' font-family='sans-serif'>Myopia Correction Ray Diagram</text><path d='M 100 90 L 300 130 L 100 170' fill='none' stroke='#2563EB' stroke-width='2'/><ellipse cx='320' cy='130' rx='40' ry='50' fill='none' stroke='#0F172A' stroke-width='2'/><line x1='280' y1='100' x2='280' y2='160' stroke='#DC2626' stroke-width='3'/><text x='250' y='185' fill='#DC2626' font-size='11' font-family='sans-serif'>Concave Lens</text></svg> | Three optical diagrams: (a) Far point of myopic eye, (b) Myopic eye image formation before retina, (c) Correction with concave lens."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc110.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735139010_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Myopia: Vision defect where distant objects appear blurred because images form in front of the retina. Corrected with a concave lens."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Object distance u = -infinity, Image distance v = -80 cm = -0.8 m, what is the value?",
+              "explanation": "By fundamental principle, Myopia: Vision defect where distant objects appear blurred because images form in front of the retina. Corrected with a concave lens. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735139010_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Myopia (Near-sightedness) causes and correction using concave lenses",
+                "Hypermetropia (Far-sightedness) causes and correction using convex lenses",
+                "Presbyopia and Astigmatism overview",
+                "Bi-focal lenses for dual vision correction"
+              ],
+              "formulasToRemember": [
+                "Myopia: Vision defect where distant objects appear blurred because images form in front of the retina. Corrected with a concave lens.",
+                "Hypermetropia: Vision defect where nearby objects appear blurred because images form behind the retina. Corrected with a convex lens.",
+                "Presbyopia: Age-related reduction in accommodation due to ciliary muscle weakening and lens inflexibility."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Defects of Vision and Their Correction - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Defects of Vision and Their Correction",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:45:39.010Z",
+        "provenance": "jesc110.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735139010",
+      "subtopics": [
+        "Myopia (Near-sightedness) causes and correction using concave lenses",
+        "Hypermetropia (Far-sightedness) causes and correction using convex lenses",
+        "Presbyopia and Astigmatism overview",
+        "Bi-focal lenses for dual vision correction"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' fill='#0F172A' font-size='13' font-weight='bold' font-family='sans-serif'>Myopia Correction Ray Diagram</text><path d='M 100 90 L 300 130 L 100 170' fill='none' stroke='#2563EB' stroke-width='2'/><ellipse cx='320' cy='130' rx='40' ry='50' fill='none' stroke='#0F172A' stroke-width='2'/><line x1='280' y1='100' x2='280' y2='160' stroke='#DC2626' stroke-width='3'/><text x='250' y='185' fill='#DC2626' font-size='11' font-family='sans-serif'>Concave Lens</text></svg>",
+      "diagram_idea": "Ray optics diagrams showing myopic eye image formation in front of retina and its correction via a concave lens.",
+      "diagram_type": "ray_optics",
+      "what_to_make": "Three optical diagrams: (a) Far point of myopic eye, (b) Myopic eye image formation before retina, (c) Correction with concave lens.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' fill='#0F172A' font-size='13' font-weight='bold' font-family='sans-serif'>Hypermetropia Correction</text><path d='M 100 90 L 320 130 L 100 170' fill='none' stroke='#16A34A' stroke-width='2'/><ellipse cx='320' cy='130' rx='40' ry='50' fill='none' stroke='#0F172A' stroke-width='2'/></svg>",
+          "why_needed": "Demonstrates why nearby light focuses behind the retina.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='30' fill='#0F172A' font-size='13' font-weight='bold' font-family='sans-serif'>Hypermetropia Correction</text><path d='M 100 90 L 320 130 L 100 170' fill='none' stroke='#16A34A' stroke-width='2'/><ellipse cx='320' cy='130' rx='40' ry='50' fill='none' stroke='#0F172A' stroke-width='2'/></svg>",
+          "image_query": "convex lens ray diagram showing optical center, principal focus F1 F2, 2F1 2F2, and refracted light rays",
+          "video_query": "convex lens image formation physics optics laboratory experiment demonstration",
+          "diagram_type": "ray_optics",
+          "what_to_make": "Eye diagram with converging lens in front.",
+          "concept_title": "Hypermetropia",
+          "diagram_title": "Hypermetropic Eye and Convex Correction",
+          "timing_and_cue": "Present right after explaining myopia.",
+          "what_to_explain": "Explain how the convex lens pre-focuses rays onto the retina.",
+          "image_search_query": "convex lens ray diagram showing optical center, principal focus F1 F2, 2F1 2F2, and refracted light rays",
+          "video_search_query": "convex lens image formation physics optics laboratory experiment demonstration",
+          "interactive_math_formula": "1/f = 1/v - 1/u"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Vision Defects -> Myopia (Concave Lens) | Hypermetropia (Convex Lens) | Presbyopia (Bi-focal / Reading Glasses)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Which lens is used to correct myopia or near-sightedness?",
+              "ideal_answer": "Concave lens of suitable power.",
+              "socratic_hint": "Concave lenses diverge light rays before entering the eye."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q2",
+              "question": "State two causes of myopia and explain how a concave lens corrects it.",
+              "ideal_answer": "Causes: (1) Excessive curvature of the eye lens, (2) Elongation of the eyeball. A concave lens diverges incoming rays so they are focused directly onto the retina.",
+              "socratic_hint": "Why does the image fall short of the retina in myopic eyes?"
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Myopia"
+        },
+        {
+          "questions": [
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q1",
+              "question": "What is hypermetropia? Name the lens used to correct it.",
+              "ideal_answer": "Hypermetropia is far-sightedness where a person can see distant objects clearly but not nearby objects. It is corrected using a convex lens.",
+              "socratic_hint": "Convex lenses converge light rays."
+            }
+          ],
+          "concept_index": 1,
+          "concept_title": "Hypermetropia"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Blackboard Blur",
+          "scenario": "A student sitting in the last row cannot read the blackboard clearly due to myopia."
+        },
+        {
+          "title": "Reading Strain",
+          "scenario": "An elderly person holds a newspaper at 50 cm instead of 25 cm due to hypermetropia."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q2",
+              "question": "A person with a myopic eye cannot see objects beyond 1.2 m distinctly. What should be the type of corrective lens?",
+              "question_type": "numerical",
+              "solution_method": "Myopia requires a concave lens. The focal length f = -1.2 m, and power P = 1/f = -1/1.2 D."
+            }
+          ],
+          "exercise_number": "In-Text Exercises"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Myopia",
+          "si_units": "Corrective lens power in Dioptres (D).",
+          "definition": "A refractive defect where a person sees nearby objects clearly but distant objects appear blurred."
+        },
+        {
+          "concept": "Hypermetropia",
+          "si_units": "Corrective lens power in Dioptres (D).",
+          "definition": "A refractive defect where a person sees distant objects clearly but nearby objects appear blurred."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "28c67f89-2b8f-459a-aa11-7dd523adce9e",
+    "curriculum_id": "66e0ab17-4317-4ecf-803a-a949851ab200",
+    "order_index": 3,
+    "title": "Eye Donation and Societal Awareness",
+    "description": "Understand the medical guidelines, protocols, and significance of eye donation in curing corneal blindness.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 3: Eye Donation and Societal Awareness. Mid-Term Examination Syllabus. Highlight the social responsibility and medical facts surrounding eye donation.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Flowchart depicting steps from death to eye bank retrieval and transplantation.\n- Diagram Type: flowchart\n- Chapter Multi-Level Flowchart: Eye Donation -> Post-Mortem Window (4-6 hrs) | Medical Screening (Exclude HIV/Hepatitis) | Retrieval (10-15 mins) | Corneal Transplantation (Restoring Vision)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Eye Donation -> Post-Mortem Window (4-6 hrs) | Medical Screening (Exclude HIV/Hepatitis) | Retrieval (10-15 mins) | Corneal Transplantation (Restoring Vision)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Corneal Transplantation: \"Surgical replacement of an opaque cornea with a healthy donor cornea.\" [SI Unit: Surgical procedure.]\n\n- Textbook Concrete Examples:\n- Restoring Sight in Children: 60% of corneal blindness victims are children below 12 who benefit directly from eye donations.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Exercises:\n    * [Q3] (conceptual): What is the far point and near point of the human eye with normal vision?\n      Method: Near point is 25 cm, far point is infinity.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Corneal Blindness\":\n    * [Q1] (1-mark MCQ): Within what time frame must eyes be removed after death for successful donation?\n      -> Ideal Model Answer: 4-6 hours after death.\n      -> Socratic Hint: Time is critical to preserve corneal cell viability.\n    * [Q2] (2-mark Definition): Can a person who wears spectacles or has undergone cataract surgery donate their eyes? Explain.\n      -> Ideal Model Answer: Yes. Eye donors can belong to any age or sex, and people using spectacles or operated for cataract can safely donate eyes.\n      -> Socratic Hint: Only specific communicable diseases disqualify donors.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Donation Window\":\n    - Visual Title: \"Timeline for Safe Eye Retrieval\" (flowchart)\n    - Why Needed: Emphasizes the strict 4-6 hour post-mortem limit.\n    - What to Explain: Explain cellular degradation of corneal tissue after 6 hours.\n    - Timing & Directive: Discuss during discussion on eye donation facts.\n    - Interactive Math Formula: t <= 6 hours\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Corneal Blindness: Loss of vision due to corneal opacity, treatable via corneal transplantation of donated eyes.",
+      "Donation Window: Eyes must be removed within 4-6 hours after death.",
+      "Eligibility: Donors can belong to any age or sex; people with spectacles, cataract surgery, diabetes, or hypertension can donate eyes."
+    ],
+    "success_criteria": "State the key medical conditions and time constraints governing successful eye donation.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:45:40.180357+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Corneal blindness statistics and impact",
+      "Eye donation eligibility and protocols",
+      "Removal procedure and timelines (4-6 hours post-mortem)",
+      "Exclusions (communicable diseases like AIDS, Hepatitis)"
+    ],
+    "chapter_notes": "Eye donation is a noble humanitarian act that can restore sight to millions suffering from corneal blindness. Donated corneas must be retrieved within 4-6 hours post-mortem by trained medical teams. The procedure takes only 10-15 minutes and causes no disfigurement. Individuals infected with rabies, AIDS, Hepatitis B/C, or acute leukaemia are ineligible. One pair of eye donors can give vision to up to four corneal blind people.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "People",
+        "given": "1 pair of eyes gives vision to up to 4 people.",
+        "formula": "Total Beneficiaries = Pairs * 4",
+        "problem": "Calculate the number of corneal blind people benefited by 10 pairs of donated eyes.",
+        "calculation": "10 * 4 = 40",
+        "finalAnswer": "40",
+        "substitution": "Total = 10 * 4",
+        "image_search_query": "class 10 science chapter_10_the_ ncert",
+        "page": 30,
+        "section": "Section 3"
+      }
+    ],
+    "common_misconceptions": [
+      "Believing cataract or spectacle-users cannot donate eyes.",
+      "Thinking eye removal causes facial disfigurement."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735139621_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Eye Donation and Societal Awareness: Understand the medical guidelines, protocols, and significance of eye donation in curing corneal blindness.",
+              "keyTakeaway": "Corneal Blindness: Loss of vision due to corneal opacity, treatable via corneal transplantation of donated eyes."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Corneal Blindness: Loss of vision due to corneal opacity, treatable via corneal transplantation of donated eyes."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc110.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735139621_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Eye Donation and Societal Awareness - Fundamental Equations",
+              "equations": [
+                "Corneal Blindness: Loss of vision due to corneal opacity, treatable via corneal transplantation of donated eyes.",
+                "Donation Window: Eyes must be removed within 4-6 hours after death.",
+                "Eligibility: Donors can belong to any age or sex; people with spectacles, cataract surgery, diabetes, or hypertension can donate eyes."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Corneal Blindness: Loss of vision due to corneal opacity, treatable via corneal transplantation of donated eyes."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc110.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735139621_3",
+          "type": "DIAGRAM",
+          "title": "Eye Donation and Societal Awareness Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Eye Donation and Societal Awareness Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Corneal Blindness: Loss of vision due to corneal opacity, treatable via corneal transplantation of donated eyes.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Donation Window: Eyes must be removed within 4-6 hours after death.",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Eye Donation and Societal Awareness",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Eye Donation and Societal Awareness | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='40' fill='#0F172A' font-size='14' font-weight='bold' font-family='sans-serif'>Eye Donation Protocol</text><rect x='40' y='70' width='120' height='50' rx='6' fill='#2563EB'/><text x='65' y='100' fill='#FFFFFF' font-size='12' font-family='sans-serif'>1. Death Occurs</text><line x1='160' y1='95' x2='200' y2='95' stroke='#0F172A' stroke-width='2'/><rect x='200' y='70' width='120' height='50' rx='6' fill='#16A34A'/><text x='215' y='100' fill='#FFFFFF' font-size='12' font-family='sans-serif'>2. Call Eye Bank</text></svg> | Flowchart depicting steps from death to eye bank retrieval and transplantation."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc110.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735139621_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Corneal Blindness: Loss of vision due to corneal opacity, treatable via corneal transplantation of donated eyes."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If 1 pair of eyes gives vision to up to 4 people., what is the value?",
+              "explanation": "By fundamental principle, Corneal Blindness: Loss of vision due to corneal opacity, treatable via corneal transplantation of donated eyes. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735139621_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Corneal blindness statistics and impact",
+                "Eye donation eligibility and protocols",
+                "Removal procedure and timelines (4-6 hours post-mortem)",
+                "Exclusions (communicable diseases like AIDS, Hepatitis)"
+              ],
+              "formulasToRemember": [
+                "Corneal Blindness: Loss of vision due to corneal opacity, treatable via corneal transplantation of donated eyes.",
+                "Donation Window: Eyes must be removed within 4-6 hours after death.",
+                "Eligibility: Donors can belong to any age or sex; people with spectacles, cataract surgery, diabetes, or hypertension can donate eyes."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Eye Donation and Societal Awareness - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Eye Donation and Societal Awareness",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:45:39.621Z",
+        "provenance": "jesc110.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735139621",
+      "subtopics": [
+        "Corneal blindness statistics and impact",
+        "Eye donation eligibility and protocols",
+        "Removal procedure and timelines (4-6 hours post-mortem)",
+        "Exclusions (communicable diseases like AIDS, Hepatitis)"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='40' fill='#0F172A' font-size='14' font-weight='bold' font-family='sans-serif'>Eye Donation Protocol</text><rect x='40' y='70' width='120' height='50' rx='6' fill='#2563EB'/><text x='65' y='100' fill='#FFFFFF' font-size='12' font-family='sans-serif'>1. Death Occurs</text><line x1='160' y1='95' x2='200' y2='95' stroke='#0F172A' stroke-width='2'/><rect x='200' y='70' width='120' height='50' rx='6' fill='#16A34A'/><text x='215' y='100' fill='#FFFFFF' font-size='12' font-family='sans-serif'>2. Call Eye Bank</text></svg>",
+      "diagram_idea": "Informational graphic summarizing eye donation timelines and eligibility criteria.",
+      "diagram_type": "flowchart",
+      "what_to_make": "Flowchart depicting steps from death to eye bank retrieval and transplantation.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='50' fill='#0F172A' font-size='14' font-weight='bold' font-family='sans-serif'>Optimal Recovery Window: 4 - 6 Hours</text><line x1='50' y1='140' x2='490' y2='140' stroke='#DC2626' stroke-width='4'/></svg>",
+          "why_needed": "Emphasizes the strict 4-6 hour post-mortem limit.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><text x='30' y='50' fill='#0F172A' font-size='14' font-weight='bold' font-family='sans-serif'>Optimal Recovery Window: 4 - 6 Hours</text><line x1='50' y1='140' x2='490' y2='140' stroke='#DC2626' stroke-width='4'/></svg>",
+          "image_query": "Timeline bar from 0 to 6 hours. scientific educational diagram with clear labels",
+          "video_query": "Timeline for Safe Eye Retrieval educational demonstration video",
+          "diagram_type": "flowchart",
+          "what_to_make": "Timeline bar from 0 to 6 hours.",
+          "concept_title": "Donation Window",
+          "diagram_title": "Timeline for Safe Eye Retrieval",
+          "timing_and_cue": "Discuss during discussion on eye donation facts.",
+          "what_to_explain": "Explain cellular degradation of corneal tissue after 6 hours.",
+          "image_search_query": "Timeline bar from 0 to 6 hours. scientific educational diagram with clear labels",
+          "video_search_query": "Timeline for Safe Eye Retrieval educational demonstration video",
+          "interactive_math_formula": "t <= 6 hours"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Eye Donation -> Post-Mortem Window (4-6 hrs) | Medical Screening (Exclude HIV/Hepatitis) | Retrieval (10-15 mins) | Corneal Transplantation (Restoring Vision)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Within what time frame must eyes be removed after death for successful donation?",
+              "ideal_answer": "4-6 hours after death.",
+              "socratic_hint": "Time is critical to preserve corneal cell viability."
+            },
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q2",
+              "question": "Can a person who wears spectacles or has undergone cataract surgery donate their eyes? Explain.",
+              "ideal_answer": "Yes. Eye donors can belong to any age or sex, and people using spectacles or operated for cataract can safely donate eyes.",
+              "socratic_hint": "Only specific communicable diseases disqualify donors."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Corneal Blindness"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Restoring Sight in Children",
+          "scenario": "60% of corneal blindness victims are children below 12 who benefit directly from eye donations."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q3",
+              "question": "What is the far point and near point of the human eye with normal vision?",
+              "question_type": "conceptual",
+              "solution_method": "Near point is 25 cm, far point is infinity."
+            }
+          ],
+          "exercise_number": "In-Text Exercises"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Corneal Transplantation",
+          "si_units": "Surgical procedure.",
+          "definition": "Surgical replacement of an opaque cornea with a healthy donor cornea."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "c2fd1bac-f12d-4f2d-8edf-b76163ea6383",
+    "curriculum_id": "66e0ab17-4317-4ecf-803a-a949851ab200",
+    "order_index": 4,
+    "title": "Refraction of Light Through a Glass Prism",
+    "description": "Analyze how triangular glass prisms refract light, defining angle of deviation, angle of incidence, and emergent rays.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 4: Refraction of Light Through a Glass Prism. Mid-Term Examination Syllabus. Emphasize the geometric difference between rectangular glass slabs and triangular prisms.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Triangular prism cross-section with incoming ray PE, refracted ray EF, and emergent ray FS.\n- Diagram Type: ray_optics\n- Chapter Multi-Level Flowchart: Prism Refraction -> Incident Ray (Air to Glass: bends towards normal) -> Refracted Ray -> Emergent Ray (Glass to Air: bends away from normal) -> Angle of Deviation (\u2220D)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Prism Refraction -> Incident Ray (Air to Glass: bends towards normal) -> Refracted Ray -> Emergent Ray (Glass to Air: bends away from normal) -> Angle of Deviation (\u2220D)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Angle of Deviation: \"The angle formed between the produced incident ray and the emergent ray from a prism.\" [SI Unit: Degrees (\u00b0)]\n\n- Textbook Concrete Examples:\n- Activity 10.1 Pin Tracing: Tracing light paths through a glass prism using pins P, Q, R, and S to measure deviation angles.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - In-Text Exercises:\n    * [Q4] (conceptual): A student has difficulty reading the blackboard while sitting in the last row. What defect is this and how is it corrected?\n      Method: Myopia (near-sightedness); corrected using a concave lens.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Triangular Prism\":\n    * [Q1] (1-mark MCQ): What is the angle between two lateral faces of a triangular glass prism called?\n      -> Ideal Model Answer: Angle of the prism.\n      -> Socratic Hint: It defines the wedge geometry of the prism.\n    * [Q2] (3-mark Short Answer): How does a ray of light bend when entering and leaving a triangular glass prism?\n      -> Ideal Model Answer: When entering from air to glass at the first surface, light bends towards the normal. When exiting from glass to air at the second surface, it bends away from the normal.\n      -> Socratic Hint: Remember rarer-to-denser vs denser-to-rarer optical media rules.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Angle of Deviation\":\n    - Visual Title: \"Deviation Angle in Prism\" (ray_optics)\n    - Why Needed: Shows how inclined faces alter ray direction.\n    - What to Explain: Explain the formula D = (i + e) - A.\n    - Timing & Directive: Present when discussing Activity 10.1.\n    - Interactive Math Formula: D = i + e - A\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Triangular Prism: Transparent optical medium bounded by two triangular bases and three rectangular lateral faces inclined at an angle.",
+      "Angle of Deviation (\u2220D): The angle between the incident ray direction and the emergent ray direction.",
+      "Refraction Mechanics: Light bends towards the normal when entering denser glass from air, and away from the normal when exiting into air."
+    ],
+    "success_criteria": "Draw the complete ray path of monochromatic light through a triangular glass prism showing incident, refracted, and emergent rays with angle of deviation.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:45:40.792354+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Triangular glass prism geometry (two triangular bases, three rectangular lateral surfaces)",
+      "Angle of the prism and Angle of deviation",
+      "Refraction at first surface (bending towards normal) and second surface (bending away from normal)",
+      "Activity 10.1 pin tracing experiment"
+    ],
+    "chapter_notes": "Unlike parallel glass slabs where emergent rays are parallel to incident rays with a lateral displacement, a triangular prism causes the emergent ray to bend at an angle to the incident ray due to inclined refracting surfaces. This angle is termed the angle of deviation (\u2220D). Light bends towards the normal entering glass and away from the normal exiting glass.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Degrees (\u00b0)",
+        "given": "i = 45\u00b0, e = 50\u00b0, A = 60\u00b0",
+        "formula": "Deviation D = (i + e) - A",
+        "problem": "In a prism experiment, angle of incidence \u2220i = 45\u00b0, angle of emergence \u2220e = 50\u00b0, and angle of prism \u2220A = 60\u00b0. Find deviation if angle of refraction \u2220r1 + \u2220r2 = 60\u00b0.",
+        "calculation": "95\u00b0 - 60\u00b0 = 35\u00b0",
+        "finalAnswer": "35",
+        "substitution": "D = (45\u00b0 + 50\u00b0) - 60\u00b0",
+        "image_search_query": "class 10 science chapter_10_the_ ncert",
+        "page": 40,
+        "section": "Section 4"
+      }
+    ],
+    "common_misconceptions": [
+      "Confusing lateral displacement in glass slabs with angular deviation in prisms.",
+      "Bending light away from the normal when entering glass."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735140289_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Refraction of Light Through a Glass Prism: Analyze how triangular glass prisms refract light, defining angle of deviation, angle of incidence, and emergent rays.",
+              "keyTakeaway": "Triangular Prism: Transparent optical medium bounded by two triangular bases and three rectangular lateral faces inclined at an angle."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Triangular Prism: Transparent optical medium bounded by two triangular bases and three rectangular lateral faces inclined at an angle."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc110.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735140289_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Refraction of Light Through a Glass Prism - Fundamental Equations",
+              "equations": [
+                "Triangular Prism: Transparent optical medium bounded by two triangular bases and three rectangular lateral faces inclined at an angle.",
+                "Angle of Deviation (\u2220D): The angle between the incident ray direction and the emergent ray direction.",
+                "Refraction Mechanics: Light bends towards the normal when entering denser glass from air, and away from the normal when exiting into air."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Triangular Prism: Transparent optical medium bounded by two triangular bases and three rectangular lateral faces inclined at an angle."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc110.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735140289_3",
+          "type": "DIAGRAM",
+          "title": "Refraction of Light Through a Glass Prism Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Refraction of Light Through a Glass Prism Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Triangular Prism: Transparent optical medium bounded by two triangular bases and three rectangular lateral faces inclined at an angle.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Angle of Deviation (\u2220D): The angle between the incident ray direction and the emergent ray direction.",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Refraction of Light Through a Glass Prism",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Refraction of Light Through a Glass Prism | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><polygon points='270,50 150,220 390,220' fill='none' stroke='#0F172A' stroke-width='2.5'/><line x1='100' y1='170' x2='220' y2='170' stroke='#2563EB' stroke-width='2'/><text x='110' y='160' fill='#2563EB' font-size='12' font-family='sans-serif'>Incident Ray</text></svg> | Triangular prism cross-section with incoming ray PE, refracted ray EF, and emergent ray FS."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc110.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735140289_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Triangular Prism: Transparent optical medium bounded by two triangular bases and three rectangular lateral faces inclined at an angle."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If i = 45\u00b0, e = 50\u00b0, A = 60\u00b0, what is the value?",
+              "explanation": "By fundamental principle, Triangular Prism: Transparent optical medium bounded by two triangular bases and three rectangular lateral faces inclined at an angle. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735140289_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Triangular glass prism geometry (two triangular bases, three rectangular lateral surfaces)",
+                "Angle of the prism and Angle of deviation",
+                "Refraction at first surface (bending towards normal) and second surface (bending away from normal)",
+                "Activity 10.1 pin tracing experiment"
+              ],
+              "formulasToRemember": [
+                "Triangular Prism: Transparent optical medium bounded by two triangular bases and three rectangular lateral faces inclined at an angle.",
+                "Angle of Deviation (\u2220D): The angle between the incident ray direction and the emergent ray direction.",
+                "Refraction Mechanics: Light bends towards the normal when entering denser glass from air, and away from the normal when exiting into air."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Refraction of Light Through a Glass Prism - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Refraction of Light Through a Glass Prism",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:45:40.289Z",
+        "provenance": "jesc110.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735140289",
+      "subtopics": [
+        "Triangular glass prism geometry (two triangular bases, three rectangular lateral surfaces)",
+        "Angle of the prism and Angle of deviation",
+        "Refraction at first surface (bending towards normal) and second surface (bending away from normal)",
+        "Activity 10.1 pin tracing experiment"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><polygon points='270,50 150,220 390,220' fill='none' stroke='#0F172A' stroke-width='2.5'/><line x1='100' y1='170' x2='220' y2='170' stroke='#2563EB' stroke-width='2'/><text x='110' y='160' fill='#2563EB' font-size='12' font-family='sans-serif'>Incident Ray</text></svg>",
+      "diagram_idea": "Ray diagram of refraction through a triangular glass prism showing angle i, r, e, and D.",
+      "diagram_type": "ray_optics",
+      "what_to_make": "Triangular prism cross-section with incoming ray PE, refracted ray EF, and emergent ray FS.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><polygon points='270,50 150,220 390,220' fill='none' stroke='#0F172A' stroke-width='2.5'/><text x='230' y='240' fill='#0F172A' font-size='12' font-family='sans-serif'>Glass Prism</text></svg>",
+          "why_needed": "Shows how inclined faces alter ray direction.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><polygon points='270,50 150,220 390,220' fill='none' stroke='#0F172A' stroke-width='2.5'/><text x='230' y='240' fill='#0F172A' font-size='12' font-family='sans-serif'>Glass Prism</text></svg>",
+          "image_query": "refraction of light through glass triangular prism diagram showing incident ray, refracted ray, emergent ray, angle of deviation, and angle of prism",
+          "video_query": "refraction of light through glass prism laser physics experiment demonstration",
+          "diagram_type": "ray_optics",
+          "what_to_make": "Prism ray diagram highlighting deviation angle D.",
+          "concept_title": "Angle of Deviation",
+          "diagram_title": "Deviation Angle in Prism",
+          "timing_and_cue": "Present when discussing Activity 10.1.",
+          "what_to_explain": "Explain the formula D = (i + e) - A.",
+          "image_search_query": "refraction of light through glass triangular prism diagram showing incident ray, refracted ray, emergent ray, angle of deviation, and angle of prism",
+          "video_search_query": "refraction of light through glass prism laser physics experiment demonstration",
+          "interactive_math_formula": "D = i + e - A"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Prism Refraction -> Incident Ray (Air to Glass: bends towards normal) -> Refracted Ray -> Emergent Ray (Glass to Air: bends away from normal) -> Angle of Deviation (\u2220D)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "What is the angle between two lateral faces of a triangular glass prism called?",
+              "ideal_answer": "Angle of the prism.",
+              "socratic_hint": "It defines the wedge geometry of the prism."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q2",
+              "question": "How does a ray of light bend when entering and leaving a triangular glass prism?",
+              "ideal_answer": "When entering from air to glass at the first surface, light bends towards the normal. When exiting from glass to air at the second surface, it bends away from the normal.",
+              "socratic_hint": "Remember rarer-to-denser vs denser-to-rarer optical media rules."
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Triangular Prism"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Activity 10.1 Pin Tracing",
+          "scenario": "Tracing light paths through a glass prism using pins P, Q, R, and S to measure deviation angles."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q4",
+              "question": "A student has difficulty reading the blackboard while sitting in the last row. What defect is this and how is it corrected?",
+              "question_type": "conceptual",
+              "solution_method": "Myopia (near-sightedness); corrected using a concave lens."
+            }
+          ],
+          "exercise_number": "In-Text Exercises"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Angle of Deviation",
+          "si_units": "Degrees (\u00b0)",
+          "definition": "The angle formed between the produced incident ray and the emergent ray from a prism."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "dbd8b02b-944b-42c5-b379-abaa87aa7649",
+    "curriculum_id": "66e0ab17-4317-4ecf-803a-a949851ab200",
+    "order_index": 5,
+    "title": "Dispersion of White Light and Rainbow Formation",
+    "description": "Investigate how white light splits into its seven constituent colors (VIBGYOR) through dispersion and internal reflection.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 5: Dispersion of White Light and Rainbow Formation. Mid-Term Examination Syllabus. Connect wavelength-dependent refraction with the VIBGYOR dispersion sequence.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Prism dispersing white beam into fan of 7 colors from violet (bottom) to red (top).\n- Diagram Type: ray_optics\n- Chapter Multi-Level Flowchart: White Light -> Prism / Raindrop -> Refraction & Dispersion (VIBGYOR) -> Internal Reflection -> Emergent Spectrum (Rainbow)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"White Light -> Prism / Raindrop -> Refraction & Dispersion (VIBGYOR) -> Internal Reflection -> Emergent Spectrum (Rainbow)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Dispersion: \"The splitting of a beam of white light into its constituent seven colors.\" [SI Unit: Optical phenomenon.]\n- Spectrum: \"The ordered band of colors produced when white light undergoes dispersion.\" [SI Unit: Optical spectrum.]\n\n- Textbook Concrete Examples:\n- Water Fountain Rainbow: Observing a rainbow on a sunny day through a water fountain with the Sun behind you.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - Chapter Exercises:\n    * [Q1] (conceptual): The human eye can focus on objects at different distances by adjusting focal length due to (a) presbyopia (b) accommodation (c) near-sightedness (d) far-sightedness.\n      Method: Correct option is (b) accommodation.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Dispersion\":\n    * [Q1] (1-mark MCQ): Which color of white light bends the most when passing through a glass prism?\n      -> Ideal Model Answer: Violet light.\n      -> Socratic Hint: Shorter wavelengths bend more than longer wavelengths.\n    * [Q2] (3-mark Short Answer): Why do different colors of white light split up when passing through a glass prism?\n      -> Ideal Model Answer: Different colors of light travel at different speeds through glass and bend through different angles with respect to the incident ray. Red bends the least, while violet bends the most.\n      -> Socratic Hint: Does refractive index vary with wavelength?\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Rainbow Formation\":\n    - Visual Title: \"Raindrop Refraction and Reflection\" (ray_optics)\n    - Why Needed: Visualizes internal reflection inside spherical water droplets.\n    - What to Explain: Step 1: Refraction & dispersion, Step 2: Internal reflection, Step 3: Refraction out to eye.\n    - Timing & Directive: Present when explaining natural rainbows.\n    - Interactive Math Formula: Refraction -> Reflection -> Refraction\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Dispersion: The splitting of white light into its component constituent colors when passing through a prism.",
+      "Spectrum: The band of colored components of a light beam (Violet, Indigo, Blue, Green, Yellow, Orange, Red).",
+      "Rainbow Formation: Natural spectrum caused by dispersion and internal reflection of sunlight by tiny spherical water droplets in the atmosphere."
+    ],
+    "success_criteria": "Explain the three optical steps (refraction, internal reflection, refraction) involved in natural rainbow formation.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:45:41.439776+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Dispersion of white light by a glass prism",
+      "Spectrum and VIBGYOR acronym",
+      "Newton's prism recombination experiment",
+      "Rainbow formation mechanism (refraction, internal reflection, dispersion)"
+    ],
+    "chapter_notes": "White light is composed of multiple wavelengths. When sunlight passes through a glass prism or water droplet, different colors refract at different angles because refractive index is wavelength-dependent (violet bends most, red least). This splitting is called dispersion. Isaac Newton proved sunlight is composed of seven colors (VIBGYOR) using an inverted second prism for recombination. Rainbows form when raindrops act as tiny prisms refracting, internally reflecting, and dispersing sunlight toward an observer.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "unit": "Colors",
+        "given": "VIBGYOR sequence",
+        "formula": "First color = Violet, Last color = Red",
+        "problem": "Identify the extreme colors of the visible spectrum formed by dispersion.",
+        "calculation": "Verification of spectrum boundaries.",
+        "finalAnswer": "Violet and Red",
+        "substitution": "Violet to Red",
+        "image_search_query": "class 10 science chapter_10_the_ ncert",
+        "page": 50,
+        "section": "Section 5"
+      }
+    ],
+    "common_misconceptions": [
+      "Believing prisms create colors rather than separating pre-existing components of white light.",
+      "Thinking rainbows can be seen with the Sun in front of the observer."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735140896_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Dispersion of White Light and Rainbow Formation: Investigate how white light splits into its seven constituent colors (VIBGYOR) through dispersion and internal reflection.",
+              "keyTakeaway": "Dispersion: The splitting of white light into its component constituent colors when passing through a prism."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Dispersion: The splitting of white light into its component constituent colors when passing through a prism."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc110.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735140896_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Dispersion of White Light and Rainbow Formation - Fundamental Equations",
+              "equations": [
+                "Dispersion: The splitting of white light into its component constituent colors when passing through a prism.",
+                "Spectrum: The band of colored components of a light beam (Violet, Indigo, Blue, Green, Yellow, Orange, Red).",
+                "Rainbow Formation: Natural spectrum caused by dispersion and internal reflection of sunlight by tiny spherical water droplets in the atmosphere."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Dispersion: The splitting of white light into its component constituent colors when passing through a prism."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc110.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735140896_3",
+          "type": "DIAGRAM",
+          "title": "Dispersion of White Light and Rainbow Formation Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Dispersion of White Light and Rainbow Formation Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Dispersion: The splitting of white light into its component constituent colors when passing through a prism.",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Spectrum: The band of colored components of a light beam (Violet, Indigo, Blue, Green, Yellow, Orange, Red).",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Dispersion of White Light and Rainbow Formation",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Dispersion of White Light and Rainbow Formation | <svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><polygon points='270,60 160,200 380,200' fill='#F1F5F9' stroke='#0F172A' stroke-width='2'/><path d='M 100 150 L 215 130' stroke='#0F172A' stroke-width='3'/><text x='110' y='140' fill='#0F172A' font-size='11' font-family='sans-serif'>White Light</text></svg> | Prism dispersing white beam into fan of 7 colors from violet (bottom) to red (top)."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc110.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735140896_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Dispersion: The splitting of white light into its component constituent colors when passing through a prism."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If VIBGYOR sequence, what is the value?",
+              "explanation": "By fundamental principle, Dispersion: The splitting of white light into its component constituent colors when passing through a prism. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735140896_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Dispersion of white light by a glass prism",
+                "Spectrum and VIBGYOR acronym",
+                "Newton's prism recombination experiment",
+                "Rainbow formation mechanism (refraction, internal reflection, dispersion)"
+              ],
+              "formulasToRemember": [
+                "Dispersion: The splitting of white light into its component constituent colors when passing through a prism.",
+                "Spectrum: The band of colored components of a light beam (Violet, Indigo, Blue, Green, Yellow, Orange, Red).",
+                "Rainbow Formation: Natural spectrum caused by dispersion and internal reflection of sunlight by tiny spherical water droplets in the atmosphere."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Dispersion of White Light and Rainbow Formation - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Dispersion of White Light and Rainbow Formation",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:45:40.896Z",
+        "provenance": "jesc110.pdf",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735140896",
+      "subtopics": [
+        "Dispersion of white light by a glass prism",
+        "Spectrum and VIBGYOR acronym",
+        "Newton's prism recombination experiment",
+        "Rainbow formation mechanism (refraction, internal reflection, dispersion)"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><polygon points='270,60 160,200 380,200' fill='#F1F5F9' stroke='#0F172A' stroke-width='2'/><path d='M 100 150 L 215 130' stroke='#0F172A' stroke-width='3'/><text x='110' y='140' fill='#0F172A' font-size='11' font-family='sans-serif'>White Light</text></svg>",
+      "diagram_idea": "Ray diagram showing white light entering a glass prism and dispersing into VIBGYOR.",
+      "diagram_type": "ray_optics",
+      "what_to_make": "Prism dispersing white beam into fan of 7 colors from violet (bottom) to red (top).",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><circle cx='270' cy='140' r='80' fill='none' stroke='#2563EB' stroke-width='2'/><text x='230' y='145' fill='#0F172A' font-size='12' font-family='sans-serif'>Raindrop</text></svg>",
+          "why_needed": "Visualizes internal reflection inside spherical water droplets.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><circle cx='270' cy='140' r='80' fill='none' stroke='#2563EB' stroke-width='2'/><text x='230' y='145' fill='#0F172A' font-size='12' font-family='sans-serif'>Raindrop</text></svg>",
+          "image_query": "dispersion of white light through triangular glass prism into seven spectrum colors VIBGYOR diagram",
+          "video_query": "dispersion of white light by prism experiment demonstration",
+          "diagram_type": "ray_optics",
+          "what_to_make": "Circular raindrop with sun ray entering, reflecting off back wall, and exiting as spectrum.",
+          "concept_title": "Rainbow Formation",
+          "diagram_title": "Raindrop Refraction and Reflection",
+          "timing_and_cue": "Present when explaining natural rainbows.",
+          "what_to_explain": "Step 1: Refraction & dispersion, Step 2: Internal reflection, Step 3: Refraction out to eye.",
+          "image_search_query": "dispersion of white light through triangular glass prism into seven spectrum colors VIBGYOR diagram",
+          "video_search_query": "dispersion of white light by prism experiment demonstration",
+          "interactive_math_formula": "Refraction -> Reflection -> Refraction"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "White Light -> Prism / Raindrop -> Refraction & Dispersion (VIBGYOR) -> Internal Reflection -> Emergent Spectrum (Rainbow)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "Which color of white light bends the most when passing through a glass prism?",
+              "ideal_answer": "Violet light.",
+              "socratic_hint": "Shorter wavelengths bend more than longer wavelengths."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q2",
+              "question": "Why do different colors of white light split up when passing through a glass prism?",
+              "ideal_answer": "Different colors of light travel at different speeds through glass and bend through different angles with respect to the incident ray. Red bends the least, while violet bends the most.",
+              "socratic_hint": "Does refractive index vary with wavelength?"
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Dispersion"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Water Fountain Rainbow",
+          "scenario": "Observing a rainbow on a sunny day through a water fountain with the Sun behind you."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q1",
+              "question": "The human eye can focus on objects at different distances by adjusting focal length due to (a) presbyopia (b) accommodation (c) near-sightedness (d) far-sightedness.",
+              "question_type": "conceptual",
+              "solution_method": "Correct option is (b) accommodation."
+            }
+          ],
+          "exercise_number": "Chapter Exercises"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Dispersion",
+          "si_units": "Optical phenomenon.",
+          "definition": "The splitting of a beam of white light into its constituent seven colors."
+        },
+        {
+          "concept": "Spectrum",
+          "si_units": "Optical spectrum.",
+          "definition": "The ordered band of colors produced when white light undergoes dispersion."
+        }
+      ]
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "8626b7bb-504f-4d20-83bb-556fb641d0c6",
+    "curriculum_id": "66e0ab17-4317-4ecf-803a-a949851ab200",
+    "order_index": 6,
+    "title": "NCERT In-Text & Chapter-End Exercises Master Solver",
+    "description": "Explore atmospheric optical phenomena including twinkling of stars, advance sunrise, Tyndall effect, and solve all chapter exercises.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 6: Atmospheric Refraction, Scattering, and Chapter Exercises. Mid-Term Examination Syllabus. Conclude the chapter by tying together refraction, dispersion, and scattering across all natural phenomena.\nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Earth curved horizon with atmospheric layers bending starlight to apparent position.\n- Diagram Type: ray_optics\n- Chapter Multi-Level Flowchart: Atmospheric & Scattering Phenomena -> Atmospheric Refraction (Twinkling, Sun advance/delay) | Tyndall Effect (Suspended particles) | Rayleigh Scattering (Blue Sky, Red Danger Signals)\n- FLOWCHART DIRECTIVE: Call write_chalkboard(action=\"draw_flowchart\", content=\"Atmospheric & Scattering Phenomena -> Atmospheric Refraction (Twinkling, Sun advance/delay) | Tyndall Effect (Suspended particles) | Rayleigh Scattering (Blue Sky, Red Danger Signals)\") to visually organize the concepts on the board!\n\n- Verbatim Textbook Definitions:\n- Tyndall Effect: \"The scattering of light by colloidal particles, illuminating the path of a light beam.\" [SI Unit: Optical scattering.]\n- Atmospheric Refraction: \"Bending of light rays passing through Earth's atmosphere due to varying refractive indices.\" [SI Unit: Optical phenomenon.]\n\n- Textbook Concrete Examples:\n- Forest Canopy Beams: Sunlight filtering through mist in a dense forest illuminates beam paths via the Tyndall effect.\n- Red Traffic Signals: Stoplights use red bulbs because red light penetrates fog and smoke with minimal scattering.\n\n- AUTHENTIC TEXTBOOK EXERCISES & QUESTIONS:\n  - Chapter Exercises Q5-Q12:\n    * [Q5] (numerical): A person needs a lens of power -5.5 D for distant vision and +1.5 D for near vision. Find focal lengths.\n      Method: f1 = 1/(-5.5) = -0.18 m; f2 = 1/(+1.5) = +0.67 m.\n    * [Q6] (numerical): Far point of myopic person is 80 cm. Find lens power.\n      Method: v = -0.8 m, u = -infinity -> f = -0.8 m -> P = -1.25 D.\n\n- PREPARED 4-6 EXAM-AUTHENTIC QUESTIONS PER CONCEPT:\n  * Concept #1 \"Atmospheric Refraction\":\n    * [Q1] (1-mark MCQ): What causes the twinkling of stars?\n      -> Ideal Model Answer: Atmospheric refraction of starlight.\n      -> Socratic Hint: Think about fluctuating air density layers.\n    * [Q2] (3-mark Short Answer): Why do planets not twinkle?\n      -> Ideal Model Answer: Planets are much closer to Earth and act as extended sources of light. The total variation in light from individual point-sources averages out to zero, nullifying twinkling.\n      -> Socratic Hint: Are planets point-sized like stars?\n  * Concept #2 \"Tyndall Effect\":\n    * [Q1] (2-mark Definition): Define the Tyndall effect with one common example.\n      -> Ideal Model Answer: The phenomenon of scattering of light by colloidal or fine particles making a light beam's path visible. Example: Sunlight passing through a canopy in a dense forest.\n      -> Socratic Hint: Smoke-filled rooms or mist.\n\n- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWINGS):\n  * Concept #1 \"Tyndall Effect\":\n    - Visual Title: \"Light Scattering in Colloids\" (vector_svg_diagram)\n    - Why Needed: Illustrates how particle suspension makes light beams visible.\n    - What to Explain: Explain diffuse reflection from colloidal particles.\n    - Timing & Directive: Present at start of scattering topic.\n    - Interactive Math Formula: Scattering ~ 1 / lambda^4\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Atmospheric Refraction: Refraction of light by Earth's varying-density atmosphere, causing twinkling and apparent position shifts.",
+      "Tyndall Effect: Scattering of a light beam by colloidal or fine suspended particles, making the light path visible.",
+      "Rayleigh Scattering: Shorter wavelengths (blue) are scattered much more strongly by atmospheric molecules than longer wavelengths (red)."
+    ],
+    "success_criteria": "Explain why the clear sky appears blue and why danger signals are red using scattering principles.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:45:42.095329+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Atmospheric refraction and twinkling of stars",
+      "Planets not twinkling (extended sources)",
+      "Advance sunrise and delayed sunset (2-minute time shift)",
+      "Tyndall effect and scattering of light",
+      "Why the clear sky is blue (Rayleigh scattering)",
+      "Red danger signal lights"
+    ],
+    "chapter_notes": "Earth's atmosphere refracts light due to continuous temperature and density gradients. Starlight passing through these turbulent layers fluctuates, causing twinkling. Planets appear as extended sources averaging out fluctuations, hence they do not twinkle. Atmospheric refraction also advances sunrise by 2 minutes and delays sunset by 2 minutes. Scattering of light by fine atmospheric particles produces the Tyndall effect. Shorter blue wavelengths scatter more strongly than red wavelengths (Rayleigh scattering), making the sky appear blue. Red light is least scattered by fog/smoke, making it ideal for danger signals.",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "In-Text Question & Exercise (Section 10.2 & p. 10): (a) A person with a myopic eye cannot see objects beyond 1.2 m distinctly. What should be the type and power of the corrective lens to restore proper vision? (b) Why do stars twinkle in the night sky while planets do not?",
+        "given": "(a) Far point of myopic eye d = 1.2 m; Target: View distant objects at infinity (u = -infinity, v = -1.2 m).\n(b) Atmospheric refraction and point vs extended light sources.",
+        "formula": "Lens Formula: $\\frac{1}{f} = \\frac{1}{v} - \\frac{1}{u}$; Power $P = \\frac{1}{f\\text{ (m)}}$.",
+        "substitution": "$\\frac{1}{f} = \\frac{1}{-1.2} - \\frac{1}{-\\infty} = -\\frac{1}{1.2} - 0 = -\\frac{1}{1.2}$.",
+        "calculation": "1. Focal length: $f = -1.2\\text{ m}$ (Concave/diverging lens).\n2. Power of lens:\n   $P = \\frac{1}{-1.2} = -\\frac{10}{12} = -0.83\\text{ Dioptres (D)}$.\n(b) Why Stars Twinkle:\nStars are situated billions of kilometers away and act as point sources of light. Starlight enters Earth's atmosphere, which consists of air layers with constantly fluctuating temperatures, densities, and refractive indices. The path of starlight refracts continuously (atmospheric refraction), causing the apparent position of the star and the quantity of light entering the eye to flicker rapidly (twinkling).\nPlanets are much closer to Earth and act as extended disc sources of light (collections of billions of point sources). The twinkling fluctuations from different points average out to zero, so planets shine with steady light without twinkling.",
+        "finalAnswer": "(a) A concave lens of power -0.83 D is required; (b) Stars twinkle due to atmospheric refraction of point light sources; planets do not twinkle because they are extended sources whose fluctuations cancel out.",
+        "unit": "Dioptres and Atmospheric Optics",
+        "has_diagram": true,
+        "diagram_source": "image_search",
+        "figure_caption": "Myopia eye defect correction with concave lens and atmospheric refraction",
+        "image_search_query": "myopia eye defect concave lens correction twinkling stars optics",
+        "page": 4,
+        "section": "Section 10.2"
+      },
+      {
+        "problem": "End-of-Chapter Exercise Q10, Q11, Q12 (p. 10): (a) Explain the dispersion of white light through a triangular glass prism. Which color bends the most and why? (b) Why does the clear sky appear blue during the day, and why does the sun appear reddish at sunrise and sunset?",
+        "given": "Prismatic dispersion; Rayleigh scattering in atmosphere.",
+        "formula": "Snell's Law: $n = \\frac{c}{v}$; Cauchy's relation: $n \\propto \\frac{1}{\\lambda^2}$. Rayleigh scattering: Intensity $I \\propto \\frac{1}{\\lambda^4}$.",
+        "substitution": "Wavelength order: $\\lambda_{\\text{red}} \\approx 700\\text{ nm} > \\lambda_{\\text{violet}} \\approx 400\\text{ nm}$.",
+        "calculation": "1. Prismatic Dispersion: Glass has a wavelength-dependent refractive index ($n_{\\text{violet}} > n_{\\text{red}}$). Violet light has the shortest wavelength and slows down the most in glass, refracting through the largest angle of deviation. Red light has the longest wavelength and refracts the least, splitting white light into the VIBGYOR spectrum.\n2. Blue Sky: Nitrogen and oxygen molecules in the upper atmosphere have sizes smaller than visible light wavelengths, scattering blue/violet light ~16 times more effectively than red light ($I \\propto 1/\\lambda^4$). Scattered blue photons illuminate the sky.\n3. Reddish Sunrise/Sunset: At sunrise/sunset, sunlight traverses a much thicker atmospheric path. Shorter blue and violet wavelengths are completely scattered away before reaching the observer; only longer, less-scattered red and orange rays reach the eye.",
+        "finalAnswer": "(a) Violet light bends the most because it has the shortest wavelength and highest refractive index in glass; (b) Sky is blue due to Rayleigh scattering ($1/\\lambda^4$); sunset is red because only long red waves penetrate thick atmospheric paths.",
+        "unit": "Wave Optics & Atmospheric Scattering",
+        "has_diagram": true,
+        "diagram_source": "image_search",
+        "figure_caption": "Dispersion of white light through prism and Rayleigh scattering of sunlight",
+        "image_search_query": "dispersion white light prism spectrum rayleigh scattering sunset",
+        "page": 10,
+        "section": "Exercises"
+      }
+    ],
+    "common_misconceptions": [
+      "Believing the sky is blue due to reflection of ocean water (it is due to Rayleigh scattering).",
+      "Thinking planets twinkle just like stars."
+    ],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793735141555_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Atmospheric Refraction, Scattering, and Chapter Exercises: Explore atmospheric optical phenomena including twinkling of stars, advance sunrise, Tyndall effect, and solve all chapter exercises.",
+              "keyTakeaway": "Atmospheric Refraction: Refraction of light by Earth's varying-density atmosphere, causing twinkling and apparent position shifts."
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Atmospheric Refraction: Refraction of light by Earth's varying-density atmosphere, causing twinkling and apparent position shifts."
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "jesc110.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735141555_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Atmospheric Refraction, Scattering, and Chapter Exercises - Fundamental Equations",
+              "equations": [
+                "Atmospheric Refraction: Refraction of light by Earth's varying-density atmosphere, causing twinkling and apparent position shifts.",
+                "Tyndall Effect: Scattering of a light beam by colloidal or fine suspended particles, making the light path visible.",
+                "Rayleigh Scattering: Shorter wavelengths (blue) are scattered much more strongly by atmospheric molecules than longer wavelengths (red)."
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Atmospheric Refraction: Refraction of light by Earth's varying-density atmosphere, causing twinkling and apparent position shifts."
+          },
+          "sourceCitation": {
+            "textbookName": "jesc110.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793735141555_3",
+          "type": "GRAPH",
+          "title": "Atmospheric Refraction, Scattering, and Chapter Exercises Mathematical Graph",
+          "content": {
+            "graph": {
+              "range": [
+                -5,
+                20
+              ],
+              "title": "Atmospheric Refraction, Scattering, and Chapter Exercises Coordinate Graph",
+              "domain": [
+                -5,
+                10
+              ],
+              "xLabel": "x",
+              "yLabel": "y",
+              "graphType": "function",
+              "variables": [
+                {
+                  "max": 10,
+                  "min": -5,
+                  "name": "m",
+                  "step": 0.5,
+                  "label": "Slope (m)",
+                  "current": 2
+                },
+                {
+                  "max": 10,
+                  "min": -5,
+                  "name": "c",
+                  "step": 0.5,
+                  "label": "y-intercept (c)",
+                  "current": 1
+                }
+              ],
+              "expression": "y = 1.5 * sin(2 * x)",
+              "progressiveSteps": [
+                {
+                  "action": "axes",
+                  "stepIndex": 0,
+                  "description": "Display coordinate axes and reference grid"
+                },
+                {
+                  "action": "points",
+                  "stepIndex": 1,
+                  "description": "Plot discrete coordinates"
+                },
+                {
+                  "action": "line",
+                  "stepIndex": 2,
+                  "description": "Trace continuous function curve"
+                },
+                {
+                  "action": "intercept",
+                  "stepIndex": 3,
+                  "description": "Highlight y-intercept"
+                },
+                {
+                  "action": "slope_triangle",
+                  "stepIndex": 4,
+                  "description": "Form slope triangle Delta y / Delta x"
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_graph",
+            "content": "y = 1.5 * sin(2 * x)"
+          },
+          "sourceCitation": {
+            "textbookName": "jesc110.pdf",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 150
+        },
+        {
+          "id": "step_mod_1793735141555_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Atmospheric Refraction: Refraction of light by Earth's varying-density atmosphere, causing twinkling and apparent position shifts."
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "If Power P = -5.5 D, what is the value?",
+              "explanation": "By fundamental principle, Atmospheric Refraction: Refraction of light by Earth's varying-density atmosphere, causing twinkling and apparent position shifts. is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793735141555_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Atmospheric refraction and twinkling of stars",
+                "Planets not twinkling (extended sources)",
+                "Advance sunrise and delayed sunset (2-minute time shift)",
+                "Tyndall effect and scattering of light",
+                "Why the clear sky is blue (Rayleigh scattering)",
+                "Red danger signal lights"
+              ],
+              "formulasToRemember": [
+                "Atmospheric Refraction: Refraction of light by Earth's varying-density atmosphere, causing twinkling and apparent position shifts.",
+                "Tyndall Effect: Scattering of a light beam by colloidal or fine suspended particles, making the light path visible.",
+                "Rayleigh Scattering: Shorter wavelengths (blue) are scattered much more strongly by atmospheric molecules than longer wavelengths (red)."
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Atmospheric Refraction, Scattering, and Chapter Exercises - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Atmospheric Refraction, Scattering, and Chapter Exercises",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:45:41.555Z",
+        "provenance": "jesc110.pdf",
+        "totalEstimatedMinutes": 9,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793735141555",
+      "subtopics": [
+        "Atmospheric refraction and twinkling of stars",
+        "Planets not twinkling (extended sources)",
+        "Advance sunrise and delayed sunset (2-minute time shift)",
+        "Tyndall effect and scattering of light",
+        "Why the clear sky is blue (Rayleigh scattering)",
+        "Red danger signal lights"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><path d='M 100 200 Q 270 100 440 200' fill='none' stroke='#0F172A' stroke-width='2'/><text x='230' y='220' fill='#0F172A' font-size='12' font-family='sans-serif'>Earth Atmosphere</text></svg>",
+      "diagram_idea": "Diagram of atmospheric refraction shifting star positions and sunrise/sunset timing.",
+      "diagram_type": "ray_optics",
+      "what_to_make": "Earth curved horizon with atmospheric layers bending starlight to apparent position.",
+      "syllabus_term": "Mid-Term Examination",
+      "concept_visuals": [
+        {
+          "svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='50' y1='140' x2='490' y2='140' stroke='#2563EB' stroke-width='4'/><text x='200' y='180' fill='#0F172A' font-size='12' font-family='sans-serif'>Tyndall Effect Beam</text></svg>",
+          "why_needed": "Illustrates how particle suspension makes light beams visible.",
+          "diagram_svg": "<svg viewBox='0 0 540 280' shape-rendering='geometricPrecision' text-rendering='geometricPrecision' xmlns='http://www.w3.org/2000/svg'><rect x='4' y='4' width='532' height='272' rx='8' fill='#FFFFFF' stroke='#E2E8F0' stroke-width='1.5'/><line x1='50' y1='140' x2='490' y2='140' stroke='#2563EB' stroke-width='4'/><text x='200' y='180' fill='#0F172A' font-size='12' font-family='sans-serif'>Tyndall Effect Beam</text></svg>",
+          "image_query": "Beam passing through smoky chamber with scattering dots. scientific educational diagram with clear labels",
+          "video_query": "Light Scattering in Colloids educational demonstration video",
+          "diagram_type": "vector_svg_diagram",
+          "what_to_make": "Beam passing through smoky chamber with scattering dots.",
+          "concept_title": "Tyndall Effect",
+          "diagram_title": "Light Scattering in Colloids",
+          "timing_and_cue": "Present at start of scattering topic.",
+          "what_to_explain": "Explain diffuse reflection from colloidal particles.",
+          "image_search_query": "Beam passing through smoky chamber with scattering dots. scientific educational diagram with clear labels",
+          "video_search_query": "Light Scattering in Colloids educational demonstration video",
+          "interactive_math_formula": "Scattering ~ 1 / lambda^4"
+        }
+      ],
+      "syllabus_pacing": "Mid-Term Examination Syllabus",
+      "chapter_flowchart": "Atmospheric & Scattering Phenomena -> Atmospheric Refraction (Twinkling, Sun advance/delay) | Tyndall Effect (Suspended particles) | Rayleigh Scattering (Blue Sky, Red Danger Signals)",
+      "concept_questions": [
+        {
+          "questions": [
+            {
+              "type": "1-mark MCQ",
+              "q_num": "Q1",
+              "question": "What causes the twinkling of stars?",
+              "ideal_answer": "Atmospheric refraction of starlight.",
+              "socratic_hint": "Think about fluctuating air density layers."
+            },
+            {
+              "type": "3-mark Short Answer",
+              "q_num": "Q2",
+              "question": "Why do planets not twinkle?",
+              "ideal_answer": "Planets are much closer to Earth and act as extended sources of light. The total variation in light from individual point-sources averages out to zero, nullifying twinkling.",
+              "socratic_hint": "Are planets point-sized like stars?"
+            }
+          ],
+          "concept_index": 0,
+          "concept_title": "Atmospheric Refraction"
+        },
+        {
+          "questions": [
+            {
+              "type": "2-mark Definition",
+              "q_num": "Q1",
+              "question": "Define the Tyndall effect with one common example.",
+              "ideal_answer": "The phenomenon of scattering of light by colloidal or fine particles making a light beam's path visible. Example: Sunlight passing through a canopy in a dense forest.",
+              "socratic_hint": "Smoke-filled rooms or mist."
+            }
+          ],
+          "concept_index": 1,
+          "concept_title": "Tyndall Effect"
+        }
+      ],
+      "estimated_minutes": 20,
+      "textbook_examples": [
+        {
+          "title": "Forest Canopy Beams",
+          "scenario": "Sunlight filtering through mist in a dense forest illuminates beam paths via the Tyndall effect."
+        },
+        {
+          "title": "Red Traffic Signals",
+          "scenario": "Stoplights use red bulbs because red light penetrates fog and smoke with minimal scattering."
+        }
+      ],
+      "textbook_exercises": [
+        {
+          "questions": [
+            {
+              "q_num": "Q5",
+              "question": "A person needs a lens of power -5.5 D for distant vision and +1.5 D for near vision. Find focal lengths.",
+              "question_type": "numerical",
+              "solution_method": "f1 = 1/(-5.5) = -0.18 m; f2 = 1/(+1.5) = +0.67 m."
+            },
+            {
+              "q_num": "Q6",
+              "question": "Far point of myopic person is 80 cm. Find lens power.",
+              "question_type": "numerical",
+              "solution_method": "v = -0.8 m, u = -infinity -> f = -0.8 m -> P = -1.25 D."
+            }
+          ],
+          "exercise_number": "Chapter Exercises Q5-Q12"
+        }
+      ],
+      "textbook_definitions": [
+        {
+          "concept": "Tyndall Effect",
+          "si_units": "Optical scattering.",
+          "definition": "The scattering of light by colloidal particles, illuminating the path of a light beam."
+        },
+        {
+          "concept": "Atmospheric Refraction",
+          "si_units": "Optical phenomenon.",
+          "definition": "Bending of light rays passing through Earth's atmosphere due to varying refractive indices."
+        }
+      ]
+    },
+    "quiz_questions": []
+  }
+]

@@ -1,0 +1,1550 @@
+[
+  {
+    "id": "9260934e-bd66-4f2a-9e38-d0c00332e67f",
+    "curriculum_id": "d89ea7c3-1cd0-481d-99c0-13f58500ea31",
+    "order_index": 1,
+    "title": "Bonding in Carbon - The Covalent Bond",
+    "description": "Understand covalent bonding, single/double/triple bonds, and electron dot structures of simple molecules.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 1: Bonding in Carbon - The Covalent Bond. Final-Term Examination Syllabus. \nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Scientific Vector Diagram\n- Diagram Type: vector_svg_diagram\n\n\n\n\n\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Sharing of valence electrons",
+      "Electron dot structure of methane, oxygen, nitrogen"
+    ],
+    "success_criteria": "Student can draw electron dot structures for simple covalent molecules.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:40:24.758677+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Tetravalency of carbon",
+      "Formation of single, double, and triple covalent bonds",
+      "Properties of covalent compounds"
+    ],
+    "chapter_notes": "\"\"",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "Illustrative Problem (Module 1, Section 1): Explain the scientific mechanism and write relevant balanced equations or principles for: Sharing of valence electrons.",
+        "given": "Concepts from CBSE Class 10 Science: Bonding in Carbon - The Covalent Bond.",
+        "formula": "Standard board law, equation, or anatomical mechanism.",
+        "substitution": "Step-by-step pedagogical application.",
+        "calculation": "Detailed step-by-step examination of Bonding in Carbon - The Covalent Bond adhering to official board marking schemes.",
+        "finalAnswer": "Topper-ready solution covering the fundamental principles of Bonding in Carbon - The Covalent Bond.",
+        "unit": "Scientific Law & Mechanism",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "class 10 science chapter_4_carbo ncert diagram",
+        "page": 10,
+        "section": "Section 1"
+      }
+    ],
+    "common_misconceptions": [],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734824600_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Bonding in Carbon - The Covalent Bond: Understand covalent bonding, single/double/triple bonds, and electron dot structures of simple molecules.",
+              "keyTakeaway": "Sharing of valence electrons"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Sharing of valence electrons"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734824600_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Bonding in Carbon - The Covalent Bond - Fundamental Equations",
+              "equations": [
+                "Sharing of valence electrons",
+                "Electron dot structure of methane, oxygen, nitrogen"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Sharing of valence electrons"
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734824600_3",
+          "type": "DIAGRAM",
+          "title": "Bonding in Carbon - The Covalent Bond Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Bonding in Carbon - The Covalent Bond Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Sharing of valence electrons",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Electron dot structure of methane, oxygen, nitrogen",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Bonding in Carbon - The Covalent Bond",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Bonding in Carbon - The Covalent Bond | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;\">\n  \n  <defs>\n    <pattern id=\"chalkGrid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.75\"/>\n    </pattern>\n    <!-- Royal Blue Vector Arrow -->\n    <marker id=\"arrowRoyal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#2563EB\"/>\n    </marker>\n    <!-- Cyan / Sky Ray Arrow -->\n    <marker id=\"arrowIce\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0284C7\"/>\n    </marker>\n    <!-- Scholar Emerald Current / Normal Arrow -->\n    <marker id=\"arrowSage\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#16A34A\"/>\n    </marker>\n    <!-- Crimson Vector Arrow -->\n    <marker id=\"arrowCrimson\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#DC2626\"/>\n    </marker>\n    <!-- Deep Charcoal Ink Arrow -->\n    <marker id=\"arrowCharcoal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0F172A\"/>\n    </marker>\n    <!-- Warm Amber Arrow -->\n    <marker id=\"arrowAmber\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#D97706\"/>\n    </marker>\n  </defs>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" fill=\"url(#chalkGrid)\" opacity=\"0.6\"/>\n\n  <rect x=\"40\" y=\"12\" width=\"460\" height=\"22\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\"/>\n  <text x=\"270\" y=\"27\" text-anchor=\"middle\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"bold\">Bonding in Carbon - The Covalent Bond</text>\n\n  <g transform=\"translate(25, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#F0FDF4\" stroke=\"#16A34A\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DCFCE7\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#16A34A\">1. Physical Intuition</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Real-World Hook</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#64748B\">Tangible daily basis</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#64748B\">Observable mechanism</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Underlying Driver</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#64748B\">Core energetic / structural</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#64748B\">fundamental force</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Classroom Analogy</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#64748B\">Concrete representation</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Intuitive bridge to law</text>\n  </g>\n\n  <line x1=\"180\" y1=\"140\" x2=\"195\" y2=\"140\" stroke=\"#2563EB\" stroke-width=\"2\" marker-end=\"url(#arrowRoyal)\"/>\n\n  <g transform=\"translate(195, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#EFF6FF\" stroke=\"#2563EB\" stroke-width=\"1.4\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DBEAFE\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">2. Governing Principle</text>\n\n    <rect x=\"10\" y=\"36\" width=\"130\" height=\"50\" rx=\"4\" fill=\"#FFFFFF\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n    <text x=\"75\" y=\"55\" text-anchor=\"middle\" font-size=\"8\" font-weight=\"bold\" fill=\"#2563EB\">CORE LAW / THEOREM</text>\n    <text x=\"75\" y=\"72\" text-anchor=\"middle\" font-size=\"8.5\" font-weight=\"bold\" fill=\"#0F172A\">Bonding in Carbon </text>\n\n    <circle cx=\"15\" cy=\"110\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"113\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Governing Rules</text>\n    <text x=\"25\" y=\"125\" font-size=\"7\" fill=\"#64748B\">Strict scientific criteria</text>\n    <text x=\"25\" y=\"135\" font-size=\"7\" fill=\"#64748B\">Mandatory conditions</text>\n\n    <circle cx=\"15\" cy=\"155\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"158\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">SI Units &amp; Constants</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Dimensional integrity</text>\n    <text x=\"25\" y=\"180\" font-size=\"7\" fill=\"#64748B\">Zero unit conversion loss</text>\n  </g>\n\n  <line x1=\"350\" y1=\"140\" x2=\"365\" y2=\"140\" stroke=\"#16A34A\" stroke-width=\"2\" marker-end=\"url(#arrowSage)\"/>\n\n  <g transform=\"translate(365, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#FDE68A\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#D97706\">3. Board Application</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Trio Layout</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#0F172A\">Given \u2192 Formula</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#0F172A\">Substitution \u2192 Boxed</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Common Trap</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#DC2626\">Avoid unit mismatches</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#DC2626\">Watch sign conventions</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Scoring Keywords</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#16A34A\">Verbatim definitions</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#16A34A\">Full 100% credit</text>\n  </g>\n\n  <rect x=\"40\" y=\"254\" width=\"460\" height=\"18\" rx=\"4\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"270\" y=\"266\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"#0F172A\">Authentic Vector Schematic \u2022 CBSE / ICSE / IB Scholastic Standards</text>\n</svg> | Authentic conceptual relationship model plotted on digital chalkboard."
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734824600_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Sharing of valence electrons"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "Which of the following correctly describes Bonding in Carbon - The Covalent Bond?",
+              "explanation": "By fundamental principle, Sharing of valence electrons is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734824600_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Tetravalency of carbon",
+                "Formation of single, double, and triple covalent bonds",
+                "Properties of covalent compounds"
+              ],
+              "formulasToRemember": [
+                "Sharing of valence electrons",
+                "Electron dot structure of methane, oxygen, nitrogen"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Bonding in Carbon - The Covalent Bond - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Bonding in Carbon - The Covalent Bond",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:40:24.600Z",
+        "provenance": "CBSE Official Curriculum",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734824600",
+      "subtopics": [
+        "Tetravalency of carbon",
+        "Formation of single, double, and triple covalent bonds",
+        "Properties of covalent compounds"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "",
+      "diagram_idea": "",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "",
+      "concept_questions": [],
+      "estimated_minutes": 20,
+      "textbook_examples": [],
+      "textbook_exercises": [],
+      "textbook_definitions": []
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "3cd5c9e5-8cd4-4e98-99d9-4885c8c0a0c2",
+    "curriculum_id": "d89ea7c3-1cd0-481d-99c0-13f58500ea31",
+    "order_index": 2,
+    "title": "Versatile Nature of Carbon and Homologous Series",
+    "description": "Explore catenation, tetravalency, saturated/unsaturated hydrocarbons, and homologous series.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 2: Versatile Nature of Carbon and Homologous Series. Final-Term Examination Syllabus. \nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Scientific Vector Diagram\n- Diagram Type: vector_svg_diagram\n\n\n\n\n\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Alkanes, alkenes, and alkynes general formulas",
+      "Homologous series characteristics"
+    ],
+    "success_criteria": "Student can write IUPAC names and structures for simple carbon chains.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:40:25.001506+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Catenation and tetravalency properties",
+      "Straight chain, branched, and cyclic hydrocarbons",
+      "Functional groups and homologous series"
+    ],
+    "chapter_notes": "\"\"",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "Illustrative Problem (Module 2, Section 2): Explain the scientific mechanism and write relevant balanced equations or principles for: Alkanes, alkenes, and alkynes general formulas.",
+        "given": "Concepts from CBSE Class 10 Science: Versatile Nature of Carbon and Homologous Series.",
+        "formula": "Standard board law, equation, or anatomical mechanism.",
+        "substitution": "Step-by-step pedagogical application.",
+        "calculation": "Detailed step-by-step examination of Versatile Nature of Carbon and Homologous Series adhering to official board marking schemes.",
+        "finalAnswer": "Topper-ready solution covering the fundamental principles of Versatile Nature of Carbon and Homologous Series.",
+        "unit": "Scientific Law & Mechanism",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "class 10 science chapter_4_carbo ncert diagram",
+        "page": 20,
+        "section": "Section 2"
+      }
+    ],
+    "common_misconceptions": [],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734824868_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Versatile Nature of Carbon and Homologous Series: Explore catenation, tetravalency, saturated/unsaturated hydrocarbons, and homologous series.",
+              "keyTakeaway": "Alkanes, alkenes, and alkynes general formulas"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Alkanes, alkenes, and alkynes general formulas"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734824868_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Versatile Nature of Carbon and Homologous Series - Fundamental Equations",
+              "equations": [
+                "Alkanes, alkenes, and alkynes general formulas",
+                "Homologous series characteristics"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Alkanes, alkenes, and alkynes general formulas"
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734824868_3",
+          "type": "DIAGRAM",
+          "title": "Versatile Nature of Carbon and Homologous Series Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Versatile Nature of Carbon and Homologous Series Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Alkanes, alkenes, and alkynes general formulas",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Homologous series characteristics",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Versatile Nature of Carbon and Homologous Series",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Versatile Nature of Carbon and Homologous Series | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;\">\n  \n  <defs>\n    <pattern id=\"chalkGrid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.75\"/>\n    </pattern>\n    <!-- Royal Blue Vector Arrow -->\n    <marker id=\"arrowRoyal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#2563EB\"/>\n    </marker>\n    <!-- Cyan / Sky Ray Arrow -->\n    <marker id=\"arrowIce\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0284C7\"/>\n    </marker>\n    <!-- Scholar Emerald Current / Normal Arrow -->\n    <marker id=\"arrowSage\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#16A34A\"/>\n    </marker>\n    <!-- Crimson Vector Arrow -->\n    <marker id=\"arrowCrimson\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#DC2626\"/>\n    </marker>\n    <!-- Deep Charcoal Ink Arrow -->\n    <marker id=\"arrowCharcoal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0F172A\"/>\n    </marker>\n    <!-- Warm Amber Arrow -->\n    <marker id=\"arrowAmber\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#D97706\"/>\n    </marker>\n  </defs>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" fill=\"url(#chalkGrid)\" opacity=\"0.6\"/>\n\n  <rect x=\"40\" y=\"12\" width=\"460\" height=\"22\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\"/>\n  <text x=\"270\" y=\"27\" text-anchor=\"middle\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"bold\">Versatile Nature of Carbon and Homologous Series</text>\n\n  <g transform=\"translate(25, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#F0FDF4\" stroke=\"#16A34A\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DCFCE7\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#16A34A\">1. Physical Intuition</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Real-World Hook</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#64748B\">Tangible daily basis</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#64748B\">Observable mechanism</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Underlying Driver</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#64748B\">Core energetic / structural</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#64748B\">fundamental force</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Classroom Analogy</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#64748B\">Concrete representation</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Intuitive bridge to law</text>\n  </g>\n\n  <line x1=\"180\" y1=\"140\" x2=\"195\" y2=\"140\" stroke=\"#2563EB\" stroke-width=\"2\" marker-end=\"url(#arrowRoyal)\"/>\n\n  <g transform=\"translate(195, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#EFF6FF\" stroke=\"#2563EB\" stroke-width=\"1.4\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DBEAFE\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">2. Governing Principle</text>\n\n    <rect x=\"10\" y=\"36\" width=\"130\" height=\"50\" rx=\"4\" fill=\"#FFFFFF\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n    <text x=\"75\" y=\"55\" text-anchor=\"middle\" font-size=\"8\" font-weight=\"bold\" fill=\"#2563EB\">CORE LAW / THEOREM</text>\n    <text x=\"75\" y=\"72\" text-anchor=\"middle\" font-size=\"8.5\" font-weight=\"bold\" fill=\"#0F172A\">Versatile Nature o</text>\n\n    <circle cx=\"15\" cy=\"110\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"113\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Governing Rules</text>\n    <text x=\"25\" y=\"125\" font-size=\"7\" fill=\"#64748B\">Strict scientific criteria</text>\n    <text x=\"25\" y=\"135\" font-size=\"7\" fill=\"#64748B\">Mandatory conditions</text>\n\n    <circle cx=\"15\" cy=\"155\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"158\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">SI Units &amp; Constants</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Dimensional integrity</text>\n    <text x=\"25\" y=\"180\" font-size=\"7\" fill=\"#64748B\">Zero unit conversion loss</text>\n  </g>\n\n  <line x1=\"350\" y1=\"140\" x2=\"365\" y2=\"140\" stroke=\"#16A34A\" stroke-width=\"2\" marker-end=\"url(#arrowSage)\"/>\n\n  <g transform=\"translate(365, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#FDE68A\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#D97706\">3. Board Application</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Trio Layout</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#0F172A\">Given \u2192 Formula</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#0F172A\">Substitution \u2192 Boxed</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Common Trap</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#DC2626\">Avoid unit mismatches</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#DC2626\">Watch sign conventions</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Scoring Keywords</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#16A34A\">Verbatim definitions</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#16A34A\">Full 100% credit</text>\n  </g>\n\n  <rect x=\"40\" y=\"254\" width=\"460\" height=\"18\" rx=\"4\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"270\" y=\"266\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"#0F172A\">Authentic Vector Schematic \u2022 CBSE / ICSE / IB Scholastic Standards</text>\n</svg> | Authentic conceptual relationship model plotted on digital chalkboard."
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734824868_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Alkanes, alkenes, and alkynes general formulas"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "Which of the following correctly describes Versatile Nature of Carbon and Homologous Series?",
+              "explanation": "By fundamental principle, Alkanes, alkenes, and alkynes general formulas is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734824868_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Catenation and tetravalency properties",
+                "Straight chain, branched, and cyclic hydrocarbons",
+                "Functional groups and homologous series"
+              ],
+              "formulasToRemember": [
+                "Alkanes, alkenes, and alkynes general formulas",
+                "Homologous series characteristics"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Versatile Nature of Carbon and Homologous Series - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Versatile Nature of Carbon and Homologous Series",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:40:24.868Z",
+        "provenance": "CBSE Official Curriculum",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734824868",
+      "subtopics": [
+        "Catenation and tetravalency properties",
+        "Straight chain, branched, and cyclic hydrocarbons",
+        "Functional groups and homologous series"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "",
+      "diagram_idea": "",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "",
+      "concept_questions": [],
+      "estimated_minutes": 20,
+      "textbook_examples": [],
+      "textbook_exercises": [],
+      "textbook_definitions": []
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "6eaeef8b-2610-4095-b3b4-4e0dc982de34",
+    "curriculum_id": "d89ea7c3-1cd0-481d-99c0-13f58500ea31",
+    "order_index": 3,
+    "title": "Chemical Properties of Carbon Compounds",
+    "description": "Study combustion, oxidation, addition reactions, and substitution reactions of organic compounds.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 3: Chemical Properties of Carbon Compounds. Final-Term Examination Syllabus. \nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Scientific Vector Diagram\n- Diagram Type: vector_svg_diagram\n\n\n\n\n\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Hydrogenation of vegetable oils",
+      "Substitution in alkanes in presence of sunlight"
+    ],
+    "success_criteria": "Student can write balanced equations for combustion and addition reactions.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:40:25.24748+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Combustion and flame characteristics",
+      "Oxidation reactions using oxidizing agents",
+      "Addition and substitution reactions"
+    ],
+    "chapter_notes": "\"\"",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "Illustrative Problem (Module 3, Section 3): Explain the scientific mechanism and write relevant balanced equations or principles for: Hydrogenation of vegetable oils.",
+        "given": "Concepts from CBSE Class 10 Science: Chemical Properties of Carbon Compounds.",
+        "formula": "Standard board law, equation, or anatomical mechanism.",
+        "substitution": "Step-by-step pedagogical application.",
+        "calculation": "Detailed step-by-step examination of Chemical Properties of Carbon Compounds adhering to official board marking schemes.",
+        "finalAnswer": "Topper-ready solution covering the fundamental principles of Chemical Properties of Carbon Compounds.",
+        "unit": "Scientific Law & Mechanism",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "class 10 science chapter_4_carbo ncert diagram",
+        "page": 30,
+        "section": "Section 3"
+      }
+    ],
+    "common_misconceptions": [],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734825103_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Chemical Properties of Carbon Compounds: Study combustion, oxidation, addition reactions, and substitution reactions of organic compounds.",
+              "keyTakeaway": "Hydrogenation of vegetable oils"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Hydrogenation of vegetable oils"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734825103_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Chemical Properties of Carbon Compounds - Fundamental Equations",
+              "equations": [
+                "Hydrogenation of vegetable oils",
+                "Substitution in alkanes in presence of sunlight"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Hydrogenation of vegetable oils"
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734825103_3",
+          "type": "DIAGRAM",
+          "title": "Chemical Properties of Carbon Compounds Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Chemical Properties of Carbon Compounds Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Hydrogenation of vegetable oils",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Substitution in alkanes in presence of sunlight",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Chemical Properties of Carbon Compounds",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Chemical Properties of Carbon Compounds | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;\">\n  \n  <defs>\n    <pattern id=\"chalkGrid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.75\"/>\n    </pattern>\n    <!-- Royal Blue Vector Arrow -->\n    <marker id=\"arrowRoyal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#2563EB\"/>\n    </marker>\n    <!-- Cyan / Sky Ray Arrow -->\n    <marker id=\"arrowIce\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0284C7\"/>\n    </marker>\n    <!-- Scholar Emerald Current / Normal Arrow -->\n    <marker id=\"arrowSage\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#16A34A\"/>\n    </marker>\n    <!-- Crimson Vector Arrow -->\n    <marker id=\"arrowCrimson\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#DC2626\"/>\n    </marker>\n    <!-- Deep Charcoal Ink Arrow -->\n    <marker id=\"arrowCharcoal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0F172A\"/>\n    </marker>\n    <!-- Warm Amber Arrow -->\n    <marker id=\"arrowAmber\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#D97706\"/>\n    </marker>\n  </defs>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" fill=\"url(#chalkGrid)\" opacity=\"0.6\"/>\n\n  <rect x=\"40\" y=\"12\" width=\"460\" height=\"22\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\"/>\n  <text x=\"270\" y=\"27\" text-anchor=\"middle\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"bold\">Chemical Properties of Carbon Compounds</text>\n\n  <g transform=\"translate(25, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#F0FDF4\" stroke=\"#16A34A\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DCFCE7\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#16A34A\">1. Physical Intuition</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Real-World Hook</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#64748B\">Tangible daily basis</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#64748B\">Observable mechanism</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Underlying Driver</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#64748B\">Core energetic / structural</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#64748B\">fundamental force</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Classroom Analogy</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#64748B\">Concrete representation</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Intuitive bridge to law</text>\n  </g>\n\n  <line x1=\"180\" y1=\"140\" x2=\"195\" y2=\"140\" stroke=\"#2563EB\" stroke-width=\"2\" marker-end=\"url(#arrowRoyal)\"/>\n\n  <g transform=\"translate(195, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#EFF6FF\" stroke=\"#2563EB\" stroke-width=\"1.4\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DBEAFE\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">2. Governing Principle</text>\n\n    <rect x=\"10\" y=\"36\" width=\"130\" height=\"50\" rx=\"4\" fill=\"#FFFFFF\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n    <text x=\"75\" y=\"55\" text-anchor=\"middle\" font-size=\"8\" font-weight=\"bold\" fill=\"#2563EB\">CORE LAW / THEOREM</text>\n    <text x=\"75\" y=\"72\" text-anchor=\"middle\" font-size=\"8.5\" font-weight=\"bold\" fill=\"#0F172A\">Chemical Propertie</text>\n\n    <circle cx=\"15\" cy=\"110\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"113\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Governing Rules</text>\n    <text x=\"25\" y=\"125\" font-size=\"7\" fill=\"#64748B\">Strict scientific criteria</text>\n    <text x=\"25\" y=\"135\" font-size=\"7\" fill=\"#64748B\">Mandatory conditions</text>\n\n    <circle cx=\"15\" cy=\"155\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"158\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">SI Units &amp; Constants</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Dimensional integrity</text>\n    <text x=\"25\" y=\"180\" font-size=\"7\" fill=\"#64748B\">Zero unit conversion loss</text>\n  </g>\n\n  <line x1=\"350\" y1=\"140\" x2=\"365\" y2=\"140\" stroke=\"#16A34A\" stroke-width=\"2\" marker-end=\"url(#arrowSage)\"/>\n\n  <g transform=\"translate(365, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#FDE68A\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#D97706\">3. Board Application</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Trio Layout</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#0F172A\">Given \u2192 Formula</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#0F172A\">Substitution \u2192 Boxed</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Common Trap</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#DC2626\">Avoid unit mismatches</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#DC2626\">Watch sign conventions</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Scoring Keywords</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#16A34A\">Verbatim definitions</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#16A34A\">Full 100% credit</text>\n  </g>\n\n  <rect x=\"40\" y=\"254\" width=\"460\" height=\"18\" rx=\"4\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"270\" y=\"266\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"#0F172A\">Authentic Vector Schematic \u2022 CBSE / ICSE / IB Scholastic Standards</text>\n</svg> | Authentic conceptual relationship model plotted on digital chalkboard."
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734825103_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Hydrogenation of vegetable oils"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "Which of the following correctly describes Chemical Properties of Carbon Compounds?",
+              "explanation": "By fundamental principle, Hydrogenation of vegetable oils is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734825103_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Combustion and flame characteristics",
+                "Oxidation reactions using oxidizing agents",
+                "Addition and substitution reactions"
+              ],
+              "formulasToRemember": [
+                "Hydrogenation of vegetable oils",
+                "Substitution in alkanes in presence of sunlight"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Chemical Properties of Carbon Compounds - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Chemical Properties of Carbon Compounds",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:40:25.103Z",
+        "provenance": "CBSE Official Curriculum",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734825103",
+      "subtopics": [
+        "Combustion and flame characteristics",
+        "Oxidation reactions using oxidizing agents",
+        "Addition and substitution reactions"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "",
+      "diagram_idea": "",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "",
+      "concept_questions": [],
+      "estimated_minutes": 20,
+      "textbook_examples": [],
+      "textbook_exercises": [],
+      "textbook_definitions": []
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "1a3e49d3-3989-4b4c-856e-df37ad358df8",
+    "curriculum_id": "d89ea7c3-1cd0-481d-99c0-13f58500ea31",
+    "order_index": 4,
+    "title": "Important Carbon Compounds - Ethanol and Ethanoic Acid",
+    "description": "Learn the physical properties, chemical reactions, and uses of ethanol and ethanoic acid.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 4: Important Carbon Compounds - Ethanol and Ethanoic Acid. Final-Term Examination Syllabus. \nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Scientific Vector Diagram\n- Diagram Type: vector_svg_diagram\n\n\n\n\n\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Ester formation mechanism",
+      "Saponification reaction overview"
+    ],
+    "success_criteria": "Student can explain the esterification reaction and ethanoic acid properties.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:40:25.492422+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Properties and reactions of ethanol (esterification)",
+      "Properties of ethanoic acid (acetic acid)",
+      "Reactions with bases and carbonates"
+    ],
+    "chapter_notes": "\"\"",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "Illustrative Problem (Module 4, Section 4): Explain the scientific mechanism and write relevant balanced equations or principles for: Ester formation mechanism.",
+        "given": "Concepts from CBSE Class 10 Science: Important Carbon Compounds - Ethanol and Ethanoic Acid.",
+        "formula": "Standard board law, equation, or anatomical mechanism.",
+        "substitution": "Step-by-step pedagogical application.",
+        "calculation": "Detailed step-by-step examination of Important Carbon Compounds - Ethanol and Ethanoic Acid adhering to official board marking schemes.",
+        "finalAnswer": "Topper-ready solution covering the fundamental principles of Important Carbon Compounds - Ethanol and Ethanoic Acid.",
+        "unit": "Scientific Law & Mechanism",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "class 10 science chapter_4_carbo ncert diagram",
+        "page": 40,
+        "section": "Section 4"
+      }
+    ],
+    "common_misconceptions": [],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734825347_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Important Carbon Compounds - Ethanol and Ethanoic Acid: Learn the physical properties, chemical reactions, and uses of ethanol and ethanoic acid.",
+              "keyTakeaway": "Ester formation mechanism"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Ester formation mechanism"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734825347_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Important Carbon Compounds - Ethanol and Ethanoic Acid - Fundamental Equations",
+              "equations": [
+                "Ester formation mechanism",
+                "Saponification reaction overview"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Ester formation mechanism"
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734825347_3",
+          "type": "DIAGRAM",
+          "title": "Important Carbon Compounds - Ethanol and Ethanoic Acid Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Important Carbon Compounds - Ethanol and Ethanoic Acid Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Ester formation mechanism",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Saponification reaction overview",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Important Carbon Compounds - Ethanol and Ethanoic Acid",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Important Carbon Compounds - Ethanol and Ethanoic Acid | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;\">\n  \n  <defs>\n    <pattern id=\"chalkGrid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.75\"/>\n    </pattern>\n    <!-- Royal Blue Vector Arrow -->\n    <marker id=\"arrowRoyal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#2563EB\"/>\n    </marker>\n    <!-- Cyan / Sky Ray Arrow -->\n    <marker id=\"arrowIce\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0284C7\"/>\n    </marker>\n    <!-- Scholar Emerald Current / Normal Arrow -->\n    <marker id=\"arrowSage\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#16A34A\"/>\n    </marker>\n    <!-- Crimson Vector Arrow -->\n    <marker id=\"arrowCrimson\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#DC2626\"/>\n    </marker>\n    <!-- Deep Charcoal Ink Arrow -->\n    <marker id=\"arrowCharcoal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0F172A\"/>\n    </marker>\n    <!-- Warm Amber Arrow -->\n    <marker id=\"arrowAmber\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#D97706\"/>\n    </marker>\n  </defs>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" fill=\"url(#chalkGrid)\" opacity=\"0.6\"/>\n\n  <rect x=\"40\" y=\"12\" width=\"460\" height=\"22\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\"/>\n  <text x=\"270\" y=\"27\" text-anchor=\"middle\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"bold\">Important Carbon Compounds - Ethanol and Ethanoi</text>\n\n  <g transform=\"translate(25, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#F0FDF4\" stroke=\"#16A34A\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DCFCE7\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#16A34A\">1. Physical Intuition</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Real-World Hook</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#64748B\">Tangible daily basis</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#64748B\">Observable mechanism</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Underlying Driver</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#64748B\">Core energetic / structural</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#64748B\">fundamental force</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Classroom Analogy</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#64748B\">Concrete representation</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Intuitive bridge to law</text>\n  </g>\n\n  <line x1=\"180\" y1=\"140\" x2=\"195\" y2=\"140\" stroke=\"#2563EB\" stroke-width=\"2\" marker-end=\"url(#arrowRoyal)\"/>\n\n  <g transform=\"translate(195, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#EFF6FF\" stroke=\"#2563EB\" stroke-width=\"1.4\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DBEAFE\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">2. Governing Principle</text>\n\n    <rect x=\"10\" y=\"36\" width=\"130\" height=\"50\" rx=\"4\" fill=\"#FFFFFF\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n    <text x=\"75\" y=\"55\" text-anchor=\"middle\" font-size=\"8\" font-weight=\"bold\" fill=\"#2563EB\">CORE LAW / THEOREM</text>\n    <text x=\"75\" y=\"72\" text-anchor=\"middle\" font-size=\"8.5\" font-weight=\"bold\" fill=\"#0F172A\">Important Carbon C</text>\n\n    <circle cx=\"15\" cy=\"110\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"113\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Governing Rules</text>\n    <text x=\"25\" y=\"125\" font-size=\"7\" fill=\"#64748B\">Strict scientific criteria</text>\n    <text x=\"25\" y=\"135\" font-size=\"7\" fill=\"#64748B\">Mandatory conditions</text>\n\n    <circle cx=\"15\" cy=\"155\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"158\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">SI Units &amp; Constants</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Dimensional integrity</text>\n    <text x=\"25\" y=\"180\" font-size=\"7\" fill=\"#64748B\">Zero unit conversion loss</text>\n  </g>\n\n  <line x1=\"350\" y1=\"140\" x2=\"365\" y2=\"140\" stroke=\"#16A34A\" stroke-width=\"2\" marker-end=\"url(#arrowSage)\"/>\n\n  <g transform=\"translate(365, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#FDE68A\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#D97706\">3. Board Application</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Trio Layout</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#0F172A\">Given \u2192 Formula</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#0F172A\">Substitution \u2192 Boxed</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Common Trap</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#DC2626\">Avoid unit mismatches</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#DC2626\">Watch sign conventions</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Scoring Keywords</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#16A34A\">Verbatim definitions</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#16A34A\">Full 100% credit</text>\n  </g>\n\n  <rect x=\"40\" y=\"254\" width=\"460\" height=\"18\" rx=\"4\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"270\" y=\"266\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"#0F172A\">Authentic Vector Schematic \u2022 CBSE / ICSE / IB Scholastic Standards</text>\n</svg> | Authentic conceptual relationship model plotted on digital chalkboard."
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734825347_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Ester formation mechanism"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "Which of the following correctly describes Important Carbon Compounds - Ethanol and Ethanoic Acid?",
+              "explanation": "By fundamental principle, Ester formation mechanism is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734825347_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Properties and reactions of ethanol (esterification)",
+                "Properties of ethanoic acid (acetic acid)",
+                "Reactions with bases and carbonates"
+              ],
+              "formulasToRemember": [
+                "Ester formation mechanism",
+                "Saponification reaction overview"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Important Carbon Compounds - Ethanol and Ethanoic Acid - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Important Carbon Compounds - Ethanol and Ethanoic Acid",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:40:25.348Z",
+        "provenance": "CBSE Official Curriculum",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734825347",
+      "subtopics": [
+        "Properties and reactions of ethanol (esterification)",
+        "Properties of ethanoic acid (acetic acid)",
+        "Reactions with bases and carbonates"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "",
+      "diagram_idea": "",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "",
+      "concept_questions": [],
+      "estimated_minutes": 20,
+      "textbook_examples": [],
+      "textbook_exercises": [],
+      "textbook_definitions": []
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "fc35ff0d-0b11-4228-ba18-21d0f14a3bbc",
+    "curriculum_id": "d89ea7c3-1cd0-481d-99c0-13f58500ea31",
+    "order_index": 5,
+    "title": "Soaps and Detergents",
+    "description": "Understand micelle formation and the cleansing action of soaps in hard and soft water.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 5: Soaps and Detergents. Final-Term Examination Syllabus. \nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Scientific Vector Diagram\n- Diagram Type: vector_svg_diagram\n\n\n\n\n\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Scum formation in hard water",
+      "Emulsification of oil dirt by micelles"
+    ],
+    "success_criteria": "Student can explain how soap cleans oily dirt via micelle formation.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:40:25.740801+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Structure of soap molecule (hydrophobic and hydrophilic ends)",
+      "Micelle formation mechanism",
+      "Difference between soaps and synthetic detergents"
+    ],
+    "chapter_notes": "\"\"",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "Illustrative Problem (Module 5, Section 5): Explain the scientific mechanism and write relevant balanced equations or principles for: Scum formation in hard water.",
+        "given": "Concepts from CBSE Class 10 Science: Soaps and Detergents.",
+        "formula": "Standard board law, equation, or anatomical mechanism.",
+        "substitution": "Step-by-step pedagogical application.",
+        "calculation": "Detailed step-by-step examination of Soaps and Detergents adhering to official board marking schemes.",
+        "finalAnswer": "Topper-ready solution covering the fundamental principles of Soaps and Detergents.",
+        "unit": "Scientific Law & Mechanism",
+        "has_diagram": false,
+        "diagram_source": "image_search",
+        "figure_caption": "",
+        "image_search_query": "class 10 science chapter_4_carbo ncert diagram",
+        "page": 50,
+        "section": "Section 5"
+      }
+    ],
+    "common_misconceptions": [],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734825601_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "Soaps and Detergents: Understand micelle formation and the cleansing action of soaps in hard and soft water.",
+              "keyTakeaway": "Scum formation in hard water"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Scum formation in hard water"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734825601_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "Soaps and Detergents - Fundamental Equations",
+              "equations": [
+                "Scum formation in hard water",
+                "Emulsification of oil dirt by micelles"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Scum formation in hard water"
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734825601_3",
+          "type": "DIAGRAM",
+          "title": "Soaps and Detergents Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "Soaps and Detergents Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Scum formation in hard water",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Emulsification of oil dirt by micelles",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "Soaps and Detergents",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "Soaps and Detergents | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;\">\n  \n  <defs>\n    <pattern id=\"chalkGrid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.75\"/>\n    </pattern>\n    <!-- Royal Blue Vector Arrow -->\n    <marker id=\"arrowRoyal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#2563EB\"/>\n    </marker>\n    <!-- Cyan / Sky Ray Arrow -->\n    <marker id=\"arrowIce\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0284C7\"/>\n    </marker>\n    <!-- Scholar Emerald Current / Normal Arrow -->\n    <marker id=\"arrowSage\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#16A34A\"/>\n    </marker>\n    <!-- Crimson Vector Arrow -->\n    <marker id=\"arrowCrimson\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#DC2626\"/>\n    </marker>\n    <!-- Deep Charcoal Ink Arrow -->\n    <marker id=\"arrowCharcoal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0F172A\"/>\n    </marker>\n    <!-- Warm Amber Arrow -->\n    <marker id=\"arrowAmber\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#D97706\"/>\n    </marker>\n  </defs>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" fill=\"url(#chalkGrid)\" opacity=\"0.6\"/>\n\n  <rect x=\"40\" y=\"12\" width=\"460\" height=\"22\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\"/>\n  <text x=\"270\" y=\"27\" text-anchor=\"middle\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"bold\">Soaps and Detergents</text>\n\n  <g transform=\"translate(25, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#F0FDF4\" stroke=\"#16A34A\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DCFCE7\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#16A34A\">1. Physical Intuition</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Real-World Hook</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#64748B\">Tangible daily basis</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#64748B\">Observable mechanism</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Underlying Driver</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#64748B\">Core energetic / structural</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#64748B\">fundamental force</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Classroom Analogy</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#64748B\">Concrete representation</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Intuitive bridge to law</text>\n  </g>\n\n  <line x1=\"180\" y1=\"140\" x2=\"195\" y2=\"140\" stroke=\"#2563EB\" stroke-width=\"2\" marker-end=\"url(#arrowRoyal)\"/>\n\n  <g transform=\"translate(195, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#EFF6FF\" stroke=\"#2563EB\" stroke-width=\"1.4\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DBEAFE\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">2. Governing Principle</text>\n\n    <rect x=\"10\" y=\"36\" width=\"130\" height=\"50\" rx=\"4\" fill=\"#FFFFFF\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n    <text x=\"75\" y=\"55\" text-anchor=\"middle\" font-size=\"8\" font-weight=\"bold\" fill=\"#2563EB\">CORE LAW / THEOREM</text>\n    <text x=\"75\" y=\"72\" text-anchor=\"middle\" font-size=\"8.5\" font-weight=\"bold\" fill=\"#0F172A\">Soaps and Detergen</text>\n\n    <circle cx=\"15\" cy=\"110\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"113\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Governing Rules</text>\n    <text x=\"25\" y=\"125\" font-size=\"7\" fill=\"#64748B\">Strict scientific criteria</text>\n    <text x=\"25\" y=\"135\" font-size=\"7\" fill=\"#64748B\">Mandatory conditions</text>\n\n    <circle cx=\"15\" cy=\"155\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"158\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">SI Units &amp; Constants</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Dimensional integrity</text>\n    <text x=\"25\" y=\"180\" font-size=\"7\" fill=\"#64748B\">Zero unit conversion loss</text>\n  </g>\n\n  <line x1=\"350\" y1=\"140\" x2=\"365\" y2=\"140\" stroke=\"#16A34A\" stroke-width=\"2\" marker-end=\"url(#arrowSage)\"/>\n\n  <g transform=\"translate(365, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#FDE68A\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#D97706\">3. Board Application</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Trio Layout</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#0F172A\">Given \u2192 Formula</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#0F172A\">Substitution \u2192 Boxed</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Common Trap</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#DC2626\">Avoid unit mismatches</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#DC2626\">Watch sign conventions</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Scoring Keywords</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#16A34A\">Verbatim definitions</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#16A34A\">Full 100% credit</text>\n  </g>\n\n  <rect x=\"40\" y=\"254\" width=\"460\" height=\"18\" rx=\"4\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"270\" y=\"266\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"#0F172A\">Authentic Vector Schematic \u2022 CBSE / ICSE / IB Scholastic Standards</text>\n</svg> | Authentic conceptual relationship model plotted on digital chalkboard."
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734825601_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Scum formation in hard water"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "Which of the following correctly describes Soaps and Detergents?",
+              "explanation": "By fundamental principle, Scum formation in hard water is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734825601_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Structure of soap molecule (hydrophobic and hydrophilic ends)",
+                "Micelle formation mechanism",
+                "Difference between soaps and synthetic detergents"
+              ],
+              "formulasToRemember": [
+                "Scum formation in hard water",
+                "Emulsification of oil dirt by micelles"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "Soaps and Detergents - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "Soaps and Detergents",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:40:25.601Z",
+        "provenance": "CBSE Official Curriculum",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734825601",
+      "subtopics": [
+        "Structure of soap molecule (hydrophobic and hydrophilic ends)",
+        "Micelle formation mechanism",
+        "Difference between soaps and synthetic detergents"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "",
+      "diagram_idea": "",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "",
+      "concept_questions": [],
+      "estimated_minutes": 20,
+      "textbook_examples": [],
+      "textbook_exercises": [],
+      "textbook_definitions": []
+    },
+    "quiz_questions": []
+  },
+  {
+    "id": "53286dec-0503-4d12-91a2-04801f0eb34e",
+    "curriculum_id": "d89ea7c3-1cd0-481d-99c0-13f58500ea31",
+    "order_index": 6,
+    "title": "NCERT In-Text & Chapter-End Exercises Master Solver",
+    "description": "Review and solve all in-text questions and chapter-end exercises on carbon compounds.",
+    "ai_system_prompt_context": "CBSE Class 10 Science Module 6: In-Text & End-of-Chapter Exercises. Final-Term Examination Syllabus. \nTEXTBOOK GROUNDING & MANDATORY TEACHING DIRECTIVES (PHASE 5 20-MINUTE MASTER CLASS):\n- Capsule Duration: 20 Minutes (Full comprehensive lesson covering all textbook nuances)\n- Capsule Overview Diagram: Scientific Vector Diagram\n- Diagram Type: vector_svg_diagram\n\n\n\n\n\n\n- MANDATORY WHITEBOARD INSTRUCTION: Each concept in this capsule has a DISTINCT, dedicated visual. You MUST call render_svg_diagram or draw_graph with that concept's UNIQUE diagram when teaching it! NEVER duplicate or reuse the same diagram across different concepts!\n- STRICT SOCRATIC PROGRESSION GATING: After teaching each concept in small bites of 2-3 sentences, you MUST pose at least one of the prepared 4-6 exam questions above to the student. You MUST strictly wait for the student to answer or explicitly ask for the answer before advancing to the next concept! Never lecture continuously without student response.\n- EXPLANATION MANDATE: When explaining definitions, formulas, and algebraic transitions, unpack the physical meaning and the \"why\" behind each line out loud. Never merely recite the text!",
+    "key_concepts": [
+      "Structural isomerism and chemical property applications"
+    ],
+    "success_criteria": "Student can solve all end-of-chapter exercises independently.",
+    "estimated_minutes": 20,
+    "created_at": "2026-11-03T19:40:26.002294+00:00",
+    "class_level": "Class 10",
+    "subtopics": [
+      "Drawing isomer structures",
+      "Nomenclature practice",
+      "Board exam problem-solving masterclass"
+    ],
+    "chapter_notes": "\"\"",
+    "board": "CBSE",
+    "worked_examples": [
+      {
+        "problem": "In-Text Question (Section 4.1 & 4.2, p. 4 & p. 11): (a) Draw the electron dot structures of: Carbon dioxide (CO2), Methane (CH4), and Nitrogen molecule (N2). (b) What are the two unique properties of carbon that lead to the formation of a huge variety of organic compounds?",
+        "given": "Covalent bonding in carbon; Valency and electronic configuration.",
+        "formula": "Octet rule; Catenation (self-linking via strong C-C covalent bonds) and Tetravalency.",
+        "substitution": "Carbon shares 4 valence electrons; N shares 3 pairs (triple bond); O shares 2 pairs with C (double bonds).",
+        "calculation": "(a) Electron Dot Structures:\n1. Methane (CH4): Central C shares 1 electron pair each with 4 H atoms (4 single C-H covalent bonds).\n2. Carbon dioxide (CO2): Central C forms double covalent bonds with two O atoms: O=C=O (4 shared electron pairs).\n3. Nitrogen (N2): Two N atoms share three electron pairs forming a stable triple bond (:N\u2261N:).\n(b) Two properties:\n1. CATENATION: The unique ability of carbon to form strong, stable covalent bonds with other carbon atoms to form straight chains, branched networks, and rings.\n2. TETRAVALENCY: Having 4 valence electrons, carbon bonds with H, O, N, halogens, creating immense functional diversity.",
+        "finalAnswer": "(a) CO2 has double bonds (O=C=O), CH4 has 4 single C-H bonds, N2 has a triple bond (:N\u2261N:); (b) Catenation and Tetravalency.",
+        "unit": "Covalent chemical structure",
+        "has_diagram": true,
+        "diagram_source": "image_search",
+        "figure_caption": "Electron dot structures of methane, carbon dioxide, and nitrogen",
+        "image_search_query": "electron dot structure methane carbon dioxide nitrogen class 10",
+        "page": 4,
+        "section": "Section 4.1"
+      },
+      {
+        "problem": "End-of-Chapter Exercise Q6, Q7, Q8 (p. 20): (a) How can ethanol and ethanoic acid be differentiated on the basis of their physical and chemical properties? (b) Explain the cleansing action of soaps with a micelle diagram.",
+        "given": "Ethanol (C2H5OH) vs Ethanoic acid (CH3COOH); Soap surfactant cleansing mechanics.",
+        "formula": "Esterification, carbonate effervescence: 2CH3COOH + Na2CO3 -> 2CH3COONa + H2O + CO2; Soap micelle hydrophilic head and hydrophobic hydrocarbon tail.",
+        "substitution": "Contrast chemical reactions and micelle formation.",
+        "calculation": "(a) Distinguishing Tests:\n1. Sodium hydrogen carbonate test: Ethanoic acid reacts with NaHCO3 with brisk effervescence liberating CO2 gas (turns lime water milky). Ethanol does not react.\n2. Litmus test: Ethanoic acid turns blue litmus red. Ethanol is neutral and causes no color change.\n(b) Cleansing Action of Soap:\nSoap molecules are sodium/potassium salts of long-chain carboxylic acids (e.g. C17H35COONa). They have two distinct ends: a hydrophobic hydrocarbon tail and a hydrophilic ionic carboxylate head (COO- Na+). In water containing greasy dirt, the hydrophobic tails dissolve into the oil droplet while ionic heads orient outward facing polar water. This forms spherical clusters called MICELLES that trap dirt in the center, allowing it to be rinsed away as an emulsion.",
+        "finalAnswer": "(a) Ethanoic acid gives brisk effervescence with NaHCO3 and turns blue litmus red; ethanol does not; (b) Soap forms micelles with hydrophobic tails trapping oil inside and hydrophilic heads facing water.",
+        "unit": "Organic chemistry & micelles",
+        "has_diagram": true,
+        "diagram_source": "image_search",
+        "figure_caption": "Soap micelle structure trapping oily dirt particle",
+        "image_search_query": "soap cleansing action micelle structure diagram class 10",
+        "page": 20,
+        "section": "Exercises"
+      }
+    ],
+    "common_misconceptions": [],
+    "visual_lesson_plan": {
+      "board": "CBSE",
+      "steps": [
+        {
+          "id": "step_mod_1793734825860_1",
+          "type": "TEXT_STEP",
+          "title": "Intuition & Concept Formulation",
+          "content": {
+            "text": {
+              "explanation": "In-Text & End-of-Chapter Exercises: Review and solve all in-text questions and chapter-end exercises on carbon compounds.",
+              "keyTakeaway": "Structural isomerism and chemical property applications"
+            }
+          },
+          "stepNumber": 1,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_note",
+            "content": "Core Principle: Structural isomerism and chemical property applications"
+          },
+          "sourceCitation": {
+            "section": "1.1",
+            "pageNumber": 1,
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734825860_2",
+          "type": "BOARD_STEP",
+          "title": "Governing Equations & Board Notes",
+          "content": {
+            "board": {
+              "title": "In-Text & End-of-Chapter Exercises - Fundamental Equations",
+              "equations": [
+                "Structural isomerism and chemical property applications"
+              ],
+              "derivationSteps": [
+                "State fundamental scientific definition and boundary conditions.",
+                "Formulate algebraic relationship with SI units.",
+                "Verify dimensional consistency."
+              ]
+            }
+          },
+          "stepNumber": 2,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_step",
+            "content": "Structural isomerism and chemical property applications"
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734825860_3",
+          "type": "DIAGRAM",
+          "title": "In-Text & End-of-Chapter Exercises Visual Schematic",
+          "content": {
+            "diagram": {
+              "title": "In-Text & End-of-Chapter Exercises Schematic Diagram",
+              "labels": [
+                {
+                  "x": 25,
+                  "y": 30,
+                  "id": "l1",
+                  "text": "Structural isomerism and chemical property applications",
+                  "revealStep": 0
+                },
+                {
+                  "x": 75,
+                  "y": 70,
+                  "id": "l2",
+                  "text": "Functional Component",
+                  "revealStep": 1
+                }
+              ],
+              "diagramType": "In-Text & End-of-Chapter Exercises",
+              "progressiveSteps": [
+                {
+                  "step": 0,
+                  "title": "Physical / Anatomical Layout",
+                  "description": "Primary structure and reference boundary",
+                  "activeLabelIds": [
+                    "l1"
+                  ]
+                },
+                {
+                  "step": 1,
+                  "title": "Dynamic Interaction",
+                  "description": "Functional interactions and scientific notation",
+                  "activeLabelIds": [
+                    "l2"
+                  ]
+                }
+              ]
+            }
+          },
+          "stepNumber": 3,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "render_svg_diagram",
+            "content": "In-Text & End-of-Chapter Exercises | <svg viewBox=\"0 0 540 280\" shape-rendering=\"geometricPrecision\" text-rendering=\"geometricPrecision\" xmlns=\"http://www.w3.org/2000/svg\" style=\"background:#FFFFFF; font-family:'JetBrains Mono','Segoe UI',sans-serif;\">\n  \n  <defs>\n    <pattern id=\"chalkGrid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\">\n      <path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"#F1F5F9\" stroke-width=\"0.75\"/>\n    </pattern>\n    <!-- Royal Blue Vector Arrow -->\n    <marker id=\"arrowRoyal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#2563EB\"/>\n    </marker>\n    <!-- Cyan / Sky Ray Arrow -->\n    <marker id=\"arrowIce\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0284C7\"/>\n    </marker>\n    <!-- Scholar Emerald Current / Normal Arrow -->\n    <marker id=\"arrowSage\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#16A34A\"/>\n    </marker>\n    <!-- Crimson Vector Arrow -->\n    <marker id=\"arrowCrimson\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#DC2626\"/>\n    </marker>\n    <!-- Deep Charcoal Ink Arrow -->\n    <marker id=\"arrowCharcoal\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#0F172A\"/>\n    </marker>\n    <!-- Warm Amber Arrow -->\n    <marker id=\"arrowAmber\" viewBox=\"0 0 10 10\" refX=\"7\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\">\n      <path d=\"M 0 1 L 9 5 L 0 9 z\" fill=\"#D97706\"/>\n    </marker>\n  </defs>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" rx=\"8\" fill=\"#FFFFFF\" stroke=\"#E2E8F0\" stroke-width=\"1.5\"/>\n  <rect x=\"4\" y=\"4\" width=\"532\" height=\"272\" fill=\"url(#chalkGrid)\" opacity=\"0.6\"/>\n\n  <rect x=\"40\" y=\"12\" width=\"460\" height=\"22\" rx=\"6\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\"/>\n  <text x=\"270\" y=\"27\" text-anchor=\"middle\" fill=\"#0F172A\" font-size=\"11\" font-weight=\"bold\">In-Text & End-of-Chapter Exercises</text>\n\n  <g transform=\"translate(25, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#F0FDF4\" stroke=\"#16A34A\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DCFCE7\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#16A34A\">1. Physical Intuition</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Real-World Hook</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#64748B\">Tangible daily basis</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#64748B\">Observable mechanism</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Underlying Driver</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#64748B\">Core energetic / structural</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#64748B\">fundamental force</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#16A34A\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Classroom Analogy</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#64748B\">Concrete representation</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Intuitive bridge to law</text>\n  </g>\n\n  <line x1=\"180\" y1=\"140\" x2=\"195\" y2=\"140\" stroke=\"#2563EB\" stroke-width=\"2\" marker-end=\"url(#arrowRoyal)\"/>\n\n  <g transform=\"translate(195, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#EFF6FF\" stroke=\"#2563EB\" stroke-width=\"1.4\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#DBEAFE\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#2563EB\">2. Governing Principle</text>\n\n    <rect x=\"10\" y=\"36\" width=\"130\" height=\"50\" rx=\"4\" fill=\"#FFFFFF\" stroke=\"#2563EB\" stroke-width=\"1\"/>\n    <text x=\"75\" y=\"55\" text-anchor=\"middle\" font-size=\"8\" font-weight=\"bold\" fill=\"#2563EB\">CORE LAW / THEOREM</text>\n    <text x=\"75\" y=\"72\" text-anchor=\"middle\" font-size=\"8.5\" font-weight=\"bold\" fill=\"#0F172A\">In-Text & End-of-C</text>\n\n    <circle cx=\"15\" cy=\"110\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"113\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Governing Rules</text>\n    <text x=\"25\" y=\"125\" font-size=\"7\" fill=\"#64748B\">Strict scientific criteria</text>\n    <text x=\"25\" y=\"135\" font-size=\"7\" fill=\"#64748B\">Mandatory conditions</text>\n\n    <circle cx=\"15\" cy=\"155\" r=\"3\" fill=\"#2563EB\"/>\n    <text x=\"25\" y=\"158\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">SI Units &amp; Constants</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#64748B\">Dimensional integrity</text>\n    <text x=\"25\" y=\"180\" font-size=\"7\" fill=\"#64748B\">Zero unit conversion loss</text>\n  </g>\n\n  <line x1=\"350\" y1=\"140\" x2=\"365\" y2=\"140\" stroke=\"#16A34A\" stroke-width=\"2\" marker-end=\"url(#arrowSage)\"/>\n\n  <g transform=\"translate(365, 45)\">\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"195\" rx=\"6\" fill=\"#FEF3C7\" stroke=\"#D97706\" stroke-width=\"1.2\"/>\n    <rect x=\"0\" y=\"0\" width=\"150\" height=\"24\" rx=\"6\" fill=\"#FDE68A\"/>\n    <text x=\"75\" y=\"16\" text-anchor=\"middle\" font-size=\"9\" font-weight=\"bold\" fill=\"#D97706\">3. Board Application</text>\n\n    <circle cx=\"15\" cy=\"45\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"48\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Trio Layout</text>\n    <text x=\"25\" y=\"60\" font-size=\"7\" fill=\"#0F172A\">Given \u2192 Formula</text>\n    <text x=\"25\" y=\"70\" font-size=\"7\" fill=\"#0F172A\">Substitution \u2192 Boxed</text>\n\n    <circle cx=\"15\" cy=\"95\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"98\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Common Trap</text>\n    <text x=\"25\" y=\"110\" font-size=\"7\" fill=\"#DC2626\">Avoid unit mismatches</text>\n    <text x=\"25\" y=\"120\" font-size=\"7\" fill=\"#DC2626\">Watch sign conventions</text>\n\n    <circle cx=\"15\" cy=\"145\" r=\"3\" fill=\"#D97706\"/>\n    <text x=\"25\" y=\"148\" font-size=\"8\" font-weight=\"bold\" fill=\"#0F172A\">Scoring Keywords</text>\n    <text x=\"25\" y=\"160\" font-size=\"7\" fill=\"#16A34A\">Verbatim definitions</text>\n    <text x=\"25\" y=\"170\" font-size=\"7\" fill=\"#16A34A\">Full 100% credit</text>\n  </g>\n\n  <rect x=\"40\" y=\"254\" width=\"460\" height=\"18\" rx=\"4\" fill=\"#F8FAFC\" stroke=\"#E2E8F0\" stroke-width=\"1\"/>\n  <text x=\"270\" y=\"266\" text-anchor=\"middle\" font-size=\"8.5\" fill=\"#0F172A\">Authentic Vector Schematic \u2022 CBSE / ICSE / IB Scholastic Standards</text>\n</svg> | Authentic conceptual relationship model plotted on digital chalkboard."
+          },
+          "sourceCitation": {
+            "textbookName": "CBSE Official Curriculum",
+            "provenanceType": "ncert_textbook",
+            "verifiedSource": true
+          },
+          "estimatedSeconds": 120
+        },
+        {
+          "id": "step_mod_1793734825860_4",
+          "type": "QUICK_CHECK",
+          "title": "Checkpoint: Test Your Understanding",
+          "content": {
+            "quickCheck": {
+              "options": [
+                {
+                  "id": "opt_a",
+                  "text": "Structural isomerism and chemical property applications"
+                },
+                {
+                  "id": "opt_b",
+                  "text": "Inversely proportional with zero baseline"
+                },
+                {
+                  "id": "opt_c",
+                  "text": "Random and independent of external variables"
+                },
+                {
+                  "id": "opt_d",
+                  "text": "Constant zero value regardless of input"
+                }
+              ],
+              "question": "Which of the following correctly describes In-Text & End-of-Chapter Exercises?",
+              "explanation": "By fundamental principle, Structural isomerism and chemical property applications is strictly governed by verified laws with consistent SI units.",
+              "correctOptionId": "opt_a"
+            }
+          },
+          "stepNumber": 4,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_question",
+            "content": "Checkpoint: Quick Check Understanding"
+          },
+          "estimatedSeconds": 90
+        },
+        {
+          "id": "step_mod_1793734825860_5",
+          "type": "SUMMARY",
+          "title": "Capsule Synthesis Summary",
+          "content": {
+            "summary": {
+              "examTips": [
+                "Always box your final numerical solution with correct SI units.",
+                "Never skip intermediate algebraic steps in board examinations."
+              ],
+              "recapPoints": [
+                "Drawing isomer structures",
+                "Nomenclature practice",
+                "Board exam problem-solving masterclass"
+              ],
+              "formulasToRemember": [
+                "Structural isomerism and chemical property applications"
+              ]
+            }
+          },
+          "stepNumber": 5,
+          "assetStatus": "ready",
+          "boardDirective": {
+            "action": "draw_title",
+            "content": "In-Text & End-of-Chapter Exercises - Synthesis Summary"
+          },
+          "estimatedSeconds": 60
+        }
+      ],
+      "title": "In-Text & End-of-Chapter Exercises",
+      "subject": "Science",
+      "version": "1.0.0",
+      "metadata": {
+        "author": "AI Tutor Curriculum Pipeline",
+        "createdAt": "2026-11-03T19:40:25.860Z",
+        "provenance": "CBSE Official Curriculum",
+        "totalEstimatedMinutes": 8,
+        "deviceTierCompatibility": "all"
+      },
+      "moduleId": "mod_1793734825860",
+      "subtopics": [
+        "Drawing isomer structures",
+        "Nomenclature practice",
+        "Board exam problem-solving masterclass"
+      ],
+      "classLevel": "Class 10",
+      "diagram_svg": "",
+      "diagram_idea": "",
+      "diagram_type": "vector_svg_diagram",
+      "what_to_make": "",
+      "syllabus_term": "Final-Term Examination",
+      "concept_visuals": [],
+      "syllabus_pacing": "Final-Term Examination Syllabus",
+      "chapter_flowchart": "",
+      "concept_questions": [],
+      "estimated_minutes": 20,
+      "textbook_examples": [],
+      "textbook_exercises": [],
+      "textbook_definitions": []
+    },
+    "quiz_questions": []
+  }
+]

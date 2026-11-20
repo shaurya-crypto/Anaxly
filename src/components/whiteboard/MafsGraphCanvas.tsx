@@ -23,19 +23,30 @@ import {
   ZoomIn, 
   ZoomOut, 
   PanelRight, 
-  GripHorizontal 
+  GripHorizontal,
+  Layers,
+  Info
 } from 'lucide-react'
+import {
+  parseGraphPoints,
+  parseGraphSegments,
+  parseGraphFormulas,
+  type GraphFormulaItem,
+  type GraphSegmentItem,
+  type GraphPointItem,
+} from '@/lib/graphGating'
 
 export type GraphDisplayMode = 'docked' | 'floating' | 'maximized' | 'minimized'
 
 export interface MafsGraphCanvasProps {
-  formula?: string | string[]
-  formulas?: string[]
+  formula?: string | string[] | GraphFormulaItem[]
+  formulas?: Array<string | GraphFormulaItem>
+  segments?: Array<GraphSegmentItem | string | any>
+  points?: Array<[number, number] | GraphPointItem | string> | string
   domain?: [number, number]
   range?: [number, number]
   title?: string
   callout?: string
-  points?: Array<[number, number]> | string
   width?: number | 'auto'
   height?: number
   displayMode?: GraphDisplayMode
@@ -85,7 +96,7 @@ function solveLinearEquationForY(eqStr: string): string | null {
  * Handles implicit multiplication (2x -> 2*x), trigonometric notation, powers (^ -> **), and constants.
  */
 function normalizeMathFormula(raw: string): string {
-  if (!raw) return 'x'
+  if (!raw) return ''
   let clean = raw.trim()
   // Check if it's an implicit linear equation like 2x + 3y = 6
   if (clean.includes('y') && clean.includes('=')) {
@@ -112,103 +123,153 @@ const CURVE_COLORS = [
 ]
 
 export function MafsGraphCanvas({
-  formula = 'x^2 - 4',
+  formula,
   formulas,
+  segments,
+  points,
   domain = [-5, 5],
   range = [-5, 5],
   title,
   callout,
-  points,
   width = 'auto',
   height,
   displayMode = 'docked',
   onModeChange,
   onClose,
 }: MafsGraphCanvasProps) {
-  // Interactive view bounds with local zoom & pan state
-  const [viewDomain, setViewDomain] = useState<[number, number]>(domain)
-  const [viewRange, setViewRange] = useState<[number, number]>(range)
-  const [showDerivative, setShowDerivative] = useState(false)
-
-  // Reset to initial bounds if incoming props change significantly
-  React.useEffect(() => {
-    setViewDomain(domain)
-    setViewRange(range)
-  }, [domain[0], domain[1], range[0], range[1]])
-
-  // Parse discrete points if string or array was provided
-  const parsedPoints: [number, number][] = useMemo(() => {
-    if (!points) return []
-    if (Array.isArray(points)) return points
-    const pts: [number, number][] = []
-    const matches = points.matchAll(/\(\s*([\-\d\.]+)\s*,\s*([\-\d\.]+)\s*\)/g)
-    for (const m of matches) {
-      const px = parseFloat(m[1])
-      const py = parseFloat(m[2])
-      if (!isNaN(px) && !isNaN(py)) {
-        pts.push([px, py])
-      }
-    }
-    return pts
+  // 1. Parse discrete key points with coordinates and labels using resilient parser
+  const parsedPoints: GraphPointItem[] = useMemo(() => {
+    return parseGraphPoints(points)
   }, [points])
 
-  // Parse multiple formulas: supports array, semicolons, newlines, pipes, or "y = ... , y = ..."
-  const formulasList = useMemo(() => {
-    if (formulas && Array.isArray(formulas) && formulas.length > 0) {
-      return formulas.filter(Boolean)
-    }
-    if (Array.isArray(formula)) {
-      return formula.filter(Boolean)
-    }
-    if (!formula) return ['x^2 - 4']
+  // 2. Parse bounded line segments with start and end stopping points using resilient parser
+  const parsedSegments: GraphSegmentItem[] = useMemo(() => {
+    const segs = parseGraphSegments(segments)
+    return segs.map((s, idx) => ({
+      ...s,
+      color: s.color || CURVE_COLORS[(idx + 1) % CURVE_COLORS.length],
+    }))
+  }, [segments])
 
-    let parts: string[] = []
-    if (formula.includes(';') || formula.includes('|') || formula.includes('\n')) {
-      parts = formula.split(/[;|\n]+/).map((s) => s.trim()).filter(Boolean)
-    } else if (formula.includes('and') || formula.includes('&')) {
-      parts = formula.split(/\s*(?:and|&)\s*/i).map((s) => s.trim()).filter(Boolean)
-    } else if (/y\s*=.*y\s*=/i.test(formula)) {
-      // Split on comma before a new "y =" e.g. "y = x^2 - 4, y = 2x + 1"
-      parts = formula.split(/,\s*(?=y\s*=)/i).map((s) => s.trim()).filter(Boolean)
-    } else {
-      parts = [formula.trim()]
-    }
-    return parts.length > 0 ? parts : [formula]
+  // 3. Normalize and parse 2-3 functions/lines at once using resilient parser
+  const rawFormulasList = useMemo(() => {
+    const list = parseGraphFormulas(formula, formulas)
+    return list.map((item, idx) => ({
+      ...item,
+      color: item.color || CURVE_COLORS[idx % CURVE_COLORS.length],
+    }))
   }, [formula, formulas])
 
-  // Compile all formulas into evaluable function curves
-  const compiledCurves = useMemo(() => {
-    return formulasList.map((f, idx) => {
-      const normalized = normalizeMathFormula(f)
-      try {
-        const expr = compile(normalized)
-        const fn = (x: number): number => {
-          try {
-            const res = expr.evaluate({ x, e: Math.E, pi: Math.PI })
-            return typeof res === 'number' && isFinite(res) ? res : NaN
-          } catch {
-            return NaN
-          }
-        }
-        return {
-          raw: f.replace(/^(?:y|f\(x\))\s*=\s*/i, '').trim(),
-          fn,
-          color: CURVE_COLORS[idx % CURVE_COLORS.length],
-        }
-      } catch {
-        return {
-          raw: f,
-          fn: (x: number) => x,
-          color: CURVE_COLORS[idx % CURVE_COLORS.length],
-        }
+  // 4. Auto-fit initial view bounds to encompass all points, segment endpoints, and formula domains
+  const autoBounds = useMemo<{ domain: [number, number]; range: [number, number] }>(() => {
+    const xs: number[] = []
+    const ys: number[] = []
+
+    parsedPoints.forEach((p) => {
+      xs.push(p.x)
+      ys.push(p.y)
+    })
+
+    parsedSegments.forEach((s) => {
+      xs.push(s.start[0], s.end[0])
+      ys.push(s.start[1], s.end[1])
+    })
+
+    rawFormulasList.forEach((f) => {
+      if (f.domain) {
+        xs.push(f.domain[0], f.domain[1])
       }
     })
-  }, [formulasList])
 
-  const primaryFn = compiledCurves[0]?.fn || ((x: number) => x)
+    // If explicit domain / range were passed and are NOT default [-5, 5], respect them
+    const isCustomDomain = domain && (domain[0] !== -5 || domain[1] !== 5)
+    const isCustomRange = range && (range[0] !== -5 || range[1] !== 5)
+
+    if (isCustomDomain && isCustomRange) {
+      return { domain, range }
+    }
+
+    if (xs.length > 0 && ys.length > 0) {
+      let minX = Math.min(...xs)
+      let maxX = Math.max(...xs)
+      let minY = Math.min(...ys)
+      let maxY = Math.max(...ys)
+
+      // Ensure minimum span
+      if (maxX - minX < 2) {
+        const mid = (minX + maxX) / 2
+        minX = mid - 1
+        maxX = mid + 1
+      }
+      if (maxY - minY < 2) {
+        const mid = (minY + maxY) / 2
+        minY = mid - 1
+        maxY = mid + 1
+      }
+
+      // Add generous margin (20% or at least 1 unit) so points and endpoints are well inside viewport
+      const spanX = maxX - minX
+      const spanY = maxY - minY
+      const padX = Math.max(spanX * 0.2, 1)
+      const padY = Math.max(spanY * 0.2, 1)
+
+      const finalDomain: [number, number] = isCustomDomain ? domain : [Math.floor(minX - padX), Math.ceil(maxX + padX)]
+      const finalRange: [number, number] = isCustomRange ? range : [Math.floor(minY - padY), Math.ceil(maxY + padY)]
+
+      return { domain: finalDomain, range: finalRange }
+    }
+
+    return { domain, range }
+  }, [domain, range, parsedPoints, parsedSegments, rawFormulasList])
+
+  // Interactive view bounds with local zoom & pan state
+  const [viewDomain, setViewDomain] = useState<[number, number]>(autoBounds.domain)
+  const [viewRange, setViewRange] = useState<[number, number]>(autoBounds.range)
+  const [showDerivative, setShowDerivative] = useState(false)
+
+  // Reset to initial bounds if incoming props or autoBounds change significantly
+  React.useEffect(() => {
+    setViewDomain(autoBounds.domain)
+    setViewRange(autoBounds.range)
+  }, [autoBounds.domain[0], autoBounds.domain[1], autoBounds.range[0], autoBounds.range[1]])
+
+  // Compile all formulas into evaluable function curves with labels and domains
+  const compiledCurves = useMemo(() => {
+    return rawFormulasList
+      .map((item, idx) => {
+        const normalized = normalizeMathFormula(item.formula)
+        if (!normalized) return null
+
+        try {
+          const expr = compile(normalized)
+          const fn = (x: number): number => {
+            try {
+              const res = expr.evaluate({ x, e: Math.E, pi: Math.PI })
+              return typeof res === 'number' && isFinite(res) ? res : NaN
+            } catch {
+              return NaN
+            }
+          }
+          const rawClean = item.formula.replace(/^(?:y|f\(x\))\s*=\s*/i, '').trim()
+          return {
+            raw: rawClean,
+            label: item.label || (rawFormulasList.length > 1 ? `y${idx + 1} = ${rawClean}` : `y = ${rawClean}`),
+            fn,
+            color: item.color || CURVE_COLORS[idx % CURVE_COLORS.length],
+            domain: item.domain,
+          }
+        } catch {
+          return null
+        }
+      })
+      .filter((c): c is NonNullable<typeof c> => c !== null)
+  }, [rawFormulasList])
+
+  const primaryFn = compiledCurves[0]?.fn || null
 
   // Numerical derivative function: f'(x) ≈ (f(x+h) - f(x-h)) / 2h
   const derivativeFn = useMemo(() => {
+    if (!primaryFn) return null
     const h = 0.0001
     return (x: number): number => {
       const y2 = primaryFn(x + h)
@@ -218,7 +279,7 @@ export function MafsGraphCanvas({
     }
   }, [primaryFn])
 
-  // Auto-detect intersection points when multiple curves are present
+  // Auto-detect intersection points between multiple curves when manual points are absent
   const autoIntersections: [number, number][] = useMemo(() => {
     if (parsedPoints.length > 0 || compiledCurves.length < 2) return []
     const pts: [number, number][] = []
@@ -270,8 +331,6 @@ export function MafsGraphCanvas({
     return pts
   }, [compiledCurves, viewDomain, viewRange, parsedPoints.length])
 
-  const allDisplayPoints = parsedPoints.length > 0 ? parsedPoints : autoIntersections
-
   const handleZoom = (factor: number) => {
     setViewDomain(([min, max]) => {
       const span = (max - min) * factor
@@ -286,19 +345,32 @@ export function MafsGraphCanvas({
   }
 
   const handleReset = () => {
-    setViewDomain(domain)
-    setViewRange(range)
+    setViewDomain(autoBounds.domain)
+    setViewRange(autoBounds.range)
   }
 
-  const rawFormulaTitle = Array.isArray(formula) ? formula.join(', ') : formula
-  const displayTitle = title || (compiledCurves.length > 1 
-    ? `Multiple Graphs (${compiledCurves.length} curves)`
-    : `Graph: y = ${rawFormulaTitle}`)
-  const resolvedHeight = height || (displayMode === 'maximized' ? 620 : displayMode === 'docked' ? 480 : 380)
+  const rawFormulaTitle = Array.isArray(formula)
+    ? formula.map((f) => (typeof f === 'string' ? f : f?.formula)).filter(Boolean).join(', ')
+    : typeof formula === 'string'
+    ? formula
+    : ''
+
+  const displayTitle =
+    title ||
+    (compiledCurves.length > 1
+      ? `Comparative Graphs (${compiledCurves.length} curves)`
+      : compiledCurves.length === 1
+      ? `Graph: ${compiledCurves[0].label}`
+      : parsedSegments.length > 0
+      ? `Coordinate Segments (${parsedSegments.length} segments)`
+      : `Mathematical Graph: ${rawFormulaTitle || 'Functions'}`)
+
+  const resolvedHeight =
+    height || (displayMode === 'maximized' ? 640 : displayMode === 'docked' ? 500 : 400)
 
   return (
     <div className="w-full h-full relative flex flex-col bg-[#FFFFFF] border-2 border-[#E2E8F0] rounded-2xl overflow-hidden shadow-2xl text-[#0F172A] font-sans select-none">
-      {/* Top Header & Move Handle Toolbar (Clean Scholastic White Theme) */}
+      {/* 1. Top Header & Toolbar (High-Taste Scholastic Layout) */}
       <div className="px-3.5 py-2.5 bg-[#F8FAFC] border-b border-[#E2E8F0] flex items-center justify-between gap-2 shrink-0">
         <div className="flex items-center gap-2 min-w-0">
           <div 
@@ -316,23 +388,25 @@ export function MafsGraphCanvas({
         {/* Action Controls & Mode Switcher */}
         <div className="flex items-center gap-1.5 shrink-0">
           {callout && (
-            <span className="hidden sm:inline-block text-[10px] font-mono px-2 py-0.5 rounded-md bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] truncate max-w-[150px]">
+            <span className="hidden sm:inline-block text-[10px] font-mono px-2 py-0.5 rounded-md bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] truncate max-w-[160px]">
               {callout}
             </span>
           )}
 
-          {/* Toggle Derivative Curve */}
-          <button
-            onClick={() => setShowDerivative((prev) => !prev)}
-            className={`px-2 py-0.5 rounded-md text-[10px] font-mono border transition-colors ${
-              showDerivative
-                ? 'bg-[#EFF6FF] text-[#2563EB] border-[#93C5FD] font-bold shadow-xs'
-                : 'bg-white text-[#64748B] border-[#E2E8F0] hover:bg-[#F1F5F9] hover:text-[#0F172A]'
-            }`}
-            title="Toggle first derivative f'(x)"
-          >
-            dy/dx
-          </button>
+          {/* Toggle Derivative Curve (dy/dx) */}
+          {compiledCurves.length > 0 && (
+            <button
+              onClick={() => setShowDerivative((prev) => !prev)}
+              className={`px-2 py-0.5 rounded-md text-[10px] font-mono border transition-colors ${
+                showDerivative
+                  ? 'bg-[#EFF6FF] text-[#2563EB] border-[#93C5FD] font-bold shadow-xs'
+                  : 'bg-white text-[#64748B] border-[#E2E8F0] hover:bg-[#F1F5F9] hover:text-[#0F172A]'
+              }`}
+              title="Toggle first derivative f'(x)"
+            >
+              dy/dx
+            </button>
+          )}
 
           {/* Zoom In */}
           <button
@@ -422,25 +496,79 @@ export function MafsGraphCanvas({
         </div>
       </div>
 
-      {/* High-Precision Interactive Vector Graph Viewport (Pure White Chalkboard Theme) */}
+      {/* 2. Formula Badges Strip: High-Taste Color Badges for Functions & Segments */}
+      {(compiledCurves.length > 0 || parsedSegments.length > 0 || parsedPoints.length > 0) && (
+        <div className="px-3 py-1.5 bg-[#FFFFFF] border-b border-[#F1F5F9] flex flex-wrap items-center gap-2 text-xs font-mono shrink-0">
+          {/* Function Badges */}
+          {compiledCurves.map((curve, idx) => (
+            <div
+              key={`badge-curve-${idx}`}
+              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-semibold border shadow-2xs transition-all"
+              style={{
+                backgroundColor: `${curve.color}0D`,
+                borderColor: `${curve.color}33`,
+                color: curve.color,
+              }}
+            >
+              <span className="w-2 h-2 rounded-full" style={{ backgroundColor: curve.color }} />
+              <span>{curve.label}</span>
+              {curve.domain && (
+                <span className="text-[10px] opacity-75 font-normal">
+                  [{curve.domain[0]}, {curve.domain[1]}]
+                </span>
+              )}
+            </div>
+          ))}
+
+          {/* Segment Badges */}
+          {parsedSegments.map((seg, idx) => (
+            <div
+              key={`badge-seg-${idx}`}
+              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-semibold border shadow-2xs"
+              style={{
+                backgroundColor: `${seg.color}0D`,
+                borderColor: `${seg.color}33`,
+                color: seg.color,
+              }}
+            >
+              <span className="w-3 h-0.5 rounded" style={{ backgroundColor: seg.color }} />
+              <span>{seg.label || `Segment ${idx + 1}`}</span>
+              <span className="text-[10px] opacity-75 font-normal">
+                ({seg.start[0]}, {seg.start[1]}) → ({seg.end[0]}, {seg.end[1]})
+              </span>
+            </div>
+          ))}
+
+          {/* Key Points Badge Count */}
+          {parsedPoints.length > 0 && (
+            <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-medium bg-[#F1F5F9] text-[#475569] border border-[#E2E8F0]">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#DC2626]" />
+              <span>{parsedPoints.length} Critical Points</span>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* 3. High-Precision Interactive Vector Graph Viewport (Pure White Chalkboard Theme) */}
       <div className="flex-1 w-full bg-[#FFFFFF] relative flex justify-center items-center overflow-hidden mafs-white-viewport">
-        {/* Scoped CSS to strictly enforce White Theme on Mafs SVG canvas */}
+        {/* Scoped CSS to enforce Crisp White Theme, Clear Axis Ticks & High Legibility */}
         <style dangerouslySetInnerHTML={{ __html: `
           .mafs-white-viewport .MafsView {
             --mafs-bg: #FFFFFF !important;
             --mafs-fg: #0F172A !important;
             --mafs-origin-color: #0F172A !important;
-            --mafs-line-color: #CBD5E1 !important;
-            --grid-line-subdivision-color: #F1F5F9 !important;
+            --mafs-line-color: #E2E8F0 !important;
+            --grid-line-subdivision-color: #F8FAFC !important;
             background: #FFFFFF !important;
           }
           .mafs-white-viewport .MafsView text {
-            fill: #0F172A !important;
-            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif !important;
+            fill: #1E293B !important;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
             font-weight: 600 !important;
+            font-size: 11px !important;
           }
           .mafs-white-viewport .MafsView line {
-            stroke-opacity: 0.9 !important;
+            stroke-opacity: 0.85 !important;
           }
         `}} />
         
@@ -451,26 +579,83 @@ export function MafsGraphCanvas({
           pan={true}
           zoom={{ min: 0.1, max: 10 }}
         >
-          {/* High-Resolution Chalkboard Cartesian Grid */}
+          {/* High-Resolution Cartesian Grid with Visible Tick Labels */}
           <Coordinates.Cartesian
             subdivisions={2}
             xAxis={{ lines: 1, labels: (x) => (x !== 0 ? `${x}` : '') }}
             yAxis={{ lines: 1, labels: (y) => (y !== 0 ? `${y}` : '') }}
           />
 
-          {/* Multi-Function Curves (Simultaneous Multi-Graph Support with Distinct Scholastic Colors) */}
+          {/* Multi-Function Curves (Simultaneous Multi-Graph Support with Color Hierarchy) */}
           {compiledCurves.map((curve, idx) => (
             <React.Fragment key={`curve-${idx}-${curve.raw}`}>
               <Plot.OfX
                 y={curve.fn}
                 color={curve.color}
                 weight={3}
+                domain={curve.domain}
               />
             </React.Fragment>
           ))}
 
+          {/* Line Segments with Start and End Stopping Points */}
+          {parsedSegments.map((seg, idx) => (
+            <React.Fragment key={`segment-${idx}`}>
+              {/* Segment Line */}
+              <Line.Segment
+                point1={seg.start}
+                point2={seg.end}
+                color={seg.color}
+                style={seg.dashed ? 'dashed' : 'solid'}
+                weight={3}
+              />
+              {/* Start Point (Filled Circle with White Border) */}
+              <Point
+                x={seg.start[0]}
+                y={seg.start[1]}
+                color={seg.color}
+                svgCircleProps={{ r: 6, stroke: '#FFFFFF', strokeWidth: 2 }}
+              />
+              {/* End Point (Hollow Circle with Colored Border - Explicit Stopping Point) */}
+              <Point
+                x={seg.end[0]}
+                y={seg.end[1]}
+                color="#FFFFFF"
+                svgCircleProps={{ r: 6, fill: '#FFFFFF', stroke: seg.color, strokeWidth: 2.5 }}
+              />
+              {/* Segment Midpoint Label if specified */}
+              {seg.label && (
+                <Text
+                  x={(seg.start[0] + seg.end[0]) / 2}
+                  y={(seg.start[1] + seg.end[1]) / 2 + 0.35}
+                  color={seg.color}
+                  size={12}
+                >
+                  {seg.label}
+                </Text>
+              )}
+              {/* Start & End Coordinate Badges */}
+              <Text
+                x={seg.start[0]}
+                y={seg.start[1] - 0.4}
+                color="#475569"
+                size={11}
+              >
+                {`(${seg.start[0]}, ${seg.start[1]})`}
+              </Text>
+              <Text
+                x={seg.end[0]}
+                y={seg.end[1] + 0.4}
+                color="#475569"
+                size={11}
+              >
+                {`(${seg.end[0]}, ${seg.end[1]})`}
+              </Text>
+            </React.Fragment>
+          ))}
+
           {/* Derivative Curve if toggled (Scholar Emerald Green Dashed) */}
-          {showDerivative && (
+          {showDerivative && derivativeFn && (
             <Plot.OfX
               y={derivativeFn}
               color="#16A34A"
@@ -479,30 +664,78 @@ export function MafsGraphCanvas({
             />
           )}
 
-          {/* Critical / Intersect Points with Coordinates */}
-          {allDisplayPoints.map(([px, py], idx) => (
-            <React.Fragment key={idx}>
-              <Point x={px} y={py} color="#DC2626" />
-              <Text
-                x={px}
-                y={py + 0.35}
-                color="#0F172A"
-                size={13}
-              >
-                {`(${px}, ${py})`}
-              </Text>
-            </React.Fragment>
-          ))}
+          {/* Key Critical Points with Callouts / Tooltips */}
+          {parsedPoints.map((pt, idx) => {
+            const hasCoordsInLabel = pt.label && pt.label.includes('(')
+            const labelText = pt.label && pt.callout
+              ? `${pt.label} [${pt.callout}]`
+              : pt.label || pt.callout || ''
+            const fullText = labelText
+              ? (hasCoordsInLabel ? labelText : `${labelText} (${pt.x}, ${pt.y})`)
+              : `(${pt.x}, ${pt.y})`
+
+            return (
+              <React.Fragment key={`point-${idx}`}>
+                <Point
+                  x={pt.x}
+                  y={pt.y}
+                  color={pt.color || '#DC2626'}
+                  svgCircleProps={{ r: 6.5, stroke: '#FFFFFF', strokeWidth: 2 }}
+                />
+                <Point
+                  x={pt.x}
+                  y={pt.y}
+                  color="#FFFFFF"
+                  svgCircleProps={{ r: 2.5, fill: '#FFFFFF' }}
+                />
+                <Text
+                  x={pt.x}
+                  y={pt.y + 0.45}
+                  color="#0F172A"
+                  size={12}
+                >
+                  {fullText}
+                </Text>
+              </React.Fragment>
+            )
+          })}
+
+          {/* Auto Intersections if Multiple Curves are Active and Manual Points Absent */}
+          {parsedPoints.length === 0 &&
+            autoIntersections.map(([ix, iy], idx) => (
+              <React.Fragment key={`auto-intersect-${idx}`}>
+                <Point
+                  x={ix}
+                  y={iy}
+                  color="#DC2626"
+                  svgCircleProps={{ r: 5, stroke: '#FFFFFF', strokeWidth: 1.5 }}
+                />
+                <Text
+                  x={ix}
+                  y={iy + 0.38}
+                  color="#0F172A"
+                  size={12}
+                >
+                  {`(${ix}, ${iy})`}
+                </Text>
+              </React.Fragment>
+            ))}
         </Mafs>
       </div>
 
-      {/* Coordinate Status Footer Bar with Multi-Curve Legend */}
+      {/* 4. Coordinate Status Footer Bar with Legend & Viewport Details */}
       <div className="px-3.5 py-2 bg-[#F8FAFC] border-t border-[#E2E8F0] flex flex-wrap items-center justify-between gap-2 text-[11px] text-[#475569] font-mono shrink-0">
         <div className="flex items-center flex-wrap gap-3">
           {compiledCurves.map((curve, idx) => (
             <span key={idx} className="flex items-center gap-1.5 font-bold text-[#0F172A]">
               <span className="w-2.5 h-2.5 rounded-full ring-2 ring-slate-200" style={{ backgroundColor: curve.color }} />
-              <span>y = {curve.raw}</span>
+              <span>{curve.label}</span>
+            </span>
+          ))}
+          {parsedSegments.map((seg, idx) => (
+            <span key={`footer-seg-${idx}`} className="flex items-center gap-1.5 text-[#334155]">
+              <span className="w-2.5 h-1 rounded" style={{ backgroundColor: seg.color }} />
+              <span>{seg.label || `Seg ${idx + 1}`}</span>
             </span>
           ))}
           {showDerivative && (
