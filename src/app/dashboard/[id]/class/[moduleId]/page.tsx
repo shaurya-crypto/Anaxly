@@ -689,8 +689,12 @@ function buildSingleConceptMicroDossier(
     visualDirective = `\n   * MANDATORY FLOWCHART: Call write_chalkboard(action="draw_flowchart", content="${matchedCv?.what_to_make || conceptName}") on Step 1!`
   } else {
     // Concepts strictly search for images dynamically - zero hardcoded links!
-    visualDirective = `\n   * MANDATORY EDUCATIONAL IMAGE: Call search_and_show_image(query="${fullImgQuery}", title="${diagramTitle}") ON YOUR VERY FIRST TURN to display the authentic high-resolution diagram on the board!
-   * PROACTIVE DEMONSTRATION VIDEO: If teaching physical motion, dynamic process, lab experiment, or if student requests a video demonstration, call search_and_show_video(query="${fullVidQuery}", title="${diagramTitle}").
+    visualDirective = `\n   * MANDATORY DUAL VISUALS AT CONCEPT START (BOTH IMAGE & VIDEO):
+     1. Call search_and_show_image(query="${fullImgQuery}", title="${diagramTitle}", caption="Visual illustration") ON YOUR VERY FIRST TURN!
+     2. Call search_and_show_video(query="${fullVidQuery}", title="${diagramTitle}", description="Demonstration video") ON YOUR VERY FIRST TURN!
+     3. You MUST provide BOTH the authentic educational diagram AND the playable video demonstration together at the start of this concept!
+   * MANDATORY GRAPH CALL (WHEN EXPLAINING, SOLVING, OR GRAPHICAL QUESTIONS):
+     - If this concept or any question/worked-example involves coordinate geometry, functions, kinematics (s-t, v-t, a-t), Ohm's law (V-I), thermodynamics (P-V), statistics (bar graphs, histograms, frequency polygons), vectors, bounded line segments with explicit lengths, or multiple geometric figures: YOU MUST CALL plot_mathematical_graph(...) to draw the exact graph and solve or illustrate it! Call it even for small graphical aids to help the student visualize coordinates and figures!
    * VECTOR SVG FALLBACK: If an authentic web image is unavailable or if teaching abstract geometry/theory, call render_svg_diagram(title="${diagramTitle}", what="${whatSpec.slice(0, 160)}") to render the bespoke vector SVG on the chalkboard!`
   }
 
@@ -2740,7 +2744,37 @@ CRITICAL DIRECTIVE:
         }
       }
 
-      // 2. Tier 1: Search online authentic scientific images first via /api/diagram/search-image
+      // 2. Tier 1: Search online authentic scientific images AND demonstration video
+      if (typeof window !== 'undefined') {
+        const { video_search_query: vidQuery } = buildDetailedEducationalQueries(
+          targetConcept,
+          activeCurriculum?.title || resolvedTitle,
+          matchedConceptVisual,
+          resolvedSubject
+        )
+        if (vidQuery) {
+          fetch('/api/diagram/search-video', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ query: vidQuery }),
+          })
+            .then((r) => (r.ok ? r.json() : null))
+            .then((vData) => {
+              const firstVid = vData?.videos?.[0]
+              if (firstVid && chalkboardRef.current) {
+                chalkboardRef.current.drawVideoCard?.(
+                  firstVid.title || targetConcept,
+                  firstVid.description || 'Demonstration video',
+                  firstVid.url,
+                  firstVid.mimeType || 'video/mp4'
+                )
+              }
+            })
+            .catch(() => {})
+        }
+      }
+
+      // 2b. Tier 1: Search online authentic scientific images first via /api/diagram/search-image
       if (typeof window !== 'undefined') {
         const handleSuccessData = (data: any) => {
           if (data?.svg && chalkboardRef.current) {
@@ -4141,7 +4175,7 @@ ${careerHook ? `- ${careerHook}\n` : ''}${favoriteHook ? `- ${favoriteHook}\n` :
       ? `[SESSION START - RESUMING CONCEPT ${currentConceptIndex + 1}: "${currentConcept}"]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). State that we are resuming Concept ${currentConceptIndex + 1}: "${currentConcept}". Existing chalkboard notes and visuals are ALREADY visible on the board: [see CURRENT DIGITAL CHALKBOARD STATE above]. Warmly acknowledge what is already on the board in 5 to 6 articulate sentences without stopping halfway. DO NOT re-write or duplicate existing notes or diagrams. Continue directly with the NEXT pedagogical step for this concept (e.g. formal definition, worked example, or board numerical). Complete your explanation first, then ask a checkpoint question. HARD STOP: Wait for my response! (Stop speaking immediately if I speak or ask something).`
       : isResumed
       ? `[SESSION START]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). State that we are resuming Concept ${currentConceptIndex + 1}: "${currentConcept}". Speak properly in 5 to 6 complete, articulate sentences: explain the intuition and physical setup thoroughly without stopping halfway. YOU MUST CALL write_chalkboard(action="draw_note", content="Intuition: <everyday hook>", color="botanical") AND ${resumedVisualTool} RIGHT NOW IN THIS TURN! Do NOT wait for the student to ask for a diagram. Complete your 5-6 sentence explanation first, then ask: "Did you catch this intuition?" or a relatable check question. HARD STOP: Wait for my response! (Stop speaking immediately if I speak or ask something).`
-      : `[SESSION START]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). Introduce Concept 1: "${firstConcept}" with a simple, tangible everyday real-life hook and clear physical intuition. Speak properly in 5 to 6 complete, articulate sentences—do NOT stop after speaking something half! Deliver the full intuitive picture. YOU MUST CALL write_chalkboard(action="draw_note", content="Intuition: <everyday hook>", color="botanical") AND search_and_show_image(query="<full detailed 10-25 word educational search query for ${firstConcept} specifying exact components, apparatus parts, anatomical structures, or system elements>", title="${firstConcept}", caption="Visual illustration") RIGHT NOW IN THIS TURN to display the authentic real-world diagram! If the concept involves physical motion, lab experiment, or dynamic process, ALSO call search_and_show_video. Do NOT wait for the student to ask for a visual. Complete your 5-6 sentence explanation first, and then ask: "Did you catch this intuition?" or "Have you noticed this in daily life?" HARD STOP: Stop speaking and wait for my answer! (Stop speaking immediately if I speak or ask something).`
+      : `[SESSION START]: Speak FIRST immediately in ${studentPreferredLanguage}! Warmly greet me by my name ("${langGreeting}"). Introduce Concept 1: "${firstConcept}" with a simple, tangible everyday real-life hook and clear physical intuition. Speak properly in 5 to 6 complete, articulate sentences—do NOT stop after speaking something half! Deliver the full intuitive picture. YOU MUST CALL write_chalkboard(action="draw_note", content="Intuition: <everyday hook>", color="botanical") AND search_and_show_image(query="<full detailed 10-25 word educational search query for ${firstConcept} specifying exact components, apparatus parts, anatomical structures, or system elements>", title="${firstConcept}", caption="Visual illustration") AND search_and_show_video(query="<detailed video query for ${firstConcept} demonstration>", title="${firstConcept}", description="Demonstration video") RIGHT NOW IN THIS VERY FIRST TURN to display BOTH the authentic real-world diagram AND the playable demonstration video! Providing BOTH is MANDATORY at the start of every module and every concept. Do NOT wait for the student to ask for visuals. Complete your 5-6 sentence explanation first, and then ask: "Did you catch this intuition?" or "Have you noticed this in daily life?" HARD STOP: Stop speaking and wait for my answer! (Stop speaking immediately if I speak or ask something).`
 
     const singleConceptDossier = buildSingleConceptMicroDossier(
       currentConceptIndex,
@@ -4209,11 +4243,11 @@ You are an inspiring topper tutor standing at a live chalkboard.
 STRICT 6-STAGE CADENCE PER CONCEPT:
 - STAGE 1 [REAL-LIFE INTUITION & MANDATORY VISUAL SEARCH] (PHASE 1 - INTUITION & PROACTIVE IMAGE/VIDEO SEARCH):
    Introduce a tangible everyday hook with rich physical intuition and real-world clarity. Speak properly in 5 to 6 complete sentences without stopping halfway. NEVER tell the student "I am unable to generate images".
-   MANDATORY VISUAL SEARCH ON EVERY CONCEPT START:
+   MANDATORY DUAL VISUAL SEARCH (IMAGE + VIDEO) ON EVERY CONCEPT & MODULE START:
    1. ALWAYS call write_chalkboard(action="draw_note", content="Intuition: <hook>", color="botanical") to write the intuition on the board.
-   2. ALWAYS call search_and_show_image(query="<FULL DETAILED 10-25 word query specifying exact components, apparatus parts, anatomical structures, labeled diagram elements>", title="<Title>", caption="<Caption>") to display the authentic real-world diagram on the chalkboard. NEVER use vague 1-2 word queries like "cell" or "circuit" — specify every component (e.g. "plant cell labeled diagram showing cell wall, cell membrane, nucleus, vacuole, chloroplast, mitochondria, endoplasmic reticulum, and ribosomes").
-   3. If the concept involves physical motion, lab experiment, wave phenomena, chemical reaction, or mechanical apparatus, ALSO call search_and_show_video(query="<FULL DETAILED video query>", title="<Title>", description="<Description>") to show a demonstration video.
-   4. Never wait for the student to ask for a visual — you MUST dispatch it proactively on your very first turn!
+   2. ALWAYS call search_and_show_image(query="<FULL DETAILED 10-25 word query specifying exact components, apparatus parts, anatomical structures, labeled diagram elements>", title="<Title>", caption="<Caption>") to display the authentic real-world diagram on the chalkboard. NEVER use vague 1-2 word queries like "cell" or "circuit".
+   3. ALWAYS call search_and_show_video(query="<FULL DETAILED video query>", title="<Title>", description="<Description>") to show a real demonstration video right at the start of every concept and module!
+   4. BOTH image and video MUST be dispatched together on your very first turn — do not wait for the student to ask!
    Complete the 5-6 sentence explanation first, then ask if the intuition is clear, and wait for response (stopping immediately if student speaks).
 - STAGE 2 [CONCEPT FORMULATION & SCIENTIFIC LAW] (PHASE 2 - FORMAL DEFINITION (EXPLAIN FIRST -> READ ALOUD -> WRITE STEP-BY-STEP)):
   State the exact scientific law, definition, and SI units. Explain what is happening under the hood in 5 to 6 articulate sentences. Read aloud verbatim and write step-by-step:
@@ -4331,11 +4365,19 @@ MANDATORY CONCEPT START VISUAL SEARCH (HIGHEST PRIORITY):
    * MANDATE: The platform dynamically searches online video engines (YouTube/Web) FIRST and Wikimedia SECOND to display real playable video demonstrations directly on the chalkboard.
 - FLOWCHARTS & DECISION TREES:
   Call write_chalkboard(action="draw_flowchart", content="<Hierarchical or cycle flowchart string>") for multi-step biological cycles, taxonomic classifications, and chemical reaction pathways.
-- MATHEMATICAL & KINEMATIC FUNCTION GRAPHS:
-  Call plot_mathematical_graph(formula="...", domain="[min,max]", range="[min,max]", title="...", callout="...") with accompanying worked calculations on the board. STRICT GATING: ONLY call this for actual mathematical equations or kinematics curves. NEVER call for Biology, Histology, or non-mathematical topics.
+- DYNAMIC MULTI-TYPE GRAPH ENGINE (MATHS, PHYSICS, SCIENCE & STATISTICS):
+  Call plot_mathematical_graph(...) whenever ANY graph, coordinate geometry, line, curve, vector, figure, or question requires visual graphical illustration!
   * ZERO MEANINGLESS GRAPH INVARIANT: NEVER output a meaningless default line y = x or open a graph without points or actual mathematical purpose.
-  * MULTI-LINE & SEGMENTS MANDATE: When plotting, support plotting 2-3 functions/lines at once using formulas=["f1", "f2"], line segments with start and end stopping points using segments=[{"start":[x1,y1], "end":[x2,y2], "label":"..."}], and key points with coordinates and labels using points=[{"x":x, "y":y, "label":"..."}].
-  * If a geometric diagram (triangles, circles, angles), physical apparatus, optics, or circuit is needed, use render_svg_diagram or search_and_show_image — NEVER plot_mathematical_graph.
+  * CALL FOR QUESTIONS & PROBLEM SOLVING: When solving questions that ask to plot graphs, find intersections, solve graphically, calculate acceleration/displacement from v-t graphs, Ohm's law V-I slope, thermodynamics P-V cycles, or statistical bar graphs & histograms: YOU MUST CALL plot_mathematical_graph to draw the exact graph from the question or question's answer!
+  * CALL FOR EVEN SMALL GRAPHICAL EXPLANATIONS: Do not hesitate! If a small graph, line segment with specific length, coordinate point, vector arrow, or geometric figure helps explain a concept, summon plot_mathematical_graph immediately!
+  * SUPPORTED GRAPH TYPES (EVERY TYPE OF GRAPH):
+    1. Functions & Curves: single or comparative curves (formula="2x + 1" or formulas=["x^2 - 4", "2x + 1"]).
+    2. Explicit Bounded Segments & Lengths: lines with start and end stopping points (segments=[{"start":[0,0], "end":[5,10], "label":"OA (length=5√5)"}]).
+    3. Critical Coordinate Points: (points=[{"x":2, "y":4, "label":"P(2,4)", "callout":"Vertex"}]).
+    4. Statistical Bar Graphs & Histograms: (bars=[{"label":"Maths", "height":85}, {"label":"Science", "height":92}] or histogram intervals).
+    5. Physics Vectors & Arrows: forces, velocities, resultants (vectors=[{"tail":[0,0], "tip":[4,3], "label":"F1 = 5N"}]).
+    6. Geometric Figures on Cartesian Plane: triangles, quadrilaterals (polygons=[{"points":[[1,1],[5,1],[3,5]], "label":"Triangle ABC"}]), circles (circles=[{"center":[0,0], "radius":4, "label":"Circle r=4"}]).
+    7. Multiple Freeform Text Annotations anywhere on the graph (texts=[{"x":3, "y":7, "text":"Key Observation"}]).
 - VECTOR SVG DIAGRAMS:
   Call render_svg_diagram(title="<Concept>", caption="<Caption>") for 30° axonometric Hairline isometric illustrations, optics ray diagrams, and circuits.
 ${verifiedAssetsDirectives ? `\n========================================================================================\n${verifiedAssetsDirectives}\n` : ''}
@@ -4607,6 +4649,11 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
             let title = 'Graph'
             let callout = ''
             let points: any = undefined
+            let bars: any = undefined
+            let vectors: any = undefined
+            let polygons: any = undefined
+            let circles: any = undefined
+            let texts: any = undefined
 
             if (typeof content === 'object' && content !== null) {
               formula = typeof content.formula === 'string' ? content.formula : undefined
@@ -4619,7 +4666,22 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
               if (content.points) {
                 points = content.points
               }
-              title = content.title || (formula ? `Graph: y = ${formula}` : (formulas && formulas.length > 0 ? 'Comparative Graphs' : (segments && segments.length > 0 ? 'Coordinate Segments' : 'Mathematical Graph')))
+              if (content.bars) {
+                bars = content.bars
+              }
+              if (content.vectors) {
+                vectors = content.vectors
+              }
+              if (content.polygons) {
+                polygons = content.polygons
+              }
+              if (content.circles) {
+                circles = content.circles
+              }
+              if (content.texts) {
+                texts = content.texts
+              }
+              title = content.title || (formula ? `Graph: y = ${formula}` : (formulas && formulas.length > 0 ? 'Comparative Graphs' : (segments && segments.length > 0 ? 'Coordinate Segments' : (bars ? 'Statistical Bar Graph' : (vectors ? 'Physics Vector Diagram' : (circles ? 'Geometric Circle' : 'Mathematical Graph'))))))
               callout = content.callout || ''
               if (content.domain) {
                 if (Array.isArray(content.domain)) domain = [Number(content.domain[0]), Number(content.domain[1])]
@@ -4657,6 +4719,26 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                     segments = rawSegments
                   }
                 }
+                else if (p.startsWith('bars=')) {
+                  const rawBars = p.substring(5).trim()
+                  try { bars = JSON.parse(rawBars) } catch { bars = rawBars }
+                }
+                else if (p.startsWith('vectors=')) {
+                  const rawVectors = p.substring(8).trim()
+                  try { vectors = JSON.parse(rawVectors) } catch { vectors = rawVectors }
+                }
+                else if (p.startsWith('polygons=')) {
+                  const rawPolygons = p.substring(9).trim()
+                  try { polygons = JSON.parse(rawPolygons) } catch { polygons = rawPolygons }
+                }
+                else if (p.startsWith('circles=')) {
+                  const rawCircles = p.substring(8).trim()
+                  try { circles = JSON.parse(rawCircles) } catch { circles = rawCircles }
+                }
+                else if (p.startsWith('texts=')) {
+                  const rawTexts = p.substring(6).trim()
+                  try { texts = JSON.parse(rawTexts) } catch { texts = rawTexts }
+                }
                 else if (p.startsWith('title=')) title = p.substring(6).trim()
                 else if (p.startsWith('callout=')) callout = p.substring(8).trim()
                 else if (p.startsWith('points=')) {
@@ -4679,7 +4761,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
               })
             }
 
-            const candidatePayload = { formula, formulas, segments, points, domain, range, title, callout }
+            const candidatePayload = { formula, formulas, segments, points, bars, vectors, polygons, circles, texts, domain, range, title, callout }
             const isAllowedGraph = isLegitimateGraphTopic(title || formula || '', resolvedSubject)
             if (!isAllowedGraph) {
               console.log(`[Classroom Graph Gating] Denied graph plot for non-mathematical topic "${title || formula}" in subject ${resolvedSubject}. Rendering search-engine diagram instead.`)

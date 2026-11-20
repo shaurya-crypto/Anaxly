@@ -8,6 +8,10 @@ import {
   Line,
   Point,
   Text,
+  Polygon,
+  Vector,
+  Polyline,
+  Circle,
   Theme,
 } from 'mafs'
 import 'mafs/core.css'
@@ -25,15 +29,26 @@ import {
   PanelRight, 
   GripHorizontal,
   Layers,
-  Info
+  Info,
+  BarChart2
 } from 'lucide-react'
 import {
   parseGraphPoints,
   parseGraphSegments,
   parseGraphFormulas,
+  parseGraphBars,
+  parseGraphVectors,
+  parseGraphPolygons,
+  parseGraphTexts,
+  parseGraphCircles,
   type GraphFormulaItem,
   type GraphSegmentItem,
   type GraphPointItem,
+  type GraphBarItem,
+  type GraphVectorItem,
+  type GraphPolygonItem,
+  type GraphTextItem,
+  type GraphCircleItem,
 } from '@/lib/graphGating'
 
 export type GraphDisplayMode = 'docked' | 'floating' | 'maximized' | 'minimized'
@@ -43,6 +58,11 @@ export interface MafsGraphCanvasProps {
   formulas?: Array<string | GraphFormulaItem>
   segments?: Array<GraphSegmentItem | string | any>
   points?: Array<[number, number] | GraphPointItem | string> | string
+  bars?: Array<GraphBarItem | [string, number] | string | any>
+  vectors?: Array<GraphVectorItem | string | any>
+  polygons?: Array<GraphPolygonItem | [number, number][] | string | any>
+  circles?: Array<GraphCircleItem | string | any>
+  texts?: Array<GraphTextItem | string | any>
   domain?: [number, number]
   range?: [number, number]
   title?: string
@@ -127,6 +147,11 @@ export function MafsGraphCanvas({
   formulas,
   segments,
   points,
+  bars,
+  vectors,
+  polygons,
+  circles,
+  texts,
   domain = [-5, 5],
   range = [-5, 5],
   title,
@@ -141,6 +166,31 @@ export function MafsGraphCanvas({
   const parsedPoints: GraphPointItem[] = useMemo(() => {
     return parseGraphPoints(points)
   }, [points])
+
+  // 1b. Parse bar chart items for statistics and science data
+  const parsedBars: GraphBarItem[] = useMemo(() => {
+    return parseGraphBars(bars)
+  }, [bars])
+
+  // 1c. Parse physics vectors with directional arrows
+  const parsedVectors: GraphVectorItem[] = useMemo(() => {
+    return parseGraphVectors(vectors)
+  }, [vectors])
+
+  // 1d. Parse Cartesian coordinate polygons (triangles, quadrilaterals)
+  const parsedPolygons: GraphPolygonItem[] = useMemo(() => {
+    return parseGraphPolygons(polygons)
+  }, [polygons])
+
+  // 1e. Parse circles in Cartesian space
+  const parsedCircles: GraphCircleItem[] = useMemo(() => {
+    return parseGraphCircles(circles)
+  }, [circles])
+
+  // 1f. Parse multiple freeform text annotations placed anywhere on the graph
+  const parsedTexts: GraphTextItem[] = useMemo(() => {
+    return parseGraphTexts(texts)
+  }, [texts])
 
   // 2. Parse bounded line segments with start and end stopping points using resilient parser
   const parsedSegments: GraphSegmentItem[] = useMemo(() => {
@@ -160,7 +210,7 @@ export function MafsGraphCanvas({
     }))
   }, [formula, formulas])
 
-  // 4. Auto-fit initial view bounds to encompass all points, segment endpoints, and formula domains
+  // 4. Auto-fit initial view bounds to encompass all points, segment endpoints, formula domains, bars, vectors, circles, and texts
   const autoBounds = useMemo<{ domain: [number, number]; range: [number, number] }>(() => {
     const xs: number[] = []
     const ys: number[] = []
@@ -168,6 +218,36 @@ export function MafsGraphCanvas({
     parsedPoints.forEach((p) => {
       xs.push(p.x)
       ys.push(p.y)
+    })
+
+    parsedBars.forEach((b, idx) => {
+      const x1 = b.x1 ?? (b.x != null && b.width != null ? b.x - b.width / 2 : idx * 1.5 + 1 - 0.45)
+      const x2 = b.x2 ?? (b.x != null && b.width != null ? b.x + b.width / 2 : idx * 1.5 + 1 + 0.45)
+      xs.push(x1, x2)
+      ys.push(0, b.height)
+    })
+
+    parsedVectors.forEach((v) => {
+      const tail = v.tail || [0, 0]
+      xs.push(tail[0], v.tip[0])
+      ys.push(tail[1], v.tip[1])
+    })
+
+    parsedPolygons.forEach((poly) => {
+      poly.points.forEach((p) => {
+        xs.push(p[0])
+        ys.push(p[1])
+      })
+    })
+
+    parsedCircles.forEach((c) => {
+      xs.push(c.center[0] - c.radius, c.center[0] + c.radius)
+      ys.push(c.center[1] - c.radius, c.center[1] + c.radius)
+    })
+
+    parsedTexts.forEach((t) => {
+      xs.push(t.x)
+      ys.push(t.y)
     })
 
     parsedSegments.forEach((s) => {
@@ -220,7 +300,7 @@ export function MafsGraphCanvas({
     }
 
     return { domain, range }
-  }, [domain, range, parsedPoints, parsedSegments, rawFormulasList])
+  }, [domain, range, parsedPoints, parsedBars, parsedVectors, parsedPolygons, parsedSegments, rawFormulasList])
 
   // Interactive view bounds with local zoom & pan state
   const [viewDomain, setViewDomain] = useState<[number, number]>(autoBounds.domain)
@@ -357,12 +437,22 @@ export function MafsGraphCanvas({
 
   const displayTitle =
     title ||
-    (compiledCurves.length > 1
+    (parsedBars.length > 0
+      ? `Statistical Bar Graph (${parsedBars.length} categories)`
+      : parsedVectors.length > 0
+      ? `Physics Vector Diagram (${parsedVectors.length} vectors)`
+      : parsedPolygons.length > 0
+      ? `Geometric Polygon (${parsedPolygons[0]?.points?.length || 3}-sided)`
+      : parsedCircles.length > 0
+      ? `Geometric Circle (r = ${parsedCircles[0]?.radius || 1})`
+      : compiledCurves.length > 1
       ? `Comparative Graphs (${compiledCurves.length} curves)`
       : compiledCurves.length === 1
       ? `Graph: ${compiledCurves[0].label}`
       : parsedSegments.length > 0
       ? `Coordinate Segments (${parsedSegments.length} segments)`
+      : parsedTexts.length > 0
+      ? `Annotated Coordinate Plane`
       : `Mathematical Graph: ${rawFormulaTitle || 'Functions'}`)
 
   const resolvedHeight =
@@ -720,6 +810,140 @@ export function MafsGraphCanvas({
                 </Text>
               </React.Fragment>
             ))}
+          {/* Statistical Bar Graphs & Histograms */}
+          {parsedBars.map((bar, idx) => {
+            const x1 = bar.x1 ?? (bar.x != null && bar.width != null ? bar.x - bar.width / 2 : idx * 1.5 + 1 - 0.45)
+            const x2 = bar.x2 ?? (bar.x != null && bar.width != null ? bar.x + bar.width / 2 : idx * 1.5 + 1 + 0.45)
+            const h = bar.height
+            const barColor = bar.color || CURVE_COLORS[idx % CURVE_COLORS.length]
+            const midX = (x1 + x2) / 2
+
+            return (
+              <React.Fragment key={`bar-${idx}-${bar.label || idx}`}>
+                <Polygon
+                  points={[
+                    [x1, 0],
+                    [x1, h],
+                    [x2, h],
+                    [x2, 0],
+                  ]}
+                  color={barColor}
+                  fillOpacity={0.65}
+                  weight={2}
+                />
+                <Text
+                  x={midX}
+                  y={h + (h >= 0 ? 0.45 : -0.45)}
+                  color="#0F172A"
+                  size={12}
+                >
+                  {String(h)}
+                </Text>
+                {bar.label && (
+                  <Text
+                    x={midX}
+                    y={-0.5}
+                    color="#475569"
+                    size={11}
+                  >
+                    {bar.label}
+                  </Text>
+                )}
+              </React.Fragment>
+            )
+          })}
+
+          {/* Physics Vectors & Arrows (Force, Velocity, Resultant, Ray Optics) */}
+          {parsedVectors.map((vec, idx) => {
+            const tail = vec.tail || [0, 0]
+            const tip = vec.tip
+            const vColor = vec.color || CURVE_COLORS[idx % CURVE_COLORS.length]
+            return (
+              <React.Fragment key={`vec-${idx}-${vec.label || idx}`}>
+                <Vector
+                  tail={tail}
+                  tip={tip}
+                  color={vColor}
+                  weight={vec.weight || 3}
+                />
+                {vec.label && (
+                  <Text
+                    x={tip[0] + 0.35}
+                    y={tip[1] + 0.35}
+                    color={vColor}
+                    size={12}
+                  >
+                    {vec.label}
+                  </Text>
+                )}
+              </React.Fragment>
+            )
+          })}
+
+          {/* Geometric Polygons in Cartesian Space */}
+          {parsedPolygons.map((poly, idx) => (
+            <React.Fragment key={`poly-${idx}`}>
+              <Polygon
+                points={poly.points}
+                color={poly.color || '#7C3AED'}
+                fillOpacity={poly.fillOpacity ?? 0.25}
+                weight={2}
+              />
+              {poly.label && (
+                <Text
+                  x={poly.points.reduce((acc, p) => acc + p[0], 0) / poly.points.length}
+                  y={poly.points.reduce((acc, p) => acc + p[1], 0) / poly.points.length}
+                  color="#0F172A"
+                  size={12}
+                >
+                  {poly.label}
+                </Text>
+              )}
+            </React.Fragment>
+          ))}
+
+          {/* Geometric Circles in Cartesian Space */}
+          {parsedCircles.map((c, idx) => (
+            <React.Fragment key={`circle-${idx}`}>
+              <Circle
+                center={c.center}
+                radius={c.radius}
+                color={c.color || '#2563EB'}
+                fillOpacity={c.fillOpacity ?? 0.12}
+                weight={2}
+              />
+              <Point
+                x={c.center[0]}
+                y={c.center[1]}
+                color={c.color || '#2563EB'}
+                svgCircleProps={{ r: 4, stroke: '#FFFFFF', strokeWidth: 1.5 }}
+              />
+              {c.label && (
+                <Text
+                  x={c.center[0]}
+                  y={c.center[1] + c.radius + 0.4}
+                  color="#0F172A"
+                  size={12}
+                >
+                  {c.label}
+                </Text>
+              )}
+            </React.Fragment>
+          ))}
+
+          {/* Custom Multiple Freeform Text Annotations in Cartesian Space */}
+          {parsedTexts.map((txt, idx) => (
+            <React.Fragment key={`custom-text-${idx}`}>
+              <Text
+                x={txt.x}
+                y={txt.y}
+                color={txt.color || '#0F172A'}
+                size={txt.size || 12}
+              >
+                {txt.text}
+              </Text>
+            </React.Fragment>
+          ))}
         </Mafs>
       </div>
 
@@ -738,6 +962,29 @@ export function MafsGraphCanvas({
               <span>{seg.label || `Seg ${idx + 1}`}</span>
             </span>
           ))}
+          {parsedBars.map((bar, idx) => (
+            <span key={`footer-bar-${idx}`} className="flex items-center gap-1.5 text-[#334155]">
+              <span className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: bar.color || CURVE_COLORS[idx % CURVE_COLORS.length] }} />
+              <span>{bar.label ? `${bar.label}: ${bar.height}` : `Bar ${idx + 1}: ${bar.height}`}</span>
+            </span>
+          ))}
+          {parsedVectors.map((vec, idx) => (
+            <span key={`footer-vec-${idx}`} className="flex items-center gap-1.5 text-[#334155]">
+              <span className="w-3 h-0.5" style={{ backgroundColor: vec.color || CURVE_COLORS[idx % CURVE_COLORS.length] }} />
+              <span>{vec.label || `Vector ${idx + 1}`}</span>
+            </span>
+          ))}
+          {parsedCircles.map((c, idx) => (
+            <span key={`footer-circle-${idx}`} className="flex items-center gap-1.5 text-[#334155]">
+              <span className="w-2 h-2 rounded-full border border-blue-500" />
+              <span>{c.label || `Circle (r=${c.radius})`}</span>
+            </span>
+          ))}
+          {parsedTexts.length > 0 && (
+            <span className="text-[#64748B] text-[10px] hidden sm:inline">
+              ({parsedTexts.length} annotations)
+            </span>
+          )}
           {showDerivative && (
             <span className="text-[#16A34A] text-[10px] font-semibold hidden sm:inline">(dashed: dy/dx)</span>
           )}

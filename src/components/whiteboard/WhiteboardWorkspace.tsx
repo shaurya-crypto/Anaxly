@@ -319,14 +319,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
         {hasDockedGraph && activeGraph && isValidGraphPayload(activeGraph) && (
           <div className="relative w-full sm:w-[460px] md:w-[480px] lg:w-[520px] h-full shrink-0 border-l-2 border-[#E2E8F0] bg-[#FFFFFF] shadow-2xl flex flex-col z-20 animate-in slide-in-from-right duration-300">
             <MafsGraphCanvas
-              formula={activeGraph.formula}
-              formulas={activeGraph.formulas}
-              segments={activeGraph.segments}
-              domain={activeGraph.domain}
-              range={activeGraph.range}
-              title={activeGraph.title}
-              callout={activeGraph.callout}
-              points={activeGraph.points}
+              {...activeGraph}
               displayMode="docked"
               onModeChange={setGraphMode}
               onClose={onCloseGraph}
@@ -357,14 +350,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
             className="absolute top-12 right-6 z-30 w-[92vw] max-w-[520px] h-[480px] shadow-[0_25px_60px_rgba(15,23,42,0.18)] cursor-default animate-in fade-in zoom-in-95 duration-200"
           >
             <MafsGraphCanvas
-              formula={activeGraph.formula}
-              formulas={activeGraph.formulas}
-              segments={activeGraph.segments}
-              domain={activeGraph.domain}
-              range={activeGraph.range}
-              title={activeGraph.title}
-              callout={activeGraph.callout}
-              points={activeGraph.points}
+              {...activeGraph}
               displayMode="floating"
               onModeChange={setGraphMode}
               onClose={onCloseGraph}
@@ -376,14 +362,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
         {activeGraph && isValidGraphPayload(activeGraph) && graphMode === 'maximized' && (
           <div className="absolute inset-2 z-40 rounded-2xl overflow-hidden shadow-[0_25px_70px_rgba(15,23,42,0.22)] animate-in fade-in zoom-in-95 duration-200">
             <MafsGraphCanvas
-              formula={activeGraph.formula}
-              formulas={activeGraph.formulas}
-              segments={activeGraph.segments}
-              domain={activeGraph.domain}
-              range={activeGraph.range}
-              title={activeGraph.title}
-              callout={activeGraph.callout}
-              points={activeGraph.points}
+              {...activeGraph}
               displayMode="maximized"
               onModeChange={setGraphMode}
               onClose={onCloseGraph}

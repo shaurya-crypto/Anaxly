@@ -38,11 +38,57 @@ export interface GraphPointItem {
   callout?: string
 }
 
+export interface GraphBarItem {
+  label?: string
+  x?: number
+  x1?: number
+  x2?: number
+  height: number
+  width?: number
+  color?: string
+}
+
+export interface GraphVectorItem {
+  tail?: [number, number]
+  tip: [number, number]
+  label?: string
+  color?: string
+  weight?: number
+}
+
+export interface GraphPolygonItem {
+  points: [number, number][]
+  label?: string
+  color?: string
+  fillOpacity?: number
+}
+
+export interface GraphTextItem {
+  x: number
+  y: number
+  text: string
+  color?: string
+  size?: number
+}
+
+export interface GraphCircleItem {
+  center: [number, number]
+  radius: number
+  label?: string
+  color?: string
+  fillOpacity?: number
+}
+
 export interface GraphPayload {
   formula?: string | string[] | GraphFormulaItem[]
   formulas?: Array<string | GraphFormulaItem>
   segments?: Array<GraphSegmentItem | string | [number, number][] | any>
   points?: Array<[number, number] | GraphPointItem | string> | string
+  bars?: Array<GraphBarItem | [string, number] | string | any>
+  vectors?: Array<GraphVectorItem | string | any>
+  polygons?: Array<GraphPolygonItem | [number, number][] | string | any>
+  circles?: Array<GraphCircleItem | string | any>
+  texts?: Array<GraphTextItem | string | any>
   domain?: [number, number]
   range?: [number, number]
   title?: string
@@ -349,6 +395,424 @@ export function parseGraphFormulas(formula?: any, formulas?: any): GraphFormulaI
 }
 
 /**
+ * Robustly parses bar chart items for statistical and science data graphs:
+ * - Array of objects: [{ label: 'Maths', height: 85, color: '#2563EB' }]
+ * - Array of tuples: [['Maths', 85], ['Science', 92]]
+ * - Array of numbers: [10, 25, 40, 15]
+ * - Histogram bins: [{ x1: 0, x2: 10, height: 5, label: '0-10' }]
+ * - Delimited strings: "Maths: 85 | Science: 92 | English: 78"
+ */
+export function parseGraphBars(raw: any): GraphBarItem[] {
+  if (!raw) return []
+  const result: GraphBarItem[] = []
+
+  const parseSingleBar = (b: any, index: number) => {
+    if (!b) return
+    if (typeof b === 'string') {
+      const trimmed = b.trim()
+      if (trimmed.startsWith('{')) {
+        try {
+          const parsed = JSON.parse(trimmed)
+          if (parsed && typeof parsed === 'object') {
+            parseSingleBar(parsed, index)
+            return
+          }
+        } catch {}
+      }
+      // String format: "Label: 85" or "Label = 85" or "Label, 85"
+      const m = trimmed.match(/^([^:=,]+)[:=,]\s*([\-\d\.]+)/)
+      if (m) {
+        const label = m[1].trim()
+        const height = parseFloat(m[2])
+        if (!isNaN(height)) {
+          result.push({ label, height, x: index * 1.5 + 1, width: 0.85 })
+          return
+        }
+      }
+      const numOnly = parseFloat(trimmed)
+      if (!isNaN(numOnly)) {
+        result.push({ label: `Item ${index + 1}`, height: numOnly, x: index * 1.5 + 1, width: 0.85 })
+      }
+      return
+    }
+
+    if (Array.isArray(b) && b.length >= 2) {
+      const label = typeof b[0] === 'string' ? b[0] : String(b[0])
+      const height = Number(b[1])
+      if (!isNaN(height)) {
+        result.push({ label, height, x: index * 1.5 + 1, width: 0.85 })
+      }
+      return
+    }
+
+    if (typeof b === 'object' && b !== null) {
+      const height = Number(b.height ?? b.value ?? b.y ?? b.frequency ?? b.count)
+      if (!isNaN(height)) {
+        const label = typeof b.label === 'string' ? b.label : (typeof b.category === 'string' ? b.category : (typeof b.name === 'string' ? b.name : undefined))
+        const x = typeof b.x === 'number' ? b.x : index * 1.5 + 1
+        const x1 = typeof b.x1 === 'number' ? b.x1 : undefined
+        const x2 = typeof b.x2 === 'number' ? b.x2 : undefined
+        const width = typeof b.width === 'number' ? b.width : 0.85
+        const color = typeof b.color === 'string' ? b.color : undefined
+        result.push({ label, height, x, x1, x2, width, color })
+      }
+    }
+  }
+
+  if (Array.isArray(raw)) {
+    raw.forEach((item, idx) => parseSingleBar(item, idx))
+    return result
+  }
+
+  if (typeof raw === 'string') {
+    const trimmed = raw.trim()
+    if (trimmed.startsWith('[')) {
+      try {
+        const parsed = JSON.parse(trimmed)
+        if (Array.isArray(parsed)) {
+          parsed.forEach((item, idx) => parseSingleBar(item, idx))
+          return result
+        }
+      } catch {}
+    }
+    if (trimmed.includes('|') || trimmed.includes(';') || trimmed.includes('\n')) {
+      const parts = trimmed.split(/[|;\n]+/).map((s) => s.trim()).filter(Boolean)
+      parts.forEach((p, idx) => parseSingleBar(p, idx))
+      return result
+    }
+    parseSingleBar(trimmed, 0)
+    return result
+  }
+
+  if (typeof raw === 'object' && raw !== null) {
+    parseSingleBar(raw, 0)
+  }
+
+  return result
+}
+
+/**
+ * Robustly parses physical vectors and force/velocity arrows:
+ * - Array of objects: [{ tail: [0, 0], tip: [4, 3], label: 'F1 = 5 N' }]
+ * - Array of string transitions: " (0, 0) -> (4, 3) [F1] "
+ * - JSON strings
+ */
+export function parseGraphVectors(raw: any): GraphVectorItem[] {
+  if (!raw) return []
+  const result: GraphVectorItem[] = []
+
+  const parseSingleVector = (v: any) => {
+    if (!v) return
+    if (typeof v === 'string') {
+      const trimmed = v.trim()
+      if (trimmed.startsWith('{')) {
+        try {
+          const parsed = JSON.parse(trimmed)
+          if (parsed && typeof parsed === 'object') {
+            parseSingleVector(parsed)
+            return
+          }
+        } catch {}
+      }
+      const matches = Array.from(trimmed.matchAll(/(?:\(|\[)\s*([\-\d\.]+)\s*,\s*([\-\d\.]+)\s*(?:\)|\])/g))
+      if (matches.length >= 2) {
+        const x1 = parseFloat(matches[0][1])
+        const y1 = parseFloat(matches[0][2])
+        const x2 = parseFloat(matches[1][1])
+        const y2 = parseFloat(matches[1][2])
+        if (!isNaN(x1) && !isNaN(y1) && !isNaN(x2) && !isNaN(y2)) {
+          const labelMatch = trimmed.match(/(?:\[|\()([a-zA-Z0-9_\s\=]+)(?:\]|\))$/)
+          result.push({
+            tail: [x1, y1],
+            tip: [x2, y2],
+            label: labelMatch ? labelMatch[1].trim() : undefined,
+          })
+          return
+        }
+      }
+      return
+    }
+
+    if (typeof v === 'object' && v !== null && ('tip' in v || 'end' in v)) {
+      const tipRaw = v.tip || v.end
+      const tailRaw = v.tail || v.start || [0, 0]
+      let tip: [number, number] | null = null
+      let tail: [number, number] = [0, 0]
+      if (Array.isArray(tipRaw) && tipRaw.length >= 2) tip = [Number(tipRaw[0]), Number(tipRaw[1])]
+      else if (typeof tipRaw === 'object' && 'x' in tipRaw && 'y' in tipRaw) tip = [Number(tipRaw.x), Number(tipRaw.y)]
+
+      if (Array.isArray(tailRaw) && tailRaw.length >= 2) tail = [Number(tailRaw[0]), Number(tailRaw[1])]
+      else if (typeof tailRaw === 'object' && 'x' in tailRaw && 'y' in tailRaw) tail = [Number(tailRaw.x), Number(tailRaw.y)]
+
+      if (tip && !isNaN(tip[0]) && !isNaN(tip[1]) && !isNaN(tail[0]) && !isNaN(tail[1])) {
+        result.push({
+          tail,
+          tip,
+          label: typeof v.label === 'string' ? v.label : undefined,
+          color: typeof v.color === 'string' ? v.color : undefined,
+          weight: typeof v.weight === 'number' ? v.weight : undefined,
+        })
+      }
+    }
+  }
+
+  if (Array.isArray(raw)) {
+    raw.forEach(parseSingleVector)
+    return result
+  }
+
+  if (typeof raw === 'string') {
+    const trimmed = raw.trim()
+    if (trimmed.startsWith('[')) {
+      try {
+        const parsed = JSON.parse(trimmed)
+        if (Array.isArray(parsed)) {
+          parsed.forEach(parseSingleVector)
+          return result
+        }
+      } catch {}
+    }
+    if (trimmed.includes('|') || trimmed.includes('\n') || trimmed.includes(';')) {
+      const parts = trimmed.split(/[|\n;]+/).map((s) => s.trim()).filter(Boolean)
+      parts.forEach(parseSingleVector)
+      return result
+    }
+    parseSingleVector(trimmed)
+  }
+
+  return result
+}
+
+/**
+ * Robustly parses Cartesian polygon figures (triangles, quadrilaterals, shaded regions):
+ */
+export function parseGraphPolygons(raw: any): GraphPolygonItem[] {
+  if (!raw) return []
+  const result: GraphPolygonItem[] = []
+
+  const parseSinglePolygon = (p: any) => {
+    if (!p) return
+    if (typeof p === 'string') {
+      const trimmed = p.trim()
+      if (trimmed.startsWith('{')) {
+        try {
+          const parsed = JSON.parse(trimmed)
+          if (parsed && typeof parsed === 'object') {
+            parseSinglePolygon(parsed)
+            return
+          }
+        } catch {}
+      }
+      return
+    }
+
+    if (Array.isArray(p) && p.length >= 3 && Array.isArray(p[0])) {
+      const pts: [number, number][] = []
+      for (const pt of p) {
+        if (Array.isArray(pt) && pt.length >= 2) {
+          const x = Number(pt[0])
+          const y = Number(pt[1])
+          if (!isNaN(x) && !isNaN(y)) pts.push([x, y])
+        }
+      }
+      if (pts.length >= 3) {
+        result.push({ points: pts })
+      }
+      return
+    }
+
+    if (typeof p === 'object' && p !== null && Array.isArray(p.points)) {
+      const pts: [number, number][] = []
+      for (const pt of p.points) {
+        if (Array.isArray(pt) && pt.length >= 2) {
+          const x = Number(pt[0])
+          const y = Number(pt[1])
+          if (!isNaN(x) && !isNaN(y)) pts.push([x, y])
+        } else if (typeof pt === 'object' && pt !== null && 'x' in pt && 'y' in pt) {
+          const x = Number(pt.x)
+          const y = Number(pt.y)
+          if (!isNaN(x) && !isNaN(y)) pts.push([x, y])
+        }
+      }
+      if (pts.length >= 3) {
+        result.push({
+          points: pts,
+          label: typeof p.label === 'string' ? p.label : undefined,
+          color: typeof p.color === 'string' ? p.color : undefined,
+          fillOpacity: typeof p.fillOpacity === 'number' ? p.fillOpacity : undefined,
+        })
+      }
+    }
+  }
+
+  if (Array.isArray(raw)) {
+    if (raw.length >= 3 && Array.isArray(raw[0]) && typeof raw[0][0] === 'number') {
+      parseSinglePolygon(raw)
+      return result
+    }
+    raw.forEach(parseSinglePolygon)
+    return result
+  }
+
+  return result
+}
+
+/**
+ * Robustly parses custom coordinate text annotations placed anywhere on the graph:
+ * - Array of objects: [{ x: 2, y: 3, text: 'Local Maximum', color: '#DC2626' }]
+ * - Coordinate string tuples: "(2, 3): Peak Amplitude"
+ * - JSON string array
+ */
+export function parseGraphTexts(raw: any): GraphTextItem[] {
+  if (!raw) return []
+  const result: GraphTextItem[] = []
+
+  const parseSingleText = (t: any) => {
+    if (!t) return
+    if (typeof t === 'string') {
+      const trimmed = t.trim()
+      if (trimmed.startsWith('{')) {
+        try {
+          const parsed = JSON.parse(trimmed)
+          if (parsed && typeof parsed === 'object') {
+            parseSingleText(parsed)
+            return
+          }
+        } catch {}
+      }
+      const mCoords = trimmed.match(/\(\s*([\-\d\.]+)\s*,\s*([\-\d\.]+)\s*\)/)
+      if (mCoords) {
+        const x = parseFloat(mCoords[1])
+        const y = parseFloat(mCoords[2])
+        const textStr = trimmed.replace(mCoords[0], '').replace(/^[:\-–\s]+|[:\-–\s]+$/g, '').trim()
+        if (!isNaN(x) && !isNaN(y) && textStr) {
+          result.push({ x, y, text: textStr })
+          return
+        }
+      }
+      return
+    }
+
+    if (typeof t === 'object' && t !== null) {
+      const x = Number(t.x ?? t.coords?.[0])
+      const y = Number(t.y ?? t.coords?.[1])
+      const text = typeof t.text === 'string' ? t.text : (typeof t.label === 'string' ? t.label : (typeof t.content === 'string' ? t.content : ''))
+      if (!isNaN(x) && !isNaN(y) && text) {
+        result.push({
+          x,
+          y,
+          text,
+          color: typeof t.color === 'string' ? t.color : undefined,
+          size: typeof t.size === 'number' ? t.size : undefined,
+        })
+      }
+    }
+  }
+
+  if (Array.isArray(raw)) {
+    raw.forEach(parseSingleText)
+    return result
+  }
+
+  if (typeof raw === 'string') {
+    const trimmed = raw.trim()
+    if (trimmed.startsWith('[')) {
+      try {
+        const parsed = JSON.parse(trimmed)
+        if (Array.isArray(parsed)) {
+          parsed.forEach(parseSingleText)
+          return result
+        }
+      } catch {}
+    }
+    if (trimmed.includes('|') || trimmed.includes('\n') || trimmed.includes(';')) {
+      const parts = trimmed.split(/[|\n;]+/).map((s) => s.trim()).filter(Boolean)
+      parts.forEach(parseSingleText)
+      return result
+    }
+    parseSingleText(trimmed)
+  }
+
+  return result
+}
+
+/**
+ * Robustly parses circles with center and radius in Cartesian space:
+ * - Array of objects: [{ center: [0, 0], radius: 5, label: 'x² + y² = 25' }]
+ * - JSON strings
+ */
+export function parseGraphCircles(raw: any): GraphCircleItem[] {
+  if (!raw) return []
+  const result: GraphCircleItem[] = []
+
+  const parseSingleCircle = (c: any) => {
+    if (!c) return
+    if (typeof c === 'string') {
+      const trimmed = c.trim()
+      if (trimmed.startsWith('{')) {
+        try {
+          const parsed = JSON.parse(trimmed)
+          if (parsed && typeof parsed === 'object') {
+            parseSingleCircle(parsed)
+            return
+          }
+        } catch {}
+      }
+      const mCenter = trimmed.match(/\(\s*([\-\d\.]+)\s*,\s*([\-\d\.]+)\s*\)/)
+      const mR = trimmed.match(/(?:r|radius)\s*[:=]?\s*([\d\.]+)/i)
+      if (mCenter && mR) {
+        const cx = parseFloat(mCenter[1])
+        const cy = parseFloat(mCenter[2])
+        const r = parseFloat(mR[1])
+        if (!isNaN(cx) && !isNaN(cy) && !isNaN(r) && r > 0) {
+          result.push({ center: [cx, cy], radius: r })
+          return
+        }
+      }
+      return
+    }
+
+    if (typeof c === 'object' && c !== null) {
+      let center: [number, number] = [0, 0]
+      if (Array.isArray(c.center) && c.center.length >= 2) center = [Number(c.center[0]), Number(c.center[1])]
+      else if (typeof c.x === 'number' && typeof c.y === 'number') center = [c.x, c.y]
+
+      const radius = Number(c.radius ?? c.r)
+      if (!isNaN(radius) && radius > 0 && !isNaN(center[0]) && !isNaN(center[1])) {
+        result.push({
+          center,
+          radius,
+          label: typeof c.label === 'string' ? c.label : undefined,
+          color: typeof c.color === 'string' ? c.color : undefined,
+          fillOpacity: typeof c.fillOpacity === 'number' ? c.fillOpacity : undefined,
+        })
+      }
+    }
+  }
+
+  if (Array.isArray(raw)) {
+    raw.forEach(parseSingleCircle)
+    return result
+  }
+
+  if (typeof raw === 'string') {
+    const trimmed = raw.trim()
+    if (trimmed.startsWith('[')) {
+      try {
+        const parsed = JSON.parse(trimmed)
+        if (Array.isArray(parsed)) {
+          parsed.forEach(parseSingleCircle)
+          return result
+        }
+      } catch {}
+    }
+    parseSingleCircle(trimmed)
+  }
+
+  return result
+}
+
+/**
  * Validates whether a graph payload has substantive mathematical purpose.
  * Rejects empty graphs, placeholder 'x' or 'linear' formulas with no segments or points,
  * or payloads with neither valid formulas nor segments.
@@ -356,17 +820,37 @@ export function parseGraphFormulas(formula?: any, formulas?: any): GraphFormulaI
 export function isValidGraphPayload(payload?: GraphPayload | null): boolean {
   if (!payload || typeof payload !== 'object') return false
 
-  // 1. If segments are present and non-empty with valid start/end coordinates, it's valid
+  // 1. If bars are present, it's a valid bar graph / histogram
+  const parsedBars = parseGraphBars(payload.bars)
+  if (parsedBars.length > 0) return true
+
+  // 2. If vectors are present, it's a valid physics vector plot
+  const parsedVectors = parseGraphVectors(payload.vectors)
+  if (parsedVectors.length > 0) return true
+
+  // 3. If polygons are present, it's a valid coordinate geometry polygon plot
+  const parsedPolygons = parseGraphPolygons(payload.polygons)
+  if (parsedPolygons.length > 0) return true
+
+  // 4. If circles are present, it's a valid circular figure plot
+  const parsedCircles = parseGraphCircles(payload.circles)
+  if (parsedCircles.length > 0) return true
+
+  // 5. If custom coordinate texts are present, it's a valid annotated graph
+  const parsedTexts = parseGraphTexts(payload.texts)
+  if (parsedTexts.length > 0) return true
+
+  // 6. If segments are present and non-empty with valid start/end coordinates, it's valid
   const parsedSegments = parseGraphSegments(payload.segments)
   if (parsedSegments.length > 0) {
     return true
   }
 
-  // 2. Check points
+  // 5. Check points
   const parsedPoints = parseGraphPoints(payload.points)
   const hasPoints = parsedPoints.length > 0
 
-  // 3. Collect all formulas
+  // 6. Collect all formulas
   const parsedFormulas = parseGraphFormulas(payload.formula, payload.formulas)
   const cleanFormulas = parsedFormulas.map((f) => f.formula.trim()).filter((f) => f.length > 0)
 
@@ -400,45 +884,55 @@ export function isLegitimateGraphTopic(topic: string, subject: string): boolean 
   const s = (subject || '').toLowerCase().trim();
   const t = (topic || '').toLowerCase().trim();
 
-  // 1. Non-mathematical and non-physics subjects are unconditionally barred from graphing
+  // If the topic explicitly mentions graphs, plots, coordinates, bar graphs, histograms, vectors, or curves, it is ALWAYS allowed
+  const explicitGraphPhrases = [
+    'bar graph', 'bargraph', 'histogram', 'frequency polygon', 'ogive', 'pie chart',
+    'coordinate geometry', 'cartesian', 'plot', 'graph', 'curve', 'v-t', 's-t', 'a-t',
+    'p-v diagram', 'rate of reaction', 'ohm\'s law', 'vector addition', 'vector diagram',
+    'scatter', 'data handling', 'statistics'
+  ];
+  if (explicitGraphPhrases.some((phrase) => t.includes(phrase))) {
+    return true;
+  }
+
+  // 1. Non-STEM subjects (Languages, Humanities) are unconditionally barred from graphing
   const nonStemSubjects = [
-    'bio', 'life', 'botan', 'zool', 'histol', 'anatom',
-    'cell', 'environ', 'hist', 'civic', 'geog', 'politi',
-    'social', 'eng', 'lit', 'lang', 'hindi', 'french', 'german', 'chem'
+    'hist', 'civic', 'geog', 'politi',
+    'social', 'eng', 'lit', 'lang', 'hindi', 'french', 'german'
   ];
   if (nonStemSubjects.some((sub) => s.includes(sub))) {
     return false;
   }
 
-  // 2. Disallow topics containing purely non-mathematical, biological, or chemical keywords
+  // 2. Disallow topics containing purely non-mathematical, biological, or chemical keywords that have NO graphical component
   const strictlyNonMathKeywords = [
     'cell', 'wall', 'tissue', 'histolog', 'organ', 'plant', 'animal',
     'cellulose', 'pectin', 'lignin', 'photosynth', 'digest', 'xylem',
     'phloem', 'parenchyma', 'collenchyma', 'sclerenchyma', 'epithel',
-    'covalent', 'ionic', 'bonding', 'reaction', 'periodic table',
-    'valency', 'compound', 'acid', 'base', 'salt', 'metal', 'nonmetal',
-    'respiration', 'circulat', 'neuron', 'nephron', 'dna', 'rna',
+    'covalent', 'ionic', 'bonding', 'periodic table',
+    'valency', 'respiration', 'circulat', 'neuron', 'nephron', 'dna', 'rna',
     'chromosome', 'mitosis', 'meiosis', 'endocrine', 'hormone',
-    'ecosystem', 'trophic', 'atom', 'molecule', 'redox', 'electrolysis'
+    'ecosystem', 'trophic'
   ];
-  if (strictlyNonMathKeywords.some((kw) => t.includes(kw))) {
+  if (strictlyNonMathKeywords.some((kw) => t.includes(kw)) && !t.includes('graph') && !t.includes('plot') && !t.includes('curve') && !t.includes('rate')) {
     return false;
   }
 
-  // 3. Geometric diagram topics belong to SVG diagram / geometry tool, not Cartesian coordinate graph
+  // 3. Geometric diagram topics without coordinate/graph context belong to SVG diagram / geometry tool
   const geometricDiagramKeywords = [
-    'triangle', 'circle', 'cylinder', 'cone', 'sphere', 'cube', 'polygon',
-    'cuboid', 'geometry', 'angle', 'ray', 'optics', 'lens', 'mirror',
+    'triangle', 'circle', 'cylinder', 'cone', 'sphere', 'cube',
+    'cuboid', 'angle', 'ray', 'optics', 'lens', 'mirror',
     'circuit', 'resistor', 'apparatus'
   ];
-  if (geometricDiagramKeywords.some((kw) => t.includes(kw)) && !t.includes('coordinate') && !t.includes('graph')) {
+  if (geometricDiagramKeywords.some((kw) => t.includes(kw)) && !t.includes('coordinate') && !t.includes('graph') && !t.includes('plot') && !t.includes('cartesian')) {
     return false;
   }
 
-  // 4. Subject must be Mathematics or Physics / Quantitative Science
+  // 4. Subject must be Mathematics, Physics, Chemistry, or Quantitative Science
   const isMathSubject = s.includes('math') || s.includes('algebra') || s.includes('calculus') || s.includes('geometry') || s.includes('stat') || s.includes('arithmetic');
   const isPhysicsSubject = s.includes('physic') || s.includes('science') || s.includes('mechanic');
-  if (!isMathSubject && !isPhysicsSubject) {
+  const isChemistryPhysical = s.includes('chem') && (t.includes('graph') || t.includes('curve') || t.includes('rate') || t.includes('kinetics') || t.includes('titrat') || t.includes('phase') || t.includes('temperature') || t.includes('boyle') || t.includes('charles'));
+  if (!isMathSubject && !isPhysicsSubject && !isChemistryPhysical) {
     return false;
   }
 

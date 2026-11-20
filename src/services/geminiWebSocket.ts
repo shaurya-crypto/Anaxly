@@ -102,7 +102,8 @@ export class GeminiLiveClient {
     this.avatarConfig = options?.avatarConfig;
     this.systemInstruction = options?.systemInstruction || `You are a friendly, expert tutor for Classes 6-12. 
     1. Language Style: ALWAYS use simple, colloquial Hinglish, Hindi, or English. NO heavy, complex, or academic words. Talk like a friendly local teacher; use conversational phrases like "samjhe," "dekho," "bilkul," "chalo" to make concepts clear.
-    2. Socratic Cadence & Mandatory Visual Search: Strictly enforce the 6-stage Socratic cycle: (1)Intuition & Visual Search, (2)Formulation, (3)Example, (4)Numerical, (5)Checkpoint, (6)Board-Exam Numerical. At the START of every concept (Stage 1), you MUST PROACTIVELY CALL search_and_show_image(query="<full detailed search query>", title="<Title>", caption="<Caption>") and/or search_and_show_video(query="<full detailed video query>", title="<Title>", description="<Description>") to display authentic real-world visuals while teaching. ALWAYS use rich, fully detailed queries (10-25 words) specifying exact apparatus, components, and anatomical structures for exact matches — NEVER use vague 1-2 word search queries.
+    2. Socratic Cadence & Mandatory Dual Visuals (Image + Video): Strictly enforce the 6-stage Socratic cycle: (1)Intuition & Dual Visual Search, (2)Formulation, (3)Example, (4)Numerical & Graph Calling, (5)Checkpoint, (6)Board-Exam Numerical. At the START of every module and EVERY concept (Stage 1), you MUST PROACTIVELY CALL BOTH search_and_show_image(query="<full detailed search query>", title="<Title>", caption="<Caption>") AND search_and_show_video(query="<full detailed video query>", title="<Title>", description="<Description>") to display authentic real-world visuals and dynamic video demonstrations while teaching. ALWAYS use rich, fully detailed queries (10-25 words) specifying exact apparatus, components, and anatomical structures for exact matches — NEVER use vague 1-2 word search queries.
+    5. Multi-Type Graph Engine: Whenever solving questions, drawing exact graphs from questions or answers, or when even a small graphical aid/line/figure/text helps explain a concept in Maths, Physics, or Science, YOU MUST CALL plot_mathematical_graph(...) with functions, segments, points, bar graphs, vectors, polygons, circles, or texts!
     3. Progression: NEVER advance stages, concepts, or pages until the student confirms understanding or explicitly commands "next concept." Wait for student input at every stage.
     4. Chalkboard: Write step-by-step in "Topper Layout" (Given -> Formula -> Substitution -> Calculation -> Answer). Write 1 or at most 2 steps per line using textbook notation, NO code operators.
     STEP-BY-STEP PROBLEM SOLVING & HUMAN-UNDERSTANDABLE NUMERICAL LAYOUT:
@@ -804,7 +805,7 @@ export class GeminiLiveClient {
               },
               {
                 name: "plot_mathematical_graph",
-                description: "CRITICAL GRAPH GATING: ZERO MEANINGLESS GRAPH INVARIANT. Plot an interactive mathematical function or physics kinematic/dynamic curve directly on the whiteboard canvas (e.g. quadratic parabola, calculus derivative, trigonometric curve, kinematics velocity-time or distance-time curve) whenever a visual curve or coordinate graph aids understanding with actual mathematical coordinates AND WORKED CALCULATIONS (roots, intercepts, vertex, slope, or table of values). Supports 2-3 simultaneous functions and bounded line segments with stopping points. STRICT PROHIBITION: NEVER output a meaningless default line y = x or open a graph without points, segments, or actual mathematical purpose. MANDATE: When plotting lines/curves, ALWAYS provide actual points (intercepts, intersection, roots, vertex, endpoints) and segments if bounded (with start and end points). If a geometric diagram (e.g. triangles, circles, angles) or physical apparatus is needed, use render_svg_diagram or search_and_show_image — NEVER use plot_mathematical_graph. NEVER call this tool for non-mathematical topics (Biology, Anatomy, Histology, Chemical Bonding, Tissue Structures, Literature, History) — use render_svg_diagram or draw_flowchart instead. Call close_graph or write_chalkboard(action='close_graph') when moving on.",
+                description: "CRITICAL MULTI-TYPE GRAPH ENGINE (MATHS, PHYSICS, SCIENCE & STATISTICS): Plot interactive mathematical functions, kinematics curves (v-t, s-t, a-t), Ohm's law (V-I), thermodynamics (P-V), statistical bar graphs & histograms, physics vectors, geometric figures, and custom coordinate texts directly on the whiteboard canvas. Call this tool whenever a question asks to plot or solve graphically, whenever drawing an exact graph from a question or question's answer, and whenever ANY small graphical aid or visual line helps explain a concept to the student! Supports: (1) functions formula/formulas; (2) bounded line segments with explicit lengths and stopping points; (3) critical coordinate points with labels; (4) statistical bar graphs & histograms via 'bars'; (5) physics vectors via 'vectors'; (6) geometric figures on Cartesian plane via 'polygons' and 'circles'; (7) multiple freeform text annotations placed anywhere on the graph via 'texts'. MANDATE: When plotting lines/curves, ALWAYS provide actual points (intercepts, intersection, roots, vertex, endpoints) and segments if bounded (with start and end points). If a geometric diagram (e.g. triangles, circles, angles) or physical apparatus is needed, use render_svg_diagram or search_and_show_image — NEVER use plot_mathematical_graph. STRICT ZERO MEANINGLESS GRAPH INVARIANT: NEVER output a meaningless default line y = x without points, segments, or purpose.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,
@@ -842,6 +843,31 @@ export class GeminiLiveClient {
                     callout: {
                       type: Type.STRING,
                       description: "Key features or annotations, e.g. 'Roots at x = -2, 2 | Minimum at (0, -4)'",
+                    },
+                    bars: {
+                      type: Type.ARRAY,
+                      items: { type: Type.STRING },
+                      description: "Statistical bar graph or histogram items, e.g. ['{\"label\": \"Maths\", \"height\": 85}', '{\"label\": \"Science\", \"height\": 92}'] or simple delimited string 'Maths: 85 | Science: 92'.",
+                    },
+                    vectors: {
+                      type: Type.ARRAY,
+                      items: { type: Type.STRING },
+                      description: "Physics vectors and directional arrows, e.g. ['{\"tail\": [0, 0], \"tip\": [4, 3], \"label\": \"F1 = 5 N\"}'] or transition strings '(0,0) -> (4,3) [F1]'.",
+                    },
+                    polygons: {
+                      type: Type.ARRAY,
+                      items: { type: Type.STRING },
+                      description: "Cartesian polygons like triangles or quadrilaterals, e.g. ['{\"points\": [[1,1],[5,1],[3,5]], \"label\": \"Triangle ABC\"}'].",
+                    },
+                    circles: {
+                      type: Type.ARRAY,
+                      items: { type: Type.STRING },
+                      description: "Circles in Cartesian space, e.g. ['{\"center\": [0, 0], \"radius\": 4, \"label\": \"Circle r=4\"}'].",
+                    },
+                    texts: {
+                      type: Type.ARRAY,
+                      items: { type: Type.STRING },
+                      description: "Multiple custom text annotations placed anywhere on the graph, e.g. ['{\"x\": 2, \"y\": 5, \"text\": \"Maximum Altitude\"}'].",
                     },
                     slope: {
                       type: Type.BOOLEAN,
@@ -1027,7 +1053,7 @@ export class GeminiLiveClient {
               },
               {
                 name: "search_and_show_image",
-                description: "MANDATORY CONCEPT START VISUAL: You MUST call this tool on your VERY FIRST TURN of introducing ANY concept (Stage 1 Intuition) to display an authentic, high-resolution scientific educational diagram, electron micrograph, real apparatus photograph, or histology slide directly on the student's chalkboard. Do NOT wait for the student to ask — call it PROACTIVELY at the start of every concept. Also call when the student hesitates, is confused, or requests another picture or real-life view.",
+                description: "MANDATORY DUAL VISUAL AT START OF EVERY MODULE & CONCEPT: You MUST call this tool on your VERY FIRST TURN of introducing ANY module or concept (Stage 1 Intuition), TOGETHER with search_and_show_video, to display an authentic, high-resolution scientific educational diagram directly on the student's chalkboard. Both image and video are MANDATORY right at the start of every concept. Also call when the student hesitates, is confused, or requests another picture or real-life view.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,
@@ -1050,7 +1076,7 @@ export class GeminiLiveClient {
               },
               {
                 name: "search_and_show_video",
-                description: "PROACTIVE CONCEPT VIDEO DEMONSTRATION: Call this tool at the START of any concept (Stage 1 Intuition) that involves physical motion, dynamic processes, laboratory experiments, wave phenomena, chemical reactions, or mechanical apparatus to display an educational demonstration video directly on the student's chalkboard. Also call when the student asks for a video demonstration or needs to see a process in action.",
+                description: "MANDATORY DUAL VISUAL AT START OF EVERY MODULE & CONCEPT: You MUST call this tool on your VERY FIRST TURN of introducing ANY module or concept (Stage 1 Intuition), TOGETHER with search_and_show_image, to display an educational demonstration video directly on the student's chalkboard. Both image and video are MANDATORY right at the start of every concept. Also call when the student asks for a video demonstration or needs to see a dynamic process in action.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,
