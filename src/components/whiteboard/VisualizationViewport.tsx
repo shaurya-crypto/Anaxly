@@ -105,10 +105,14 @@ export function VisualizationViewport({
       sceneInstanceRef.current = null
     }
 
+    let cancelled = false
+    const container = containerRef.current
+
+    createInteractiveScene(activeType).then((instance) => {
+      if (cancelled) return
     try {
-      const instance = createInteractiveScene(activeType)
       sceneInstanceRef.current = instance
-      instance.init(containerRef.current)
+      instance.init(container)
 
       // Initialize default params from metadata merged with custom initialParams without dropping custom keys
       const defaults: Record<string, any> = { ...initialParams }
@@ -123,8 +127,13 @@ export function VisualizationViewport({
       console.error('[VisualizationViewport] Error mounting 3D scene:', err)
       setWebGLSupported(false)
     }
+    }).catch((err) => {
+      console.error('[VisualizationViewport] Error loading 3D scene:', err)
+      if (!cancelled) setWebGLSupported(false)
+    })
 
     return () => {
+      cancelled = true
       if (sceneInstanceRef.current) {
         sceneInstanceRef.current.dispose()
         sceneInstanceRef.current = null

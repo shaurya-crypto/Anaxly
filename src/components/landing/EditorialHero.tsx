@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react'
 import { motion, useScroll, useTransform, MotionValue } from 'motion/react'
+import { preload } from 'react-dom'
 
 const TOTAL_FRAMES = 144
 
@@ -21,14 +22,12 @@ function BlurWord({
   const [start, end] = range
   // Words start softly visible (0.35 opacity) and bloom into 1.0 brilliant white
   const opacity = useTransform(progress, [start, end], [0.35, 1])
-  const blurVal = useTransform(progress, [start, end], [12, 0])
-  const filter = useTransform(blurVal, (v) => `blur(${v}px)`)
   const y = useTransform(progress, [start, end], [8, 0])
 
   return (
     <motion.span
-      style={{ opacity, filter, y }}
-      className="inline-block mx-1 sm:mx-2 md:mx-2.5 will-change-transform will-change-[filter] select-none text-[#FFFFFF]"
+      style={{ opacity, y }}
+      className="inline-block mx-1 sm:mx-2 md:mx-2.5 will-change-transform select-none text-[#FFFFFF]"
     >
       {word}
     </motion.span>
@@ -117,6 +116,8 @@ export function EditorialHero() {
   const currentFrameRef = useRef<number>(1)
   const targetFrameRef = useRef<number>(1)
   const rafIdRef = useRef<number | null>(null)
+  // LCP: get the first hero frame into the <head> as a high-priority preload.
+  preload('/hero-frames/frame_001.webp', { as: 'image', fetchPriority: 'high' })
   const [firstFrameLoaded, setFirstFrameLoaded] = useState(false)
 
   const { scrollYProgress } = useScroll({
@@ -136,8 +137,17 @@ export function EditorialHero() {
     if (!ctx) return
 
     const safeIndex = Math.min(TOTAL_FRAMES, Math.max(1, frameIndex))
-    const img = imagesRef.current[safeIndex - 1]
-    if (!img || !img.complete || img.naturalWidth === 0) return
+    // Frames stream in progressively; draw the nearest one that's ready.
+    const images = imagesRef.current
+    const ready = (i: number) => {
+      const im = images[i]
+      return im && im.complete && im.naturalWidth > 0 ? im : null
+    }
+    let img: HTMLImageElement | null = null
+    for (let d = 0; d < TOTAL_FRAMES && !img; d++) {
+      img = ready(safeIndex - 1 - d) || ready(safeIndex - 1 + d)
+    }
+    if (!img) return
 
     const width = canvas.width
     const height = canvas.height
@@ -179,39 +189,76 @@ export function EditorialHero() {
     renderFrame(Math.round(currentFrameRef.current))
   }, [renderFrame])
 
-  // Preload and pre-decode all 144 frames to eliminate stutter and freeze
+  // Load frame 1 right away, then stream the rest in the background:
+  // coarse keyframes first (so scrubbing works early), a few at a time,
+  // only once the visitor starts scrolling. Phones / data-saver get every 2nd frame.
   useEffect(() => {
     const images: HTMLImageElement[] = new Array(TOTAL_FRAMES)
     imagesRef.current = images
+    let cancelled = false
 
-    // Load first frame immediately
-    const firstImg = new window.Image()
-    firstImg.src = '/hero-frames/frame_001.webp'
-    firstImg.onload = () => {
-      images[0] = firstImg
+    const loadFrame = (idx: number) =>
+      new Promise<void>((resolve) => {
+        const img = new window.Image()
+        img.decoding = 'async'
+        img.onload = () => {
+          images[idx] = img
+          resolve()
+        }
+        img.onerror = () => resolve()
+        img.src = `/hero-frames/frame_${String(idx + 1).padStart(3, '0')}.webp`
+      })
+
+    const conn = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
+    const lite = window.innerWidth < 768 || conn?.saveData === true
+    const step = lite ? 2 : 1
+
+    const order: number[] = []
+    const seen = new Set<number>([0])
+    for (const stride of [16, 8, 4, 2, 1]) {
+      if (stride < step) break
+      for (let i = 0; i < TOTAL_FRAMES; i += stride) {
+        if (!seen.has(i)) {
+          seen.add(i)
+          order.push(i)
+        }
+      }
+    }
+
+    const streamRest = async () => {
+      const CONCURRENCY = 4
+      let cursor = 0
+      const worker = async () => {
+        while (!cancelled && cursor < order.length) {
+          await loadFrame(order[cursor++])
+        }
+      }
+      await Promise.all(Array.from({ length: CONCURRENCY }, worker))
+    }
+
+    loadFrame(0).then(() => {
+      if (cancelled) return
       setFirstFrameLoaded(true)
       handleResize()
-    }
-    if (typeof firstImg.decode === 'function') {
-      firstImg.decode().catch(() => {})
-    }
-
-    // Pre-decode all remaining frames asynchronously
-    for (let i = 2; i <= TOTAL_FRAMES; i++) {
-      const img = new window.Image()
-      const padded = String(i).padStart(3, '0')
-      img.src = `/hero-frames/frame_${padded}.webp`
-      const idx = i - 1
-      img.onload = () => {
-        images[idx] = img
+      // Don't fetch the remaining ~12 MB of frames until the visitor actually
+      // starts scrolling (or interacts) — keeps the initial load light.
+      const start = () => {
+        window.removeEventListener('scroll', start)
+        window.removeEventListener('wheel', start)
+        window.removeEventListener('touchstart', start)
+        window.removeEventListener('keydown', start)
+        if (!cancelled) void streamRest()
       }
-      if (typeof img.decode === 'function') {
-        img.decode().catch(() => {})
-      }
-    }
+      const opts = { passive: true, once: true } as const
+      window.addEventListener('scroll', start, opts)
+      window.addEventListener('wheel', start, opts)
+      window.addEventListener('touchstart', start, opts)
+      window.addEventListener('keydown', start, { once: true })
+    })
 
     window.addEventListener('resize', handleResize)
     return () => {
+      cancelled = true
       window.removeEventListener('resize', handleResize)
     }
   }, [handleResize])
@@ -269,9 +316,12 @@ export function EditorialHero() {
 
         {/* Fallback Poster before first frame decodes */}
         {!firstFrameLoaded && (
-          <div
-            className="absolute inset-0 z-0 bg-cover bg-center pointer-events-none"
-            style={{ backgroundImage: `url('/hero-frames/frame_001.webp')` }}
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src="/hero-frames/frame_001.webp"
+            alt=""
+            fetchPriority="high"
+            className="absolute inset-0 z-0 h-full w-full object-cover pointer-events-none"
           />
         )}
 

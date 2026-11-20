@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { SmoothScroll } from '@/components/landing/SmoothScroll'
 import { LandingNav } from '@/components/landing/LandingNav'
 import { EditorialHero } from '@/components/landing/EditorialHero'
 import { ProductExperience } from '@/components/landing/ProductExperience'
@@ -13,7 +12,7 @@ import { ScrollProgress } from '@/components/landing/ScrollProgress'
 
 export default function LandingPage() {
   return (
-    <SmoothScroll>
+    <>
       <div className="landing-paper-bg min-h-screen flex flex-col font-sans selection:bg-coral-soft selection:text-ink-primary">
         <ScrollProgress />
 
@@ -42,6 +41,6 @@ export default function LandingPage() {
         {/* FOOTER — Our Monumental Anaxly Master Footer */}
         <LandingFooter />
       </div>
-    </SmoothScroll>
+    </>
   )
 }
