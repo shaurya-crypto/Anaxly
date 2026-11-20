@@ -58,7 +58,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { DashCard } from '@/components/dashboard/primitives'
 import { createClient } from '@/utils/supabase/client'
-import { triggerCompanionGuidance } from '@/components/mascot/Mascot'
+import { triggerCompanionGuidance } from '@/components/mascot/companionEvents'
 import {
   setCachedBoardNotes,
   getCachedBoardNotes,

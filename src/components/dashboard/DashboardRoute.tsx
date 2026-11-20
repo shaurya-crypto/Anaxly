@@ -86,10 +86,12 @@ export async function DashboardRoute({
     streakUpdated = true;
   }
 
+  // Streak write runs alongside the reads below instead of blocking them.
+  let streakWrite: PromiseLike<unknown> = Promise.resolve();
   if (streakUpdated) {
     profile.current_streak = currentStreak;
     profile.last_active_date = todayStr;
-    await supabase
+    streakWrite = supabase
       .from("profiles")
       .update({
         current_streak: currentStreak,
@@ -99,8 +101,14 @@ export async function DashboardRoute({
       .eq("id", user.id);
   }
 
-  // 2. Fetch all user enrollments with joined curriculum details
-  const { data: enrollmentsData } = await supabase
+  // 2-3 + 5. Independent reads in parallel: enrollments, published curriculums,
+  // progress, memories, study plan (previously 5 sequential round trips).
+  const [
+    { data: enrollmentsData },
+    allCurriculums,
+    [{ data: progressData }, { data: memoriesData }, { data: studyPlan }],
+  ] = await Promise.all([
+    supabase
     .from("enrollments")
     .select(`
       id,
@@ -111,7 +119,19 @@ export async function DashboardRoute({
     `)
     .eq("user_id", user.id)
     .eq("status", "active")
-    .order("enrolled_at", { ascending: true });
+    .order("enrolled_at", { ascending: true }),
+    getCachedCurriculums(supabase, {
+      classLevel: profile?.class_level,
+      board: profile?.board,
+      isPublished: true,
+    }),
+    Promise.all([
+      supabase.from("user_progress").select("*").eq("user_id", user.id),
+      supabase.from("ai_user_memories").select("*").eq("user_id", user.id).order("importance_score", { ascending: false }).limit(10),
+      supabase.from("student_study_plans").select("*").eq("user_id", user.id).eq("is_active", true).maybeSingle(),
+    ]),
+    streakWrite,
+  ]);
 
   const enrollments = enrollmentsData || [];
 
@@ -119,13 +139,6 @@ export async function DashboardRoute({
   const enrolledCurriculums = enrollments
     .map((e) => (Array.isArray(e.curriculums) ? e.curriculums[0] : e.curriculums))
     .filter(Boolean);
-
-  // 3. Fetch published curriculums (using high-speed dataCache)
-  const allCurriculums = await getCachedCurriculums(supabase, {
-    classLevel: profile?.class_level,
-    board: profile?.board,
-    isPublished: true,
-  });
 
   // 4. Fetch syllabus modules (using high-speed dataCache)
   const enrolledCurriculumIds = enrolledCurriculums.map((c: any) => c.id).filter(Boolean);
@@ -146,17 +159,6 @@ export async function DashboardRoute({
     const { data: modulesData } = await fallbackModulesQuery;
     allModules = modulesData || [];
   }
-
-  // 5. Parallelized Read Execution: progress, memories, and active study plan
-  const [
-    { data: progressData },
-    { data: memoriesData },
-    { data: studyPlan }
-  ] = await Promise.all([
-    supabase.from("user_progress").select("*").eq("user_id", user.id),
-    supabase.from("ai_user_memories").select("*").eq("user_id", user.id).order("importance_score", { ascending: false }).limit(10),
-    supabase.from("student_study_plans").select("*").eq("user_id", user.id).eq("is_active", true).maybeSingle(),
-  ]);
 
   const userProgress = progressData || [];
   const userMemories = (memoriesData || []).map((m: any) => ({

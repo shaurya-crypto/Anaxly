@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/dialog'
 import { Label } from '@/components/ui/label'
 import { signOutAction, updatePreferencesAction, enrollCurriculumAction } from '@/app/dashboard/actions'
-import { triggerCompanionGuidance } from '@/components/mascot/Mascot'
+import { triggerCompanionGuidance } from '@/components/mascot/companionEvents'
 import { MasteryQuizModal } from '@/components/quiz/MasteryQuizModal'
 import { StudyPlannerCard, StudyPlanData } from './StudyPlannerCard'
 import { WeakConceptsReviewCard } from './WeakConceptsReviewCard'

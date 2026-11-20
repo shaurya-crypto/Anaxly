@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef, useImperativeHandle, forwardRef, useCallback } from 'react'
 import dynamic from 'next/dynamic'
 import '@excalidraw/excalidraw/index.css'
+import './whiteboard.css'
 import {
   FileText,
   Plus,
