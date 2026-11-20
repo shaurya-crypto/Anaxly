@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef, useCallback } from 'react'
-import { ChevronLeft, ChevronRight, X, BookOpen } from 'lucide-react'
+import { ChevronLeft, ChevronRight, X, BookOpen, ExternalLink } from 'lucide-react'
 
 export interface SideBookViewerProps {
   /** Relative or absolute URL to textbook PDF (e.g. /10/class10_maths/jemh101.pdf) */
@@ -182,8 +182,18 @@ export function SideBookViewer({
           </button>
         </div>
 
-        {/* Right: Close Button [ ✕ ] */}
-        <div className="flex items-center shrink-0">
+        {/* Right: External Link & Close Button */}
+        <div className="flex items-center gap-1 shrink-0">
+          <a
+            href={iframeSrc || cleanPdfUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-7 h-7 flex items-center justify-center rounded hover:bg-emerald-900/40 text-stone-400 hover:text-emerald-300 transition-colors"
+            title="Open official NCERT PDF in new tab"
+            aria-label="Open official NCERT PDF in new tab"
+          >
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
           <button
             type="button"
             onClick={onClose}

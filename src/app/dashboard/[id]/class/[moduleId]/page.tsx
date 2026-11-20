@@ -2125,12 +2125,12 @@ CRITICAL DIRECTIVE:
           try {
             const { data: mems } = await supabase
               .from('ai_user_memories')
-              .select('memory_text, content, category, importance_score')
+              .select('*')
               .eq('user_id', userId)
               .order('importance_score', { ascending: false })
               .limit(5)
             if (mems && mems.length > 0) {
-              setUserMemories(mems)
+              const mapped = mems.map((m: any) => ({ ...m, memory_text: m.content || m.memory_text || '', category: m.memory_type || m.category || '' })); setUserMemories(mapped)
             }
           } catch {}
         }

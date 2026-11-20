@@ -131,6 +131,99 @@ export function extractChapterNumber(input: string): number | null {
 /**
  * Resolves the authentic textbook chapter for a given curriculum chapter.
  */
+/**
+ * Converts any local textbook path or filename into the official NCERT online PDF URL.
+ * e.g. '/9/class9_maths/pt1/iemh101.pdf' -> 'https://ncert.nic.in/textbook/pdf/iemh101.pdf'
+ * e.g. 'keph101 (1).pdf' -> 'https://ncert.nic.in/textbook/pdf/keph101.pdf'
+ */
+export function toNcertPdfUrl(pathOrFilename: string): string {
+  if (!pathOrFilename) return ''
+  if (pathOrFilename.startsWith('http://') || pathOrFilename.startsWith('https://')) {
+    return pathOrFilename
+  }
+  const clean = pathOrFilename.replace(/\\/g, '/').split('/').pop() || ''
+  const filename = clean.replace(/\s*\(\d+\)/, '').trim()
+  if (filename.endsWith('.pdf')) {
+    return 'https://ncert.nic.in/textbook/pdf/' + filename
+  }
+  return pathOrFilename
+}
+
+/**
+ * Constructs the canonical official NCERT textbook PDF URL for any class and subject.
+ */
+export function constructNcertPdfUrl(
+  classLevel: number | string,
+  subject: string,
+  chapterNumber: number | string
+): string {
+  const normClass = typeof classLevel === 'string' ? parseInt(classLevel.replace(/\D/g, ''), 10) : classLevel
+  const ch = typeof chapterNumber === 'string' ? parseInt(chapterNumber.replace(/\D/g, ''), 10) : chapterNumber
+  const sub = normalizeSubject(subject)
+
+  const pad = (n: number) => (n < 10 ? '0' + n : '' + n)
+
+  // Class 9
+  if (normClass === 9) {
+    if (sub === 'mathematics') {
+      if (ch <= 8) return 'https://ncert.nic.in/textbook/pdf/iemh10' + ch + '.pdf'
+      return 'https://ncert.nic.in/textbook/pdf/iemh20' + (ch - 8) + '.pdf'
+    }
+    if (sub === 'science') {
+      return 'https://ncert.nic.in/textbook/pdf/iesc1' + pad(ch) + '.pdf'
+    }
+  }
+
+  // Class 10
+  if (normClass === 10) {
+    if (sub === 'mathematics') {
+      return 'https://ncert.nic.in/textbook/pdf/jemh1' + pad(ch) + '.pdf'
+    }
+    if (sub === 'science') {
+      return 'https://ncert.nic.in/textbook/pdf/jesc1' + pad(ch) + '.pdf'
+    }
+  }
+
+  // Class 11
+  if (normClass === 11) {
+    if (sub === 'mathematics') {
+      return 'https://ncert.nic.in/textbook/pdf/kemh1' + pad(ch) + '.pdf'
+    }
+    if (sub === 'physics') {
+      if (ch <= 7) return 'https://ncert.nic.in/textbook/pdf/keph10' + ch + '.pdf'
+      return 'https://ncert.nic.in/textbook/pdf/keph20' + (ch - 7) + '.pdf'
+    }
+    if (sub === 'chemistry') {
+      if (ch <= 6) return 'https://ncert.nic.in/textbook/pdf/kech10' + ch + '.pdf'
+      return 'https://ncert.nic.in/textbook/pdf/kech20' + (ch - 6) + '.pdf'
+    }
+    if (sub === 'biology' || sub === 'science') {
+      return 'https://ncert.nic.in/textbook/pdf/kebo1' + pad(ch) + '.pdf'
+    }
+  }
+
+  // Class 12
+  if (normClass === 12) {
+    if (sub === 'mathematics') {
+      if (ch <= 6) return 'https://ncert.nic.in/textbook/pdf/lemh10' + ch + '.pdf'
+      return 'https://ncert.nic.in/textbook/pdf/lemh20' + (ch - 6) + '.pdf'
+    }
+    if (sub === 'physics') {
+      if (ch <= 8) return 'https://ncert.nic.in/textbook/pdf/leph10' + ch + '.pdf'
+      return 'https://ncert.nic.in/textbook/pdf/leph20' + (ch - 8) + '.pdf'
+    }
+    if (sub === 'chemistry') {
+      if (ch <= 5) return 'https://ncert.nic.in/textbook/pdf/lech10' + ch + '.pdf'
+      return 'https://ncert.nic.in/textbook/pdf/lech20' + (ch - 5) + '.pdf'
+    }
+    if (sub === 'biology' || sub === 'science') {
+      return 'https://ncert.nic.in/textbook/pdf/lebo1' + pad(ch) + '.pdf'
+    }
+  }
+
+  return 'https://ncert.nic.in/textbook/pdf/jemh1' + pad(ch) + '.pdf'
+}
+
 export function resolveBookForChapter(params: ResolveBookForChapterParams): ResolvedBook | null {
   const { classLevel, category, subject, chapterTitle, chapterOrderIndex, notesSourceFilename } = params
   const targetSub = subject || category || ''
@@ -146,7 +239,7 @@ export function resolveBookForChapter(params: ResolveBookForChapterParams): Reso
         chapterNumber: ch.chapterNumber,
         title: ch.chapterTitle,
         chapterTitle: ch.chapterTitle,
-        pdfUrl: ch.pdfPath,
+        pdfUrl: toNcertPdfUrl(ch.pdfPath),
         totalPages: ch.totalPages,
         pageWidth: ch.pageWidth,
         pageHeight: ch.pageHeight,
@@ -167,7 +260,7 @@ export function resolveBookForChapter(params: ResolveBookForChapterParams): Reso
         chapterNumber: ch.chapterNumber,
         title: ch.chapterTitle,
         chapterTitle: ch.chapterTitle,
-        pdfUrl: ch.pdfPath,
+        pdfUrl: toNcertPdfUrl(ch.pdfPath),
         totalPages: ch.totalPages,
         pageWidth: ch.pageWidth,
         pageHeight: ch.pageHeight,
@@ -197,12 +290,30 @@ export function resolveBookForChapter(params: ResolveBookForChapterParams): Reso
         chapterNumber: match.chapterNumber,
         title: match.chapterTitle,
         chapterTitle: match.chapterTitle,
-        pdfUrl: match.pdfPath,
+        pdfUrl: toNcertPdfUrl(match.pdfPath),
         totalPages: match.totalPages,
         pageWidth: match.pageWidth,
         pageHeight: match.pageHeight,
         bookCode: match.bookCode,
       }
+    }
+  }
+
+  // 4. Fallback: construct authentic NCERT URL for any unindexed chapter
+  if (classLevel && targetSub && chNum) {
+    const ncertUrl = constructNcertPdfUrl(classLevel, targetSub, chNum)
+    return {
+      id: `cbse-class${classLevel}-${normalizeSubject(targetSub)}-ch${chNum}`,
+      classLevel: typeof classLevel === 'number' ? classLevel : parseInt(String(classLevel).replace(/\D/g, ''), 10) || 10,
+      subject: targetSub,
+      chapterNumber: chNum,
+      title: chapterTitle || `Chapter ${chNum}`,
+      chapterTitle: chapterTitle || `Chapter ${chNum}`,
+      pdfUrl: ncertUrl,
+      totalPages: 30,
+      pageWidth: 595,
+      pageHeight: 842,
+      bookCode: ncertUrl.split('/').pop()?.slice(0, 4) || '',
     }
   }
 

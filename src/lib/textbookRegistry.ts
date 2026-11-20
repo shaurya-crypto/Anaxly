@@ -108,13 +108,17 @@ export function getChapter(
 export function getChapterByPdf(pdfPath: string): TextbookChapter | undefined {
   if (!pdfPath) return undefined
   const clean = pdfPath.split('#')[0].split('?')[0].trim().toLowerCase()
+  const fname = (clean.split('/').pop() || clean).replace(/\s*\(\d+\)/, '').trim()
   return db.chapters.find((c) => {
     const cPath = c.pdfPath.toLowerCase()
+    const cFname = (cPath.split('/').pop() || cPath).replace(/\s*\(\d+\)/, '').trim()
     return (
+      cPath === clean ||
+      cFname === fname ||
       cPath.endsWith(clean) ||
       clean.endsWith(cPath) ||
       cPath.includes(clean) ||
-      (clean.endsWith('.pdf') && cPath.endsWith(clean))
+      (fname.endsWith('.pdf') && cFname === fname)
     )
   })
 }
