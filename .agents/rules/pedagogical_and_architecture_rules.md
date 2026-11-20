@@ -112,3 +112,31 @@ Whenever designing, prompting, or updating the AI tutor voice instruction:
 - **Search Engine First, Wikipedia Second**: Online image searches prioritize Bing Images web search engine candidates first, authoritative Wikipedia encyclopedic figures second, and Wikimedia Commons third.
 - **Harmful & Political Result Blocking**: Political ballot propositions, election results, party campaigns, and watermarked stock photos are permanently filtered and blocked from educational search candidates.
 - **Last Resort Fallback Only**: Live bespoke LLM SVG generation (`/api/diagram/generate`) serves strictly as a last resort when online search finds zero accessible educational diagrams or encounters a network failure, protected by a strict 15-second abort controller.
+
+## 17. Side Book Viewer Dynamic NCERT Auto-Scroll & Synchronization
+- **Direct Official NCERT PDF Streaming**: All textbook links resolve directly to official NCERT URLs (`https://ncert.nic.in/textbook/pdf/<bookcode>.pdf`) across all classes (9–12) and subjects (Maths, Science, Physics, Chemistry, Biology). This completely avoids bundling hundreds of megabytes of PDF binaries in Git or Vercel serverless functions (bypassing the 250 MB deployment limit and `.gitignore` restrictions).
+- **Exact Concept-to-Page Indexing**: `src/lib/textbookPageMap.json` maps all 102+ chapters and concepts to exact PDF page numbers. When unindexed chapters are loaded, `constructNcertPdfUrl` in `src/lib/textbookResolver.ts` dynamically synthesizes canonical URLs based on class level, subject, and chapter number.
+- **Synchronized Auto-Scrolling**: The side book viewer (`SideBookViewer.tsx`) automatically jumps to the exact topic page via `#page=<N>&view=FitH` when the tutor advances concepts or introduces a problem citing a textbook page.
+- **Minimalist UI & Mobile Compatibility**: The viewer top bar stays strictly minimal (`[Title] [ < ] Page [ N ] / [Total] [ > ] [ExternalLink] [ ✕ ]`) with zero useless sync pills or bloat. An `ExternalLink` icon provides 1-tap full-tab access for mobile iOS Safari where cross-origin iframes may be restricted.
+
+## 18. Mandatory Dual Visuals (Image + Video) on Every Concept & Module Start
+- **Universal Dual Visual Mandate**: On Step 1 (Stage 1 Intuition) of EVERY module and EVERY single concept, the AI tutor MUST dispatch BOTH `search_and_show_image(...)` for an authentic, high-resolution scientific educational diagram AND `search_and_show_video(...)` for a real playable demonstration video.
+- **Proactive Frontend Pre-fetching**: The classroom client (`ensureConceptVisualSynthesized` in `page.tsx`) automatically pre-fetches and primes both the image and the video card from `/api/diagram/search-image` and `/api/diagram/search-video`, guaranteeing that both visual modalities are ready on the board.
+- **Zero Vague Search Queries**: Queries must be rich, concise academic topic descriptions (10–25 words for images, concise demonstration phrases for videos) specifying exact apparatus, anatomical structures, or phenomena.
+
+## 19. Universal Multi-Type Graph Engine & Micro-Visual Calling Mandate
+- **Seven Core Graph Modalities Supported**: The digital chalkboard graph engine (`MafsGraphCanvas.tsx`, `graphGating.ts`) supports seven distinct graphing modalities:
+  1. *Function Curves*: Single and comparative curves ($y = f(x)$) for polynomials, quadratics, trigonometric functions, $s-t, v-t, a-t$ kinematics, Ohm's law ($V-I$), thermodynamics ($P-V$), and chemical kinetics, with automatic intersection detection.
+  2. *Bounded Line Segments & Explicit Lengths*: Line segments (`segments`) with start and end stopping points, midpoint labels, and explicit lengths (e.g. `label: "AB = 5 cm"`).
+  3. *Critical Coordinate Points*: Key coordinates (`points`) with labels, coordinates, and educational callouts (roots, intercepts, vertex, local extrema).
+  4. *Statistical Bar Graphs & Histograms*: Discrete categories and frequencies or continuous class intervals (`bars`) rendered as rectangular polygons with values on top and labels below the x-axis.
+  5. *Physics Vectors*: Force, velocity, displacement, and ray vectors (`vectors`) with directional arrowheads, tail coordinates, and magnitude labels.
+  6. *Geometric Figures on Cartesian Plane*: Triangles, quadrilaterals, shaded regions under curves (`polygons`), and circles (`circles`) with center point marker and radius annotation.
+  7. *Multiple Freeform Text Annotations*: Arbitrary text labels (`texts`) positioned at custom $(x, y)$ coordinates across the graph canvas.
+- **Auto-Fitting Viewport Bounding**: `autoBounds` dynamically calculates the bounding box over all elements with a 20% margin, ensuring all figures fit without clipping.
+- **Problem Solving & Micro-Visual Mandate**: The AI tutor is strictly required to call `plot_mathematical_graph` whenever a question involves coordinate geometry, plotting, solving graphically, finding intercepts, kinematics ($v-t, s-t, a-t$), Ohm's law ($V-I$), thermodynamics ($P-V$), or statistical bar graphs. Furthermore, the tutor must proactively call graphs for small visual explanations (e.g. line segment lengths, vectors, coordinates) to aid student understanding.
+- **Zero Meaningless Graph Invariant**: The tutor is strictly forbidden from outputting an empty graph, placeholder `formula="x"`, or line through origin without actual points, segments, figures, or purpose.
+
+## 20. Supabase Schema Alignment & Memory Invariant
+- **Column Mapping Invariant**: The `ai_user_memories` table stores memory records using `memory_type` and `content` (with `id, user_id, importance_score, metadata, created_at`). Client queries must select `*` and fall back between `content`/`memory_text` and `memory_type`/`category` to prevent PostgREST 400 Bad Request errors.
+- **Chalkboard Notes Persistence**: Master notes and whiteboard pages are saved directly to `user_progress.chapter_notes` and `visual_progress.whiteboard_pages`, serving as the single source of truth for student revision.
