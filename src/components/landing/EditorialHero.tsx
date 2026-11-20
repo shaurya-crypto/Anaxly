@@ -116,6 +116,9 @@ export function EditorialHero() {
   const currentFrameRef = useRef<number>(1)
   const targetFrameRef = useRef<number>(1)
   const rafIdRef = useRef<number | null>(null)
+  const ctxRef = useRef<CanvasRenderingContext2D | null>(null)
+  const lastDrawnRef = useRef<HTMLImageElement | null>(null)
+  const wakeRef = useRef<() => void>(() => {})
   // LCP: get the first hero frame into the <head> as a high-priority preload.
   preload('/hero-frames/frame_001.webp', { as: 'image', fetchPriority: 'high' })
   const [firstFrameLoaded, setFirstFrameLoaded] = useState(false)
@@ -133,7 +136,9 @@ export function EditorialHero() {
   const renderFrame = useCallback((frameIndex: number) => {
     const canvas = canvasRef.current
     if (!canvas) return
-    const ctx = canvas.getContext('2d')
+    // Cache the 2D context instead of looking it up every frame.
+    if (!ctxRef.current) ctxRef.current = canvas.getContext('2d')
+    const ctx = ctxRef.current
     if (!ctx) return
 
     const safeIndex = Math.min(TOTAL_FRAMES, Math.max(1, frameIndex))
@@ -148,11 +153,13 @@ export function EditorialHero() {
       img = ready(safeIndex - 1 - d) || ready(safeIndex - 1 + d)
     }
     if (!img) return
+    // Same picture already on the canvas: skip the (expensive) full-screen redraw.
+    if (img === lastDrawnRef.current) return
+    lastDrawnRef.current = img
 
     const width = canvas.width
     const height = canvas.height
-
-    ctx.clearRect(0, 0, width, height)
+    // No clearRect: the cover-fit image always paints every pixel.
 
     const imgRatio = img.naturalWidth / img.naturalHeight
     const canvasRatio = width / height
@@ -177,15 +184,20 @@ export function EditorialHero() {
   const handleResize = useCallback(() => {
     const canvas = canvasRef.current
     if (!canvas) return
-    const dpr = Math.min(window.devicePixelRatio || 1, 2)
     const displayWidth = window.innerWidth
     const displayHeight = window.innerHeight
+    // Frames are 1920×1080. A backing store larger than the cover-fit source adds
+    // no detail, only pixels to push each frame, so cap the ratio at what the
+    // source can actually fill (never below 1, so nothing gets softer than before).
+    const coverScale = Math.max(displayWidth / 1920, displayHeight / 1080)
+    const dpr = Math.max(1, Math.min(window.devicePixelRatio || 1, 2, 1 / coverScale))
 
     canvas.width = displayWidth * dpr
     canvas.height = displayHeight * dpr
     canvas.style.width = `${displayWidth}px`
     canvas.style.height = `${displayHeight}px`
 
+    lastDrawnRef.current = null // resizing clears the canvas; force a redraw
     renderFrame(Math.round(currentFrameRef.current))
   }, [renderFrame])
 
@@ -202,8 +214,13 @@ export function EditorialHero() {
         const img = new window.Image()
         img.decoding = 'async'
         img.onload = () => {
-          images[idx] = img
-          resolve()
+          // Decode off the main thread first, so drawing it later never stalls a scroll frame.
+          const ready = () => {
+            images[idx] = img
+            resolve()
+          }
+          if (typeof img.decode === 'function') img.decode().then(ready, ready)
+          else ready()
         }
         img.onerror = () => resolve()
         img.src = `/hero-frames/frame_${String(idx + 1).padStart(3, '0')}.webp`
@@ -263,9 +280,12 @@ export function EditorialHero() {
     }
   }, [handleResize])
 
-  // Continuous Lerp (linear interpolation) animation loop for silky 60fps/120fps scrubbing
+  // Lerp animation loop for smooth scrubbing. Same easing as before, but it only
+  // runs while the frame is catching up to the scroll position, then goes idle
+  // instead of burning a requestAnimationFrame callback forever.
   useEffect(() => {
     let isRunning = true
+    let active = false
 
     const tick = () => {
       if (!isRunning) return
@@ -279,15 +299,23 @@ export function EditorialHero() {
         const next = current + diff * 0.12
         currentFrameRef.current = next
         renderFrame(Math.round(next))
+        rafIdRef.current = requestAnimationFrame(tick)
+      } else {
+        active = false
+        rafIdRef.current = null
       }
-
-      rafIdRef.current = requestAnimationFrame(tick)
     }
 
-    rafIdRef.current = requestAnimationFrame(tick)
+    wakeRef.current = () => {
+      if (active || !isRunning) return
+      active = true
+      rafIdRef.current = requestAnimationFrame(tick)
+    }
+    wakeRef.current()
 
     return () => {
       isRunning = false
+      wakeRef.current = () => {}
       if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current)
     }
   }, [renderFrame])
@@ -297,6 +325,7 @@ export function EditorialHero() {
     const unsubscribe = scrollYProgress.on('change', (progress) => {
       const clamped = Math.max(0, Math.min(1, progress))
       targetFrameRef.current = 1 + clamped * (TOTAL_FRAMES - 1)
+      wakeRef.current()
     })
 
     return () => unsubscribe()
