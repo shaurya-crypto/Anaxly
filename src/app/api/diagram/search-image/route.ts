@@ -147,8 +147,11 @@ function isImageRelevantToQuery(query: string, title: string, url: string): bool
   // Match count of query keywords
   const matchedTokens = queryTokens.filter((token) => target.includes(token))
 
-  if (matchedTokens.length === 0) {
-    return false
+  // Precision gate: If query has >= 2 substantive tokens, require at least 2 matches (or >= 35% match for longer queries)
+  // This eliminates random images matching only 1 generic word (e.g. matching only 'mirror' for 'concave mirror ray diagram')
+  const minRequiredMatches = queryTokens.length >= 4 ? 2 : queryTokens.length >= 2 ? 2 : 1;
+  if (matchedTokens.length < minRequiredMatches) {
+    return false;
   }
 
   // Cross-domain mismatch guards
@@ -180,7 +183,7 @@ const HARMFUL_IMAGE_PATTERNS = [
   /\b(?:porn|pornography|sex|sexual|nsfw|erotic|nude|nudity|escort|dating|bikini|lingerie)\b/i,
   /\b(?:gore|murder|corpse|execution|suicide|decapitat|mutilat|bloodshed)\b/i,
   /\b(?:casino|gambling|betting|poker|slots|crypto|bitcoin|forex)\b/i,
-  /\b(?:shutterstock|gettyimages|alamy|dreamstime|123rf|istockphoto|stock-photo|depositphotos)\b/i,
+  /\b(?:shutterstock|gettyimages|alamy|dreamstime|123rf|istockphoto|stock-photo|depositphotos|freepik|vectorstock|canva|cleanpng)\b/i,
   /\b(?:pinterest\.com|pinimg\.com)\b/i,
 ]
 
@@ -204,18 +207,36 @@ function scoreEducationalImage(url: string, title: string, query: string, source
   const lowerUrl = url.toLowerCase()
   const lowerTitle = title.toLowerCase()
   const lowerSource = (source || '').toLowerCase()
+  const target = `${lowerTitle} ${lowerUrl}`
 
   // 1. Search Engine (Bing Images / Web Search Engine) prioritized FIRST (+70 points)
   if (lowerSource.includes('bing') || lowerSource.includes('search engine') || lowerSource.includes('web')) {
     score += 70
   }
-  // 2. Authoritative Wikipedia PageImages queried SECOND (+35 points)
+  // 2. Authoritative Wikipedia PageImages queried SECOND (+50 points)
   else if (lowerSource.includes('wikipedia')) {
-    score += 35
+    score += 50
   }
-  // 3. Wikimedia Commons queried THIRD (+15 points)
+  // 3. Wikimedia Commons queried THIRD (+25 points)
   else if (lowerSource.includes('wikimedia')) {
-    score += 15
+    score += 25
+  }
+
+  // Exact Query Token Match Ratio (Up to +80 points)
+  const stopWords = new Set(['the', 'and', 'for', 'with', 'under', 'from', 'into', 'class', 'cbse', 'ncert', 'image', 'picture', 'photo'])
+  const queryTokens = query
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .split(/\s+/)
+    .filter((w) => w.length >= 3 && !stopWords.has(w))
+
+  if (queryTokens.length > 0) {
+    const matchedCount = queryTokens.filter((tok) => target.includes(tok)).length
+    const ratio = matchedCount / queryTokens.length
+    score += Math.round(ratio * 80)
+    if (matchedCount === queryTokens.length) {
+      score += 30
+    }
   }
 
   // Strong bonus for authentic educational math & science publishers (+45 points)
@@ -253,13 +274,19 @@ function scoreEducationalImage(url: string, title: string, query: string, source
   if (lowerUrl.includes('openstax.org') || lowerUrl.includes('khanacademy.org')) score += 20
   if (lowerUrl.includes('libretexts.org') || lowerUrl.includes('sciencedirect.com')) score += 15
 
-  // Diagram / vector / formula / experiment keywords in title
-  if (/diagram|schematic|ray diagram|cross section|ultrastructure|circuit|apparatus|truth table|logic diagram|geometry|graph/i.test(lowerTitle)) score += 20
-  if (/experiment|observation|microscope|vector|formula|proof|solution|concept/i.test(lowerTitle)) score += 10
+  // Diagram / vector / formula / experiment keywords in title or URL (+30 points)
+  if (/diagram|schematic|ray diagram|cross section|ultrastructure|circuit|apparatus|truth table|logic diagram|geometry|graph|labeled|labelled|micrograph/i.test(target)) score += 30
+  if (/experiment|observation|microscope|vector|formula|proof|solution|concept|textbook/i.test(target)) score += 15
 
   // Prefer clean vector / diagram web formats
   if (lowerUrl.endsWith('.png') || lowerUrl.endsWith('.svg') || lowerUrl.endsWith('.webp')) {
     score += 15
+  }
+
+  // Penalty for generic lifestyle / blog / decorative images without diagram/educational terms
+  const hasEducationalTerm = /diagram|schematic|chart|graph|figure|illustration|microscope|experiment|formula|geometry|ray|circuit|equation|anatomy|structure|labeled/i.test(target)
+  if (!hasEducationalTerm) {
+    score -= 40
   }
 
   // Heavy negative penalty for low-quality PPT slide decks, clip art, and ad scrapers (-80 points)

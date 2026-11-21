@@ -79,15 +79,17 @@ async function verifyVideoLink(url: string): Promise<boolean> {
 async function searchOnlineVideos(query: string, limit: number = 5): Promise<VideoResult[]> {
   try {
     const cleanQ = query.trim().replace(/[^\w\s-]/g, ' ')
-    let contextKeyword = 'educational demonstration'
+    // User mandate: Always prioritize animated short videos showing animations to understand across all classes and subjects
+    const hasAnimation = /animat|simulation|short video|how it works/i.test(cleanQ)
+    let contextKeyword = hasAnimation ? 'animation to understand' : 'animated short video concept animation to understand'
     if (/math|geometry|algebra|equation|proposition|logic|graph|calculus|trigonometry|quadrilateral|polygon/i.test(cleanQ)) {
-      contextKeyword = 'concept animation explanation'
+      contextKeyword = hasAnimation ? 'concept animation explanation' : 'animated short video concept animation to understand'
     } else if (/cell|tissue|microscope|plant|animal|biology|organelle|stomata|blood|peel/i.test(cleanQ)) {
-      contextKeyword = 'microscope lab experiment demonstration'
+      contextKeyword = hasAnimation ? '3d cell animation demonstration' : 'animated short video 3d animation to understand'
     } else if (/acid|base|reaction|chemistry|element|compound|molecule|atom/i.test(cleanQ)) {
-      contextKeyword = 'chemistry lab experiment demonstration'
+      contextKeyword = hasAnimation ? 'molecular reaction animation' : 'animated short video molecular animation to understand'
     } else if (/physics|motion|force|optics|light|ray|circuit|electric|lens|mirror|velocity|gravity/i.test(cleanQ)) {
-      contextKeyword = 'physics experiment demonstration'
+      contextKeyword = hasAnimation ? 'physics 3d animation demonstration' : 'animated short video physics animation to understand'
     }
     const searchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(`${cleanQ} ${contextKeyword}`)}`
     const controller = new AbortController()
@@ -136,13 +138,20 @@ async function searchOnlineVideos(query: string, limit: number = 5): Promise<Vid
             source: 'Online Video Search (YouTube)',
           })
 
-          if (videos.length >= limit) break
+          if (videos.length >= limit * 2) break
         }
       }
-      if (videos.length >= limit) break
+      if (videos.length >= limit * 2) break
     }
 
-    return videos
+    // Rank animated concept videos first
+    videos.sort((a, b) => {
+      const aAnim = /animat|3d|visual|simulation|how it works|diagram/i.test(`${a.title} ${a.description}`) ? 1 : 0
+      const bAnim = /animat|3d|visual|simulation|how it works|diagram/i.test(`${b.title} ${b.description}`) ? 1 : 0
+      return bAnim - aAnim
+    })
+
+    return videos.slice(0, limit)
   } catch (err: any) {
     if (err?.name !== 'AbortError') {
       console.warn('[searchOnlineVideos notice]:', err?.message || err)

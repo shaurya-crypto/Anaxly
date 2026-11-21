@@ -9,7 +9,7 @@ const cspHeader = `
   base-uri 'self';
   form-action 'self';
   frame-ancestors 'self';
-  frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://youtube.com;
+  frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://youtube.com https://ncert.nic.in;
   worker-src 'self' blob:;
   media-src 'self' blob: data:;
   connect-src 'self' https://*.supabase.co wss://*.supabase.co https://generativelanguage.googleapis.com wss://generativelanguage.googleapis.com https://api.simli.ai wss://api.simli.ai https://*.simli.ai wss://*.simli.ai https://*.livekit.cloud wss://*.livekit.cloud;

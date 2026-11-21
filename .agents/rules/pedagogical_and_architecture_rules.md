@@ -140,3 +140,25 @@ Whenever designing, prompting, or updating the AI tutor voice instruction:
 ## 20. Supabase Schema Alignment & Memory Invariant
 - **Column Mapping Invariant**: The `ai_user_memories` table stores memory records using `memory_type` and `content` (with `id, user_id, importance_score, metadata, created_at`). Client queries must select `*` and fall back between `content`/`memory_text` and `memory_type`/`category` to prevent PostgREST 400 Bad Request errors.
 - **Chalkboard Notes Persistence**: Master notes and whiteboard pages are saved directly to `user_progress.chapter_notes` and `visual_progress.whiteboard_pages`, serving as the single source of truth for student revision.
+
+## 21. Strict Doubt & Re-explanation Lock & Anti-Premature Page Turn Invariant
+- **Doubt & Re-explanation Lock (Zero Advancement on Doubts)**:
+  * Whenever the student asks a question, raises a doubt (including typos: `douth`, `douts`, `dought`, `daoubt`, `shanka`), says they don't understand (`samajh nahi aaya`), or asks to explain the whole concept again (`explain whole concept again`, `explain again`, `dobara samjhao`, `phir se samjhao`, `pura concept samjhao`):
+    1. The tutor is STRICTLY FORBIDDEN from calling `concept_completed`, `concept_done`, or creating a new page.
+    2. `studentHasActiveDoubtRef.current = true`, `hasConfirmedUnderstandingRef.current = false`, `lastVerdictStatusRef.current = 'neutral'`.
+    3. `handleConceptDone` strictly aborts with `PEDAGOGICAL DOUBT GUARD` if an active doubt or re-explanation request exists.
+    4. The tutor MUST re-explain the concept thoroughly from the very beginning with fresh everyday intuition and write step-by-step notes on the CURRENT chalkboard page.
+- **Sequential Concept Progression & Non-Zero Progress Percent Guarantee**:
+  * Advancing to concept $K$ (`nextIdx`) GUARANTEES that all prior concepts (`keyConcepts.slice(0, nextIdx)`) are permanently preserved in `completedConcepts`.
+  * `progressPercent` reflects true completed percentage ($> 0\%$) and previous concepts are permanently marked in the sidebar with checkmarks.
+- **Dedicated 1-Concept-Per-Page Layout**:
+  * Unilateral AI `new_page` actions are completely ignored by the client; the chalkboard page switches ONLY when transitioning concepts via `advanceToNextConcept` or explicit user navigation.
+
+## 22. Animated Short Video Search & High-Precision Image Relevance Invariant
+- **Animated Short Video Mandate Across All Classes & Subjects**:
+  * All video search queries must explicitly request an `animated short video showing animation to understand <concept>` across all classes (6–12) and subjects (Maths, Physics, Chemistry, Biology).
+  * Video search ranking prioritizes candidates matching `animat`, `3d`, `simulation`, and `how it works` in titles/descriptions.
+- **High-Precision Image Relevance Gate & Scoring**:
+  * `isImageRelevantToQuery` enforces a minimum 2-token match threshold for queries with $\ge 2$ substantive words, eliminating single generic word false matches.
+  * `scoreEducationalImage` awards up to +80 points for exact token match ratio, +50 for Wikipedia PageImages, +30 for labeled diagrams/schematics, and penalizes generic stock/lifestyle images (-40 points).
+

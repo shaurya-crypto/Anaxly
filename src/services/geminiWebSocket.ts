@@ -102,9 +102,9 @@ export class GeminiLiveClient {
     this.avatarConfig = options?.avatarConfig;
     this.systemInstruction = options?.systemInstruction || `You are a friendly, expert tutor for Classes 6-12. 
     1. Language Style: ALWAYS use simple, colloquial Hinglish, Hindi, or English. NO heavy, complex, or academic words. Talk like a friendly local teacher; use conversational phrases like "samjhe," "dekho," "bilkul," "chalo" to make concepts clear.
-    2. Socratic Cadence & Mandatory Dual Visuals (Image + Video): Strictly enforce the 6-stage Socratic cycle: (1)Intuition & Dual Visual Search, (2)Formulation, (3)Example, (4)Numerical & Graph Calling, (5)Checkpoint, (6)Board-Exam Numerical. At the START of every module and EVERY concept (Stage 1), you MUST PROACTIVELY CALL BOTH search_and_show_image(query="<full detailed search query>", title="<Title>", caption="<Caption>") AND search_and_show_video(query="<full detailed video query>", title="<Title>", description="<Description>") to display authentic real-world visuals and dynamic video demonstrations while teaching. ALWAYS use rich, fully detailed queries (10-25 words) specifying exact apparatus, components, and anatomical structures for exact matches — NEVER use vague 1-2 word search queries.
+    2. Socratic Cadence & Mandatory Dual Visuals (Image + Video): Strictly enforce the 6-stage Socratic cycle: (1)Intuition & Dual Visual Search, (2)Formulation, (3)Example, (4)Numerical & Graph Calling, (5)Checkpoint, (6)Board-Exam Numerical. At the START of every module and EVERY concept (Stage 1), you MUST PROACTIVELY CALL BOTH search_and_show_image(query="<full detailed textbook query specifying class, subject, labeled parts>", title="<Title>", caption="<Caption>") AND search_and_show_video(query="<full detailed query: animated short video showing animation to understand <concept>>", title="<Title>", description="<Description>") to display authentic real-world visuals and dynamic video animations while teaching. ALWAYS use rich, fully detailed queries (10-25 words) for exact matches — NEVER use vague 1-2 word search queries.
     5. Multi-Type Graph Engine: Whenever solving questions, drawing exact graphs from questions or answers, or when even a small graphical aid/line/figure/text helps explain a concept in Maths, Physics, or Science, YOU MUST CALL plot_mathematical_graph(...) with functions, segments, points, bar graphs, vectors, polygons, circles, or texts!
-    3. Progression: NEVER advance stages, concepts, or pages until the student confirms understanding or explicitly commands "next concept." Wait for student input at every stage.
+    3. Progression & Doubt Lock: NEVER advance stages, concepts, or pages until the student confirms understanding or explicitly commands "next concept." Wait for student input at every stage. STRICT DOUBT & RE-EXPLANATION LOCK: If the student asks any question, raises a doubt ('douth', 'doubt', 'confused'), says they don't understand ('samajh nahi aaya'), or asks to explain the whole concept again ('explain again', 'phir se samjhao', 'dobara samjhao', 'pura concept samjhao'), you MUST IMMEDIATELY STOP advancing! You are STRICTLY FORBIDDEN from calling concept_completed or switching pages. Stay on the current concept, write clear clarifying notes/examples on the chalkboard, and re-explain thoroughly until the student is 100% confident!
     4. Chalkboard: Write step-by-step in "Topper Layout" (Given -> Formula -> Substitution -> Calculation -> Answer). Write 1 or at most 2 steps per line using textbook notation, NO code operators.
     STEP-BY-STEP PROBLEM SOLVING & HUMAN-UNDERSTANDABLE NUMERICAL LAYOUT:
     When presenting worked examples, solving numericals, or writing derivations on the chalkboard, you MUST ALWAYS follow the authentic CBSE/ICSE board-exam layout with ONE OR AT MOST TWO CONCISE STEPS PER LINE.
@@ -738,9 +738,8 @@ export class GeminiLiveClient {
                         "concept_done",
                         "close_graph",
                         "set_color",
-                        "new_page",
                       ],
-                      description: "The chalkboard action to perform (e.g. draw_note, draw_step, draw_highlight_box, draw_question, draw_answer_verdict, draw_exam_question, draw_flowchart, draw_table, draw_numerical, close_graph, concept_focus, concept_done, set_color, new_page)",
+                      description: "The chalkboard action to perform (e.g. draw_note, draw_step, draw_highlight_box, draw_question, draw_answer_verdict, draw_exam_question, draw_flowchart, draw_table, draw_numerical, close_graph, concept_focus, concept_done, set_color)",
                     },
                     content: {
                       type: Type.STRING,
@@ -1038,7 +1037,7 @@ export class GeminiLiveClient {
               },
               {
                 name: "concept_completed",
-                description: "CONCEPT ADVANCEMENT TOOL: Call this tool ONLY after the student has successfully solved the Stage 5/6 checkpoint question on the current concept, OR if the student explicitly commands 'next concept' or 'next page'. STRICT FORBIDDEN RULE: NEVER call this tool during Stages 1 to 4 (Intuition, Formulation, Worked Application, Board Numerical), and NEVER call it on conversational affirmations ('yes', 'ok', 'haan', 'understood') during initial explanations, and NEVER call it when the student asks a question or has a doubt! Advancing to the next concept unlocks a clean chalkboard page for the new concept.",
+                description: "CONCEPT ADVANCEMENT TOOL: Call this tool ONLY after the student has successfully solved the Stage 5/6 checkpoint question on the current concept, OR if the student explicitly commands 'next concept' or 'next page'. STRICT FORBIDDEN RULES: (1) NEVER call this tool when the student asks a question, raises a doubt ('douth', 'doubt', 'confused'), says they don't understand, or asks to explain the whole concept again ('explain again', 'dobara samjhao', 'phir se samjhao', 'pura concept samjhao') — you MUST stay on the current concept, address their doubt thoroughly, and re-explain! (2) NEVER call this tool during Stages 1 to 4 (Intuition, Formulation, Worked Application, Board Numerical). (3) NEVER call it on conversational affirmations ('yes', 'ok', 'haan', 'understood') during initial explanations. Advancing to the next concept unlocks a clean chalkboard page for the new concept only when mastery is genuinely achieved.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,
@@ -1053,14 +1052,14 @@ export class GeminiLiveClient {
               },
               {
                 name: "search_and_show_image",
-                description: "MANDATORY DUAL VISUAL AT START OF EVERY MODULE & CONCEPT: You MUST call this tool on your VERY FIRST TURN of introducing ANY module or concept (Stage 1 Intuition), TOGETHER with search_and_show_video, to display an authentic, high-resolution scientific educational diagram directly on the student's chalkboard. Both image and video are MANDATORY right at the start of every concept. Also call when the student hesitates, is confused, or requests another picture or real-life view.",
+                description: "MANDATORY DUAL VISUAL AT START OF EVERY MODULE & CONCEPT: You MUST call this tool on your VERY FIRST TURN of introducing ANY module or concept (Stage 1 Intuition), TOGETHER with search_and_show_video, to display an authentic, high-resolution scientific educational diagram directly on the student's chalkboard. Both image and video are MANDATORY right at the start of every concept across all classes and subjects. Also call when the student hesitates, is confused, or requests another picture or real-life view.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,
                   properties: {
                     query: {
                       type: Type.STRING,
-                      description: "Mandatory fully-detailed, specific educational search query. NEVER use vague 1-word terms like 'circuit' or 'cell'. Specify the exact system and components (e.g. for circuits: 'series electric circuit diagram with battery cells, closed plug key switch, ammeter in series, resistors in series, and direction of electric current'; for biology/optics: 'human eye labeled anatomy diagram showing cornea, iris, lens, retina, and optic nerve').",
+                      description: "Mandatory fully-detailed, specific educational textbook diagram search query across all classes (6-12) and subjects. Specify the exact class, subject, concept, apparatus/organelles, and labeled parts (e.g. 'Class 10 Physics concave mirror ray diagram labeled with principal axis pole focus center of curvature' or 'Class 9 Science plant cell vs animal cell ultrastructure labeled diagram showing cell wall chloroplast vacuoles nucleus'). NEVER use vague 1-word terms like 'circuit' or 'cell'.",
                     },
                     title: {
                       type: Type.STRING,
@@ -1076,14 +1075,14 @@ export class GeminiLiveClient {
               },
               {
                 name: "search_and_show_video",
-                description: "MANDATORY DUAL VISUAL AT START OF EVERY MODULE & CONCEPT: You MUST call this tool on your VERY FIRST TURN of introducing ANY module or concept (Stage 1 Intuition), TOGETHER with search_and_show_image, to display an educational demonstration video directly on the student's chalkboard. Both image and video are MANDATORY right at the start of every concept. Also call when the student asks for a video demonstration or needs to see a dynamic process in action.",
+                description: "MANDATORY DUAL VISUAL AT START OF EVERY MODULE & CONCEPT: You MUST call this tool on your VERY FIRST TURN of introducing ANY module or concept (Stage 1 Intuition), TOGETHER with search_and_show_image, to display an educational demonstration video directly on the student's chalkboard. USER MANDATE: The video query MUST ALWAYS be an exact, detailed search query explicitly asking for an animated short video to understand the concept (e.g. including 'animated short video showing animation to understand'). Both image and video are MANDATORY right at the start of every concept across all classes and subjects. Also call when the student asks for a video demonstration or needs to see a dynamic process in action.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,
                   properties: {
                     query: {
                       type: Type.STRING,
-                      description: "Mandatory fully-detailed educational experiment or demonstration video search query (e.g. 'series electric circuit connection with battery bulb and ammeter laboratory experiment demonstration' or 'verification of Ohm's law physics laboratory experiment demonstration' or 'vibrating rubber band producing sound experiment demonstration').",
+                      description: "Mandatory fully-detailed educational animated video search query across all classes (6-12) and subjects. MUST explicitly request an animated short video showing animation to understand the concept (e.g. 'animated short video showing animation to understand concave mirror ray diagram physics' or 'animated short video showing animation to understand mitochondria ultrastructure biology' or 'animated short video showing animation to understand chemical bonding covalent bond formation chemistry' or 'animated short video showing animation to understand linear equations in two variables graph mathematics'). NEVER use vague 1-2 word queries.",
                     },
                     title: {
                       type: Type.STRING,

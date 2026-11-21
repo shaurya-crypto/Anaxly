@@ -440,19 +440,6 @@ function buildDetailedEducationalQueries(
   const existingImg = (cv?.image_search_query || cv?.image_query || '').trim()
   const existingVid = (cv?.video_search_query || cv?.video_query || '').trim()
 
-  if (
-    existingImg &&
-    !existingImg.includes('chemistry laboratory apparatus setup diagram of') &&
-    !existingImg.includes('sound wave physics diagram of') &&
-    existingVid &&
-    !existingVid.includes('chemistry laboratory experiment demonstration')
-  ) {
-    return {
-      image_search_query: existingImg,
-      video_search_query: existingVid
-    }
-  }
-
   const rawConceptTitle = conceptTitle || cv?.concept_title || ''
   const rawDiagramTitle = cv?.diagram_title || ''
   const rawWhatToMake = cv?.what_to_make || ''
@@ -490,25 +477,37 @@ function buildDetailedEducationalQueries(
   let imgQuery = existingImg
   let vidQuery = existingVid
 
-  if (isCircuit) {
-    let circuitDetails = cleanedWhatToMake || baseDiagram
-    if (/circuit diagram with/i.test(circuitDetails)) {
-      imgQuery = `${circuitDetails}, ammeter, voltmeter, switch, and current direction arrows`
+  // Video Search: Mandate "animated short video showing animation to understand" across all classes and subjects
+  if (vidQuery && !/animated short video|animation to understand/i.test(vidQuery)) {
+    vidQuery = `animated short video showing animation to understand ${vidQuery}`
+  }
+
+  // Image Search: Ensure textbook diagram with labeled parts
+  if (imgQuery && !/diagram|labeled|labelled/i.test(imgQuery)) {
+    imgQuery = `${imgQuery} textbook diagram with labeled parts`
+  }
+
+  if (!imgQuery || !vidQuery) {
+    if (isCircuit) {
+      let circuitDetails = cleanedWhatToMake || baseDiagram
+      if (/circuit diagram with/i.test(circuitDetails)) {
+        imgQuery = imgQuery || `${circuitDetails}, ammeter, voltmeter, switch, and current direction arrows`
+      } else {
+        imgQuery = imgQuery || `electric circuit diagram of ${baseDiagram} with battery, ammeter, resistors, switch, and current direction arrows`
+      }
+      vidQuery = vidQuery || `animated short video showing animation to understand ${baseDiagram} electric circuit connection and current flow`
+    } else if (isMath) {
+      const mathTopic = baseDiagram || baseConcept
+      imgQuery = imgQuery || `${subject || 'Mathematics'} ${mathTopic} step by step textbook diagram with labeled points coordinates and geometric proof`
+      vidQuery = vidQuery || `animated short video showing animation to understand ${mathTopic} concept mathematics`
     } else {
-      imgQuery = `electric circuit diagram of ${baseDiagram} with battery, ammeter, resistors, switch, and current direction arrows`
+      let descriptiveCore = cleanedWhatToMake
+      if (!descriptiveCore || descriptiveCore.length < 10) {
+        descriptiveCore = baseDiagram || baseConcept
+      }
+      imgQuery = imgQuery || `${descriptiveCore} textbook educational diagram with labeled parts and clear annotations`
+      vidQuery = vidQuery || `animated short video showing animation to understand ${baseDiagram || baseConcept}`
     }
-    vidQuery = `${baseDiagram} electric circuit laboratory experiment demonstration`
-  } else if (isMath) {
-    const mathTopic = baseDiagram || baseConcept
-    imgQuery = `${mathTopic} step by step mathematical chalkboard solution diagram`
-    vidQuery = `${mathTopic} mathematics explanation`
-  } else {
-    let descriptiveCore = cleanedWhatToMake
-    if (!descriptiveCore || descriptiveCore.length < 10) {
-      descriptiveCore = baseDiagram || baseConcept
-    }
-    imgQuery = `${descriptiveCore} scientific educational diagram with clear labels`
-    vidQuery = `${baseDiagram || baseConcept} educational demonstration video`
   }
 
   imgQuery = imgQuery.replace(/\s+/g, ' ').replace(/\.{2,}/g, '.').trim()
@@ -1025,6 +1024,11 @@ export default function ModuleClassroomPage() {
     const clean = text.toLowerCase().trim().replace(/[.,!?;:'"()[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim()
     if (!clean) return false
 
+    // If student mentions doubt, question, or asks to repeat/re-explain, NEVER treat as confirmation!
+    if (isStudentQuestionOrDoubt(clean) || isRepeatIntent(clean) || isDontUnderstandIntent(clean)) {
+      return false
+    }
+
     const exactAffirmations = new Set([
       'yes', 'yeah', 'yep', 'yup', 'sure', 'ok', 'okay', 'alright', 'fine', 'correct',
       'understood', 'i understood', 'i understand', 'yes understood', 'yes i understood',
@@ -1074,12 +1078,17 @@ export default function ModuleClassroomPage() {
       /\b(?:can|could|will|would)\s+(?:you|we)\b/i,
       /\b(?:is|are|does|do|did|was|were)\s+(?:it|this|that|there)\b/i,
       /\b(?:explain|repeat|clarify|elaborate)\b/i,
-      /\b(?:doubt|doubts|confusion|confused|unclear)\b/i,
+      /\b(?:doubt|doubts|douth|douts|dought|daoubt|daot|shanka|confusion|confused|unclear)\b/i,
       /\b(?:not\s*sure|don't\s*get|didn't\s*get|did\s*not\s*get|don't\s*understand|didn't\s*understand)\b/i,
       /\b(?:help\s*me|once\s*more|one\s*more\s*time|again)\b/i,
       /\b(?:kya|kyun|kyu|kaise|kab|kahan|kaun)\b/i,
-      /\b(?:samajh\s*nahi\s*aaya|samajh\s*na\s*aaya|dobara|phir\s*se|batao|samjha\s*do)\b/i,
+      /\b(?:samajh\s*nahi\s*aaya|samajh\s*na\s*aaya|dobara|phir\s*se|batao|samjha\s*do|samjhao)\b/i,
       /\b(?:wait|hold\s*on|what\s*if)\b/i,
+      /\b(?:explain\s*(?:the\s*)?(?:whole|entire|full|all|complete)?\s*concept\s*again)\b/i,
+      /\b(?:explain\s*(?:it\s*|this\s*)?again|teach\s*(?:it\s*|this\s*)?again)\b/i,
+      /\b(?:pura\s*concept\s*samjhao|pura\s*samjhao|dobara\s*samjhao|phir\s*se\s*samjhao)\b/i,
+      /\b(?:teach\s*(?:this|it|again)|shuru\s*se\s*samjhao|start\s*(?:from\s*)?again)\b/i,
+      /\b(?:i\s*have\s*a\s*(?:doubt|douth|question)|have\s*(?:a\s*)?(?:doubt|douth)|ek\s*doubt)\b/i,
     ]
     return questionPatterns.some((p) => p.test(clean))
   }
@@ -1142,6 +1151,11 @@ export default function ModuleClassroomPage() {
     const patterns = [
       /\b(?:repeat\s*that|can\s*you\s*repeat|please\s*repeat|say\s*that\s*again)\b/i,
       /\b(?:phir\s*se\s*bolo|dobara\s*bolo|ek\s*baar\s*phir|pardon)\b/i,
+      /\b(?:explain\s*(?:the\s*)?(?:whole|entire|full|all|complete)?\s*concept\s*again)\b/i,
+      /\b(?:explain\s*(?:it\s*|this\s*)?again|teach\s*(?:it\s*|this\s*)?again)\b/i,
+      /\b(?:dobara\s*samjhao|phir\s*se\s*samjhao|pura\s*concept\s*samjhao|pura\s*samjhao|shuru\s*se\s*samjhao)\b/i,
+      /\b(?:start\s*(?:from\s*the\s*)?beginning|from\s*scratch)\b/i,
+      /\b(?:one\s*more\s*time|once\s*again)\b/i,
       /^repeat$/i,
     ]
     return patterns.some((p) => p.test(clean))
@@ -1234,13 +1248,58 @@ export default function ModuleClassroomPage() {
       return
     }
 
+    // 0. Active Doubt / Question / Repeat Intent Fast-Paths MUST run BEFORE confirmation checks!
+    if (isRepeatIntent(cleanAnswer)) {
+      hasConfirmedUnderstandingRef.current = false
+      studentHasActiveDoubtRef.current = true
+      lastVerdictStatusRef.current = 'neutral'
+      isAwaitingStudentAnswerRef.current = false
+      setIsAwaitingStudentAnswer(false)
+      isReviewingVerdictRef.current = false
+      setIsReviewingVerdict(false)
+
+      chalkboardRef.current?.drawNote?.(`Explanation Requested: ${cleanAnswer}`, 'coral')
+      sendTextMessage(
+        `[STUDENT REQUEST - EXPLAIN WHOLE CONCEPT AGAIN / REPEAT]: The student requested: "${cleanAnswer}".
+CRITICAL DIRECTIVE:
+1. The student did not understand or wants the whole concept explained again. Patiently re-explain the concept from the very beginning with fresh everyday intuition and clarity in 5 to 6 well-formed sentences.
+2. STRICT LOCK: You MUST stay on the CURRENT concept and current chalkboard page. DO NOT advance to the next concept or call concept_completed!
+3. After thoroughly re-explaining, check if it makes sense now. HARD STOP: Wait for student response!`,
+        cleanAnswer
+      )
+      return
+    }
+
+    if (isStudentQuestionOrDoubt(cleanAnswer)) {
+      hasConfirmedUnderstandingRef.current = false
+      studentHasActiveDoubtRef.current = true
+      lastVerdictStatusRef.current = 'neutral'
+      isAwaitingStudentAnswerRef.current = false
+      setIsAwaitingStudentAnswer(false)
+      isReviewingVerdictRef.current = false
+      setIsReviewingVerdict(false)
+
+      chalkboardRef.current?.drawNote?.(`Student Query: ${cleanAnswer}`, 'coral')
+      sendTextMessage(
+        `[STUDENT QUESTION / DOUBT ON CURRENT CONCEPT]: The student asked: "${cleanAnswer}".
+CRITICAL DIRECTIVE:
+1. Address the student's question/doubt immediately with complete, crystal-clear explanation and step-by-step guidance on the current chalkboard. Speak in complete, articulate sentences with proper teaching depth (do NOT stop abruptly after just one short sentence).
+2. STRICT LOCK: DO NOT evaluate this as a test answer, and DO NOT call concept_completed or advance to the next concept.
+3. Keep answering on the CURRENT concept until the student's doubt is completely cleared.`,
+        cleanAnswer
+      )
+      return
+    }
+
     if (isConfirmationOrNextIntent(cleanAnswer)) {
+      studentHasActiveDoubtRef.current = false
       hasConfirmedUnderstandingRef.current = true
     }
 
     // Explicit next concept fast-path (only when user explicitly requests advancement)
     if (isExplicitNextConceptIntent(cleanAnswer)) {
       hasConfirmedUnderstandingRef.current = true
+      studentHasActiveDoubtRef.current = false
       lastVerdictStatusRef.current = 'correct'
       isReviewingVerdictRef.current = false
       setIsReviewingVerdict(false)
@@ -1430,13 +1489,56 @@ CRITICAL DIRECTIVE:
       return
     }
 
+    // 0. Active Doubt / Question / Repeat Intent Fast-Paths MUST run BEFORE confirmation checks!
+    if (isRepeatIntent(cleanAnswer)) {
+      hasConfirmedUnderstandingRef.current = false
+      studentHasActiveDoubtRef.current = true
+      lastVerdictStatusRef.current = 'neutral'
+      isAwaitingStudentAnswerRef.current = false
+      setIsAwaitingStudentAnswer(false)
+      isReviewingVerdictRef.current = false
+      setIsReviewingVerdict(false)
+
+      chalkboardRef.current?.drawNote?.(`Explanation Requested: ${cleanAnswer}`, 'coral')
+      sendTextMessage(
+        `[STUDENT REQUEST - EXPLAIN WHOLE CONCEPT AGAIN / REPEAT]: The student requested: "${cleanAnswer}".
+CRITICAL DIRECTIVE:
+1. The student did not understand or wants the whole concept explained again. Patiently re-explain the concept from the very beginning with fresh everyday intuition and clarity in 5 to 6 well-formed sentences.
+2. STRICT LOCK: You MUST stay on the CURRENT concept and current chalkboard page. DO NOT advance to the next concept or call concept_completed!
+3. After thoroughly re-explaining, check if it makes sense now. HARD STOP: Wait for student response!`
+      )
+      return
+    }
+
+    if (isStudentQuestionOrDoubt(cleanAnswer)) {
+      hasConfirmedUnderstandingRef.current = false
+      studentHasActiveDoubtRef.current = true
+      lastVerdictStatusRef.current = 'neutral'
+      isAwaitingStudentAnswerRef.current = false
+      setIsAwaitingStudentAnswer(false)
+      isReviewingVerdictRef.current = false
+      setIsReviewingVerdict(false)
+
+      chalkboardRef.current?.drawNote?.(`Student Query: ${cleanAnswer}`, 'coral')
+      sendTextMessage(
+        `[STUDENT QUESTION / DOUBT ON CURRENT CONCEPT]: The student asked: "${cleanAnswer}".
+CRITICAL DIRECTIVE:
+1. Address the student's question/doubt immediately with complete, crystal-clear explanation and step-by-step guidance on the current chalkboard. Speak in complete, articulate sentences with proper teaching depth (do NOT stop abruptly after just one short sentence).
+2. STRICT LOCK: DO NOT evaluate this as a test answer, and DO NOT call concept_completed or advance to the next concept.
+3. Keep answering on the CURRENT concept until the student's doubt is completely cleared.`
+      )
+      return
+    }
+
     if (isConfirmationOrNextIntent(cleanAnswer)) {
+      studentHasActiveDoubtRef.current = false
       hasConfirmedUnderstandingRef.current = true
     }
 
     // Explicit next concept fast-path (only when user explicitly requests advancement)
     if (isExplicitNextConceptIntent(cleanAnswer)) {
       hasConfirmedUnderstandingRef.current = true
+      studentHasActiveDoubtRef.current = false
       lastVerdictStatusRef.current = 'correct'
       isReviewingVerdictRef.current = false
       setIsReviewingVerdict(false)
@@ -1805,6 +1907,7 @@ CRITICAL DIRECTIVE:
   const isUserTerminatedRef = useRef<boolean>(false)
   const reconnectAttemptsRef = useRef<number>(0)
   const hasConfirmedUnderstandingRef = useRef<boolean>(false)
+  const studentHasActiveDoubtRef = useRef<boolean>(false)
   const [isReconnecting, setIsReconnecting] = useState<boolean>(false)
   const reconnectAttemptTimerRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -2426,9 +2529,12 @@ CRITICAL DIRECTIVE:
         }
       }
 
-      if (isStudentQuestionOrDoubt(userText)) {
+      if (isStudentQuestionOrDoubt(userText) || isRepeatIntent(userText) || isDontUnderstandIntent(userText)) {
         hasConfirmedUnderstandingRef.current = false
+        studentHasActiveDoubtRef.current = true
+        lastVerdictStatusRef.current = 'neutral'
       } else if (isConfirmationOrNextIntent(userText)) {
+        studentHasActiveDoubtRef.current = false
         hasConfirmedUnderstandingRef.current = true
       }
 
@@ -3347,7 +3453,9 @@ CRITICAL DIRECTIVE:
         .replace(/^\d+[\.\:\)\-]\s*/, '')
         .replace(/[^a-z0-9]/g, '')
 
-    const updated = [...completedList]
+    // Guarantee all concepts prior to nextIdx are permanently marked completed
+    const priorConcepts = keyConcepts.slice(0, nextIdx)
+    const updated = Array.from(new Set([...completedList, ...priorConcepts]))
     completedConceptsRef.current = updated
     setCompletedConcepts(updated)
 
@@ -3671,6 +3779,35 @@ CRITICAL INSTRUCTIONS:
       isExplicitNextConceptIntent(conceptName || '')
 
     if (!isExplicitUserCommand) {
+      // Guard 1: Active student doubt or repeat/re-explain request
+      if (studentHasActiveDoubtRef.current) {
+        console.warn(`[Classroom Socratic Guard] Blocked concept_completed for Concept ${currentIdx + 1} ("${keyConcepts[currentIdx]}"). Student has an active doubt or re-explanation request.`)
+        sendTextMessage(
+          `[PEDAGOGICAL DOUBT GUARD]: You called concept_completed, but the student has an active doubt or asked to explain the concept again!
+CRITICAL INVARIANT:
+1. You MUST NOT advance to the next concept or change pages when the student has a doubt or requested re-explanation.
+2. Address their doubt thoroughly with clarity and patience on the current chalkboard.
+3. Only after the student confirms that their doubt is fully cleared can you pose a checkpoint question and eventually advance.`
+        )
+        return
+      }
+
+      // Guard 2: Inspect recent student transcripts for active doubts
+      const recentStudentTranscripts = transcripts
+        .filter((t) => t.sender === 'user')
+        .slice(-3)
+      const hasRecentDoubt = recentStudentTranscripts.some((t) =>
+        isStudentQuestionOrDoubt(t.text) || isRepeatIntent(t.text) || isDontUnderstandIntent(t.text)
+      )
+      if (hasRecentDoubt && !hasConfirmedUnderstandingRef.current) {
+        studentHasActiveDoubtRef.current = true
+        console.warn(`[Classroom Socratic Guard] Blocked concept_completed: recent student transcript contains doubt/question.`)
+        sendTextMessage(
+          `[PEDAGOGICAL DOUBT GUARD]: The student recently asked a question or expressed doubt. You MUST NOT advance concepts. Answer their doubt on the current chalkboard first!`
+        )
+        return
+      }
+
       // Programmatic Socratic Stage 1-4 Gating:
       // Verify that the chalkboard has actually posed a checkpoint question or evaluated student answer on this page
       const currentBoard = chalkboardRef.current?.getCompactBoardContext?.(currentIdx) || ''
@@ -3741,11 +3878,11 @@ MANDATORY INVARIANT:
     }
 
     const canonicalConcept = keyConcepts[currentIdx] || keyConcepts[matchedIdx]
-    let updated = completedConceptsRef.current
-    if (canonicalConcept && !completedConceptsRef.current.includes(canonicalConcept)) {
-      updated = [...completedConceptsRef.current, canonicalConcept]
-      completedConceptsRef.current = updated
-      setCompletedConcepts(updated)
+    const priorConcepts = keyConcepts.slice(0, currentIdx + 1)
+    let updated = Array.from(new Set([...completedConceptsRef.current, ...priorConcepts, ...(canonicalConcept ? [canonicalConcept] : [])]))
+    completedConceptsRef.current = updated
+    setCompletedConcepts(updated)
+    if (canonicalConcept) {
 
       if (userId && moduleId) {
         const latestBoardNotes = (chalkboardRef.current?.getBoardSummary()?.fullSummary || latestBoardSummary || chapterNotes || '').trim()
@@ -4279,6 +4416,12 @@ STRICT 6-STAGE CADENCE PER CONCEPT:
   THE HARD STOP: You MUST stop speaking completely and wait for the student's confirmation.
   LOCK: You are strictly forbidden from calling concept_completed or write_chalkboard(action="concept_done") until the student explicitly answers and confirms they understood!
   * STRICT ZERO REPETITION MANDATE: NEVER ask "is it clear?", "did you understand?", or ask for confirmation again once the student has already said yes or confirmed. Once the concept is genuinely complete, proceed to teach the next concept without delay! Transition immediately with an everyday physical hook.
+- STRICT DOUBT & RE-EXPLANATION LOCK (HIGHEST PRIORITY):
+  If at ANY time the student raises a doubt ("doubt", "douth", "confused", "unclear"), asks a question, says they don't understand ("samajh nahi aaya"), or asks to explain the whole concept again ("explain whole concept again", "explain again", "dobara samjhao", "phir se samjhao", "pura concept samjhao"):
+  1. YOU ARE STRICTLY FORBIDDEN from calling concept_completed, concept_done, or changing pages.
+  2. STOP immediately, stay on the CURRENT concept, and acknowledge their doubt with warmth.
+  3. Re-explain the concept thoroughly from a fresh perspective using a new real-world analogy and write step-by-step notes on the CURRENT chalkboard.
+  4. Only after the student explicitly says their doubt is cleared and answers a checkpoint question can you advance.
 
 ========================================================================================
 EXPERIENCED MASTER TEACHER PEDAGOGY (TEACH LIKE AN ICONIC FACULTY MENTOR):
@@ -4348,14 +4491,15 @@ EXPERIENCED MASTER TEACHER PEDAGOGY (TEACH LIKE AN ICONIC FACULTY MENTOR):
 MULTIMEDIA & SCIENTIFIC VISUAL ENGINE TOOLS:
 ========================================================================================
 MANDATORY CONCEPT START VISUAL SEARCH (HIGHEST PRIORITY):
-   At the START of teaching ANY concept (Stage 1 Intuition), you MUST IMMEDIATELY call:
+   At the START of teaching ANY module and EVERY concept (Stage 1 Intuition), you MUST IMMEDIATELY call BOTH:
    1. search_and_show_image(query="<comprehensive 10-25 word query>", title="<Title>", caption="<Caption>")
-      Use a FULLY DETAILED query specifying exact components, apparatus parts, anatomical structures, or system elements for an exact image match.
-      Examples: "CBSE Class 11 simple pendulum apparatus diagram showing bob, string, rigid support, mean position, and amplitude labels" or "labeled cross section of human eye showing cornea, aqueous humour, iris, pupil, lens, vitreous humour, retina, fovea, blind spot, and optic nerve"
-      NEVER use vague queries like "pendulum" or "eye diagram".
-   2. If the concept involves physical motion, laboratory experiment, wave phenomena, chemical reaction, or dynamic process, ALSO call:
-      search_and_show_video(query="<detailed video query>", title="<Title>", description="<Description>")
-      Example: "simple pendulum time period measurement laboratory experiment demonstration with stopwatch and bob oscillation"
+      Use a FULLY DETAILED textbook diagram query specifying exact class, subject, components, apparatus parts, anatomical structures, or system elements with labeled parts for an exact image match across all classes and subjects.
+      Examples: "CBSE Class 11 Physics simple pendulum apparatus diagram showing bob, string, rigid support, mean position, and amplitude labels" or "Class 9 Science labeled cross section of plant cell vs animal cell showing cell wall chloroplast vacuoles nucleus".
+      NEVER use vague queries like "pendulum" or "cell".
+   2. search_and_show_video(query="<animated short video query>", title="<Title>", description="<Description>")
+      MANDATORY VIDEO FORMAT FOR ALL CLASSES & SUBJECTS: The video query MUST ALWAYS be an exact, detailed search query explicitly asking for an animated short video to understand the concept (e.g. including 'animated short video showing animation to understand <concept>').
+      Examples: "animated short video showing animation to understand concave mirror ray diagram physics" or "animated short video showing animation to understand mitochondria ultrastructure biology" or "animated short video showing animation to understand linear equations in two variables graph mathematics".
+      BOTH image and video MUST be dispatched together on your very first turn of introducing every concept and module!
 
 - HIGH-RES SCIENTIFIC IMAGES & DIAGRAMS (ONLINE SEARCH ENGINE FIRST):
    Call search_and_show_image(query="<query>", title="<Title>", caption="<Caption>") or write_chalkboard(action="draw_image", content="<query> | <Title> | <Caption>") for electron micrographs, plant/animal cell organelles, histology tissues, physics experiments, and laboratory apparatus.
@@ -5072,7 +5216,9 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                 executeLiveDiagramGeneration(targetConceptTitle, explicitCaption, explicitWhat, matched)
               })
           }
-          else if (action === 'new_page') chalkboardRef.current?.addNewPage?.()
+          else if (action === 'new_page') {
+            console.warn('[Classroom] Ignored AI action: new_page. Chalkboard uses 1 dedicated page per concept with vertical scrolling.')
+          }
           else if (action === 'clear_board' || action === 'erase_board') {
             setActiveGraph(null)
             chalkboardRef.current?.clearBoard()
