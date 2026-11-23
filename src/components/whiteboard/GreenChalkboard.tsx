@@ -316,17 +316,17 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
     // Multi-page system state
     const [pages, setPages] = useState<WhiteboardPage[]>([
-      { id: 1, elements: [], nextY: 140, roughY: 140 },
+      { id: 1, elements: [], nextY: 40, roughY: 40 },
     ])
     const [currentPageIndex, setCurrentPageIndex] = useState<number>(0)
     const pagesRef = useRef<WhiteboardPage[]>([
-      { id: 1, elements: [], nextY: 140, roughY: 140 },
+      { id: 1, elements: [], nextY: 40, roughY: 40 },
     ])
     const currentPageIndexRef = useRef<number>(0)
 
     const boardElementsRef = useRef<any[]>([])
-    const nextYRef = useRef(140)
-    const roughYRef = useRef(140)
+    const nextYRef = useRef(40)
+    const roughYRef = useRef(40)
     const activeQuestionRef = useRef<{ text: string; y: number; height: number; pageIndex: number } | null>(null)
     const convertElementsRef = useRef<any>(null)
     const executedDirectivesRef = useRef<Set<string>>(new Set())
@@ -336,10 +336,18 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     // Narrow screens: smaller board zoom and fewer text columns so lines fit the board width
     const [boardZoom, setBoardZoom] = useState(0.7)
     // Usable text width inside the standard 740px callout boxes (16px padding each side), scaled for narrow screens
-    const boxInnerW = () => Math.round(708 * Math.min(1, wrapFactorRef.current + 0.08))
     const boardZoomRef = useRef(0.7)
     const wrapFactorRef = useRef(1)
-    const cols = (n: number) => Math.max(24, Math.floor(n * wrapFactorRef.current))
+    const cols = (n: number) => {
+      const hasRightImage = boardElementsRef.current?.some((el: any) => el.type === 'image' && el.x >= 440)
+      const base = hasRightImage ? Math.min(n, 34) : n
+      return Math.max(20, Math.floor(base * wrapFactorRef.current))
+    }
+    const boxInnerW = () => {
+      const hasRightImage = boardElementsRef.current?.some((el: any) => el.type === 'image' && el.x >= 440)
+      const maxW = hasRightImage ? 410 : 708
+      return Math.round(maxW * Math.min(1, wrapFactorRef.current + 0.08))
+    }
     useEffect(() => {
       const el = containerRef.current
       if (!el) return
@@ -538,7 +546,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           (el.x === undefined || el.x < 620)
       )
       if (noteEls.length === 0) {
-        return Math.max(nextYRef.current, 140)
+        return Math.max(nextYRef.current, 40)
       }
       const maxY = Math.max(
         ...noteEls.map((el: any) => {
@@ -661,88 +669,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     }, [])
 
     // Helper to build a clean page header with optional single-concept title
-    const createHeaderSkeleton = (pageNum = 1, conceptTitle?: string): any[] => {
-      // Keep the one-line header inside the board on narrow screens (20px font is ~11.5 canvas px per char)
-      const boardW = containerRef.current?.clientWidth || 0
-      const headerZoom = boardW && boardW < 600 ? 0.55 : 0.7
-      const headerMaxChars = boardW ? Math.max(16, Math.floor((boardW / headerZoom - 130) / 11.5)) : 200
-      const fitHeader = (t: string) => (t.length > headerMaxChars ? `${t.slice(0, headerMaxChars - 1).trimEnd()}…` : t)
-      const items: any[] = [
-        {
-          id: `header_topic_p${pageNum}`,
-          type: 'text',
-          x: 60,
-          y: 35,
-          text: fitHeader(`TOPIC: ${moduleTitle.toUpperCase()}${pageNum > 1 ? ` (PAGE ${pageNum})` : ''}`),
-          fontSize: 20,
-          fontFamily: 1,
-          strokeColor: INK_PRIMARY,
-          customData: { isHeader: true },
-        },
-        {
-          id: `header_meta_p${pageNum}`,
-          type: 'text',
-          x: 60,
-          y: 68,
-          text: [subject, classLevel, `Interactive Whiteboard • Page ${pageNum}`].filter(Boolean).join(' • '),
-          fontSize: 12,
-          fontFamily: 1,
-          strokeColor: INK_MUTED,
-          customData: { isHeader: true },
-        },
-        {
-          id: `header_sep_h_p${pageNum}`,
-          type: 'line',
-          x: 60,
-          y: 95,
-          width: 760,
-          height: 0,
-          points: [[0, 0], [760, 0]],
-          strokeColor: BORDER_SUBTLE,
-          strokeStyle: 'dashed',
-          customData: { isHeader: true },
-        },
-      ]
-
-      if (conceptTitle) {
-        const clean = conceptTitle
-          .replace(/^focus:\s*/i, '')
-          .replace(/^concept\s*\d*:\s*/i, '')
-          .replace(/[\(\)\[\]\{\}\"]/g, '')
-          .replace(/^'+|'+$/g, '')
-          .replace(/\s+/g, ' ')
-          .trim()
-        if (clean && normalizeTitle(clean) !== normalizeTitle(moduleTitle)) {
-          const startX = 60
-          const startY = 140 + 12
-          const titleText = `CONCEPT ${pageNum}: ${clean.toUpperCase()}`
-          items.push(
-            {
-              id: `title_concept_p${pageNum}`,
-              type: 'text',
-              x: startX,
-              y: startY,
-              text: fitHeader(titleText),
-              fontSize: 19,
-              fontFamily: 1,
-              strokeColor: INK_PRIMARY,
-              customData: { isRough: false, isTitle: true },
-            },
-            {
-              id: `title_underline_p${pageNum}`,
-              type: 'line',
-              x: startX,
-              y: startY + 28,
-              points: [[0, 0], [Math.ceil(measureBoardText(titleText, 19)), 0]],
-              strokeColor: INK_BOTANICAL,
-              strokeWidth: 2,
-              customData: { isRough: false, isTitle: true },
-            }
-          )
-        }
-      }
-
-      return items
+    const createHeaderSkeleton = (_pageNum = 1, _conceptTitle?: string): any[] => {
+      // Chalkboard is clean and borderless; the teacher writes the topic title directly
+      return []
     }
 
     // Compile notes across ALL pages for comprehensive Master Notes
@@ -1191,17 +1120,19 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           pagesRef.current[currentPageIndexRef.current].roughY = roughYRef.current
         }
 
-        // 2. Create new page
+        // 2. Create new page (Continuation of active concept, never prematurely jumping concepts)
         const newPageNum = pagesRef.current.length + 1
-        const newConcept = keyConcepts && keyConcepts[newPageNum - 1] ? keyConcepts[newPageNum - 1] : undefined
-        const initialSkeleton = createHeaderSkeleton(newPageNum, newConcept)
+        const activeConceptName = keyConcepts && keyConcepts[currentPageIndexRef.current]
+          ? `${keyConcepts[currentPageIndexRef.current]} (Cont.)`
+          : undefined
+        const initialSkeleton = createHeaderSkeleton(newPageNum, activeConceptName)
         const initialElements = convertFn(initialSkeleton)
-        const hasConceptTitle = Boolean(newConcept)
+        const hasConceptTitle = Boolean(activeConceptName)
 
         const newPage: WhiteboardPage = {
           id: newPageNum,
           elements: initialElements,
-          nextY: hasConceptTitle ? 200 : 140,
+          nextY: 40,
           roughY: 140,
         }
 
@@ -1214,7 +1145,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         setPages(updatedPages)
         setCurrentPageIndex(newIdx)
 
-        nextYRef.current = hasConceptTitle ? 200 : 140
+        nextYRef.current = 40
         roughYRef.current = 140
         boardElementsRef.current = initialElements
 
@@ -1275,7 +1206,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               updatedPages.push({
                 id: newPageNum,
                 elements: initialElements,
-                nextY: hasConceptTitle ? 200 : 140,
+                nextY: 40,
                 roughY: 140,
               })
             }
@@ -1301,7 +1232,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               (keyConcepts && keyConcepts[targetIdx] ? keyConcepts[targetIdx] : undefined)
             const skeleton = createHeaderSkeleton(targetIdx + 1, pageConcept)
             targetPage.elements = convertFn(skeleton)
-            targetPage.nextY = pageConcept ? 200 : 140
+            targetPage.nextY = 40
             targetPage.roughY = 140
           } catch (e) {
             console.error('Regenerate page skeleton error:', e)
@@ -1516,7 +1447,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                 const pageConcept = keyConcepts && keyConcepts[idx] ? keyConcepts[idx] : undefined
                 const skeleton = createHeaderSkeleton(idx + 1, pageConcept)
                 p.elements = convertElementsRef.current(skeleton)
-                p.nextY = pageConcept ? 200 : 140
+                p.nextY = 40
                 p.roughY = 140
               }
             })
@@ -1555,7 +1486,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             initialPages.push({
               id: p,
               elements: initialElements,
-              nextY: hasConceptTitle ? 200 : 140,
+              nextY: 40,
               roughY: 140,
             })
           }
@@ -1615,7 +1546,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             x,
             y,
             text: lines.join('\n'),
-            fontSize: 18,
+            fontSize: 20,
             fontFamily: 1,
             strokeColor: chosenColor,
             customData: { isRough: false },
@@ -1661,8 +1592,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       const currentEls = getCurrentElements()
       const hasTitleOnCurrentPage = currentEls.some(
         (el: any) =>
-          el.customData?.isTitle === true ||
-          (el.type === 'text' && !el.id?.startsWith('header_') && el.fontSize >= 18)
+          el.customData?.isTitle === true &&
+          normalizeTitle(el.text || '').includes(normalizeTitle(clean))
       )
       if (hasTitleOnCurrentPage) {
         return
@@ -1678,11 +1609,11 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const startX = 60
         const startY = getDynamicNextY(16)
         nextYRef.current = Math.max(nextYRef.current, startY + 54)
-        const titleText = `CONCEPT ${currentPageIndexRef.current + 1}: ${clean.toUpperCase()}`
+        const titleText = clean
         const titleColor = resolveChalkColor(color, INK_PRIMARY)
         const underlineColor = color ? titleColor : INK_BOTANICAL
 
-        await playTypingEffect('Topic', [titleText], titleColor, startX, startY, 19, 'none')
+        await playTypingEffect('Topic', [titleText], titleColor, startX, startY, 22, 'none')
 
         const elements = convertFn([
           {
@@ -1690,7 +1621,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             x: startX,
             y: startY,
             text: titleText,
-            fontSize: 19,
+            fontSize: 22,
             fontFamily: 1,
             strokeColor: titleColor,
             customData: { isRough: false, isTitle: true },
@@ -1698,17 +1629,17 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           {
             type: 'line',
             x: startX,
-            y: startY + 28,
-            points: [[0, 0], [Math.ceil(measureBoardText(titleText, 19)), 0]],
+            y: startY + 32,
+            points: [[0, 0], [Math.ceil(measureBoardText(titleText, 22)), 0]],
             strokeColor: underlineColor,
-            strokeWidth: 2,
+            strokeWidth: 2.5,
             customData: { isRough: false, isTitle: true },
           },
         ])
 
         const current = getCurrentElements()
         const merged = [...current, ...elements]
-        updateCurrentPageElements(merged, startY + 48)
+        updateCurrentPageElements(merged, startY + 54)
         onNoteRecorded?.(`### ${clean}`)
       } catch (err) {
         console.error('drawTitle error:', err)
@@ -1724,9 +1655,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (checkIsRedundant(clean)) return
       if (shouldSkipDuplicate('draw_note', clean)) return
 
-      const lines = wrapText(clean, cols(64))
-      const lineHeight = 22
-      const totalH = Math.max(28, lines.length * lineHeight)
+      const lines = wrapText(clean, cols(60))
+      const lineHeight = 26
+      const totalH = Math.max(32, lines.length * lineHeight)
 
       await checkAutoPageOverflow(totalH + 16)
       try {
@@ -1737,15 +1668,15 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const noteColor = resolveChalkColor(color, activeChalkColorRef.current)
         const bulletColor = color ? noteColor : INK_BOTANICAL
 
-        await playTypingEffect('Note', lines, noteColor, startX, startY, 16, 'dot', bulletColor, 16)
+        await playTypingEffect('Note', lines, noteColor, startX, startY, 18, 'dot', bulletColor, 18)
 
         const elements = convertToExcalidrawElements([
           {
             type: 'ellipse',
             x: startX,
             y: startY + 6,
-            width: 8,
-            height: 8,
+            width: 10,
+            height: 10,
             strokeColor: bulletColor,
             backgroundColor: bulletColor,
             fillStyle: 'solid',
@@ -1753,10 +1684,10 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           },
           {
             type: 'text',
-            x: startX + 16,
+            x: startX + 18,
             y: startY,
             text: lines.join('\n'),
-            fontSize: 16,
+            fontSize: 18,
             fontFamily: 1,
             strokeColor: noteColor,
             customData: { isRough: false },
@@ -1783,11 +1714,11 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (shouldSkipDuplicate('draw_step', clean)) return
 
       // Split multi-step strings at semicolons, pipes, or step delimiters so each step renders on its own line (max 2 steps per line)
-      const lines = formatChalkboardSteps(clean, cols(60))
+      const lines = formatChalkboardSteps(clean, cols(56))
       if (!lines || lines.length === 0) return
 
-      const lineHeight = 24
-      const totalH = Math.max(28, lines.length * lineHeight)
+      const lineHeight = 26
+      const totalH = Math.max(30, lines.length * lineHeight)
 
       await checkAutoPageOverflow(totalH + 20)
       try {
@@ -1809,7 +1740,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           }
           return `    ${body}`
         })
-        await playTypingEffect('Step', stepLines, stepColor, startX, startY, 15, 'none')
+        await playTypingEffect('Step', stepLines, stepColor, startX, startY, 18, 'none')
 
         const elements = convertToExcalidrawElements([
           {
@@ -1817,7 +1748,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             x: startX,
             y: startY,
             text: stepLines.join('\n'),
-            fontSize: 15,
+            fontSize: 18,
             fontFamily: 1,
             strokeColor: stepColor,
             customData: { isRough: false },
@@ -1843,11 +1774,11 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       const clean = cleanChalkboardTypography(raw.trim())
       if (checkIsRedundant(clean)) return
       if (shouldSkipDuplicate('draw_highlight_box', clean)) return
-      const lines = wrapTextToWidth(clean, 16, boxInnerW())
+      const lines = wrapTextToWidth(clean, 18, boxInnerW())
       const boxWidth = 740
-      const lineHeight = 22
+      const lineHeight = 26
       const textHeight = Math.max(1, lines.length) * lineHeight
-      const boxHeight = Math.max(54, 16 + textHeight + 16)
+      const boxHeight = Math.max(58, 16 + textHeight + 16)
 
       await checkAutoPageOverflow(boxHeight + 20)
       try {
@@ -1877,7 +1808,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             x: startX + 16,
             y: startY + 14,
             text: lines.join('\n'),
-            fontSize: 16,
+            fontSize: 18,
             fontFamily: 1,
             strokeColor: INK_PRIMARY,
             customData: { isRough: false },
@@ -1902,12 +1833,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!raw?.trim()) return
       const clean = cleanChalkboardTypography(raw.trim())
       if (shouldSkipDuplicate('draw_question', clean)) return
-      const lines = wrapTextToWidth(clean, 15, boxInnerW())
-      const lineHeight = 22
-      const paddingTop = 28
+      const lines = wrapTextToWidth(clean, 18, boxInnerW())
+      const lineHeight = 26
+      const paddingTop = 32
       const textHeight = Math.max(1, lines.length) * lineHeight
       const paddingBottom = 20
-      const qHeight = Math.max(68, paddingTop + textHeight + paddingBottom)
+      const qHeight = Math.max(74, paddingTop + textHeight + paddingBottom)
 
       await checkAutoPageOverflow(qHeight + 20)
       try {
@@ -1936,7 +1867,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             x: startX + 16,
             y: startY + 8,
             text: 'CHECKPOINT QUESTION:',
-            fontSize: 11,
+            fontSize: 13,
             fontFamily: 1,
             strokeColor: qStroke,
             customData: { isRough: false },
@@ -1944,9 +1875,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           {
             type: 'text',
             x: startX + 16,
-            y: startY + 28,
+            y: startY + 30,
             text: lines.join('\n'),
-            fontSize: 15,
+            fontSize: 18,
             fontFamily: 1,
             strokeColor: INK_PRIMARY,
             customData: { isRough: false },
@@ -1988,12 +1919,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       }
       lastDrawnStudentAnswerRef.current = { text: clean, time: Date.now() }
 
-      const lines = wrapTextToWidth(`"${clean}"`, 14, boxInnerW())
-      const lineHeight = 20
-      const paddingTop = 26
+      const lines = wrapTextToWidth(`"${clean}"`, 17, boxInnerW())
+      const lineHeight = 24
+      const paddingTop = 30
       const textHeight = Math.max(1, lines.length) * lineHeight
       const paddingBottom = 18
-      const boxHeight = Math.max(64, paddingTop + textHeight + paddingBottom)
+      const boxHeight = Math.max(70, paddingTop + textHeight + paddingBottom)
 
       await checkAutoPageOverflow(boxHeight + 18)
       try {
@@ -2022,7 +1953,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             x: startX + 16,
             y: startY + 8,
             text: "STUDENT'S RESPONSE:",
-            fontSize: 11,
+            fontSize: 13,
             fontFamily: 1,
             strokeColor: ansStroke,
             customData: { isRough: false },
@@ -2030,9 +1961,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           {
             type: 'text',
             x: startX + 16,
-            y: startY + 26,
+            y: startY + 28,
             text: lines.join('\n'),
-            fontSize: 14,
+            fontSize: 17,
             fontFamily: 1,
             strokeColor: INK_PRIMARY,
             customData: { isRough: false },
@@ -2057,12 +1988,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         isCorrect === true ||
         /^(correct|spot on|perfect|exactly|well done|excellent|right|yes)\b/i.test(clean) ||
         /\b(correct|spot on|perfect|well done)\b/i.test(clean)
-      const lines = wrapTextToWidth(clean, 14, boxInnerW())
-      const lineHeight = 20
-      const paddingTop = 26
+      const lines = wrapTextToWidth(clean, 17, boxInnerW())
+      const lineHeight = 24
+      const paddingTop = 30
       const textHeight = Math.max(1, lines.length) * lineHeight
       const paddingBottom = 18
-      const boxHeight = Math.max(64, paddingTop + textHeight + paddingBottom)
+      const boxHeight = Math.max(70, paddingTop + textHeight + paddingBottom)
 
       await checkAutoPageOverflow(boxHeight + 18)
       try {
@@ -2095,7 +2026,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             x: startX + 16,
             y: startY + 8,
             text: looksCorrect ? 'VERDICT: CORRECT & COMPLETE' : 'MODEL CORRECTION & REFINED ANSWER:',
-            fontSize: 11,
+            fontSize: 13,
             fontFamily: 1,
             strokeColor: vStroke,
             customData: { isRough: false },
@@ -2103,9 +2034,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           {
             type: 'text',
             x: startX + 16,
-            y: startY + 26,
+            y: startY + 28,
             text: lines.join('\n'),
-            fontSize: 14,
+            fontSize: 17,
             fontFamily: 1,
             strokeColor: INK_PRIMARY,
             customData: { isRough: false },
@@ -2144,17 +2075,17 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         aText = cleanChalkboardTypography(parts.slice(1).join(' | ').replace(/^answer:\s*/i, ''))
       }
 
-      const qLines = wrapTextToWidth(qText, 15, boxInnerW())
-      const qLineHeight = 22
+      const qLines = wrapTextToWidth(qText, 18, boxInnerW())
+      const qLineHeight = 26
       const qTextHeight = qLines.length * qLineHeight
       let aLines: string[] = []
       let aTextHeight = 0
       if (aText) {
-        aLines = wrapTextToWidth(aText, 14, boxInnerW())
-        aTextHeight = aLines.length * 20
+        aLines = wrapTextToWidth(aText, 17, boxInnerW())
+        aTextHeight = aLines.length * 24
       }
 
-      const cardHeight = 28 + qTextHeight + (aText ? 12 + 24 + aTextHeight : 0) + 24
+      const cardHeight = 32 + qTextHeight + (aText ? 14 + 26 + aTextHeight : 0) + 24
       await checkAutoPageOverflow(cardHeight + 20)
 
       try {
@@ -2182,7 +2113,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             x: startX + 16,
             y: startY + 10,
             text: `BOARD EXAM QUESTION ${marks ? `[${marks}]` : '[Typical Board Pattern]'}:`,
-            fontSize: 11,
+            fontSize: 13,
             fontFamily: 1,
             strokeColor: exStroke,
             customData: { isRough: false },
@@ -2190,16 +2121,16 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           {
             type: 'text',
             x: startX + 16,
-            y: startY + 28,
+            y: startY + 30,
             text: `Q: ${qLines.join('\n   ')}`,
-            fontSize: 15,
+            fontSize: 18,
             fontFamily: 1,
             strokeColor: INK_PRIMARY,
             customData: { isRough: false },
           },
         ]
 
-        let curY = startY + 28 + qTextHeight + 12
+        let curY = startY + 30 + qTextHeight + 14
 
         if (aText) {
           skeletons.push(
@@ -2218,7 +2149,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               x: startX + 16,
               y: curY + 6,
               text: 'TOPPER MODEL ANSWER:',
-              fontSize: 11,
+              fontSize: 13,
               fontFamily: 1,
               strokeColor: INK_BOTANICAL,
               customData: { isRough: false },
@@ -2226,9 +2157,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             {
               type: 'text',
               x: startX + 16,
-              y: curY + 24,
+              y: curY + 26,
               text: `Ans: ${aLines.join('\n     ')}`,
-              fontSize: 14,
+              fontSize: 17,
               fontFamily: 1,
               strokeColor: INK_PRIMARY,
               customData: { isRough: false },
@@ -2941,7 +2872,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                 x: boxX + 10,
                 y: boxY + 10,
                 text: st,
-                fontSize: 13,
+                fontSize: 15,
                 fontFamily: 1,
                 strokeColor: INK_PRIMARY,
                 customData: { isRough: false },
@@ -3069,8 +3000,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           }
 
           wrappedRows.push(wrappedCells)
-          // Line height: 16px per line + 14px vertical padding
-          const dynamicHeight = Math.max(34, 14 + maxLinesInRow * 16)
+          // Line height: 20px per line + 16px vertical padding
+          const dynamicHeight = Math.max(38, 16 + maxLinesInRow * 20)
           rowHeights.push(dynamicHeight)
         })
 
@@ -3109,7 +3040,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               x: x + 10,
               y: currentY + 8,
               text: cellData.lines.join('\n'),
-              fontSize: isHeader ? 12 : 11,
+              fontSize: isHeader ? 15 : 14,
               fontFamily: 1,
               strokeColor: isHeader ? INK_PRIMARY : '#2E302D',
               customData: { isRough: false },
@@ -3321,7 +3252,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           {
             id: 1,
             elements: initialElements,
-            nextY: firstConcept ? 200 : 140,
+            nextY: 40,
             roughY: 140,
           },
         ]
@@ -3330,7 +3261,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         currentPageIndexRef.current = 0
         setCurrentPageIndex(0)
         boardElementsRef.current = initialElements
-        nextYRef.current = firstConcept ? 200 : 140
+        nextYRef.current = 40
         roughYRef.current = 140
         executedTextHistoryRef.current.clear()
         lastExecutedActionTimeRef.current.clear()
@@ -4549,10 +4480,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           }
         }
 
-        // Contain-fit inside the card's image matte, preserving the true aspect ratio (never stretched)
-        const MEDIA_INNER_W = 528
-        const IMG_MAX_W = MEDIA_INNER_W - 24
-        const IMG_MAX_H = 300
+        // Full-width clean image matte (borderless, no wrapper box, native aspect ratio)
+        const IMG_MAX_W = 720
+        const IMG_MAX_H = 400
         let naturalW = imgWidth
         let naturalH = imgHeight
         if (typeof window !== 'undefined') {
@@ -4576,8 +4506,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           } catch { }
         }
         const fitScale = Math.min(IMG_MAX_W / naturalW, IMG_MAX_H / naturalH)
-        imgWidth = Math.max(40, Math.round(naturalW * fitScale))
-        imgHeight = Math.max(40, Math.round(naturalH * fitScale))
+        imgWidth = Math.max(60, Math.round(naturalW * fitScale))
+        imgHeight = Math.max(60, Math.round(naturalH * fitScale))
 
         const fileId = `img_${Date.now()}_${Math.random().toString(36).substring(2, 8)}` as any
         const safeDataURL = sanitizeBase64DataUrl(finalDataURL) || svgToBase64DataUrl(createFallbackImageSvg(resolvedTitle, cleanUrl))
@@ -4611,18 +4541,6 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           }
         }
 
-        const CARD_W = MEDIA_INNER_W + 32
-        const titleLines = wrapTextToWidth(resolvedTitle, 15, MEDIA_INNER_W, 2)
-        const captionLines = resolvedCaption ? wrapTextToWidth(resolvedCaption, 12, MEDIA_INNER_W, 3) : []
-        const titleTop = startY + 30
-        const titleH = Math.max(1, titleLines.length) * 19
-        const matteY = titleTop + titleH + 10
-        const matteH = imgHeight + 24
-        const captionY = matteY + matteH + 10
-        const captionH = captionLines.length * 16
-        const footerY = captionY + (captionLines.length ? captionH + 8 : 0)
-        const cardHeight = footerY - startY + 30
-
         const current = getCurrentElements()
         const customPayload = {
           isRough: false,
@@ -4634,94 +4552,34 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           caption: resolvedCaption,
         }
 
+        // If current page is relatively fresh (startY <= 260) and has no image on the right, place image on the right side
+        // (x: 480, y: 40) with width ~390px, leaving the left column (x: 60 to 450) open for notes, flowcharts & questions
+        const shouldPlaceOnRight = startY <= 260 && !current.some((el: any) => el.type === 'image' && el.x >= 440)
+        const finalW = shouldPlaceOnRight ? Math.min(390, imgWidth) : imgWidth
+        const finalH = shouldPlaceOnRight ? Math.min(290, Math.round(imgHeight * (finalW / Math.max(1, imgWidth)))) : imgHeight
+        const finalX = shouldPlaceOnRight ? 480 : startX + Math.max(0, Math.round((IMG_MAX_W - imgWidth) / 2))
+        const finalY = shouldPlaceOnRight ? 40 : startY
+
+        // Clean borderless image element inserted directly on canvas with native border radius
         const elementsToInsert: any[] = [
           {
-            type: 'rectangle',
-            x: startX,
-            y: startY,
-            width: CARD_W,
-            height: cardHeight,
-            strokeColor: '#E2DED3',
-            backgroundColor: '#FFFFFF',
-            fillStyle: 'solid',
-            strokeWidth: 1,
-            roughness: 0,
-            roundness: { type: 3 },
-            customData: customPayload,
-          },
-          {
-            type: 'text',
-            x: startX + 16,
-            y: startY + 12,
-            text: 'FIGURE',
-            fontSize: 11,
-            fontFamily: 1,
-            strokeColor: INK_BOTANICAL,
-            customData: customPayload,
-          },
-          {
-            type: 'text',
-            x: startX + 16,
-            y: titleTop,
-            text: titleLines.join('\n') || 'Educational Image',
-            fontSize: 15,
-            fontFamily: 1,
-            strokeColor: INK_PRIMARY,
-            customData: customPayload,
-          },
-          {
-            type: 'rectangle',
-            x: startX + 16,
-            y: matteY,
-            width: MEDIA_INNER_W,
-            height: matteH,
-            strokeColor: 'transparent',
-            backgroundColor: '#F6F4EE',
-            fillStyle: 'solid',
-            strokeWidth: 1,
-            roughness: 0,
-            roundness: { type: 3 },
-            customData: customPayload,
-          },
-          {
             type: 'image',
-            x: startX + 16 + Math.round((MEDIA_INNER_W - imgWidth) / 2),
-            y: matteY + 12,
-            width: imgWidth,
-            height: imgHeight,
+            x: finalX,
+            y: finalY,
+            width: finalW,
+            height: finalH,
             fileId,
             status: 'saved',
+            roundness: { type: 3 },
             customData: customPayload,
           },
         ]
 
-        if (captionLines.length > 0) {
-          elementsToInsert.push({
-            type: 'text',
-            x: startX + 16,
-            y: captionY,
-            text: captionLines.join('\n'),
-            fontSize: 12,
-            fontFamily: 1,
-            strokeColor: INK_SECONDARY,
-            customData: customPayload,
-          })
-        }
-
-        elementsToInsert.push({
-          type: 'text',
-          x: startX + 16,
-          y: footerY,
-          text: 'Tap to view full size',
-          fontSize: 11,
-          fontFamily: 1,
-          strokeColor: '#8A8577',
-          customData: customPayload,
-        })
-
         const elements = convertToExcalidrawElements(elementsToInsert)
         const merged = [...current, ...elements]
-        const nextYTarget = Math.max(nextYRef.current, startY + cardHeight + 20)
+        const nextYTarget = shouldPlaceOnRight
+          ? Math.max(nextYRef.current, 40)
+          : Math.max(nextYRef.current, startY + imgHeight + 24)
         updateCurrentPageElements(merged, nextYTarget)
         onNoteRecorded?.(`[Image]: ${resolvedTitle}${resolvedCaption ? ` - ${resolvedCaption}` : ''}`)
       } catch (err) {
@@ -4789,46 +4647,30 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           mimeType: resolvedMime,
         }
 
-        const CARD_W = 560
-        const THUMB_W = 168
-        const THUMB_H = 96
-        const textX = startX + 16 + THUMB_W + 18
-        const textW = CARD_W - (textX - startX) - 16
-        const titleLines = wrapTextToWidth(title.trim(), 15, textW, 2)
-        const descText = description?.trim() || `A short visual demonstration of ${title.trim()}.`
-        const descLines = wrapTextToWidth(descText, 12, textW, 2)
-        const titleY = startY + 32
-        const descY = titleY + titleLines.length * 19 + 6
-        const footerY = descY + descLines.length * 16 + 8
-        const cardHeight = Math.max(16 + THUMB_H + 16, footerY - startY + 28)
-        const thumbX = startX + 16
-        const thumbY = startY + Math.round((cardHeight - THUMB_H) / 2)
-        const playR = 18
+        const THUMB_W = 240
+        const THUMB_H = 136
+        const textX = startX + THUMB_W + 20
+        const textW = Math.max(260, 720 - THUMB_W - 20)
+        const titleLines = wrapTextToWidth(title.trim(), 18, textW, 2)
+        const descText = description?.trim() || `Visual demonstration of ${title.trim()}.`
+        const descLines = wrapTextToWidth(descText, 14, textW, 3)
+        const titleY = startY + 12
+        const descY = titleY + titleLines.length * 24 + 8
+        const cardHeight = Math.max(THUMB_H, descY + descLines.length * 20 - startY)
+        const thumbX = startX
+        const thumbY = startY
+        const playR = 22
         const playCx = thumbX + THUMB_W / 2
         const playCy = thumbY + THUMB_H / 2
 
         const elements = convertToExcalidrawElements([
           {
             type: 'rectangle',
-            x: startX,
-            y: startY,
-            width: CARD_W,
-            height: cardHeight,
-            strokeColor: '#E2DED3',
-            backgroundColor: '#FFFFFF',
-            fillStyle: 'solid',
-            strokeWidth: 1,
-            roughness: 0,
-            roundness: { type: 3 },
-            customData: customPayload,
-          },
-          {
-            type: 'rectangle',
             x: thumbX,
             y: thumbY,
             width: THUMB_W,
             height: THUMB_H,
-            strokeColor: '#1E2228',
+            strokeColor: '#2C3038',
             backgroundColor: '#1E2228',
             fillStyle: 'solid',
             strokeWidth: 1,
@@ -4845,6 +4687,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                 height: THUMB_H,
                 fileId: frameFileId,
                 status: 'saved',
+                roundness: { type: 3 },
                 customData: { ...customPayload, isVideoFirstFrame: true },
               } as any]
             : []),
@@ -4863,9 +4706,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           },
           {
             type: 'line',
-            x: playCx - 5,
-            y: playCy - 8,
-            points: [[0, 0], [0, 16], [13, 8], [0, 0]],
+            x: playCx - 6,
+            y: playCy - 10,
+            points: [[0, 0], [0, 20], [16, 10], [0, 0]],
             strokeColor: INK_CORAL,
             backgroundColor: INK_CORAL,
             fillStyle: 'solid',
@@ -4876,19 +4719,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           {
             type: 'text',
             x: textX,
-            y: startY + 14,
-            text: 'VIDEO DEMONSTRATION',
-            fontSize: 11,
-            fontFamily: 1,
-            strokeColor: INK_CORAL,
-            customData: customPayload,
-          },
-          {
-            type: 'text',
-            x: textX,
             y: titleY,
             text: titleLines.join('\n'),
-            fontSize: 15,
+            fontSize: 18,
             fontFamily: 1,
             strokeColor: INK_PRIMARY,
             customData: customPayload,
@@ -4898,19 +4731,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             x: textX,
             y: descY,
             text: descLines.join('\n'),
-            fontSize: 12,
+            fontSize: 14,
             fontFamily: 1,
             strokeColor: INK_SECONDARY,
-            customData: customPayload,
-          },
-          {
-            type: 'text',
-            x: textX,
-            y: footerY,
-            text: 'Tap to play',
-            fontSize: 11,
-            fontFamily: 1,
-            strokeColor: '#8A8577',
             customData: customPayload,
           },
         ])
@@ -5144,7 +4967,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           } else if (action === 'draw_rough_work' || action === 'rough_work' || action === 'rough') {
             if (content) drawStep(content, color); // Do not await
           } else if (action === 'new_page') {
-            addNewPage(); // Do not await
+            console.log('[GreenChalkboard] Ignored new_page action. Pages are 1-to-1 with key concepts.');
           } else if (action === 'clear_rough') {
             clearRough();
           } else if (action === 'clear_notes') {
@@ -5229,7 +5052,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         enqueueOperation(async () => {
           // 1. Board & Page Operations
           if (tagType === 'NEW_PAGE' || tagType === 'PAGE_NEW' || tagType === 'NEXT_PAGE') {
-            await addNewPage()
+            console.log('[GreenChalkboard] Ignored NEW_PAGE directive. Pages are 1-to-1 with key concepts.');
           } else if (tagType === 'CLEAR_ROUGH') {
             clearRough()
           } else if (tagType === 'CLEAR_NOTES') {

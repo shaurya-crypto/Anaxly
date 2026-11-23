@@ -1,0 +1,2284 @@
+[
+  {
+    "order_index": 1,
+    "title": "Chapter 1: The Living World",
+    "curriculum_id": "8df5c929-b7bb-4d5b-a22f-758afcccdaef",
+    "module_count": 6,
+    "book_code": "kebo101",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo101.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "Module 1: What is Life? and Biodiversity",
+        "id": "e1630993-fc77-4ba4-becf-ae914941db50",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Living World -> Biodiversity (1.7-1.8 Million Species) -> Habitats -> Defining Properties of Life",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Global Biodiversity Distribution",
+            "image_query": "biological structure diagram of Global Biodiversity Distribution with labeled anatomical parts and microscopic cellular details",
+            "video_query": "Global Biodiversity Distribution biology educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "Module 2: Nomenclature and Binomial System",
+        "id": "d3af85fe-c3b6-4e0b-99b6-afb71327235e",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Identification -> Nomenclature -> ICBN / ICZN -> Binomial Nomenclature (Genus + Species)",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Anatomy of a Scientific Name",
+            "image_query": "Labeled boxes pointing to Genus and Species. scientific educational diagram with clear labels",
+            "video_query": "Anatomy of a Scientific Name educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Module 3: Taxonomy, Systematics and Classification",
+        "id": "1f6f5685-6fd7-43f6-aa08-14303c201924",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Taxonomy -> Characterisation -> Identification -> Classification -> Nomenclature -> Systematics (Evo",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Pillars of Taxonomic Studies",
+            "image_query": "Sequential interconnected boxes. scientific educational diagram with clear labels",
+            "video_query": "Pillars of Taxonomic Studies educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "Module 4: Taxonomic Categories and Hierarchy",
+        "id": "d2326075-f232-487a-97cf-fd7a963dc0b9",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Species -> Genus -> Family -> Order -> Class -> Phylum/Division -> Kingdom",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Hierarchy Pyramid & Common Characteristics",
+            "image_query": "Pyramid diagram with directional arrows. scientific educational diagram with clear labels",
+            "video_query": "Hierarchy Pyramid & Common Characteristics educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "Module 5: Table 1.1 Analysis & Organism Categories",
+        "id": "a61a6f40-76b2-41a0-bce8-e3b1f5b80e23",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Organisms -> Genus -> Family -> Order -> Class -> Phylum/Division",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Man Hierarchical Breakdown",
+            "image_query": "biological structure diagram of Man Hierarchical Breakdown with labeled anatomical parts and microscopic cellular details",
+            "video_query": "Man Hierarchical Breakdown biology educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 6,
+        "title": "Module 6: Chapter Exercises Complete Master Solver",
+        "id": "94247b4b-87fe-4557-9e3a-b4957b17795d",
+        "is_solver": true,
+        "has_flowchart": true,
+        "flowchart_preview": "Exercises -> Q1-Q4 (Concepts) -> Q5-Q7 (Nomenclature & Taxa) -> Q8-Q10 (Hierarchy & Definitions)",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Comprehensive Chapter Summary",
+            "image_query": "biological structure diagram of Comprehensive Chapter Summary with labeled anatomical parts and microscopic cellular details",
+            "video_query": "Comprehensive Chapter Summary biology educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": true,
+      "totalFlowcharts": 6,
+      "totalVisuals": 6,
+      "totalConceptQuestions": 10,
+      "totalExercises": 6,
+      "modulesWithMathBoilerplate": 6
+    }
+  },
+  {
+    "order_index": 2,
+    "title": "Chapter 2: Biological Classification",
+    "curriculum_id": "e71602e9-8234-41dd-8a5b-21e7832de4d9",
+    "module_count": 6,
+    "book_code": "kebo102",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo102.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "Historical Perspective & Whittaker's Five Kingdom Classification",
+        "id": "b193766d-0bac-45b5-a223-ff45e9a1595c",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Classification -> Historical (Aristotle, Linnaeus) | Modern (Whittaker Five Kingdom: Monera -> Proti",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Whittaker's Five Kingdoms",
+            "image_query": "5 boxes representing Monera, Protista, Fungi, Plantae, Animalia. scientific educational diagram with clear labels",
+            "video_query": "Whittaker's Five Kingdoms educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "Kingdom Monera: Bacteria, Archaebacteria, Eubacteria & Mycoplasma",
+        "id": "ed211fb6-6147-4633-b8a1-d938548c2f3b",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Kingdom Monera -> Archaebacteria (Halophiles, Thermoacidophiles, Methanogens) | Eubacteria (Cyanobac",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Archaebacterial Extremophiles",
+            "image_query": "biological structure diagram of Archaebacterial Extremophiles with labeled anatomical parts and microscopic cellular details",
+            "video_query": "Archaebacterial Extremophiles biology educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Kingdom Protista: Chrysophytes, Dinoflagellates, Euglenoids, Slime Moulds & Protozoans",
+        "id": "129a9f59-f507-43a4-96a5-b510bf80933d",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Kingdom Protista -> Chrysophytes | Dinoflagellates | Euglenoids | Slime Moulds | Protozoans (Amoeboi",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Four Major Groups of Protozoa",
+            "image_query": "Grid of 4 protozoan classes with key examples. scientific educational diagram with clear labels",
+            "video_query": "Four Major Groups of Protozoa educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "Kingdom Fungi: Morphology, Reproduction & Classes",
+        "id": "55b98706-3a44-4be3-b4d2-d5fca49a573c",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Kingdom Fungi -> Phycomycetes (Aseptate) | Ascomycetes (Sac fungi, Septate, Ascospores) | Basidiomyc",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Fungal Sexual Cycle Steps",
+            "image_query": "Circular or linear flow diagram showing Plasmogamy, Karyogamy, and Meiosis. scientific educational diagram with clear labels",
+            "video_query": "Fungal Sexual Cycle Steps educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "Kingdoms Plantae & Animalia, and Acellular Forms: Viruses, Viroids, Prions & Lichens",
+        "id": "677e5eea-9125-48d1-bfbc-fb269d9db702",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Acellular & Symbiotic Entities -> Viruses (Capsid + RNA/DNA) | Viroids (Free RNA) | Prions (Abnormal",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Lichen Symbiotic Association",
+            "image_query": "biological structure diagram of Lichen Symbiotic Association with labeled anatomical parts and microscopic cellular details",
+            "video_query": "Lichen Symbiotic Association biology educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 6,
+        "title": "Comprehensive Textbook Exercises & Master Problem Solver",
+        "id": "01a052f6-6364-4984-a58d-6b1ff8396152",
+        "is_solver": true,
+        "has_flowchart": true,
+        "flowchart_preview": "Exercises Solver -> Q1-Q2 (History/Monera) | Q3-Q6 (Protista/Diatoms) | Q7-Q10 (Plantae/Fungi/Euglen",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Master Problem Solver Roadmap",
+            "image_query": "Roadmap connecting Q1-Q12 to chapter sections. scientific educational diagram with clear labels",
+            "video_query": "Master Problem Solver Roadmap educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": true,
+      "totalFlowcharts": 6,
+      "totalVisuals": 6,
+      "totalConceptQuestions": 11,
+      "totalExercises": 6,
+      "modulesWithMathBoilerplate": 6
+    }
+  },
+  {
+    "order_index": 3,
+    "title": "Chapter 3: Plant Kingdom",
+    "curriculum_id": "0c5a794f-5630-4141-8940-7c454dd99a52",
+    "module_count": 5,
+    "book_code": "kebo103",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo103.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "Basis of Plant Classification & Algae",
+        "id": "c51aa720-de0b-417b-95be-ebf7d133dfed",
+        "is_solver": false,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "Bryophytes and Pteridophytes",
+        "id": "bca5bec5-a221-4dd3-8b43-277271bdcd58",
+        "is_solver": false,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Gymnosperms and Angiosperms",
+        "id": "ea593240-c326-4481-90b1-30fb3abe7c9e",
+        "is_solver": false,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "Plant Life Cycles and Alternation of Generations",
+        "id": "b523f0c0-851b-4320-a6b8-334d5181c10e",
+        "is_solver": false,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "Comprehensive Exercises & Review",
+        "id": "ad4ffd2c-7ce0-4744-8d97-0be349cc4c6e",
+        "is_solver": true,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": true,
+      "totalFlowcharts": 0,
+      "totalVisuals": 0,
+      "totalConceptQuestions": 0,
+      "totalExercises": 0,
+      "modulesWithMathBoilerplate": 5
+    }
+  },
+  {
+    "order_index": 4,
+    "title": "Chapter 4: Animal Kingdom",
+    "curriculum_id": "ad9094ca-6638-4e0b-a5c7-0a89c4c067fc",
+    "module_count": 5,
+    "book_code": "kebo104",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo104.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "Basis of Classification",
+        "id": "350ff771-fab6-44e8-aee3-b04261c1812a",
+        "is_solver": false,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "Non-Chordates: Porifera to Platyhelminthes",
+        "id": "3d93c5af-e61d-45b6-bc85-a2da206b8ad5",
+        "is_solver": false,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Non-Chordates: Aschelminthes to Echinodermata",
+        "id": "a977c946-1158-4f1e-86da-be69f5e62fda",
+        "is_solver": false,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "Phylum Chordata",
+        "id": "f9da5f90-54e8-4883-a411-8be548f183b0",
+        "is_solver": false,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "End-of-Chapter Review & Problem Solving",
+        "id": "d90c112a-0d54-4cb5-9957-1bbc88173bae",
+        "is_solver": true,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": true,
+      "totalFlowcharts": 0,
+      "totalVisuals": 0,
+      "totalConceptQuestions": 0,
+      "totalExercises": 0,
+      "modulesWithMathBoilerplate": 5
+    }
+  },
+  {
+    "order_index": 5,
+    "title": "Chapter 5: Morphology of Flowering Plants",
+    "curriculum_id": "407fb11f-ae33-4b5a-a6d8-988f35ee3436",
+    "module_count": 6,
+    "book_code": "kebo105",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo105.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "The Root and The Stem: Structure, Regions, and Modifications",
+        "id": "17688e24-7559-4f26-85db-95ffd1cb2772",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Root and Shoot Systems -> Root System (Tap, Fibrous, Adventitious; Regions: Cap, Meristematic, Elong",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Root Tip Zones",
+            "image_query": "biological structure diagram of Root Tip Zones with labeled anatomical parts and microscopic cellular details",
+            "video_query": "Root Tip Zones biology educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "The Leaf, Venation, Types, and Phyllotaxy",
+        "id": "9092f02e-e8eb-498f-a68f-5f157c97a40a",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Leaf -> Parts (Base, Petiole, Lamina) | Venation (Reticulate, Parallel) | Types (Simple, Compound: P",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Reticulate vs Parallel Venation",
+            "image_query": "Two leaf outlines showing reticulate network and parallel lines. scientific educational diagram with clear labels",
+            "video_query": "Reticulate vs Parallel Venation educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Inflorescence and The Flower Structure",
+        "id": "05e41509-95d6-47f4-8f2e-0a19c95a3d2f",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Flower -> Inflorescence (Racemose, Cymose) | Symmetry (Actinomorphic, Zygomorphic, Asymmetric) | Ins",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Hypogynous vs Epigynous Ovary",
+            "image_query": "Comparative diagrams of hypogynous and epigynous flowers. scientific educational diagram with clear labels",
+            "video_query": "Hypogynous vs Epigynous Ovary educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "Floral Whorls and Placentation",
+        "id": "076d8b1e-2c69-46da-aa2d-eb841e12d08d",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Floral Whorls -> Calyx/Corolla (Aestivation: Valvate, Twisted, Imbricate, Vexillary) | Androecium (E",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Placentation Variations",
+            "image_query": "Ovary cross-sections with labeled ovules. scientific educational diagram with clear labels",
+            "video_query": "Placentation Variations educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "Fruit, Seed Structure, and Semi-Technical Description",
+        "id": "407173e0-7b4a-4508-b3fe-e79b4991cf68",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Fruit & Seed -> Fruit (Drupe, Parthenocarpic) | Dicot Seed (Testa, Tegmen, Cotyledons, Radicle, Plum",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Seed Structure Comparison",
+            "image_query": "Internal anatomy of gram and maize seeds. scientific educational diagram with clear labels",
+            "video_query": "Seed Structure Comparison educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 6,
+        "title": "Solanaceae Family & Complete Chapter Exercise Masterclass",
+        "id": "fe0bb0d0-2efd-407f-800f-230b1521fd8c",
+        "is_solver": true,
+        "has_flowchart": true,
+        "flowchart_preview": "Solanaceae -> Vegetative Characters (Herbs/Shrubs, Stem, Leaves) | Floral Characters (Inflorescence,",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Solanaceae Formula & Diagram",
+            "image_query": "Solanaceae Formula & Diagram detailed educational scientific diagram with labeled components and annotations",
+            "video_query": "Solanaceae Formula & Diagram educational laboratory experiment demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 2,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": true,
+      "totalFlowcharts": 6,
+      "totalVisuals": 6,
+      "totalConceptQuestions": 18,
+      "totalExercises": 7,
+      "modulesWithMathBoilerplate": 6
+    }
+  },
+  {
+    "order_index": 6,
+    "title": "Chapter 6: Anatomy of Flowering Plants",
+    "curriculum_id": "607aa0da-27f3-4094-8831-00a01ebf3b73",
+    "module_count": 6,
+    "book_code": "kebo106",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo106.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "The Tissue System: Epidermal and Ground Tissue Systems",
+        "id": "79116ebb-713a-4dee-abec-d0f8e8637ccf",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Tissue Systems -> Epidermal System (Epidermis, Stomata, Trichomes) | Ground System (Cortex, Pith, Me",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Bean-Shaped vs Dumb-bell Guard Cells",
+            "image_query": "leaf epidermal peel stomata diagram showing open and closed guard cells, stomatal pore, chloroplasts, and epidermal cells",
+            "video_query": "stomata in leaf peel under microscope opening and closing demonstration"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "The Vascular Tissue System",
+        "id": "1bb8d26b-800b-4b03-b88d-20845f004e63",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Vascular Bundles -> Arrangement (Radial | Conjoint) -> Cambium Presence (Open | Closed)",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 2,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Anatomy of Dicotyledonous and Monocotyledonous Roots",
+        "id": "9f7fa9d2-2490-40cf-92c3-006d4d3b00ef",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Root Anatomy -> Epiblema -> Cortex -> Endodermis (Casparian Strips) -> Pericycle -> Stele (Vascular ",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 1,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "Anatomy of Dicotyledonous and Monocotyledonous Stems",
+        "id": "892d6667-1723-4bf6-8cac-b0e6b050fa2a",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Stem Anatomy -> Epidermis -> Hypodermis (Collenchyma/Sclerenchyma) -> Cortex -> Vascular Bundles (Ri",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 1,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "Anatomy of Dorsiventral and Isobilateral Leaves",
+        "id": "79aaf423-cf5b-4c69-8503-aa770ba83024",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Leaf Anatomy -> Epidermis (Adaxial/Abaxial) -> Mesophyll (Palisade/Spongy OR Undifferentiated) -> Va",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 1,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 6,
+        "title": "NCERT End-of-Chapter Exercises & Master Problem Solver",
+        "id": "06031449-467b-4f4d-8870-1b0448863af8",
+        "is_solver": true,
+        "has_flowchart": true,
+        "flowchart_preview": "Exercises -> Q1: Root/Stem Differences | Q2-Q3: Stem Identification | Q4: Stomatal Apparatus | Q5: T",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": true,
+      "totalFlowcharts": 6,
+      "totalVisuals": 1,
+      "totalConceptQuestions": 9,
+      "totalExercises": 1,
+      "modulesWithMathBoilerplate": 6
+    }
+  },
+  {
+    "order_index": 7,
+    "title": "Chapter 7: Structural Organisation in Animals",
+    "curriculum_id": "283c5e5c-6465-4194-9ab3-9cb7769725c7",
+    "module_count": 6,
+    "book_code": "kebo107",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo107.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "Animal Tissues, Organs, and Organ Systems",
+        "id": "e11366ec-d708-4095-a5af-ffdb2be2170b",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Cells -> Tissues (Epithelial, Connective, Muscular, Neural) -> Organs (Stomach, Heart) -> Organ Syst",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Structural Hierarchy in Animals",
+            "image_query": "biological structure diagram of Structural Hierarchy in Animals with labeled anatomical parts and microscopic cellular details",
+            "video_query": "Structural Hierarchy in Animals biology educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "Morphology of Frog (Rana tigrina)",
+        "id": "ebfe0677-4d27-4af7-87c3-2a149bf74751",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Frog (Rana tigrina) -> Amphibia -> Morphology (Head & Trunk, Moist Skin, Tympanum, Webbed Feet) -> S",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Male vs. Female Morphological Markers",
+            "image_query": "human vocal cords in larynx voice box anatomical diagram showing open and closed glottis and vocal folds",
+            "video_query": "how vocal cords produce sound vibration endoscopy stroboscopy video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Anatomy of Frog: Digestive and Respiratory Systems",
+        "id": "9b4a4e98-cf2e-413f-886e-07bdfbccc275",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Mouth -> Buccal Cavity -> Pharynx -> Oesophagus -> Stomach (HCl/Gastric Juice) -> Duodenum (Bile & P",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Frog Digestive Tract Pathway",
+            "image_query": "Sequential flow boxes of digestive organs. scientific educational diagram with clear labels",
+            "video_query": "Frog Digestive Tract Pathway educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "Anatomy of Frog: Circulatory and Excretory Systems",
+        "id": "ebfac55a-62ef-4be5-84e9-6b7009b3ef79",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Circulatory System -> Heart (3 Chambers: 2 Atria, 1 Ventricle) -> Sinus Venosus & Conus Arteriosus -",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Frog Heart Chambers & Flow",
+            "image_query": "human ear labeled anatomy diagram showing pinna, auditory canal, eardrum tympanic membrane, ossicles hammer anvil stirrup, and cochlea",
+            "video_query": "how human ear hears sound auditory system 3D animation"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "Anatomy of Frog: Nervous, Sense, and Reproductive Systems",
+        "id": "ce9dfb54-276d-43ae-8e50-10cf819a66e0",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Nervous System (CNS, PNS [10 pairs cranial nerves], ANS) -> Brain (Forebrain, Midbrain, Hindbrain) -",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Male vs Female Reproductive Organs",
+            "image_query": "Side-by-side comparison of male and female reproductive systems. scientific educational diagram with clear labels",
+            "video_query": "Male vs Female Reproductive Organs educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 6,
+        "title": "NCERT Summary & Chapter Exercises Master Solver",
+        "id": "66544280-c486-4911-b6fb-a59b5cf2903c",
+        "is_solver": true,
+        "has_flowchart": true,
+        "flowchart_preview": "Chapter Review -> Tissues & Organ Systems -> Frog Morphology -> Digestive System -> Respiratory Syst",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Complete Frog Digestive Tract",
+            "image_query": "human ear labeled anatomy diagram showing pinna, auditory canal, eardrum tympanic membrane, ossicles hammer anvil stirrup, and cochlea",
+            "video_query": "how human ear hears sound auditory system 3D animation"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": true,
+      "totalFlowcharts": 6,
+      "totalVisuals": 6,
+      "totalConceptQuestions": 17,
+      "totalExercises": 2,
+      "modulesWithMathBoilerplate": 6
+    }
+  },
+  {
+    "order_index": 8,
+    "title": "Chapter 8: Cell : The Unit of Life",
+    "curriculum_id": "c3fb6224-4609-4f48-99c7-f8c1c9205a1c",
+    "module_count": 5,
+    "book_code": "kebo108",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo108.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "Cell Theory and Overview of Cell",
+        "id": "849607d1-726d-4797-9b54-609a8c876b39",
+        "is_solver": false,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "Eukaryotic Cell: Membrane and Endomembrane System",
+        "id": "c3a6ba39-4402-4390-9ee0-cbf33b73ff8e",
+        "is_solver": false,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Mitochondria, Plastids, and Ribosomes",
+        "id": "a95ccd00-c8b7-4517-99b5-f95fd3ded495",
+        "is_solver": false,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "Cytoskeleton, Nucleus, and Microbodies",
+        "id": "b8f974ee-f3d2-4ef2-9ae2-0a1026b67f7b",
+        "is_solver": false,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "Exercises and Concept Masterclass",
+        "id": "f703e89e-5012-4c0c-8f84-514cc00b7261",
+        "is_solver": true,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": true,
+      "totalFlowcharts": 0,
+      "totalVisuals": 0,
+      "totalConceptQuestions": 0,
+      "totalExercises": 0,
+      "modulesWithMathBoilerplate": 5
+    }
+  },
+  {
+    "order_index": 9,
+    "title": "Chapter 9: Biomolecules",
+    "curriculum_id": "1d361e24-c47a-4a8a-a6a4-adcd5ec62a62",
+    "module_count": 6,
+    "book_code": "kebo109",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo109.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "Chemical Composition of Living Tissues & Analysis",
+        "id": "69fcb9f4-7c46-4530-b290-adda0435fc73",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Chemical Analysis -> Trichloroacetic Acid Grinding -> Filtrate (Acid-Soluble Pool, 18-800 Da) | Rete",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Extraction & Fractionation Protocol",
+            "image_query": "biological structure diagram of Extraction & Fractionation Protocol with labeled anatomical parts and microscopic cellular details",
+            "video_query": "Extraction & Fractionation Protocol biology educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "Primary & Secondary Metabolites and Biomacromolecules",
+        "id": "6f1f272e-ceaa-4cd1-927a-49dbdcc54af0",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Biomolecules -> Micromolecules (<1000 Da, Soluble) | Macromolecules (>10,000 Da, Insoluble) -> Polym",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Secondary Metabolite Categories",
+            "image_query": "Secondary Metabolite Categories detailed educational scientific diagram with labeled components and annotations",
+            "video_query": "Secondary Metabolite Categories educational laboratory experiment demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Proteins and Polysaccharides",
+        "id": "e8c337e2-5770-4d88-b4be-daad56f2921f",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Amino Acids -> Polypeptides (Proteins) -> Primary -> Secondary (Helix/Sheet) -> Tertiary (3D Ball) -",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Amino Acid Ionization States",
+            "image_query": "Three chemical structures side by side with equilibrium arrows. scientific educational diagram with clear labels",
+            "video_query": "Amino Acid Ionization States educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "Nucleic Acids & Lipids",
+        "id": "573155bb-8600-437c-aaf4-aa4dd78faf87",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Lipids -> Fatty Acids + Glycerol -> Triglycerides & Phospholipids | Nucleic Acids -> Polynucleotides",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Nucleoside vs Nucleotide",
+            "image_query": "Comparison diagram of nucleoside and nucleotide blocks. scientific educational diagram with clear labels",
+            "video_query": "Nucleoside vs Nucleotide educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "Enzymes - Properties, Kinetics & Mechanism",
+        "id": "8fbb0353-e6a4-4261-afa2-ae6981f16775",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Enzyme (E) + Substrate (S) -> ES Complex -> EP Complex -> Enzyme (E) + Product (P) | Factors: Temper",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Energy Barrier Reduction",
+            "image_query": "Potential energy curve with dual peaks for catalyzed and uncatalyzed reactions. scientific educational diagram with clear labels",
+            "video_query": "Energy Barrier Reduction educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 6,
+        "title": "Enzyme Classification, Nomenclature & Complete Exercises",
+        "id": "d0203e68-61b6-4420-9b1e-b56eecfff059",
+        "is_solver": true,
+        "has_flowchart": true,
+        "flowchart_preview": "Enzyme Cofactors -> Prosthetic Groups (Tightly bound, Haem) | Coenzymes (Transient, Vitamins like NA",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Three Kinds of Cofactors",
+            "image_query": "Three-part flowchart showing cofactor types. scientific educational diagram with clear labels",
+            "video_query": "Three Kinds of Cofactors educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": true,
+      "totalFlowcharts": 6,
+      "totalVisuals": 6,
+      "totalConceptQuestions": 16,
+      "totalExercises": 6,
+      "modulesWithMathBoilerplate": 6
+    }
+  },
+  {
+    "order_index": 10,
+    "title": "Chapter 10: Cell Cycle and Cell Division",
+    "curriculum_id": "b1d2c96d-15d0-44cf-b2c0-933bc17daa72",
+    "module_count": 6,
+    "book_code": "kebo110",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo110.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "Introduction to Cell Cycle and Interphase",
+        "id": "03f9ff00-b8ff-46e1-8207-f50a3176e6b2",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Cell Cycle -> Interphase (G1 -> S -> G2) | M Phase (Mitosis/Meiosis) | Quiescent Stage (G0)",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Eukaryotic Cell Cycle Phases",
+            "image_query": "biological structure diagram of Eukaryotic Cell Cycle Phases with labeled anatomical parts and microscopic cellular details",
+            "video_query": "Eukaryotic Cell Cycle Phases biology educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "Mitosis (M Phase) and Cytokinesis",
+        "id": "8bab2683-283b-453a-a6f0-401865e1f839",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Mitosis -> Prophase -> Metaphase -> Anaphase -> Telophase -> Cytokinesis (Animal: Furrow | Plant: Ce",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Stages of Mitosis",
+            "image_query": "Four sequential stages of mitotic nuclear division. scientific educational diagram with clear labels",
+            "video_query": "Stages of Mitosis educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Significance of Mitosis & Introduction to Meiosis",
+        "id": "f29df04a-fd83-4f3c-8ff7-90adc159c235",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Mitosis -> Growth & Repair (Diploid -> Diploid) | Meiosis -> Sexual Reproduction (Diploid -> Haploid",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Mitosis vs Meiosis Summary",
+            "image_query": "DNA double helix replication and chromosome structure labeled diagram showing nucleotide base pairs",
+            "video_query": "DNA replication 3D animation molecular biology demonstration"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "Meiosis I: Prophase I Sub-stages and Karyokinesis",
+        "id": "7d4c37f2-da1c-4373-bc33-1d29599ba693",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Prophase I -> Leptotene -> Zygotene -> Pachytene -> Diplotene -> Diakinesis -> Metaphase I -> Anapha",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Crossing Over Mechanism",
+            "image_query": "Homologous chromosomes crossing over at chiasmata. scientific educational diagram with clear labels",
+            "video_query": "Crossing Over Mechanism educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "Meiosis II and Significance of Meiosis",
+        "id": "fef1a9d7-0ed0-4ffb-b567-9f9597297be2",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Meiosis II -> Prophase II -> Metaphase II -> Anaphase II -> Telophase II -> Four Haploid Daughter Ce",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Stages of Meiosis II",
+            "image_query": "biological structure diagram of Stages of Meiosis II with labeled anatomical parts and microscopic cellular details",
+            "video_query": "Stages of Meiosis II biology educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 6,
+        "title": "NCERT Exercises & Chapter Master Problem Solver",
+        "id": "1a15eda1-a4a0-485a-95ae-d04a1c31a7f2",
+        "is_solver": true,
+        "has_flowchart": true,
+        "flowchart_preview": "Exercises -> Q1-4 (Basics) -> Q5-10 (Mitosis/Meiosis Mechanics) -> Q11-16 (Advanced Comparisons & Pa",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "DNA and Chromosome Variation",
+            "image_query": "DNA double helix replication and chromosome structure labeled diagram showing nucleotide base pairs",
+            "video_query": "DNA replication 3D animation molecular biology demonstration"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 2,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": true,
+      "totalFlowcharts": 6,
+      "totalVisuals": 6,
+      "totalConceptQuestions": 15,
+      "totalExercises": 7,
+      "modulesWithMathBoilerplate": 6
+    }
+  },
+  {
+    "order_index": 11,
+    "title": "Chapter 11: Photosynthesis in Higher Plants",
+    "curriculum_id": "17a71bd5-e63a-4f63-9664-15e2bf393dd9",
+    "module_count": 6,
+    "book_code": "kebo111",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo111.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "Early Experiments & The Site of Photosynthesis",
+        "id": "2dc5dac7-149f-4f13-bc61-bc427d42eff3",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "History -> Priestley & Ingenhousz | Engelmann | Van Niel -> Chloroplast Structure (Grana & Stroma)",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Chloroplast Ultrastructure",
+            "image_query": "Detailed chloroplast cross-section. scientific educational diagram with clear labels",
+            "video_query": "Chloroplast Ultrastructure educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "Pigments & Absorption Spectra",
+        "id": "d71a1f24-7f66-424e-9c01-59124c22fa6f",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Pigments -> Chromatography (Chl a, Chl b, Xanthophylls, Carotenoids) -> Absorption vs Action Spectra",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Absorption Spectrum",
+            "image_query": "Absorption curve graph. scientific educational diagram with clear labels",
+            "video_query": "Absorption Spectrum educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Light Reaction & Chemiosmotic ATP Synthesis",
+        "id": "314def4a-e550-4c01-9546-800b755542a4",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Light Reaction -> PS II & PS I (Z-Scheme) -> Water Splitting -> Chemiosmosis -> ATP & NADPH",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Thylakoid Membrane Chemiosmosis",
+            "image_query": "Membrane cross-section with ATP synthase. scientific educational diagram with clear labels",
+            "video_query": "Thylakoid Membrane Chemiosmosis educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "The Biosynthetic Phase & The Calvin Cycle",
+        "id": "35963087-8863-4a3b-a05a-92935e42799c",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Calvin Cycle -> Carboxylation (RuBisCO) -> Reduction (ATP + NADPH) -> Regeneration (RuBP) -> Glucose",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Calvin Cycle Pathway",
+            "image_query": "Cyclic pathway diagram. scientific educational diagram with clear labels",
+            "video_query": "Calvin Cycle Pathway educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "C4 Pathway, Kranz Anatomy & Photorespiration",
+        "id": "260254b0-405c-4704-8004-0c54d2fa9c23",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "C4 Plants -> Kranz Anatomy -> Mesophyll (PEP + CO2 -> OAA) -> Bundle Sheath (Calvin Cycle & High CO2",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "C4 Leaf Anatomy",
+            "image_query": "biological structure diagram of C4 Leaf Anatomy with labeled anatomical parts and microscopic cellular details",
+            "video_query": "C4 Leaf Anatomy biology educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 6,
+        "title": "Factors Affecting Photosynthesis & Chapter Exercises",
+        "id": "b53584d8-bbe4-429c-b79b-03f57f4800b4",
+        "is_solver": true,
+        "has_flowchart": true,
+        "flowchart_preview": "Factors -> Light (Saturation at 10%) | CO2 (C3 vs C4 saturation) | Temperature (Enzymatic) | Water S",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Light Intensity Response Curve",
+            "image_query": "Photosynthesis rate vs light intensity graph. scientific educational diagram with clear labels",
+            "video_query": "Light Intensity Response Curve educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": true,
+      "totalFlowcharts": 6,
+      "totalVisuals": 6,
+      "totalConceptQuestions": 6,
+      "totalExercises": 6,
+      "modulesWithMathBoilerplate": 6
+    }
+  },
+  {
+    "order_index": 12,
+    "title": "Chapter 12: Respiration in Plants",
+    "curriculum_id": "37bff839-c124-4a34-9749-6e956bee25c1",
+    "module_count": 6,
+    "book_code": "kebo112",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo112.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "Introduction & Do Plants Breathe?",
+        "id": "215f6e3c-cf8d-4695-a814-de4210ed1276",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Respiration -> Cellular Oxidation -> Glycolysis | Fermentation | Aerobic Respiration (Krebs Cycle + ",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Oxidation of Glucose",
+            "image_query": "biological structure diagram of Oxidation of Glucose with labeled anatomical parts and microscopic cellular details",
+            "video_query": "Oxidation of Glucose biology educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "Glycolysis (EMP Pathway)",
+        "id": "fc5cbb25-3ad3-4191-9926-5a0fa7b38b9f",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Glucose -> Glucose-6-P -> Fructose-6-P -> Fructose 1,6-bisP -> Triose Phosphates -> Pyruvic Acid",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "EMP Pathway Steps",
+            "image_query": "Detailed boxes showing investment and payoff stages. scientific educational diagram with clear labels",
+            "video_query": "EMP Pathway Steps educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Fermentation & Anaerobic Respiration",
+        "id": "2aa185db-1445-4060-a75b-0f25eeb2e346",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Glucose -> Pyruvic Acid -> [Yeast: Ethanol + CO2] OR [Muscle/Bacteria: Lactic Acid]",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Anaerobic Breakdown",
+            "image_query": "Flow chart of NADH oxidation during fermentation. scientific educational diagram with clear labels",
+            "video_query": "Anaerobic Breakdown educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "Aerobic Respiration & Krebs' Cycle (TCA Cycle)",
+        "id": "71b2c320-4293-4684-a7f6-edf60cbdc301",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Pyruvate -> Acetyl CoA + OAA -> Citrate -> Alpha-Ketoglutarate -> Succinyl CoA -> Succinate -> Malat",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Link Reaction & TCA",
+            "image_query": "Pyruvate entering mitochondrion and converting to Acetyl CoA. scientific educational diagram with clear labels",
+            "video_query": "Link Reaction & TCA educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "Electron Transport System (ETS) & Oxidative Phosphorylation",
+        "id": "af626670-43c9-4bca-ae9e-031056bb05c7",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "NADH/FADH2 -> Complexes I-IV -> Proton Gradient -> ATP Synthase (Complex V) -> ATP + H2O",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Chemiosmotic ATP Synthesis",
+            "image_query": "F0 base channel and F1 headpiece synthesizing ATP from ADP + Pi. scientific educational diagram with clear labels",
+            "video_query": "Chemiosmotic ATP Synthesis educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 6,
+        "title": "Respiratory Balance Sheet, Amphibolic Pathway & RQ",
+        "id": "3c0f429b-517d-4fa8-a45f-c17d550ecbc8",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Respiratory Substrates (Carbs/Fats/Proteins) -> Respiratory Pathway -> Amphibolic Links (Catabolism ",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Catabolism vs Anabolism",
+            "image_query": "Dual arrows showing molecules entering and leaving the respiratory pathway. scientific educational diagram with clear labels",
+            "video_query": "Catabolism vs Anabolism educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": false,
+      "totalFlowcharts": 6,
+      "totalVisuals": 6,
+      "totalConceptQuestions": 6,
+      "totalExercises": 6,
+      "modulesWithMathBoilerplate": 6
+    }
+  },
+  {
+    "order_index": 13,
+    "title": "Chapter 13: Plant Growth and Development",
+    "curriculum_id": "c1b063f9-5e28-4e5d-a7a9-60ffae2fb231",
+    "module_count": 6,
+    "book_code": "kebo113",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo113.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "Introduction to Plant Respiration and Gas Exchange",
+        "id": "90927197-2096-4155-a1a8-7f0691a18821",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Respiration Intro -> Plant Gaseous Exchange (Stomata/Lenticels) -> Cellular Respiration -> ATP as En",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Cellular Respiration Overview",
+            "image_query": "biological structure diagram of Cellular Respiration Overview with labeled anatomical parts and microscopic cellular details",
+            "video_query": "Cellular Respiration Overview biology educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "Glycolysis (EMP Pathway)",
+        "id": "7f2bf2dd-f8c2-4a77-8bc5-baca339557be",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Glucose (6C) -> Glucose-6-P -> Fructose-6-P -> Fructose 1,6-bisP -> PGAL (3C) -> BPGA -> Pyruvic Aci",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Energy Investment & Payoff in Glycolysis",
+            "image_query": "Energy Investment & Payoff in Glycolysis detailed educational scientific diagram with labeled components and annotations",
+            "video_query": "Energy Investment & Payoff in Glycolysis educational laboratory experiment demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Fermentation (Anaerobic Respiration)",
+        "id": "68c2b914-9ef1-4d2d-b720-dbfd812ed39e",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Glucose -> Pyruvic Acid -> [Anaerobic] -> (Yeast) Ethanol + CO2 | (Muscle/Bacteria) Lactic Acid",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Anaerobic Fate of Pyruvate",
+            "image_query": "Enzyme steps for decarboxylation and dehydrogenation. scientific educational diagram with clear labels",
+            "video_query": "Anaerobic Fate of Pyruvate educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "Aerobic Respiration: TCA Cycle & Krebs' Cycle",
+        "id": "ac39e8e2-6450-4539-89c8-59b750754222",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Pyruvate -> Acetyl CoA (Link Reaction) -> Citrate (6C) -> alpha-Ketoglutarate (5C) -> Succinyl-CoA (",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Oxidative Decarboxylation (Link Reaction)",
+            "image_query": "Pyruvic dehydrogenase reaction scheme. scientific educational diagram with clear labels",
+            "video_query": "Oxidative Decarboxylation Link Reaction educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "Electron Transport System (ETS) & Oxidative Phosphorylation",
+        "id": "1ce10acf-f16d-4eac-b67e-55a124dacf94",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "NADH/FADH2 -> Complexes I-IV -> Proton Gradient -> F0-F1 ATP Synthase -> ATP + H2O",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "ATP Synthase Structure (F0-F1)",
+            "image_query": "F0 membrane channel and F1 headpiece. scientific educational diagram with clear labels",
+            "video_query": "ATP Synthase Structure F0-F1 educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 6,
+        "title": "Amphibolic Pathway, Respiratory Quotient & Chapter Exercises",
+        "id": "78260b9f-f9ed-4ef6-a877-d3d406486b4e",
+        "is_solver": true,
+        "has_flowchart": true,
+        "flowchart_preview": "Substrate -> Respiratory Pathway -> Catabolism (Energy Breakdown) <-> Anabolism (Intermediate Synthe",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "RQ Values for Different Substrates",
+            "image_query": "RQ Values for Different Substrates detailed educational scientific diagram with labeled components and annotations",
+            "video_query": "RQ Values for Different Substrates educational laboratory experiment demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 2,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": true,
+      "totalFlowcharts": 6,
+      "totalVisuals": 6,
+      "totalConceptQuestions": 6,
+      "totalExercises": 2,
+      "modulesWithMathBoilerplate": 6
+    }
+  },
+  {
+    "order_index": 14,
+    "title": "Chapter 14: Breathing and Exchange of Gases",
+    "curriculum_id": "27cc24d3-a5b3-495a-a6ce-33889614abbf",
+    "module_count": 6,
+    "book_code": "kebo114",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo114.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "Respiratory Organs and Human Respiratory System Anatomy",
+        "id": "5e93026a-8234-4b6b-9cd2-9021bef79457",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Respiratory Organs -> Invertebrates (Diffusion/Cuticle/Trachea/Gills) | Vertebrates (Gills/Lungs/Ski",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Respiratory Tract Zones",
+            "image_query": "Flow diagram showing Nostrils -> Bronchioles Conducting vs Alveoli Exchange . scientific educational diagram with clear labels",
+            "video_query": "Respiratory Tract Zones educational demonstration video"
+          }
+        ],
+        "cq_count": 4,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "Mechanism of Breathing and Respiratory Volumes",
+        "id": "34c62ab6-f387-4be5-b05f-9b7579999284",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Breathing -> Inspiration (Diaphragm & External Intercostals Contract) | Expiration (Relaxation) -> V",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Lung Volumes and Capacities Bar Breakdown",
+            "image_query": "Lung Volumes and Capacities Bar Breakdown detailed educational scientific diagram with labeled components and annotations",
+            "video_query": "Lung Volumes and Capacities Bar Breakdown educational laboratory experiment demonstration video"
+          }
+        ],
+        "cq_count": 4,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Exchange of Gases and Diffusion Membrane",
+        "id": "4f7c8df6-a2a6-480e-a249-fdff408828f8",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Diffusion -> Partial Pressures ($pO_2, pCO_2$) -> Concentration Gradients (Alveoli -> Blood -> Tissu",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Partial Pressures across Respiratory Pathway",
+            "image_query": "biological structure diagram of Partial Pressures across Respiratory Pathway with labeled anatomical parts and microscopic cellular details",
+            "video_query": "Partial Pressures across Respiratory Pathway biology educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "Transport of Oxygen and Oxygen Dissociation Curve",
+        "id": "47726238-2b4f-49fd-a7c2-d277b0fb84c6",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Oxygen Transport -> 97% RBC (Oxyhaemoglobin) | 3% Plasma -> Alveoli (Association: High $pO_2$, Low $",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Sigmoidal Curve Shift Analysis",
+            "image_query": "Graph with normal curve and right-shifted curve. scientific educational diagram with clear labels",
+            "video_query": "Sigmoidal Curve Shift Analysis educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "Transport of Carbon Dioxide and Regulation of Respiration",
+        "id": "7afb6960-517c-4e40-9dd0-642f3f0d2323",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "CO2 Transport -> Bicarbonate (70%) | Carbamino-haemoglobin (20-25%) | Dissolved Plasma (7%) -> Carbo",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Neural Control Centers of Respiration",
+            "image_query": "Brain stem schematic with Medulla and Pons labels. scientific educational diagram with clear labels",
+            "video_query": "Neural Control Centers of Respiration educational demonstration video"
+          }
+        ],
+        "cq_count": 4,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 6,
+        "title": "Respiratory Disorders and Chapter Exercise Master Solver",
+        "id": "9fb7964a-5e0c-4831-9ba6-6aee6f3b5b8c",
+        "is_solver": true,
+        "has_flowchart": true,
+        "flowchart_preview": "Respiratory Disorders -> Asthma (Bronchi Inflammation) | Emphysema (Alveolar Damage / Smoking) | Occ",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Alveolar Wall Breakdown in Emphysema",
+            "image_query": "Comparative alveoli structure drawing. scientific educational diagram with clear labels",
+            "video_query": "Alveolar Wall Breakdown in Emphysema educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": true,
+      "totalFlowcharts": 6,
+      "totalVisuals": 6,
+      "totalConceptQuestions": 21,
+      "totalExercises": 6,
+      "modulesWithMathBoilerplate": 6
+    }
+  },
+  {
+    "order_index": 15,
+    "title": "Chapter 15: Body Fluids and Circulation",
+    "curriculum_id": "fc45a7f6-a2e4-46a3-9ec2-b5d014ff0a7b",
+    "module_count": 6,
+    "book_code": "kebo115",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo115.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "Blood Composition and Formed Elements",
+        "id": "0108d6af-e7d1-4372-87cf-9be64d6d86af",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Blood -> Plasma (55%) | Formed Elements (45%); Plasma -> Water (90-92%) | Proteins (6-8%); Formed El",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Biconcave RBC Structure",
+            "image_query": "Cross section of biconcave disk. scientific educational diagram with clear labels",
+            "video_query": "Biconcave RBC Structure educational demonstration video"
+          }
+        ],
+        "cq_count": 4,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "Blood Groups, Coagulation and Lymph",
+        "id": "6b3ce28a-2d2b-4bcd-b34a-af72c1db049d",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Blood Grouping -> ABO (Antigens A, B) | Rh Factor (+/-); Coagulation -> Thrombokinase -> Prothrombin",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Coagulation Cascade",
+            "image_query": "Flowchart diagram of blood clotting factors. scientific educational diagram with clear labels",
+            "video_query": "Coagulation Cascade educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Circulatory Pathways and Human Heart Anatomy",
+        "id": "a3d00c9f-4524-4bea-91b6-dc7777e2d8b1",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Heart -> Atria (Right/Left) | Ventricles (Right/Left); Nodal System -> SAN -> AVN -> AV Bundle -> Pu",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Cardiac Conduction System",
+            "image_query": "human ear labeled anatomy diagram showing pinna, auditory canal, eardrum tympanic membrane, ossicles hammer anvil stirrup, and cochlea",
+            "video_query": "how human ear hears sound auditory system 3D animation"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "Cardiac Cycle, ECG and Cardiac Output",
+        "id": "87c347e8-f091-45d4-a413-c91518faffdd",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Cardiac Cycle -> Joint Diastole -> Atrial Systole -> Ventricular Systole -> Ventricular Diastole; EC",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "ECG Wave Breakdown",
+            "image_query": "ECG trace with callouts for each wave. scientific educational diagram with clear labels",
+            "video_query": "ECG Wave Breakdown educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "Double Circulation, Regulation and Disorders",
+        "id": "40ecd0d0-e45a-4307-a18d-02f44952c727",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Circulation -> Pulmonary (Heart-Lungs) | Systemic (Heart-Tissues); Regulation -> Myogenic + Medulla ",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Pulmonary & Systemic Loops",
+            "image_query": "Heart and organ loops layout. scientific educational diagram with clear labels",
+            "video_query": "Pulmonary & Systemic Loops educational demonstration video"
+          }
+        ],
+        "cq_count": 3,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 6,
+        "title": "NCERT Exercises and Master Problem Solver",
+        "id": "40630204-34fe-4506-adf7-1156c3d1efb0",
+        "is_solver": true,
+        "has_flowchart": true,
+        "flowchart_preview": "Exercises -> Q1-Q3 (Blood/Grouping) | Q4-Q7 (Comparison) | Q8-Q11 (Heart Anatomy/Conduction) | Q12-Q",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Summary Blueprint",
+            "image_query": "Chapter concept linkage diagram. scientific educational diagram with clear labels",
+            "video_query": "Summary Blueprint educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": true,
+      "totalFlowcharts": 6,
+      "totalVisuals": 6,
+      "totalConceptQuestions": 17,
+      "totalExercises": 6,
+      "modulesWithMathBoilerplate": 6
+    }
+  },
+  {
+    "order_index": 16,
+    "title": "Chapter 16: Excretory Products and their Elimination",
+    "curriculum_id": "bf5cbc34-7836-4a01-b7f1-0ae520f48d5d",
+    "module_count": 6,
+    "book_code": "kebo116",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo116.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "Modes of Excretion & Diversity of Excretory Structures",
+        "id": "1369fafd-3938-4348-91c9-556f15981218",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Metabolic Wastes -> Nitrogenous Wastes (Ammonia, Urea, Uric Acid) | Invertebrate Excretory Organs (P",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Excretory Pathway Comparison",
+            "image_query": "Three cards showing Ammonia, Urea, Uric acid with toxicity levels. scientific educational diagram with clear labels",
+            "video_query": "Excretory Pathway Comparison educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "Human Excretory System & Nephron Architecture",
+        "id": "89b73bf1-e3cc-4fcb-8c2f-64198d9df762",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Human Excretory System -> Kidneys, Ureters, Bladder, Urethra | Kidney Internal -> Cortex, Medulla (P",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Renal Corpuscle Architecture",
+            "image_query": "structure of a nephron labeled diagram showing Bowman capsule, glomerulus, proximal convoluted tubule, loop of Henle, and collecting duct",
+            "video_query": "how nephron filters blood and produces urine 3D animation"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Urine Formation: Filtration, Reabsorption, and Secretion",
+        "id": "78360d7e-084a-4f22-b285-4b9d1d5cf623",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Urine Formation -> Glomerular Filtration (Ultrafiltration, GFR 125ml/min) -> Tubular Reabsorption (9",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "GFR Filtration Dynamics",
+            "image_query": "Flow diagram: 1100-1200 ml blood -> Glomerulus -> 125 ml filtrate/min. scientific educational diagram with clear labels",
+            "video_query": "GFR Filtration Dynamics educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "Tubular Functions & Counter-Current Mechanism",
+        "id": "5159ff9a-43ac-4b5d-a678-89d6b8446240",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Tubular Functions -> PCT (70-80% reabsorption) -> Henle's Loop (Descending: water permeable, Ascendi",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Counter-Current Multiplier",
+            "image_query": "Descending and ascending limbs with arrows for water and NaCl movement. scientific educational diagram with clear labels",
+            "video_query": "Counter-Current Multiplier educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "Regulation of Kidney Function & Micturition",
+        "id": "6a703cd4-0b2a-4b88-9140-2168dfb1027c",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Kidney Regulation -> ADH (Water reabsorption) | Renin-Angiotensin-Aldosterone (RAAM - raises BP & GF",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "RAAM Pathway",
+            "image_query": "Sequential boxes linking GFR drop to aldosterone-mediated Na+ reabsorption. scientific educational diagram with clear labels",
+            "video_query": "RAAM Pathway educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 6,
+        "title": "Role of Other Organs in Excretion & Disorders of Excretory System",
+        "id": "c19f438d-ef5e-4b81-a919-0aba5cf3a076",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Accessory Excretory Organs -> Lungs (CO2) | Liver (Bile pigments) | Skin (Sweat, Sebum) | Kidney Dis",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Dialysis Circuit",
+            "image_query": "electric circuit diagram of Dialysis Circuit with battery, ammeter, resistors, switch, and current direction arrows",
+            "video_query": "Dialysis Circuit electric circuit laboratory experiment demonstration"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": false,
+      "totalFlowcharts": 6,
+      "totalVisuals": 6,
+      "totalConceptQuestions": 12,
+      "totalExercises": 6,
+      "modulesWithMathBoilerplate": 6
+    }
+  },
+  {
+    "order_index": 17,
+    "title": "Chapter 17: Locomotion and Movement",
+    "curriculum_id": "8c2848d4-0642-49a2-9e06-8f304dc7f6cb",
+    "module_count": 5,
+    "book_code": "kebo117",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo117.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "Types of Movement and Muscle Anatomy",
+        "id": "c445e918-389a-42bc-ac0f-fce0ab3bde31",
+        "is_solver": false,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "Mechanism of Muscle Contraction",
+        "id": "df44bec2-9843-4c87-8ef9-4acd6331d064",
+        "is_solver": false,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Skeletal System: Axial Skeleton",
+        "id": "7daea061-74f3-482c-912d-dcea85da67d3",
+        "is_solver": false,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "Skeletal System: Appendicular Skeleton and Joints",
+        "id": "e8d6cc20-277d-4fca-8bc7-ca5d03323c0e",
+        "is_solver": false,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "Disorders of Muscular and Skeletal System & Review",
+        "id": "23e439c1-9bd7-4d64-adf7-226ea7f573fb",
+        "is_solver": true,
+        "has_flowchart": false,
+        "flowchart_preview": null,
+        "visuals_count": 0,
+        "visual_queries": [],
+        "cq_count": 0,
+        "ex_count": 0,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": true,
+      "totalFlowcharts": 0,
+      "totalVisuals": 0,
+      "totalConceptQuestions": 0,
+      "totalExercises": 0,
+      "modulesWithMathBoilerplate": 5
+    }
+  },
+  {
+    "order_index": 18,
+    "title": "Chapter 18: Neural Control and Coordination",
+    "curriculum_id": "37fdd5ab-05b3-469c-8208-02d5a9e77e28",
+    "module_count": 6,
+    "book_code": "kebo118",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo118.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "Neural System and Human Neural System Organization",
+        "id": "83f5f8c1-99d4-4165-920d-e8d9ba1a9c5f",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Human Neural System -> CNS (Brain & Spinal Cord) | PNS (Nerves) -> Afferent & Efferent Fibres -> Som",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Neural System Structural Breakdown",
+            "image_query": "human ear labeled anatomy diagram showing pinna, auditory canal, eardrum tympanic membrane, ossicles hammer anvil stirrup, and cochlea",
+            "video_query": "how human ear hears sound auditory system 3D animation"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "Neuron as Structural and Functional Unit of Neural System",
+        "id": "294b08b4-af57-40e7-826a-fd2ccfcbdb91",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Neuron -> Cell Body (Nissl's Granules) | Dendrites (Towards Soma) | Axon (Away from Soma -> Synaptic",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Anatomy of a Multipolar Neuron",
+            "image_query": "human ear labeled anatomy diagram showing pinna, auditory canal, eardrum tympanic membrane, ossicles hammer anvil stirrup, and cochlea",
+            "video_query": "how human ear hears sound auditory system 3D animation"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Generation and Conduction of Nerve Impulse",
+        "id": "9c794805-9750-4b88-8262-80d2932f3ab4",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Resting State (K+ inside, Na+ outside, Pump 3Na+/2K+) -> Stimulus Applied -> Na+ Influx & Depolariza",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Membrane Polarity Reversal",
+            "image_query": "electric circuit schematic diagram of Membrane Polarity Reversal with battery, switch, ammeter, voltmeter, and labeled circuit components",
+            "video_query": "electric circuit Membrane Polarity Reversal physics laboratory experiment demonstration"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "Transmission of Impulses Across Synapses",
+        "id": "56949134-15fd-4e17-bafc-3c0318c5ef62",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Action Potential Arrives -> Vesicles Fuse with Pre-synaptic Membrane -> Neurotransmitters Released i",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Synapse Architecture",
+            "image_query": "Synaptic cleft schematic with vesicles and receptor sites. scientific educational diagram with clear labels",
+            "video_query": "Synapse Architecture educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "Central Neural System: Human Brain Anatomy",
+        "id": "750c2e5d-be17-4721-893d-80d97df9134f",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Brain -> Cranial Meninges (Dura, Arachnoid, Pia) -> Forebrain (Cerebrum, Thalamus, Hypothalamus, Lim",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Forebrain & Brain Stem Overview",
+            "image_query": "Brain internal structure diagram. scientific educational diagram with clear labels",
+            "video_query": "Forebrain & Brain Stem Overview educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 6,
+        "title": "Comprehensive NCERT Exercises & Chapter Review",
+        "id": "63da4634-60c2-4a45-95d2-463437c315a1",
+        "is_solver": true,
+        "has_flowchart": true,
+        "flowchart_preview": "Chapter Review -> Core Concepts -> Neuron & Impulse -> Synaptic Transmission -> CNS Anatomy -> NCERT",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Chapter Review Map",
+            "image_query": "Master summary flowchart linking all chapter subtopics. scientific educational diagram with clear labels",
+            "video_query": "Chapter Review Map educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": true,
+      "totalFlowcharts": 6,
+      "totalVisuals": 6,
+      "totalConceptQuestions": 10,
+      "totalExercises": 6,
+      "modulesWithMathBoilerplate": 6
+    }
+  },
+  {
+    "order_index": 19,
+    "title": "Chapter 19: Chemical Coordination and Integration",
+    "curriculum_id": "b26cc55f-c44c-4de1-941b-71e760d413fd",
+    "module_count": 6,
+    "book_code": "kebo119",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/kebo119.pdf",
+    "modules": [
+      {
+        "order_index": 1,
+        "title": "Introduction to Endocrine System, Hypothalamus, and Pituitary Gland",
+        "id": "f5d5cf30-dd9c-40ab-9460-8afde886ff78",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Endocrine System -> Hypothalamus (Releasing/Inhibiting Hormones) -> Pituitary Gland -> Adenohypophys",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Hypothalamo-Hypophyseal Portal System",
+            "image_query": "biological structure diagram of Hypothalamo-Hypophyseal Portal System with labeled anatomical parts and microscopic cellular details",
+            "video_query": "Hypothalamo-Hypophyseal Portal System biology educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 2,
+        "title": "Pineal, Thyroid, Parathyroid, and Thymus Glands",
+        "id": "9169cd54-00d9-413c-b5e5-5b8e34d37634",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Glands -> Pineal (Melatonin) | Thyroid (T3, T4, TCT) | Parathyroid (PTH) | Thymus (Thymosins)",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Calcium Homeostasis Feedback",
+            "image_query": "Bone, kidney, intestine calcium flux arrows. scientific educational diagram with clear labels",
+            "video_query": "Calcium Homeostasis Feedback educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 3,
+        "title": "Adrenal Gland and Pancreas",
+        "id": "ba334f4e-4fce-40a8-a54b-ff3e1a8ee73d",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Adrenal Gland -> Medulla (Adrenaline, Noradrenaline) | Cortex (Glucocorticoids, Mineralocorticoids, ",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Adrenal Medulla Emergency Pathway",
+            "image_query": "reflection of sound waves producing echo against tall obstacle with minimum distance 17.2 meters diagram",
+            "video_query": "reflection of sound and echo formation experiment demonstration"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 4,
+        "title": "Testis, Ovary, and Hormones of Heart, Kidney & GI Tract",
+        "id": "db4df53c-fa7e-419c-9c73-e03034123dbe",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Gonads & Tissues -> Testis (Androgens) | Ovary (Estrogen, Progesterone) | Heart (ANF) | Kidney (Eryt",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "ANF Blood Pressure Feedback",
+            "image_query": "Heart atrium, blood vessels, pressure reduction arrows. scientific educational diagram with clear labels",
+            "video_query": "ANF Blood Pressure Feedback educational demonstration video"
+          }
+        ],
+        "cq_count": 2,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 5,
+        "title": "Mechanism of Hormone Action",
+        "id": "b4794d33-2450-4c92-836e-1205c09fba21",
+        "is_solver": false,
+        "has_flowchart": true,
+        "flowchart_preview": "Hormone Action -> Membrane-Bound Receptors (Protein Hormones -> Second Messengers -> Cellular Metabo",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Protein Hormone Second Messenger Cascade",
+            "image_query": "biological structure diagram of Protein Hormone Second Messenger Cascade with labeled anatomical parts and microscopic cellular details",
+            "video_query": "Protein Hormone Second Messenger Cascade biology educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      },
+      {
+        "order_index": 6,
+        "title": "Comprehensive NCERT Chapter Exercises & Master Problem Solver",
+        "id": "bcf59dd5-3c2a-4180-a498-0770d755c21f",
+        "is_solver": true,
+        "has_flowchart": true,
+        "flowchart_preview": "Exercises -> Definitions (Q1) | Locations (Q2) | Secretions (Q3) | Target Glands (Q4) | Functions (Q",
+        "visuals_count": 1,
+        "visual_queries": [
+          {
+            "title": "Endocrine Gland Master Map",
+            "image_query": "Hierarchical node map of all 10 endocrine structures. scientific educational diagram with clear labels",
+            "video_query": "Endocrine Gland Master Map educational demonstration video"
+          }
+        ],
+        "cq_count": 1,
+        "ex_count": 1,
+        "has_math_boilerplate": true
+      }
+    ],
+    "summary": {
+      "hasDedicatedSolver": true,
+      "totalFlowcharts": 6,
+      "totalVisuals": 6,
+      "totalConceptQuestions": 10,
+      "totalExercises": 6,
+      "modulesWithMathBoilerplate": 6
+    }
+  }
+]

@@ -1,0 +1,2077 @@
+[
+  {
+    "curriculum_id": "2554924b-7469-4822-9289-6fe14182dcc9",
+    "order_index": 1,
+    "title": "Chapter 1: Sexual Reproduction in Flowering Plants",
+    "category": "Biology",
+    "module_count": 5,
+    "book_code": "lebo101",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/lebo101.pdf",
+    "modules": [
+      {
+        "id": "02a44950-8b42-4fb1-853c-e36d5cc690a6",
+        "order_index": 1,
+        "title": "Flower Anatomy and Pre-fertilization Structures",
+        "is_solver": false,
+        "subtopics": [
+          "Pre-fertilization structures and events",
+          "Microsporangium and pollen grain structure",
+          "Male gametophyte development"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Anther structure",
+          "Sporopollenin",
+          "Microsporogenesis"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "d99e0a3b-af52-42f0-ad83-a6f662711028",
+        "order_index": 2,
+        "title": "Megasporangium, Female Gametophyte, and Pollination",
+        "is_solver": false,
+        "subtopics": [
+          "Megasporangium (ovule) structure",
+          "Female gametophyte (embryo sac)",
+          "Agents and types of pollination"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Monosporic development",
+          "Chasmogamous vs Cleistogamous flowers",
+          "Outbreeding devices"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "5b85bf6e-1b85-49b4-8c7f-3b06a5ae7f38",
+        "order_index": 3,
+        "title": "Fertilization and Post-fertilization Events",
+        "is_solver": false,
+        "subtopics": [
+          "Pollen-pistil interaction",
+          "Double fertilization and syngamy",
+          "Endosperm and embryo development"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Triple fusion",
+          "DICOT vs MONOCOT embryos",
+          "Apomixis and polyembryony"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "19690e7e-dd6b-4d59-8103-6bced94c52b5",
+        "order_index": 4,
+        "title": "In-Text Questions Solver & NCERT Activities Analysis",
+        "is_solver": true,
+        "subtopics": [
+          "In-text review questions",
+          "NCERT lab observations",
+          "Conceptual troubleshooting"
+        ],
+        "key_concepts_count": 2,
+        "key_concepts": [
+          "Pollen viability",
+          "Artificial hybridisation"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "12fdf9d7-2816-4def-8171-6f3676893a43",
+        "order_index": 5,
+        "title": "End-of-Chapter Review Exercises & Board Exam Masterclass",
+        "is_solver": true,
+        "subtopics": [
+          "End-of-chapter exercises",
+          "CBSE previous year questions",
+          "Diagram-based questions"
+        ],
+        "key_concepts_count": 2,
+        "key_concepts": [
+          "Board evaluation criteria",
+          "Diagram labeling rules"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      }
+    ]
+  },
+  {
+    "curriculum_id": "406a1b52-db23-4366-aeaa-1fc34d3f8cc5",
+    "order_index": 2,
+    "title": "Chapter 2: Human Reproduction",
+    "category": "Biology",
+    "module_count": 5,
+    "book_code": "lebo102",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/lebo102.pdf",
+    "modules": [
+      {
+        "id": "5b71ea63-d91c-42d8-b08f-9bb6ac32d770",
+        "order_index": 1,
+        "title": "Human Male and Female Reproductive Systems",
+        "is_solver": false,
+        "subtopics": [
+          "Male reproductive system anatomy",
+          "Female reproductive system anatomy",
+          "Accessory ducts and glands"
+        ],
+        "key_concepts_count": 2,
+        "key_concepts": [
+          "Testis and seminiferous tubules",
+          "Ovary and oviduct structure"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "57284bbb-d1e9-430c-a7df-beb32cf5abcd",
+        "order_index": 2,
+        "title": "Gametogenesis (Spermatogenesis and Oogenesis)",
+        "is_solver": false,
+        "subtopics": [
+          "Spermatogenesis mechanism",
+          "Oogenesis process",
+          "Hormonal control of gametogenesis"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Spermiogenesis",
+          "Polar bodies",
+          "GnRH, LH, and FSH roles"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "6664dd95-6771-46ec-b073-1364f559f49b",
+        "order_index": 3,
+        "title": "Menstrual Cycle, Fertilization, and Implantation",
+        "is_solver": false,
+        "subtopics": [
+          "Menstrual cycle hormonal phases",
+          "Fertilization and syngamy",
+          "Cleavage and implantation"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Endometrium changes",
+          "Acrosomal reaction",
+          "Trophoblast and inner cell mass"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "26f59f10-0fb1-426b-bbfc-41343e956647",
+        "order_index": 4,
+        "title": "Pregnancy, Embryonic Development, Parturition, and Lactation",
+        "is_solver": false,
+        "subtopics": [
+          "Placenta formation and functions",
+          "Organogenesis in human embryo",
+          "Parturition and lactation reflex"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "hCG, hPL, relaxin hormones",
+          "Fetal ejection reflex",
+          "Colostrum"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "66a76adf-9dd9-4c43-be67-dfe7b52ea896",
+        "order_index": 5,
+        "title": "In-Text Questions Solver & End-of-Chapter Board Masterclass",
+        "is_solver": true,
+        "subtopics": [
+          "In-text reasoning problems",
+          "Diagram analysis",
+          "Board exam subjective questions"
+        ],
+        "key_concepts_count": 2,
+        "key_concepts": [
+          "Chromosome count across gametogenesis stages",
+          "Hormonal feedback loops"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      }
+    ]
+  },
+  {
+    "curriculum_id": "fd6022a8-9d80-43da-97ea-051ec946f716",
+    "order_index": 3,
+    "title": "Chapter 3: Reproductive Health",
+    "category": "Biology",
+    "module_count": 6,
+    "book_code": "lebo103",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/lebo103.pdf",
+    "modules": [
+      {
+        "id": "e81de144-8e4d-45e0-a393-a7d3913fab2c",
+        "order_index": 1,
+        "title": "Reproductive Health – Problems and Strategies",
+        "is_solver": true,
+        "subtopics": [
+          "WHO Definition of Reproductive Health",
+          "Reproductive and Child Health Care (RCH) Programmes",
+          "Awareness and Sex Education in Schools",
+          "Statutory Ban on Amniocentesis"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Reproductive health means total well-being in physical, emotional, behavioural, and social aspects of reproduction.",
+          "RCH Programmes focus on creating awareness, providing medical facilities for pregnancy, delivery, STDs, contraception, and maternal/child health.",
+          "Amniocentesis is a foetal sex-determination and genetic disorder detection technique (Down syndrome, haemophilia) legally banned to prevent female foeticide."
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "132f0dff-1981-4535-83ac-8769bc4e9dcc",
+        "order_index": 2,
+        "title": "Population Stabilisation and Birth Control Methods",
+        "is_solver": false,
+        "subtopics": [
+          "Population Growth Trends & Reasons for Explosion",
+          "Characteristics of an Ideal Contraceptive",
+          "Natural / Traditional Contraceptive Methods",
+          "Barrier Methods (Condoms, Diaphragms)",
+          "Intra Uterine Devices (IUDs)",
+          "Oral Contraceptive Pills and Implants"
+        ],
+        "key_concepts_count": 4,
+        "key_concepts": [
+          "Population explosion is driven by a rapid decline in death rate, maternal mortality rate (MMR), and infant mortality rate (IMR), alongside an increase in the reproducible age group.",
+          "An ideal contraceptive must be user-friendly, easily available, effective, reversible, with least side-effects, and non-interfering with sexual drive.",
+          "Natural methods (periodic abstinence, withdrawal, lactational amenorrhea) rely on avoiding ovum-sperm meeting without devices.",
+          "IUDs (Lippes loop, CuT, Cu7, Multiload 375, Progestasert, LNG-20) suppress sperm motility, increase phagocytosis, and make the uterus unsuitable for implantation."
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "9830d600-7f8d-4d2d-ae04-6c5c72ce3b24",
+        "order_index": 3,
+        "title": "Surgical Methods and Medical Termination of Pregnancy (MTP)",
+        "is_solver": false,
+        "subtopics": [
+          "Surgical Sterilization in Males (Vasectomy)",
+          "Surgical Sterilization in Females (Tubectomy)",
+          "Medical Termination of Pregnancy (MTP) and Legal Status",
+          "MTP (Amendment) Act 2017 Grounds and Trimesters"
+        ],
+        "key_concepts_count": 4,
+        "key_concepts": [
+          "Vasectomy involves removing or tying up a small part of the vas deferens through a scrotal incision, blocking sperm transport.",
+          "Tubectomy involves removing or tying up a small part of the fallopian tube through an abdominal or vaginal incision, blocking ovum transport.",
+          "MTP was legalised in India in 1971 with strict conditions to prevent illegal female foeticide and misuse.",
+          "MTP (Amendment) Act 2017 permits termination within 12 weeks on one doctor's opinion, and 12-24 weeks on two doctors' opinions for specific health/foetal abnormality grounds."
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "9097e6c9-2485-458b-aad9-1bad4c67f13b",
+        "order_index": 4,
+        "title": "Sexually Transmitted Infections (STIs) and Prevention",
+        "is_solver": false,
+        "subtopics": [
+          "Definition and Alternative Names (STI, VD, RTI)",
+          "Common STIs (Gonorrhoea, Syphilis, HIV/AIDS, Herpes)",
+          "Transmission Routes and Complications (PID, Ectopic Pregnancies)",
+          "Prevention Principles and High-Risk Age Groups"
+        ],
+        "key_concepts_count": 4,
+        "key_concepts": [
+          "STIs (Sexually Transmitted Infections) or VDs (Venereal Diseases) or RTIs (Reproductive Tract Infections) are transmitted through sexual intercourse.",
+          "Common STIs include Gonorrhoea, Syphilis, Genital herpes, Chlamydiasis, Genital warts, Trichomoniasis, Hepatitis-B, and HIV/AIDS.",
+          "Hepatitis-B, Genital herpes, and HIV are incurable; most other STIs are completely curable if detected early and treated properly.",
+          "Complications of untreated STIs include Pelvic Inflammatory Diseases (PID), abortions, stillbirths, ectopic pregnancies, infertility, and reproductive tract cancer."
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "e24ff26f-941e-4dd4-9780-83c4e63ae436",
+        "order_index": 5,
+        "title": "Infertility and Assisted Reproductive Technologies (ART)",
+        "is_solver": false,
+        "subtopics": [
+          "Infertility Definition and Causes (Physical, Congenital, Immunological)",
+          "In Vitro Fertilisation (IVF) and Embryo Transfer (ET)",
+          "ZIFT (Zygote Intra Fallopian Transfer) and IUT (Intra Uterine Transfer)",
+          "GIFT, ICSI, and Artificial Insemination (AI / IUI)"
+        ],
+        "key_concepts_count": 4,
+        "key_concepts": [
+          "Infertility is the inability to produce children despite 2 years of unprotected sexual cohabitation.",
+          "In Vitro Fertilisation (IVF) involves fertilisation outside the body in simulated laboratory conditions, followed by embryo transfer (ET).",
+          "ZIFT transfers zygote or early embryo (upto 8 blastomeres) into the fallopian tube; IUT transfers embryos with >8 blastomeres into the uterus.",
+          "Artificial Insemination (AI / IUI) introduces semen from husband or healthy donor into the vagina or uterus to overcome low sperm counts or insemination failure."
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "d65cad58-544a-48c6-b648-d4e98e41139c",
+        "order_index": 6,
+        "title": "Comprehensive NCERT End-of-Chapter Exercises & Board Masterclass",
+        "is_solver": true,
+        "subtopics": [
+          "True/False Statement Analysis (Q11)",
+          "Statement Correction Exercises (Q12)",
+          "Board Exam Mastery & High-Yield Summary"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Abortions can happen spontaneously (miscarriages) as well as induced (MTP).",
+          "Infertility is not solely due to female abnormalities; it can equally involve the male partner or other biological factors.",
+          "Surgical methods prevent gamete transport, not gamete production."
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      }
+    ]
+  },
+  {
+    "curriculum_id": "4df9769c-45b5-4db5-8d2c-8daab93ae108",
+    "order_index": 4,
+    "title": "Chapter 4: Principles of Inheritance and Variation",
+    "category": "Biology",
+    "module_count": 5,
+    "book_code": "lebo104",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/lebo104.pdf",
+    "modules": [
+      {
+        "id": "481b9fc6-558c-40d0-87e2-000b2f3d4f8a",
+        "order_index": 1,
+        "title": "Mendel's Laws of Inheritance",
+        "is_solver": false,
+        "subtopics": [
+          "Mendel's breeding experiments",
+          "Law of Segregation",
+          "Law of Independent Assortment"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Test cross",
+          "Punnett square analysis",
+          "Phenotypic and genotypic ratios"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "c01d1d81-5f13-4af4-baf6-a8293b6aa4d2",
+        "order_index": 2,
+        "title": "Non-Mendelian Inheritance and Gene Interactions",
+        "is_solver": false,
+        "subtopics": [
+          "Incomplete dominance",
+          "Co-dominance",
+          "Multiple alleles and polygenic inheritance"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "ABO blood grouping",
+          "Pleiotropy",
+          "Quantitative inheritance"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "a732dad4-7f74-46c7-93cb-f8f90c6ce2a8",
+        "order_index": 3,
+        "title": "Chromosomal Theory of Inheritance and Linkage",
+        "is_solver": false,
+        "subtopics": [
+          "Chromosomal theory of inheritance",
+          "Linkage and recombination",
+          "Sex determination mechanisms"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Morgan's Drosophila experiments",
+          "Crossing over frequency",
+          "XX-XY and ZW-ZZ systems"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "7c84d827-21bb-4d10-91ef-694b0bad28fb",
+        "order_index": 4,
+        "title": "Pedigree Analysis and Genetic Disorders",
+        "is_solver": false,
+        "subtopics": [
+          "Pedigree analysis symbols and interpretation",
+          "Mendelian disorders (Hemophilia, Sickle-cell anemia)",
+          "Chromosomal disorders (Down's, Turner's, Klinefelter's syndromes)"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Autosomal recessive vs X-linked",
+          "Aneuploidy and euploidy",
+          "Phenylketonuria"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "c182815c-3036-4fe5-8786-75cac928699a",
+        "order_index": 5,
+        "title": "In-Text Questions Solver & Comprehensive Board Numericals",
+        "is_solver": true,
+        "subtopics": [
+          "NCERT in-text problem solving",
+          "Genetic cross numerical masterclass",
+          "Pedigree analysis practice"
+        ],
+        "key_concepts_count": 2,
+        "key_concepts": [
+          "Probability rules in genetics",
+          "Syndrome karyotypes"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      }
+    ]
+  },
+  {
+    "curriculum_id": "12b9268e-57a7-41aa-a333-02d2d3239e63",
+    "order_index": 5,
+    "title": "Chapter 5: Molecular Basis of Inheritance",
+    "category": "Biology",
+    "module_count": 6,
+    "book_code": "lebo105",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/lebo105.pdf",
+    "modules": [
+      {
+        "id": "2f958144-0934-4533-8a44-f7a5330e0d0d",
+        "order_index": 1,
+        "title": "DNA Structure and Polynucleotide Chain",
+        "is_solver": false,
+        "subtopics": [
+          "Chemical components of nucleotides",
+          "N-glycosidic, phosphoester, and phosphodiester linkages",
+          "Salient features of DNA double helix",
+          "Chargaff's equivalence rule"
+        ],
+        "key_concepts_count": 4,
+        "key_concepts": [
+          "Nucleotide structure: Nitrogenous base + Pentose sugar + Phosphate group",
+          "Antiparallel polarity (5'->3' and 3'->5')",
+          "Base pairing: A=T (2 H-bonds) and G≡C (3 H-bonds)",
+          "Dimensions of DNA helix: Pitch = 3.4 nm, ~10 bp per turn, distance between bp = 0.34 nm"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "05ad4651-1914-446e-aafb-8f4b7a8d7799",
+        "order_index": 2,
+        "title": "Packaging of DNA Helix and Search for Genetic Material",
+        "is_solver": false,
+        "subtopics": [
+          "Calculation of DNA length in mammalian cells",
+          "Prokaryotic nucleoid organization",
+          "Eukaryotic chromatin and histone octamer",
+          "Beads-on-string structure and euchromatin vs heterochromatin"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Histones are basic, positively charged proteins rich in lysine and arginine",
+          "Histone octamer + 200 bp DNA = Nucleosome",
+          "Euchromatin: loosely packed, transcriptionally active; Heterochromatin: densely packed, inactive"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "b7985db9-1bf0-48a5-b1d1-f12e41d0aa65",
+        "order_index": 3,
+        "title": "Experimental Proofs and Genetic Material Properties",
+        "is_solver": false,
+        "subtopics": [
+          "Griffith's transformation experiment (S and R strains)",
+          "Avery, MacLeod, and McCarty biochemical characterization",
+          "Hershey-Chase radioactive labeling (32P and 35S)",
+          "Criteria for genetic material (replication, stability, mutation, expression)"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Transforming principle transferred from heat-killed S to live R bacteria",
+          "DNase destroys transforming ability, proving DNA is the genetic material",
+          "Hershey-Chase used 32P (DNA) and 35S (protein) in bacteriophages infecting E. coli"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "2687a600-2767-48a3-81a1-4892fe8d077a",
+        "order_index": 4,
+        "title": "DNA Replication and Meselson-Stahl Experiment",
+        "is_solver": false,
+        "subtopics": [
+          "Semiconservative replication model (Watson-Crick)",
+          "Meselson-Stahl experiment with 15N and 14N in E. coli",
+          "Enzymes: DNA-dependent DNA polymerase, DNA ligase",
+          "Replication fork, leading and lagging strands, continuous/discontinuous synthesis"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Meselson & Stahl proved semi-conservative replication using CsCl density gradient centrifugation",
+          "DNA polymerase catalyzes polymerization strictly in 5'->3' direction",
+          "Leading strand synthesis is continuous; lagging strand is discontinuous (Okazaki fragments joined by ligase)"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "a5f0136a-3b63-4194-af82-7865cdbd7c2b",
+        "order_index": 5,
+        "title": "Transcription and Genetic Code",
+        "is_solver": false,
+        "subtopics": [
+          "Transcription unit: Promoter, structural gene, terminator",
+          "Template strand (3'->5') and coding strand (5'->3')",
+          "Eukaryotic RNA processing: Capping, tailing, and splicing of introns/exons",
+          "Salient features of genetic code (triplet, degenerate, universal, comma-less)"
+        ],
+        "key_concepts_count": 4,
+        "key_concepts": [
+          "RNA polymerase catalyzes transcription in 5'->3' direction",
+          "hnRNA undergoes capping (methyl guanosine triphosphate at 5'), tailing (poly-A tail at 3'), and splicing",
+          "61 codons code for amino acids, 3 are stop codons (UAA, UAG, UGA)",
+          "AUG has dual function: codes for Methionine and acts as initiator codon"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "43a811a9-0a3c-41a0-a9e5-e4eafd767e2a",
+        "order_index": 6,
+        "title": "Translation, Gene Regulation, HGP and DNA Fingerprinting",
+        "is_solver": false,
+        "subtopics": [
+          "Translation process, charging of tRNA (aminoacylation)",
+          "Ribosome structure and peptidyl transferase (ribozyme)",
+          "Lac operon negative regulation (i, z, y, a genes and inducer lactose)",
+          "Human Genome Project goals and salient features",
+          "DNA fingerprinting via VNTR probes and Southern blotting"
+        ],
+        "key_concepts_count": 4,
+        "key_concepts": [
+          "tRNA acts as an adapter molecule with an anticodon loop and amino acid acceptor end",
+          "23S rRNA in bacteria acts as a ribozyme catalyzing peptide bond formation",
+          "Lac operon: repressor binds operator in absence of lactose; inducer (lactose/allolactose) inactivates repressor",
+          "DNA fingerprinting identifies VNTR (Variable Number of Tandem Repeats) polymorphism"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      }
+    ]
+  },
+  {
+    "curriculum_id": "3263bd5d-0586-4c16-bbc5-4f4cce79846d",
+    "order_index": 6,
+    "title": "Chapter 6: Evolution",
+    "category": "Biology",
+    "module_count": 5,
+    "book_code": "lebo106",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/lebo106.pdf",
+    "modules": [
+      {
+        "id": "42f2a6a6-f2e2-46b1-a575-73d3a5c552f8",
+        "order_index": 1,
+        "title": "Origin of Life and Evidences for Evolution",
+        "is_solver": false,
+        "subtopics": [
+          "Origin of life theories",
+          "Urey-Miller experiment",
+          "Evidences (Homologous and analogous organs)"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Chemical evolution",
+          "Divergent and convergent evolution",
+          "Adaptive radiation"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "c79fae90-b1ef-484d-84df-382a6f88dac2",
+        "order_index": 2,
+        "title": "Theories of Evolution and Natural Selection",
+        "is_solver": false,
+        "subtopics": [
+          "Lamarck's theory of inheritance of acquired characters",
+          "Darwinian theory of natural selection",
+          "Examples of natural selection (Industrial melanism)"
+        ],
+        "key_concepts_count": 2,
+        "key_concepts": [
+          "Fitness and reproductive success",
+          "Natural selection mechanisms"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "8ef4ed86-eca0-4041-9a82-80ae149058b8",
+        "order_index": 3,
+        "title": "Hardy-Weinberg Principle and Mechanisms of Evolution",
+        "is_solver": false,
+        "subtopics": [
+          "Hardy-Weinberg principle",
+          "Factors affecting genetic equilibrium (Gene flow, genetic drift, mutation, selection)",
+          "Types of natural selection"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "p^2 + 2pq + q^2 = 1",
+          "Founder effect",
+          "Stabilising, directional, and disruptive selection"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "d85798f8-29e1-4d0b-afb2-26a02d7972a0",
+        "order_index": 4,
+        "title": "Brief Account of Evolution and Human Evolution",
+        "is_solver": false,
+        "subtopics": [
+          "Evolutionary timeline of plants and animals",
+          "Dryopithecus and Ramapithecus",
+          "Australopithecus to Homo sapiens"
+        ],
+        "key_concepts_count": 2,
+        "key_concepts": [
+          "Cranial capacity changes",
+          "Bipedalism development"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "7f9ab4e5-fb77-4106-9668-71bd0b0d1c52",
+        "order_index": 5,
+        "title": "In-Text Questions Solver & Evolution Board Masterclass",
+        "is_solver": true,
+        "subtopics": [
+          "In-text problem solving",
+          "Hardy-Weinberg numerical masterclass",
+          "Board examination review"
+        ],
+        "key_concepts_count": 2,
+        "key_concepts": [
+          "Allele frequency calculations",
+          "Evolutionary terminology"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      }
+    ]
+  },
+  {
+    "curriculum_id": "030e5ceb-b975-4f46-8e57-82d1e644d774",
+    "order_index": 7,
+    "title": "Chapter 7: Human Health and Disease",
+    "category": "Biology",
+    "module_count": 5,
+    "book_code": "lebo107",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/lebo107.pdf",
+    "modules": [
+      {
+        "id": "609ff128-7ba9-4d01-b13c-414a28984eb7",
+        "order_index": 1,
+        "title": "Common Human Diseases and Pathogens",
+        "is_solver": false,
+        "subtopics": [
+          "Pathogens and disease transmission",
+          "Typhoid, pneumonia, common cold, malaria, amoebiasis",
+          "Life cycle of Plasmodium"
+        ],
+        "key_concepts_count": 2,
+        "key_concepts": [
+          "Vector-borne diseases",
+          "Infectious vs non-infectious diseases"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "2e648db9-7d20-47cd-904b-d646c9a033b1",
+        "order_index": 2,
+        "title": "Immunity and Immune System",
+        "is_solver": false,
+        "subtopics": [
+          "Innate and acquired immunity",
+          "Structure of antibodies",
+          "Vaccination, immunization, and allergies",
+          "Autoimmunity and immune system organs"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Antigen-antibody interaction",
+          "Primary and secondary immune response",
+          "Primary and secondary lymphoid organs"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "1f9c5176-1e91-46fa-b7bf-2abeedad32bd",
+        "order_index": 3,
+        "title": "AIDS and Cancer",
+        "is_solver": false,
+        "subtopics": [
+          "HIV transmission and AIDS replication cycle",
+          "Prevention and control of AIDS",
+          "Properties of cancer cells and metastasis",
+          "Causes and detection of cancer"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Retrovirus mechanism",
+          "Oncogenes and tumor suppressor genes",
+          "Biopsy and radiography"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "b34b7fb5-88f8-4a5f-bf2f-f3c3cc6d3ba0",
+        "order_index": 4,
+        "title": "Drugs and Alcohol Abuse",
+        "is_solver": false,
+        "subtopics": [
+          "Commonly abused drugs (Opioids, cannabinoids, coca alkaloids)",
+          "Adolescence and drug addiction",
+          "Effects and prevention of drug/alcohol abuse"
+        ],
+        "key_concepts_count": 2,
+        "key_concepts": [
+          "Receptor binding in CNS",
+          "Withdrawal symptoms"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "6f858909-fcac-4e92-b2d3-0f6f38b56822",
+        "order_index": 5,
+        "title": "In-Text Questions Solver & Health Chapter Board Masterclass",
+        "is_solver": true,
+        "subtopics": [
+          "In-text problem solving",
+          "Case-based disease questions",
+          "Board examination review"
+        ],
+        "key_concepts_count": 2,
+        "key_concepts": [
+          "Antibody structure labeling",
+          "Pathogen-vector matching"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      }
+    ]
+  },
+  {
+    "curriculum_id": "d4aada7f-aa0d-4747-8e65-5178acc3dcb0",
+    "order_index": 8,
+    "title": "Chapter 8: Microbes in Human Welfare",
+    "category": "Biology",
+    "module_count": 5,
+    "book_code": "lebo108",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/lebo108.pdf",
+    "modules": [
+      {
+        "id": "e2c353fc-a1d0-4014-9943-91eddd08a964",
+        "order_index": 1,
+        "title": "Microbes in Household Products and Industrial Production",
+        "is_solver": false,
+        "subtopics": [
+          "Microbes in household food production",
+          "Fermented beverages and antibiotics production",
+          "Organic acids, enzymes, and bioactive molecules"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Lactic acid bacteria (LAB)",
+          "Saccharomyces cerevisiae",
+          "Cyclosporin A and statins"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "634621d1-4668-4583-814e-917984eb81be",
+        "order_index": 2,
+        "title": "Microbes in Sewage Treatment and Biogas Production",
+        "is_solver": false,
+        "subtopics": [
+          "Primary and secondary sewage treatment (Flocs and activated sludge)",
+          "Biogas plant setup and microbial action",
+          "Methanogens and methane production"
+        ],
+        "key_concepts_count": 2,
+        "key_concepts": [
+          "Biological Oxygen Demand (BOD)",
+          "Anaerobic digestion"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "286b7340-cd95-447e-a831-a22ff72f4bc1",
+        "order_index": 3,
+        "title": "Microbes as Biocontrol Agents and Biofertilizers",
+        "is_solver": false,
+        "subtopics": [
+          "Biocontrol agents (Bacillus thuringiensis, Trichoderma, Baculoviruses)",
+          "Biofertilizers (Rhizobium, Azospirillum, Mycorrhiza, Cyanobacteria)",
+          "Integrated pest management"
+        ],
+        "key_concepts_count": 2,
+        "key_concepts": [
+          "Symbiotic nitrogen fixation",
+          "Mycorrhizal associations"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "c2340a84-41ad-4930-bb80-0a9335f8f79b",
+        "order_index": 4,
+        "title": "In-Text Questions Solver & Microbial Applications Analysis",
+        "is_solver": true,
+        "subtopics": [
+          "NCERT in-text problem solving",
+          "Application-based microbe questions",
+          "Scientific naming practice"
+        ],
+        "key_concepts_count": 2,
+        "key_concepts": [
+          "Microbe-product matching",
+          "BOD calculation principles"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "4e8837dc-2f6e-40b3-9560-e5968da8f99f",
+        "order_index": 5,
+        "title": "End-of-Chapter Review Exercises & Board Exam Masterclass",
+        "is_solver": true,
+        "subtopics": [
+          "End-of-chapter questions",
+          "Previous year board questions",
+          "Scientific name spelling rules"
+        ],
+        "key_concepts_count": 2,
+        "key_concepts": [
+          "Board question categorization",
+          "Commercial enzyme sources"
+        ],
+        "worked_examples_count": 0,
+        "worked_examples_titles": [],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      }
+    ]
+  },
+  {
+    "curriculum_id": "14109bfc-4d51-4bdb-b2d3-8501f2cfb9eb",
+    "order_index": 9,
+    "title": "Chapter 9: Biotechnology : Principles and Processes",
+    "category": "Biology",
+    "module_count": 6,
+    "book_code": "lebo109",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/lebo109.pdf",
+    "modules": [
+      {
+        "id": "73809e36-7c49-4f11-921c-58b4207903de",
+        "order_index": 1,
+        "title": "Principles of Biotechnology",
+        "is_solver": false,
+        "subtopics": [
+          "Traditional vs Modern Biotechnology",
+          "European Federation of Biotechnology (EFB) Definition",
+          "Core Techniques: Genetic Engineering & Bioprocess Engineering",
+          "First Recombinant DNA Construction (Cohen and Boyer, 1972)"
+        ],
+        "key_concepts_count": 4,
+        "key_concepts": [
+          "Biotechnology Definition (EFB)",
+          "Genetic Engineering Principles",
+          "Origin of Replication (ori)",
+          "Recombinant DNA Technology"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "d007ce12-450a-4ee6-9276-c530e806433c",
+        "order_index": 2,
+        "title": "Tools of Recombinant DNA Technology - Enzymes & Vectors",
+        "is_solver": false,
+        "subtopics": [
+          "Restriction Endonucleases & Exonucleases",
+          "Nomenclature of Restriction Enzymes (e.g., EcoRI)",
+          "Palindromic Nucleotide Sequences and Sticky Ends",
+          "Cloning Vectors: Features (ori, Selectable Markers, Cloning Sites)",
+          "Plasmid pBR322 Structure and Insertional Inactivation"
+        ],
+        "key_concepts_count": 4,
+        "key_concepts": [
+          "Restriction Endonuclease",
+          "Palindromic Sequence",
+          "Selectable Marker",
+          "Insertional Inactivation"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "c2c7ba61-fdef-4cdb-9352-fb994bc0ac13",
+        "order_index": 3,
+        "title": "Tools of Recombinant DNA Technology - Vectors & Competent Hosts",
+        "is_solver": false,
+        "subtopics": [
+          "Vectors for Plants and Animals (Agrobacterium tumifaciens Ti Plasmid)",
+          "Retroviruses in Animal Gene Transfer",
+          "Making Host Competent (Divalent Cation / Calcium & Heat Shock)",
+          "Micro-injection and Biolistics (Gene Gun)"
+        ],
+        "key_concepts_count": 4,
+        "key_concepts": [
+          "Ti Plasmid",
+          "Competent Host",
+          "Biolistics (Gene Gun)",
+          "Micro-injection"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": true
+      },
+      {
+        "id": "dd9a73d8-707a-4422-a4a6-cb3ff11a67e9",
+        "order_index": 4,
+        "title": "Processes of Recombinant DNA Technology - Isolation, Cutting & PCR",
+        "is_solver": false,
+        "subtopics": [
+          "Isolation of Genetic Material (Lysozyme, Cellulase, Chitinase, Chilled Ethanol)",
+          "Agarose Gel Electrophoresis and Elution",
+          "Polymerase Chain Reaction (PCR) Steps: Denaturation, Annealing, Extension",
+          "Taq Polymerase and Thermus aquaticus"
+        ],
+        "key_concepts_count": 4,
+        "key_concepts": [
+          "Gel Electrophoresis",
+          "Elution",
+          "Polymerase Chain Reaction (PCR)",
+          "Taq Polymerase"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "98bffb8d-4abd-48e7-9fc6-683f7dbf14ec",
+        "order_index": 5,
+        "title": "Processes of Recombinant DNA Technology - Insertion, Bioreactors & Downstream Processing",
+        "is_solver": false,
+        "subtopics": [
+          "Insertion of Recombinant DNA into Host",
+          "Recombinant Proteins and Heterologous Hosts",
+          "Bioreactors: Simple Stirred-tank and Sparged Stirred-tank",
+          "Downstream Processing (Separation, Purification, Formulation, Clinical Trials)"
+        ],
+        "key_concepts_count": 4,
+        "key_concepts": [
+          "Recombinant Protein",
+          "Bioreactor",
+          "Sparged Stirred-Tank Bioreactor",
+          "Downstream Processing"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "84037ea6-15e4-458b-876e-adbdc1dcbe03",
+        "order_index": 6,
+        "title": "NCERT Textbook Exercises & Comprehensive Chapter Review",
+        "is_solver": true,
+        "subtopics": [
+          "Recombinant Proteins in Medical Practice",
+          "Restriction Enzymes & Palindromes",
+          "Molecular Size Comparison (Enzymes vs DNA)",
+          "Eukaryotic Restriction Endonucleases",
+          "Bioreactor Advantages over Shake Flasks",
+          "Comparison: Plasmid DNA vs Chromosomal DNA, RNA vs DNA, Exonuclease vs Endonuclease"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Chapter Review Exercises",
+          "Comparative Molecular Biology",
+          "Board Exam Problem Solving"
+        ],
+        "worked_examples_count": 2,
+        "worked_examples_titles": [
+          "",
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      }
+    ]
+  },
+  {
+    "curriculum_id": "cd7985cc-e5be-49e6-836e-11a6e8d68264",
+    "order_index": 10,
+    "title": "Chapter 10: Biotechnology and its Applications",
+    "category": "Biology",
+    "module_count": 5,
+    "book_code": "lebo110",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/lebo110.pdf",
+    "modules": [
+      {
+        "id": "caeeffdb-b1b3-424e-a4b3-db1cbb414d83",
+        "order_index": 1,
+        "title": "Agricultural Applications: Tissue Culture & Somatic Hybridisation",
+        "is_solver": false,
+        "subtopics": [
+          "Three options for increasing food production",
+          "Plant tissue culture and totipotency",
+          "Micropropagation and somaclones",
+          "Virus-free plant recovery via meristem culture",
+          "Somatic hybridisation and protoplast fusion"
+        ],
+        "key_concepts_count": 5,
+        "key_concepts": [
+          "Totipotency",
+          "Micropropagation",
+          "Somaclones",
+          "Meristem Culture",
+          "Somatic Hybridisation"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "bdd55e15-e4eb-4ff2-bd40-3797ff0f2564",
+        "order_index": 2,
+        "title": "Genetically Modified Crops: Bt Cotton & RNA Interference",
+        "is_solver": false,
+        "subtopics": [
+          "Definition and benefits of GMOs",
+          "Bt toxin and Bacillus thuringiensis",
+          "Mechanism of insecticidal action in Bt cotton",
+          "Pest-resistant plants via RNA interference (RNAi)",
+          "Gene silencing in Meloidogyne incognitia"
+        ],
+        "key_concepts_count": 5,
+        "key_concepts": [
+          "Genetically Modified Organism (GMO)",
+          "Bt Toxin (Cry proteins)",
+          "Protoxin activation",
+          "RNA Interference (RNAi)",
+          "Sense and Anti-sense RNA"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "6836956d-80c7-4d72-ac0a-0f8cfb192b79",
+        "order_index": 3,
+        "title": "Medical Applications: Genetically Engineered Insulin & Gene Therapy",
+        "is_solver": false,
+        "subtopics": [
+          "Advantages of recombinant therapeutics",
+          "Structure of pro-insulin and C-peptide",
+          "Eli Lilly's recombinant insulin production",
+          "Gene therapy concept and definition",
+          "First clinical gene therapy for ADA deficiency"
+        ],
+        "key_concepts_count": 5,
+        "key_concepts": [
+          "Recombinant Therapeutics",
+          "Pro-insulin vs Mature Insulin",
+          "C-peptide",
+          "Gene Therapy",
+          "Adenosine Deaminase (ADA) Deficiency"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "a87d00fd-39d6-4f14-b66b-e48dcab81c7c",
+        "order_index": 4,
+        "title": "Molecular Diagnosis & Transgenic Animals",
+        "is_solver": false,
+        "subtopics": [
+          "Importance of early diagnosis",
+          "Polymerase Chain Reaction (PCR) for HIV and mutations",
+          "DNA/RNA radioactive probes and autoradiography",
+          "Enzyme Linked Immuno-sorbent Assay (ELISA)",
+          "Transgenic animals and their five key applications"
+        ],
+        "key_concepts_count": 5,
+        "key_concepts": [
+          "Polymerase Chain Reaction (PCR)",
+          "DNA Probe",
+          "ELISA Principle",
+          "Transgenic Animals",
+          "Alpha-1-antitrypsin & Rosie the Cow"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "32a5bf8c-11b7-4790-87d2-0656a1c9b3d6",
+        "order_index": 5,
+        "title": "Ethical Issues, Biopiracy & Chapter Exercises Solver",
+        "is_solver": true,
+        "subtopics": [
+          "Ethical standards and GEAC (Genetic Engineering Approval Committee)",
+          "Biopiracy and exploitation of traditional knowledge",
+          "Basmati rice patent controversy (1997)",
+          "Traditional medicines (turmeric, neem) and patent defense",
+          "Complete step-by-step solver for Chapter 10 exercises"
+        ],
+        "key_concepts_count": 5,
+        "key_concepts": [
+          "GEAC (Genetic Engineering Approval Committee)",
+          "Biopiracy",
+          "Basmati Patent Controversy",
+          "Indian Patents Bill (Second Amendment)",
+          "Chapter Exercise Problem Solutions"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      }
+    ]
+  },
+  {
+    "curriculum_id": "35fb2290-4cbf-4d0a-9139-19c507b9357c",
+    "order_index": 11,
+    "title": "Chapter 11: Organisms and Populations",
+    "category": "Biology",
+    "module_count": 6,
+    "book_code": "lebo111",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/lebo111.pdf",
+    "modules": [
+      {
+        "id": "4e326970-6a17-455f-8c23-29b589fada1e",
+        "order_index": 1,
+        "title": "Organisms and Population Attributes",
+        "is_solver": false,
+        "subtopics": [
+          "Levels of biological organisation",
+          "Definition of population and species",
+          "Population attributes (Natality and Mortality)",
+          "Sex ratio and age distribution pyramids"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Population Density (N)",
+          "Birth Rate (Natality) and Death Rate (Mortality)",
+          "Age Pyramids (Expanding, Stable, Declining)"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "ede36534-ea58-41ca-85b1-4b2aafbf44d8",
+        "order_index": 2,
+        "title": "Population Growth & Mathematical Models",
+        "is_solver": false,
+        "subtopics": [
+          "Four basic processes affecting population density",
+          "Exponential growth equation (J-shaped curve)",
+          "Intrinsic rate of natural increase (r)",
+          "Logistic growth model and carrying capacity (K) (Sigmoid curve)"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Population Growth Equation: Nt+1 = Nt + [(B + I) - (D + E)]",
+          "Exponential Growth: dN/dt = rN and Nt = N0 * e^(rt)",
+          "Logistic Growth: dN/dt = rN * [(K - N)/K]"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": true
+      },
+      {
+        "id": "afed4d07-eff5-42ed-a4ff-9f2b02855b7e",
+        "order_index": 3,
+        "title": "Life History Variations & Population Interactions Overview",
+        "is_solver": false,
+        "subtopics": [
+          "Darwinian fitness (high r value)",
+          "Breeding strategies (once vs multiple times)",
+          "Offspring size and number variations",
+          "Interspecific interactions table (+, -, 0 interactions)"
+        ],
+        "key_concepts_count": 2,
+        "key_concepts": [
+          "Darwinian Fitness (reproductive fitness)",
+          "Interaction Matrix (Mutualism +,+; Competition -,-; Predation/Parasitism +,-; Commensalism +,0; Amensalism -,0)"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "b455ce91-3ea3-499f-8a62-396695873848",
+        "order_index": 4,
+        "title": "Interspecific Interactions: Predation & Competition",
+        "is_solver": false,
+        "subtopics": [
+          "Roles of predators (energy transfer, prey control, species diversity)",
+          "Prey defenses (camouflage, chemicals, monarch butterfly, thorns)",
+          "Interspecific competition and interference competition",
+          "Gause's Competitive Exclusion Principle and Resource Partitioning"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Predation (+,-): Energy transfer and pest control",
+          "Gause's Competitive Exclusion Principle",
+          "Resource Partitioning (MacArthur's Warblers)"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "f1253a0e-0ad5-49d8-b714-b0225794a127",
+        "order_index": 5,
+        "title": "Interspecific Interactions: Parasitism, Commensalism & Mutualism",
+        "is_solver": false,
+        "subtopics": [
+          "Parasitism (+,-) adaptations and endoparasites vs ectoparasites",
+          "Brood parasitism (cuckoo and crow)",
+          "Commensalism (+,0) (orchids, cattle egrets, clown fish)",
+          "Mutualism (+,+) (lichens, mycorrhizae, fig-wasp, orchid sexual deceit)"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Parasitism adaptations (loss of sense organs, adhesive structures)",
+          "Brood Parasitism",
+          "Mutualism and Co-evolution (Fig and Wasp, Ophrys orchid sexual deceit)"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "1c3319b9-a591-4fb9-ab60-ac7343d9d6f9",
+        "order_index": 6,
+        "title": "NCERT Exercises & Board Masterclass Solver",
+        "is_solver": true,
+        "subtopics": [
+          "Population attributes review",
+          "Exponential growth calculations",
+          "Plant defence mechanisms & biological control",
+          "Interaction classification and terminology"
+        ],
+        "key_concepts_count": 2,
+        "key_concepts": [
+          "Complete Exercise Problem Solving Protocol",
+          "Board Exam Answer Writing Standards"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      }
+    ]
+  },
+  {
+    "curriculum_id": "3871894f-35ec-4865-958f-82a0c47e186c",
+    "order_index": 12,
+    "title": "Chapter 12: Ecosystem",
+    "category": "Biology",
+    "module_count": 6,
+    "book_code": "lebo112",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/lebo112.pdf",
+    "modules": [
+      {
+        "id": "9e73f47f-0f5d-4115-9ab7-3512dfd862f2",
+        "order_index": 1,
+        "title": "Ecosystem – Structure and Function",
+        "is_solver": false,
+        "subtopics": [
+          "Definition and scope of an ecosystem",
+          "Biotic and abiotic components",
+          "Species composition and vertical stratification",
+          "Functional aspects: Productivity, Decomposition, Energy Flow, Nutrient Cycling",
+          "Pond ecosystem as a self-sustainable unit"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Ecosystem Definition & Functional Unit",
+          "Vertical Stratification",
+          "Aquatic Ecosystem (Pond Model)"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "7d847fda-26bb-4b07-86c6-1dd416927b84",
+        "order_index": 2,
+        "title": "Productivity and Decomposition",
+        "is_solver": false,
+        "subtopics": [
+          "Primary productivity and units (gm⁻² yr⁻¹)",
+          "Gross Primary Productivity (GPP) and Net Primary Productivity (NPP)",
+          "Secondary productivity",
+          "Detritus and steps of decomposition: Fragmentation, Leaching, Catabolism, Humification, Mineralisation",
+          "Factors affecting decomposition (temperature, soil moisture, chemical composition)"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Gross & Net Primary Productivity (GPP - R = NPP)",
+          "Detritus & Steps of Decomposition",
+          "Factors Regulating Decomposition"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "a38ca4f0-c012-47e0-8956-a015ac3efd61",
+        "order_index": 3,
+        "title": "Energy Flow and Food Chains",
+        "is_solver": false,
+        "subtopics": [
+          "Solar radiation and Photosynthetically Active Radiation (PAR)",
+          "Unidirectional energy flow and thermodynamic laws",
+          "Grazing Food Chain (GFC) vs Detritus Food Chain (DFC)",
+          "Food webs and trophic levels",
+          "The 10 per cent energy transfer law"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Unidirectional Energy Flow & PAR",
+          "Grazing (GFC) vs Detritus (DFC) Food Chain",
+          "Trophic Levels & 10% Law"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "1f539fbc-dd1f-488d-877c-20367a010f85",
+        "order_index": 4,
+        "title": "Ecological Pyramids",
+        "is_solver": false,
+        "subtopics": [
+          "Definition and types of ecological pyramids",
+          "Pyramid of numbers (upright in grassland, inverted in tree ecosystem)",
+          "Pyramid of biomass (upright in terrestrial, inverted in aquatic/sea ecosystem)",
+          "Pyramid of energy (always upright)",
+          "Limitations of ecological pyramids"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Pyramid of Numbers",
+          "Pyramid of Biomass (Upright vs Inverted)",
+          "Pyramid of Energy (Always Upright)"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "b3f79049-56f5-4d03-876d-c1182014879b",
+        "order_index": 5,
+        "title": "In-Text Concepts & Comprehensive Review",
+        "is_solver": false,
+        "subtopics": [
+          "Ecosystem services (air and water purification by forests)",
+          "Nutrient cycling overview (gaseous vs sedimentary cycles)",
+          "Limitations of ecological pyramids",
+          "Role of saprophytes in ecosystems"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Ecosystem Services",
+          "Nutrient Cycling (Gaseous & Sedimentary)",
+          "Limitations of Ecological Pyramids"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "83ff48fb-426e-4bcb-b2c0-163f316efcf3",
+        "order_index": 6,
+        "title": "Chapter-End Exercises & Board Mastery Solver",
+        "is_solver": true,
+        "subtopics": [
+          "Exercise Q1: Fill in the blanks (Producers, Pyramids, Limiting factors, Detritivores, Carbon reservoir)",
+          "Exercise Q2-Q5: Multiple choice questions on population, trophic levels, secondary producers, PAR percentage",
+          "Exercise Q6: Distinguish pairs (GFC vs DFC, Production vs Decomposition, Upright vs Inverted pyramids, Food chain vs Food web, Litter vs Detritus, Primary vs Secondary productivity)",
+          "Exercise Q7-Q11: Descriptive questions on ecosystem components, ecological pyramids, primary productivity, decomposition, and energy flow"
+        ],
+        "key_concepts_count": 2,
+        "key_concepts": [
+          "Chapter Exercise Solutions",
+          "Board Exam Mastery & Distinction Pairs"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      }
+    ]
+  },
+  {
+    "curriculum_id": "3d4be41a-7663-4454-8e35-ee3920dc00f5",
+    "order_index": 13,
+    "title": "Chapter 13: Biodiversity and Conservation",
+    "category": "Biology",
+    "module_count": 6,
+    "book_code": "lebo113",
+    "pdf_url": "https://ncert.nic.in/textbook/pdf/lebo113.pdf",
+    "modules": [
+      {
+        "id": "a5260446-073c-46d7-90e8-67edceb41e65",
+        "order_index": 1,
+        "title": "Levels of Biodiversity and Global/Indian Species Richness",
+        "is_solver": false,
+        "subtopics": [
+          "Definition of Biodiversity (Edward Wilson)",
+          "Genetic Diversity (e.g., Rauwolfia vomitoria, rice, mango)",
+          "Species Diversity (Western Ghats vs. Eastern Ghats)",
+          "Ecological Diversity (India vs. Norway)",
+          "Global and Indian Species Estimates (IUCN 2004, Robert May)"
+        ],
+        "key_concepts_count": 5,
+        "key_concepts": [
+          "Biodiversity",
+          "Genetic Diversity",
+          "Species Diversity",
+          "Ecological Diversity",
+          "Global Species Richness (Robert May Estimate)"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "80b4f0ee-31bc-4676-90c4-3081efcb58a7",
+        "order_index": 2,
+        "title": "Patterns of Biodiversity: Latitudinal Gradients & Species-Area Relationships",
+        "is_solver": false,
+        "subtopics": [
+          "Latitudinal Gradients in Species Diversity",
+          "Hypotheses for Tropical Richness (Time, Stability, Solar Energy)",
+          "Alexander von Humboldt Species-Area Relationship",
+          "Rectangular Hyperbola and Logarithmic Equation (log S = log C + Z log A)",
+          "Slope of Regression (Z value 0.1-0.2 vs 0.6-1.2)"
+        ],
+        "key_concepts_count": 4,
+        "key_concepts": [
+          "Latitudinal Gradient",
+          "Tropical Speciation Hypothesis",
+          "Species-Area Relationship",
+          "Regression Coefficient (Z)"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "524490a4-bfc2-4a12-96ef-0a3bcda2550c",
+        "order_index": 3,
+        "title": "Importance of Species Diversity & Ecosystem Functioning",
+        "is_solver": false,
+        "subtopics": [
+          "Ecosystem Stability and Species Richness",
+          "David Tilman's Outdoor Plot Experiments",
+          "Attributes of a Stable Community",
+          "Paul Ehrlich's Rivet Popper Hypothesis"
+        ],
+        "key_concepts_count": 3,
+        "key_concepts": [
+          "Ecosystem Stability",
+          "Tilman's Biomass Variation Principle",
+          "Rivet Popper Hypothesis"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "55c772d6-b267-479f-906b-318bda2551be",
+        "order_index": 4,
+        "title": "Loss of Biodiversity & The Evil Quartet",
+        "is_solver": false,
+        "subtopics": [
+          "The Sixth Extinction & Current Extinction Rates",
+          "IUCN Red List (2004) Documentation",
+          "The Evil Quartet: Habitat Loss & Fragmentation",
+          "Over-exploitation & Alien Species Invasions",
+          "Co-extinctions"
+        ],
+        "key_concepts_count": 5,
+        "key_concepts": [
+          "Sixth Extinction",
+          "Habitat Loss and Fragmentation",
+          "Over-exploitation",
+          "Alien Species Invasions",
+          "Co-extinctions"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "9db27245-6888-41f2-af87-3bffced892b8",
+        "order_index": 5,
+        "title": "Why Should We Conserve Biodiversity? (Utilitarian & Ethical Arguments)",
+        "is_solver": false,
+        "subtopics": [
+          "Narrowly Utilitarian Arguments (Direct economic benefits, bioprospecting)",
+          "Broadly Utilitarian Arguments (Ecosystem services like oxygen, pollination)",
+          "Ethical Arguments (Intrinsic value of every species, moral duty)"
+        ],
+        "key_concepts_count": 4,
+        "key_concepts": [
+          "Narrowly Utilitarian Argument",
+          "Bioprospecting",
+          "Broadly Utilitarian Argument",
+          "Ethical Argument"
+        ],
+        "worked_examples_count": 1,
+        "worked_examples_titles": [
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      },
+      {
+        "id": "3f8dc9f8-fddb-478a-bc94-b4e7dabb2551",
+        "order_index": 6,
+        "title": "Biodiversity Conservation Strategies & Chapter Exercises Solver",
+        "is_solver": true,
+        "subtopics": [
+          "In situ Conservation (Biosphere reserves, national parks, sanctuaries)",
+          "Biodiversity Hotspots (34 worldwide, 3 in India)",
+          "Sacred Groves (Khasi, Aravalli, Western Ghats, Madhya Pradesh)",
+          "Ex situ Conservation (Zoological parks, botanical gardens, cryopreservation, seed banks)",
+          "International Conventions (Rio Earth Summit 1992, Johannesburg 2002)",
+          "Complete NCERT Chapter Exercises Solver"
+        ],
+        "key_concepts_count": 5,
+        "key_concepts": [
+          "In situ Conservation",
+          "Biodiversity Hotspots",
+          "Sacred Groves",
+          "Ex situ Conservation",
+          "Rio Earth Summit (1992)"
+        ],
+        "worked_examples_count": 2,
+        "worked_examples_titles": [
+          "",
+          ""
+        ],
+        "concept_questions_count": 0,
+        "has_flowchart": false,
+        "flowchart_preview": "",
+        "visuals_count": 0,
+        "visual_queries": [],
+        "has_math_boilerplate": false
+      }
+    ]
+  }
+]

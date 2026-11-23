@@ -73,7 +73,172 @@ import {
 
 export const dynamic = 'force-dynamic'
 
-function getSubjectPedagogyDirective(subject: string): string {
+function getPedagogyArchitectureDirective(classLevel: string, subject: string, board: string = 'CBSE', chapterOrTopic: string = ''): string {
+  const context = `${subject || ''} ${chapterOrTopic || ''}`.toLowerCase()
+  const cl = (classLevel || '').toLowerCase()
+  const isG9 = cl.includes('9') || cl.includes('ix')
+  const isG10 = cl.includes('10') || cl.includes(' x') || cl === 'x' || cl.includes('tenth')
+  const isG11 = cl.includes('11') || cl.includes('xi') || cl.includes('eleventh')
+  const isG12 = cl.includes('12') || cl.includes('xii') || cl.includes('twelfth')
+
+  const isMath = context.includes('math') || context.includes('algebra') || context.includes('calculus') || context.includes('geometry') || context.includes('arithmetic')
+  const isScience = context.includes('science')
+  const isPhysics = context.includes('physic')
+  const isChemistry = context.includes('chem')
+  const isBiology = context.includes('bio') || context.includes('life') || context.includes('botan') || context.includes('zoolog') || context.includes('cell')
+
+  const isOrganicChem = isChemistry && (
+    context.includes('organic') || context.includes('hydrocarbon') || context.includes('iupac') ||
+    context.includes('isomer') || context.includes('haloalkane') || context.includes('aldehyde') ||
+    context.includes('ketone') || context.includes('amine') || context.includes('alcohol') ||
+    context.includes('phenol') || context.includes('ether') || context.includes('benzene') ||
+    context.includes('polymer') || context.includes('biomolecule') || context.includes('goc') ||
+    context.includes('mechanism')
+  )
+  const isInorganicChem = isChemistry && !isOrganicChem && (
+    context.includes('inorganic') || context.includes('periodic') || context.includes('bonding') ||
+    context.includes('block') || context.includes('metal') || context.includes('coordination') ||
+    context.includes('p-block') || context.includes('d-block') || context.includes('s-block') ||
+    context.includes('f-block') || context.includes('hydrogen') || context.includes('metallurgy') ||
+    context.includes('periodicity')
+  )
+  const isPhysicalChem = isChemistry && !isOrganicChem && !isInorganicChem
+
+  const COMMON_PRINCIPLES = `
+- COMMON PEDAGOGICAL PRINCIPLES (ALL GRADES & SUBJECTS):
+  * ADAPT TO STUDENT: Dynamically adjust pacing, depth, and hints to the student's live understanding and learning pace.
+  * INTERACTIVE 2-WAY DIALOGUE: Maintain an engaging conversation; never lecture in long uninterrupted monologues.
+  * SIMPLE HINGLISH/ENGLISH: Use colloquial, everyday phrasing ("samjhe," "dekho," "bilkul," "chalo") with zero academic pretension.
+  * SPACED REVISION: Anchor new ideas by regularly referencing previously mastered concepts ("Remember when we saw...").
+  * EXAM READINESS: Structure answers around board-exam criteria (${board || 'CBSE'}), highlighting common student pitfalls and scoring keywords.
+  * SUPPORTIVE MENTOR TONE: Real teacher warmth, empathy, celebrating correct insights ("Shabash!", "Exactly right!"), patient and diagnostic with mistakes.`
+
+  // 1. Grade 9 Mathematics (Cricket, Mobile Data, Discounts, 1 Model + 4-5 Varied Practice, 9-10 Questions/Capsule)
+  if (isG9 && isMath) {
+    return `[GRADE 9 MATHEMATICS PEDAGOGICAL DIRECTIVE - USER GUIDE INVARIANT]:
+- REAL-LIFE ANCHORS FIRST: Ground every abstract concept in tangible daily life (cricket bowling speed & run rate, mobile data recharge packs, market discounts & profit/loss, pizza slices for fractions, playground boundaries for perimeter/area).
+- MICRO-PACING & QUESTION DEPTH: Fewer concepts per capsule, extreme question-solving depth. Never rush abstract algebraic theory.
+- 1 EASY MODEL EXAMPLE + 4-5 VARIED PRACTICE QUESTIONS: Immediately after explaining the concept intuition and formula, solve 1 simple, clear model exemplar on the chalkboard. Then actively present 4 to 5 varied practice problems with progressive difficulty (direct formula -> variable reversal -> word problem -> multi-step challenge). Target 9-10 questions per capsule across concepts.
+- INTERACTIVE STEP-BY-STEP CHECKPOINTS: Check in after each algebraic step. Ask guiding Socratic questions; do not lecture in long continuous theoretical monologues.${COMMON_PRINCIPLES}`
+  }
+
+  // 2. Grade 9 Science ('Picture this' visualization, Home/Outside phenomena, Depth over brevity, 2-3 conceptual 'why' questions)
+  if (isG9 && (isScience || isPhysics || isChemistry || isBiology)) {
+    return `[GRADE 9 SCIENCE PEDAGOGICAL DIRECTIVE - USER GUIDE INVARIANT]:
+- 'PICTURE THIS' SENSORY VISUALIZATION HOOK: Every concept MUST start with a vivid sensory mental picture before formal laws (e.g., 'Picture this: you are standing inside a moving bus that suddenly slams on the brakes...', 'Picture this: a pan of water boiling on a stove as steam bubbles burst...').
+- DAILY HOME & OUTDOOR PHENOMENA: Connect directly to everyday home/outdoor observations (boiling water, moving bus, bicycle inertia, sound echo in an empty hall, bicycle brakes, rust on iron gates).
+- DEPTH OVER BREVITY: Explain the living physical/molecular mechanism under the hood. Avoid superficial dictionary definitions.
+- 2-3 SHORT CONCEPTUAL 'WHY' QUESTIONS FIRST: Before jumping into formulas or NCERT numericals, pose 2-3 quick diagnostic conceptual questions ('Why did your body lean forward?', 'What happens if we double the mass?') to ignite critical reasoning.${COMMON_PRINCIPLES}`
+  }
+
+  // 3. Grade 10 Mathematics (Moderate pace, 50/50 Concept-Question, Concept-First via Questions, Board Spectrum, Whiteboard layout)
+  if (isG10 && isMath) {
+    return `[GRADE 10 MATHEMATICS PEDAGOGICAL DIRECTIVE - USER GUIDE INVARIANT]:
+- 50/50 CONCEPT-QUESTION CADENCE: Equal time for conceptual clarity and rigorous board-exam problem solving.
+- CONCEPT-FIRST VIA QUESTIONS (PROBLEM-FIRST INDUCTION): Introduce concepts through an authentic problem hook or practical dilemma first (present the puzzle before stating the formula/theorem), creating intellectual hunger to learn the method!
+- FULL BOARD EXAM SPECTRUM: Cover all standard board question formats: 1-mark objective/MCQs, 2-mark short answers, 3-mark analytical/proofs, and 4-5 mark case-based / competency-based questions.
+- AUTHENTIC TOPPER WHITEBOARD LAYOUT: Meticulous step-by-step layout (Given -> To Prove / Formula -> Substitution -> Step-by-Step Calculation -> [ROUGH_WORK] Margin -> Boxed Final Answer with SI Units or 'Hence Proved!').${COMMON_PRINCIPLES}`
+  }
+
+  // 4. Grade 10 Science (Conceptual imagination without ratta, student's own words, depth over quantity, Assertion-Reason & Case-based)
+  if (isG10 && (isScience || isPhysics || isChemistry || isBiology)) {
+    return `[GRADE 10 SCIENCE PEDAGOGICAL DIRECTIVE - USER GUIDE INVARIANT]:
+- CONCEPTUAL IMAGINATION WITHOUT ROTE MEMORIZATION (ZERO RATTA): Strictly eliminate rote recitation. Train students to reason from first principles and articulate scientific phenomena in their own natural words.
+- DEPTH OVER QUANTITY: Prioritize deep mastery of core mechanisms over superficial coverage of many topics.
+- ASSERTION-REASONING MASTERY: Explicitly train students on CBSE/ICSE Assertion-Reason questions (Assertion (A), Reason (R) — evaluating both truth values and whether R is the correct explanation of A).
+- CASE-BASED & EXPERIMENTAL QUESTIONS: Present experimental setups (circuits, test tubes, ray diagrams) and guide analytical deduction.${COMMON_PRINCIPLES}`
+  }
+
+  // 5. Grade 11 Mathematics (Transition gap bridging, prerequisite checks, question-first, explicit proofs, visual plots)
+  if (isG11 && isMath) {
+    return `[GRADE 11 MATHEMATICS PEDAGOGICAL DIRECTIVE - USER GUIDE INVARIANT]:
+- TRANSITION GAP BRIDGING & PREREQUISITE CHECKS: The Class 10 to 11 transition is steep. Always verify foundational prerequisites first (quadratic roots, trigonometry identities, algebraic factorization) before diving into limits, calculus, conic sections, or complex numbers.
+- QUESTION-FIRST INDUCTION: Pose an intriguing boundary dilemma or limit paradox before formal theorem statement.
+- EXPLICIT PROOF & REASONING STEPS: State axioms and theorems rigorously; never skip intermediate algebraic or geometric proof steps.
+- PURE VECTOR MATHEMATICAL GRAPHS: Compulsory visual plotting via plot_mathematical_graph (domain, range, asymptotes, roots, intercepts, extrema, comparative function curves).${COMMON_PRINCIPLES}`
+  }
+
+  // 6. Grade 11 Physical Chemistry (Math-heavy, high questions, Given + Formula + Units first)
+  if (isG11 && isPhysicalChem) {
+    return `[GRADE 11 PHYSICAL CHEMISTRY PEDAGOGICAL DIRECTIVE - USER GUIDE INVARIANT]:
+- QUANTITATIVE & MATH-HEAVY: Numerical-intensive precision (mole concept, thermodynamics, equilibrium, chemical kinetics).
+- HIGH PRACTICE QUESTION VOLUME: Drill authentic numerical problems with varied setups.
+- GIVEN + FORMULA + UNITS FIRST: Board topper discipline — extract Given quantities with SI units, execute explicit unit conversions (atm to Pa, L to m³, kJ to J), state formula, show substitution, calculate, and box final answer.${COMMON_PRINCIPLES}`
+  }
+
+  // 7. Grade 11 Inorganic Chemistry (Deep concepts, why/how trends, tables & mnemonics, more homework)
+  if (isG11 && isInorganicChem) {
+    return `[GRADE 11 INORGANIC CHEMISTRY PEDAGOGICAL DIRECTIVE - USER GUIDE INVARIANT]:
+- DEEP CONCEPTUAL REASONING: Explain WHY and HOW trends occur (effective nuclear charge Z_eff, shielding/screening effect, electronic configuration stability, inert pair effect, lattice vs hydration enthalpy).
+- STRUCTURED TABLES & MNEMONICS: Use chalkboard tables (draw_table) for periodic trends and memorable mnemonics for memorizing group elements, oxidation states, and anomalous behaviors.
+- FREQUENT RECALL & CHECKPOINTS: Regular quick retention checks to solidify chemical facts.${COMMON_PRINCIPLES}`
+  }
+
+  // 8. Grade 11 Organic Chemistry (Reaction mechanisms, electron movement, IUPAC, isomerism, reaction chains)
+  if (isG11 && isOrganicChem) {
+    return `[GRADE 11 ORGANIC CHEMISTRY PEDAGOGICAL DIRECTIVE - USER GUIDE INVARIANT]:
+- MECHANISTIC ARROW-PUSHING: Teach reaction mechanisms with explicit curved arrow notation showing electron pair movement.
+- CORE FOUNDATIONS: Electrophiles, nucleophiles, carbocation/carbanion stability, inductive (+I, -I), resonance (+R, -R), and hyperconjugation effects.
+- IUPAC NOMENCLATURE & ISOMERISM: Rigorous rule-based naming and structural/stereoisomerism.
+- MULTI-STEP REACTION CHAINS & CONVERSIONS: Lay out organic synthetic pathways from compound A to compound B via reagents on the chalkboard.${COMMON_PRINCIPLES}`
+  }
+
+  // 9. Grade 11 Physics & Biology (Real phenomenon -> concept -> derivation -> numerical; biology flowcharts)
+  if (isG11 && isPhysics) {
+    return `[GRADE 11 PHYSICS PEDAGOGICAL DIRECTIVE - USER GUIDE INVARIANT]:
+- REAL PHENOMENON HOOK -> CONCEPT -> DERIVATION -> NUMERICAL: Begin with a tangible physical phenomenon, formulate the governing law, derive step-by-step without skipping steps, and solve authentic board numericals.
+- MANDATORY MATHEMATICAL GRAPHING: Compulsory plotting via plot_mathematical_graph for kinematics (s-t, v-t, a-t), SHM, thermodynamics (P-V), and vector resolutions.${COMMON_PRINCIPLES}`
+  }
+
+  if (isG11 && isBiology) {
+    return `[GRADE 11 BIOLOGY PEDAGOGICAL DIRECTIVE - USER GUIDE INVARIANT]:
+- PHYSIOLOGICAL PHENOMENON -> CELLULAR MECHANISM -> FLOWCHART: Begin with a living biological hook, explain cellular/molecular mechanisms, and synthesize multi-step processes via structured flowcharts (draw_flowchart) for cycles (Krebs cycle, Calvin cycle, cardiac cycle, nephron counter-current mechanism) and high-res diagrams.${COMMON_PRINCIPLES}`
+  }
+
+  // Grade 12 Fallbacks
+  if (isG12 && isMath) {
+    return `[GRADE 12 MATHEMATICS PEDAGOGICAL DIRECTIVE]:
+- Advanced calculus, differential equations, vectors, and 3D geometry with complete proof rigor, coordinate visual plots via plot_mathematical_graph, and board exemplar questions.${COMMON_PRINCIPLES}`
+  }
+  if (isG12 && isPhysics) {
+    return `[GRADE 12 PHYSICS PEDAGOGICAL DIRECTIVE]:
+- Electromagnetism, optics ray paths, wave optics, modern physics derivations, and board-exam numericals with Given + Formula + Units layout.${COMMON_PRINCIPLES}`
+  }
+  if (isG12 && isChemistry) {
+    return `[GRADE 12 CHEMISTRY PEDAGOGICAL DIRECTIVE]:
+- Solutions, electrochemistry, chemical kinetics numericals; d- and f-block trends; coordination chemistry; haloalkanes, aldehydes, ketones, amines mechanisms and organic synthesis chains.${COMMON_PRINCIPLES}`
+  }
+  if (isG12 && isBiology) {
+    return `[GRADE 12 BIOLOGY PEDAGOGICAL DIRECTIVE]:
+- Genetics, molecular basis of inheritance, biotechnology processes, physiology, and ecology with structured flowcharts (draw_flowchart) and labeled diagrams.${COMMON_PRINCIPLES}`
+  }
+
+  // Fallbacks for generic subjects
+  if (isMath) {
+    return `Focus on definitions, axioms, step-by-step derivations, and fully worked exemplar solutions.${COMMON_PRINCIPLES}`
+  }
+  if (isPhysics || isChemistry || isScience) {
+    return `Focus on physical intuition, natural laws/equations, units/dimensions, and scratch math in [ROUGH_WORK: ...].${COMMON_PRINCIPLES}`
+  }
+  if (isBiology) {
+    return `Focus on biological mechanisms, anatomical structures, cellular pathways, and visual schematics ([FLOWCHART: ...] or [DIAGRAM: ...]).${COMMON_PRINCIPLES}`
+  }
+  if (context.includes('hist') || context.includes('civic') || context.includes('politi') || context.includes('geograph') || context.includes('econ') || context.includes('social')) {
+    return `Focus on chronological timelines, cause-and-effect, pivotal events, geographical processes, and structured analytical arguments.${COMMON_PRINCIPLES}`
+  }
+  if (context.includes('comp') || context.includes('code') || context.includes('program') || context.includes('data')) {
+    return `Focus on algorithmic logic, data structures, step-by-step execution traces, and clean syntax.${COMMON_PRINCIPLES}`
+  }
+  if (context.includes('lang') || context.includes('eng') || context.includes('lit') || context.includes('gramm') || context.includes('hindi') || context.includes('french')) {
+    return `Focus on grammatical principles, thematic analysis, textual evidence, and model sentence exemplars.${COMMON_PRINCIPLES}`
+  }
+  return `Focus on clear conceptual understanding, precise definitions, and interactive Socratic guidance.${COMMON_PRINCIPLES}`
+}
+
+function getSubjectPedagogyDirective(subject: string, classLevel: string = '', board: string = 'CBSE', chapterOrTopic: string = ''): string {
+  if (classLevel) {
+    return getPedagogyArchitectureDirective(classLevel, subject, board, chapterOrTopic)
+  }
   const s = (subject || '').toLowerCase()
   if (s.includes('math') || s.includes('algebra') || s.includes('calculus') || s.includes('geometry')) {
     return 'Focus on definitions, axioms, step-by-step derivations, and fully worked exemplar solutions.'
@@ -592,8 +757,8 @@ function buildSingleConceptMicroDossier(
   const exerciseStr = matchingExercises.length > 0
     ? `\n   * Linked Textbook In-Text / Board Exercise:\n` +
       matchingExercises.slice(0, 2).map((q: any) => {
-        const figExCue = q.image_url
-          ? ` [BOOK FIGURE ATTACHED: CALL write_chalkboard(action="draw_image", content="${q.image_url} | ${q.figure_id || 'Exercise Figure'} | ${q.caption || 'Textbook Exercise Diagram'}")]`
+        const figExCue = (q.figure_id || q.image_url)
+          ? ` [TEXTBOOK FIGURE: Direct student to Side Book Viewer: "Look at ${q.figure_id || 'the diagram'} in your textbook in the side viewer" — DO NOT draw or extract book images onto the chalkboard; the chalkboard is strictly reserved for live math steps, formulas, and pure vector graphs.]`
           : ''
         return `     - [${q.exercise_number || 'Ex'} ${q.q_num || 'Q'}]: ${q.question}${figExCue}${q.solution_method ? ` (Solve: ${q.solution_method})` : ''}`
       }).join('\n')
@@ -601,8 +766,8 @@ function buildSingleConceptMicroDossier(
 
   // Model problem
   const ex1 = workedExamples[conceptIdx] || workedExamples[0]
-  const figPrompt = ex1?.image_url
-    ? ` [BOOK FIGURE ATTACHED: CALL write_chalkboard(action="draw_image", content="${ex1.image_url} | ${ex1.figure_id || 'Question Figure'} | ${ex1.caption || 'Textbook Question Diagram'}")]`
+  const figPrompt = (ex1?.figure_id || ex1?.image_url)
+    ? ` [TEXTBOOK FIGURE: Direct student to Side Book Viewer: "Look at ${ex1.figure_id || 'the diagram'} in your textbook in the side viewer" — DO NOT draw or extract book images onto the chalkboard; the chalkboard is strictly reserved for live math steps, formulas, and pure vector graphs.]`
     : ''
   const q1 = ex1?.problem
     ? `Model Problem: "${ex1.problem}"${figPrompt} (Given: ${ex1.given || ''}, Formula: ${ex1.formula || ''}, Substitution: ${ex1.substitution || ''}, Ans: ${ex1.finalAnswer || ''} ${ex1.unit || ''})`
@@ -635,8 +800,8 @@ function buildSingleConceptMicroDossier(
           (q: any, qIdx: number) => {
             const ans = q.ideal_answer || (q.options && q.correct_option_index !== undefined ? q.options[q.correct_option_index] : '') || q.explanation || ''
             const hint = q.socratic_hint || q.explanation || ''
-            const figCue = q.image_url
-              ? ` [BOOK FIGURE ATTACHED: CALL write_chalkboard(action="draw_image", content="${q.image_url} | ${q.figure_id || 'Question Figure'} | ${q.caption || 'Textbook Question Diagram'}")]`
+            const figCue = (q.figure_id || q.image_url)
+              ? ` [TEXTBOOK FIGURE: Direct student to Side Book Viewer: "Look at ${q.figure_id || 'the diagram'} in your textbook in the side viewer" — DO NOT draw or extract book images onto the chalkboard; the chalkboard is strictly reserved for live math steps, formulas, and pure vector graphs.]`
               : ''
             return `     - [Q${qIdx + 1} (${q.type || 'Checkpoint'})]: "${q.question}"${figCue} [WAIT FOR STUDENT TO ANSWER — DO NOT ANSWER FOR THEM]`
           }
@@ -1900,6 +2065,7 @@ CRITICAL DIRECTIVE:
   const chalkboardRef = useRef<GreenChalkboardRef | null>(null)
   const executedSceneDirectivesRef = useRef<Set<string>>(new Set())
   const renderedVisualConceptsRef = useRef<Set<number>>(new Set())
+  const imagesRenderedPerConceptRef = useRef<Map<number, number>>(new Map())
   const lastPageJumpTimeRef = useRef<number>(0)
   const lastTargetIdxRef = useRef<number>(-1)
   const lastConceptDoneTimeRef = useRef<number>(0)
@@ -2762,8 +2928,10 @@ CRITICAL DIRECTIVE:
       // Check for pre-fetched or configured high-resolution authentic scientific image
       const prefetchedImg = prefetchedImagesRef.current[conceptIdx]
       const conceptImageUrl = matchedConceptVisual?.image_url || matchedConceptVisual?.url || prefetchedImg?.url
+      const existingImgCount = imagesRenderedPerConceptRef.current.get(conceptIdx) || 0
       if (
         conceptImageUrl &&
+        existingImgCount === 0 &&
         (matchedConceptVisual?.visual_type === 'image' ||
           matchedConceptVisual?.diagram_type === 'image' ||
           !conceptSvg ||
@@ -2771,6 +2939,7 @@ CRITICAL DIRECTIVE:
       ) {
         const imageTitle = matchedConceptVisual?.diagram_title || prefetchedImg?.title || conceptTitle
         const imageCaption = matchedConceptVisual?.what_to_make || prefetchedImg?.caption || conceptCaption
+        imagesRenderedPerConceptRef.current.set(conceptIdx, 1)
         chalkboardRef.current.drawImage?.(conceptImageUrl, imageTitle, imageCaption)
         triggerBackgroundSvgPregeneration(conceptIdx)
         return
@@ -2850,7 +3019,7 @@ CRITICAL DIRECTIVE:
         }
       }
 
-      // 2. Tier 1: Search online authentic scientific images AND demonstration video
+      // 2. Search online authentic scientific demonstration video and educational diagrams
       if (typeof window !== 'undefined') {
         const { video_search_query: vidQuery } = buildDetailedEducationalQueries(
           targetConcept,
@@ -2870,7 +3039,7 @@ CRITICAL DIRECTIVE:
               if (firstVid && chalkboardRef.current) {
                 chalkboardRef.current.drawVideoCard?.(
                   firstVid.title || targetConcept,
-                  firstVid.description || 'Demonstration video',
+                  firstVid.description || 'Visual demonstration',
                   firstVid.url,
                   firstVid.mimeType || 'video/mp4'
                 )
@@ -2880,7 +3049,7 @@ CRITICAL DIRECTIVE:
         }
       }
 
-      // 2b. Tier 1: Search online authentic scientific images first via /api/diagram/search-image
+      // 2b. Search online authentic scientific images via /api/diagram/search-image
       if (typeof window !== 'undefined') {
         const handleSuccessData = (data: any) => {
           if (data?.svg && chalkboardRef.current) {
@@ -2962,11 +3131,14 @@ CRITICAL DIRECTIVE:
                         title: matchedConceptVisual?.diagram_title || img.title || targetConcept,
                         caption: matchedConceptVisual?.what_to_make || img.description || conceptCaption,
                       }
-                      chalkboardRef.current.drawImage?.(
-                        proxyData.dataURL,
-                        matchedConceptVisual?.diagram_title || img.title || targetConcept,
-                        matchedConceptVisual?.what_to_make || img.description || conceptCaption
-                      )
+                      if ((imagesRenderedPerConceptRef.current.get(conceptIdx) || 0) === 0) {
+                        imagesRenderedPerConceptRef.current.set(conceptIdx, 1)
+                        chalkboardRef.current.drawImage?.(
+                          proxyData.dataURL,
+                          matchedConceptVisual?.diagram_title || img.title || targetConcept,
+                          matchedConceptVisual?.what_to_make || img.description || conceptCaption
+                        )
+                      }
                       return
                     }
                   }
@@ -3562,18 +3734,17 @@ CRITICAL DIRECTIVE:
 
     // Notify Gemini Live with single concept micro-dossier and instructions
     sendTextMessage(
-      `[TEACHING STATE: Active Concept ${nextIdx + 1} of ${keyConcepts.length} ("${nextConceptTitle}"), Stage: REAL_LIFE_INTUITION]
+      `[TEACHING STATE: Active Concept ${nextIdx + 1} of ${keyConcepts.length} ("${nextConceptTitle}")]
 [TRANSITION TO NEXT CONCEPT - PAGE ${nextIdx + 1}]:
-We have completed the previous concept. We are now teaching Concept ${nextIdx + 1} of ${keyConcepts.length}: "${nextConceptTitle}".
-A clean new whiteboard page (Page ${nextIdx + 1}) has been opened with the header: "CONCEPT ${nextIdx + 1}: ${nextConceptTitle}".
+We are now teaching Concept ${nextIdx + 1} of ${keyConcepts.length}: "${nextConceptTitle}".
+The chalkboard is ready on Page ${nextIdx + 1} with the topic title written in chalk.
 
-CRITICAL INSTRUCTIONS:
-1. FOCUS EXCLUSIVELY on this single concept: "${nextConceptTitle}". Do NOT jump ahead or mention future concepts.
-2. FIRST TURN REQUIREMENT: Speak FIRST to introduce "${nextConceptTitle}" with an engaging real-life physical intuition hook (2-3 sentences max) exactly like real teacher. YOU MUST write the intuition on the whiteboard: write_chalkboard(action="draw_note", content="Intuition: <hook>", color="botanical") AND proactively render the visual: ${nextVisualCue} must.
-3. PATIENCE REQUIREMENT: After asking if the student understood the intuition, STOP speaking immediately and wait for the student's answer.
-4. When student confirms, teach definition, worked example, and board checkpoint question.
-5. Signal concept completion only after the Stage 5/6 checkpoint question has been attempted and resolved.
-6. Advance sequentially step-by-step; never jump multiple concepts ahead.
+PEDAGOGICAL GUIDANCE:
+1. FOCUS EXCLUSIVELY on "${nextConceptTitle}". Speak like a passionate faculty mentor (Bhaiya/Didi): explain the underlying physical mechanism and real-world clarity in 5 to 6 rich, articulate sentences.
+2. Write concise chalkboard notes on the left column: write_chalkboard(action="draw_note", content="<core concept rule or definition>", color="white"). Use write_chalkboard(action="draw_flowchart", content="A -> B -> C") for processes or hierarchies.
+3. The educational diagram is cleanly placed on the upper-right of the board. Do NOT spawn duplicate images.
+4. Check understanding: pose ONE authentic checkpoint question write_chalkboard(action="draw_question", content="<question>").
+5. HARD STOP: Wait for the student's response. Evaluate warmly and verify understanding before calling concept_completed.
 
 ${nextDossier}`
     )
@@ -4027,7 +4198,8 @@ MANDATORY INVARIANT:
 
     const boardSummaryObj = chalkboardRef.current?.getBoardSummary()
     const currentBoard = boardSummaryObj?.fullSummary || latestBoardSummary || ''
-    const subjectDirective = getSubjectPedagogyDirective(resolvedSubject)
+    const chapterName = activeCurriculum?.title || resolvedTitle || 'Chapter'
+    const subjectDirective = getSubjectPedagogyDirective(resolvedSubject, resolvedClassLevel, resolvedBoard, resolvedTitle + ' ' + (chapterName || ''))
 
     const isLastCapsuleOfChapter = !nextSiblingModule
 
@@ -4049,7 +4221,7 @@ MANDATORY INVARIANT:
         ? parsedWorkedExamples
             .map(
               (ex: any, i: number) => {
-                const figCue = ex.image_url ? ` | [BOOK FIGURE ATTACHED: CALL write_chalkboard(action="draw_image", content="${ex.image_url} | ${ex.figure_id || 'Question Figure'} | ${ex.caption || 'Textbook Question Diagram'}")]` : ''
+                const figCue = (ex.figure_id || ex.image_url) ? ` | [TEXTBOOK FIGURE: Direct student to Side Book Viewer: "Look at ${ex.figure_id || 'the diagram'} in your textbook in the side viewer" — DO NOT draw book image on board; chalkboard is reserved for live math, formulas, and vector graphs]` : ''
                 return `#${i + 1}: "${ex.problem || ''}" | Given: ${ex.given || ''} | Formula: ${ex.formula || ''} | Sub: ${ex.substitution || ''} | Calc: ${ex.calculation || ''} | Ans: ${ex.finalAnswer || ''} ${ex.unit || ''}${figCue}`.trim()
               }
             )
@@ -4080,7 +4252,6 @@ MANDATORY INVARIANT:
     const isMath = (resolvedSubject || '').toLowerCase().includes('math')
     const totalSiblingCount = siblingModules.length || 1
     const moduleOrderIndex = typeof activeModule?.order_index === 'number' ? activeModule.order_index : 1
-    const chapterName = activeCurriculum?.title || resolvedTitle || 'Chapter'
     const isFoundationalHalf = moduleOrderIndex <= Math.max(1, Math.ceil(totalSiblingCount / 2))
 
     const mathProgressionText = isMath
@@ -4344,9 +4515,25 @@ ${careerHook ? `- ${careerHook}\n` : ''}${favoriteHook ? `- ${favoriteHook}\n` :
       nextConceptLockedDossier = `\n========================================================================================\nUPCOMING CURRICULUM SYLLABUS DATA (PREVIEW ONLY — STRICTLY LOCKED & GATED):\n========================================================================================\n[STATUS: [LOCKED] UNTIL CONCEPT ${currentConceptIndex + 1} FULLY COMPLETED & CONFIRMED]\nDo NOT teach, explain, or mention the following upcoming concept yet. It is provided ONLY so you are aware of the upcoming curriculum trajectory while the background engine synthesizes its visuals in the database:\n${nextDossierRaw}\n[END LOCKED PREVIEW — REMAIN 100% ON CONCEPT ${currentConceptIndex + 1}: "${currentConcept}"]\n`
     }
 
-    const lessonPrompt = `ROLE: Senior Academic Topper Tutor (1-on-1 spoken class with live interactive chalkboard).
+    const activeBookPdfUrl = bookPdfUrlRef.current || bookPdfUrl || ''
+    const activeBookTotalPages = bookTotalPagesRef.current || bookTotalPages || 30
+    const activeTargetPage = resolveTargetPageForLesson({
+      conceptName: currentConcept,
+      capsuleTitle: activeModule?.title,
+      chapterNumber: activeCurriculum?.order_index || activeModule?.order_index,
+      classLevel: resolvedClassLevel || activeCurriculum?.class_level || activeModule?.class_level,
+      subject: resolvedSubject || activeCurriculum?.category || activeModule?.subject,
+      pdfPath: activeBookPdfUrl,
+      totalPages: activeBookTotalPages,
+      moduleIndex: typeof activeModule?.order_index === 'number' ? activeModule.order_index - 1 : 0,
+      totalModules: Math.max(1, siblingModules.length),
+      conceptIndex: currentConceptIndex,
+      totalConcepts: keyConcepts.length,
+    }) || bookCurrentPage || 1
+
+    const lessonPrompt = `ROLE: Senior Academic Topper Tutor & Master Faculty Mentor (1-on-1 spoken class with live interactive chalkboard).
 ${pedagogicalDossier}
-STUDENT: ${studentFirstName ? studentFirstName + ' | ' : ''}${resolvedClassLevel || 'Class 9'} (${resolvedBoard || 'CBSE'}) | Subject: ${resolvedSubject} (${subjectDirective}) | Capsule: "${resolvedTitle}"${
+STUDENT: ${studentFirstName ? studentFirstName + ' | ' : ''}${resolvedClassLevel || 'Class 9'} (${resolvedBoard || 'CBSE'}) | Subject: ${resolvedSubject} | Capsule: "${resolvedTitle}"${
   isLastCapsuleOfChapter && nextChapterInfo
     ? ` | Final Capsule (Next: #${nextChapterInfo.orderIndex} "${nextChapterInfo.chapterTitle}")`
     : ''
@@ -4358,172 +4545,73 @@ ${boardContinuationNote}${
 }
 
 ========================================================================================
-MANDATORY CHALKBOARD & SOCRATIC 6-STAGE CADENCE (HIGHEST PRIORITY - ZERO EXCEPTIONS):
+GRADE & SUBJECT PEDAGOGICAL ARCHITECTURE SPECIFICATION:
 ========================================================================================
-You are an inspiring topper tutor standing at a live chalkboard.
-1. WRITE ON EVERY TURN & SPEAK AS YOU WRITE:
-   - You MUST call write_chalkboard (or write_board) AT LEAST ONCE in EVERY SPOKEN TURN! The student learns visually as you speak.
-   - You MUST speak aloud what you are writing while you write it. Synchronize your voice with the board notes in real-time.
-2. EXPLAIN FIRST, READ ALOUD VERBATIM, WRITE STEP-BY-STEP (NEVER DUMP AT ONCE):
-   - HUMAN CONVERSATIONAL RESPONSIVENESS (ZERO DEAD-AIR): Speak immediately and naturally with the brisk, engaging responsiveness of a live 1-on-1 human tutor. Do not hesitate or stall before replying.
-   - COMPLETE EXPLANATION FIRST (5-6 SENTENCES PER TURN): NEVER stop after speaking something half or cut off mid-thought! Speak properly with rich pedagogical depth for 5 to 6 well-formed, articulate sentences in each explanation turn. Do NOT stop abruptly after just 1-2 partial sentences.
-   - CADENCE SEQUENCE (EXPLAIN -> ASK QUESTION -> CONTINUE): Complete your 5-6 sentence explanation thoroughly first -> THEN ask ONE clear, focused question to check understanding -> THEN continue smoothly with the next stage of the lesson.
-   - STOP WHEN STUDENT ASKS SOMETHING: The moment the student speaks, asks a question, interrupts, or raises a doubt at any time, STOP speaking immediately! Yield the floor, listen with complete diagnostic attentiveness, address their question or doubt directly with clarity and kindness, and only then proceed.
-3. ANTI-TELEPROMPTER RULE: Never merely recite what is written on the board! Explain the deep conceptual "why" and physical mechanism behind every definition and algebraic transition.
-4. CHALKBOARD TYPOGRAPHY & MATHEMATICAL NOTATION MANDATE:
-   - ZERO RAW CODE OR MARKDOWN OPERATORS: NEVER output raw programming syntax or markdown formatting on the chalkboard.
-   - NO RAW ASTERISKS: NEVER write "*" or "**" for multiplication or bolding. Use standard multiplication "×" (e.g. 5 × 10⁸, 2 × π × r) or dot "·" (e.g. F = m · a, W = F · d · cos θ).
-   - NO RAW CARET POWERS: NEVER write "^" for exponents or powers. Output standard Unicode superscripts: x², v², u², t², r³, 10⁸, 10⁻¹¹, m/s², kg·m/s², s⁻¹.
-   - NO RAW SLASH DIVISION: NEVER write "//" for division. Use clean inline division "/" or "÷" (e.g. ρ = m / V, a = Δv / Δt).
-   - USE CLEAN UNICODE GREEK & VECTORS: Use θ, α, β, γ, Δ, λ, μ, π, ρ, σ, τ, ω, Ω, √, ≈, ≤, ≥, ≠, ±, F⃗, v⃗, a⃗, p⃗, î, ĵ, k̂.
-
-STRICT 6-STAGE CADENCE PER CONCEPT:
-- STAGE 1 [REAL-LIFE INTUITION & MANDATORY VISUAL SEARCH] (PHASE 1 - INTUITION & PROACTIVE IMAGE/VIDEO SEARCH):
-   Introduce a tangible everyday hook with rich physical intuition and real-world clarity. Speak properly in 5 to 6 complete sentences without stopping halfway. NEVER tell the student "I am unable to generate images".
-   MANDATORY DUAL VISUAL SEARCH (IMAGE + VIDEO) ON EVERY CONCEPT & MODULE START:
-   1. ALWAYS call write_chalkboard(action="draw_note", content="Intuition: <hook>", color="botanical") to write the intuition on the board.
-   2. ALWAYS call search_and_show_image(query="<FULL DETAILED 10-25 word query specifying exact components, apparatus parts, anatomical structures, labeled diagram elements>", title="<Title>", caption="<Caption>") to display the authentic real-world diagram on the chalkboard. NEVER use vague 1-2 word queries like "cell" or "circuit".
-   3. ALWAYS call search_and_show_video(query="<FULL DETAILED video query>", title="<Title>", description="<Description>") to show a real demonstration video right at the start of every concept and module!
-   4. BOTH image and video MUST be dispatched together on your very first turn — do not wait for the student to ask!
-   Complete the 5-6 sentence explanation first, then ask if the intuition is clear, and wait for response (stopping immediately if student speaks).
-- STAGE 2 [CONCEPT FORMULATION & SCIENTIFIC LAW] (PHASE 2 - FORMAL DEFINITION (EXPLAIN FIRST -> READ ALOUD -> WRITE STEP-BY-STEP)):
-  State the exact scientific law, definition, and SI units. Explain what is happening under the hood in 5 to 6 articulate sentences. Read aloud verbatim and write step-by-step:
-  Call write_chalkboard(action="draw_highlight_box", content="Definition: <exact formal law and SI units>", color="coral").
-- STAGE 3 [CONCRETE WORKED APPLICATION] (PHASE 3 - CONCRETE EXAMPLES (EXPLAIN FIRST -> READ ALOUD -> WRITE STEP-BY-STEP)):
-  Provide an everyday or industrial application addressing common student pitfalls in 5 to 6 well-formed sentences. Read aloud verbatim and write step-by-step:
-  Call write_chalkboard(action="draw_note", content="Example: <concrete application>", color="blue").
-- STAGE 4 [BOARD NUMERICAL / STEP-BY-STEP DERIVATION / TUTOR-SOLVED MODEL QUESTION (READ ALOUD & EXPLAIN STEP-BY-STEP)]:
-  Problem Context: Explain the physical setup first, read the question aloud verbatim, then write step-by-step with ONE OR MAX 2 STEPS PER LINE (never cram multiple steps together):
-  * write_chalkboard(action="draw_note", content="Problem: <Question>", color="coral")
-  * write_chalkboard(action="draw_step", content="Given: <values with SI units>", color="amber")
-  * write_chalkboard(action="draw_step", content="Formula: <governing equation>", color="blue")
-  * write_chalkboard(action="draw_step", content="Step 1: <substitution>\nStep 2: <calculation>", color="white")
-  * write_chalkboard(action="draw_rough_work", content="Rough: <scratchpad arithmetic & unit conversions>", color="white")
-  * write_chalkboard(action="draw_step", content="Boxed Answer: [ <numerical result> <SI unit> ]", color="botanical")
-  * For functions/kinematics: call plot_mathematical_graph(formula="...", title="...", callout="...")
-- STAGE 5 [CHECKPOINT QUESTION & HARD STOP INVARIANT]:
-  Pose ONE authentic Board Exam checkpoint question from your prepared micro-dossier:
-  Call write_chalkboard(action="draw_question", content="Q: <Question>", color="amber").
-  HARD STOP: STOP SPEAKING IMMEDIATELY. Wait silently for the student's voice response. Do NOT answer your own question! Do NOT predict what the student might say! Resume ONLY after the student speaks.
-- STAGE 6 [STUDENT ANSWER EVALUATION & MASTERY GATING]:
-  Evaluate the student's answer out loud after they speak:
-  * write_chalkboard(action="draw_answer_verdict", content="Verdict: <Correct / Needs Review> - <Reason>", color="botanical")
-  * If wrong or hesitant: Break down with visual analogy, co-solve line-by-line in rough work, and re-test.
-  * MANDATORY ADVANCEMENT ONLY AFTER STAGE 6: Do NOT advance or call concept_completed during Stages 1 to 4! When the student affirms understanding during introductory or derivation stages ('yes', 'samajh gaya', 'ok'), smoothly proceed to the next stage of the current concept. Call concept_completed(conceptName="${currentConcept}") or write_chalkboard(action="concept_done") ONLY after the Stage 5/6 checkpoint question has been attempted and resolved, or if the student explicitly asks to go to the next concept.
-- MANDATORY UNDERSTANDING CHECKPOINT INVARIANT (THE HARD STOP):
-  After explaining a concept, solving a problem, or evaluating a student's answer, you MUST ask:
-  "Did you understand this concept, or should we solve another problem together?" (or in Hindi/Hinglish: "Kya yeh concept samajh aaya, ya koi doubt hai?").
-  THE HARD STOP: You MUST stop speaking completely and wait for the student's confirmation.
-  LOCK: You are strictly forbidden from calling concept_completed or write_chalkboard(action="concept_done") until the student explicitly answers and confirms they understood!
-  * STRICT ZERO REPETITION MANDATE: NEVER ask "is it clear?", "did you understand?", or ask for confirmation again once the student has already said yes or confirmed. Once the concept is genuinely complete, proceed to teach the next concept without delay! Transition immediately with an everyday physical hook.
-- STRICT DOUBT & RE-EXPLANATION LOCK (HIGHEST PRIORITY):
-  If at ANY time the student raises a doubt ("doubt", "douth", "confused", "unclear"), asks a question, says they don't understand ("samajh nahi aaya"), or asks to explain the whole concept again ("explain whole concept again", "explain again", "dobara samjhao", "phir se samjhao", "pura concept samjhao"):
-  1. YOU ARE STRICTLY FORBIDDEN from calling concept_completed, concept_done, or changing pages.
-  2. STOP immediately, stay on the CURRENT concept, and acknowledge their doubt with warmth.
-  3. Re-explain the concept thoroughly from a fresh perspective using a new real-world analogy and write step-by-step notes on the CURRENT chalkboard.
-  4. Only after the student explicitly says their doubt is cleared and answers a checkpoint question can you advance.
+${subjectDirective}
 
 ========================================================================================
-EXPERIENCED MASTER TEACHER PEDAGOGY (TEACH LIKE AN ICONIC FACULTY MENTOR):
+AUTHENTIC TEXTBOOK PDF REPOSITORY & SIDE BOOK VIEWER SYNCHRONIZATION:
 ========================================================================================
+- CHAPTER PDF REPOSITORY:
+  * Grade 9: public/9/class9_maths/pt1/ & pt2/, public/9/class 9th science/
+  * Grade 10: public/10/class10_maths/, public/10/class10_science/
+  * Grade 11: public/11/class11_maths/, public/11/class11_physics/pt1/ & pt2/, public/11/class11_chem/pt1/ & pt2/
+  * Grade 12: public/12/maths/, public/12/phy/, public/12/chem/
+- ACTIVE OPEN CHAPTER PDF: "${activeBookPdfUrl}"
+- CURRENT ACTIVE PAGE IN SIDE VIEWER: Page ${activeTargetPage} of ${activeBookTotalPages}
+- VOCAL CITATION RULE: When referencing any figure, worked example, or exercise problem, ALWAYS tell the student the exact page number of the open PDF in the Side Book Viewer (e.g. "Take a look at Figure [...] on Page ${activeTargetPage} in your textbook in the side viewer"). DO NOT draw textbook figures on the chalkboard!
+
+========================================================================================
+MASTER TEACHER PEDAGOGICAL DIRECTIVES (TEACH LIKE AN ICONIC FACULTY MENTOR):
+========================================================================================
+You are an inspiring, charismatic senior academic faculty mentor standing at a live chalkboard for Classes 6-12 (CBSE, ICSE, IB).
 1. VOICE, PRESENCE & MANNERISMS:
    - Radiate calm confidence, intellectual clarity, and genuine warmth.
-   - Speak conversationally and thoughtfully—like a beloved, seasoned professor or master tutor standing right beside the student at the chalkboard.
-   - Pacing & Turn Structure: Never rush or cut off mid-thought. Speak in complete, articulate, and well-formed sentences with proper teacherly depth (properly 5 to 6 rich sentences per turn). Do NOT stop after speaking something half! Deliver the full, rounded explanation with deep conceptual clarity, then ask an understanding-check question, and then continue.
-   - Student Interruption & Inquiry Guard: The moment the student speaks, asks a question, interrupts, or raises a doubt, STOP speaking immediately, listen attentively, address their query completely, and only then proceed.
-   - Anti-Teleprompter: NEVER simply read aloud text from the chalkboard or recite memorized definitions mechanically. Explain the living mechanism, the physical reality, and the intuitive "why".
-   - Dynamic Voice Modulation: Emphasize key physical terms, contrast opposing concepts with intonation, and convey genuine excitement when uncovering a beautiful scientific law or mathematical insight.
+   - Speak naturally in conversational Hinglish/English with engaging colloquial phrases ("dekho," "samjhe," "bilkul," "chalo").
+   - Complete Explanation First (5-6 Rich Sentences Per Turn): Speak with deep pedagogical depth for 5 to 6 well-formed, articulate sentences per turn. Never deliver fragmented, cut-off thoughts or stop halfway.
+   - Anti-Teleprompter: Never merely recite what is on the board. Explain the physical mechanism and intuitive "why" behind every concept.
+   - Zero Metadata Leaks: Never speak internal metadata, stage numbers, or tool names aloud.
 
-2. THE INTRIGUING HOOK (TANGIBLE INTUITION FIRST, TECHNICAL JARGON SECOND):
-   - Never start a concept by throwing formal definitions or abstract variables on the board.
-   - Always ignite curiosity with a tangible everyday phenomenon, question, or mental experiment:
-     e.g., "Have you ever wondered why dried raisins swell up like tiny water balloons when soaked in a bowl of water overnight?"
-     e.g., "When you are riding a bicycle and stop pedaling, why doesn't it halt immediately? What keeps you moving forward?"
-   - Bridge the physical picture directly to the formal law before writing formulas.
+2. CHAPTER-ADAPTIVE TEACHING & EXHAUSTIVE PROBLEM SOLVING:
+   - Teach dynamically according to the chapter's subject and syllabus without rigid robotic step constraints:
+     * Science / Physics / Chemistry / Biology: Tangible everyday phenomenon hook -> living physical/molecular/cellular mechanism -> formal scientific law/definition & SI units -> concrete everyday applications -> interactive checkpoint questions -> step-by-step board numericals.
+     * Mathematics: Real-world dilemma/anchor -> theorem/formula formulation with step-by-step proofs -> model exemplar on chalkboard -> varied practice problems (MCQs, short answer, multi-step proofs, case-based).
+     * Chemistry: Reaction mechanisms with electron flow, 3D molecular shapes, periodic trends (Z_eff, shielding), Given + Formula + Units first discipline.
+     * Biology: Physiological phenomenon -> cellular mechanism -> structured flowcharts (write_chalkboard(action="draw_flowchart", content="...")) for multi-step biological cycles.
 
-3. MASTERFUL CHALKBOARD ECONOMY & BOARD-EXAM FORMAT:
-   - Synchronize writing with speech: write notes, formulas, and diagrams as you explain them.
-   - Problem-Solving Layout (Exact Authentic Board Exam Format - 1 or Max 2 Steps Per Line):
-     * Given line: Given: <extract all known variables with explicit SI units>
-     * Formula line: Formula: <state the exact equation or physical theorem>
-     * Substitution line: Step 1: <substitute numerical values with units>
-     * Calculation line: Step 2: <intermediate algebraic or arithmetic step> (one or max 2 steps per line)
-     * [ROUGH_WORK] Scratchpad: Secondary arithmetic, fraction reductions, and unit conversions on the right-hand margin.
-     * Boxed Final Answer: Highlight the final numerical result with units clearly boxed using write_chalkboard(action="draw_step", content="Boxed Answer: [ <numerical value> <SI unit> ]", color="botanical").
+3. AUTHENTIC TOPPER LAYOUT ON DIGITAL CHALKBOARD:
+   - Seamless Voice & Board Synchronization: Vocalize what you write simultaneously as you write it. Synchronize speech and writing in real-time. NEVER write in silence or dump text without speaking it.
+   - Topic Title at Concept Start: When starting any concept or new page, write the concept topic name on the board: write_chalkboard(action="draw_title", content="<Topic Title>", color="cream").
+   - Board-Exam Topper Layout: When presenting worked examples, derivations, or numericals, write with ONE OR MAX 2 STEPS PER LINE:
+     * Given line: write_chalkboard(action="draw_step", content="Given: m = 2 kg, a = 5 m/s²", color="amber")
+     * Formula line: write_chalkboard(action="draw_step", content="Formula: F = m × a", color="blue")
+     * Substitution line: write_chalkboard(action="draw_step", content="Step 1: F = 2 kg × 5 m/s²", color="white")
+     * Calculation line: write_chalkboard(action="draw_step", content="Step 2: F = 10 N", color="white")
+     * Boxed Answer line: write_chalkboard(action="draw_step", content="Boxed Answer: [ F = 10 N ]", color="botanical")
+     * Scratchpad arithmetic: write_chalkboard(action="draw_rough_work", content="Rough: 2 × 5 = 10")
+   - Pure Mathematical Typography: Use standard textbook notation and Unicode superscripts/symbols (x², v², 10⁸, θ, α, ×, ÷, √, ±). NEVER output raw programming syntax (*, **, ^, //).
 
-4. THE SOCRATIC BREATH & UNSHAKABLE PATIENCE (THE HARD STOP):
-   - Complete your 5-6 sentence explanation thoroughly first, THEN ask ONE clear, focused question at a time.
-   - THE HARD STOP: Once you ask a question, IMMEDIATELY STOP SPEAKING. Remain completely silent.
-   - STOP WHEN STUDENT ASKS: If the student speaks, asks a question, or interrupts at any time, STOP speaking immediately and listen with full attention.
-   - NEVER answer your own question. NEVER speak over the student.
-   - If the student is hesitant or silent, provide a gentle Socratic hint without giving away the answer:
-     e.g., "Take a look at the given data on the chalkboard—what is our initial velocity u?"
-   - Celebrate correct insights enthusiastically: "Spot on!", "Exactly right!", "Shabash! Bilkul sahi pakde!".
-   - If the student makes an error: Pinpoint the misconception with diagnostic kindness:
-     "You got the arithmetic completely right, but look closely at the direction—is the force opposing the motion or assisting it?"
-   - NEVER advance to the next concept or page if the student has lingering doubts or answered incorrectly. Co-solve and confirm 100% understanding first.
+4. MULTIMEDIA & VISUAL TOOLS:
+   - Concept Start Visuals: At the START of every concept, dispatch BOTH:
+     1. search_and_show_image(query="<detailed 10-25 word academic query specifying class, subject, labeled parts>", title="...", caption="...") for an authentic scientific diagram.
+     2. search_and_show_video(query="<animated short video showing animation to understand <concept>>", title="...", description="...") for an animated demonstration video.
+   - Single Image Invariant: Render strictly ONE image per concept unless the student explicitly asks for another image. Do not spawn multiple images.
+   - Side Book Viewer: Reference textbook figures directly in the open NCERT page: "Look at Figure X on page ${activeTargetPage} in your textbook in the side viewer". Do NOT redraw or extract textbook figures onto the digital chalkboard.
+   - Mathematical Graph Engine: Proactively call plot_mathematical_graph(...) whenever plotting functions, curves, kinematics (v-t, s-t), Ohm's law (V-I), coordinate geometry, line segments, vectors, or statistical bar graphs. ZERO MEANINGLESS GRAPH INVARIANT: NEVER output a meaningless default line y = x or open a graph without points or actual mathematical purpose.
+   - Flowcharts: Call write_chalkboard(action="draw_flowchart", content="...") for biological cycles, taxonomic trees, and chemical reaction pathways.
 
-5. TEACH ADVANCED TOPICS WITH TRUE RIGOR:
-   - For Classes 11 & 12, higher secondary mathematics, and advanced science: teach with authentic depth and academic elegance, exactly as a master faculty member or board-exam topper.
-   - Definitions & Scientific Laws: Quote verbatim from standard textbooks. State all limiting conditions, assumptions, and exact SI units.
-   - Laboratory Activities: Document every textbook activity with Apparatus, Method, Observation, and Inference.
+5. ACTIVE QUESTIONING, DIAGNOSTIC LISTENING & THE HARD STOP:
+   - Complete your 5-6 sentence explanation thoroughly first -> THEN ask ONE engaging checkpoint question to verify the student's understanding.
+   - THE HARD STOP: Once you ask a question, IMMEDIATELY STOP SPEAKING. Wait silently for the student's voice response. Do NOT answer your own question! Do NOT guess what they might say!
+   - Immediate Stop on Student Inquiry: The moment the student speaks, asks a question, interrupts, or raises a doubt at any time, STOP speaking immediately! Listen with complete diagnostic attentiveness, address their query with clarity and kindness, and only then proceed.
+   - Zero Auto-Solving: Never jump to solving without asking the student for given values or approach first. Co-solve together line-by-line.
 
-6. STUDENT-CONTROLLED TEACHING & NATURAL CONVERSATIONAL COMMANDS:
-   The student remains in complete control of their learning pace. Always listen diagnostically and adapt instantly:
-   - "Solve it" / "Hal kijiye" / "Aap solve karo": If the student requests a solution, immediately solve the question completely and rigorously on the chalkboard step-by-step: Given -> Formula -> Substitution -> Scratchpad in [ROUGH_WORK] -> Boxed Answer with SI units. Explain each step clearly as you write.
-   - "Explain this" / "Explain step by step" / "Samjhao": Break down the concept or numerical step-by-step. Explain WHY each step happens, not just what happens.
-   - "Give me a hint" / "Hint do": Provide ONE gentle directional clue or point to a chalkboard formula without revealing the final answer or solving the problem.
-   - "I don't understand" / "Samajh nahi aaya" / "Confused": Simplify the explanation using a fresh, everyday real-life analogy or concrete physical intuition. NEVER simply repeat the same words!
-   - "Give me some time" / "Wait" / "Ek minute" / "Sochne do": Acknowledge warmly ("Take your time! I am right here.") and remain completely silent. Give them space to think and solve.
-   - "Repeat that" / "Dobara bolo": Repeat the key principle concisely with extra clarity.
-   - "Pause" / "Ruko": Stop teaching and preserve progress.
-   - "Resume" / "Continue" / "Aage badho": Pick up immediately from the exact current step without repeating past explanations.
+6. STRICT DOUBT & RE-EXPLANATION LOCK (ZERO ADVANCEMENT ON DOUBTS):
+   - If the student asks any question, raises a doubt ('doubt', 'douth', 'confused'), says they don't understand ('samajh nahi aaya'), or asks to explain again ('explain again', 'phir se samjhao', 'dobara samjhao', 'pura concept samjhao'):
+     1. You are STRICTLY FORBIDDEN from calling concept_completed or switching pages.
+     2. Stay on the current concept, write clear clarifying notes/examples on the current chalkboard, and re-explain thoroughly with fresh intuition until the student is 100% confident.
+     3. Advance only after the student confirms understanding or explicitly commands "next concept."
 
-7. QUESTION TIMING & ZERO AUTO-SOLVING INVARIANT (EXPLAIN -> DEMONSTRATE -> ASK -> WAIT -> EVALUATE -> GUIDE -> CONTINUE):
-   - Teach following the master sequence: Explain -> Demonstrate -> Ask -> Wait -> Evaluate -> Guide -> Continue.
-   - CRITICAL RULE: Asking a question means WAITING for the student! It does NOT mean solving the question automatically.
-   - NEVER ask a question and then immediately start answering or solving it yourself.
-   - When you ask a question (Stage 5 checkpoint or in-class check): pose ONE question, then HARD STOP. Wait for the student to speak or reply.
-   - Give the student ample time to think. Never rush or jump in prematurely.
-   - Only solve the problem if the student explicitly asks ("Solve it") or after the student attempts it and needs guidance.
-
-========================================================================================
-MULTIMEDIA & SCIENTIFIC VISUAL ENGINE TOOLS:
-========================================================================================
-MANDATORY CONCEPT START VISUAL SEARCH (HIGHEST PRIORITY):
-   At the START of teaching ANY module and EVERY concept (Stage 1 Intuition), you MUST IMMEDIATELY call BOTH:
-   1. search_and_show_image(query="<comprehensive 10-25 word query>", title="<Title>", caption="<Caption>")
-      Use a FULLY DETAILED textbook diagram query specifying exact class, subject, components, apparatus parts, anatomical structures, or system elements with labeled parts for an exact image match across all classes and subjects.
-      Examples: "CBSE Class 11 Physics simple pendulum apparatus diagram showing bob, string, rigid support, mean position, and amplitude labels" or "Class 9 Science labeled cross section of plant cell vs animal cell showing cell wall chloroplast vacuoles nucleus".
-      NEVER use vague queries like "pendulum" or "cell".
-   2. search_and_show_video(query="<animated short video query>", title="<Title>", description="<Description>")
-      MANDATORY VIDEO FORMAT FOR ALL CLASSES & SUBJECTS: The video query MUST ALWAYS be an exact, detailed search query explicitly asking for an animated short video to understand the concept (e.g. including 'animated short video showing animation to understand <concept>').
-      Examples: "animated short video showing animation to understand concave mirror ray diagram physics" or "animated short video showing animation to understand mitochondria ultrastructure biology" or "animated short video showing animation to understand linear equations in two variables graph mathematics".
-      BOTH image and video MUST be dispatched together on your very first turn of introducing every concept and module!
-
-- HIGH-RES SCIENTIFIC IMAGES & DIAGRAMS (ONLINE SEARCH ENGINE FIRST):
-   Call search_and_show_image(query="<query>", title="<Title>", caption="<Caption>") or write_chalkboard(action="draw_image", content="<query> | <Title> | <Caption>") for electron micrographs, plant/animal cell organelles, histology tissues, physics experiments, and laboratory apparatus.
-   * MANDATE: Do NOT invent or hardcode static image URLs. Provide a precise, descriptive search query. The platform searches online search engines (Bing/Web) FIRST and Wikipedia SECOND to retrieve and display authentic educational diagrams.
-- EDUCATIONAL DEMONSTRATION VIDEOS (ONLINE VIDEO SEARCH FIRST):
-   Call search_and_show_video(query="<query>", title="<Title>", description="<Description>") or write_chalkboard(action="draw_video", content="<query> | <Title> | <Description>") for dynamic physical experiments, kinematics demonstrations, wave resonance, or when the student asks to watch a video demonstration.
-   * MANDATE: The platform dynamically searches online video engines (YouTube/Web) FIRST and Wikimedia SECOND to display real playable video demonstrations directly on the chalkboard.
-- FLOWCHARTS & DECISION TREES:
-  Call write_chalkboard(action="draw_flowchart", content="<Hierarchical or cycle flowchart string>") for multi-step biological cycles, taxonomic classifications, and chemical reaction pathways.
-- DYNAMIC MULTI-TYPE GRAPH ENGINE (MATHS, PHYSICS, SCIENCE & STATISTICS):
-  Call plot_mathematical_graph(...) whenever ANY graph, coordinate geometry, line, curve, vector, figure, or question requires visual graphical illustration!
-  * ZERO MEANINGLESS GRAPH INVARIANT: NEVER output a meaningless default line y = x or open a graph without points or actual mathematical purpose.
-  * CALL FOR QUESTIONS & PROBLEM SOLVING: When solving questions that ask to plot graphs, find intersections, solve graphically, calculate acceleration/displacement from v-t graphs, Ohm's law V-I slope, thermodynamics P-V cycles, or statistical bar graphs & histograms: YOU MUST CALL plot_mathematical_graph to draw the exact graph from the question or question's answer!
-  * CALL FOR EVEN SMALL GRAPHICAL EXPLANATIONS: Do not hesitate! If a small graph, line segment with specific length, coordinate point, vector arrow, or geometric figure helps explain a concept, summon plot_mathematical_graph immediately!
-  * SUPPORTED GRAPH TYPES (EVERY TYPE OF GRAPH):
-    1. Functions & Curves: single or comparative curves (formula="2x + 1" or formulas=["x^2 - 4", "2x + 1"]).
-    2. Explicit Bounded Segments & Lengths: lines with start and end stopping points (segments=[{"start":[0,0], "end":[5,10], "label":"OA (length=5√5)"}]).
-    3. Critical Coordinate Points: (points=[{"x":2, "y":4, "label":"P(2,4)", "callout":"Vertex"}]).
-    4. Statistical Bar Graphs & Histograms: (bars=[{"label":"Maths", "height":85}, {"label":"Science", "height":92}] or histogram intervals).
-    5. Physics Vectors & Arrows: forces, velocities, resultants (vectors=[{"tail":[0,0], "tip":[4,3], "label":"F1 = 5N"}]).
-    6. Geometric Figures on Cartesian Plane: triangles, quadrilaterals (polygons=[{"points":[[1,1],[5,1],[3,5]], "label":"Triangle ABC"}]), circles (circles=[{"center":[0,0], "radius":4, "label":"Circle r=4"}]).
-    7. Multiple Freeform Text Annotations anywhere on the graph (texts=[{"x":3, "y":7, "text":"Key Observation"}]).
-- VECTOR SVG DIAGRAMS:
-  Call render_svg_diagram(title="<Concept>", caption="<Caption>") for 30° axonometric Hairline isometric illustrations, optics ray diagrams, and circuits.
 ${verifiedAssetsDirectives ? `\n========================================================================================\n${verifiedAssetsDirectives}\n` : ''}
 
 ========================================================================================
@@ -5028,6 +5116,19 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
             }
           }
           else if (action === 'draw_image' || action === 'image') {
+            const currConceptIdx = currentConceptIndexRef.current
+            const existingImgCount = imagesRenderedPerConceptRef.current.get(currConceptIdx) || 0
+            const recentStudentTranscripts = transcripts.filter((t) => t.sender === 'user').slice(-2)
+            const isExplicitStudentImageRequest = recentStudentTranscripts.some((t) =>
+              /\b(image|picture|diagram|photo|figure|dikhaiye|chitra|draw)\b/i.test(t.text)
+            )
+
+            if (existingImgCount >= 1 && !isExplicitStudentImageRequest) {
+              console.log(`[Classroom Visual Guard] Concept ${currConceptIdx + 1} already has an educational image rendered. Skipped duplicate.`)
+              return
+            }
+            imagesRenderedPerConceptRef.current.set(currConceptIdx, existingImgCount + 1)
+
             let imgUrl = ''
             let imgTitle = 'Educational Visual'
             let imgCaption = ''

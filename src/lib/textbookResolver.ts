@@ -132,6 +132,67 @@ export function extractChapterNumber(input: string): number | null {
  * Resolves the authentic textbook chapter for a given curriculum chapter.
  */
 /**
+ * Converts any textbook PDF path, URL, or filename into the local public path matching
+ * the chapter PDF repository:
+ * - public/9/class9_maths/pt1/ & pt2/
+ * - public/9/class 9th science/
+ * - public/10/class10_maths/ & public/10/class10_science/
+ * - public/11/class11_maths/, public/11/class11_physics/pt1/ & pt2/, public/11/class11_chem/pt1/ & pt2/
+ * - public/12/maths/, public/12/phy/, public/12/chem/
+ */
+export function resolveLocalPdfUrl(pathOrUrl: string): string {
+  if (!pathOrUrl) return ''
+  const clean = pathOrUrl.replace(/\\/g, '/').split('/').pop() || ''
+  const filename = clean.replace(/\s*\(\d+\)/, '').trim().toLowerCase()
+
+  if (filename.startsWith('iemh1')) {
+    return `/9/class9_maths/pt1/${filename}`
+  }
+  if (filename.startsWith('iemh2')) {
+    return `/9/class9_maths/pt2/${filename}`
+  }
+  if (filename.startsWith('iesc')) {
+    return `/9/class 9th science/${filename}`
+  }
+  if (filename.startsWith('jemh')) {
+    return `/10/class10_maths/${filename}`
+  }
+  if (filename.startsWith('jesc')) {
+    return `/10/class10_science/${filename}`
+  }
+  if (filename.startsWith('kemh')) {
+    return `/11/class11_maths/${filename}`
+  }
+  if (filename.startsWith('keph1')) {
+    return `/11/class11_physics/pt1/${filename}`
+  }
+  if (filename.startsWith('keph2')) {
+    return `/11/class11_physics/pt2/${filename}`
+  }
+  if (filename.startsWith('kech1')) {
+    return `/11/class11_chem/pt1/${filename}`
+  }
+  if (filename.startsWith('kech2')) {
+    return `/11/class11_chem/pt2/${filename}`
+  }
+  if (filename.startsWith('lemh')) {
+    return `/12/maths/${filename}`
+  }
+  if (filename.startsWith('leph')) {
+    return `/12/phy/${filename}`
+  }
+  if (filename.startsWith('lech')) {
+    return `/12/chem/${filename}`
+  }
+
+  if (pathOrUrl.startsWith('/9/') || pathOrUrl.startsWith('/10/') || pathOrUrl.startsWith('/11/') || pathOrUrl.startsWith('/12/')) {
+    return pathOrUrl
+  }
+
+  return toNcertPdfUrl(pathOrUrl)
+}
+
+/**
  * Converts any local textbook path or filename into the official NCERT online PDF URL.
  * e.g. '/9/class9_maths/pt1/iemh101.pdf' -> 'https://ncert.nic.in/textbook/pdf/iemh101.pdf'
  * e.g. 'keph101 (1).pdf' -> 'https://ncert.nic.in/textbook/pdf/keph101.pdf'
@@ -239,7 +300,7 @@ export function resolveBookForChapter(params: ResolveBookForChapterParams): Reso
         chapterNumber: ch.chapterNumber,
         title: ch.chapterTitle,
         chapterTitle: ch.chapterTitle,
-        pdfUrl: toNcertPdfUrl(ch.pdfPath),
+        pdfUrl: resolveLocalPdfUrl(ch.pdfPath),
         totalPages: ch.totalPages,
         pageWidth: ch.pageWidth,
         pageHeight: ch.pageHeight,
@@ -260,7 +321,7 @@ export function resolveBookForChapter(params: ResolveBookForChapterParams): Reso
         chapterNumber: ch.chapterNumber,
         title: ch.chapterTitle,
         chapterTitle: ch.chapterTitle,
-        pdfUrl: toNcertPdfUrl(ch.pdfPath),
+        pdfUrl: resolveLocalPdfUrl(ch.pdfPath),
         totalPages: ch.totalPages,
         pageWidth: ch.pageWidth,
         pageHeight: ch.pageHeight,
@@ -290,7 +351,7 @@ export function resolveBookForChapter(params: ResolveBookForChapterParams): Reso
         chapterNumber: match.chapterNumber,
         title: match.chapterTitle,
         chapterTitle: match.chapterTitle,
-        pdfUrl: toNcertPdfUrl(match.pdfPath),
+        pdfUrl: resolveLocalPdfUrl(match.pdfPath),
         totalPages: match.totalPages,
         pageWidth: match.pageWidth,
         pageHeight: match.pageHeight,
