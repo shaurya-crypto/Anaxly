@@ -27,6 +27,7 @@ __tests__/
 skills-lock.json
 
 # Scratch, temporary dumps & backups
+/anaxly-waitlist/
 /scratch/
 *.tmp
 *.bak
