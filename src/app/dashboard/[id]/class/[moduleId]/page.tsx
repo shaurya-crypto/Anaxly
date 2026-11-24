@@ -137,7 +137,9 @@ function getPedagogyArchitectureDirective(classLevel: string, subject: string, b
 - 50/50 CONCEPT-QUESTION CADENCE: Equal time for conceptual clarity and rigorous board-exam problem solving.
 - CONCEPT-FIRST VIA QUESTIONS (PROBLEM-FIRST INDUCTION): Introduce concepts through an authentic problem hook or practical dilemma first (present the puzzle before stating the formula/theorem), creating intellectual hunger to learn the method!
 - FULL BOARD EXAM SPECTRUM: Cover all standard board question formats: 1-mark objective/MCQs, 2-mark short answers, 3-mark analytical/proofs, and 4-5 mark case-based / competency-based questions.
-- AUTHENTIC TOPPER WHITEBOARD LAYOUT: Meticulous step-by-step layout (Given -> To Prove / Formula -> Substitution -> Step-by-Step Calculation -> [ROUGH_WORK] Margin -> Boxed Final Answer with SI Units or 'Hence Proved!').${COMMON_PRINCIPLES}`
+- AUTHENTIC TOPPER WHITEBOARD LAYOUT: Meticulous step-by-step layout (Given -> To Prove / Formula -> Substitution -> Step-by-Step Calculation -> [ROUGH_WORK] Margin -> Boxed Final Answer with SI Units or 'Hence Proved!').
+- COORDINATE GEOMETRY DISTANCE FORMULA MANDATE: Whenever distance between two points (x₁, y₁) and (x₂, y₂) is involved, ALWAYS write the full authentic Distance Formula with square root first: write_chalkboard(action="draw_step", content="Distance Formula: d = √[(x₂ - x₁)² + (y₂ - y₁)²]", color="blue"). Show complete substitution under the square root: d = √[(7 - 2)² + (3 - 3)²] = √[5² + 0] = √25 = 5 units. Box final answer: write_chalkboard(action="draw_step", content="Boxed Answer: [ d = 5 units ]", color="botanical"). NEVER use lazy 1D shortcuts like |x2 - x1| without first writing the authentic square root distance formula!
+- PROACTIVE CARTESIAN GRAPHING: Whenever teaching points, lines, segments, distances, or coordinate geometry, PROACTIVELY CALL plot_mathematical_graph(...) to plot points A and B, draw segment AB, and label distance AB. Never say "imagine in your head" when you can plot it!${COMMON_PRINCIPLES}`
   }
 
   // 4. Grade 10 Science (Conceptual imagination without ratta, student's own words, depth over quantity, Assertion-Reason & Case-based)
@@ -1013,6 +1015,10 @@ export default function ModuleClassroomPage() {
   const leaveTo = (path: string) => {
     endCall()
     router.refresh()
+    if (!path || path.includes('undefined') || path.includes('null')) {
+      router.push(`/dashboard/${userId}`)
+      return
+    }
     router.push(path)
   }
 
@@ -1166,19 +1172,26 @@ export default function ModuleClassroomPage() {
 
     // Explicit single-phrase advancement commands
     const explicitCommands = new Set([
-      'next concept', 'next page', 'move to next concept', 'move to the next concept',
-      'advance to next concept', 'go to next concept', 'skip to next concept',
-      'next topic', 'move to next page', 'turn the page',
-      'agle concept pe chalo', 'agle concept pe aao', 'aage badho agle concept pe',
+      'next', 'next concept', 'next page', 'next topic', 'next question', 'next one',
+      'move', 'move on', 'move ahead', 'move forward', 'move to next', 'move to next concept', 'move to the next concept',
+      'advance', 'advance to next', 'advance to next concept', 'go to next', 'go to next concept', 'skip to next concept',
+      'continue', 'proceed', 'lets proceed', "let's proceed", 'lets continue', "let's continue",
+      'ready for next', 'ready to move', 'ready to move on',
+      'understood next', 'understood next concept', 'understood move on', 'understood move ahead',
+      'yes next', 'done next', 'yes understood next', 'all clear next', 'samajh gaya next',
+      'aage badho', 'aage chalo', 'chalo aage', 'aage badho agle concept pe',
+      'agle concept pe chalo', 'agle concept pe aao', 'agle topic pe chalo', 'agle pe chalo',
+      'move to next page', 'turn the page',
     ])
     if (explicitCommands.has(clean)) return true
 
     // Must explicitly contain "next concept", "next page", "move to next", etc.
     const explicitPatterns = [
-      /\b(?:move|go|advance|proceed|step|skip)\s*(?:on\s*)?(?:to\s*)?(?:the\s*)?next\s*(?:concept|page|topic)\b/i,
-      /\bnext\s*(?:concept|page|topic)\b/i,
-      /\b(?:ready|prepared)\s*(?:for|to\s*move\s*to)\s*(?:the\s*)?next\s*(?:concept|page|topic)\b/i,
-      /\b(?:agle|agle\s*wale)\s*(?:concept|topic|page)\s*(?:pe|par)\s*(?:chalo|badho|aao)\b/i,
+      /\b(?:move|go|advance|proceed|step|skip)\s*(?:on\s*|ahead\s*|forward\s*)?(?:to\s*)?(?:the\s*)?next\s*(?:concept|page|topic|question)?\b/i,
+      /\bnext\s*(?:concept|page|topic|question|one)\b/i,
+      /\b(?:ready|prepared)\s*(?:for|to\s*move\s*to)\s*(?:the\s*)?next\s*(?:concept|page|topic)?\b/i,
+      /\b(?:aage|agle|agle\s*wale)\s*(?:concept|topic|page)?\s*(?:pe|par)?\s*(?:chalo|badho|aao|continue)\b/i,
+      /\b(?:understood|samajh\s*aaya|samajh\s*aa\s*gaya)\b.*\b(?:next|aage|move)\b/i,
     ]
     return explicitPatterns.some((p) => p.test(clean))
   }
@@ -2238,7 +2251,9 @@ CRITICAL DIRECTIVE:
         const mod = await getCachedSyllabusModule(supabase, moduleId)
 
         if (!mod) {
-          console.error('Failed to load module:', moduleId)
+          console.warn('[Classroom] Module not found or relocated:', moduleId, '-> Redirecting to active module resolver')
+          router.replace(`/dashboard/${userId}/class`)
+          return
         } else {
           setActiveModule(mod)
           const curr = Array.isArray(mod.curriculums) ? mod.curriculums[0] : mod.curriculums
@@ -3579,6 +3594,12 @@ CRITICAL DIRECTIVE:
     if (keyConcepts.length === 0) return
 
     if (nextIdx >= keyConcepts.length) {
+      const allDone = Array.from(new Set([...completedList, ...keyConcepts]))
+      completedConceptsRef.current = allDone
+      setCompletedConcepts(allDone)
+      if (userId && moduleId) {
+        saveVisualProgressToSupabase(keyConcepts.length - 1, allDone)
+      }
       markModuleAsCompleted()
       triggerModuleCompletionAndAdvance()
       return
@@ -3984,13 +4005,17 @@ CRITICAL INVARIANT:
       const currentBoard = chalkboardRef.current?.getCompactBoardContext?.(currentIdx) || ''
       const hasCheckpointQuestion =
         currentBoard.includes('Active Question on Board') ||
+        currentBoard.includes('Checkpoint Question') ||
+        currentBoard.includes('CHECKPOINT QUESTION') ||
+        currentBoard.includes('Question:') ||
         currentBoard.includes('Stage 5') ||
         currentBoard.includes('Stage 6') ||
         currentBoard.includes('Verdict:') ||
         currentBoard.includes('Student:') ||
-        lastVerdictStatusRef.current === 'correct'
+        lastVerdictStatusRef.current === 'correct' ||
+        hasConfirmedUnderstandingRef.current
 
-      if (!hasCheckpointQuestion) {
+      if (!hasCheckpointQuestion && !hasConfirmedUnderstandingRef.current) {
         console.warn(`[Classroom Socratic Guard] Blocked premature concept completion for Concept ${currentIdx + 1} ("${keyConcepts[currentIdx]}"). Has not reached Stage 5/6 checkpoint question.`)
         sendTextMessage(
           `[PEDAGOGICAL CADENCE GUARD]: You called concept_completed before completing Concept ${currentIdx + 1}: "${keyConcepts[currentIdx]}".
@@ -4003,7 +4028,7 @@ CRITICAL DIRECTIVE:
       }
 
       // Mandatory Pedagogical Understanding Checkpoint Guard:
-      if (!hasConfirmedUnderstandingRef.current) {
+      if (!hasConfirmedUnderstandingRef.current && lastVerdictStatusRef.current !== 'correct') {
         console.warn(`[Classroom Socratic Guard] Blocked concept_completed for Concept ${currentIdx + 1} ("${keyConcepts[currentIdx]}"). Student has not confirmed understanding yet.`)
         sendTextMessage(
           `[PEDAGOGICAL CHECKPOINT GUARD]: You called concept_completed before verifying student understanding for Concept ${currentIdx + 1}: "${keyConcepts[currentIdx]}".
@@ -4566,25 +4591,32 @@ You are an inspiring, charismatic senior academic faculty mentor standing at a l
      * Chemistry: Reaction mechanisms with electron flow, 3D molecular shapes, periodic trends (Z_eff, shielding), Given + Formula + Units first discipline.
      * Biology: Physiological phenomenon -> cellular mechanism -> structured flowcharts (write_chalkboard(action="draw_flowchart", content="...")) for multi-step biological cycles.
 
-3. AUTHENTIC TOPPER LAYOUT ON DIGITAL CHALKBOARD:
+3. AUTHENTIC TOPPER LAYOUT & MATHEMATICAL TYPOGRAPHY:
    - Seamless Voice & Board Synchronization: Vocalize what you write simultaneously as you write it. Synchronize speech and writing in real-time. NEVER write in silence or dump text without speaking it.
    - Topic Title at Concept Start: When starting any concept or new page, write the concept topic name on the board: write_chalkboard(action="draw_title", content="<Topic Title>", color="cream").
    - Board-Exam Topper Layout: When presenting worked examples, derivations, or numericals, write with ONE OR MAX 2 STEPS PER LINE:
-     * Given line: write_chalkboard(action="draw_step", content="Given: m = 2 kg, a = 5 m/s²", color="amber")
-     * Formula line: write_chalkboard(action="draw_step", content="Formula: F = m × a", color="blue")
-     * Substitution line: write_chalkboard(action="draw_step", content="Step 1: F = 2 kg × 5 m/s²", color="white")
-     * Calculation line: write_chalkboard(action="draw_step", content="Step 2: F = 10 N", color="white")
-     * Boxed Answer line: write_chalkboard(action="draw_step", content="Boxed Answer: [ F = 10 N ]", color="botanical")
-     * Scratchpad arithmetic: write_chalkboard(action="draw_rough_work", content="Rough: 2 × 5 = 10")
-   - Pure Mathematical Typography: Use standard textbook notation and Unicode superscripts/symbols (x², v², 10⁸, θ, α, ×, ÷, √, ±). NEVER output raw programming syntax (*, **, ^, //).
+     * Given line: write_chalkboard(action="draw_step", content="Given: A(2, 3) and B(7, 3)", color="amber")
+     * Formula line: write_chalkboard(action="draw_step", content="Distance Formula: d = √[(x₂ - x₁)² + (y₂ - y₁)²]", color="blue")
+     * Substitution line: write_chalkboard(action="draw_step", content="Step 1: d = √[(7 - 2)² + (3 - 3)²]", color="white")
+     * Calculation line: write_chalkboard(action="draw_step", content="Step 2: d = √[5² + 0] = √25 = 5 units", color="white")
+     * Boxed Answer line: write_chalkboard(action="draw_step", content="Boxed Answer: [ d = 5 units ]", color="botanical")
+     * Scratchpad arithmetic: write_chalkboard(action="draw_rough_work", content="Rough: (7 - 2)² = 25")
+   - Pure Mathematical Typography: Use standard textbook notation with Unicode superscripts, subscripts, and square roots (x², x₁, x₂, y₁, y₂, v₀, 10⁸, θ, α, ×, ÷, √, ±). NEVER output raw programming syntax (*, **, ^, //, or bare |x2 - x1|).
+   - Distance Formula Invariant: ALWAYS write the full Board Distance Formula with square root: d = √[(x₂ - x₁)² + (y₂ - y₁)²]. NEVER write lazy 1D shortcuts like |x2 - x1| without first writing the authentic square root distance formula!
 
-4. MULTIMEDIA & VISUAL TOOLS:
+4. MULTIMEDIA & VISUAL TOOLS (AUTONOMOUS PROACTIVE MASTER TEACHER):
+   - PROACTIVE TOOL DECISION (NEVER TEACH PURELY VERBALLY):
+     * A real master teacher NEVER lectures purely with spoken words while leaving visual tools idle!
+     * NEVER say "imagine a coordinate plane in your mind" or "imagine a line segment" — IF IT CAN BE GRAPHED OR DRAWN, DRAW IT ON THE GRAPH IMMEDIATELY!
+   - Mathematical Graph Engine: Proactively call plot_mathematical_graph(...) whenever teaching coordinate geometry, points, distances, line segments, functions, quadratic curves, polynomials, trigonometry, kinematics (v-t, s-t), Ohm's law (V-I), thermodynamics (P-V), vectors, or statistical bar graphs!
+     * Clean Graph Plotting: When plotting points, put labels in points: [{x: 2, y: 3, label: "A(2, 3)"}, {x: 7, y: 3, label: "B(7, 3)"}]. Do NOT duplicate point labels in texts! For segments, specify segments: [{start: [2, 3], end: [7, 3], label: "AB = 5 units"}].
+     * ZERO MEANINGLESS GRAPH INVARIANT: NEVER output a meaningless default line y = x without points or actual mathematical purpose.
+   - Visual Doubt Resolution: If the student asks a doubt, expresses confusion, or says "I didn't understand": DO NOT just repeat spoken words! IMMEDIATELY open the graph (if graphing/visual aids apply) or draw on the board to illustrate the doubt visually!
    - Mandatory Concept Visuals: At the START of every visual concept, dispatch:
      1. search_and_show_image(query="<detailed 10-25 word academic query specifying class, subject, labeled parts>", title="...", caption="...") for an authentic scientific diagram.
      2. search_and_show_video(query="<animated short video showing animation to understand <concept>>", title="...", description="...") for an animated demonstration video.
    - Flexible Visuals: Start with 1 clear diagram so the board stays clean and uncluttered. If the student asks for additional diagrams, comparisons (e.g. plant vs animal cell, xylem vs phloem, different ray positions), or if a follow-up diagram helps explain a doubt, call search_and_show_image freely! Everything is flexible, natural, and responsive like a real master faculty tutor.
    - Side Book Viewer: Reference textbook figures directly in the open NCERT page: "Look at Figure X on page ${activeTargetPage} in your textbook in the side viewer". Do NOT redraw or extract textbook figures onto the digital chalkboard.
-   - Mathematical Graph Engine: Proactively call plot_mathematical_graph(...) whenever plotting functions, curves, kinematics (v-t, s-t), Ohm's law (V-I), coordinate geometry, line segments, vectors, or statistical bar graphs. ZERO MEANINGLESS GRAPH INVARIANT: NEVER output a meaningless default line y = x or open a graph without points or actual mathematical purpose.
    - PROACTIVE COMPLEX TABLES & FLOWCHARTS (TEACH LIKE AN ICONIC FACULTY MENTOR):
      * Comparison & Difference Tables (action="draw_table"): Whenever explaining differences, contrasts, comparisons, or properties (e.g. Plant vs Animal Cell, Xylem vs Phloem, Distance vs Displacement, Speed vs Velocity, Mitosis vs Meiosis, Real vs Virtual Images, Acids vs Bases, Metals vs Non-metals), PROACTIVELY DRAW A STRUCTURED COMPARISON TABLE:
        write_chalkboard(action="draw_table", content="Parameter | Entity A | Entity B\nFeature 1 | Detail A1 | Detail B1\nFeature 2 | Detail A2 | Detail B2\nFeature 3 | Detail A3 | Detail B3")
@@ -4597,15 +4629,20 @@ You are an inspiring, charismatic senior academic faculty mentor standing at a l
 
 5. ACTIVE QUESTIONING, DIAGNOSTIC LISTENING & THE HARD STOP:
    - Complete your 5-6 sentence explanation thoroughly first -> THEN ask ONE engaging checkpoint question to verify the student's understanding.
-   - THE HARD STOP: Once you ask a question, IMMEDIATELY STOP SPEAKING. Wait silently for the student's voice response. Do NOT answer your own question! Do NOT guess what they might say!
+   - WRITE EVERY QUESTION ON THE BOARD: Whenever asking any checkpoint question or problem, ALWAYS write it on the chalkboard: write_chalkboard(action="draw_question", content="Checkpoint Question: <Question text>", color="amber").
+   - THE HARD STOP: Once you ask a question and write it on the board, IMMEDIATELY STOP SPEAKING and STOP WRITING. Wait silently for the student's voice response. Do NOT answer your own question! Do NOT guess what they might say!
+   - ZERO AUTO-SOLVING: NEVER write the solution, steps, or answer on the board before the student answers! Co-solve together line-by-line only after evaluating their attempt.
    - Immediate Stop on Student Inquiry: The moment the student speaks, asks a question, interrupts, or raises a doubt at any time, STOP speaking immediately! Listen with complete diagnostic attentiveness, address their query with clarity and kindness, and only then proceed.
-   - Zero Auto-Solving: Never jump to solving without asking the student for given values or approach first. Co-solve together line-by-line.
 
 6. STRICT DOUBT & RE-EXPLANATION LOCK (ZERO ADVANCEMENT ON DOUBTS):
    - If the student asks any question, raises a doubt ('doubt', 'douth', 'confused'), says they don't understand ('samajh nahi aaya'), or asks to explain again ('explain again', 'phir se samjhao', 'dobara samjhao', 'pura concept samjhao'):
      1. You are STRICTLY FORBIDDEN from calling concept_completed or switching pages.
-     2. Stay on the current concept, write clear clarifying notes/examples on the current chalkboard, and re-explain thoroughly with fresh intuition until the student is 100% confident.
+     2. Stay on the current concept, write clear clarifying notes/examples on the current chalkboard, open the graph or visual tool to illustrate visually, and re-explain thoroughly with fresh intuition until the student is 100% confident.
      3. Advance only after the student confirms understanding or explicitly commands "next concept."
+
+7. CONCEPT ADVANCEMENT & QUIZ CONCLUDING:
+   - Advance When Student Requests: When the student asks to move ("next", "next concept", "move to next concept", "aage badho", "chalo aage", "understood next", "yes next"): advance to the next concept page immediately without resistance.
+   - Conclude and Open Quiz on Module Completion: When ALL concepts in the capsule roadmap have been fully taught and mastered, call conclude_and_open_quiz(summary="...") to conclude the capsule, write the comprehensive chapter synthesis summary on the whiteboard, and launch the 10-MCQ Mastery Evaluation Quiz!
 
 ${verifiedAssetsDirectives ? `\n========================================================================================\n${verifiedAssetsDirectives}\n` : ''}
 
@@ -5320,6 +5357,10 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
             chalkboardRef.current?.clearBoard()
           }
           else if (action === 'start_quiz' || action === 'open_quiz') {
+            markModuleAsCompleted(typeof content === 'string' ? content : undefined)
+            setIsCompletedBefore(true)
+            setModuleCompletedSuccess(true)
+            setEndChapterConfirmPrompt(null)
             handleOpenQuiz()
           }
           else if (action === 'chapter_summary') {
@@ -5440,7 +5481,9 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
   }
 
   const handleOpenQuiz = () => {
-    if (!isCompletedBefore && !moduleCompletedSuccess) return
+    markModuleAsCompleted()
+    setIsCompletedBefore(true)
+    setModuleCompletedSuccess(true)
     isUserTerminatedRef.current = true
     hasSessionStartedRef.current = false
     setIsReconnecting(false)
@@ -5708,7 +5751,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                 </div>
               )}
 
-              {nextSiblingModule ? (
+              {nextSiblingModule?.id ? (
                 <Button
                   id="go-to-next-capsule-btn"
                   onClick={() => leaveTo(`/dashboard/${userId}/class/${nextSiblingModule.id}`)}
@@ -5717,7 +5760,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
                   <span className="truncate">Next: {nextSiblingModule.title}</span>
                   <ArrowLeft className="w-4 h-4 rotate-180 ml-1.5 shrink-0" />
                 </Button>
-              ) : nextChapterInfo ? (
+              ) : nextChapterInfo?.firstModuleId ? (
                 <Button
                   id="go-to-next-chapter-btn"
                   onClick={() => leaveTo(`/dashboard/${userId}/class/${nextChapterInfo.firstModuleId}`)}

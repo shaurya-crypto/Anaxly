@@ -189,8 +189,25 @@ export function MafsGraphCanvas({
 
   // 1f. Parse multiple freeform text annotations placed anywhere on the graph
   const parsedTexts: GraphTextItem[] = useMemo(() => {
-    return parseGraphTexts(texts)
-  }, [texts])
+    const raw = parseGraphTexts(texts)
+    // Filter out duplicate text labels that repeat point coordinates or point labels directly on top of or near a point
+    return raw.filter((txt) => {
+      const isDuplicateOfPoint = parsedPoints.some((pt) => {
+        const dx = Math.abs(txt.x - pt.x)
+        const dy = Math.abs(txt.y - pt.y)
+        if (dx <= 1.2 && dy <= 1.2) {
+          const cleanTxt = txt.text.replace(/\s+/g, '')
+          const ptCoordTxt = `(${pt.x},${pt.y})`
+          const ptLabelTxt = (pt.label || '').replace(/\s+/g, '')
+          if (cleanTxt === ptCoordTxt || (ptLabelTxt && cleanTxt === ptLabelTxt)) {
+            return true // Duplicate found, exclude it
+          }
+        }
+        return false
+      })
+      return !isDuplicateOfPoint
+    })
+  }, [texts, parsedPoints])
 
   // 2. Parse bounded line segments with start and end stopping points using resilient parser
   const parsedSegments: GraphSegmentItem[] = useMemo(() => {

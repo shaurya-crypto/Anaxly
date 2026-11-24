@@ -131,6 +131,10 @@ export function cleanChalkboardTypography(text: string): string {
   out = out.replace(/(?<=[a-zA-Z\u20D7α-ωΑ-Ω])_([0-9a-zA-Z]{1,3})(?=[^0-9a-zA-Z]|$)/g, (_match, p1) => {
     return toSubscript(p1)
   })
+  // Common coordinate and kinematic indices without underscore: x1, x2, y1, y2, z1, z2, v0, t1, t2
+  out = out.replace(/\b([xyzvtr])([0-9])\b/gi, (_match, varName, digit) => {
+    return `${varName}${toSubscript(digit)}`
+  })
 
   // 8. Double slashes: // -> ÷ (with clean spacing)
   out = out.replace(/\s*\/\/\s*/g, ' ÷ ')
@@ -165,6 +169,9 @@ export function cleanChalkboardTypography(text: string): string {
   out = out.replace(/=>\s*/g, '⇒ ')
   out = out.replace(/<->\s*/g, '↔ ')
   out = out.replace(/<=>/g, '⇌ ')
+  // Clean up orphan cadence markers like "Model" or "Model Problem" into proper academic headers
+  out = out.replace(/^(\s*[→\->]\s*)?Model\s*$/gim, '$1Worked Example:')
+  out = out.replace(/^(\s*[→\->]\s*)?Model\s*[:\-]\s*/gim, '$1Worked Example: ')
 
   // 12. Standalone common fractions: (1/2) -> ½, 1/2 -> ½, 1/4 -> ¼, 3/4 -> ¾, 1/3 -> ⅓, 2/3 -> ⅔
   out = out.replace(/(^|[\s\(\+\-\=])1\/2(?=[\s\)\+\-\*·×]|$)/g, '$1½')
