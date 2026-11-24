@@ -166,6 +166,14 @@ Whenever designing, prompting, or updating the AI tutor voice instruction:
   * `isImageRelevantToQuery` enforces a minimum 2-token match threshold for queries with $\ge 2$ substantive words, eliminating single generic word false matches.
   * `scoreEducationalImage` awards up to +80 points for exact token match ratio, +50 for Wikipedia PageImages, +30 for labeled diagrams/schematics, and penalizes generic stock/lifestyle images (-40 points).
 
+## 23. Authentic Board Distance Formula & Pure Mathematical Typography Invariant
+- **Strict Prohibition of Lazy 1D Shortcuts**: Lazy 1D shortcuts like $|x_2 - x_1|$ or $|y_2 - y_1|$ without the square root formula are strictly banned in curriculum modules, chalkboard notes, and live AI voice instruction.
+- **Universal Distance Formula Invariant**: Whenever calculating or presenting the distance between any two points $(x_1, y_1)$ and $(x_2, y_2)$, the curriculum and tutor MUST ALWAYS write the full Board Distance Formula with square root first:
+  $$d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$$
+  Even for horizontal lines (where $y_1 = y_2$) or vertical lines (where $x_1 = x_2$), the complete substitution under the radical must be explicitly shown:
+  $$d = \sqrt{(x_2 - x_1)^2 + 0^2} = \sqrt{\Delta x^2} = \Delta x\text{ units}$$
+- **Pure Unicode Mathematical Typography**: All coordinate indices must render with proper subscripts ($x_1, x_2, y_1, y_2, z_1, z_2$), superscripts ($x^2, y^2$), and standard radical signs ($\sqrt{\dots}$), permanently eliminating raw programming markers (`*`, `^`, `//`, or unreadable vertical pipe bars).
+
 ---
 
 # Architecture Handover Summaries (Phases 1–11)
