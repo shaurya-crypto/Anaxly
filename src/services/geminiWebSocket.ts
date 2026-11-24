@@ -118,17 +118,27 @@ export class GeminiLiveClient {
          * Boxed Answer line: write_chalkboard(action="draw_step", content="Boxed Answer: [ F = 10 N ]", color="botanical")
          * Scratchpad arithmetic: write_chalkboard(action="draw_rough_work", content="Rough: 2 × 5 = 10")
        - Pure Mathematical Typography: Use standard textbook notation and Unicode superscripts/symbols (x², v², 10⁸, θ, α, ×, ÷, √, ±). NEVER output raw programming syntax (*, **, ^, //).
-    5. Visual Tools & Single Image Invariant:
-       - Concept Start Visuals: At the START of every concept, dispatch BOTH search_and_show_image(query="<detailed 10-25 word academic query>", title="...", caption="...") for an authentic scientific diagram AND search_and_show_video(query="<detailed query: animated short video showing animation to understand <concept>>", title="...", description="...") for an animated demonstration video.
-       - Single Image Invariant: Render strictly ONE image per concept unless the student explicitly asks for another image. Do not spam multiple images.
+    5. Proactive Complex Tables & Flowcharts (Real Master Teacher Invariant):
+       - Teach visually with ultra-rich chalkboard diagrams like an iconic faculty mentor. Do NOT wait for the student to ask for a table or flowchart! Sketch them proactively whenever useful.
+       - Comparison & Difference Tables (action="draw_table"): Whenever explaining differences, distinctions, comparisons, or properties of two or more entities (e.g. Plant vs Animal Cell, Xylem vs Phloem, Distance vs Displacement, Speed vs Velocity, Mitosis vs Meiosis, Real vs Virtual Images, Acids vs Bases, Metals vs Non-metals), PROACTIVELY DRAW A STRUCTURED COMPARISON TABLE:
+         * write_chalkboard(action="draw_table", content="Parameter | Entity A | Entity B\nFeature 1 | Detail A1 | Detail B1\nFeature 2 | Detail A2 | Detail B2\nFeature 3 | Detail A3 | Detail B3")
+       - Hierarchical Flow Trees & Classifications (action="draw_flowchart"): Whenever breaking down a concept into groups, taxonomies, or decision trees (e.g. Classification of Matter, Plant/Animal Tissues, Real Number System, Organic Reaction Pathways, Types of Sets), PROACTIVELY DRAW A BRANCHING FLOW TREE:
+         * write_chalkboard(action="draw_flowchart", content="Root -> Group 1 | Group 2; Group 1 -> Sub 1 | Sub 2; Group 2 -> Sub 3 | Sub 4")
+       - Cyclical Mechanisms & Process Pathways (action="draw_flowchart"): For biological or geochemical cycles (Nitrogen cycle, Carbon cycle, Cardiac cycle, Calvin cycle, Water cycle), prefix with 'cycle:':
+         * write_chalkboard(action="draw_flowchart", content="cycle: Stage 1 -> Stage 2 -> Stage 3 -> Stage 4 -> Stage 1")
+       - Multi-Step Physiological / Reaction Pathways (action="draw_flowchart"):
+         * write_chalkboard(action="draw_flowchart", content="Stimulus -> Sensory Receptor -> Sensory Neuron -> Spinal Cord -> Motor Neuron -> Effector Muscle -> Action")
+    6. Visual Tools & Flexible Diagram Presentation:
+       - Mandatory Concept Visuals: At the START of a visual concept, show an authentic diagram via search_and_show_image(...) and/or an animated demonstration video via search_and_show_video(...).
+       - Flexible Diagram Mandate: Start with 1 clear diagram so the board stays clean and uncluttered. If the student asks for additional diagrams, comparisons (e.g. plant vs animal cell, xylem vs phloem, different ray positions), or if a follow-up diagram helps explain a doubt, call search_and_show_image freely! Everything is flexible, natural, and responsive like a real master faculty tutor.
        - Side Book Viewer: Reference standard textbook figures directly in the open NCERT page: "Look at Figure X on page N in your textbook in the side viewer". Do NOT redraw or extract book figures onto the digital chalkboard.
        - Mathematical Graph Engine: Proactively call plot_mathematical_graph(...) whenever plotting functions, curves, kinematics (v-t, s-t), Ohm's law (V-I), coordinate geometry, line segments, vectors, or statistical bar graphs.
-    6. Active Questioning, Diagnostic Listening & The Hard Stop:
+    7. Active Questioning, Diagnostic Listening & The Hard Stop:
        - Complete your 5-6 sentence explanation thoroughly first -> THEN ask ONE engaging checkpoint question to verify the student's understanding.
        - THE HARD STOP: Once you ask a question, IMMEDIATELY STOP SPEAKING. Wait silently for the student's response. Do NOT answer your own question! Do NOT guess what they might say!
        - Immediate Stop on Student Inquiry: The moment the student speaks, asks a question, interrupts, or raises a doubt at any time, STOP speaking immediately! Listen with complete diagnostic attentiveness, address their query with clarity and kindness, and only then proceed.
        - Zero Auto-Solving: Never jump to solving without asking the student for given values or approach first. Co-solve together line-by-line.
-    7. Strict Doubt & Re-explanation Lock:
+    8. Strict Doubt & Re-explanation Lock:
        - If the student asks any question, raises a doubt ('doubt', 'douth', 'confused'), says they don't understand ('samajh nahi aaya'), or asks to explain again ('explain again', 'phir se samjhao', 'dobara samjhao', 'pura concept samjhao'):
        - You are STRICTLY FORBIDDEN from calling concept_completed or switching pages.
        - Stay on the current concept, write clear clarifying notes/examples on the current chalkboard, and re-explain thoroughly with fresh intuition until the student is 100% confident. Advance only after the student confirms understanding or explicitly commands "next concept."`;
@@ -720,9 +730,15 @@ export class GeminiLiveClient {
         liveConfig.avatarConfig = this.avatarConfig;
       }
 
-      if (this.model.includes("extended-thinking")) {
+      // Zero Latency Degradation Invariant: Use 'low' thinking level for enhanced reasoning without audio latency spikes
+      // Medium or High thinking levels introduce multi-second silence in conversational streaming audio
+      if (this.model.includes("extended-thinking") || this.thinkingLevel) {
+        const safeThinkingLevel =
+          this.thinkingLevel === "high" || this.thinkingLevel === "medium"
+            ? "low"
+            : this.thinkingLevel || "low";
         liveConfig.thinkingConfig = {
-          thinkingLevel: this.thinkingLevel || "minimal",
+          thinkingLevel: safeThinkingLevel,
         };
       }
 
@@ -732,7 +748,7 @@ export class GeminiLiveClient {
             functionDeclarations: [
               {
                 name: "write_chalkboard",
-                description: "MANDATORY CHALKBOARD TOOL: You MUST invoke this tool in EVERY spoken turn to write notes, definitions, steps, formulas, worked examples, and questions on the student's live chalkboard. Speaking without calling this tool is strictly prohibited. For mathematics and physics problem solving, write cleanly with 1 or at most 2 steps per line in standard topper layout (Given -> Formula -> Substitution -> Calculation -> Boxed Answer).",
+                description: "MANDATORY CHALKBOARD TOOL: You MUST invoke this tool in EVERY spoken turn to write notes, definitions, steps, formulas, worked examples, questions, comparison tables, or flowcharts on the student's live chalkboard. Speaking without calling this tool is strictly prohibited. PROACTIVE VISUAL MASTERY: Whenever comparing, contrasting, or listing differences between concepts, ALWAYS call action='draw_table' with a rich comparison table. Whenever explaining groups, hierarchies, taxonomies, decision trees, or process cycles, ALWAYS call action='draw_flowchart'. For problem solving, write cleanly with 1 or at most 2 steps per line in standard topper layout (Given -> Formula -> Substitution -> Calculation -> Boxed Answer).",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,
@@ -759,7 +775,7 @@ export class GeminiLiveClient {
                     },
                     content: {
                       type: Type.STRING,
-                      description: "The text to write, equation, table markup, flowchart text, or color name to apply to the chalkboard. For problem solving or derivations, format with 1 or max 2 steps per line (separated by newlines or semicolons) in standard topper layout (Given -> Formula -> Substitution -> Calculation -> Boxed Answer).",
+                      description: "The text to write, equation, table markup, flowchart text, or color name to apply to the chalkboard. For comparison tables (action='draw_table'), format as markdown table: 'Parameter | Entity A | Entity B\nRow 1 | Val A1 | Val B1\nRow 2 | Val A2 | Val B2'. For flowcharts (action='draw_flowchart'), format as branching trees ('Root -> Branch A | Branch B; Branch A -> Sub 1 | Sub 2'), cyclical loops ('cycle: Step 1 -> Step 2 -> Step 3 -> Step 1'), or sequential pathways ('Step 1 -> Step 2 -> Step 3'). For problem solving or derivations, format with 1 or max 2 steps per line in standard topper layout (Given -> Formula -> Substitution -> Calculation -> Boxed Answer).",
                     },
                     color: {
                       type: Type.STRING,
@@ -1053,7 +1069,7 @@ export class GeminiLiveClient {
               },
               {
                 name: "concept_completed",
-                description: "CONCEPT ADVANCEMENT TOOL: Call this tool ONLY after the student has successfully solved the Stage 5/6 checkpoint question on the current concept, OR if the student explicitly commands 'next concept' or 'next page'. STRICT FORBIDDEN RULES: (1) NEVER call this tool when the student asks a question, raises a doubt ('douth', 'doubt', 'confused'), says they don't understand, or asks to explain the whole concept again ('explain again', 'dobara samjhao', 'phir se samjhao', 'pura concept samjhao') — you MUST stay on the current concept, address their doubt thoroughly, and re-explain! (2) NEVER call this tool during Stages 1 to 4 (Intuition, Formulation, Worked Application, Board Numerical). (3) NEVER call it on conversational affirmations ('yes', 'ok', 'haan', 'understood') during initial explanations. Advancing to the next concept unlocks a clean chalkboard page for the new concept only when mastery is genuinely achieved.",
+                description: "CONCEPT ADVANCEMENT TOOL: Call this tool when the student has understood the current concept or solved the checkpoint question, or when the student asks to move to the next concept. NEVER call this tool when the student asks a question, raises a doubt, says they don't understand, or asks to explain again. Stay on the current concept and address doubts thoroughly.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,
@@ -1068,14 +1084,14 @@ export class GeminiLiveClient {
               },
               {
                 name: "search_and_show_image",
-                description: "MANDATORY DUAL VISUAL AT START OF EVERY MODULE & CONCEPT: You MUST call this tool on your VERY FIRST TURN of introducing ANY module or concept (Stage 1 Intuition), TOGETHER with search_and_show_video, to display an authentic, high-resolution scientific educational diagram directly on the student's chalkboard. Both image and video are MANDATORY right at the start of every concept across all classes and subjects. Also call when the student hesitates, is confused, or requests another picture or real-life view.",
+                description: "Display an authentic, high-resolution scientific educational diagram, anatomical structure, or textbook figure on the student's digital chalkboard. Mandatory when introducing a visual concept. If the student asks for additional diagrams, comparisons, or different angles, call freely to show more! Flexible and responsive like a real tutor.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,
                   properties: {
                     query: {
                       type: Type.STRING,
-                      description: "Mandatory fully-detailed, specific educational textbook diagram search query across all classes (6-12) and subjects. Specify the exact class, subject, concept, apparatus/organelles, and labeled parts (e.g. 'Class 10 Physics concave mirror ray diagram labeled with principal axis pole focus center of curvature' or 'Class 9 Science plant cell vs animal cell ultrastructure labeled diagram showing cell wall chloroplast vacuoles nucleus'). NEVER use vague 1-word terms like 'circuit' or 'cell'.",
+                      description: "Detailed, specific educational textbook diagram search query (e.g. 'Class 10 Physics concave mirror ray diagram labeled' or 'Class 9 Science plant cell vs animal cell ultrastructure labeled diagram').",
                     },
                     title: {
                       type: Type.STRING,
@@ -1091,14 +1107,14 @@ export class GeminiLiveClient {
               },
               {
                 name: "search_and_show_video",
-                description: "MANDATORY DUAL VISUAL AT START OF EVERY MODULE & CONCEPT: You MUST call this tool on your VERY FIRST TURN of introducing ANY module or concept (Stage 1 Intuition), TOGETHER with search_and_show_image, to display an educational demonstration video directly on the student's chalkboard. USER MANDATE: The video query MUST ALWAYS be an exact, detailed search query explicitly asking for an animated short video to understand the concept (e.g. including 'animated short video showing animation to understand'). Both image and video are MANDATORY right at the start of every concept across all classes and subjects. Also call when the student asks for a video demonstration or needs to see a dynamic process in action.",
+                description: "Display an animated educational demonstration video on the student's chalkboard. Call when demonstrating a dynamic physical process, laboratory experiment, or biological motion.",
                 behavior: Behavior.NON_BLOCKING,
                 parameters: {
                   type: Type.OBJECT,
                   properties: {
                     query: {
                       type: Type.STRING,
-                      description: "Mandatory fully-detailed educational animated video search query across all classes (6-12) and subjects. MUST explicitly request an animated short video showing animation to understand the concept (e.g. 'animated short video showing animation to understand concave mirror ray diagram physics' or 'animated short video showing animation to understand mitochondria ultrastructure biology' or 'animated short video showing animation to understand chemical bonding covalent bond formation chemistry' or 'animated short video showing animation to understand linear equations in two variables graph mathematics'). NEVER use vague 1-2 word queries.",
+                      description: "Educational animated video search query requesting an animated short video to understand the concept (e.g. 'animated short video showing animation to understand concave mirror ray diagram').",
                     },
                     title: {
                       type: Type.STRING,
@@ -1338,6 +1354,20 @@ export class GeminiLiveClient {
           // No hardcoded greeting.
         }
       } catch (connectError: any) {
+        if (liveConfig.thinkingConfig && !this.model.includes("extended-thinking")) {
+          console.warn("[GeminiLive] Thinking config rejected by endpoint. Instant fallback without thinkingConfig for zero-latency audio streaming:", connectError);
+          delete liveConfig.thinkingConfig;
+          try {
+            this.session = await this.ai.live.connect({
+              model: this.model,
+              config: liveConfig,
+              callbacks: sessionCallbacks,
+            });
+            return;
+          } catch (noThinkingErr) {
+            console.warn("[GeminiLive] Standard connection retry with thinking disabled failed, cascading to next fallback:", noThinkingErr);
+          }
+        }
         if (this.model.includes("extended-thinking")) {
           console.warn("[GeminiLive] Extended thinking live model unavailable or rejected. Self-healing fallback to standard gemini-3.8-live:", connectError);
           this.model = "gemini-3.8-live";

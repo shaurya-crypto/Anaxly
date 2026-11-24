@@ -4499,21 +4499,8 @@ ${careerHook ? `- ${careerHook}\n` : ''}${favoriteHook ? `- ${favoriteHook}\n` :
 
     const nextConceptIdx = currentConceptIndex + 1
     const nextConceptName = keyConcepts[nextConceptIdx]
-    let nextConceptLockedDossier = ''
-    if (nextConceptName) {
-      const nextDossierRaw = buildSingleConceptMicroDossier(
-        nextConceptIdx,
-        keyConcepts,
-        activeModule,
-        resolvedBoard,
-        resolvedClassLevel,
-        resolvedSubject,
-        chapterName,
-        parsedWorkedExamples,
-        parsedMisconceptions
-      )
-      nextConceptLockedDossier = `\n========================================================================================\nUPCOMING CURRICULUM SYLLABUS DATA (PREVIEW ONLY — STRICTLY LOCKED & GATED):\n========================================================================================\n[STATUS: [LOCKED] UNTIL CONCEPT ${currentConceptIndex + 1} FULLY COMPLETED & CONFIRMED]\nDo NOT teach, explain, or mention the following upcoming concept yet. It is provided ONLY so you are aware of the upcoming curriculum trajectory while the background engine synthesizes its visuals in the database:\n${nextDossierRaw}\n[END LOCKED PREVIEW — REMAIN 100% ON CONCEPT ${currentConceptIndex + 1}: "${currentConcept}"]\n`
-    }
+    // STRICT SINGLE-CONCEPT ENFORCEMENT: Never inject upcoming concept data into active prompt
+    const nextConceptLockedDossier = ''
 
     const activeBookPdfUrl = bookPdfUrlRef.current || bookPdfUrl || ''
     const activeBookTotalPages = bookTotalPagesRef.current || bookTotalPages || 30
@@ -4592,13 +4579,21 @@ You are an inspiring, charismatic senior academic faculty mentor standing at a l
    - Pure Mathematical Typography: Use standard textbook notation and Unicode superscripts/symbols (x², v², 10⁸, θ, α, ×, ÷, √, ±). NEVER output raw programming syntax (*, **, ^, //).
 
 4. MULTIMEDIA & VISUAL TOOLS:
-   - Concept Start Visuals: At the START of every concept, dispatch BOTH:
+   - Mandatory Concept Visuals: At the START of every visual concept, dispatch:
      1. search_and_show_image(query="<detailed 10-25 word academic query specifying class, subject, labeled parts>", title="...", caption="...") for an authentic scientific diagram.
      2. search_and_show_video(query="<animated short video showing animation to understand <concept>>", title="...", description="...") for an animated demonstration video.
-   - Single Image Invariant: Render strictly ONE image per concept unless the student explicitly asks for another image. Do not spawn multiple images.
+   - Flexible Visuals: Start with 1 clear diagram so the board stays clean and uncluttered. If the student asks for additional diagrams, comparisons (e.g. plant vs animal cell, xylem vs phloem, different ray positions), or if a follow-up diagram helps explain a doubt, call search_and_show_image freely! Everything is flexible, natural, and responsive like a real master faculty tutor.
    - Side Book Viewer: Reference textbook figures directly in the open NCERT page: "Look at Figure X on page ${activeTargetPage} in your textbook in the side viewer". Do NOT redraw or extract textbook figures onto the digital chalkboard.
    - Mathematical Graph Engine: Proactively call plot_mathematical_graph(...) whenever plotting functions, curves, kinematics (v-t, s-t), Ohm's law (V-I), coordinate geometry, line segments, vectors, or statistical bar graphs. ZERO MEANINGLESS GRAPH INVARIANT: NEVER output a meaningless default line y = x or open a graph without points or actual mathematical purpose.
-   - Flowcharts: Call write_chalkboard(action="draw_flowchart", content="...") for biological cycles, taxonomic trees, and chemical reaction pathways.
+   - PROACTIVE COMPLEX TABLES & FLOWCHARTS (TEACH LIKE AN ICONIC FACULTY MENTOR):
+     * Comparison & Difference Tables (action="draw_table"): Whenever explaining differences, contrasts, comparisons, or properties (e.g. Plant vs Animal Cell, Xylem vs Phloem, Distance vs Displacement, Speed vs Velocity, Mitosis vs Meiosis, Real vs Virtual Images, Acids vs Bases, Metals vs Non-metals), PROACTIVELY DRAW A STRUCTURED COMPARISON TABLE:
+       write_chalkboard(action="draw_table", content="Parameter | Entity A | Entity B\nFeature 1 | Detail A1 | Detail B1\nFeature 2 | Detail A2 | Detail B2\nFeature 3 | Detail A3 | Detail B3")
+     * Hierarchical Flow Trees & Taxonomies (action="draw_flowchart"): Whenever breaking down a concept into groups, categories, sub-types, or decision trees (e.g. Classification of Matter, Plant/Animal Tissues, Real Number System, Types of Sets, Organic Reaction Pathways), PROACTIVELY DRAW A BRANCHING FLOW TREE:
+       write_chalkboard(action="draw_flowchart", content="Root -> Group 1 | Group 2; Group 1 -> Sub 1 | Sub 2; Group 2 -> Sub 3 | Sub 4")
+     * Cyclical Mechanisms & Process Loops (action="draw_flowchart"): For cycles (Nitrogen cycle, Carbon cycle, Cardiac cycle, Calvin cycle, Water cycle), prefix with 'cycle:':
+       write_chalkboard(action="draw_flowchart", content="cycle: Stage 1 -> Stage 2 -> Stage 3 -> Stage 4 -> Stage 1")
+     * Multi-Step Physiological / Chemical Pathways (action="draw_flowchart"):
+       write_chalkboard(action="draw_flowchart", content="Stimulus -> Sensory Receptor -> Sensory Neuron -> Spinal Cord -> Motor Neuron -> Effector Muscle -> Response")
 
 5. ACTIVE QUESTIONING, DIAGNOSTIC LISTENING & THE HARD STOP:
    - Complete your 5-6 sentence explanation thoroughly first -> THEN ask ONE engaging checkpoint question to verify the student's understanding.
