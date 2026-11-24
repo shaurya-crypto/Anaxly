@@ -97,7 +97,7 @@ export class GeminiLiveClient {
     // Dynamic voice adaptation
     this.voiceName = options?.voiceName || (this.languageCode === "hi-IN" ? "Fenrir" : "Leda");
     
-    this.thinkingLevel = options?.thinkingLevel || "minimal";
+    this.thinkingLevel = options?.thinkingLevel || "";
     this.enableFunctionCalling = options?.enableFunctionCalling ?? false;
     this.avatarConfig = options?.avatarConfig;
     this.systemInstruction = options?.systemInstruction || `You are an inspiring, charismatic senior academic faculty mentor standing at a live chalkboard for Classes 6-12 (CBSE, ICSE, IB).
@@ -730,9 +730,14 @@ export class GeminiLiveClient {
         liveConfig.avatarConfig = this.avatarConfig;
       }
 
-      // Zero Latency Degradation Invariant: Use 'low' thinking level for enhanced reasoning without audio latency spikes
-      // Medium or High thinking levels introduce multi-second silence in conversational streaming audio
-      if (this.model.includes("extended-thinking") || this.thinkingLevel) {
+      // Zero Latency Degradation & Unsupported Model Guard:
+      // Thinking level is strictly unsupported for standard Gemini Live audio models (gemini-3.8-live, gemini-2.5-live).
+      // Passing thinkingConfig causes Google Live WebSockets to immediately close with code 1007.
+      const isThinkingSupported =
+        this.model.includes("extended-thinking") ||
+        (this.model.includes("thinking") && !this.model.includes("live"));
+
+      if (isThinkingSupported && this.thinkingLevel && this.thinkingLevel !== "minimal" && this.thinkingLevel !== "none") {
         const safeThinkingLevel =
           this.thinkingLevel === "high" || this.thinkingLevel === "medium"
             ? "low"
@@ -1336,6 +1341,10 @@ export class GeminiLiveClient {
           this.isConnected = false;
           this.hasSentKickoff = false;
           console.log(`[GeminiLive] WebSocket closed: code=${event?.code}, reason=${event?.reason || '(none)'}, wasClean=${event?.wasClean}`);
+          if (event?.reason?.toLowerCase().includes("thinking") || (event?.code === 1007 && event?.reason?.includes("Thinking"))) {
+            console.warn(`[GeminiLive] WebSocket closed due to unsupported thinking config (${event?.reason}). Permanently clearing thinkingLevel for all reconnects.`);
+            this.thinkingLevel = "";
+          }
           if (!this.isManuallyClosed) {
              this.callbacks.onClose(event as CloseEvent);
           }

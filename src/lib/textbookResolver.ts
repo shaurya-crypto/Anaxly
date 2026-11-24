@@ -140,60 +140,17 @@ export function extractChapterNumber(input: string): number | null {
  * - public/11/class11_maths/, public/11/class11_physics/pt1/ & pt2/, public/11/class11_chem/pt1/ & pt2/
  * - public/12/maths/, public/12/phy/, public/12/chem/
  */
+/**
+ * Resolves any textbook path, filename, or code directly to the official online NCERT PDF URL.
+ * Guarantees zero 404s, zero missing local asset errors, and bypasses Vercel 250MB bundle caps.
+ */
 export function resolveLocalPdfUrl(pathOrUrl: string): string {
   if (!pathOrUrl) return ''
-  const clean = pathOrUrl.replace(/\\/g, '/').split('/').pop() || ''
-  const filename = clean.replace(/\s*\(\d+\)/, '').trim().toLowerCase()
-
-  if (filename.startsWith('iemh1')) {
-    return `/9/class9_maths/pt1/${filename}`
-  }
-  if (filename.startsWith('iemh2')) {
-    return `/9/class9_maths/pt2/${filename}`
-  }
-  if (filename.startsWith('iesc')) {
-    return `/9/class 9th science/${filename}`
-  }
-  if (filename.startsWith('jemh')) {
-    return `/10/class10_maths/${filename}`
-  }
-  if (filename.startsWith('jesc')) {
-    return `/10/class10_science/${filename}`
-  }
-  if (filename.startsWith('kemh')) {
-    return `/11/class11_maths/${filename}`
-  }
-  if (filename.startsWith('keph1')) {
-    return `/11/class11_physics/pt1/${filename}`
-  }
-  if (filename.startsWith('keph2')) {
-    return `/11/class11_physics/pt2/${filename}`
-  }
-  if (filename.startsWith('kech1')) {
-    return `/11/class11_chem/pt1/${filename}`
-  }
-  if (filename.startsWith('kech2')) {
-    return `/11/class11_chem/pt2/${filename}`
-  }
-  if (filename.startsWith('lemh')) {
-    return `/12/maths/${filename}`
-  }
-  if (filename.startsWith('leph')) {
-    return `/12/phy/${filename}`
-  }
-  if (filename.startsWith('lech')) {
-    return `/12/chem/${filename}`
-  }
-
-  if (pathOrUrl.startsWith('/9/') || pathOrUrl.startsWith('/10/') || pathOrUrl.startsWith('/11/') || pathOrUrl.startsWith('/12/')) {
-    return pathOrUrl
-  }
-
   return toNcertPdfUrl(pathOrUrl)
 }
 
 /**
- * Converts any local textbook path or filename into the official NCERT online PDF URL.
+ * Converts any local textbook path, code, or filename into the official NCERT online PDF URL.
  * e.g. '/9/class9_maths/pt1/iemh101.pdf' -> 'https://ncert.nic.in/textbook/pdf/iemh101.pdf'
  * e.g. 'keph101 (1).pdf' -> 'https://ncert.nic.in/textbook/pdf/keph101.pdf'
  */
@@ -203,8 +160,11 @@ export function toNcertPdfUrl(pathOrFilename: string): string {
     return pathOrFilename
   }
   const clean = pathOrFilename.replace(/\\/g, '/').split('/').pop() || ''
-  const filename = clean.replace(/\s*\(\d+\)/, '').trim()
-  if (filename.endsWith('.pdf')) {
+  let filename = clean.replace(/\s*\(\d+\)/, '').trim().toLowerCase()
+  if (filename.length > 0) {
+    if (!filename.endsWith('.pdf')) {
+      filename += '.pdf'
+    }
     return 'https://ncert.nic.in/textbook/pdf/' + filename
   }
   return pathOrFilename

@@ -36,6 +36,16 @@ export function SideBookViewer({
   // Clean base URL without existing hash
   const cleanPdfUrl = pdfUrl ? pdfUrl.split('#')[0] : ''
 
+  // Route official NCERT online PDFs through the same-origin streaming proxy to bypass X-Frame-Options: SAMEORIGIN
+  const isNcertUrl =
+    cleanPdfUrl.startsWith('https://ncert.nic.in/') ||
+    cleanPdfUrl.startsWith('http://ncert.nic.in/') ||
+    cleanPdfUrl.includes('ncert.nic.in')
+
+  const embedBaseUrl = isNcertUrl
+    ? `/api/pdf-proxy?url=${encodeURIComponent(cleanPdfUrl)}`
+    : cleanPdfUrl
+
   // Sync internal state when parent updates targetPage (e.g. tutor jumps to new topic or question)
   useEffect(() => {
     if (typeof targetPage === 'number' && targetPage > 0) {
@@ -44,8 +54,8 @@ export function SideBookViewer({
       if (clamped !== currentPage) {
         setCurrentPage(clamped)
         setInputVal(String(clamped))
-        if (iframeRef.current && cleanPdfUrl) {
-          const nextUrl = `${cleanPdfUrl}#page=${clamped}&view=FitH`
+        if (iframeRef.current && embedBaseUrl) {
+          const nextUrl = `${embedBaseUrl}#page=${clamped}&view=FitH`
           try {
             iframeRef.current.contentWindow?.location.replace(nextUrl)
           } catch {
@@ -54,24 +64,24 @@ export function SideBookViewer({
         }
       }
     }
-  }, [targetPage, totalPages, cleanPdfUrl, currentPage])
+  }, [targetPage, totalPages, embedBaseUrl, currentPage])
 
   // Reload iframe cleanly when chapter/PDF URL changes mid-session
   useEffect(() => {
-    if (cleanPdfUrl) {
+    if (embedBaseUrl) {
       const intPage = Math.round(targetPage || 1)
       const clamped = Math.max(1, totalPages ? Math.min(intPage, totalPages) : intPage)
       setCurrentPage(clamped)
       setInputVal(String(clamped))
       if (iframeRef.current) {
-        iframeRef.current.src = `${cleanPdfUrl}#page=${clamped}&view=FitH`
+        iframeRef.current.src = `${embedBaseUrl}#page=${clamped}&view=FitH`
       }
     }
-  }, [cleanPdfUrl])
+  }, [embedBaseUrl])
 
   // Build the standardized FitH iframe URL
-  const iframeSrc = cleanPdfUrl
-    ? `${cleanPdfUrl}#page=${currentPage}&view=FitH`
+  const iframeSrc = embedBaseUrl
+    ? `${embedBaseUrl}#page=${currentPage}&view=FitH`
     : ''
 
   const navigateToPage = useCallback(
@@ -83,8 +93,8 @@ export function SideBookViewer({
       onPageChange?.(clamped)
 
       // Directly update iframe src hash if iframe is already mounted to ensure immediate jump
-      if (iframeRef.current && cleanPdfUrl) {
-        const nextUrl = `${cleanPdfUrl}#page=${clamped}&view=FitH`
+      if (iframeRef.current && embedBaseUrl) {
+        const nextUrl = `${embedBaseUrl}#page=${clamped}&view=FitH`
         try {
           iframeRef.current.contentWindow?.location.replace(nextUrl)
         } catch {
@@ -92,7 +102,7 @@ export function SideBookViewer({
         }
       }
     },
-    [cleanPdfUrl, totalPages, onPageChange]
+    [embedBaseUrl, totalPages, onPageChange]
   )
 
   const handlePrev = useCallback(() => {
@@ -185,7 +195,7 @@ export function SideBookViewer({
         {/* Right: External Link & Close Button */}
         <div className="flex items-center gap-1 shrink-0">
           <a
-            href={iframeSrc || cleanPdfUrl}
+            href={cleanPdfUrl ? `${cleanPdfUrl}#page=${currentPage}` : (iframeSrc || '#')}
             target="_blank"
             rel="noopener noreferrer"
             className="w-7 h-7 flex items-center justify-center rounded hover:bg-emerald-900/40 text-stone-400 hover:text-emerald-300 transition-colors"
