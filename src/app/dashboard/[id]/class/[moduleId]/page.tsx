@@ -35,10 +35,11 @@ import {
 } from '@/services/visualLessonPlanGenerator'
 import { VisualEventQueue, parseVisualEventFromDirective } from '@/services/visualEventProtocol'
 import { ChapterNotesModal } from '@/components/classroom/ChapterNotesModal'
-import { ClassroomFloatingChatInput } from '@/components/classroom/ClassroomFloatingChatInput'
 import { ClassroomConnectingAnimation } from '@/components/classroom/ClassroomConnectingAnimation'
 import { resolveBookForChapter, resolveTargetPageForLesson } from '@/lib/textbookResolver'
-import { CallControls } from '@/components/CallControls'
+import { ClassroomControlBar } from '@/components/classroom/ClassroomControlBar'
+import { SelfViewTile } from '@/components/classroom/SelfViewTile'
+import { useCameraPreview } from '@/hooks/useCameraPreview'
 import { ErrorModal } from '@/components/ErrorModal'
 import { MasteryQuizModal } from '@/components/quiz/MasteryQuizModal'
 import {
@@ -2007,6 +2008,12 @@ CRITICAL DIRECTIVE:
   const [isLoadingLesson, setIsLoadingLesson] = useState(true)
   const [quizOpen, setQuizOpen] = useState(false)
   const [conceptsOpen, setConceptsOpen] = useState(false)
+  // Meet-style classroom UI state
+  const camera = useCameraPreview()
+  const [captionsOn, setCaptionsOn] = useState(true)
+  const [sidePanel, setSidePanel] = useState<'chat' | 'concepts' | null>(null)
+  const [chatDraft, setChatDraft] = useState('')
+  const [elapsedSec, setElapsedSec] = useState(0)
   const [preferredVoice, setPreferredVoice] = useState<string>('Charon')
   const sessionActiveVoiceRef = useRef<string | null>(null)
   const [isPaused, setIsPaused] = useState<boolean>(false)
@@ -4147,6 +4154,12 @@ MANDATORY INVARIANT:
     connectionState === 'TEACHER_SPEAKING' ||
     connectionState === 'MUTED' ||
     connectionState === 'CONNECTING'
+  // Meet-style elapsed-time counter for the control bar
+  useEffect(() => {
+    if (!isCallActive) return
+    const t = setInterval(() => setElapsedSec((s) => s + 1), 1000)
+    return () => clearInterval(t)
+  }, [isCallActive])
 
   const handlePauseClass = () => {
     console.log('[Classroom] Student paused lesson. Preserving exact position in DB and halting audio.')
@@ -5612,261 +5625,52 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
     </div>
   )
 
+  const elapsedLabel = `${String(Math.floor(elapsedSec / 60)).padStart(2, '0')}:${String(elapsedSec % 60).padStart(2, '0')}`
+  const teacherCaption = [...transcripts].reverse().find((t) => t.sender === 'teacher')?.text || ''
+  const inSession = isCallActive || isPaused
+  const togglePanel = (panel: 'chat' | 'concepts') => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768 && panel === 'concepts') {
+      setConceptsOpen(true)
+      return
+    }
+    setSidePanel((p) => (p === panel ? null : panel))
+  }
+  const sendChat = () => {
+    const text = chatDraft.trim()
+    if (!text) return
+    handleStudentSubmitAnswer(text)
+    setChatDraft('')
+  }
+
   return (
-    <main className="relative w-full h-[100dvh] flex flex-col overflow-hidden bg-[#FAF8F4]">
-      <div className="flex-1 min-h-0 flex flex-col md:flex-row gap-2 p-2 sm:p-3 md:gap-3">
-        {/* Teacher panel: compact top bar on mobile, left column on desktop */}
-        <aside className="shrink-0 md:w-[280px] lg:w-[300px] flex flex-col gap-2 md:gap-3 md:overflow-y-auto">
-          <div className="rounded-2xl bg-white border border-[var(--border-subtle)] p-2.5 md:p-4 flex flex-col gap-2.5 md:gap-4">
-            <div className="flex items-center gap-2.5 md:flex-col md:text-center">
-              <div className="flex items-center justify-between w-auto md:w-full">
-                <button
-                  type="button"
-                  onClick={handleBackToDashboard}
-                  aria-label="Back to dashboard"
-                  title="Back to dashboard"
-                  className="w-9 h-9 -ml-0.5 shrink-0 rounded-full flex items-center justify-center text-[var(--ink-secondary)] hover:bg-stone-100 transition-colors cursor-pointer"
-                >
-                  <ArrowLeft className="w-5 h-5" />
-                </button>
-                <button
-                  type="button"
-                  onClick={handleGoToSettings}
-                  aria-label="Classroom and avatar settings"
-                  title="Avatar & Voice Settings"
-                  className="hidden md:flex w-9 h-9 -mr-0.5 shrink-0 rounded-full items-center justify-center text-[var(--ink-secondary)] hover:bg-stone-100 transition-colors cursor-pointer"
-                >
-                  <span className="material-symbols-outlined text-lg">tune</span>
-                </button>
-              </div>
+    <main className="relative w-full h-[100dvh] flex flex-col overflow-hidden bg-[#202124] text-[#E8EAED]">
+      {/* Top bar */}
+      <header className="flex h-12 shrink-0 items-center gap-2 px-2 sm:px-4">
+        <button
+          type="button"
+          onClick={handleBackToDashboard}
+          aria-label="Back to dashboard"
+          title="Back to dashboard"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[#E8EAED] hover:bg-white/10 cursor-pointer"
+        >
+          <ArrowLeft className="h-5 w-5" />
+        </button>
+        <h1 className="min-w-0 flex-1 truncate text-sm font-medium sm:text-base">{resolvedTitle}</h1>
+        <span className="flex shrink-0 items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-xs">
+          <span className={`h-1.5 w-1.5 rounded-full ${statusDot}`} />
+          {statusLabel}
+          {inSession && <span className="tabular-nums text-[#9AA0A6] lg:hidden">· {elapsedLabel}</span>}
+        </span>
+        {keyConceptsList.length > 0 && (
+          <span className="hidden shrink-0 text-xs text-[#9AA0A6] sm:inline">
+            Concept {Math.min(currentConceptIndex + 1, keyConceptsList.length)} of {keyConceptsList.length} · {progressPercent}%
+          </span>
+        )}
+      </header>
 
-              <ClassroomAvatar
-                state={connectionState}
-                teacherVolumeRef={teacherVolumeRef}
-                userVolumeRef={userVolumeRef}
-                isMuted={isMuted}
-                latestTranscript={latestTranscript}
-                latestVideoFrame={latestVideoFrame}
-                videoMimeType={videoMimeType}
-                onCustomAvatarChange={handleCustomAvatarChange}
-                onSimliControllerReady={handleSimliControllerReady}
-                onSimliActiveChange={handleSimliActiveChange}
-                isAvatarEnabled={isAvatarEnabled}
-                className="w-12 h-12 md:w-36 md:h-36 md:my-1"
-              />
-
-              <div className="min-w-0 flex-1 md:flex-none">
-                <h1 className="text-sm md:text-base font-serif font-semibold text-[var(--ink-primary)] leading-tight line-clamp-2">
-                  {resolvedTitle}
-                </h1>
-                <p className="mt-0.5 flex items-center gap-1.5 md:justify-center text-xs text-[var(--ink-secondary)]">
-                  <span className={`w-1.5 h-1.5 rounded-full ${statusDot}`} />
-                  {statusLabel}
-                </p>
-              </div>
-
-              {/* Mobile: concepts sheet trigger */}
-              {keyConceptsList.length > 0 && (
-                <button
-                  type="button"
-                  onClick={() => setConceptsOpen(true)}
-                  aria-label="Open concepts"
-                  className="md:hidden shrink-0 h-9 px-2.5 rounded-full border border-[var(--border-subtle)] flex items-center gap-1.5 text-xs font-medium text-[var(--ink-secondary)] cursor-pointer"
-                >
-                  <Layers className="w-4 h-4" />
-                  {Math.min(currentConceptIndex + 1, keyConceptsList.length)}/{keyConceptsList.length}
-                </button>
-              )}
-            </div>
-
-            {(isCallActive || isPaused) && (
-              <div className="flex flex-col gap-2.5">
-                <div className="flex justify-center">
-                  <CallControls
-                    isMuted={isMuted}
-                    userVolume={userVolume}
-                    userVolumeRef={userVolumeRef}
-                    onToggleMute={toggleMute}
-                    onEndCall={handleEndClass}
-                    onPause={isPaused ? handleStartClass : handlePauseClass}
-                    isPaused={isPaused}
-                  />
-                </div>
-                <button
-                  id="understood-next-concept-btn"
-                  type="button"
-                  onClick={() => {
-                    lastVerdictStatusRef.current = 'correct'
-                    handleConceptDone('EXPLICIT_USER_ADVANCE')
-                  }}
-                  className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-hover)] text-white text-xs font-semibold shadow-xs active:scale-[0.99] transition-all cursor-pointer"
-                  title="Mark current concept as understood and advance to next concept"
-                >
-                  <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                  <span>Understood · Next Concept</span>
-                  <ChevronRight className="w-3.5 h-3.5 shrink-0 ml-auto opacity-75" />
-                </button>
-              </div>
-            )}
-
-            {!isCallActive && !isCompleted && (
-              <button
-                id="manual-mark-completed-btn"
-                type="button"
-                onClick={() => markModuleAsCompleted()}
-                className="hidden md:flex items-center justify-center gap-1.5 text-xs text-[var(--ink-secondary)] hover:text-[var(--accent-primary)] cursor-pointer"
-              >
-                <CheckCircle2 className="w-3.5 h-3.5" />
-                Mark complete
-              </button>
-            )}
-          </div>
-
-          {/* Completed state: next steps (bottom sheet on mobile) */}
-          {isCompleted && (
-            <div className="fixed inset-x-2 bottom-2 z-40 max-h-[60dvh] overflow-y-auto md:static md:z-auto md:max-h-none p-3 rounded-2xl bg-white md:bg-[var(--accent-primary-soft)] border border-[var(--accent-primary-border)] shadow-lg md:shadow-none space-y-2">
-              <div className="flex items-center gap-1.5 text-[var(--accent-primary)] font-semibold text-sm">
-                <CheckCircle2 className="w-4 h-4 shrink-0" />
-                Completed
-              </div>
-
-              {chapterNotes.trim() && (
-                <div className="flex gap-2">
-                  <Button
-                    id="apply-clean-notes-btn"
-                    onClick={() => chapterNotes && chalkboardRef.current?.rewriteNotes(chapterNotes)}
-                    className="flex-1 h-9 bg-white hover:bg-stone-50 border border-[var(--border-subtle)] text-[var(--ink-primary)] rounded-xl text-xs cursor-pointer"
-                  >
-                    <RotateCcw className="w-3.5 h-3.5 mr-1" />
-                    Notes to board
-                  </Button>
-                  <Button
-                    id="view-clean-notes-modal-btn"
-                    onClick={() => setNotesModalOpen(true)}
-                    className="flex-1 h-9 bg-white hover:bg-stone-50 border border-[var(--border-subtle)] text-[var(--ink-primary)] rounded-xl text-xs cursor-pointer"
-                  >
-                    <BookOpen className="w-3.5 h-3.5 mr-1" />
-                    View notes
-                  </Button>
-                </div>
-              )}
-
-              {nextSiblingModule?.id ? (
-                <Button
-                  id="go-to-next-capsule-btn"
-                  onClick={() => leaveTo(`/dashboard/${userId}/class/${nextSiblingModule.id}`)}
-                  className="w-full h-10 bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-hover)] text-white rounded-xl text-sm cursor-pointer"
-                >
-                  <span className="truncate">Next: {nextSiblingModule.title}</span>
-                  <ArrowLeft className="w-4 h-4 rotate-180 ml-1.5 shrink-0" />
-                </Button>
-              ) : nextChapterInfo?.firstModuleId ? (
-                <Button
-                  id="go-to-next-chapter-btn"
-                  onClick={() => leaveTo(`/dashboard/${userId}/class/${nextChapterInfo.firstModuleId}`)}
-                  className="w-full h-10 bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-hover)] text-white rounded-xl text-sm cursor-pointer"
-                >
-                  <span className="truncate">Next chapter: {nextChapterInfo.chapterTitle}</span>
-                  <ArrowLeft className="w-4 h-4 rotate-180 ml-1.5 shrink-0" />
-                </Button>
-              ) : null}
-
-              <Button
-                id="return-to-dashboard-btn"
-                variant="outline"
-                onClick={() => leaveTo(`/dashboard/${userId}`)}
-                className="w-full h-9 bg-white border-[var(--border-subtle)] text-[var(--ink-secondary)] rounded-xl text-xs cursor-pointer"
-              >
-                Back to dashboard
-              </Button>
-            </div>
-          )}
-
-          {/* End-of-chapter confirmation */}
-          {isCompleted && endChapterConfirmPrompt && (
-            <div className="fixed inset-x-2 bottom-2 z-50 md:static md:z-auto p-3 rounded-2xl bg-white border border-[var(--accent-primary)]/50 shadow-lg md:shadow-none space-y-2.5">
-              <p className="text-sm text-[var(--ink-primary)] leading-snug">{endChapterConfirmPrompt}</p>
-              <div className="flex gap-2">
-                <Button
-                  id="confirm-end-yes-btn"
-                  onClick={() => {
-                    setEndChapterConfirmPrompt(null)
-                    markModuleAsCompleted()
-                    handleOpenQuiz()
-                  }}
-                  className="flex-1 h-10 bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-hover)] text-white rounded-xl text-xs cursor-pointer"
-                >
-                  Take quiz
-                </Button>
-                <Button
-                  id="confirm-end-no-btn"
-                  variant="outline"
-                  onClick={() => {
-                    setEndChapterConfirmPrompt(null)
-                    triggerCompanionGuidance({
-                      animation: 'listening',
-                      expression: 'attentive-left',
-                      mood: 'thinking',
-                      message: 'What is your doubt? Speak and your tutor will explain it on the board.',
-                      autoDismissMs: 10000,
-                    })
-                  }}
-                  className="flex-1 h-10 bg-white border-[var(--border-subtle)] text-[var(--ink-secondary)] rounded-xl text-xs cursor-pointer"
-                >
-                  I have doubts
-                </Button>
-              </div>
-            </div>
-          )}
-
-          {/* Desktop concept list */}
-          {keyConceptsList.length > 0 && (
-            <div className="hidden md:block rounded-2xl bg-white border border-[var(--border-subtle)] p-3">
-              <div className="flex items-center justify-between px-1 pb-2">
-                <span className="text-xs font-medium text-[var(--ink-secondary)]">
-                  Concepts · {progressPercent}%
-                </span>
-                <button
-                  type="button"
-                  onClick={() => handleConceptGoto(1)}
-                  className="text-xs text-[var(--accent-primary)] hover:underline cursor-pointer"
-                >
-                  Restart
-                </button>
-              </div>
-              <div className="h-1 mb-2 bg-stone-200 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-[var(--accent-primary)] transition-all duration-500"
-                  style={{ width: `${progressPercent}%` }}
-                />
-              </div>
-              {conceptList}
-            </div>
-          )}
-        </aside>
-
-        {/* Board */}
-        <div className="relative flex-1 min-h-0 min-w-0 flex flex-col overflow-hidden">
-          {/* Top-Right Speed Slider Control & Minimal Textbook Toggle */}
-          <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-40 flex items-center gap-2">
-            {bookPdfUrl && (
-              <button
-                id="toggle-textbook-btn"
-                type="button"
-                onClick={() => setIsBookOpen((prev) => !prev)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-medium cursor-pointer transition-colors shadow-sm ${
-                  isBookOpen
-                    ? 'bg-emerald-950/90 text-emerald-300 border-emerald-600/60'
-                    : 'bg-[#121c17]/90 text-stone-300 border-white/10 hover:bg-[#1a2d24] hover:text-white'
-                }`}
-                title={isBookOpen ? 'Hide Textbook' : 'Open Textbook'}
-              >
-                <BookOpen className="w-3.5 h-3.5 text-emerald-400" />
-                <span className="hidden sm:inline">Textbook</span>
-              </button>
-            )}
-          </div>
-
+      <div className="flex min-h-0 flex-1 gap-2 px-2 sm:gap-3 sm:px-3">
+        {/* Stage: the board is the shared screen */}
+        <section className="relative flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden rounded-xl bg-[#FAF8F4] text-[var(--ink-primary)]">
           {/* Hairline 30° Axonometric Connecting Stage */}
           {(isLoadingLesson || connectionState === 'CONNECTING') && (
             <div className="absolute inset-0 z-50 flex items-center justify-center bg-[#FAF8F4] transition-opacity duration-300">
@@ -6046,14 +5850,298 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
             onCloseBook={() => setIsBookOpen(false)}
             onBookPageChange={(page) => setBookCurrentPage(page)}
           />
-          {isCallActive && (
-            <ClassroomFloatingChatInput
-              onSendMessage={handleStudentSubmitAnswer}
-              isTeacherSpeaking={connectionState === 'TEACHER_SPEAKING'}
-            />
+
+          {/* Live captions */}
+          {captionsOn && isCallActive && teacherCaption && (
+            <div className="pointer-events-none absolute inset-x-0 bottom-3 z-40 flex justify-center px-3">
+              <p className="max-w-3xl rounded-lg bg-black/75 px-4 py-2 text-center text-sm leading-snug text-white line-clamp-2 sm:text-base">
+                {teacherCaption.slice(-220)}
+              </p>
+            </div>
           )}
-        </div>
+
+          {/* Mobile: floating tiles over the board */}
+          {inSession && (
+            <div className="absolute right-2 top-2 z-40 flex flex-col gap-2 md:hidden">
+              <div className="flex h-24 w-20 items-center justify-center overflow-hidden rounded-xl bg-[#3C4043] shadow-lg">
+                <ClassroomAvatar
+                  state={connectionState}
+                  teacherVolumeRef={teacherVolumeRef}
+                  userVolumeRef={userVolumeRef}
+                  isMuted={isMuted}
+                  latestTranscript={latestTranscript}
+                  latestVideoFrame={latestVideoFrame}
+                  videoMimeType={videoMimeType}
+                  onCustomAvatarChange={handleCustomAvatarChange}
+                  onSimliControllerReady={handleSimliControllerReady}
+                  onSimliActiveChange={handleSimliActiveChange}
+                  isAvatarEnabled={isAvatarEnabled}
+                  className="h-14 w-14"
+                />
+              </div>
+              {camera.isOn && (
+                <SelfViewTile stream={camera.stream} isMuted={isMuted} name="You" className="h-24 w-20 shadow-lg" />
+              )}
+            </div>
+          )}
+        </section>
+
+        {/* Participant tiles (desktop) */}
+        <aside className="hidden w-[220px] shrink-0 flex-col gap-3 overflow-y-auto md:flex lg:w-[260px]">
+          <div className="relative flex aspect-[4/3] shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#3C4043]">
+            <ClassroomAvatar
+              state={connectionState}
+              teacherVolumeRef={teacherVolumeRef}
+              userVolumeRef={userVolumeRef}
+              isMuted={isMuted}
+              latestTranscript={latestTranscript}
+              latestVideoFrame={latestVideoFrame}
+              videoMimeType={videoMimeType}
+              onCustomAvatarChange={handleCustomAvatarChange}
+              onSimliControllerReady={handleSimliControllerReady}
+              onSimliActiveChange={handleSimliActiveChange}
+              isAvatarEnabled={isAvatarEnabled}
+              className="h-24 w-24 lg:h-28 lg:w-28"
+            />
+            <div className="absolute bottom-2 left-2 rounded-md bg-black/50 px-2 py-0.5 text-xs text-white">
+              Tutor{connectionState === 'TEACHER_SPEAKING' ? ' · speaking' : ''}
+            </div>
+          </div>
+          <SelfViewTile
+            stream={camera.stream}
+            isMuted={isMuted}
+            name={studentName ? studentName.split(' ')[0] : 'You'}
+            error={camera.error}
+            className="aspect-[4/3] shrink-0"
+          />
+          <div className="text-[var(--ink-primary)]">
+          {/* Completed state: next steps (bottom sheet on mobile) */}
+          {isCompleted && (
+            <div className="fixed inset-x-2 bottom-2 z-40 max-h-[60dvh] overflow-y-auto md:static md:z-auto md:max-h-none p-3 rounded-2xl bg-white md:bg-[var(--accent-primary-soft)] border border-[var(--accent-primary-border)] shadow-lg md:shadow-none space-y-2">
+              <div className="flex items-center gap-1.5 text-[var(--accent-primary)] font-semibold text-sm">
+                <CheckCircle2 className="w-4 h-4 shrink-0" />
+                Completed
+              </div>
+
+              {chapterNotes.trim() && (
+                <div className="flex gap-2">
+                  <Button
+                    id="apply-clean-notes-btn"
+                    onClick={() => chapterNotes && chalkboardRef.current?.rewriteNotes(chapterNotes)}
+                    className="flex-1 h-9 bg-white hover:bg-stone-50 border border-[var(--border-subtle)] text-[var(--ink-primary)] rounded-xl text-xs cursor-pointer"
+                  >
+                    <RotateCcw className="w-3.5 h-3.5 mr-1" />
+                    Notes to board
+                  </Button>
+                  <Button
+                    id="view-clean-notes-modal-btn"
+                    onClick={() => setNotesModalOpen(true)}
+                    className="flex-1 h-9 bg-white hover:bg-stone-50 border border-[var(--border-subtle)] text-[var(--ink-primary)] rounded-xl text-xs cursor-pointer"
+                  >
+                    <BookOpen className="w-3.5 h-3.5 mr-1" />
+                    View notes
+                  </Button>
+                </div>
+              )}
+
+              {nextSiblingModule?.id ? (
+                <Button
+                  id="go-to-next-capsule-btn"
+                  onClick={() => leaveTo(`/dashboard/${userId}/class/${nextSiblingModule.id}`)}
+                  className="w-full h-10 bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-hover)] text-white rounded-xl text-sm cursor-pointer"
+                >
+                  <span className="truncate">Next: {nextSiblingModule.title}</span>
+                  <ArrowLeft className="w-4 h-4 rotate-180 ml-1.5 shrink-0" />
+                </Button>
+              ) : nextChapterInfo?.firstModuleId ? (
+                <Button
+                  id="go-to-next-chapter-btn"
+                  onClick={() => leaveTo(`/dashboard/${userId}/class/${nextChapterInfo.firstModuleId}`)}
+                  className="w-full h-10 bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-hover)] text-white rounded-xl text-sm cursor-pointer"
+                >
+                  <span className="truncate">Next chapter: {nextChapterInfo.chapterTitle}</span>
+                  <ArrowLeft className="w-4 h-4 rotate-180 ml-1.5 shrink-0" />
+                </Button>
+              ) : null}
+
+              <Button
+                id="return-to-dashboard-btn"
+                variant="outline"
+                onClick={() => leaveTo(`/dashboard/${userId}`)}
+                className="w-full h-9 bg-white border-[var(--border-subtle)] text-[var(--ink-secondary)] rounded-xl text-xs cursor-pointer"
+              >
+                Back to dashboard
+              </Button>
+            </div>
+          )}
+
+          {/* End-of-chapter confirmation */}
+          {isCompleted && endChapterConfirmPrompt && (
+            <div className="fixed inset-x-2 bottom-2 z-50 md:static md:z-auto p-3 rounded-2xl bg-white border border-[var(--accent-primary)]/50 shadow-lg md:shadow-none space-y-2.5">
+              <p className="text-sm text-[var(--ink-primary)] leading-snug">{endChapterConfirmPrompt}</p>
+              <div className="flex gap-2">
+                <Button
+                  id="confirm-end-yes-btn"
+                  onClick={() => {
+                    setEndChapterConfirmPrompt(null)
+                    markModuleAsCompleted()
+                    handleOpenQuiz()
+                  }}
+                  className="flex-1 h-10 bg-[var(--accent-primary)] hover:bg-[var(--accent-primary-hover)] text-white rounded-xl text-xs cursor-pointer"
+                >
+                  Take quiz
+                </Button>
+                <Button
+                  id="confirm-end-no-btn"
+                  variant="outline"
+                  onClick={() => {
+                    setEndChapterConfirmPrompt(null)
+                    triggerCompanionGuidance({
+                      animation: 'listening',
+                      expression: 'attentive-left',
+                      mood: 'thinking',
+                      message: 'What is your doubt? Speak and your tutor will explain it on the board.',
+                      autoDismissMs: 10000,
+                    })
+                  }}
+                  className="flex-1 h-10 bg-white border-[var(--border-subtle)] text-[var(--ink-secondary)] rounded-xl text-xs cursor-pointer"
+                >
+                  I have doubts
+                </Button>
+              </div>
+            </div>
+          )}
+
+          </div>
+        </aside>
+
+        {/* Side panel: concepts / chat */}
+        {sidePanel && (
+          <aside className="fixed inset-0 z-50 flex flex-col bg-white text-[var(--ink-primary)] md:static md:z-auto md:w-[320px] md:shrink-0 md:rounded-xl">
+            <div className="flex items-center justify-between px-4 py-3">
+              <span className="text-base font-medium">
+                {sidePanel === 'chat' ? 'Chat with tutor' : `Concepts · ${progressPercent}%`}
+              </span>
+              <button
+                type="button"
+                onClick={() => setSidePanel(null)}
+                aria-label="Close panel"
+                className="flex h-9 w-9 items-center justify-center rounded-full hover:bg-stone-100 cursor-pointer"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            {sidePanel === 'concepts' ? (
+              <div className="min-h-0 flex-1 overflow-y-auto px-3 pb-3">
+                <div className="mx-1 mb-2 h-1 overflow-hidden rounded-full bg-stone-200">
+                  <div
+                    className="h-full bg-[var(--accent-primary)] transition-all duration-500"
+                    style={{ width: `${progressPercent}%` }}
+                  />
+                </div>
+                {conceptList}
+                <button
+                  type="button"
+                  onClick={() => handleConceptGoto(1)}
+                  className="mt-2 px-3 text-xs text-[var(--accent-primary)] hover:underline cursor-pointer"
+                >
+                  Restart from first concept
+                </button>
+              </div>
+            ) : (
+              <>
+                <div className="flex min-h-0 flex-1 flex-col-reverse overflow-y-auto px-4 pb-3">
+                  <div className="space-y-3">
+                    {transcripts.length === 0 && (
+                      <p className="pt-6 text-center text-sm text-[var(--ink-secondary)]">
+                        Type a question and your tutor will answer it out loud and on the board.
+                      </p>
+                    )}
+                    {transcripts.slice(-60).map((t) => (
+                      <div key={t.id} className={t.sender === 'user' ? 'text-right' : ''}>
+                        <p className="text-[11px] font-medium text-[var(--ink-secondary)]">
+                          {t.sender === 'user' ? 'You' : 'Tutor'}
+                        </p>
+                        <p
+                          className={`inline-block max-w-[90%] rounded-2xl px-3 py-2 text-left text-sm leading-snug ${
+                            t.sender === 'user' ? 'bg-[var(--accent-primary)] text-white' : 'bg-stone-100'
+                          }`}
+                        >
+                          {t.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault()
+                    sendChat()
+                  }}
+                  className="m-3 flex items-center gap-2 rounded-full bg-stone-100 py-1 pl-4 pr-1"
+                >
+                  <input
+                    value={chatDraft}
+                    onChange={(e) => setChatDraft(e.target.value)}
+                    placeholder={isCallActive ? 'Ask your tutor…' : 'Start the lesson to chat'}
+                    disabled={!isCallActive}
+                    className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-stone-400"
+                  />
+                  <button
+                    type="submit"
+                    disabled={!isCallActive || !chatDraft.trim()}
+                    aria-label="Send"
+                    className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--accent-primary)] text-white disabled:opacity-40 cursor-pointer"
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </button>
+                </form>
+              </>
+            )}
+          </aside>
+        )}
       </div>
+
+      {/* Bottom control bar */}
+      {inSession ? (
+        <ClassroomControlBar
+          isMuted={isMuted}
+          userVolumeRef={userVolumeRef}
+          onToggleMute={toggleMute}
+          isCameraOn={camera.isOn}
+          onToggleCamera={camera.toggle}
+          isPaused={isPaused}
+          onTogglePause={isPaused ? handleStartClass : handlePauseClass}
+          captionsOn={captionsOn}
+          onToggleCaptions={() => setCaptionsOn((c) => !c)}
+          hasBook={!!bookPdfUrl}
+          isBookOpen={isBookOpen}
+          onToggleBook={() => setIsBookOpen((p) => !p)}
+          activePanel={sidePanel}
+          onTogglePanel={togglePanel}
+          conceptProgress={
+            keyConceptsList.length > 0
+              ? `${Math.min(currentConceptIndex + 1, keyConceptsList.length)}/${keyConceptsList.length}`
+              : undefined
+          }
+          onNextConcept={() => {
+            lastVerdictStatusRef.current = 'correct'
+            handleConceptDone('EXPLICIT_USER_ADVANCE')
+          }}
+          onEndCall={() => {
+            camera.stop()
+            handleEndClass()
+          }}
+          onOpenSettings={handleGoToSettings}
+          onOpenNotes={chapterNotes.trim() ? () => setNotesModalOpen(true) : undefined}
+          onOpenQuiz={handleOpenQuiz}
+          onMarkComplete={!isCompleted ? () => markModuleAsCompleted() : undefined}
+          elapsed={elapsedLabel}
+          title={resolvedTitle}
+        />
+      ) : (
+        <div className="h-3 shrink-0" />
+      )}
 
       {/* Mobile concepts sheet */}
       {conceptsOpen && (
