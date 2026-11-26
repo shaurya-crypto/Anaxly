@@ -5886,9 +5886,9 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
           )}
         </section>
 
-        {/* Participant tiles (desktop) */}
-        <aside className="hidden w-[220px] shrink-0 flex-col gap-3 overflow-y-auto md:flex lg:w-[260px]">
-          <div className="relative flex aspect-[4/3] shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#3C4043]">
+        {/* Participant tiles (desktop) & completion bottom sheet (mobile) */}
+        <aside className="contents md:flex md:w-[220px] md:shrink-0 md:flex-col md:gap-3 md:overflow-y-auto lg:w-[260px]">
+          <div className="relative hidden aspect-[4/3] shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#3C4043] md:flex">
             <ClassroomAvatar
               state={connectionState}
               teacherVolumeRef={teacherVolumeRef}
@@ -5912,12 +5912,12 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
             isMuted={isMuted}
             name={studentName ? studentName.split(' ')[0] : 'You'}
             error={camera.error}
-            className="aspect-[4/3] shrink-0"
+            className="hidden aspect-[4/3] shrink-0 md:block"
           />
-          <div className="text-[var(--ink-primary)]">
+          <div className="contents text-[var(--ink-primary)] md:block">
           {/* Completed state: next steps (bottom sheet on mobile) */}
           {isCompleted && (
-            <div className="fixed inset-x-2 bottom-2 z-40 max-h-[60dvh] overflow-y-auto md:static md:z-auto md:max-h-none p-3 rounded-2xl bg-white md:bg-[var(--accent-primary-soft)] border border-[var(--accent-primary-border)] shadow-lg md:shadow-none space-y-2">
+            <div className={`fixed inset-x-2 ${inSession ? 'bottom-20' : 'bottom-2'} z-40 max-h-[60dvh] overflow-y-auto md:static md:z-auto md:max-h-none p-3 rounded-2xl bg-white md:bg-[var(--accent-primary-soft)] border border-[var(--accent-primary-border)] shadow-lg md:shadow-none space-y-2`}>
               <div className="flex items-center gap-1.5 text-[var(--accent-primary)] font-semibold text-sm">
                 <CheckCircle2 className="w-4 h-4 shrink-0" />
                 Completed
@@ -5977,7 +5977,7 @@ RULES: Strictly ZERO emojis on board. Whiteboard is single source of truth for n
 
           {/* End-of-chapter confirmation */}
           {isCompleted && endChapterConfirmPrompt && (
-            <div className="fixed inset-x-2 bottom-2 z-50 md:static md:z-auto p-3 rounded-2xl bg-white border border-[var(--accent-primary)]/50 shadow-lg md:shadow-none space-y-2.5">
+            <div className={`fixed inset-x-2 ${inSession ? 'bottom-20' : 'bottom-2'} z-50 md:static md:z-auto p-3 rounded-2xl bg-white border border-[var(--accent-primary)]/50 shadow-lg md:shadow-none space-y-2.5`}>
               <p className="text-sm text-[var(--ink-primary)] leading-snug">{endChapterConfirmPrompt}</p>
               <div className="flex gap-2">
                 <Button
