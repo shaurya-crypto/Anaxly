@@ -63,6 +63,7 @@ export interface WhiteboardWorkspaceProps {
   onVoiceStudentAnswer?: (answer: string) => void
   activeGraph?: MafsGraphCanvasProps | null
   onCloseGraph?: () => void
+  onOpenGraphRequest?: (payload: MafsGraphCanvasProps) => void
   generatingDiagramTitle?: string | null
   activeHighlight?: ActiveHighlight | null
   isBookOpen?: boolean
@@ -107,6 +108,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
       onVoiceStudentAnswer,
       activeGraph = null,
       onCloseGraph,
+      onOpenGraphRequest,
       generatingDiagramTitle = null,
       activeHighlight = null,
       isBookOpen = false,
@@ -137,7 +139,23 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
       if (activeGraph && isValidGraphPayload(activeGraph)) {
         setGraphMode((prev) => (prev === 'minimized' ? (isBookOpen ? 'floating' : 'docked') : prev))
       }
-    }, [activeGraph?.formula, activeGraph?.formulas, activeGraph?.segments, activeGraph?.title, isBookOpen])
+    }, [
+      activeGraph,
+      activeGraph?.formula,
+      activeGraph?.formulas,
+      activeGraph?.segments,
+      activeGraph?.points,
+      activeGraph?.bars,
+      activeGraph?.vectors,
+      activeGraph?.polygons,
+      activeGraph?.circles,
+      activeGraph?.texts,
+      activeGraph?.pies,
+      activeGraph?.lineSeries,
+      activeGraph?.shadedRegions,
+      activeGraph?.title,
+      isBookOpen,
+    ])
 
     // Automatically switch docked graph to floating mode when textbook reader is open so both coexist smoothly
     useEffect(() => {
@@ -224,6 +242,7 @@ export const WhiteboardWorkspace = forwardRef<GreenChalkboardRef, WhiteboardWork
             onModuleComplete={onModuleComplete}
             onConfirmEndChapter={onConfirmEndChapter}
             onStartQuiz={onStartQuiz}
+            onOpenGraphRequest={onOpenGraphRequest}
             onWritingPositionChange={handleWritingPositionChange}
           />
 

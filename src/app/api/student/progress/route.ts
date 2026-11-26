@@ -1,7 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/utils/supabase/server'
 import { calculateStudentProgress } from '@/lib/studentProgressService'
-import { getCachedCurriculumModuleCounts } from '@/lib/cache/dataCache'
+import {
+  getCachedCurriculumModuleCounts,
+  getCachedSyllabusModule,
+  getCachedUserProfile,
+  getCachedCurriculums,
+  getCachedCurriculumModules,
+  getCachedUserProgressList,
+  getCachedSiblingModules,
+  invalidateUserProgressCache,
+  invalidateUserProfileCache,
+} from '@/lib/cache/dataCache'
 import { isSchemaError } from '@/lib/utils'
 
 export const dynamic = 'force-dynamic'
@@ -9,7 +19,7 @@ export const dynamic = 'force-dynamic'
 /**
  * GET /api/student/progress?userId=<userId>
  * Returns student progress summary, completed chapters count, and saved chalkboard notes.
- * Cached with HTTP headers to prevent database load on frequent client navigations.
+ * Uses multi-tier cache + HTTP headers to prevent database load on frequent client navigations.
  */
 export async function GET(req: NextRequest) {
   try {
@@ -32,48 +42,17 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized to view progress of other users' }, { status: 403 })
     }
 
-    // Fetch user profile
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('id, full_name, class_level, target_board, completed_chapters_count')
-      .eq('id', targetUserId)
-      .maybeSingle()
-
-    // Fetch all published curriculums for the student's class
-    let curriculumsQuery = supabase
-      .from('curriculums')
-      .select('id, title, description, category, difficulty_level, estimated_duration_minutes, is_published, class_level, board, order_index')
-      .eq('is_published', true)
-
-    if (profile?.class_level) {
-      curriculumsQuery = curriculumsQuery.or(`class_level.eq.${profile.class_level},class_level.is.null`)
-    }
-
-    const { data: curriculumsData } = await curriculumsQuery.order('order_index', { ascending: true })
-    const curriculums = curriculumsData || []
+    const profile = await getCachedUserProfile(supabase, targetUserId)
+    const curriculums = await getCachedCurriculums(supabase, {
+      classLevel: profile?.class_level,
+      isPublished: true,
+    })
 
     const curriculumIds = curriculums.map((c: any) => c.id).filter(Boolean)
-
-    // Fetch syllabus modules
-    let modulesQuery = supabase
-      .from('syllabus_modules')
-      .select('id, curriculum_id, order_index, title, description, key_concepts, estimated_minutes, class_level, board')
-      .order('order_index', { ascending: true })
-
-    if (curriculumIds.length > 0) {
-      modulesQuery = modulesQuery.in('curriculum_id', curriculumIds)
-    }
-
-    const { data: modulesData } = await modulesQuery
-    const modules = modulesData || []
-
-    // Fetch user progress records
-    const { data: progressData } = await supabase
-      .from('user_progress')
-      .select('*')
-      .eq('user_id', targetUserId)
-
-    const progressRecords = progressData || []
+    const [modules, progressRecords] = await Promise.all([
+      curriculumIds.length > 0 ? getCachedCurriculumModules(supabase, curriculumIds) : Promise.resolve([]),
+      getCachedUserProgressList(supabase, targetUserId),
+    ])
 
     // Compute progress & chapter stats
     const progressSummary = calculateStudentProgress({
@@ -215,26 +194,25 @@ export async function POST(req: NextRequest) {
       }
     }
 
+    // Invalidate per-user progress cache immediately on write
+    invalidateUserProgressCache(userId, moduleId)
+    if (status === 'completed') {
+      invalidateUserProfileCache(userId)
+    }
+
     // Check if this module completion completes the parent chapter
     let isChapterCompleted = false
     let completedChaptersCount = 0
 
     if (status === 'completed') {
-      // 1. Find parent curriculum
-      const { data: currentMod } = await clientToUse
-        .from('syllabus_modules')
-        .select('curriculum_id')
-        .eq('id', moduleId)
-        .single()
+      // 1. Find parent curriculum via cache
+      const currentMod = await getCachedSyllabusModule(clientToUse, moduleId)
 
       if (currentMod?.curriculum_id) {
         const curriculumId = currentMod.curriculum_id
 
-        // Fetch all sibling modules for this curriculum
-        const { data: siblings } = await clientToUse
-          .from('syllabus_modules')
-          .select('id')
-          .eq('curriculum_id', curriculumId)
+        // Fetch all sibling modules for this curriculum via cache
+        const siblings = await getCachedSiblingModules(clientToUse, curriculumId)
 
         const siblingIds = (siblings || []).map((s: any) => s.id)
 

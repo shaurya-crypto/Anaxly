@@ -157,8 +157,8 @@ MANDATORY CSS ANIMATION INVARIANT:
   const preferredModels = isLive
     ? ['gemini-2.5-flash', 'gemini-3.5-flash']
     : undefined
-  const timeoutMs = isLive ? 30000 : 90000
-  const thinkingBudget = isLive ? 1024 : 2048
+  const timeoutMs = isLive ? 20000 : 90000
+  const thinkingBudget = isLive ? 512 : 2048
 
   const { text: rawOutput, modelUsed } = await resilientGenerateContent(ai, {
     contents: [{ role: 'user', parts: [{ text: userPromptText }] }],
@@ -195,7 +195,7 @@ MANDATORY CSS ANIMATION INVARIANT:
   return {
     title: input.title,
     svg: cleanSvg,
-    caption: `Publication-grade vector ${input.visualType || 'diagram'} for ${input.title}, refined by Tier 2 with textbook precision.`,
+    caption: input.title,
     why_needed: input.whyNeeded || `Visually grounds the core principles of ${input.title}.`,
     what_to_explain: input.whatToExplain || `Explain key features, labels, and callout pointers shown.`,
     what_to_make: input.whatToMake,

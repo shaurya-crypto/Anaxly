@@ -7,6 +7,7 @@ import {
   SUBSCRIPTION_PLANS,
   PaymentOrder,
 } from '@/lib/types/subscription'
+import { subscriptionCacheStore, invalidateSubscriptionCache } from '@/lib/cache/dataCache'
 
 /**
  * Enterprise Subscription & Billing Service for Anaxly
@@ -15,35 +16,38 @@ import {
  */
 
 export async function getStudentSubscription(userId: string): Promise<Subscription | null> {
-  const supabase = await createClient()
+  if (!userId) return null
+  return subscriptionCacheStore.getOrSet(`sub_${userId}`, async () => {
+    const supabase = await createClient()
 
-  let { data: sub, error } = await supabase
-    .from('subscriptions')
-    .select('*')
-    .eq('user_id', userId)
-    .maybeSingle()
+    let { data: sub, error } = await supabase
+      .from('subscriptions')
+      .select('*')
+      .eq('user_id', userId)
+      .maybeSingle()
 
-  if (error) {
-    console.error('[getStudentSubscription] Error reading subscription:', error)
-  }
-
-  // Self-healing: if no subscription exists for this user, provision default 'free' plan
-  if (!sub) {
-    const { data: newSub, error: rpcError } = await supabase.rpc('set_user_subscription', {
-      p_user_id: userId,
-      p_plan_tier: 'free',
-      p_billing_cycle: 'monthly',
-    })
-
-    if (rpcError) {
-      console.error('[getStudentSubscription] Error auto-provisioning free subscription:', rpcError)
-      return null
+    if (error) {
+      console.error('[getStudentSubscription] Error reading subscription:', error)
     }
 
-    sub = newSub
-  }
+    // Self-healing: if no subscription exists for this user, provision default 'free' plan
+    if (!sub) {
+      const { data: newSub, error: rpcError } = await supabase.rpc('set_user_subscription', {
+        p_user_id: userId,
+        p_plan_tier: 'free',
+        p_billing_cycle: 'monthly',
+      })
 
-  return sub as Subscription
+      if (rpcError) {
+        console.error('[getStudentSubscription] Error auto-provisioning free subscription:', rpcError)
+        return null
+      }
+
+      sub = newSub
+    }
+
+    return sub as Subscription
+  })
 }
 
 /**
@@ -82,6 +86,7 @@ export async function recordClassUsage(userId: string): Promise<{ success: boole
     return { success: false, classesRemaining: 0, error: 'Database update failed' }
   }
 
+  invalidateSubscriptionCache(userId)
   const remaining = Math.max(0, updatedSub.monthly_classes_limit - updatedSub.monthly_classes_used)
   return { success: true, classesRemaining: remaining }
 }
@@ -110,6 +115,7 @@ export async function updateSubscriptionPlan(
     throw new Error(`Failed to update subscription: ${error?.message || 'Unknown database error'}`)
   }
 
+  invalidateSubscriptionCache(userId)
   return updatedSub as Subscription
 }
 

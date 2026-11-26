@@ -1,21 +1,22 @@
 # AI Tutor Pedagogical, Scope & Security Invariants
 
-## 1. Target Audience Scope (Classes 6–12 Only)
-- The platform is strictly for school students in **Classes 6 to 12** under **CBSE, ICSE, and IB** boards.
+## 1. Target Audience Scope (Classes 9–12 Only)
+- The platform is strictly for school students in **Classes 9 to 12** under **CBSE, ICSE, and IB** boards (Classes 6–8 are out of scope).
 - Do NOT include competitive entrance exams (JEE, NEET, CUET) or Undergraduate college curriculum in platform copy, curriculum generation, or pricing tiers unless explicitly instructed.
 
-## 2. Socratic Exam-Topper Teaching Cadence
+## 2. Adaptive Conversational Socratic Teaching Cadence
 Whenever designing, prompting, or updating the AI tutor voice instruction:
-- **Complete Explanation First (5–6 Sentences per Turn)**: The tutor must never stop after speaking something half or deliver fragmented, cut-off thoughts. In each pedagogical explanation turn, speak properly with rich depth for 5 to 6 well-formed, articulate sentences covering physical intuition, underlying mechanism, and real-world clarity.
-- **Explain -> Ask Question -> Continue**: Complete the full 5–6 sentence explanation thoroughly first. ONLY AFTER completing the explanation, ask ONE engaging checkpoint question to verify the student's understanding. When they answer or confirm, continue smoothly with the next stage.
-- **Immediate Stop on Student Inquiry**: The moment the student speaks, asks a question, interrupts, or raises a doubt at any time, the tutor must immediately STOP speaking, yield the floor, listen with complete diagnostic attentiveness, address their query directly with clarity and kindness, and only then proceed.
-- **Strict 6-Stage Cadence**:
-  1. *Real-Life Intuition*: Everyday physical hook/analogy (5–6 complete sentences, proactive visual).
-  2. *Concept Formulation*: Precise scientific law, definition, and SI units.
+- **Concise Conversational Micro-Turns (2–3 Sentences + Live Board Action + Check)**: Speak naturally in 2 to 3 crisp, human sentences per micro-turn while simultaneously writing or visualizing on the chalkboard—never dump rigid 5–6 sentence textbook monologues. Complete the thought cleanly, write/plot as you talk, and check in frequently.
+- **Explain -> Visual/Write -> Ask Question -> Wait (Hard Stop)**: Never lecture purely verbally. Write key steps or show a visual as you speak, ask ONE focused checkpoint question, and wait silently for the student's response.
+- **Maths Concept Language (Zero "Definition" Recitation in Maths)**: For Mathematics, NEVER ask "Did you understand the definition?" or force dictionary definitions. Focus on intuition, concepts, theorems, and problem-solving methods, asking `"Did you follow that concept / method?"` instead.
+- **Immediate Stop on Student Inquiry**: The moment the student speaks, asks a question, interrupts, or raises a doubt at any time, the tutor must immediately STOP speaking, yield the floor, listen with complete diagnostic attentiveness, address their query directly with clarity and kindness (using visual/graph tools and simple everyday examples), and only then proceed.
+- **Adaptive Teaching Flow**:
+  1. *Real-Life Intuition*: Everyday physical hook/analogy (2–3 conversational sentences + 1 clean authentic image or graph).
+  2. *Concept / Law Formulation*: Precise scientific law & SI units (Science) or core theorem/method/property (Mathematics), written progressively on the board.
   3. *Precise Example*: Concrete illustration addressing common pitfalls.
-  4. *Board Numerical*: Step-by-step layout on the whiteboard (Given -> Formula -> Substitution -> Calculation -> Boxed Answer with Units).
-  5. *Check for Understanding*: Ask if the student understood.
-     - If NO / hesitant: Break down with visual analogy and co-solve on board.
+  4. *Board Numerical / Exercise*: Step-by-step layout written incrementally as spoken (`Exercise X.Y • Q.N` -> Given -> Formula -> Substitution -> Calculation -> Boxed Answer with Units).
+  5. *Check for Understanding*: Ask if the student understood (`"Did you follow that concept?"` in Maths).
+     - If NO / hesitant: Simplify to easiest language with student-relatable examples, unlock animated video / interactive graph / extra diagrams, and co-solve on board.
      - If YES: Advance to Stage 6.
   6. *Board-Exam Numerical*: Poses an authentic board-exam level question matching the student's exact board pattern (CBSE/ICSE/IB).
 
@@ -113,16 +114,16 @@ Whenever designing, prompting, or updating the AI tutor voice instruction:
 - **Harmful & Political Result Blocking**: Political ballot propositions, election results, party campaigns, and watermarked stock photos are permanently filtered and blocked from educational search candidates.
 - **Last Resort Fallback Only**: Live bespoke LLM SVG generation (`/api/diagram/generate`) serves strictly as a last resort when online search finds zero accessible educational diagrams or encounters a network failure, protected by a strict 15-second abort controller.
 
-## 17. Side Book Viewer Dynamic NCERT Auto-Scroll & Synchronization
-- **Direct Official NCERT PDF Streaming**: All textbook links resolve directly to official NCERT URLs (`https://ncert.nic.in/textbook/pdf/<bookcode>.pdf`) across all classes (9–12) and subjects (Maths, Science, Physics, Chemistry, Biology). This completely avoids bundling hundreds of megabytes of PDF binaries in Git or Vercel serverless functions (bypassing the 250 MB deployment limit and `.gitignore` restrictions).
-- **Exact Concept-to-Page Indexing**: `src/lib/textbookPageMap.json` maps all 102+ chapters and concepts to exact PDF page numbers. When unindexed chapters are loaded, `constructNcertPdfUrl` in `src/lib/textbookResolver.ts` dynamically synthesizes canonical URLs based on class level, subject, and chapter number.
+## 17. Side Book Viewer Embedded Same-Origin NCERT Streaming & Synchronization
+- **Same-Origin Embedded Textbook Proxy**: Streaming `https://ncert.nic.in/...` directly inside `<iframe src>` fails with `"ncert.nic.in refused to connect."`. Textbooks MUST ALWAYS open embedded directly inside the classroom via same-origin `/api/pdf-proxy` (with HTTP `206` Range streaming), backed by organized Class 9–12 PDFs (local disk `public/` / Supabase Storage `textbooks` bucket / upstream NCERT server fallback).
+- **Exact Concept-to-Page Indexing**: `src/lib/textbookPageMap.json` maps chapters and concepts to exact PDF page numbers. When unindexed chapters are loaded, `constructNcertPdfUrl` in `src/lib/textbookResolver.ts` dynamically resolves canonical textbook paths across Classes 9–12 (Maths, Science, Physics, Chemistry, Biology).
 - **Synchronized Auto-Scrolling**: The side book viewer (`SideBookViewer.tsx`) automatically jumps to the exact topic page via `#page=<N>&view=FitH` when the tutor advances concepts or introduces a problem citing a textbook page.
-- **Minimalist UI & Mobile Compatibility**: The viewer top bar stays strictly minimal (`[Title] [ < ] Page [ N ] / [Total] [ > ] [ExternalLink] [ ✕ ]`) with zero useless sync pills or bloat. An `ExternalLink` icon provides 1-tap full-tab access for mobile iOS Safari where cross-origin iframes may be restricted.
+- **Minimalist Embedded UI**: Keep the viewer toolbar strictly minimal (`[Title] [ < ] Page [ N ] / [Total] [ > ] [ ✕ ]`) and open embedded directly on click without forcing external tabs.
 
-## 18. Mandatory Dual Visuals (Image + Video) on Every Concept & Module Start
-- **Universal Dual Visual Mandate**: On Step 1 (Stage 1 Intuition) of EVERY module and EVERY single concept, the AI tutor MUST dispatch BOTH `search_and_show_image(...)` for an authentic, high-resolution scientific educational diagram AND `search_and_show_video(...)` for a real playable demonstration video.
-- **Proactive Frontend Pre-fetching**: The classroom client (`ensureConceptVisualSynthesized` in `page.tsx`) automatically pre-fetches and primes both the image and the video card from `/api/diagram/search-image` and `/api/diagram/search-video`, guaranteeing that both visual modalities are ready on the board.
-- **Zero Vague Search Queries**: Queries must be rich, concise academic topic descriptions (10–25 words for images, concise demonstration phrases for videos) specifying exact apparatus, anatomical structures, or phenomena.
+## 18. Image-First Visual Strategy & Video-on-Doubt/Request Mandate
+- **Clean Image First at Concept Start**: On Step 1 of EVERY concept, render **1 clean, non-watermarked authentic image/diagram** first (via `search_and_show_image` or `plot_mathematical_graph` for coordinate/function topics) so the chalkboard remains crisp and uncluttered.
+- **Unlock Video & Extra Visuals on Confusion or Request**: Do NOT eagerly dump videos on initial concept entry. Unlock animated demonstration videos (`search_and_show_video`) and additional comparison diagrams or graphs whenever the student expresses confusion, doesn't understand, asks again, triggers a doubt, or explicitly requests a video/more visuals.
+- **Zero Vague Search Queries & Watermark Purity**: Queries must be rich, concise academic topic descriptions specifying exact apparatus, anatomical structures, or phenomena, strictly filtering out watermarked tutoring blogs (`©`), heavy text walls, and decorative banners.
 
 ## 19. Universal Multi-Type Graph Engine & Micro-Visual Calling Mandate
 - **Seven Core Graph Modalities Supported**: The digital chalkboard graph engine (`MafsGraphCanvas.tsx`, `graphGating.ts`) supports seven distinct graphing modalities:

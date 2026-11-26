@@ -7,6 +7,8 @@ import { isRequestAuthorizedAdmin } from '@/lib/adminAuth'
 import { checkRateLimit, getClientIp } from '@/lib/rateLimit'
 import { resilientGenerateContent, resilientJsonParse } from '@/lib/geminiResilientGenerate'
 
+import { getCachedChapterPyqs, invalidatePyqCache } from '@/lib/cache/dataCache'
+
 export interface PyqQuestion {
   id: string
   year: string
@@ -303,6 +305,7 @@ Respond with ONLY a valid JSON object matching this schema (do NOT include conve
 
       if (updateErr) throw new Error(updateErr.message)
       savedPyqRecord = updated
+      invalidatePyqCache()
     } else {
       const indexedQuestions = practiceSet.map((q, idx) => ({
         ...q,
@@ -326,6 +329,7 @@ Respond with ONLY a valid JSON object matching this schema (do NOT include conve
 
       if (insertErr) throw new Error(insertErr.message)
       savedPyqRecord = inserted
+      invalidatePyqCache()
     }
 
     return NextResponse.json({
@@ -368,6 +372,7 @@ export async function DELETE(req: Request) {
       return NextResponse.json({ error: delErr.message }, { status: 500 })
     }
 
+    invalidatePyqCache()
     return NextResponse.json({ success: true, deletedId: id })
   } catch (err: any) {
     console.error('[PYQ API] DELETE unhandled error:', err)

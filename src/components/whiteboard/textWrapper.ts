@@ -71,10 +71,10 @@ export function formatChalkboardSteps(text: string, maxCharsPerLine = 60): strin
   const atomicChunks: { text: string; isArrowTransition: boolean }[] = []
 
   // Comprehensive list of academic, textbook, and exam section headers that demand their own line
-  const MAJOR_HEADER_REGEX = /^(?:Given(?:\s+that)?|Formula|Theorem|Law|To\s+(?:Find|Prove|Evaluate|Calculate|Determine)|Construction|Proof|Substitution|Calculation|Working|Rough|Problem|Question|Answer|Final\s+Answer|Boxed\s+Answer|Ans|Case\s*\d+|Hence\s+Proved|Result|Therefore|Step\s*\d+|Step\s*[A-Za-z]|\([ivxlcdm\d]+\)|\([a-z]\)|\d+[\.\)])\s*[:\.\-]/i
+  const MAJOR_HEADER_REGEX = /^(?:Boxed\s+Answer|Final\s+Answer|Model\s+Problem|Practice\s+Problem|Sample\s+Problem|Checkpoint\s+Question|Given(?:\s+that)?|Formula|Theorem|Law|To\s+(?:Find|Prove|Evaluate|Calculate|Determine)|Construction|Proof|Substitution|Calculation|Working|Rough|Problem|Question|Answer|Ans|Case\s*\d+|Hence\s+Proved|Result|Therefore|Step\s*\d+|Step\s*[A-Za-z]|\([ivxlcdm\d]+\)|\([a-z]\)|\d+[\.\)])\s*[:\.\-]/i
 
-  // Delimiter for splitting concatenated inline step headers
-  const INLINE_STEP_REGEX = /(?<=[^\s])\s+(?=(?:Step\s*\d+|Step\s*[A-Za-z]|Given(?:\s+that)?|To\s+(?:Find|Prove|Evaluate|Calculate|Determine)|Formula|Theorem|Law|Construction|Proof|Substitution|Calculation|Working|Rough|Answer|Final\s+Answer|Boxed\s+Answer|Ans|Problem|Question|Case\s*\d+|Hence\s+Proved|Therefore|Result|\([ivxlcdm\d]+\)|\([a-z]\)|\d+[\.\)])\s*[:\.\-])/i
+  // Delimiter for splitting concatenated inline step headers without breaking compound labels like "Boxed Answer:" or "Model Problem:"
+  const INLINE_STEP_REGEX = /(?<=[^\s])(?<!\bBoxed)(?<!\bFinal)(?<!\bModel)(?<!\bPractice)(?<!\bSample)(?<!\bCheckpoint)\s+(?=(?:Boxed\s+Answer|Final\s+Answer|Model\s+Problem|Practice\s+Problem|Sample\s+Problem|Checkpoint\s+Question|Step\s*\d+|Step\s*[A-Za-z]|Given(?:\s+that)?|To\s+(?:Find|Prove|Evaluate|Calculate|Determine)|Formula|Theorem|Law|Construction|Proof|Substitution|Calculation|Working|Rough|Answer|Ans|Problem|Question|Case\s*\d+|Hence\s+Proved|Therefore|Result|\([ivxlcdm\d]+\)|\([a-z]\)|\d+[\.\)])\s*[:\.\-])/i
 
   // Delimiter for splitting explicit step delimiters: semicolons and pipe separators (surrounded by whitespace)
   // Preserves mathematical modulus (|x|) and parallel geometry (|| or ∥)
@@ -163,17 +163,17 @@ export function formatChalkboardSteps(text: string, maxCharsPerLine = 60): strin
 let measureCtx: CanvasRenderingContext2D | null | undefined
 
 /**
- * Measures text width in px using the board's hand-drawn font (Excalidraw fontFamily 1).
+ * Measures text width in px using the board's primary typography (Excalidraw Excalifont).
  * Falls back to a conservative per-character estimate when no canvas is available (SSR).
  */
 export function measureBoardText(text: string, fontSize: number): number {
   if (measureCtx === undefined) {
     measureCtx = typeof document !== 'undefined' ? document.createElement('canvas').getContext('2d') : null
   }
-  if (!measureCtx) return text.length * fontSize * 0.68
-  measureCtx.font = `${fontSize}px Virgil, Excalifont, "Segoe UI Emoji", sans-serif`
-  // Small safety margin: Excalidraw renders with slight stroke jitter
-  return measureCtx.measureText(text).width * 1.04
+  if (!measureCtx) return text.length * fontSize * 0.65
+  measureCtx.font = `${fontSize}px Excalifont, Xiaolai, "Segoe UI Emoji", sans-serif`
+  // Small safety margin so Excalidraw never clips multi-line, math fallback, or hand-drawn jitter boxes
+  return measureCtx.measureText(text).width * 1.07
 }
 
 /**

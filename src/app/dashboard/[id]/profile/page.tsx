@@ -2,6 +2,12 @@ import React, { Suspense } from 'react'
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import { StudentProfileView } from '@/components/profile/StudentProfileView'
+import {
+  getCachedUserProfile,
+  getCachedCurriculums,
+  getCachedCurriculumModules,
+  getCachedUserProgressList,
+} from '@/lib/cache/dataCache'
 
 export const dynamic = 'force-dynamic'
 
@@ -21,54 +27,25 @@ export default async function StudentProfilePage({
     redirect('/login')
   }
 
-  // 1. Fetch user profile
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user.id)
-    .maybeSingle()
+  // 1. Fetch cached user profile
+  const profile = await getCachedUserProfile(supabase, user.id)
 
   if (!profile || !profile.onboarding_completed) {
     redirect('/onboarding')
   }
 
-  // 2. Fetch published curriculums
-  let curriculumsQuery = supabase
-    .from('curriculums')
-    .select('id, title, description, category, difficulty_level, estimated_duration_minutes, is_published, class_level, board, order_index')
-    .eq('is_published', true)
-
-  if (profile?.class_level) {
-    curriculumsQuery = curriculumsQuery.or(`class_level.eq.${profile.class_level},class_level.is.null`)
-  }
-
-  const { data: curriculumsData } = await curriculumsQuery
-    .order('order_index', { ascending: true })
-    .order('created_at', { ascending: true })
-  const curriculums = curriculumsData || []
+  // 2. Fetch cached published curriculums & user progress in parallel
+  const [curriculums, progressRecords] = await Promise.all([
+    getCachedCurriculums(supabase, { classLevel: profile?.class_level, isPublished: true }),
+    getCachedUserProgressList(supabase, user.id),
+  ])
 
   const curriculumIds = curriculums.map((c: any) => c.id).filter(Boolean)
 
-  // 3. Fetch syllabus modules
-  let modulesQuery = supabase
-    .from('syllabus_modules')
-    .select('id, curriculum_id, order_index, title, description, key_concepts, estimated_minutes, class_level, board, chapter_notes')
-    .order('order_index', { ascending: true })
-
-  if (curriculumIds.length > 0) {
-    modulesQuery = modulesQuery.in('curriculum_id', curriculumIds)
-  }
-
-  const { data: modulesData } = await modulesQuery
-  const modules = modulesData || []
-
-  // 4. Fetch user progress records (including saved chalkboard notes)
-  const { data: progressData } = await supabase
-    .from('user_progress')
-    .select('*')
-    .eq('user_id', user.id)
-
-  const progressRecords = progressData || []
+  // 3. Fetch cached syllabus modules
+  const modules = curriculumIds.length > 0
+    ? await getCachedCurriculumModules(supabase, curriculumIds)
+    : []
 
   return (
     <Suspense

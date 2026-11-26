@@ -7,7 +7,7 @@ import { isRequestAuthorizedAdmin } from '@/lib/adminAuth'
 import { checkRateLimit, getClientIp } from '@/lib/rateLimit'
 import { resilientGenerateContent, resilientJsonParse } from '@/lib/geminiResilientGenerate'
 import { generateVisualLessonPlanForCapsule } from '@/services/visualLessonPlanGenerator'
-import { invalidateCurriculumCache } from '@/lib/cache/dataCache'
+import { invalidateCurriculumCache, adminCurriculumsCacheStore } from '@/lib/cache/dataCache'
 
 interface WorkedExample {
   problem: string
@@ -233,103 +233,112 @@ ${visualPlaybook ? `- CONCEPT-BY-CONCEPT VISUAL PLAYBOOK (MANDATORY UNIQUE DRAWI
 // ---------------------------------------------------------------------------
 export async function GET() {
   try {
-    const supabase = await createClient()
+    const payload = await adminCurriculumsCacheStore.getOrSet('all_admin_curriculums', async () => {
+      const supabase = await createClient()
 
-    const { data: curriculums, error: currErr } = await supabase
-      .from('curriculums')
-      .select(`
-        id,
-        title,
-        description,
-        board,
-        category,
-        class_level,
-        order_index,
-        difficulty_level,
-        estimated_duration_minutes,
-        is_published,
-        created_at,
-        raw_chapter_notes,
-        notes_summary,
-        notes_source_filename,
-        gemini_cache_name,
-        syllabus_modules (
+      const { data: curriculums, error: currErr } = await supabase
+        .from('curriculums')
+        .select(`
           id,
           title,
+          description,
+          board,
+          category,
+          class_level,
           order_index,
-          estimated_minutes,
-          chapter_notes,
-          worked_examples,
-          common_misconceptions,
-          subtopics,
-          key_concepts,
-          visual_lesson_plan
+          difficulty_level,
+          estimated_duration_minutes,
+          is_published,
+          created_at,
+          raw_chapter_notes,
+          notes_summary,
+          notes_source_filename,
+          gemini_cache_name,
+          syllabus_modules (
+            id,
+            title,
+            order_index,
+            estimated_minutes,
+            chapter_notes,
+            worked_examples,
+            common_misconceptions,
+            subtopics,
+            key_concepts,
+            visual_lesson_plan
+          )
+        `)
+        .order('board', { ascending: true })
+        .order('class_level', { ascending: true })
+        .order('category', { ascending: true })
+        .order('order_index', { ascending: true })
+
+      if (currErr) {
+        console.error('[Curriculum Ingest API] GET error:', currErr)
+        throw new Error(currErr.message)
+      }
+
+      const formatted = (curriculums || []).map((c: any) => {
+        const modules = (c.syllabus_modules || []).sort(
+          (a: any, b: any) => (a.order_index ?? 0) - (b.order_index ?? 0)
+        ).map((m: any) => {
+          const vPlan = m.visual_lesson_plan || {}
+          return {
+            ...m,
+            visual_ideas: vPlan.diagram_idea || vPlan.visual_ideas || '',
+            diagram_type: vPlan.diagram_type || '',
+            what_to_make: vPlan.what_to_make || vPlan.diagram_description || '',
+            diagram_svg: vPlan.diagram_svg || '',
+            visual_lesson_plan: vPlan,
+          }
+        })
+        const hasNotes = Boolean(
+          (c.raw_chapter_notes && c.raw_chapter_notes.trim().length > 0) ||
+          c.notes_source_filename
         )
-      `)
-      .order('board', { ascending: true })
-      .order('class_level', { ascending: true })
-      .order('category', { ascending: true })
-      .order('order_index', { ascending: true })
 
-    if (currErr) {
-      console.error('[Curriculum Ingest API] GET error:', currErr)
-      return NextResponse.json({ error: currErr.message }, { status: 500 })
-    }
-
-    const formatted = (curriculums || []).map((c: any) => {
-      const modules = (c.syllabus_modules || []).sort(
-        (a: any, b: any) => (a.order_index ?? 0) - (b.order_index ?? 0)
-      ).map((m: any) => {
-        const vPlan = m.visual_lesson_plan || {}
         return {
-          ...m,
-          visual_ideas: vPlan.diagram_idea || vPlan.visual_ideas || '',
-          diagram_type: vPlan.diagram_type || '',
-          what_to_make: vPlan.what_to_make || vPlan.diagram_description || '',
-          diagram_svg: vPlan.diagram_svg || '',
-          visual_lesson_plan: vPlan,
+          id: c.id,
+          title: c.title,
+          description: c.description,
+          board: (c.board as EducationalBoard) || 'CBSE',
+          category: c.category || 'General',
+          class_level: c.class_level || 'Class 10',
+          order_index: c.order_index ?? 1,
+          difficulty_level: c.difficulty_level || 'intermediate',
+          estimated_duration_minutes: c.estimated_duration_minutes || 60,
+          is_published: c.is_published ?? true,
+          created_at: c.created_at,
+          hasNotes,
+          notesSummary: c.notes_summary || null,
+          notesSourceFilename: c.notes_source_filename || null,
+          geminiCacheName: c.gemini_cache_name || null,
+          modulesCount: modules.length,
+          modules,
         }
       })
-      const hasNotes = Boolean(
-        (c.raw_chapter_notes && c.raw_chapter_notes.trim().length > 0) ||
-        c.notes_source_filename
+
+      const uniqueClasses = Array.from(
+        new Set(formatted.map((c: any) => c.class_level).filter(Boolean))
       )
+      const uniqueSubjects = Array.from(
+        new Set(formatted.map((c: any) => c.category).filter(Boolean))
+      )
+      const uniqueBoards: EducationalBoard[] = ['CBSE', 'ICSE', 'IB']
 
       return {
-        id: c.id,
-        title: c.title,
-        description: c.description,
-        board: (c.board as EducationalBoard) || 'CBSE',
-        category: c.category || 'General',
-        class_level: c.class_level || 'Class 10',
-        order_index: c.order_index ?? 1,
-        difficulty_level: c.difficulty_level || 'intermediate',
-        estimated_duration_minutes: c.estimated_duration_minutes || 60,
-        is_published: c.is_published ?? true,
-        created_at: c.created_at,
-        hasNotes,
-        notesSummary: c.notes_summary || null,
-        notesSourceFilename: c.notes_source_filename || null,
-        geminiCacheName: c.gemini_cache_name || null,
-        modulesCount: modules.length,
-        modules,
+        success: true,
+        curriculums: formatted,
+        classes: uniqueClasses,
+        subjects: uniqueSubjects,
+        boards: uniqueBoards,
       }
     })
 
-    const uniqueClasses = Array.from(
-      new Set(formatted.map((c) => c.class_level).filter(Boolean))
-    )
-    const uniqueSubjects = Array.from(
-      new Set(formatted.map((c) => c.category).filter(Boolean))
-    )
-    const uniqueBoards: EducationalBoard[] = ['CBSE', 'ICSE', 'IB']
-
-    return NextResponse.json({
-      success: true,
-      curriculums: formatted,
-      classes: uniqueClasses,
-      subjects: uniqueSubjects,
-      boards: uniqueBoards,
+    return NextResponse.json(payload, {
+      status: 200,
+      headers: {
+        'Cache-Control': 'private, max-age=30, stale-while-revalidate=120',
+      },
     })
   } catch (err: any) {
     console.error('[Curriculum Ingest API] GET unhandled error:', err)
@@ -386,6 +395,7 @@ export async function DELETE(req: Request) {
       return NextResponse.json({ error: delErr.message }, { status: 500 })
     }
 
+    invalidateCurriculumCache()
     return NextResponse.json({ success: true, deletedId: id })
   } catch (err: any) {
     console.error('[Curriculum Ingest API] DELETE unhandled error:', err)

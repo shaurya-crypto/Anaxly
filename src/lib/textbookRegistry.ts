@@ -71,8 +71,19 @@ export function normalizeSubject(s: string): string {
   if (lower.startsWith('math')) return 'mathematics'
   if (lower.startsWith('phys')) return 'physics'
   if (lower.startsWith('chem')) return 'chemistry'
-  if (lower.startsWith('sci') || lower.startsWith('bio')) return 'science'
+  if (lower.startsWith('bio')) return 'biology'
+  if (lower.startsWith('sci')) return 'science'
   return lower
+}
+
+function subjectsMatch(chapterSubject: string, querySubject: string, classLevel?: number): boolean {
+  const s = normalizeSubject(chapterSubject)
+  const q = normalizeSubject(querySubject)
+  if (s === q || s.includes(q) || q.includes(s)) return true
+  if (classLevel && classLevel <= 10 && ((s === 'science' && q === 'biology') || (s === 'biology' && q === 'science'))) {
+    return true
+  }
+  return false
 }
 
 /**
@@ -92,13 +103,10 @@ export function getChapter(
 ): TextbookChapter | undefined {
   const normClass = typeof classLevel === 'string' ? parseInt(classLevel.replace(/\D/g, ''), 10) : classLevel
   const normCh = typeof chapterNumber === 'string' ? parseInt(String(chapterNumber).replace(/\D/g, ''), 10) : chapterNumber
-  const normSub = normalizeSubject(subject)
-
   return db.chapters.find((c) => {
     if (c.classLevel !== normClass) return false
     if (c.chapterNumber !== normCh) return false
-    const s = normalizeSubject(c.subject)
-    return s === normSub || s.includes(normSub) || normSub.includes(s)
+    return subjectsMatch(c.subject, subject, normClass)
   })
 }
 
@@ -135,12 +143,10 @@ export function getChapterById(id: string): TextbookChapter | undefined {
  */
 export function getChaptersBySubject(classLevel: number | string, subject: string): TextbookChapter[] {
   const normClass = typeof classLevel === 'string' ? parseInt(classLevel.replace(/\D/g, ''), 10) : classLevel
-  const normSub = normalizeSubject(subject)
 
   return db.chapters.filter((c) => {
     if (c.classLevel !== normClass) return false
-    const s = normalizeSubject(c.subject)
-    return s === normSub || s.includes(normSub) || normSub.includes(s)
+    return subjectsMatch(c.subject, subject, normClass)
   })
 }
 
@@ -170,9 +176,8 @@ export function searchIndex(
   const targetChapters = db.chapters.filter((c) => {
     if (filter?.classLevel && c.classLevel !== filter.classLevel) return false
     if (filter?.chapterNumber && c.chapterNumber !== filter.chapterNumber) return false
-    if (normFilterSub) {
-      const s = normalizeSubject(c.subject)
-      if (s !== normFilterSub && !s.includes(normFilterSub) && !normFilterSub.includes(s)) return false
+    if (filter?.subject) {
+      if (!subjectsMatch(c.subject, filter.subject, c.classLevel)) return false
     }
     return true
   })

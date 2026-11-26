@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { GoogleGenAI } from '@google/genai'
 
 interface ImageResult {
   url: string
@@ -183,8 +184,9 @@ const HARMFUL_IMAGE_PATTERNS = [
   /\b(?:porn|pornography|sex|sexual|nsfw|erotic|nude|nudity|escort|dating|bikini|lingerie)\b/i,
   /\b(?:gore|murder|corpse|execution|suicide|decapitat|mutilat|bloodshed)\b/i,
   /\b(?:casino|gambling|betting|poker|slots|crypto|bitcoin|forex)\b/i,
-  /\b(?:shutterstock|gettyimages|alamy|dreamstime|123rf|istockphoto|stock-photo|depositphotos|freepik|vectorstock|canva|cleanpng)\b/i,
+  /\b(?:shutterstock|gettyimages|alamy|dreamstime|123rf|istockphoto|stock-photo|depositphotos|freepik|vectorstock|canva|cleanpng|vecteezy|pngtree)\b/i,
   /\b(?:pinterest\.com|pinimg\.com)\b/i,
+  /(?:math-only-math\.com|onlinemath4all\.com|aplustopper\.com|tiwariacademy\.com|slideserve\.com|slideshare|slideplayer|slidetodoc|brainly|chegg|coursehero|studocu)/i,
 ]
 
 function isSafeEducationalImage(title: string, url: string): boolean {
@@ -758,6 +760,91 @@ async function searchWikimediaCommons(query: string, limit: number = 8): Promise
 }
 
 /**
+ * Lightweight fail-open multimodal quality inspection using gemini-2.5-flash-lite.
+ * Rejects raster candidates containing visible watermarks, website URLs, dense paragraph
+ * text walls, or promotional banners while allowing short neat diagram labels.
+ */
+async function inspectImageQualityWithFlashLite(
+  img: ImageResult,
+  query: string
+): Promise<boolean> {
+  const apiKey = process.env.GEMINI_API_KEY
+  if (!apiKey) return true
+
+  const lowerUrl = img.url.toLowerCase()
+  // Skip SVG files (Gemini inlineData expects raster MIME types) and official Wikimedia/Wikipedia SVGs
+  if (lowerUrl.endsWith('.svg') || lowerUrl.includes('.svg?')) {
+    return true
+  }
+
+  try {
+    const imgRes = await fetch(img.url, {
+      method: 'GET',
+      headers: {
+        'User-Agent': BROWSER_USER_AGENT,
+        Accept: 'image/*,*/*;q=0.8',
+      },
+      signal: AbortSignal.timeout(1800),
+    })
+    if (!imgRes.ok) return true
+
+    const contentType = (imgRes.headers.get('content-type') || '').toLowerCase()
+    if (!contentType.startsWith('image/') || contentType.includes('svg')) {
+      return true
+    }
+
+    const buf = Buffer.from(await imgRes.arrayBuffer())
+    if (buf.length === 0 || buf.length > 2 * 1024 * 1024) {
+      return true
+    }
+
+    const mimeType = contentType.split(';')[0].trim()
+    const ai = new GoogleGenAI({ apiKey })
+
+    const response = await Promise.race([
+      ai.models.generateContent({
+        model: 'gemini-2.5-flash-lite',
+        contents: [
+          {
+            role: 'user',
+            parts: [
+              {
+                inlineData: {
+                  mimeType,
+                  data: buf.toString('base64'),
+                },
+              },
+              {
+                text: `Inspect this educational diagram candidate for the topic "${query}". Return JSON {"clean": boolean, "reason": string}. Set clean=false ONLY if the image has visible website watermarks or copyright URLs (like "©", ".com" logos), dense multi-sentence paragraph text walls, promotional/blog banners, or is completely unrelated to "${query}". Clean diagrams with short neat mathematical or scientific labels (letters, numbers, units, part names) must be clean=true.`,
+              },
+            ],
+          },
+        ],
+        config: {
+          responseMimeType: 'application/json',
+          temperature: 0.0,
+          maxOutputTokens: 128,
+        },
+      }),
+      new Promise<null>((resolve) => setTimeout(() => resolve(null), 2500)),
+    ])
+
+    if (!response || !response.text) return true
+    const cleanJsonText = response.text.trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '')
+    const rawParsed = JSON.parse(cleanJsonText)
+    const parsed = Array.isArray(rawParsed) ? rawParsed[0] : rawParsed
+    if (typeof parsed?.clean === 'boolean' && parsed.clean === false) {
+      console.info(`[search-image] Rejected candidate (${img.url}): ${parsed.reason || 'watermark/text-wall'}`)
+      return false
+    }
+    return true
+  } catch {
+    // Fail-open on network/timeout/JSON errors so search never stalls
+    return true
+  }
+}
+
+/**
  * Executes Fast Parallel Multi-Source Image Search:
  * 1. Search Engine (Bing Images & Web Image Search) prioritized FIRST per user instruction.
  * 2. Wikipedia Encyclopedic lead illustrations queried SECOND as high-authority reference.
@@ -868,11 +955,33 @@ async function getVerifiedImages(cleanQuery: string, limit: number): Promise<Ima
   for (const res of verifications) {
     if (res.status === 'fulfilled' && res.value.ok) {
       verified.push(res.value.img)
-      if (verified.length >= limit) break
+      if (verified.length >= Math.max(limit * 2, 5)) break
     }
   }
 
-  return verified
+  // Multimodal visual quality inspection on top 3 verified raster candidates (fail-open)
+  if (verified.length > 0 && process.env.GEMINI_API_KEY) {
+    const topToInspect = verified.slice(0, 3)
+    const rest = verified.slice(3)
+    const inspections = await Promise.allSettled(
+      topToInspect.map(async (img) => ({
+        img,
+        clean: await inspectImageQualityWithFlashLite(img, primaryQuery),
+      }))
+    )
+    const cleanTop: ImageResult[] = []
+    inspections.forEach((item, idx) => {
+      if (item.status === 'fulfilled') {
+        if (item.value.clean) cleanTop.push(item.value.img)
+      } else {
+        cleanTop.push(topToInspect[idx])
+      }
+    })
+    const combined = [...cleanTop, ...rest]
+    return combined.slice(0, limit)
+  }
+
+  return verified.slice(0, limit)
 }
 
 export async function GET(req: NextRequest) {
@@ -891,7 +1000,7 @@ export async function GET(req: NextRequest) {
     const cached = imageSearchCache.get(cacheKey)
     if (cached) {
       const hasStaleSlide = cached.images.some((img) =>
-        /slideserve|slideshare|slideplayer|factmyth|proposition\s*\d+/i.test(`${img.url} ${img.title}`)
+        /slideserve|slideshare|slideplayer|slidetodoc|factmyth|math-only-math|onlinemath4all|aplustopper|tiwariacademy|vecteezy|pngtree|brainly|chegg|coursehero|studocu|proposition\s*\d+/i.test(`${img.url} ${img.title}`)
       )
       if (!hasStaleSlide) {
         const ttl = cached.images.length > 0 ? CACHE_TTL_MS : EMPTY_CACHE_TTL_MS
@@ -934,7 +1043,7 @@ export async function POST(req: Request) {
     const cached = imageSearchCache.get(cacheKey)
     if (cached) {
       const hasStaleSlide = cached.images.some((img) =>
-        /slideserve|slideshare|slideplayer|factmyth|proposition\s*\d+/i.test(`${img.url} ${img.title}`)
+        /slideserve|slideshare|slideplayer|slidetodoc|factmyth|math-only-math|onlinemath4all|aplustopper|tiwariacademy|vecteezy|pngtree|brainly|chegg|coursehero|studocu|proposition\s*\d+/i.test(`${img.url} ${img.title}`)
       )
       if (!hasStaleSlide) {
         const ttl = cached.images.length > 0 ? CACHE_TTL_MS : EMPTY_CACHE_TTL_MS

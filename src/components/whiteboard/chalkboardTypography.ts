@@ -48,8 +48,9 @@ export function cleanChalkboardTypography(text: string): string {
     return `###URLHOLDER${urls.length - 1}###`
   })
 
-  // 2. Remove markdown code backticks: `F = ma` -> F = ma
+  // 2. Remove markdown code backticks & heal mojibake square-root glyphs (Ã( -> √()
   out = out.replace(/`([^`]+)`/g, '$1')
+  out = out.replace(/\u00C3\s*(?=[\(\[])/g, '√')
 
   // 3. LaTeX Greek and mathematical replacements
   const latexReplacements: [RegExp, string][] = [
@@ -190,4 +191,13 @@ export function cleanChalkboardTypography(text: string): string {
   })
 
   return out
+}
+
+/**
+ * Returns true if text contains mathematical symbols/roots/scripts where crisp
+ * sans-serif typography guarantees faithful glyph rendering (e.g. √, ∫, θ, x₂).
+ */
+export function hasMathUnicode(text: string): boolean {
+  if (!text) return false
+  return /[√∛∜∫∬∮∑∏∂∇θΔλπΩαβγστφω±×÷·≤≥≠≈→⇒↔⇌⁰¹²³⁴⁵⁶⁷⁸⁹₀₁₂₃₄₅₆₇₈₉]/.test(text)
 }

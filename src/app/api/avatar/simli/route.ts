@@ -2,8 +2,45 @@ import { NextResponse } from 'next/server'
 import { generateSimliSessionToken, generateIceServers } from 'simli-client'
 import { createClient } from '@/utils/supabase/server'
 import { checkRateLimit, getClientIp } from '@/lib/rateLimit'
+import { getCachedUserProfile } from '@/lib/cache/dataCache'
 
 export const dynamic = 'force-dynamic'
+
+export async function GET() {
+  try {
+    const apiKey = process.env.SIMLI_API_KEY
+    if (!apiKey) {
+      return NextResponse.json({ available: false, reason: 'not_configured' })
+    }
+
+    const supabase = await createClient()
+    const {
+      data: { user },
+      error: authError,
+    } = await supabase.auth.getUser()
+
+    if (authError || !user) {
+      return NextResponse.json({ available: false, reason: 'unauthorized' })
+    }
+
+    const profile = await getCachedUserProfile(supabase, user.id)
+
+    const isPaidAvatarTier =
+      profile?.subscription_tier === 'topper' ||
+      profile?.subscription_tier === 'elite' ||
+      profile?.subscription_tier === 'mastery'
+
+    const isExplicitlyAllowed =
+      profile?.is_avatar_enabled === true && (isPaidAvatarTier || profile?.limit_type === 'unlimited')
+
+    return NextResponse.json({
+      available: isExplicitlyAllowed,
+      reason: isExplicitlyAllowed ? 'entitled' : 'upgrade_required',
+    })
+  } catch {
+    return NextResponse.json({ available: false, reason: 'error' })
+  }
+}
 
 export async function POST(req: Request) {
   try {
@@ -35,12 +72,8 @@ export async function POST(req: Request) {
       )
     }
 
-    // 3. Check subscription tier and avatar entitlement
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('is_avatar_enabled, subscription_tier, limit_type')
-      .eq('id', user.id)
-      .single()
+    // 3. Check subscription tier and avatar entitlement (from cache)
+    const profile = await getCachedUserProfile(supabase, user.id)
 
     const isPaidAvatarTier =
       profile?.subscription_tier === 'topper' ||

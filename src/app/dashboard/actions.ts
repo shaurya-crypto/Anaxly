@@ -7,6 +7,10 @@ import {
   getCachedSyllabusModule,
   getCachedSiblingModules,
   getCachedCurriculumModuleCounts,
+  invalidateUserProfileCache,
+  invalidateUserProgressCache,
+  invalidateUserEnrollmentsCache,
+  invalidateStudyPlanCache,
 } from '@/lib/cache/dataCache'
 import { isSchemaError } from '@/lib/utils'
 
@@ -50,6 +54,7 @@ export async function updatePreferencesAction(formData: FormData) {
     return { error: error.message }
   }
 
+  invalidateUserProfileCache(user.id)
   revalidatePath(`/dashboard/${user.id}`)
   return { success: true }
 }
@@ -75,6 +80,7 @@ export async function enrollCurriculumAction(curriculumId: string) {
     return { error: error.message }
   }
 
+  invalidateUserEnrollmentsCache(user.id)
   revalidatePath(`/dashboard/${user.id}`)
   return { success: true }
 }
@@ -234,6 +240,8 @@ export async function completeCapsuleAction(payload: {
     }
   }
 
+  invalidateUserProgressCache(user.id)
+  invalidateUserProfileCache(user.id)
   revalidatePath(`/dashboard/${user.id}`)
   revalidatePath(`/dashboard/${user.id}/profile`)
   return { success: true, nextModuleId, completedChaptersCount: totalDoneChapters }
@@ -290,6 +298,7 @@ export async function saveBoardNotesAction(payload: {
     }
   }
 
+  invalidateUserProgressCache(user.id, moduleId)
   return { success: true }
 }
 
@@ -343,6 +352,7 @@ export async function updateStudyPlanAction(payload: {
     if (error) return { error: error.message }
   }
 
+  invalidateStudyPlanCache(user.id)
   revalidatePath(`/dashboard/${user.id}`)
   return { success: true }
 }
@@ -382,6 +392,7 @@ export async function updateAccountAction(payload: {
     return { error: error.message }
   }
 
+  invalidateUserProfileCache(user.id)
   revalidatePath(`/dashboard/${user.id}`)
   revalidatePath(`/dashboard/${user.id}/settings`)
   return { success: true }
@@ -413,6 +424,7 @@ export async function updateTeachingStyleAction(payload: {
     return { error: error.message }
   }
 
+  invalidateUserProfileCache(user.id)
   revalidatePath(`/dashboard/${user.id}`)
   revalidatePath(`/dashboard/${user.id}/settings`)
   return { success: true }
@@ -442,6 +454,7 @@ export async function updateGeneralSettingsAction(payload: {
     return { error: error.message }
   }
 
+  invalidateUserProfileCache(user.id)
   revalidatePath(`/dashboard/${user.id}`)
   revalidatePath(`/dashboard/${user.id}/settings`)
   return { success: true }
@@ -502,6 +515,7 @@ export async function updateAvatarPreferenceAction(payload: {
     return { error: error.message }
   }
 
+  invalidateUserProfileCache(user.id)
   revalidatePath(`/dashboard/${user.id}`)
   revalidatePath(`/dashboard/${user.id}/settings`)
   return { success: true }

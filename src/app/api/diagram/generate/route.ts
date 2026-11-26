@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { checkRateLimit, getClientIp } from '@/lib/rateLimit'
 import { generateOrRefineDiagramWithTier2 } from '@/services/tier2DiagramRefiner'
 import { createAdminClient } from '@/utils/supabase/admin'
+import { getCachedSyllabusModule, invalidateModuleCache } from '@/lib/cache/dataCache'
 
 // In-memory LRU cache for generated SVGs to conserve API tokens and render instantly
 const svgCache = new Map<
@@ -59,15 +60,11 @@ export async function POST(req: Request) {
       source = '',
     } = body
 
-    // Dynamically resolve classLevel and subject from module/curriculum if not provided in the request
+    // Dynamically resolve classLevel and subject from cached module/curriculum if not provided
     if (moduleId && (!classLevel || !subject)) {
       try {
         const adminSupabase = createAdminClient()
-        const { data: modInfo } = await adminSupabase
-          .from('syllabus_modules')
-          .select('id, class_level, curriculums(category, class_level)')
-          .eq('id', moduleId)
-          .single()
+        const modInfo = await getCachedSyllabusModule(adminSupabase, moduleId)
 
         if (modInfo) {
           const curr = Array.isArray(modInfo.curriculums) ? modInfo.curriculums[0] : modInfo.curriculums
@@ -229,6 +226,8 @@ export async function POST(req: Request) {
 
           if (updateErr) {
             console.warn('[Diagram Generate API] Supabase update warning:', updateErr.message)
+          } else {
+            invalidateModuleCache(moduleId)
           }
         }
       } catch (persistErr) {

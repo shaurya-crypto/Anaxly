@@ -1,7 +1,7 @@
 /**
- * Data Cache Subsystem: In-Memory Multi-Tier Caching for Curriculum & Academic Catalog
- * Dramatically reduces PostgreSQL database queries, eliminates duplicate catalog lookups,
- * and speeds up classroom and dashboard loads from ~200-500ms down to 0-2ms.
+ * Data Cache Subsystem: Multi-Tier Caching with Global Store & In-Flight Request Coalescing
+ * Eliminates duplicate Supabase PostgreSQL queries across API routes, Server Components,
+ * Server Actions, and browser sessions while invalidating immediately on writes.
  */
 
 import { SupabaseClient } from '@supabase/supabase-js'
@@ -11,18 +11,32 @@ interface CacheEntry<T> {
   expiresAt: number
 }
 
-class InMemoryTTLStore {
+interface StoreOptions {
+  ttlMs?: number
+  prefix?: string
+  persistToSessionStorage?: boolean
+}
+
+export class InMemoryTTLStore {
   private store = new Map<string, CacheEntry<any>>()
+  private inflight = new Map<string, Promise<any>>()
   private defaultTtlMs: number
   private prefix: string
+  private persistToSessionStorage: boolean
 
-  constructor(defaultTtlMs: number = 10 * 60 * 1000, prefix: string = 'ai_tutor_cache_') {
-    this.defaultTtlMs = defaultTtlMs
-    this.prefix = prefix
+  constructor(defaultTtlMs: number = 10 * 60 * 1000, prefixOrOpts: string | StoreOptions = 'ai_tutor_cache_') {
+    if (typeof prefixOrOpts === 'string') {
+      this.defaultTtlMs = defaultTtlMs
+      this.prefix = prefixOrOpts
+      this.persistToSessionStorage = true
+    } else {
+      this.defaultTtlMs = prefixOrOpts.ttlMs ?? defaultTtlMs
+      this.prefix = prefixOrOpts.prefix ?? 'ai_tutor_cache_'
+      this.persistToSessionStorage = prefixOrOpts.persistToSessionStorage !== false
+    }
   }
 
   public get<T>(key: string): T | null {
-    // 1. In-memory check
     const entry = this.store.get(key)
     if (entry) {
       if (Date.now() > entry.expiresAt) {
@@ -32,8 +46,7 @@ class InMemoryTTLStore {
       }
     }
 
-    // 2. Client-side sessionStorage check (0ms reload persistence)
-    if (typeof window !== 'undefined' && window.sessionStorage) {
+    if (this.persistToSessionStorage && typeof window !== 'undefined' && window.sessionStorage) {
       try {
         const raw = window.sessionStorage.getItem(this.prefix + key)
         if (raw) {
@@ -46,7 +59,7 @@ class InMemoryTTLStore {
           }
         }
       } catch {
-        // Fallback silently if sessionStorage is unavailable or throws
+        // Fallback silently if sessionStorage is unavailable
       }
     }
 
@@ -61,7 +74,7 @@ class InMemoryTTLStore {
     }
     this.store.set(key, entry)
 
-    if (typeof window !== 'undefined' && window.sessionStorage) {
+    if (this.persistToSessionStorage && typeof window !== 'undefined' && window.sessionStorage) {
       try {
         window.sessionStorage.setItem(this.prefix + key, JSON.stringify(entry))
       } catch {
@@ -72,16 +85,38 @@ class InMemoryTTLStore {
 
   public delete(key: string): void {
     this.store.delete(key)
-    if (typeof window !== 'undefined' && window.sessionStorage) {
+    this.inflight.delete(key)
+    if (this.persistToSessionStorage && typeof window !== 'undefined' && window.sessionStorage) {
       try {
         window.sessionStorage.removeItem(this.prefix + key)
-      } catch { }
+      } catch {}
+    }
+  }
+
+  public invalidateByPrefix(prefix: string): void {
+    for (const k of Array.from(this.store.keys())) {
+      if (k.startsWith(prefix)) this.store.delete(k)
+    }
+    for (const k of Array.from(this.inflight.keys())) {
+      if (k.startsWith(prefix)) this.inflight.delete(k)
+    }
+    if (this.persistToSessionStorage && typeof window !== 'undefined' && window.sessionStorage) {
+      try {
+        const toRemove: string[] = []
+        const fullPrefix = this.prefix + prefix
+        for (let i = 0; i < window.sessionStorage.length; i++) {
+          const k = window.sessionStorage.key(i)
+          if (k && k.startsWith(fullPrefix)) toRemove.push(k)
+        }
+        toRemove.forEach((k) => window.sessionStorage.removeItem(k))
+      } catch {}
     }
   }
 
   public clear(): void {
     this.store.clear()
-    if (typeof window !== 'undefined' && window.sessionStorage) {
+    this.inflight.clear()
+    if (this.persistToSessionStorage && typeof window !== 'undefined' && window.sessionStorage) {
       try {
         const keysToRemove: string[] = []
         for (let i = 0; i < window.sessionStorage.length; i++) {
@@ -91,7 +126,7 @@ class InMemoryTTLStore {
           }
         }
         keysToRemove.forEach((k) => window.sessionStorage.removeItem(k))
-      } catch { }
+      } catch {}
     }
   }
 
@@ -104,27 +139,88 @@ class InMemoryTTLStore {
     if (existing !== null && existing !== undefined) {
       return existing
     }
-    const fresh = await fetcher()
-    if (fresh !== null && fresh !== undefined) {
-      this.set(key, fresh, ttlMs)
+
+    const pending = this.inflight.get(key)
+    if (pending) {
+      return pending as Promise<T>
     }
-    return fresh
+
+    const promise = fetcher()
+      .then((fresh) => {
+        if (fresh !== null && fresh !== undefined) {
+          this.set(key, fresh, ttlMs)
+        }
+        return fresh
+      })
+      .finally(() => {
+        this.inflight.delete(key)
+      })
+
+    this.inflight.set(key, promise)
+    return promise
   }
 }
 
-// 1. In-Memory Stores
-export const curriculumCacheStore = new InMemoryTTLStore(15 * 60 * 1000)       // 15 mins
-export const moduleCacheStore = new InMemoryTTLStore(15 * 60 * 1000)           // 15 mins
-export const siblingCacheStore = new InMemoryTTLStore(15 * 60 * 1000)          // 15 mins
-export const countsCacheStore = new InMemoryTTLStore(30 * 60 * 1000)           // 30 mins
-export const nextChapterCacheStore = new InMemoryTTLStore(30 * 60 * 1000)      // 30 mins
-export const curriculumModulesCacheStore = new InMemoryTTLStore(15 * 60 * 1000)// 15 mins
+interface GlobalDataCaches {
+  curriculum: InMemoryTTLStore
+  module: InMemoryTTLStore
+  sibling: InMemoryTTLStore
+  counts: InMemoryTTLStore
+  nextChapter: InMemoryTTLStore
+  curriculumModules: InMemoryTTLStore
+  pyq: InMemoryTTLStore
+  adminCurriculums: InMemoryTTLStore
+  profile: InMemoryTTLStore
+  userProgress: InMemoryTTLStore
+  enrollments: InMemoryTTLStore
+  userMemories: InMemoryTTLStore
+  studyPlan: InMemoryTTLStore
+  subscription: InMemoryTTLStore
+}
 
-// 2. Cached Fetchers
+function getGlobalCaches(): GlobalDataCaches {
+  const g = globalThis as any
+  if (!g.__aiTutorDataCaches) {
+    g.__aiTutorDataCaches = {
+      curriculum: new InMemoryTTLStore(15 * 60 * 1000, { prefix: 'ai_tutor_curr_' }),
+      module: new InMemoryTTLStore(15 * 60 * 1000, { prefix: 'ai_tutor_mod_' }),
+      sibling: new InMemoryTTLStore(15 * 60 * 1000, { prefix: 'ai_tutor_sib_' }),
+      counts: new InMemoryTTLStore(30 * 60 * 1000, { prefix: 'ai_tutor_cnt_' }),
+      nextChapter: new InMemoryTTLStore(30 * 60 * 1000, { prefix: 'ai_tutor_next_' }),
+      curriculumModules: new InMemoryTTLStore(15 * 60 * 1000, { prefix: 'ai_tutor_cmods_' }),
+      pyq: new InMemoryTTLStore(10 * 60 * 1000, { prefix: 'ai_tutor_pyq_' }),
+      adminCurriculums: new InMemoryTTLStore(10 * 60 * 1000, { persistToSessionStorage: false }),
+      profile: new InMemoryTTLStore(2 * 60 * 1000, { persistToSessionStorage: false }),
+      userProgress: new InMemoryTTLStore(2 * 60 * 1000, { persistToSessionStorage: false }),
+      enrollments: new InMemoryTTLStore(3 * 60 * 1000, { persistToSessionStorage: false }),
+      userMemories: new InMemoryTTLStore(5 * 60 * 1000, { persistToSessionStorage: false }),
+      studyPlan: new InMemoryTTLStore(5 * 60 * 1000, { persistToSessionStorage: false }),
+      subscription: new InMemoryTTLStore(3 * 60 * 1000, { persistToSessionStorage: false }),
+    } satisfies GlobalDataCaches
+  }
+  return g.__aiTutorDataCaches as GlobalDataCaches
+}
 
-/**
- * Retrieve cached syllabus module by ID (joins curriculum data)
- */
+const caches = getGlobalCaches()
+
+// 1. Exported Stores (Shared via globalThis across routes/HMR)
+export const curriculumCacheStore = caches.curriculum
+export const moduleCacheStore = caches.module
+export const siblingCacheStore = caches.sibling
+export const countsCacheStore = caches.counts
+export const nextChapterCacheStore = caches.nextChapter
+export const curriculumModulesCacheStore = caches.curriculumModules
+export const pyqCacheStore = caches.pyq
+export const adminCurriculumsCacheStore = caches.adminCurriculums
+export const profileCacheStore = caches.profile
+export const userProgressCacheStore = caches.userProgress
+export const enrollmentsCacheStore = caches.enrollments
+export const userMemoriesCacheStore = caches.userMemories
+export const studyPlanCacheStore = caches.studyPlan
+export const subscriptionCacheStore = caches.subscription
+
+// 2. Catalog Cached Fetchers
+
 export async function getCachedSyllabusModule(
   supabase: SupabaseClient<any, any, any>,
   moduleId: string
@@ -146,9 +242,6 @@ export async function getCachedSyllabusModule(
   })
 }
 
-/**
- * Retrieve cached sibling modules within a curriculum
- */
 export async function getCachedSiblingModules(
   supabase: SupabaseClient<any, any, any>,
   curriculumId: string
@@ -169,7 +262,6 @@ export async function getCachedSiblingModules(
     return data || []
   })
 }
-
 
 export async function getCachedCurriculumModules(
   supabase: SupabaseClient<any, any, any>,
@@ -194,9 +286,6 @@ export async function getCachedCurriculumModules(
   })
 }
 
-/**
- * Retrieve cached published curriculums, optionally filtered by class level and board
- */
 export async function getCachedCurriculums(
   supabase: SupabaseClient<any, any, any>,
   filters?: { classLevel?: string | null; board?: string | null; isPublished?: boolean }
@@ -226,10 +315,6 @@ export async function getCachedCurriculums(
   })
 }
 
-/**
- * High-Efficiency Module Counts Per Curriculum:
- * Replaces expensive unindexed full-table scans on `syllabus_modules` with a cached aggregate Map.
- */
 export async function getCachedCurriculumModuleCounts(
   supabase: SupabaseClient<any, any, any>,
   targetCurriculumIds?: string[]
@@ -252,11 +337,11 @@ export async function getCachedCurriculumModuleCounts(
     }
 
     const counts: Record<string, number> = {}
-      ; (data || []).forEach((row: any) => {
-        if (row.curriculum_id) {
-          counts[row.curriculum_id] = (counts[row.curriculum_id] || 0) + 1
-        }
-      })
+    ;(data || []).forEach((row: any) => {
+      if (row.curriculum_id) {
+        counts[row.curriculum_id] = (counts[row.curriculum_id] || 0) + 1
+      }
+    })
     return counts
   })
 
@@ -265,9 +350,6 @@ export async function getCachedCurriculumModuleCounts(
   return result
 }
 
-/**
- * Retrieve cached next chapter info for smooth curriculum progression
- */
 export async function getCachedNextChapterInfo(
   supabase: SupabaseClient<any, any, any>,
   params: {
@@ -330,11 +412,176 @@ export async function getCachedNextChapterInfo(
   })
 }
 
-/**
- * Invalidate caches on administrative mutations or syllabus ingestion
- */
+export async function getCachedChapterPyqs(
+  supabase: SupabaseClient<any, any, any>,
+  filters?: { curriculumId?: string | null; board?: string | null; classLevel?: string | null; category?: string | null }
+): Promise<any[]> {
+  const cacheKey = `pyq_${filters?.curriculumId || 'all'}_${filters?.board || 'all'}_${filters?.classLevel || 'all'}_${filters?.category || 'all'}`
+  return pyqCacheStore.getOrSet(cacheKey, async () => {
+    let query = supabase.from('chapter_pyqs').select('*')
+    if (filters?.curriculumId) query = query.eq('curriculum_id', filters.curriculumId)
+    if (filters?.board) query = query.eq('board', filters.board)
+    if (filters?.classLevel) query = query.eq('class_level', filters.classLevel)
+    if (filters?.category) query = query.eq('category', filters.category)
+
+    const { data, error } = await query.order('created_at', { ascending: false })
+    if (error) {
+      console.warn('[DataCache] Failed fetching chapter PYQs:', error.message)
+      throw new Error(error.message)
+    }
+    return data || []
+  })
+}
+
+// 3. Per-User Cached Fetchers (In-memory TTL + strict invalidation on writes)
+
+export async function getCachedUserProfile(
+  supabase: SupabaseClient<any, any, any>,
+  userId: string
+): Promise<any | null> {
+  if (!userId) return null
+  return profileCacheStore.getOrSet(`profile_${userId}`, async () => {
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('id', userId)
+      .maybeSingle()
+
+    if (error) {
+      console.warn(`[DataCache] Failed fetching profile ${userId}:`, error.message)
+      return null
+    }
+    return data
+  })
+}
+
+export async function getCachedUserProgressList(
+  supabase: SupabaseClient<any, any, any>,
+  userId: string
+): Promise<any[]> {
+  if (!userId) return []
+  return userProgressCacheStore.getOrSet(`progress_list_${userId}`, async () => {
+    const { data, error } = await supabase
+      .from('user_progress')
+      .select('*')
+      .eq('user_id', userId)
+
+    if (error) {
+      console.warn(`[DataCache] Failed fetching progress list for ${userId}:`, error.message)
+      return []
+    }
+    return data || []
+  })
+}
+
+export async function getCachedModuleProgress(
+  supabase: SupabaseClient<any, any, any>,
+  userId: string,
+  moduleId: string
+): Promise<any | null> {
+  if (!userId || !moduleId) return null
+
+  const existingList = userProgressCacheStore.get<any[]>(`progress_list_${userId}`)
+  if (Array.isArray(existingList)) {
+    const match = existingList.find((r) => r.syllabus_module_id === moduleId)
+    if (match) return match
+  }
+
+  return userProgressCacheStore.getOrSet(`progress_${userId}_${moduleId}`, async () => {
+    const res = await supabase
+      .from('user_progress')
+      .select(
+        'status, chapter_notes, current_concept_index, completed_concepts, last_covered_concept, visual_progress, is_paused, completed_at'
+      )
+      .eq('user_id', userId)
+      .eq('syllabus_module_id', moduleId)
+      .maybeSingle()
+
+    if (res.error && res.error.code === '42703') {
+      const fallback = await supabase
+        .from('user_progress')
+        .select(
+          'status, chapter_notes, current_concept_index, completed_concepts, last_covered_concept, completed_at'
+        )
+        .eq('user_id', userId)
+        .eq('syllabus_module_id', moduleId)
+        .maybeSingle()
+      return fallback.data || null
+    }
+    return res.data || null
+  })
+}
+
+export async function getCachedUserEnrollments(
+  supabase: SupabaseClient<any, any, any>,
+  userId: string
+): Promise<any[]> {
+  if (!userId) return []
+  return enrollmentsCacheStore.getOrSet(`enrollments_${userId}`, async () => {
+    const { data, error } = await supabase
+      .from('enrollments')
+      .select('id, status, enrolled_at, curriculum_id, curriculums (*)')
+      .eq('user_id', userId)
+      .eq('status', 'active')
+      .order('enrolled_at', { ascending: true })
+
+    if (error) {
+      console.warn(`[DataCache] Failed fetching enrollments for ${userId}:`, error.message)
+      return []
+    }
+    return data || []
+  })
+}
+
+export async function getCachedUserMemories(
+  supabase: SupabaseClient<any, any, any>,
+  userId: string,
+  limit: number = 10
+): Promise<any[]> {
+  if (!userId) return []
+  return userMemoriesCacheStore.getOrSet(`memories_${userId}_${limit}`, async () => {
+    const { data, error } = await supabase
+      .from('ai_user_memories')
+      .select('*')
+      .eq('user_id', userId)
+      .order('importance_score', { ascending: false })
+      .limit(limit)
+
+    if (error) {
+      console.warn(`[DataCache] Failed fetching memories for ${userId}:`, error.message)
+      return []
+    }
+    return data || []
+  })
+}
+
+export async function getCachedActiveStudyPlan(
+  supabase: SupabaseClient<any, any, any>,
+  userId: string
+): Promise<any | null> {
+  if (!userId) return null
+  return studyPlanCacheStore.getOrSet(`study_plan_${userId}`, async () => {
+    const { data, error } = await supabase
+      .from('student_study_plans')
+      .select('*')
+      .eq('user_id', userId)
+      .eq('is_active', true)
+      .maybeSingle()
+
+    if (error) {
+      console.warn(`[DataCache] Failed fetching study plan for ${userId}:`, error.message)
+      return null
+    }
+    return data || null
+  })
+}
+
+// 4. Cache Invalidators
+
 export function invalidateCurriculumCache(): void {
   curriculumCacheStore.clear()
+  curriculumModulesCacheStore.clear()
+  adminCurriculumsCacheStore.clear()
   countsCacheStore.clear()
   nextChapterCacheStore.clear()
 }
@@ -349,4 +596,45 @@ export function invalidateModuleCache(moduleId?: string, curriculumId?: string):
     siblingCacheStore.delete(`siblings_${curriculumId}`)
     countsCacheStore.delete(`counts_all_curriculums`)
   }
+  curriculumModulesCacheStore.clear()
+  adminCurriculumsCacheStore.clear()
+}
+
+export function invalidatePyqCache(): void {
+  pyqCacheStore.clear()
+}
+
+export function invalidateUserProfileCache(userId?: string): void {
+  if (!userId) return
+  profileCacheStore.delete(`profile_${userId}`)
+}
+
+export function invalidateUserProgressCache(userId?: string, moduleId?: string): void {
+  if (!userId) return
+  userProgressCacheStore.delete(`progress_list_${userId}`)
+  if (moduleId) {
+    userProgressCacheStore.delete(`progress_${userId}_${moduleId}`)
+  } else {
+    userProgressCacheStore.invalidateByPrefix(`progress_${userId}_`)
+  }
+}
+
+export function invalidateUserEnrollmentsCache(userId?: string): void {
+  if (!userId) return
+  enrollmentsCacheStore.delete(`enrollments_${userId}`)
+}
+
+export function invalidateUserMemoriesCache(userId?: string): void {
+  if (!userId) return
+  userMemoriesCacheStore.invalidateByPrefix(`memories_${userId}_`)
+}
+
+export function invalidateStudyPlanCache(userId?: string): void {
+  if (!userId) return
+  studyPlanCacheStore.delete(`study_plan_${userId}`)
+}
+
+export function invalidateSubscriptionCache(userId?: string): void {
+  if (!userId) return
+  subscriptionCacheStore.delete(`sub_${userId}`)
 }

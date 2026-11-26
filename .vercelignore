@@ -1,0 +1,9 @@
+# Keep Vercel deployment and serverless traces under the 250 MB bundle cap.
+# Textbooks are streamed from Supabase Storage (`textbooks` bucket) via /api/pdf-proxy.
+public/**/*.pdf
+scripts/extracted_ch_full/
+scripts/extracted_ch_texts/
+*.log
+.playwright-cli/
+playwright-report/
+test-results/

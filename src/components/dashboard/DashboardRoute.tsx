@@ -3,7 +3,17 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { StitchDashboardView, DashboardViewId } from "@/components/dashboard/StitchDashboardView";
 import { getStudentSubscription } from "@/lib/subscription/subscriptionService";
-import { getCachedCurriculums, getCachedCurriculumModules } from "@/lib/cache/dataCache";
+import {
+  getCachedCurriculums,
+  getCachedCurriculumModules,
+  getCachedUserProfile,
+  getCachedUserEnrollments,
+  getCachedUserProgressList,
+  getCachedUserMemories,
+  getCachedActiveStudyPlan,
+  invalidateUserProfileCache,
+  invalidateUserEnrollmentsCache,
+} from "@/lib/cache/dataCache";
 
 /** Loads everything the dashboard shell needs and renders the requested view. */
 export async function DashboardRoute({
@@ -27,12 +37,8 @@ export async function DashboardRoute({
   // Subscription lookup is independent of the profile, so start it in parallel.
   const subscriptionPromise = getStudentSubscription(user.id).catch(() => null);
 
-  // 1. Fetch user profile
-  let { data: profile } = await supabase
-    .from("profiles")
-    .select("*")
-    .eq("id", user.id)
-    .single();
+  // 1. Fetch cached user profile
+  let profile = await getCachedUserProfile(supabase, user.id);
 
   if (!profile) {
     // Self-heal: auto-create the missing profile row in public.profiles
@@ -49,6 +55,7 @@ export async function DashboardRoute({
       .single();
 
     profile = newProfile;
+    invalidateUserProfileCache(user.id);
   }
 
   // Redirect to onboarding if not yet completed
@@ -91,6 +98,7 @@ export async function DashboardRoute({
   if (streakUpdated) {
     profile.current_streak = currentStreak;
     profile.last_active_date = todayStr;
+    invalidateUserProfileCache(user.id);
     streakWrite = supabase
       .from("profiles")
       .update({
@@ -101,34 +109,22 @@ export async function DashboardRoute({
       .eq("id", user.id);
   }
 
-  // 2-3 + 5. Independent reads in parallel: enrollments, published curriculums,
-  // progress, memories, study plan (previously 5 sequential round trips).
+  // 2-3 + 5. Independent cached reads in parallel
   const [
-    { data: enrollmentsData },
+    enrollmentsData,
     allCurriculums,
-    [{ data: progressData }, { data: memoriesData }, { data: studyPlan }],
+    [progressData, memoriesData, studyPlan],
   ] = await Promise.all([
-    supabase
-    .from("enrollments")
-    .select(`
-      id,
-      status,
-      enrolled_at,
-      curriculum_id,
-      curriculums (*)
-    `)
-    .eq("user_id", user.id)
-    .eq("status", "active")
-    .order("enrolled_at", { ascending: true }),
+    getCachedUserEnrollments(supabase, user.id),
     getCachedCurriculums(supabase, {
       classLevel: profile?.class_level,
       board: profile?.board,
       isPublished: true,
     }),
     Promise.all([
-      supabase.from("user_progress").select("*").eq("user_id", user.id),
-      supabase.from("ai_user_memories").select("*").eq("user_id", user.id).order("importance_score", { ascending: false }).limit(10),
-      supabase.from("student_study_plans").select("*").eq("user_id", user.id).eq("is_active", true).maybeSingle(),
+      getCachedUserProgressList(supabase, user.id),
+      getCachedUserMemories(supabase, user.id, 10),
+      getCachedActiveStudyPlan(supabase, user.id),
     ]),
     streakWrite,
   ]);
@@ -218,6 +214,7 @@ export async function DashboardRoute({
             status: 'active',
             enrolled_at: new Date().toISOString()
           }, { onConflict: 'user_id,curriculum_id' });
+        invalidateUserEnrollmentsCache(user.id);
         if (!enrolledCurriculums.some((c: any) => c.id === curr.id)) {
           enrolledCurriculums.push(curr);
         }

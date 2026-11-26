@@ -3,6 +3,7 @@ import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import { SettingsView } from '@/components/settings/SettingsView'
 import { getStudentSubscription } from '@/lib/subscription/subscriptionService'
+import { getCachedUserProfile, getCachedActiveStudyPlan } from '@/lib/cache/dataCache'
 
 export const dynamic = 'force-dynamic'
 
@@ -22,10 +23,10 @@ export default async function SettingsPage({
     redirect('/login')
   }
 
-  // Fetch student profile
-  const [{ data: profile }, { data: studyPlan }, subscription] = await Promise.all([
-    supabase.from('profiles').select('*').eq('id', user.id).maybeSingle(),
-    supabase.from('student_study_plans').select('*').eq('user_id', user.id).eq('is_active', true).maybeSingle(),
+  // Fetch cached student profile, study plan, and subscription in parallel
+  const [profile, studyPlan, subscription] = await Promise.all([
+    getCachedUserProfile(supabase, user.id),
+    getCachedActiveStudyPlan(supabase, user.id),
     getStudentSubscription(user.id).catch(() => null),
   ])
 

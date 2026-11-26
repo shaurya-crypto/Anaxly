@@ -30,12 +30,53 @@ export function useGeminiLive() {
   const animationFrameRef = useRef<number | null>(null);
   const sharedAudioCtxRef = useRef<AudioContext | null>(null);
   const isMutedRef = useRef(false);
+  const transcriptsRef = useRef<TranscriptItem[]>([]);
   const connectionStateRef = useRef<ConnectionState>("IDLE");
   const lockedVoiceRef = useRef<GeminiVoice | null>(null);
+  const resumptionHandleRef = useRef<string | null>(null);
+  const tokenCacheRef = useRef<{
+    token: string;
+    config: any;
+    mintedAt: number;
+    consumed: boolean;
+  } | null>(null);
+  const isManualEndRef = useRef<boolean>(false);
+  const endCallRef = useRef<() => void>(() => {});
+  const transparentReconnectAttemptsRef = useRef<number>(0);
+  const transparentReconnectTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const isTransparentReconnectingRef = useRef<boolean>(false);
+  const activeSessionOptionsRef = useRef<{
+    voiceOverride?: GeminiVoice;
+    systemInstructionOverride?: string;
+    kickoffPrompt?: string;
+    onChalkboardToolCall?: (action: string, content: any, color?: string) => any;
+    onVisualAction?: (action: string, params: Record<string, any>) => void;
+    avatarConfig?: LiveAvatarConfig;
+    onAudioOutputChunk?: (pcm16: Int16Array, sampleRate: number) => void;
+    onSpeechInterrupted?: () => void;
+    languageOptions?: {
+      preferredLanguage?: string;
+      supportedLanguages?: string[];
+      languageCode?: string;
+    };
+    onGetBoardContent?: () => string;
+    onHighlightText?: (text: string, target?: string, color?: string) => void;
+    onPlanTeachingMove?: (args: {
+      questionOrTopic: string;
+      studentMessage: string;
+      struggleCount?: number;
+    }) => Promise<any>;
+  } | null>(null);
 
   useEffect(() => {
     isMutedRef.current = isMuted;
+    geminiClientRef.current?.setStudentMicMuted(isMuted);
   }, [isMuted]);
+
+  useEffect(() => {
+    transcriptsRef.current = transcripts;
+    geminiClientRef.current?.setRecentTranscriptHistory(transcripts.slice(-6));
+  }, [transcripts]);
 
   useEffect(() => {
     connectionStateRef.current = connectionState;
@@ -108,110 +149,120 @@ export function useGeminiLive() {
     }
   }, [flushTranscripts]);
 
-  // Start Live Tutoring Session
-  const startClass = useCallback(async (
-    voiceOverride?: GeminiVoice,
-    systemInstructionOverride?: string,
-    kickoffPrompt?: string,
-    onChalkboardToolCall?: (action: string, content: any, color?: string) => void,
-    onVisualAction?: (action: string, params: Record<string, any>) => void,
-    avatarConfig?: LiveAvatarConfig,
-    onAudioOutputChunk?: (pcm16: Int16Array, sampleRate: number) => void,
-    onSpeechInterrupted?: () => void,
-    languageOptions?: {
-      preferredLanguage?: string;
-      supportedLanguages?: string[];
-      languageCode?: string;
-    },
-    onGetBoardContent?: () => string,
-    onHighlightText?: (text: string, target?: string, color?: string) => void
-  ) => {
-    setErrorMessage(null);
-    setConnectionState("CONNECTING");
+  const fetchSessionConfig = useCallback(async (forceFresh = false) => {
+    const cached = tokenCacheRef.current;
+    if (
+      !forceFresh &&
+      cached &&
+      !cached.consumed &&
+      Date.now() - cached.mintedAt < 45000
+    ) {
+      return cached.config;
+    }
+    const res = await fetch("/api/session");
+    if (!res.ok) {
+      const errJson = await res.json().catch(() => ({}));
+      throw new Error(errJson.error || "Failed to initialize live session configuration");
+    }
+    const config = await res.json();
+    tokenCacheRef.current = {
+      token: config.token || config.apiKey,
+      config,
+      mintedAt: Date.now(),
+      consumed: false,
+    };
+    return config;
+  }, []);
 
-    try {
-      // 1. Fetch live session config from backend
-      const res = await fetch("/api/session");
-      if (!res.ok) {
-        const errJson = await res.json().catch(() => ({}));
-        throw new Error(errJson.error || "Failed to initialize live session configuration");
-      }
-      const config = await res.json();
+  const connectClientInstance = useCallback(
+    async (
+      config: any,
+      opts: NonNullable<typeof activeSessionOptionsRef.current>,
+      isResuming: boolean
+    ) => {
       if (config.studentProfile) {
         setStudentProfile(config.studentProfile);
       }
 
-      // 2. Initialize AudioPlayer with Web Audio API
-      const player = new AudioPlayer((isPlaying) => {
-        setConnectionState((prev) => {
-          if (prev === "DISCONNECTED" || prev === "ERROR" || prev === "IDLE") return prev;
-          if (isPlaying) {
-            audioStreamerRef.current?.setTeacherSpeaking(true);
-            return "TEACHER_SPEAKING";
-          } else {
-            audioStreamerRef.current?.setTeacherSpeaking(false);
-            return isMutedRef.current ? "MUTED" : "LISTENING";
-          }
-        });
-      });
-
-      const audioCtx = await player.init(undefined, 24000);
-      if (typeof window !== "undefined") {
-        const savedSpeed = localStorage.getItem("anaxly_tutor_speed");
-        if (savedSpeed) {
-          const parsed = parseFloat(savedSpeed);
-          if (!isNaN(parsed) && parsed >= 0.75 && parsed <= 1.3) {
-            player.setPlaybackSpeed(parsed);
-          }
-        }
-      }
-      audioPlayerRef.current = player;
-      sharedAudioCtxRef.current = audioCtx;
-
-      // 3. Initialize AudioStreamer using the SAME AudioContext for hardware echo cancellation
-      const streamer = new AudioStreamer(
-        (base64Chunk) => {
-          if (geminiClientRef.current) {
-            geminiClientRef.current.sendAudioChunk(base64Chunk);
-          }
-        },
-        () => {
-          console.log("[useGeminiLive] Client barge-in detected: stopping teacher playback immediately");
-          if (audioPlayerRef.current) {
-            audioPlayerRef.current.stopAndClear();
-          }
-          onSpeechInterrupted?.();
-          setConnectionState((prev) => (prev !== "MUTED" ? "LISTENING" : "MUTED"));
-        },
-        () => {
-          console.log("[useGeminiLive] Student started speaking");
-          // Non-destructive: do not stop teacher audio on general speech start. Deliberate barge-in is handled above.
-          setConnectionState((prev) => (prev !== "MUTED" ? "LISTENING" : "MUTED"));
-        },
-        () => {
-          // Server VAD continuously monitors incoming audio stream and detects turn completion.
-          // Premature audioStreamEnd dispatch is disabled to allow natural pause tolerance.
-        }
-      );
-      await streamer.start(audioCtx);
-      audioStreamerRef.current = streamer;
-
-      const activeVoice = (lockedVoiceRef.current || voiceOverride || selectedVoice || config.voiceName || "Charon") as GeminiVoice;
+      const activeVoice = (lockedVoiceRef.current ||
+        opts.voiceOverride ||
+        selectedVoice ||
+        config.voiceName ||
+        "Charon") as GeminiVoice;
       lockedVoiceRef.current = activeVoice;
       if (activeVoice !== selectedVoice) {
         setSelectedVoice(activeVoice);
       }
       console.log("[useGeminiLive] Locked active voice for live session:", activeVoice);
 
+      const triggerTransparentReconnect = (reasonLabel: string) => {
+        if (isManualEndRef.current || isTransparentReconnectingRef.current) return;
+        if (transparentReconnectAttemptsRef.current >= 3) {
+          console.warn(`[useGeminiLive] Max transparent reconnect attempts reached after ${reasonLabel}. Falling back to clean disconnect.`);
+          setConnectionState("DISCONNECTED");
+          endCallRef.current();
+          return;
+        }
+        isTransparentReconnectingRef.current = true;
+        transparentReconnectAttemptsRef.current += 1;
+        const attemptNum = transparentReconnectAttemptsRef.current;
+        const delayMs = attemptNum === 1 ? 350 : attemptNum === 2 ? 1200 : 2400;
+        console.log(`[useGeminiLive] Transparent reconnect scheduled (${reasonLabel}, attempt ${attemptNum}/3) keeping AudioStreamer alive...`);
+
+        if (geminiClientRef.current) {
+          geminiClientRef.current.disconnect({ preserveResumption: true });
+          geminiClientRef.current = null;
+        }
+
+        if (transparentReconnectTimerRef.current) {
+          clearTimeout(transparentReconnectTimerRef.current);
+        }
+        transparentReconnectTimerRef.current = setTimeout(async () => {
+          if (isManualEndRef.current) {
+            isTransparentReconnectingRef.current = false;
+            return;
+          }
+          try {
+            const freshConfig = await fetchSessionConfig();
+            const savedOpts = activeSessionOptionsRef.current;
+            if (!savedOpts || isManualEndRef.current) {
+              isTransparentReconnectingRef.current = false;
+              return;
+            }
+            // Clear reconnecting lock before connect so onError/onClose from this attempt can schedule the next retry instead of deadlocking
+            isTransparentReconnectingRef.current = false;
+            await connectClientInstance(freshConfig, savedOpts, true);
+          } catch (reconnErr) {
+            console.warn("[useGeminiLive] Transparent reconnect attempt failed:", reconnErr);
+            isTransparentReconnectingRef.current = false;
+            if (transparentReconnectAttemptsRef.current < 3 && !isManualEndRef.current) {
+              triggerTransparentReconnect("retry");
+            } else {
+              setConnectionState("DISCONNECTED");
+              endCallRef.current();
+            }
+          }
+        }, delayMs);
+      };
+
+      if (tokenCacheRef.current) {
+        tokenCacheRef.current.consumed = true;
+      }
+
       const client = new GeminiLiveClient(
         config.token || config.apiKey,
         {
           onSetupComplete: () => {
+            isTransparentReconnectingRef.current = false;
+            transparentReconnectAttemptsRef.current = 0;
             setConnectionState("CONNECTED");
-            // Kick off spoken turn immediately so teacher starts teaching Concept 1
-            if (kickoffPrompt) {
+            const shouldKickoff = (!isResuming || !resumptionHandleRef.current) && !resumptionHandleRef.current && opts.kickoffPrompt;
+            if (shouldKickoff && opts.kickoffPrompt) {
               audioStreamerRef.current?.setTeacherSpeaking(true);
-              client.sendKickoff(kickoffPrompt);
+              const resumePrompt = isResuming
+                ? `[SESSION RECONNECTED]: Continue teaching smoothly from where we paused on the current chalkboard without repeating already-written notes.`
+                : opts.kickoffPrompt;
+              client.sendKickoff(resumePrompt);
               setTimeout(() => {
                 setConnectionState((current) => {
                   if (current === "CONNECTED") {
@@ -222,14 +273,24 @@ export function useGeminiLive() {
                 });
               }, 3500);
             } else {
-              setConnectionState((current) => (current === "CONNECTED" ? (isMutedRef.current ? "MUTED" : "LISTENING") : current));
+              setConnectionState((current) =>
+                current === "CONNECTED" ? (isMutedRef.current ? "MUTED" : "LISTENING") : current
+              );
             }
+          },
+          onSessionResumptionUpdate: (handle, resumable) => {
+            if (resumable && handle) {
+              resumptionHandleRef.current = handle;
+            }
+          },
+          onGoAway: () => {
+            triggerTransparentReconnect("goAway");
           },
           onAudioData: (pcm16, sampleRate) => {
             if (audioPlayerRef.current) {
               audioPlayerRef.current.playChunk(pcm16, sampleRate);
             }
-            onAudioOutputChunk?.(pcm16, sampleRate);
+            opts.onAudioOutputChunk?.(pcm16, sampleRate);
           },
           onVideoData: (data, mimeType) => {
             setLatestVideoFrame(data);
@@ -239,16 +300,16 @@ export function useGeminiLive() {
           },
           onUserSpeechStart: () => {
             console.log("[useGeminiLive] onUserSpeechStart: Server detected voice activity");
-            // Non-destructive: do NOT stop teacher audio playback on raw server VAD activity.
-            // Deliberate student barge-in is handled client-side by onBargeIn, or server-side by onInterrupted.
-            setConnectionState((prev) => (prev !== "MUTED" && prev !== "TEACHER_SPEAKING" ? "LISTENING" : prev));
+            setConnectionState((prev) =>
+              prev !== "MUTED" && prev !== "TEACHER_SPEAKING" ? "LISTENING" : prev
+            );
           },
           onInterrupted: () => {
             console.log("[useGeminiLive] onInterrupted: Server confirmed barge-in");
             if (audioPlayerRef.current) {
               audioPlayerRef.current.stopAndClear();
             }
-            onSpeechInterrupted?.();
+            opts.onSpeechInterrupted?.();
             audioStreamerRef.current?.setTeacherSpeaking(false);
             setConnectionState((prev) => (prev !== "MUTED" ? "LISTENING" : "MUTED"));
           },
@@ -265,15 +326,10 @@ export function useGeminiLive() {
             addTranscript(text, sender);
           },
           onChalkboardToolCall: (action, content, color) => {
-            const allowed = pedagogicalStateManager.current.handleToolCall(action);
-            if (allowed) {
-              onChalkboardToolCall?.(action, content, color);
-            } else {
-              console.log(`[useGeminiLive] Tool call blocked by PedagogicalStateManager: ${action}`);
-            }
+            return opts.onChalkboardToolCall?.(action, content, color);
           },
           onVisualAction: (action, params) => {
-            onVisualAction?.(action, params);
+            opts.onVisualAction?.(action, params);
           },
           onHighlightText: (text, target, color) => {
             if (target === "subtitles" || target === "both" || !target) {
@@ -283,40 +339,173 @@ export function useGeminiLive() {
                 setActiveHighlight(null);
               }, 4500);
             }
-            onHighlightText?.(text, target, color);
+            opts.onHighlightText?.(text, target, color);
           },
           onGetBoardContent: () => {
-            return onGetBoardContent?.() || "";
+            return opts.onGetBoardContent?.() || "";
+          },
+          onPlanTeachingMove: async (args) => {
+            if (opts.onPlanTeachingMove) {
+              return opts.onPlanTeachingMove(args);
+            }
+            return { result: "skipped", reason: "no_think_handler" };
           },
           onError: (err) => {
             console.error("[useGeminiLive] Connection error:", err);
+            if (!isManualEndRef.current && transparentReconnectAttemptsRef.current < 3 && audioStreamerRef.current) {
+              triggerTransparentReconnect("error");
+              return;
+            }
             setErrorMessage("Connection to Gemini Live was interrupted. Please check your network and try again.");
             setConnectionState("ERROR");
-            endCall();
+            endCallRef.current();
           },
           onClose: (event) => {
             console.log("[useGeminiLive] onClose callback triggered, event:", event);
+            if (!isManualEndRef.current && audioStreamerRef.current && transparentReconnectAttemptsRef.current < 3) {
+              triggerTransparentReconnect(`close_${event?.code || "unknown"}`);
+              return;
+            }
             setConnectionState((prev) => (prev === "ERROR" ? "ERROR" : "DISCONNECTED"));
-            endCall();
+            endCallRef.current();
           },
         },
         {
           model: config.model,
           voiceName: activeVoice,
-          systemInstruction: systemInstructionOverride,
+          systemInstruction: opts.systemInstructionOverride,
           enableFunctionCalling: true,
-          avatarConfig,
+          avatarConfig: opts.avatarConfig,
           pedagogicalStateManager: pedagogicalStateManager.current,
-          preferredLanguage: languageOptions?.preferredLanguage || config.preferredLanguage,
-          supportedLanguages: languageOptions?.supportedLanguages || config.supportedLanguages || ["en-IN", "hi-IN"],
-          languageCode: languageOptions?.languageCode || config.languageCode || "en-IN",
+          preferredLanguage: opts.languageOptions?.preferredLanguage || config.preferredLanguage,
+          supportedLanguages: opts.languageOptions?.supportedLanguages || config.supportedLanguages || ["en-IN", "hi-IN"],
+          languageCode: opts.languageOptions?.languageCode || config.languageCode || "en-IN",
           thinkingLevel: config.thinkingLevel,
+          resumptionHandle: resumptionHandleRef.current,
         }
       );
 
       geminiClientRef.current = client;
+      client.setStudentMicMuted(isMutedRef.current);
+      client.setRecentTranscriptHistory(transcriptsRef.current.slice(-6));
       sessionController.current.initSession(client);
-      client.connect(kickoffPrompt);
+      await client.connect(isResuming ? undefined : opts.kickoffPrompt);
+    },
+    [addTranscript, fetchSessionConfig, selectedVoice]
+  );
+
+  // Start Live Tutoring Session
+  const startClass = useCallback(async (
+    voiceOverride?: GeminiVoice,
+    systemInstructionOverride?: string,
+    kickoffPrompt?: string,
+    onChalkboardToolCall?: (action: string, content: any, color?: string) => any,
+    onVisualAction?: (action: string, params: Record<string, any>) => void,
+    avatarConfig?: LiveAvatarConfig,
+    onAudioOutputChunk?: (pcm16: Int16Array, sampleRate: number) => void,
+    onSpeechInterrupted?: () => void,
+    languageOptions?: {
+      preferredLanguage?: string;
+      supportedLanguages?: string[];
+      languageCode?: string;
+    },
+    onGetBoardContent?: () => string,
+    onHighlightText?: (text: string, target?: string, color?: string) => void,
+    onPlanTeachingMove?: (args: {
+      questionOrTopic: string;
+      studentMessage: string;
+      struggleCount?: number;
+    }) => Promise<any>
+  ) => {
+    setErrorMessage(null);
+    setConnectionState("CONNECTING");
+    isManualEndRef.current = false;
+    transparentReconnectAttemptsRef.current = 0;
+    isTransparentReconnectingRef.current = false;
+
+    const opts = {
+      voiceOverride,
+      systemInstructionOverride,
+      kickoffPrompt,
+      onChalkboardToolCall,
+      onVisualAction,
+      avatarConfig,
+      onAudioOutputChunk,
+      onSpeechInterrupted,
+      languageOptions,
+      onGetBoardContent,
+      onHighlightText,
+      onPlanTeachingMove,
+    };
+    activeSessionOptionsRef.current = opts;
+
+    try {
+      // 1. Fetch live session config from backend
+      const config = await fetchSessionConfig(true);
+
+      // 2. Initialize AudioPlayer with Web Audio API (reuse if already alive)
+      let player = audioPlayerRef.current;
+      let audioCtx = sharedAudioCtxRef.current;
+      if (!player || !audioCtx || audioCtx.state === "closed") {
+        player = new AudioPlayer((isPlaying) => {
+          setConnectionState((prev) => {
+            if (prev === "DISCONNECTED" || prev === "ERROR" || prev === "IDLE") return prev;
+            if (isPlaying) {
+              audioStreamerRef.current?.setTeacherSpeaking(true);
+              return "TEACHER_SPEAKING";
+            } else {
+              audioStreamerRef.current?.setTeacherSpeaking(false);
+              return isMutedRef.current ? "MUTED" : "LISTENING";
+            }
+          });
+        });
+
+        audioCtx = await player.init(undefined, 24000);
+        if (typeof window !== "undefined") {
+          const savedSpeed = localStorage.getItem("anaxly_tutor_speed");
+          if (savedSpeed) {
+            const parsed = parseFloat(savedSpeed);
+            if (!isNaN(parsed) && parsed >= 0.75 && parsed <= 1.3) {
+              player.setPlaybackSpeed(parsed);
+            }
+          }
+        }
+        audioPlayerRef.current = player;
+        sharedAudioCtxRef.current = audioCtx;
+      }
+
+      // 3. Initialize AudioStreamer using the SAME AudioContext for hardware echo cancellation
+      if (!audioStreamerRef.current) {
+        const streamer = new AudioStreamer(
+          (base64Chunk) => {
+            if (geminiClientRef.current) {
+              geminiClientRef.current.sendAudioChunk(base64Chunk);
+            }
+          },
+          () => {
+            console.log("[useGeminiLive] Client barge-in detected: stopping teacher playback immediately");
+            if (audioPlayerRef.current) {
+              audioPlayerRef.current.stopAndClear();
+            }
+            activeSessionOptionsRef.current?.onSpeechInterrupted?.();
+            setConnectionState((prev) => (prev !== "MUTED" ? "LISTENING" : "MUTED"));
+          },
+          () => {
+            console.log("[useGeminiLive] Student started speaking");
+            // Non-destructive: suppress LISTENING clobber while TEACHER_SPEAKING; deliberate barge-in is handled above.
+            setConnectionState((prev) =>
+              prev !== "MUTED" && prev !== "TEACHER_SPEAKING" ? "LISTENING" : prev
+            );
+          },
+          () => {
+            // Server VAD continuously monitors incoming audio stream and detects turn completion.
+          }
+        );
+        await streamer.start(audioCtx);
+        audioStreamerRef.current = streamer;
+      }
+
+      await connectClientInstance(config, opts, false);
 
       // 5. Start Volume Visualizer loop
       startVolumeLoop();
@@ -327,16 +516,18 @@ export function useGeminiLive() {
       setConnectionState("ERROR");
       endCall();
     }
-  }, [addTranscript, selectedVoice, startVolumeLoop]);
+  }, [connectClientInstance, fetchSessionConfig, startVolumeLoop]);
 
   const toggleMute = useCallback(() => {
     if (!audioStreamerRef.current) return;
     const nextMuted = !isMuted;
     audioStreamerRef.current.setMuted(nextMuted);
+    isMutedRef.current = nextMuted;
     setIsMuted(nextMuted);
+    geminiClientRef.current?.setStudentMicMuted(nextMuted);
     
-    // When muting, cleanly close open student audio stream without sending phantom turn completions
-    if (nextMuted && geminiClientRef.current) {
+    // Flush only if the student was mid-speech when clicking mute; never send synthetic turn endings when already silent
+    if (nextMuted && geminiClientRef.current && userVolumeRef.current > 0.015) {
       geminiClientRef.current.sendAudioStreamEnd();
     }
 
@@ -348,6 +539,17 @@ export function useGeminiLive() {
 
   // End Live Call
   const endCall = useCallback(() => {
+    isManualEndRef.current = true;
+    isTransparentReconnectingRef.current = false;
+    transparentReconnectAttemptsRef.current = 0;
+    if (transparentReconnectTimerRef.current) {
+      clearTimeout(transparentReconnectTimerRef.current);
+      transparentReconnectTimerRef.current = null;
+    }
+    resumptionHandleRef.current = null;
+    tokenCacheRef.current = null;
+    activeSessionOptionsRef.current = null;
+
     stopVolumeLoop();
 
     if (audioStreamerRef.current) {
@@ -381,6 +583,10 @@ export function useGeminiLive() {
     if (highlightTimeoutRef.current) clearTimeout(highlightTimeoutRef.current);
     setConnectionState((prev) => (prev === "ERROR" ? "ERROR" : "DISCONNECTED"));
   }, [stopVolumeLoop]);
+
+  useEffect(() => {
+    endCallRef.current = endCall;
+  }, [endCall]);
 
   // Reset to Idle
   const resetToIdle = useCallback(() => {
@@ -470,6 +676,7 @@ export function useGeminiLive() {
     resetToIdle,
     sendBoardContext,
     sendTextMessage,
+    setAwaitingStudentAnswer: (awaiting: boolean) => geminiClientRef.current?.setAwaitingStudentAnswer(awaiting),
     pedagogicalStateManager: pedagogicalStateManager.current,
   };
 }

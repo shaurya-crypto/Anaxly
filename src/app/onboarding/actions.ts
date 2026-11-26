@@ -3,6 +3,12 @@
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/utils/supabase/server'
+import {
+  invalidateUserProfileCache,
+  invalidateSubscriptionCache,
+  invalidateUserEnrollmentsCache,
+  invalidateUserProgressCache,
+} from '@/lib/cache/dataCache'
 
 // Strictly Classes 6 to 12 only (CBSE, ICSE, IB)
 const VALID_CLASSES = [
@@ -213,6 +219,10 @@ export async function completeOnboardingAction(data: Phase4OnboardingData) {
     console.error('[completeOnboardingAction] Auto-enrollment error:', enrollErr)
   }
 
+  invalidateUserProfileCache(user.id)
+  invalidateSubscriptionCache(user.id)
+  invalidateUserEnrollmentsCache(user.id)
+  invalidateUserProgressCache(user.id)
   revalidatePath('/', 'layout')
   redirect(`/dashboard/${user.id}`)
 }

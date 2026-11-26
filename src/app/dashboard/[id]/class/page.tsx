@@ -3,6 +3,13 @@
 import React, { useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { createClient } from '@/utils/supabase/client'
+import {
+  getCachedUserProfile,
+  getCachedUserProgressList,
+  getCachedUserEnrollments,
+  getCachedCurriculums,
+  getCachedCurriculumModules,
+} from '@/lib/cache/dataCache'
 
 export const dynamic = 'force-dynamic'
 
@@ -16,64 +23,46 @@ export default function ClassRedirectPage() {
 
     async function routeToActiveModule() {
       try {
-        // 1. Fetch user profile and quota settings
-        const { data: profile } = await supabase
-          .from('profiles')
-          .select('class_level, limit_type, max_modules')
-          .eq('id', userId)
-          .single()
+        // 1-4. Parallel cached reads for profile, progress, and enrollments
+        const [profile, allProgress, enrollments] = await Promise.all([
+          getCachedUserProfile(supabase, userId),
+          getCachedUserProgressList(supabase, userId),
+          getCachedUserEnrollments(supabase, userId),
+        ])
 
         const isUnlimitedUser = profile?.limit_type === 'unlimited'
         const maxAllowedModules = profile?.limit_type === 'modules' ? (profile?.max_modules ?? 5) : 1
 
-        // 2. Fetch completed modules for this user (Quota Check)
-        const { data: completedList } = await supabase
-          .from('user_progress')
-          .select('syllabus_module_id')
-          .eq('user_id', userId)
-          .eq('status', 'completed')
-
-        if (!isUnlimitedUser && completedList && completedList.length >= maxAllowedModules) {
-          // Free tier / quota limit reached -> direct to pricing page
+        const completedList = (allProgress || []).filter((p: any) => p.status === 'completed')
+        if (!isUnlimitedUser && completedList.length >= maxAllowedModules) {
           router.replace('/pricing')
           return
         }
 
-        // 3. Check if there's an in_progress module
-        const { data: inProgList } = await supabase
-          .from('user_progress')
-          .select('syllabus_module_id')
-          .eq('user_id', userId)
-          .eq('status', 'in_progress')
-          .limit(1)
-
-        if (inProgList && inProgList.length > 0 && inProgList[0].syllabus_module_id) {
-          router.replace(`/dashboard/${userId}/class/${inProgList[0].syllabus_module_id}`)
+        const inProgRec = (allProgress || []).find((p: any) => p.status === 'in_progress' && p.syllabus_module_id)
+        if (inProgRec?.syllabus_module_id) {
+          router.replace(`/dashboard/${userId}/class/${inProgRec.syllabus_module_id}`)
           return
         }
 
-        const completedSet = new Set((completedList || []).map((p) => p.syllabus_module_id))
+        const completedSet = new Set(completedList.map((p: any) => p.syllabus_module_id))
+        const enrolledCurriculumIds = (enrollments || []).map((e: any) => e.curriculum_id).filter(Boolean)
 
-        // 4. Fetch candidate modules from enrolled curriculums or class_level
-        const { data: enrollments } = await supabase
-          .from('enrollments')
-          .select('curriculum_id')
-          .eq('user_id', userId)
-          .eq('status', 'active')
-
-        const enrolledCurriculumIds = (enrollments || []).map((e) => e.curriculum_id).filter(Boolean)
-
-        let query = supabase.from('syllabus_modules').select('id, order_index')
+        let candidateMods: any[] = []
         if (enrolledCurriculumIds.length > 0) {
-          query = query.in('curriculum_id', enrolledCurriculumIds)
-        } else if (profile?.class_level) {
-          query = query.eq('class_level', profile.class_level)
+          candidateMods = await getCachedCurriculumModules(supabase, enrolledCurriculumIds)
+        } else {
+          const currs = await getCachedCurriculums(supabase, {
+            classLevel: profile?.class_level,
+            isPublished: true,
+          })
+          const currIds = currs.map((c: any) => c.id).filter(Boolean)
+          if (currIds.length > 0) {
+            candidateMods = await getCachedCurriculumModules(supabase, currIds)
+          }
         }
 
-        const { data: candidateMods } = await query.order('order_index', { ascending: true })
-
         if (candidateMods && candidateMods.length > 0) {
-          // Find first uncompleted module
           const nextMod = candidateMods.find((m) => !completedSet.has(m.id))
           const targetModId = nextMod ? nextMod.id : candidateMods[0].id
           router.replace(`/dashboard/${userId}/class/${targetModId}`)

@@ -159,48 +159,105 @@ export class AudioStreamer {
     }
     const rms = Math.sqrt(sum / inputData.length);
     const now = Date.now();
+    const SILENCE_TAIL_MS = 950;
+    const SPEECH_HANGOVER_MS = 900;
 
-    // 1. TEACHER SPEAKING & CLIENT-SIDE IMMEDIATE BARGE-IN:
-    // If student speaks while teacher is talking, immediately trigger local barge-in
-    // to stop local audio playback, while continuing to stream audio to Gemini server.
+    let allowUpstreamAudio = false;
+    let emitDigitalSilence = false;
+
+    // 1. TEACHER SPEAKING & CLIENT-SIDE STRICT BARGE-IN GATE:
+    // Require sustained higher-amplitude speech (5 consecutive frames) before interrupting the teacher,
+    // and withhold raw mic audio while teacher is speaking so room hum / speaker bleed never triggers
+    // false server-side VAD interruptions.
     if (this.isTeacherSpeaking) {
-      // Normal conversational speaking voice produces RMS 0.030-0.30
-      const BARGE_IN_THRESHOLD = 0.035;
-      if (rms >= BARGE_IN_THRESHOLD) {
+      const bargeInThreshold = Math.max(0.085, this.noiseFloor * 4.8);
+      if (rms >= bargeInThreshold) {
         this.consecutiveBargeInFrames++;
-        if (this.consecutiveBargeInFrames >= 2) {
-          console.log(`[AudioStreamer] Student voice detected during teacher speech (RMS: ${rms.toFixed(4)}). Triggering barge-in.`);
+        if (this.consecutiveBargeInFrames >= 5) {
+          console.log(`[AudioStreamer] Sustained student speech detected during teacher speech (RMS: ${rms.toFixed(4)}). Triggering barge-in.`);
           this.isTeacherSpeaking = false;
           this.consecutiveBargeInFrames = 0;
+          this.consecutiveSpeechFrames = 2;
           this.lastSpeechTime = now;
           this.wasSpeechActive = true;
+          this.speechStartTime = now;
           this.onBargeIn?.();
           this.onSpeechStart?.();
+          allowUpstreamAudio = true;
         }
       } else {
         this.consecutiveBargeInFrames = 0;
       }
+      if (!allowUpstreamAudio) {
+        this.wasSpeechActive = false;
+        this.pendingOnsetFrame = null;
+        return;
+      }
     } else {
       this.consecutiveBargeInFrames = 0;
-    }
 
-    // 2. VAD NOTIFICATION FOR UI / VISUALIZERS:
-    const isVocalSignal = rms >= 0.018;
-    if (isVocalSignal) {
-      this.lastSpeechTime = now;
-      if (!this.wasSpeechActive) {
-        this.wasSpeechActive = true;
-        this.speechStartTime = now;
-        this.onSpeechStart?.();
+      // 2. ADAPTIVE NOISE FLOOR & SPEECH ONSET GATE (IDLE / LISTENING):
+      const onsetThreshold = Math.max(0.028, this.noiseFloor * 2.8);
+      const sustainThreshold = Math.max(0.020, this.noiseFloor * 2.1);
+
+      if (rms >= (this.wasSpeechActive ? sustainThreshold : onsetThreshold)) {
+        this.consecutiveSpeechFrames++;
+        if (this.wasSpeechActive) {
+          this.lastSpeechTime = now;
+          allowUpstreamAudio = true;
+        } else if (this.consecutiveSpeechFrames >= 2) {
+          this.wasSpeechActive = true;
+          this.lastSpeechTime = now;
+          this.speechStartTime = now;
+          this.onSpeechStart?.();
+          allowUpstreamAudio = true;
+        } else {
+          // Buffer 1 onset frame so the first syllable is preserved once frame 2 confirms speech
+          this.pendingOnsetFrame = new Float32Array(inputData);
+          return;
+        }
+      } else {
+        this.consecutiveSpeechFrames = 0;
+        if (!this.wasSpeechActive) {
+          this.pendingOnsetFrame = null;
+          // Track ambient noise floor smoothly during non-speech frames
+          if (rms < 0.045) {
+            this.noiseFloor = Math.min(0.032, Math.max(0.008, this.noiseFloor * 0.96 + rms * 0.04));
+          }
+          // Send clean digital silence only briefly after speech ended so server VAD finishes the turn cleanly
+          if (this.speechEndTime > 0 && now - this.speechEndTime <= SILENCE_TAIL_MS) {
+            emitDigitalSilence = true;
+          } else {
+            return;
+          }
+        } else if (now - this.lastSpeechTime <= SPEECH_HANGOVER_MS) {
+          // Short hangover keeps mid-word pauses smooth
+          allowUpstreamAudio = true;
+        } else {
+          this.wasSpeechActive = false;
+          this.speechEndTime = now;
+          this.onSpeechEnd?.();
+          emitDigitalSilence = true;
+        }
       }
-    } else if (this.wasSpeechActive && now - this.lastSpeechTime > 800) {
-      this.wasSpeechActive = false;
-      this.onSpeechEnd?.();
     }
 
-    // 3. CONTINUOUS AUDIO STREAMING (SERVER-SIDE VAD):
-    // Stream audio continuously to the Gemini Live session.
-    // Built-in server VAD uses the continuous audio feed to detect turn boundaries.
+    // 3. GATED AUDIO STREAMING TO SERVER VAD:
+    // Flush onset pre-roll frame if present so words never clip at start
+    if (allowUpstreamAudio && this.pendingOnsetFrame) {
+      const preRoll = this.resampleAudio(this.pendingOnsetFrame, inputRate, targetRate);
+      this.pendingOnsetFrame = null;
+      const prePcm = this.floatTo16BitPCM(preRoll);
+      this.onAudioChunk?.(this.arrayBufferToBase64(prePcm.buffer));
+    }
+
+    if (emitDigitalSilence) {
+      const silentLen = Math.max(1, Math.round(inputData.length * (targetRate / inputRate)));
+      const zeroPcm = new Int16Array(silentLen);
+      this.onAudioChunk?.(this.arrayBufferToBase64(zeroPcm.buffer));
+      return;
+    }
+
     const resampledData = this.resampleAudio(inputData, inputRate, targetRate);
     const pcm16 = this.floatTo16BitPCM(resampledData);
     const base64 = this.arrayBufferToBase64(pcm16.buffer);
@@ -218,7 +275,7 @@ export class AudioStreamer {
       this.teacherSpeechStartTime = Date.now();
       this.consecutiveBargeInFrames = 0;
     } else {
-      const delayMs = isSimliActive ? 650 : 80;
+      const delayMs = isSimliActive ? 650 : 280;
       this.teacherSpeakingHangoverTimer = setTimeout(() => {
         this.isTeacherSpeaking = false;
         this.consecutiveBargeInFrames = 0;

@@ -500,16 +500,8 @@ html {
 }
 
 
-@font-face {
-  font-family: 'Excalifont';
-  src: url('/fonts/Excalifont-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 .font-chalk {
-  font-family: 'Excalifont', 'Virgil', 'Xiaolai', 'Segoe UI Emoji', cursive, sans-serif !important;
+  font-family: 'Excalifont', 'Virgil', 'Segoe UI', Arial, sans-serif !important;
 }
 
 @keyframes scholasticShimmer {

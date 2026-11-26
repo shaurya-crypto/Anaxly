@@ -119,6 +119,8 @@ export function extractChapterNumber(input: string): number | null {
       if (code === 'keph') return 7 + chInPt
       if (code === 'kech') return 6 + chInPt
       if (code === 'lemh') return 6 + chInPt
+      if (code === 'leph') return 8 + chInPt
+      if (code === 'lech') return 5 + chInPt
       if (code === 'iemh') return 8 + chInPt
     }
     return chInPt
@@ -129,24 +131,42 @@ export function extractChapterNumber(input: string): number | null {
 }
 
 /**
- * Resolves the authentic textbook chapter for a given curriculum chapter.
+ * Extracts a clean lowercase chapter PDF filename (e.g. 'jemh101.pdf') from any path, URL, or code.
  */
+export function extractTextbookFilename(pathOrUrl: string): string {
+  if (!pathOrUrl) return ''
+  let clean = pathOrUrl.split('#')[0].split('?')[0].trim()
+  if (pathOrUrl.includes('file=')) {
+    try {
+      const u = new URL(pathOrUrl, 'http://localhost')
+      const f = u.searchParams.get('file')
+      if (f) clean = f
+    } catch {}
+  }
+  const base = (clean.replace(/\\/g, '/').split('/').pop() || '').replace(/\s*\(\d+\)/g, '').trim().toLowerCase()
+  if (!base) return ''
+  return base.endsWith('.pdf') ? base : `${base}.pdf`
+}
+
 /**
- * Converts any textbook PDF path, URL, or filename into the local public path matching
- * the chapter PDF repository:
- * - public/9/class9_maths/pt1/ & pt2/
- * - public/9/class 9th science/
- * - public/10/class10_maths/ & public/10/class10_science/
- * - public/11/class11_maths/, public/11/class11_physics/pt1/ & pt2/, public/11/class11_chem/pt1/ & pt2/
- * - public/12/maths/, public/12/phy/, public/12/chem/
+ * Resolves any textbook path, filename, or URL into the same-origin /api/pdf-proxy endpoint
+ * backed by local public/ PDFs, Supabase Storage `textbooks`, and upstream NCERT fallback.
  */
+export function toProxyPdfUrl(pathOrUrl: string): string {
+  if (!pathOrUrl) return ''
+  const filename = extractTextbookFilename(pathOrUrl)
+  if (filename) {
+    return `/api/pdf-proxy?file=${encodeURIComponent(filename)}`
+  }
+  return pathOrUrl
+}
+
 /**
- * Resolves any textbook path, filename, or code directly to the official online NCERT PDF URL.
- * Guarantees zero 404s, zero missing local asset errors, and bypasses Vercel 250MB bundle caps.
+ * Resolves any textbook path, filename, or code to the same-origin embedded PDF proxy URL.
  */
 export function resolveLocalPdfUrl(pathOrUrl: string): string {
   if (!pathOrUrl) return ''
-  return toNcertPdfUrl(pathOrUrl)
+  return toProxyPdfUrl(pathOrUrl)
 }
 
 /**
@@ -320,7 +340,7 @@ export function resolveBookForChapter(params: ResolveBookForChapterParams): Reso
     }
   }
 
-  // 4. Fallback: construct authentic NCERT URL for any unindexed chapter
+  // 4. Fallback: construct authentic NCERT code and serve via same-origin /api/pdf-proxy
   if (classLevel && targetSub && chNum) {
     const ncertUrl = constructNcertPdfUrl(classLevel, targetSub, chNum)
     return {
@@ -330,7 +350,7 @@ export function resolveBookForChapter(params: ResolveBookForChapterParams): Reso
       chapterNumber: chNum,
       title: chapterTitle || `Chapter ${chNum}`,
       chapterTitle: chapterTitle || `Chapter ${chNum}`,
-      pdfUrl: ncertUrl,
+      pdfUrl: resolveLocalPdfUrl(ncertUrl),
       totalPages: 30,
       pageWidth: 595,
       pageHeight: 842,

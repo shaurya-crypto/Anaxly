@@ -52,14 +52,14 @@ NCERT_TITLES = {
     (10, "Science", 3): "Metals and Non-metals",
     (10, "Science", 4): "Carbon and its Compounds",
     (10, "Science", 5): "Life Processes",
-    (10, "Science", 6): "Life Processes",
-    (10, "Science", 7): "Control and Coordination",
-    (10, "Science", 8): "How do Organisms Reproduce?",
-    (10, "Science", 9): "Heredity",
-    (10, "Science", 10): "Light – Reflection and Refraction",
-    (10, "Science", 11): "The Human Eye and the Colourful World",
-    (10, "Science", 12): "Electricity",
-    (10, "Science", 13): "Magnetic Effects of Electric Current",
+    (10, "Science", 6): "Control and Coordination",
+    (10, "Science", 7): "How do Organisms Reproduce?",
+    (10, "Science", 8): "Heredity",
+    (10, "Science", 9): "Light – Reflection and Refraction",
+    (10, "Science", 10): "The Human Eye and the Colourful World",
+    (10, "Science", 11): "Electricity",
+    (10, "Science", 12): "Magnetic Effects of Electric Current",
+    (10, "Science", 13): "Our Environment",
 
     # Class 11 Physics
     (11, "Physics", 1): "Units and Measurements",
@@ -120,19 +120,19 @@ NCERT_TITLES = {
     (12, "Mathematics", 13): "Probability",
 
     # Class 9 Science
-    (9, "Science", 1): "Matter in Our Surroundings",
+    (9, "Science", 1): "Exploration: Entering the World of Secondary Science",
     (9, "Science", 2): "Cell: The Building Block of Life",
     (9, "Science", 3): "Tissues in Action",
-    (9, "Science", 4): "Describing Motion",
-    (9, "Science", 5): "Forces and Newton's Laws",
-    (9, "Science", 6): "Gravitation",
-    (9, "Science", 7): "Work and Energy",
-    (9, "Science", 8): "Sound",
-    (9, "Science", 9): "Matter in Our Surroundings",
-    (9, "Science", 10): "Is Matter Around Us Pure?",
-    (9, "Science", 11): "Atoms and Molecules",
-    (9, "Science", 12): "Structure of the Atom",
-    (9, "Science", 13): "Improvement in Food Resources",
+    (9, "Science", 4): "Describing Motion Around Us",
+    (9, "Science", 5): "Exploring Mixtures and their Separation",
+    (9, "Science", 6): "How Forces Affect Motion",
+    (9, "Science", 7): "Work, Energy, and Simple Machines",
+    (9, "Science", 8): "Journey Inside the Atom",
+    (9, "Science", 9): "Atomic Foundations of Matter",
+    (9, "Science", 10): "Sound Waves: Characteristics and Applications",
+    (9, "Science", 11): "Reproduction: How Life Continues",
+    (9, "Science", 12): "Improvement in Food Resources",
+    (9, "Science", 13): "Earth as a System: Energy, Matter, and Life",
 
     # Class 9 Mathematics
     (9, "Mathematics", 1): "Orienting Yourself: The Use of Coordinates",
@@ -149,6 +149,70 @@ NCERT_TITLES = {
     (9, "Mathematics", 12): "Quadrilaterals",
     (9, "Mathematics", 13): "Two Variables, One Line",
     (9, "Mathematics", 14): "Circles",
+
+    # Class 11 Biology
+    (11, "Biology", 1): "The Living World",
+    (11, "Biology", 2): "Biological Classification",
+    (11, "Biology", 3): "Plant Kingdom",
+    (11, "Biology", 4): "Animal Kingdom",
+    (11, "Biology", 5): "Morphology of Flowering Plants",
+    (11, "Biology", 6): "Anatomy of Flowering Plants",
+    (11, "Biology", 7): "Structural Organisation in Animals",
+    (11, "Biology", 8): "Cell : The Unit of Life",
+    (11, "Biology", 9): "Biomolecules",
+    (11, "Biology", 10): "Cell Cycle and Cell Division",
+    (11, "Biology", 11): "Photosynthesis in Higher Plants",
+    (11, "Biology", 12): "Respiration in Plants",
+    (11, "Biology", 13): "Plant Growth and Development",
+    (11, "Biology", 14): "Breathing and Exchange of Gases",
+    (11, "Biology", 15): "Body Fluids and Circulation",
+    (11, "Biology", 16): "Excretory Products and their Elimination",
+    (11, "Biology", 17): "Locomotion and Movement",
+    (11, "Biology", 18): "Neural Control and Coordination",
+    (11, "Biology", 19): "Chemical Coordination and Integration",
+
+    # Class 12 Physics
+    (12, "Physics", 1): "Electric Charges and Fields",
+    (12, "Physics", 2): "Electrostatic Potential and Capacitance",
+    (12, "Physics", 3): "Current Electricity",
+    (12, "Physics", 4): "Moving Charges and Magnetism",
+    (12, "Physics", 5): "Magnetism and Matter",
+    (12, "Physics", 6): "Electromagnetic Induction",
+    (12, "Physics", 7): "Alternating Current",
+    (12, "Physics", 8): "Electromagnetic Waves",
+    (12, "Physics", 9): "Ray Optics and Optical Instruments",
+    (12, "Physics", 10): "Wave Optics",
+    (12, "Physics", 11): "Dual Nature of Radiation and Matter",
+    (12, "Physics", 12): "Atoms",
+    (12, "Physics", 13): "Nuclei",
+    (12, "Physics", 14): "Semiconductor Electronics",
+
+    # Class 12 Chemistry
+    (12, "Chemistry", 1): "Solutions",
+    (12, "Chemistry", 2): "Electrochemistry",
+    (12, "Chemistry", 3): "Chemical Kinetics",
+    (12, "Chemistry", 4): "The d- and f-Block Elements",
+    (12, "Chemistry", 5): "Coordination Compounds",
+    (12, "Chemistry", 6): "Haloalkanes and Haloarenes",
+    (12, "Chemistry", 7): "Alcohols, Phenols and Ethers",
+    (12, "Chemistry", 8): "Aldehydes, Ketones and Carboxylic Acids",
+    (12, "Chemistry", 9): "Amines",
+    (12, "Chemistry", 10): "Biomolecules",
+
+    # Class 12 Biology
+    (12, "Biology", 1): "Sexual Reproduction in Flowering Plants",
+    (12, "Biology", 2): "Human Reproduction",
+    (12, "Biology", 3): "Reproductive Health",
+    (12, "Biology", 4): "Principles of Inheritance and Variation",
+    (12, "Biology", 5): "Molecular Basis of Inheritance",
+    (12, "Biology", 6): "Evolution",
+    (12, "Biology", 7): "Human Health and Disease",
+    (12, "Biology", 8): "Microbes in Human Welfare",
+    (12, "Biology", 9): "Biotechnology : Principles and Processes",
+    (12, "Biology", 10): "Biotechnology and its Applications",
+    (12, "Biology", 11): "Organisms and Populations",
+    (12, "Biology", 12): "Ecosystem",
+    (12, "Biology", 13): "Biodiversity and Conservation",
 }
 
 def detect_chapter_metadata(pdf_path: str) -> Dict[str, Any]:
@@ -168,7 +232,9 @@ def detect_chapter_metadata(pdf_path: str) -> Dict[str, Any]:
 
     # Subject detection
     subject = "Mathematics"
-    if 'sci' in norm or 'sc' in fname or 'science' in norm:
+    if 'bio' in norm or 'bo' in fname:
+        subject = "Biology"
+    elif 'sci' in norm or 'sc' in fname or 'science' in norm:
         subject = "Science"
     elif 'phy' in norm or 'ph' in fname:
         subject = "Physics"
@@ -194,8 +260,12 @@ def detect_chapter_metadata(pdf_path: str) -> Dict[str, Any]:
             part = 2
             if subject == "Physics" and grade == 11:
                 ch_num = 7 + ch_in_part
+            elif subject == "Physics" and grade == 12:
+                ch_num = 8 + ch_in_part
             elif subject == "Chemistry" and grade == 11:
                 ch_num = 6 + ch_in_part
+            elif subject == "Chemistry" and grade == 12:
+                ch_num = 5 + ch_in_part
             elif subject == "Mathematics" and grade == 12:
                 ch_num = 6 + ch_in_part
             elif subject == "Mathematics" and grade == 9:
@@ -1208,13 +1278,14 @@ def main():
         json.dump(database, f, indent=2, ensure_ascii=False)
     print(f"\n[OK] Saved {json_path} ({os.path.getsize(json_path):,} bytes)")
 
-    # 2. Output src/lib/textbookRegistry.ts
-    registry_path = os.path.join("src", "lib", "textbookRegistry.ts")
-    generate_textbook_registry_ts(indexed_chapters, registry_path)
+    if '--json-only' not in sys.argv:
+        # 2. Output src/lib/textbookRegistry.ts
+        registry_path = os.path.join("src", "lib", "textbookRegistry.ts")
+        generate_textbook_registry_ts(indexed_chapters, registry_path)
 
-    # 3. Output src/lib/textbookResolver.ts
-    resolver_path = os.path.join("src", "lib", "textbookResolver.ts")
-    generate_textbook_resolver_ts(resolver_path)
+        # 3. Output src/lib/textbookResolver.ts
+        resolver_path = os.path.join("src", "lib", "textbookResolver.ts")
+        generate_textbook_resolver_ts(resolver_path)
 
     total_time = time.time() - start_time
     print("================================================================================")

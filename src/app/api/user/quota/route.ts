@@ -1,6 +1,11 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@/utils/supabase/server'
 import { createAdminClient } from '@/utils/supabase/admin'
+import {
+  getCachedUserProfile,
+  getCachedModuleProgress,
+  invalidateUserProfileCache,
+} from '@/lib/cache/dataCache'
 
 export const dynamic = 'force-dynamic'
 
@@ -30,14 +35,10 @@ export async function POST(req: Request) {
     )
     const dbClient = hasRealServiceKey ? createAdminClient() : supabase
 
-    // Fetch user profile quota fields
-    const { data: profile, error: profileErr } = await dbClient
-      .from('profiles')
-      .select('id, limit_type, max_requests, used_requests, max_modules, used_modules, is_avatar_enabled')
-      .eq('id', user.id)
-      .single()
+    // Fetch cached user profile quota fields
+    const profile = await getCachedUserProfile(dbClient, user.id)
 
-    if (profileErr || !profile) {
+    if (!profile) {
       return NextResponse.json({ error: 'Profile not found' }, { status: 404 })
     }
 
@@ -67,6 +68,7 @@ export async function POST(req: Request) {
         .from('profiles')
         .update({ used_requests: nextUsed })
         .eq('id', user.id)
+      invalidateUserProfileCache(user.id)
 
       return NextResponse.json({
         allowed: true,
@@ -79,13 +81,8 @@ export async function POST(req: Request) {
 
     // 2. Action: RECORD MODULE (Check or count module taken)
     if (action === 'record_module' && moduleId) {
-      // Check if user has already accessed this module previously in user_progress
-      const { data: existingProgress } = await dbClient
-        .from('user_progress')
-        .select('id')
-        .eq('user_id', user.id)
-        .eq('syllabus_module_id', moduleId)
-        .maybeSingle()
+      // Check if user has already accessed this module previously in cached user_progress
+      const existingProgress = await getCachedModuleProgress(dbClient, user.id, moduleId)
 
       if (existingProgress) {
         // Module already unlocked previously, access is granted
@@ -118,6 +115,7 @@ export async function POST(req: Request) {
         .from('profiles')
         .update({ used_modules: nextUsedModules })
         .eq('id', user.id)
+      invalidateUserProfileCache(user.id)
 
       return NextResponse.json({
         allowed: true,

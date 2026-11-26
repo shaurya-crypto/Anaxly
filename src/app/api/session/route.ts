@@ -3,6 +3,7 @@ import { GoogleGenAI } from '@google/genai'
 import { createClient } from '@/utils/supabase/server'
 import { checkRateLimit, getClientIp } from '@/lib/rateLimit'
 import { getLanguageVoiceConfig } from '@/lib/voiceAndLanguageConfig'
+import { getCachedUserProfile } from '@/lib/cache/dataCache'
 
 export async function GET(req: Request) {
   try {
@@ -55,14 +56,10 @@ export async function GET(req: Request) {
       )
     }
 
-    // 4. Fetch student's preferred teacher voice, language & full onboarding dossier from profile
+    // 4. Fetch student's preferred teacher voice, language & full onboarding dossier from cached profile
     let voiceName = 'Leda'
     let preferredLanguage = 'English'
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('preferred_teacher_voice, preferred_language, full_name, class_level, target_board, learning_pace, weak_area, favorite_subject, learning_style, career_aspiration, study_medium')
-      .eq('id', user.id)
-      .maybeSingle()
+    const profile = await getCachedUserProfile(supabase, user.id)
 
     if (profile?.preferred_teacher_voice) {
       voiceName = profile.preferred_teacher_voice

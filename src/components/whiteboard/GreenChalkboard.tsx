@@ -21,7 +21,71 @@ import {
   Loader2,
 } from 'lucide-react'
 import { evaluateMathExpression } from '@/lib/mathEvaluator'
-import { isLegitimateGraphTopic } from '@/lib/graphGating'
+import { isLegitimateGraphTopic, isValidGraphPayload } from '@/lib/graphGating'
+import { hasMathUnicode } from './chalkboardTypography'
+import { BOARD_FONT_FAMILY, getTitleBottomY, getRightDockedBounds, computeImagePlacement } from './boardLayout'
+
+// Configure Excalidraw to serve local font subsets from public/excalidraw-assets/
+// so full Unicode math/handwriting subsets load deterministically without CDN latency or missing glyphs.
+if (typeof window !== 'undefined' && !(window as any).EXCALIDRAW_ASSET_PATH) {
+  ;(window as any).EXCALIDRAW_ASSET_PATH = '/excalidraw-assets/'
+}
+
+const getBoardFontFamily = (_text?: string): number => BOARD_FONT_FAMILY
+
+function buildGraphPayloadFromDirective(raw: string): Record<string, any> | null {
+  const q = (raw || '').trim()
+  if (!q) return null
+  const lower = q.toLowerCase()
+  const payload: Record<string, any> = { title: q }
+
+  if (q.includes('|')) {
+    const parts = q.split('|').map((s) => s.trim())
+    for (const part of parts) {
+      const l = part.toLowerCase()
+      if (l.startsWith('formula=')) payload.formula = part.slice(8).trim()
+      else if (l.startsWith('title=')) payload.title = part.slice(6).trim()
+      else if (l.startsWith('callout=')) payload.callout = part.slice(8).trim()
+      else if (l.startsWith('points=')) payload.points = part.slice(7).trim()
+      else if (l.startsWith('domain=')) {
+        const m = part.match(/\[\s*([\-\d\.]+)\s*,\s*([\-\d\.]+)\s*\]/)
+        if (m) payload.domain = [parseFloat(m[1]), parseFloat(m[2])]
+      } else if (l.startsWith('range=')) {
+        const m = part.match(/\[\s*([\-\d\.]+)\s*,\s*([\-\d\.]+)\s*\]/)
+        if (m) payload.range = [parseFloat(m[1]), parseFloat(m[2])]
+      }
+    }
+  }
+
+  // Smart coordinate extraction for prompts like "Pythagorean Triplet: P(-5, 12) at Distance 13 from Origin"
+  const coordMatches = Array.from(q.matchAll(/([A-Z]?)\s*\(\s*([\-\d\.]+)\s*,\s*([\-\d\.]+)\s*\)/g))
+  if (coordMatches.length > 0 && !payload.points) {
+    const pts = coordMatches.map((m, idx) => ({
+      x: parseFloat(m[2]),
+      y: parseFloat(m[3]),
+      label: m[1] || (idx === 0 ? 'A' : 'B'),
+    }))
+    const hasOriginMention = /\borigin\b/i.test(lower)
+    const hasOriginPt = pts.some((p) => p.x === 0 && p.y === 0)
+    if (hasOriginMention && !hasOriginPt) {
+      pts.unshift({ x: 0, y: 0, label: 'O' })
+    }
+    payload.points = pts
+    if (pts.length === 2 && !payload.segments) {
+      const [p1, p2] = pts
+      payload.segments = [
+        { start: [p1.x, p1.y], end: [p2.x, p2.y], label: `d = ${Math.round(Math.hypot(p2.x - p1.x, p2.y - p1.y) * 100) / 100}`, color: '#DC2626' },
+        { start: [p1.x, p1.y], end: [p2.x, p1.y], label: `Δx = ${Math.abs(p2.x - p1.x)}`, color: '#2563EB', dashed: true },
+        { start: [p2.x, p1.y], end: [p2.x, p2.y], label: `Δy = ${Math.abs(p2.y - p1.y)}`, color: '#16A34A', dashed: true },
+      ]
+    }
+  }
+
+  if (payload.formula || payload.points || payload.segments) {
+    return payload
+  }
+  return null
+}
 
 // Module-level cached Excalidraw import to eliminate dynamic import overhead
 let cachedExcalidrawModule: typeof import('@excalidraw/excalidraw') | null = null
@@ -74,7 +138,11 @@ export interface GreenChalkboardRef {
     calculation?: string
     answer: string
     unit?: string
+    exerciseNumber?: string
+    questionNumber?: string
+    rough?: string
   }) => void
+  stopWritingQueue?: () => void
   drawVideoCard?: (title: string, description?: string, url?: string, mimeType?: string) => void
   drawTable?: (tableStr: string) => void
   drawGeometry?: (geomStr: string) => void
@@ -145,6 +213,7 @@ interface GreenChalkboardProps {
   onModuleComplete?: (summary?: string) => void
   onConfirmEndChapter?: (question: string) => void
   onStartQuiz?: () => void
+  onOpenGraphRequest?: (payload: any) => void
   onWritingPositionChange?: (pos: WritingPositionInfo) => void
 }
 
@@ -211,7 +280,7 @@ const EXCALIDRAW_INITIAL_DATA = {
   appState: {
     viewBackgroundColor: 'transparent',
     currentItemStrokeColor: INK_PRIMARY,
-    currentItemFontFamily: 1,
+    currentItemFontFamily: BOARD_FONT_FAMILY,
     currentItemRoughness: 0,
     zenModeEnabled: false,
     viewModeEnabled: true,
@@ -299,6 +368,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       onModuleComplete,
       onConfirmEndChapter,
       onStartQuiz,
+      onOpenGraphRequest,
       onWritingPositionChange,
     },
     ref
@@ -339,15 +409,30 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     // Usable text width inside the standard 740px callout boxes (16px padding each side), scaled for narrow screens
     const boardZoomRef = useRef(0.7)
     const wrapFactorRef = useRef(1)
-    const cols = (n: number) => {
-      const hasRightImage = boardElementsRef.current?.some((el: any) => el.type === 'image' && el.x >= 440)
-      const base = hasRightImage ? Math.min(n, 34) : n
-      return Math.max(20, Math.floor(base * wrapFactorRef.current))
+    const containerCanvasWidthRef = useRef(880)
+    const getAvailableContentWidthPx = (atY?: number, fullWidth = false, leftX = 60): number => {
+      const boardRightEdge = Math.max(760, Math.min(1120, containerCanvasWidthRef.current))
+      if (!fullWidth) {
+        const rightBounds = getRightDockedBounds(boardElementsRef.current || [])
+        const targetY = typeof atY === 'number' ? atY : getDynamicNextY(12)
+        if (rightBounds && targetY <= rightBounds.bottom + 18 && wrapFactorRef.current >= 0.72) {
+          return Math.max(300, rightBounds.x - leftX - 24)
+        }
+      }
+      return Math.max(360, boardRightEdge - leftX - 24)
     }
-    const boxInnerW = () => {
-      const hasRightImage = boardElementsRef.current?.some((el: any) => el.type === 'image' && el.x >= 440)
-      const maxW = hasRightImage ? 410 : 708
-      return Math.round(maxW * Math.min(1, wrapFactorRef.current + 0.08))
+    const cols = (n: number, atY?: number) => {
+      const availW = getAvailableContentWidthPx(atY, false, 60)
+      const rightBounds = getRightDockedBounds(boardElementsRef.current || [])
+      const targetY = typeof atY === 'number' ? atY : nextYRef.current
+      const overlapsRight = Boolean(rightBounds && targetY <= rightBounds.bottom + 18 && wrapFactorRef.current >= 0.72)
+      if (overlapsRight) {
+        return Math.max(24, Math.floor(availW / 11))
+      }
+      return Math.max(n, Math.floor(availW / 10.5))
+    }
+    const boxInnerW = (fullWidth = false) => {
+      return Math.max(380, getAvailableContentWidthPx(undefined, fullWidth, 60) - 36)
     }
     useEffect(() => {
       const el = containerRef.current
@@ -356,8 +441,10 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const w = el.clientWidth
         if (!w) return
         const zoom = w < 600 ? 0.55 : 0.7
-        // 840 canvas px fit the full column count; leave room for the 60px left margin
-        const factor = Math.min(1, Math.max(0.3, (w / zoom - 80) / 840))
+        // Compute actual visible canvas width inside the pane so text uses all open space cleanly
+        const visibleCanvasW = Math.max(520, Math.floor(w / zoom) - 64)
+        const factor = Math.min(1, Math.max(0.3, (visibleCanvasW - 80) / 840))
+        containerCanvasWidthRef.current = visibleCanvasW
         boardZoomRef.current = zoom
         wrapFactorRef.current = factor
         setBoardZoom((prev) => (prev === zoom ? prev : zoom))
@@ -416,6 +503,79 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     const [activeTyping, setActiveTyping] = useState<ActiveTypingItem | null>(null)
 
     const typingClearTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+    const writeQueueTokenRef = useRef(0)
+    const pendingStaggerCancelsRef = useRef<Set<() => void>>(new Set())
+
+    const stopWritingQueue = () => {
+      writeQueueTokenRef.current += 1
+      pendingStaggerCancelsRef.current.forEach((cancel) => {
+        try {
+          cancel()
+        } catch {}
+      })
+      pendingStaggerCancelsRef.current.clear()
+      if (typingClearTimerRef.current) {
+        clearTimeout(typingClearTimerRef.current)
+        typingClearTimerRef.current = null
+      }
+      setActiveTyping(null)
+    }
+
+    const waitStaggerStep = (ms: number, token: number, startPageIdx?: number): Promise<boolean> => {
+      if (token !== writeQueueTokenRef.current) return Promise.resolve(false)
+      if (typeof startPageIdx === 'number' && currentPageIndexRef.current !== startPageIdx) {
+        return Promise.resolve(false)
+      }
+      return new Promise<boolean>((resolve) => {
+        let settled = false
+        let timerId: ReturnType<typeof setTimeout> | null = null
+        const finish = (ok: boolean) => {
+          if (settled) return
+          settled = true
+          if (timerId) clearTimeout(timerId)
+          pendingStaggerCancelsRef.current.delete(cancelFn)
+          resolve(ok)
+        }
+        const cancelFn = () => finish(false)
+        pendingStaggerCancelsRef.current.add(cancelFn)
+        timerId = setTimeout(() => {
+          const validToken = token === writeQueueTokenRef.current
+          const validPage = typeof startPageIdx !== 'number' || currentPageIndexRef.current === startPageIdx
+          finish(validToken && validPage)
+        }, ms)
+      })
+    }
+
+    const extractExerciseHeader = (
+      rawText?: string,
+      explicitExercise?: string,
+      explicitQuestion?: string
+    ): string | null => {
+      const exExplicit = (explicitExercise || '').trim()
+      const qExplicit = (explicitQuestion || '').trim()
+      if (exExplicit || qExplicit) {
+        const parts: string[] = []
+        if (exExplicit) {
+          parts.push(/exercise/i.test(exExplicit) ? exExplicit.toUpperCase() : `EXERCISE ${exExplicit.toUpperCase()}`)
+        }
+        if (qExplicit) {
+          parts.push(/^q/i.test(qExplicit) ? qExplicit.toUpperCase() : `Q.${qExplicit.toUpperCase()}`)
+        }
+        return parts.join(' • ')
+      }
+      const txt = (rawText || '').trim()
+      if (!txt) return null
+      const fullMatch = txt.match(/\b(?:Exercise|Ex\.?)\s*(\d+(?:\.\d+)?)\s*(?:[,•\-:\s]*\b(?:Q\.?|Question)\s*(\d+(?:\([a-z0-9ivx]+\))?))?/i)
+      if (fullMatch) {
+        const ex = `EXERCISE ${fullMatch[1]}`
+        return fullMatch[2] ? `${ex} • Q.${fullMatch[2].toUpperCase()}` : ex
+      }
+      const exampleMatch = txt.match(/\b(Example\s+\d+(?:\.\d+)?)\b/i)
+      if (exampleMatch) return exampleMatch[1].toUpperCase()
+      const qMatch = txt.match(/^\s*(?:Q\.?|Question)\s*(\d+(?:\([a-z0-9ivx]+\))?)\b/i)
+      if (qMatch) return `Q.${qMatch[1].toUpperCase()}`
+      return null
+    }
 
     /**
      * Hand-writes the exact final lines character by character at the exact board position.
@@ -536,16 +696,18 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     const isInitializedRef = useRef(false)
     const prevModuleIdRef = useRef(moduleId)
 
-    // Calculate dynamic Y coordinate below existing elements on the left column to prevent collision/overlap
-    const getDynamicNextY = (margin = 20): number => {
+    // Calculate dynamic Y coordinate below existing elements to prevent collision/overlap.
+    // Set clearRightDocked=true for full-width cards/graphs/diagrams so they clear any right-docked image.
+    const getDynamicNextY = (margin = 20, clearRightDocked = false): number => {
       const currentEls = getCurrentElements()
-      const noteEls = currentEls.filter(
-        (el: any) =>
-          !el.id?.startsWith('header_') &&
-          el.customData?.isRough !== true &&
-          typeof el.y === 'number' &&
-          (el.x === undefined || el.x < 620)
-      )
+      const noteEls = currentEls.filter((el: any) => {
+        if (el.id?.startsWith('header_') || el.customData?.isRough === true || typeof el.y !== 'number') {
+          return false
+        }
+        const isRightVisual = el.customData?.isRightDocked === true || (el.type === 'image' && el.x >= 440)
+        if (isRightVisual) return clearRightDocked
+        return el.x === undefined || el.x < 470 || clearRightDocked
+      })
       if (noteEls.length === 0) {
         return Math.max(nextYRef.current, 40)
       }
@@ -634,7 +796,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       }
       const timer = setTimeout(refit, 120)
       const fonts = (document as any).fonts
-      fonts?.load?.('20px Virgil').then(refit).catch(() => {})
+      fonts?.load?.('22px Excalifont').then(refit).catch(() => {})
       fonts?.addEventListener?.('loadingdone', refit)
       return () => {
         cancelled = true
@@ -1155,7 +1317,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           appState: {
             viewBackgroundColor: 'transparent',
             currentItemStrokeColor: INK_PRIMARY,
-            currentItemFontFamily: 1,
+            currentItemFontFamily: BOARD_FONT_FAMILY,
             currentItemRoughness: 0,
             gridModeEnabled: true,
             zoom: { value: boardZoomRef.current },
@@ -1175,6 +1337,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
     // Switch or dynamically create pages up to targetIdx (0-indexed)
     const goToPage = async (targetIdx: number, conceptTitle?: string) => {
       if (!excalidrawAPI || targetIdx < 0) return
+      stopWritingQueue()
 
       return enqueueOperation(async () => {
         // Save current page state synchronously if elements exist
@@ -1255,7 +1418,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           appState: {
             viewBackgroundColor: 'transparent',
             currentItemStrokeColor: INK_PRIMARY,
-            currentItemFontFamily: 1,
+            currentItemFontFamily: BOARD_FONT_FAMILY,
             currentItemRoughness: 0,
             gridModeEnabled: true,
             zoom: { value: boardZoomRef.current },
@@ -1466,7 +1629,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               appState: {
                 viewBackgroundColor: 'transparent',
                 currentItemStrokeColor: INK_PRIMARY,
-                currentItemFontFamily: 1,
+                currentItemFontFamily: BOARD_FONT_FAMILY,
                 currentItemRoughness: 0,
                 gridModeEnabled: true,
                 zoom: { value: boardZoomRef.current },
@@ -1506,7 +1669,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             appState: {
               viewBackgroundColor: 'transparent',
               currentItemStrokeColor: INK_PRIMARY,
-              currentItemFontFamily: 1,
+              currentItemFontFamily: BOARD_FONT_FAMILY,
               currentItemRoughness: 0,
               gridModeEnabled: true,
               zoom: { value: boardZoomRef.current },
@@ -1523,7 +1686,17 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       initializeBoard()
     }, [excalidrawAPI, moduleId, moduleTitle])
 
-    // Draw text in permanent notes column (left side)
+    // Sync activeConceptIndex if parent resolves saved resume index after Excalidraw mounts
+    useEffect(() => {
+      if (!excalidrawAPI || typeof activeConceptIndex !== 'number' || activeConceptIndex < 0) return
+      if (currentPageIndexRef.current !== activeConceptIndex) {
+        const conceptTitle = keyConcepts?.[activeConceptIndex]
+        goToPage(activeConceptIndex, conceptTitle)
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [excalidrawAPI, activeConceptIndex])
+
+    // Draw text in permanent notes column (using full available canvas width)
     const drawText = async (text: string, x = 60, customY?: number, color?: string) => {
       if (!excalidrawAPI || !text?.trim()) return
       const clean = cleanChalkboardTypography(text.trim())
@@ -1531,24 +1704,27 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (executedTextHistoryRef.current.has(clean.toLowerCase())) return
       executedTextHistoryRef.current.add(clean.toLowerCase())
 
-      const lines = wrapText(clean, cols(62))
-      const lineHeight = 24
-      const totalH = Math.max(30, lines.length * lineHeight)
+      const y = customY !== undefined ? customY : getDynamicNextY(15)
+      const availW = getAvailableContentWidthPx(y, false, x)
+      const textFontSize = 23
+      const lines = wrapTextToWidth(clean, textFontSize, availW)
+      const lineHeight = 31
+      const totalH = Math.max(36, lines.length * lineHeight)
 
       await checkAutoPageOverflow(totalH + 16)
       try {
         const { convertToExcalidrawElements } = await getExcalidrawModule()
-        const y = customY !== undefined ? customY : getDynamicNextY(15)
         const chosenColor = resolveChalkColor(color, activeChalkColorRef.current)
+        const joined = lines.join('\n')
 
         const newElements = convertToExcalidrawElements([
           {
             type: 'text',
             x,
             y,
-            text: lines.join('\n'),
-            fontSize: 20,
-            fontFamily: 1,
+            text: joined,
+            fontSize: textFontSize,
+            fontFamily: getBoardFontFamily(joined),
             strokeColor: chosenColor,
             customData: { isRough: false },
           },
@@ -1609,12 +1785,21 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         const startX = 60
         const startY = getDynamicNextY(16)
-        nextYRef.current = Math.max(nextYRef.current, startY + 54)
-        const titleText = clean
+        const titleMaxWidth = Math.max(360, Math.min(760, containerCanvasWidthRef.current - 200))
+        const titleFontSize = 26
+        const titleLines = wrapTextToWidth(clean, titleFontSize, titleMaxWidth, 3)
+        const titleText = titleLines.join('\n') || clean
+        const titleHeight = Math.max(36, titleLines.length * 34)
+        const underlineY = startY + titleHeight + 4
+        const underlineWidth = Math.min(
+          titleMaxWidth,
+          Math.max(120, Math.ceil(Math.max(...(titleLines.length ? titleLines : [titleText]).map((l) => measureBoardText(l, titleFontSize)))))
+        )
+        nextYRef.current = Math.max(nextYRef.current, underlineY + 24)
         const titleColor = resolveChalkColor(color, INK_PRIMARY)
         const underlineColor = color ? titleColor : INK_BOTANICAL
 
-        await playTypingEffect('Topic', [titleText], titleColor, startX, startY, 22, 'none')
+        await playTypingEffect('Topic', titleLines.length ? titleLines : [titleText], titleColor, startX, startY, titleFontSize, 'none')
 
         const elements = convertFn([
           {
@@ -1622,16 +1807,16 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             x: startX,
             y: startY,
             text: titleText,
-            fontSize: 22,
-            fontFamily: 1,
+            fontSize: titleFontSize,
+            fontFamily: getBoardFontFamily(titleText),
             strokeColor: titleColor,
             customData: { isRough: false, isTitle: true },
           },
           {
             type: 'line',
             x: startX,
-            y: startY + 32,
-            points: [[0, 0], [Math.ceil(measureBoardText(titleText, 22)), 0]],
+            y: underlineY,
+            points: [[0, 0], [underlineWidth, 0]],
             strokeColor: underlineColor,
             strokeWidth: 2.5,
             customData: { isRough: false, isTitle: true },
@@ -1640,7 +1825,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         const current = getCurrentElements()
         const merged = [...current, ...elements]
-        updateCurrentPageElements(merged, startY + 54)
+        updateCurrentPageElements(merged, underlineY + 22)
         onNoteRecorded?.(`### ${clean}`)
       } catch (err) {
         console.error('drawTitle error:', err)
@@ -1656,26 +1841,28 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (checkIsRedundant(clean)) return
       if (shouldSkipDuplicate('draw_note', clean)) return
 
-      const lines = wrapText(clean, cols(60))
-      const lineHeight = 26
-      const totalH = Math.max(32, lines.length * lineHeight)
+      const startX = 60
+      const startY = getDynamicNextY(12)
+      const noteFontSize = 21
+      const availW = getAvailableContentWidthPx(startY, false, startX + 18)
+      const lines = wrapTextToWidth(clean, noteFontSize, availW)
+      const lineHeight = 29
+      const totalH = Math.max(36, lines.length * lineHeight)
 
       await checkAutoPageOverflow(totalH + 16)
       try {
         const { convertToExcalidrawElements } = await getExcalidrawModule()
-        const startX = 60
-        const startY = getDynamicNextY(12)
-        nextYRef.current = Math.max(nextYRef.current, startY + totalH + 16)
         const noteColor = resolveChalkColor(color, activeChalkColorRef.current)
         const bulletColor = color ? noteColor : INK_BOTANICAL
+        const writeToken = writeQueueTokenRef.current
 
-        await playTypingEffect('Note', lines, noteColor, startX, startY, 18, 'dot', bulletColor, 18)
+        await playTypingEffect('Note', lines, noteColor, startX, startY, noteFontSize, 'dot', bulletColor, 18)
 
-        const elements = convertToExcalidrawElements([
+        const initialElements = convertToExcalidrawElements([
           {
             type: 'ellipse',
             x: startX,
-            y: startY + 6,
+            y: startY + 8,
             width: 10,
             height: 10,
             strokeColor: bulletColor,
@@ -1687,19 +1874,51 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             type: 'text',
             x: startX + 18,
             y: startY,
-            text: lines.join('\n'),
-            fontSize: 18,
-            fontFamily: 1,
+            text: lines[0],
+            fontSize: noteFontSize,
+            fontFamily: getBoardFontFamily(clean),
             strokeColor: noteColor,
             customData: { isRough: false },
           },
         ])
 
-        const current = getCurrentElements()
-        const merged = [...current, ...elements]
-        updateCurrentPageElements(merged, startY + totalH + 12)
-        notifyPositionChange('draw_note', clean)
-        onNoteRecorded?.(`• ${clean}`)
+        const firstStepH = Math.max(36, lineHeight)
+        nextYRef.current = Math.max(nextYRef.current, startY + firstStepH + 12)
+        updateCurrentPageElements([...getCurrentElements(), ...initialElements], startY + firstStepH + 12)
+        let activeTextElId = initialElements[1]?.id
+        const startPageIdx = currentPageIndexRef.current
+        let renderedCount = 1
+
+        for (let i = 1; i < lines.length; i++) {
+          const ok = await waitStaggerStep(360, writeToken, startPageIdx)
+          if (!ok) break
+          const partialText = lines.slice(0, i + 1).join('\n')
+          const partialConverted = convertToExcalidrawElements([
+            {
+              type: 'text',
+              x: startX + 18,
+              y: startY,
+              text: partialText,
+              fontSize: noteFontSize,
+              fontFamily: getBoardFontFamily(partialText),
+              strokeColor: noteColor,
+              customData: { isRough: false },
+            },
+          ])
+          const newTextEl = partialConverted[0]
+          if (newTextEl) {
+            const curEls = getCurrentElements().filter((el: any) => el.id !== activeTextElId)
+            activeTextElId = newTextEl.id
+            const partialH = Math.max(32, (i + 1) * lineHeight)
+            nextYRef.current = Math.max(nextYRef.current, startY + partialH + 12)
+            updateCurrentPageElements([...curEls, newTextEl], startY + partialH + 12)
+            renderedCount = i + 1
+          }
+        }
+
+        const recordedText = renderedCount >= lines.length ? clean : lines.slice(0, renderedCount).join(' ')
+        notifyPositionChange('draw_note', recordedText)
+        onNoteRecorded?.(`• ${recordedText}`)
       } catch (err) {
         console.error('drawNote error:', err)
       }
@@ -1714,54 +1933,113 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (checkIsRedundant(clean)) return
       if (shouldSkipDuplicate('draw_step', clean)) return
 
-      // Split multi-step strings at semicolons, pipes, or step delimiters so each step renders on its own line (max 2 steps per line)
-      const lines = formatChalkboardSteps(clean, cols(56))
-      if (!lines || lines.length === 0) return
+      // If step explicitly represents a final Boxed Answer, render inside a clean topper box
+      if (/^(?:boxed\s*answer|final\s*answer)\s*[:\-]/i.test(clean)) {
+        await drawHighlightBox(clean, color || INK_BOTANICAL)
+        return
+      }
 
-      const lineHeight = 26
-      const totalH = Math.max(30, lines.length * lineHeight)
+      const startX = 60
+      const startY = getDynamicNextY(14)
+      const stepFontSize = 21
+      const availW = getAvailableContentWidthPx(startY, false, startX)
+      const dynamicCols = Math.max(40, Math.floor(availW / (stepFontSize * 0.48)))
+
+      // Split multi-step strings at semicolons, pipes, or step delimiters cleanly
+      const rawLines = formatChalkboardSteps(clean, dynamicCols)
+      if (!rawLines || rawLines.length === 0) return
+
+      // Expand multi-equality chains only when a chain exceeds available width
+      const lines: string[] = []
+      for (const rl of rawLines) {
+        const eqMatches = rl.match(/=/g)
+        if (eqMatches && eqMatches.length >= 2 && measureBoardText(rl, stepFontSize) > availW - 24) {
+          const firstEqIdx = rl.indexOf('=')
+          const lhs = rl.slice(0, firstEqIdx).trim()
+          const rhsParts = rl.slice(firstEqIdx + 1).split('=').map((p) => p.trim()).filter(Boolean)
+          if (rhsParts.length >= 2) {
+            lines.push(`${lhs} = ${rhsParts[0]}`)
+            for (let j = 1; j < rhsParts.length; j++) {
+              lines.push(`    = ${rhsParts[j]}`)
+            }
+            continue
+          }
+        }
+        lines.push(...wrapTextToWidth(rl, stepFontSize, availW - 24))
+      }
+
+      const lineHeight = 29
+      const totalH = Math.max(36, lines.length * lineHeight)
 
       await checkAutoPageOverflow(totalH + 20)
       try {
         const { convertToExcalidrawElements } = await getExcalidrawModule()
-        const startX = 60
-        const startY = getDynamicNextY(14)
-        nextYRef.current = Math.max(nextYRef.current, startY + totalH + 16)
         const stepColor = resolveChalkColor(color, INK_SECONDARY)
+        const writeToken = writeQueueTokenRef.current
+        const stepFont = getBoardFontFamily(lines.join('\n'))
 
         const stepLines = lines.map((l, i) => {
           const trimmed = l.trim()
-          const isStepHeader = /^(?:->|→|•|\*|Step\s*\d+|Step\s*[A-Za-z]|Case\s*\d+|Given|Formula|Theorem|Law|To\s+(?:Find|Prove|Evaluate|Calculate)|Proof|Substitution|Calculation|Answer|Result|Hence|Therefore|\([ivxlcdm\d]+\)|\([a-z]\))\s*[:\.\-]?/i.test(trimmed)
-          const body = trimmed.replace(/^(?:->|→|•|\*)\s*/, '')
+          const isStepHeader = /^(?:->|→|•|\*|Step\s*\d+|Step\s*[A-Za-z]|Case\s*\d+|Given|Formula|Theorem|Law|To\s+(?:Find|Prove|Evaluate|Calculate)|Proof|Substitution|Calculation|Simplification|Model\s+Problem|Practice\s+Problem|Sample\s+Problem|Answer|Result|Hence|Therefore|\([ivxlcdm\d]+\)|\([a-z]\))\s*[:\.\-]?/i.test(trimmed)
+          const body = trimmed.replace(/^(?:(?:->|→|•|\*)\s*)+/, '')
+          if (trimmed.startsWith('=')) {
+            return `      ${trimmed}`
+          }
           if (i === 0 || isStepHeader) {
-            if (trimmed.startsWith('•')) {
-              return `•  ${body}`
-            }
-            return `->  ${body}`
+            return `•  ${body}`
           }
           return `    ${body}`
         })
-        await playTypingEffect('Step', stepLines, stepColor, startX, startY, 18, 'none')
+        await playTypingEffect('Step', stepLines, stepColor, startX, startY, stepFontSize, 'none')
 
-        const elements = convertToExcalidrawElements([
+        const firstStepEls = convertToExcalidrawElements([
           {
             type: 'text',
             x: startX,
             y: startY,
-            text: stepLines.join('\n'),
-            fontSize: 18,
-            fontFamily: 1,
+            text: stepLines[0],
+            fontSize: stepFontSize,
+            fontFamily: stepFont,
             strokeColor: stepColor,
             customData: { isRough: false },
           },
         ])
+        nextYRef.current = Math.max(nextYRef.current, startY + lineHeight + 16)
+        updateCurrentPageElements([...getCurrentElements(), ...firstStepEls], startY + lineHeight + 16)
+        let activeTextElId = firstStepEls[0]?.id
+        const startPageIdx = currentPageIndexRef.current
+        let renderedCount = 1
 
-        const current = getCurrentElements()
-        const merged = [...current, ...elements]
-        updateCurrentPageElements(merged, startY + totalH + 16)
+        for (let i = 1; i < stepLines.length; i++) {
+          const ok = await waitStaggerStep(460, writeToken, startPageIdx)
+          if (!ok) break
+          const nextStepEls = convertToExcalidrawElements([
+            {
+              type: 'text',
+              x: startX,
+              y: startY,
+              text: stepLines.slice(0, i + 1).join('\n'),
+              fontSize: stepFontSize,
+              fontFamily: stepFont,
+              strokeColor: stepColor,
+              customData: { isRough: false },
+            },
+          ])
+          const newEl = nextStepEls[0]
+          if (newEl) {
+            const curEls = getCurrentElements().filter((el: any) => el.id !== activeTextElId)
+            activeTextElId = newEl.id
+            const partialH = Math.max(30, (i + 1) * lineHeight)
+            nextYRef.current = Math.max(nextYRef.current, startY + partialH + 16)
+            updateCurrentPageElements([...curEls, newEl], startY + partialH + 16)
+            renderedCount = i + 1
+          }
+        }
+
+        const recordedStep = renderedCount >= stepLines.length ? clean : stepLines.slice(0, renderedCount).join(' ')
         executedTextHistoryRef.current.add(clean.toLowerCase().replace(/[^a-z0-9]/g, ''))
-        notifyPositionChange('draw_step', clean)
-        onNoteRecorded?.(`  -> ${clean}`)
+        notifyPositionChange('draw_step', recordedStep)
+        onNoteRecorded?.(`  -> ${recordedStep}`)
       } catch (err) {
         console.error('drawStep error:', err)
       }
@@ -1775,17 +2053,18 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       const clean = cleanChalkboardTypography(raw.trim())
       if (checkIsRedundant(clean)) return
       if (shouldSkipDuplicate('draw_highlight_box', clean)) return
-      const lines = wrapTextToWidth(clean, 18, boxInnerW())
-      const boxWidth = 740
-      const lineHeight = 26
+      const boxFontSize = 21
+      const boxWidth = Math.min(960, Math.max(460, getAvailableContentWidthPx(undefined, true, 60)))
+      const lines = wrapTextToWidth(clean, boxFontSize, boxWidth - 36)
+      const lineHeight = 29
       const textHeight = Math.max(1, lines.length) * lineHeight
-      const boxHeight = Math.max(58, 16 + textHeight + 16)
+      const boxHeight = Math.max(64, 16 + textHeight + 16)
 
       await checkAutoPageOverflow(boxHeight + 20)
       try {
         const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
-        const startY = getDynamicNextY(16)
+        const startY = getDynamicNextY(16, true)
         nextYRef.current = Math.max(nextYRef.current, startY + boxHeight + 20)
         const boxStroke = resolveChalkColor(color, INK_CORAL)
         const boxBg = boxStroke === INK_CORAL ? INK_CORAL_SOFT : '#FAF8F4'
@@ -1809,8 +2088,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             x: startX + 16,
             y: startY + 14,
             text: lines.join('\n'),
-            fontSize: 18,
-            fontFamily: 1,
+            fontSize: boxFontSize,
+            fontFamily: getBoardFontFamily(lines.join('\n')),
             strokeColor: INK_PRIMARY,
             customData: { isRough: false },
           },
@@ -1834,27 +2113,30 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       if (!raw?.trim()) return
       const clean = cleanChalkboardTypography(raw.trim())
       if (shouldSkipDuplicate('draw_question', clean)) return
-      const lines = wrapTextToWidth(clean, 18, boxInnerW())
-      const lineHeight = 26
-      const paddingTop = 32
+      const qFontSize = 21
+      const qBoxWidth = Math.min(960, Math.max(460, getAvailableContentWidthPx(undefined, true, 60)))
+      const lines = wrapTextToWidth(clean, qFontSize, qBoxWidth - 36)
+      const lineHeight = 29
+      const paddingTop = 36
       const textHeight = Math.max(1, lines.length) * lineHeight
       const paddingBottom = 20
-      const qHeight = Math.max(74, paddingTop + textHeight + paddingBottom)
+      const qHeight = Math.max(82, paddingTop + textHeight + paddingBottom)
 
       await checkAutoPageOverflow(qHeight + 20)
       try {
         const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
-        const startY = getDynamicNextY(16)
+        const startY = getDynamicNextY(16, true)
         nextYRef.current = Math.max(nextYRef.current, startY + qHeight + 20)
         const qStroke = resolveChalkColor(color, INK_CORAL)
 
+        const exHeader = extractExerciseHeader(clean)
         const elements = convertToExcalidrawElements([
           {
             type: 'rectangle',
             x: startX,
             y: startY,
-            width: 740,
+            width: qBoxWidth,
             height: qHeight,
             strokeColor: qStroke,
             backgroundColor: '#FFF8F6',
@@ -1867,19 +2149,19 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             type: 'text',
             x: startX + 16,
             y: startY + 8,
-            text: 'CHECKPOINT QUESTION:',
-            fontSize: 13,
-            fontFamily: 1,
+            text: exHeader ? `${exHeader} — QUESTION:` : 'CHECKPOINT QUESTION:',
+            fontSize: 15,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: qStroke,
             customData: { isRough: false },
           },
           {
             type: 'text',
             x: startX + 16,
-            y: startY + 30,
+            y: startY + 34,
             text: lines.join('\n'),
-            fontSize: 18,
-            fontFamily: 1,
+            fontSize: qFontSize,
+            fontFamily: getBoardFontFamily(lines.join('\n')),
             strokeColor: INK_PRIMARY,
             customData: { isRough: false },
           },
@@ -1920,18 +2202,20 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       }
       lastDrawnStudentAnswerRef.current = { text: clean, time: Date.now() }
 
-      const lines = wrapTextToWidth(`"${clean}"`, 17, boxInnerW())
-      const lineHeight = 24
-      const paddingTop = 30
+      const ansFontSize = 20
+      const ansBoxWidth = Math.min(960, Math.max(460, getAvailableContentWidthPx(undefined, true, 60)))
+      const lines = wrapTextToWidth(`"${clean}"`, ansFontSize, ansBoxWidth - 36)
+      const lineHeight = 28
+      const paddingTop = 34
       const textHeight = Math.max(1, lines.length) * lineHeight
       const paddingBottom = 18
-      const boxHeight = Math.max(70, paddingTop + textHeight + paddingBottom)
+      const boxHeight = Math.max(76, paddingTop + textHeight + paddingBottom)
 
       await checkAutoPageOverflow(boxHeight + 18)
       try {
         const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
-        const startY = getDynamicNextY(14)
+        const startY = getDynamicNextY(14, true)
         nextYRef.current = Math.max(nextYRef.current, startY + boxHeight + 18)
         const ansStroke = resolveChalkColor(color, INK_BLUE)
 
@@ -1940,7 +2224,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             type: 'rectangle',
             x: startX,
             y: startY,
-            width: 740,
+            width: ansBoxWidth,
             height: boxHeight,
             strokeColor: ansStroke,
             backgroundColor: '#F0F7FF',
@@ -1954,18 +2238,18 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             x: startX + 16,
             y: startY + 8,
             text: "STUDENT'S RESPONSE:",
-            fontSize: 13,
-            fontFamily: 1,
+            fontSize: 15,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: ansStroke,
             customData: { isRough: false },
           },
           {
             type: 'text',
             x: startX + 16,
-            y: startY + 28,
+            y: startY + 32,
             text: lines.join('\n'),
-            fontSize: 17,
-            fontFamily: 1,
+            fontSize: ansFontSize,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: INK_PRIMARY,
             customData: { isRough: false },
           },
@@ -1989,18 +2273,20 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         isCorrect === true ||
         /^(correct|spot on|perfect|exactly|well done|excellent|right|yes)\b/i.test(clean) ||
         /\b(correct|spot on|perfect|well done)\b/i.test(clean)
-      const lines = wrapTextToWidth(clean, 17, boxInnerW())
-      const lineHeight = 24
-      const paddingTop = 30
+      const vFontSize = 20
+      const vBoxWidth = Math.min(960, Math.max(460, getAvailableContentWidthPx(undefined, true, 60)))
+      const lines = wrapTextToWidth(clean, vFontSize, vBoxWidth - 36)
+      const lineHeight = 28
+      const paddingTop = 34
       const textHeight = Math.max(1, lines.length) * lineHeight
       const paddingBottom = 18
-      const boxHeight = Math.max(70, paddingTop + textHeight + paddingBottom)
+      const boxHeight = Math.max(76, paddingTop + textHeight + paddingBottom)
 
       await checkAutoPageOverflow(boxHeight + 18)
       try {
         const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
-        const startY = getDynamicNextY(14)
+        const startY = getDynamicNextY(14, true)
         nextYRef.current = Math.max(nextYRef.current, startY + boxHeight + 18)
         const vStroke = resolveChalkColor(
           color,
@@ -2013,7 +2299,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             type: 'rectangle',
             x: startX,
             y: startY,
-            width: 740,
+            width: vBoxWidth,
             height: boxHeight,
             strokeColor: vStroke,
             backgroundColor: vBg,
@@ -2027,18 +2313,18 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             x: startX + 16,
             y: startY + 8,
             text: looksCorrect ? 'VERDICT: CORRECT & COMPLETE' : 'MODEL CORRECTION & REFINED ANSWER:',
-            fontSize: 13,
-            fontFamily: 1,
+            fontSize: 15,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: vStroke,
             customData: { isRough: false },
           },
           {
             type: 'text',
             x: startX + 16,
-            y: startY + 28,
+            y: startY + 32,
             text: lines.join('\n'),
-            fontSize: 17,
-            fontFamily: 1,
+            fontSize: vFontSize,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: INK_PRIMARY,
             customData: { isRough: false },
           },
@@ -2076,31 +2362,33 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         aText = cleanChalkboardTypography(parts.slice(1).join(' | ').replace(/^answer:\s*/i, ''))
       }
 
-      const qLines = wrapTextToWidth(qText, 18, boxInnerW())
-      const qLineHeight = 26
+      const exBoxWidth = Math.min(960, Math.max(460, getAvailableContentWidthPx(undefined, true, 60)))
+      const qLines = wrapTextToWidth(qText, 21, exBoxWidth - 40)
+      const qLineHeight = 29
       const qTextHeight = qLines.length * qLineHeight
       let aLines: string[] = []
       let aTextHeight = 0
       if (aText) {
-        aLines = wrapTextToWidth(aText, 17, boxInnerW())
-        aTextHeight = aLines.length * 24
+        aLines = wrapTextToWidth(aText, 20, exBoxWidth - 40)
+        aTextHeight = aLines.length * 28
       }
 
-      const cardHeight = 32 + qTextHeight + (aText ? 14 + 26 + aTextHeight : 0) + 24
+      const cardHeight = 36 + qTextHeight + (aText ? 14 + 30 + aTextHeight : 0) + 24
       await checkAutoPageOverflow(cardHeight + 20)
 
       try {
         const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
-        const startY = getDynamicNextY(16)
+        const startY = getDynamicNextY(16, true)
         const exStroke = resolveChalkColor(color, INK_AMBER)
 
+        const exExamHeader = extractExerciseHeader(qText)
         const skeletons: any[] = [
           {
             type: 'rectangle',
             x: startX,
             y: startY,
-            width: 740,
+            width: exBoxWidth,
             height: cardHeight,
             strokeColor: exStroke,
             backgroundColor: '#FDFCF7',
@@ -2113,25 +2401,25 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             type: 'text',
             x: startX + 16,
             y: startY + 10,
-            text: `BOARD EXAM QUESTION ${marks ? `[${marks}]` : '[Typical Board Pattern]'}:`,
-            fontSize: 13,
-            fontFamily: 1,
+            text: `${exExamHeader ? `${exExamHeader} • ` : ''}BOARD EXAM QUESTION ${marks ? `[${marks}]` : '[Typical Board Pattern]'}:`,
+            fontSize: 15,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: exStroke,
             customData: { isRough: false },
           },
           {
             type: 'text',
             x: startX + 16,
-            y: startY + 30,
+            y: startY + 34,
             text: `Q: ${qLines.join('\n   ')}`,
-            fontSize: 18,
-            fontFamily: 1,
+            fontSize: 21,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: INK_PRIMARY,
             customData: { isRough: false },
           },
         ]
 
-        let curY = startY + 30 + qTextHeight + 14
+        let curY = startY + 34 + qTextHeight + 14
 
         if (aText) {
           skeletons.push(
@@ -2139,7 +2427,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               type: 'line',
               x: startX + 16,
               y: curY,
-              points: [[0, 0], [708, 0]],
+              points: [[0, 0], [exBoxWidth - 32, 0]],
               strokeColor: BORDER_SUBTLE,
               strokeWidth: 1,
               strokeStyle: 'dashed',
@@ -2150,18 +2438,18 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               x: startX + 16,
               y: curY + 6,
               text: 'TOPPER MODEL ANSWER:',
-              fontSize: 13,
-              fontFamily: 1,
+              fontSize: 15,
+              fontFamily: BOARD_FONT_FAMILY,
               strokeColor: INK_BOTANICAL,
               customData: { isRough: false },
             },
             {
               type: 'text',
               x: startX + 16,
-              y: curY + 26,
+              y: curY + 30,
               text: `Ans: ${aLines.join('\n     ')}`,
-              fontSize: 17,
-              fontFamily: 1,
+              fontSize: 20,
+              fontFamily: BOARD_FONT_FAMILY,
               strokeColor: INK_PRIMARY,
               customData: { isRough: false },
             }
@@ -2231,11 +2519,20 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       let fillColor: string | undefined
 
       const lower = str.toLowerCase()
-      if (lower.includes('circle')) shape = 'circle'
+      if (lower.includes('hemisphere')) shape = 'hemisphere'
+      else if (lower.includes('sphere')) shape = 'sphere'
+      else if (lower.includes('cone')) shape = 'cone'
+      else if (lower.includes('cylinder')) shape = 'cylinder'
+      else if (lower.includes('prism')) shape = 'prism'
+      else if (lower.includes('pyramid')) shape = 'pyramid'
+      else if (lower.includes('parallelogram')) shape = 'parallelogram'
+      else if (lower.includes('trapezium') || lower.includes('trapezoid')) shape = 'trapezium'
+      else if (lower.includes('number_line') || lower.includes('number line')) shape = 'number_line'
+      else if (lower.includes('angle_arc') || lower.includes('angle arc')) shape = 'angle_arc'
+      else if (lower.includes('circle')) shape = 'circle'
       else if (lower.includes('right_triangle') || lower.includes('right triangle')) shape = 'right_triangle'
       else if (lower.includes('triangle')) shape = 'triangle'
       else if (lower.includes('ellipse')) shape = 'ellipse'
-      else if (lower.includes('cylinder')) shape = 'cylinder'
       else if (lower.includes('cube') || lower.includes('cuboid') || lower.includes('box')) shape = 'cube'
       else if (lower.includes('square')) shape = 'square'
       else if (lower.includes('polygon')) shape = 'polygon'
@@ -2296,7 +2593,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
       try {
         const { convertToExcalidrawElements } = await getExcalidrawModule()
-        const startY = getDynamicNextY(16)
+        const startY = getDynamicNextY(16, true)
         const skeletons: any[] = []
 
         if (shape === 'rectangle' || shape === 'square' || shape === 'box') {
@@ -2324,7 +2621,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               y: startY - 20,
               text: String(lengthVal),
               fontSize: 13,
-              fontFamily: 1,
+              fontFamily: BOARD_FONT_FAMILY,
               strokeColor: INK_CORAL,
               customData: { isRough: false, isShapeFigure: true },
             })
@@ -2337,7 +2634,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               y: startY + Math.floor(h / 2) - 8,
               text: String(breadthVal),
               fontSize: 13,
-              fontFamily: 1,
+              fontFamily: BOARD_FONT_FAMILY,
               strokeColor: INK_CORAL,
               customData: { isRough: false, isShapeFigure: true },
             })
@@ -2385,7 +2682,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               y: startY + r - 18,
               text: String(radVal),
               fontSize: 13,
-              fontFamily: 1,
+              fontFamily: BOARD_FONT_FAMILY,
               strokeColor: INK_CORAL,
               customData: { isRough: false, isShapeFigure: true },
             }
@@ -2429,7 +2726,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               y: startY + h + 2,
               text: values?.vertexA || 'A',
               fontSize: 13,
-              fontFamily: 1,
+              fontFamily: BOARD_FONT_FAMILY,
               strokeColor: INK_CORAL,
               customData: { isRough: false, isShapeFigure: true },
             },
@@ -2439,7 +2736,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               y: startY + h + 2,
               text: values?.vertexB || 'B',
               fontSize: 13,
-              fontFamily: 1,
+              fontFamily: BOARD_FONT_FAMILY,
               strokeColor: INK_CORAL,
               customData: { isRough: false, isShapeFigure: true },
             },
@@ -2449,7 +2746,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               y: startY - 14,
               text: values?.vertexC || 'C',
               fontSize: 13,
-              fontFamily: 1,
+              fontFamily: BOARD_FONT_FAMILY,
               strokeColor: INK_CORAL,
               customData: { isRough: false, isShapeFigure: true },
             }
@@ -2466,7 +2763,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               y: startY + h + 14,
               text: String(baseVal),
               fontSize: 12,
-              fontFamily: 1,
+              fontFamily: BOARD_FONT_FAMILY,
               strokeColor: INK_PRIMARY,
               customData: { isRough: false, isShapeFigure: true },
             })
@@ -2478,7 +2775,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               y: startY + Math.floor(h / 2),
               text: String(perpVal),
               fontSize: 12,
-              fontFamily: 1,
+              fontFamily: BOARD_FONT_FAMILY,
               strokeColor: INK_PRIMARY,
               customData: { isRough: false, isShapeFigure: true },
             })
@@ -2490,7 +2787,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               y: startY + Math.floor(h / 2) - 10,
               text: String(hypVal),
               fontSize: 12,
-              fontFamily: 1,
+              fontFamily: BOARD_FONT_FAMILY,
               strokeColor: INK_CORAL,
               customData: { isRough: false, isShapeFigure: true },
             })
@@ -2549,7 +2846,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               y: startY + Math.floor(h / 2),
               text: cylHeightVal,
               fontSize: 12,
-              fontFamily: 1,
+              fontFamily: BOARD_FONT_FAMILY,
               strokeColor: INK_MUTED,
               customData: { isRough: false, isShapeFigure: true },
             }
@@ -2610,6 +2907,475 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               customData: { isRough: false, isShapeFigure: true },
             }
           )
+        } else if (shape === 'polygon') {
+          const sides = Math.min(Math.max(Number(values?.sides || values?.n || 5), 3), 12)
+          const rPoly = Math.min(w, h) / 2
+          const cx = rPoly
+          const cy = rPoly
+          const pts: [number, number][] = []
+          for (let i = 0; i <= sides; i++) {
+            const ang = (i % sides) * ((2 * Math.PI) / sides) - Math.PI / 2
+            pts.push([Math.round(cx + rPoly * Math.cos(ang)), Math.round(cy + rPoly * Math.sin(ang))])
+          }
+          h = rPoly * 2
+          skeletons.push({
+            type: 'line',
+            x: startX,
+            y: startY,
+            points: pts,
+            strokeColor: stroke,
+            backgroundColor: bg,
+            fillStyle: 'solid',
+            strokeWidth: 2,
+            customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
+          })
+        } else if (shape === 'parallelogram') {
+          const slant = Math.round(Math.min(w * 0.22, 60))
+          skeletons.push({
+            type: 'line',
+            x: startX,
+            y: startY,
+            points: [[slant, 0], [w, 0], [w - slant, h], [0, h], [slant, 0]],
+            strokeColor: stroke,
+            backgroundColor: bg,
+            fillStyle: 'solid',
+            strokeWidth: 2,
+            customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
+          })
+          const baseVal = values?.base || values?.b || ''
+          const heightVal = values?.height || values?.h || ''
+          if (heightVal) {
+            skeletons.push({
+              type: 'line',
+              x: startX + slant,
+              y: startY,
+              points: [[0, 0], [0, h]],
+              strokeColor: INK_CORAL,
+              strokeStyle: 'dashed',
+              strokeWidth: 1.5,
+              customData: { isRough: false, isShapeFigure: true },
+            })
+            skeletons.push({
+              type: 'text',
+              x: startX + slant + 6,
+              y: startY + Math.round(h / 2) - 8,
+              text: String(heightVal),
+              fontSize: 13,
+              fontFamily: BOARD_FONT_FAMILY,
+              strokeColor: INK_CORAL,
+              customData: { isRough: false, isShapeFigure: true },
+            })
+          }
+          if (baseVal) {
+            skeletons.push({
+              type: 'text',
+              x: startX + Math.round(w / 2) - 30,
+              y: startY + h + 4,
+              text: String(baseVal),
+              fontSize: 13,
+              fontFamily: BOARD_FONT_FAMILY,
+              strokeColor: INK_CORAL,
+              customData: { isRough: false, isShapeFigure: true },
+            })
+          }
+        } else if (shape === 'trapezium' || shape === 'trapezoid') {
+          const inset = Math.round(Math.min(w * 0.22, 65))
+          skeletons.push({
+            type: 'line',
+            x: startX,
+            y: startY,
+            points: [[inset, 0], [w - inset, 0], [w, h], [0, h], [inset, 0]],
+            strokeColor: stroke,
+            backgroundColor: bg,
+            fillStyle: 'solid',
+            strokeWidth: 2,
+            customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
+          })
+          skeletons.push({
+            type: 'line',
+            x: startX + inset,
+            y: startY,
+            points: [[0, 0], [0, h]],
+            strokeColor: INK_CORAL,
+            strokeStyle: 'dashed',
+            strokeWidth: 1.5,
+            customData: { isRough: false, isShapeFigure: true },
+          })
+          if (values?.a || values?.top) {
+            skeletons.push({
+              type: 'text',
+              x: startX + Math.round(w / 2) - 18,
+              y: startY - 20,
+              text: String(values.a || values.top),
+              fontSize: 13,
+              fontFamily: BOARD_FONT_FAMILY,
+              strokeColor: INK_CORAL,
+              customData: { isRough: false, isShapeFigure: true },
+            })
+          }
+          if (values?.b || values?.base) {
+            skeletons.push({
+              type: 'text',
+              x: startX + Math.round(w / 2) - 18,
+              y: startY + h + 4,
+              text: String(values.b || values.base),
+              fontSize: 13,
+              fontFamily: BOARD_FONT_FAMILY,
+              strokeColor: INK_CORAL,
+              customData: { isRough: false, isShapeFigure: true },
+            })
+          }
+        } else if (shape === 'cone') {
+          const rx = Math.round(Math.min(w, 220))
+          const ellipseH = Math.max(24, Math.round(rx * 0.28))
+          const halfEll = Math.round(ellipseH / 2)
+          skeletons.push(
+            {
+              type: 'ellipse',
+              x: startX,
+              y: startY + h - ellipseH,
+              width: rx,
+              height: ellipseH,
+              strokeColor: stroke,
+              backgroundColor: bg,
+              fillStyle: 'solid',
+              strokeWidth: 2,
+              customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
+            },
+            {
+              type: 'line',
+              x: startX,
+              y: startY,
+              points: [[0, h - halfEll], [Math.round(rx / 2), 0], [rx, h - halfEll]],
+              strokeColor: stroke,
+              strokeWidth: 2,
+              customData: { isRough: false, isShapeFigure: true },
+            },
+            {
+              type: 'line',
+              x: startX + Math.round(rx / 2),
+              y: startY,
+              points: [[0, 0], [0, h - halfEll]],
+              strokeColor: INK_CORAL,
+              strokeStyle: 'dashed',
+              strokeWidth: 1.5,
+              customData: { isRough: false, isShapeFigure: true },
+            },
+            {
+              type: 'line',
+              x: startX + Math.round(rx / 2),
+              y: startY + h - halfEll,
+              points: [[0, 0], [Math.round(rx / 2), 0]],
+              strokeColor: INK_CORAL,
+              strokeStyle: 'dashed',
+              strokeWidth: 1.5,
+              customData: { isRough: false, isShapeFigure: true },
+            }
+          )
+          skeletons.push(
+            {
+              type: 'text',
+              x: startX + Math.round(rx / 2) + 6,
+              y: startY + Math.round((h - halfEll) / 2) - 8,
+              text: String(values?.height || values?.h || 'h'),
+              fontSize: 13,
+              fontFamily: BOARD_FONT_FAMILY,
+              strokeColor: INK_CORAL,
+              customData: { isRough: false, isShapeFigure: true },
+            },
+            {
+              type: 'text',
+              x: startX + Math.round(rx * 0.72),
+              y: startY + h - halfEll - 18,
+              text: String(values?.radius || values?.r || 'r'),
+              fontSize: 13,
+              fontFamily: BOARD_FONT_FAMILY,
+              strokeColor: INK_CORAL,
+              customData: { isRough: false, isShapeFigure: true },
+            }
+          )
+        } else if (shape === 'sphere') {
+          const r = radius ? radius : Math.floor(Math.min(w, h) / 2)
+          const diam = r * 2
+          h = diam
+          skeletons.push(
+            {
+              type: 'ellipse',
+              x: startX,
+              y: startY,
+              width: diam,
+              height: diam,
+              strokeColor: stroke,
+              backgroundColor: bg,
+              fillStyle: 'solid',
+              strokeWidth: 2,
+              customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
+            },
+            {
+              type: 'ellipse',
+              x: startX,
+              y: startY + Math.round(r - r * 0.28),
+              width: diam,
+              height: Math.max(18, Math.round(r * 0.56)),
+              strokeColor: stroke,
+              strokeStyle: 'dashed',
+              strokeWidth: 1.5,
+              customData: { isRough: false, isShapeFigure: true },
+            },
+            {
+              type: 'line',
+              x: startX + r,
+              y: startY + r,
+              points: [[0, 0], [r, 0]],
+              strokeColor: INK_CORAL,
+              strokeWidth: 2,
+              customData: { isRough: false, isShapeFigure: true },
+            },
+            {
+              type: 'text',
+              x: startX + r + Math.round(r / 2) - 10,
+              y: startY + r - 20,
+              text: String(values?.radius || values?.r || 'r'),
+              fontSize: 13,
+              fontFamily: BOARD_FONT_FAMILY,
+              strokeColor: INK_CORAL,
+              customData: { isRough: false, isShapeFigure: true },
+            }
+          )
+        } else if (shape === 'hemisphere') {
+          const r = radius ? radius : Math.floor(Math.min(w, 220) / 2)
+          const diam = r * 2
+          const ellH = Math.max(22, Math.round(r * 0.42))
+          const domePts: [number, number][] = []
+          const steps = 18
+          for (let i = 0; i <= steps; i++) {
+            const ang = Math.PI + (i / steps) * Math.PI
+            domePts.push([Math.round(r + r * Math.cos(ang)), Math.round(r + r * Math.sin(ang))])
+          }
+          h = r + Math.round(ellH / 2)
+          skeletons.push(
+            {
+              type: 'line',
+              x: startX,
+              y: startY,
+              points: domePts,
+              strokeColor: stroke,
+              strokeWidth: 2,
+              customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
+            },
+            {
+              type: 'ellipse',
+              x: startX,
+              y: startY + r - Math.round(ellH / 2),
+              width: diam,
+              height: ellH,
+              strokeColor: stroke,
+              backgroundColor: bg,
+              fillStyle: 'solid',
+              strokeWidth: 2,
+              customData: { isRough: false, isShapeFigure: true },
+            },
+            {
+              type: 'line',
+              x: startX + r,
+              y: startY + r,
+              points: [[0, 0], [r, 0]],
+              strokeColor: INK_CORAL,
+              strokeWidth: 2,
+              customData: { isRough: false, isShapeFigure: true },
+            },
+            {
+              type: 'text',
+              x: startX + r + Math.round(r / 2) - 8,
+              y: startY + r - 22,
+              text: String(values?.radius || values?.r || 'r'),
+              fontSize: 13,
+              fontFamily: BOARD_FONT_FAMILY,
+              strokeColor: INK_CORAL,
+              customData: { isRough: false, isShapeFigure: true },
+            }
+          )
+        } else if (shape === 'prism') {
+          const pw = Math.min(w, 220)
+          const ph = Math.min(h, 150)
+          const dx = 48
+          const dy = -28
+          const apexX = Math.round(pw / 2)
+          skeletons.push(
+            {
+              type: 'line',
+              x: startX,
+              y: startY + 28,
+              points: [[apexX, 0], [pw, ph], [0, ph], [apexX, 0]],
+              strokeColor: stroke,
+              backgroundColor: bg,
+              fillStyle: 'solid',
+              strokeWidth: 2,
+              customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
+            },
+            {
+              type: 'line',
+              x: startX + dx,
+              y: startY + 28 + dy,
+              points: [[apexX, 0], [pw, ph], [0, ph], [apexX, 0]],
+              strokeColor: stroke,
+              strokeStyle: 'dashed',
+              strokeWidth: 1.5,
+              customData: { isRough: false, isShapeFigure: true },
+            },
+            {
+              type: 'line',
+              x: startX + apexX,
+              y: startY + 28,
+              points: [[0, 0], [dx, dy]],
+              strokeColor: stroke,
+              strokeWidth: 2,
+              customData: { isRough: false, isShapeFigure: true },
+            },
+            {
+              type: 'line',
+              x: startX + pw,
+              y: startY + 28 + ph,
+              points: [[0, 0], [dx, dy]],
+              strokeColor: stroke,
+              strokeWidth: 2,
+              customData: { isRough: false, isShapeFigure: true },
+            }
+          )
+          h = ph + 28
+        } else if (shape === 'pyramid') {
+          const bw = Math.min(w, 220)
+          const bh = Math.min(h, 160)
+          const apexX = Math.round(bw * 0.55)
+          const baseInset = 36
+          const baseBackY = Math.round(bh * 0.72)
+          skeletons.push(
+            {
+              type: 'line',
+              x: startX,
+              y: startY,
+              points: [[baseInset, baseBackY], [bw, baseBackY], [bw - baseInset, bh], [0, bh], [baseInset, baseBackY]],
+              strokeColor: stroke,
+              backgroundColor: bg,
+              fillStyle: 'solid',
+              strokeWidth: 2,
+              customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
+            },
+            {
+              type: 'line',
+              x: startX,
+              y: startY,
+              points: [[0, bh], [apexX, 0], [bw - baseInset, bh]],
+              strokeColor: stroke,
+              strokeWidth: 2,
+              customData: { isRough: false, isShapeFigure: true },
+            },
+            {
+              type: 'line',
+              x: startX,
+              y: startY,
+              points: [[bw, baseBackY], [apexX, 0], [baseInset, baseBackY]],
+              strokeColor: stroke,
+              strokeStyle: 'dashed',
+              strokeWidth: 1.5,
+              customData: { isRough: false, isShapeFigure: true },
+            }
+          )
+          h = bh
+        } else if (shape === 'number_line') {
+          const lineW = Math.min(Math.max(w, 260), 560)
+          const minVal = Number(values?.min ?? -5)
+          const maxVal = Number(values?.max ?? 5)
+          const span = Math.max(1, maxVal - minVal)
+          const ticks = Math.min(span, 12)
+          skeletons.push({
+            type: 'arrow',
+            x: startX,
+            y: startY + 26,
+            points: [[0, 0], [lineW, 0]],
+            startArrowhead: 'arrow',
+            endArrowhead: 'arrow',
+            strokeColor: stroke,
+            strokeWidth: 2,
+            customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
+          })
+          for (let i = 0; i <= ticks; i++) {
+            const tx = startX + 24 + Math.round(((lineW - 48) * i) / ticks)
+            const tickVal = Math.round((minVal + (span * i) / ticks) * 10) / 10
+            skeletons.push(
+              {
+                type: 'line',
+                x: tx,
+                y: startY + 18,
+                points: [[0, 0], [0, 16]],
+                strokeColor: stroke,
+                strokeWidth: 1.5,
+                customData: { isRough: false, isShapeFigure: true },
+              },
+              {
+                type: 'text',
+                x: tx - 6,
+                y: startY + 38,
+                text: String(tickVal),
+                fontSize: 12,
+                fontFamily: BOARD_FONT_FAMILY,
+                strokeColor: INK_PRIMARY,
+                customData: { isRough: false, isShapeFigure: true },
+              }
+            )
+          }
+          h = 62
+        } else if (shape === 'angle_arc') {
+          const rayLen = Math.min(w, 220)
+          const deg = Math.min(Math.max(Number(values?.angle || 45), 15), 150)
+          const rad = (deg * Math.PI) / 180
+          const vx = startX + 24
+          const vy = startY + Math.round(h * 0.85)
+          const arcR = 46
+          const arcPts: [number, number][] = []
+          for (let i = 0; i <= 12; i++) {
+            const a = -(i / 12) * rad
+            arcPts.push([Math.round(arcR * Math.cos(a)), Math.round(arcR * Math.sin(a))])
+          }
+          skeletons.push(
+            {
+              type: 'arrow',
+              x: vx,
+              y: vy,
+              points: [[0, 0], [rayLen, 0]],
+              strokeColor: stroke,
+              strokeWidth: 2,
+              customData: { isRough: false, isShapeFigure: true, shapeType: shape, shapeLabel: label, shapeValues: values },
+            },
+            {
+              type: 'arrow',
+              x: vx,
+              y: vy,
+              points: [[0, 0], [Math.round(rayLen * Math.cos(-rad)), Math.round(rayLen * Math.sin(-rad))]],
+              strokeColor: stroke,
+              strokeWidth: 2,
+              customData: { isRough: false, isShapeFigure: true },
+            },
+            {
+              type: 'line',
+              x: vx,
+              y: vy,
+              points: arcPts,
+              strokeColor: INK_CORAL,
+              strokeWidth: 2,
+              customData: { isRough: false, isShapeFigure: true },
+            },
+            {
+              type: 'text',
+              x: vx + arcR + 10,
+              y: vy - Math.round((arcR * Math.sin(rad)) / 2) - 10,
+              text: String(values?.label || `${deg}°`),
+              fontSize: 14,
+              fontFamily: BOARD_FONT_FAMILY,
+              strokeColor: INK_CORAL,
+              customData: { isRough: false, isShapeFigure: true },
+            }
+          )
         } else if (shape === 'arrow' || shape === 'line') {
           skeletons.push({
             type: 'arrow',
@@ -2630,7 +3396,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             y: startY + h + 14,
             text: label,
             fontSize: 15,
-            fontFamily: 1,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: INK_PRIMARY,
             customData: { isRough: false },
           })
@@ -2727,7 +3493,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           const estimatedHeight = Math.max(90, levels.length * (boxH + levelGap) + 20)
           await checkAutoPageOverflow(estimatedHeight)
 
-          const startY = getDynamicNextY(16)
+          const startY = getDynamicNextY(16, true)
           const nodePositions: Map<string, { x: number; y: number; w: number; h: number }> = new Map()
           const canvasWidth = 720
           const startX = 60
@@ -2763,7 +3529,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                   y: rowY + 10,
                   text: nodeLabel,
                   fontSize: lvlIdx === 0 ? 13 : 12,
-                  fontFamily: 1,
+                  fontFamily: BOARD_FONT_FAMILY,
                   strokeColor: INK_PRIMARY,
                   customData: { isRough: false },
                 }
@@ -2840,7 +3606,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           const estimatedHeight = Math.max(70, numRows * 76 + 20)
           await checkAutoPageOverflow(estimatedHeight)
 
-          const startY = getDynamicNextY(16)
+          const startY = getDynamicNextY(16, true)
           nextYRef.current = Math.max(nextYRef.current, startY + 180)
           const rowPositions: { x: number; y: number; w: number; h: number }[] = []
 
@@ -2874,7 +3640,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                 y: boxY + 10,
                 text: st,
                 fontSize: 15,
-                fontFamily: 1,
+                fontFamily: BOARD_FONT_FAMILY,
                 strokeColor: INK_PRIMARY,
                 customData: { isRough: false },
               }
@@ -2953,7 +3719,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       try {
         const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
-        const totalTableWidth = 720
+        const totalTableWidth = Math.min(940, Math.max(520, getAvailableContentWidthPx(undefined, true, 60)))
 
         // 1. Robust multiformat row parser: handles '||', '\n', and markdown table syntax
         const rawLines = tableStr.includes('||')
@@ -2979,21 +3745,20 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         const numCols = Math.max(...rows.map((r) => r.length), 1)
         const colWidth = Math.floor(totalTableWidth / numCols)
-        // Approximate chars per line based on column width (average character is ~7.5px in Excalidraw font 1)
-        const maxCharsPerCellLine = Math.max(12, Math.floor((colWidth - 20) / 7.8))
 
-        // 2. Measure and pre-wrap all cells, computing dynamic row heights
+        // 2. Measure and pre-wrap all cells using exact pixel width, computing dynamic row heights
         const wrappedRows: { cellText: string; lines: string[] }[][] = []
         const rowHeights: number[] = []
 
         rows.forEach((row, rowIdx) => {
           let maxLinesInRow = 1
           const wrappedCells: { cellText: string; lines: string[] }[] = []
+          const cellFont = rowIdx === 0 ? 18 : 17
 
           // Pad row to have numCols
           for (let colIdx = 0; colIdx < numCols; colIdx++) {
             const rawCell = row[colIdx] || ''
-            const lines = rawCell ? wrapText(rawCell, maxCharsPerCellLine) : ['-']
+            const lines = rawCell ? wrapTextToWidth(rawCell, cellFont, Math.max(70, colWidth - 20)) : ['-']
             if (lines.length > maxLinesInRow) {
               maxLinesInRow = lines.length
             }
@@ -3001,14 +3766,13 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           }
 
           wrappedRows.push(wrappedCells)
-          // Line height: 20px per line + 16px vertical padding
-          const dynamicHeight = Math.max(38, 16 + maxLinesInRow * 20)
+          const dynamicHeight = Math.max(44, 18 + maxLinesInRow * 24)
           rowHeights.push(dynamicHeight)
         })
 
         const totalTableHeight = rowHeights.reduce((a, b) => a + b, 0)
         await checkAutoPageOverflow(totalTableHeight + 24)
-        const startY = getDynamicNextY(16)
+        const startY = getDynamicNextY(16, true)
         nextYRef.current = Math.max(nextYRef.current, startY + totalTableHeight + 24)
 
         const skeletons: any[] = []
@@ -3041,8 +3805,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               x: x + 10,
               y: currentY + 8,
               text: cellData.lines.join('\n'),
-              fontSize: isHeader ? 15 : 14,
-              fontFamily: 1,
+              fontSize: isHeader ? 18 : 17,
+              fontFamily: BOARD_FONT_FAMILY,
               strokeColor: isHeader ? INK_PRIMARY : '#2E302D',
               customData: { isRough: false },
             })
@@ -3087,8 +3851,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             x: startX,
             y: startY,
             text: `[Working]: ${clean}`,
-            fontSize: 14,
-            fontFamily: 1,
+            fontSize: 18,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: roughColor,
             customData: { isRough: false },
           },
@@ -3208,7 +3972,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               y: startY + 7,
               text: `* Focus: ${clean}`,
               fontSize: 14,
-              fontFamily: 1,
+              fontFamily: BOARD_FONT_FAMILY,
               strokeColor: markerColor === INK_AMBER ? '#92400E' : markerColor,
               customData: { isHighlight: true },
             },
@@ -3273,7 +4037,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           appState: {
             viewBackgroundColor: 'transparent',
             currentItemStrokeColor: INK_PRIMARY,
-            currentItemFontFamily: 1,
+            currentItemFontFamily: BOARD_FONT_FAMILY,
             currentItemRoughness: 0,
             gridModeEnabled: true,
             zoom: { value: boardZoomRef.current },
@@ -3329,7 +4093,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       try {
         const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 75
-        const startY = getDynamicNextY(18)
+        const startY = getDynamicNextY(18, true)
         nextYRef.current = Math.max(nextYRef.current, startY + 240 + 20)
         const q = (query || '').trim()
         const lowerQ = q.toLowerCase()
@@ -3532,7 +4296,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             y: startY,
             text: titleText,
             fontSize: 16,
-            fontFamily: 1,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: INK_PRIMARY,
             customData: { isRough: false },
           },
@@ -3569,7 +4333,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             y: originY - graphHeight - 32,
             text: yLabel,
             fontSize: 13,
-            fontFamily: 1,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: INK_BOTANICAL,
             customData: { isRough: false },
           },
@@ -3579,7 +4343,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             y: originY + axisZeroY - 6,
             text: xLabel,
             fontSize: 13,
-            fontFamily: 1,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: INK_BOTANICAL,
             customData: { isRough: false },
           },
@@ -3594,7 +4358,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             y: originY + axisZeroY + 6,
             text: '0',
             fontSize: 11,
-            fontFamily: 1,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: INK_MUTED,
             customData: { isRough: false },
           })
@@ -3610,7 +4374,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             y: originY + axisZeroY + 6,
             text: `${xMin}`,
             fontSize: 10,
-            fontFamily: 1,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: INK_MUTED,
             customData: { isRough: false },
           })
@@ -3622,7 +4386,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             y: originY + axisZeroY + 6,
             text: `${xMax}`,
             fontSize: 10,
-            fontFamily: 1,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: INK_MUTED,
             customData: { isRough: false },
           })
@@ -3662,7 +4426,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               y: originY + ptY - 14,
               text: `(${dx}, ${dy})`,
               fontSize: 11,
-              fontFamily: 1,
+              fontFamily: BOARD_FONT_FAMILY,
               strokeColor: INK_PRIMARY,
               customData: { isRough: false },
             }
@@ -3677,7 +4441,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             y: originY - graphHeight / 2 - 15,
             text: calloutText,
             fontSize: 13,
-            fontFamily: 1,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: INK_BOTANICAL,
             customData: { isRough: false },
           })
@@ -3702,20 +4466,33 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       calculation?: string
       answer: string
       unit?: string
+      exerciseNumber?: string
+      questionNumber?: string
+      rough?: string
     }) => {
       if (!excalidrawAPI) return
 
       try {
         const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
-        const elements: any[] = []
+        const writeToken = writeQueueTokenRef.current
+
+        const exHeader = extractExerciseHeader(
+          solution.problem || '',
+          solution.exerciseNumber,
+          solution.questionNumber
+        )
+
+        const numStartY = getDynamicNextY(16, true)
+        const numAvailW = getAvailableContentWidthPx(numStartY, true, startX + 10)
+        const numCols = Math.max(42, Math.floor(numAvailW / (18 * 0.48)))
 
         // 1. Problem / Numerical Statement
         let probLines: string[] = []
         if (solution.problem) {
           const problemText = cleanChalkboardTypography(solution.problem.trim())
           const cleanProbBody = problemText.replace(/^•?\s*(?:Problem|Question|Q)\s*[:\.\-]\s*/i, '')
-          probLines = wrapText(`Problem: ${cleanProbBody}`, cols(60))
+          probLines = wrapTextToWidth(`Problem: ${cleanProbBody}`, 19, numAvailW)
         }
 
         // 2. Given Parameters
@@ -3723,8 +4500,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         if (solution.given) {
           const rawGiven = cleanChalkboardTypography(solution.given.trim())
           const cleanGivenBody = rawGiven.replace(/^•?\s*Given(?:\s+that)?\s*[:\.\-]\s*/i, '')
-          const rawSplit = formatChalkboardSteps(cleanGivenBody, cols(56))
-          givenLines = rawSplit.map((l, i) => (i === 0 ? `• Given: ${l}` : `        ${l}`))
+          const rawSplit = formatChalkboardSteps(cleanGivenBody, numCols)
+          givenLines = rawSplit.flatMap((l, i) => wrapTextToWidth(i === 0 ? `• Given: ${l}` : `        ${l}`, 18, numAvailW))
         }
 
         // 3. Formula / Governing Law
@@ -3732,51 +4509,62 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         if (solution.formula) {
           const rawFormula = cleanChalkboardTypography(solution.formula.trim())
           const cleanFormulaBody = rawFormula.replace(/^•?\s*(?:Formula|Theorem|Law)\s*[:\.\-]\s*/i, '')
-          const rawSplit = formatChalkboardSteps(cleanFormulaBody, cols(56))
-          formulaLines = rawSplit.map((l, i) => (i === 0 ? `Formula: ${l}` : `         ${l}`))
+          const rawSplit = formatChalkboardSteps(cleanFormulaBody, numCols)
+          formulaLines = rawSplit.flatMap((l, i) => wrapTextToWidth(i === 0 ? `Formula: ${l}` : `         ${l}`, 19, numAvailW))
         }
 
-        // 4. Substitution Step (1 or max 2 steps per line)
+        // 4. Substitution Step (clean alignment without ASCII ->)
         let subLines: string[] = []
         if (solution.substitution) {
           const rawSub = cleanChalkboardTypography(solution.substitution.trim())
           const cleanSubBody = rawSub.replace(/^•?\s*(?:->|→)\s*/, '')
-          const rawSplit = formatChalkboardSteps(cleanSubBody, cols(56))
-          subLines = rawSplit.map((l, i) => {
+          const rawSplit = formatChalkboardSteps(cleanSubBody, numCols)
+          subLines = rawSplit.flatMap((l, i) => {
             const trimmed = l.trim()
-            const body = trimmed.replace(/^•?\s*(?:->|→)\s*/, '')
-            if (i === 0) {
-              if (/^(?:Step\s*\d+|Step\s*[A-Za-z]|Substitution)\s*[:\.\-]/i.test(body)) {
-                return `-> ${body}`
-              }
-              return `-> Step 1 (Substitution): ${body}`
-            }
-            if (/^(?:Step\s*\d+|Step\s*[A-Za-z]|Substitution)\s*[:\.\-]/i.test(body)) {
-              return `-> ${body}`
-            }
-            return `   ${body}`
+            const body = trimmed.replace(/^(?:(?:->|→|•|\*)\s*)+/, '')
+            const prefix =
+              i === 0
+                ? /^(?:Step\s*\d+|Step\s*[A-Za-z]|Substitution)\s*[:\.\-]/i.test(body)
+                  ? `• ${body}`
+                  : `• Substitution: ${body}`
+                : /^(?:Step\s*\d+|Step\s*[A-Za-z]|Substitution)\s*[:\.\-]/i.test(body)
+                  ? `• ${body}`
+                  : `   ${body}`
+            return wrapTextToWidth(prefix, 18, numAvailW)
           })
         }
 
-        // 5. Calculation Step (1 or max 2 steps per line)
+        // 5. Calculation Step (clean exam-ready intermediate root/algebraic splits)
         let calcLines: string[] = []
         if (solution.calculation) {
           const rawCalc = cleanChalkboardTypography(solution.calculation.trim())
           const cleanCalcBody = rawCalc.replace(/^•?\s*(?:->|→)\s*/, '')
-          const rawSplit = formatChalkboardSteps(cleanCalcBody, cols(56))
-          calcLines = rawSplit.map((l, i) => {
+          const rawSplit = formatChalkboardSteps(cleanCalcBody, numCols)
+          rawSplit.forEach((l, i) => {
             const trimmed = l.trim()
-            const body = trimmed.replace(/^•?\s*(?:->|→)\s*/, '')
-            if (i === 0) {
-              if (/^(?:Step\s*\d+|Step\s*[A-Za-z]|Calculation)\s*[:\.\-]/i.test(body)) {
-                return `-> ${body}`
+            const body = trimmed.replace(/^(?:(?:->|→|•|\*)\s*)+/, '')
+            const eqCount = (body.match(/=/g) || []).length
+            if (eqCount >= 2 && measureBoardText(body, 18) > numAvailW - 24) {
+              const firstEq = body.indexOf('=')
+              const lhs = body.slice(0, firstEq).trim()
+              const rhsChain = body.slice(firstEq + 1).split('=').map((p) => p.trim()).filter(Boolean)
+              if (rhsChain.length >= 2) {
+                calcLines.push(...wrapTextToWidth(i === 0 && !/^(?:Step\s*\d+|Calculation)\s*[:\.\-]/i.test(body) ? `• Calculation: ${lhs} = ${rhsChain[0]}` : `• ${lhs} = ${rhsChain[0]}`, 18, numAvailW))
+                for (let j = 1; j < rhsChain.length; j++) {
+                  calcLines.push(...wrapTextToWidth(`               = ${rhsChain[j]}`, 18, numAvailW))
+                }
+                return
               }
-              return `-> Step 2 (Calculation): ${body}`
             }
-            if (/^(?:Step\s*\d+|Step\s*[A-Za-z]|Calculation)\s*[:\.\-]/i.test(body)) {
-              return `-> ${body}`
-            }
-            return `   ${body}`
+            const label =
+              i === 0
+                ? /^(?:Step\s*\d+|Step\s*[A-Za-z]|Calculation)\s*[:\.\-]/i.test(body)
+                  ? `• ${body}`
+                  : `• Calculation: ${body}`
+                : /^(?:Step\s*\d+|Step\s*[A-Za-z]|Calculation)\s*[:\.\-]/i.test(body)
+                  ? `• ${body}`
+                  : `   ${body}`
+            calcLines.push(...wrapTextToWidth(label, 18, numAvailW))
           })
         }
 
@@ -3786,128 +4574,190 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const ansBody = rawAns.replace(/^•?\s*(?:Answer|Final Answer|Ans|Boxed Answer)\s*[:\.\-]\s*/i, '').trim()
         const hasUnit = cleanUnit && (ansBody.endsWith(cleanUnit) || ansBody.includes(cleanUnit))
         const ansText = `Answer: ${ansBody || 'Solved'}${cleanUnit && !hasUnit ? ' ' + cleanUnit : ''}`
-        const boxWidth = Math.max(260, Math.min(ansText.length * 11 + 36, 720))
+        const boxWidth = Math.max(280, Math.min(Math.ceil(measureBoardText(ansText, 19)) + 44, numAvailW))
 
-        // Dynamic height calculation
-        const problemH = probLines.length > 0 ? probLines.length * 24 + 10 : 0
-        const givenH = givenLines.length > 0 ? givenLines.length * 22 + 8 : 0
-        const formulaH = formulaLines.length > 0 ? formulaLines.length * 24 + 10 : 0
-        const subH = subLines.length > 0 ? subLines.length * 24 + 10 : 0
-        const calcH = calcLines.length > 0 ? calcLines.length * 24 + 10 : 0
-        const ansH = 56
-        const totalEstimatedH = problemH + givenH + formulaH + subH + calcH + ansH + 20
+        // Dynamic height calculation for page overflow check
+        const headerH = exHeader ? 28 : 0
+        const problemH = probLines.length > 0 ? probLines.length * 28 + 10 : 0
+        const givenH = givenLines.length > 0 ? givenLines.length * 27 + 10 : 0
+        const formulaH = formulaLines.length > 0 ? formulaLines.length * 28 + 10 : 0
+        const subH = subLines.length > 0 ? subLines.length * 27 + 10 : 0
+        const calcH = calcLines.length > 0 ? calcLines.length * 27 + 10 : 0
+        const ansH = 60
+        const totalEstimatedH = headerH + problemH + givenH + formulaH + subH + calcH + ansH + 20
 
         await checkAutoPageOverflow(totalEstimatedH)
-        const startY = getDynamicNextY(16)
+        const startPageIdx = currentPageIndexRef.current
+        const startY = numStartY
         let curY = startY
+
+        const commitSection = (skeletons: any[], nextCurY: number) => {
+          const converted = convertToExcalidrawElements(skeletons)
+          const merged = [...getCurrentElements(), ...converted]
+          nextYRef.current = Math.max(nextYRef.current, nextCurY)
+          updateCurrentPageElements(merged, nextCurY)
+        }
+
+        // 0. Render Exercise / Question Number Badge (if present)
+        if (exHeader) {
+          commitSection(
+            [
+              {
+                type: 'text',
+                x: startX,
+                y: curY,
+                text: exHeader,
+                fontSize: 15,
+                fontFamily: BOARD_FONT_FAMILY,
+                strokeColor: INK_CORAL,
+                customData: { isRough: false },
+              },
+            ],
+            curY + 26
+          )
+          curY += 26
+        }
 
         // 1. Render Problem
         if (probLines.length > 0) {
-          elements.push({
-            type: 'text',
-            x: startX,
-            y: curY,
-            text: probLines.join('\n'),
-            fontSize: 15,
-            fontFamily: 1,
-            strokeColor: INK_PRIMARY,
-            customData: { isRough: false },
-          })
-          curY += probLines.length * 24 + 10
+          const nextY = curY + probLines.length * 28 + 10
+          commitSection(
+            [
+              {
+                type: 'text',
+                x: startX,
+                y: curY,
+                text: probLines.join('\n'),
+                fontSize: 19,
+                fontFamily: getBoardFontFamily(probLines.join('\n')),
+                strokeColor: INK_PRIMARY,
+                customData: { isRough: false },
+              },
+            ],
+            nextY
+          )
+          curY = nextY
         }
 
-        // 2. Render Given
+        // 2. Render Given (staggered)
         if (givenLines.length > 0) {
-          elements.push({
-            type: 'text',
-            x: startX + 10,
-            y: curY,
-            text: givenLines.join('\n'),
-            fontSize: 14,
-            fontFamily: 1,
-            strokeColor: INK_SECONDARY,
-            customData: { isRough: false },
-          })
-          curY += givenLines.length * 22 + 8
+          if (!(await waitStaggerStep(550, writeToken, startPageIdx))) return
+          const nextY = curY + givenLines.length * 27 + 10
+          commitSection(
+            [
+              {
+                type: 'text',
+                x: startX + 10,
+                y: curY,
+                text: givenLines.join('\n'),
+                fontSize: 18,
+                fontFamily: getBoardFontFamily(givenLines.join('\n')),
+                strokeColor: INK_SECONDARY,
+                customData: { isRough: false },
+              },
+            ],
+            nextY
+          )
+          curY = nextY
         }
 
-        // 3. Render Formula
+        // 3. Render Formula (staggered)
         if (formulaLines.length > 0) {
-          elements.push({
-            type: 'text',
-            x: startX + 10,
-            y: curY,
-            text: formulaLines.join('\n'),
-            fontSize: 15,
-            fontFamily: 1,
-            strokeColor: INK_BOTANICAL,
-            customData: { isRough: false },
-          })
-          curY += formulaLines.length * 24 + 10
+          if (!(await waitStaggerStep(620, writeToken, startPageIdx))) return
+          const nextY = curY + formulaLines.length * 28 + 10
+          commitSection(
+            [
+              {
+                type: 'text',
+                x: startX + 10,
+                y: curY,
+                text: formulaLines.join('\n'),
+                fontSize: 19,
+                fontFamily: getBoardFontFamily(formulaLines.join('\n')),
+                strokeColor: INK_BOTANICAL,
+                customData: { isRough: false },
+              },
+            ],
+            nextY
+          )
+          curY = nextY
         }
 
-        // 4. Render Substitution
+        // 4. Render Substitution (staggered)
         if (subLines.length > 0) {
-          elements.push({
-            type: 'text',
-            x: startX + 10,
-            y: curY,
-            text: subLines.join('\n'),
-            fontSize: 14,
-            fontFamily: 1,
-            strokeColor: INK_SECONDARY,
-            customData: { isRough: false },
-          })
-          curY += subLines.length * 24 + 10
+          if (!(await waitStaggerStep(720, writeToken, startPageIdx))) return
+          const nextY = curY + subLines.length * 27 + 10
+          commitSection(
+            [
+              {
+                type: 'text',
+                x: startX + 10,
+                y: curY,
+                text: subLines.join('\n'),
+                fontSize: 18,
+                fontFamily: getBoardFontFamily(subLines.join('\n')),
+                strokeColor: INK_SECONDARY,
+                customData: { isRough: false },
+              },
+            ],
+            nextY
+          )
+          curY = nextY
         }
 
-        // 5. Render Calculation
+        // 5. Render Calculation (staggered)
         if (calcLines.length > 0) {
-          elements.push({
-            type: 'text',
-            x: startX + 10,
-            y: curY,
-            text: calcLines.join('\n'),
-            fontSize: 14,
-            fontFamily: 1,
-            strokeColor: INK_SECONDARY,
-            customData: { isRough: false },
-          })
-          curY += calcLines.length * 24 + 10
+          if (!(await waitStaggerStep(720, writeToken, startPageIdx))) return
+          const nextY = curY + calcLines.length * 27 + 10
+          commitSection(
+            [
+              {
+                type: 'text',
+                x: startX + 10,
+                y: curY,
+                text: calcLines.join('\n'),
+                fontSize: 18,
+                fontFamily: getBoardFontFamily(calcLines.join('\n')),
+                strokeColor: INK_SECONDARY,
+                customData: { isRough: false },
+              },
+            ],
+            nextY
+          )
+          curY = nextY
         }
 
-        // 6. Render Boxed Answer
-        elements.push(
-          {
-            type: 'rectangle',
-            x: startX + 10,
-            y: curY,
-            width: boxWidth,
-            height: 44,
-            strokeColor: INK_CORAL,
-            backgroundColor: INK_CORAL_SOFT,
-            fillStyle: 'solid',
-            strokeWidth: 2,
-            roundness: { type: 3 },
-            customData: { isRough: false },
-          },
-          {
-            type: 'text',
-            x: startX + 22,
-            y: curY + 11,
-            text: ansText,
-            fontSize: 15,
-            fontFamily: 1,
-            strokeColor: INK_PRIMARY,
-            customData: { isRough: false },
-          }
+        // 6. Render Boxed Answer (staggered)
+        if (!(await waitStaggerStep(550, writeToken, startPageIdx))) return
+        const finalNextY = curY + 60 + 16
+        commitSection(
+          [
+            {
+              type: 'rectangle',
+              x: startX + 10,
+              y: curY,
+              width: boxWidth,
+              height: 48,
+              strokeColor: INK_CORAL,
+              backgroundColor: INK_CORAL_SOFT,
+              fillStyle: 'solid',
+              strokeWidth: 2,
+              roundness: { type: 3 },
+              customData: { isRough: false },
+            },
+            {
+              type: 'text',
+              x: startX + 22,
+              y: curY + 11,
+              text: ansText,
+              fontSize: 19,
+              fontFamily: getBoardFontFamily(ansText),
+              strokeColor: INK_PRIMARY,
+              customData: { isRough: false },
+            },
+          ],
+          finalNextY
         )
-        curY += 56
-
-        const current = getCurrentElements()
-        const converted = convertToExcalidrawElements(elements)
-        const merged = [...current, ...converted]
-        updateCurrentPageElements(merged, curY + 16)
 
         // 7. Scratchpad / Arithmetic in Rough Margin (only when explicit scratchpad work is passed)
         const roughWorkText = (solution as any).rough || (solution as any).roughWork
@@ -3915,7 +4765,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           await drawRoughWork(`Calculation:\n${cleanChalkboardTypography(roughWorkText)}`)
         }
 
-        onNoteRecorded?.(`**Solved Numerical**: ${solution.problem || solution.formula || ansText}`)
+        onNoteRecorded?.(`**Solved Numerical**: ${exHeader ? `[${exHeader}] ` : ''}${solution.problem || solution.formula || ansText}`)
       } catch (err) {
         console.error('drawNumericalSolution error:', err)
       }
@@ -3940,7 +4790,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       try {
         const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
-        const startY = getDynamicNextY(20)
+        const startY = getDynamicNextY(20, true)
         const cardWidth = 532
         const cardHeight = 250
         const innerW = 496
@@ -3969,7 +4819,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             y: startY + 14,
             text: `Visualizing: ${cleanTitle}...`,
             fontSize: 14,
-            fontFamily: 1,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: INK_BOTANICAL,
             customData: { isRough: false, isDiagramSkeleton: true, normTitle, skeletonTitle: cleanTitle },
           },
@@ -3995,7 +4845,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             y: startY + 105,
             text: `Synthesizing scientific vector illustration...`,
             fontSize: 13,
-            fontFamily: 1,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: INK_MUTED,
             customData: { isRough: false, isDiagramSkeleton: true, normTitle, skeletonTitle: cleanTitle },
           },
@@ -4006,7 +4856,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             y: startY + 212,
             text: `The precision illustration will appear on this board space automatically.`,
             fontSize: 11,
-            fontFamily: 1,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: INK_SECONDARY,
             customData: { isRough: false, isDiagramSkeleton: true, normTitle, skeletonTitle: cleanTitle },
           },
@@ -4055,7 +4905,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       try {
         const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
-        const startY = getDynamicNextY(20)
+        const startY = getDynamicNextY(20, true)
         nextYRef.current = Math.max(nextYRef.current, startY + 280 + 24)
 
         // Clean markdown code blocks, script tags, and whitespace
@@ -4165,12 +5015,18 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         }
 
         const cardWidth = Math.max(svgWidth + 32, 440)
-        // Wraps SVG captions at base column width: wrapText(caption.trim(), 55) adapted via cols(55)
-        const captionLines = caption?.trim()
-          ? wrapText(caption.trim(), cols(55))
-          : resolvedCaption?.trim()
-            ? wrapText(resolvedCaption.trim(), cols(55))
-            : []
+        // Strip boilerplate or repetitive captions; allow at most 1 concise single-line caption
+        const rawCandidateCaption = (caption?.trim() || resolvedCaption?.trim() || '').replace(/\s+/g, ' ').trim()
+        const isBoilerplateCaption =
+          !rawCandidateCaption ||
+          /publication-grade vector|refined by tier 2|with textbook precision/i.test(rawCandidateCaption) ||
+          rawCandidateCaption.toLowerCase() === resolvedTitle.toLowerCase()
+        const cleanCaptionText = isBoilerplateCaption
+          ? ''
+          : rawCandidateCaption.length > 68
+            ? `${rawCandidateCaption.slice(0, 65).trim()}...`
+            : rawCandidateCaption
+        const captionLines = cleanCaptionText ? [cleanCaptionText] : []
         const captionHeight = captionLines.length * 18
         const cardHeight = svgHeight + 56 + (captionLines.length > 0 ? captionHeight + 12 : 0) + 16
 
@@ -4182,11 +5038,11 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         const current = getCurrentElements()
 
-        // 1. Check for matching skeleton on current page
+        // 1. Check strictly for matching skeleton on current page (never replace unrelated skeletons)
         const isSkeletonMatch = (el: any) => {
           if (!el.customData?.isDiagramSkeleton) return false
           const sTitle = el.customData?.normTitle || ''
-          if (!sTitle) return true
+          if (!sTitle) return false
           if (sTitle === normTitle || sTitle === rawNormTitle) return true
           if (normTitle && (normTitle.includes(sTitle) || sTitle.includes(normTitle))) return true
           if (rawNormTitle && (rawNormTitle.includes(sTitle) || sTitle.includes(rawNormTitle))) return true
@@ -4194,7 +5050,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         }
 
         const matchingSkeletons = current.filter(isSkeletonMatch)
-        const hasMatchingSkeleton = matchingSkeletons.length > 0 || current.some((el: any) => el.customData?.isDiagramSkeleton)
+        const hasMatchingSkeleton = matchingSkeletons.length > 0
 
         // 2. Or if forceUpdate, check for existing SVG diagram card for this title
         const isExistingSvgMatch = (el: any) => {
@@ -4211,9 +5067,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         let filteredElements = current
 
         if (hasMatchingSkeleton) {
-          const targetSkeletons = matchingSkeletons.length > 0
-            ? matchingSkeletons
-            : current.filter((el: any) => el.customData?.isDiagramSkeleton)
+          const targetSkeletons = matchingSkeletons
           const firstSkel = targetSkeletons[0]
           if (firstSkel) {
             skeletonStartX = firstSkel.x
@@ -4248,14 +5102,14 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             roundness: { type: 3 },
             customData: { isRough: false, isSvgCard: true, normTitle, diagramTitle: resolvedTitle },
           },
-          // Header / Title
+          // Clean Header / Title (without noisy [DIAGRAM]: prefix)
           {
             type: 'text',
             x: targetStartX + 16,
             y: targetStartY + 12,
-            text: `[DIAGRAM]: ${resolvedTitle.toUpperCase()}`,
+            text: resolvedTitle,
             fontSize: 14,
-            fontFamily: 1,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: '#0F172A',
             customData: { isRough: false, isSvgCard: true, normTitle, diagramTitle: resolvedTitle },
           },
@@ -4279,7 +5133,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             y: targetStartY + 44 + svgHeight + 12,
             text: captionLines.join('\n'),
             fontSize: 12,
-            fontFamily: 1,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: INK_SECONDARY,
             customData: { isRough: false, isSvgCard: true, normTitle, diagramTitle: resolvedTitle },
           })
@@ -4543,32 +5397,38 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         }
 
         const current = getCurrentElements()
+        const inlineStartY = getDynamicNextY(20, true)
+        const placement = computeImagePlacement({
+          existingElements: current,
+          startX,
+          startY,
+          inlineStartY,
+          imgWidth,
+          imgHeight,
+          maxInlineWidth: IMG_MAX_W,
+          wrapFactor: wrapFactorRef.current,
+          canvasWidth: containerCanvasWidthRef.current,
+        })
+
         const customPayload = {
           isRough: false,
           isImageCard: true,
           isExpandableImage: true,
+          isRightDocked: placement.dockedRight,
           fullUrl: cleanUrl,
           imageUrl: finalDataURL,
           title: resolvedTitle,
           caption: resolvedCaption,
         }
 
-        // If current page is relatively fresh (startY <= 260) and has no image on the right, place image on the right side
-        // (x: 480, y: 40) with width ~390px, leaving the left column (x: 60 to 450) open for notes, flowcharts & questions
-        const shouldPlaceOnRight = startY <= 260 && !current.some((el: any) => el.type === 'image' && el.x >= 440)
-        const finalW = shouldPlaceOnRight ? Math.min(390, imgWidth) : imgWidth
-        const finalH = shouldPlaceOnRight ? Math.min(290, Math.round(imgHeight * (finalW / Math.max(1, imgWidth)))) : imgHeight
-        const finalX = shouldPlaceOnRight ? 480 : startX + Math.max(0, Math.round((IMG_MAX_W - imgWidth) / 2))
-        const finalY = shouldPlaceOnRight ? 40 : startY
-
         // Clean borderless image element inserted directly on canvas with native border radius
         const elementsToInsert: any[] = [
           {
             type: 'image',
-            x: finalX,
-            y: finalY,
-            width: finalW,
-            height: finalH,
+            x: placement.x,
+            y: placement.y,
+            width: placement.width,
+            height: placement.height,
             fileId,
             status: 'saved',
             roundness: { type: 3 },
@@ -4578,9 +5438,9 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
 
         const elements = convertToExcalidrawElements(elementsToInsert)
         const merged = [...current, ...elements]
-        const nextYTarget = shouldPlaceOnRight
-          ? Math.max(nextYRef.current, 40)
-          : Math.max(nextYRef.current, startY + imgHeight + 24)
+        const nextYTarget = placement.dockedRight
+          ? Math.max(nextYRef.current, placement.titleBottomY + 20)
+          : Math.max(nextYRef.current, placement.y + placement.height + 24)
         updateCurrentPageElements(merged, nextYTarget)
         onNoteRecorded?.(`[Image]: ${resolvedTitle}${resolvedCaption ? ` - ${resolvedCaption}` : ''}`)
       } catch (err) {
@@ -4636,7 +5496,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       try {
         const { convertToExcalidrawElements } = await getExcalidrawModule()
         const startX = 60
-        const startY = getDynamicNextY(16)
+        const startY = getDynamicNextY(16, true)
         const customPayload = {
           isRough: false,
           isPlayableVideo: true,
@@ -4651,13 +5511,13 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
         const THUMB_W = 240
         const THUMB_H = 136
         const textX = startX + THUMB_W + 20
-        const textW = Math.max(260, 720 - THUMB_W - 20)
-        const titleLines = wrapTextToWidth(title.trim(), 18, textW, 2)
+        const textW = Math.max(280, Math.min(920, getAvailableContentWidthPx(startY, true, startX)) - THUMB_W - 24)
+        const titleLines = wrapTextToWidth(title.trim(), 20, textW, 2)
         const descText = description?.trim() || `Visual demonstration of ${title.trim()}.`
-        const descLines = wrapTextToWidth(descText, 14, textW, 3)
-        const titleY = startY + 12
-        const descY = titleY + titleLines.length * 24 + 8
-        const cardHeight = Math.max(THUMB_H, descY + descLines.length * 20 - startY)
+        const descLines = wrapTextToWidth(descText, 16, textW, 3)
+        const titleY = startY + 10
+        const descY = titleY + titleLines.length * 26 + 8
+        const cardHeight = Math.max(THUMB_H, descY + descLines.length * 22 - startY)
         const thumbX = startX
         const thumbY = startY
         const playR = 22
@@ -4722,8 +5582,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             x: textX,
             y: titleY,
             text: titleLines.join('\n'),
-            fontSize: 18,
-            fontFamily: 1,
+            fontSize: 20,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: INK_PRIMARY,
             customData: customPayload,
           },
@@ -4732,8 +5592,8 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             x: textX,
             y: descY,
             text: descLines.join('\n'),
-            fontSize: 14,
-            fontFamily: 1,
+            fontSize: 16,
+            fontFamily: BOARD_FONT_FAMILY,
             strokeColor: INK_SECONDARY,
             customData: customPayload,
           },
@@ -4788,7 +5648,14 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
           } else if (action === 'draw_table' || action === 'table') {
             if (content) await drawTable(content);
           } else if (action === 'draw_graph' || action === 'graph') {
-            if (content) await drawGraph(content);
+            if (content) {
+              const graphPayload = buildGraphPayloadFromDirective(String(content))
+              if (graphPayload && isValidGraphPayload(graphPayload) && onOpenGraphRequest) {
+                onOpenGraphRequest(graphPayload)
+              } else {
+                await drawGraph(content)
+              }
+            }
           } else if (action === 'draw_geometry' || action === 'geometry') {
             if (content) await drawGeometry(content);
           } else if (action === 'draw_image' || action === 'image') {
@@ -5186,7 +6053,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               await drawSvgDiagram('Educational Diagram', payload)
             }
           } else if (tagType === 'GRAPH' || tagType === 'DRAW_GRAPH') {
-            await drawGraph(payload)
+            const graphPayload = buildGraphPayloadFromDirective(payload)
+            if (graphPayload && isValidGraphPayload(graphPayload) && onOpenGraphRequest) {
+              onOpenGraphRequest(graphPayload)
+            } else {
+              await drawGraph(payload)
+            }
           } else if (tagType === 'DIAGRAM' || tagType === 'DRAW_DIAGRAM') {
             const diag = payload.toLowerCase()
             if (payload.includes('<svg') && payload.includes('</svg>')) {
@@ -5205,7 +6077,12 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
               isLegitimateGraphTopic(diag, subject || '') &&
               (diag.includes('graph') || diag.includes('ohm') || diag.includes('linear') || diag.includes('velocity') || diag.includes('speed') || diag.includes('distance') || diag.includes('wave') || diag.includes('parabola') || diag.includes('quad') || diag.includes('boyle') || diag.includes('curve') || diag.includes('plot') || diag.includes('='))
             ) {
-              await drawGraph(diag)
+              const graphPayload = buildGraphPayloadFromDirective(payload)
+              if (graphPayload && isValidGraphPayload(graphPayload) && onOpenGraphRequest) {
+                onOpenGraphRequest(graphPayload)
+              } else {
+                await drawGraph(diag)
+              }
             } else {
               // Universal dynamic vector SVG diagram for any syllabus subject
               await drawSvgDiagram(payload || 'Scientific Diagram', '', '')
@@ -5335,7 +6212,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
             appState: {
               viewBackgroundColor: 'transparent',
               currentItemStrokeColor: INK_PRIMARY,
-              currentItemFontFamily: 1,
+              currentItemFontFamily: BOARD_FONT_FAMILY,
               currentItemRoughness: 0,
               gridModeEnabled: true,
               zoom: { value: boardZoomRef.current },
@@ -5396,6 +6273,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
       getNextY: () => nextYRef.current,
       getCurrentPageIndex: () => currentPageIndexRef.current,
       restoreBoardState,
+      stopWritingQueue,
     }))
 
     return (
@@ -5437,7 +6315,7 @@ export const GreenChalkboard = forwardRef<GreenChalkboardRef, GreenChalkboardPro
                   transformOrigin: 'top left',
                   zIndex: 25,
                   pointerEvents: 'none',
-                  fontFamily: 'Virgil, Excalifont, Xiaolai, "Segoe UI Emoji", sans-serif',
+                  fontFamily: 'Excalifont, Xiaolai, "Segoe UI Emoji", sans-serif',
                   fontSize: `${activeTyping.fontSize}px`,
                   lineHeight: 1.25,
                   color: activeTyping.color,

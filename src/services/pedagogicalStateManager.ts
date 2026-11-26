@@ -70,8 +70,12 @@ export class PedagogicalStateManager {
       return false;
     }
 
-    // 2. Dynamic stage advancement based on chalkboard tools
-    if (act === 'draw_highlight_box' || /definition|law:|formula:/i.test(contentStr)) {
+    // 2. Dynamic stage advancement based on chalkboard tools (never advance stage on draw_title alone)
+    if (act === 'draw_title' || act === 'title' || act === 'board_title') {
+      return true;
+    }
+
+    if (act === 'draw_highlight_box' || /\b(?:theorem|property|axiom|corollary|definition)\b|law:|formula:|concept\s*:/i.test(contentStr)) {
       if (this.getStageIndex() < 1) {
         this.currentStage = 'CONCEPT_FORMULATION';
         console.log(`[PedagogicalStateManager] Tool triggered stage -> CONCEPT_FORMULATION`);
@@ -87,10 +91,8 @@ export class PedagogicalStateManager {
         console.log(`[PedagogicalStateManager] Tool triggered stage -> BOARD_NUMERICAL`);
       }
     } else if (act === 'draw_question' || act === 'draw_exam_question' || /checkpoint|question|q:/i.test(contentStr)) {
-      if (this.getStageIndex() < 4) {
-        this.currentStage = 'CHECK_UNDERSTANDING';
-        console.log(`[PedagogicalStateManager] Tool triggered stage -> CHECK_UNDERSTANDING`);
-      }
+      this.currentStage = 'CHECK_UNDERSTANDING';
+      console.log(`[PedagogicalStateManager] Tool triggered stage -> CHECK_UNDERSTANDING`);
     } else if (act === 'draw_answer_verdict' || /verdict:/i.test(contentStr)) {
       this.currentStage = 'BOARD_EXAM_NUMERICAL';
       console.log(`[PedagogicalStateManager] Tool triggered stage -> BOARD_EXAM_NUMERICAL`);

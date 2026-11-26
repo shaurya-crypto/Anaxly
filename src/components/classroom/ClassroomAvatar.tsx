@@ -129,6 +129,7 @@ export const ClassroomAvatar: React.FC<ClassroomAvatarProps> = ({
   }, [])
 
   // Manage Simli WebRTC connection lifecycle based on classroom call state
+  const simliEntitlementRef = useRef<boolean | null>(null)
   useEffect(() => {
     if (!isMounted) return
 
@@ -142,11 +143,42 @@ export const ClassroomAvatar: React.FC<ClassroomAvatarProps> = ({
     const controller = simliControllerRef.current
     if (!controller) return
 
-    controller.start({
-      videoElement: simliVideoRef.current,
-      audioElement: simliAudioRef.current,
-      faceId: selectedFaceId,
-    })
+    let cancelled = false
+    const startIfEntitled = async () => {
+      if (simliEntitlementRef.current === null) {
+        try {
+          const checkRes = await fetch('/api/avatar/simli', { method: 'GET' })
+          if (checkRes.ok) {
+            const checkData = await checkRes.json().catch(() => ({}))
+            simliEntitlementRef.current = Boolean(checkData?.available)
+          } else {
+            simliEntitlementRef.current = false
+          }
+        } catch {
+          simliEntitlementRef.current = false
+        }
+      }
+
+      if (cancelled) return
+
+      if (!simliEntitlementRef.current) {
+        setActiveProvider('google')
+        setSimliStatus('fallback')
+        return
+      }
+
+      if (!simliVideoRef.current || !simliAudioRef.current) return
+      controller.start({
+        videoElement: simliVideoRef.current,
+        audioElement: simliAudioRef.current,
+        faceId: selectedFaceId,
+      })
+    }
+
+    startIfEntitled()
+    return () => {
+      cancelled = true
+    }
   }, [isMounted, isCallActive, isAvatarEnabled, selectedFaceId])
 
   const ringContainerRef = useRef<HTMLDivElement | null>(null)

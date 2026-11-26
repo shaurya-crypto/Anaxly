@@ -18,6 +18,9 @@
 export interface GraphFormulaItem {
   formula: string
   color?: string
+  fillColor?: string
+  fillOpacity?: number
+  filled?: boolean
   label?: string
   domain?: [number, number]
 }
@@ -46,6 +49,8 @@ export interface GraphBarItem {
   height: number
   width?: number
   color?: string
+  fillColor?: string
+  fillOpacity?: number
 }
 
 export interface GraphVectorItem {
@@ -60,6 +65,7 @@ export interface GraphPolygonItem {
   points: [number, number][]
   label?: string
   color?: string
+  fillColor?: string
   fillOpacity?: number
 }
 
@@ -76,7 +82,36 @@ export interface GraphCircleItem {
   radius: number
   label?: string
   color?: string
+  fillColor?: string
   fillOpacity?: number
+}
+
+export interface GraphPieSliceItem {
+  label: string
+  value: number
+  color?: string
+  fillOpacity?: number
+}
+
+export interface GraphLineSeriesItem {
+  points: [number, number][]
+  label?: string
+  color?: string
+  fillColor?: string
+  fillOpacity?: number
+  filled?: boolean
+  dashed?: boolean
+}
+
+export interface GraphShadedRegionItem {
+  formula?: string
+  upperFormula?: string
+  lowerFormula?: string
+  domain?: [number, number]
+  color?: string
+  fillColor?: string
+  fillOpacity?: number
+  label?: string
 }
 
 export interface GraphPayload {
@@ -89,6 +124,9 @@ export interface GraphPayload {
   polygons?: Array<GraphPolygonItem | [number, number][] | string | any>
   circles?: Array<GraphCircleItem | string | any>
   texts?: Array<GraphTextItem | string | any>
+  pies?: Array<GraphPieSliceItem | [string, number] | string | any> | string
+  lineSeries?: Array<GraphLineSeriesItem | [number, number][] | string | any> | string
+  shadedRegions?: Array<GraphShadedRegionItem | string | any> | string
   domain?: [number, number]
   range?: [number, number]
   title?: string
@@ -361,6 +399,9 @@ export function parseGraphFormulas(formula?: any, formulas?: any): GraphFormulaI
         result.push({
           formula: fStr,
           color: typeof item.color === 'string' ? item.color : undefined,
+          fillColor: typeof item.fillColor === 'string' ? item.fillColor : undefined,
+          fillOpacity: typeof item.fillOpacity === 'number' ? item.fillOpacity : undefined,
+          filled: Boolean(item.filled || item.fillColor),
           label: typeof item.label === 'string' ? item.label : undefined,
           domain,
         })
@@ -454,7 +495,9 @@ export function parseGraphBars(raw: any): GraphBarItem[] {
         const x2 = typeof b.x2 === 'number' ? b.x2 : undefined
         const width = typeof b.width === 'number' ? b.width : 0.85
         const color = typeof b.color === 'string' ? b.color : undefined
-        result.push({ label, height, x, x1, x2, width, color })
+        const fillColor = typeof b.fillColor === 'string' ? b.fillColor : undefined
+        const fillOpacity = typeof b.fillOpacity === 'number' ? b.fillOpacity : undefined
+        result.push({ label, height, x, x1, x2, width, color, fillColor, fillOpacity })
       }
     }
   }
@@ -639,6 +682,7 @@ export function parseGraphPolygons(raw: any): GraphPolygonItem[] {
           points: pts,
           label: typeof p.label === 'string' ? p.label : undefined,
           color: typeof p.color === 'string' ? p.color : undefined,
+          fillColor: typeof p.fillColor === 'string' ? p.fillColor : undefined,
           fillOpacity: typeof p.fillOpacity === 'number' ? p.fillOpacity : undefined,
         })
       }
@@ -784,6 +828,7 @@ export function parseGraphCircles(raw: any): GraphCircleItem[] {
           radius,
           label: typeof c.label === 'string' ? c.label : undefined,
           color: typeof c.color === 'string' ? c.color : undefined,
+          fillColor: typeof c.fillColor === 'string' ? c.fillColor : undefined,
           fillOpacity: typeof c.fillOpacity === 'number' ? c.fillOpacity : undefined,
         })
       }
@@ -813,12 +858,203 @@ export function parseGraphCircles(raw: any): GraphCircleItem[] {
 }
 
 /**
+ * Parses Pie / Donut chart slices from JSON objects, tuples, or delimited "Label: value" strings.
+ */
+export function parseGraphPies(raw: any): GraphPieSliceItem[] {
+  if (!raw) return []
+  const result: GraphPieSliceItem[] = []
+
+  const parseSlice = (s: any, idx: number) => {
+    if (!s) return
+    if (typeof s === 'string') {
+      const trimmed = s.trim()
+      if (trimmed.startsWith('{')) {
+        try {
+          parseSlice(JSON.parse(trimmed), idx)
+          return
+        } catch {}
+      }
+      const m = trimmed.match(/^([^:=,]+)[:=,]\s*([\d\.]+)/)
+      if (m) {
+        const val = parseFloat(m[2])
+        if (!isNaN(val) && val > 0) {
+          result.push({ label: m[1].trim(), value: val })
+        }
+      }
+      return
+    }
+    if (Array.isArray(s) && s.length >= 2) {
+      const val = Number(s[1])
+      if (!isNaN(val) && val > 0) {
+        result.push({ label: String(s[0] || `Slice ${idx + 1}`), value: val })
+      }
+      return
+    }
+    if (typeof s === 'object') {
+      const val = Number(s.value ?? s.percent ?? s.percentage ?? s.count ?? s.height)
+      const label = String(s.label ?? s.category ?? s.name ?? `Slice ${idx + 1}`).trim()
+      if (!isNaN(val) && val > 0) {
+        result.push({
+          label,
+          value: val,
+          color: typeof s.color === 'string' ? s.color : typeof s.fillColor === 'string' ? s.fillColor : undefined,
+          fillOpacity: typeof s.fillOpacity === 'number' ? s.fillOpacity : undefined,
+        })
+      }
+    }
+  }
+
+  if (Array.isArray(raw)) {
+    raw.forEach(parseSlice)
+    return result
+  }
+  if (typeof raw === 'string') {
+    const trimmed = raw.trim()
+    if (trimmed.startsWith('[')) {
+      try {
+        const parsed = JSON.parse(trimmed)
+        if (Array.isArray(parsed)) {
+          parsed.forEach(parseSlice)
+          return result
+        }
+      } catch {}
+    }
+    trimmed.split(/[|;\n]+/).map((p) => p.trim()).filter(Boolean).forEach(parseSlice)
+  }
+  return result
+}
+
+/**
+ * Parses Line Graph series (point-to-point data lines with optional color fill under line).
+ */
+export function parseGraphLineSeries(raw: any): GraphLineSeriesItem[] {
+  if (!raw) return []
+  const result: GraphLineSeriesItem[] = []
+
+  const extractPts = (ptsRaw: any): [number, number][] => {
+    const out: [number, number][] = []
+    if (Array.isArray(ptsRaw)) {
+      for (const pt of ptsRaw) {
+        if (Array.isArray(pt) && pt.length >= 2) {
+          const x = Number(pt[0]); const y = Number(pt[1])
+          if (!isNaN(x) && !isNaN(y)) out.push([x, y])
+        } else if (pt && typeof pt === 'object' && 'x' in pt && 'y' in pt) {
+          const x = Number(pt.x); const y = Number(pt.y)
+          if (!isNaN(x) && !isNaN(y)) out.push([x, y])
+        }
+      }
+    }
+    return out
+  }
+
+  const parseSeries = (item: any) => {
+    if (!item) return
+    if (typeof item === 'string') {
+      const trimmed = item.trim()
+      if (trimmed.startsWith('{')) {
+        try { parseSeries(JSON.parse(trimmed)); return } catch {}
+      }
+      return
+    }
+    if (Array.isArray(item)) {
+      const pts = extractPts(item)
+      if (pts.length >= 2) result.push({ points: pts })
+      return
+    }
+    if (typeof item === 'object' && Array.isArray(item.points)) {
+      const pts = extractPts(item.points)
+      if (pts.length >= 2) {
+        result.push({
+          points: pts,
+          label: typeof item.label === 'string' ? item.label : undefined,
+          color: typeof item.color === 'string' ? item.color : undefined,
+          fillColor: typeof item.fillColor === 'string' ? item.fillColor : undefined,
+          fillOpacity: typeof item.fillOpacity === 'number' ? item.fillOpacity : undefined,
+          filled: Boolean(item.filled || item.fillColor),
+          dashed: Boolean(item.dashed),
+        })
+      }
+    }
+  }
+
+  if (Array.isArray(raw)) {
+    if (raw.length >= 2 && Array.isArray(raw[0]) && typeof raw[0][0] === 'number') {
+      parseSeries(raw)
+    } else {
+      raw.forEach(parseSeries)
+    }
+  } else if (typeof raw === 'string' && raw.trim().startsWith('[')) {
+    try {
+      const parsed = JSON.parse(raw.trim())
+      if (Array.isArray(parsed)) parsed.forEach(parseSeries)
+    } catch {}
+  }
+  return result
+}
+
+/**
+ * Parses shaded area-under-curve / area-between-curves fill specs.
+ */
+export function parseGraphShadedRegions(raw: any): GraphShadedRegionItem[] {
+  if (!raw) return []
+  const result: GraphShadedRegionItem[] = []
+
+  const parseOne = (r: any) => {
+    if (!r) return
+    if (typeof r === 'string') {
+      const t = r.trim()
+      if (t.startsWith('{')) {
+        try { parseOne(JSON.parse(t)); return } catch {}
+      }
+      return
+    }
+    if (typeof r === 'object') {
+      const formula = typeof r.formula === 'string' ? r.formula : undefined
+      const upperFormula = typeof r.upperFormula === 'string' ? r.upperFormula : formula
+      const lowerFormula = typeof r.lowerFormula === 'string' ? r.lowerFormula : undefined
+      if (!upperFormula) return
+      let domain: [number, number] | undefined
+      if (Array.isArray(r.domain) && r.domain.length >= 2) {
+        const d0 = Number(r.domain[0]); const d1 = Number(r.domain[1])
+        if (!isNaN(d0) && !isNaN(d1)) domain = [d0, d1]
+      }
+      result.push({
+        formula,
+        upperFormula,
+        lowerFormula,
+        domain,
+        color: typeof r.color === 'string' ? r.color : undefined,
+        fillColor: typeof r.fillColor === 'string' ? r.fillColor : undefined,
+        fillOpacity: typeof r.fillOpacity === 'number' ? r.fillOpacity : undefined,
+        label: typeof r.label === 'string' ? r.label : undefined,
+      })
+    }
+  }
+
+  if (Array.isArray(raw)) raw.forEach(parseOne)
+  else if (typeof raw === 'string' && raw.trim().startsWith('[')) {
+    try {
+      const parsed = JSON.parse(raw.trim())
+      if (Array.isArray(parsed)) parsed.forEach(parseOne)
+    } catch {}
+  } else if (typeof raw === 'object') {
+    parseOne(raw)
+  }
+  return result
+}
+
+/**
  * Validates whether a graph payload has substantive mathematical purpose.
  * Rejects empty graphs, placeholder 'x' or 'linear' formulas with no segments or points,
  * or payloads with neither valid formulas nor segments.
  */
 export function isValidGraphPayload(payload?: GraphPayload | null): boolean {
   if (!payload || typeof payload !== 'object') return false
+
+  // 0. If pie chart slices, line series, or shaded regions are present, valid!
+  if (parseGraphPies(payload.pies).length > 0) return true
+  if (parseGraphLineSeries(payload.lineSeries).length > 0) return true
+  if (parseGraphShadedRegions(payload.shadedRegions).length > 0) return true
 
   // 1. If bars are present, it's a valid bar graph / histogram
   const parsedBars = parseGraphBars(payload.bars)
@@ -880,13 +1116,18 @@ export function isValidGraphPayload(payload?: GraphPayload | null): boolean {
   return cleanFormulas.length > 0
 }
 
-export function isLegitimateGraphTopic(topic: string, subject: string): boolean {
+export function isLegitimateGraphTopic(
+  topic: string,
+  subject: string,
+  payload?: GraphPayload
+): boolean {
   const s = (subject || '').toLowerCase().trim();
   const t = (topic || '').toLowerCase().trim();
 
   // If the topic explicitly mentions graphs, plots, coordinates, bar graphs, histograms, vectors, or curves, it is ALWAYS allowed
   const explicitGraphPhrases = [
     'bar graph', 'bargraph', 'histogram', 'frequency polygon', 'ogive', 'pie chart',
+    'line graph', 'shaded region', 'area under curve',
     'coordinate geometry', 'cartesian', 'plot', 'graph', 'curve', 'v-t', 's-t', 'a-t',
     'p-v diagram', 'rate of reaction', 'ohm\'s law', 'vector addition', 'vector diagram',
     'scatter', 'data handling', 'statistics'
@@ -904,6 +1145,23 @@ export function isLegitimateGraphTopic(topic: string, subject: string): boolean 
     return false;
   }
 
+  const isMathSubject = s.includes('math') || s.includes('algebra') || s.includes('calculus') || s.includes('geometry') || s.includes('stat') || s.includes('arithmetic');
+  const isPhysicsSubject = s.includes('physic') || s.includes('science') || s.includes('mechanic');
+  const isChemistryPhysical = s.includes('chem') && (
+    t.includes('graph') || t.includes('curve') || t.includes('rate') || t.includes('kinetics') ||
+    t.includes('titrat') || t.includes('phase') || t.includes('temperature') || t.includes('boyle') || t.includes('charles') ||
+    Boolean(payload && isValidGraphPayload(payload))
+  );
+
+  if (!isMathSubject && !isPhysicsSubject && !isChemistryPhysical) {
+    return false;
+  }
+
+  // If Mathematics has an explicit valid geometric/quantitative payload, allow even if word-problem wording mentions everyday objects like "wall" or "cell tower"
+  if (isMathSubject && payload && isValidGraphPayload(payload)) {
+    return true;
+  }
+
   // 2. Disallow topics containing purely non-mathematical, biological, or chemical keywords that have NO graphical component
   const strictlyNonMathKeywords = [
     'cell', 'wall', 'tissue', 'histolog', 'organ', 'plant', 'animal',
@@ -914,25 +1172,35 @@ export function isLegitimateGraphTopic(topic: string, subject: string): boolean 
     'chromosome', 'mitosis', 'meiosis', 'endocrine', 'hormone',
     'ecosystem', 'trophic'
   ];
-  if (strictlyNonMathKeywords.some((kw) => t.includes(kw)) && !t.includes('graph') && !t.includes('plot') && !t.includes('curve') && !t.includes('rate')) {
+  if (!isMathSubject && strictlyNonMathKeywords.some((kw) => t.includes(kw)) && !t.includes('graph') && !t.includes('plot') && !t.includes('curve') && !t.includes('rate')) {
     return false;
   }
 
-  // 3. Geometric diagram topics without coordinate/graph context belong to SVG diagram / geometry tool
+  // 3. If a valid quantitative/Cartesian graph payload was supplied (circles, polygons, segments, vectors, points, formulas, bars) in Maths/Physics/quant-Chem, allow it
+  if (payload && isValidGraphPayload(payload)) {
+    return true;
+  }
+
+  // 4. In Mathematics, coordinate/analytic geometry topics (circles passing through points, radius/diameter, vertices, distance, midpoint, etc.) are valid graph topics
+  if (isMathSubject) {
+    const mathAnalyticCues = [
+      'passing through', 'two points', 'three points', 'radius', 'diameter', 'distance',
+      'midpoint', 'collinear', 'chord', 'tangent', 'secant', 'locus', 'conic',
+      'parabola', 'ellipse', 'hyperbola', 'slope', 'segment', 'vertex', 'vertices',
+      'circumcentre', 'circumcenter', 'centroid', 'orthocentre', 'orthocenter', 'incenter'
+    ];
+    if (mathAnalyticCues.some((cue) => t.includes(cue))) {
+      return true;
+    }
+  }
+
+  // 5. Purely non-coordinate physical apparatus/optics/circuit keywords without a valid plotted payload belong to SVG/search diagrams
   const geometricDiagramKeywords = [
     'triangle', 'circle', 'cylinder', 'cone', 'sphere', 'cube',
     'cuboid', 'angle', 'ray', 'optics', 'lens', 'mirror',
     'circuit', 'resistor', 'apparatus'
   ];
   if (geometricDiagramKeywords.some((kw) => t.includes(kw)) && !t.includes('coordinate') && !t.includes('graph') && !t.includes('plot') && !t.includes('cartesian')) {
-    return false;
-  }
-
-  // 4. Subject must be Mathematics, Physics, Chemistry, or Quantitative Science
-  const isMathSubject = s.includes('math') || s.includes('algebra') || s.includes('calculus') || s.includes('geometry') || s.includes('stat') || s.includes('arithmetic');
-  const isPhysicsSubject = s.includes('physic') || s.includes('science') || s.includes('mechanic');
-  const isChemistryPhysical = s.includes('chem') && (t.includes('graph') || t.includes('curve') || t.includes('rate') || t.includes('kinetics') || t.includes('titrat') || t.includes('phase') || t.includes('temperature') || t.includes('boyle') || t.includes('charles'));
-  if (!isMathSubject && !isPhysicsSubject && !isChemistryPhysical) {
     return false;
   }
 

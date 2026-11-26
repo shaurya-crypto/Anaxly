@@ -320,6 +320,9 @@ export function generateVisualLessonPlanForCapsule(
   const board = ((capsule.board as EducationalBoard) || 'CBSE')
   const classLevel = capsule.class_level || 'Class 10'
   const title = capsule.title
+  const isMathSubject = /math|algebra|geometry|calculus|trigonometry|statistics|probability/i.test(
+    String(capsule.category || title || '')
+  )
   let subtopics: string[] = []
   if (Array.isArray(capsule.subtopics)) {
     subtopics = capsule.subtopics
@@ -397,13 +400,22 @@ export function generateVisualLessonPlanForCapsule(
     assetStatus: 'ready',
     content: {
       board: {
-        title: `${title} - Fundamental Equations`,
-        equations: keyConcepts.length > 0 ? keyConcepts.slice(0, 3) : ['Core Law: Definition with SI units'],
-        derivationSteps: [
-          'State fundamental scientific definition and boundary conditions.',
-          'Formulate algebraic relationship with SI units.',
-          'Verify dimensional consistency.',
-        ],
+        title: `${title} - ${isMathSubject ? 'Core Concepts & Theorems' : 'Fundamental Equations'}`,
+        equations:
+          keyConcepts.length > 0
+            ? keyConcepts.slice(0, 3)
+            : [isMathSubject ? 'Core Theorem / Method & Working Rule' : 'Core Law: Statement with SI units'],
+        derivationSteps: isMathSubject
+          ? [
+              'Identify the geometric or algebraic relationship and given constraints.',
+              'Formulate the theorem, identity, or working equation step by step.',
+              'Verify boundary cases and check solution validity.',
+            ]
+          : [
+              'State the core physical law or concept with boundary conditions.',
+              'Formulate the algebraic relationship with SI units.',
+              'Verify dimensional consistency.',
+            ],
       },
     },
     boardDirective: {
@@ -521,20 +533,58 @@ export function generateVisualLessonPlanForCapsule(
     })
   }
 
-  // 4. QUICK_CHECK: Micro-Assessment Checkpoint
+  // 4. QUICK_CHECK: Micro-Assessment Checkpoint (grounded in worked examples & module concepts)
   const firstExample: any = workedEx[0]
-  let checkQuestion = `Which of the following correctly describes ${title}?`
+  const rawPrimaryConcept = (keyConcepts[0] || subtopics[0] || title).trim()
+  const secondaryConcept = (keyConcepts[1] || subtopics[1] || `Secondary aspect of ${title}`).trim()
+  const exampleAnswer =
+    firstExample && typeof firstExample === 'object'
+      ? String(
+          firstExample.finalAnswer ||
+            firstExample.answer ||
+            firstExample.solution ||
+            firstExample.result ||
+            ''
+        ).trim()
+      : ''
+
+  let checkQuestion = `In ${title}, which method or principle applies directly to "${rawPrimaryConcept}"?`
+  let correctOptionText = rawPrimaryConcept
+  let checkExplanation = isMathSubject
+    ? `Apply ${rawPrimaryConcept} step by step using the given conditions.`
+    : `Apply ${rawPrimaryConcept} consistently with proper physical quantities and SI units.`
+
   if (typeof firstExample === 'string' && firstExample.trim()) {
-    checkQuestion = `In the context of ${title}, how do we approach: "${firstExample.trim().substring(0, 80)}"?`
+    checkQuestion = `How do you solve: "${firstExample.trim().substring(0, 95)}"?`
+    correctOptionText = `Identify the given values and apply ${rawPrimaryConcept} step by step`
   } else if (firstExample && typeof firstExample === 'object') {
-    if (typeof firstExample.given === 'string' && firstExample.given.trim()) {
-      checkQuestion = `If ${firstExample.given.trim().substring(0, 80)}, what is the value?`
+    if (typeof firstExample.question === 'string' && firstExample.question.trim()) {
+      checkQuestion = firstExample.question.trim().substring(0, 120)
+      if (exampleAnswer) {
+        correctOptionText = exampleAnswer.substring(0, 90)
+        checkExplanation = `${rawPrimaryConcept}: ${exampleAnswer.substring(0, 120)}`
+      }
     } else if (typeof firstExample.problem === 'string' && firstExample.problem.trim()) {
-      checkQuestion = `In the problem "${firstExample.problem.trim().substring(0, 80)}", what is the governing principle?`
-    } else if (typeof firstExample.question === 'string' && firstExample.question.trim()) {
-      checkQuestion = firstExample.question.trim().substring(0, 100)
+      checkQuestion = `In "${firstExample.problem.trim().substring(0, 85)}", what is the ${exampleAnswer ? 'final result' : 'first step'}?`
+      if (exampleAnswer) {
+        correctOptionText = exampleAnswer.substring(0, 90)
+      } else {
+        correctOptionText = `List what is given, then apply ${rawPrimaryConcept}`
+      }
+    } else if (typeof firstExample.given === 'string' && firstExample.given.trim()) {
+      checkQuestion = `Given ${firstExample.given.trim().substring(0, 85)}, which step leads to the solution?`
+      correctOptionText = exampleAnswer
+        ? `${exampleAnswer.substring(0, 90)}`
+        : `Substitute the given quantities into ${rawPrimaryConcept}`
     }
   }
+
+  const checkOptions = [
+    { id: 'opt_a', text: correctOptionText },
+    { id: 'opt_b', text: `Skip the given conditions and assume ${secondaryConcept.substring(0, 60)}` },
+    { id: 'opt_c', text: `Apply an unrelated formula without checking the constraints of ${title}` },
+    { id: 'opt_d', text: `Estimate the result without showing intermediate working steps` },
+  ]
 
   steps.push({
     id: `step_${moduleId}_4`,
@@ -545,14 +595,9 @@ export function generateVisualLessonPlanForCapsule(
     content: {
       quickCheck: {
         question: checkQuestion,
-        options: [
-          { id: 'opt_a', text: keyConcepts[0] || 'Proportional with constant rate of change' },
-          { id: 'opt_b', text: 'Inversely proportional with zero baseline' },
-          { id: 'opt_c', text: 'Random and independent of external variables' },
-          { id: 'opt_d', text: 'Constant zero value regardless of input' },
-        ],
+        options: checkOptions,
         correctOptionId: 'opt_a',
-        explanation: `By fundamental principle, ${keyConcepts[0] || title} is strictly governed by verified laws with consistent SI units.`,
+        explanation: checkExplanation,
       },
     },
     boardDirective: {
@@ -571,10 +616,20 @@ export function generateVisualLessonPlanForCapsule(
     assetStatus: 'ready',
     content: {
       summary: {
-        recapPoints: subtopics.length > 0 ? subtopics : [`Mastery of ${title}`, 'Exact mathematical definitions with units'],
+        recapPoints:
+          subtopics.length > 0
+            ? subtopics
+            : [
+                `Mastery of ${title}`,
+                isMathSubject
+                  ? 'Key theorems, formulas, and problem-solving methods'
+                  : 'Accurate scientific laws and mechanisms with SI units',
+              ],
         formulasToRemember: keyConcepts.slice(0, 3),
         examTips: [
-          'Always box your final numerical solution with correct SI units.',
+          isMathSubject
+            ? 'Always box your final answer and justify each theorem or identity used.'
+            : 'Always box your final numerical solution with correct SI units.',
           'Never skip intermediate algebraic steps in board examinations.',
         ],
       },

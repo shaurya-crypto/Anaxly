@@ -4,6 +4,7 @@ import { createClient } from '@/utils/supabase/server'
 import { createAdminClient } from '@/utils/supabase/admin'
 import { checkRateLimit } from '@/lib/rateLimit'
 import { resilientGenerateContent } from '@/lib/geminiResilientGenerate'
+import { getCachedSyllabusModule, invalidateModuleCache } from '@/lib/cache/dataCache'
 
 export interface QuizQuestion {
   id: number
@@ -163,14 +164,10 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Missing moduleId' }, { status: 400 })
     }
 
-    // 2. Fetch module context from database
-    const { data: moduleData, error: modError } = await supabase
-      .from('syllabus_modules')
-      .select('*, curriculums(title, category, board, class_level, description)')
-      .eq('id', moduleId)
-      .single()
+    // 2. Fetch module context from cache or database
+    const moduleData = await getCachedSyllabusModule(supabase, moduleId)
 
-    if (modError || !moduleData) {
+    if (!moduleData) {
       return NextResponse.json({ error: 'Syllabus module not found' }, { status: 404 })
     }
 
@@ -261,13 +258,14 @@ JSON object only:
     // Resilient JSON extraction
     const questions = parseQuizJson(rawText)
 
-    // Persist questions in database cache for instant future loads
+    // Persist questions in database cache for instant future loads & invalidate module cache
     try {
       const adminClient = createAdminClient()
       await adminClient
         .from('syllabus_modules')
         .update({ quiz_questions: questions })
         .eq('id', moduleId)
+      invalidateModuleCache(moduleId, moduleData.curriculum_id)
     } catch (saveErr) {
       console.warn('[Quiz API] Failed to cache quiz questions to database:', saveErr)
     }
