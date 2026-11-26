@@ -146,7 +146,7 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     font-optical-sizing: auto;
     -webkit-font-smoothing: antialiased;
@@ -189,60 +189,7 @@
   font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
-/* Excalidraw UI Chrome Suppression (Hide 3-lines menu, 3 dots, library, zoom controls) */
-.excalidraw .main-menu-trigger,
-.excalidraw .dropdown-menu-button,
-.excalidraw .dropdown-menu,
-.excalidraw .layer-ui__library,
-.excalidraw .help-icon,
-.excalidraw button[aria-label="Menu"],
-.excalidraw button[aria-label="Help"],
-.excalidraw button[aria-label="Open menu"],
-.excalidraw button[title*="Menu"],
-.excalidraw button[title*="Help"],
-.excalidraw button[aria-label*="Zoom"],
-.excalidraw button[title*="Zoom"],
-.excalidraw .App-menu__left,
-.excalidraw .App-toolbar,
-.excalidraw .footer-center,
-.excalidraw .footer-right,
-.excalidraw .zoom-actions,
-.excalidraw .zen-mode-transition,
-.excalidraw .undo-redo-buttons,
-.excalidraw .eraser-button,
-.excalidraw .library-button,
-.excalidraw .sidebar-trigger,
-.excalidraw .encrypted-icon,
-.excalidraw .collab-button,
-.excalidraw .ToolIcon__icon[aria-label="Menu"],
-.excalidraw .Island.App-menu__left,
-.excalidraw .App-bottom-bar,
-.excalidraw .welcome-screen-menu,
-.excalidraw .hint {
-  display: none !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
-
-/* Clean Whiteboard Container Styling with Archival Paper Texture */
-.whiteboard-container {
-  background-color: var(--canvas-base, #FAF8F4) !important;
-  background-image: url('/landing_images/bg.jpg') !important;
-  background-repeat: repeat !important;
-  background-size: 1000px auto !important;
-}
-
-.whiteboard-container .excalidraw,
-.whiteboard-container .excalidraw-container,
-.whiteboard-container .excalidraw .excalidraw-canvas,
-.whiteboard-container .excalidraw canvas {
-  border: none !important;
-  border-radius: 1rem !important;
-  background-color: transparent !important;
-  background: transparent !important;
-}
-
-/* Lenis Smooth Scroll Recommended Rules */
+/* Lenis smooth scroll (landing page) */
 html.lenis, html.lenis body {
   height: auto;
 }
@@ -257,6 +204,14 @@ html.lenis, html.lenis body {
 }
 .lenis.lenis-smooth iframe {
   pointer-events: none;
+}
+/* Fallback for anchor jumps before Lenis loads / with reduced motion. */
+html {
+  scroll-behavior: smooth;
+}
+#experience,
+#flow {
+  scroll-margin-top: 80px;
 }
 
 /* Classical Cinematic Animations & Glow */
@@ -386,7 +341,7 @@ html.lenis, html.lenis body {
 
 .font-cursive {
   /* Landing-page marginalia: Inter italic, so the site uses one family */
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-style: italic;
 }
 

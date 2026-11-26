@@ -1,6 +1,11 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
+const PUBLIC_PATHS = new Set(['/', '/pricing', '/privacy', '/terms'])
+// Remembers "this user finished onboarding" so the profile lookup doesn't run on
+// every request. Value is the user id, so it never applies to a different account.
+const ONBOARDED_COOKIE = 'anx_onboarded'
+
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
     request,
@@ -46,6 +51,12 @@ export async function updateSession(request: NextRequest) {
     pathname.startsWith('/auth') || 
     pathname.startsWith('/admin')
   ) {
+    return supabaseResponse
+  }
+
+  // 2b. Public marketing pages never redirect based on auth state, so skip the
+  // Supabase round trips entirely (they ran on every visit and every prefetch).
+  if (PUBLIC_PATHS.has(pathname)) {
     return supabaseResponse
   }
 
@@ -145,13 +156,25 @@ export async function updateSession(request: NextRequest) {
   }
 
   // CASE B: User IS authenticated -> Check onboarding completion status
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('onboarding_completed')
-    .eq('id', user.id)
-    .maybeSingle()
-
-  const isOnboarded = Boolean(profile?.onboarding_completed)
+  // (cached in a cookie once true; onboarding never goes from done back to not-done)
+  let isOnboarded = request.cookies.get(ONBOARDED_COOKIE)?.value === user.id
+  if (!isOnboarded) {
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('onboarding_completed')
+      .eq('id', user.id)
+      .maybeSingle()
+    isOnboarded = Boolean(profile?.onboarding_completed)
+    if (isOnboarded) {
+      supabaseResponse.cookies.set(ONBOARDED_COOKIE, user.id, {
+        httpOnly: true,
+        sameSite: 'lax',
+        secure: process.env.NODE_ENV === 'production',
+        path: '/',
+        maxAge: 60 * 60 * 24 * 30,
+      })
+    }
+  }
 
   if (isOnboarded) {
     // If sign in is done & already completed onboarding:

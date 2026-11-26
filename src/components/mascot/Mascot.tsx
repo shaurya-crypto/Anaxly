@@ -14,22 +14,8 @@ import { X, Sparkles, AlertCircle, HelpCircle, Key, ArrowRight } from 'lucide-re
 
 const SobiAvatar = createAvatar(avatarDefinition as any)
 
-export interface CompanionGuideDetail {
-  targetSelector?: string
-  targetElementId?: string
-  message: string
-  animation?: 'idle' | 'listening' | 'working' | 'excited' | 'suspicious' | 'laughing' | 'celebrate' | 'happy' | 'thinking' | 'curious' | string
-  expression?: string
-  mood?: 'normal' | 'suspicious' | 'warning' | 'celebrate' | 'thinking'
-  autoDismissMs?: number
-}
-
-// Global helper to guide the mascot to any element on any page
-export function triggerCompanionGuidance(detail: CompanionGuideDetail) {
-  if (typeof window !== 'undefined') {
-    window.dispatchEvent(new CustomEvent('companion-guide', { detail }))
-  }
-}
+import { triggerCompanionGuidance, type CompanionGuideDetail } from './companionEvents'
+export { triggerCompanionGuidance, type CompanionGuideDetail }
 
 // ---------- Step-by-step guided tours (sign-up + first app walkthrough) ----------
 export interface TourStep {

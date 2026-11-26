@@ -10,7 +10,7 @@ import { sendEmailCode, verifyEmailCode, loginWithPassword } from './actions'
 import { completeOnboardingAction } from '@/app/onboarding/actions'
 import { Loader2, ArrowLeft, CheckCircle2, AlertCircle, ShieldCheck } from 'lucide-react'
 import { MailSentCard } from '@/components/auth/MailSentCard'
-import { triggerCompanionGuidance } from '@/components/mascot/Mascot'
+import { triggerCompanionGuidance } from '@/components/mascot/companionEvents'
 
 interface SixDigitOtpInputProps {
   value: string

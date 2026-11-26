@@ -4,9 +4,19 @@ import React, { forwardRef, useState, useEffect, useCallback, useRef } from 'rea
 import { GreenChalkboard, GreenChalkboardRef, WritingPositionInfo } from './GreenChalkboard'
 import { SobiCompanion } from './SobiCompanion'
 import { LiveChalkSubtitleStreamer, ActiveHighlight } from './LiveChalkSubtitleStreamer'
-import { VisualizationViewport } from './VisualizationViewport'
-import { MafsGraphCanvas, MafsGraphCanvasProps, GraphDisplayMode } from './MafsGraphCanvas'
 import { isValidGraphPayload } from '@/lib/graphGating'
+import dynamic from 'next/dynamic'
+import type { MafsGraphCanvasProps, GraphDisplayMode } from './MafsGraphCanvas'
+
+// Heavy (three.js / mafs + mathjs) — only fetched when a graph or 3D scene shows.
+const VisualizationViewport = dynamic(
+  () => import('./VisualizationViewport').then((m) => m.VisualizationViewport),
+  { ssr: false }
+)
+const MafsGraphCanvas = dynamic(
+  () => import('./MafsGraphCanvas').then((m) => m.MafsGraphCanvas),
+  { ssr: false }
+)
 import { VisualizationSceneType } from './scenes/sceneTypes'
 import { resolveSceneType } from './scenes/sceneRegistry'
 import { SideBookViewer } from './SideBookViewer'

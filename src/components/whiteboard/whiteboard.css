@@ -1,0 +1,54 @@
+/* Moved out of globals.css so only the classroom downloads it. */
+/* Excalidraw UI Chrome Suppression (Hide 3-lines menu, 3 dots, library, zoom controls) */
+.excalidraw .main-menu-trigger,
+.excalidraw .dropdown-menu-button,
+.excalidraw .dropdown-menu,
+.excalidraw .layer-ui__library,
+.excalidraw .help-icon,
+.excalidraw button[aria-label="Menu"],
+.excalidraw button[aria-label="Help"],
+.excalidraw button[aria-label="Open menu"],
+.excalidraw button[title*="Menu"],
+.excalidraw button[title*="Help"],
+.excalidraw button[aria-label*="Zoom"],
+.excalidraw button[title*="Zoom"],
+.excalidraw .App-menu__left,
+.excalidraw .App-toolbar,
+.excalidraw .footer-center,
+.excalidraw .footer-right,
+.excalidraw .zoom-actions,
+.excalidraw .zen-mode-transition,
+.excalidraw .undo-redo-buttons,
+.excalidraw .eraser-button,
+.excalidraw .library-button,
+.excalidraw .sidebar-trigger,
+.excalidraw .encrypted-icon,
+.excalidraw .collab-button,
+.excalidraw .ToolIcon__icon[aria-label="Menu"],
+.excalidraw .Island.App-menu__left,
+.excalidraw .App-bottom-bar,
+.excalidraw .welcome-screen-menu,
+.excalidraw .hint {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Clean Whiteboard Container Styling with Archival Paper Texture */
+.whiteboard-container {
+  background-color: var(--canvas-base, #FAF8F4) !important;
+  background-image: url('/landing_images/bg.jpg') !important;
+  background-repeat: repeat !important;
+  background-size: 1000px auto !important;
+}
+
+.whiteboard-container .excalidraw,
+.whiteboard-container .excalidraw-container,
+.whiteboard-container .excalidraw .excalidraw-canvas,
+.whiteboard-container .excalidraw canvas {
+  border: none !important;
+  border-radius: 1rem !important;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+

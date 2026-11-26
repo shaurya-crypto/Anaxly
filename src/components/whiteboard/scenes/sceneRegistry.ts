@@ -3,8 +3,6 @@ import {
   VisualizationSceneMetadata,
   IInteractiveScene,
 } from './sceneTypes'
-import { Geometry3DScene } from './Geometry3DScene'
-import { CrossSectionScene } from './CrossSectionScene'
 
 export const SCENE_METADATA_REGISTRY: Record<VisualizationSceneType, VisualizationSceneMetadata> = {
   geometry_3d: {
@@ -124,16 +122,16 @@ export function resolveSceneType(typeOrAlias?: string | null): VisualizationScen
   return SCENE_TYPE_ALIASES[normalized] || 'geometry_3d'
 }
 
-export function createInteractiveScene(type: string): IInteractiveScene {
+// Scenes pull in three.js (~600 kB). Load them on demand so the classroom
+// page doesn't ship three.js until a 3D scene is actually shown.
+export async function createInteractiveScene(type: string): Promise<IInteractiveScene> {
   const resolved = resolveSceneType(type)
-  switch (resolved) {
-    case 'geometry_3d':
-      return new Geometry3DScene()
-    case 'geometry_cross_section':
-      return new CrossSectionScene()
-    default:
-      return new Geometry3DScene()
+  if (resolved === 'geometry_cross_section') {
+    const { CrossSectionScene } = await import('./CrossSectionScene')
+    return new CrossSectionScene()
   }
+  const { Geometry3DScene } = await import('./Geometry3DScene')
+  return new Geometry3DScene()
 }
 
 /**

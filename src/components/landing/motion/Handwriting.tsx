@@ -24,7 +24,8 @@ export function Handwriting({ text, className = '', pace = 0.035 }: HandwritingP
   const total = text.replace(/ /g, '').length
 
   return (
-    <p ref={ref} className={`handwriting ${inView ? 'is-writing' : ''} ${className}`} aria-label={text}>
+    <p ref={ref} className={`handwriting ${inView ? 'is-writing' : ''} ${className}`}>
+      <span className="sr-only">{text}</span>
       <span aria-hidden="true" className="relative inline-block">
         {words.map((word, w) => (
           <React.Fragment key={w}>

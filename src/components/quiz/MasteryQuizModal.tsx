@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { CheckCircle2, XCircle, Sparkles, ArrowRight, ArrowLeft, Loader2, Award, BookOpen } from 'lucide-react'
 import { completeCapsuleAction } from '@/app/dashboard/actions'
-import { triggerCompanionGuidance } from '@/components/mascot/Mascot'
+import { triggerCompanionGuidance } from '@/components/mascot/companionEvents'
 
 interface QuizQuestion {
   id: number
